@@ -1,0 +1,555 @@
+{
+  "complete": true,
+  "signature": "466ee4cb8fa50f9ecfbfaa215924e8537e561d0016559348213eee005bc4fab1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1654475750401616,
+      "alignment_seconds": 0.0002773309824988246,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, Red Murray agreed, but Mario was said to be the picture of our savior.",
+          "start": 0.05,
+          "end": 4.81,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.385498046875
+            },
+            {
+              "text": " Red",
+              "start": 1.11,
+              "end": 1.35,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " Murray",
+              "start": 1.35,
+              "end": 1.63,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " agreed,",
+              "start": 1.63,
+              "end": 2.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " but",
+              "start": 2.69,
+              "end": 2.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Mario",
+              "start": 2.77,
+              "end": 3.11,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " was",
+              "start": 3.11,
+              "end": 3.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " said",
+              "start": 3.31,
+              "end": 3.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 3.49,
+              "end": 3.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 3.63,
+              "end": 3.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.75,
+              "end": 3.87,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " picture",
+              "start": 3.87,
+              "end": 4.17,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " of",
+              "start": 4.17,
+              "end": 4.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " our",
+              "start": 4.39,
+              "end": 4.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " savior.",
+              "start": 4.53,
+              "end": 4.81,
+              "probability": 0.53515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Red",
+          "start": 1.11,
+          "end": 1.35
+        },
+        {
+          "raw": "Murray",
+          "start": 1.35,
+          "end": 1.63
+        },
+        {
+          "raw": "agreed,",
+          "start": 1.63,
+          "end": 2.05
+        },
+        {
+          "raw": "but",
+          "start": 2.69,
+          "end": 2.77
+        },
+        {
+          "raw": "Mario",
+          "start": 2.77,
+          "end": 3.11
+        },
+        {
+          "raw": "was",
+          "start": 3.11,
+          "end": 3.31
+        },
+        {
+          "raw": "said",
+          "start": 3.31,
+          "end": 3.49
+        },
+        {
+          "raw": "to",
+          "start": 3.49,
+          "end": 3.63
+        },
+        {
+          "raw": "be",
+          "start": 3.63,
+          "end": 3.75
+        },
+        {
+          "raw": "the",
+          "start": 3.75,
+          "end": 3.87
+        },
+        {
+          "raw": "picture",
+          "start": 3.87,
+          "end": 4.17
+        },
+        {
+          "raw": "of",
+          "start": 4.17,
+          "end": 4.39
+        },
+        {
+          "raw": "our",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "raw": "savior.",
+          "start": 4.53,
+          "end": 4.81
+        }
+      ],
+      "expected_tokens": [
+        "—Yes,",
+        "Red",
+        "Murray",
+        "agreed.",
+        "But",
+        "Mario",
+        "was",
+        "said",
+        "to",
+        "be",
+        "the",
+        "picture",
+        "of",
+        "Our",
+        "Saviour."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Red",
+          "start": 1.11,
+          "end": 1.35,
+          "key": "red",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Murray",
+          "start": 1.35,
+          "end": 1.63,
+          "key": "murray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "agreed,",
+          "start": 1.63,
+          "end": 2.05,
+          "key": "agreed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.69,
+          "end": 2.77,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mario",
+          "start": 2.77,
+          "end": 3.11,
+          "key": "mario",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.11,
+          "end": 3.31,
+          "key": "was",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.31,
+          "end": 3.49,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.49,
+          "end": 3.63,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.63,
+          "end": 3.75,
+          "key": "be",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.75,
+          "end": 3.87,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "picture",
+          "start": 3.87,
+          "end": 4.17,
+          "key": "picture",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.17,
+          "end": 4.39,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.39,
+          "end": 4.53,
+          "key": "our",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "savior.",
+          "start": 4.53,
+          "end": 4.81,
+          "key": "savior",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Yes,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Red",
+          "start": 1.11,
+          "end": 1.35
+        },
+        {
+          "text": "Murray",
+          "start": 1.35,
+          "end": 1.63
+        },
+        {
+          "text": "agreed.",
+          "start": 1.63,
+          "end": 2.05
+        },
+        {
+          "text": "But",
+          "start": 2.69,
+          "end": 2.77
+        },
+        {
+          "text": "Mario",
+          "start": 2.77,
+          "end": 3.11
+        },
+        {
+          "text": "was",
+          "start": 3.11,
+          "end": 3.31
+        },
+        {
+          "text": "said",
+          "start": 3.31,
+          "end": 3.49
+        },
+        {
+          "text": "to",
+          "start": 3.49,
+          "end": 3.63
+        },
+        {
+          "text": "be",
+          "start": 3.63,
+          "end": 3.75
+        },
+        {
+          "text": "the",
+          "start": 3.75,
+          "end": 3.87
+        },
+        {
+          "text": "picture",
+          "start": 3.87,
+          "end": 4.17
+        },
+        {
+          "text": "of",
+          "start": 4.17,
+          "end": 4.39
+        },
+        {
+          "text": "Our",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "text": "Saviour.",
+          "start": 4.53,
+          "end": 4.67
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.1658261070260778
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9e098a82341c41b3031ac517f621f46f27fdfec22581e86ccd05004d3b48207b",
+  "selected_reasons": []
+}

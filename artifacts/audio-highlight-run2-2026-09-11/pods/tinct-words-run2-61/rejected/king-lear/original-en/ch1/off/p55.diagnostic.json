@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "7ecf4b423a4ef3822da58c351f2aeb3d32c528e06dc7ad28af108df24eafa327",
+  "attempts": [
+    {
+      "asr_seconds": 0.139322679489851,
+      "alignment_seconds": 0.0004579368978738785,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " laying his hand on his sword.",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " laying",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.5615234375
+            },
+            {
+              "text": " his",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " hand",
+              "start": 0.87,
+              "end": 1.09,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " on",
+              "start": 1.09,
+              "end": 1.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 1.25,
+              "end": 1.37,
+              "probability": 0.986328125
+            },
+            {
+              "text": " sword.",
+              "start": 1.37,
+              "end": 1.65,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "laying",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "his",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "hand",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "raw": "on",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "raw": "his",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "raw": "sword.",
+          "start": 1.37,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "[_Laying",
+        "his",
+        "hand",
+        "on",
+        "his",
+        "sword._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "laying",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "laying",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.65,
+          "end": 0.87,
+          "key": "his",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 0.87,
+          "end": 1.09,
+          "key": "hand",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.09,
+          "end": 1.25,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.25,
+          "end": 1.37,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sword.",
+          "start": 1.37,
+          "end": 1.65,
+          "key": "sword",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Laying",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "his",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "text": "hand",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "text": "on",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "text": "his",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "text": "sword._]",
+          "start": 1.37,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1399226002395153
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9924d4098df6ccda074348ecaeead1770d1290af52b2708ed03c442fd1d8d0f9",
+  "selected_reasons": []
+}

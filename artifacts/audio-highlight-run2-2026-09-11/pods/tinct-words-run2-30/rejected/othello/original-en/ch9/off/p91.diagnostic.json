@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "ac8941e998979da9de4904fc95a1efcc5c0afa7cbebccde9cdd01fc7120d3677",
+  "attempts": [
+    {
+      "asr_seconds": 0.11712512793019414,
+      "alignment_seconds": 0.00017154915258288383,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, and yet how nature erring from itself.",
+          "start": 0.24,
+          "end": 3.08,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.24,
+              "end": 0.9,
+              "probability": 0.9558919270833334
+            },
+            {
+              "text": " and",
+              "start": 1.3,
+              "end": 1.4,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " yet",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " how",
+              "start": 1.6,
+              "end": 1.92,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " nature",
+              "start": 1.92,
+              "end": 2.2,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " erring",
+              "start": 2.2,
+              "end": 2.6,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " from",
+              "start": 2.6,
+              "end": 2.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " itself.",
+              "start": 2.76,
+              "end": 3.08,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.9
+        },
+        {
+          "raw": "and",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "raw": "yet",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "how",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "raw": "nature",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "raw": "erring",
+          "start": 2.2,
+          "end": 2.6
+        },
+        {
+          "raw": "from",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "raw": "itself.",
+          "start": 2.76,
+          "end": 3.08
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "And",
+        "yet,",
+        "how",
+        "nature",
+        "erring",
+        "from",
+        "itself—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.3,
+          "end": 1.4,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "yet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.6,
+          "end": 1.92,
+          "key": "how",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "nature",
+          "start": 1.92,
+          "end": 2.2,
+          "key": "nature",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "erring",
+          "start": 2.2,
+          "end": 2.6,
+          "key": "erring",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.6,
+          "end": 2.76,
+          "key": "from",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "itself.",
+          "start": 2.76,
+          "end": 3.08,
+          "key": "itself",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.24,
+          "end": 0.9
+        },
+        {
+          "text": "And",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "text": "yet,",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "how",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "text": "nature",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "text": "erring",
+          "start": 2.2,
+          "end": 2.6
+        },
+        {
+          "text": "from",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "text": "itself—",
+          "start": 2.76,
+          "end": 3.08
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11735529731959105
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "65416115f5cea4c105afca88453e3c3706c9831a34769fdc1dd3456bf86716b1",
+  "selected_reasons": []
+}

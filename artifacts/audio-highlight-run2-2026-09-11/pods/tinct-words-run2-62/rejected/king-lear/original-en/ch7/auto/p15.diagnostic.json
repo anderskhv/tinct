@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "837a2313f9e901405a06f37f0dd68ae0a570780bf68f7a80c98607d2fc9ec274",
+  "attempts": [
+    {
+      "asr_seconds": 0.07584815472364426,
+      "alignment_seconds": 0.00017991289496421814,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Drawing his sword._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Drawing his sword.",
+          "start": 0.05,
+          "end": 1.13,
+          "words": [
+            {
+              "text": " Drawing",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.2269287109375
+            },
+            {
+              "text": " his",
+              "start": 0.65,
+              "end": 0.85,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " sword.",
+              "start": 0.85,
+              "end": 1.13,
+              "probability": 0.86328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Drawing",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "his",
+          "start": 0.65,
+          "end": 0.85
+        },
+        {
+          "raw": "sword.",
+          "start": 0.85,
+          "end": 1.13
+        }
+      ],
+      "expected_tokens": [
+        "[_Drawing",
+        "his",
+        "sword._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Drawing",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "drawing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.65,
+          "end": 0.85,
+          "key": "his",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sword.",
+          "start": 0.85,
+          "end": 1.13,
+          "key": "sword",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Drawing",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "his",
+          "start": 0.65,
+          "end": 0.85
+        },
+        {
+          "text": "sword._]",
+          "start": 0.85,
+          "end": 1.13
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07608336582779884
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ef61369129751fadf6267efc7875476467ab09cf3d4e58290bb024f8aa26a7d9",
+  "selected_reasons": []
+}

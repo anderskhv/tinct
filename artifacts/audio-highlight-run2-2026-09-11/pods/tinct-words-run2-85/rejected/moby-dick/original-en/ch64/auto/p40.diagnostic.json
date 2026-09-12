@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "640560ce95232c055ae24c028bcef1010e0120381b3521a2ea1061144367ca1f",
+  "attempts": [
+    {
+      "asr_seconds": 0.30191604793071747,
+      "alignment_seconds": 0.0005710278637707233,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Bress my soul, if I cook noder one,\" he growled, angrily, turning round to depart.",
+        "hotwords": "Bress, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bress my soul, if I cook noder one,\" he growled, angrily, turning round to depart.",
+          "start": 0.08,
+          "end": 5.28,
+          "words": [
+            {
+              "text": " Bress",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.337249755859375
+            },
+            {
+              "text": " my",
+              "start": 0.64,
+              "end": 0.86,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " soul,",
+              "start": 0.86,
+              "end": 1.22,
+              "probability": 0.9921875
+            },
+            {
+              "text": " if",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " I",
+              "start": 1.46,
+              "end": 1.6,
+              "probability": 0.982421875
+            },
+            {
+              "text": " cook",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " noder",
+              "start": 1.76,
+              "end": 2.06,
+              "probability": 0.023113250732421875
+            },
+            {
+              "text": " one,\"",
+              "start": 2.06,
+              "end": 2.72,
+              "probability": 0.579833984375
+            },
+            {
+              "text": " he",
+              "start": 2.72,
+              "end": 2.92,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " growled,",
+              "start": 2.92,
+              "end": 3.46,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " angrily,",
+              "start": 3.66,
+              "end": 3.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " turning",
+              "start": 4.34,
+              "end": 4.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " round",
+              "start": 4.5,
+              "end": 4.82,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " to",
+              "start": 4.82,
+              "end": 5.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " depart.",
+              "start": 5.0,
+              "end": 5.28,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bress",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "my",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "raw": "soul,",
+          "start": 0.86,
+          "end": 1.22
+        },
+        {
+          "raw": "if",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "I",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "raw": "cook",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "noder",
+          "start": 1.76,
+          "end": 2.06
+        },
+        {
+          "raw": "one,\"",
+          "start": 2.06,
+          "end": 2.72
+        },
+        {
+          "raw": "he",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "raw": "growled,",
+          "start": 2.92,
+          "end": 3.46
+        },
+        {
+          "raw": "angrily,",
+          "start": 3.66,
+          "end": 3.98
+        },
+        {
+          "raw": "turning",
+          "start": 4.34,
+          "end": 4.5
+        },
+        {
+          "raw": "round",
+          "start": 4.5,
+          "end": 4.82
+        },
+        {
+          "raw": "to",
+          "start": 4.82,
+          "end": 5.0
+        },
+        {
+          "raw": "depart.",
+          "start": 5.0,
+          "end": 5.28
+        }
+      ],
+      "expected_tokens": [
+        "\"Bress",
+        "my",
+        "soul,",
+        "if",
+        "I",
+        "cook",
+        "noder",
+        "one,\"",
+        "he",
+        "growled,",
+        "angrily,",
+        "turning",
+        "round",
+        "to",
+        "depart."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bress",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "bress",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.64,
+          "end": 0.86,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "soul,",
+          "start": 0.86,
+          "end": 1.22,
+          "key": "soul",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "if",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.46,
+          "end": 1.6,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cook",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "cook",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "noder",
+          "start": 1.76,
+          "end": 2.06,
+          "key": "noder",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "one,\"",
+          "start": 2.06,
+          "end": 2.72,
+          "key": "one",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.72,
+          "end": 2.92,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "growled,",
+          "start": 2.92,
+          "end": 3.46,
+          "key": "growled",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "angrily,",
+          "start": 3.66,
+          "end": 3.98,
+          "key": "angrily",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "turning",
+          "start": 4.34,
+          "end": 4.5,
+          "key": "turning",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 4.5,
+          "end": 4.82,
+          "key": "round",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.82,
+          "end": 5.0,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "depart.",
+          "start": 5.0,
+          "end": 5.28,
+          "key": "depart",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Bress",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "my",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "text": "soul,",
+          "start": 0.86,
+          "end": 1.22
+        },
+        {
+          "text": "if",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "I",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "text": "cook",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "noder",
+          "start": 1.76,
+          "end": 2.06
+        },
+        {
+          "text": "one,\"",
+          "start": 2.06,
+          "end": 2.72
+        },
+        {
+          "text": "he",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "text": "growled,",
+          "start": 2.92,
+          "end": 3.46
+        },
+        {
+          "text": "angrily,",
+          "start": 3.66,
+          "end": 3.98
+        },
+        {
+          "text": "turning",
+          "start": 4.34,
+          "end": 4.5
+        },
+        {
+          "text": "round",
+          "start": 4.5,
+          "end": 4.82
+        },
+        {
+          "text": "to",
+          "start": 4.82,
+          "end": 5.0
+        },
+        {
+          "text": "depart.",
+          "start": 5.0,
+          "end": 5.28
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30271535692736506
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "22b979b254208aad37c7ce8aa836843999533d61f05505cbd88ac58a0039b0f1",
+  "selected_reasons": []
+}

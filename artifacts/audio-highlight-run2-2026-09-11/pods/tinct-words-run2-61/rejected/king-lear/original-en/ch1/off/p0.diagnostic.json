@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "35373331c70dcfdd0545a9f6f2afd1285a26825ae575a5de15edc147a2fbcbc9",
+  "attempts": [
+    {
+      "asr_seconds": 0.4913880508393049,
+      "alignment_seconds": 0.0003906451165676117,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Kent, Gloucester and Edmond.",
+          "start": 0.14,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.64,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " Kent,",
+              "start": 0.64,
+              "end": 0.98,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Gloucester",
+              "start": 1.46,
+              "end": 1.7,
+              "probability": 0.983154296875
+            },
+            {
+              "text": " and",
+              "start": 1.7,
+              "end": 1.86,
+              "probability": 0.5791015625
+            },
+            {
+              "text": " Edmond.",
+              "start": 1.86,
+              "end": 2.18,
+              "probability": 0.792724609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "raw": "Kent,",
+          "start": 0.64,
+          "end": 0.98
+        },
+        {
+          "raw": "Gloucester",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "raw": "and",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "raw": "Edmond.",
+          "start": 1.86,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Kent,",
+        "Gloucester",
+        "and",
+        "Edmund."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kent,",
+          "start": 0.64,
+          "end": 0.98,
+          "key": "kent",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Gloucester",
+          "start": 1.46,
+          "end": 1.7,
+          "key": "gloucester",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.7,
+          "end": 1.86,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Edmond.",
+          "start": 1.86,
+          "end": 2.18,
+          "key": "edmond",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "text": "Kent,",
+          "start": 0.64,
+          "end": 0.98
+        },
+        {
+          "text": "Gloucester",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "text": "and",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "text": "Edmund.",
+          "start": 1.86,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.491885332390666
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4a55eb1a3603387354f91a8e3cdc42c94eedb4ee9b9754ebbfa66879099bac15",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

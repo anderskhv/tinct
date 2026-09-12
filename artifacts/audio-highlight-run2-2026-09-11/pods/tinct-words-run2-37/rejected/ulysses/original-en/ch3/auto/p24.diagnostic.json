@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "88adc18f5d7dd02cb48eb02a28fba084519773abeccec4b228b48cd82b3f5fe9",
+  "attempts": [
+    {
+      "asr_seconds": 0.10741821600822732,
+      "alignment_seconds": 0.00030744000105187297,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—No, uncle Richie...",
+        "hotwords": "No, Richie"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, uncle Richie...",
+          "start": 0.02,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.671875
+            },
+            {
+              "text": " uncle",
+              "start": 0.78,
+              "end": 0.92,
+              "probability": 0.049468994140625
+            },
+            {
+              "text": " Richie...",
+              "start": 0.92,
+              "end": 1.98,
+              "probability": 0.432403564453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "uncle",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "raw": "Richie...",
+          "start": 0.92,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "—No,",
+        "uncle",
+        "Richie..."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "uncle",
+          "start": 0.78,
+          "end": 0.92,
+          "key": "uncle",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Richie...",
+          "start": 0.92,
+          "end": 1.98,
+          "key": "richie",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—No,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "uncle",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "text": "Richie...",
+          "start": 0.92,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10783292798441835
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2556eaff9377bd384927c46c462e3562fd370c6bbb366e639783f5f40fa2111a",
+  "selected_reasons": []
+}

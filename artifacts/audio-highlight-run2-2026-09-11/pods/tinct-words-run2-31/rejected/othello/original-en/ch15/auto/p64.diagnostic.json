@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "1cb06ae7db48394b710fca77a4517914761ea8f417a37fa1d6297955441b64c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.11251102993264794,
+      "alignment_seconds": 0.0002065468579530716,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Unlocks the door.]",
+        "hotwords": "Unlocks"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Unlocks the door.",
+          "start": 0.08,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Unlocks",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.5068817138671875
+            },
+            {
+              "text": " the",
+              "start": 0.78,
+              "end": 0.98,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " door.",
+              "start": 0.98,
+              "end": 1.22,
+              "probability": 0.966796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Unlocks",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "the",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "raw": "door.",
+          "start": 0.98,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "[Unlocks",
+        "the",
+        "door.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Unlocks",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "unlocks",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.78,
+          "end": 0.98,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "door.",
+          "start": 0.98,
+          "end": 1.22,
+          "key": "door",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Unlocks",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "the",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "text": "door.]",
+          "start": 0.98,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11278134724125266
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4c4e223bcab2d810ba0a0155b391f1079b8071eba05da134a736d64530d6147c",
+  "selected_reasons": []
+}

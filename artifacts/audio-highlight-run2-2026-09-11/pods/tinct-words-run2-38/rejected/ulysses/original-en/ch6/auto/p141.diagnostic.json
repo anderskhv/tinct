@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "3f199edd63a865b76a0be6fa42e0b51b2e39318e9d452c8777e0647304705e7d",
+  "attempts": [
+    {
+      "asr_seconds": 0.11627656198106706,
+      "alignment_seconds": 0.00021715101320296526,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—We had better look a little serious, Martin Cunningham said.",
+        "hotwords": "We, Martin, Cunningham"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We had better look a little serious, Martin Cunningham said.",
+          "start": 0.02,
+          "end": 3.28,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.351806640625
+            },
+            {
+              "text": " had",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " better",
+              "start": 0.62,
+              "end": 0.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " look",
+              "start": 0.82,
+              "end": 1.02,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 1.02,
+              "end": 1.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " little",
+              "start": 1.12,
+              "end": 1.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " serious,",
+              "start": 1.22,
+              "end": 1.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Martin",
+              "start": 2.32,
+              "end": 2.46,
+              "probability": 0.890625
+            },
+            {
+              "text": " Cunningham",
+              "start": 2.46,
+              "end": 2.84,
+              "probability": 0.9921875
+            },
+            {
+              "text": " said.",
+              "start": 2.84,
+              "end": 3.28,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "had",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "better",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "raw": "look",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "raw": "a",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "raw": "little",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "raw": "serious,",
+          "start": 1.22,
+          "end": 1.76
+        },
+        {
+          "raw": "Martin",
+          "start": 2.32,
+          "end": 2.46
+        },
+        {
+          "raw": "Cunningham",
+          "start": 2.46,
+          "end": 2.84
+        },
+        {
+          "raw": "said.",
+          "start": 2.84,
+          "end": 3.28
+        }
+      ],
+      "expected_tokens": [
+        "—We",
+        "had",
+        "better",
+        "look",
+        "a",
+        "little",
+        "serious,",
+        "Martin",
+        "Cunningham",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "had",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 0.62,
+          "end": 0.82,
+          "key": "better",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 0.82,
+          "end": 1.02,
+          "key": "look",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.02,
+          "end": 1.12,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 1.12,
+          "end": 1.22,
+          "key": "little",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "serious,",
+          "start": 1.22,
+          "end": 1.76,
+          "key": "serious",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Martin",
+          "start": 2.32,
+          "end": 2.46,
+          "key": "martin",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Cunningham",
+          "start": 2.46,
+          "end": 2.84,
+          "key": "cunningham",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.84,
+          "end": 3.28,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—We",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "had",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "better",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "text": "look",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "text": "a",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "text": "little",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "text": "serious,",
+          "start": 1.22,
+          "end": 1.76
+        },
+        {
+          "text": "Martin",
+          "start": 2.32,
+          "end": 2.46
+        },
+        {
+          "text": "Cunningham",
+          "start": 2.46,
+          "end": 2.84
+        },
+        {
+          "text": "said.",
+          "start": 2.84,
+          "end": 3.28
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11657572397962213
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2c4755a7524050d876ec6accf93a91a84dd823eb95813a1b0518d2835b95868b",
+  "selected_reasons": []
+}

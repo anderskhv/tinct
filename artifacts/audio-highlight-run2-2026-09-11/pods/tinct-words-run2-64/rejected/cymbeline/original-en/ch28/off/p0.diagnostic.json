@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "d08daf30a66e96290268c426465e26af7b4f89e3664e9444019fb23c4dd6e4f1",
+  "attempts": [
+    {
+      "asr_seconds": 0.14482147898525,
+      "alignment_seconds": 0.0002288883551955223,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Posthumus and two jailers.",
+          "start": 0.08,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " Posthumus",
+              "start": 0.64,
+              "end": 1.32,
+              "probability": 0.7413736979166666
+            },
+            {
+              "text": " and",
+              "start": 1.32,
+              "end": 1.52,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " two",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " jailers.",
+              "start": 1.72,
+              "end": 2.24,
+              "probability": 0.873779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Posthumus",
+          "start": 0.64,
+          "end": 1.32
+        },
+        {
+          "raw": "and",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "raw": "two",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "jailers.",
+          "start": 1.72,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Posthumus",
+        "and",
+        "two",
+        "Gaolers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Posthumus",
+          "start": 0.64,
+          "end": 1.32,
+          "key": "posthumus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.32,
+          "end": 1.52,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "two",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "jailers.",
+          "start": 1.72,
+          "end": 2.24,
+          "key": "jailers",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Posthumus",
+          "start": 0.64,
+          "end": 1.32
+        },
+        {
+          "text": "and",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "text": "two",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "text": "Gaolers.",
+          "start": 1.72,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14513124618679285
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dd7685a4700a7d74f902db945884feb4f6131e9ffa11529366e98b0aa0a4f066",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "1bb25ef05f1a59710c162b4f25a713e73dec6bcfa803ba88069ba104d57946ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.14243564009666443,
+      "alignment_seconds": 0.0003532879054546356,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fool leers shadow",
+          "start": 0.08,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " Fool",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.8671875
+            },
+            {
+              "text": " leers",
+              "start": 0.72,
+              "end": 1.36,
+              "probability": 0.4360504150390625
+            },
+            {
+              "text": " shadow",
+              "start": 1.36,
+              "end": 1.66,
+              "probability": 0.86865234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fool",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "leers",
+          "start": 0.72,
+          "end": 1.36
+        },
+        {
+          "raw": "shadow",
+          "start": 1.36,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "Fool.",
+        "Lear's",
+        "shadow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fool",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "fool",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "leers",
+          "start": 0.72,
+          "end": 1.36,
+          "key": "leers",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shadow",
+          "start": 1.36,
+          "end": 1.66,
+          "key": "shadow",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fool.",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Lear's",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "text": "shadow.",
+          "start": 1.36,
+          "end": 1.66
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1428995355963707
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c956f422739b7fa321e0ef892498f9933f4f2deb0234a45f9ea68fab26aeb202",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

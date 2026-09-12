@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "649811a4f098b5d0d613696c1862aa58674c028f2e59bed6d1b01df7d5e2666e",
+  "attempts": [
+    {
+      "asr_seconds": 0.19474373012781143,
+      "alignment_seconds": 0.00014521367847919464,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ophelia. Still better, and worse.",
+        "hotwords": "Ophelia, Still"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ophelia, Still better, and worse.",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Ophelia,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.8883463541666666
+            },
+            {
+              "text": " Still",
+              "start": 1.23,
+              "end": 1.45,
+              "probability": 0.0179290771484375
+            },
+            {
+              "text": " better,",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.65283203125
+            },
+            {
+              "text": " and",
+              "start": 1.93,
+              "end": 1.93,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " worse.",
+              "start": 1.93,
+              "end": 2.15,
+              "probability": 0.9365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ophelia,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "Still",
+          "start": 1.23,
+          "end": 1.45
+        },
+        {
+          "raw": "better,",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "raw": "and",
+          "start": 1.93,
+          "end": 1.93
+        },
+        {
+          "raw": "worse.",
+          "start": 1.93,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "Ophelia.",
+        "Still",
+        "better,",
+        "and",
+        "worse."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ophelia,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "ophelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Still",
+          "start": 1.23,
+          "end": 1.45,
+          "key": "still",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "better,",
+          "start": 1.45,
+          "end": 1.69,
+          "key": "better",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.93,
+          "end": 1.93,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "worse.",
+          "start": 1.93,
+          "end": 2.15,
+          "key": "worse",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ophelia.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "Still",
+          "start": 1.23,
+          "end": 1.45
+        },
+        {
+          "text": "better,",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "text": "and",
+          "start": 1.93,
+          "end": 1.93
+        },
+        {
+          "text": "worse.",
+          "start": 1.93,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1949402093887329
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a738257c0d83cae8adf549401805a36041b37a6ec41cdda521e42e7d558b3d65",
+  "selected_reasons": []
+}

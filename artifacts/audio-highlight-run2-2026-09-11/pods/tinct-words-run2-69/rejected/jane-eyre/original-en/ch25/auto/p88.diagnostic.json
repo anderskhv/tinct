@@ -1,0 +1,918 @@
+{
+  "complete": true,
+  "signature": "5f9bb62bc1b57a87bc6dd66e23d0696a15e11928767adef63f088449b8e6cbf0",
+  "attempts": [
+    {
+      "asr_seconds": 0.3680106373503804,
+      "alignment_seconds": 0.0005719158798456192,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The creature of an over-stimulated brain; that is certain. I must be careful of you, my treasure: nerves like yours were not made for rough handling.\"",
+        "hotwords": "The, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The creature of an over-stimulated brain, that is certain. I must be careful of you, my treasure. Nerves like yours were not made for rough handling.",
+          "start": 0.02,
+          "end": 8.96,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.6943359375
+            },
+            {
+              "text": " creature",
+              "start": 0.5,
+              "end": 0.86,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " of",
+              "start": 0.86,
+              "end": 1.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " an",
+              "start": 1.06,
+              "end": 1.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " over",
+              "start": 1.16,
+              "end": 1.5,
+              "probability": 0.9853515625
+            },
+            {
+              "text": "-stimulated",
+              "start": 1.5,
+              "end": 2.14,
+              "probability": 0.6987508138020834
+            },
+            {
+              "text": " brain,",
+              "start": 2.14,
+              "end": 2.6,
+              "probability": 0.9921875
+            },
+            {
+              "text": " that",
+              "start": 2.84,
+              "end": 3.24,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " is",
+              "start": 3.24,
+              "end": 3.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " certain.",
+              "start": 3.42,
+              "end": 3.72,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " I",
+              "start": 4.42,
+              "end": 4.5,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " must",
+              "start": 4.5,
+              "end": 4.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 4.64,
+              "end": 4.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " careful",
+              "start": 4.9,
+              "end": 5.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 5.18,
+              "end": 5.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you,",
+              "start": 5.4,
+              "end": 5.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " my",
+              "start": 5.64,
+              "end": 5.74,
+              "probability": 0.98828125
+            },
+            {
+              "text": " treasure.",
+              "start": 5.74,
+              "end": 6.06,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Nerves",
+              "start": 6.72,
+              "end": 6.9,
+              "probability": 0.973876953125
+            },
+            {
+              "text": " like",
+              "start": 6.9,
+              "end": 7.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " yours",
+              "start": 7.1,
+              "end": 7.36,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " were",
+              "start": 7.36,
+              "end": 7.6,
+              "probability": 0.9921875
+            },
+            {
+              "text": " not",
+              "start": 7.6,
+              "end": 7.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " made",
+              "start": 7.78,
+              "end": 8.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 8.0,
+              "end": 8.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rough",
+              "start": 8.26,
+              "end": 8.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " handling.",
+              "start": 8.48,
+              "end": 8.96,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "creature",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "raw": "of",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "raw": "an",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "raw": "over",
+          "start": 1.16,
+          "end": 1.5
+        },
+        {
+          "raw": "-stimulated",
+          "start": 1.5,
+          "end": 2.14
+        },
+        {
+          "raw": "brain,",
+          "start": 2.14,
+          "end": 2.6
+        },
+        {
+          "raw": "that",
+          "start": 2.84,
+          "end": 3.24
+        },
+        {
+          "raw": "is",
+          "start": 3.24,
+          "end": 3.42
+        },
+        {
+          "raw": "certain.",
+          "start": 3.42,
+          "end": 3.72
+        },
+        {
+          "raw": "I",
+          "start": 4.42,
+          "end": 4.5
+        },
+        {
+          "raw": "must",
+          "start": 4.5,
+          "end": 4.64
+        },
+        {
+          "raw": "be",
+          "start": 4.64,
+          "end": 4.9
+        },
+        {
+          "raw": "careful",
+          "start": 4.9,
+          "end": 5.18
+        },
+        {
+          "raw": "of",
+          "start": 5.18,
+          "end": 5.4
+        },
+        {
+          "raw": "you,",
+          "start": 5.4,
+          "end": 5.56
+        },
+        {
+          "raw": "my",
+          "start": 5.64,
+          "end": 5.74
+        },
+        {
+          "raw": "treasure.",
+          "start": 5.74,
+          "end": 6.06
+        },
+        {
+          "raw": "Nerves",
+          "start": 6.72,
+          "end": 6.9
+        },
+        {
+          "raw": "like",
+          "start": 6.9,
+          "end": 7.1
+        },
+        {
+          "raw": "yours",
+          "start": 7.1,
+          "end": 7.36
+        },
+        {
+          "raw": "were",
+          "start": 7.36,
+          "end": 7.6
+        },
+        {
+          "raw": "not",
+          "start": 7.6,
+          "end": 7.78
+        },
+        {
+          "raw": "made",
+          "start": 7.78,
+          "end": 8.0
+        },
+        {
+          "raw": "for",
+          "start": 8.0,
+          "end": 8.26
+        },
+        {
+          "raw": "rough",
+          "start": 8.26,
+          "end": 8.48
+        },
+        {
+          "raw": "handling.",
+          "start": 8.48,
+          "end": 8.96
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "creature",
+        "of",
+        "an",
+        "over-stimulated",
+        "brain;",
+        "that",
+        "is",
+        "certain.",
+        "I",
+        "must",
+        "be",
+        "careful",
+        "of",
+        "you,",
+        "my",
+        "treasure:",
+        "nerves",
+        "like",
+        "yours",
+        "were",
+        "not",
+        "made",
+        "for",
+        "rough",
+        "handling.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "creature",
+          "start": 0.5,
+          "end": 0.86,
+          "key": "creature",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.86,
+          "end": 1.06,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.06,
+          "end": 1.16,
+          "key": "an",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "over -stimulated",
+          "start": 1.16,
+          "end": 2.14,
+          "key": "overstimulated",
+          "pieces": [
+            4,
+            5
+          ]
+        },
+        {
+          "raw": "brain,",
+          "start": 2.14,
+          "end": 2.6,
+          "key": "brain",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.84,
+          "end": 3.24,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.24,
+          "end": 3.42,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "certain.",
+          "start": 3.42,
+          "end": 3.72,
+          "key": "certain",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.42,
+          "end": 4.5,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 4.5,
+          "end": 4.64,
+          "key": "must",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.64,
+          "end": 4.9,
+          "key": "be",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "careful",
+          "start": 4.9,
+          "end": 5.18,
+          "key": "careful",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.18,
+          "end": 5.4,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 5.4,
+          "end": 5.56,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.64,
+          "end": 5.74,
+          "key": "my",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "treasure.",
+          "start": 5.74,
+          "end": 6.06,
+          "key": "treasure",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Nerves",
+          "start": 6.72,
+          "end": 6.9,
+          "key": "nerves",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 6.9,
+          "end": 7.1,
+          "key": "like",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "yours",
+          "start": 7.1,
+          "end": 7.36,
+          "key": "yours",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 7.36,
+          "end": 7.6,
+          "key": "were",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.6,
+          "end": 7.78,
+          "key": "not",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 7.78,
+          "end": 8.0,
+          "key": "made",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.0,
+          "end": 8.26,
+          "key": "for",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "rough",
+          "start": 8.26,
+          "end": 8.48,
+          "key": "rough",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "handling.",
+          "start": 8.48,
+          "end": 8.96,
+          "key": "handling",
+          "pieces": [
+            26
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "over-stimulated",
+          "heard": "over -stimulated",
+          "heard_indexes": [
+            4,
+            5
+          ],
+          "start": 1.16,
+          "end": 2.14
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "creature",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "text": "of",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "text": "an",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "text": "over-stimulated",
+          "start": 1.16,
+          "end": 2.14
+        },
+        {
+          "text": "brain;",
+          "start": 2.14,
+          "end": 2.6
+        },
+        {
+          "text": "that",
+          "start": 2.84,
+          "end": 3.24
+        },
+        {
+          "text": "is",
+          "start": 3.24,
+          "end": 3.42
+        },
+        {
+          "text": "certain.",
+          "start": 3.42,
+          "end": 3.72
+        },
+        {
+          "text": "I",
+          "start": 4.42,
+          "end": 4.5
+        },
+        {
+          "text": "must",
+          "start": 4.5,
+          "end": 4.64
+        },
+        {
+          "text": "be",
+          "start": 4.64,
+          "end": 4.9
+        },
+        {
+          "text": "careful",
+          "start": 4.9,
+          "end": 5.18
+        },
+        {
+          "text": "of",
+          "start": 5.18,
+          "end": 5.4
+        },
+        {
+          "text": "you,",
+          "start": 5.4,
+          "end": 5.56
+        },
+        {
+          "text": "my",
+          "start": 5.64,
+          "end": 5.74
+        },
+        {
+          "text": "treasure:",
+          "start": 5.74,
+          "end": 6.06
+        },
+        {
+          "text": "nerves",
+          "start": 6.72,
+          "end": 6.9
+        },
+        {
+          "text": "like",
+          "start": 6.9,
+          "end": 7.1
+        },
+        {
+          "text": "yours",
+          "start": 7.1,
+          "end": 7.36
+        },
+        {
+          "text": "were",
+          "start": 7.36,
+          "end": 7.6
+        },
+        {
+          "text": "not",
+          "start": 7.6,
+          "end": 7.78
+        },
+        {
+          "text": "made",
+          "start": 7.78,
+          "end": 8.0
+        },
+        {
+          "text": "for",
+          "start": 8.0,
+          "end": 8.26
+        },
+        {
+          "text": "rough",
+          "start": 8.26,
+          "end": 8.48
+        },
+        {
+          "text": "handling.\"",
+          "start": 8.48,
+          "end": 8.96
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36880872026085854
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "77df40f212b1229816fcbe0d1d218d94f36c0c901458299a1f9151de523f6b56",
+  "selected_reasons": []
+}

@@ -1,0 +1,2027 @@
+{
+  "complete": true,
+  "signature": "88eda53066bdfaeba4dfb41301fa64c2f5a2aea4f4978819c38d968febac2c8c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1891048970283009,
+      "alignment_seconds": 0.00035899196518585086,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "J. J. O'Molloy took the tissues from Lenehan's hand and read them, blowing them apart gently, without comment.",
+        "hotwords": "J, O'Molloy, Lenehan's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " J. J. O'Molloy took the tissues from Lenehan's hand and read them, blowing them apart gently, without comment.",
+          "start": 0.02,
+          "end": 6.96,
+          "words": [
+            {
+              "text": " J.",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.36181640625
+            },
+            {
+              "text": " J.",
+              "start": 0.84,
+              "end": 0.86,
+              "probability": 0.1810302734375
+            },
+            {
+              "text": " O",
+              "start": 0.94,
+              "end": 1.1,
+              "probability": 0.496337890625
+            },
+            {
+              "text": "'Molloy",
+              "start": 1.1,
+              "end": 1.36,
+              "probability": 0.36718034744262695
+            },
+            {
+              "text": " took",
+              "start": 1.36,
+              "end": 1.96,
+              "probability": 0.69189453125
+            },
+            {
+              "text": " the",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " tissues",
+              "start": 2.16,
+              "end": 2.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " from",
+              "start": 2.46,
+              "end": 2.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Lenehan's",
+              "start": 2.74,
+              "end": 3.18,
+              "probability": 0.724822998046875
+            },
+            {
+              "text": " hand",
+              "start": 3.18,
+              "end": 3.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 3.48,
+              "end": 3.76,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " read",
+              "start": 3.76,
+              "end": 3.94,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " them,",
+              "start": 3.94,
+              "end": 4.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " blowing",
+              "start": 4.76,
+              "end": 4.88,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " them",
+              "start": 4.88,
+              "end": 5.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " apart",
+              "start": 5.12,
+              "end": 5.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " gently,",
+              "start": 5.4,
+              "end": 5.9,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " without",
+              "start": 6.3,
+              "end": 6.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " comment.",
+              "start": 6.5,
+              "end": 6.96,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "J.",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "J.",
+          "start": 0.84,
+          "end": 0.86
+        },
+        {
+          "raw": "O",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "raw": "'Molloy",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "raw": "took",
+          "start": 1.36,
+          "end": 1.96
+        },
+        {
+          "raw": "the",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "raw": "tissues",
+          "start": 2.16,
+          "end": 2.46
+        },
+        {
+          "raw": "from",
+          "start": 2.46,
+          "end": 2.74
+        },
+        {
+          "raw": "Lenehan's",
+          "start": 2.74,
+          "end": 3.18
+        },
+        {
+          "raw": "hand",
+          "start": 3.18,
+          "end": 3.48
+        },
+        {
+          "raw": "and",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "raw": "read",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "raw": "them,",
+          "start": 3.94,
+          "end": 4.3
+        },
+        {
+          "raw": "blowing",
+          "start": 4.76,
+          "end": 4.88
+        },
+        {
+          "raw": "them",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "raw": "apart",
+          "start": 5.12,
+          "end": 5.4
+        },
+        {
+          "raw": "gently,",
+          "start": 5.4,
+          "end": 5.9
+        },
+        {
+          "raw": "without",
+          "start": 6.3,
+          "end": 6.5
+        },
+        {
+          "raw": "comment.",
+          "start": 6.5,
+          "end": 6.96
+        }
+      ],
+      "expected_tokens": [
+        "J.",
+        "J.",
+        "O'Molloy",
+        "took",
+        "the",
+        "tissues",
+        "from",
+        "Lenehan's",
+        "hand",
+        "and",
+        "read",
+        "them,",
+        "blowing",
+        "them",
+        "apart",
+        "gently,",
+        "without",
+        "comment."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          18,
+          4,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "J.",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "j",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "J.",
+          "start": 0.84,
+          "end": 0.86,
+          "key": "j",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 0.94,
+          "end": 1.1,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'Molloy",
+          "start": 1.1,
+          "end": 1.36,
+          "key": "molloy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 1.36,
+          "end": 1.96,
+          "key": "took",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tissues",
+          "start": 2.16,
+          "end": 2.46,
+          "key": "tissues",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.46,
+          "end": 2.74,
+          "key": "from",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Lenehan's",
+          "start": 2.74,
+          "end": 3.18,
+          "key": "lenehans",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 3.18,
+          "end": 3.48,
+          "key": "hand",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.48,
+          "end": 3.76,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 3.76,
+          "end": 3.94,
+          "key": "read",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 3.94,
+          "end": 4.3,
+          "key": "them",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "blowing",
+          "start": 4.76,
+          "end": 4.88,
+          "key": "blowing",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.88,
+          "end": 5.12,
+          "key": "them",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "apart",
+          "start": 5.12,
+          "end": 5.4,
+          "key": "apart",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "gently,",
+          "start": 5.4,
+          "end": 5.9,
+          "key": "gently",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 6.3,
+          "end": 6.5,
+          "key": "without",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "comment.",
+          "start": 6.5,
+          "end": 6.96,
+          "key": "comment",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "J.",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "J.",
+          "start": 0.84,
+          "end": 0.86
+        },
+        {
+          "text": "O'Molloy",
+          "start": 0.86,
+          "end": 1.11
+        },
+        {
+          "text": "took",
+          "start": 1.36,
+          "end": 1.96
+        },
+        {
+          "text": "the",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "text": "tissues",
+          "start": 2.16,
+          "end": 2.46
+        },
+        {
+          "text": "from",
+          "start": 2.46,
+          "end": 2.74
+        },
+        {
+          "text": "Lenehan's",
+          "start": 2.74,
+          "end": 3.18
+        },
+        {
+          "text": "hand",
+          "start": 3.18,
+          "end": 3.48
+        },
+        {
+          "text": "and",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "text": "read",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "text": "them,",
+          "start": 3.94,
+          "end": 4.3
+        },
+        {
+          "text": "blowing",
+          "start": 4.76,
+          "end": 4.88
+        },
+        {
+          "text": "them",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "text": "apart",
+          "start": 5.12,
+          "end": 5.4
+        },
+        {
+          "text": "gently,",
+          "start": 5.4,
+          "end": 5.9
+        },
+        {
+          "text": "without",
+          "start": 6.3,
+          "end": 6.5
+        },
+        {
+          "text": "comment.",
+          "start": 6.5,
+          "end": 6.96
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.18958524003392085
+    },
+    {
+      "asr_seconds": 0.1901840339996852,
+      "alignment_seconds": 0.0003028110368177295,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "J, O'Molloy, Lenehan's"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " J.J. O'Molloy took the tissues from Lenehan's hand and read them, blowing them apart gently, without comment.",
+          "start": 0.02,
+          "end": 6.96,
+          "words": [
+            {
+              "text": " J",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.36181640625
+            },
+            {
+              "text": ".J.",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 0.884765625
+            },
+            {
+              "text": " O",
+              "start": 0.9,
+              "end": 1.1,
+              "probability": 0.474365234375
+            },
+            {
+              "text": "'Molloy",
+              "start": 1.1,
+              "end": 1.36,
+              "probability": 0.3575061708688736
+            },
+            {
+              "text": " took",
+              "start": 1.36,
+              "end": 1.96,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " the",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " tissues",
+              "start": 2.16,
+              "end": 2.46,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " from",
+              "start": 2.46,
+              "end": 2.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Lenehan's",
+              "start": 2.74,
+              "end": 3.18,
+              "probability": 0.723968505859375
+            },
+            {
+              "text": " hand",
+              "start": 3.18,
+              "end": 3.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 3.48,
+              "end": 3.76,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " read",
+              "start": 3.76,
+              "end": 3.94,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " them,",
+              "start": 3.94,
+              "end": 4.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " blowing",
+              "start": 4.76,
+              "end": 4.88,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " them",
+              "start": 4.88,
+              "end": 5.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " apart",
+              "start": 5.12,
+              "end": 5.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " gently,",
+              "start": 5.4,
+              "end": 5.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " without",
+              "start": 6.3,
+              "end": 6.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " comment.",
+              "start": 6.5,
+              "end": 6.96,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "J",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": ".J.",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "raw": "O",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "raw": "'Molloy",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "raw": "took",
+          "start": 1.36,
+          "end": 1.96
+        },
+        {
+          "raw": "the",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "raw": "tissues",
+          "start": 2.16,
+          "end": 2.46
+        },
+        {
+          "raw": "from",
+          "start": 2.46,
+          "end": 2.74
+        },
+        {
+          "raw": "Lenehan's",
+          "start": 2.74,
+          "end": 3.18
+        },
+        {
+          "raw": "hand",
+          "start": 3.18,
+          "end": 3.48
+        },
+        {
+          "raw": "and",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "raw": "read",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "raw": "them,",
+          "start": 3.94,
+          "end": 4.3
+        },
+        {
+          "raw": "blowing",
+          "start": 4.76,
+          "end": 4.88
+        },
+        {
+          "raw": "them",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "raw": "apart",
+          "start": 5.12,
+          "end": 5.4
+        },
+        {
+          "raw": "gently,",
+          "start": 5.4,
+          "end": 5.9
+        },
+        {
+          "raw": "without",
+          "start": 6.3,
+          "end": 6.5
+        },
+        {
+          "raw": "comment.",
+          "start": 6.5,
+          "end": 6.96
+        }
+      ],
+      "expected_tokens": [
+        "J.",
+        "J.",
+        "O'Molloy",
+        "took",
+        "the",
+        "tissues",
+        "from",
+        "Lenehan's",
+        "hand",
+        "and",
+        "read",
+        "them,",
+        "blowing",
+        "them",
+        "apart",
+        "gently,",
+        "without",
+        "comment."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          18,
+          4,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "J",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "j",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".J.",
+          "start": 0.6,
+          "end": 0.88,
+          "key": "j",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 0.9,
+          "end": 1.1,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'Molloy",
+          "start": 1.1,
+          "end": 1.36,
+          "key": "molloy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 1.36,
+          "end": 1.96,
+          "key": "took",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tissues",
+          "start": 2.16,
+          "end": 2.46,
+          "key": "tissues",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.46,
+          "end": 2.74,
+          "key": "from",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Lenehan's",
+          "start": 2.74,
+          "end": 3.18,
+          "key": "lenehans",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 3.18,
+          "end": 3.48,
+          "key": "hand",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.48,
+          "end": 3.76,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 3.76,
+          "end": 3.94,
+          "key": "read",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 3.94,
+          "end": 4.3,
+          "key": "them",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "blowing",
+          "start": 4.76,
+          "end": 4.88,
+          "key": "blowing",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.88,
+          "end": 5.12,
+          "key": "them",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "apart",
+          "start": 5.12,
+          "end": 5.4,
+          "key": "apart",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "gently,",
+          "start": 5.4,
+          "end": 5.9,
+          "key": "gently",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 6.3,
+          "end": 6.5,
+          "key": "without",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "comment.",
+          "start": 6.5,
+          "end": 6.96,
+          "key": "comment",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "J.",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "J.",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "text": "O'Molloy",
+          "start": 0.88,
+          "end": 1.12
+        },
+        {
+          "text": "took",
+          "start": 1.36,
+          "end": 1.96
+        },
+        {
+          "text": "the",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "text": "tissues",
+          "start": 2.16,
+          "end": 2.46
+        },
+        {
+          "text": "from",
+          "start": 2.46,
+          "end": 2.74
+        },
+        {
+          "text": "Lenehan's",
+          "start": 2.74,
+          "end": 3.18
+        },
+        {
+          "text": "hand",
+          "start": 3.18,
+          "end": 3.48
+        },
+        {
+          "text": "and",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "text": "read",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "text": "them,",
+          "start": 3.94,
+          "end": 4.3
+        },
+        {
+          "text": "blowing",
+          "start": 4.76,
+          "end": 4.88
+        },
+        {
+          "text": "them",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "text": "apart",
+          "start": 5.12,
+          "end": 5.4
+        },
+        {
+          "text": "gently,",
+          "start": 5.4,
+          "end": 5.9
+        },
+        {
+          "text": "without",
+          "start": 6.3,
+          "end": 6.5
+        },
+        {
+          "text": "comment.",
+          "start": 6.5,
+          "end": 6.96
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.19065868604229763
+    },
+    {
+      "asr_seconds": 0.23318511398974806,
+      "alignment_seconds": 0.0003634720342233777,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " J.J. Omal took the tissues from Lenihan's hand and read them, blowing them apart gently,",
+          "start": 0.02,
+          "end": 5.9,
+          "words": [
+            {
+              "text": " J",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.361572265625
+            },
+            {
+              "text": ".J.",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 0.885986328125
+            },
+            {
+              "text": " Omal",
+              "start": 0.9,
+              "end": 1.32,
+              "probability": 0.4503173828125
+            },
+            {
+              "text": " took",
+              "start": 1.32,
+              "end": 1.96,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " the",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tissues",
+              "start": 2.16,
+              "end": 2.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " from",
+              "start": 2.46,
+              "end": 2.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Lenihan's",
+              "start": 2.74,
+              "end": 3.18,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " hand",
+              "start": 3.18,
+              "end": 3.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 3.48,
+              "end": 3.76,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " read",
+              "start": 3.76,
+              "end": 3.94,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " them,",
+              "start": 3.94,
+              "end": 4.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " blowing",
+              "start": 4.8,
+              "end": 4.88,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " them",
+              "start": 4.88,
+              "end": 5.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " apart",
+              "start": 5.12,
+              "end": 5.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gently,",
+              "start": 5.4,
+              "end": 5.9,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " without comment.",
+          "start": 6.3,
+          "end": 6.96,
+          "words": [
+            {
+              "text": " without",
+              "start": 6.3,
+              "end": 6.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " comment.",
+              "start": 6.5,
+              "end": 6.96,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "J",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": ".J.",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "raw": "Omal",
+          "start": 0.9,
+          "end": 1.32
+        },
+        {
+          "raw": "took",
+          "start": 1.32,
+          "end": 1.96
+        },
+        {
+          "raw": "the",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "raw": "tissues",
+          "start": 2.16,
+          "end": 2.46
+        },
+        {
+          "raw": "from",
+          "start": 2.46,
+          "end": 2.74
+        },
+        {
+          "raw": "Lenihan's",
+          "start": 2.74,
+          "end": 3.18
+        },
+        {
+          "raw": "hand",
+          "start": 3.18,
+          "end": 3.48
+        },
+        {
+          "raw": "and",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "raw": "read",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "raw": "them,",
+          "start": 3.94,
+          "end": 4.3
+        },
+        {
+          "raw": "blowing",
+          "start": 4.8,
+          "end": 4.88
+        },
+        {
+          "raw": "them",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "raw": "apart",
+          "start": 5.12,
+          "end": 5.4
+        },
+        {
+          "raw": "gently,",
+          "start": 5.4,
+          "end": 5.9
+        },
+        {
+          "raw": "without",
+          "start": 6.3,
+          "end": 6.5
+        },
+        {
+          "raw": "comment.",
+          "start": 6.5,
+          "end": 6.96
+        }
+      ],
+      "expected_tokens": [
+        "J.",
+        "J.",
+        "O'Molloy",
+        "took",
+        "the",
+        "tissues",
+        "from",
+        "Lenehan's",
+        "hand",
+        "and",
+        "read",
+        "them,",
+        "blowing",
+        "them",
+        "apart",
+        "gently,",
+        "without",
+        "comment."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          7,
+          3,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          18,
+          8,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "J",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "j",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".J.",
+          "start": 0.6,
+          "end": 0.88,
+          "key": "j",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Omal",
+          "start": 0.9,
+          "end": 1.32,
+          "key": "omal",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 1.32,
+          "end": 1.96,
+          "key": "took",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tissues",
+          "start": 2.16,
+          "end": 2.46,
+          "key": "tissues",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.46,
+          "end": 2.74,
+          "key": "from",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Lenihan's",
+          "start": 2.74,
+          "end": 3.18,
+          "key": "lenihans",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 3.18,
+          "end": 3.48,
+          "key": "hand",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.48,
+          "end": 3.76,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 3.76,
+          "end": 3.94,
+          "key": "read",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 3.94,
+          "end": 4.3,
+          "key": "them",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "blowing",
+          "start": 4.8,
+          "end": 4.88,
+          "key": "blowing",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.88,
+          "end": 5.12,
+          "key": "them",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "apart",
+          "start": 5.12,
+          "end": 5.4,
+          "key": "apart",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "gently,",
+          "start": 5.4,
+          "end": 5.9,
+          "key": "gently",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 6.3,
+          "end": 6.5,
+          "key": "without",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "comment.",
+          "start": 6.5,
+          "end": 6.96,
+          "key": "comment",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "J.",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "J.",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "text": "O'Molloy",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "text": "took",
+          "start": 1.32,
+          "end": 1.96
+        },
+        {
+          "text": "the",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "text": "tissues",
+          "start": 2.16,
+          "end": 2.46
+        },
+        {
+          "text": "from",
+          "start": 2.46,
+          "end": 2.74
+        },
+        {
+          "text": "Lenehan's",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "text": "hand",
+          "start": 3.18,
+          "end": 3.48
+        },
+        {
+          "text": "and",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "text": "read",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "text": "them,",
+          "start": 3.94,
+          "end": 4.3
+        },
+        {
+          "text": "blowing",
+          "start": 4.8,
+          "end": 4.88
+        },
+        {
+          "text": "them",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "text": "apart",
+          "start": 5.12,
+          "end": 5.4
+        },
+        {
+          "text": "gently,",
+          "start": 5.4,
+          "end": 5.9
+        },
+        {
+          "text": "without",
+          "start": 6.3,
+          "end": 6.5
+        },
+        {
+          "text": "comment.",
+          "start": 6.5,
+          "end": 6.96
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.23367835697717965
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5284b80d19f07c8d84c8b2b9765200105dd974f76da6119918198d87d66a11cf",
+  "selected_reasons": []
+}

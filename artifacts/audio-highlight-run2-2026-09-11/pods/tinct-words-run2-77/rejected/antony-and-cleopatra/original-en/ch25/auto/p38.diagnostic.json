@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "699da92d0ad20a1c9796306a2349fb123bf4ab696fe32bdd05de829b45b81ff1",
+  "attempts": [
+    {
+      "asr_seconds": 0.09059402902494185,
+      "alignment_seconds": 0.00010483298683539033,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Enobarbus._]",
+        "hotwords": "Enobarbus._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Enobarbus.",
+          "start": 0.02,
+          "end": 1.34,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " Enobarbus.",
+              "start": 0.68,
+              "end": 1.34,
+              "probability": 0.3488477071126302
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Enobarbus.",
+          "start": 0.68,
+          "end": 1.34
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Enobarbus._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Enobarbus.",
+          "start": 0.68,
+          "end": 1.34,
+          "key": "enobarbus",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Enobarbus._]",
+          "start": 0.68,
+          "end": 1.34
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09073426300892606
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9943b4bd8d233af14de3436dc88f147b2ac8ba9f7bf79bb4381c3ffcfd3b6f4a",
+  "selected_reasons": []
+}

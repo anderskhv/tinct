@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "48848423c4de8ac7429d452dc510ad8d8efe48164e0dc1da7f76fa18703363c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2286413609981537,
+      "alignment_seconds": 0.00048435479402542114,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sonia did not answer, she was crying. Several minutes passed.",
+        "hotwords": "Sonia, Several"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sonia did not answer, she was crying. Several minutes passed.",
+          "start": 0.08,
+          "end": 3.64,
+          "words": [
+            {
+              "text": " Sonia",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.1746826171875
+            },
+            {
+              "text": " did",
+              "start": 0.64,
+              "end": 0.84,
+              "probability": 0.986328125
+            },
+            {
+              "text": " not",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " answer,",
+              "start": 1.0,
+              "end": 1.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " she",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " was",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " crying.",
+              "start": 1.76,
+              "end": 2.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Several",
+              "start": 2.94,
+              "end": 2.96,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " minutes",
+              "start": 2.96,
+              "end": 3.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " passed.",
+              "start": 3.16,
+              "end": 3.64,
+              "probability": 0.96923828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sonia",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "did",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "raw": "not",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "answer,",
+          "start": 1.0,
+          "end": 1.38
+        },
+        {
+          "raw": "she",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "was",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "crying.",
+          "start": 1.76,
+          "end": 2.16
+        },
+        {
+          "raw": "Several",
+          "start": 2.94,
+          "end": 2.96
+        },
+        {
+          "raw": "minutes",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "raw": "passed.",
+          "start": 3.16,
+          "end": 3.64
+        }
+      ],
+      "expected_tokens": [
+        "Sonia",
+        "did",
+        "not",
+        "answer,",
+        "she",
+        "was",
+        "crying.",
+        "Several",
+        "minutes",
+        "passed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sonia",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "sonia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.64,
+          "end": 0.84,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.84,
+          "end": 1.0,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "answer,",
+          "start": 1.0,
+          "end": 1.38,
+          "key": "answer",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.54,
+          "end": 1.64,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "was",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "crying.",
+          "start": 1.76,
+          "end": 2.16,
+          "key": "crying",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Several",
+          "start": 2.94,
+          "end": 2.96,
+          "key": "several",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "minutes",
+          "start": 2.96,
+          "end": 3.16,
+          "key": "minutes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "passed.",
+          "start": 3.16,
+          "end": 3.64,
+          "key": "passed",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sonia",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "did",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "text": "not",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "text": "answer,",
+          "start": 1.0,
+          "end": 1.38
+        },
+        {
+          "text": "she",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "was",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "crying.",
+          "start": 1.76,
+          "end": 2.16
+        },
+        {
+          "text": "Several",
+          "start": 2.94,
+          "end": 2.96
+        },
+        {
+          "text": "minutes",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "text": "passed.",
+          "start": 3.16,
+          "end": 3.64
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2293207235634327
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "53a19d617d8e219d7d3cfb8da55f1dd75cabaffa67dc56ac09f6157ccc7632e3",
+  "selected_reasons": []
+}

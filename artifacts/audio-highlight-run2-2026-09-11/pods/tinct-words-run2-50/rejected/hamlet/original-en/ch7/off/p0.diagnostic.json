@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "07e0c25cc04fc63f0203a8662ed1b569cafda6d25ef19495e1129c76aed41def",
+  "attempts": [
+    {
+      "asr_seconds": 0.19312931038439274,
+      "alignment_seconds": 0.0003171190619468689,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter King, Queen, Rosencrantz, Guildenstern, and attendance.",
+          "start": 0.11,
+          "end": 3.95,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " King,",
+              "start": 0.65,
+              "end": 0.95,
+              "probability": 0.77392578125
+            },
+            {
+              "text": " Queen,",
+              "start": 1.67,
+              "end": 1.67,
+              "probability": 0.984375
+            },
+            {
+              "text": " Rosencrantz,",
+              "start": 2.01,
+              "end": 2.65,
+              "probability": 0.8719482421875
+            },
+            {
+              "text": " Guildenstern,",
+              "start": 2.87,
+              "end": 3.37,
+              "probability": 0.9693603515625
+            },
+            {
+              "text": " and",
+              "start": 3.49,
+              "end": 3.53,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " attendance.",
+              "start": 3.53,
+              "end": 3.95,
+              "probability": 0.4306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "King,",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "raw": "Queen,",
+          "start": 1.67,
+          "end": 1.67
+        },
+        {
+          "raw": "Rosencrantz,",
+          "start": 2.01,
+          "end": 2.65
+        },
+        {
+          "raw": "Guildenstern,",
+          "start": 2.87,
+          "end": 3.37
+        },
+        {
+          "raw": "and",
+          "start": 3.49,
+          "end": 3.53
+        },
+        {
+          "raw": "attendance.",
+          "start": 3.53,
+          "end": 3.95
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "King,",
+        "Queen,",
+        "Rosencrantz,",
+        "Guildenstern",
+        "and",
+        "Attendants]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "King,",
+          "start": 0.65,
+          "end": 0.95,
+          "key": "king",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Queen,",
+          "start": 1.67,
+          "end": 1.67,
+          "key": "queen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Rosencrantz,",
+          "start": 2.01,
+          "end": 2.65,
+          "key": "rosencrantz",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Guildenstern,",
+          "start": 2.87,
+          "end": 3.37,
+          "key": "guildenstern",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.49,
+          "end": 3.53,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "attendance.",
+          "start": 3.53,
+          "end": 3.95,
+          "key": "attendance",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "King,",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "text": "Queen,",
+          "start": 1.67,
+          "end": 1.67
+        },
+        {
+          "text": "Rosencrantz,",
+          "start": 2.01,
+          "end": 2.65
+        },
+        {
+          "text": "Guildenstern",
+          "start": 2.87,
+          "end": 3.37
+        },
+        {
+          "text": "and",
+          "start": 3.49,
+          "end": 3.53
+        },
+        {
+          "text": "Attendants]",
+          "start": 3.53,
+          "end": 3.74
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.19357731565833092
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ca487a292875f90e340505f12f7d60401fdc1ab9e5081d37020ff954f2462011",
+  "selected_reasons": []
+}

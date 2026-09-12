@@ -1,0 +1,1029 @@
+{
+  "complete": true,
+  "signature": "9d67702452a7b6310b6f65a645108abbcfa7665470c820b8005189313f225aa2",
+  "attempts": [
+    {
+      "asr_seconds": 0.4588302616029978,
+      "alignment_seconds": 0.0008255261927843094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Beatrice. So I would not he should do me, my lord, lest I should prove the mother of fools. I have brought Count Claudio, whom you sent me to seek.",
+        "hotwords": "Beatrice, So, I, Count, Claudio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Beatrice, So, I would not he should do me, my lord, lest I should prove the mother of",
+          "start": 0.6,
+          "end": 5.1,
+          "words": [
+            {
+              "text": " Beatrice,",
+              "start": 0.6,
+              "end": 1.0,
+              "probability": 0.900390625
+            },
+            {
+              "text": " So,",
+              "start": 1.24,
+              "end": 1.52,
+              "probability": 0.0105743408203125
+            },
+            {
+              "text": " I",
+              "start": 1.58,
+              "end": 1.66,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " would",
+              "start": 1.66,
+              "end": 1.76,
+              "probability": 0.98828125
+            },
+            {
+              "text": " not",
+              "start": 1.76,
+              "end": 1.96,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " he",
+              "start": 1.96,
+              "end": 2.14,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " should",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.98046875
+            },
+            {
+              "text": " do",
+              "start": 2.3,
+              "end": 2.52,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " me,",
+              "start": 2.52,
+              "end": 2.72,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " my",
+              "start": 2.82,
+              "end": 2.92,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " lord,",
+              "start": 2.92,
+              "end": 3.26,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " lest",
+              "start": 3.8,
+              "end": 3.84,
+              "probability": 0.1700439453125
+            },
+            {
+              "text": " I",
+              "start": 3.84,
+              "end": 4.04,
+              "probability": 0.95703125
+            },
+            {
+              "text": " should",
+              "start": 4.04,
+              "end": 4.24,
+              "probability": 0.9921875
+            },
+            {
+              "text": " prove",
+              "start": 4.24,
+              "end": 4.48,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 4.48,
+              "end": 4.7,
+              "probability": 0.927734375
+            },
+            {
+              "text": " mother",
+              "start": 4.7,
+              "end": 4.86,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " of",
+              "start": 4.86,
+              "end": 5.1,
+              "probability": 0.98779296875
+            }
+          ]
+        },
+        {
+          "text": " fools. I have brought Count Claudio, whom you sent me to seek.",
+          "start": 5.1,
+          "end": 8.68,
+          "words": [
+            {
+              "text": " fools.",
+              "start": 5.1,
+              "end": 5.4,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I",
+              "start": 6.14,
+              "end": 6.34,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " have",
+              "start": 6.34,
+              "end": 6.44,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " brought",
+              "start": 6.44,
+              "end": 6.66,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Count",
+              "start": 6.66,
+              "end": 7.02,
+              "probability": 0.78076171875
+            },
+            {
+              "text": " Claudio,",
+              "start": 7.02,
+              "end": 7.46,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " whom",
+              "start": 7.84,
+              "end": 7.88,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " you",
+              "start": 7.88,
+              "end": 8.02,
+              "probability": 0.990234375
+            },
+            {
+              "text": " sent",
+              "start": 8.02,
+              "end": 8.16,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " me",
+              "start": 8.16,
+              "end": 8.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 8.3,
+              "end": 8.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seek.",
+              "start": 8.44,
+              "end": 8.68,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Beatrice,",
+          "start": 0.6,
+          "end": 1.0
+        },
+        {
+          "raw": "So,",
+          "start": 1.24,
+          "end": 1.52
+        },
+        {
+          "raw": "I",
+          "start": 1.58,
+          "end": 1.66
+        },
+        {
+          "raw": "would",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "raw": "not",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "raw": "he",
+          "start": 1.96,
+          "end": 2.14
+        },
+        {
+          "raw": "should",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "do",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "raw": "me,",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "raw": "my",
+          "start": 2.82,
+          "end": 2.92
+        },
+        {
+          "raw": "lord,",
+          "start": 2.92,
+          "end": 3.26
+        },
+        {
+          "raw": "lest",
+          "start": 3.8,
+          "end": 3.84
+        },
+        {
+          "raw": "I",
+          "start": 3.84,
+          "end": 4.04
+        },
+        {
+          "raw": "should",
+          "start": 4.04,
+          "end": 4.24
+        },
+        {
+          "raw": "prove",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "raw": "the",
+          "start": 4.48,
+          "end": 4.7
+        },
+        {
+          "raw": "mother",
+          "start": 4.7,
+          "end": 4.86
+        },
+        {
+          "raw": "of",
+          "start": 4.86,
+          "end": 5.1
+        },
+        {
+          "raw": "fools.",
+          "start": 5.1,
+          "end": 5.4
+        },
+        {
+          "raw": "I",
+          "start": 6.14,
+          "end": 6.34
+        },
+        {
+          "raw": "have",
+          "start": 6.34,
+          "end": 6.44
+        },
+        {
+          "raw": "brought",
+          "start": 6.44,
+          "end": 6.66
+        },
+        {
+          "raw": "Count",
+          "start": 6.66,
+          "end": 7.02
+        },
+        {
+          "raw": "Claudio,",
+          "start": 7.02,
+          "end": 7.46
+        },
+        {
+          "raw": "whom",
+          "start": 7.84,
+          "end": 7.88
+        },
+        {
+          "raw": "you",
+          "start": 7.88,
+          "end": 8.02
+        },
+        {
+          "raw": "sent",
+          "start": 8.02,
+          "end": 8.16
+        },
+        {
+          "raw": "me",
+          "start": 8.16,
+          "end": 8.3
+        },
+        {
+          "raw": "to",
+          "start": 8.3,
+          "end": 8.44
+        },
+        {
+          "raw": "seek.",
+          "start": 8.44,
+          "end": 8.68
+        }
+      ],
+      "expected_tokens": [
+        "Beatrice.",
+        "So",
+        "I",
+        "would",
+        "not",
+        "he",
+        "should",
+        "do",
+        "me,",
+        "my",
+        "lord,",
+        "lest",
+        "I",
+        "should",
+        "prove",
+        "the",
+        "mother",
+        "of",
+        "fools.",
+        "I",
+        "have",
+        "brought",
+        "Count",
+        "Claudio,",
+        "whom",
+        "you",
+        "sent",
+        "me",
+        "to",
+        "seek."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          30,
+          0,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Beatrice,",
+          "start": 0.6,
+          "end": 1.0,
+          "key": "beatrice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "So,",
+          "start": 1.24,
+          "end": 1.52,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.58,
+          "end": 1.66,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.66,
+          "end": 1.76,
+          "key": "would",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.76,
+          "end": 1.96,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.96,
+          "end": 2.14,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 2.14,
+          "end": 2.3,
+          "key": "should",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.3,
+          "end": 2.52,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.52,
+          "end": 2.72,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.82,
+          "end": 2.92,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 2.92,
+          "end": 3.26,
+          "key": "lord",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lest",
+          "start": 3.8,
+          "end": 3.84,
+          "key": "lest",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.84,
+          "end": 4.04,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 4.04,
+          "end": 4.24,
+          "key": "should",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "prove",
+          "start": 4.24,
+          "end": 4.48,
+          "key": "prove",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.48,
+          "end": 4.7,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "mother",
+          "start": 4.7,
+          "end": 4.86,
+          "key": "mother",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.86,
+          "end": 5.1,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "fools.",
+          "start": 5.1,
+          "end": 5.4,
+          "key": "fools",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.14,
+          "end": 6.34,
+          "key": "i",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.34,
+          "end": 6.44,
+          "key": "have",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "brought",
+          "start": 6.44,
+          "end": 6.66,
+          "key": "brought",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Count",
+          "start": 6.66,
+          "end": 7.02,
+          "key": "count",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Claudio,",
+          "start": 7.02,
+          "end": 7.46,
+          "key": "claudio",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 7.84,
+          "end": 7.88,
+          "key": "whom",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 7.88,
+          "end": 8.02,
+          "key": "you",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 8.02,
+          "end": 8.16,
+          "key": "sent",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 8.16,
+          "end": 8.3,
+          "key": "me",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.3,
+          "end": 8.44,
+          "key": "to",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "seek.",
+          "start": 8.44,
+          "end": 8.68,
+          "key": "seek",
+          "pieces": [
+            29
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Beatrice.",
+          "start": 0.6,
+          "end": 1.0
+        },
+        {
+          "text": "So",
+          "start": 1.24,
+          "end": 1.52
+        },
+        {
+          "text": "I",
+          "start": 1.58,
+          "end": 1.66
+        },
+        {
+          "text": "would",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "text": "not",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "text": "he",
+          "start": 1.96,
+          "end": 2.14
+        },
+        {
+          "text": "should",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "do",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "text": "me,",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "text": "my",
+          "start": 2.82,
+          "end": 2.92
+        },
+        {
+          "text": "lord,",
+          "start": 2.92,
+          "end": 3.26
+        },
+        {
+          "text": "lest",
+          "start": 3.8,
+          "end": 3.84
+        },
+        {
+          "text": "I",
+          "start": 3.84,
+          "end": 4.04
+        },
+        {
+          "text": "should",
+          "start": 4.04,
+          "end": 4.24
+        },
+        {
+          "text": "prove",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "text": "the",
+          "start": 4.48,
+          "end": 4.7
+        },
+        {
+          "text": "mother",
+          "start": 4.7,
+          "end": 4.86
+        },
+        {
+          "text": "of",
+          "start": 4.86,
+          "end": 5.1
+        },
+        {
+          "text": "fools.",
+          "start": 5.1,
+          "end": 5.4
+        },
+        {
+          "text": "I",
+          "start": 6.14,
+          "end": 6.34
+        },
+        {
+          "text": "have",
+          "start": 6.34,
+          "end": 6.44
+        },
+        {
+          "text": "brought",
+          "start": 6.44,
+          "end": 6.66
+        },
+        {
+          "text": "Count",
+          "start": 6.66,
+          "end": 7.02
+        },
+        {
+          "text": "Claudio,",
+          "start": 7.02,
+          "end": 7.46
+        },
+        {
+          "text": "whom",
+          "start": 7.84,
+          "end": 7.88
+        },
+        {
+          "text": "you",
+          "start": 7.88,
+          "end": 8.02
+        },
+        {
+          "text": "sent",
+          "start": 8.02,
+          "end": 8.16
+        },
+        {
+          "text": "me",
+          "start": 8.16,
+          "end": 8.3
+        },
+        {
+          "text": "to",
+          "start": 8.3,
+          "end": 8.44
+        },
+        {
+          "text": "seek.",
+          "start": 8.44,
+          "end": 8.68
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 30,
+        "matched_words": 30
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4600212350487709
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cd53891b22b28dd6dea5d0d42c69483762bbc19962fdac7e0b04de2158d01d86",
+  "selected_reasons": []
+}

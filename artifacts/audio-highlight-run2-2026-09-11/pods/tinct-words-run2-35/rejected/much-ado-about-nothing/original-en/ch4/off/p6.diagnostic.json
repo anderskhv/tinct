@@ -1,0 +1,736 @@
+{
+  "complete": true,
+  "signature": "e3060a6b2ae6c9c1e80b547327e2352a350c523d4713e3957094dd9158684c60",
+  "attempts": [
+    {
+      "asr_seconds": 0.3243245743215084,
+      "alignment_seconds": 0.0007021147757768631,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leonardo, then half Signor Benedict's tongue in Count John's mouth and half Count John's",
+          "start": 0.05,
+          "end": 5.95,
+          "words": [
+            {
+              "text": " Leonardo,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.53857421875
+            },
+            {
+              "text": " then",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " half",
+              "start": 1.67,
+              "end": 1.97,
+              "probability": 0.953125
+            },
+            {
+              "text": " Signor",
+              "start": 1.97,
+              "end": 2.39,
+              "probability": 0.6689453125
+            },
+            {
+              "text": " Benedict's",
+              "start": 2.39,
+              "end": 2.91,
+              "probability": 0.921875
+            },
+            {
+              "text": " tongue",
+              "start": 2.91,
+              "end": 3.11,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " in",
+              "start": 3.11,
+              "end": 3.33,
+              "probability": 0.7294921875
+            },
+            {
+              "text": " Count",
+              "start": 3.33,
+              "end": 3.61,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " John's",
+              "start": 3.61,
+              "end": 4.07,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " mouth",
+              "start": 4.07,
+              "end": 4.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 4.41,
+              "end": 4.97,
+              "probability": 0.576171875
+            },
+            {
+              "text": " half",
+              "start": 4.97,
+              "end": 5.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Count",
+              "start": 5.19,
+              "end": 5.45,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " John's",
+              "start": 5.45,
+              "end": 5.95,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " melancholy in Signor Benedict's face.",
+          "start": 6.59,
+          "end": 8.01,
+          "words": [
+            {
+              "text": " melancholy",
+              "start": 6.59,
+              "end": 6.59,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " in",
+              "start": 6.59,
+              "end": 6.81,
+              "probability": 0.984375
+            },
+            {
+              "text": " Signor",
+              "start": 6.81,
+              "end": 7.27,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Benedict's",
+              "start": 7.27,
+              "end": 7.77,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " face.",
+              "start": 7.77,
+              "end": 8.01,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "then",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "raw": "half",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "raw": "Signor",
+          "start": 1.97,
+          "end": 2.39
+        },
+        {
+          "raw": "Benedict's",
+          "start": 2.39,
+          "end": 2.91
+        },
+        {
+          "raw": "tongue",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "raw": "in",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "raw": "Count",
+          "start": 3.33,
+          "end": 3.61
+        },
+        {
+          "raw": "John's",
+          "start": 3.61,
+          "end": 4.07
+        },
+        {
+          "raw": "mouth",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "raw": "and",
+          "start": 4.41,
+          "end": 4.97
+        },
+        {
+          "raw": "half",
+          "start": 4.97,
+          "end": 5.19
+        },
+        {
+          "raw": "Count",
+          "start": 5.19,
+          "end": 5.45
+        },
+        {
+          "raw": "John's",
+          "start": 5.45,
+          "end": 5.95
+        },
+        {
+          "raw": "melancholy",
+          "start": 6.59,
+          "end": 6.59
+        },
+        {
+          "raw": "in",
+          "start": 6.59,
+          "end": 6.81
+        },
+        {
+          "raw": "Signor",
+          "start": 6.81,
+          "end": 7.27
+        },
+        {
+          "raw": "Benedict's",
+          "start": 7.27,
+          "end": 7.77
+        },
+        {
+          "raw": "face.",
+          "start": 7.77,
+          "end": 8.01
+        }
+      ],
+      "expected_tokens": [
+        "Leonato.",
+        "Then",
+        "half",
+        "Signior",
+        "Benedick's",
+        "tongue",
+        "in",
+        "Count",
+        "John's",
+        "mouth,",
+        "and",
+        "half",
+        "Count",
+        "John's",
+        "melancholy",
+        "in",
+        "Signior",
+        "Benedick's",
+        "face—"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          16,
+          5,
+          16
+        ],
+        [
+          "replace",
+          16,
+          18,
+          16,
+          18
+        ],
+        [
+          "equal",
+          18,
+          19,
+          18,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "replace",
+          16,
+          18,
+          16,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "leonardo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.49,
+          "end": 1.67,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "half",
+          "start": 1.67,
+          "end": 1.97,
+          "key": "half",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Signor",
+          "start": 1.97,
+          "end": 2.39,
+          "key": "signor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Benedict's",
+          "start": 2.39,
+          "end": 2.91,
+          "key": "benedicts",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tongue",
+          "start": 2.91,
+          "end": 3.11,
+          "key": "tongue",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.11,
+          "end": 3.33,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Count",
+          "start": 3.33,
+          "end": 3.61,
+          "key": "count",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "John's",
+          "start": 3.61,
+          "end": 4.07,
+          "key": "johns",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mouth",
+          "start": 4.07,
+          "end": 4.41,
+          "key": "mouth",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.41,
+          "end": 4.97,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "half",
+          "start": 4.97,
+          "end": 5.19,
+          "key": "half",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Count",
+          "start": 5.19,
+          "end": 5.45,
+          "key": "count",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "John's",
+          "start": 5.45,
+          "end": 5.95,
+          "key": "johns",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "melancholy",
+          "start": 6.59,
+          "end": 6.59,
+          "key": "melancholy",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.59,
+          "end": 6.81,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Signor",
+          "start": 6.81,
+          "end": 7.27,
+          "key": "signor",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Benedict's",
+          "start": 7.27,
+          "end": 7.77,
+          "key": "benedicts",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "face.",
+          "start": 7.77,
+          "end": 8.01,
+          "key": "face",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.745
+        },
+        {
+          "text": "Then",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "half",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "text": "Signior",
+          "start": 1.97,
+          "end": 2.44
+        },
+        {
+          "text": "Benedick's",
+          "start": 2.44,
+          "end": 2.675
+        },
+        {
+          "text": "tongue",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "text": "in",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "text": "Count",
+          "start": 3.33,
+          "end": 3.61
+        },
+        {
+          "text": "John's",
+          "start": 3.61,
+          "end": 4.07
+        },
+        {
+          "text": "mouth,",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "text": "and",
+          "start": 4.41,
+          "end": 4.97
+        },
+        {
+          "text": "half",
+          "start": 4.97,
+          "end": 5.19
+        },
+        {
+          "text": "Count",
+          "start": 5.19,
+          "end": 5.45
+        },
+        {
+          "text": "John's",
+          "start": 5.45,
+          "end": 5.95
+        },
+        {
+          "text": "melancholy",
+          "start": 6.59,
+          "end": 6.59
+        },
+        {
+          "text": "in",
+          "start": 6.59,
+          "end": 6.81
+        },
+        {
+          "text": "Signior",
+          "start": 6.81,
+          "end": 7.29
+        },
+        {
+          "text": "Benedick's",
+          "start": 7.29,
+          "end": 7.53
+        },
+        {
+          "text": "face—",
+          "start": 7.77,
+          "end": 8.01
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 14
+      },
+      "match_ratio": 0.7368421052631579,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3252917192876339
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0ab91c15bf5445c6a841c3ee06dd54fc0ed3ae2c880ca7e2bebbcf70641b419f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,408 @@
+{
+  "complete": true,
+  "signature": "28d7b7a9830ef77d8f8445e7bd3357186b4cf9632b64fddb2904c773bc05a347",
+  "attempts": [
+    {
+      "asr_seconds": 0.08961979392915964,
+      "alignment_seconds": 0.000166221521794796,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Alarums still._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alarum still.",
+          "start": 0.02,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " Alarum",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.3387858072916667
+            },
+            {
+              "text": " still.",
+              "start": 0.82,
+              "end": 1.08,
+              "probability": 0.80712890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alarum",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "still.",
+          "start": 0.82,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "[_Alarums",
+        "still._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alarum",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "alarum",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "still.",
+          "start": 0.82,
+          "end": 1.08,
+          "key": "still",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Alarums",
+          "start": 0.0,
+          "end": 0.41
+        },
+        {
+          "text": "still._]",
+          "start": 0.82,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0898507833480835
+    },
+    {
+      "asr_seconds": 0.10377008188515902,
+      "alignment_seconds": 0.00024924613535404205,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Allerim still.",
+          "start": 0.02,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " Allerim",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.5274658203125
+            },
+            {
+              "text": " still.",
+              "start": 0.82,
+              "end": 1.1,
+              "probability": 0.89990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Allerim",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "still.",
+          "start": 0.82,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "[_Alarums",
+        "still._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Allerim",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "allerim",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "still.",
+          "start": 0.82,
+          "end": 1.1,
+          "key": "still",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Alarums",
+          "start": 0.0,
+          "end": 0.41
+        },
+        {
+          "text": "still._]",
+          "start": 0.82,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10408893134444952
+    },
+    {
+      "asr_seconds": 0.11207837611436844,
+      "alignment_seconds": 0.00011866074055433273,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Allerim still.",
+          "start": 0.02,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " Allerim",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.5274658203125
+            },
+            {
+              "text": " still.",
+              "start": 0.82,
+              "end": 1.1,
+              "probability": 0.89990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Allerim",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "still.",
+          "start": 0.82,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "[_Alarums",
+        "still._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Allerim",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "allerim",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "still.",
+          "start": 0.82,
+          "end": 1.1,
+          "key": "still",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Alarums",
+          "start": 0.0,
+          "end": 0.41
+        },
+        {
+          "text": "still._]",
+          "start": 0.82,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11222539748996496
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "221ccd8e1a251a14f6593b4b65394a69aa3d18fc90a77d025e9e16d0a359f38e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

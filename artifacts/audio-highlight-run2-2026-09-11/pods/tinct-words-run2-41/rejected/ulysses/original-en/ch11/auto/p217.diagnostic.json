@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "653e56b5ca7e5641cb23b2a7e31d6cc8f6da3d855faf820800106a093b0c7bfa",
+  "attempts": [
+    {
+      "asr_seconds": 0.11988881137222052,
+      "alignment_seconds": 0.0002345070242881775,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—_The dewdrops pearl_..."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The dewdrops pearl.",
+          "start": 0.02,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " dewdrops",
+              "start": 0.5,
+              "end": 0.92,
+              "probability": 0.682464599609375
+            },
+            {
+              "text": " pearl.",
+              "start": 0.92,
+              "end": 1.18,
+              "probability": 0.08404541015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "dewdrops",
+          "start": 0.5,
+          "end": 0.92
+        },
+        {
+          "raw": "pearl.",
+          "start": 0.92,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "—_The",
+        "dewdrops",
+        "pearl_..."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dewdrops",
+          "start": 0.5,
+          "end": 0.92,
+          "key": "dewdrops",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pearl.",
+          "start": 0.92,
+          "end": 1.18,
+          "key": "pearl",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "dewdrops",
+          "start": 0.5,
+          "end": 0.92
+        },
+        {
+          "text": "pearl_...",
+          "start": 0.92,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12020537303760648
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2ff7f26e5d25921fca0e2ea32f40032de1121fde2c70b7db977c8e26bd97bed9",
+  "selected_reasons": []
+}

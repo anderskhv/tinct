@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "2bfe63e80b1abd633c76943af7220a334aea1517f5e183a7fbb8e7c1c4861e73",
+  "attempts": [
+    {
+      "asr_seconds": 0.10323303000768647,
+      "alignment_seconds": 0.00020984699949622154,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exhumed.",
+          "start": 0.05,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " Exhumed.",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.6686197916666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exhumed.",
+          "start": 0.05,
+          "end": 1.05
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exhumed.",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "exhumed",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt]",
+          "start": 0.0,
+          "end": 0.525
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10351120302220806
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "52148350ee2f45263a750f310e7fae2962de401949786f4afb1489670f6556ec",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

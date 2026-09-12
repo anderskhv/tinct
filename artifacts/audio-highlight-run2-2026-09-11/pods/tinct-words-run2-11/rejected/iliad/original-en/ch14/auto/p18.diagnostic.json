@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "b0839b9d29f00cf73f8f3d1fbe5bbf97f7dddbcf919f07501fa95a194d26adce",
+  "attempts": [
+    {
+      "asr_seconds": 0.2628713045269251,
+      "alignment_seconds": 0.0005267690867185593,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "When she heard this Juno smiled, and still smiling she laid the girdle in her bosom.",
+        "hotwords": "When, Juno"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " When she heard this Juno smiled, and still smiling she laid the girdle in her bosom.",
+          "start": 0.02,
+          "end": 5.02,
+          "words": [
+            {
+              "text": " When",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " she",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " heard",
+              "start": 0.64,
+              "end": 0.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 0.86,
+              "end": 1.1,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Juno",
+              "start": 1.1,
+              "end": 1.4,
+              "probability": 0.61328125
+            },
+            {
+              "text": " smiled,",
+              "start": 1.4,
+              "end": 1.96,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " and",
+              "start": 2.6,
+              "end": 2.68,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " still",
+              "start": 2.68,
+              "end": 2.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " smiling",
+              "start": 2.9,
+              "end": 3.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " she",
+              "start": 3.44,
+              "end": 3.74,
+              "probability": 0.54345703125
+            },
+            {
+              "text": " laid",
+              "start": 3.74,
+              "end": 3.9,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " the",
+              "start": 3.9,
+              "end": 4.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " girdle",
+              "start": 4.08,
+              "end": 4.38,
+              "probability": 0.9943033854166666
+            },
+            {
+              "text": " in",
+              "start": 4.38,
+              "end": 4.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " her",
+              "start": 4.5,
+              "end": 4.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bosom.",
+              "start": 4.62,
+              "end": 5.02,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "When",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "she",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "heard",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "raw": "this",
+          "start": 0.86,
+          "end": 1.1
+        },
+        {
+          "raw": "Juno",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "raw": "smiled,",
+          "start": 1.4,
+          "end": 1.96
+        },
+        {
+          "raw": "and",
+          "start": 2.6,
+          "end": 2.68
+        },
+        {
+          "raw": "still",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "raw": "smiling",
+          "start": 2.9,
+          "end": 3.44
+        },
+        {
+          "raw": "she",
+          "start": 3.44,
+          "end": 3.74
+        },
+        {
+          "raw": "laid",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "raw": "the",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "raw": "girdle",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "raw": "in",
+          "start": 4.38,
+          "end": 4.5
+        },
+        {
+          "raw": "her",
+          "start": 4.5,
+          "end": 4.62
+        },
+        {
+          "raw": "bosom.",
+          "start": 4.62,
+          "end": 5.02
+        }
+      ],
+      "expected_tokens": [
+        "When",
+        "she",
+        "heard",
+        "this",
+        "Juno",
+        "smiled,",
+        "and",
+        "still",
+        "smiling",
+        "she",
+        "laid",
+        "the",
+        "girdle",
+        "in",
+        "her",
+        "bosom."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "When",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "when",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 0.64,
+          "end": 0.86,
+          "key": "heard",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.86,
+          "end": 1.1,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Juno",
+          "start": 1.1,
+          "end": 1.4,
+          "key": "juno",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "smiled,",
+          "start": 1.4,
+          "end": 1.96,
+          "key": "smiled",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.6,
+          "end": 2.68,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 2.68,
+          "end": 2.9,
+          "key": "still",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "smiling",
+          "start": 2.9,
+          "end": 3.44,
+          "key": "smiling",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.44,
+          "end": 3.74,
+          "key": "she",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "laid",
+          "start": 3.74,
+          "end": 3.9,
+          "key": "laid",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.9,
+          "end": 4.08,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "girdle",
+          "start": 4.08,
+          "end": 4.38,
+          "key": "girdle",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.38,
+          "end": 4.5,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.5,
+          "end": 4.62,
+          "key": "her",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "bosom.",
+          "start": 4.62,
+          "end": 5.02,
+          "key": "bosom",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "When",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "she",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "heard",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "text": "this",
+          "start": 0.86,
+          "end": 1.1
+        },
+        {
+          "text": "Juno",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "text": "smiled,",
+          "start": 1.4,
+          "end": 1.96
+        },
+        {
+          "text": "and",
+          "start": 2.6,
+          "end": 2.68
+        },
+        {
+          "text": "still",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "text": "smiling",
+          "start": 2.9,
+          "end": 3.44
+        },
+        {
+          "text": "she",
+          "start": 3.44,
+          "end": 3.74
+        },
+        {
+          "text": "laid",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "text": "the",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "text": "girdle",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "text": "in",
+          "start": 4.38,
+          "end": 4.5
+        },
+        {
+          "text": "her",
+          "start": 4.5,
+          "end": 4.62
+        },
+        {
+          "text": "bosom.",
+          "start": 4.62,
+          "end": 5.02
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2636443814262748
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c6394c4be41f21089efc9db5b96649043cf842153eae27588f572106ba7968ce",
+  "selected_reasons": []
+}

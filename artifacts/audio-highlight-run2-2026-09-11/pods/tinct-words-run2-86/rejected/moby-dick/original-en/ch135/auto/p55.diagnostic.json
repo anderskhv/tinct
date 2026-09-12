@@ -1,0 +1,2047 @@
+{
+  "complete": true,
+  "signature": "84a30b78c2b51e5a48cc55c64de5c5e61a61cff14de2a24702327a30bdedead7",
+  "attempts": [
+    {
+      "asr_seconds": 0.3273121491074562,
+      "alignment_seconds": 0.0006562583148479462,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The ship! The hearse!—the second hearse!\" cried Ahab from the boat; \"its wood could only be American!\"",
+        "hotwords": "Ahab, American"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The ship! The hearse!—the second hearse!\" cried Ahab from the boat,",
+          "start": 0.02,
+          "end": 4.3,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.2054443359375
+            },
+            {
+              "text": " ship!",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.962890625
+            },
+            {
+              "text": " The",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.7236328125
+            },
+            {
+              "text": " hearse",
+              "start": 1.14,
+              "end": 1.58,
+              "probability": 0.849609375
+            },
+            {
+              "text": "!—the",
+              "start": 1.58,
+              "end": 2.02,
+              "probability": 0.5855560302734375
+            },
+            {
+              "text": " second",
+              "start": 2.02,
+              "end": 2.28,
+              "probability": 0.94140625
+            },
+            {
+              "text": " hearse",
+              "start": 2.28,
+              "end": 3.02,
+              "probability": 0.9853515625
+            },
+            {
+              "text": "!\"",
+              "start": 3.02,
+              "end": 3.08,
+              "probability": 0.12005615234375
+            },
+            {
+              "text": " cried",
+              "start": 3.08,
+              "end": 3.36,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Ahab",
+              "start": 3.36,
+              "end": 3.74,
+              "probability": 0.913818359375
+            },
+            {
+              "text": " from",
+              "start": 3.74,
+              "end": 3.96,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " the",
+              "start": 3.96,
+              "end": 4.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " boat,",
+              "start": 4.08,
+              "end": 4.3,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " \"...its wood could only be American!\"",
+          "start": 4.62,
+          "end": 6.19,
+          "words": [
+            {
+              "text": " \"...its",
+              "start": 4.62,
+              "end": 4.78,
+              "probability": 0.06380462646484375
+            },
+            {
+              "text": " wood",
+              "start": 4.78,
+              "end": 4.96,
+              "probability": 0.0219879150390625
+            },
+            {
+              "text": " could",
+              "start": 4.96,
+              "end": 5.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " only",
+              "start": 5.1,
+              "end": 5.34,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " be",
+              "start": 5.34,
+              "end": 5.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " American",
+              "start": 5.54,
+              "end": 5.94,
+              "probability": 0.98486328125
+            },
+            {
+              "text": "!\"",
+              "start": 5.94,
+              "end": 6.19,
+              "probability": 0.267822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "ship!",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "raw": "The",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "hearse",
+          "start": 1.14,
+          "end": 1.58
+        },
+        {
+          "raw": "!—the",
+          "start": 1.58,
+          "end": 2.02
+        },
+        {
+          "raw": "second",
+          "start": 2.02,
+          "end": 2.28
+        },
+        {
+          "raw": "hearse",
+          "start": 2.28,
+          "end": 3.02
+        },
+        {
+          "raw": "!\"",
+          "start": 3.02,
+          "end": 3.08
+        },
+        {
+          "raw": "cried",
+          "start": 3.08,
+          "end": 3.36
+        },
+        {
+          "raw": "Ahab",
+          "start": 3.36,
+          "end": 3.74
+        },
+        {
+          "raw": "from",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.08
+        },
+        {
+          "raw": "boat,",
+          "start": 4.08,
+          "end": 4.3
+        },
+        {
+          "raw": "\"...its",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "raw": "wood",
+          "start": 4.78,
+          "end": 4.96
+        },
+        {
+          "raw": "could",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "raw": "only",
+          "start": 5.1,
+          "end": 5.34
+        },
+        {
+          "raw": "be",
+          "start": 5.34,
+          "end": 5.54
+        },
+        {
+          "raw": "American",
+          "start": 5.54,
+          "end": 5.94
+        },
+        {
+          "raw": "!\"",
+          "start": 5.94,
+          "end": 6.19
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "ship!",
+        "The",
+        "hearse!—the",
+        "second",
+        "hearse!\"",
+        "cried",
+        "Ahab",
+        "from",
+        "the",
+        "boat;",
+        "\"its",
+        "wood",
+        "could",
+        "only",
+        "be",
+        "American!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          6,
+          5,
+          7
+        ],
+        [
+          "insert",
+          6,
+          6,
+          7,
+          8
+        ],
+        [
+          "equal",
+          6,
+          17,
+          8,
+          19
+        ],
+        [
+          "insert",
+          17,
+          17,
+          19,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "insert",
+          6,
+          6,
+          7,
+          8
+        ],
+        [
+          "insert",
+          17,
+          17,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ship!",
+          "start": 0.54,
+          "end": 0.8,
+          "key": "ship",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hearse",
+          "start": 1.14,
+          "end": 1.58,
+          "key": "hearse",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "!—the",
+          "start": 1.58,
+          "end": 2.02,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 2.02,
+          "end": 2.28,
+          "key": "second",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hearse",
+          "start": 2.28,
+          "end": 3.02,
+          "key": "hearse",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 3.02,
+          "end": 3.08,
+          "key": "",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 3.08,
+          "end": 3.36,
+          "key": "cried",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Ahab",
+          "start": 3.36,
+          "end": 3.74,
+          "key": "ahab",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.74,
+          "end": 3.96,
+          "key": "from",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.08,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "boat,",
+          "start": 4.08,
+          "end": 4.3,
+          "key": "boat",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "\"...its",
+          "start": 4.62,
+          "end": 4.78,
+          "key": "its",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "wood",
+          "start": 4.78,
+          "end": 4.96,
+          "key": "wood",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 4.96,
+          "end": 5.1,
+          "key": "could",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 5.1,
+          "end": 5.34,
+          "key": "only",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.34,
+          "end": 5.54,
+          "key": "be",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "American",
+          "start": 5.54,
+          "end": 5.94,
+          "key": "american",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 5.94,
+          "end": 6.19,
+          "key": "",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "ship!",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "text": "The",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "hearse!—the",
+          "start": 1.14,
+          "end": 1.58
+        },
+        {
+          "text": "second",
+          "start": 2.02,
+          "end": 2.28
+        },
+        {
+          "text": "hearse!\"",
+          "start": 2.28,
+          "end": 3.02
+        },
+        {
+          "text": "cried",
+          "start": 3.08,
+          "end": 3.36
+        },
+        {
+          "text": "Ahab",
+          "start": 3.36,
+          "end": 3.74
+        },
+        {
+          "text": "from",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "text": "the",
+          "start": 3.96,
+          "end": 4.08
+        },
+        {
+          "text": "boat;",
+          "start": 4.08,
+          "end": 4.3
+        },
+        {
+          "text": "\"its",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "text": "wood",
+          "start": 4.78,
+          "end": 4.96
+        },
+        {
+          "text": "could",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "text": "only",
+          "start": 5.1,
+          "end": 5.34
+        },
+        {
+          "text": "be",
+          "start": 5.34,
+          "end": 5.54
+        },
+        {
+          "text": "American!\"",
+          "start": 5.54,
+          "end": 5.94
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 20,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.3282346725463867
+    },
+    {
+      "asr_seconds": 0.36659249290823936,
+      "alignment_seconds": 0.0005470328032970428,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Ahab, American"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " The ship, the hearse, the second hearse, cried Ahab from the boat. It's what could only be American",
+          "start": 0.02,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.2054443359375
+            },
+            {
+              "text": " ship,",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.962890625
+            },
+            {
+              "text": " the",
+              "start": 1.08,
+              "end": 1.12,
+              "probability": 0.970703125
+            },
+            {
+              "text": " hearse,",
+              "start": 1.12,
+              "end": 1.6,
+              "probability": 0.853515625
+            },
+            {
+              "text": " the",
+              "start": 1.9,
+              "end": 2.02,
+              "probability": 0.982421875
+            },
+            {
+              "text": " second",
+              "start": 2.02,
+              "end": 2.28,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " hearse,",
+              "start": 2.28,
+              "end": 3.02,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " cried",
+              "start": 3.3,
+              "end": 3.36,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Ahab",
+              "start": 3.36,
+              "end": 3.74,
+              "probability": 0.897216796875
+            },
+            {
+              "text": " from",
+              "start": 3.74,
+              "end": 3.96,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 3.96,
+              "end": 4.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " boat.",
+              "start": 4.08,
+              "end": 4.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " It's",
+              "start": 4.68,
+              "end": 4.86,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " what",
+              "start": 4.86,
+              "end": 4.96,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " could",
+              "start": 4.96,
+              "end": 5.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " only",
+              "start": 5.1,
+              "end": 5.36,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " be",
+              "start": 5.36,
+              "end": 5.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " American",
+              "start": 5.54,
+              "end": 5.92,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "ship,",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "raw": "the",
+          "start": 1.08,
+          "end": 1.12
+        },
+        {
+          "raw": "hearse,",
+          "start": 1.12,
+          "end": 1.6
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 2.02
+        },
+        {
+          "raw": "second",
+          "start": 2.02,
+          "end": 2.28
+        },
+        {
+          "raw": "hearse,",
+          "start": 2.28,
+          "end": 3.02
+        },
+        {
+          "raw": "cried",
+          "start": 3.3,
+          "end": 3.36
+        },
+        {
+          "raw": "Ahab",
+          "start": 3.36,
+          "end": 3.74
+        },
+        {
+          "raw": "from",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.08
+        },
+        {
+          "raw": "boat.",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "raw": "It's",
+          "start": 4.68,
+          "end": 4.86
+        },
+        {
+          "raw": "what",
+          "start": 4.86,
+          "end": 4.96
+        },
+        {
+          "raw": "could",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "raw": "only",
+          "start": 5.1,
+          "end": 5.36
+        },
+        {
+          "raw": "be",
+          "start": 5.36,
+          "end": 5.54
+        },
+        {
+          "raw": "American",
+          "start": 5.54,
+          "end": 5.92
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "ship!",
+        "The",
+        "hearse!—the",
+        "second",
+        "hearse!\"",
+        "cried",
+        "Ahab",
+        "from",
+        "the",
+        "boat;",
+        "\"its",
+        "wood",
+        "could",
+        "only",
+        "be",
+        "American!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          12,
+          5,
+          13
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          14
+        ],
+        [
+          "equal",
+          13,
+          17,
+          14,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ship,",
+          "start": 0.54,
+          "end": 0.8,
+          "key": "ship",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.08,
+          "end": 1.12,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hearse,",
+          "start": 1.12,
+          "end": 1.6,
+          "key": "hearse",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 2.02,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 2.02,
+          "end": 2.28,
+          "key": "second",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hearse,",
+          "start": 2.28,
+          "end": 3.02,
+          "key": "hearse",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 3.3,
+          "end": 3.36,
+          "key": "cried",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Ahab",
+          "start": 3.36,
+          "end": 3.74,
+          "key": "ahab",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.74,
+          "end": 3.96,
+          "key": "from",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.08,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "boat.",
+          "start": 4.08,
+          "end": 4.32,
+          "key": "boat",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 4.68,
+          "end": 4.86,
+          "key": "its",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 4.86,
+          "end": 4.96,
+          "key": "what",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 4.96,
+          "end": 5.1,
+          "key": "could",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 5.1,
+          "end": 5.36,
+          "key": "only",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.36,
+          "end": 5.54,
+          "key": "be",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "American",
+          "start": 5.54,
+          "end": 5.92,
+          "key": "american",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "ship!",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "text": "The",
+          "start": 1.08,
+          "end": 1.12
+        },
+        {
+          "text": "hearse!—the",
+          "start": 1.12,
+          "end": 1.57
+        },
+        {
+          "text": "second",
+          "start": 2.02,
+          "end": 2.28
+        },
+        {
+          "text": "hearse!\"",
+          "start": 2.28,
+          "end": 3.02
+        },
+        {
+          "text": "cried",
+          "start": 3.3,
+          "end": 3.36
+        },
+        {
+          "text": "Ahab",
+          "start": 3.36,
+          "end": 3.74
+        },
+        {
+          "text": "from",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "text": "the",
+          "start": 3.96,
+          "end": 4.08
+        },
+        {
+          "text": "boat;",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "text": "\"its",
+          "start": 4.68,
+          "end": 4.86
+        },
+        {
+          "text": "wood",
+          "start": 4.86,
+          "end": 4.91
+        },
+        {
+          "text": "could",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "text": "only",
+          "start": 5.1,
+          "end": 5.36
+        },
+        {
+          "text": "be",
+          "start": 5.36,
+          "end": 5.54
+        },
+        {
+          "text": "American!\"",
+          "start": 5.54,
+          "end": 5.92
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.3674016036093235
+    },
+    {
+      "asr_seconds": 0.3101683780550957,
+      "alignment_seconds": 0.0004802010953426361,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The ship the hearse the second hearse cried ahab from the boat. It's what could only be American",
+          "start": 0.02,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.2054443359375
+            },
+            {
+              "text": " ship",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.962890625
+            },
+            {
+              "text": " the",
+              "start": 0.8,
+              "end": 1.12,
+              "probability": 0.1832275390625
+            },
+            {
+              "text": " hearse",
+              "start": 1.12,
+              "end": 1.62,
+              "probability": 0.822265625
+            },
+            {
+              "text": " the",
+              "start": 1.62,
+              "end": 2.0,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " second",
+              "start": 2.0,
+              "end": 2.3,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " hearse",
+              "start": 2.3,
+              "end": 3.08,
+              "probability": 0.928955078125
+            },
+            {
+              "text": " cried",
+              "start": 3.08,
+              "end": 3.36,
+              "probability": 0.9609375
+            },
+            {
+              "text": " ahab",
+              "start": 3.36,
+              "end": 3.76,
+              "probability": 0.663818359375
+            },
+            {
+              "text": " from",
+              "start": 3.76,
+              "end": 3.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.96,
+              "end": 4.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " boat.",
+              "start": 4.08,
+              "end": 4.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " It's",
+              "start": 4.42,
+              "end": 4.86,
+              "probability": 0.982177734375
+            },
+            {
+              "text": " what",
+              "start": 4.86,
+              "end": 4.96,
+              "probability": 0.96875
+            },
+            {
+              "text": " could",
+              "start": 4.96,
+              "end": 5.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " only",
+              "start": 5.1,
+              "end": 5.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 5.36,
+              "end": 5.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " American",
+              "start": 5.54,
+              "end": 6.0,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "ship",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "raw": "the",
+          "start": 0.8,
+          "end": 1.12
+        },
+        {
+          "raw": "hearse",
+          "start": 1.12,
+          "end": 1.62
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 2.0
+        },
+        {
+          "raw": "second",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "raw": "hearse",
+          "start": 2.3,
+          "end": 3.08
+        },
+        {
+          "raw": "cried",
+          "start": 3.08,
+          "end": 3.36
+        },
+        {
+          "raw": "ahab",
+          "start": 3.36,
+          "end": 3.76
+        },
+        {
+          "raw": "from",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.08
+        },
+        {
+          "raw": "boat.",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "raw": "It's",
+          "start": 4.42,
+          "end": 4.86
+        },
+        {
+          "raw": "what",
+          "start": 4.86,
+          "end": 4.96
+        },
+        {
+          "raw": "could",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "raw": "only",
+          "start": 5.1,
+          "end": 5.36
+        },
+        {
+          "raw": "be",
+          "start": 5.36,
+          "end": 5.54
+        },
+        {
+          "raw": "American",
+          "start": 5.54,
+          "end": 6.0
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "ship!",
+        "The",
+        "hearse!—the",
+        "second",
+        "hearse!\"",
+        "cried",
+        "Ahab",
+        "from",
+        "the",
+        "boat;",
+        "\"its",
+        "wood",
+        "could",
+        "only",
+        "be",
+        "American!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          12,
+          5,
+          13
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          14
+        ],
+        [
+          "equal",
+          13,
+          17,
+          14,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ship",
+          "start": 0.54,
+          "end": 0.8,
+          "key": "ship",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.8,
+          "end": 1.12,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hearse",
+          "start": 1.12,
+          "end": 1.62,
+          "key": "hearse",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 2.0,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 2.0,
+          "end": 2.3,
+          "key": "second",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hearse",
+          "start": 2.3,
+          "end": 3.08,
+          "key": "hearse",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 3.08,
+          "end": 3.36,
+          "key": "cried",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ahab",
+          "start": 3.36,
+          "end": 3.76,
+          "key": "ahab",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.76,
+          "end": 3.96,
+          "key": "from",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.08,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "boat.",
+          "start": 4.08,
+          "end": 4.38,
+          "key": "boat",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 4.42,
+          "end": 4.86,
+          "key": "its",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 4.86,
+          "end": 4.96,
+          "key": "what",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 4.96,
+          "end": 5.1,
+          "key": "could",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 5.1,
+          "end": 5.36,
+          "key": "only",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.36,
+          "end": 5.54,
+          "key": "be",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "American",
+          "start": 5.54,
+          "end": 6.0,
+          "key": "american",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "ship!",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "text": "The",
+          "start": 0.8,
+          "end": 1.12
+        },
+        {
+          "text": "hearse!—the",
+          "start": 1.12,
+          "end": 1.56
+        },
+        {
+          "text": "second",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "text": "hearse!\"",
+          "start": 2.3,
+          "end": 3.08
+        },
+        {
+          "text": "cried",
+          "start": 3.08,
+          "end": 3.36
+        },
+        {
+          "text": "Ahab",
+          "start": 3.36,
+          "end": 3.76
+        },
+        {
+          "text": "from",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "text": "the",
+          "start": 3.96,
+          "end": 4.08
+        },
+        {
+          "text": "boat;",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "text": "\"its",
+          "start": 4.42,
+          "end": 4.86
+        },
+        {
+          "text": "wood",
+          "start": 4.86,
+          "end": 4.91
+        },
+        {
+          "text": "could",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "text": "only",
+          "start": 5.1,
+          "end": 5.36
+        },
+        {
+          "text": "be",
+          "start": 5.36,
+          "end": 5.54
+        },
+        {
+          "text": "American!\"",
+          "start": 5.54,
+          "end": 6.0
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.3108527138829231
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "58ced752ea44124c85140412a8d90a0fdbe49f32beceb9f69af2b52ed077b8df",
+  "selected_reasons": []
+}

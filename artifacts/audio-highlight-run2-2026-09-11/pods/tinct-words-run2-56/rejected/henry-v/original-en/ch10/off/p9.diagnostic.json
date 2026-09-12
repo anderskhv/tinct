@@ -1,0 +1,627 @@
+{
+  "complete": true,
+  "signature": "e398d61cad22ac084f7fcd3d7c297af453fe56500a29c3fbb2ff49322e43c345",
+  "attempts": [
+    {
+      "asr_seconds": 0.4048111271113157,
+      "alignment_seconds": 0.0007394766435027122,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Catherine de Nails.",
+          "start": 0.05,
+          "end": 1.71,
+          "words": [
+            {
+              "text": " Catherine",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.2451171875
+            },
+            {
+              "text": " de",
+              "start": 0.87,
+              "end": 1.25,
+              "probability": 0.60595703125
+            },
+            {
+              "text": " Nails.",
+              "start": 1.25,
+              "end": 1.71,
+              "probability": 0.733642578125
+            }
+          ]
+        },
+        {
+          "text": " Ecaudes d'itsmoissigie parle bien.",
+          "start": 2.23,
+          "end": 4.23,
+          "words": [
+            {
+              "text": " Ecaudes",
+              "start": 2.23,
+              "end": 2.79,
+              "probability": 0.4216766357421875
+            },
+            {
+              "text": " d",
+              "start": 2.79,
+              "end": 3.05,
+              "probability": 0.63232421875
+            },
+            {
+              "text": "'itsmoissigie",
+              "start": 3.05,
+              "end": 3.69,
+              "probability": 0.4174601236979167
+            },
+            {
+              "text": " parle",
+              "start": 3.69,
+              "end": 3.93,
+              "probability": 0.858642578125
+            },
+            {
+              "text": " bien.",
+              "start": 3.93,
+              "end": 4.23,
+              "probability": 0.5963134765625
+            }
+          ]
+        },
+        {
+          "text": " De hand de fingers et de nails.",
+          "start": 4.71,
+          "end": 6.55,
+          "words": [
+            {
+              "text": " De",
+              "start": 4.71,
+              "end": 4.79,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " hand",
+              "start": 4.79,
+              "end": 5.11,
+              "probability": 0.88671875
+            },
+            {
+              "text": " de",
+              "start": 5.11,
+              "end": 5.35,
+              "probability": 0.908203125
+            },
+            {
+              "text": " fingers",
+              "start": 5.35,
+              "end": 5.69,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " et",
+              "start": 5.69,
+              "end": 6.05,
+              "probability": 0.65478515625
+            },
+            {
+              "text": " de",
+              "start": 6.05,
+              "end": 6.25,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " nails.",
+              "start": 6.25,
+              "end": 6.55,
+              "probability": 0.83447265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Catherine",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "de",
+          "start": 0.87,
+          "end": 1.25
+        },
+        {
+          "raw": "Nails.",
+          "start": 1.25,
+          "end": 1.71
+        },
+        {
+          "raw": "Ecaudes",
+          "start": 2.23,
+          "end": 2.79
+        },
+        {
+          "raw": "d",
+          "start": 2.79,
+          "end": 3.05
+        },
+        {
+          "raw": "'itsmoissigie",
+          "start": 3.05,
+          "end": 3.69
+        },
+        {
+          "raw": "parle",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "raw": "bien.",
+          "start": 3.93,
+          "end": 4.23
+        },
+        {
+          "raw": "De",
+          "start": 4.71,
+          "end": 4.79
+        },
+        {
+          "raw": "hand",
+          "start": 4.79,
+          "end": 5.11
+        },
+        {
+          "raw": "de",
+          "start": 5.11,
+          "end": 5.35
+        },
+        {
+          "raw": "fingers",
+          "start": 5.35,
+          "end": 5.69
+        },
+        {
+          "raw": "et",
+          "start": 5.69,
+          "end": 6.05
+        },
+        {
+          "raw": "de",
+          "start": 6.05,
+          "end": 6.25
+        },
+        {
+          "raw": "nails.",
+          "start": 6.25,
+          "end": 6.55
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "De",
+        "nails.",
+        "_Écoutez;",
+        "dites-moi,",
+        "si",
+        "je",
+        "parle",
+        "bien:_",
+        "de",
+        "hand,",
+        "de",
+        "fingres,",
+        "_et_",
+        "de",
+        "nails."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          7,
+          3,
+          6
+        ],
+        [
+          "equal",
+          7,
+          12,
+          6,
+          11
+        ],
+        [
+          "replace",
+          12,
+          13,
+          11,
+          12
+        ],
+        [
+          "equal",
+          13,
+          16,
+          12,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          7,
+          3,
+          6
+        ],
+        [
+          "replace",
+          12,
+          13,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Catherine",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "catherine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 0.87,
+          "end": 1.25,
+          "key": "de",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Nails.",
+          "start": 1.25,
+          "end": 1.71,
+          "key": "nails",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ecaudes",
+          "start": 2.23,
+          "end": 2.79,
+          "key": "ecaudes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 2.79,
+          "end": 3.05,
+          "key": "d",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "'itsmoissigie",
+          "start": 3.05,
+          "end": 3.69,
+          "key": "itsmoissigie",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "parle",
+          "start": 3.69,
+          "end": 3.93,
+          "key": "parle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bien.",
+          "start": 3.93,
+          "end": 4.23,
+          "key": "bien",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "De",
+          "start": 4.71,
+          "end": 4.79,
+          "key": "de",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 4.79,
+          "end": 5.11,
+          "key": "hand",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 5.11,
+          "end": 5.35,
+          "key": "de",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "fingers",
+          "start": 5.35,
+          "end": 5.69,
+          "key": "fingers",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 5.69,
+          "end": 6.05,
+          "key": "et",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 6.05,
+          "end": 6.25,
+          "key": "de",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "nails.",
+          "start": 6.25,
+          "end": 6.55,
+          "key": "nails",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.0,
+          "end": 0.435
+        },
+        {
+          "text": "De",
+          "start": 0.87,
+          "end": 1.25
+        },
+        {
+          "text": "nails.",
+          "start": 1.25,
+          "end": 1.71
+        },
+        {
+          "text": "_Écoutez;",
+          "start": 1.71,
+          "end": 2.7
+        },
+        {
+          "text": "dites-moi,",
+          "start": 2.7,
+          "end": 3.195
+        },
+        {
+          "text": "si",
+          "start": 3.195,
+          "end": 3.442
+        },
+        {
+          "text": "je",
+          "start": 3.442,
+          "end": 3.566
+        },
+        {
+          "text": "parle",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "text": "bien:_",
+          "start": 3.93,
+          "end": 4.23
+        },
+        {
+          "text": "de",
+          "start": 4.71,
+          "end": 4.79
+        },
+        {
+          "text": "hand,",
+          "start": 4.79,
+          "end": 5.11
+        },
+        {
+          "text": "de",
+          "start": 5.11,
+          "end": 5.35
+        },
+        {
+          "text": "fingres,",
+          "start": 5.35,
+          "end": 5.52
+        },
+        {
+          "text": "_et_",
+          "start": 5.69,
+          "end": 6.05
+        },
+        {
+          "text": "de",
+          "start": 6.05,
+          "end": 6.25
+        },
+        {
+          "text": "nails.",
+          "start": 6.25,
+          "end": 6.55
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 15,
+        "matched_words": 10
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4057859107851982
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "771a706e877ec32563c2b4273bac65dc02a8b71c002799459766b6c886dd5c25",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

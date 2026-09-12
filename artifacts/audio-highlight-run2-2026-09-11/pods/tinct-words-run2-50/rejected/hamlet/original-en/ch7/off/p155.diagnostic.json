@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "bd63473e0a43bf99052c7c9a5fad8bea562a28fe4b4fbca50eb4f5b2a1bceb9f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1979333907365799,
+      "alignment_seconds": 0.00016632862389087677,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet then came each actor on his ass",
+          "start": 0.05,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " Hamlet",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.970458984375
+            },
+            {
+              "text": " then",
+              "start": 0.81,
+              "end": 1.33,
+              "probability": 0.1326904296875
+            },
+            {
+              "text": " came",
+              "start": 1.33,
+              "end": 1.57,
+              "probability": 0.9921875
+            },
+            {
+              "text": " each",
+              "start": 1.57,
+              "end": 1.81,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " actor",
+              "start": 1.81,
+              "end": 2.15,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " on",
+              "start": 2.15,
+              "end": 2.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 2.31,
+              "end": 2.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ass",
+              "start": 2.45,
+              "end": 2.83,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "then",
+          "start": 0.81,
+          "end": 1.33
+        },
+        {
+          "raw": "came",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "raw": "each",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "raw": "actor",
+          "start": 1.81,
+          "end": 2.15
+        },
+        {
+          "raw": "on",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "raw": "his",
+          "start": 2.31,
+          "end": 2.45
+        },
+        {
+          "raw": "ass",
+          "start": 2.45,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Then",
+        "came",
+        "each",
+        "actor",
+        "on",
+        "his",
+        "ass—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 0.81,
+          "end": 1.33,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 1.33,
+          "end": 1.57,
+          "key": "came",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 1.57,
+          "end": 1.81,
+          "key": "each",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "actor",
+          "start": 1.81,
+          "end": 2.15,
+          "key": "actor",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.15,
+          "end": 2.31,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.31,
+          "end": 2.45,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ass",
+          "start": 2.45,
+          "end": 2.83,
+          "key": "ass",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Then",
+          "start": 0.81,
+          "end": 1.33
+        },
+        {
+          "text": "came",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "text": "each",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "text": "actor",
+          "start": 1.81,
+          "end": 2.15
+        },
+        {
+          "text": "on",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "text": "his",
+          "start": 2.31,
+          "end": 2.45
+        },
+        {
+          "text": "ass—",
+          "start": 2.45,
+          "end": 2.83
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19815931469202042
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6c29fb3470605a81ce130c871517591501562b113777fc0d0a419824a18cd5b2",
+  "selected_reasons": []
+}

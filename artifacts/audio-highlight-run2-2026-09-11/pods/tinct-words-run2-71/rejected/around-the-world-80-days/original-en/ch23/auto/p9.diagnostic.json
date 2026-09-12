@@ -1,0 +1,1118 @@
+{
+  "complete": true,
+  "signature": "70281586d0444e7b7438e8a51d77c8115f8d9271a7f21eb110790264c0bbd60e",
+  "attempts": [
+    {
+      "asr_seconds": 0.5313604800030589,
+      "alignment_seconds": 0.0006652595475316048,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Acrobatic Japanese Troupe, Honourable William Batulcar, Proprietor, Last Representations, Prior To Their Departure To The United States, Of The Long Noses! Long Noses! Under The Direct Patronage Of The God Tingou! Great Attraction!",
+        "hotwords": "Acrobatic, Japanese, Troupe, Honourable, William, Batulcar, Proprietor, Last, Representations, Prior, To, Their, Departure, The, United, States, Of, Long, Noses, Under, Direct, Patronage, God, Tingou"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Acrobatic Japanese Troupe, Honourable William Batulcar, Proprietor, Last, Representations, Prior To Their Departure To The United States Of The Long Noses! Long Noses! Under The Direct Patronage Of The God Tingou! Great Attraction!",
+          "start": 0.05,
+          "end": 15.65,
+          "words": [
+            {
+              "text": " Acrobatic",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.8199055989583334
+            },
+            {
+              "text": " Japanese",
+              "start": 0.97,
+              "end": 1.51,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Troupe,",
+              "start": 1.51,
+              "end": 2.25,
+              "probability": 0.5131072998046875
+            },
+            {
+              "text": " Honourable",
+              "start": 2.51,
+              "end": 2.87,
+              "probability": 0.5104217529296875
+            },
+            {
+              "text": " William",
+              "start": 2.87,
+              "end": 3.23,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Batulcar,",
+              "start": 3.23,
+              "end": 3.89,
+              "probability": 0.29400634765625
+            },
+            {
+              "text": " Proprietor,",
+              "start": 4.17,
+              "end": 4.75,
+              "probability": 0.951416015625
+            },
+            {
+              "text": " Last,",
+              "start": 4.99,
+              "end": 5.23,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " Representations,",
+              "start": 5.33,
+              "end": 6.31,
+              "probability": 0.853515625
+            },
+            {
+              "text": " Prior",
+              "start": 6.83,
+              "end": 6.85,
+              "probability": 0.64208984375
+            },
+            {
+              "text": " To",
+              "start": 6.85,
+              "end": 7.13,
+              "probability": 0.06982421875
+            },
+            {
+              "text": " Their",
+              "start": 7.13,
+              "end": 7.27,
+              "probability": 0.962890625
+            },
+            {
+              "text": " Departure",
+              "start": 7.27,
+              "end": 7.77,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " To",
+              "start": 7.77,
+              "end": 7.93,
+              "probability": 0.7880859375
+            },
+            {
+              "text": " The",
+              "start": 7.93,
+              "end": 8.03,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " United",
+              "start": 8.03,
+              "end": 8.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " States",
+              "start": 8.27,
+              "end": 8.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Of",
+              "start": 8.75,
+              "end": 9.17,
+              "probability": 0.473388671875
+            },
+            {
+              "text": " The",
+              "start": 9.17,
+              "end": 9.35,
+              "probability": 0.953125
+            },
+            {
+              "text": " Long",
+              "start": 9.35,
+              "end": 9.61,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " Noses!",
+              "start": 9.61,
+              "end": 10.05,
+              "probability": 0.6793212890625
+            },
+            {
+              "text": " Long",
+              "start": 10.87,
+              "end": 11.05,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " Noses!",
+              "start": 11.05,
+              "end": 11.47,
+              "probability": 0.6690673828125
+            },
+            {
+              "text": " Under",
+              "start": 12.09,
+              "end": 12.21,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " The",
+              "start": 12.21,
+              "end": 12.37,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Direct",
+              "start": 12.37,
+              "end": 12.71,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Patronage",
+              "start": 12.71,
+              "end": 13.31,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " Of",
+              "start": 13.31,
+              "end": 13.43,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " The",
+              "start": 13.43,
+              "end": 13.57,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " God",
+              "start": 13.57,
+              "end": 13.83,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Tingou!",
+              "start": 13.83,
+              "end": 14.41,
+              "probability": 0.29935963948567706
+            },
+            {
+              "text": " Great",
+              "start": 14.93,
+              "end": 15.11,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " Attraction!",
+              "start": 15.11,
+              "end": 15.65,
+              "probability": 0.991455078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Acrobatic",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "Japanese",
+          "start": 0.97,
+          "end": 1.51
+        },
+        {
+          "raw": "Troupe,",
+          "start": 1.51,
+          "end": 2.25
+        },
+        {
+          "raw": "Honourable",
+          "start": 2.51,
+          "end": 2.87
+        },
+        {
+          "raw": "William",
+          "start": 2.87,
+          "end": 3.23
+        },
+        {
+          "raw": "Batulcar,",
+          "start": 3.23,
+          "end": 3.89
+        },
+        {
+          "raw": "Proprietor,",
+          "start": 4.17,
+          "end": 4.75
+        },
+        {
+          "raw": "Last,",
+          "start": 4.99,
+          "end": 5.23
+        },
+        {
+          "raw": "Representations,",
+          "start": 5.33,
+          "end": 6.31
+        },
+        {
+          "raw": "Prior",
+          "start": 6.83,
+          "end": 6.85
+        },
+        {
+          "raw": "To",
+          "start": 6.85,
+          "end": 7.13
+        },
+        {
+          "raw": "Their",
+          "start": 7.13,
+          "end": 7.27
+        },
+        {
+          "raw": "Departure",
+          "start": 7.27,
+          "end": 7.77
+        },
+        {
+          "raw": "To",
+          "start": 7.77,
+          "end": 7.93
+        },
+        {
+          "raw": "The",
+          "start": 7.93,
+          "end": 8.03
+        },
+        {
+          "raw": "United",
+          "start": 8.03,
+          "end": 8.27
+        },
+        {
+          "raw": "States",
+          "start": 8.27,
+          "end": 8.75
+        },
+        {
+          "raw": "Of",
+          "start": 8.75,
+          "end": 9.17
+        },
+        {
+          "raw": "The",
+          "start": 9.17,
+          "end": 9.35
+        },
+        {
+          "raw": "Long",
+          "start": 9.35,
+          "end": 9.61
+        },
+        {
+          "raw": "Noses!",
+          "start": 9.61,
+          "end": 10.05
+        },
+        {
+          "raw": "Long",
+          "start": 10.87,
+          "end": 11.05
+        },
+        {
+          "raw": "Noses!",
+          "start": 11.05,
+          "end": 11.47
+        },
+        {
+          "raw": "Under",
+          "start": 12.09,
+          "end": 12.21
+        },
+        {
+          "raw": "The",
+          "start": 12.21,
+          "end": 12.37
+        },
+        {
+          "raw": "Direct",
+          "start": 12.37,
+          "end": 12.71
+        },
+        {
+          "raw": "Patronage",
+          "start": 12.71,
+          "end": 13.31
+        },
+        {
+          "raw": "Of",
+          "start": 13.31,
+          "end": 13.43
+        },
+        {
+          "raw": "The",
+          "start": 13.43,
+          "end": 13.57
+        },
+        {
+          "raw": "God",
+          "start": 13.57,
+          "end": 13.83
+        },
+        {
+          "raw": "Tingou!",
+          "start": 13.83,
+          "end": 14.41
+        },
+        {
+          "raw": "Great",
+          "start": 14.93,
+          "end": 15.11
+        },
+        {
+          "raw": "Attraction!",
+          "start": 15.11,
+          "end": 15.65
+        }
+      ],
+      "expected_tokens": [
+        "Acrobatic",
+        "Japanese",
+        "Troupe,",
+        "Honourable",
+        "William",
+        "Batulcar,",
+        "Proprietor,",
+        "Last",
+        "Representations,",
+        "Prior",
+        "To",
+        "Their",
+        "Departure",
+        "To",
+        "The",
+        "United",
+        "States,",
+        "Of",
+        "The",
+        "Long",
+        "Noses!",
+        "Long",
+        "Noses!",
+        "Under",
+        "The",
+        "Direct",
+        "Patronage",
+        "Of",
+        "The",
+        "God",
+        "Tingou!",
+        "Great",
+        "Attraction!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          33,
+          0,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Acrobatic",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "acrobatic",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Japanese",
+          "start": 0.97,
+          "end": 1.51,
+          "key": "japanese",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Troupe,",
+          "start": 1.51,
+          "end": 2.25,
+          "key": "troupe",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Honourable",
+          "start": 2.51,
+          "end": 2.87,
+          "key": "honourable",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "William",
+          "start": 2.87,
+          "end": 3.23,
+          "key": "william",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Batulcar,",
+          "start": 3.23,
+          "end": 3.89,
+          "key": "batulcar",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Proprietor,",
+          "start": 4.17,
+          "end": 4.75,
+          "key": "proprietor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Last,",
+          "start": 4.99,
+          "end": 5.23,
+          "key": "last",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Representations,",
+          "start": 5.33,
+          "end": 6.31,
+          "key": "representations",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Prior",
+          "start": 6.83,
+          "end": 6.85,
+          "key": "prior",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 6.85,
+          "end": 7.13,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 7.13,
+          "end": 7.27,
+          "key": "their",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Departure",
+          "start": 7.27,
+          "end": 7.77,
+          "key": "departure",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 7.77,
+          "end": 7.93,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 7.93,
+          "end": 8.03,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "United",
+          "start": 8.03,
+          "end": 8.27,
+          "key": "united",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "States",
+          "start": 8.27,
+          "end": 8.75,
+          "key": "states",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 8.75,
+          "end": 9.17,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 9.17,
+          "end": 9.35,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Long",
+          "start": 9.35,
+          "end": 9.61,
+          "key": "long",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Noses!",
+          "start": 9.61,
+          "end": 10.05,
+          "key": "noses",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Long",
+          "start": 10.87,
+          "end": 11.05,
+          "key": "long",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Noses!",
+          "start": 11.05,
+          "end": 11.47,
+          "key": "noses",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Under",
+          "start": 12.09,
+          "end": 12.21,
+          "key": "under",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 12.21,
+          "end": 12.37,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Direct",
+          "start": 12.37,
+          "end": 12.71,
+          "key": "direct",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Patronage",
+          "start": 12.71,
+          "end": 13.31,
+          "key": "patronage",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 13.31,
+          "end": 13.43,
+          "key": "of",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 13.43,
+          "end": 13.57,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 13.57,
+          "end": 13.83,
+          "key": "god",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Tingou!",
+          "start": 13.83,
+          "end": 14.41,
+          "key": "tingou",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Great",
+          "start": 14.93,
+          "end": 15.11,
+          "key": "great",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Attraction!",
+          "start": 15.11,
+          "end": 15.65,
+          "key": "attraction",
+          "pieces": [
+            32
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Acrobatic",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "Japanese",
+          "start": 0.97,
+          "end": 1.51
+        },
+        {
+          "text": "Troupe,",
+          "start": 1.51,
+          "end": 2.25
+        },
+        {
+          "text": "Honourable",
+          "start": 2.51,
+          "end": 2.87
+        },
+        {
+          "text": "William",
+          "start": 2.87,
+          "end": 3.23
+        },
+        {
+          "text": "Batulcar,",
+          "start": 3.23,
+          "end": 3.89
+        },
+        {
+          "text": "Proprietor,",
+          "start": 4.17,
+          "end": 4.75
+        },
+        {
+          "text": "Last",
+          "start": 4.99,
+          "end": 5.23
+        },
+        {
+          "text": "Representations,",
+          "start": 5.33,
+          "end": 6.31
+        },
+        {
+          "text": "Prior",
+          "start": 6.83,
+          "end": 6.85
+        },
+        {
+          "text": "To",
+          "start": 6.85,
+          "end": 7.13
+        },
+        {
+          "text": "Their",
+          "start": 7.13,
+          "end": 7.27
+        },
+        {
+          "text": "Departure",
+          "start": 7.27,
+          "end": 7.77
+        },
+        {
+          "text": "To",
+          "start": 7.77,
+          "end": 7.93
+        },
+        {
+          "text": "The",
+          "start": 7.93,
+          "end": 8.03
+        },
+        {
+          "text": "United",
+          "start": 8.03,
+          "end": 8.27
+        },
+        {
+          "text": "States,",
+          "start": 8.27,
+          "end": 8.75
+        },
+        {
+          "text": "Of",
+          "start": 8.75,
+          "end": 9.17
+        },
+        {
+          "text": "The",
+          "start": 9.17,
+          "end": 9.35
+        },
+        {
+          "text": "Long",
+          "start": 9.35,
+          "end": 9.61
+        },
+        {
+          "text": "Noses!",
+          "start": 9.61,
+          "end": 10.05
+        },
+        {
+          "text": "Long",
+          "start": 10.87,
+          "end": 11.05
+        },
+        {
+          "text": "Noses!",
+          "start": 11.05,
+          "end": 11.47
+        },
+        {
+          "text": "Under",
+          "start": 12.09,
+          "end": 12.21
+        },
+        {
+          "text": "The",
+          "start": 12.21,
+          "end": 12.37
+        },
+        {
+          "text": "Direct",
+          "start": 12.37,
+          "end": 12.71
+        },
+        {
+          "text": "Patronage",
+          "start": 12.71,
+          "end": 13.31
+        },
+        {
+          "text": "Of",
+          "start": 13.31,
+          "end": 13.43
+        },
+        {
+          "text": "The",
+          "start": 13.43,
+          "end": 13.57
+        },
+        {
+          "text": "God",
+          "start": 13.57,
+          "end": 13.83
+        },
+        {
+          "text": "Tingou!",
+          "start": 13.83,
+          "end": 14.41
+        },
+        {
+          "text": "Great",
+          "start": 14.93,
+          "end": 15.11
+        },
+        {
+          "text": "Attraction!",
+          "start": 15.11,
+          "end": 15.65
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 33,
+        "matched_words": 33
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5323238177224994
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5b2c6970df178f5518ec033b58e63a8f6325cd940ed2ef296188b6e0f3a9d4f1",
+  "selected_reasons": []
+}

@@ -1,0 +1,1919 @@
+{
+  "complete": true,
+  "signature": "fa62775543fd8ea69eeb4a81864caa44a7a8d3e16f283a091d405db95fc20b8b",
+  "attempts": [
+    {
+      "asr_seconds": 0.36228616908192635,
+      "alignment_seconds": 0.000990583561360836,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"All will understand your sacrifice,\" I said to him, \"if not at once, they will understand later; for you have served truth, the higher truth, not of the earth.\"",
+        "hotwords": "All, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All, I said to him, \"'If not at once, they will understand later, for you have served truth, the higher truth, not of the earth.'\"",
+          "start": 0.02,
+          "end": 9.38,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.334228515625
+            },
+            {
+              "text": " I",
+              "start": 0.62,
+              "end": 0.84,
+              "probability": 0.00798797607421875
+            },
+            {
+              "text": " said",
+              "start": 0.84,
+              "end": 1.26,
+              "probability": 0.406005859375
+            },
+            {
+              "text": " to",
+              "start": 1.26,
+              "end": 3.02,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " him,",
+              "start": 3.02,
+              "end": 3.24,
+              "probability": 0.966796875
+            },
+            {
+              "text": " \"'If",
+              "start": 3.68,
+              "end": 3.84,
+              "probability": 0.36852407455444336
+            },
+            {
+              "text": " not",
+              "start": 3.84,
+              "end": 4.02,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " at",
+              "start": 4.02,
+              "end": 4.14,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " once,",
+              "start": 4.14,
+              "end": 4.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " they",
+              "start": 4.58,
+              "end": 4.66,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " will",
+              "start": 4.66,
+              "end": 4.8,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " understand",
+              "start": 4.8,
+              "end": 5.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " later,",
+              "start": 5.24,
+              "end": 5.66,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " for",
+              "start": 5.94,
+              "end": 6.14,
+              "probability": 0.7080078125
+            },
+            {
+              "text": " you",
+              "start": 6.14,
+              "end": 6.28,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " have",
+              "start": 6.28,
+              "end": 6.44,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " served",
+              "start": 6.44,
+              "end": 6.72,
+              "probability": 0.982421875
+            },
+            {
+              "text": " truth,",
+              "start": 6.72,
+              "end": 7.22,
+              "probability": 0.697265625
+            },
+            {
+              "text": " the",
+              "start": 7.48,
+              "end": 7.54,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " higher",
+              "start": 7.54,
+              "end": 7.78,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " truth,",
+              "start": 7.78,
+              "end": 8.24,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " not",
+              "start": 8.5,
+              "end": 8.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 8.56,
+              "end": 8.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 8.7,
+              "end": 8.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " earth.'\"",
+              "start": 8.8,
+              "end": 9.38,
+              "probability": 0.792724609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "I",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "raw": "said",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "raw": "to",
+          "start": 1.26,
+          "end": 3.02
+        },
+        {
+          "raw": "him,",
+          "start": 3.02,
+          "end": 3.24
+        },
+        {
+          "raw": "\"'If",
+          "start": 3.68,
+          "end": 3.84
+        },
+        {
+          "raw": "not",
+          "start": 3.84,
+          "end": 4.02
+        },
+        {
+          "raw": "at",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "raw": "once,",
+          "start": 4.14,
+          "end": 4.44
+        },
+        {
+          "raw": "they",
+          "start": 4.58,
+          "end": 4.66
+        },
+        {
+          "raw": "will",
+          "start": 4.66,
+          "end": 4.8
+        },
+        {
+          "raw": "understand",
+          "start": 4.8,
+          "end": 5.24
+        },
+        {
+          "raw": "later,",
+          "start": 5.24,
+          "end": 5.66
+        },
+        {
+          "raw": "for",
+          "start": 5.94,
+          "end": 6.14
+        },
+        {
+          "raw": "you",
+          "start": 6.14,
+          "end": 6.28
+        },
+        {
+          "raw": "have",
+          "start": 6.28,
+          "end": 6.44
+        },
+        {
+          "raw": "served",
+          "start": 6.44,
+          "end": 6.72
+        },
+        {
+          "raw": "truth,",
+          "start": 6.72,
+          "end": 7.22
+        },
+        {
+          "raw": "the",
+          "start": 7.48,
+          "end": 7.54
+        },
+        {
+          "raw": "higher",
+          "start": 7.54,
+          "end": 7.78
+        },
+        {
+          "raw": "truth,",
+          "start": 7.78,
+          "end": 8.24
+        },
+        {
+          "raw": "not",
+          "start": 8.5,
+          "end": 8.56
+        },
+        {
+          "raw": "of",
+          "start": 8.56,
+          "end": 8.7
+        },
+        {
+          "raw": "the",
+          "start": 8.7,
+          "end": 8.8
+        },
+        {
+          "raw": "earth.'\"",
+          "start": 8.8,
+          "end": 9.38
+        }
+      ],
+      "expected_tokens": [
+        "\"All",
+        "will",
+        "understand",
+        "your",
+        "sacrifice,\"",
+        "I",
+        "said",
+        "to",
+        "him,",
+        "\"if",
+        "not",
+        "at",
+        "once,",
+        "they",
+        "will",
+        "understand",
+        "later;",
+        "for",
+        "you",
+        "have",
+        "served",
+        "truth,",
+        "the",
+        "higher",
+        "truth,",
+        "not",
+        "of",
+        "the",
+        "earth.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          5,
+          1,
+          1
+        ],
+        [
+          "equal",
+          5,
+          29,
+          1,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          5,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.62,
+          "end": 0.84,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.84,
+          "end": 1.26,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.26,
+          "end": 3.02,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 3.02,
+          "end": 3.24,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "\"'If",
+          "start": 3.68,
+          "end": 3.84,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.84,
+          "end": 4.02,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.02,
+          "end": 4.14,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "once,",
+          "start": 4.14,
+          "end": 4.44,
+          "key": "once",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.58,
+          "end": 4.66,
+          "key": "they",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.66,
+          "end": 4.8,
+          "key": "will",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 4.8,
+          "end": 5.24,
+          "key": "understand",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "later,",
+          "start": 5.24,
+          "end": 5.66,
+          "key": "later",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.94,
+          "end": 6.14,
+          "key": "for",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.14,
+          "end": 6.28,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.28,
+          "end": 6.44,
+          "key": "have",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "served",
+          "start": 6.44,
+          "end": 6.72,
+          "key": "served",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "truth,",
+          "start": 6.72,
+          "end": 7.22,
+          "key": "truth",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.48,
+          "end": 7.54,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "higher",
+          "start": 7.54,
+          "end": 7.78,
+          "key": "higher",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "truth,",
+          "start": 7.78,
+          "end": 8.24,
+          "key": "truth",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 8.5,
+          "end": 8.56,
+          "key": "not",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.56,
+          "end": 8.7,
+          "key": "of",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.7,
+          "end": 8.8,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "earth.'\"",
+          "start": 8.8,
+          "end": 9.38,
+          "key": "earth",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"All",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "will",
+          "start": 0.6,
+          "end": 0.61
+        },
+        {
+          "text": "understand",
+          "start": 0.61,
+          "end": 0.615
+        },
+        {
+          "text": "your",
+          "start": 0.615,
+          "end": 0.617
+        },
+        {
+          "text": "sacrifice,\"",
+          "start": 0.617,
+          "end": 0.619
+        },
+        {
+          "text": "I",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "text": "said",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "text": "to",
+          "start": 1.26,
+          "end": 3.02
+        },
+        {
+          "text": "him,",
+          "start": 3.02,
+          "end": 3.24
+        },
+        {
+          "text": "\"if",
+          "start": 3.68,
+          "end": 3.84
+        },
+        {
+          "text": "not",
+          "start": 3.84,
+          "end": 4.02
+        },
+        {
+          "text": "at",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "text": "once,",
+          "start": 4.14,
+          "end": 4.44
+        },
+        {
+          "text": "they",
+          "start": 4.58,
+          "end": 4.66
+        },
+        {
+          "text": "will",
+          "start": 4.66,
+          "end": 4.8
+        },
+        {
+          "text": "understand",
+          "start": 4.8,
+          "end": 5.24
+        },
+        {
+          "text": "later;",
+          "start": 5.24,
+          "end": 5.66
+        },
+        {
+          "text": "for",
+          "start": 5.94,
+          "end": 6.14
+        },
+        {
+          "text": "you",
+          "start": 6.14,
+          "end": 6.28
+        },
+        {
+          "text": "have",
+          "start": 6.28,
+          "end": 6.44
+        },
+        {
+          "text": "served",
+          "start": 6.44,
+          "end": 6.72
+        },
+        {
+          "text": "truth,",
+          "start": 6.72,
+          "end": 7.22
+        },
+        {
+          "text": "the",
+          "start": 7.48,
+          "end": 7.54
+        },
+        {
+          "text": "higher",
+          "start": 7.54,
+          "end": 7.78
+        },
+        {
+          "text": "truth,",
+          "start": 7.78,
+          "end": 8.24
+        },
+        {
+          "text": "not",
+          "start": 8.5,
+          "end": 8.56
+        },
+        {
+          "text": "of",
+          "start": 8.56,
+          "end": 8.7
+        },
+        {
+          "text": "the",
+          "start": 8.7,
+          "end": 8.8
+        },
+        {
+          "text": "earth.\"",
+          "start": 8.8,
+          "end": 9.38
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 25,
+        "matched_words": 25
+      },
+      "match_ratio": 0.8620689655172413,
+      "rejection_reasons": [],
+      "seconds": 0.3636488225311041
+    },
+    {
+      "asr_seconds": 0.4266811413690448,
+      "alignment_seconds": 0.0003863060846924782,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "All, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " All will understand your sacrifice. I said to him if not at once they will understand later for you have served truth the higher truth",
+          "start": 0.02,
+          "end": 8.24,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.334228515625
+            },
+            {
+              "text": " will",
+              "start": 0.6,
+              "end": 0.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " understand",
+              "start": 0.74,
+              "end": 1.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 1.2,
+              "end": 1.4,
+              "probability": 0.958984375
+            },
+            {
+              "text": " sacrifice.",
+              "start": 1.4,
+              "end": 1.98,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I",
+              "start": 2.54,
+              "end": 2.66,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " said",
+              "start": 2.66,
+              "end": 2.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.86,
+              "end": 3.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 3.04,
+              "end": 3.26,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " if",
+              "start": 3.26,
+              "end": 3.84,
+              "probability": 0.1298828125
+            },
+            {
+              "text": " not",
+              "start": 3.84,
+              "end": 4.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 4.02,
+              "end": 4.14,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " once",
+              "start": 4.14,
+              "end": 4.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " they",
+              "start": 4.44,
+              "end": 4.66,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " will",
+              "start": 4.66,
+              "end": 4.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " understand",
+              "start": 4.8,
+              "end": 5.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " later",
+              "start": 5.24,
+              "end": 5.66,
+              "probability": 0.9921875
+            },
+            {
+              "text": " for",
+              "start": 5.66,
+              "end": 6.14,
+              "probability": 0.71337890625
+            },
+            {
+              "text": " you",
+              "start": 6.14,
+              "end": 6.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " have",
+              "start": 6.28,
+              "end": 6.44,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " served",
+              "start": 6.44,
+              "end": 6.72,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " truth",
+              "start": 6.72,
+              "end": 7.2,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " the",
+              "start": 7.2,
+              "end": 7.52,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " higher",
+              "start": 7.52,
+              "end": 7.78,
+              "probability": 0.986328125
+            },
+            {
+              "text": " truth",
+              "start": 7.78,
+              "end": 8.24,
+              "probability": 0.98583984375
+            }
+          ]
+        },
+        {
+          "text": " Not of the earth",
+          "start": 8.24,
+          "end": 9.06,
+          "words": [
+            {
+              "text": " Not",
+              "start": 8.24,
+              "end": 8.56,
+              "probability": 0.0390625
+            },
+            {
+              "text": " of",
+              "start": 8.56,
+              "end": 8.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 8.68,
+              "end": 8.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " earth",
+              "start": 8.8,
+              "end": 9.06,
+              "probability": 0.8515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "will",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "raw": "understand",
+          "start": 0.74,
+          "end": 1.2
+        },
+        {
+          "raw": "your",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "raw": "sacrifice.",
+          "start": 1.4,
+          "end": 1.98
+        },
+        {
+          "raw": "I",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "raw": "said",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "raw": "to",
+          "start": 2.86,
+          "end": 3.04
+        },
+        {
+          "raw": "him",
+          "start": 3.04,
+          "end": 3.26
+        },
+        {
+          "raw": "if",
+          "start": 3.26,
+          "end": 3.84
+        },
+        {
+          "raw": "not",
+          "start": 3.84,
+          "end": 4.02
+        },
+        {
+          "raw": "at",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "raw": "once",
+          "start": 4.14,
+          "end": 4.44
+        },
+        {
+          "raw": "they",
+          "start": 4.44,
+          "end": 4.66
+        },
+        {
+          "raw": "will",
+          "start": 4.66,
+          "end": 4.8
+        },
+        {
+          "raw": "understand",
+          "start": 4.8,
+          "end": 5.24
+        },
+        {
+          "raw": "later",
+          "start": 5.24,
+          "end": 5.66
+        },
+        {
+          "raw": "for",
+          "start": 5.66,
+          "end": 6.14
+        },
+        {
+          "raw": "you",
+          "start": 6.14,
+          "end": 6.28
+        },
+        {
+          "raw": "have",
+          "start": 6.28,
+          "end": 6.44
+        },
+        {
+          "raw": "served",
+          "start": 6.44,
+          "end": 6.72
+        },
+        {
+          "raw": "truth",
+          "start": 6.72,
+          "end": 7.2
+        },
+        {
+          "raw": "the",
+          "start": 7.2,
+          "end": 7.52
+        },
+        {
+          "raw": "higher",
+          "start": 7.52,
+          "end": 7.78
+        },
+        {
+          "raw": "truth",
+          "start": 7.78,
+          "end": 8.24
+        },
+        {
+          "raw": "Not",
+          "start": 8.24,
+          "end": 8.56
+        },
+        {
+          "raw": "of",
+          "start": 8.56,
+          "end": 8.68
+        },
+        {
+          "raw": "the",
+          "start": 8.68,
+          "end": 8.8
+        },
+        {
+          "raw": "earth",
+          "start": 8.8,
+          "end": 9.06
+        }
+      ],
+      "expected_tokens": [
+        "\"All",
+        "will",
+        "understand",
+        "your",
+        "sacrifice,\"",
+        "I",
+        "said",
+        "to",
+        "him,",
+        "\"if",
+        "not",
+        "at",
+        "once,",
+        "they",
+        "will",
+        "understand",
+        "later;",
+        "for",
+        "you",
+        "have",
+        "served",
+        "truth,",
+        "the",
+        "higher",
+        "truth,",
+        "not",
+        "of",
+        "the",
+        "earth.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          29,
+          0,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.6,
+          "end": 0.74,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 0.74,
+          "end": 1.2,
+          "key": "understand",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.2,
+          "end": 1.4,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sacrifice.",
+          "start": 1.4,
+          "end": 1.98,
+          "key": "sacrifice",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.54,
+          "end": 2.66,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.66,
+          "end": 2.86,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.86,
+          "end": 3.04,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.04,
+          "end": 3.26,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.26,
+          "end": 3.84,
+          "key": "if",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.84,
+          "end": 4.02,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.02,
+          "end": 4.14,
+          "key": "at",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 4.14,
+          "end": 4.44,
+          "key": "once",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.44,
+          "end": 4.66,
+          "key": "they",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.66,
+          "end": 4.8,
+          "key": "will",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 4.8,
+          "end": 5.24,
+          "key": "understand",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "later",
+          "start": 5.24,
+          "end": 5.66,
+          "key": "later",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.66,
+          "end": 6.14,
+          "key": "for",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.14,
+          "end": 6.28,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.28,
+          "end": 6.44,
+          "key": "have",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "served",
+          "start": 6.44,
+          "end": 6.72,
+          "key": "served",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "truth",
+          "start": 6.72,
+          "end": 7.2,
+          "key": "truth",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.2,
+          "end": 7.52,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "higher",
+          "start": 7.52,
+          "end": 7.78,
+          "key": "higher",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "truth",
+          "start": 7.78,
+          "end": 8.24,
+          "key": "truth",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 8.24,
+          "end": 8.56,
+          "key": "not",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.56,
+          "end": 8.68,
+          "key": "of",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.68,
+          "end": 8.8,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "earth",
+          "start": 8.8,
+          "end": 9.06,
+          "key": "earth",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"All",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "will",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "text": "understand",
+          "start": 0.74,
+          "end": 1.2
+        },
+        {
+          "text": "your",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "text": "sacrifice,\"",
+          "start": 1.4,
+          "end": 1.98
+        },
+        {
+          "text": "I",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "text": "said",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "text": "to",
+          "start": 2.86,
+          "end": 3.04
+        },
+        {
+          "text": "him,",
+          "start": 3.04,
+          "end": 3.26
+        },
+        {
+          "text": "\"if",
+          "start": 3.26,
+          "end": 3.84
+        },
+        {
+          "text": "not",
+          "start": 3.84,
+          "end": 4.02
+        },
+        {
+          "text": "at",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "text": "once,",
+          "start": 4.14,
+          "end": 4.44
+        },
+        {
+          "text": "they",
+          "start": 4.44,
+          "end": 4.66
+        },
+        {
+          "text": "will",
+          "start": 4.66,
+          "end": 4.8
+        },
+        {
+          "text": "understand",
+          "start": 4.8,
+          "end": 5.24
+        },
+        {
+          "text": "later;",
+          "start": 5.24,
+          "end": 5.66
+        },
+        {
+          "text": "for",
+          "start": 5.66,
+          "end": 6.14
+        },
+        {
+          "text": "you",
+          "start": 6.14,
+          "end": 6.28
+        },
+        {
+          "text": "have",
+          "start": 6.28,
+          "end": 6.44
+        },
+        {
+          "text": "served",
+          "start": 6.44,
+          "end": 6.72
+        },
+        {
+          "text": "truth,",
+          "start": 6.72,
+          "end": 7.2
+        },
+        {
+          "text": "the",
+          "start": 7.2,
+          "end": 7.52
+        },
+        {
+          "text": "higher",
+          "start": 7.52,
+          "end": 7.78
+        },
+        {
+          "text": "truth,",
+          "start": 7.78,
+          "end": 8.24
+        },
+        {
+          "text": "not",
+          "start": 8.24,
+          "end": 8.56
+        },
+        {
+          "text": "of",
+          "start": 8.56,
+          "end": 8.68
+        },
+        {
+          "text": "the",
+          "start": 8.68,
+          "end": 8.8
+        },
+        {
+          "text": "earth.\"",
+          "start": 8.8,
+          "end": 9.06
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 29,
+        "matched_words": 29
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4272251008078456
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "d352f8a931021e005cb8cd3326839fc7733881b74e65576e0462d0394270a5d8",
+  "selected_reasons": []
+}

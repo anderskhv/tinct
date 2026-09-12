@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "a8a05207e1e7e7ce1ae2475324785874e0e911c616441bcf02f75230dffdcd55",
+  "attempts": [
+    {
+      "asr_seconds": 0.26428246684372425,
+      "alignment_seconds": 0.0003809528425335884,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"'What do you mean? What makes you say so? The general was here not long ago, and everything was all right.'",
+        "hotwords": "What, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What do you mean? What makes you say so? The general was here not long ago, and everything was all right.\"",
+          "start": 0.05,
+          "end": 6.05,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " do",
+              "start": 0.57,
+              "end": 0.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 0.67,
+              "end": 0.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mean?",
+              "start": 0.77,
+              "end": 1.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " What",
+              "start": 1.43,
+              "end": 1.55,
+              "probability": 0.974609375
+            },
+            {
+              "text": " makes",
+              "start": 1.55,
+              "end": 1.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 1.75,
+              "end": 1.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " say",
+              "start": 1.97,
+              "end": 2.17,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " so?",
+              "start": 2.17,
+              "end": 2.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " The",
+              "start": 2.95,
+              "end": 3.09,
+              "probability": 0.966796875
+            },
+            {
+              "text": " general",
+              "start": 3.09,
+              "end": 3.37,
+              "probability": 0.437255859375
+            },
+            {
+              "text": " was",
+              "start": 3.37,
+              "end": 3.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " here",
+              "start": 3.65,
+              "end": 3.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 3.85,
+              "end": 4.07,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " long",
+              "start": 4.07,
+              "end": 4.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ago,",
+              "start": 4.31,
+              "end": 4.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 4.79,
+              "end": 4.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " everything",
+              "start": 4.95,
+              "end": 5.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 5.29,
+              "end": 5.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " all",
+              "start": 5.53,
+              "end": 5.73,
+              "probability": 0.5361328125
+            },
+            {
+              "text": " right.\"",
+              "start": 5.73,
+              "end": 6.05,
+              "probability": 0.539947509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "do",
+          "start": 0.57,
+          "end": 0.67
+        },
+        {
+          "raw": "you",
+          "start": 0.67,
+          "end": 0.77
+        },
+        {
+          "raw": "mean?",
+          "start": 0.77,
+          "end": 1.01
+        },
+        {
+          "raw": "What",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "raw": "makes",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "raw": "you",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "raw": "say",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "raw": "so?",
+          "start": 2.17,
+          "end": 2.47
+        },
+        {
+          "raw": "The",
+          "start": 2.95,
+          "end": 3.09
+        },
+        {
+          "raw": "general",
+          "start": 3.09,
+          "end": 3.37
+        },
+        {
+          "raw": "was",
+          "start": 3.37,
+          "end": 3.65
+        },
+        {
+          "raw": "here",
+          "start": 3.65,
+          "end": 3.85
+        },
+        {
+          "raw": "not",
+          "start": 3.85,
+          "end": 4.07
+        },
+        {
+          "raw": "long",
+          "start": 4.07,
+          "end": 4.31
+        },
+        {
+          "raw": "ago,",
+          "start": 4.31,
+          "end": 4.59
+        },
+        {
+          "raw": "and",
+          "start": 4.79,
+          "end": 4.95
+        },
+        {
+          "raw": "everything",
+          "start": 4.95,
+          "end": 5.29
+        },
+        {
+          "raw": "was",
+          "start": 5.29,
+          "end": 5.53
+        },
+        {
+          "raw": "all",
+          "start": 5.53,
+          "end": 5.73
+        },
+        {
+          "raw": "right.\"",
+          "start": 5.73,
+          "end": 6.05
+        }
+      ],
+      "expected_tokens": [
+        "\"'What",
+        "do",
+        "you",
+        "mean?",
+        "What",
+        "makes",
+        "you",
+        "say",
+        "so?",
+        "The",
+        "general",
+        "was",
+        "here",
+        "not",
+        "long",
+        "ago,",
+        "and",
+        "everything",
+        "was",
+        "all",
+        "right.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.57,
+          "end": 0.67,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.67,
+          "end": 0.77,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mean?",
+          "start": 0.77,
+          "end": 1.01,
+          "key": "mean",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.43,
+          "end": 1.55,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "makes",
+          "start": 1.55,
+          "end": 1.75,
+          "key": "makes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.75,
+          "end": 1.97,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.97,
+          "end": 2.17,
+          "key": "say",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "so?",
+          "start": 2.17,
+          "end": 2.47,
+          "key": "so",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.95,
+          "end": 3.09,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "general",
+          "start": 3.09,
+          "end": 3.37,
+          "key": "general",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.37,
+          "end": 3.65,
+          "key": "was",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 3.65,
+          "end": 3.85,
+          "key": "here",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.85,
+          "end": 4.07,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 4.07,
+          "end": 4.31,
+          "key": "long",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ago,",
+          "start": 4.31,
+          "end": 4.59,
+          "key": "ago",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.79,
+          "end": 4.95,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "everything",
+          "start": 4.95,
+          "end": 5.29,
+          "key": "everything",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.29,
+          "end": 5.53,
+          "key": "was",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 5.53,
+          "end": 5.73,
+          "key": "all",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "right.\"",
+          "start": 5.73,
+          "end": 6.05,
+          "key": "right",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"'What",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "do",
+          "start": 0.57,
+          "end": 0.67
+        },
+        {
+          "text": "you",
+          "start": 0.67,
+          "end": 0.77
+        },
+        {
+          "text": "mean?",
+          "start": 0.77,
+          "end": 1.01
+        },
+        {
+          "text": "What",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "text": "makes",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "text": "you",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "text": "say",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "text": "so?",
+          "start": 2.17,
+          "end": 2.47
+        },
+        {
+          "text": "The",
+          "start": 2.95,
+          "end": 3.09
+        },
+        {
+          "text": "general",
+          "start": 3.09,
+          "end": 3.37
+        },
+        {
+          "text": "was",
+          "start": 3.37,
+          "end": 3.65
+        },
+        {
+          "text": "here",
+          "start": 3.65,
+          "end": 3.85
+        },
+        {
+          "text": "not",
+          "start": 3.85,
+          "end": 4.07
+        },
+        {
+          "text": "long",
+          "start": 4.07,
+          "end": 4.31
+        },
+        {
+          "text": "ago,",
+          "start": 4.31,
+          "end": 4.59
+        },
+        {
+          "text": "and",
+          "start": 4.79,
+          "end": 4.95
+        },
+        {
+          "text": "everything",
+          "start": 4.95,
+          "end": 5.29
+        },
+        {
+          "text": "was",
+          "start": 5.29,
+          "end": 5.53
+        },
+        {
+          "text": "all",
+          "start": 5.53,
+          "end": 5.73
+        },
+        {
+          "text": "right.'",
+          "start": 5.73,
+          "end": 6.05
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2648438159376383
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "42467a578337aeed304f51ca1dee2285f379b7e75a3f67f28a4bc1f1e4e02c90",
+  "selected_reasons": []
+}

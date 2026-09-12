@@ -1,0 +1,335 @@
+{
+  "complete": true,
+  "signature": "467c6911012fb1d36f2cc97c60363450f1301122410fccdaa39e762bd5cfd61d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1901608556509018,
+      "alignment_seconds": 0.0004243217408657074,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Didn't you think you heard something? Ask Sarah.",
+          "start": 0.02,
+          "end": 2.5,
+          "words": [
+            {
+              "text": " Didn't",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " you",
+              "start": 0.6,
+              "end": 0.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " think",
+              "start": 0.72,
+              "end": 0.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 0.84,
+              "end": 0.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " heard",
+              "start": 0.96,
+              "end": 1.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " something?",
+              "start": 1.14,
+              "end": 1.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Ask",
+              "start": 2.22,
+              "end": 2.22,
+              "probability": 0.51318359375
+            },
+            {
+              "text": " Sarah.",
+              "start": 2.22,
+              "end": 2.5,
+              "probability": 0.79833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Didn't",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "you",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "raw": "think",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "raw": "you",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "raw": "heard",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "raw": "something?",
+          "start": 1.14,
+          "end": 1.6
+        },
+        {
+          "raw": "Ask",
+          "start": 2.22,
+          "end": 2.22
+        },
+        {
+          "raw": "Sarah.",
+          "start": 2.22,
+          "end": 2.5
+        }
+      ],
+      "expected_tokens": [
+        "\"Didn't",
+        "you",
+        "think",
+        "you",
+        "heard",
+        "something?\"",
+        "asked",
+        "Sara."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          8,
+          6,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          8,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Didn't",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "didnt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.6,
+          "end": 0.72,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 0.72,
+          "end": 0.84,
+          "key": "think",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.84,
+          "end": 0.96,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 0.96,
+          "end": 1.14,
+          "key": "heard",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "something?",
+          "start": 1.14,
+          "end": 1.6,
+          "key": "something",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Ask",
+          "start": 2.22,
+          "end": 2.22,
+          "key": "ask",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Sarah.",
+          "start": 2.22,
+          "end": 2.5,
+          "key": "sarah",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Didn't",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "you",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "text": "think",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "text": "you",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "text": "heard",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "text": "something?\"",
+          "start": 1.14,
+          "end": 1.6
+        },
+        {
+          "text": "asked",
+          "start": 1.6,
+          "end": 2.05
+        },
+        {
+          "text": "Sara.",
+          "start": 2.05,
+          "end": 2.275
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1907322183251381
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8d2ce8a482e9e782ff4a0f3ace081e8929b8f5fc154c724ccacaee9809a29394",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

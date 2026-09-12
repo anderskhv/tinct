@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "30af7c143e407d2b4b1b003901615481d5cfde90110b5faf318a5a55bc295851",
+  "attempts": [
+    {
+      "asr_seconds": 0.1338464290020056,
+      "alignment_seconds": 0.00014902499970048666,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Eros, I would not seat.",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Eros,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.843994140625
+            },
+            {
+              "text": " I",
+              "start": 1.07,
+              "end": 1.13,
+              "probability": 0.982421875
+            },
+            {
+              "text": " would",
+              "start": 1.13,
+              "end": 1.21,
+              "probability": 0.994140625
+            },
+            {
+              "text": " not",
+              "start": 1.21,
+              "end": 1.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " seat.",
+              "start": 1.37,
+              "end": 1.69,
+              "probability": 0.88232421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Eros,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "I",
+          "start": 1.07,
+          "end": 1.13
+        },
+        {
+          "raw": "would",
+          "start": 1.13,
+          "end": 1.21
+        },
+        {
+          "raw": "not",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "raw": "seat.",
+          "start": 1.37,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "Eros.",
+        "I",
+        "would",
+        "not",
+        "see't."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Eros,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "eros",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.07,
+          "end": 1.13,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.13,
+          "end": 1.21,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.21,
+          "end": 1.37,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "seat.",
+          "start": 1.37,
+          "end": 1.69,
+          "key": "seat",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Eros.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "I",
+          "start": 1.07,
+          "end": 1.13
+        },
+        {
+          "text": "would",
+          "start": 1.13,
+          "end": 1.21
+        },
+        {
+          "text": "not",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "text": "see't.",
+          "start": 1.37,
+          "end": 1.53
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13404712599003688
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b9ac116a0b8c9bf9254eac108f23268f4b558a81ef82be61ae56caa9da2c1a70",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

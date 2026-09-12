@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "c1d33c289eb9913a7da03e60d28b82befa6dc6eeb38144dd0f60f5115e09c90e",
+  "attempts": [
+    {
+      "asr_seconds": 0.18481822777539492,
+      "alignment_seconds": 0.0001767156645655632,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Kneel not, gentle Portia.",
+        "hotwords": "Brutus, Kneel, Portia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, Kneel not, gentle Portia.",
+          "start": 0.05,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.985107421875
+            },
+            {
+              "text": " Kneel",
+              "start": 1.35,
+              "end": 1.47,
+              "probability": 0.6976521809895834
+            },
+            {
+              "text": " not,",
+              "start": 1.47,
+              "end": 1.69,
+              "probability": 0.35498046875
+            },
+            {
+              "text": " gentle",
+              "start": 1.83,
+              "end": 2.09,
+              "probability": 0.58984375
+            },
+            {
+              "text": " Portia.",
+              "start": 2.09,
+              "end": 2.61,
+              "probability": 0.891357421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Kneel",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "raw": "not,",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "raw": "gentle",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "raw": "Portia.",
+          "start": 2.09,
+          "end": 2.61
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Kneel",
+        "not,",
+        "gentle",
+        "Portia."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kneel",
+          "start": 1.35,
+          "end": 1.47,
+          "key": "kneel",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 1.47,
+          "end": 1.69,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gentle",
+          "start": 1.83,
+          "end": 2.09,
+          "key": "gentle",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Portia.",
+          "start": 2.09,
+          "end": 2.61,
+          "key": "portia",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Kneel",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "text": "not,",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "text": "gentle",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "text": "Portia.",
+          "start": 2.09,
+          "end": 2.61
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1850587734952569
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1945ae80a04c52b7a789d246e9eee1957b296e3e1060584ec4315f04cff6e4bb",
+  "selected_reasons": []
+}

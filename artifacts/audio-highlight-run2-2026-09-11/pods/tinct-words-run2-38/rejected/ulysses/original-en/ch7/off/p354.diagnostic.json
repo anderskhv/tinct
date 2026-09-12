@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "5576403a18de19452e0c109f57b696c9133137a48b846d2f4fb9b6dd8ab82a75",
+  "attempts": [
+    {
+      "asr_seconds": 0.10265009402064607,
+      "alignment_seconds": 0.00017448101425543427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " nightmare from which you will never awake.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " nightmare",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.493408203125
+            },
+            {
+              "text": " from",
+              "start": 0.71,
+              "end": 1.03,
+              "probability": 0.986328125
+            },
+            {
+              "text": " which",
+              "start": 1.03,
+              "end": 1.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " will",
+              "start": 1.37,
+              "end": 1.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " never",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " awake.",
+              "start": 1.71,
+              "end": 2.07,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "nightmare",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "from",
+          "start": 0.71,
+          "end": 1.03
+        },
+        {
+          "raw": "which",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "raw": "you",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "will",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "raw": "never",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "awake.",
+          "start": 1.71,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Nightmare",
+        "from",
+        "which",
+        "you",
+        "will",
+        "never",
+        "awake."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "nightmare",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "nightmare",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 0.71,
+          "end": 1.03,
+          "key": "from",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 1.03,
+          "end": 1.19,
+          "key": "which",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.37,
+          "end": 1.49,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "never",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "awake.",
+          "start": 1.71,
+          "end": 2.07,
+          "key": "awake",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Nightmare",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "from",
+          "start": 0.71,
+          "end": 1.03
+        },
+        {
+          "text": "which",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "text": "you",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "will",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "text": "never",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "awake.",
+          "start": 1.71,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10289564600680023
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8f00e50a6f4378e941a457bbe7a2f383153d7bf15a308b6bffe94e40abc9c92e",
+  "selected_reasons": []
+}

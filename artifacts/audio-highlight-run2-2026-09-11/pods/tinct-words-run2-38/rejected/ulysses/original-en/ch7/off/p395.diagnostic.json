@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "05d0bef03e4fa7680d29866742d434d0f0e39bd251a2c3883ad3269ed61da861",
+  "attempts": [
+    {
+      "asr_seconds": 0.14553740399423987,
+      "alignment_seconds": 0.00019106100080534816,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Messenger took out his matchbox thoughtfully and lit his cigar.",
+          "start": 0.05,
+          "end": 3.69,
+          "words": [
+            {
+              "text": " Messenger",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.890625
+            },
+            {
+              "text": " took",
+              "start": 0.77,
+              "end": 1.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out",
+              "start": 1.05,
+              "end": 1.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 1.23,
+              "end": 1.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " matchbox",
+              "start": 1.39,
+              "end": 1.97,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " thoughtfully",
+              "start": 1.97,
+              "end": 2.51,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 2.51,
+              "end": 3.03,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " lit",
+              "start": 3.03,
+              "end": 3.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 3.19,
+              "end": 3.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cigar.",
+              "start": 3.37,
+              "end": 3.69,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "took",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "raw": "out",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "raw": "his",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "raw": "matchbox",
+          "start": 1.39,
+          "end": 1.97
+        },
+        {
+          "raw": "thoughtfully",
+          "start": 1.97,
+          "end": 2.51
+        },
+        {
+          "raw": "and",
+          "start": 2.51,
+          "end": 3.03
+        },
+        {
+          "raw": "lit",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "raw": "his",
+          "start": 3.19,
+          "end": 3.37
+        },
+        {
+          "raw": "cigar.",
+          "start": 3.37,
+          "end": 3.69
+        }
+      ],
+      "expected_tokens": [
+        "Messenger",
+        "took",
+        "out",
+        "his",
+        "matchbox",
+        "thoughtfully",
+        "and",
+        "lit",
+        "his",
+        "cigar."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 0.77,
+          "end": 1.05,
+          "key": "took",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.05,
+          "end": 1.23,
+          "key": "out",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.23,
+          "end": 1.39,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "matchbox",
+          "start": 1.39,
+          "end": 1.97,
+          "key": "matchbox",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thoughtfully",
+          "start": 1.97,
+          "end": 2.51,
+          "key": "thoughtfully",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.51,
+          "end": 3.03,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lit",
+          "start": 3.03,
+          "end": 3.19,
+          "key": "lit",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.19,
+          "end": 3.37,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "cigar.",
+          "start": 3.37,
+          "end": 3.69,
+          "key": "cigar",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "took",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "text": "out",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "text": "his",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "text": "matchbox",
+          "start": 1.39,
+          "end": 1.97
+        },
+        {
+          "text": "thoughtfully",
+          "start": 1.97,
+          "end": 2.51
+        },
+        {
+          "text": "and",
+          "start": 2.51,
+          "end": 3.03
+        },
+        {
+          "text": "lit",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "text": "his",
+          "start": 3.19,
+          "end": 3.37
+        },
+        {
+          "text": "cigar.",
+          "start": 3.37,
+          "end": 3.69
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1458078550058417
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "41d90a1cba46689d5a9e51045a2d8b31a6b0526b76999969fcd1c049a2fb7a12",
+  "selected_reasons": []
+}

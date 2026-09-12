@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "a5e00e73317b4885b2a7b2804dc15a3905bbc6eb6b145ee5367a6868bbd2c508",
+  "attempts": [
+    {
+      "asr_seconds": 0.2369583835825324,
+      "alignment_seconds": 0.00046290643513202667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caesar nay blush not Cleopatra. I approve your wisdom in the deed",
+          "start": 0.08,
+          "end": 4.46,
+          "words": [
+            {
+              "text": " Caesar",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " nay",
+              "start": 0.76,
+              "end": 1.52,
+              "probability": 0.506622314453125
+            },
+            {
+              "text": " blush",
+              "start": 1.52,
+              "end": 1.74,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " not",
+              "start": 1.74,
+              "end": 2.06,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " Cleopatra.",
+              "start": 2.06,
+              "end": 2.66,
+              "probability": 0.9611002604166666
+            },
+            {
+              "text": " I",
+              "start": 2.94,
+              "end": 3.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " approve",
+              "start": 3.2,
+              "end": 3.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " your",
+              "start": 3.44,
+              "end": 3.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wisdom",
+              "start": 3.64,
+              "end": 3.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 3.96,
+              "end": 4.1,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " the",
+              "start": 4.1,
+              "end": 4.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " deed",
+              "start": 4.2,
+              "end": 4.46,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "nay",
+          "start": 0.76,
+          "end": 1.52
+        },
+        {
+          "raw": "blush",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "raw": "not",
+          "start": 1.74,
+          "end": 2.06
+        },
+        {
+          "raw": "Cleopatra.",
+          "start": 2.06,
+          "end": 2.66
+        },
+        {
+          "raw": "I",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "raw": "approve",
+          "start": 3.2,
+          "end": 3.44
+        },
+        {
+          "raw": "your",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "raw": "wisdom",
+          "start": 3.64,
+          "end": 3.96
+        },
+        {
+          "raw": "in",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "raw": "the",
+          "start": 4.1,
+          "end": 4.2
+        },
+        {
+          "raw": "deed",
+          "start": 4.2,
+          "end": 4.46
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "Nay,",
+        "blush",
+        "not,",
+        "Cleopatra.",
+        "I",
+        "approve",
+        "Your",
+        "wisdom",
+        "in",
+        "the",
+        "deed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nay",
+          "start": 0.76,
+          "end": 1.52,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "blush",
+          "start": 1.52,
+          "end": 1.74,
+          "key": "blush",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.74,
+          "end": 2.06,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Cleopatra.",
+          "start": 2.06,
+          "end": 2.66,
+          "key": "cleopatra",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.94,
+          "end": 3.2,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "approve",
+          "start": 3.2,
+          "end": 3.44,
+          "key": "approve",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.44,
+          "end": 3.64,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wisdom",
+          "start": 3.64,
+          "end": 3.96,
+          "key": "wisdom",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.96,
+          "end": 4.1,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.1,
+          "end": 4.2,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "deed",
+          "start": 4.2,
+          "end": 4.46,
+          "key": "deed",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "Nay,",
+          "start": 0.76,
+          "end": 1.52
+        },
+        {
+          "text": "blush",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "text": "not,",
+          "start": 1.74,
+          "end": 2.06
+        },
+        {
+          "text": "Cleopatra.",
+          "start": 2.06,
+          "end": 2.66
+        },
+        {
+          "text": "I",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "text": "approve",
+          "start": 3.2,
+          "end": 3.44
+        },
+        {
+          "text": "Your",
+          "start": 3.44,
+          "end": 3.64
+        },
+        {
+          "text": "wisdom",
+          "start": 3.64,
+          "end": 3.96
+        },
+        {
+          "text": "in",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "text": "the",
+          "start": 4.1,
+          "end": 4.2
+        },
+        {
+          "text": "deed.",
+          "start": 4.2,
+          "end": 4.46
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23761343024671078
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a1ff285386e7523c83e90e4c0500a7b2a734db8e09947488de1b090e7e54e633",
+  "selected_reasons": []
+}

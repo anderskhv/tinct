@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "1f16ba21068240865eb4c6930fd608ef9d4a3e2f19a64f91a84b4480726ed9bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.10927392542362213,
+      "alignment_seconds": 0.00021408870816230774,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Norfolk.",
+        "hotwords": "Enter, Norfolk"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Norfolk.",
+          "start": 0.05,
+          "end": 1.03,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.927734375
+            },
+            {
+              "text": " Norfolk.",
+              "start": 0.65,
+              "end": 1.03,
+              "probability": 0.720703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Norfolk.",
+          "start": 0.65,
+          "end": 1.03
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Norfolk."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Norfolk.",
+          "start": 0.65,
+          "end": 1.03,
+          "key": "norfolk",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Norfolk.",
+          "start": 0.65,
+          "end": 1.03
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10956249386072159
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a63d4aa1746b9af40cdf011cd307692a7e3f67ee62f1015a6482adccef64ad5b",
+  "selected_reasons": []
+}

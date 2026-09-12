@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "510c65763d6e44a13e385f8dfc16ce51dc492b60a1ada1ac3a44196b82eaf5b0",
+  "attempts": [
+    {
+      "asr_seconds": 0.33054822217673063,
+      "alignment_seconds": 0.0006083128973841667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Guiderius. Nay, Cadwal, we must lay his head to th' East; My father hath a reason for't.",
+        "hotwords": "Guiderius, Nay, Cadwal, East, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Guiderius, Nay, Cadwal, we must lay his head to th' East. My father hath a reason for't.",
+          "start": 0.61,
+          "end": 6.41,
+          "words": [
+            {
+              "text": " Guiderius,",
+              "start": 0.61,
+              "end": 1.07,
+              "probability": 0.29557355244954425
+            },
+            {
+              "text": " Nay,",
+              "start": 1.51,
+              "end": 1.75,
+              "probability": 0.218994140625
+            },
+            {
+              "text": " Cadwal,",
+              "start": 1.97,
+              "end": 2.17,
+              "probability": 0.39208984375
+            },
+            {
+              "text": " we",
+              "start": 2.33,
+              "end": 2.33,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " must",
+              "start": 2.33,
+              "end": 2.47,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " lay",
+              "start": 2.47,
+              "end": 2.73,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " his",
+              "start": 2.73,
+              "end": 2.89,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " head",
+              "start": 2.89,
+              "end": 3.07,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " to",
+              "start": 3.07,
+              "end": 3.25,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " th'",
+              "start": 3.25,
+              "end": 3.57,
+              "probability": 0.06256103515625
+            },
+            {
+              "text": " East.",
+              "start": 3.99,
+              "end": 4.17,
+              "probability": 0.26513671875
+            },
+            {
+              "text": " My",
+              "start": 4.63,
+              "end": 4.73,
+              "probability": 0.97265625
+            },
+            {
+              "text": " father",
+              "start": 4.73,
+              "end": 5.03,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " hath",
+              "start": 5.03,
+              "end": 5.27,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " a",
+              "start": 5.27,
+              "end": 5.39,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " reason",
+              "start": 5.39,
+              "end": 5.65,
+              "probability": 0.953125
+            },
+            {
+              "text": " for't.",
+              "start": 5.65,
+              "end": 6.41,
+              "probability": 0.422698974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.61,
+          "end": 1.07
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "raw": "Cadwal,",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "raw": "we",
+          "start": 2.33,
+          "end": 2.33
+        },
+        {
+          "raw": "must",
+          "start": 2.33,
+          "end": 2.47
+        },
+        {
+          "raw": "lay",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "raw": "his",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "raw": "head",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "raw": "to",
+          "start": 3.07,
+          "end": 3.25
+        },
+        {
+          "raw": "th'",
+          "start": 3.25,
+          "end": 3.57
+        },
+        {
+          "raw": "East.",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "raw": "My",
+          "start": 4.63,
+          "end": 4.73
+        },
+        {
+          "raw": "father",
+          "start": 4.73,
+          "end": 5.03
+        },
+        {
+          "raw": "hath",
+          "start": 5.03,
+          "end": 5.27
+        },
+        {
+          "raw": "a",
+          "start": 5.27,
+          "end": 5.39
+        },
+        {
+          "raw": "reason",
+          "start": 5.39,
+          "end": 5.65
+        },
+        {
+          "raw": "for't.",
+          "start": 5.65,
+          "end": 6.41
+        }
+      ],
+      "expected_tokens": [
+        "Guiderius.",
+        "Nay,",
+        "Cadwal,",
+        "we",
+        "must",
+        "lay",
+        "his",
+        "head",
+        "to",
+        "th'",
+        "East;",
+        "My",
+        "father",
+        "hath",
+        "a",
+        "reason",
+        "for't."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.61,
+          "end": 1.07,
+          "key": "guiderius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.51,
+          "end": 1.75,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cadwal,",
+          "start": 1.97,
+          "end": 2.17,
+          "key": "cadwal",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.33,
+          "end": 2.33,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.33,
+          "end": 2.47,
+          "key": "must",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 2.47,
+          "end": 2.73,
+          "key": "lay",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.73,
+          "end": 2.89,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 2.89,
+          "end": 3.07,
+          "key": "head",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.07,
+          "end": 3.25,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 3.25,
+          "end": 3.57,
+          "key": "th",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "East.",
+          "start": 3.99,
+          "end": 4.17,
+          "key": "east",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 4.63,
+          "end": 4.73,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 4.73,
+          "end": 5.03,
+          "key": "father",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 5.03,
+          "end": 5.27,
+          "key": "hath",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.27,
+          "end": 5.39,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 5.39,
+          "end": 5.65,
+          "key": "reason",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "for't.",
+          "start": 5.65,
+          "end": 6.41,
+          "key": "fort",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guiderius.",
+          "start": 0.61,
+          "end": 1.07
+        },
+        {
+          "text": "Nay,",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "text": "Cadwal,",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "text": "we",
+          "start": 2.33,
+          "end": 2.33
+        },
+        {
+          "text": "must",
+          "start": 2.33,
+          "end": 2.47
+        },
+        {
+          "text": "lay",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "text": "his",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "text": "head",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "text": "to",
+          "start": 3.07,
+          "end": 3.25
+        },
+        {
+          "text": "th'",
+          "start": 3.25,
+          "end": 3.57
+        },
+        {
+          "text": "East;",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "text": "My",
+          "start": 4.63,
+          "end": 4.73
+        },
+        {
+          "text": "father",
+          "start": 4.73,
+          "end": 5.03
+        },
+        {
+          "text": "hath",
+          "start": 5.03,
+          "end": 5.27
+        },
+        {
+          "text": "a",
+          "start": 5.27,
+          "end": 5.39
+        },
+        {
+          "text": "reason",
+          "start": 5.39,
+          "end": 5.65
+        },
+        {
+          "text": "for't.",
+          "start": 5.65,
+          "end": 6.41
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3314109845086932
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b4a8d8deb86cdec1c7dde6d09175482dd42b950f0732ae7414ec71e9c8e0fb82",
+  "selected_reasons": []
+}

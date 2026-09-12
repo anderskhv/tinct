@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "2772f423497b7bc4fb06deb04d1826723f7d23bdab668f94ca4bc79de5ebe06c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2253458146005869,
+      "alignment_seconds": 0.0004749614745378494,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Alice. _La main? Elle est appelée_ de hand.",
+        "hotwords": "Alice, Elle"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alice, la main? Elle est appelée de hand.",
+          "start": 0.21,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " Alice,",
+              "start": 0.21,
+              "end": 0.81,
+              "probability": 0.61572265625
+            },
+            {
+              "text": " la",
+              "start": 0.97,
+              "end": 1.11,
+              "probability": 0.127685546875
+            },
+            {
+              "text": " main?",
+              "start": 1.11,
+              "end": 1.37,
+              "probability": 0.443359375
+            },
+            {
+              "text": " Elle",
+              "start": 1.91,
+              "end": 2.07,
+              "probability": 0.2456512451171875
+            },
+            {
+              "text": " est",
+              "start": 2.07,
+              "end": 2.17,
+              "probability": 0.919921875
+            },
+            {
+              "text": " appelée",
+              "start": 2.17,
+              "end": 2.51,
+              "probability": 0.1528453826904297
+            },
+            {
+              "text": " de",
+              "start": 2.51,
+              "end": 2.63,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " hand.",
+              "start": 2.63,
+              "end": 2.93,
+              "probability": 0.78759765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alice,",
+          "start": 0.21,
+          "end": 0.81
+        },
+        {
+          "raw": "la",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "raw": "main?",
+          "start": 1.11,
+          "end": 1.37
+        },
+        {
+          "raw": "Elle",
+          "start": 1.91,
+          "end": 2.07
+        },
+        {
+          "raw": "est",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "raw": "appelée",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "raw": "de",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "raw": "hand.",
+          "start": 2.63,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "Alice.",
+        "_La",
+        "main?",
+        "Elle",
+        "est",
+        "appelée_",
+        "de",
+        "hand."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alice,",
+          "start": 0.21,
+          "end": 0.81,
+          "key": "alice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 0.97,
+          "end": 1.11,
+          "key": "la",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "main?",
+          "start": 1.11,
+          "end": 1.37,
+          "key": "main",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Elle",
+          "start": 1.91,
+          "end": 2.07,
+          "key": "elle",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "est",
+          "start": 2.07,
+          "end": 2.17,
+          "key": "est",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "appelée",
+          "start": 2.17,
+          "end": 2.51,
+          "key": "appelée",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.51,
+          "end": 2.63,
+          "key": "de",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 2.63,
+          "end": 2.93,
+          "key": "hand",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alice.",
+          "start": 0.21,
+          "end": 0.81
+        },
+        {
+          "text": "_La",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "text": "main?",
+          "start": 1.11,
+          "end": 1.37
+        },
+        {
+          "text": "Elle",
+          "start": 1.91,
+          "end": 2.07
+        },
+        {
+          "text": "est",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "text": "appelée_",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "text": "de",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "text": "hand.",
+          "start": 2.63,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2259854543954134
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e770984de5a6f2aa8c73b95f204eb9b42855b76fc0b263ea25a074bece1704a7",
+  "selected_reasons": []
+}

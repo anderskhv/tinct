@@ -1,0 +1,502 @@
+{
+  "complete": true,
+  "signature": "5ec88c43c737af03db0782a149751f76cff8bd6c9aac986145da7ad3fe983e80",
+  "attempts": [
+    {
+      "asr_seconds": 0.2386222081258893,
+      "alignment_seconds": 0.0005927078891545534,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Let us go to Grande Terre to-morrow?\" said Robert in a low voice.",
+        "hotwords": "Let, Grande, Terre, Robert"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Let us go to Grande Terre to-morrow?\" said Robert in a low voice.",
+          "start": 0.05,
+          "end": 3.67,
+          "words": [
+            {
+              "text": " Let",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.1949462890625
+            },
+            {
+              "text": " us",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " go",
+              "start": 0.63,
+              "end": 0.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 0.77,
+              "end": 0.89,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Grande",
+              "start": 0.89,
+              "end": 1.13,
+              "probability": 0.0014429092407226562
+            },
+            {
+              "text": " Terre",
+              "start": 1.13,
+              "end": 1.47,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " to",
+              "start": 1.47,
+              "end": 1.55,
+              "probability": 0.0028209686279296875
+            },
+            {
+              "text": "-morrow?\"",
+              "start": 1.55,
+              "end": 2.23,
+              "probability": 0.3902684847513835
+            },
+            {
+              "text": " said",
+              "start": 2.23,
+              "end": 2.51,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Robert",
+              "start": 2.51,
+              "end": 2.87,
+              "probability": 0.9921875
+            },
+            {
+              "text": " in",
+              "start": 2.87,
+              "end": 3.05,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " a",
+              "start": 3.05,
+              "end": 3.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " low",
+              "start": 3.15,
+              "end": 3.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " voice.",
+              "start": 3.29,
+              "end": 3.67,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Let",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "us",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "go",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "raw": "to",
+          "start": 0.77,
+          "end": 0.89
+        },
+        {
+          "raw": "Grande",
+          "start": 0.89,
+          "end": 1.13
+        },
+        {
+          "raw": "Terre",
+          "start": 1.13,
+          "end": 1.47
+        },
+        {
+          "raw": "to",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "raw": "-morrow?\"",
+          "start": 1.55,
+          "end": 2.23
+        },
+        {
+          "raw": "said",
+          "start": 2.23,
+          "end": 2.51
+        },
+        {
+          "raw": "Robert",
+          "start": 2.51,
+          "end": 2.87
+        },
+        {
+          "raw": "in",
+          "start": 2.87,
+          "end": 3.05
+        },
+        {
+          "raw": "a",
+          "start": 3.05,
+          "end": 3.15
+        },
+        {
+          "raw": "low",
+          "start": 3.15,
+          "end": 3.29
+        },
+        {
+          "raw": "voice.",
+          "start": 3.29,
+          "end": 3.67
+        }
+      ],
+      "expected_tokens": [
+        "\"Let",
+        "us",
+        "go",
+        "to",
+        "Grande",
+        "Terre",
+        "to-morrow?\"",
+        "said",
+        "Robert",
+        "in",
+        "a",
+        "low",
+        "voice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Let",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "let",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "us",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.63,
+          "end": 0.77,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.77,
+          "end": 0.89,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Grande",
+          "start": 0.89,
+          "end": 1.13,
+          "key": "grande",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Terre",
+          "start": 1.13,
+          "end": 1.47,
+          "key": "terre",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to -morrow?\"",
+          "start": 1.47,
+          "end": 2.23,
+          "key": "tomorrow",
+          "pieces": [
+            6,
+            7
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.23,
+          "end": 2.51,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Robert",
+          "start": 2.51,
+          "end": 2.87,
+          "key": "robert",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.87,
+          "end": 3.05,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.05,
+          "end": 3.15,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "low",
+          "start": 3.15,
+          "end": 3.29,
+          "key": "low",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "voice.",
+          "start": 3.29,
+          "end": 3.67,
+          "key": "voice",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 6,
+          "text": "to-morrow?\"",
+          "heard": "to -morrow?\"",
+          "heard_indexes": [
+            6,
+            7
+          ],
+          "start": 1.47,
+          "end": 2.23
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Let",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "us",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "go",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "text": "to",
+          "start": 0.77,
+          "end": 0.89
+        },
+        {
+          "text": "Grande",
+          "start": 0.89,
+          "end": 1.13
+        },
+        {
+          "text": "Terre",
+          "start": 1.13,
+          "end": 1.47
+        },
+        {
+          "text": "to-morrow?\"",
+          "start": 1.47,
+          "end": 2.23
+        },
+        {
+          "text": "said",
+          "start": 2.23,
+          "end": 2.51
+        },
+        {
+          "text": "Robert",
+          "start": 2.51,
+          "end": 2.87
+        },
+        {
+          "text": "in",
+          "start": 2.87,
+          "end": 3.05
+        },
+        {
+          "text": "a",
+          "start": 3.05,
+          "end": 3.15
+        },
+        {
+          "text": "low",
+          "start": 3.15,
+          "end": 3.29
+        },
+        {
+          "text": "voice.",
+          "start": 3.29,
+          "end": 3.67
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23941319901496172
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4f18bca5c8d9be332641ea084af28e3cbce12846beb5c3b8818948230b972ec6",
+  "selected_reasons": []
+}

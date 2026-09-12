@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "0325c73e60664120e37d781904cc28acbc2cf896deaff77f5ec52682d171afbe",
+  "attempts": [
+    {
+      "asr_seconds": 0.21761125326156616,
+      "alignment_seconds": 0.0003883950412273407,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Help, help, help, three times rapidly.",
+          "start": 0.08,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Help,",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.75439453125
+            },
+            {
+              "text": " help,",
+              "start": 0.76,
+              "end": 0.86,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " help,",
+              "start": 1.04,
+              "end": 1.2,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " three",
+              "start": 1.58,
+              "end": 1.84,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " times",
+              "start": 1.84,
+              "end": 2.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rapidly.",
+              "start": 2.18,
+              "end": 2.64,
+              "probability": 0.95703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Help,",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "help,",
+          "start": 0.76,
+          "end": 0.86
+        },
+        {
+          "raw": "help,",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "raw": "three",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "raw": "times",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "raw": "rapidly.",
+          "start": 2.18,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "\"Help!",
+        "help!",
+        "help!\"",
+        "three",
+        "times",
+        "rapidly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Help,",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "help",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "help,",
+          "start": 0.76,
+          "end": 0.86,
+          "key": "help",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "help,",
+          "start": 1.04,
+          "end": 1.2,
+          "key": "help",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 1.58,
+          "end": 1.84,
+          "key": "three",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "times",
+          "start": 1.84,
+          "end": 2.18,
+          "key": "times",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "rapidly.",
+          "start": 2.18,
+          "end": 2.64,
+          "key": "rapidly",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Help!",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "help!",
+          "start": 0.76,
+          "end": 0.86
+        },
+        {
+          "text": "help!\"",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "text": "three",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "text": "times",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "text": "rapidly.",
+          "start": 2.18,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21814236417412758
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0806590431daeffb7ed60bcb33febf8e81ce24ed5cc5f2ca705941ca96bda511",
+  "selected_reasons": []
+}

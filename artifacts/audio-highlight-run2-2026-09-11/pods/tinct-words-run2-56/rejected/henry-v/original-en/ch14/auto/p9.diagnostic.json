@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "38df6ad04efe897bf9372c6603e1039442bbe7bb7e814c395dc48d2e194cd70a",
+  "attempts": [
+    {
+      "asr_seconds": 0.21114944014698267,
+      "alignment_seconds": 0.00045984331518411636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Erpingham. The Lord in heaven bless thee, noble Harry!",
+        "hotwords": "Erpingham, The, Lord, Harry"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Erpingham, The, Lord in heaven bless thee, noble Harry!",
+          "start": 0.14,
+          "end": 3.24,
+          "words": [
+            {
+              "text": " Erpingham,",
+              "start": 0.14,
+              "end": 0.88,
+              "probability": 0.54296875
+            },
+            {
+              "text": " The,",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.291259765625
+            },
+            {
+              "text": " Lord",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " in",
+              "start": 1.62,
+              "end": 1.78,
+              "probability": 0.62548828125
+            },
+            {
+              "text": " heaven",
+              "start": 1.78,
+              "end": 1.96,
+              "probability": 0.2427978515625
+            },
+            {
+              "text": " bless",
+              "start": 1.96,
+              "end": 2.3,
+              "probability": 0.4072265625
+            },
+            {
+              "text": " thee,",
+              "start": 2.3,
+              "end": 2.6,
+              "probability": 0.87109375
+            },
+            {
+              "text": " noble",
+              "start": 2.7,
+              "end": 2.98,
+              "probability": 0.6376953125
+            },
+            {
+              "text": " Harry!",
+              "start": 2.98,
+              "end": 3.24,
+              "probability": 0.92431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Erpingham,",
+          "start": 0.14,
+          "end": 0.88
+        },
+        {
+          "raw": "The,",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "Lord",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "in",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "raw": "heaven",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "raw": "bless",
+          "start": 1.96,
+          "end": 2.3
+        },
+        {
+          "raw": "thee,",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "raw": "noble",
+          "start": 2.7,
+          "end": 2.98
+        },
+        {
+          "raw": "Harry!",
+          "start": 2.98,
+          "end": 3.24
+        }
+      ],
+      "expected_tokens": [
+        "Erpingham.",
+        "The",
+        "Lord",
+        "in",
+        "heaven",
+        "bless",
+        "thee,",
+        "noble",
+        "Harry!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Erpingham,",
+          "start": 0.14,
+          "end": 0.88,
+          "key": "erpingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The,",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 1.48,
+          "end": 1.62,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.62,
+          "end": 1.78,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heaven",
+          "start": 1.78,
+          "end": 1.96,
+          "key": "heaven",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bless",
+          "start": 1.96,
+          "end": 2.3,
+          "key": "bless",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 2.3,
+          "end": 2.6,
+          "key": "thee",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 2.7,
+          "end": 2.98,
+          "key": "noble",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Harry!",
+          "start": 2.98,
+          "end": 3.24,
+          "key": "harry",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Erpingham.",
+          "start": 0.14,
+          "end": 0.88
+        },
+        {
+          "text": "The",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "Lord",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "in",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "text": "heaven",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "text": "bless",
+          "start": 1.96,
+          "end": 2.3
+        },
+        {
+          "text": "thee,",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "text": "noble",
+          "start": 2.7,
+          "end": 2.98
+        },
+        {
+          "text": "Harry!",
+          "start": 2.98,
+          "end": 3.24
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2117877108976245
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ba3e58301206e8cc713b32cc839af662557b5144a5e0aaa0143e63785e3537dd",
+  "selected_reasons": []
+}

@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "7d814eb214536ddd4260d433d17f01dfc42e2b15a0036af3762e1503dfc4db8d",
+  "attempts": [
+    {
+      "asr_seconds": 0.10149174556136131,
+      "alignment_seconds": 0.0001447722315788269,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Certainly not.",
+        "hotwords": "Certainly"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Certainly not.",
+          "start": 0.08,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " Certainly",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " not.",
+              "start": 0.68,
+              "end": 1.0,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Certainly",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "not.",
+          "start": 0.68,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "Certainly",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Certainly",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "certainly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 0.68,
+          "end": 1.0,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Certainly",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "not.",
+          "start": 0.68,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1016809456050396
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f11a5499e77882cc7bf1228d0d78c88cbc21275b03191d78d2dd927b1b3e7f1f",
+  "selected_reasons": []
+}

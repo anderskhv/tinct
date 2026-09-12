@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "b068073cf7a2148914bbc5c3edc3bdc676aebc146fe6d9602902f66e6947e5d9",
+  "attempts": [
+    {
+      "asr_seconds": 0.20150231570005417,
+      "alignment_seconds": 0.00017821043729782104,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gentleman. Though that the queen on special cause is here, Her army is mov'd on.",
+        "hotwords": "Gentleman, Though, Her"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gentleman, Though that the queen on special cause is here, Her army is mov'd on.",
+          "start": 0.02,
+          "end": 4.96,
+          "words": [
+            {
+              "text": " Gentleman,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.04022216796875
+            },
+            {
+              "text": " Though",
+              "start": 1.32,
+              "end": 1.58,
+              "probability": 0.01416778564453125
+            },
+            {
+              "text": " that",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.982421875
+            },
+            {
+              "text": " the",
+              "start": 1.72,
+              "end": 1.84,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " queen",
+              "start": 1.84,
+              "end": 2.02,
+              "probability": 0.51025390625
+            },
+            {
+              "text": " on",
+              "start": 2.02,
+              "end": 2.2,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " special",
+              "start": 2.2,
+              "end": 2.52,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " cause",
+              "start": 2.52,
+              "end": 2.86,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " is",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " here,",
+              "start": 3.08,
+              "end": 3.42,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Her",
+              "start": 3.72,
+              "end": 3.82,
+              "probability": 0.46240234375
+            },
+            {
+              "text": " army",
+              "start": 3.82,
+              "end": 4.14,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " is",
+              "start": 4.14,
+              "end": 4.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " mov'd",
+              "start": 4.38,
+              "end": 4.72,
+              "probability": 0.4812973737716675
+            },
+            {
+              "text": " on.",
+              "start": 4.72,
+              "end": 4.96,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gentleman,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "Though",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "raw": "that",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "raw": "queen",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "raw": "on",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "raw": "special",
+          "start": 2.2,
+          "end": 2.52
+        },
+        {
+          "raw": "cause",
+          "start": 2.52,
+          "end": 2.86
+        },
+        {
+          "raw": "is",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "here,",
+          "start": 3.08,
+          "end": 3.42
+        },
+        {
+          "raw": "Her",
+          "start": 3.72,
+          "end": 3.82
+        },
+        {
+          "raw": "army",
+          "start": 3.82,
+          "end": 4.14
+        },
+        {
+          "raw": "is",
+          "start": 4.14,
+          "end": 4.38
+        },
+        {
+          "raw": "mov'd",
+          "start": 4.38,
+          "end": 4.72
+        },
+        {
+          "raw": "on.",
+          "start": 4.72,
+          "end": 4.96
+        }
+      ],
+      "expected_tokens": [
+        "Gentleman.",
+        "Though",
+        "that",
+        "the",
+        "queen",
+        "on",
+        "special",
+        "cause",
+        "is",
+        "here,",
+        "Her",
+        "army",
+        "is",
+        "mov'd",
+        "on."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gentleman,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "gentleman",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Though",
+          "start": 1.32,
+          "end": 1.58,
+          "key": "though",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.84,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "queen",
+          "start": 1.84,
+          "end": 2.02,
+          "key": "queen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.02,
+          "end": 2.2,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "special",
+          "start": 2.2,
+          "end": 2.52,
+          "key": "special",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cause",
+          "start": 2.52,
+          "end": 2.86,
+          "key": "cause",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.86,
+          "end": 3.08,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 3.08,
+          "end": 3.42,
+          "key": "here",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Her",
+          "start": 3.72,
+          "end": 3.82,
+          "key": "her",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "army",
+          "start": 3.82,
+          "end": 4.14,
+          "key": "army",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.14,
+          "end": 4.38,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "mov'd",
+          "start": 4.38,
+          "end": 4.72,
+          "key": "movd",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 4.72,
+          "end": 4.96,
+          "key": "on",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gentleman.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "Though",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "text": "that",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "the",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "text": "queen",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "text": "on",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "text": "special",
+          "start": 2.2,
+          "end": 2.52
+        },
+        {
+          "text": "cause",
+          "start": 2.52,
+          "end": 2.86
+        },
+        {
+          "text": "is",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "text": "here,",
+          "start": 3.08,
+          "end": 3.42
+        },
+        {
+          "text": "Her",
+          "start": 3.72,
+          "end": 3.82
+        },
+        {
+          "text": "army",
+          "start": 3.82,
+          "end": 4.14
+        },
+        {
+          "text": "is",
+          "start": 4.14,
+          "end": 4.38
+        },
+        {
+          "text": "mov'd",
+          "start": 4.38,
+          "end": 4.72
+        },
+        {
+          "text": "on.",
+          "start": 4.72,
+          "end": 4.96
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20174656808376312
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "78ef940794c86d292ee83fe7fcd33fa5f100669e19a42cb6e817086ceeb3a90f",
+  "selected_reasons": []
+}

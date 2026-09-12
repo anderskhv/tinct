@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "831e1aa9863cb99cbd7e346a4b5c0b8909d0befd50a3d9e773a2fe906bb72b71",
+  "attempts": [
+    {
+      "asr_seconds": 0.23235166911035776,
+      "alignment_seconds": 0.000281650573015213,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ermengarde looked from her to the doll and back again.",
+        "hotwords": "Ermengarde"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ermengarde looked from her to the doll and back again.",
+          "start": 0.18,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " Ermengarde",
+              "start": 0.18,
+              "end": 0.9,
+              "probability": 0.46295166015625
+            },
+            {
+              "text": " looked",
+              "start": 0.9,
+              "end": 1.12,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " from",
+              "start": 1.12,
+              "end": 1.32,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " her",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 1.46,
+              "end": 1.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.56,
+              "end": 1.66,
+              "probability": 0.9921875
+            },
+            {
+              "text": " doll",
+              "start": 1.66,
+              "end": 1.9,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " and",
+              "start": 1.9,
+              "end": 2.38,
+              "probability": 0.5830078125
+            },
+            {
+              "text": " back",
+              "start": 2.38,
+              "end": 2.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " again.",
+              "start": 2.58,
+              "end": 2.92,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ermengarde",
+          "start": 0.18,
+          "end": 0.9
+        },
+        {
+          "raw": "looked",
+          "start": 0.9,
+          "end": 1.12
+        },
+        {
+          "raw": "from",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "raw": "her",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "to",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "raw": "the",
+          "start": 1.56,
+          "end": 1.66
+        },
+        {
+          "raw": "doll",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "raw": "and",
+          "start": 1.9,
+          "end": 2.38
+        },
+        {
+          "raw": "back",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "raw": "again.",
+          "start": 2.58,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "Ermengarde",
+        "looked",
+        "from",
+        "her",
+        "to",
+        "the",
+        "doll",
+        "and",
+        "back",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ermengarde",
+          "start": 0.18,
+          "end": 0.9,
+          "key": "ermengarde",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.9,
+          "end": 1.12,
+          "key": "looked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.12,
+          "end": 1.32,
+          "key": "from",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.46,
+          "end": 1.56,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.56,
+          "end": 1.66,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "doll",
+          "start": 1.66,
+          "end": 1.9,
+          "key": "doll",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.9,
+          "end": 2.38,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 2.38,
+          "end": 2.58,
+          "key": "back",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 2.58,
+          "end": 2.92,
+          "key": "again",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ermengarde",
+          "start": 0.18,
+          "end": 0.9
+        },
+        {
+          "text": "looked",
+          "start": 0.9,
+          "end": 1.12
+        },
+        {
+          "text": "from",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "text": "her",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "to",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "text": "the",
+          "start": 1.56,
+          "end": 1.66
+        },
+        {
+          "text": "doll",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "text": "and",
+          "start": 1.9,
+          "end": 2.38
+        },
+        {
+          "text": "back",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "text": "again.",
+          "start": 2.58,
+          "end": 2.92
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23273791000247002
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c1cc84a67645fcbe478eba45096fa7b695ea2ac2db6d97ac583c20e6684bd637",
+  "selected_reasons": []
+}

@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "1d6a6680329a148da706820b7dc1ffeb6f18defced7c6926fff4f80f8afc845c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1241103895008564,
+      "alignment_seconds": 0.00030371081084012985,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I am he.",
+          "start": 0.05,
+          "end": 0.91,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " am",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " he.",
+              "start": 0.67,
+              "end": 0.91,
+              "probability": 0.888671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "am",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "he.",
+          "start": 0.67,
+          "end": 0.91
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "am",
+        "he.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.55,
+          "end": 0.67,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 0.67,
+          "end": 0.91,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "am",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "he.\"",
+          "start": 0.67,
+          "end": 0.91
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12452207319438457
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "de908d5b5894d2ac04b08a7c0bd090d6d3fedca2925049d94f75822a00961831",
+  "selected_reasons": []
+}

@@ -1,0 +1,608 @@
+{
+  "complete": true,
+  "signature": "66ef988c9016e6946e414f5ed0e0da67bf115373e2d561b1c7e7aa019a630be9",
+  "attempts": [
+    {
+      "asr_seconds": 0.17041017394512892,
+      "alignment_seconds": 0.0003153979778289795,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Amelia, good madam, do. I warn it grieves my husband as if the cause were his.",
+          "start": 0.05,
+          "end": 5.23,
+          "words": [
+            {
+              "text": " Amelia,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.359375
+            },
+            {
+              "text": " good",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " madam,",
+              "start": 1.55,
+              "end": 2.03,
+              "probability": 0.892333984375
+            },
+            {
+              "text": " do.",
+              "start": 2.19,
+              "end": 2.31,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " I",
+              "start": 2.83,
+              "end": 2.93,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " warn",
+              "start": 2.93,
+              "end": 3.13,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " it",
+              "start": 3.13,
+              "end": 3.29,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " grieves",
+              "start": 3.29,
+              "end": 3.59,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " my",
+              "start": 3.59,
+              "end": 3.75,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " husband",
+              "start": 3.75,
+              "end": 4.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " as",
+              "start": 4.09,
+              "end": 4.35,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " if",
+              "start": 4.35,
+              "end": 4.47,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 4.47,
+              "end": 4.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " cause",
+              "start": 4.59,
+              "end": 4.79,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " were",
+              "start": 4.79,
+              "end": 5.01,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " his.",
+              "start": 5.01,
+              "end": 5.23,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "good",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "madam,",
+          "start": 1.55,
+          "end": 2.03
+        },
+        {
+          "raw": "do.",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "raw": "I",
+          "start": 2.83,
+          "end": 2.93
+        },
+        {
+          "raw": "warn",
+          "start": 2.93,
+          "end": 3.13
+        },
+        {
+          "raw": "it",
+          "start": 3.13,
+          "end": 3.29
+        },
+        {
+          "raw": "grieves",
+          "start": 3.29,
+          "end": 3.59
+        },
+        {
+          "raw": "my",
+          "start": 3.59,
+          "end": 3.75
+        },
+        {
+          "raw": "husband",
+          "start": 3.75,
+          "end": 4.09
+        },
+        {
+          "raw": "as",
+          "start": 4.09,
+          "end": 4.35
+        },
+        {
+          "raw": "if",
+          "start": 4.35,
+          "end": 4.47
+        },
+        {
+          "raw": "the",
+          "start": 4.47,
+          "end": 4.59
+        },
+        {
+          "raw": "cause",
+          "start": 4.59,
+          "end": 4.79
+        },
+        {
+          "raw": "were",
+          "start": 4.79,
+          "end": 5.01
+        },
+        {
+          "raw": "his.",
+          "start": 5.01,
+          "end": 5.23
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "Good",
+        "madam,",
+        "do.",
+        "I",
+        "warrant",
+        "it",
+        "grieves",
+        "my",
+        "husband",
+        "As",
+        "if",
+        "the",
+        "cause",
+        "were",
+        "his."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          16,
+          6,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "amelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.37,
+          "end": 1.55,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "madam,",
+          "start": 1.55,
+          "end": 2.03,
+          "key": "madam",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do.",
+          "start": 2.19,
+          "end": 2.31,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.83,
+          "end": 2.93,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "warn",
+          "start": 2.93,
+          "end": 3.13,
+          "key": "warn",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.13,
+          "end": 3.29,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "grieves",
+          "start": 3.29,
+          "end": 3.59,
+          "key": "grieves",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.59,
+          "end": 3.75,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "husband",
+          "start": 3.75,
+          "end": 4.09,
+          "key": "husband",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.09,
+          "end": 4.35,
+          "key": "as",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 4.35,
+          "end": 4.47,
+          "key": "if",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.47,
+          "end": 4.59,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "cause",
+          "start": 4.59,
+          "end": 4.79,
+          "key": "cause",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 4.79,
+          "end": 5.01,
+          "key": "were",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his.",
+          "start": 5.01,
+          "end": 5.23,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.0,
+          "end": 0.685
+        },
+        {
+          "text": "Good",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "madam,",
+          "start": 1.55,
+          "end": 2.03
+        },
+        {
+          "text": "do.",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "text": "I",
+          "start": 2.83,
+          "end": 2.93
+        },
+        {
+          "text": "warrant",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "text": "it",
+          "start": 3.13,
+          "end": 3.29
+        },
+        {
+          "text": "grieves",
+          "start": 3.29,
+          "end": 3.59
+        },
+        {
+          "text": "my",
+          "start": 3.59,
+          "end": 3.75
+        },
+        {
+          "text": "husband",
+          "start": 3.75,
+          "end": 4.09
+        },
+        {
+          "text": "As",
+          "start": 4.09,
+          "end": 4.35
+        },
+        {
+          "text": "if",
+          "start": 4.35,
+          "end": 4.47
+        },
+        {
+          "text": "the",
+          "start": 4.47,
+          "end": 4.59
+        },
+        {
+          "text": "cause",
+          "start": 4.59,
+          "end": 4.79
+        },
+        {
+          "text": "were",
+          "start": 4.79,
+          "end": 5.01
+        },
+        {
+          "text": "his.",
+          "start": 5.01,
+          "end": 5.23
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.17085363203659654
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7da2717fbe1a4ca545dd7b3a18a7c3d33c48b0aeed1d056694a35ef8ede94062",
+  "selected_reasons": []
+}

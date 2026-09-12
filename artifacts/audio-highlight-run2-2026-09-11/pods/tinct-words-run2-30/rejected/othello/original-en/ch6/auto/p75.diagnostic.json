@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "da5347d56ac75771d40527f030f75e79eb22d1dccdb67503021a64aaebdbd3e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.09773840103298426,
+      "alignment_seconds": 8.995970711112022e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Exit Roderigo.]",
+        "hotwords": "Exit, Roderigo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit, Roderigo",
+          "start": 0.02,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " Exit,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.492431640625
+            },
+            {
+              "text": " Roderigo",
+              "start": 0.76,
+              "end": 1.26,
+              "probability": 0.12423197428385417
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Roderigo",
+          "start": 0.76,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "[Exit",
+        "Roderigo.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Roderigo",
+          "start": 0.76,
+          "end": 1.26,
+          "key": "roderigo",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Roderigo.]",
+          "start": 0.76,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09785843128338456
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c0bcd0b97d5576860275583ba9d8eb25e03514037fe4347a67eaca1bfb7aa6b1",
+  "selected_reasons": []
+}

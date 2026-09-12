@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "df15736e167c132cf30db3b1989662ad674b9b0fb8675024c54f30526c7420e8",
+  "attempts": [
+    {
+      "asr_seconds": 0.20128040201961994,
+      "alignment_seconds": 0.00042281392961740494,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But not in a duel,\" cried my second again.",
+        "hotwords": "But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But not in a duel,\" cried my second again.",
+          "start": 0.08,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.54541015625
+            },
+            {
+              "text": " not",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " in",
+              "start": 0.7,
+              "end": 0.82,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 0.82,
+              "end": 0.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " duel,\"",
+              "start": 0.94,
+              "end": 1.8,
+              "probability": 0.513275146484375
+            },
+            {
+              "text": " cried",
+              "start": 1.8,
+              "end": 1.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 1.84,
+              "end": 2.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " second",
+              "start": 2.04,
+              "end": 2.34,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " again.",
+              "start": 2.34,
+              "end": 2.68,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "not",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "in",
+          "start": 0.7,
+          "end": 0.82
+        },
+        {
+          "raw": "a",
+          "start": 0.82,
+          "end": 0.94
+        },
+        {
+          "raw": "duel,\"",
+          "start": 0.94,
+          "end": 1.8
+        },
+        {
+          "raw": "cried",
+          "start": 1.8,
+          "end": 1.84
+        },
+        {
+          "raw": "my",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "raw": "second",
+          "start": 2.04,
+          "end": 2.34
+        },
+        {
+          "raw": "again.",
+          "start": 2.34,
+          "end": 2.68
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "not",
+        "in",
+        "a",
+        "duel,\"",
+        "cried",
+        "my",
+        "second",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.7,
+          "end": 0.82,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.82,
+          "end": 0.94,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "duel,\"",
+          "start": 0.94,
+          "end": 1.8,
+          "key": "duel",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.8,
+          "end": 1.84,
+          "key": "cried",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.84,
+          "end": 2.04,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 2.04,
+          "end": 2.34,
+          "key": "second",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 2.34,
+          "end": 2.68,
+          "key": "again",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "not",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "text": "in",
+          "start": 0.7,
+          "end": 0.82
+        },
+        {
+          "text": "a",
+          "start": 0.82,
+          "end": 0.94
+        },
+        {
+          "text": "duel,\"",
+          "start": 0.94,
+          "end": 1.8
+        },
+        {
+          "text": "cried",
+          "start": 1.8,
+          "end": 1.84
+        },
+        {
+          "text": "my",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "text": "second",
+          "start": 2.04,
+          "end": 2.34
+        },
+        {
+          "text": "again.",
+          "start": 2.34,
+          "end": 2.68
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20185014978051186
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "61db020cfd7b238255c00c167dd5b21d68d418a31c7d449c416f9ac20085634e",
+  "selected_reasons": []
+}

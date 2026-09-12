@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "792e0d3d3bffd93d3b0051bd0584816afe79b1cae59478e3b7143f1f98dd3bd4",
+  "attempts": [
+    {
+      "asr_seconds": 0.13749599969014525,
+      "alignment_seconds": 0.00019380822777748108,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Emilia. Never, my lord.",
+        "hotwords": "Emilia, Never"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia, Never, my lord.",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.58648681640625
+            },
+            {
+              "text": " Never,",
+              "start": 1.19,
+              "end": 1.43,
+              "probability": 0.06982421875
+            },
+            {
+              "text": " my",
+              "start": 1.55,
+              "end": 1.65,
+              "probability": 0.495361328125
+            },
+            {
+              "text": " lord.",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Never,",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "raw": "my",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "raw": "lord.",
+          "start": 1.65,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "Never,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Never,",
+          "start": 1.19,
+          "end": 1.43,
+          "key": "never",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.55,
+          "end": 1.65,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Never,",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "text": "my",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "text": "lord.",
+          "start": 1.65,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13776073697954416
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "96f4e5a66f76930c3bfba5b1dbbc217150d005528f59108e1333db986323a41a",
+  "selected_reasons": []
+}

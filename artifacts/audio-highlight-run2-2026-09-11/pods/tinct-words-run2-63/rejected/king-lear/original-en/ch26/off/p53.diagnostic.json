@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "efdadd36a4c9bcf9b2de43098363d83f25d37df9dab46a4a4cdd48cf85d4695c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2840157374739647,
+      "alignment_seconds": 0.0003844480961561203,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Third trumpet trumpet answers within enter Edgar armed preceded by a trumpet",
+          "start": 0.05,
+          "end": 5.57,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " trumpet",
+              "start": 0.63,
+              "end": 1.11,
+              "probability": 0.65478515625
+            },
+            {
+              "text": " trumpet",
+              "start": 1.11,
+              "end": 1.79,
+              "probability": 0.61474609375
+            },
+            {
+              "text": " answers",
+              "start": 1.79,
+              "end": 2.31,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " within",
+              "start": 2.31,
+              "end": 2.71,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " enter",
+              "start": 2.71,
+              "end": 3.47,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " Edgar",
+              "start": 3.47,
+              "end": 3.83,
+              "probability": 0.57958984375
+            },
+            {
+              "text": " armed",
+              "start": 3.83,
+              "end": 4.37,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " preceded",
+              "start": 4.37,
+              "end": 4.83,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " by",
+              "start": 4.83,
+              "end": 5.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 5.11,
+              "end": 5.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " trumpet",
+              "start": 5.23,
+              "end": 5.57,
+              "probability": 0.97900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "trumpet",
+          "start": 0.63,
+          "end": 1.11
+        },
+        {
+          "raw": "trumpet",
+          "start": 1.11,
+          "end": 1.79
+        },
+        {
+          "raw": "answers",
+          "start": 1.79,
+          "end": 2.31
+        },
+        {
+          "raw": "within",
+          "start": 2.31,
+          "end": 2.71
+        },
+        {
+          "raw": "enter",
+          "start": 2.71,
+          "end": 3.47
+        },
+        {
+          "raw": "Edgar",
+          "start": 3.47,
+          "end": 3.83
+        },
+        {
+          "raw": "armed",
+          "start": 3.83,
+          "end": 4.37
+        },
+        {
+          "raw": "preceded",
+          "start": 4.37,
+          "end": 4.83
+        },
+        {
+          "raw": "by",
+          "start": 4.83,
+          "end": 5.11
+        },
+        {
+          "raw": "a",
+          "start": 5.11,
+          "end": 5.23
+        },
+        {
+          "raw": "trumpet",
+          "start": 5.23,
+          "end": 5.57
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "trumpet.",
+        "Trumpet",
+        "answers",
+        "within.",
+        "Enter",
+        "Edgar,",
+        "armed,",
+        "preceded",
+        "by",
+        "a",
+        "trumpet."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "trumpet",
+          "start": 0.63,
+          "end": 1.11,
+          "key": "trumpet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "trumpet",
+          "start": 1.11,
+          "end": 1.79,
+          "key": "trumpet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "answers",
+          "start": 1.79,
+          "end": 2.31,
+          "key": "answers",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 2.31,
+          "end": 2.71,
+          "key": "within",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 2.71,
+          "end": 3.47,
+          "key": "enter",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Edgar",
+          "start": 3.47,
+          "end": 3.83,
+          "key": "edgar",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "armed",
+          "start": 3.83,
+          "end": 4.37,
+          "key": "armed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "preceded",
+          "start": 4.37,
+          "end": 4.83,
+          "key": "preceded",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.83,
+          "end": 5.11,
+          "key": "by",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.11,
+          "end": 5.23,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "trumpet",
+          "start": 5.23,
+          "end": 5.57,
+          "key": "trumpet",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "trumpet.",
+          "start": 0.63,
+          "end": 1.11
+        },
+        {
+          "text": "Trumpet",
+          "start": 1.11,
+          "end": 1.79
+        },
+        {
+          "text": "answers",
+          "start": 1.79,
+          "end": 2.31
+        },
+        {
+          "text": "within.",
+          "start": 2.31,
+          "end": 2.71
+        },
+        {
+          "text": "Enter",
+          "start": 2.71,
+          "end": 3.47
+        },
+        {
+          "text": "Edgar,",
+          "start": 3.47,
+          "end": 3.83
+        },
+        {
+          "text": "armed,",
+          "start": 3.83,
+          "end": 4.37
+        },
+        {
+          "text": "preceded",
+          "start": 4.37,
+          "end": 4.83
+        },
+        {
+          "text": "by",
+          "start": 4.83,
+          "end": 5.11
+        },
+        {
+          "text": "a",
+          "start": 5.11,
+          "end": 5.23
+        },
+        {
+          "text": "trumpet.",
+          "start": 5.23,
+          "end": 5.57
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28453012742102146
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f37824da4c9351ef4e74b1315fafbd919e9b3474bec1614b0370640675e63f24",
+  "selected_reasons": []
+}

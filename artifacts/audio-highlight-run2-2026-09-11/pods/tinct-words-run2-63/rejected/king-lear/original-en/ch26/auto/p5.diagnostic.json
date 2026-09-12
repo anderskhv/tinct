@@ -1,0 +1,5508 @@
+{
+  "complete": true,
+  "signature": "8391e562093fa5c9924c6fb15dab4efa5c0fed370d145338da53a4acba243e45",
+  "attempts": [
+    {
+      "asr_seconds": 0.8280483037233353,
+      "alignment_seconds": 0.0017515812069177628,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Upon such sacrifices, my Cordelia, The gods themselves throw incense. Have I caught thee? He that parts us shall bring a brand from heaven, And fire us hence like foxes. Wipe thine eyes; The good years shall devour them, flesh and fell, Ere they shall make us weep! We'll see 'em starve first: come.",
+        "hotwords": "Lear, Upon, Cordelia, The, Have, I, He, Wipe, Ere, We'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " My Cordelia, The gods themselves throw incense. Have I caught thee? He that parts us shall bring a brand from heaven, And fire us hence like foxes. Wipe thine eyes. The good years shall devour them, flesh and fell, Ere they shall make us weep! We'll see them starve first. Come.",
+          "start": 0.05,
+          "end": 18.79,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 3.069639205932617e-05
+            },
+            {
+              "text": " Cordelia,",
+              "start": 0.65,
+              "end": 2.91,
+              "probability": 0.6263427734375
+            },
+            {
+              "text": " The",
+              "start": 3.19,
+              "end": 3.27,
+              "probability": 0.09442138671875
+            },
+            {
+              "text": " gods",
+              "start": 3.27,
+              "end": 3.51,
+              "probability": 0.6572265625
+            },
+            {
+              "text": " themselves",
+              "start": 3.51,
+              "end": 4.07,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " throw",
+              "start": 4.07,
+              "end": 4.47,
+              "probability": 0.7646484375
+            },
+            {
+              "text": " incense.",
+              "start": 4.47,
+              "end": 5.17,
+              "probability": 0.984375
+            },
+            {
+              "text": " Have",
+              "start": 5.75,
+              "end": 5.81,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " I",
+              "start": 5.81,
+              "end": 5.95,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " caught",
+              "start": 5.95,
+              "end": 6.19,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " thee?",
+              "start": 6.19,
+              "end": 6.45,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " He",
+              "start": 6.97,
+              "end": 7.05,
+              "probability": 0.806640625
+            },
+            {
+              "text": " that",
+              "start": 7.05,
+              "end": 7.19,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " parts",
+              "start": 7.19,
+              "end": 7.43,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " us",
+              "start": 7.43,
+              "end": 7.67,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " shall",
+              "start": 7.67,
+              "end": 7.79,
+              "probability": 0.890625
+            },
+            {
+              "text": " bring",
+              "start": 7.79,
+              "end": 7.93,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " a",
+              "start": 7.93,
+              "end": 8.07,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " brand",
+              "start": 8.07,
+              "end": 8.31,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " from",
+              "start": 8.31,
+              "end": 8.53,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " heaven,",
+              "start": 8.53,
+              "end": 8.79,
+              "probability": 0.79296875
+            },
+            {
+              "text": " And",
+              "start": 8.99,
+              "end": 9.07,
+              "probability": 0.7646484375
+            },
+            {
+              "text": " fire",
+              "start": 9.07,
+              "end": 9.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " us",
+              "start": 9.39,
+              "end": 9.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hence",
+              "start": 9.61,
+              "end": 9.81,
+              "probability": 0.783203125
+            },
+            {
+              "text": " like",
+              "start": 9.81,
+              "end": 10.11,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " foxes.",
+              "start": 10.11,
+              "end": 10.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Wipe",
+              "start": 11.35,
+              "end": 11.55,
+              "probability": 0.98046875
+            },
+            {
+              "text": " thine",
+              "start": 11.55,
+              "end": 11.75,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " eyes.",
+              "start": 11.75,
+              "end": 12.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " The",
+              "start": 12.49,
+              "end": 12.59,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " good",
+              "start": 12.59,
+              "end": 12.75,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " years",
+              "start": 12.75,
+              "end": 13.05,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " shall",
+              "start": 13.05,
+              "end": 13.29,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " devour",
+              "start": 13.29,
+              "end": 13.75,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " them,",
+              "start": 13.75,
+              "end": 14.01,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " flesh",
+              "start": 14.39,
+              "end": 14.45,
+              "probability": 0.0307464599609375
+            },
+            {
+              "text": " and",
+              "start": 14.45,
+              "end": 14.69,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " fell,",
+              "start": 14.69,
+              "end": 14.97,
+              "probability": 0.8154296875
+            },
+            {
+              "text": " Ere",
+              "start": 15.27,
+              "end": 15.35,
+              "probability": 0.66845703125
+            },
+            {
+              "text": " they",
+              "start": 15.35,
+              "end": 15.51,
+              "probability": 0.98828125
+            },
+            {
+              "text": " shall",
+              "start": 15.51,
+              "end": 15.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " make",
+              "start": 15.63,
+              "end": 15.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " us",
+              "start": 15.81,
+              "end": 16.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " weep!",
+              "start": 16.01,
+              "end": 16.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " We'll",
+              "start": 16.77,
+              "end": 16.95,
+              "probability": 0.953125
+            },
+            {
+              "text": " see",
+              "start": 16.95,
+              "end": 17.11,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " them",
+              "start": 17.11,
+              "end": 17.27,
+              "probability": 0.1068115234375
+            },
+            {
+              "text": " starve",
+              "start": 17.27,
+              "end": 17.61,
+              "probability": 0.994140625
+            },
+            {
+              "text": " first.",
+              "start": 17.61,
+              "end": 18.03,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Come.",
+              "start": 18.55,
+              "end": 18.79,
+              "probability": 0.96826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Cordelia,",
+          "start": 0.65,
+          "end": 2.91
+        },
+        {
+          "raw": "The",
+          "start": 3.19,
+          "end": 3.27
+        },
+        {
+          "raw": "gods",
+          "start": 3.27,
+          "end": 3.51
+        },
+        {
+          "raw": "themselves",
+          "start": 3.51,
+          "end": 4.07
+        },
+        {
+          "raw": "throw",
+          "start": 4.07,
+          "end": 4.47
+        },
+        {
+          "raw": "incense.",
+          "start": 4.47,
+          "end": 5.17
+        },
+        {
+          "raw": "Have",
+          "start": 5.75,
+          "end": 5.81
+        },
+        {
+          "raw": "I",
+          "start": 5.81,
+          "end": 5.95
+        },
+        {
+          "raw": "caught",
+          "start": 5.95,
+          "end": 6.19
+        },
+        {
+          "raw": "thee?",
+          "start": 6.19,
+          "end": 6.45
+        },
+        {
+          "raw": "He",
+          "start": 6.97,
+          "end": 7.05
+        },
+        {
+          "raw": "that",
+          "start": 7.05,
+          "end": 7.19
+        },
+        {
+          "raw": "parts",
+          "start": 7.19,
+          "end": 7.43
+        },
+        {
+          "raw": "us",
+          "start": 7.43,
+          "end": 7.67
+        },
+        {
+          "raw": "shall",
+          "start": 7.67,
+          "end": 7.79
+        },
+        {
+          "raw": "bring",
+          "start": 7.79,
+          "end": 7.93
+        },
+        {
+          "raw": "a",
+          "start": 7.93,
+          "end": 8.07
+        },
+        {
+          "raw": "brand",
+          "start": 8.07,
+          "end": 8.31
+        },
+        {
+          "raw": "from",
+          "start": 8.31,
+          "end": 8.53
+        },
+        {
+          "raw": "heaven,",
+          "start": 8.53,
+          "end": 8.79
+        },
+        {
+          "raw": "And",
+          "start": 8.99,
+          "end": 9.07
+        },
+        {
+          "raw": "fire",
+          "start": 9.07,
+          "end": 9.39
+        },
+        {
+          "raw": "us",
+          "start": 9.39,
+          "end": 9.61
+        },
+        {
+          "raw": "hence",
+          "start": 9.61,
+          "end": 9.81
+        },
+        {
+          "raw": "like",
+          "start": 9.81,
+          "end": 10.11
+        },
+        {
+          "raw": "foxes.",
+          "start": 10.11,
+          "end": 10.69
+        },
+        {
+          "raw": "Wipe",
+          "start": 11.35,
+          "end": 11.55
+        },
+        {
+          "raw": "thine",
+          "start": 11.55,
+          "end": 11.75
+        },
+        {
+          "raw": "eyes.",
+          "start": 11.75,
+          "end": 12.15
+        },
+        {
+          "raw": "The",
+          "start": 12.49,
+          "end": 12.59
+        },
+        {
+          "raw": "good",
+          "start": 12.59,
+          "end": 12.75
+        },
+        {
+          "raw": "years",
+          "start": 12.75,
+          "end": 13.05
+        },
+        {
+          "raw": "shall",
+          "start": 13.05,
+          "end": 13.29
+        },
+        {
+          "raw": "devour",
+          "start": 13.29,
+          "end": 13.75
+        },
+        {
+          "raw": "them,",
+          "start": 13.75,
+          "end": 14.01
+        },
+        {
+          "raw": "flesh",
+          "start": 14.39,
+          "end": 14.45
+        },
+        {
+          "raw": "and",
+          "start": 14.45,
+          "end": 14.69
+        },
+        {
+          "raw": "fell,",
+          "start": 14.69,
+          "end": 14.97
+        },
+        {
+          "raw": "Ere",
+          "start": 15.27,
+          "end": 15.35
+        },
+        {
+          "raw": "they",
+          "start": 15.35,
+          "end": 15.51
+        },
+        {
+          "raw": "shall",
+          "start": 15.51,
+          "end": 15.63
+        },
+        {
+          "raw": "make",
+          "start": 15.63,
+          "end": 15.81
+        },
+        {
+          "raw": "us",
+          "start": 15.81,
+          "end": 16.01
+        },
+        {
+          "raw": "weep!",
+          "start": 16.01,
+          "end": 16.25
+        },
+        {
+          "raw": "We'll",
+          "start": 16.77,
+          "end": 16.95
+        },
+        {
+          "raw": "see",
+          "start": 16.95,
+          "end": 17.11
+        },
+        {
+          "raw": "them",
+          "start": 17.11,
+          "end": 17.27
+        },
+        {
+          "raw": "starve",
+          "start": 17.27,
+          "end": 17.61
+        },
+        {
+          "raw": "first.",
+          "start": 17.61,
+          "end": 18.03
+        },
+        {
+          "raw": "Come.",
+          "start": 18.55,
+          "end": 18.79
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Upon",
+        "such",
+        "sacrifices,",
+        "my",
+        "Cordelia,",
+        "The",
+        "gods",
+        "themselves",
+        "throw",
+        "incense.",
+        "Have",
+        "I",
+        "caught",
+        "thee?",
+        "He",
+        "that",
+        "parts",
+        "us",
+        "shall",
+        "bring",
+        "a",
+        "brand",
+        "from",
+        "heaven,",
+        "And",
+        "fire",
+        "us",
+        "hence",
+        "like",
+        "foxes.",
+        "Wipe",
+        "thine",
+        "eyes;",
+        "The",
+        "good",
+        "years",
+        "shall",
+        "devour",
+        "them,",
+        "flesh",
+        "and",
+        "fell,",
+        "Ere",
+        "they",
+        "shall",
+        "make",
+        "us",
+        "weep!",
+        "We'll",
+        "see",
+        "'em",
+        "starve",
+        "first:",
+        "come."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "equal",
+          4,
+          51,
+          0,
+          47
+        ],
+        [
+          "replace",
+          51,
+          52,
+          47,
+          48
+        ],
+        [
+          "equal",
+          52,
+          55,
+          48,
+          51
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 50
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "replace",
+          51,
+          52,
+          47,
+          48
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cordelia,",
+          "start": 0.65,
+          "end": 2.91,
+          "key": "cordelia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.19,
+          "end": 3.27,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gods",
+          "start": 3.27,
+          "end": 3.51,
+          "key": "gods",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "themselves",
+          "start": 3.51,
+          "end": 4.07,
+          "key": "themselves",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "throw",
+          "start": 4.07,
+          "end": 4.47,
+          "key": "throw",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "incense.",
+          "start": 4.47,
+          "end": 5.17,
+          "key": "incense",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 5.75,
+          "end": 5.81,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.81,
+          "end": 5.95,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "caught",
+          "start": 5.95,
+          "end": 6.19,
+          "key": "caught",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thee?",
+          "start": 6.19,
+          "end": 6.45,
+          "key": "thee",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 6.97,
+          "end": 7.05,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.05,
+          "end": 7.19,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "parts",
+          "start": 7.19,
+          "end": 7.43,
+          "key": "parts",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 7.43,
+          "end": 7.67,
+          "key": "us",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 7.67,
+          "end": 7.79,
+          "key": "shall",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 7.79,
+          "end": 7.93,
+          "key": "bring",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.93,
+          "end": 8.07,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "brand",
+          "start": 8.07,
+          "end": 8.31,
+          "key": "brand",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 8.31,
+          "end": 8.53,
+          "key": "from",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "heaven,",
+          "start": 8.53,
+          "end": 8.79,
+          "key": "heaven",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 8.99,
+          "end": 9.07,
+          "key": "and",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "fire",
+          "start": 9.07,
+          "end": 9.39,
+          "key": "fire",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 9.39,
+          "end": 9.61,
+          "key": "us",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "hence",
+          "start": 9.61,
+          "end": 9.81,
+          "key": "hence",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 9.81,
+          "end": 10.11,
+          "key": "like",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "foxes.",
+          "start": 10.11,
+          "end": 10.69,
+          "key": "foxes",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Wipe",
+          "start": 11.35,
+          "end": 11.55,
+          "key": "wipe",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 11.55,
+          "end": 11.75,
+          "key": "thine",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "eyes.",
+          "start": 11.75,
+          "end": 12.15,
+          "key": "eyes",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 12.49,
+          "end": 12.59,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 12.59,
+          "end": 12.75,
+          "key": "good",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "years",
+          "start": 12.75,
+          "end": 13.05,
+          "key": "years",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 13.05,
+          "end": 13.29,
+          "key": "shall",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "devour",
+          "start": 13.29,
+          "end": 13.75,
+          "key": "devour",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 13.75,
+          "end": 14.01,
+          "key": "them",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "flesh",
+          "start": 14.39,
+          "end": 14.45,
+          "key": "flesh",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.45,
+          "end": 14.69,
+          "key": "and",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "fell,",
+          "start": 14.69,
+          "end": 14.97,
+          "key": "fell",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Ere",
+          "start": 15.27,
+          "end": 15.35,
+          "key": "ere",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 15.35,
+          "end": 15.51,
+          "key": "they",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 15.51,
+          "end": 15.63,
+          "key": "shall",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 15.63,
+          "end": 15.81,
+          "key": "make",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 15.81,
+          "end": 16.01,
+          "key": "us",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "weep!",
+          "start": 16.01,
+          "end": 16.25,
+          "key": "weep",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "We'll",
+          "start": 16.77,
+          "end": 16.95,
+          "key": "well",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 16.95,
+          "end": 17.11,
+          "key": "see",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 17.11,
+          "end": 17.27,
+          "key": "them",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "starve",
+          "start": 17.27,
+          "end": 17.61,
+          "key": "starve",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "first.",
+          "start": 17.61,
+          "end": 18.03,
+          "key": "first",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Come.",
+          "start": 18.55,
+          "end": 18.79,
+          "key": "come",
+          "pieces": [
+            50
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "Upon",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "such",
+          "start": 0.038,
+          "end": 0.044
+        },
+        {
+          "text": "sacrifices,",
+          "start": 0.044,
+          "end": 0.047
+        },
+        {
+          "text": "my",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Cordelia,",
+          "start": 0.65,
+          "end": 2.91
+        },
+        {
+          "text": "The",
+          "start": 3.19,
+          "end": 3.27
+        },
+        {
+          "text": "gods",
+          "start": 3.27,
+          "end": 3.51
+        },
+        {
+          "text": "themselves",
+          "start": 3.51,
+          "end": 4.07
+        },
+        {
+          "text": "throw",
+          "start": 4.07,
+          "end": 4.47
+        },
+        {
+          "text": "incense.",
+          "start": 4.47,
+          "end": 5.17
+        },
+        {
+          "text": "Have",
+          "start": 5.75,
+          "end": 5.81
+        },
+        {
+          "text": "I",
+          "start": 5.81,
+          "end": 5.95
+        },
+        {
+          "text": "caught",
+          "start": 5.95,
+          "end": 6.19
+        },
+        {
+          "text": "thee?",
+          "start": 6.19,
+          "end": 6.45
+        },
+        {
+          "text": "He",
+          "start": 6.97,
+          "end": 7.05
+        },
+        {
+          "text": "that",
+          "start": 7.05,
+          "end": 7.19
+        },
+        {
+          "text": "parts",
+          "start": 7.19,
+          "end": 7.43
+        },
+        {
+          "text": "us",
+          "start": 7.43,
+          "end": 7.67
+        },
+        {
+          "text": "shall",
+          "start": 7.67,
+          "end": 7.79
+        },
+        {
+          "text": "bring",
+          "start": 7.79,
+          "end": 7.93
+        },
+        {
+          "text": "a",
+          "start": 7.93,
+          "end": 8.07
+        },
+        {
+          "text": "brand",
+          "start": 8.07,
+          "end": 8.31
+        },
+        {
+          "text": "from",
+          "start": 8.31,
+          "end": 8.53
+        },
+        {
+          "text": "heaven,",
+          "start": 8.53,
+          "end": 8.79
+        },
+        {
+          "text": "And",
+          "start": 8.99,
+          "end": 9.07
+        },
+        {
+          "text": "fire",
+          "start": 9.07,
+          "end": 9.39
+        },
+        {
+          "text": "us",
+          "start": 9.39,
+          "end": 9.61
+        },
+        {
+          "text": "hence",
+          "start": 9.61,
+          "end": 9.81
+        },
+        {
+          "text": "like",
+          "start": 9.81,
+          "end": 10.11
+        },
+        {
+          "text": "foxes.",
+          "start": 10.11,
+          "end": 10.69
+        },
+        {
+          "text": "Wipe",
+          "start": 11.35,
+          "end": 11.55
+        },
+        {
+          "text": "thine",
+          "start": 11.55,
+          "end": 11.75
+        },
+        {
+          "text": "eyes;",
+          "start": 11.75,
+          "end": 12.15
+        },
+        {
+          "text": "The",
+          "start": 12.49,
+          "end": 12.59
+        },
+        {
+          "text": "good",
+          "start": 12.59,
+          "end": 12.75
+        },
+        {
+          "text": "years",
+          "start": 12.75,
+          "end": 13.05
+        },
+        {
+          "text": "shall",
+          "start": 13.05,
+          "end": 13.29
+        },
+        {
+          "text": "devour",
+          "start": 13.29,
+          "end": 13.75
+        },
+        {
+          "text": "them,",
+          "start": 13.75,
+          "end": 14.01
+        },
+        {
+          "text": "flesh",
+          "start": 14.39,
+          "end": 14.45
+        },
+        {
+          "text": "and",
+          "start": 14.45,
+          "end": 14.69
+        },
+        {
+          "text": "fell,",
+          "start": 14.69,
+          "end": 14.97
+        },
+        {
+          "text": "Ere",
+          "start": 15.27,
+          "end": 15.35
+        },
+        {
+          "text": "they",
+          "start": 15.35,
+          "end": 15.51
+        },
+        {
+          "text": "shall",
+          "start": 15.51,
+          "end": 15.63
+        },
+        {
+          "text": "make",
+          "start": 15.63,
+          "end": 15.81
+        },
+        {
+          "text": "us",
+          "start": 15.81,
+          "end": 16.01
+        },
+        {
+          "text": "weep!",
+          "start": 16.01,
+          "end": 16.25
+        },
+        {
+          "text": "We'll",
+          "start": 16.77,
+          "end": 16.95
+        },
+        {
+          "text": "see",
+          "start": 16.95,
+          "end": 17.11
+        },
+        {
+          "text": "'em",
+          "start": 17.11,
+          "end": 17.19
+        },
+        {
+          "text": "starve",
+          "start": 17.27,
+          "end": 17.61
+        },
+        {
+          "text": "first:",
+          "start": 17.61,
+          "end": 18.03
+        },
+        {
+          "text": "come.",
+          "start": 18.55,
+          "end": 18.79
+        }
+      ],
+      "stats": {
+        "expected_words": 55,
+        "heard_words": 51,
+        "matched_words": 50
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.8305555041879416
+    },
+    {
+      "asr_seconds": 0.7245536353439093,
+      "alignment_seconds": 0.0010375361889600754,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Lear, Upon, Cordelia, The, Have, I, He, Wipe, Ere, We'll"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Lear, Upon, Such Sacrifices, My Cordelia, The Gods, Themselves, Throw Incense, Have I",
+          "start": 0.05,
+          "end": 5.97,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.61083984375
+            },
+            {
+              "text": " Upon,",
+              "start": 1.15,
+              "end": 1.17,
+              "probability": 0.020721435546875
+            },
+            {
+              "text": " Such",
+              "start": 1.37,
+              "end": 1.41,
+              "probability": 0.50732421875
+            },
+            {
+              "text": " Sacrifices,",
+              "start": 1.41,
+              "end": 2.21,
+              "probability": 0.775604248046875
+            },
+            {
+              "text": " My",
+              "start": 2.35,
+              "end": 2.41,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " Cordelia,",
+              "start": 2.41,
+              "end": 2.89,
+              "probability": 0.942138671875
+            },
+            {
+              "text": " The",
+              "start": 3.19,
+              "end": 3.29,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " Gods,",
+              "start": 3.29,
+              "end": 3.53,
+              "probability": 0.5068359375
+            },
+            {
+              "text": " Themselves,",
+              "start": 3.67,
+              "end": 4.13,
+              "probability": 0.873291015625
+            },
+            {
+              "text": " Throw",
+              "start": 4.35,
+              "end": 4.51,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " Incense,",
+              "start": 4.51,
+              "end": 5.11,
+              "probability": 0.813720703125
+            },
+            {
+              "text": " Have",
+              "start": 5.71,
+              "end": 5.81,
+              "probability": 0.978515625
+            },
+            {
+              "text": " I",
+              "start": 5.81,
+              "end": 5.97,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " Caught Thee, He That Parts Us Shall Bring A Brand From Heaven And Fire Us Hence Like Foxes,",
+          "start": 5.97,
+          "end": 10.75,
+          "words": [
+            {
+              "text": " Caught",
+              "start": 5.97,
+              "end": 6.21,
+              "probability": 0.7132568359375
+            },
+            {
+              "text": " Thee,",
+              "start": 6.21,
+              "end": 6.71,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " He",
+              "start": 6.91,
+              "end": 7.07,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " That",
+              "start": 7.07,
+              "end": 7.21,
+              "probability": 0.6630859375
+            },
+            {
+              "text": " Parts",
+              "start": 7.21,
+              "end": 7.41,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " Us",
+              "start": 7.41,
+              "end": 7.65,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " Shall",
+              "start": 7.65,
+              "end": 7.79,
+              "probability": 0.826171875
+            },
+            {
+              "text": " Bring",
+              "start": 7.79,
+              "end": 7.93,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " A",
+              "start": 7.93,
+              "end": 8.07,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " Brand",
+              "start": 8.07,
+              "end": 8.29,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " From",
+              "start": 8.29,
+              "end": 8.53,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " Heaven",
+              "start": 8.53,
+              "end": 8.77,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " And",
+              "start": 8.77,
+              "end": 9.07,
+              "probability": 0.4736328125
+            },
+            {
+              "text": " Fire",
+              "start": 9.07,
+              "end": 9.37,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Us",
+              "start": 9.37,
+              "end": 9.61,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Hence",
+              "start": 9.61,
+              "end": 9.81,
+              "probability": 0.55322265625
+            },
+            {
+              "text": " Like",
+              "start": 9.81,
+              "end": 10.11,
+              "probability": 0.728515625
+            },
+            {
+              "text": " Foxes,",
+              "start": 10.11,
+              "end": 10.75,
+              "probability": 0.989990234375
+            }
+          ]
+        },
+        {
+          "text": " Wipe Thine Eyes, The Good Years Shall Devour Them, Flesh And Fell, Ere They Shall Make Us",
+          "start": 11.33,
+          "end": 16.01,
+          "words": [
+            {
+              "text": " Wipe",
+              "start": 11.33,
+              "end": 11.55,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Thine",
+              "start": 11.55,
+              "end": 11.75,
+              "probability": 0.940185546875
+            },
+            {
+              "text": " Eyes,",
+              "start": 11.75,
+              "end": 12.09,
+              "probability": 0.98046875
+            },
+            {
+              "text": " The",
+              "start": 12.47,
+              "end": 12.59,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Good",
+              "start": 12.59,
+              "end": 12.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Years",
+              "start": 12.77,
+              "end": 13.03,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " Shall",
+              "start": 13.03,
+              "end": 13.29,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Devour",
+              "start": 13.29,
+              "end": 13.73,
+              "probability": 0.974853515625
+            },
+            {
+              "text": " Them,",
+              "start": 13.73,
+              "end": 14.01,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Flesh",
+              "start": 14.39,
+              "end": 14.41,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " And",
+              "start": 14.41,
+              "end": 14.71,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " Fell,",
+              "start": 14.71,
+              "end": 14.95,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " Ere",
+              "start": 15.27,
+              "end": 15.35,
+              "probability": 0.6207275390625
+            },
+            {
+              "text": " They",
+              "start": 15.35,
+              "end": 15.49,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " Shall",
+              "start": 15.49,
+              "end": 15.63,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Make",
+              "start": 15.63,
+              "end": 15.81,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Us",
+              "start": 15.81,
+              "end": 16.01,
+              "probability": 0.9814453125
+            }
+          ]
+        },
+        {
+          "text": " Weep, We'll See Them Starve First, Come.",
+          "start": 16.01,
+          "end": 18.81,
+          "words": [
+            {
+              "text": " Weep,",
+              "start": 16.01,
+              "end": 16.37,
+              "probability": 0.871826171875
+            },
+            {
+              "text": " We'll",
+              "start": 16.79,
+              "end": 16.95,
+              "probability": 0.79296875
+            },
+            {
+              "text": " See",
+              "start": 16.95,
+              "end": 17.11,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Them",
+              "start": 17.11,
+              "end": 17.27,
+              "probability": 0.0919189453125
+            },
+            {
+              "text": " Starve",
+              "start": 17.27,
+              "end": 17.77,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " First,",
+              "start": 17.77,
+              "end": 18.01,
+              "probability": 0.962890625
+            },
+            {
+              "text": " Come.",
+              "start": 18.53,
+              "end": 18.81,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Upon,",
+          "start": 1.15,
+          "end": 1.17
+        },
+        {
+          "raw": "Such",
+          "start": 1.37,
+          "end": 1.41
+        },
+        {
+          "raw": "Sacrifices,",
+          "start": 1.41,
+          "end": 2.21
+        },
+        {
+          "raw": "My",
+          "start": 2.35,
+          "end": 2.41
+        },
+        {
+          "raw": "Cordelia,",
+          "start": 2.41,
+          "end": 2.89
+        },
+        {
+          "raw": "The",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "raw": "Gods,",
+          "start": 3.29,
+          "end": 3.53
+        },
+        {
+          "raw": "Themselves,",
+          "start": 3.67,
+          "end": 4.13
+        },
+        {
+          "raw": "Throw",
+          "start": 4.35,
+          "end": 4.51
+        },
+        {
+          "raw": "Incense,",
+          "start": 4.51,
+          "end": 5.11
+        },
+        {
+          "raw": "Have",
+          "start": 5.71,
+          "end": 5.81
+        },
+        {
+          "raw": "I",
+          "start": 5.81,
+          "end": 5.97
+        },
+        {
+          "raw": "Caught",
+          "start": 5.97,
+          "end": 6.21
+        },
+        {
+          "raw": "Thee,",
+          "start": 6.21,
+          "end": 6.71
+        },
+        {
+          "raw": "He",
+          "start": 6.91,
+          "end": 7.07
+        },
+        {
+          "raw": "That",
+          "start": 7.07,
+          "end": 7.21
+        },
+        {
+          "raw": "Parts",
+          "start": 7.21,
+          "end": 7.41
+        },
+        {
+          "raw": "Us",
+          "start": 7.41,
+          "end": 7.65
+        },
+        {
+          "raw": "Shall",
+          "start": 7.65,
+          "end": 7.79
+        },
+        {
+          "raw": "Bring",
+          "start": 7.79,
+          "end": 7.93
+        },
+        {
+          "raw": "A",
+          "start": 7.93,
+          "end": 8.07
+        },
+        {
+          "raw": "Brand",
+          "start": 8.07,
+          "end": 8.29
+        },
+        {
+          "raw": "From",
+          "start": 8.29,
+          "end": 8.53
+        },
+        {
+          "raw": "Heaven",
+          "start": 8.53,
+          "end": 8.77
+        },
+        {
+          "raw": "And",
+          "start": 8.77,
+          "end": 9.07
+        },
+        {
+          "raw": "Fire",
+          "start": 9.07,
+          "end": 9.37
+        },
+        {
+          "raw": "Us",
+          "start": 9.37,
+          "end": 9.61
+        },
+        {
+          "raw": "Hence",
+          "start": 9.61,
+          "end": 9.81
+        },
+        {
+          "raw": "Like",
+          "start": 9.81,
+          "end": 10.11
+        },
+        {
+          "raw": "Foxes,",
+          "start": 10.11,
+          "end": 10.75
+        },
+        {
+          "raw": "Wipe",
+          "start": 11.33,
+          "end": 11.55
+        },
+        {
+          "raw": "Thine",
+          "start": 11.55,
+          "end": 11.75
+        },
+        {
+          "raw": "Eyes,",
+          "start": 11.75,
+          "end": 12.09
+        },
+        {
+          "raw": "The",
+          "start": 12.47,
+          "end": 12.59
+        },
+        {
+          "raw": "Good",
+          "start": 12.59,
+          "end": 12.77
+        },
+        {
+          "raw": "Years",
+          "start": 12.77,
+          "end": 13.03
+        },
+        {
+          "raw": "Shall",
+          "start": 13.03,
+          "end": 13.29
+        },
+        {
+          "raw": "Devour",
+          "start": 13.29,
+          "end": 13.73
+        },
+        {
+          "raw": "Them,",
+          "start": 13.73,
+          "end": 14.01
+        },
+        {
+          "raw": "Flesh",
+          "start": 14.39,
+          "end": 14.41
+        },
+        {
+          "raw": "And",
+          "start": 14.41,
+          "end": 14.71
+        },
+        {
+          "raw": "Fell,",
+          "start": 14.71,
+          "end": 14.95
+        },
+        {
+          "raw": "Ere",
+          "start": 15.27,
+          "end": 15.35
+        },
+        {
+          "raw": "They",
+          "start": 15.35,
+          "end": 15.49
+        },
+        {
+          "raw": "Shall",
+          "start": 15.49,
+          "end": 15.63
+        },
+        {
+          "raw": "Make",
+          "start": 15.63,
+          "end": 15.81
+        },
+        {
+          "raw": "Us",
+          "start": 15.81,
+          "end": 16.01
+        },
+        {
+          "raw": "Weep,",
+          "start": 16.01,
+          "end": 16.37
+        },
+        {
+          "raw": "We'll",
+          "start": 16.79,
+          "end": 16.95
+        },
+        {
+          "raw": "See",
+          "start": 16.95,
+          "end": 17.11
+        },
+        {
+          "raw": "Them",
+          "start": 17.11,
+          "end": 17.27
+        },
+        {
+          "raw": "Starve",
+          "start": 17.27,
+          "end": 17.77
+        },
+        {
+          "raw": "First,",
+          "start": 17.77,
+          "end": 18.01
+        },
+        {
+          "raw": "Come.",
+          "start": 18.53,
+          "end": 18.81
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Upon",
+        "such",
+        "sacrifices,",
+        "my",
+        "Cordelia,",
+        "The",
+        "gods",
+        "themselves",
+        "throw",
+        "incense.",
+        "Have",
+        "I",
+        "caught",
+        "thee?",
+        "He",
+        "that",
+        "parts",
+        "us",
+        "shall",
+        "bring",
+        "a",
+        "brand",
+        "from",
+        "heaven,",
+        "And",
+        "fire",
+        "us",
+        "hence",
+        "like",
+        "foxes.",
+        "Wipe",
+        "thine",
+        "eyes;",
+        "The",
+        "good",
+        "years",
+        "shall",
+        "devour",
+        "them,",
+        "flesh",
+        "and",
+        "fell,",
+        "Ere",
+        "they",
+        "shall",
+        "make",
+        "us",
+        "weep!",
+        "We'll",
+        "see",
+        "'em",
+        "starve",
+        "first:",
+        "come."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          51,
+          0,
+          51
+        ],
+        [
+          "replace",
+          51,
+          52,
+          51,
+          52
+        ],
+        [
+          "equal",
+          52,
+          55,
+          52,
+          55
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          51,
+          52,
+          51,
+          52
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Upon,",
+          "start": 1.15,
+          "end": 1.17,
+          "key": "upon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Such",
+          "start": 1.37,
+          "end": 1.41,
+          "key": "such",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sacrifices,",
+          "start": 1.41,
+          "end": 2.21,
+          "key": "sacrifices",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 2.35,
+          "end": 2.41,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Cordelia,",
+          "start": 2.41,
+          "end": 2.89,
+          "key": "cordelia",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.19,
+          "end": 3.29,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Gods,",
+          "start": 3.29,
+          "end": 3.53,
+          "key": "gods",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Themselves,",
+          "start": 3.67,
+          "end": 4.13,
+          "key": "themselves",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Throw",
+          "start": 4.35,
+          "end": 4.51,
+          "key": "throw",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Incense,",
+          "start": 4.51,
+          "end": 5.11,
+          "key": "incense",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 5.71,
+          "end": 5.81,
+          "key": "have",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.81,
+          "end": 5.97,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Caught",
+          "start": 5.97,
+          "end": 6.21,
+          "key": "caught",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Thee,",
+          "start": 6.21,
+          "end": 6.71,
+          "key": "thee",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 6.91,
+          "end": 7.07,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 7.07,
+          "end": 7.21,
+          "key": "that",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Parts",
+          "start": 7.21,
+          "end": 7.41,
+          "key": "parts",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Us",
+          "start": 7.41,
+          "end": 7.65,
+          "key": "us",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 7.65,
+          "end": 7.79,
+          "key": "shall",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Bring",
+          "start": 7.79,
+          "end": 7.93,
+          "key": "bring",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 7.93,
+          "end": 8.07,
+          "key": "a",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Brand",
+          "start": 8.07,
+          "end": 8.29,
+          "key": "brand",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "From",
+          "start": 8.29,
+          "end": 8.53,
+          "key": "from",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Heaven",
+          "start": 8.53,
+          "end": 8.77,
+          "key": "heaven",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 8.77,
+          "end": 9.07,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Fire",
+          "start": 9.07,
+          "end": 9.37,
+          "key": "fire",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Us",
+          "start": 9.37,
+          "end": 9.61,
+          "key": "us",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Hence",
+          "start": 9.61,
+          "end": 9.81,
+          "key": "hence",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Like",
+          "start": 9.81,
+          "end": 10.11,
+          "key": "like",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Foxes,",
+          "start": 10.11,
+          "end": 10.75,
+          "key": "foxes",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Wipe",
+          "start": 11.33,
+          "end": 11.55,
+          "key": "wipe",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Thine",
+          "start": 11.55,
+          "end": 11.75,
+          "key": "thine",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Eyes,",
+          "start": 11.75,
+          "end": 12.09,
+          "key": "eyes",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 12.47,
+          "end": 12.59,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 12.59,
+          "end": 12.77,
+          "key": "good",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Years",
+          "start": 12.77,
+          "end": 13.03,
+          "key": "years",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 13.03,
+          "end": 13.29,
+          "key": "shall",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Devour",
+          "start": 13.29,
+          "end": 13.73,
+          "key": "devour",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Them,",
+          "start": 13.73,
+          "end": 14.01,
+          "key": "them",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Flesh",
+          "start": 14.39,
+          "end": 14.41,
+          "key": "flesh",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 14.41,
+          "end": 14.71,
+          "key": "and",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Fell,",
+          "start": 14.71,
+          "end": 14.95,
+          "key": "fell",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Ere",
+          "start": 15.27,
+          "end": 15.35,
+          "key": "ere",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 15.35,
+          "end": 15.49,
+          "key": "they",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 15.49,
+          "end": 15.63,
+          "key": "shall",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Make",
+          "start": 15.63,
+          "end": 15.81,
+          "key": "make",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Us",
+          "start": 15.81,
+          "end": 16.01,
+          "key": "us",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Weep,",
+          "start": 16.01,
+          "end": 16.37,
+          "key": "weep",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "We'll",
+          "start": 16.79,
+          "end": 16.95,
+          "key": "well",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 16.95,
+          "end": 17.11,
+          "key": "see",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Them",
+          "start": 17.11,
+          "end": 17.27,
+          "key": "them",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Starve",
+          "start": 17.27,
+          "end": 17.77,
+          "key": "starve",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "First,",
+          "start": 17.77,
+          "end": 18.01,
+          "key": "first",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Come.",
+          "start": 18.53,
+          "end": 18.81,
+          "key": "come",
+          "pieces": [
+            54
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Upon",
+          "start": 1.15,
+          "end": 1.17
+        },
+        {
+          "text": "such",
+          "start": 1.37,
+          "end": 1.41
+        },
+        {
+          "text": "sacrifices,",
+          "start": 1.41,
+          "end": 2.21
+        },
+        {
+          "text": "my",
+          "start": 2.35,
+          "end": 2.41
+        },
+        {
+          "text": "Cordelia,",
+          "start": 2.41,
+          "end": 2.89
+        },
+        {
+          "text": "The",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "text": "gods",
+          "start": 3.29,
+          "end": 3.53
+        },
+        {
+          "text": "themselves",
+          "start": 3.67,
+          "end": 4.13
+        },
+        {
+          "text": "throw",
+          "start": 4.35,
+          "end": 4.51
+        },
+        {
+          "text": "incense.",
+          "start": 4.51,
+          "end": 5.11
+        },
+        {
+          "text": "Have",
+          "start": 5.71,
+          "end": 5.81
+        },
+        {
+          "text": "I",
+          "start": 5.81,
+          "end": 5.97
+        },
+        {
+          "text": "caught",
+          "start": 5.97,
+          "end": 6.21
+        },
+        {
+          "text": "thee?",
+          "start": 6.21,
+          "end": 6.71
+        },
+        {
+          "text": "He",
+          "start": 6.91,
+          "end": 7.07
+        },
+        {
+          "text": "that",
+          "start": 7.07,
+          "end": 7.21
+        },
+        {
+          "text": "parts",
+          "start": 7.21,
+          "end": 7.41
+        },
+        {
+          "text": "us",
+          "start": 7.41,
+          "end": 7.65
+        },
+        {
+          "text": "shall",
+          "start": 7.65,
+          "end": 7.79
+        },
+        {
+          "text": "bring",
+          "start": 7.79,
+          "end": 7.93
+        },
+        {
+          "text": "a",
+          "start": 7.93,
+          "end": 8.07
+        },
+        {
+          "text": "brand",
+          "start": 8.07,
+          "end": 8.29
+        },
+        {
+          "text": "from",
+          "start": 8.29,
+          "end": 8.53
+        },
+        {
+          "text": "heaven,",
+          "start": 8.53,
+          "end": 8.77
+        },
+        {
+          "text": "And",
+          "start": 8.77,
+          "end": 9.07
+        },
+        {
+          "text": "fire",
+          "start": 9.07,
+          "end": 9.37
+        },
+        {
+          "text": "us",
+          "start": 9.37,
+          "end": 9.61
+        },
+        {
+          "text": "hence",
+          "start": 9.61,
+          "end": 9.81
+        },
+        {
+          "text": "like",
+          "start": 9.81,
+          "end": 10.11
+        },
+        {
+          "text": "foxes.",
+          "start": 10.11,
+          "end": 10.75
+        },
+        {
+          "text": "Wipe",
+          "start": 11.33,
+          "end": 11.55
+        },
+        {
+          "text": "thine",
+          "start": 11.55,
+          "end": 11.75
+        },
+        {
+          "text": "eyes;",
+          "start": 11.75,
+          "end": 12.09
+        },
+        {
+          "text": "The",
+          "start": 12.47,
+          "end": 12.59
+        },
+        {
+          "text": "good",
+          "start": 12.59,
+          "end": 12.77
+        },
+        {
+          "text": "years",
+          "start": 12.77,
+          "end": 13.03
+        },
+        {
+          "text": "shall",
+          "start": 13.03,
+          "end": 13.29
+        },
+        {
+          "text": "devour",
+          "start": 13.29,
+          "end": 13.73
+        },
+        {
+          "text": "them,",
+          "start": 13.73,
+          "end": 14.01
+        },
+        {
+          "text": "flesh",
+          "start": 14.39,
+          "end": 14.41
+        },
+        {
+          "text": "and",
+          "start": 14.41,
+          "end": 14.71
+        },
+        {
+          "text": "fell,",
+          "start": 14.71,
+          "end": 14.95
+        },
+        {
+          "text": "Ere",
+          "start": 15.27,
+          "end": 15.35
+        },
+        {
+          "text": "they",
+          "start": 15.35,
+          "end": 15.49
+        },
+        {
+          "text": "shall",
+          "start": 15.49,
+          "end": 15.63
+        },
+        {
+          "text": "make",
+          "start": 15.63,
+          "end": 15.81
+        },
+        {
+          "text": "us",
+          "start": 15.81,
+          "end": 16.01
+        },
+        {
+          "text": "weep!",
+          "start": 16.01,
+          "end": 16.37
+        },
+        {
+          "text": "We'll",
+          "start": 16.79,
+          "end": 16.95
+        },
+        {
+          "text": "see",
+          "start": 16.95,
+          "end": 17.11
+        },
+        {
+          "text": "'em",
+          "start": 17.11,
+          "end": 17.19
+        },
+        {
+          "text": "starve",
+          "start": 17.27,
+          "end": 17.77
+        },
+        {
+          "text": "first:",
+          "start": 17.77,
+          "end": 18.01
+        },
+        {
+          "text": "come.",
+          "start": 18.53,
+          "end": 18.81
+        }
+      ],
+      "stats": {
+        "expected_words": 55,
+        "heard_words": 55,
+        "matched_words": 54
+      },
+      "match_ratio": 0.9818181818181818,
+      "rejection_reasons": [],
+      "seconds": 0.7260533627122641
+    },
+    {
+      "asr_seconds": 0.7543677464127541,
+      "alignment_seconds": 0.001041823998093605,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, upon such sacrifices, my Cordelia, the gods themselves throw incense.",
+          "start": 0.05,
+          "end": 5.11,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.6083984375
+            },
+            {
+              "text": " upon",
+              "start": 1.15,
+              "end": 1.17,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " such",
+              "start": 1.17,
+              "end": 1.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sacrifices,",
+              "start": 1.43,
+              "end": 2.09,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " my",
+              "start": 2.35,
+              "end": 2.41,
+              "probability": 0.89453125
+            },
+            {
+              "text": " Cordelia,",
+              "start": 2.41,
+              "end": 2.87,
+              "probability": 0.843017578125
+            },
+            {
+              "text": " the",
+              "start": 3.19,
+              "end": 3.29,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " gods",
+              "start": 3.29,
+              "end": 3.51,
+              "probability": 0.9296875
+            },
+            {
+              "text": " themselves",
+              "start": 3.51,
+              "end": 4.07,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " throw",
+              "start": 4.07,
+              "end": 4.49,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " incense.",
+              "start": 4.49,
+              "end": 5.11,
+              "probability": 0.986572265625
+            }
+          ]
+        },
+        {
+          "text": " Have I caught thee?",
+          "start": 5.73,
+          "end": 6.43,
+          "words": [
+            {
+              "text": " Have",
+              "start": 5.73,
+              "end": 5.81,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " I",
+              "start": 5.81,
+              "end": 5.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " caught",
+              "start": 5.95,
+              "end": 6.19,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thee?",
+              "start": 6.19,
+              "end": 6.43,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " He that parts us shall bring a brand from heaven and fire us hence like foxes.",
+          "start": 6.95,
+          "end": 10.77,
+          "words": [
+            {
+              "text": " He",
+              "start": 6.95,
+              "end": 7.05,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " that",
+              "start": 7.05,
+              "end": 7.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " parts",
+              "start": 7.21,
+              "end": 7.43,
+              "probability": 0.958984375
+            },
+            {
+              "text": " us",
+              "start": 7.43,
+              "end": 7.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " shall",
+              "start": 7.67,
+              "end": 7.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bring",
+              "start": 7.77,
+              "end": 7.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 7.93,
+              "end": 8.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " brand",
+              "start": 8.07,
+              "end": 8.29,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " from",
+              "start": 8.29,
+              "end": 8.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " heaven",
+              "start": 8.53,
+              "end": 8.79,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " and",
+              "start": 8.79,
+              "end": 9.07,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " fire",
+              "start": 9.07,
+              "end": 9.39,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " us",
+              "start": 9.39,
+              "end": 9.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hence",
+              "start": 9.61,
+              "end": 9.81,
+              "probability": 0.76953125
+            },
+            {
+              "text": " like",
+              "start": 9.81,
+              "end": 10.11,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " foxes.",
+              "start": 10.11,
+              "end": 10.77,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Wipe thine eyes, the good years shall devour them, flesh and fell, ere they shall make",
+          "start": 11.37,
+          "end": 15.81,
+          "words": [
+            {
+              "text": " Wipe",
+              "start": 11.37,
+              "end": 11.55,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " thine",
+              "start": 11.55,
+              "end": 11.75,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " eyes,",
+              "start": 11.75,
+              "end": 12.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 12.47,
+              "end": 12.59,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " good",
+              "start": 12.59,
+              "end": 12.75,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " years",
+              "start": 12.75,
+              "end": 13.05,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " shall",
+              "start": 13.05,
+              "end": 13.29,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " devour",
+              "start": 13.29,
+              "end": 13.73,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " them,",
+              "start": 13.73,
+              "end": 14.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " flesh",
+              "start": 14.35,
+              "end": 14.45,
+              "probability": 0.98046875
+            },
+            {
+              "text": " and",
+              "start": 14.45,
+              "end": 14.69,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " fell,",
+              "start": 14.69,
+              "end": 14.97,
+              "probability": 0.798828125
+            },
+            {
+              "text": " ere",
+              "start": 15.27,
+              "end": 15.37,
+              "probability": 0.935302734375
+            },
+            {
+              "text": " they",
+              "start": 15.37,
+              "end": 15.49,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " shall",
+              "start": 15.49,
+              "end": 15.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " make",
+              "start": 15.65,
+              "end": 15.81,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " us weep.",
+          "start": 15.81,
+          "end": 16.25,
+          "words": [
+            {
+              "text": " us",
+              "start": 15.81,
+              "end": 16.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " weep.",
+              "start": 16.01,
+              "end": 16.25,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " We'll see him starve first.",
+          "start": 16.77,
+          "end": 18.05,
+          "words": [
+            {
+              "text": " We'll",
+              "start": 16.77,
+              "end": 16.95,
+              "probability": 0.97265625
+            },
+            {
+              "text": " see",
+              "start": 16.95,
+              "end": 17.11,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " him",
+              "start": 17.11,
+              "end": 17.27,
+              "probability": 0.08245849609375
+            },
+            {
+              "text": " starve",
+              "start": 17.27,
+              "end": 17.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " first.",
+              "start": 17.61,
+              "end": 18.05,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " Come.",
+          "start": 18.53,
+          "end": 18.79,
+          "words": [
+            {
+              "text": " Come.",
+              "start": 18.53,
+              "end": 18.79,
+              "probability": 0.97509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "upon",
+          "start": 1.15,
+          "end": 1.17
+        },
+        {
+          "raw": "such",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "raw": "sacrifices,",
+          "start": 1.43,
+          "end": 2.09
+        },
+        {
+          "raw": "my",
+          "start": 2.35,
+          "end": 2.41
+        },
+        {
+          "raw": "Cordelia,",
+          "start": 2.41,
+          "end": 2.87
+        },
+        {
+          "raw": "the",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "raw": "gods",
+          "start": 3.29,
+          "end": 3.51
+        },
+        {
+          "raw": "themselves",
+          "start": 3.51,
+          "end": 4.07
+        },
+        {
+          "raw": "throw",
+          "start": 4.07,
+          "end": 4.49
+        },
+        {
+          "raw": "incense.",
+          "start": 4.49,
+          "end": 5.11
+        },
+        {
+          "raw": "Have",
+          "start": 5.73,
+          "end": 5.81
+        },
+        {
+          "raw": "I",
+          "start": 5.81,
+          "end": 5.95
+        },
+        {
+          "raw": "caught",
+          "start": 5.95,
+          "end": 6.19
+        },
+        {
+          "raw": "thee?",
+          "start": 6.19,
+          "end": 6.43
+        },
+        {
+          "raw": "He",
+          "start": 6.95,
+          "end": 7.05
+        },
+        {
+          "raw": "that",
+          "start": 7.05,
+          "end": 7.21
+        },
+        {
+          "raw": "parts",
+          "start": 7.21,
+          "end": 7.43
+        },
+        {
+          "raw": "us",
+          "start": 7.43,
+          "end": 7.67
+        },
+        {
+          "raw": "shall",
+          "start": 7.67,
+          "end": 7.77
+        },
+        {
+          "raw": "bring",
+          "start": 7.77,
+          "end": 7.93
+        },
+        {
+          "raw": "a",
+          "start": 7.93,
+          "end": 8.07
+        },
+        {
+          "raw": "brand",
+          "start": 8.07,
+          "end": 8.29
+        },
+        {
+          "raw": "from",
+          "start": 8.29,
+          "end": 8.53
+        },
+        {
+          "raw": "heaven",
+          "start": 8.53,
+          "end": 8.79
+        },
+        {
+          "raw": "and",
+          "start": 8.79,
+          "end": 9.07
+        },
+        {
+          "raw": "fire",
+          "start": 9.07,
+          "end": 9.39
+        },
+        {
+          "raw": "us",
+          "start": 9.39,
+          "end": 9.61
+        },
+        {
+          "raw": "hence",
+          "start": 9.61,
+          "end": 9.81
+        },
+        {
+          "raw": "like",
+          "start": 9.81,
+          "end": 10.11
+        },
+        {
+          "raw": "foxes.",
+          "start": 10.11,
+          "end": 10.77
+        },
+        {
+          "raw": "Wipe",
+          "start": 11.37,
+          "end": 11.55
+        },
+        {
+          "raw": "thine",
+          "start": 11.55,
+          "end": 11.75
+        },
+        {
+          "raw": "eyes,",
+          "start": 11.75,
+          "end": 12.13
+        },
+        {
+          "raw": "the",
+          "start": 12.47,
+          "end": 12.59
+        },
+        {
+          "raw": "good",
+          "start": 12.59,
+          "end": 12.75
+        },
+        {
+          "raw": "years",
+          "start": 12.75,
+          "end": 13.05
+        },
+        {
+          "raw": "shall",
+          "start": 13.05,
+          "end": 13.29
+        },
+        {
+          "raw": "devour",
+          "start": 13.29,
+          "end": 13.73
+        },
+        {
+          "raw": "them,",
+          "start": 13.73,
+          "end": 14.03
+        },
+        {
+          "raw": "flesh",
+          "start": 14.35,
+          "end": 14.45
+        },
+        {
+          "raw": "and",
+          "start": 14.45,
+          "end": 14.69
+        },
+        {
+          "raw": "fell,",
+          "start": 14.69,
+          "end": 14.97
+        },
+        {
+          "raw": "ere",
+          "start": 15.27,
+          "end": 15.37
+        },
+        {
+          "raw": "they",
+          "start": 15.37,
+          "end": 15.49
+        },
+        {
+          "raw": "shall",
+          "start": 15.49,
+          "end": 15.65
+        },
+        {
+          "raw": "make",
+          "start": 15.65,
+          "end": 15.81
+        },
+        {
+          "raw": "us",
+          "start": 15.81,
+          "end": 16.01
+        },
+        {
+          "raw": "weep.",
+          "start": 16.01,
+          "end": 16.25
+        },
+        {
+          "raw": "We'll",
+          "start": 16.77,
+          "end": 16.95
+        },
+        {
+          "raw": "see",
+          "start": 16.95,
+          "end": 17.11
+        },
+        {
+          "raw": "him",
+          "start": 17.11,
+          "end": 17.27
+        },
+        {
+          "raw": "starve",
+          "start": 17.27,
+          "end": 17.61
+        },
+        {
+          "raw": "first.",
+          "start": 17.61,
+          "end": 18.05
+        },
+        {
+          "raw": "Come.",
+          "start": 18.53,
+          "end": 18.79
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Upon",
+        "such",
+        "sacrifices,",
+        "my",
+        "Cordelia,",
+        "The",
+        "gods",
+        "themselves",
+        "throw",
+        "incense.",
+        "Have",
+        "I",
+        "caught",
+        "thee?",
+        "He",
+        "that",
+        "parts",
+        "us",
+        "shall",
+        "bring",
+        "a",
+        "brand",
+        "from",
+        "heaven,",
+        "And",
+        "fire",
+        "us",
+        "hence",
+        "like",
+        "foxes.",
+        "Wipe",
+        "thine",
+        "eyes;",
+        "The",
+        "good",
+        "years",
+        "shall",
+        "devour",
+        "them,",
+        "flesh",
+        "and",
+        "fell,",
+        "Ere",
+        "they",
+        "shall",
+        "make",
+        "us",
+        "weep!",
+        "We'll",
+        "see",
+        "'em",
+        "starve",
+        "first:",
+        "come."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          51,
+          0,
+          51
+        ],
+        [
+          "replace",
+          51,
+          52,
+          51,
+          52
+        ],
+        [
+          "equal",
+          52,
+          55,
+          52,
+          55
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          51,
+          52,
+          51,
+          52
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.15,
+          "end": 1.17,
+          "key": "upon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 1.17,
+          "end": 1.43,
+          "key": "such",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sacrifices,",
+          "start": 1.43,
+          "end": 2.09,
+          "key": "sacrifices",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.35,
+          "end": 2.41,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Cordelia,",
+          "start": 2.41,
+          "end": 2.87,
+          "key": "cordelia",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.19,
+          "end": 3.29,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gods",
+          "start": 3.29,
+          "end": 3.51,
+          "key": "gods",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "themselves",
+          "start": 3.51,
+          "end": 4.07,
+          "key": "themselves",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "throw",
+          "start": 4.07,
+          "end": 4.49,
+          "key": "throw",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "incense.",
+          "start": 4.49,
+          "end": 5.11,
+          "key": "incense",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 5.73,
+          "end": 5.81,
+          "key": "have",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.81,
+          "end": 5.95,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "caught",
+          "start": 5.95,
+          "end": 6.19,
+          "key": "caught",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thee?",
+          "start": 6.19,
+          "end": 6.43,
+          "key": "thee",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 6.95,
+          "end": 7.05,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.05,
+          "end": 7.21,
+          "key": "that",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "parts",
+          "start": 7.21,
+          "end": 7.43,
+          "key": "parts",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 7.43,
+          "end": 7.67,
+          "key": "us",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 7.67,
+          "end": 7.77,
+          "key": "shall",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 7.77,
+          "end": 7.93,
+          "key": "bring",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.93,
+          "end": 8.07,
+          "key": "a",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "brand",
+          "start": 8.07,
+          "end": 8.29,
+          "key": "brand",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 8.29,
+          "end": 8.53,
+          "key": "from",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "heaven",
+          "start": 8.53,
+          "end": 8.79,
+          "key": "heaven",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.79,
+          "end": 9.07,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "fire",
+          "start": 9.07,
+          "end": 9.39,
+          "key": "fire",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 9.39,
+          "end": 9.61,
+          "key": "us",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "hence",
+          "start": 9.61,
+          "end": 9.81,
+          "key": "hence",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 9.81,
+          "end": 10.11,
+          "key": "like",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "foxes.",
+          "start": 10.11,
+          "end": 10.77,
+          "key": "foxes",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Wipe",
+          "start": 11.37,
+          "end": 11.55,
+          "key": "wipe",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 11.55,
+          "end": 11.75,
+          "key": "thine",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "eyes,",
+          "start": 11.75,
+          "end": 12.13,
+          "key": "eyes",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.47,
+          "end": 12.59,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 12.59,
+          "end": 12.75,
+          "key": "good",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "years",
+          "start": 12.75,
+          "end": 13.05,
+          "key": "years",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 13.05,
+          "end": 13.29,
+          "key": "shall",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "devour",
+          "start": 13.29,
+          "end": 13.73,
+          "key": "devour",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 13.73,
+          "end": 14.03,
+          "key": "them",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "flesh",
+          "start": 14.35,
+          "end": 14.45,
+          "key": "flesh",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.45,
+          "end": 14.69,
+          "key": "and",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "fell,",
+          "start": 14.69,
+          "end": 14.97,
+          "key": "fell",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "ere",
+          "start": 15.27,
+          "end": 15.37,
+          "key": "ere",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 15.37,
+          "end": 15.49,
+          "key": "they",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 15.49,
+          "end": 15.65,
+          "key": "shall",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 15.65,
+          "end": 15.81,
+          "key": "make",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 15.81,
+          "end": 16.01,
+          "key": "us",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "weep.",
+          "start": 16.01,
+          "end": 16.25,
+          "key": "weep",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "We'll",
+          "start": 16.77,
+          "end": 16.95,
+          "key": "well",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 16.95,
+          "end": 17.11,
+          "key": "see",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 17.11,
+          "end": 17.27,
+          "key": "him",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "starve",
+          "start": 17.27,
+          "end": 17.61,
+          "key": "starve",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "first.",
+          "start": 17.61,
+          "end": 18.05,
+          "key": "first",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Come.",
+          "start": 18.53,
+          "end": 18.79,
+          "key": "come",
+          "pieces": [
+            54
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Upon",
+          "start": 1.15,
+          "end": 1.17
+        },
+        {
+          "text": "such",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "text": "sacrifices,",
+          "start": 1.43,
+          "end": 2.09
+        },
+        {
+          "text": "my",
+          "start": 2.35,
+          "end": 2.41
+        },
+        {
+          "text": "Cordelia,",
+          "start": 2.41,
+          "end": 2.87
+        },
+        {
+          "text": "The",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "text": "gods",
+          "start": 3.29,
+          "end": 3.51
+        },
+        {
+          "text": "themselves",
+          "start": 3.51,
+          "end": 4.07
+        },
+        {
+          "text": "throw",
+          "start": 4.07,
+          "end": 4.49
+        },
+        {
+          "text": "incense.",
+          "start": 4.49,
+          "end": 5.11
+        },
+        {
+          "text": "Have",
+          "start": 5.73,
+          "end": 5.81
+        },
+        {
+          "text": "I",
+          "start": 5.81,
+          "end": 5.95
+        },
+        {
+          "text": "caught",
+          "start": 5.95,
+          "end": 6.19
+        },
+        {
+          "text": "thee?",
+          "start": 6.19,
+          "end": 6.43
+        },
+        {
+          "text": "He",
+          "start": 6.95,
+          "end": 7.05
+        },
+        {
+          "text": "that",
+          "start": 7.05,
+          "end": 7.21
+        },
+        {
+          "text": "parts",
+          "start": 7.21,
+          "end": 7.43
+        },
+        {
+          "text": "us",
+          "start": 7.43,
+          "end": 7.67
+        },
+        {
+          "text": "shall",
+          "start": 7.67,
+          "end": 7.77
+        },
+        {
+          "text": "bring",
+          "start": 7.77,
+          "end": 7.93
+        },
+        {
+          "text": "a",
+          "start": 7.93,
+          "end": 8.07
+        },
+        {
+          "text": "brand",
+          "start": 8.07,
+          "end": 8.29
+        },
+        {
+          "text": "from",
+          "start": 8.29,
+          "end": 8.53
+        },
+        {
+          "text": "heaven,",
+          "start": 8.53,
+          "end": 8.79
+        },
+        {
+          "text": "And",
+          "start": 8.79,
+          "end": 9.07
+        },
+        {
+          "text": "fire",
+          "start": 9.07,
+          "end": 9.39
+        },
+        {
+          "text": "us",
+          "start": 9.39,
+          "end": 9.61
+        },
+        {
+          "text": "hence",
+          "start": 9.61,
+          "end": 9.81
+        },
+        {
+          "text": "like",
+          "start": 9.81,
+          "end": 10.11
+        },
+        {
+          "text": "foxes.",
+          "start": 10.11,
+          "end": 10.77
+        },
+        {
+          "text": "Wipe",
+          "start": 11.37,
+          "end": 11.55
+        },
+        {
+          "text": "thine",
+          "start": 11.55,
+          "end": 11.75
+        },
+        {
+          "text": "eyes;",
+          "start": 11.75,
+          "end": 12.13
+        },
+        {
+          "text": "The",
+          "start": 12.47,
+          "end": 12.59
+        },
+        {
+          "text": "good",
+          "start": 12.59,
+          "end": 12.75
+        },
+        {
+          "text": "years",
+          "start": 12.75,
+          "end": 13.05
+        },
+        {
+          "text": "shall",
+          "start": 13.05,
+          "end": 13.29
+        },
+        {
+          "text": "devour",
+          "start": 13.29,
+          "end": 13.73
+        },
+        {
+          "text": "them,",
+          "start": 13.73,
+          "end": 14.03
+        },
+        {
+          "text": "flesh",
+          "start": 14.35,
+          "end": 14.45
+        },
+        {
+          "text": "and",
+          "start": 14.45,
+          "end": 14.69
+        },
+        {
+          "text": "fell,",
+          "start": 14.69,
+          "end": 14.97
+        },
+        {
+          "text": "Ere",
+          "start": 15.27,
+          "end": 15.37
+        },
+        {
+          "text": "they",
+          "start": 15.37,
+          "end": 15.49
+        },
+        {
+          "text": "shall",
+          "start": 15.49,
+          "end": 15.65
+        },
+        {
+          "text": "make",
+          "start": 15.65,
+          "end": 15.81
+        },
+        {
+          "text": "us",
+          "start": 15.81,
+          "end": 16.01
+        },
+        {
+          "text": "weep!",
+          "start": 16.01,
+          "end": 16.25
+        },
+        {
+          "text": "We'll",
+          "start": 16.77,
+          "end": 16.95
+        },
+        {
+          "text": "see",
+          "start": 16.95,
+          "end": 17.11
+        },
+        {
+          "text": "'em",
+          "start": 17.11,
+          "end": 17.19
+        },
+        {
+          "text": "starve",
+          "start": 17.27,
+          "end": 17.61
+        },
+        {
+          "text": "first:",
+          "start": 17.61,
+          "end": 18.05
+        },
+        {
+          "text": "come.",
+          "start": 18.53,
+          "end": 18.79
+        }
+      ],
+      "stats": {
+        "expected_words": 55,
+        "heard_words": 55,
+        "matched_words": 54
+      },
+      "match_ratio": 0.9818181818181818,
+      "rejection_reasons": [],
+      "seconds": 0.7558803968131542
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "5fe9aea23d90c0e8295926f4a932ded7b83a0c0f968414e5b7b38ca775b8f378",
+  "selected_reasons": []
+}

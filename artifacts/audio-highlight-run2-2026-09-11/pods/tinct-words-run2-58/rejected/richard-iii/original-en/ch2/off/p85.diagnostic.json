@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "6582e9fa5ccbd9d8235e5b4e800cd16e5a08e385a58c70b99773e819bf862d88",
+  "attempts": [
+    {
+      "asr_seconds": 0.20219417102634907,
+      "alignment_seconds": 0.00032342318445444107,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richard, say that my piece is made.",
+          "start": 0.02,
+          "end": 2.28,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " say",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.994140625
+            },
+            {
+              "text": " that",
+              "start": 1.36,
+              "end": 1.48,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " my",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " piece",
+              "start": 1.62,
+              "end": 1.84,
+              "probability": 0.923828125
+            },
+            {
+              "text": " is",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " made.",
+              "start": 2.0,
+              "end": 2.28,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "say",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "that",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "raw": "my",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "piece",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "raw": "is",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "made.",
+          "start": 2.0,
+          "end": 2.28
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Say",
+        "then",
+        "my",
+        "peace",
+        "is",
+        "made."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.36,
+          "end": 1.48,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.48,
+          "end": 1.62,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "piece",
+          "start": 1.62,
+          "end": 1.84,
+          "key": "piece",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.84,
+          "end": 2.0,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "made.",
+          "start": 2.0,
+          "end": 2.28,
+          "key": "made",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "Say",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "then",
+          "start": 1.36,
+          "end": 1.42
+        },
+        {
+          "text": "my",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "peace",
+          "start": 1.62,
+          "end": 1.73
+        },
+        {
+          "text": "is",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "made.",
+          "start": 2.0,
+          "end": 2.28
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2026490904390812
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c81a4d25ebc987b33a37c2a7a9c9c815472325497d2e5b38634752ef34f03242",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

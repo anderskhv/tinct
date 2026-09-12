@@ -1,0 +1,543 @@
+{
+  "complete": true,
+  "signature": "43178eed88e33ccfd075bd1f2921d089ba39aa33635f9b3d98fd36414b0ef2d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.18936308193951845,
+      "alignment_seconds": 0.000539029948413372,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tap blind walk tapping by the tap the curb stone tapping tap by tap",
+          "start": 0.05,
+          "end": 4.39,
+          "words": [
+            {
+              "text": " Tap",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " blind",
+              "start": 0.59,
+              "end": 0.87,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " walk",
+              "start": 0.87,
+              "end": 1.23,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " tapping",
+              "start": 1.23,
+              "end": 1.59,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " by",
+              "start": 1.59,
+              "end": 1.83,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tap",
+              "start": 1.95,
+              "end": 2.15,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " the",
+              "start": 2.15,
+              "end": 2.33,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " curb",
+              "start": 2.33,
+              "end": 2.49,
+              "probability": 0.544921875
+            },
+            {
+              "text": " stone",
+              "start": 2.49,
+              "end": 2.77,
+              "probability": 0.58642578125
+            },
+            {
+              "text": " tapping",
+              "start": 2.77,
+              "end": 3.21,
+              "probability": 0.990234375
+            },
+            {
+              "text": " tap",
+              "start": 3.21,
+              "end": 3.81,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " by",
+              "start": 3.81,
+              "end": 4.03,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " tap",
+              "start": 4.03,
+              "end": 4.39,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tap",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "blind",
+          "start": 0.59,
+          "end": 0.87
+        },
+        {
+          "raw": "walk",
+          "start": 0.87,
+          "end": 1.23
+        },
+        {
+          "raw": "tapping",
+          "start": 1.23,
+          "end": 1.59
+        },
+        {
+          "raw": "by",
+          "start": 1.59,
+          "end": 1.83
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "tap",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "raw": "the",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "raw": "curb",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "raw": "stone",
+          "start": 2.49,
+          "end": 2.77
+        },
+        {
+          "raw": "tapping",
+          "start": 2.77,
+          "end": 3.21
+        },
+        {
+          "raw": "tap",
+          "start": 3.21,
+          "end": 3.81
+        },
+        {
+          "raw": "by",
+          "start": 3.81,
+          "end": 4.03
+        },
+        {
+          "raw": "tap",
+          "start": 4.03,
+          "end": 4.39
+        }
+      ],
+      "expected_tokens": [
+        "Tap",
+        "blind",
+        "walked",
+        "tapping",
+        "by",
+        "the",
+        "tap",
+        "the",
+        "curbstone",
+        "tapping,",
+        "tap",
+        "by",
+        "tap."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          8,
+          3,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          13,
+          10,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tap",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "tap",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "blind",
+          "start": 0.59,
+          "end": 0.87,
+          "key": "blind",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "walk",
+          "start": 0.87,
+          "end": 1.23,
+          "key": "walk",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tapping",
+          "start": 1.23,
+          "end": 1.59,
+          "key": "tapping",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.59,
+          "end": 1.83,
+          "key": "by",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tap",
+          "start": 1.95,
+          "end": 2.15,
+          "key": "tap",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.15,
+          "end": 2.33,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "curb",
+          "start": 2.33,
+          "end": 2.49,
+          "key": "curb",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "stone",
+          "start": 2.49,
+          "end": 2.77,
+          "key": "stone",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "tapping",
+          "start": 2.77,
+          "end": 3.21,
+          "key": "tapping",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "tap",
+          "start": 3.21,
+          "end": 3.81,
+          "key": "tap",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.81,
+          "end": 4.03,
+          "key": "by",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tap",
+          "start": 4.03,
+          "end": 4.39,
+          "key": "tap",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tap",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "blind",
+          "start": 0.59,
+          "end": 0.87
+        },
+        {
+          "text": "walked",
+          "start": 0.87,
+          "end": 1.05
+        },
+        {
+          "text": "tapping",
+          "start": 1.23,
+          "end": 1.59
+        },
+        {
+          "text": "by",
+          "start": 1.59,
+          "end": 1.83
+        },
+        {
+          "text": "the",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "tap",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "text": "the",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "text": "curbstone",
+          "start": 2.33,
+          "end": 2.55
+        },
+        {
+          "text": "tapping,",
+          "start": 2.77,
+          "end": 3.21
+        },
+        {
+          "text": "tap",
+          "start": 3.21,
+          "end": 3.81
+        },
+        {
+          "text": "by",
+          "start": 3.81,
+          "end": 4.03
+        },
+        {
+          "text": "tap.",
+          "start": 4.03,
+          "end": 4.39
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1901041348464787
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3bf096c76cbb82ed2f2305d4a31a7e2de0331d0c19280375e0f2a5584dcbbfb5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

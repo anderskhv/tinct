@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "1db88058bf1802b0b087fbcc96c55ccd4bb69524a96d52b286e1ed9aaee07717",
+  "attempts": [
+    {
+      "asr_seconds": 0.2836994808167219,
+      "alignment_seconds": 0.0006584804505109787,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. Not a word, a word; we stand upon our manners. Come, strike up.",
+        "hotwords": "Clown, Not, Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, Not a word, a word. We stand upon our manners. Come, strike up.",
+          "start": 0.08,
+          "end": 4.72,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.7578125
+            },
+            {
+              "text": " Not",
+              "start": 1.04,
+              "end": 1.2,
+              "probability": 0.006866455078125
+            },
+            {
+              "text": " a",
+              "start": 1.2,
+              "end": 1.34,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " word,",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " a",
+              "start": 1.66,
+              "end": 1.68,
+              "probability": 0.76953125
+            },
+            {
+              "text": " word.",
+              "start": 1.68,
+              "end": 1.86,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " We",
+              "start": 2.04,
+              "end": 2.06,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " stand",
+              "start": 2.06,
+              "end": 2.32,
+              "probability": 0.9375
+            },
+            {
+              "text": " upon",
+              "start": 2.32,
+              "end": 2.56,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " our",
+              "start": 2.56,
+              "end": 2.72,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " manners.",
+              "start": 2.72,
+              "end": 3.08,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Come,",
+              "start": 3.8,
+              "end": 4.0,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " strike",
+              "start": 4.22,
+              "end": 4.4,
+              "probability": 0.52978515625
+            },
+            {
+              "text": " up.",
+              "start": 4.4,
+              "end": 4.72,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Not",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "raw": "a",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "raw": "word,",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "a",
+          "start": 1.66,
+          "end": 1.68
+        },
+        {
+          "raw": "word.",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "raw": "We",
+          "start": 2.04,
+          "end": 2.06
+        },
+        {
+          "raw": "stand",
+          "start": 2.06,
+          "end": 2.32
+        },
+        {
+          "raw": "upon",
+          "start": 2.32,
+          "end": 2.56
+        },
+        {
+          "raw": "our",
+          "start": 2.56,
+          "end": 2.72
+        },
+        {
+          "raw": "manners.",
+          "start": 2.72,
+          "end": 3.08
+        },
+        {
+          "raw": "Come,",
+          "start": 3.8,
+          "end": 4.0
+        },
+        {
+          "raw": "strike",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "raw": "up.",
+          "start": 4.4,
+          "end": 4.72
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Not",
+        "a",
+        "word,",
+        "a",
+        "word;",
+        "we",
+        "stand",
+        "upon",
+        "our",
+        "manners.",
+        "Come,",
+        "strike",
+        "up."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 1.04,
+          "end": 1.2,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.2,
+          "end": 1.34,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "word,",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "word",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.66,
+          "end": 1.68,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "word.",
+          "start": 1.68,
+          "end": 1.86,
+          "key": "word",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 2.04,
+          "end": 2.06,
+          "key": "we",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 2.06,
+          "end": 2.32,
+          "key": "stand",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.32,
+          "end": 2.56,
+          "key": "upon",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.56,
+          "end": 2.72,
+          "key": "our",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "manners.",
+          "start": 2.72,
+          "end": 3.08,
+          "key": "manners",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 3.8,
+          "end": 4.0,
+          "key": "come",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "strike",
+          "start": 4.22,
+          "end": 4.4,
+          "key": "strike",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 4.4,
+          "end": 4.72,
+          "key": "up",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Not",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "text": "a",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "text": "word,",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "a",
+          "start": 1.66,
+          "end": 1.68
+        },
+        {
+          "text": "word;",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "text": "we",
+          "start": 2.04,
+          "end": 2.06
+        },
+        {
+          "text": "stand",
+          "start": 2.06,
+          "end": 2.32
+        },
+        {
+          "text": "upon",
+          "start": 2.32,
+          "end": 2.56
+        },
+        {
+          "text": "our",
+          "start": 2.56,
+          "end": 2.72
+        },
+        {
+          "text": "manners.",
+          "start": 2.72,
+          "end": 3.08
+        },
+        {
+          "text": "Come,",
+          "start": 3.8,
+          "end": 4.0
+        },
+        {
+          "text": "strike",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "text": "up.",
+          "start": 4.4,
+          "end": 4.72
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2846128083765507
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b309033917fa42ec45fde229eefad7b5a42238e8933d26ae92cda2f6f0888c68",
+  "selected_reasons": []
+}

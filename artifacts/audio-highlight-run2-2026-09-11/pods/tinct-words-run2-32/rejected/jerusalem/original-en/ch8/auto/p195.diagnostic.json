@@ -1,0 +1,645 @@
+{
+  "complete": true,
+  "signature": "fa3a7f5218a4481307b3a736547724fb104cfbbedfc16fdc3b84d910421314b2",
+  "attempts": [
+    {
+      "asr_seconds": 0.23028487898409367,
+      "alignment_seconds": 0.00012706778943538666,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Karin followed him, wringing her hands. \"Stop, Ingmar, stop!\" she implored. \"Where are you going? Stop, I say!\"",
+        "hotwords": "Karin, Ingmar, Where, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Karin followed him, wringing her hands.",
+          "start": 0.0,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " Karin",
+              "start": 0.0,
+              "end": 0.62,
+              "probability": 0.04107666015625
+            },
+            {
+              "text": " followed",
+              "start": 0.62,
+              "end": 1.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him,",
+              "start": 1.02,
+              "end": 1.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wringing",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.984130859375
+            },
+            {
+              "text": " her",
+              "start": 1.52,
+              "end": 1.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hands.",
+              "start": 1.74,
+              "end": 2.14,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Stop, Ingmar, stop! she implored. Where are you going? Stop, I say.",
+          "start": 2.14,
+          "end": 7.16,
+          "words": [
+            {
+              "text": " Stop,",
+              "start": 2.14,
+              "end": 3.1,
+              "probability": 0.175048828125
+            },
+            {
+              "text": " Ingmar,",
+              "start": 3.28,
+              "end": 3.62,
+              "probability": 0.850830078125
+            },
+            {
+              "text": " stop!",
+              "start": 3.86,
+              "end": 4.08,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " she",
+              "start": 4.48,
+              "end": 4.58,
+              "probability": 0.61767578125
+            },
+            {
+              "text": " implored.",
+              "start": 4.58,
+              "end": 5.1,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " Where",
+              "start": 5.64,
+              "end": 5.72,
+              "probability": 0.70849609375
+            },
+            {
+              "text": " are",
+              "start": 5.72,
+              "end": 5.82,
+              "probability": 0.45458984375
+            },
+            {
+              "text": " you",
+              "start": 5.82,
+              "end": 5.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " going?",
+              "start": 5.9,
+              "end": 6.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Stop,",
+              "start": 6.52,
+              "end": 6.62,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " I",
+              "start": 6.84,
+              "end": 6.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " say.",
+              "start": 6.86,
+              "end": 7.16,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Karin",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "raw": "followed",
+          "start": 0.62,
+          "end": 1.02
+        },
+        {
+          "raw": "him,",
+          "start": 1.02,
+          "end": 1.26
+        },
+        {
+          "raw": "wringing",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "her",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "raw": "hands.",
+          "start": 1.74,
+          "end": 2.14
+        },
+        {
+          "raw": "Stop,",
+          "start": 2.14,
+          "end": 3.1
+        },
+        {
+          "raw": "Ingmar,",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "raw": "stop!",
+          "start": 3.86,
+          "end": 4.08
+        },
+        {
+          "raw": "she",
+          "start": 4.48,
+          "end": 4.58
+        },
+        {
+          "raw": "implored.",
+          "start": 4.58,
+          "end": 5.1
+        },
+        {
+          "raw": "Where",
+          "start": 5.64,
+          "end": 5.72
+        },
+        {
+          "raw": "are",
+          "start": 5.72,
+          "end": 5.82
+        },
+        {
+          "raw": "you",
+          "start": 5.82,
+          "end": 5.9
+        },
+        {
+          "raw": "going?",
+          "start": 5.9,
+          "end": 6.24
+        },
+        {
+          "raw": "Stop,",
+          "start": 6.52,
+          "end": 6.62
+        },
+        {
+          "raw": "I",
+          "start": 6.84,
+          "end": 6.86
+        },
+        {
+          "raw": "say.",
+          "start": 6.86,
+          "end": 7.16
+        }
+      ],
+      "expected_tokens": [
+        "Karin",
+        "followed",
+        "him,",
+        "wringing",
+        "her",
+        "hands.",
+        "\"Stop,",
+        "Ingmar,",
+        "stop!\"",
+        "she",
+        "implored.",
+        "\"Where",
+        "are",
+        "you",
+        "going?",
+        "Stop,",
+        "I",
+        "say!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Karin",
+          "start": 0.0,
+          "end": 0.62,
+          "key": "karin",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "followed",
+          "start": 0.62,
+          "end": 1.02,
+          "key": "followed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 1.02,
+          "end": 1.26,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wringing",
+          "start": 1.34,
+          "end": 1.52,
+          "key": "wringing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.52,
+          "end": 1.74,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hands.",
+          "start": 1.74,
+          "end": 2.14,
+          "key": "hands",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Stop,",
+          "start": 2.14,
+          "end": 3.1,
+          "key": "stop",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ingmar,",
+          "start": 3.28,
+          "end": 3.62,
+          "key": "ingmar",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "stop!",
+          "start": 3.86,
+          "end": 4.08,
+          "key": "stop",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 4.48,
+          "end": 4.58,
+          "key": "she",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "implored.",
+          "start": 4.58,
+          "end": 5.1,
+          "key": "implored",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 5.64,
+          "end": 5.72,
+          "key": "where",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.72,
+          "end": 5.82,
+          "key": "are",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.82,
+          "end": 5.9,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "going?",
+          "start": 5.9,
+          "end": 6.24,
+          "key": "going",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Stop,",
+          "start": 6.52,
+          "end": 6.62,
+          "key": "stop",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.84,
+          "end": 6.86,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "say.",
+          "start": 6.86,
+          "end": 7.16,
+          "key": "say",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Karin",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "text": "followed",
+          "start": 0.62,
+          "end": 1.02
+        },
+        {
+          "text": "him,",
+          "start": 1.02,
+          "end": 1.26
+        },
+        {
+          "text": "wringing",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "text": "her",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "text": "hands.",
+          "start": 1.74,
+          "end": 2.14
+        },
+        {
+          "text": "\"Stop,",
+          "start": 2.14,
+          "end": 3.1
+        },
+        {
+          "text": "Ingmar,",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "text": "stop!\"",
+          "start": 3.86,
+          "end": 4.08
+        },
+        {
+          "text": "she",
+          "start": 4.48,
+          "end": 4.58
+        },
+        {
+          "text": "implored.",
+          "start": 4.58,
+          "end": 5.1
+        },
+        {
+          "text": "\"Where",
+          "start": 5.64,
+          "end": 5.72
+        },
+        {
+          "text": "are",
+          "start": 5.72,
+          "end": 5.82
+        },
+        {
+          "text": "you",
+          "start": 5.82,
+          "end": 5.9
+        },
+        {
+          "text": "going?",
+          "start": 5.9,
+          "end": 6.24
+        },
+        {
+          "text": "Stop,",
+          "start": 6.52,
+          "end": 6.62
+        },
+        {
+          "text": "I",
+          "start": 6.84,
+          "end": 6.86
+        },
+        {
+          "text": "say!\"",
+          "start": 6.86,
+          "end": 7.16
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2304722908884287
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9f010f61d9a947f5b9b415820472dffaa30999c8854760a6467fda3656e3f5c4",
+  "selected_reasons": []
+}

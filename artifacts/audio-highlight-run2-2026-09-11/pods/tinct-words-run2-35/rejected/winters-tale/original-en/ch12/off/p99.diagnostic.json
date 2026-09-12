@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "e6267d98f2bb91d70eeb7437de7668503b8857dbd4000ef5ed91d868a8bf4b81",
+  "attempts": [
+    {
+      "asr_seconds": 0.20658810809254646,
+      "alignment_seconds": 0.0004477687180042267,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dorkas, thou hast sworn my love to be.",
+          "start": 0.08,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " Dorkas,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " thou",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " hast",
+              "start": 1.4,
+              "end": 1.7,
+              "probability": 0.98046875
+            },
+            {
+              "text": " sworn",
+              "start": 1.7,
+              "end": 2.02,
+              "probability": 0.97265625
+            },
+            {
+              "text": " my",
+              "start": 2.02,
+              "end": 2.22,
+              "probability": 0.982421875
+            },
+            {
+              "text": " love",
+              "start": 2.22,
+              "end": 2.38,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 2.38,
+              "end": 2.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be.",
+              "start": 2.56,
+              "end": 2.86,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dorkas,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "thou",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "hast",
+          "start": 1.4,
+          "end": 1.7
+        },
+        {
+          "raw": "sworn",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "raw": "my",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "raw": "love",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "raw": "be.",
+          "start": 2.56,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "Dorcas.",
+        "_Thou",
+        "hast",
+        "sworn",
+        "my",
+        "love",
+        "to",
+        "be._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dorkas,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "dorkas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.24,
+          "end": 1.4,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 1.4,
+          "end": 1.7,
+          "key": "hast",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sworn",
+          "start": 1.7,
+          "end": 2.02,
+          "key": "sworn",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.02,
+          "end": 2.22,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 2.22,
+          "end": 2.38,
+          "key": "love",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.56,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be.",
+          "start": 2.56,
+          "end": 2.86,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dorcas.",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "text": "_Thou",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "hast",
+          "start": 1.4,
+          "end": 1.7
+        },
+        {
+          "text": "sworn",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "text": "my",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "text": "love",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "text": "to",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "text": "be._",
+          "start": 2.56,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2072036936879158
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2df55f4af44df79c20b7684ba1ffdb51de51f1c5db25d7680c88ac2253df51f6",
+  "selected_reasons": []
+}

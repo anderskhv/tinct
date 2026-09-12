@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "b318046bd2c90fff502d93fdcab8a2d04991e527583ad6479d6df429d3c764f3",
+  "attempts": [
+    {
+      "asr_seconds": 0.194665870629251,
+      "alignment_seconds": 0.00038016634061932564,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Charmian, madam I trust not so.",
+          "start": 0.05,
+          "end": 2.49,
+          "words": [
+            {
+              "text": " Charmian,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " madam",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.868896484375
+            },
+            {
+              "text": " I",
+              "start": 1.57,
+              "end": 1.71,
+              "probability": 0.63525390625
+            },
+            {
+              "text": " trust",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 1.89,
+              "end": 2.11,
+              "probability": 0.990234375
+            },
+            {
+              "text": " so.",
+              "start": 2.11,
+              "end": 2.49,
+              "probability": 0.9658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmian,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "madam",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "I",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "raw": "trust",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "not",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "raw": "so.",
+          "start": 2.11,
+          "end": 2.49
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "Madam,",
+        "I",
+        "trust",
+        "not",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmian,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "charmian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "madam",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "madam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.57,
+          "end": 1.71,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "trust",
+          "start": 1.71,
+          "end": 1.89,
+          "key": "trust",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.89,
+          "end": 2.11,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 2.11,
+          "end": 2.49,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Madam,",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "I",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "text": "trust",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "text": "not",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "text": "so.",
+          "start": 2.11,
+          "end": 2.49
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1951826335862279
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "15e3863897b3c687e318eb59e2e06cd3e08abacdacb7816d7fff10b49e443a01",
+  "selected_reasons": []
+}

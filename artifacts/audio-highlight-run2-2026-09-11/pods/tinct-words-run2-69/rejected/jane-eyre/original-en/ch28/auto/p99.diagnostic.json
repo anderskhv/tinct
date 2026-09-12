@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "69927e4fa65ad4c688fdefb9d1b8c379353c773f09089c6bae39baf0e998c0fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.29377616103738546,
+      "alignment_seconds": 0.0006765900179743767,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No, not I. What can they do for you? You should not be roving about now; it looks very ill.\"",
+        "hotwords": "No, I, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, not I, What can they do for you? You should not be roving about now. It looks very ill.",
+          "start": 0.08,
+          "end": 5.4,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " not",
+              "start": 0.88,
+              "end": 1.02,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " I,",
+              "start": 1.02,
+              "end": 1.22,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " What",
+              "start": 1.3,
+              "end": 1.4,
+              "probability": 0.0074310302734375
+            },
+            {
+              "text": " can",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " they",
+              "start": 1.54,
+              "end": 1.7,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " do",
+              "start": 1.7,
+              "end": 1.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 1.84,
+              "end": 2.02,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " you?",
+              "start": 2.02,
+              "end": 2.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " You",
+              "start": 2.66,
+              "end": 2.78,
+              "probability": 0.943359375
+            },
+            {
+              "text": " should",
+              "start": 2.78,
+              "end": 2.9,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " not",
+              "start": 2.9,
+              "end": 3.08,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " be",
+              "start": 3.08,
+              "end": 3.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " roving",
+              "start": 3.22,
+              "end": 3.6,
+              "probability": 0.987548828125
+            },
+            {
+              "text": " about",
+              "start": 3.6,
+              "end": 3.8,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " now.",
+              "start": 3.8,
+              "end": 4.16,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " It",
+              "start": 4.52,
+              "end": 4.62,
+              "probability": 0.982421875
+            },
+            {
+              "text": " looks",
+              "start": 4.62,
+              "end": 4.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " very",
+              "start": 4.76,
+              "end": 5.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ill.",
+              "start": 5.08,
+              "end": 5.4,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "not",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "raw": "I,",
+          "start": 1.02,
+          "end": 1.22
+        },
+        {
+          "raw": "What",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "raw": "can",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "raw": "they",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "raw": "do",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "raw": "for",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "raw": "you?",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "raw": "You",
+          "start": 2.66,
+          "end": 2.78
+        },
+        {
+          "raw": "should",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "raw": "not",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "raw": "be",
+          "start": 3.08,
+          "end": 3.22
+        },
+        {
+          "raw": "roving",
+          "start": 3.22,
+          "end": 3.6
+        },
+        {
+          "raw": "about",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "raw": "now.",
+          "start": 3.8,
+          "end": 4.16
+        },
+        {
+          "raw": "It",
+          "start": 4.52,
+          "end": 4.62
+        },
+        {
+          "raw": "looks",
+          "start": 4.62,
+          "end": 4.76
+        },
+        {
+          "raw": "very",
+          "start": 4.76,
+          "end": 5.08
+        },
+        {
+          "raw": "ill.",
+          "start": 5.08,
+          "end": 5.4
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "not",
+        "I.",
+        "What",
+        "can",
+        "they",
+        "do",
+        "for",
+        "you?",
+        "You",
+        "should",
+        "not",
+        "be",
+        "roving",
+        "about",
+        "now;",
+        "it",
+        "looks",
+        "very",
+        "ill.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.88,
+          "end": 1.02,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 1.02,
+          "end": 1.22,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.3,
+          "end": 1.4,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.4,
+          "end": 1.54,
+          "key": "can",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.54,
+          "end": 1.7,
+          "key": "they",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.7,
+          "end": 1.84,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.84,
+          "end": 2.02,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 2.02,
+          "end": 2.22,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.66,
+          "end": 2.78,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 2.78,
+          "end": 2.9,
+          "key": "should",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.9,
+          "end": 3.08,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.08,
+          "end": 3.22,
+          "key": "be",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "roving",
+          "start": 3.22,
+          "end": 3.6,
+          "key": "roving",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 3.6,
+          "end": 3.8,
+          "key": "about",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 3.8,
+          "end": 4.16,
+          "key": "now",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 4.52,
+          "end": 4.62,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "looks",
+          "start": 4.62,
+          "end": 4.76,
+          "key": "looks",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 4.76,
+          "end": 5.08,
+          "key": "very",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "ill.",
+          "start": 5.08,
+          "end": 5.4,
+          "key": "ill",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "not",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "text": "I.",
+          "start": 1.02,
+          "end": 1.22
+        },
+        {
+          "text": "What",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "text": "can",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "text": "they",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "text": "do",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "text": "for",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "text": "you?",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "text": "You",
+          "start": 2.66,
+          "end": 2.78
+        },
+        {
+          "text": "should",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "text": "not",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "text": "be",
+          "start": 3.08,
+          "end": 3.22
+        },
+        {
+          "text": "roving",
+          "start": 3.22,
+          "end": 3.6
+        },
+        {
+          "text": "about",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "text": "now;",
+          "start": 3.8,
+          "end": 4.16
+        },
+        {
+          "text": "it",
+          "start": 4.52,
+          "end": 4.62
+        },
+        {
+          "text": "looks",
+          "start": 4.62,
+          "end": 4.76
+        },
+        {
+          "text": "very",
+          "start": 4.76,
+          "end": 5.08
+        },
+        {
+          "text": "ill.\"",
+          "start": 5.08,
+          "end": 5.4
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.294758222065866
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dd0b3c3458e1c0b8cafec6275a73a78a91d25a454ab8d8bf194c89c5fb44dc79",
+  "selected_reasons": []
+}

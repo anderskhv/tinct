@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "2bcfc2db728e589edfe6821ad3ba8587fe2526d1bcaf17223e5fbd75da99b8a4",
+  "attempts": [
+    {
+      "asr_seconds": 0.20140152797102928,
+      "alignment_seconds": 0.00037830695509910583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Don Pedro. Officers, what offence have these men done?",
+        "hotwords": "Don, Pedro, Officers"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don, Pedro, Officers, what offence have these men done?",
+          "start": 0.05,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " Don,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.66015625
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " Officers,",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.0760498046875
+            },
+            {
+              "text": " what",
+              "start": 2.27,
+              "end": 2.31,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " offence",
+              "start": 2.31,
+              "end": 2.61,
+              "probability": 0.11016845703125
+            },
+            {
+              "text": " have",
+              "start": 2.61,
+              "end": 2.89,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " these",
+              "start": 2.89,
+              "end": 3.09,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " men",
+              "start": 3.09,
+              "end": 3.27,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " done?",
+              "start": 3.27,
+              "end": 3.59,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "raw": "Officers,",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "raw": "what",
+          "start": 2.27,
+          "end": 2.31
+        },
+        {
+          "raw": "offence",
+          "start": 2.31,
+          "end": 2.61
+        },
+        {
+          "raw": "have",
+          "start": 2.61,
+          "end": 2.89
+        },
+        {
+          "raw": "these",
+          "start": 2.89,
+          "end": 3.09
+        },
+        {
+          "raw": "men",
+          "start": 3.09,
+          "end": 3.27
+        },
+        {
+          "raw": "done?",
+          "start": 3.27,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "Officers,",
+        "what",
+        "offence",
+        "have",
+        "these",
+        "men",
+        "done?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.85,
+          "end": 1.03,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Officers,",
+          "start": 1.67,
+          "end": 1.83,
+          "key": "officers",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.27,
+          "end": 2.31,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "offence",
+          "start": 2.31,
+          "end": 2.61,
+          "key": "offence",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.61,
+          "end": 2.89,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 2.89,
+          "end": 3.09,
+          "key": "these",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 3.09,
+          "end": 3.27,
+          "key": "men",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "done?",
+          "start": 3.27,
+          "end": 3.59,
+          "key": "done",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "text": "Officers,",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "text": "what",
+          "start": 2.27,
+          "end": 2.31
+        },
+        {
+          "text": "offence",
+          "start": 2.31,
+          "end": 2.61
+        },
+        {
+          "text": "have",
+          "start": 2.61,
+          "end": 2.89
+        },
+        {
+          "text": "these",
+          "start": 2.89,
+          "end": 3.09
+        },
+        {
+          "text": "men",
+          "start": 3.09,
+          "end": 3.27
+        },
+        {
+          "text": "done?",
+          "start": 3.27,
+          "end": 3.59
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20192545652389526
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2e435372184ca292fd9f65c97e4ab97eaab0976c9c2f4463d041a0b5a3c604c7",
+  "selected_reasons": []
+}

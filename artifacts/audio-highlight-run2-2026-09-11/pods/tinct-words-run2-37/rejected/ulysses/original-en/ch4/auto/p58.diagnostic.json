@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "627a16d21b5b12e6b66976c6176310c3ea4846a4cee55e538e6c077d94d0e77b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2470624069974292,
+      "alignment_seconds": 0.00040695699863135815,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "A cloud began to cover the sun slowly, wholly. Grey. Far.",
+        "hotwords": "A, Grey, Far"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A cloud began to cover the sun slowly, wholly. Grey. Far.",
+          "start": 0.18,
+          "end": 4.3,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.18,
+              "end": 0.48,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " cloud",
+              "start": 0.48,
+              "end": 0.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " began",
+              "start": 0.82,
+              "end": 1.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cover",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.4,
+              "end": 1.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sun",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " slowly,",
+              "start": 1.78,
+              "end": 2.3,
+              "probability": 0.96484375
+            },
+            {
+              "text": " wholly.",
+              "start": 2.52,
+              "end": 2.82,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " Grey.",
+              "start": 3.48,
+              "end": 3.62,
+              "probability": 0.2978515625
+            },
+            {
+              "text": " Far.",
+              "start": 4.02,
+              "end": 4.3,
+              "probability": 0.9736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.18,
+          "end": 0.48
+        },
+        {
+          "raw": "cloud",
+          "start": 0.48,
+          "end": 0.82
+        },
+        {
+          "raw": "began",
+          "start": 0.82,
+          "end": 1.1
+        },
+        {
+          "raw": "to",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "cover",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "the",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "raw": "sun",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "slowly,",
+          "start": 1.78,
+          "end": 2.3
+        },
+        {
+          "raw": "wholly.",
+          "start": 2.52,
+          "end": 2.82
+        },
+        {
+          "raw": "Grey.",
+          "start": 3.48,
+          "end": 3.62
+        },
+        {
+          "raw": "Far.",
+          "start": 4.02,
+          "end": 4.3
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "cloud",
+        "began",
+        "to",
+        "cover",
+        "the",
+        "sun",
+        "slowly,",
+        "wholly.",
+        "Grey.",
+        "Far."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.18,
+          "end": 0.48,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cloud",
+          "start": 0.48,
+          "end": 0.82,
+          "key": "cloud",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 0.82,
+          "end": 1.1,
+          "key": "began",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cover",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "cover",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.4,
+          "end": 1.58,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sun",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "sun",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "slowly,",
+          "start": 1.78,
+          "end": 2.3,
+          "key": "slowly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wholly.",
+          "start": 2.52,
+          "end": 2.82,
+          "key": "wholly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Grey.",
+          "start": 3.48,
+          "end": 3.62,
+          "key": "grey",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Far.",
+          "start": 4.02,
+          "end": 4.3,
+          "key": "far",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.18,
+          "end": 0.48
+        },
+        {
+          "text": "cloud",
+          "start": 0.48,
+          "end": 0.82
+        },
+        {
+          "text": "began",
+          "start": 0.82,
+          "end": 1.1
+        },
+        {
+          "text": "to",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "cover",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "the",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "text": "sun",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "slowly,",
+          "start": 1.78,
+          "end": 2.3
+        },
+        {
+          "text": "wholly.",
+          "start": 2.52,
+          "end": 2.82
+        },
+        {
+          "text": "Grey.",
+          "start": 3.48,
+          "end": 3.62
+        },
+        {
+          "text": "Far.",
+          "start": 4.02,
+          "end": 4.3
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24762813199777156
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a6b2054a147c3df19cc139e0b727b50681ceb1d0d6a0e71ea34464c264683e80",
+  "selected_reasons": []
+}

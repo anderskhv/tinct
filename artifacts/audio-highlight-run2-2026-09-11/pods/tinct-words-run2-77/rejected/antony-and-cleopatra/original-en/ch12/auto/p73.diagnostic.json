@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "3c669b1abbb20af15fffa0b6b12b54e604f0f324381615baad1bf1e1f455edc1",
+  "attempts": [
+    {
+      "asr_seconds": 0.2197427829960361,
+      "alignment_seconds": 0.0003156909951940179,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menas. The third part, then, is drunk. Would it were all, That it might go on wheels!",
+        "hotwords": "Menas, The, Would, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menas, The third part, then, is drunk. Would it were all, That it might go on wheels!",
+          "start": 0.54,
+          "end": 4.88,
+          "words": [
+            {
+              "text": " Menas,",
+              "start": 0.54,
+              "end": 0.9,
+              "probability": 0.5576171875
+            },
+            {
+              "text": " The",
+              "start": 1.12,
+              "end": 1.42,
+              "probability": 0.0060577392578125
+            },
+            {
+              "text": " third",
+              "start": 1.42,
+              "end": 1.64,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " part,",
+              "start": 1.64,
+              "end": 1.9,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " then,",
+              "start": 2.02,
+              "end": 2.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " is",
+              "start": 2.24,
+              "end": 2.38,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " drunk.",
+              "start": 2.38,
+              "end": 2.68,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " Would",
+              "start": 3.3,
+              "end": 3.4,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " it",
+              "start": 3.4,
+              "end": 3.48,
+              "probability": 0.98828125
+            },
+            {
+              "text": " were",
+              "start": 3.48,
+              "end": 3.58,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " all,",
+              "start": 3.58,
+              "end": 3.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " That",
+              "start": 3.92,
+              "end": 4.0,
+              "probability": 0.07965087890625
+            },
+            {
+              "text": " it",
+              "start": 4.0,
+              "end": 4.1,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " might",
+              "start": 4.1,
+              "end": 4.24,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " go",
+              "start": 4.24,
+              "end": 4.42,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " on",
+              "start": 4.42,
+              "end": 4.64,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " wheels!",
+              "start": 4.64,
+              "end": 4.88,
+              "probability": 0.93408203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menas,",
+          "start": 0.54,
+          "end": 0.9
+        },
+        {
+          "raw": "The",
+          "start": 1.12,
+          "end": 1.42
+        },
+        {
+          "raw": "third",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "raw": "part,",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "raw": "then,",
+          "start": 2.02,
+          "end": 2.16
+        },
+        {
+          "raw": "is",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "raw": "drunk.",
+          "start": 2.38,
+          "end": 2.68
+        },
+        {
+          "raw": "Would",
+          "start": 3.3,
+          "end": 3.4
+        },
+        {
+          "raw": "it",
+          "start": 3.4,
+          "end": 3.48
+        },
+        {
+          "raw": "were",
+          "start": 3.48,
+          "end": 3.58
+        },
+        {
+          "raw": "all,",
+          "start": 3.58,
+          "end": 3.82
+        },
+        {
+          "raw": "That",
+          "start": 3.92,
+          "end": 4.0
+        },
+        {
+          "raw": "it",
+          "start": 4.0,
+          "end": 4.1
+        },
+        {
+          "raw": "might",
+          "start": 4.1,
+          "end": 4.24
+        },
+        {
+          "raw": "go",
+          "start": 4.24,
+          "end": 4.42
+        },
+        {
+          "raw": "on",
+          "start": 4.42,
+          "end": 4.64
+        },
+        {
+          "raw": "wheels!",
+          "start": 4.64,
+          "end": 4.88
+        }
+      ],
+      "expected_tokens": [
+        "Menas.",
+        "The",
+        "third",
+        "part,",
+        "then,",
+        "is",
+        "drunk.",
+        "Would",
+        "it",
+        "were",
+        "all,",
+        "That",
+        "it",
+        "might",
+        "go",
+        "on",
+        "wheels!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menas,",
+          "start": 0.54,
+          "end": 0.9,
+          "key": "menas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.12,
+          "end": 1.42,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "third",
+          "start": 1.42,
+          "end": 1.64,
+          "key": "third",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "part,",
+          "start": 1.64,
+          "end": 1.9,
+          "key": "part",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 2.02,
+          "end": 2.16,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.24,
+          "end": 2.38,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "drunk.",
+          "start": 2.38,
+          "end": 2.68,
+          "key": "drunk",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Would",
+          "start": 3.3,
+          "end": 3.4,
+          "key": "would",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.4,
+          "end": 3.48,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 3.48,
+          "end": 3.58,
+          "key": "were",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "all,",
+          "start": 3.58,
+          "end": 3.82,
+          "key": "all",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 3.92,
+          "end": 4.0,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.0,
+          "end": 4.1,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 4.1,
+          "end": 4.24,
+          "key": "might",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 4.24,
+          "end": 4.42,
+          "key": "go",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.42,
+          "end": 4.64,
+          "key": "on",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "wheels!",
+          "start": 4.64,
+          "end": 4.88,
+          "key": "wheels",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menas.",
+          "start": 0.54,
+          "end": 0.9
+        },
+        {
+          "text": "The",
+          "start": 1.12,
+          "end": 1.42
+        },
+        {
+          "text": "third",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "text": "part,",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "text": "then,",
+          "start": 2.02,
+          "end": 2.16
+        },
+        {
+          "text": "is",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "text": "drunk.",
+          "start": 2.38,
+          "end": 2.68
+        },
+        {
+          "text": "Would",
+          "start": 3.3,
+          "end": 3.4
+        },
+        {
+          "text": "it",
+          "start": 3.4,
+          "end": 3.48
+        },
+        {
+          "text": "were",
+          "start": 3.48,
+          "end": 3.58
+        },
+        {
+          "text": "all,",
+          "start": 3.58,
+          "end": 3.82
+        },
+        {
+          "text": "That",
+          "start": 3.92,
+          "end": 4.0
+        },
+        {
+          "text": "it",
+          "start": 4.0,
+          "end": 4.1
+        },
+        {
+          "text": "might",
+          "start": 4.1,
+          "end": 4.24
+        },
+        {
+          "text": "go",
+          "start": 4.24,
+          "end": 4.42
+        },
+        {
+          "text": "on",
+          "start": 4.42,
+          "end": 4.64
+        },
+        {
+          "text": "wheels!",
+          "start": 4.64,
+          "end": 4.88
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22018056799424812
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e467c783f5514a7c5e5db711c566da68773d115a9c63ce0aaa611f1886e4facd",
+  "selected_reasons": []
+}

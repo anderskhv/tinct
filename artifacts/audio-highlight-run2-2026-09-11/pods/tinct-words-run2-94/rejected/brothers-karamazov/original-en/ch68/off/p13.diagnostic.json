@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "29f151f62d24326d4a2320f96701adfa707761c76fd434708d9e5c80c9c0dd7e",
+  "attempts": [
+    {
+      "asr_seconds": 0.11724802292883396,
+      "alignment_seconds": 0.00025804340839385986,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And did you understand it?",
+          "start": 0.08,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.822265625
+            },
+            {
+              "text": " did",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " you",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " understand",
+              "start": 0.82,
+              "end": 1.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it?",
+              "start": 1.26,
+              "end": 1.56,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "did",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "you",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "understand",
+          "start": 0.82,
+          "end": 1.26
+        },
+        {
+          "raw": "it?",
+          "start": 1.26,
+          "end": 1.56
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "did",
+        "you",
+        "understand",
+        "it?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.66,
+          "end": 0.82,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 0.82,
+          "end": 1.26,
+          "key": "understand",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 1.26,
+          "end": 1.56,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "did",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "you",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "understand",
+          "start": 0.82,
+          "end": 1.26
+        },
+        {
+          "text": "it?\"",
+          "start": 1.26,
+          "end": 1.56
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11761077120900154
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2d5829ca20f4ad302202c56208262a1764b5dfcbdf783c93135aa0c670d5772d",
+  "selected_reasons": []
+}

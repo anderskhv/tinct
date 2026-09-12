@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "c4b9c5cd2343f9582bc1886b953aba6105321d5e15e1dae9f65e66d1d38b0931",
+  "attempts": [
+    {
+      "asr_seconds": 0.21391145139932632,
+      "alignment_seconds": 0.00014190562069416046,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It is, however, little short of blasphemy to pretend to such power.",
+          "start": 0.08,
+          "end": 4.42,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " is,",
+              "start": 0.54,
+              "end": 0.88,
+              "probability": 0.984375
+            },
+            {
+              "text": " however,",
+              "start": 1.12,
+              "end": 1.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " little",
+              "start": 2.02,
+              "end": 2.14,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " short",
+              "start": 2.14,
+              "end": 2.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 2.42,
+              "end": 3.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " blasphemy",
+              "start": 3.02,
+              "end": 3.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 3.02,
+              "end": 3.34,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " pretend",
+              "start": 3.34,
+              "end": 3.7,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " to",
+              "start": 3.7,
+              "end": 3.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " such",
+              "start": 3.9,
+              "end": 4.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " power.",
+              "start": 4.08,
+              "end": 4.42,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "is,",
+          "start": 0.54,
+          "end": 0.88
+        },
+        {
+          "raw": "however,",
+          "start": 1.12,
+          "end": 1.48
+        },
+        {
+          "raw": "little",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "raw": "short",
+          "start": 2.14,
+          "end": 2.42
+        },
+        {
+          "raw": "of",
+          "start": 2.42,
+          "end": 3.02
+        },
+        {
+          "raw": "blasphemy",
+          "start": 3.02,
+          "end": 3.02
+        },
+        {
+          "raw": "to",
+          "start": 3.02,
+          "end": 3.34
+        },
+        {
+          "raw": "pretend",
+          "start": 3.34,
+          "end": 3.7
+        },
+        {
+          "raw": "to",
+          "start": 3.7,
+          "end": 3.9
+        },
+        {
+          "raw": "such",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "raw": "power.",
+          "start": 4.08,
+          "end": 4.42
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "is,",
+        "however,",
+        "little",
+        "short",
+        "of",
+        "blasphemy",
+        "to",
+        "pretend",
+        "to",
+        "such",
+        "power."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 0.54,
+          "end": 0.88,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "however,",
+          "start": 1.12,
+          "end": 1.48,
+          "key": "however",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 2.02,
+          "end": 2.14,
+          "key": "little",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "short",
+          "start": 2.14,
+          "end": 2.42,
+          "key": "short",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.42,
+          "end": 3.02,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "blasphemy",
+          "start": 3.02,
+          "end": 3.02,
+          "key": "blasphemy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.02,
+          "end": 3.34,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pretend",
+          "start": 3.34,
+          "end": 3.7,
+          "key": "pretend",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.7,
+          "end": 3.9,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 3.9,
+          "end": 4.08,
+          "key": "such",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "power.",
+          "start": 4.08,
+          "end": 4.42,
+          "key": "power",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "is,",
+          "start": 0.54,
+          "end": 0.88
+        },
+        {
+          "text": "however,",
+          "start": 1.12,
+          "end": 1.48
+        },
+        {
+          "text": "little",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "text": "short",
+          "start": 2.14,
+          "end": 2.42
+        },
+        {
+          "text": "of",
+          "start": 2.42,
+          "end": 3.02
+        },
+        {
+          "text": "blasphemy",
+          "start": 3.02,
+          "end": 3.02
+        },
+        {
+          "text": "to",
+          "start": 3.02,
+          "end": 3.34
+        },
+        {
+          "text": "pretend",
+          "start": 3.34,
+          "end": 3.7
+        },
+        {
+          "text": "to",
+          "start": 3.7,
+          "end": 3.9
+        },
+        {
+          "text": "such",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "text": "power.",
+          "start": 4.08,
+          "end": 4.42
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21410300210118294
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "084fdb4bb3e9b311fab520695685580a308262d34723607f42f72d2a0b0198b8",
+  "selected_reasons": []
+}

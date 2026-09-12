@@ -1,0 +1,2394 @@
+{
+  "complete": true,
+  "signature": "ecf5bee6b12b7e6c81b1599a1691d6f1f3a7cf9f7e74deb92ffcac62b3740025",
+  "attempts": [
+    {
+      "asr_seconds": 0.696976013481617,
+      "alignment_seconds": 0.001054057851433754,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Guiderius. Out of your proof you speak. We, poor unfledg'd, Have never wing'd from view o' th' nest, nor know not What air's from home. Haply this life is best, If quiet life be best; sweeter to you That have a sharper known; well corresponding With your stiff age. But unto us it is A cell of ignorance, travelling abed, A prison for a debtor that not dares To stride a limit.",
+        "hotwords": "Guiderius, Out, We, What, Haply, If, With, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Guiderius, Out of your proof you speak. We, poor unfledg'd, Have never wing'd from view o' th' nest,",
+          "start": 0.55,
+          "end": 6.71,
+          "words": [
+            {
+              "text": " Guiderius,",
+              "start": 0.55,
+              "end": 1.01,
+              "probability": 0.2890129089355469
+            },
+            {
+              "text": " Out",
+              "start": 1.41,
+              "end": 1.51,
+              "probability": 0.040985107421875
+            },
+            {
+              "text": " of",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " your",
+              "start": 1.61,
+              "end": 1.71,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " proof",
+              "start": 1.71,
+              "end": 1.91,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " you",
+              "start": 1.91,
+              "end": 2.13,
+              "probability": 0.9453125
+            },
+            {
+              "text": " speak.",
+              "start": 2.13,
+              "end": 2.49,
+              "probability": 0.994140625
+            },
+            {
+              "text": " We,",
+              "start": 3.03,
+              "end": 3.23,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " poor",
+              "start": 3.43,
+              "end": 3.53,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " unfledg'd,",
+              "start": 3.53,
+              "end": 4.29,
+              "probability": 0.361946702003479
+            },
+            {
+              "text": " Have",
+              "start": 4.35,
+              "end": 4.41,
+              "probability": 0.404541015625
+            },
+            {
+              "text": " never",
+              "start": 4.41,
+              "end": 4.73,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " wing'd",
+              "start": 4.73,
+              "end": 5.09,
+              "probability": 0.70654296875
+            },
+            {
+              "text": " from",
+              "start": 5.09,
+              "end": 5.25,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " view",
+              "start": 5.25,
+              "end": 5.45,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " o'",
+              "start": 5.45,
+              "end": 5.69,
+              "probability": 0.264404296875
+            },
+            {
+              "text": " th'",
+              "start": 5.87,
+              "end": 6.11,
+              "probability": 0.58251953125
+            },
+            {
+              "text": " nest,",
+              "start": 6.11,
+              "end": 6.71,
+              "probability": 0.90625
+            }
+          ]
+        },
+        {
+          "text": " Nor know not What air's from home. Haply this life is best, If quiet life be best,",
+          "start": 7.01,
+          "end": 11.79,
+          "words": [
+            {
+              "text": " Nor",
+              "start": 7.01,
+              "end": 7.17,
+              "probability": 0.962890625
+            },
+            {
+              "text": " know",
+              "start": 7.17,
+              "end": 7.37,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " not",
+              "start": 7.37,
+              "end": 7.57,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " What",
+              "start": 7.57,
+              "end": 7.73,
+              "probability": 0.0006818771362304688
+            },
+            {
+              "text": " air's",
+              "start": 7.73,
+              "end": 8.01,
+              "probability": 0.499603271484375
+            },
+            {
+              "text": " from",
+              "start": 8.01,
+              "end": 8.17,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " home.",
+              "start": 8.17,
+              "end": 8.47,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " Haply",
+              "start": 9.19,
+              "end": 9.47,
+              "probability": 0.4687093098958333
+            },
+            {
+              "text": " this",
+              "start": 9.47,
+              "end": 9.67,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " life",
+              "start": 9.67,
+              "end": 9.89,
+              "probability": 0.984375
+            },
+            {
+              "text": " is",
+              "start": 9.89,
+              "end": 10.09,
+              "probability": 0.939453125
+            },
+            {
+              "text": " best,",
+              "start": 10.09,
+              "end": 10.35,
+              "probability": 0.986328125
+            },
+            {
+              "text": " If",
+              "start": 10.53,
+              "end": 10.65,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " quiet",
+              "start": 10.65,
+              "end": 10.93,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " life",
+              "start": 10.93,
+              "end": 11.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 11.21,
+              "end": 11.43,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " best,",
+              "start": 11.43,
+              "end": 11.79,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " Sweeter to you that have a sharper known, Well corresponding with your stiff age.",
+          "start": 12.31,
+          "end": 16.25,
+          "words": [
+            {
+              "text": " Sweeter",
+              "start": 12.31,
+              "end": 12.59,
+              "probability": 0.84375
+            },
+            {
+              "text": " to",
+              "start": 12.59,
+              "end": 12.81,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " you",
+              "start": 12.81,
+              "end": 12.93,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " that",
+              "start": 12.93,
+              "end": 13.07,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " have",
+              "start": 13.07,
+              "end": 13.25,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " a",
+              "start": 13.25,
+              "end": 13.39,
+              "probability": 0.98828125
+            },
+            {
+              "text": " sharper",
+              "start": 13.39,
+              "end": 13.67,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " known,",
+              "start": 13.67,
+              "end": 14.01,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " Well",
+              "start": 14.51,
+              "end": 14.69,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " corresponding",
+              "start": 14.69,
+              "end": 15.29,
+              "probability": 0.59033203125
+            },
+            {
+              "text": " with",
+              "start": 15.29,
+              "end": 15.61,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " your",
+              "start": 15.61,
+              "end": 15.71,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " stiff",
+              "start": 15.71,
+              "end": 15.93,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " age.",
+              "start": 15.93,
+              "end": 16.25,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " But unto us it is a cell of ignorance, Travelling abed,",
+          "start": 16.87,
+          "end": 19.85,
+          "words": [
+            {
+              "text": " But",
+              "start": 16.87,
+              "end": 17.05,
+              "probability": 0.98828125
+            },
+            {
+              "text": " unto",
+              "start": 17.05,
+              "end": 17.33,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " us",
+              "start": 17.33,
+              "end": 17.59,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " it",
+              "start": 17.59,
+              "end": 17.73,
+              "probability": 0.953125
+            },
+            {
+              "text": " is",
+              "start": 17.73,
+              "end": 17.83,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " a",
+              "start": 17.83,
+              "end": 18.01,
+              "probability": 0.94921875
+            },
+            {
+              "text": " cell",
+              "start": 18.01,
+              "end": 18.17,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " of",
+              "start": 18.17,
+              "end": 18.33,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " ignorance,",
+              "start": 18.33,
+              "end": 18.77,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " Travelling",
+              "start": 19.21,
+              "end": 19.49,
+              "probability": 0.6103515625
+            },
+            {
+              "text": " abed,",
+              "start": 19.49,
+              "end": 19.85,
+              "probability": 0.50323486328125
+            }
+          ]
+        },
+        {
+          "text": " A prison for a debtor that not dares To stride a limit.",
+          "start": 20.17,
+          "end": 22.99,
+          "words": [
+            {
+              "text": " A",
+              "start": 20.17,
+              "end": 20.35,
+              "probability": 0.61328125
+            },
+            {
+              "text": " prison",
+              "start": 20.35,
+              "end": 20.59,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " for",
+              "start": 20.59,
+              "end": 20.87,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 20.87,
+              "end": 21.01,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " debtor",
+              "start": 21.01,
+              "end": 21.17,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " that",
+              "start": 21.17,
+              "end": 21.45,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " not",
+              "start": 21.45,
+              "end": 21.71,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " dares",
+              "start": 21.71,
+              "end": 22.05,
+              "probability": 0.963623046875
+            },
+            {
+              "text": " To",
+              "start": 22.05,
+              "end": 22.31,
+              "probability": 0.464111328125
+            },
+            {
+              "text": " stride",
+              "start": 22.31,
+              "end": 22.59,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " a",
+              "start": 22.59,
+              "end": 22.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " limit.",
+              "start": 22.77,
+              "end": 22.99,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.55,
+          "end": 1.01
+        },
+        {
+          "raw": "Out",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "raw": "of",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "your",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "raw": "proof",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "raw": "you",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "raw": "speak.",
+          "start": 2.13,
+          "end": 2.49
+        },
+        {
+          "raw": "We,",
+          "start": 3.03,
+          "end": 3.23
+        },
+        {
+          "raw": "poor",
+          "start": 3.43,
+          "end": 3.53
+        },
+        {
+          "raw": "unfledg'd,",
+          "start": 3.53,
+          "end": 4.29
+        },
+        {
+          "raw": "Have",
+          "start": 4.35,
+          "end": 4.41
+        },
+        {
+          "raw": "never",
+          "start": 4.41,
+          "end": 4.73
+        },
+        {
+          "raw": "wing'd",
+          "start": 4.73,
+          "end": 5.09
+        },
+        {
+          "raw": "from",
+          "start": 5.09,
+          "end": 5.25
+        },
+        {
+          "raw": "view",
+          "start": 5.25,
+          "end": 5.45
+        },
+        {
+          "raw": "o'",
+          "start": 5.45,
+          "end": 5.69
+        },
+        {
+          "raw": "th'",
+          "start": 5.87,
+          "end": 6.11
+        },
+        {
+          "raw": "nest,",
+          "start": 6.11,
+          "end": 6.71
+        },
+        {
+          "raw": "Nor",
+          "start": 7.01,
+          "end": 7.17
+        },
+        {
+          "raw": "know",
+          "start": 7.17,
+          "end": 7.37
+        },
+        {
+          "raw": "not",
+          "start": 7.37,
+          "end": 7.57
+        },
+        {
+          "raw": "What",
+          "start": 7.57,
+          "end": 7.73
+        },
+        {
+          "raw": "air's",
+          "start": 7.73,
+          "end": 8.01
+        },
+        {
+          "raw": "from",
+          "start": 8.01,
+          "end": 8.17
+        },
+        {
+          "raw": "home.",
+          "start": 8.17,
+          "end": 8.47
+        },
+        {
+          "raw": "Haply",
+          "start": 9.19,
+          "end": 9.47
+        },
+        {
+          "raw": "this",
+          "start": 9.47,
+          "end": 9.67
+        },
+        {
+          "raw": "life",
+          "start": 9.67,
+          "end": 9.89
+        },
+        {
+          "raw": "is",
+          "start": 9.89,
+          "end": 10.09
+        },
+        {
+          "raw": "best,",
+          "start": 10.09,
+          "end": 10.35
+        },
+        {
+          "raw": "If",
+          "start": 10.53,
+          "end": 10.65
+        },
+        {
+          "raw": "quiet",
+          "start": 10.65,
+          "end": 10.93
+        },
+        {
+          "raw": "life",
+          "start": 10.93,
+          "end": 11.21
+        },
+        {
+          "raw": "be",
+          "start": 11.21,
+          "end": 11.43
+        },
+        {
+          "raw": "best,",
+          "start": 11.43,
+          "end": 11.79
+        },
+        {
+          "raw": "Sweeter",
+          "start": 12.31,
+          "end": 12.59
+        },
+        {
+          "raw": "to",
+          "start": 12.59,
+          "end": 12.81
+        },
+        {
+          "raw": "you",
+          "start": 12.81,
+          "end": 12.93
+        },
+        {
+          "raw": "that",
+          "start": 12.93,
+          "end": 13.07
+        },
+        {
+          "raw": "have",
+          "start": 13.07,
+          "end": 13.25
+        },
+        {
+          "raw": "a",
+          "start": 13.25,
+          "end": 13.39
+        },
+        {
+          "raw": "sharper",
+          "start": 13.39,
+          "end": 13.67
+        },
+        {
+          "raw": "known,",
+          "start": 13.67,
+          "end": 14.01
+        },
+        {
+          "raw": "Well",
+          "start": 14.51,
+          "end": 14.69
+        },
+        {
+          "raw": "corresponding",
+          "start": 14.69,
+          "end": 15.29
+        },
+        {
+          "raw": "with",
+          "start": 15.29,
+          "end": 15.61
+        },
+        {
+          "raw": "your",
+          "start": 15.61,
+          "end": 15.71
+        },
+        {
+          "raw": "stiff",
+          "start": 15.71,
+          "end": 15.93
+        },
+        {
+          "raw": "age.",
+          "start": 15.93,
+          "end": 16.25
+        },
+        {
+          "raw": "But",
+          "start": 16.87,
+          "end": 17.05
+        },
+        {
+          "raw": "unto",
+          "start": 17.05,
+          "end": 17.33
+        },
+        {
+          "raw": "us",
+          "start": 17.33,
+          "end": 17.59
+        },
+        {
+          "raw": "it",
+          "start": 17.59,
+          "end": 17.73
+        },
+        {
+          "raw": "is",
+          "start": 17.73,
+          "end": 17.83
+        },
+        {
+          "raw": "a",
+          "start": 17.83,
+          "end": 18.01
+        },
+        {
+          "raw": "cell",
+          "start": 18.01,
+          "end": 18.17
+        },
+        {
+          "raw": "of",
+          "start": 18.17,
+          "end": 18.33
+        },
+        {
+          "raw": "ignorance,",
+          "start": 18.33,
+          "end": 18.77
+        },
+        {
+          "raw": "Travelling",
+          "start": 19.21,
+          "end": 19.49
+        },
+        {
+          "raw": "abed,",
+          "start": 19.49,
+          "end": 19.85
+        },
+        {
+          "raw": "A",
+          "start": 20.17,
+          "end": 20.35
+        },
+        {
+          "raw": "prison",
+          "start": 20.35,
+          "end": 20.59
+        },
+        {
+          "raw": "for",
+          "start": 20.59,
+          "end": 20.87
+        },
+        {
+          "raw": "a",
+          "start": 20.87,
+          "end": 21.01
+        },
+        {
+          "raw": "debtor",
+          "start": 21.01,
+          "end": 21.17
+        },
+        {
+          "raw": "that",
+          "start": 21.17,
+          "end": 21.45
+        },
+        {
+          "raw": "not",
+          "start": 21.45,
+          "end": 21.71
+        },
+        {
+          "raw": "dares",
+          "start": 21.71,
+          "end": 22.05
+        },
+        {
+          "raw": "To",
+          "start": 22.05,
+          "end": 22.31
+        },
+        {
+          "raw": "stride",
+          "start": 22.31,
+          "end": 22.59
+        },
+        {
+          "raw": "a",
+          "start": 22.59,
+          "end": 22.77
+        },
+        {
+          "raw": "limit.",
+          "start": 22.77,
+          "end": 22.99
+        }
+      ],
+      "expected_tokens": [
+        "Guiderius.",
+        "Out",
+        "of",
+        "your",
+        "proof",
+        "you",
+        "speak.",
+        "We,",
+        "poor",
+        "unfledg'd,",
+        "Have",
+        "never",
+        "wing'd",
+        "from",
+        "view",
+        "o'",
+        "th'",
+        "nest,",
+        "nor",
+        "know",
+        "not",
+        "What",
+        "air's",
+        "from",
+        "home.",
+        "Haply",
+        "this",
+        "life",
+        "is",
+        "best,",
+        "If",
+        "quiet",
+        "life",
+        "be",
+        "best;",
+        "sweeter",
+        "to",
+        "you",
+        "That",
+        "have",
+        "a",
+        "sharper",
+        "known;",
+        "well",
+        "corresponding",
+        "With",
+        "your",
+        "stiff",
+        "age.",
+        "But",
+        "unto",
+        "us",
+        "it",
+        "is",
+        "A",
+        "cell",
+        "of",
+        "ignorance,",
+        "travelling",
+        "abed,",
+        "A",
+        "prison",
+        "for",
+        "a",
+        "debtor",
+        "that",
+        "not",
+        "dares",
+        "To",
+        "stride",
+        "a",
+        "limit."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          72,
+          0,
+          72
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.55,
+          "end": 1.01,
+          "key": "guiderius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Out",
+          "start": 1.41,
+          "end": 1.51,
+          "key": "out",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.61,
+          "end": 1.71,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "proof",
+          "start": 1.71,
+          "end": 1.91,
+          "key": "proof",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.91,
+          "end": 2.13,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "speak.",
+          "start": 2.13,
+          "end": 2.49,
+          "key": "speak",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "We,",
+          "start": 3.03,
+          "end": 3.23,
+          "key": "we",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 3.43,
+          "end": 3.53,
+          "key": "poor",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "unfledg'd,",
+          "start": 3.53,
+          "end": 4.29,
+          "key": "unfledgd",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 4.35,
+          "end": 4.41,
+          "key": "have",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 4.41,
+          "end": 4.73,
+          "key": "never",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "wing'd",
+          "start": 4.73,
+          "end": 5.09,
+          "key": "wingd",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 5.09,
+          "end": 5.25,
+          "key": "from",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "view",
+          "start": 5.25,
+          "end": 5.45,
+          "key": "view",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "o'",
+          "start": 5.45,
+          "end": 5.69,
+          "key": "o",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 5.87,
+          "end": 6.11,
+          "key": "th",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "nest,",
+          "start": 6.11,
+          "end": 6.71,
+          "key": "nest",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Nor",
+          "start": 7.01,
+          "end": 7.17,
+          "key": "nor",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 7.17,
+          "end": 7.37,
+          "key": "know",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.37,
+          "end": 7.57,
+          "key": "not",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 7.57,
+          "end": 7.73,
+          "key": "what",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "air's",
+          "start": 7.73,
+          "end": 8.01,
+          "key": "airs",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 8.01,
+          "end": 8.17,
+          "key": "from",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "home.",
+          "start": 8.17,
+          "end": 8.47,
+          "key": "home",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Haply",
+          "start": 9.19,
+          "end": 9.47,
+          "key": "haply",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 9.47,
+          "end": 9.67,
+          "key": "this",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 9.67,
+          "end": 9.89,
+          "key": "life",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 9.89,
+          "end": 10.09,
+          "key": "is",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "best,",
+          "start": 10.09,
+          "end": 10.35,
+          "key": "best",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 10.53,
+          "end": 10.65,
+          "key": "if",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "quiet",
+          "start": 10.65,
+          "end": 10.93,
+          "key": "quiet",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 10.93,
+          "end": 11.21,
+          "key": "life",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 11.21,
+          "end": 11.43,
+          "key": "be",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "best,",
+          "start": 11.43,
+          "end": 11.79,
+          "key": "best",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Sweeter",
+          "start": 12.31,
+          "end": 12.59,
+          "key": "sweeter",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.59,
+          "end": 12.81,
+          "key": "to",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 12.81,
+          "end": 12.93,
+          "key": "you",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.93,
+          "end": 13.07,
+          "key": "that",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 13.07,
+          "end": 13.25,
+          "key": "have",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 13.25,
+          "end": 13.39,
+          "key": "a",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "sharper",
+          "start": 13.39,
+          "end": 13.67,
+          "key": "sharper",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "known,",
+          "start": 13.67,
+          "end": 14.01,
+          "key": "known",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Well",
+          "start": 14.51,
+          "end": 14.69,
+          "key": "well",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "corresponding",
+          "start": 14.69,
+          "end": 15.29,
+          "key": "corresponding",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 15.29,
+          "end": 15.61,
+          "key": "with",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 15.61,
+          "end": 15.71,
+          "key": "your",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "stiff",
+          "start": 15.71,
+          "end": 15.93,
+          "key": "stiff",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "age.",
+          "start": 15.93,
+          "end": 16.25,
+          "key": "age",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 16.87,
+          "end": 17.05,
+          "key": "but",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "unto",
+          "start": 17.05,
+          "end": 17.33,
+          "key": "unto",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 17.33,
+          "end": 17.59,
+          "key": "us",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 17.59,
+          "end": 17.73,
+          "key": "it",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 17.73,
+          "end": 17.83,
+          "key": "is",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 17.83,
+          "end": 18.01,
+          "key": "a",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "cell",
+          "start": 18.01,
+          "end": 18.17,
+          "key": "cell",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 18.17,
+          "end": 18.33,
+          "key": "of",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "ignorance,",
+          "start": 18.33,
+          "end": 18.77,
+          "key": "ignorance",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Travelling",
+          "start": 19.21,
+          "end": 19.49,
+          "key": "travelling",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "abed,",
+          "start": 19.49,
+          "end": 19.85,
+          "key": "abed",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 20.17,
+          "end": 20.35,
+          "key": "a",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "prison",
+          "start": 20.35,
+          "end": 20.59,
+          "key": "prison",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 20.59,
+          "end": 20.87,
+          "key": "for",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 20.87,
+          "end": 21.01,
+          "key": "a",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "debtor",
+          "start": 21.01,
+          "end": 21.17,
+          "key": "debtor",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 21.17,
+          "end": 21.45,
+          "key": "that",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 21.45,
+          "end": 21.71,
+          "key": "not",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "dares",
+          "start": 21.71,
+          "end": 22.05,
+          "key": "dares",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 22.05,
+          "end": 22.31,
+          "key": "to",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "stride",
+          "start": 22.31,
+          "end": 22.59,
+          "key": "stride",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 22.59,
+          "end": 22.77,
+          "key": "a",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "limit.",
+          "start": 22.77,
+          "end": 22.99,
+          "key": "limit",
+          "pieces": [
+            71
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guiderius.",
+          "start": 0.55,
+          "end": 1.01
+        },
+        {
+          "text": "Out",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "text": "of",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "your",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "text": "proof",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "text": "you",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "text": "speak.",
+          "start": 2.13,
+          "end": 2.49
+        },
+        {
+          "text": "We,",
+          "start": 3.03,
+          "end": 3.23
+        },
+        {
+          "text": "poor",
+          "start": 3.43,
+          "end": 3.53
+        },
+        {
+          "text": "unfledg'd,",
+          "start": 3.53,
+          "end": 4.29
+        },
+        {
+          "text": "Have",
+          "start": 4.35,
+          "end": 4.41
+        },
+        {
+          "text": "never",
+          "start": 4.41,
+          "end": 4.73
+        },
+        {
+          "text": "wing'd",
+          "start": 4.73,
+          "end": 5.09
+        },
+        {
+          "text": "from",
+          "start": 5.09,
+          "end": 5.25
+        },
+        {
+          "text": "view",
+          "start": 5.25,
+          "end": 5.45
+        },
+        {
+          "text": "o'",
+          "start": 5.45,
+          "end": 5.69
+        },
+        {
+          "text": "th'",
+          "start": 5.87,
+          "end": 6.11
+        },
+        {
+          "text": "nest,",
+          "start": 6.11,
+          "end": 6.71
+        },
+        {
+          "text": "nor",
+          "start": 7.01,
+          "end": 7.17
+        },
+        {
+          "text": "know",
+          "start": 7.17,
+          "end": 7.37
+        },
+        {
+          "text": "not",
+          "start": 7.37,
+          "end": 7.57
+        },
+        {
+          "text": "What",
+          "start": 7.57,
+          "end": 7.73
+        },
+        {
+          "text": "air's",
+          "start": 7.73,
+          "end": 8.01
+        },
+        {
+          "text": "from",
+          "start": 8.01,
+          "end": 8.17
+        },
+        {
+          "text": "home.",
+          "start": 8.17,
+          "end": 8.47
+        },
+        {
+          "text": "Haply",
+          "start": 9.19,
+          "end": 9.47
+        },
+        {
+          "text": "this",
+          "start": 9.47,
+          "end": 9.67
+        },
+        {
+          "text": "life",
+          "start": 9.67,
+          "end": 9.89
+        },
+        {
+          "text": "is",
+          "start": 9.89,
+          "end": 10.09
+        },
+        {
+          "text": "best,",
+          "start": 10.09,
+          "end": 10.35
+        },
+        {
+          "text": "If",
+          "start": 10.53,
+          "end": 10.65
+        },
+        {
+          "text": "quiet",
+          "start": 10.65,
+          "end": 10.93
+        },
+        {
+          "text": "life",
+          "start": 10.93,
+          "end": 11.21
+        },
+        {
+          "text": "be",
+          "start": 11.21,
+          "end": 11.43
+        },
+        {
+          "text": "best;",
+          "start": 11.43,
+          "end": 11.79
+        },
+        {
+          "text": "sweeter",
+          "start": 12.31,
+          "end": 12.59
+        },
+        {
+          "text": "to",
+          "start": 12.59,
+          "end": 12.81
+        },
+        {
+          "text": "you",
+          "start": 12.81,
+          "end": 12.93
+        },
+        {
+          "text": "That",
+          "start": 12.93,
+          "end": 13.07
+        },
+        {
+          "text": "have",
+          "start": 13.07,
+          "end": 13.25
+        },
+        {
+          "text": "a",
+          "start": 13.25,
+          "end": 13.39
+        },
+        {
+          "text": "sharper",
+          "start": 13.39,
+          "end": 13.67
+        },
+        {
+          "text": "known;",
+          "start": 13.67,
+          "end": 14.01
+        },
+        {
+          "text": "well",
+          "start": 14.51,
+          "end": 14.69
+        },
+        {
+          "text": "corresponding",
+          "start": 14.69,
+          "end": 15.29
+        },
+        {
+          "text": "With",
+          "start": 15.29,
+          "end": 15.61
+        },
+        {
+          "text": "your",
+          "start": 15.61,
+          "end": 15.71
+        },
+        {
+          "text": "stiff",
+          "start": 15.71,
+          "end": 15.93
+        },
+        {
+          "text": "age.",
+          "start": 15.93,
+          "end": 16.25
+        },
+        {
+          "text": "But",
+          "start": 16.87,
+          "end": 17.05
+        },
+        {
+          "text": "unto",
+          "start": 17.05,
+          "end": 17.33
+        },
+        {
+          "text": "us",
+          "start": 17.33,
+          "end": 17.59
+        },
+        {
+          "text": "it",
+          "start": 17.59,
+          "end": 17.73
+        },
+        {
+          "text": "is",
+          "start": 17.73,
+          "end": 17.83
+        },
+        {
+          "text": "A",
+          "start": 17.83,
+          "end": 18.01
+        },
+        {
+          "text": "cell",
+          "start": 18.01,
+          "end": 18.17
+        },
+        {
+          "text": "of",
+          "start": 18.17,
+          "end": 18.33
+        },
+        {
+          "text": "ignorance,",
+          "start": 18.33,
+          "end": 18.77
+        },
+        {
+          "text": "travelling",
+          "start": 19.21,
+          "end": 19.49
+        },
+        {
+          "text": "abed,",
+          "start": 19.49,
+          "end": 19.85
+        },
+        {
+          "text": "A",
+          "start": 20.17,
+          "end": 20.35
+        },
+        {
+          "text": "prison",
+          "start": 20.35,
+          "end": 20.59
+        },
+        {
+          "text": "for",
+          "start": 20.59,
+          "end": 20.87
+        },
+        {
+          "text": "a",
+          "start": 20.87,
+          "end": 21.01
+        },
+        {
+          "text": "debtor",
+          "start": 21.01,
+          "end": 21.17
+        },
+        {
+          "text": "that",
+          "start": 21.17,
+          "end": 21.45
+        },
+        {
+          "text": "not",
+          "start": 21.45,
+          "end": 21.71
+        },
+        {
+          "text": "dares",
+          "start": 21.71,
+          "end": 22.05
+        },
+        {
+          "text": "To",
+          "start": 22.05,
+          "end": 22.31
+        },
+        {
+          "text": "stride",
+          "start": 22.31,
+          "end": 22.59
+        },
+        {
+          "text": "a",
+          "start": 22.59,
+          "end": 22.77
+        },
+        {
+          "text": "limit.",
+          "start": 22.77,
+          "end": 22.99
+        }
+      ],
+      "stats": {
+        "expected_words": 72,
+        "heard_words": 72,
+        "matched_words": 72
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6985690575093031
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f23d038ad251eabb6d640416655100813d0245b8462dab0a3128859ee6314bbd",
+  "selected_reasons": []
+}

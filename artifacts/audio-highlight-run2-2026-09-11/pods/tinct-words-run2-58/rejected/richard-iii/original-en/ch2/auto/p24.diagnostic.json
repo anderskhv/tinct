@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "d990bcee569b587bfe63b7026a088327a101c4b929e64ee9f01c1e6093d89a38",
+  "attempts": [
+    {
+      "asr_seconds": 0.26008935179561377,
+      "alignment_seconds": 0.0006318995729088783,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Anne. Then say they were not slain. But dead they are, and, devilish slave, by thee.",
+        "hotwords": "Anne, Then, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anne. Then say they were not slain. But dead they are, and devilish slave, by thee.",
+          "start": 0.62,
+          "end": 4.94,
+          "words": [
+            {
+              "text": " Anne.",
+              "start": 0.62,
+              "end": 0.72,
+              "probability": 0.00010126829147338867
+            },
+            {
+              "text": " Then",
+              "start": 0.96,
+              "end": 1.1,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " say",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.94921875
+            },
+            {
+              "text": " they",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.9453125
+            },
+            {
+              "text": " were",
+              "start": 1.38,
+              "end": 1.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " slain.",
+              "start": 1.64,
+              "end": 2.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " But",
+              "start": 2.56,
+              "end": 2.68,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " dead",
+              "start": 2.68,
+              "end": 2.86,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " they",
+              "start": 2.86,
+              "end": 3.06,
+              "probability": 0.98828125
+            },
+            {
+              "text": " are,",
+              "start": 3.06,
+              "end": 3.28,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 3.42,
+              "end": 3.56,
+              "probability": 0.935546875
+            },
+            {
+              "text": " devilish",
+              "start": 3.56,
+              "end": 4.0,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " slave,",
+              "start": 4.0,
+              "end": 4.34,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " by",
+              "start": 4.6,
+              "end": 4.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " thee.",
+              "start": 4.66,
+              "end": 4.94,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anne.",
+          "start": 0.62,
+          "end": 0.72
+        },
+        {
+          "raw": "Then",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "raw": "say",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "they",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "were",
+          "start": 1.38,
+          "end": 1.46
+        },
+        {
+          "raw": "not",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "slain.",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "raw": "But",
+          "start": 2.56,
+          "end": 2.68
+        },
+        {
+          "raw": "dead",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "raw": "they",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "raw": "are,",
+          "start": 3.06,
+          "end": 3.28
+        },
+        {
+          "raw": "and",
+          "start": 3.42,
+          "end": 3.56
+        },
+        {
+          "raw": "devilish",
+          "start": 3.56,
+          "end": 4.0
+        },
+        {
+          "raw": "slave,",
+          "start": 4.0,
+          "end": 4.34
+        },
+        {
+          "raw": "by",
+          "start": 4.6,
+          "end": 4.66
+        },
+        {
+          "raw": "thee.",
+          "start": 4.66,
+          "end": 4.94
+        }
+      ],
+      "expected_tokens": [
+        "Anne.",
+        "Then",
+        "say",
+        "they",
+        "were",
+        "not",
+        "slain.",
+        "But",
+        "dead",
+        "they",
+        "are,",
+        "and,",
+        "devilish",
+        "slave,",
+        "by",
+        "thee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anne.",
+          "start": 0.62,
+          "end": 0.72,
+          "key": "anne",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 0.96,
+          "end": 1.1,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.38,
+          "end": 1.46,
+          "key": "were",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "slain.",
+          "start": 1.64,
+          "end": 2.0,
+          "key": "slain",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 2.56,
+          "end": 2.68,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 2.68,
+          "end": 2.86,
+          "key": "dead",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 2.86,
+          "end": 3.06,
+          "key": "they",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "are,",
+          "start": 3.06,
+          "end": 3.28,
+          "key": "are",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.42,
+          "end": 3.56,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "devilish",
+          "start": 3.56,
+          "end": 4.0,
+          "key": "devilish",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "slave,",
+          "start": 4.0,
+          "end": 4.34,
+          "key": "slave",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.6,
+          "end": 4.66,
+          "key": "by",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 4.66,
+          "end": 4.94,
+          "key": "thee",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Anne.",
+          "start": 0.62,
+          "end": 0.72
+        },
+        {
+          "text": "Then",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "text": "say",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "they",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "were",
+          "start": 1.38,
+          "end": 1.46
+        },
+        {
+          "text": "not",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "slain.",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "text": "But",
+          "start": 2.56,
+          "end": 2.68
+        },
+        {
+          "text": "dead",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "text": "they",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "text": "are,",
+          "start": 3.06,
+          "end": 3.28
+        },
+        {
+          "text": "and,",
+          "start": 3.42,
+          "end": 3.56
+        },
+        {
+          "text": "devilish",
+          "start": 3.56,
+          "end": 4.0
+        },
+        {
+          "text": "slave,",
+          "start": 4.0,
+          "end": 4.34
+        },
+        {
+          "text": "by",
+          "start": 4.6,
+          "end": 4.66
+        },
+        {
+          "text": "thee.",
+          "start": 4.66,
+          "end": 4.94
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2610032223165035
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "78ada19ab1d14a3ee8c3e75240f69e1852fefa09386697037cf182d17ea6dcaa",
+  "selected_reasons": []
+}

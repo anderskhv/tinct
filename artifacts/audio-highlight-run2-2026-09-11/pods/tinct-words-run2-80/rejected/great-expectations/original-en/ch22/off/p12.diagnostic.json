@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "8014496b06765f8254b0e038e22b22d4925653309212df9ca1a49fdd9e4f260b",
+  "attempts": [
+    {
+      "asr_seconds": 0.24488146416842937,
+      "alignment_seconds": 0.0006028302013874054,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pooh said he I didn't care much for it. She's a tartar",
+          "start": 0.59,
+          "end": 3.65,
+          "words": [
+            {
+              "text": " Pooh",
+              "start": 0.59,
+              "end": 1.07,
+              "probability": 0.58197021484375
+            },
+            {
+              "text": " said",
+              "start": 1.07,
+              "end": 1.19,
+              "probability": 0.685546875
+            },
+            {
+              "text": " he",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.970703125
+            },
+            {
+              "text": " I",
+              "start": 1.45,
+              "end": 1.85,
+              "probability": 0.80859375
+            },
+            {
+              "text": " didn't",
+              "start": 1.85,
+              "end": 2.09,
+              "probability": 0.999755859375
+            },
+            {
+              "text": " care",
+              "start": 2.09,
+              "end": 2.25,
+              "probability": 1.0
+            },
+            {
+              "text": " much",
+              "start": 2.25,
+              "end": 2.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 2.45,
+              "end": 2.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it.",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " She's",
+              "start": 2.85,
+              "end": 3.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 3.11,
+              "end": 3.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tartar",
+              "start": 3.17,
+              "end": 3.65,
+              "probability": 0.854248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pooh",
+          "start": 0.59,
+          "end": 1.07
+        },
+        {
+          "raw": "said",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "raw": "he",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.85
+        },
+        {
+          "raw": "didn't",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "raw": "care",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "raw": "much",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "raw": "for",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "raw": "it.",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "She's",
+          "start": 2.85,
+          "end": 3.11
+        },
+        {
+          "raw": "a",
+          "start": 3.11,
+          "end": 3.17
+        },
+        {
+          "raw": "tartar",
+          "start": 3.17,
+          "end": 3.65
+        }
+      ],
+      "expected_tokens": [
+        "\"Pooh!\"",
+        "said",
+        "he,",
+        "\"I",
+        "didn't",
+        "care",
+        "much",
+        "for",
+        "it.",
+        "_She's_",
+        "a",
+        "Tartar.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pooh",
+          "start": 0.59,
+          "end": 1.07,
+          "key": "pooh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.07,
+          "end": 1.19,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.19,
+          "end": 1.45,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.85,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "didn't",
+          "start": 1.85,
+          "end": 2.09,
+          "key": "didnt",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 2.09,
+          "end": 2.25,
+          "key": "care",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.25,
+          "end": 2.45,
+          "key": "much",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.45,
+          "end": 2.69,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.69,
+          "end": 2.85,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "She's",
+          "start": 2.85,
+          "end": 3.11,
+          "key": "shes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.11,
+          "end": 3.17,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "tartar",
+          "start": 3.17,
+          "end": 3.65,
+          "key": "tartar",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Pooh!\"",
+          "start": 0.59,
+          "end": 1.07
+        },
+        {
+          "text": "said",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "text": "he,",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "\"I",
+          "start": 1.45,
+          "end": 1.85
+        },
+        {
+          "text": "didn't",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "text": "care",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "text": "much",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "text": "for",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "text": "it.",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "_She's_",
+          "start": 2.85,
+          "end": 3.11
+        },
+        {
+          "text": "a",
+          "start": 3.11,
+          "end": 3.17
+        },
+        {
+          "text": "Tartar.\"",
+          "start": 3.17,
+          "end": 3.65
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24571138434112072
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "170a6f74aa1789df5f5c2e9961f7e807b4035e81dd9723b0392333bca416cf3f",
+  "selected_reasons": []
+}

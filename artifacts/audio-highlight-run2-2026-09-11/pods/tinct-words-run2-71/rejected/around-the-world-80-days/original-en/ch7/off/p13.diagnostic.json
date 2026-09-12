@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "038b9e95ecdd622f690667cde2a79e00db2e6474e573af816603884052d3c221",
+  "attempts": [
+    {
+      "asr_seconds": 0.21517942380160093,
+      "alignment_seconds": 0.0004209643229842186,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He is a Frenchman named Passapartout",
+          "start": 0.05,
+          "end": 2.81,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.8515625
+            },
+            {
+              "text": " is",
+              "start": 0.55,
+              "end": 0.83,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 0.83,
+              "end": 1.29,
+              "probability": 0.57373046875
+            },
+            {
+              "text": " Frenchman",
+              "start": 1.29,
+              "end": 1.61,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " named",
+              "start": 1.61,
+              "end": 1.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Passapartout",
+              "start": 1.97,
+              "end": 2.81,
+              "probability": 0.7342529296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "is",
+          "start": 0.55,
+          "end": 0.83
+        },
+        {
+          "raw": "a",
+          "start": 0.83,
+          "end": 1.29
+        },
+        {
+          "raw": "Frenchman",
+          "start": 1.29,
+          "end": 1.61
+        },
+        {
+          "raw": "named",
+          "start": 1.61,
+          "end": 1.97
+        },
+        {
+          "raw": "Passapartout",
+          "start": 1.97,
+          "end": 2.81
+        }
+      ],
+      "expected_tokens": [
+        "\"He",
+        "is:",
+        "a",
+        "Frenchman,",
+        "named",
+        "Passepartout.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.55,
+          "end": 0.83,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.83,
+          "end": 1.29,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Frenchman",
+          "start": 1.29,
+          "end": 1.61,
+          "key": "frenchman",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "named",
+          "start": 1.61,
+          "end": 1.97,
+          "key": "named",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Passapartout",
+          "start": 1.97,
+          "end": 2.81,
+          "key": "passapartout",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"He",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "is:",
+          "start": 0.55,
+          "end": 0.83
+        },
+        {
+          "text": "a",
+          "start": 0.83,
+          "end": 1.29
+        },
+        {
+          "text": "Frenchman,",
+          "start": 1.29,
+          "end": 1.61
+        },
+        {
+          "text": "named",
+          "start": 1.61,
+          "end": 1.97
+        },
+        {
+          "text": "Passepartout.\"",
+          "start": 1.97,
+          "end": 2.39
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21573769766837358
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cb7e083469a58c46e875d30b0637de6a318556667e7ba941be5d4a5037e06a15",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

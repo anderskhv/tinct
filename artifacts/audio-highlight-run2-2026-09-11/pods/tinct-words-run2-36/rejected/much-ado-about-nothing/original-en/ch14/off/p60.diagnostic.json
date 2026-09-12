@@ -1,0 +1,473 @@
+{
+  "complete": true,
+  "signature": "b7cb5da40d93a19b4c9ed48bbd21f118724b0ce0f93aa4d44d5931eecc8cf456",
+  "attempts": [
+    {
+      "asr_seconds": 0.2525695785880089,
+      "alignment_seconds": 0.0005120821297168732,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aside to Claudio, you are a villain, I just not.",
+          "start": 0.05,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.51025390625
+            },
+            {
+              "text": " to",
+              "start": 0.69,
+              "end": 0.87,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Claudio,",
+              "start": 0.87,
+              "end": 1.25,
+              "probability": 0.962890625
+            },
+            {
+              "text": " you",
+              "start": 1.79,
+              "end": 1.93,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " are",
+              "start": 1.93,
+              "end": 2.05,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " a",
+              "start": 2.05,
+              "end": 2.15,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " villain,",
+              "start": 2.15,
+              "end": 2.33,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " I",
+              "start": 2.51,
+              "end": 2.53,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " just",
+              "start": 2.53,
+              "end": 2.67,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " not.",
+              "start": 2.67,
+              "end": 2.93,
+              "probability": 0.89990234375
+            }
+          ]
+        },
+        {
+          "text": " I will.",
+          "start": 3.15,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " I",
+              "start": 3.15,
+              "end": 3.37,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " will.",
+              "start": 3.37,
+              "end": 3.47,
+              "probability": 0.83935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "to",
+          "start": 0.69,
+          "end": 0.87
+        },
+        {
+          "raw": "Claudio,",
+          "start": 0.87,
+          "end": 1.25
+        },
+        {
+          "raw": "you",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "raw": "are",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "raw": "a",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "raw": "villain,",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "raw": "I",
+          "start": 2.51,
+          "end": 2.53
+        },
+        {
+          "raw": "just",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "raw": "not.",
+          "start": 2.67,
+          "end": 2.93
+        },
+        {
+          "raw": "I",
+          "start": 3.15,
+          "end": 3.37
+        },
+        {
+          "raw": "will.",
+          "start": 3.37,
+          "end": 3.47
+        }
+      ],
+      "expected_tokens": [
+        "[Aside",
+        "to",
+        "Claudio.]",
+        "You",
+        "are",
+        "a",
+        "villain,",
+        "I",
+        "jest",
+        "not:",
+        "I",
+        "will"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          12,
+          9,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.69,
+          "end": 0.87,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Claudio,",
+          "start": 0.87,
+          "end": 1.25,
+          "key": "claudio",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.79,
+          "end": 1.93,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.93,
+          "end": 2.05,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.05,
+          "end": 2.15,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "villain,",
+          "start": 2.15,
+          "end": 2.33,
+          "key": "villain",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.51,
+          "end": 2.53,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.53,
+          "end": 2.67,
+          "key": "just",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 2.67,
+          "end": 2.93,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.15,
+          "end": 3.37,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "will.",
+          "start": 3.37,
+          "end": 3.47,
+          "key": "will",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Aside",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "to",
+          "start": 0.69,
+          "end": 0.87
+        },
+        {
+          "text": "Claudio.]",
+          "start": 0.87,
+          "end": 1.25
+        },
+        {
+          "text": "You",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "text": "are",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "text": "a",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "text": "villain,",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "text": "I",
+          "start": 2.51,
+          "end": 2.53
+        },
+        {
+          "text": "jest",
+          "start": 2.53,
+          "end": 2.6
+        },
+        {
+          "text": "not:",
+          "start": 2.67,
+          "end": 2.93
+        },
+        {
+          "text": "I",
+          "start": 3.15,
+          "end": 3.37
+        },
+        {
+          "text": "will",
+          "start": 3.37,
+          "end": 3.47
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.2532934695482254
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1c09062377b24ba90a1387ec3215ad581414ab600776afe699def2ba298914de",
+  "selected_reasons": []
+}

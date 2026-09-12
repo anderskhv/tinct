@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "a7178b915a922d1533b467a3acc5bd02621a61605a5de0c023358f1d1969ca78",
+  "attempts": [
+    {
+      "asr_seconds": 0.16758952662348747,
+      "alignment_seconds": 0.0002255719155073166,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He won't come back tomorrow, will he?",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " won't",
+              "start": 0.51,
+              "end": 0.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " come",
+              "start": 0.69,
+              "end": 0.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " back",
+              "start": 0.81,
+              "end": 1.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " tomorrow,",
+              "start": 1.03,
+              "end": 1.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will",
+              "start": 1.69,
+              "end": 1.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " he?",
+              "start": 1.81,
+              "end": 2.11,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "won't",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "raw": "come",
+          "start": 0.69,
+          "end": 0.81
+        },
+        {
+          "raw": "back",
+          "start": 0.81,
+          "end": 1.03
+        },
+        {
+          "raw": "tomorrow,",
+          "start": 1.03,
+          "end": 1.35
+        },
+        {
+          "raw": "will",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "raw": "he?",
+          "start": 1.81,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "\"He",
+        "won't",
+        "come",
+        "back",
+        "to-morrow;",
+        "will",
+        "he?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "won't",
+          "start": 0.51,
+          "end": 0.69,
+          "key": "wont",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 0.69,
+          "end": 0.81,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 0.81,
+          "end": 1.03,
+          "key": "back",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tomorrow,",
+          "start": 1.03,
+          "end": 1.35,
+          "key": "tomorrow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.69,
+          "end": 1.81,
+          "key": "will",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he?",
+          "start": 1.81,
+          "end": 2.11,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "won't",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "text": "come",
+          "start": 0.69,
+          "end": 0.81
+        },
+        {
+          "text": "back",
+          "start": 0.81,
+          "end": 1.03
+        },
+        {
+          "text": "to-morrow;",
+          "start": 1.03,
+          "end": 1.35
+        },
+        {
+          "text": "will",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "text": "he?\"",
+          "start": 1.81,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1679101688787341
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b1d9df9164a27f9af1dadfef3f18fe9292b56f9033363e32cebb2a2176c44c23",
+  "selected_reasons": []
+}

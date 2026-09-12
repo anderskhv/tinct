@@ -1,0 +1,388 @@
+{
+  "complete": true,
+  "signature": "01ad092c69b7c94465d0a42b039055e6bbe81b9afa700dfb00e30c932154b008",
+  "attempts": [
+    {
+      "asr_seconds": 0.24654392898082733,
+      "alignment_seconds": 0.0003187553957104683,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Constable, hark, how are steeds for present service nay?",
+          "start": 0.0,
+          "end": 3.66,
+          "words": [
+            {
+              "text": " Constable,",
+              "start": 0.0,
+              "end": 0.8,
+              "probability": 0.6416015625
+            },
+            {
+              "text": " hark,",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 0.761962890625
+            },
+            {
+              "text": " how",
+              "start": 1.94,
+              "end": 2.02,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " are",
+              "start": 2.02,
+              "end": 2.16,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " steeds",
+              "start": 2.16,
+              "end": 2.48,
+              "probability": 0.962646484375
+            },
+            {
+              "text": " for",
+              "start": 2.48,
+              "end": 2.66,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " present",
+              "start": 2.66,
+              "end": 2.94,
+              "probability": 0.98828125
+            },
+            {
+              "text": " service",
+              "start": 2.94,
+              "end": 3.28,
+              "probability": 0.986328125
+            },
+            {
+              "text": " nay?",
+              "start": 3.28,
+              "end": 3.66,
+              "probability": 0.833740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Constable,",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "raw": "hark,",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "raw": "how",
+          "start": 1.94,
+          "end": 2.02
+        },
+        {
+          "raw": "are",
+          "start": 2.02,
+          "end": 2.16
+        },
+        {
+          "raw": "steeds",
+          "start": 2.16,
+          "end": 2.48
+        },
+        {
+          "raw": "for",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "raw": "present",
+          "start": 2.66,
+          "end": 2.94
+        },
+        {
+          "raw": "service",
+          "start": 2.94,
+          "end": 3.28
+        },
+        {
+          "raw": "nay?",
+          "start": 3.28,
+          "end": 3.66
+        }
+      ],
+      "expected_tokens": [
+        "Constable.",
+        "Hark,",
+        "how",
+        "our",
+        "steeds",
+        "for",
+        "present",
+        "service",
+        "neigh!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Constable,",
+          "start": 0.0,
+          "end": 0.8,
+          "key": "constable",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hark,",
+          "start": 1.5,
+          "end": 1.64,
+          "key": "hark",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.94,
+          "end": 2.02,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.02,
+          "end": 2.16,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "steeds",
+          "start": 2.16,
+          "end": 2.48,
+          "key": "steeds",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.48,
+          "end": 2.66,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 2.66,
+          "end": 2.94,
+          "key": "present",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "service",
+          "start": 2.94,
+          "end": 3.28,
+          "key": "service",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "nay?",
+          "start": 3.28,
+          "end": 3.66,
+          "key": "nay",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Constable.",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "text": "Hark,",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "how",
+          "start": 1.94,
+          "end": 2.02
+        },
+        {
+          "text": "our",
+          "start": 2.02,
+          "end": 2.09
+        },
+        {
+          "text": "steeds",
+          "start": 2.16,
+          "end": 2.48
+        },
+        {
+          "text": "for",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "text": "present",
+          "start": 2.66,
+          "end": 2.94
+        },
+        {
+          "text": "service",
+          "start": 2.94,
+          "end": 3.28
+        },
+        {
+          "text": "neigh!",
+          "start": 3.28,
+          "end": 3.47
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2469836315140128
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6bbbaedc6cd0deb163c8d60ca203449689dbfe74adc8040d9ad5083326e27576",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

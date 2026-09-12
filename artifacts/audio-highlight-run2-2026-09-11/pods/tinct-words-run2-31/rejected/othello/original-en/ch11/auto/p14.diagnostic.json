@@ -1,0 +1,429 @@
+{
+  "complete": true,
+  "signature": "f2cade7fd257086e74bf763f283d99d66e2f09279de32ad21649b24381d04121",
+  "attempts": [
+    {
+      "asr_seconds": 0.4577588913962245,
+      "alignment_seconds": 0.0003191162832081318,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. That's not so good now.",
+        "hotwords": "Othello, That's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, That's Othello. That's Othello. That's Othello. That's Othello. That's not so good now.",
+          "start": 0.08,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.9615885416666666
+            },
+            {
+              "text": " That's",
+              "start": 1.18,
+              "end": 1.46,
+              "probability": 0.48967933654785156
+            },
+            {
+              "text": " Othello.",
+              "start": 1.46,
+              "end": 1.54,
+              "probability": 0.4944664041201274
+            },
+            {
+              "text": " That's",
+              "start": 1.54,
+              "end": 1.54,
+              "probability": 0.795654296875
+            },
+            {
+              "text": " Othello.",
+              "start": 1.54,
+              "end": 1.54,
+              "probability": 0.6745198567708334
+            },
+            {
+              "text": " That's",
+              "start": 1.54,
+              "end": 1.54,
+              "probability": 0.857421875
+            },
+            {
+              "text": " Othello.",
+              "start": 1.54,
+              "end": 1.54,
+              "probability": 0.7328694661458334
+            },
+            {
+              "text": " That's",
+              "start": 1.54,
+              "end": 1.54,
+              "probability": 0.817138671875
+            },
+            {
+              "text": " Othello.",
+              "start": 1.54,
+              "end": 1.54,
+              "probability": 0.7635904947916666
+            },
+            {
+              "text": " That's",
+              "start": 1.54,
+              "end": 1.54,
+              "probability": 0.811279296875
+            },
+            {
+              "text": " not",
+              "start": 1.54,
+              "end": 1.54,
+              "probability": 0.50048828125
+            },
+            {
+              "text": " so",
+              "start": 1.54,
+              "end": 1.72,
+              "probability": 0.81005859375
+            },
+            {
+              "text": " good",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " now.",
+              "start": 1.9,
+              "end": 2.14,
+              "probability": 0.79541015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "That's",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "raw": "Othello.",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "raw": "That's",
+          "start": 1.54,
+          "end": 1.54
+        },
+        {
+          "raw": "Othello.",
+          "start": 1.54,
+          "end": 1.54
+        },
+        {
+          "raw": "That's",
+          "start": 1.54,
+          "end": 1.54
+        },
+        {
+          "raw": "Othello.",
+          "start": 1.54,
+          "end": 1.54
+        },
+        {
+          "raw": "That's",
+          "start": 1.54,
+          "end": 1.54
+        },
+        {
+          "raw": "Othello.",
+          "start": 1.54,
+          "end": 1.54
+        },
+        {
+          "raw": "That's",
+          "start": 1.54,
+          "end": 1.54
+        },
+        {
+          "raw": "not",
+          "start": 1.54,
+          "end": 1.54
+        },
+        {
+          "raw": "so",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "raw": "good",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "raw": "now.",
+          "start": 1.9,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "That's",
+        "not",
+        "so",
+        "good",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          8
+        ],
+        [
+          "equal",
+          0,
+          6,
+          8,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 1.18,
+          "end": 1.46,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Othello.",
+          "start": 1.46,
+          "end": 1.54,
+          "key": "othello",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 1.54,
+          "end": 1.54,
+          "key": "thats",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Othello.",
+          "start": 1.54,
+          "end": 1.54,
+          "key": "othello",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 1.54,
+          "end": 1.54,
+          "key": "thats",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Othello.",
+          "start": 1.54,
+          "end": 1.54,
+          "key": "othello",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 1.54,
+          "end": 1.54,
+          "key": "thats",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Othello.",
+          "start": 1.54,
+          "end": 1.54,
+          "key": "othello",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 1.54,
+          "end": 1.54,
+          "key": "thats",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.54,
+          "end": 1.54,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.54,
+          "end": 1.72,
+          "key": "so",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.72,
+          "end": 1.9,
+          "key": "good",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 1.9,
+          "end": 2.14,
+          "key": "now",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 1.54,
+          "end": 1.54
+        },
+        {
+          "text": "That's",
+          "start": 1.54,
+          "end": 1.54
+        },
+        {
+          "text": "not",
+          "start": 1.54,
+          "end": 1.54
+        },
+        {
+          "text": "so",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "text": "good",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "now.",
+          "start": 1.9,
+          "end": 2.14
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 14,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.45825775526463985
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8b337f2991a6414414e7426071567645b40a3c9493f5aa993a89cd7c79d2978a",
+  "selected_reasons": []
+}

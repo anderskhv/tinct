@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "c29e455aa354ed27e781bc0e414cea13f34a5fd72f7650854310807df1fb6b26",
+  "attempts": [
+    {
+      "asr_seconds": 0.2037991271354258,
+      "alignment_seconds": 0.000348441768437624,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And says Joe, sticking his thumb in his pocket.",
+          "start": 0.11,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.37939453125
+            },
+            {
+              "text": " says",
+              "start": 0.53,
+              "end": 0.75,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Joe,",
+              "start": 0.75,
+              "end": 1.05,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " sticking",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " his",
+              "start": 1.61,
+              "end": 1.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thumb",
+              "start": 1.87,
+              "end": 2.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " in",
+              "start": 2.05,
+              "end": 2.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 2.19,
+              "end": 2.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pocket.",
+              "start": 2.31,
+              "end": 2.69,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "says",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "raw": "Joe,",
+          "start": 0.75,
+          "end": 1.05
+        },
+        {
+          "raw": "sticking",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "raw": "his",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "raw": "thumb",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "raw": "in",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "raw": "his",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "raw": "pocket.",
+          "start": 2.31,
+          "end": 2.69
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "says",
+        "Joe,",
+        "sticking",
+        "his",
+        "thumb",
+        "in",
+        "his",
+        "pocket:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 0.53,
+          "end": 0.75,
+          "key": "says",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Joe,",
+          "start": 0.75,
+          "end": 1.05,
+          "key": "joe",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sticking",
+          "start": 1.41,
+          "end": 1.61,
+          "key": "sticking",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.61,
+          "end": 1.87,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thumb",
+          "start": 1.87,
+          "end": 2.05,
+          "key": "thumb",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.05,
+          "end": 2.19,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.19,
+          "end": 2.31,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pocket.",
+          "start": 2.31,
+          "end": 2.69,
+          "key": "pocket",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "says",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "text": "Joe,",
+          "start": 0.75,
+          "end": 1.05
+        },
+        {
+          "text": "sticking",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "text": "his",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "text": "thumb",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "text": "in",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "text": "his",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "text": "pocket:",
+          "start": 2.31,
+          "end": 2.69
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20427152095362544
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "789d1698153a197765d7ae1a22974d8a3d0c6baf117042fb36cff51a409328e3",
+  "selected_reasons": []
+}

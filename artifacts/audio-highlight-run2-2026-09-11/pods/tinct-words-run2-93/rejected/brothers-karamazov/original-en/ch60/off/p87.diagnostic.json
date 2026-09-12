@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "af880d88c98b7e39666616ba39637804d4ba40a4b476b50fc727a981675a15fc",
+  "attempts": [
+    {
+      "asr_seconds": 0.1422593742609024,
+      "alignment_seconds": 0.00029520317912101746,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " in your landlady's cap.",
+          "start": 0.02,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " in",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.66357421875
+            },
+            {
+              "text": " your",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " landlady's",
+              "start": 0.6,
+              "end": 1.16,
+              "probability": 0.9515380859375
+            },
+            {
+              "text": " cap.",
+              "start": 1.16,
+              "end": 1.38,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "in",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "your",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "landlady's",
+          "start": 0.6,
+          "end": 1.16
+        },
+        {
+          "raw": "cap.",
+          "start": 1.16,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "\"In",
+        "your",
+        "landlady's",
+        "cap?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "in",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.5,
+          "end": 0.6,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "landlady's",
+          "start": 0.6,
+          "end": 1.16,
+          "key": "landladys",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cap.",
+          "start": 1.16,
+          "end": 1.38,
+          "key": "cap",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"In",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "your",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "landlady's",
+          "start": 0.6,
+          "end": 1.16
+        },
+        {
+          "text": "cap?\"",
+          "start": 1.16,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14268132857978344
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d445b232796d4c9e9b4c79e22b910b5294ac562483e40adc8898330176cac813",
+  "selected_reasons": []
+}

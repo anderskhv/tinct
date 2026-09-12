@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "3aa59e0c05760ccb524ff0ca2c29d97533c275514e48bdbf6a48cc8c056dc033",
+  "attempts": [
+    {
+      "asr_seconds": 0.2197039810125716,
+      "alignment_seconds": 0.00020401697838678956,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Canidius. With news the time's with labour, and throes forth Each minute some.",
+        "hotwords": "Canidius, Each"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Canidius. With news the time's with labour, and throes forth Each minute some.",
+          "start": 0.05,
+          "end": 4.59,
+          "words": [
+            {
+              "text": " Canidius.",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.60302734375
+            },
+            {
+              "text": " With",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " news",
+              "start": 1.53,
+              "end": 1.79,
+              "probability": 0.908203125
+            },
+            {
+              "text": " the",
+              "start": 1.79,
+              "end": 1.99,
+              "probability": 0.7138671875
+            },
+            {
+              "text": " time's",
+              "start": 1.99,
+              "end": 2.35,
+              "probability": 0.3219795227050781
+            },
+            {
+              "text": " with",
+              "start": 2.35,
+              "end": 2.43,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " labour,",
+              "start": 2.43,
+              "end": 2.75,
+              "probability": 0.09765625
+            },
+            {
+              "text": " and",
+              "start": 3.01,
+              "end": 3.13,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " throes",
+              "start": 3.13,
+              "end": 3.55,
+              "probability": 0.5087509155273438
+            },
+            {
+              "text": " forth",
+              "start": 3.55,
+              "end": 3.73,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Each",
+              "start": 3.73,
+              "end": 4.01,
+              "probability": 0.00189208984375
+            },
+            {
+              "text": " minute",
+              "start": 4.01,
+              "end": 4.25,
+              "probability": 0.826171875
+            },
+            {
+              "text": " some.",
+              "start": 4.25,
+              "end": 4.59,
+              "probability": 0.76806640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Canidius.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "With",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "news",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "raw": "the",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "raw": "time's",
+          "start": 1.99,
+          "end": 2.35
+        },
+        {
+          "raw": "with",
+          "start": 2.35,
+          "end": 2.43
+        },
+        {
+          "raw": "labour,",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "raw": "and",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "raw": "throes",
+          "start": 3.13,
+          "end": 3.55
+        },
+        {
+          "raw": "forth",
+          "start": 3.55,
+          "end": 3.73
+        },
+        {
+          "raw": "Each",
+          "start": 3.73,
+          "end": 4.01
+        },
+        {
+          "raw": "minute",
+          "start": 4.01,
+          "end": 4.25
+        },
+        {
+          "raw": "some.",
+          "start": 4.25,
+          "end": 4.59
+        }
+      ],
+      "expected_tokens": [
+        "Canidius.",
+        "With",
+        "news",
+        "the",
+        "time's",
+        "with",
+        "labour,",
+        "and",
+        "throes",
+        "forth",
+        "Each",
+        "minute",
+        "some."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Canidius.",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "canidius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 1.43,
+          "end": 1.53,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "news",
+          "start": 1.53,
+          "end": 1.79,
+          "key": "news",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.79,
+          "end": 1.99,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "time's",
+          "start": 1.99,
+          "end": 2.35,
+          "key": "times",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.35,
+          "end": 2.43,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "labour,",
+          "start": 2.43,
+          "end": 2.75,
+          "key": "labour",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.01,
+          "end": 3.13,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "throes",
+          "start": 3.13,
+          "end": 3.55,
+          "key": "throes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "forth",
+          "start": 3.55,
+          "end": 3.73,
+          "key": "forth",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Each",
+          "start": 3.73,
+          "end": 4.01,
+          "key": "each",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "minute",
+          "start": 4.01,
+          "end": 4.25,
+          "key": "minute",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "some.",
+          "start": 4.25,
+          "end": 4.59,
+          "key": "some",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Canidius.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "With",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "text": "news",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "text": "the",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "text": "time's",
+          "start": 1.99,
+          "end": 2.35
+        },
+        {
+          "text": "with",
+          "start": 2.35,
+          "end": 2.43
+        },
+        {
+          "text": "labour,",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "text": "and",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "text": "throes",
+          "start": 3.13,
+          "end": 3.55
+        },
+        {
+          "text": "forth",
+          "start": 3.55,
+          "end": 3.73
+        },
+        {
+          "text": "Each",
+          "start": 3.73,
+          "end": 4.01
+        },
+        {
+          "text": "minute",
+          "start": 4.01,
+          "end": 4.25
+        },
+        {
+          "text": "some.",
+          "start": 4.25,
+          "end": 4.59
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2199961419973988
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5afe5e75b6b52fc1af61438f9d20d6f1131ffcc1eb3a9b31ae7c701efa6c5d6c",
+  "selected_reasons": []
+}

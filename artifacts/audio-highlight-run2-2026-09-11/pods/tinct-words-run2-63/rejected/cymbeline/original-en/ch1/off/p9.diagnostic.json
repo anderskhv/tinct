@@ -1,0 +1,636 @@
+{
+  "complete": true,
+  "signature": "4994f1f88978d7d22a8ea48eb52a56eed89e8482078b59a37d538e66e3e09384",
+  "attempts": [
+    {
+      "asr_seconds": 0.360570689663291,
+      "alignment_seconds": 0.0006372220814228058,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First gentleman, I do extend him sir within himself crush him together rather than unfold his measure duly",
+          "start": 0.05,
+          "end": 6.93,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.521484375
+            },
+            {
+              "text": " gentleman,",
+              "start": 0.67,
+              "end": 1.15,
+              "probability": 0.339111328125
+            },
+            {
+              "text": " I",
+              "start": 1.67,
+              "end": 2.03,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " do",
+              "start": 2.03,
+              "end": 2.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " extend",
+              "start": 2.17,
+              "end": 2.57,
+              "probability": 0.9921875
+            },
+            {
+              "text": " him",
+              "start": 2.57,
+              "end": 2.85,
+              "probability": 0.98828125
+            },
+            {
+              "text": " sir",
+              "start": 2.85,
+              "end": 3.09,
+              "probability": 0.499755859375
+            },
+            {
+              "text": " within",
+              "start": 3.09,
+              "end": 3.39,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " himself",
+              "start": 3.39,
+              "end": 3.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " crush",
+              "start": 3.89,
+              "end": 4.53,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " him",
+              "start": 4.53,
+              "end": 4.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " together",
+              "start": 4.73,
+              "end": 5.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " rather",
+              "start": 5.07,
+              "end": 5.39,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " than",
+              "start": 5.39,
+              "end": 5.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " unfold",
+              "start": 5.61,
+              "end": 6.03,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " his",
+              "start": 6.03,
+              "end": 6.31,
+              "probability": 0.98828125
+            },
+            {
+              "text": " measure",
+              "start": 6.31,
+              "end": 6.63,
+              "probability": 0.822265625
+            },
+            {
+              "text": " duly",
+              "start": 6.63,
+              "end": 6.93,
+              "probability": 0.8447265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "gentleman,",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "raw": "I",
+          "start": 1.67,
+          "end": 2.03
+        },
+        {
+          "raw": "do",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "raw": "extend",
+          "start": 2.17,
+          "end": 2.57
+        },
+        {
+          "raw": "him",
+          "start": 2.57,
+          "end": 2.85
+        },
+        {
+          "raw": "sir",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "raw": "within",
+          "start": 3.09,
+          "end": 3.39
+        },
+        {
+          "raw": "himself",
+          "start": 3.39,
+          "end": 3.89
+        },
+        {
+          "raw": "crush",
+          "start": 3.89,
+          "end": 4.53
+        },
+        {
+          "raw": "him",
+          "start": 4.53,
+          "end": 4.73
+        },
+        {
+          "raw": "together",
+          "start": 4.73,
+          "end": 5.07
+        },
+        {
+          "raw": "rather",
+          "start": 5.07,
+          "end": 5.39
+        },
+        {
+          "raw": "than",
+          "start": 5.39,
+          "end": 5.61
+        },
+        {
+          "raw": "unfold",
+          "start": 5.61,
+          "end": 6.03
+        },
+        {
+          "raw": "his",
+          "start": 6.03,
+          "end": 6.31
+        },
+        {
+          "raw": "measure",
+          "start": 6.31,
+          "end": 6.63
+        },
+        {
+          "raw": "duly",
+          "start": 6.63,
+          "end": 6.93
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Gentleman.",
+        "I",
+        "do",
+        "extend",
+        "him,",
+        "sir,",
+        "within",
+        "himself;",
+        "Crush",
+        "him",
+        "together",
+        "rather",
+        "than",
+        "unfold",
+        "His",
+        "measure",
+        "duly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gentleman,",
+          "start": 0.67,
+          "end": 1.15,
+          "key": "gentleman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.67,
+          "end": 2.03,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.03,
+          "end": 2.17,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "extend",
+          "start": 2.17,
+          "end": 2.57,
+          "key": "extend",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.57,
+          "end": 2.85,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sir",
+          "start": 2.85,
+          "end": 3.09,
+          "key": "sir",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 3.09,
+          "end": 3.39,
+          "key": "within",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 3.39,
+          "end": 3.89,
+          "key": "himself",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "crush",
+          "start": 3.89,
+          "end": 4.53,
+          "key": "crush",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.53,
+          "end": 4.73,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "together",
+          "start": 4.73,
+          "end": 5.07,
+          "key": "together",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 5.07,
+          "end": 5.39,
+          "key": "rather",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 5.39,
+          "end": 5.61,
+          "key": "than",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "unfold",
+          "start": 5.61,
+          "end": 6.03,
+          "key": "unfold",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.03,
+          "end": 6.31,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "measure",
+          "start": 6.31,
+          "end": 6.63,
+          "key": "measure",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "duly",
+          "start": 6.63,
+          "end": 6.93,
+          "key": "duly",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Gentleman.",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "text": "I",
+          "start": 1.67,
+          "end": 2.03
+        },
+        {
+          "text": "do",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "text": "extend",
+          "start": 2.17,
+          "end": 2.57
+        },
+        {
+          "text": "him,",
+          "start": 2.57,
+          "end": 2.85
+        },
+        {
+          "text": "sir,",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "text": "within",
+          "start": 3.09,
+          "end": 3.39
+        },
+        {
+          "text": "himself;",
+          "start": 3.39,
+          "end": 3.89
+        },
+        {
+          "text": "Crush",
+          "start": 3.89,
+          "end": 4.53
+        },
+        {
+          "text": "him",
+          "start": 4.53,
+          "end": 4.73
+        },
+        {
+          "text": "together",
+          "start": 4.73,
+          "end": 5.07
+        },
+        {
+          "text": "rather",
+          "start": 5.07,
+          "end": 5.39
+        },
+        {
+          "text": "than",
+          "start": 5.39,
+          "end": 5.61
+        },
+        {
+          "text": "unfold",
+          "start": 5.61,
+          "end": 6.03
+        },
+        {
+          "text": "His",
+          "start": 6.03,
+          "end": 6.31
+        },
+        {
+          "text": "measure",
+          "start": 6.31,
+          "end": 6.63
+        },
+        {
+          "text": "duly.",
+          "start": 6.63,
+          "end": 6.93
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3615139853209257
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0893117cac30dcc743de3c15135550e21ccf787f3b3afbaeecd4800ca5a8cbd8",
+  "selected_reasons": []
+}

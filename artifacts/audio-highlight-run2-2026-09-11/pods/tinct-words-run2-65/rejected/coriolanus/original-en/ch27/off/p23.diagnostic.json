@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "694d3f4787a82603c3557f57630304bf7b054489f04f9b95ca26561fd8f89083",
+  "attempts": [
+    {
+      "asr_seconds": 0.08778338925912976,
+      "alignment_seconds": 0.00012832414358854294,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sound still with the shouts.",
+          "start": 0.08,
+          "end": 1.36,
+          "words": [
+            {
+              "text": " Sound",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " still",
+              "start": 0.62,
+              "end": 0.88,
+              "probability": 0.96484375
+            },
+            {
+              "text": " with",
+              "start": 0.88,
+              "end": 1.04,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 1.04,
+              "end": 1.16,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " shouts.",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.95068359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sound",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "still",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "raw": "with",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "raw": "shouts.",
+          "start": 1.16,
+          "end": 1.36
+        }
+      ],
+      "expected_tokens": [
+        "[_Sound",
+        "still",
+        "with",
+        "the",
+        "shouts._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sound",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "sound",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 0.62,
+          "end": 0.88,
+          "key": "still",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.88,
+          "end": 1.04,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.16,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shouts.",
+          "start": 1.16,
+          "end": 1.36,
+          "key": "shouts",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Sound",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "still",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "text": "with",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "text": "the",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "text": "shouts._]",
+          "start": 1.16,
+          "end": 1.36
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08795308414846659
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "48b778234da8a0a669843c7e9acf1713520e26ece4d821667ed0092e1dee312f",
+  "selected_reasons": []
+}

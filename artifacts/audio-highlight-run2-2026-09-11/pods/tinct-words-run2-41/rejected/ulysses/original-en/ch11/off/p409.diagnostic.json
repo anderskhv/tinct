@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "70bb1c1293409a1a3ab1c1af9972fd711b06083e21df5c1b05a861bf50d69f7c",
+  "attempts": [
+    {
+      "asr_seconds": 0.21148030320182443,
+      "alignment_seconds": 0.00023481762036681175,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bloom looped, unlooped noted, disnoted.",
+          "start": 0.08,
+          "end": 2.88,
+          "words": [
+            {
+              "text": " Bloom",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " looped,",
+              "start": 0.66,
+              "end": 1.18,
+              "probability": 0.880126953125
+            },
+            {
+              "text": " unlooped",
+              "start": 1.38,
+              "end": 1.72,
+              "probability": 0.7146809895833334
+            },
+            {
+              "text": " noted,",
+              "start": 1.72,
+              "end": 2.14,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " disnoted.",
+              "start": 2.36,
+              "end": 2.88,
+              "probability": 0.9217122395833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bloom",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "looped,",
+          "start": 0.66,
+          "end": 1.18
+        },
+        {
+          "raw": "unlooped",
+          "start": 1.38,
+          "end": 1.72
+        },
+        {
+          "raw": "noted,",
+          "start": 1.72,
+          "end": 2.14
+        },
+        {
+          "raw": "disnoted.",
+          "start": 2.36,
+          "end": 2.88
+        }
+      ],
+      "expected_tokens": [
+        "Bloom",
+        "looped,",
+        "unlooped,",
+        "noded,",
+        "disnoded."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bloom",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "bloom",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "looped,",
+          "start": 0.66,
+          "end": 1.18,
+          "key": "looped",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "unlooped",
+          "start": 1.38,
+          "end": 1.72,
+          "key": "unlooped",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "noted,",
+          "start": 1.72,
+          "end": 2.14,
+          "key": "noted",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "disnoted.",
+          "start": 2.36,
+          "end": 2.88,
+          "key": "disnoted",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bloom",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "looped,",
+          "start": 0.66,
+          "end": 1.18
+        },
+        {
+          "text": "unlooped,",
+          "start": 1.38,
+          "end": 1.72
+        },
+        {
+          "text": "noded,",
+          "start": 1.72,
+          "end": 2.3
+        },
+        {
+          "text": "disnoded.",
+          "start": 2.3,
+          "end": 2.59
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21179251233115792
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "84b4313c75d97c27309b97392cd8a34f15da308afddb3c51f52a60ed8c722734",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

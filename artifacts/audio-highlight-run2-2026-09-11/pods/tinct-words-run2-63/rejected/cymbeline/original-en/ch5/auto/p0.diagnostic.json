@@ -1,0 +1,1163 @@
+{
+  "complete": true,
+  "signature": "35f137710ce54b849575eb875bfb78946e2e986d66eea6e51927a3a967503739",
+  "attempts": [
+    {
+      "asr_seconds": 0.2101713139563799,
+      "alignment_seconds": 0.00040421076118946075,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Philario, Iachimo, a Frenchman, a Dutchman and a Spaniard.",
+        "hotwords": "Enter, Philario, Iachimo, Frenchman, Dutchman, Spaniard"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Philario, Iachimo, Frenchman, Dutchman and Spaniard.",
+          "start": 0.11,
+          "end": 4.35,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " Philario,",
+              "start": 0.65,
+              "end": 1.27,
+              "probability": 0.3417256673177083
+            },
+            {
+              "text": " Iachimo,",
+              "start": 1.67,
+              "end": 2.07,
+              "probability": 0.3837420145670573
+            },
+            {
+              "text": " Frenchman,",
+              "start": 2.33,
+              "end": 2.63,
+              "probability": 0.0007486343383789062
+            },
+            {
+              "text": " Dutchman",
+              "start": 3.13,
+              "end": 3.59,
+              "probability": 0.960205078125
+            },
+            {
+              "text": " and",
+              "start": 3.59,
+              "end": 3.71,
+              "probability": 0.50048828125
+            },
+            {
+              "text": " Spaniard.",
+              "start": 3.71,
+              "end": 4.35,
+              "probability": 0.9609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Philario,",
+          "start": 0.65,
+          "end": 1.27
+        },
+        {
+          "raw": "Iachimo,",
+          "start": 1.67,
+          "end": 2.07
+        },
+        {
+          "raw": "Frenchman,",
+          "start": 2.33,
+          "end": 2.63
+        },
+        {
+          "raw": "Dutchman",
+          "start": 3.13,
+          "end": 3.59
+        },
+        {
+          "raw": "and",
+          "start": 3.59,
+          "end": 3.71
+        },
+        {
+          "raw": "Spaniard.",
+          "start": 3.71,
+          "end": 4.35
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Philario,",
+        "Iachimo,",
+        "a",
+        "Frenchman,",
+        "a",
+        "Dutchman",
+        "and",
+        "a",
+        "Spaniard."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "delete",
+          3,
+          4,
+          3,
+          3
+        ],
+        [
+          "equal",
+          4,
+          5,
+          3,
+          4
+        ],
+        [
+          "delete",
+          5,
+          6,
+          4,
+          4
+        ],
+        [
+          "equal",
+          6,
+          8,
+          4,
+          6
+        ],
+        [
+          "delete",
+          8,
+          9,
+          6,
+          6
+        ],
+        [
+          "equal",
+          9,
+          10,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          3,
+          4,
+          3,
+          3
+        ],
+        [
+          "delete",
+          5,
+          6,
+          4,
+          4
+        ],
+        [
+          "delete",
+          8,
+          9,
+          6,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Philario,",
+          "start": 0.65,
+          "end": 1.27,
+          "key": "philario",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Iachimo,",
+          "start": 1.67,
+          "end": 2.07,
+          "key": "iachimo",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Frenchman,",
+          "start": 2.33,
+          "end": 2.63,
+          "key": "frenchman",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Dutchman",
+          "start": 3.13,
+          "end": 3.59,
+          "key": "dutchman",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.59,
+          "end": 3.71,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Spaniard.",
+          "start": 3.71,
+          "end": 4.35,
+          "key": "spaniard",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Philario,",
+          "start": 0.65,
+          "end": 1.27
+        },
+        {
+          "text": "Iachimo,",
+          "start": 1.67,
+          "end": 2.07
+        },
+        {
+          "text": "a",
+          "start": 2.07,
+          "end": 2.2
+        },
+        {
+          "text": "Frenchman,",
+          "start": 2.33,
+          "end": 2.63
+        },
+        {
+          "text": "a",
+          "start": 2.63,
+          "end": 2.88
+        },
+        {
+          "text": "Dutchman",
+          "start": 3.13,
+          "end": 3.59
+        },
+        {
+          "text": "and",
+          "start": 3.59,
+          "end": 3.71
+        },
+        {
+          "text": "a",
+          "start": 3.71,
+          "end": 3.71
+        },
+        {
+          "text": "Spaniard.",
+          "start": 3.71,
+          "end": 4.35
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21068407036364079
+    },
+    {
+      "asr_seconds": 0.23690510727465153,
+      "alignment_seconds": 0.0005477666854858398,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Enter, Philario, Iachimo, Frenchman, Dutchman, Spaniard"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Enter, Philario, Iachimo, Frenchman, Dutchman, Spaniard",
+          "start": 0.11,
+          "end": 4.35,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " Philario,",
+              "start": 0.75,
+              "end": 1.33,
+              "probability": 0.3553924560546875
+            },
+            {
+              "text": " Iachimo,",
+              "start": 1.67,
+              "end": 2.09,
+              "probability": 0.41258970896402997
+            },
+            {
+              "text": " Frenchman,",
+              "start": 2.33,
+              "end": 2.63,
+              "probability": 0.0019311904907226562
+            },
+            {
+              "text": " Dutchman,",
+              "start": 3.13,
+              "end": 3.59,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " Spaniard",
+              "start": 3.73,
+              "end": 4.35,
+              "probability": 0.852294921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Philario,",
+          "start": 0.75,
+          "end": 1.33
+        },
+        {
+          "raw": "Iachimo,",
+          "start": 1.67,
+          "end": 2.09
+        },
+        {
+          "raw": "Frenchman,",
+          "start": 2.33,
+          "end": 2.63
+        },
+        {
+          "raw": "Dutchman,",
+          "start": 3.13,
+          "end": 3.59
+        },
+        {
+          "raw": "Spaniard",
+          "start": 3.73,
+          "end": 4.35
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Philario,",
+        "Iachimo,",
+        "a",
+        "Frenchman,",
+        "a",
+        "Dutchman",
+        "and",
+        "a",
+        "Spaniard."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "delete",
+          3,
+          4,
+          3,
+          3
+        ],
+        [
+          "equal",
+          4,
+          5,
+          3,
+          4
+        ],
+        [
+          "delete",
+          5,
+          6,
+          4,
+          4
+        ],
+        [
+          "equal",
+          6,
+          7,
+          4,
+          5
+        ],
+        [
+          "delete",
+          7,
+          9,
+          5,
+          5
+        ],
+        [
+          "equal",
+          9,
+          10,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          3,
+          4,
+          3,
+          3
+        ],
+        [
+          "delete",
+          5,
+          6,
+          4,
+          4
+        ],
+        [
+          "delete",
+          7,
+          9,
+          5,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Philario,",
+          "start": 0.75,
+          "end": 1.33,
+          "key": "philario",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Iachimo,",
+          "start": 1.67,
+          "end": 2.09,
+          "key": "iachimo",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Frenchman,",
+          "start": 2.33,
+          "end": 2.63,
+          "key": "frenchman",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Dutchman,",
+          "start": 3.13,
+          "end": 3.59,
+          "key": "dutchman",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Spaniard",
+          "start": 3.73,
+          "end": 4.35,
+          "key": "spaniard",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Philario,",
+          "start": 0.75,
+          "end": 1.33
+        },
+        {
+          "text": "Iachimo,",
+          "start": 1.67,
+          "end": 2.09
+        },
+        {
+          "text": "a",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "text": "Frenchman,",
+          "start": 2.33,
+          "end": 2.63
+        },
+        {
+          "text": "a",
+          "start": 2.63,
+          "end": 2.88
+        },
+        {
+          "text": "Dutchman",
+          "start": 3.13,
+          "end": 3.59
+        },
+        {
+          "text": "and",
+          "start": 3.59,
+          "end": 3.66
+        },
+        {
+          "text": "a",
+          "start": 3.66,
+          "end": 3.695
+        },
+        {
+          "text": "Spaniard.",
+          "start": 3.73,
+          "end": 4.35
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2375902496278286
+    },
+    {
+      "asr_seconds": 0.27660110779106617,
+      "alignment_seconds": 0.000544864684343338,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Folario, I. Chimo, a Frenchman, a Dutchman, and a Spaniard.",
+          "start": 0.11,
+          "end": 4.35,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " Folario,",
+              "start": 0.65,
+              "end": 1.27,
+              "probability": 0.49896240234375
+            },
+            {
+              "text": " I.",
+              "start": 1.67,
+              "end": 1.71,
+              "probability": 0.334228515625
+            },
+            {
+              "text": " Chimo,",
+              "start": 1.89,
+              "end": 2.07,
+              "probability": 0.6475830078125
+            },
+            {
+              "text": " a",
+              "start": 2.33,
+              "end": 2.37,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Frenchman,",
+              "start": 2.37,
+              "end": 2.71,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " a",
+              "start": 3.07,
+              "end": 3.13,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Dutchman,",
+              "start": 3.13,
+              "end": 3.55,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 3.67,
+              "end": 3.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 3.71,
+              "end": 3.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Spaniard.",
+              "start": 3.81,
+              "end": 4.35,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Folario,",
+          "start": 0.65,
+          "end": 1.27
+        },
+        {
+          "raw": "I.",
+          "start": 1.67,
+          "end": 1.71
+        },
+        {
+          "raw": "Chimo,",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "raw": "a",
+          "start": 2.33,
+          "end": 2.37
+        },
+        {
+          "raw": "Frenchman,",
+          "start": 2.37,
+          "end": 2.71
+        },
+        {
+          "raw": "a",
+          "start": 3.07,
+          "end": 3.13
+        },
+        {
+          "raw": "Dutchman,",
+          "start": 3.13,
+          "end": 3.55
+        },
+        {
+          "raw": "and",
+          "start": 3.67,
+          "end": 3.71
+        },
+        {
+          "raw": "a",
+          "start": 3.71,
+          "end": 3.81
+        },
+        {
+          "raw": "Spaniard.",
+          "start": 3.81,
+          "end": 4.35
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Philario,",
+        "Iachimo,",
+        "a",
+        "Frenchman,",
+        "a",
+        "Dutchman",
+        "and",
+        "a",
+        "Spaniard."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          4
+        ],
+        [
+          "equal",
+          3,
+          10,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Folario,",
+          "start": 0.65,
+          "end": 1.27,
+          "key": "folario",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 1.67,
+          "end": 1.71,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Chimo,",
+          "start": 1.89,
+          "end": 2.07,
+          "key": "chimo",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.33,
+          "end": 2.37,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Frenchman,",
+          "start": 2.37,
+          "end": 2.71,
+          "key": "frenchman",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.07,
+          "end": 3.13,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Dutchman,",
+          "start": 3.13,
+          "end": 3.55,
+          "key": "dutchman",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.67,
+          "end": 3.71,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.71,
+          "end": 3.81,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Spaniard.",
+          "start": 3.81,
+          "end": 4.35,
+          "key": "spaniard",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Philario,",
+          "start": 0.65,
+          "end": 1.49
+        },
+        {
+          "text": "Iachimo,",
+          "start": 1.49,
+          "end": 1.91
+        },
+        {
+          "text": "a",
+          "start": 2.33,
+          "end": 2.37
+        },
+        {
+          "text": "Frenchman,",
+          "start": 2.37,
+          "end": 2.71
+        },
+        {
+          "text": "a",
+          "start": 3.07,
+          "end": 3.13
+        },
+        {
+          "text": "Dutchman",
+          "start": 3.13,
+          "end": 3.55
+        },
+        {
+          "text": "and",
+          "start": 3.67,
+          "end": 3.71
+        },
+        {
+          "text": "a",
+          "start": 3.71,
+          "end": 3.81
+        },
+        {
+          "text": "Spaniard.",
+          "start": 3.81,
+          "end": 4.35
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2773502767086029
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ad6699e4c3fd345c92f1b26f98ac8d483c90bcee63e8c3ed7fb4351333fce0be",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

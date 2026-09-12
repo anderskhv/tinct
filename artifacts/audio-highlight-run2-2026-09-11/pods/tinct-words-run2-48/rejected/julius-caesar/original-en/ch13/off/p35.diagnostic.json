@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "7622e281b412117952877a8c159c24c9f5ec4dd5fc736731d13624bd4014ab7f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1170422425493598,
+      "alignment_seconds": 0.00022439192980527878,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassius, you love me not.",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.950439453125
+            },
+            {
+              "text": " you",
+              "start": 1.15,
+              "end": 1.27,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " love",
+              "start": 1.27,
+              "end": 1.41,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not.",
+              "start": 1.57,
+              "end": 1.83,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "you",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "raw": "love",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "raw": "me",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "not.",
+          "start": 1.57,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "You",
+        "love",
+        "me",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.15,
+          "end": 1.27,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 1.27,
+          "end": 1.41,
+          "key": "love",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 1.57,
+          "end": 1.83,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "You",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "text": "love",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "text": "me",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "not.",
+          "start": 1.57,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11734857689589262
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a9a5d6490f4a4a46a1125ce6ef92cd31fce5c21a48d4f34caf26a06c2c34dd57",
+  "selected_reasons": []
+}

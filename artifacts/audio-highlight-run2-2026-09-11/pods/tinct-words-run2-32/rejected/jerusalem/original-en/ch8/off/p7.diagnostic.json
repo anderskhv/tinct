@@ -1,0 +1,715 @@
+{
+  "complete": true,
+  "signature": "1d9cdf1a4f99c4eab92630ac98ed0979a467dbe474e004e21871e8978a7bb6bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.14153953827917576,
+      "alignment_seconds": 0.00012242794036865234,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But wasn't it father himself who taught us that we must always walk in the ways of God, argued Karen?",
+          "start": 0.02,
+          "end": 6.04,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.591796875
+            },
+            {
+              "text": " wasn't",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " it",
+              "start": 0.78,
+              "end": 0.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " father",
+              "start": 0.92,
+              "end": 1.16,
+              "probability": 0.421630859375
+            },
+            {
+              "text": " himself",
+              "start": 1.16,
+              "end": 1.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " who",
+              "start": 1.62,
+              "end": 2.04,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " taught",
+              "start": 2.04,
+              "end": 2.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " us",
+              "start": 2.26,
+              "end": 2.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 2.46,
+              "end": 2.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " we",
+              "start": 2.66,
+              "end": 2.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " must",
+              "start": 2.82,
+              "end": 3.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " always",
+              "start": 3.0,
+              "end": 3.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " walk",
+              "start": 3.42,
+              "end": 3.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 3.78,
+              "end": 3.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.94,
+              "end": 4.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ways",
+              "start": 4.04,
+              "end": 4.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 4.24,
+              "end": 4.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " God,",
+              "start": 4.48,
+              "end": 4.88,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " argued",
+              "start": 5.46,
+              "end": 5.72,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Karen?",
+              "start": 5.72,
+              "end": 6.04,
+              "probability": 0.1971435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "wasn't",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "it",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "raw": "father",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "raw": "himself",
+          "start": 1.16,
+          "end": 1.62
+        },
+        {
+          "raw": "who",
+          "start": 1.62,
+          "end": 2.04
+        },
+        {
+          "raw": "taught",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "raw": "us",
+          "start": 2.26,
+          "end": 2.46
+        },
+        {
+          "raw": "that",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "raw": "we",
+          "start": 2.66,
+          "end": 2.82
+        },
+        {
+          "raw": "must",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "raw": "always",
+          "start": 3.0,
+          "end": 3.42
+        },
+        {
+          "raw": "walk",
+          "start": 3.42,
+          "end": 3.78
+        },
+        {
+          "raw": "in",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "raw": "the",
+          "start": 3.94,
+          "end": 4.04
+        },
+        {
+          "raw": "ways",
+          "start": 4.04,
+          "end": 4.24
+        },
+        {
+          "raw": "of",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "raw": "God,",
+          "start": 4.48,
+          "end": 4.88
+        },
+        {
+          "raw": "argued",
+          "start": 5.46,
+          "end": 5.72
+        },
+        {
+          "raw": "Karen?",
+          "start": 5.72,
+          "end": 6.04
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "wasn't",
+        "it",
+        "father",
+        "himself",
+        "who",
+        "taught",
+        "us",
+        "that",
+        "we",
+        "must",
+        "always",
+        "walk",
+        "in",
+        "the",
+        "ways",
+        "of",
+        "God?\"",
+        "argued",
+        "Karin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wasn't",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "wasnt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.78,
+          "end": 0.92,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 0.92,
+          "end": 1.16,
+          "key": "father",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 1.16,
+          "end": 1.62,
+          "key": "himself",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.62,
+          "end": 2.04,
+          "key": "who",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "taught",
+          "start": 2.04,
+          "end": 2.26,
+          "key": "taught",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 2.26,
+          "end": 2.46,
+          "key": "us",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.46,
+          "end": 2.66,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.66,
+          "end": 2.82,
+          "key": "we",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.82,
+          "end": 3.0,
+          "key": "must",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 3.0,
+          "end": 3.42,
+          "key": "always",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "walk",
+          "start": 3.42,
+          "end": 3.78,
+          "key": "walk",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.78,
+          "end": 3.94,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.94,
+          "end": 4.04,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ways",
+          "start": 4.04,
+          "end": 4.24,
+          "key": "ways",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.24,
+          "end": 4.48,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "God,",
+          "start": 4.48,
+          "end": 4.88,
+          "key": "god",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "argued",
+          "start": 5.46,
+          "end": 5.72,
+          "key": "argued",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Karen?",
+          "start": 5.72,
+          "end": 6.04,
+          "key": "karen",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "wasn't",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "it",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "text": "father",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "text": "himself",
+          "start": 1.16,
+          "end": 1.62
+        },
+        {
+          "text": "who",
+          "start": 1.62,
+          "end": 2.04
+        },
+        {
+          "text": "taught",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "text": "us",
+          "start": 2.26,
+          "end": 2.46
+        },
+        {
+          "text": "that",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "text": "we",
+          "start": 2.66,
+          "end": 2.82
+        },
+        {
+          "text": "must",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "text": "always",
+          "start": 3.0,
+          "end": 3.42
+        },
+        {
+          "text": "walk",
+          "start": 3.42,
+          "end": 3.78
+        },
+        {
+          "text": "in",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "text": "the",
+          "start": 3.94,
+          "end": 4.04
+        },
+        {
+          "text": "ways",
+          "start": 4.04,
+          "end": 4.24
+        },
+        {
+          "text": "of",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "text": "God?\"",
+          "start": 4.48,
+          "end": 4.88
+        },
+        {
+          "text": "argued",
+          "start": 5.46,
+          "end": 5.72
+        },
+        {
+          "text": "Karin.",
+          "start": 5.72,
+          "end": 5.88
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.14172020554542542
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f84003a1b879c4807d4681d48ea5c96aecddb5f98871f8fb4dc9558372186eea",
+  "selected_reasons": []
+}

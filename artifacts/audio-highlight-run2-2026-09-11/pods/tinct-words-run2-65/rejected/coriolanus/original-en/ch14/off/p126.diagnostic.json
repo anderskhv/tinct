@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "37d4a00b9bdfb29b03106fdfaef12feba9feecc76409d44e6775eda012d2737f",
+  "attempts": [
+    {
+      "asr_seconds": 0.16298621892929077,
+      "alignment_seconds": 0.00023958692327141762,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Comineus. Come, sir, along with us.",
+          "start": 0.67,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Comineus.",
+              "start": 0.67,
+              "end": 1.03,
+              "probability": 0.5773111979166666
+            },
+            {
+              "text": " Come,",
+              "start": 1.45,
+              "end": 1.51,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " sir,",
+              "start": 1.67,
+              "end": 1.71,
+              "probability": 0.51416015625
+            },
+            {
+              "text": " along",
+              "start": 1.73,
+              "end": 1.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 1.97,
+              "end": 2.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " us.",
+              "start": 2.13,
+              "end": 2.33,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Comineus.",
+          "start": 0.67,
+          "end": 1.03
+        },
+        {
+          "raw": "Come,",
+          "start": 1.45,
+          "end": 1.51
+        },
+        {
+          "raw": "sir,",
+          "start": 1.67,
+          "end": 1.71
+        },
+        {
+          "raw": "along",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "raw": "with",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "raw": "us.",
+          "start": 2.13,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "Cominius.",
+        "Come,",
+        "sir,",
+        "along",
+        "with",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Comineus.",
+          "start": 0.67,
+          "end": 1.03,
+          "key": "comineus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 1.45,
+          "end": 1.51,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.67,
+          "end": 1.71,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "along",
+          "start": 1.73,
+          "end": 1.97,
+          "key": "along",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.97,
+          "end": 2.13,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 2.13,
+          "end": 2.33,
+          "key": "us",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cominius.",
+          "start": 0.0,
+          "end": 0.725
+        },
+        {
+          "text": "Come,",
+          "start": 1.45,
+          "end": 1.51
+        },
+        {
+          "text": "sir,",
+          "start": 1.67,
+          "end": 1.71
+        },
+        {
+          "text": "along",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "text": "with",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "text": "us.",
+          "start": 2.13,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1633218382485211
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b236445ca30cfb8b87f6558c41092b047349dc630ed5917bd2f8cd934cca9e4d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

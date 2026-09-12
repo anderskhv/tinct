@@ -1,0 +1,1010 @@
+{
+  "complete": true,
+  "signature": "e6fb24deb86118303cdb2d6a220884607cec3a403dc7d804c37c6fef02e1f173",
+  "attempts": [
+    {
+      "asr_seconds": 2.816468795761466,
+      "alignment_seconds": 0.0005516177043318748,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caesar. _Et tu, Brute?_—Then fall, Caesar!",
+        "hotwords": "Caesar, Brute?_—Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caesar, Et tu, Brute?—Then fall, Caesar.",
+          "start": 0.08,
+          "end": 2.88,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.892578125
+            },
+            {
+              "text": " Et",
+              "start": 1.16,
+              "end": 1.26,
+              "probability": 0.011383056640625
+            },
+            {
+              "text": " tu,",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.026763916015625
+            },
+            {
+              "text": " Brute",
+              "start": 1.56,
+              "end": 1.8,
+              "probability": 0.734619140625
+            },
+            {
+              "text": "?—Then",
+              "start": 1.8,
+              "end": 2.24,
+              "probability": 0.06298128763834636
+            },
+            {
+              "text": " fall,",
+              "start": 2.24,
+              "end": 2.52,
+              "probability": 0.58642578125
+            },
+            {
+              "text": " Caesar.",
+              "start": 2.7,
+              "end": 2.88,
+              "probability": 0.9892578125
+            }
+          ]
+        },
+        {
+          "text": " Lecture No. 3",
+          "start": 2.88,
+          "end": 3.48,
+          "words": [
+            {
+              "text": " Lecture",
+              "start": 2.88,
+              "end": 3.02,
+              "probability": 0.47925177216529846
+            },
+            {
+              "text": " No.",
+              "start": 3.02,
+              "end": 3.46,
+              "probability": 0.053131103515625
+            },
+            {
+              "text": " 3",
+              "start": 3.46,
+              "end": 3.48,
+              "probability": 0.2998046875
+            }
+          ]
+        },
+        {
+          "text": " Caesar, Brute, Brute, Brute, Brute, Brute, Brute.",
+          "start": 3.48,
+          "end": 3.5,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 3.48,
+              "end": 3.48,
+              "probability": 2.3245811462402344e-06
+            },
+            {
+              "text": " Brute,",
+              "start": 3.48,
+              "end": 3.5,
+              "probability": 0.0003428459167480469
+            },
+            {
+              "text": " Brute,",
+              "start": 3.5,
+              "end": 3.5,
+              "probability": 0.28979969024658203
+            },
+            {
+              "text": " Brute,",
+              "start": 3.5,
+              "end": 3.5,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " Brute,",
+              "start": 3.5,
+              "end": 3.5,
+              "probability": 0.930419921875
+            },
+            {
+              "text": " Brute,",
+              "start": 3.5,
+              "end": 3.5,
+              "probability": 0.949951171875
+            },
+            {
+              "text": " Brute.",
+              "start": 3.5,
+              "end": 3.5,
+              "probability": 0.959228515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "Et",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "raw": "tu,",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "Brute",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "raw": "?—Then",
+          "start": 1.8,
+          "end": 2.24
+        },
+        {
+          "raw": "fall,",
+          "start": 2.24,
+          "end": 2.52
+        },
+        {
+          "raw": "Caesar.",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "raw": "Lecture",
+          "start": 2.88,
+          "end": 3.02
+        },
+        {
+          "raw": "No.",
+          "start": 3.02,
+          "end": 3.46
+        },
+        {
+          "raw": "3",
+          "start": 3.46,
+          "end": 3.48
+        },
+        {
+          "raw": "Caesar,",
+          "start": 3.48,
+          "end": 3.48
+        },
+        {
+          "raw": "Brute,",
+          "start": 3.48,
+          "end": 3.5
+        },
+        {
+          "raw": "Brute,",
+          "start": 3.5,
+          "end": 3.5
+        },
+        {
+          "raw": "Brute,",
+          "start": 3.5,
+          "end": 3.5
+        },
+        {
+          "raw": "Brute,",
+          "start": 3.5,
+          "end": 3.5
+        },
+        {
+          "raw": "Brute,",
+          "start": 3.5,
+          "end": 3.5
+        },
+        {
+          "raw": "Brute.",
+          "start": 3.5,
+          "end": 3.5
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "_Et",
+        "tu,",
+        "Brute?_—Then",
+        "fall,",
+        "Caesar!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          6,
+          5,
+          7
+        ],
+        [
+          "insert",
+          6,
+          6,
+          7,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "insert",
+          6,
+          6,
+          7,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Et",
+          "start": 1.16,
+          "end": 1.26,
+          "key": "et",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tu,",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "tu",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Brute",
+          "start": 1.56,
+          "end": 1.8,
+          "key": "brute",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "?—Then",
+          "start": 1.8,
+          "end": 2.24,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fall,",
+          "start": 2.24,
+          "end": 2.52,
+          "key": "fall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Caesar.",
+          "start": 2.7,
+          "end": 2.88,
+          "key": "caesar",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Lecture",
+          "start": 2.88,
+          "end": 3.02,
+          "key": "lecture",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "No.",
+          "start": 3.02,
+          "end": 3.46,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "3",
+          "start": 3.46,
+          "end": 3.48,
+          "key": "three",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Caesar,",
+          "start": 3.48,
+          "end": 3.48,
+          "key": "caesar",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Brute,",
+          "start": 3.48,
+          "end": 3.5,
+          "key": "brute",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Brute,",
+          "start": 3.5,
+          "end": 3.5,
+          "key": "brute",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Brute,",
+          "start": 3.5,
+          "end": 3.5,
+          "key": "brute",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Brute,",
+          "start": 3.5,
+          "end": 3.5,
+          "key": "brute",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Brute,",
+          "start": 3.5,
+          "end": 3.5,
+          "key": "brute",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Brute.",
+          "start": 3.5,
+          "end": 3.5,
+          "key": "brute",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "_Et",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "text": "tu,",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "Brute?_—Then",
+          "start": 1.4,
+          "end": 1.82
+        },
+        {
+          "text": "fall,",
+          "start": 2.24,
+          "end": 2.52
+        },
+        {
+          "text": "Caesar!",
+          "start": 2.7,
+          "end": 2.88
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 17,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 2.81732461694628
+    },
+    {
+      "asr_seconds": 0.5616899933665991,
+      "alignment_seconds": 0.0004033958539366722,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Caesar, Brute?_—Then"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Falls Caesar.",
+          "start": 0.08,
+          "end": 2.98,
+          "words": [
+            {
+              "text": " Falls",
+              "start": 0.08,
+              "end": 1.46,
+              "probability": 1.7881393432617188e-07
+            },
+            {
+              "text": " Caesar.",
+              "start": 1.46,
+              "end": 2.98,
+              "probability": 0.55615234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Falls",
+          "start": 0.08,
+          "end": 1.46
+        },
+        {
+          "raw": "Caesar.",
+          "start": 1.46,
+          "end": 2.98
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "_Et",
+        "tu,",
+        "Brute?_—Then",
+        "fall,",
+        "Caesar!"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          "delete",
+          1,
+          6,
+          2,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          6,
+          2,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Falls",
+          "start": 0.08,
+          "end": 1.46,
+          "key": "falls",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Caesar.",
+          "start": 1.46,
+          "end": 2.98,
+          "key": "caesar",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 1.46,
+          "end": 2.98
+        },
+        {
+          "text": "_Et",
+          "start": 2.98,
+          "end": 2.98
+        },
+        {
+          "text": "tu,",
+          "start": 2.98,
+          "end": 2.98
+        },
+        {
+          "text": "Brute?_—Then",
+          "start": 2.98,
+          "end": 2.98
+        },
+        {
+          "text": "fall,",
+          "start": 2.98,
+          "end": 2.98
+        },
+        {
+          "text": "Caesar!",
+          "start": 2.98,
+          "end": 2.98
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.16666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.5622077118605375
+    },
+    {
+      "asr_seconds": 0.25652671325951815,
+      "alignment_seconds": 0.0004968363791704178,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caesar, at 2 Brute, then Falls Caesar.",
+          "start": 0.08,
+          "end": 2.96,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " at",
+              "start": 1.16,
+              "end": 1.18,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " 2",
+              "start": 1.18,
+              "end": 1.38,
+              "probability": 0.0897216796875
+            },
+            {
+              "text": " Brute,",
+              "start": 1.38,
+              "end": 1.8,
+              "probability": 0.789794921875
+            },
+            {
+              "text": " then",
+              "start": 2.16,
+              "end": 2.26,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Falls",
+              "start": 2.26,
+              "end": 2.54,
+              "probability": 0.45556640625
+            },
+            {
+              "text": " Caesar.",
+              "start": 2.54,
+              "end": 2.96,
+              "probability": 0.9736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "at",
+          "start": 1.16,
+          "end": 1.18
+        },
+        {
+          "raw": "2",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "raw": "Brute,",
+          "start": 1.38,
+          "end": 1.8
+        },
+        {
+          "raw": "then",
+          "start": 2.16,
+          "end": 2.26
+        },
+        {
+          "raw": "Falls",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "raw": "Caesar.",
+          "start": 2.54,
+          "end": 2.96
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "_Et",
+        "tu,",
+        "Brute?_—Then",
+        "fall,",
+        "Caesar!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          5,
+          1,
+          6
+        ],
+        [
+          "equal",
+          5,
+          6,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          5,
+          1,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.16,
+          "end": 1.18,
+          "key": "at",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "2",
+          "start": 1.18,
+          "end": 1.38,
+          "key": "two",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Brute,",
+          "start": 1.38,
+          "end": 1.8,
+          "key": "brute",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 2.16,
+          "end": 2.26,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Falls",
+          "start": 2.26,
+          "end": 2.54,
+          "key": "falls",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Caesar.",
+          "start": 2.54,
+          "end": 2.96,
+          "key": "caesar",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "_Et",
+          "start": 0.76,
+          "end": 1.65
+        },
+        {
+          "text": "tu,",
+          "start": 1.65,
+          "end": 2.095
+        },
+        {
+          "text": "Brute?_—Then",
+          "start": 2.095,
+          "end": 2.317
+        },
+        {
+          "text": "fall,",
+          "start": 2.317,
+          "end": 2.429
+        },
+        {
+          "text": "Caesar!",
+          "start": 2.54,
+          "end": 2.96
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 2
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2571763936430216
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a89060c0631ff12eb84e199091e6240274c65ee88d0dc16323714a3dc97ec683",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "3a9ee9f4379d3d3711230e3225f4c55d8ec1a7cd6a9028568f44631fc5e6a2f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.2047097040049266,
+      "alignment_seconds": 0.0003640729992184788,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Soothsayer, beware the Ides of March.",
+          "start": 0.11,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Soothsayer,",
+              "start": 0.11,
+              "end": 1.01,
+              "probability": 0.76171875
+            },
+            {
+              "text": " beware",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " the",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Ides",
+              "start": 1.59,
+              "end": 1.89,
+              "probability": 0.724365234375
+            },
+            {
+              "text": " of",
+              "start": 1.89,
+              "end": 1.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " March.",
+              "start": 1.99,
+              "end": 2.25,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soothsayer,",
+          "start": 0.11,
+          "end": 1.01
+        },
+        {
+          "raw": "beware",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "the",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "Ides",
+          "start": 1.59,
+          "end": 1.89
+        },
+        {
+          "raw": "of",
+          "start": 1.89,
+          "end": 1.99
+        },
+        {
+          "raw": "March.",
+          "start": 1.99,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Soothsayer.",
+        "Beware",
+        "the",
+        "Ides",
+        "of",
+        "March."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soothsayer,",
+          "start": 0.11,
+          "end": 1.01,
+          "key": "soothsayer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "beware",
+          "start": 1.29,
+          "end": 1.39,
+          "key": "beware",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ides",
+          "start": 1.59,
+          "end": 1.89,
+          "key": "ides",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.89,
+          "end": 1.99,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "March.",
+          "start": 1.99,
+          "end": 2.25,
+          "key": "march",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Soothsayer.",
+          "start": 0.11,
+          "end": 1.01
+        },
+        {
+          "text": "Beware",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "text": "the",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "text": "Ides",
+          "start": 1.59,
+          "end": 1.89
+        },
+        {
+          "text": "of",
+          "start": 1.89,
+          "end": 1.99
+        },
+        {
+          "text": "March.",
+          "start": 1.99,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20519504000549205
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fed1874270ad0f1716e774161bc4a39ba539dadb902b7ecc56cc75dc8d06e75d",
+  "selected_reasons": []
+}

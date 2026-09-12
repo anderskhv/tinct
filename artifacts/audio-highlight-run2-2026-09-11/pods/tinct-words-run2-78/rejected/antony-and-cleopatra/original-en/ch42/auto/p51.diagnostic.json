@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "68cdd680ca0dc3ecc9c6ca9827d17b7ea49b76cb663921994142107fbc3b3f72",
+  "attempts": [
+    {
+      "asr_seconds": 0.1792495297268033,
+      "alignment_seconds": 0.00044191908091306686,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. He'll lead me, then, in triumph.",
+        "hotwords": "Cleopatra, He'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, He'll lead me, then, in triumph.",
+          "start": 0.71,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.71,
+              "end": 1.03,
+              "probability": 0.9573567708333334
+            },
+            {
+              "text": " He'll",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.512908935546875
+            },
+            {
+              "text": " lead",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " me,",
+              "start": 1.75,
+              "end": 1.93,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " then,",
+              "start": 2.09,
+              "end": 2.11,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " in",
+              "start": 2.19,
+              "end": 2.29,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " triumph.",
+              "start": 2.29,
+              "end": 2.63,
+              "probability": 0.96484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.71,
+          "end": 1.03
+        },
+        {
+          "raw": "He'll",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "lead",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "me,",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "raw": "then,",
+          "start": 2.09,
+          "end": 2.11
+        },
+        {
+          "raw": "in",
+          "start": 2.19,
+          "end": 2.29
+        },
+        {
+          "raw": "triumph.",
+          "start": 2.29,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "He'll",
+        "lead",
+        "me,",
+        "then,",
+        "in",
+        "triumph."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.71,
+          "end": 1.03,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He'll",
+          "start": 1.47,
+          "end": 1.63,
+          "key": "hell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lead",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "lead",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.75,
+          "end": 1.93,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 2.09,
+          "end": 2.11,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.19,
+          "end": 2.29,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "triumph.",
+          "start": 2.29,
+          "end": 2.63,
+          "key": "triumph",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.71,
+          "end": 1.03
+        },
+        {
+          "text": "He'll",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "lead",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "me,",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "text": "then,",
+          "start": 2.09,
+          "end": 2.11
+        },
+        {
+          "text": "in",
+          "start": 2.19,
+          "end": 2.29
+        },
+        {
+          "text": "triumph.",
+          "start": 2.29,
+          "end": 2.63
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17984627839177847
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "02c4ff795b7e1c0f33d2ed66519efcdc51d1e23423f7f09a94b2cc03f3cd2039",
+  "selected_reasons": []
+}

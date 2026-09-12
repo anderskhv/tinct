@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "ef997dd32eb6ca5a3a0cb356f8abd2f621c43bec5d47f86f3fccb4aa603792b9",
+  "attempts": [
+    {
+      "asr_seconds": 0.19296851381659508,
+      "alignment_seconds": 0.0004616521764546633,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richard, what would you have my weapon, little lord?",
+          "start": 0.05,
+          "end": 2.79,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.712890625
+            },
+            {
+              "text": " what",
+              "start": 1.19,
+              "end": 1.41,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " would",
+              "start": 1.41,
+              "end": 1.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you",
+              "start": 1.55,
+              "end": 1.65,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " have",
+              "start": 1.65,
+              "end": 1.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 1.81,
+              "end": 1.97,
+              "probability": 0.98828125
+            },
+            {
+              "text": " weapon,",
+              "start": 1.97,
+              "end": 2.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " little",
+              "start": 2.43,
+              "end": 2.49,
+              "probability": 0.6923828125
+            },
+            {
+              "text": " lord?",
+              "start": 2.49,
+              "end": 2.79,
+              "probability": 0.6689453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "what",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "raw": "would",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "raw": "you",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "raw": "have",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "raw": "my",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "raw": "weapon,",
+          "start": 1.97,
+          "end": 2.27
+        },
+        {
+          "raw": "little",
+          "start": 2.43,
+          "end": 2.49
+        },
+        {
+          "raw": "lord?",
+          "start": 2.49,
+          "end": 2.79
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "What,",
+        "would",
+        "you",
+        "have",
+        "my",
+        "weapon,",
+        "little",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.19,
+          "end": 1.41,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.41,
+          "end": 1.55,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.55,
+          "end": 1.65,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.65,
+          "end": 1.81,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.81,
+          "end": 1.97,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "weapon,",
+          "start": 1.97,
+          "end": 2.27,
+          "key": "weapon",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 2.43,
+          "end": 2.49,
+          "key": "little",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lord?",
+          "start": 2.49,
+          "end": 2.79,
+          "key": "lord",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "What,",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "text": "would",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "text": "you",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "text": "have",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "text": "my",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "text": "weapon,",
+          "start": 1.97,
+          "end": 2.27
+        },
+        {
+          "text": "little",
+          "start": 2.43,
+          "end": 2.49
+        },
+        {
+          "text": "lord?",
+          "start": 2.49,
+          "end": 2.79
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19362285383976996
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d7a89c3d29157f981ff17ff308cd58e83be4dbdd69a3e4b220634922d273b024",
+  "selected_reasons": []
+}

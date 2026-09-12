@@ -1,0 +1,459 @@
+{
+  "complete": true,
+  "signature": "c825ad768e6d7cb8fe11732bfcee08e832c6c6b9640f261d5e8cf4dd7dee7bb5",
+  "attempts": [
+    {
+      "asr_seconds": 0.28563360683619976,
+      "alignment_seconds": 0.0004932191222906113,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Don Pedro, Leonardo and Claudio, followed by Balthazar and musicians.",
+          "start": 0.08,
+          "end": 5.04,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " Don",
+              "start": 0.64,
+              "end": 0.96,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.96,
+              "end": 1.32,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Leonardo",
+              "start": 1.9,
+              "end": 2.1,
+              "probability": 0.96875
+            },
+            {
+              "text": " and",
+              "start": 2.1,
+              "end": 2.46,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " Claudio,",
+              "start": 2.46,
+              "end": 2.9,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " followed",
+              "start": 3.46,
+              "end": 3.7,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " by",
+              "start": 3.7,
+              "end": 4.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Balthazar",
+              "start": 4.02,
+              "end": 4.46,
+              "probability": 0.7286783854166666
+            },
+            {
+              "text": " and",
+              "start": 4.46,
+              "end": 4.66,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " musicians.",
+              "start": 4.66,
+              "end": 5.04,
+              "probability": 0.94970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Don",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "raw": "Leonardo",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "raw": "and",
+          "start": 2.1,
+          "end": 2.46
+        },
+        {
+          "raw": "Claudio,",
+          "start": 2.46,
+          "end": 2.9
+        },
+        {
+          "raw": "followed",
+          "start": 3.46,
+          "end": 3.7
+        },
+        {
+          "raw": "by",
+          "start": 3.7,
+          "end": 4.02
+        },
+        {
+          "raw": "Balthazar",
+          "start": 4.02,
+          "end": 4.46
+        },
+        {
+          "raw": "and",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "raw": "musicians.",
+          "start": 4.66,
+          "end": 5.04
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Don",
+        "Pedro,",
+        "Leonato",
+        "and",
+        "Claudio,",
+        "followed",
+        "by",
+        "Balthasar",
+        "and",
+        "Musicians."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          11,
+          9,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Don",
+          "start": 0.64,
+          "end": 0.96,
+          "key": "don",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.96,
+          "end": 1.32,
+          "key": "pedro",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Leonardo",
+          "start": 1.9,
+          "end": 2.1,
+          "key": "leonardo",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.1,
+          "end": 2.46,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Claudio,",
+          "start": 2.46,
+          "end": 2.9,
+          "key": "claudio",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "followed",
+          "start": 3.46,
+          "end": 3.7,
+          "key": "followed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.7,
+          "end": 4.02,
+          "key": "by",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Balthazar",
+          "start": 4.02,
+          "end": 4.46,
+          "key": "balthazar",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.46,
+          "end": 4.66,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "musicians.",
+          "start": 4.66,
+          "end": 5.04,
+          "key": "musicians",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Don",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "text": "Pedro,",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "text": "Leonato",
+          "start": 1.32,
+          "end": 1.71
+        },
+        {
+          "text": "and",
+          "start": 2.1,
+          "end": 2.46
+        },
+        {
+          "text": "Claudio,",
+          "start": 2.46,
+          "end": 2.9
+        },
+        {
+          "text": "followed",
+          "start": 3.46,
+          "end": 3.7
+        },
+        {
+          "text": "by",
+          "start": 3.7,
+          "end": 4.02
+        },
+        {
+          "text": "Balthasar",
+          "start": 4.02,
+          "end": 4.24
+        },
+        {
+          "text": "and",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "text": "Musicians.",
+          "start": 4.66,
+          "end": 5.04
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2862932123243809
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c8e6c94bc37b66ec699fcac53821c2a6888d0fbf478831a40cba2bf49cca92c9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "38f9597d3188b7a6ecf2bb07a851281c7742291ed6cf863f57c7736d728d1977",
+  "attempts": [
+    {
+      "asr_seconds": 0.12474971730262041,
+      "alignment_seconds": 0.0002762395888566971,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Caesar and all his train marching.",
+          "start": 0.08,
+          "end": 2.32,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " Caesar",
+              "start": 0.66,
+              "end": 0.96,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " and",
+              "start": 0.96,
+              "end": 1.26,
+              "probability": 0.94140625
+            },
+            {
+              "text": " all",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " his",
+              "start": 1.4,
+              "end": 1.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " train",
+              "start": 1.56,
+              "end": 1.86,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " marching.",
+              "start": 1.86,
+              "end": 2.32,
+              "probability": 0.69482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Caesar",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "raw": "and",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "raw": "all",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "his",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "raw": "train",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "raw": "marching.",
+          "start": 1.86,
+          "end": 2.32
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Caesar",
+        "and",
+        "all",
+        "his",
+        "train,",
+        "marching."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 0.66,
+          "end": 0.96,
+          "key": "caesar",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.96,
+          "end": 1.26,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.4,
+          "end": 1.56,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "train",
+          "start": 1.56,
+          "end": 1.86,
+          "key": "train",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "marching.",
+          "start": 1.86,
+          "end": 2.32,
+          "key": "marching",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Caesar",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "text": "and",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "text": "all",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "his",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "text": "train,",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "text": "marching.",
+          "start": 1.86,
+          "end": 2.32
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12513373885303736
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "791c6c40f098bb14068cb55880638bc770a3950f48581b16d6af1159a6b48eb7",
+  "selected_reasons": []
+}

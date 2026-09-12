@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "e1d35d57849c6498c784dbee6263019cc82ca22af55a78b546b4b0969eb769f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.12261291220784187,
+      "alignment_seconds": 0.0001630336046218872,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kent. No contraries hold more antipathy Than I and such a knave.",
+        "hotwords": "Kent, No, Than, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kent, No, Contraries hold more antipathy Than I and such a knave.",
+          "start": 0.08,
+          "end": 4.32,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " No,",
+              "start": 1.1,
+              "end": 1.36,
+              "probability": 0.0282135009765625
+            },
+            {
+              "text": " Contraries",
+              "start": 1.56,
+              "end": 1.96,
+              "probability": 0.5107421875
+            },
+            {
+              "text": " hold",
+              "start": 1.96,
+              "end": 2.24,
+              "probability": 0.5830078125
+            },
+            {
+              "text": " more",
+              "start": 2.24,
+              "end": 2.48,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " antipathy",
+              "start": 2.48,
+              "end": 3.02,
+              "probability": 0.59576416015625
+            },
+            {
+              "text": " Than",
+              "start": 3.02,
+              "end": 3.22,
+              "probability": 0.15234375
+            },
+            {
+              "text": " I",
+              "start": 3.22,
+              "end": 3.44,
+              "probability": 0.455810546875
+            },
+            {
+              "text": " and",
+              "start": 3.44,
+              "end": 3.58,
+              "probability": 0.050628662109375
+            },
+            {
+              "text": " such",
+              "start": 3.58,
+              "end": 3.76,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " a",
+              "start": 3.76,
+              "end": 3.92,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " knave.",
+              "start": 3.92,
+              "end": 4.32,
+              "probability": 0.60498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "No,",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "raw": "Contraries",
+          "start": 1.56,
+          "end": 1.96
+        },
+        {
+          "raw": "hold",
+          "start": 1.96,
+          "end": 2.24
+        },
+        {
+          "raw": "more",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "raw": "antipathy",
+          "start": 2.48,
+          "end": 3.02
+        },
+        {
+          "raw": "Than",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "raw": "I",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "raw": "and",
+          "start": 3.44,
+          "end": 3.58
+        },
+        {
+          "raw": "such",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "raw": "a",
+          "start": 3.76,
+          "end": 3.92
+        },
+        {
+          "raw": "knave.",
+          "start": 3.92,
+          "end": 4.32
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "No",
+        "contraries",
+        "hold",
+        "more",
+        "antipathy",
+        "Than",
+        "I",
+        "and",
+        "such",
+        "a",
+        "knave."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.1,
+          "end": 1.36,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Contraries",
+          "start": 1.56,
+          "end": 1.96,
+          "key": "contraries",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 1.96,
+          "end": 2.24,
+          "key": "hold",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.24,
+          "end": 2.48,
+          "key": "more",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "antipathy",
+          "start": 2.48,
+          "end": 3.02,
+          "key": "antipathy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Than",
+          "start": 3.02,
+          "end": 3.22,
+          "key": "than",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.22,
+          "end": 3.44,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.44,
+          "end": 3.58,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 3.58,
+          "end": 3.76,
+          "key": "such",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.76,
+          "end": 3.92,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "knave.",
+          "start": 3.92,
+          "end": 4.32,
+          "key": "knave",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "No",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "text": "contraries",
+          "start": 1.56,
+          "end": 1.96
+        },
+        {
+          "text": "hold",
+          "start": 1.96,
+          "end": 2.24
+        },
+        {
+          "text": "more",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "text": "antipathy",
+          "start": 2.48,
+          "end": 3.02
+        },
+        {
+          "text": "Than",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "text": "I",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "text": "and",
+          "start": 3.44,
+          "end": 3.58
+        },
+        {
+          "text": "such",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "text": "a",
+          "start": 3.76,
+          "end": 3.92
+        },
+        {
+          "text": "knave.",
+          "start": 3.92,
+          "end": 4.32
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12283744663000107
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1b8bce98e410142d1083596cb7bd45f9508ffd0abe326f82a12a2497c0d86ec6",
+  "selected_reasons": []
+}

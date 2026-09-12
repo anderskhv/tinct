@@ -1,0 +1,451 @@
+{
+  "complete": true,
+  "signature": "5f597445b8e7117b72e384cd1137077f1394541c04273806c0f8ef270b05403a",
+  "attempts": [
+    {
+      "asr_seconds": 0.3355266861617565,
+      "alignment_seconds": 0.0006202291697263718,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Sne-gi-ryov?\" the doctor said loudly and pompously. \"Mr. Snegiryov—is that you?\"",
+        "hotwords": "Sne-gi-ryov, Mr, Snegiryov—is"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sne-gi-ryov, the doctor said loudly and pompously, Mr. Snegiryov—is that you?",
+          "start": 0.11,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " Sne",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.27197265625
+            },
+            {
+              "text": "-gi",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.2566313147544861
+            },
+            {
+              "text": "-ryov,",
+              "start": 0.87,
+              "end": 1.41,
+              "probability": 0.2932230631510417
+            },
+            {
+              "text": " the",
+              "start": 1.85,
+              "end": 1.91,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " doctor",
+              "start": 1.91,
+              "end": 2.19,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " said",
+              "start": 2.19,
+              "end": 2.51,
+              "probability": 0.99609375
+            },
+            {
+              "text": " loudly",
+              "start": 2.51,
+              "end": 2.87,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " and",
+              "start": 2.87,
+              "end": 3.11,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " pompously,",
+              "start": 3.11,
+              "end": 3.63,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " Mr.",
+              "start": 4.29,
+              "end": 4.49,
+              "probability": 0.462646484375
+            },
+            {
+              "text": " Snegiryov—is",
+              "start": 4.77,
+              "end": 5.41,
+              "probability": 0.3656471272309621
+            },
+            {
+              "text": " that",
+              "start": 5.41,
+              "end": 5.59,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you?",
+              "start": 5.59,
+              "end": 5.89,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sne",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "-gi",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "-ryov,",
+          "start": 0.87,
+          "end": 1.41
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 1.91
+        },
+        {
+          "raw": "doctor",
+          "start": 1.91,
+          "end": 2.19
+        },
+        {
+          "raw": "said",
+          "start": 2.19,
+          "end": 2.51
+        },
+        {
+          "raw": "loudly",
+          "start": 2.51,
+          "end": 2.87
+        },
+        {
+          "raw": "and",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "raw": "pompously,",
+          "start": 3.11,
+          "end": 3.63
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.29,
+          "end": 4.49
+        },
+        {
+          "raw": "Snegiryov—is",
+          "start": 4.77,
+          "end": 5.41
+        },
+        {
+          "raw": "that",
+          "start": 5.41,
+          "end": 5.59
+        },
+        {
+          "raw": "you?",
+          "start": 5.59,
+          "end": 5.89
+        }
+      ],
+      "expected_tokens": [
+        "\"Sne-gi-ryov?\"",
+        "the",
+        "doctor",
+        "said",
+        "loudly",
+        "and",
+        "pompously.",
+        "\"Mr.",
+        "Snegiryov—is",
+        "that",
+        "you?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sne -gi -ryov,",
+          "start": 0.11,
+          "end": 1.41,
+          "key": "snegiryov",
+          "pieces": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 1.91,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "doctor",
+          "start": 1.91,
+          "end": 2.19,
+          "key": "doctor",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.19,
+          "end": 2.51,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "loudly",
+          "start": 2.51,
+          "end": 2.87,
+          "key": "loudly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.87,
+          "end": 3.11,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pompously,",
+          "start": 3.11,
+          "end": 3.63,
+          "key": "pompously",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.29,
+          "end": 4.49,
+          "key": "mr",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Snegiryov—is",
+          "start": 4.77,
+          "end": 5.41,
+          "key": "snegiryovis",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.41,
+          "end": 5.59,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 5.59,
+          "end": 5.89,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"Sne-gi-ryov?\"",
+          "heard": "Sne -gi -ryov,",
+          "heard_indexes": [
+            0,
+            1,
+            2
+          ],
+          "start": 0.11,
+          "end": 1.41
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Sne-gi-ryov?\"",
+          "start": 0.11,
+          "end": 1.41
+        },
+        {
+          "text": "the",
+          "start": 1.85,
+          "end": 1.91
+        },
+        {
+          "text": "doctor",
+          "start": 1.91,
+          "end": 2.19
+        },
+        {
+          "text": "said",
+          "start": 2.19,
+          "end": 2.51
+        },
+        {
+          "text": "loudly",
+          "start": 2.51,
+          "end": 2.87
+        },
+        {
+          "text": "and",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "text": "pompously.",
+          "start": 3.11,
+          "end": 3.63
+        },
+        {
+          "text": "\"Mr.",
+          "start": 4.29,
+          "end": 4.49
+        },
+        {
+          "text": "Snegiryov—is",
+          "start": 4.77,
+          "end": 5.41
+        },
+        {
+          "text": "that",
+          "start": 5.41,
+          "end": 5.59
+        },
+        {
+          "text": "you?\"",
+          "start": 5.59,
+          "end": 5.89
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33635662868618965
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "639738530a43d830e381494345a4c2130d3a68c204943b74027dca91bf8b87f6",
+  "selected_reasons": []
+}

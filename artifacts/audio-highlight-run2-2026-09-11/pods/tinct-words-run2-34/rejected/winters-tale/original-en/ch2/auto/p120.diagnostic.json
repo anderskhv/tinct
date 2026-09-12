@@ -1,0 +1,658 @@
+{
+  "complete": true,
+  "signature": "3b83e79d98a55693cabefbce2755e8d272cb8114576f247554bd229ead233ab6",
+  "attempts": [
+    {
+      "asr_seconds": 5.730791795998812,
+      "alignment_seconds": 0.00026370584964752197,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Polixenes. How should this grow?",
+        "hotwords": "Polixenes, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Polixenes, How Polixenes, How Polixenes, How Polixenes, How Polixenes, How should this grow?",
+          "start": 0.53,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Polixenes,",
+              "start": 0.53,
+              "end": 0.95,
+              "probability": 0.20514678955078125
+            },
+            {
+              "text": " How",
+              "start": 1.37,
+              "end": 1.47,
+              "probability": 0.03302001953125
+            },
+            {
+              "text": " Polixenes,",
+              "start": 1.47,
+              "end": 1.57,
+              "probability": 0.6513671875
+            },
+            {
+              "text": " How",
+              "start": 1.57,
+              "end": 1.57,
+              "probability": 0.953125
+            },
+            {
+              "text": " Polixenes,",
+              "start": 1.57,
+              "end": 1.57,
+              "probability": 0.6577148834864298
+            },
+            {
+              "text": " How",
+              "start": 1.57,
+              "end": 1.57,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Polixenes,",
+              "start": 1.57,
+              "end": 1.57,
+              "probability": 0.6572266022364298
+            },
+            {
+              "text": " How",
+              "start": 1.57,
+              "end": 1.57,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " Polixenes,",
+              "start": 1.57,
+              "end": 1.57,
+              "probability": 0.6567383408546448
+            },
+            {
+              "text": " How",
+              "start": 1.57,
+              "end": 1.57,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " should",
+              "start": 1.57,
+              "end": 1.59,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " this",
+              "start": 1.59,
+              "end": 1.79,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " grow?",
+              "start": 1.79,
+              "end": 2.01,
+              "probability": 0.84423828125
+            }
+          ]
+        },
+        {
+          "text": " Polixenes, How Polixenes, How SME says this? All of it? I mean...",
+          "start": 2.01,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " Polixenes,",
+              "start": 2.01,
+              "end": 2.01,
+              "probability": 0.0006177028020222982
+            },
+            {
+              "text": " How",
+              "start": 2.01,
+              "end": 2.07,
+              "probability": 7.039308547973633e-05
+            },
+            {
+              "text": " Polixenes,",
+              "start": 2.07,
+              "end": 2.33,
+              "probability": 0.5032678445180258
+            },
+            {
+              "text": " How",
+              "start": 2.33,
+              "end": 2.33,
+              "probability": 0.51904296875
+            },
+            {
+              "text": " SME",
+              "start": 2.33,
+              "end": 2.57,
+              "probability": 0.0072085559368133545
+            },
+            {
+              "text": " says",
+              "start": 2.57,
+              "end": 2.57,
+              "probability": 0.00038623809814453125
+            },
+            {
+              "text": " this?",
+              "start": 2.57,
+              "end": 2.57,
+              "probability": 0.0214080810546875
+            },
+            {
+              "text": " All",
+              "start": 2.57,
+              "end": 2.73,
+              "probability": 0.00411224365234375
+            },
+            {
+              "text": " of",
+              "start": 2.73,
+              "end": 2.73,
+              "probability": 0.10711669921875
+            },
+            {
+              "text": " it?",
+              "start": 2.73,
+              "end": 2.73,
+              "probability": 0.02410888671875
+            },
+            {
+              "text": " I",
+              "start": 2.73,
+              "end": 2.73,
+              "probability": 0.052490234375
+            },
+            {
+              "text": " mean...",
+              "start": 2.73,
+              "end": 2.73,
+              "probability": 0.0371856689453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polixenes,",
+          "start": 0.53,
+          "end": 0.95
+        },
+        {
+          "raw": "How",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "raw": "Polixenes,",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "raw": "How",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "raw": "Polixenes,",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "raw": "How",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "raw": "Polixenes,",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "raw": "How",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "raw": "Polixenes,",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "raw": "How",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "raw": "should",
+          "start": 1.57,
+          "end": 1.59
+        },
+        {
+          "raw": "this",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "raw": "grow?",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "raw": "Polixenes,",
+          "start": 2.01,
+          "end": 2.01
+        },
+        {
+          "raw": "How",
+          "start": 2.01,
+          "end": 2.07
+        },
+        {
+          "raw": "Polixenes,",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "raw": "How",
+          "start": 2.33,
+          "end": 2.33
+        },
+        {
+          "raw": "SME",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "raw": "says",
+          "start": 2.57,
+          "end": 2.57
+        },
+        {
+          "raw": "this?",
+          "start": 2.57,
+          "end": 2.57
+        },
+        {
+          "raw": "All",
+          "start": 2.57,
+          "end": 2.73
+        },
+        {
+          "raw": "of",
+          "start": 2.73,
+          "end": 2.73
+        },
+        {
+          "raw": "it?",
+          "start": 2.73,
+          "end": 2.73
+        },
+        {
+          "raw": "I",
+          "start": 2.73,
+          "end": 2.73
+        },
+        {
+          "raw": "mean...",
+          "start": 2.73,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "Polixenes.",
+        "How",
+        "should",
+        "this",
+        "grow?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          8
+        ],
+        [
+          "equal",
+          0,
+          5,
+          8,
+          13
+        ],
+        [
+          "insert",
+          5,
+          5,
+          13,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          8
+        ],
+        [
+          "insert",
+          5,
+          5,
+          13,
+          25
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polixenes,",
+          "start": 0.53,
+          "end": 0.95,
+          "key": "polixenes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.37,
+          "end": 1.47,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Polixenes,",
+          "start": 1.47,
+          "end": 1.57,
+          "key": "polixenes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.57,
+          "end": 1.57,
+          "key": "how",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Polixenes,",
+          "start": 1.57,
+          "end": 1.57,
+          "key": "polixenes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.57,
+          "end": 1.57,
+          "key": "how",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Polixenes,",
+          "start": 1.57,
+          "end": 1.57,
+          "key": "polixenes",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.57,
+          "end": 1.57,
+          "key": "how",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Polixenes,",
+          "start": 1.57,
+          "end": 1.57,
+          "key": "polixenes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.57,
+          "end": 1.57,
+          "key": "how",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.57,
+          "end": 1.59,
+          "key": "should",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.59,
+          "end": 1.79,
+          "key": "this",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "grow?",
+          "start": 1.79,
+          "end": 2.01,
+          "key": "grow",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Polixenes,",
+          "start": 2.01,
+          "end": 2.01,
+          "key": "polixenes",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.01,
+          "end": 2.07,
+          "key": "how",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Polixenes,",
+          "start": 2.07,
+          "end": 2.33,
+          "key": "polixenes",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.33,
+          "end": 2.33,
+          "key": "how",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "SME",
+          "start": 2.33,
+          "end": 2.57,
+          "key": "sme",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 2.57,
+          "end": 2.57,
+          "key": "says",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "this?",
+          "start": 2.57,
+          "end": 2.57,
+          "key": "this",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 2.57,
+          "end": 2.73,
+          "key": "all",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.73,
+          "end": 2.73,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 2.73,
+          "end": 2.73,
+          "key": "it",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.73,
+          "end": 2.73,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "mean...",
+          "start": 2.73,
+          "end": 2.73,
+          "key": "mean",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polixenes.",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "text": "How",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "text": "should",
+          "start": 1.57,
+          "end": 1.59
+        },
+        {
+          "text": "this",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "text": "grow?",
+          "start": 1.79,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 25,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 5.731226433068514
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5c1c4c6ac5e52a26ca44fd2a0f39084395a4631f8553dba0bc7763e7d2876427",
+  "selected_reasons": []
+}

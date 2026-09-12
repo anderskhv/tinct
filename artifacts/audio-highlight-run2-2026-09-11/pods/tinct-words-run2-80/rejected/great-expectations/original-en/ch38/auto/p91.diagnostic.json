@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "d40c70fc558ecdb3ebbeb5843ed927e4e32fc62c7972ee79f6d01ed8b1ac6f35",
+  "attempts": [
+    {
+      "asr_seconds": 0.12494520843029022,
+      "alignment_seconds": 0.00017373450100421906,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well?\" said she.",
+        "hotwords": "Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well said she.",
+          "start": 0.05,
+          "end": 1.39,
+          "words": [
+            {
+              "text": " Well",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.308349609375
+            },
+            {
+              "text": " said",
+              "start": 0.63,
+              "end": 1.09,
+              "probability": 0.53173828125
+            },
+            {
+              "text": " she.",
+              "start": 1.09,
+              "end": 1.39,
+              "probability": 0.9609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "said",
+          "start": 0.63,
+          "end": 1.09
+        },
+        {
+          "raw": "she.",
+          "start": 1.09,
+          "end": 1.39
+        }
+      ],
+      "expected_tokens": [
+        "\"Well?\"",
+        "said",
+        "she."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.63,
+          "end": 1.09,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she.",
+          "start": 1.09,
+          "end": 1.39,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Well?\"",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "said",
+          "start": 0.63,
+          "end": 1.09
+        },
+        {
+          "text": "she.",
+          "start": 1.09,
+          "end": 1.39
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1251721791923046
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "871c108f2e7be16cb88b3f4e8938ae7059ab7d5d506c4229f37e64ffbbf8d58e",
+  "selected_reasons": []
+}

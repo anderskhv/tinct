@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "598cedde5222e6f334b20d159ac4177d003d05d988a0dd5a488214d378c935d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.19976956024765968,
+      "alignment_seconds": 0.0004066368564963341,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Was Mr Boylan looking for me?",
+        "hotwords": "Was, Mr, Boylan"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Was Mr. Boylan looking for me?",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Was",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " Mr.",
+              "start": 0.53,
+              "end": 0.87,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " Boylan",
+              "start": 1.11,
+              "end": 1.31,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " looking",
+              "start": 1.31,
+              "end": 1.55,
+              "probability": 0.9921875
+            },
+            {
+              "text": " for",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me?",
+              "start": 1.83,
+              "end": 2.01,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Was",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "raw": "Boylan",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "raw": "looking",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "raw": "for",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "raw": "me?",
+          "start": 1.83,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "—Was",
+        "Mr",
+        "Boylan",
+        "looking",
+        "for",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Was",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "was",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.53,
+          "end": 0.87,
+          "key": "mr",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Boylan",
+          "start": 1.11,
+          "end": 1.31,
+          "key": "boylan",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 1.31,
+          "end": 1.55,
+          "key": "looking",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.55,
+          "end": 1.83,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 1.83,
+          "end": 2.01,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Was",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Mr",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "text": "Boylan",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "text": "looking",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "text": "for",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "text": "me?",
+          "start": 1.83,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20033325208351016
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "602112914bc84f906113fb96bdf4f8bfd5bddf2820ec0859e748dc7fef64705b",
+  "selected_reasons": []
+}

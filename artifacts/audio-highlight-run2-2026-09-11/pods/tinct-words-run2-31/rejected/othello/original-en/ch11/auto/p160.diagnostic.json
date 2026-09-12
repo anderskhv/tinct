@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "efd93acf05659eb36fd03e0ec8c2b87c84187858e0d0f68f9bf307216028fbd8",
+  "attempts": [
+    {
+      "asr_seconds": 0.14851229079067707,
+      "alignment_seconds": 0.00011727865785360336,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. He is much chang'd.",
+        "hotwords": "Iago, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, He is much chang'd.",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.1126551628112793
+            },
+            {
+              "text": " He",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.0310211181640625
+            },
+            {
+              "text": " is",
+              "start": 1.21,
+              "end": 1.29,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " much",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " chang'd.",
+              "start": 1.43,
+              "end": 2.09,
+              "probability": 0.2010498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "He",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "is",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "raw": "much",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "chang'd.",
+          "start": 1.43,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "He",
+        "is",
+        "much",
+        "chang'd."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.21,
+          "end": 1.29,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "much",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "chang'd.",
+          "start": 1.43,
+          "end": 2.09,
+          "key": "changd",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "He",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "is",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "text": "much",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "chang'd.",
+          "start": 1.43,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1486756787635386
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "68a393ccc6eb341a9922141355cc9d79de30d1b3f541db4b6fc5037a3288ed16",
+  "selected_reasons": []
+}

@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "a054eaa576a5a3749a1b7ba04c4cd0cf80b4cbf538cefef96f8a997bc8064f9f",
+  "attempts": [
+    {
+      "asr_seconds": 0.12679158337414265,
+      "alignment_seconds": 0.00015339069068431854,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Section 13.5",
+          "start": 0.08,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " Section",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " 13",
+              "start": 0.7,
+              "end": 1.06,
+              "probability": 0.96044921875
+            },
+            {
+              "text": ".5",
+              "start": 1.06,
+              "end": 1.66,
+              "probability": 0.994873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Section",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "13",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "raw": ".5",
+          "start": 1.06,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "Section",
+        "13.5."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Section",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "section",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "13",
+          "start": 0.7,
+          "end": 1.06,
+          "key": "thirteen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": ".5",
+          "start": 1.06,
+          "end": 1.66,
+          "key": "five",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Section",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "13.5.",
+          "start": 0.7,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12699550949037075
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "08106a29e7c4e9bb7e2ebd87fc33d552a561170287e314437f98aa30c9288e04",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

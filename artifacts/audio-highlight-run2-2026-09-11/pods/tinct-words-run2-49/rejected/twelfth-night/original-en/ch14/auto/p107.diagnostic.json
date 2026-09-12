@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "cbd75d14eb6e6f02e9bde894b3c987ca9ea2feb85e48d2a2cefa3aeed142cd9d",
+  "attempts": [
+    {
+      "asr_seconds": 0.16949915885925293,
+      "alignment_seconds": 0.0003296658396720886,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Viola. And you, sir.",
+        "hotwords": "Viola, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Viola, And you, sir.",
+          "start": 0.57,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.57,
+              "end": 0.93,
+              "probability": 0.850341796875
+            },
+            {
+              "text": " And",
+              "start": 1.07,
+              "end": 1.25,
+              "probability": 0.004180908203125
+            },
+            {
+              "text": " you,",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " sir.",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.64111328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "raw": "And",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "raw": "you,",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "sir.",
+          "start": 1.51,
+          "end": 1.61
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "And",
+        "you,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.57,
+          "end": 0.93,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.07,
+          "end": 1.25,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "text": "And",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "text": "you,",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "sir.",
+          "start": 1.51,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16994912922382355
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0a19159bdb39acc79f0b7a6a6754e763d929eef2394f0a96209a68443ac1ca75",
+  "selected_reasons": []
+}

@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "5ab2cd4fda19d3e53c0452a9172f1acde06662cd4d1af297d0f673ed56a814ff",
+  "attempts": [
+    {
+      "asr_seconds": 0.19208488333970308,
+      "alignment_seconds": 0.00016891025006771088,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, Old Cassia still.",
+          "start": 0.14,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.14,
+              "end": 0.9,
+              "probability": 0.808349609375
+            },
+            {
+              "text": " Old",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.60498046875
+            },
+            {
+              "text": " Cassia",
+              "start": 1.34,
+              "end": 1.76,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " still.",
+              "start": 1.76,
+              "end": 2.04,
+              "probability": 0.57763671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.14,
+          "end": 0.9
+        },
+        {
+          "raw": "Old",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "Cassia",
+          "start": 1.34,
+          "end": 1.76
+        },
+        {
+          "raw": "still.",
+          "start": 1.76,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Old",
+        "Cassius",
+        "still!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.14,
+          "end": 0.9,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Old",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "old",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cassia",
+          "start": 1.34,
+          "end": 1.76,
+          "key": "cassia",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "still.",
+          "start": 1.76,
+          "end": 2.04,
+          "key": "still",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.14,
+          "end": 0.9
+        },
+        {
+          "text": "Old",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "Cassius",
+          "start": 1.34,
+          "end": 1.55
+        },
+        {
+          "text": "still!",
+          "start": 1.76,
+          "end": 2.04
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19231025967746973
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8a4e0d5e14a794cab4865a6a6784b863b679102143f5d45913b7be747414aa1b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

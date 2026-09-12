@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "66db911780c83756e013465e31940bfbb376f64f9d733bcdf7816b28e5a73bb0",
+  "attempts": [
+    {
+      "asr_seconds": 0.18173956219106913,
+      "alignment_seconds": 0.0004163067787885666,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Arvaragus, nothing ill come near thee.",
+          "start": 0.66,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Arvaragus,",
+              "start": 0.66,
+              "end": 1.14,
+              "probability": 0.6085205078125
+            },
+            {
+              "text": " nothing",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.984375
+            },
+            {
+              "text": " ill",
+              "start": 1.78,
+              "end": 1.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " come",
+              "start": 1.98,
+              "end": 2.2,
+              "probability": 0.982421875
+            },
+            {
+              "text": " near",
+              "start": 2.2,
+              "end": 2.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thee.",
+              "start": 2.38,
+              "end": 2.64,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Arvaragus,",
+          "start": 0.66,
+          "end": 1.14
+        },
+        {
+          "raw": "nothing",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "ill",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "raw": "come",
+          "start": 1.98,
+          "end": 2.2
+        },
+        {
+          "raw": "near",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "raw": "thee.",
+          "start": 2.38,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "Arviragus.",
+        "_",
+        "Nothing",
+        "ill",
+        "come",
+        "near",
+        "thee!_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [
+        1
+      ],
+      "compared_heard": [
+        {
+          "raw": "Arvaragus,",
+          "start": 0.66,
+          "end": 1.14,
+          "key": "arvaragus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "nothing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ill",
+          "start": 1.78,
+          "end": 1.98,
+          "key": "ill",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.98,
+          "end": 2.2,
+          "key": "come",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 2.2,
+          "end": 2.38,
+          "key": "near",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 2.38,
+          "end": 2.64,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Arviragus.",
+          "start": 0.0,
+          "end": 0.79
+        },
+        {
+          "text": "_",
+          "start": 0.79,
+          "end": 1.185
+        },
+        {
+          "text": "Nothing",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "ill",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "text": "come",
+          "start": 1.98,
+          "end": 2.2
+        },
+        {
+          "text": "near",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "text": "thee!_",
+          "start": 2.38,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1822977215051651
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ffba8669160a2a0066df72ec662d3eb2922b0b314bd757dbf2ba50d81f303bb5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

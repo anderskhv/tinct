@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "2415d1e99c647d7686793b3e1eb5eaae104e0db41a15566c1130790943bfb0ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.2048705999914091,
+      "alignment_seconds": 0.0003980300098191947,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Electra, most like it is unto the curls he wore.",
+          "start": 0.55,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Electra,",
+              "start": 0.55,
+              "end": 0.97,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " most",
+              "start": 1.29,
+              "end": 1.49,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " like",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.8671875
+            },
+            {
+              "text": " it",
+              "start": 1.69,
+              "end": 1.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " is",
+              "start": 1.79,
+              "end": 1.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " unto",
+              "start": 1.91,
+              "end": 2.13,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " the",
+              "start": 2.13,
+              "end": 2.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " curls",
+              "start": 2.33,
+              "end": 2.57,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " he",
+              "start": 2.57,
+              "end": 2.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wore.",
+              "start": 2.77,
+              "end": 3.09,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Electra,",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "raw": "most",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "raw": "like",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "it",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "raw": "is",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "raw": "unto",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "raw": "the",
+          "start": 2.13,
+          "end": 2.33
+        },
+        {
+          "raw": "curls",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "raw": "he",
+          "start": 2.57,
+          "end": 2.77
+        },
+        {
+          "raw": "wore.",
+          "start": 2.77,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "Electra.",
+        "Most",
+        "like",
+        "it",
+        "is",
+        "unto",
+        "the",
+        "curls",
+        "he",
+        "wore,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Electra,",
+          "start": 0.55,
+          "end": 0.97,
+          "key": "electra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.29,
+          "end": 1.49,
+          "key": "most",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.49,
+          "end": 1.69,
+          "key": "like",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.69,
+          "end": 1.79,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.79,
+          "end": 1.91,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "unto",
+          "start": 1.91,
+          "end": 2.13,
+          "key": "unto",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.13,
+          "end": 2.33,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "curls",
+          "start": 2.33,
+          "end": 2.57,
+          "key": "curls",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.57,
+          "end": 2.77,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wore.",
+          "start": 2.77,
+          "end": 3.09,
+          "key": "wore",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Electra.",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "text": "Most",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "text": "like",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "it",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "text": "is",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "text": "unto",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "text": "the",
+          "start": 2.13,
+          "end": 2.33
+        },
+        {
+          "text": "curls",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "text": "he",
+          "start": 2.57,
+          "end": 2.77
+        },
+        {
+          "text": "wore,",
+          "start": 2.77,
+          "end": 3.09
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2054217339900788
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b08f23b78025891027dac85fb04803f65fcd758ca19cada6123c953b686c5800",
+  "selected_reasons": []
+}

@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "54c03666641a16843306c0ee5b3ef4aca0cb12bfc9074da59145f237645ba2e9",
+  "attempts": [
+    {
+      "asr_seconds": 0.17047614100738429,
+      "alignment_seconds": 0.00026230199728161097,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Scald the teapot",
+          "start": 0.11,
+          "end": 1.33,
+          "words": [
+            {
+              "text": " Scald",
+              "start": 0.11,
+              "end": 0.69,
+              "probability": 0.829833984375
+            },
+            {
+              "text": " the",
+              "start": 0.69,
+              "end": 0.81,
+              "probability": 0.974609375
+            },
+            {
+              "text": " teapot",
+              "start": 0.81,
+              "end": 1.33,
+              "probability": 0.9435221354166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Scald",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "raw": "the",
+          "start": 0.69,
+          "end": 0.81
+        },
+        {
+          "raw": "teapot",
+          "start": 0.81,
+          "end": 1.33
+        }
+      ],
+      "expected_tokens": [
+        "—Scald",
+        "the",
+        "teapot."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Scald",
+          "start": 0.11,
+          "end": 0.69,
+          "key": "scald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.69,
+          "end": 0.81,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "teapot",
+          "start": 0.81,
+          "end": 1.33,
+          "key": "teapot",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Scald",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "text": "the",
+          "start": 0.69,
+          "end": 0.81
+        },
+        {
+          "text": "teapot.",
+          "start": 0.81,
+          "end": 1.33
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1708293230039999
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "da03a45f6de366bc4cd560928bd1f600a0094d9a9d44917bcb48700af02155d3",
+  "selected_reasons": []
+}

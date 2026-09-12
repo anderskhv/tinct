@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "7b0c7cf52f39786b04f636d8c9401affe058f6cf1f423814354fe272042fda92",
+  "attempts": [
+    {
+      "asr_seconds": 0.24929896695539355,
+      "alignment_seconds": 0.00025683874264359474,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Proud?\" I repeated, with disdainful emphasis.",
+        "hotwords": "Proud, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Proud, I repeated, with disdainful emphasis.",
+          "start": 0.08,
+          "end": 2.98,
+          "words": [
+            {
+              "text": " Proud,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " I",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.994140625
+            },
+            {
+              "text": " repeated,",
+              "start": 1.38,
+              "end": 1.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 1.9,
+              "end": 1.98,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " disdainful",
+              "start": 1.98,
+              "end": 2.6,
+              "probability": 0.994384765625
+            },
+            {
+              "text": " emphasis.",
+              "start": 2.6,
+              "end": 2.98,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Proud,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "repeated,",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "raw": "with",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "raw": "disdainful",
+          "start": 1.98,
+          "end": 2.6
+        },
+        {
+          "raw": "emphasis.",
+          "start": 2.6,
+          "end": 2.98
+        }
+      ],
+      "expected_tokens": [
+        "\"Proud?\"",
+        "I",
+        "repeated,",
+        "with",
+        "disdainful",
+        "emphasis."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Proud,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "proud",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "repeated,",
+          "start": 1.38,
+          "end": 1.7,
+          "key": "repeated",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.9,
+          "end": 1.98,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "disdainful",
+          "start": 1.98,
+          "end": 2.6,
+          "key": "disdainful",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "emphasis.",
+          "start": 2.6,
+          "end": 2.98,
+          "key": "emphasis",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Proud?\"",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "I",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "text": "repeated,",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "text": "with",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "text": "disdainful",
+          "start": 1.98,
+          "end": 2.6
+        },
+        {
+          "text": "emphasis.",
+          "start": 2.6,
+          "end": 2.98
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2496707490645349
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ea83507a0a90f1744d4d36ef60b72a3cadabe442a904a39c049d22f58c60e9dd",
+  "selected_reasons": []
+}

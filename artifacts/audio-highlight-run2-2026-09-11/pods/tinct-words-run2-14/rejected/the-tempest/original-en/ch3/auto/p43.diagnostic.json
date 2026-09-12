@@ -1,0 +1,470 @@
+{
+  "complete": true,
+  "signature": "2e5ec5a48e34a3705b02252f5a2584f184386573c9c57c89d341fc1a3f416ebf",
+  "attempts": [
+    {
+      "asr_seconds": 0.30053360760211945,
+      "alignment_seconds": 0.0005871839821338654,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gonzalo. But the rarity of it is,--which is indeed almost beyond credit,--",
+        "hotwords": "Gonzalo, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gonzalo. But the rarity of it is, which is indeed almost beyond credit.",
+          "start": 0.05,
+          "end": 4.75,
+          "words": [
+            {
+              "text": " Gonzalo.",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.941162109375
+            },
+            {
+              "text": " But",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.986328125
+            },
+            {
+              "text": " the",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.990234375
+            },
+            {
+              "text": " rarity",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 1.89,
+              "end": 2.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it",
+              "start": 2.15,
+              "end": 2.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is,",
+              "start": 2.25,
+              "end": 2.53,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " which",
+              "start": 2.79,
+              "end": 2.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " is",
+              "start": 2.91,
+              "end": 3.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " indeed",
+              "start": 3.11,
+              "end": 3.45,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " almost",
+              "start": 3.45,
+              "end": 3.87,
+              "probability": 0.98828125
+            },
+            {
+              "text": " beyond",
+              "start": 3.87,
+              "end": 4.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " credit.",
+              "start": 4.33,
+              "end": 4.75,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "But",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "the",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "rarity",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "raw": "of",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "raw": "it",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "raw": "is,",
+          "start": 2.25,
+          "end": 2.53
+        },
+        {
+          "raw": "which",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "raw": "is",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "raw": "indeed",
+          "start": 3.11,
+          "end": 3.45
+        },
+        {
+          "raw": "almost",
+          "start": 3.45,
+          "end": 3.87
+        },
+        {
+          "raw": "beyond",
+          "start": 3.87,
+          "end": 4.33
+        },
+        {
+          "raw": "credit.",
+          "start": 4.33,
+          "end": 4.75
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "But",
+        "the",
+        "rarity",
+        "of",
+        "it",
+        "is,--which",
+        "is",
+        "indeed",
+        "almost",
+        "beyond",
+        "credit,--"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "gonzalo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.53,
+          "end": 1.63,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rarity",
+          "start": 1.63,
+          "end": 1.89,
+          "key": "rarity",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.89,
+          "end": 2.15,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.15,
+          "end": 2.25,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is, which",
+          "start": 2.25,
+          "end": 2.91,
+          "key": "iswhich",
+          "pieces": [
+            6,
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.91,
+          "end": 3.11,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "indeed",
+          "start": 3.11,
+          "end": 3.45,
+          "key": "indeed",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 3.45,
+          "end": 3.87,
+          "key": "almost",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "beyond",
+          "start": 3.87,
+          "end": 4.33,
+          "key": "beyond",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "credit.",
+          "start": 4.33,
+          "end": 4.75,
+          "key": "credit",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 6,
+          "text": "is,--which",
+          "heard": "is, which",
+          "heard_indexes": [
+            6,
+            7
+          ],
+          "start": 2.25,
+          "end": 2.91
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "But",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "the",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "rarity",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "text": "of",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "text": "it",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "text": "is,--which",
+          "start": 2.25,
+          "end": 2.91
+        },
+        {
+          "text": "is",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "text": "indeed",
+          "start": 3.11,
+          "end": 3.45
+        },
+        {
+          "text": "almost",
+          "start": 3.45,
+          "end": 3.87
+        },
+        {
+          "text": "beyond",
+          "start": 3.87,
+          "end": 4.33
+        },
+        {
+          "text": "credit,--",
+          "start": 4.33,
+          "end": 4.75
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30130814015865326
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8e557212ad4e79d3136e80360e660b2a29c8279386044bf246fdcb7b04ac4be0",
+  "selected_reasons": []
+}

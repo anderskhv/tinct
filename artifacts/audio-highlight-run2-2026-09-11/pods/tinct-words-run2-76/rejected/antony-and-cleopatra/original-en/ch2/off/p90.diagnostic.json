@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "9cf7f0fe9e2d16a264563cd3e75fa8178c2cab1eb9b46f6d85513fdc16cda34f",
+  "attempts": [
+    {
+      "asr_seconds": 0.19533251831308007,
+      "alignment_seconds": 0.0004108753055334091,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, I must with haste from hence.",
+          "start": 0.05,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.75634765625
+            },
+            {
+              "text": " I",
+              "start": 1.13,
+              "end": 1.29,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " must",
+              "start": 1.29,
+              "end": 1.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 1.41,
+              "end": 1.59,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " haste",
+              "start": 1.59,
+              "end": 1.81,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " from",
+              "start": 1.81,
+              "end": 2.03,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " hence.",
+              "start": 2.03,
+              "end": 2.27,
+              "probability": 0.78271484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "I",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "raw": "must",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "raw": "with",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "raw": "haste",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "raw": "from",
+          "start": 1.81,
+          "end": 2.03
+        },
+        {
+          "raw": "hence.",
+          "start": 2.03,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "I",
+        "must",
+        "with",
+        "haste",
+        "from",
+        "hence."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.13,
+          "end": 1.29,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.29,
+          "end": 1.41,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.41,
+          "end": 1.59,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "haste",
+          "start": 1.59,
+          "end": 1.81,
+          "key": "haste",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.81,
+          "end": 2.03,
+          "key": "from",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hence.",
+          "start": 2.03,
+          "end": 2.27,
+          "key": "hence",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "I",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "text": "must",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "text": "with",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "text": "haste",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "text": "from",
+          "start": 1.81,
+          "end": 2.03
+        },
+        {
+          "text": "hence.",
+          "start": 2.03,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19589740689843893
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e74e8db8ce94bb23734dbe9180a4e78f574422994919c92696a4feb206a2f0d4",
+  "selected_reasons": []
+}

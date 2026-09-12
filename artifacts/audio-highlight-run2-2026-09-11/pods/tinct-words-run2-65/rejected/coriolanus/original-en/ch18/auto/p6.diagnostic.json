@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "eded991ac21f078777f367f000d4214f407e1f57a5870cff76ebe9704a638fd6",
+  "attempts": [
+    {
+      "asr_seconds": 0.09801502991467714,
+      "alignment_seconds": 0.0001778947189450264,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Here comes his mother.",
+        "hotwords": "Here"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Here comes his mother.",
+          "start": 0.05,
+          "end": 1.31,
+          "words": [
+            {
+              "text": " Here",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " comes",
+              "start": 0.57,
+              "end": 0.85,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " his",
+              "start": 0.85,
+              "end": 1.05,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " mother.",
+              "start": 1.05,
+              "end": 1.31,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Here",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "comes",
+          "start": 0.57,
+          "end": 0.85
+        },
+        {
+          "raw": "his",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "raw": "mother.",
+          "start": 1.05,
+          "end": 1.31
+        }
+      ],
+      "expected_tokens": [
+        "Here",
+        "comes",
+        "his",
+        "mother."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Here",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "here",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 0.57,
+          "end": 0.85,
+          "key": "comes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.85,
+          "end": 1.05,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mother.",
+          "start": 1.05,
+          "end": 1.31,
+          "key": "mother",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Here",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "comes",
+          "start": 0.57,
+          "end": 0.85
+        },
+        {
+          "text": "his",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "text": "mother.",
+          "start": 1.05,
+          "end": 1.31
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09825803712010384
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d0b1fdfe5a76176bc64907b7cd336508176d7458ced67dabca7c796765a9ff01",
+  "selected_reasons": []
+}

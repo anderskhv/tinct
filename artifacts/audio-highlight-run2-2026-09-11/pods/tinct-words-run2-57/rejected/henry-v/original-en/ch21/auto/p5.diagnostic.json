@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "bfdabe5824d408b3d154271df107a9f6f1bc44c6e7b91e1efe823a3489237e35",
+  "attempts": [
+    {
+      "asr_seconds": 0.22088169702328742,
+      "alignment_seconds": 0.00036508007906377316,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fluellen. Know the glove! I know the glove is a glove.",
+        "hotwords": "Fluellen, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fluellen, know the glove. I know the glove is a glove.",
+          "start": 0.48,
+          "end": 3.08,
+          "words": [
+            {
+              "text": " Fluellen,",
+              "start": 0.48,
+              "end": 0.84,
+              "probability": 0.3626232147216797
+            },
+            {
+              "text": " know",
+              "start": 1.04,
+              "end": 1.18,
+              "probability": 0.94921875
+            },
+            {
+              "text": " the",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " glove.",
+              "start": 1.34,
+              "end": 1.58,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " I",
+              "start": 1.96,
+              "end": 2.06,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " know",
+              "start": 2.06,
+              "end": 2.18,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.18,
+              "end": 2.32,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " glove",
+              "start": 2.32,
+              "end": 2.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 2.54,
+              "end": 2.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 2.7,
+              "end": 2.82,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " glove.",
+              "start": 2.82,
+              "end": 3.08,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fluellen,",
+          "start": 0.48,
+          "end": 0.84
+        },
+        {
+          "raw": "know",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "raw": "the",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "glove.",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "raw": "I",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "raw": "know",
+          "start": 2.06,
+          "end": 2.18
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "raw": "glove",
+          "start": 2.32,
+          "end": 2.54
+        },
+        {
+          "raw": "is",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "raw": "a",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "raw": "glove.",
+          "start": 2.82,
+          "end": 3.08
+        }
+      ],
+      "expected_tokens": [
+        "Fluellen.",
+        "Know",
+        "the",
+        "glove!",
+        "I",
+        "know",
+        "the",
+        "glove",
+        "is",
+        "a",
+        "glove."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fluellen,",
+          "start": 0.48,
+          "end": 0.84,
+          "key": "fluellen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.04,
+          "end": 1.18,
+          "key": "know",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.18,
+          "end": 1.34,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "glove.",
+          "start": 1.34,
+          "end": 1.58,
+          "key": "glove",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.96,
+          "end": 2.06,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 2.06,
+          "end": 2.18,
+          "key": "know",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.32,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "glove",
+          "start": 2.32,
+          "end": 2.54,
+          "key": "glove",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.54,
+          "end": 2.7,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.7,
+          "end": 2.82,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "glove.",
+          "start": 2.82,
+          "end": 3.08,
+          "key": "glove",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fluellen.",
+          "start": 0.48,
+          "end": 0.84
+        },
+        {
+          "text": "Know",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "text": "the",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "glove!",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "text": "I",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "text": "know",
+          "start": 2.06,
+          "end": 2.18
+        },
+        {
+          "text": "the",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "text": "glove",
+          "start": 2.32,
+          "end": 2.54
+        },
+        {
+          "text": "is",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "text": "a",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "text": "glove.",
+          "start": 2.82,
+          "end": 3.08
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22138748015277088
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "56e006290313d18004d156262b8d9dc810cd90cd31009885fcbaebf244362fe8",
+  "selected_reasons": []
+}

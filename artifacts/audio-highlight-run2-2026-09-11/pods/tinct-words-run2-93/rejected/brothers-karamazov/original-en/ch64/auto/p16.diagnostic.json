@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "330b53ad27e228dcc3d536f053afcc88d48de746be98c06c6a0638b23916ca4b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2762767933309078,
+      "alignment_seconds": 0.0004314091056585312,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And Perezvon with you!\" grinned Kostya, and began snapping his fingers and calling Perezvon.",
+        "hotwords": "Perezvon, Kostya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And Perezvon with you! grinned Kostya, and began snapping his fingers and calling Perezvon.",
+          "start": 0.08,
+          "end": 5.82,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.1243896484375
+            },
+            {
+              "text": " Perezvon",
+              "start": 0.58,
+              "end": 1.04,
+              "probability": 0.0808258056640625
+            },
+            {
+              "text": " with",
+              "start": 1.04,
+              "end": 1.22,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " you!",
+              "start": 1.22,
+              "end": 1.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " grinned",
+              "start": 2.32,
+              "end": 2.36,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " Kostya,",
+              "start": 2.36,
+              "end": 2.96,
+              "probability": 0.3735758463541667
+            },
+            {
+              "text": " and",
+              "start": 3.28,
+              "end": 3.38,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " began",
+              "start": 3.38,
+              "end": 3.6,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " snapping",
+              "start": 3.6,
+              "end": 4.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " his",
+              "start": 4.06,
+              "end": 4.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fingers",
+              "start": 4.28,
+              "end": 4.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 4.58,
+              "end": 4.84,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " calling",
+              "start": 4.84,
+              "end": 5.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Perezvon.",
+              "start": 5.16,
+              "end": 5.82,
+              "probability": 0.9501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "Perezvon",
+          "start": 0.58,
+          "end": 1.04
+        },
+        {
+          "raw": "with",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "raw": "you!",
+          "start": 1.22,
+          "end": 1.58
+        },
+        {
+          "raw": "grinned",
+          "start": 2.32,
+          "end": 2.36
+        },
+        {
+          "raw": "Kostya,",
+          "start": 2.36,
+          "end": 2.96
+        },
+        {
+          "raw": "and",
+          "start": 3.28,
+          "end": 3.38
+        },
+        {
+          "raw": "began",
+          "start": 3.38,
+          "end": 3.6
+        },
+        {
+          "raw": "snapping",
+          "start": 3.6,
+          "end": 4.06
+        },
+        {
+          "raw": "his",
+          "start": 4.06,
+          "end": 4.28
+        },
+        {
+          "raw": "fingers",
+          "start": 4.28,
+          "end": 4.58
+        },
+        {
+          "raw": "and",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "raw": "calling",
+          "start": 4.84,
+          "end": 5.16
+        },
+        {
+          "raw": "Perezvon.",
+          "start": 5.16,
+          "end": 5.82
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "Perezvon",
+        "with",
+        "you!\"",
+        "grinned",
+        "Kostya,",
+        "and",
+        "began",
+        "snapping",
+        "his",
+        "fingers",
+        "and",
+        "calling",
+        "Perezvon."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Perezvon",
+          "start": 0.58,
+          "end": 1.04,
+          "key": "perezvon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.04,
+          "end": 1.22,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you!",
+          "start": 1.22,
+          "end": 1.58,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "grinned",
+          "start": 2.32,
+          "end": 2.36,
+          "key": "grinned",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Kostya,",
+          "start": 2.36,
+          "end": 2.96,
+          "key": "kostya",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.28,
+          "end": 3.38,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 3.38,
+          "end": 3.6,
+          "key": "began",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "snapping",
+          "start": 3.6,
+          "end": 4.06,
+          "key": "snapping",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.06,
+          "end": 4.28,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fingers",
+          "start": 4.28,
+          "end": 4.58,
+          "key": "fingers",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.58,
+          "end": 4.84,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "calling",
+          "start": 4.84,
+          "end": 5.16,
+          "key": "calling",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Perezvon.",
+          "start": 5.16,
+          "end": 5.82,
+          "key": "perezvon",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "Perezvon",
+          "start": 0.58,
+          "end": 1.04
+        },
+        {
+          "text": "with",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "text": "you!\"",
+          "start": 1.22,
+          "end": 1.58
+        },
+        {
+          "text": "grinned",
+          "start": 2.32,
+          "end": 2.36
+        },
+        {
+          "text": "Kostya,",
+          "start": 2.36,
+          "end": 2.96
+        },
+        {
+          "text": "and",
+          "start": 3.28,
+          "end": 3.38
+        },
+        {
+          "text": "began",
+          "start": 3.38,
+          "end": 3.6
+        },
+        {
+          "text": "snapping",
+          "start": 3.6,
+          "end": 4.06
+        },
+        {
+          "text": "his",
+          "start": 4.06,
+          "end": 4.28
+        },
+        {
+          "text": "fingers",
+          "start": 4.28,
+          "end": 4.58
+        },
+        {
+          "text": "and",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "text": "calling",
+          "start": 4.84,
+          "end": 5.16
+        },
+        {
+          "text": "Perezvon.",
+          "start": 5.16,
+          "end": 5.82
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2768809534609318
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "786a47703fe7cc476f216117538be64c49bb3a3531b8dfa87f97f24f3f8a6473",
+  "selected_reasons": []
+}

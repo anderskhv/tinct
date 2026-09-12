@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "57a90d77384e45a40ccaaaf12eb3c4d888f146d82c5ee74e2452a30012698951",
+  "attempts": [
+    {
+      "asr_seconds": 0.10699009709060192,
+      "alignment_seconds": 0.00021209195256233215,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Why?\"",
+        "hotwords": "Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why?",
+          "start": 0.02,
+          "end": 0.62,
+          "words": [
+            {
+              "text": " Why?",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.72412109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why?",
+          "start": 0.02,
+          "end": 0.62
+        }
+      ],
+      "expected_tokens": [
+        "\"Why?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why?",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why?\"",
+          "start": 0.02,
+          "end": 0.62
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10727289412170649
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7e70da07af21061476addbb17f7757a3177346b26432c5f4925884058187cd35",
+  "selected_reasons": []
+}

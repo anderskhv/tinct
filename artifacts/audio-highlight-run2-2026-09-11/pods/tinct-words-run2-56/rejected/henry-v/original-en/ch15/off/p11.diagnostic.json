@@ -1,0 +1,643 @@
+{
+  "complete": true,
+  "signature": "4c8b95e101def7562439cfc53332477dccfd8f590afe1ab7e063931b9baf6d54",
+  "attempts": [
+    {
+      "asr_seconds": 0.2839332139119506,
+      "alignment_seconds": 0.00047134142369031906,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rambures, what will you have them weep our horse's blood?",
+          "start": 0.05,
+          "end": 3.49,
+          "words": [
+            {
+              "text": " Rambures,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.4302571614583333
+            },
+            {
+              "text": " what",
+              "start": 1.37,
+              "end": 1.65,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " will",
+              "start": 1.65,
+              "end": 1.95,
+              "probability": 0.7294921875
+            },
+            {
+              "text": " you",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " have",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " them",
+              "start": 2.23,
+              "end": 2.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " weep",
+              "start": 2.43,
+              "end": 2.59,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " our",
+              "start": 2.59,
+              "end": 2.79,
+              "probability": 0.984375
+            },
+            {
+              "text": " horse's",
+              "start": 2.79,
+              "end": 3.21,
+              "probability": 0.6773681640625
+            },
+            {
+              "text": " blood?",
+              "start": 3.21,
+              "end": 3.49,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " How shall we then behold their natural tears?",
+          "start": 4.17,
+          "end": 6.13,
+          "words": [
+            {
+              "text": " How",
+              "start": 4.17,
+              "end": 4.27,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " shall",
+              "start": 4.27,
+              "end": 4.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " we",
+              "start": 4.43,
+              "end": 4.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " then",
+              "start": 4.63,
+              "end": 4.85,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " behold",
+              "start": 4.85,
+              "end": 5.23,
+              "probability": 0.923828125
+            },
+            {
+              "text": " their",
+              "start": 5.23,
+              "end": 5.45,
+              "probability": 0.994140625
+            },
+            {
+              "text": " natural",
+              "start": 5.45,
+              "end": 5.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " tears?",
+              "start": 5.83,
+              "end": 6.13,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rambures,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "what",
+          "start": 1.37,
+          "end": 1.65
+        },
+        {
+          "raw": "will",
+          "start": 1.65,
+          "end": 1.95
+        },
+        {
+          "raw": "you",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "have",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "them",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "raw": "weep",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "raw": "our",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "raw": "horse's",
+          "start": 2.79,
+          "end": 3.21
+        },
+        {
+          "raw": "blood?",
+          "start": 3.21,
+          "end": 3.49
+        },
+        {
+          "raw": "How",
+          "start": 4.17,
+          "end": 4.27
+        },
+        {
+          "raw": "shall",
+          "start": 4.27,
+          "end": 4.43
+        },
+        {
+          "raw": "we",
+          "start": 4.43,
+          "end": 4.63
+        },
+        {
+          "raw": "then",
+          "start": 4.63,
+          "end": 4.85
+        },
+        {
+          "raw": "behold",
+          "start": 4.85,
+          "end": 5.23
+        },
+        {
+          "raw": "their",
+          "start": 5.23,
+          "end": 5.45
+        },
+        {
+          "raw": "natural",
+          "start": 5.45,
+          "end": 5.83
+        },
+        {
+          "raw": "tears?",
+          "start": 5.83,
+          "end": 6.13
+        }
+      ],
+      "expected_tokens": [
+        "Rambures.",
+        "What,",
+        "will",
+        "you",
+        "have",
+        "them",
+        "weep",
+        "our",
+        "horses'",
+        "blood?",
+        "How",
+        "shall",
+        "we,",
+        "then,",
+        "behold",
+        "their",
+        "natural",
+        "tears?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rambures,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "rambures",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.37,
+          "end": 1.65,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.65,
+          "end": 1.95,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.23,
+          "end": 2.43,
+          "key": "them",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "weep",
+          "start": 2.43,
+          "end": 2.59,
+          "key": "weep",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.59,
+          "end": 2.79,
+          "key": "our",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "horse's",
+          "start": 2.79,
+          "end": 3.21,
+          "key": "horses",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "blood?",
+          "start": 3.21,
+          "end": 3.49,
+          "key": "blood",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 4.17,
+          "end": 4.27,
+          "key": "how",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 4.27,
+          "end": 4.43,
+          "key": "shall",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 4.43,
+          "end": 4.63,
+          "key": "we",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 4.63,
+          "end": 4.85,
+          "key": "then",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "behold",
+          "start": 4.85,
+          "end": 5.23,
+          "key": "behold",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 5.23,
+          "end": 5.45,
+          "key": "their",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "natural",
+          "start": 5.45,
+          "end": 5.83,
+          "key": "natural",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "tears?",
+          "start": 5.83,
+          "end": 6.13,
+          "key": "tears",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Rambures.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "What,",
+          "start": 1.37,
+          "end": 1.65
+        },
+        {
+          "text": "will",
+          "start": 1.65,
+          "end": 1.95
+        },
+        {
+          "text": "you",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "text": "have",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "them",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "text": "weep",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "text": "our",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "text": "horses'",
+          "start": 2.79,
+          "end": 3.21
+        },
+        {
+          "text": "blood?",
+          "start": 3.21,
+          "end": 3.49
+        },
+        {
+          "text": "How",
+          "start": 4.17,
+          "end": 4.27
+        },
+        {
+          "text": "shall",
+          "start": 4.27,
+          "end": 4.43
+        },
+        {
+          "text": "we,",
+          "start": 4.43,
+          "end": 4.63
+        },
+        {
+          "text": "then,",
+          "start": 4.63,
+          "end": 4.85
+        },
+        {
+          "text": "behold",
+          "start": 4.85,
+          "end": 5.23
+        },
+        {
+          "text": "their",
+          "start": 5.23,
+          "end": 5.45
+        },
+        {
+          "text": "natural",
+          "start": 5.45,
+          "end": 5.83
+        },
+        {
+          "text": "tears?",
+          "start": 5.83,
+          "end": 6.13
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28459372743964195
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aeb8cf504d5d236f125ea7d0838b075bae88b2e27da4e3bd010d9b8c5c93a6e4",
+  "selected_reasons": []
+}

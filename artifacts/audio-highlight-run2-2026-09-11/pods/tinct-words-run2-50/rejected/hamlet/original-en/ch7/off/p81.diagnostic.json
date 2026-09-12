@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "939012dcf328a4d11817264a54aad6b1e698488a3d4c1bf4a9d30925682c3138",
+  "attempts": [
+    {
+      "asr_seconds": 0.18862084299325943,
+      "alignment_seconds": 0.0003835409879684448,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Polonius, fare you well, my lord.",
+          "start": 0.67,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Polonius,",
+              "start": 0.67,
+              "end": 0.99,
+              "probability": 0.8365885416666666
+            },
+            {
+              "text": " fare",
+              "start": 1.45,
+              "end": 1.49,
+              "probability": 0.634765625
+            },
+            {
+              "text": " you",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " well,",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 1.89,
+              "end": 1.95,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " lord.",
+              "start": 1.95,
+              "end": 2.15,
+              "probability": 0.8623046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polonius,",
+          "start": 0.67,
+          "end": 0.99
+        },
+        {
+          "raw": "fare",
+          "start": 1.45,
+          "end": 1.49
+        },
+        {
+          "raw": "you",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "well,",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "my",
+          "start": 1.89,
+          "end": 1.95
+        },
+        {
+          "raw": "lord.",
+          "start": 1.95,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "Fare",
+        "you",
+        "well,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polonius,",
+          "start": 0.67,
+          "end": 0.99,
+          "key": "polonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fare",
+          "start": 1.45,
+          "end": 1.49,
+          "key": "fare",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "well",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.89,
+          "end": 1.95,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.95,
+          "end": 2.15,
+          "key": "lord",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 0.67,
+          "end": 0.99
+        },
+        {
+          "text": "Fare",
+          "start": 1.45,
+          "end": 1.49
+        },
+        {
+          "text": "you",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "well,",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "my",
+          "start": 1.89,
+          "end": 1.95
+        },
+        {
+          "text": "lord.",
+          "start": 1.95,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18917091004550457
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "66ba91c9ed2d5d30dc85c607362e84e779c3dfc1e92d1ad95460e2fd86fbbc7f",
+  "selected_reasons": []
+}

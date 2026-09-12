@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "dfb67c3dbb5841e17932a8c0987c23d5154240d95e454462567fa0ae27697ec9",
+  "attempts": [
+    {
+      "asr_seconds": 0.22835460398346186,
+      "alignment_seconds": 0.0003874460235238075,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Drive on, Andrey, I come!\" Mitya exclaimed, feverishly.",
+        "hotwords": "Drive, Andrey, I, Mitya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Drive on, Andrey, I come! Mitya exclaimed feverishly.",
+          "start": 0.05,
+          "end": 3.65,
+          "words": [
+            {
+              "text": " Drive",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.208251953125
+            },
+            {
+              "text": " on,",
+              "start": 0.63,
+              "end": 0.83,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " Andrey,",
+              "start": 0.99,
+              "end": 1.21,
+              "probability": 0.25323486328125
+            },
+            {
+              "text": " I",
+              "start": 1.33,
+              "end": 1.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " come!",
+              "start": 1.39,
+              "end": 1.65,
+              "probability": 0.943359375
+            },
+            {
+              "text": " Mitya",
+              "start": 2.23,
+              "end": 2.49,
+              "probability": 0.370086669921875
+            },
+            {
+              "text": " exclaimed",
+              "start": 2.49,
+              "end": 2.93,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " feverishly.",
+              "start": 2.93,
+              "end": 3.65,
+              "probability": 0.92333984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Drive",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "on,",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "raw": "Andrey,",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "raw": "I",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "raw": "come!",
+          "start": 1.39,
+          "end": 1.65
+        },
+        {
+          "raw": "Mitya",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "raw": "exclaimed",
+          "start": 2.49,
+          "end": 2.93
+        },
+        {
+          "raw": "feverishly.",
+          "start": 2.93,
+          "end": 3.65
+        }
+      ],
+      "expected_tokens": [
+        "\"Drive",
+        "on,",
+        "Andrey,",
+        "I",
+        "come!\"",
+        "Mitya",
+        "exclaimed,",
+        "feverishly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Drive",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "drive",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 0.63,
+          "end": 0.83,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Andrey,",
+          "start": 0.99,
+          "end": 1.21,
+          "key": "andrey",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.33,
+          "end": 1.39,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "come!",
+          "start": 1.39,
+          "end": 1.65,
+          "key": "come",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mitya",
+          "start": 2.23,
+          "end": 2.49,
+          "key": "mitya",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 2.49,
+          "end": 2.93,
+          "key": "exclaimed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "feverishly.",
+          "start": 2.93,
+          "end": 3.65,
+          "key": "feverishly",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Drive",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "on,",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "text": "Andrey,",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "text": "I",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "text": "come!\"",
+          "start": 1.39,
+          "end": 1.65
+        },
+        {
+          "text": "Mitya",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "text": "exclaimed,",
+          "start": 2.49,
+          "end": 2.93
+        },
+        {
+          "text": "feverishly.",
+          "start": 2.93,
+          "end": 3.65
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22887093760073185
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "45dad7b48644e47222954dbe31290a678b0d6c0eadb68134690c299ba72d8ba0",
+  "selected_reasons": []
+}

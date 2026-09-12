@@ -1,0 +1,437 @@
+{
+  "complete": true,
+  "signature": "5e9054ba3f2e460e60536205dd899ac980f6d0fdad61c02ef936126a0c6ec2d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.1805264614522457,
+      "alignment_seconds": 0.0005224626511335373,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"She told me she was very much grieved by you to-day.\""
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She told me she was very much grieved by you to-day.",
+          "start": 0.08,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " told",
+              "start": 0.54,
+              "end": 0.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 0.74,
+              "end": 0.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " she",
+              "start": 0.92,
+              "end": 1.06,
+              "probability": 0.9921875
+            },
+            {
+              "text": " was",
+              "start": 1.06,
+              "end": 1.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " very",
+              "start": 1.18,
+              "end": 1.44,
+              "probability": 0.990234375
+            },
+            {
+              "text": " much",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " grieved",
+              "start": 1.68,
+              "end": 2.1,
+              "probability": 0.961181640625
+            },
+            {
+              "text": " by",
+              "start": 2.1,
+              "end": 2.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 2.32,
+              "end": 2.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 2.5,
+              "end": 2.6,
+              "probability": 0.00020241737365722656
+            },
+            {
+              "text": "-day.",
+              "start": 2.6,
+              "end": 2.78,
+              "probability": 0.5413818359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "told",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "raw": "me",
+          "start": 0.74,
+          "end": 0.92
+        },
+        {
+          "raw": "she",
+          "start": 0.92,
+          "end": 1.06
+        },
+        {
+          "raw": "was",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "raw": "very",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "raw": "much",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "grieved",
+          "start": 1.68,
+          "end": 2.1
+        },
+        {
+          "raw": "by",
+          "start": 2.1,
+          "end": 2.32
+        },
+        {
+          "raw": "you",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "raw": "to",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "raw": "-day.",
+          "start": 2.6,
+          "end": 2.78
+        }
+      ],
+      "expected_tokens": [
+        "\"She",
+        "told",
+        "me",
+        "she",
+        "was",
+        "very",
+        "much",
+        "grieved",
+        "by",
+        "you",
+        "to-day.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 0.54,
+          "end": 0.74,
+          "key": "told",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.74,
+          "end": 0.92,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.92,
+          "end": 1.06,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.06,
+          "end": 1.18,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.18,
+          "end": 1.44,
+          "key": "very",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 1.44,
+          "end": 1.68,
+          "key": "much",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "grieved",
+          "start": 1.68,
+          "end": 2.1,
+          "key": "grieved",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.1,
+          "end": 2.32,
+          "key": "by",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.32,
+          "end": 2.5,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to -day.",
+          "start": 2.5,
+          "end": 2.78,
+          "key": "today",
+          "pieces": [
+            10,
+            11
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "to-day.\"",
+          "heard": "to -day.",
+          "heard_indexes": [
+            10,
+            11
+          ],
+          "start": 2.5,
+          "end": 2.78
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"She",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "told",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "text": "me",
+          "start": 0.74,
+          "end": 0.92
+        },
+        {
+          "text": "she",
+          "start": 0.92,
+          "end": 1.06
+        },
+        {
+          "text": "was",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "text": "very",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "text": "much",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "grieved",
+          "start": 1.68,
+          "end": 2.1
+        },
+        {
+          "text": "by",
+          "start": 2.1,
+          "end": 2.32
+        },
+        {
+          "text": "you",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "text": "to-day.\"",
+          "start": 2.5,
+          "end": 2.78
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18122192472219467
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cd4641d69814b550ec74db31eb5503863a71331355baaa9ab5f9f1520f985609",
+  "selected_reasons": []
+}

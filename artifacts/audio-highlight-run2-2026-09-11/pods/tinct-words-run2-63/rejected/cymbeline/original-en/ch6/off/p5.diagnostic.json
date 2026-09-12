@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "1763fa1a59e8dfa9a77e469dbeaa8ef850a27ac99ad3324ef049df9b756ad0e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.2112234402447939,
+      "alignment_seconds": 0.00043473020195961,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Now, master doctor, have you brought those drugs?",
+          "start": 0.02,
+          "end": 2.82,
+          "words": [
+            {
+              "text": " Now,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " master",
+              "start": 1.06,
+              "end": 1.08,
+              "probability": 0.5546875
+            },
+            {
+              "text": " doctor,",
+              "start": 1.08,
+              "end": 1.4,
+              "probability": 0.966796875
+            },
+            {
+              "text": " have",
+              "start": 1.84,
+              "end": 1.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you",
+              "start": 1.94,
+              "end": 2.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " brought",
+              "start": 2.04,
+              "end": 2.22,
+              "probability": 0.986328125
+            },
+            {
+              "text": " those",
+              "start": 2.22,
+              "end": 2.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " drugs?",
+              "start": 2.48,
+              "end": 2.82,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "master",
+          "start": 1.06,
+          "end": 1.08
+        },
+        {
+          "raw": "doctor,",
+          "start": 1.08,
+          "end": 1.4
+        },
+        {
+          "raw": "have",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "raw": "you",
+          "start": 1.94,
+          "end": 2.04
+        },
+        {
+          "raw": "brought",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "raw": "those",
+          "start": 2.22,
+          "end": 2.48
+        },
+        {
+          "raw": "drugs?",
+          "start": 2.48,
+          "end": 2.82
+        }
+      ],
+      "expected_tokens": [
+        "Now,",
+        "Master",
+        "Doctor,",
+        "have",
+        "you",
+        "brought",
+        "those",
+        "drugs?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Now,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "now",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 1.06,
+          "end": 1.08,
+          "key": "master",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "doctor,",
+          "start": 1.08,
+          "end": 1.4,
+          "key": "doctor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.84,
+          "end": 1.94,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.94,
+          "end": 2.04,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "brought",
+          "start": 2.04,
+          "end": 2.22,
+          "key": "brought",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 2.22,
+          "end": 2.48,
+          "key": "those",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "drugs?",
+          "start": 2.48,
+          "end": 2.82,
+          "key": "drugs",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Now,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Master",
+          "start": 1.06,
+          "end": 1.08
+        },
+        {
+          "text": "Doctor,",
+          "start": 1.08,
+          "end": 1.4
+        },
+        {
+          "text": "have",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "text": "you",
+          "start": 1.94,
+          "end": 2.04
+        },
+        {
+          "text": "brought",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "text": "those",
+          "start": 2.22,
+          "end": 2.48
+        },
+        {
+          "text": "drugs?",
+          "start": 2.48,
+          "end": 2.82
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21182116121053696
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d517f3240f38463c01b5a884e56724c94c48ed3e5239caa31e9c68f6f799ffd1",
+  "selected_reasons": []
+}

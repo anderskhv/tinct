@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "2123dfc5ccc3a1b343c072b2245156584c17034117e4ddb51caf562e41f992bc",
+  "attempts": [
+    {
+      "asr_seconds": 0.23136371932923794,
+      "alignment_seconds": 0.00042052194476127625,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Is that all the story?\" I asked, after considering it.",
+        "hotwords": "Is, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Is that all the story? I asked, after considering it.",
+          "start": 0.05,
+          "end": 3.49,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.1461181640625
+            },
+            {
+              "text": " that",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " all",
+              "start": 0.71,
+              "end": 0.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 0.85,
+              "end": 0.99,
+              "probability": 0.994140625
+            },
+            {
+              "text": " story?",
+              "start": 0.99,
+              "end": 1.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 1.81,
+              "end": 1.93,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " asked,",
+              "start": 1.93,
+              "end": 2.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " after",
+              "start": 2.43,
+              "end": 2.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " considering",
+              "start": 2.73,
+              "end": 3.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it.",
+              "start": 3.11,
+              "end": 3.49,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "that",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "all",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "raw": "the",
+          "start": 0.85,
+          "end": 0.99
+        },
+        {
+          "raw": "story?",
+          "start": 0.99,
+          "end": 1.33
+        },
+        {
+          "raw": "I",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "raw": "asked,",
+          "start": 1.93,
+          "end": 2.35
+        },
+        {
+          "raw": "after",
+          "start": 2.43,
+          "end": 2.73
+        },
+        {
+          "raw": "considering",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "raw": "it.",
+          "start": 3.11,
+          "end": 3.49
+        }
+      ],
+      "expected_tokens": [
+        "\"Is",
+        "that",
+        "all",
+        "the",
+        "story?\"",
+        "I",
+        "asked,",
+        "after",
+        "considering",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "is",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.55,
+          "end": 0.71,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.71,
+          "end": 0.85,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.85,
+          "end": 0.99,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "story?",
+          "start": 0.99,
+          "end": 1.33,
+          "key": "story",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.81,
+          "end": 1.93,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "asked,",
+          "start": 1.93,
+          "end": 2.35,
+          "key": "asked",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 2.43,
+          "end": 2.73,
+          "key": "after",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "considering",
+          "start": 2.73,
+          "end": 3.11,
+          "key": "considering",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 3.11,
+          "end": 3.49,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Is",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "that",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "all",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "text": "the",
+          "start": 0.85,
+          "end": 0.99
+        },
+        {
+          "text": "story?\"",
+          "start": 0.99,
+          "end": 1.33
+        },
+        {
+          "text": "I",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "text": "asked,",
+          "start": 1.93,
+          "end": 2.35
+        },
+        {
+          "text": "after",
+          "start": 2.43,
+          "end": 2.73
+        },
+        {
+          "text": "considering",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "text": "it.",
+          "start": 3.11,
+          "end": 3.49
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23194582387804985
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2e2275c40fd87908353de1f5cc057f26b139c3ca3565c84cc31b91f8380bf7c1",
+  "selected_reasons": []
+}

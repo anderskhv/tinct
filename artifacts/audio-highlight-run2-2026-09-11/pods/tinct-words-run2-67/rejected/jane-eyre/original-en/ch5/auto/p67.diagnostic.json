@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "80cb5284e0e14512c38679ce7c96aa2a431d88ba0ef6a392575211955d3fd2b4",
+  "attempts": [
+    {
+      "asr_seconds": 0.29009594302624464,
+      "alignment_seconds": 0.0006065950728952885,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Is your book interesting?\" I had already formed the intention of asking her to lend it to me some day.",
+        "hotwords": "Is, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Is your book interesting? I had already formed the intention of asking her to lend it to me some day.",
+          "start": 0.02,
+          "end": 6.08,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.71435546875
+            },
+            {
+              "text": " your",
+              "start": 0.54,
+              "end": 0.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " book",
+              "start": 0.72,
+              "end": 1.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " interesting?",
+              "start": 1.02,
+              "end": 1.66,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " I",
+              "start": 2.28,
+              "end": 2.52,
+              "probability": 0.98828125
+            },
+            {
+              "text": " had",
+              "start": 2.52,
+              "end": 2.62,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " already",
+              "start": 2.62,
+              "end": 2.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " formed",
+              "start": 2.88,
+              "end": 3.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.24,
+              "end": 3.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " intention",
+              "start": 3.44,
+              "end": 3.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 3.86,
+              "end": 4.14,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " asking",
+              "start": 4.14,
+              "end": 4.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her",
+              "start": 4.5,
+              "end": 4.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 4.8,
+              "end": 4.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lend",
+              "start": 4.98,
+              "end": 5.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 5.18,
+              "end": 5.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 5.34,
+              "end": 5.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 5.42,
+              "end": 5.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " some",
+              "start": 5.58,
+              "end": 5.78,
+              "probability": 0.06439208984375
+            },
+            {
+              "text": " day.",
+              "start": 5.78,
+              "end": 6.08,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "your",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "raw": "book",
+          "start": 0.72,
+          "end": 1.02
+        },
+        {
+          "raw": "interesting?",
+          "start": 1.02,
+          "end": 1.66
+        },
+        {
+          "raw": "I",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "raw": "had",
+          "start": 2.52,
+          "end": 2.62
+        },
+        {
+          "raw": "already",
+          "start": 2.62,
+          "end": 2.88
+        },
+        {
+          "raw": "formed",
+          "start": 2.88,
+          "end": 3.24
+        },
+        {
+          "raw": "the",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "raw": "intention",
+          "start": 3.44,
+          "end": 3.86
+        },
+        {
+          "raw": "of",
+          "start": 3.86,
+          "end": 4.14
+        },
+        {
+          "raw": "asking",
+          "start": 4.14,
+          "end": 4.5
+        },
+        {
+          "raw": "her",
+          "start": 4.5,
+          "end": 4.8
+        },
+        {
+          "raw": "to",
+          "start": 4.8,
+          "end": 4.98
+        },
+        {
+          "raw": "lend",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "raw": "it",
+          "start": 5.18,
+          "end": 5.34
+        },
+        {
+          "raw": "to",
+          "start": 5.34,
+          "end": 5.42
+        },
+        {
+          "raw": "me",
+          "start": 5.42,
+          "end": 5.58
+        },
+        {
+          "raw": "some",
+          "start": 5.58,
+          "end": 5.78
+        },
+        {
+          "raw": "day.",
+          "start": 5.78,
+          "end": 6.08
+        }
+      ],
+      "expected_tokens": [
+        "\"Is",
+        "your",
+        "book",
+        "interesting?\"",
+        "I",
+        "had",
+        "already",
+        "formed",
+        "the",
+        "intention",
+        "of",
+        "asking",
+        "her",
+        "to",
+        "lend",
+        "it",
+        "to",
+        "me",
+        "some",
+        "day."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Is",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "is",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.54,
+          "end": 0.72,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "book",
+          "start": 0.72,
+          "end": 1.02,
+          "key": "book",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "interesting?",
+          "start": 1.02,
+          "end": 1.66,
+          "key": "interesting",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.28,
+          "end": 2.52,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.52,
+          "end": 2.62,
+          "key": "had",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 2.62,
+          "end": 2.88,
+          "key": "already",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "formed",
+          "start": 2.88,
+          "end": 3.24,
+          "key": "formed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.24,
+          "end": 3.44,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "intention",
+          "start": 3.44,
+          "end": 3.86,
+          "key": "intention",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.86,
+          "end": 4.14,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "asking",
+          "start": 4.14,
+          "end": 4.5,
+          "key": "asking",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.5,
+          "end": 4.8,
+          "key": "her",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.8,
+          "end": 4.98,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "lend",
+          "start": 4.98,
+          "end": 5.18,
+          "key": "lend",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.18,
+          "end": 5.34,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.34,
+          "end": 5.42,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.42,
+          "end": 5.58,
+          "key": "me",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 5.58,
+          "end": 5.78,
+          "key": "some",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "day.",
+          "start": 5.78,
+          "end": 6.08,
+          "key": "day",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Is",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "your",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "text": "book",
+          "start": 0.72,
+          "end": 1.02
+        },
+        {
+          "text": "interesting?\"",
+          "start": 1.02,
+          "end": 1.66
+        },
+        {
+          "text": "I",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "text": "had",
+          "start": 2.52,
+          "end": 2.62
+        },
+        {
+          "text": "already",
+          "start": 2.62,
+          "end": 2.88
+        },
+        {
+          "text": "formed",
+          "start": 2.88,
+          "end": 3.24
+        },
+        {
+          "text": "the",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "text": "intention",
+          "start": 3.44,
+          "end": 3.86
+        },
+        {
+          "text": "of",
+          "start": 3.86,
+          "end": 4.14
+        },
+        {
+          "text": "asking",
+          "start": 4.14,
+          "end": 4.5
+        },
+        {
+          "text": "her",
+          "start": 4.5,
+          "end": 4.8
+        },
+        {
+          "text": "to",
+          "start": 4.8,
+          "end": 4.98
+        },
+        {
+          "text": "lend",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "text": "it",
+          "start": 5.18,
+          "end": 5.34
+        },
+        {
+          "text": "to",
+          "start": 5.34,
+          "end": 5.42
+        },
+        {
+          "text": "me",
+          "start": 5.42,
+          "end": 5.58
+        },
+        {
+          "text": "some",
+          "start": 5.58,
+          "end": 5.78
+        },
+        {
+          "text": "day.",
+          "start": 5.78,
+          "end": 6.08
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29096505511552095
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2454d82689f92e0b6837ae7f7bb11734c9b20b2d486a2473e14e89adc33728bd",
+  "selected_reasons": []
+}

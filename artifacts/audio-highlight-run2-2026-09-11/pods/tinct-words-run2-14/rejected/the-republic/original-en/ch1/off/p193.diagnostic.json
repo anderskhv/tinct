@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "4b57ea2414381b33c2c610c947e7733589022bbb7a5c5a46403b94848868d748",
+  "attempts": [
+    {
+      "asr_seconds": 0.22149980813264847,
+      "alignment_seconds": 0.0004340633749961853,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What in no payment? A pleasant notion.",
+          "start": 0.02,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " in",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.34716796875
+            },
+            {
+              "text": " no",
+              "start": 0.76,
+              "end": 0.92,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " payment?",
+              "start": 0.92,
+              "end": 1.22,
+              "probability": 0.943359375
+            },
+            {
+              "text": " A",
+              "start": 1.68,
+              "end": 1.74,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " pleasant",
+              "start": 1.74,
+              "end": 1.98,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " notion.",
+              "start": 1.98,
+              "end": 2.36,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "in",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "no",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "raw": "payment?",
+          "start": 0.92,
+          "end": 1.22
+        },
+        {
+          "raw": "A",
+          "start": 1.68,
+          "end": 1.74
+        },
+        {
+          "raw": "pleasant",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "raw": "notion.",
+          "start": 1.98,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "What,",
+        "and",
+        "no",
+        "payment!",
+        "a",
+        "pleasant",
+        "notion!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          7,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.62,
+          "end": 0.76,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.76,
+          "end": 0.92,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "payment?",
+          "start": 0.92,
+          "end": 1.22,
+          "key": "payment",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.68,
+          "end": 1.74,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pleasant",
+          "start": 1.74,
+          "end": 1.98,
+          "key": "pleasant",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "notion.",
+          "start": 1.98,
+          "end": 2.36,
+          "key": "notion",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "What,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "and",
+          "start": 0.62,
+          "end": 0.69
+        },
+        {
+          "text": "no",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "text": "payment!",
+          "start": 0.92,
+          "end": 1.22
+        },
+        {
+          "text": "a",
+          "start": 1.68,
+          "end": 1.74
+        },
+        {
+          "text": "pleasant",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "text": "notion!",
+          "start": 1.98,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.2221042849123478
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bc543366a63bc922cb04d1aa4c980580fadcc7686853cdca28a0670be5267336",
+  "selected_reasons": []
+}

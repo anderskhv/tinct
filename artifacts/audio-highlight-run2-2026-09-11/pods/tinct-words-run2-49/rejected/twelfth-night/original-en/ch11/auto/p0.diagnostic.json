@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "5d9ead5aa005e35db3187ce68bfd2a9d2287e5455e002212f3456d25b66dfcaa",
+  "attempts": [
+    {
+      "asr_seconds": 0.12568023055791855,
+      "alignment_seconds": 0.0002659521996974945,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Viola and Clown with a tabor.",
+        "hotwords": "Enter, Viola, Clown"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Viola and Clown with a tabor.",
+          "start": 0.08,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.888671875
+            },
+            {
+              "text": " Viola",
+              "start": 0.64,
+              "end": 1.14,
+              "probability": 0.669189453125
+            },
+            {
+              "text": " and",
+              "start": 1.14,
+              "end": 1.5,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " Clown",
+              "start": 1.5,
+              "end": 1.76,
+              "probability": 0.02880859375
+            },
+            {
+              "text": " with",
+              "start": 1.76,
+              "end": 1.96,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " a",
+              "start": 1.96,
+              "end": 2.06,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " tabor.",
+              "start": 2.06,
+              "end": 2.38,
+              "probability": 0.1451416015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Viola",
+          "start": 0.64,
+          "end": 1.14
+        },
+        {
+          "raw": "and",
+          "start": 1.14,
+          "end": 1.5
+        },
+        {
+          "raw": "Clown",
+          "start": 1.5,
+          "end": 1.76
+        },
+        {
+          "raw": "with",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "raw": "a",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "raw": "tabor.",
+          "start": 2.06,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Viola",
+        "and",
+        "Clown",
+        "with",
+        "a",
+        "tabor."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Viola",
+          "start": 0.64,
+          "end": 1.14,
+          "key": "viola",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.14,
+          "end": 1.5,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Clown",
+          "start": 1.5,
+          "end": 1.76,
+          "key": "clown",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.76,
+          "end": 1.96,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.96,
+          "end": 2.06,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tabor.",
+          "start": 2.06,
+          "end": 2.38,
+          "key": "tabor",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Viola",
+          "start": 0.64,
+          "end": 1.14
+        },
+        {
+          "text": "and",
+          "start": 1.14,
+          "end": 1.5
+        },
+        {
+          "text": "Clown",
+          "start": 1.5,
+          "end": 1.76
+        },
+        {
+          "text": "with",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "text": "a",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "text": "tabor.",
+          "start": 2.06,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12605547159910202
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "80aeca89228d814eaa5f3906b6eeacbde1dd3bf73c02964f1ebe4d03bf6eab72",
+  "selected_reasons": []
+}

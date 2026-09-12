@@ -1,0 +1,93 @@
+{
+  "complete": true,
+  "signature": "59c86da85828d5c53e1493216cae11482d6243120bfba57273f8bfcebee02722",
+  "attempts": [
+    {
+      "asr_seconds": 0.061550237238407135,
+      "alignment_seconds": 6.74910843372345e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Dies._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dies.",
+          "start": 0.05,
+          "end": 0.87,
+          "words": [
+            {
+              "text": " Dies.",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.5283203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dies.",
+          "start": 0.05,
+          "end": 0.87
+        }
+      ],
+      "expected_tokens": [
+        "[_Dies._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dies.",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "dies",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Dies._]",
+          "start": 0.05,
+          "end": 0.87
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06163860112428665
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9fd17994124112102b701b5d4b88aa67479e705a4247fe0d6e8ba05c9ad9e2e8",
+  "selected_reasons": []
+}

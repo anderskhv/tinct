@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "4cb9f767087f260c6cf25b8994acda7381a2f8b7a46a2876c73adea4e1143921",
+  "attempts": [
+    {
+      "asr_seconds": 0.19578278996050358,
+      "alignment_seconds": 0.00042597693391144276,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter the French power and the English lords.",
+          "start": 0.11,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " the",
+              "start": 0.61,
+              "end": 0.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " French",
+              "start": 0.77,
+              "end": 0.95,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " power",
+              "start": 0.95,
+              "end": 1.35,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " and",
+              "start": 1.35,
+              "end": 1.87,
+              "probability": 0.802734375
+            },
+            {
+              "text": " the",
+              "start": 1.87,
+              "end": 1.99,
+              "probability": 0.994140625
+            },
+            {
+              "text": " English",
+              "start": 1.99,
+              "end": 2.25,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " lords.",
+              "start": 2.25,
+              "end": 2.55,
+              "probability": 0.62890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "raw": "French",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "raw": "power",
+          "start": 0.95,
+          "end": 1.35
+        },
+        {
+          "raw": "and",
+          "start": 1.35,
+          "end": 1.87
+        },
+        {
+          "raw": "the",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "raw": "English",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "raw": "lords.",
+          "start": 2.25,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "the",
+        "French",
+        "Power",
+        "and",
+        "the",
+        "English",
+        "Lords."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.77,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 0.77,
+          "end": 0.95,
+          "key": "french",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "power",
+          "start": 0.95,
+          "end": 1.35,
+          "key": "power",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.35,
+          "end": 1.87,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.87,
+          "end": 1.99,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "English",
+          "start": 1.99,
+          "end": 2.25,
+          "key": "english",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lords.",
+          "start": 2.25,
+          "end": 2.55,
+          "key": "lords",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "text": "the",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "text": "French",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "text": "Power",
+          "start": 0.95,
+          "end": 1.35
+        },
+        {
+          "text": "and",
+          "start": 1.35,
+          "end": 1.87
+        },
+        {
+          "text": "the",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "text": "English",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "text": "Lords.",
+          "start": 2.25,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19637521193362772
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ba08ab7dc089ec6ec0d64db4dd9ed8a14451c9ecb0d7a3ebccf40fa34b1a6ae0",
+  "selected_reasons": []
+}

@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "e6391fb925f24e33eab769bcc2478fa20a29034a147318f1dee054618d004101",
+  "attempts": [
+    {
+      "asr_seconds": 0.2346280813217163,
+      "alignment_seconds": 0.0003278534859418869,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_To Messenger_.] Say, has our general met the enemy?",
+        "hotwords": "Messenger_, Say"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To Messenger, Say, has our general met the enemy?",
+          "start": 0.02,
+          "end": 3.24,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.68408203125
+            },
+            {
+              "text": " Messenger,",
+              "start": 0.5,
+              "end": 1.0,
+              "probability": 0.268310546875
+            },
+            {
+              "text": " Say,",
+              "start": 1.54,
+              "end": 1.84,
+              "probability": 0.0545654296875
+            },
+            {
+              "text": " has",
+              "start": 2.14,
+              "end": 2.18,
+              "probability": 0.60107421875
+            },
+            {
+              "text": " our",
+              "start": 2.18,
+              "end": 2.34,
+              "probability": 0.962890625
+            },
+            {
+              "text": " general",
+              "start": 2.34,
+              "end": 2.62,
+              "probability": 0.387451171875
+            },
+            {
+              "text": " met",
+              "start": 2.62,
+              "end": 2.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.86,
+              "end": 3.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " enemy?",
+              "start": 3.02,
+              "end": 3.24,
+              "probability": 0.94091796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Messenger,",
+          "start": 0.5,
+          "end": 1.0
+        },
+        {
+          "raw": "Say,",
+          "start": 1.54,
+          "end": 1.84
+        },
+        {
+          "raw": "has",
+          "start": 2.14,
+          "end": 2.18
+        },
+        {
+          "raw": "our",
+          "start": 2.18,
+          "end": 2.34
+        },
+        {
+          "raw": "general",
+          "start": 2.34,
+          "end": 2.62
+        },
+        {
+          "raw": "met",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "raw": "the",
+          "start": 2.86,
+          "end": 3.02
+        },
+        {
+          "raw": "enemy?",
+          "start": 3.02,
+          "end": 3.24
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Messenger_.]",
+        "Say,",
+        "has",
+        "our",
+        "general",
+        "met",
+        "the",
+        "enemy?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Messenger,",
+          "start": 0.5,
+          "end": 1.0,
+          "key": "messenger",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Say,",
+          "start": 1.54,
+          "end": 1.84,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 2.14,
+          "end": 2.18,
+          "key": "has",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.18,
+          "end": 2.34,
+          "key": "our",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "general",
+          "start": 2.34,
+          "end": 2.62,
+          "key": "general",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "met",
+          "start": 2.62,
+          "end": 2.86,
+          "key": "met",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.86,
+          "end": 3.02,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "enemy?",
+          "start": 3.02,
+          "end": 3.24,
+          "key": "enemy",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Messenger_.]",
+          "start": 0.5,
+          "end": 1.0
+        },
+        {
+          "text": "Say,",
+          "start": 1.54,
+          "end": 1.84
+        },
+        {
+          "text": "has",
+          "start": 2.14,
+          "end": 2.18
+        },
+        {
+          "text": "our",
+          "start": 2.18,
+          "end": 2.34
+        },
+        {
+          "text": "general",
+          "start": 2.34,
+          "end": 2.62
+        },
+        {
+          "text": "met",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "text": "the",
+          "start": 2.86,
+          "end": 3.02
+        },
+        {
+          "text": "enemy?",
+          "start": 3.02,
+          "end": 3.24
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23508074786514044
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5847e9664aa9ec5950195e5000f29dd15b55daf520feda9af978d8e46c33d568",
+  "selected_reasons": []
+}

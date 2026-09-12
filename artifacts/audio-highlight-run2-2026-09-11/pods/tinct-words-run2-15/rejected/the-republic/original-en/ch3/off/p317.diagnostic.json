@@ -1,0 +1,761 @@
+{
+  "complete": true,
+  "signature": "d366787b05acbb30c43bbeca75db4b28f8d174e07a557ad1cf980dec17884ded",
+  "attempts": [
+    {
+      "asr_seconds": 0.3318406268954277,
+      "alignment_seconds": 0.00040776655077934265,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why I conceive that there is a gymnastic witch, like our music, is simple and good, and especially",
+          "start": 0.02,
+          "end": 6.8,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " I",
+              "start": 0.64,
+              "end": 0.92,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " conceive",
+              "start": 0.92,
+              "end": 1.28,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " that",
+              "start": 1.28,
+              "end": 1.62,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " there",
+              "start": 1.62,
+              "end": 1.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 1.78,
+              "end": 1.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 1.94,
+              "end": 2.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gymnastic",
+              "start": 2.06,
+              "end": 2.68,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " witch,",
+              "start": 2.68,
+              "end": 2.98,
+              "probability": 0.5693359375
+            },
+            {
+              "text": " like",
+              "start": 3.5,
+              "end": 3.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " our",
+              "start": 3.58,
+              "end": 3.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " music,",
+              "start": 3.74,
+              "end": 4.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " is",
+              "start": 4.56,
+              "end": 4.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " simple",
+              "start": 4.7,
+              "end": 5.06,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " and",
+              "start": 5.06,
+              "end": 5.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " good,",
+              "start": 5.4,
+              "end": 5.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 6.26,
+              "end": 6.36,
+              "probability": 0.982421875
+            },
+            {
+              "text": " especially",
+              "start": 6.36,
+              "end": 6.8,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " the military gymnastic.",
+          "start": 6.8,
+          "end": 8.3,
+          "words": [
+            {
+              "text": " the",
+              "start": 6.8,
+              "end": 7.12,
+              "probability": 0.98828125
+            },
+            {
+              "text": " military",
+              "start": 7.12,
+              "end": 7.56,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " gymnastic.",
+              "start": 7.56,
+              "end": 8.3,
+              "probability": 0.96044921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "I",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "raw": "conceive",
+          "start": 0.92,
+          "end": 1.28
+        },
+        {
+          "raw": "that",
+          "start": 1.28,
+          "end": 1.62
+        },
+        {
+          "raw": "there",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "raw": "is",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "raw": "a",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "raw": "gymnastic",
+          "start": 2.06,
+          "end": 2.68
+        },
+        {
+          "raw": "witch,",
+          "start": 2.68,
+          "end": 2.98
+        },
+        {
+          "raw": "like",
+          "start": 3.5,
+          "end": 3.58
+        },
+        {
+          "raw": "our",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "raw": "music,",
+          "start": 3.74,
+          "end": 4.12
+        },
+        {
+          "raw": "is",
+          "start": 4.56,
+          "end": 4.7
+        },
+        {
+          "raw": "simple",
+          "start": 4.7,
+          "end": 5.06
+        },
+        {
+          "raw": "and",
+          "start": 5.06,
+          "end": 5.4
+        },
+        {
+          "raw": "good,",
+          "start": 5.4,
+          "end": 5.68
+        },
+        {
+          "raw": "and",
+          "start": 6.26,
+          "end": 6.36
+        },
+        {
+          "raw": "especially",
+          "start": 6.36,
+          "end": 6.8
+        },
+        {
+          "raw": "the",
+          "start": 6.8,
+          "end": 7.12
+        },
+        {
+          "raw": "military",
+          "start": 7.12,
+          "end": 7.56
+        },
+        {
+          "raw": "gymnastic.",
+          "start": 7.56,
+          "end": 8.3
+        }
+      ],
+      "expected_tokens": [
+        "Why,",
+        "I",
+        "conceive",
+        "that",
+        "there",
+        "is",
+        "a",
+        "gymnastic",
+        "which,",
+        "like",
+        "our",
+        "music,",
+        "is",
+        "simple",
+        "and",
+        "good;",
+        "and",
+        "especially",
+        "the",
+        "military",
+        "gymnastic."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          21,
+          9,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.64,
+          "end": 0.92,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "conceive",
+          "start": 0.92,
+          "end": 1.28,
+          "key": "conceive",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.28,
+          "end": 1.62,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.62,
+          "end": 1.78,
+          "key": "there",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.78,
+          "end": 1.94,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.94,
+          "end": 2.06,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gymnastic",
+          "start": 2.06,
+          "end": 2.68,
+          "key": "gymnastic",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "witch,",
+          "start": 2.68,
+          "end": 2.98,
+          "key": "witch",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.5,
+          "end": 3.58,
+          "key": "like",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 3.58,
+          "end": 3.74,
+          "key": "our",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "music,",
+          "start": 3.74,
+          "end": 4.12,
+          "key": "music",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.56,
+          "end": 4.7,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "simple",
+          "start": 4.7,
+          "end": 5.06,
+          "key": "simple",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.06,
+          "end": 5.4,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "good,",
+          "start": 5.4,
+          "end": 5.68,
+          "key": "good",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.26,
+          "end": 6.36,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "especially",
+          "start": 6.36,
+          "end": 6.8,
+          "key": "especially",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.8,
+          "end": 7.12,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "military",
+          "start": 7.12,
+          "end": 7.56,
+          "key": "military",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "gymnastic.",
+          "start": 7.56,
+          "end": 8.3,
+          "key": "gymnastic",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Why,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "I",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "text": "conceive",
+          "start": 0.92,
+          "end": 1.28
+        },
+        {
+          "text": "that",
+          "start": 1.28,
+          "end": 1.62
+        },
+        {
+          "text": "there",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "text": "is",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "text": "a",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "text": "gymnastic",
+          "start": 2.06,
+          "end": 2.68
+        },
+        {
+          "text": "which,",
+          "start": 2.68,
+          "end": 3.09
+        },
+        {
+          "text": "like",
+          "start": 3.5,
+          "end": 3.58
+        },
+        {
+          "text": "our",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "text": "music,",
+          "start": 3.74,
+          "end": 4.12
+        },
+        {
+          "text": "is",
+          "start": 4.56,
+          "end": 4.7
+        },
+        {
+          "text": "simple",
+          "start": 4.7,
+          "end": 5.06
+        },
+        {
+          "text": "and",
+          "start": 5.06,
+          "end": 5.4
+        },
+        {
+          "text": "good;",
+          "start": 5.4,
+          "end": 5.68
+        },
+        {
+          "text": "and",
+          "start": 6.26,
+          "end": 6.36
+        },
+        {
+          "text": "especially",
+          "start": 6.36,
+          "end": 6.8
+        },
+        {
+          "text": "the",
+          "start": 6.8,
+          "end": 7.12
+        },
+        {
+          "text": "military",
+          "start": 7.12,
+          "end": 7.56
+        },
+        {
+          "text": "gymnastic.",
+          "start": 7.56,
+          "end": 8.3
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.33240507915616035
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "97b1fbf1069b0de85c1fc188cc5661b601a76c093042d8b3450c57044a1a259d",
+  "selected_reasons": []
+}

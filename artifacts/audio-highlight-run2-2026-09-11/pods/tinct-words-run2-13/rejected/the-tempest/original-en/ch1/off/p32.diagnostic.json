@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "072a9bfc8af0715a2980337a3ce38388b604e8478d1bb8097044f9e5d84fdff5",
+  "attempts": [
+    {
+      "asr_seconds": 0.23602589033544064,
+      "alignment_seconds": 0.00040573254227638245,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Boson, what must our mouths be cold?",
+          "start": 0.08,
+          "end": 2.32,
+          "words": [
+            {
+              "text": " Boson,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.32611083984375
+            },
+            {
+              "text": " what",
+              "start": 1.1,
+              "end": 1.3,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " must",
+              "start": 1.3,
+              "end": 1.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " our",
+              "start": 1.46,
+              "end": 1.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " mouths",
+              "start": 1.62,
+              "end": 1.82,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " be",
+              "start": 1.82,
+              "end": 2.04,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " cold?",
+              "start": 2.04,
+              "end": 2.32,
+              "probability": 0.70703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boson,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "what",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "raw": "must",
+          "start": 1.3,
+          "end": 1.46
+        },
+        {
+          "raw": "our",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "raw": "mouths",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "raw": "be",
+          "start": 1.82,
+          "end": 2.04
+        },
+        {
+          "raw": "cold?",
+          "start": 2.04,
+          "end": 2.32
+        }
+      ],
+      "expected_tokens": [
+        "Boatswain.",
+        "What,",
+        "must",
+        "our",
+        "mouths",
+        "be",
+        "cold?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boson,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "boson",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.1,
+          "end": 1.3,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.3,
+          "end": 1.46,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.46,
+          "end": 1.62,
+          "key": "our",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mouths",
+          "start": 1.62,
+          "end": 1.82,
+          "key": "mouths",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.82,
+          "end": 2.04,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cold?",
+          "start": 2.04,
+          "end": 2.32,
+          "key": "cold",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Boatswain.",
+          "start": 0.0,
+          "end": 0.55
+        },
+        {
+          "text": "What,",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "text": "must",
+          "start": 1.3,
+          "end": 1.46
+        },
+        {
+          "text": "our",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "text": "mouths",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "text": "be",
+          "start": 1.82,
+          "end": 2.04
+        },
+        {
+          "text": "cold?",
+          "start": 2.04,
+          "end": 2.32
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.23656970635056496
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "75566b0a79af1b93a79d45af235114438bfd8795385b2ffce38c7f8d05595da6",
+  "selected_reasons": []
+}

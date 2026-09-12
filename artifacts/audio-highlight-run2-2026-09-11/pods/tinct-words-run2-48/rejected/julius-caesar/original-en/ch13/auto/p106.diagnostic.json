@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "0e6dea999971b3aadedf4a67d7687aee4a3dcef3ae9350d51d7e497c8ad7ef8f",
+  "attempts": [
+    {
+      "asr_seconds": 0.18880767282098532,
+      "alignment_seconds": 0.0004660431295633316,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Messala. Even so great men great losses should endure.",
+        "hotwords": "Messala, Even"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Messala, Even so great men great losses should endure.",
+          "start": 0.05,
+          "end": 3.49,
+          "words": [
+            {
+              "text": " Messala,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.49308013916015625
+            },
+            {
+              "text": " Even",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.08172607421875
+            },
+            {
+              "text": " so",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " great",
+              "start": 1.85,
+              "end": 2.07,
+              "probability": 0.92578125
+            },
+            {
+              "text": " men",
+              "start": 2.07,
+              "end": 2.27,
+              "probability": 0.966796875
+            },
+            {
+              "text": " great",
+              "start": 2.27,
+              "end": 2.53,
+              "probability": 0.474853515625
+            },
+            {
+              "text": " losses",
+              "start": 2.53,
+              "end": 2.95,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " should",
+              "start": 2.95,
+              "end": 3.15,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " endure.",
+              "start": 3.15,
+              "end": 3.49,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messala,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Even",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "so",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "raw": "great",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "raw": "men",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "raw": "great",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "raw": "losses",
+          "start": 2.53,
+          "end": 2.95
+        },
+        {
+          "raw": "should",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "raw": "endure.",
+          "start": 3.15,
+          "end": 3.49
+        }
+      ],
+      "expected_tokens": [
+        "Messala.",
+        "Even",
+        "so",
+        "great",
+        "men",
+        "great",
+        "losses",
+        "should",
+        "endure."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messala,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "messala",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Even",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "even",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.57,
+          "end": 1.85,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 1.85,
+          "end": 2.07,
+          "key": "great",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 2.07,
+          "end": 2.27,
+          "key": "men",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 2.27,
+          "end": 2.53,
+          "key": "great",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "losses",
+          "start": 2.53,
+          "end": 2.95,
+          "key": "losses",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 2.95,
+          "end": 3.15,
+          "key": "should",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "endure.",
+          "start": 3.15,
+          "end": 3.49,
+          "key": "endure",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messala.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Even",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "so",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "great",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "text": "men",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "text": "great",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "text": "losses",
+          "start": 2.53,
+          "end": 2.95
+        },
+        {
+          "text": "should",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "text": "endure.",
+          "start": 3.15,
+          "end": 3.49
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18945592176169157
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7fd7379d5be4b244c1e1036c5d4c86f6eb35a5cccaa234f416dd4f2c0696e94d",
+  "selected_reasons": []
+}

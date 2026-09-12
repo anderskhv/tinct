@@ -1,0 +1,830 @@
+{
+  "complete": true,
+  "signature": "ef7dfa7e580a1a60e7e85827b6465df7d2d7fbcb3d62cad3f2cf6aac830bd8a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.41407752968370914,
+      "alignment_seconds": 0.00047366879880428314,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lady Capulet. O me, O me! My child, my only life. Revive, look up, or I will die with thee. Help, help! Call help.",
+        "hotwords": "Lady, Capulet, O, Revive, I, Call"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lady Capulet, O me, O me! My child, my only life. Revive, look up, or I will die with thee. Help, help! Call help.",
+          "start": 0.02,
+          "end": 7.8,
+          "words": [
+            {
+              "text": " Lady",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.65966796875
+            },
+            {
+              "text": " Capulet,",
+              "start": 0.62,
+              "end": 1.16,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " O",
+              "start": 1.68,
+              "end": 1.72,
+              "probability": 0.10845947265625
+            },
+            {
+              "text": " me,",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.482177734375
+            },
+            {
+              "text": " O",
+              "start": 2.1,
+              "end": 2.1,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " me!",
+              "start": 2.1,
+              "end": 2.32,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " My",
+              "start": 2.58,
+              "end": 2.7,
+              "probability": 0.79638671875
+            },
+            {
+              "text": " child,",
+              "start": 2.7,
+              "end": 3.02,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " my",
+              "start": 3.16,
+              "end": 3.24,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " only",
+              "start": 3.24,
+              "end": 3.44,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " life.",
+              "start": 3.44,
+              "end": 3.82,
+              "probability": 0.93359375
+            },
+            {
+              "text": " Revive,",
+              "start": 4.4,
+              "end": 4.78,
+              "probability": 0.970703125
+            },
+            {
+              "text": " look",
+              "start": 4.9,
+              "end": 4.98,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " up,",
+              "start": 4.98,
+              "end": 5.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " or",
+              "start": 5.26,
+              "end": 5.32,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 5.32,
+              "end": 5.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " will",
+              "start": 5.44,
+              "end": 5.54,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " die",
+              "start": 5.54,
+              "end": 5.74,
+              "probability": 0.990234375
+            },
+            {
+              "text": " with",
+              "start": 5.74,
+              "end": 5.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thee.",
+              "start": 5.92,
+              "end": 6.14,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Help,",
+              "start": 6.72,
+              "end": 6.88,
+              "probability": 0.984375
+            },
+            {
+              "text": " help!",
+              "start": 7.04,
+              "end": 7.18,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Call",
+              "start": 7.44,
+              "end": 7.46,
+              "probability": 0.810546875
+            },
+            {
+              "text": " help.",
+              "start": 7.46,
+              "end": 7.8,
+              "probability": 0.87841796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "Capulet,",
+          "start": 0.62,
+          "end": 1.16
+        },
+        {
+          "raw": "O",
+          "start": 1.68,
+          "end": 1.72
+        },
+        {
+          "raw": "me,",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "O",
+          "start": 2.1,
+          "end": 2.1
+        },
+        {
+          "raw": "me!",
+          "start": 2.1,
+          "end": 2.32
+        },
+        {
+          "raw": "My",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "raw": "child,",
+          "start": 2.7,
+          "end": 3.02
+        },
+        {
+          "raw": "my",
+          "start": 3.16,
+          "end": 3.24
+        },
+        {
+          "raw": "only",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "raw": "life.",
+          "start": 3.44,
+          "end": 3.82
+        },
+        {
+          "raw": "Revive,",
+          "start": 4.4,
+          "end": 4.78
+        },
+        {
+          "raw": "look",
+          "start": 4.9,
+          "end": 4.98
+        },
+        {
+          "raw": "up,",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "raw": "or",
+          "start": 5.26,
+          "end": 5.32
+        },
+        {
+          "raw": "I",
+          "start": 5.32,
+          "end": 5.44
+        },
+        {
+          "raw": "will",
+          "start": 5.44,
+          "end": 5.54
+        },
+        {
+          "raw": "die",
+          "start": 5.54,
+          "end": 5.74
+        },
+        {
+          "raw": "with",
+          "start": 5.74,
+          "end": 5.92
+        },
+        {
+          "raw": "thee.",
+          "start": 5.92,
+          "end": 6.14
+        },
+        {
+          "raw": "Help,",
+          "start": 6.72,
+          "end": 6.88
+        },
+        {
+          "raw": "help!",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "raw": "Call",
+          "start": 7.44,
+          "end": 7.46
+        },
+        {
+          "raw": "help.",
+          "start": 7.46,
+          "end": 7.8
+        }
+      ],
+      "expected_tokens": [
+        "Lady",
+        "Capulet.",
+        "O",
+        "me,",
+        "O",
+        "me!",
+        "My",
+        "child,",
+        "my",
+        "only",
+        "life.",
+        "Revive,",
+        "look",
+        "up,",
+        "or",
+        "I",
+        "will",
+        "die",
+        "with",
+        "thee.",
+        "Help,",
+        "help!",
+        "Call",
+        "help."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Capulet,",
+          "start": 0.62,
+          "end": 1.16,
+          "key": "capulet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.68,
+          "end": 1.72,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 2.1,
+          "end": 2.1,
+          "key": "o",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me!",
+          "start": 2.1,
+          "end": 2.32,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 2.58,
+          "end": 2.7,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "child,",
+          "start": 2.7,
+          "end": 3.02,
+          "key": "child",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.16,
+          "end": 3.24,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 3.24,
+          "end": 3.44,
+          "key": "only",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "life.",
+          "start": 3.44,
+          "end": 3.82,
+          "key": "life",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Revive,",
+          "start": 4.4,
+          "end": 4.78,
+          "key": "revive",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 4.9,
+          "end": 4.98,
+          "key": "look",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "up,",
+          "start": 4.98,
+          "end": 5.18,
+          "key": "up",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 5.26,
+          "end": 5.32,
+          "key": "or",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.32,
+          "end": 5.44,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.44,
+          "end": 5.54,
+          "key": "will",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "die",
+          "start": 5.54,
+          "end": 5.74,
+          "key": "die",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.74,
+          "end": 5.92,
+          "key": "with",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 5.92,
+          "end": 6.14,
+          "key": "thee",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Help,",
+          "start": 6.72,
+          "end": 6.88,
+          "key": "help",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "help!",
+          "start": 7.04,
+          "end": 7.18,
+          "key": "help",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Call",
+          "start": 7.44,
+          "end": 7.46,
+          "key": "call",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "help.",
+          "start": 7.46,
+          "end": 7.8,
+          "key": "help",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "Capulet.",
+          "start": 0.62,
+          "end": 1.16
+        },
+        {
+          "text": "O",
+          "start": 1.68,
+          "end": 1.72
+        },
+        {
+          "text": "me,",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "O",
+          "start": 2.1,
+          "end": 2.1
+        },
+        {
+          "text": "me!",
+          "start": 2.1,
+          "end": 2.32
+        },
+        {
+          "text": "My",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "text": "child,",
+          "start": 2.7,
+          "end": 3.02
+        },
+        {
+          "text": "my",
+          "start": 3.16,
+          "end": 3.24
+        },
+        {
+          "text": "only",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "text": "life.",
+          "start": 3.44,
+          "end": 3.82
+        },
+        {
+          "text": "Revive,",
+          "start": 4.4,
+          "end": 4.78
+        },
+        {
+          "text": "look",
+          "start": 4.9,
+          "end": 4.98
+        },
+        {
+          "text": "up,",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "text": "or",
+          "start": 5.26,
+          "end": 5.32
+        },
+        {
+          "text": "I",
+          "start": 5.32,
+          "end": 5.44
+        },
+        {
+          "text": "will",
+          "start": 5.44,
+          "end": 5.54
+        },
+        {
+          "text": "die",
+          "start": 5.54,
+          "end": 5.74
+        },
+        {
+          "text": "with",
+          "start": 5.74,
+          "end": 5.92
+        },
+        {
+          "text": "thee.",
+          "start": 5.92,
+          "end": 6.14
+        },
+        {
+          "text": "Help,",
+          "start": 6.72,
+          "end": 6.88
+        },
+        {
+          "text": "help!",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "text": "Call",
+          "start": 7.44,
+          "end": 7.46
+        },
+        {
+          "text": "help.",
+          "start": 7.46,
+          "end": 7.8
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.41475462168455124
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1d27e9ad7aa91387938479d4c185cc6b11354dc3b55b284105ef9add3bab77f6",
+  "selected_reasons": []
+}

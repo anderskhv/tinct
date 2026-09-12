@@ -1,0 +1,5846 @@
+{
+  "complete": true,
+  "signature": "2aed34e9e707e2ceb6cfe68e0b6567f8aa07d2b1741642819d9f09c6d7de3779",
+  "attempts": [
+    {
+      "asr_seconds": 0.5905491260054987,
+      "alignment_seconds": 0.0009084740013349801,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clytemnestra. My guilt thou harpest, o'er and o'er! I bid thee reckon me no more As Agamemnon's spouse. The old Avenger, stern of mood For Atreus and his feast of blood, Hath struck the lord of Atreus' house, And in the semblance of his wife The king hath slain.— Yea, for the murdered children's life, A chieftain's in requital ta'en.",
+        "hotwords": "Clytemnestra, My, I, As, Agamemnon's, Avenger, Atreus, Yea, A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " My guilt thou harpest, o'er and o'er! I bid thee reckon me no more As Agamemnon's spouse. The old Avenger, stern of mood For Atreus and his feast of blood, Hath struck the lord of Atreus' house, And in the semblance of his wife The king hath slain. Yea, for the murdered children's life, A chieftain's in requital ta'en.",
+          "start": 0.0,
+          "end": 21.26,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.0,
+              "end": 0.6,
+              "probability": 0.00035953521728515625
+            },
+            {
+              "text": " guilt",
+              "start": 0.6,
+              "end": 2.08,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " thou",
+              "start": 2.08,
+              "end": 2.32,
+              "probability": 0.76025390625
+            },
+            {
+              "text": " harpest,",
+              "start": 2.32,
+              "end": 2.88,
+              "probability": 0.7298177083333334
+            },
+            {
+              "text": " o",
+              "start": 3.22,
+              "end": 3.22,
+              "probability": 0.69921875
+            },
+            {
+              "text": "'er",
+              "start": 3.22,
+              "end": 3.34,
+              "probability": 0.923828125
+            },
+            {
+              "text": " and",
+              "start": 3.34,
+              "end": 3.48,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " o",
+              "start": 3.48,
+              "end": 3.7,
+              "probability": 0.99267578125
+            },
+            {
+              "text": "'er!",
+              "start": 3.7,
+              "end": 3.92,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " I",
+              "start": 4.36,
+              "end": 4.44,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " bid",
+              "start": 4.44,
+              "end": 4.58,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " thee",
+              "start": 4.58,
+              "end": 4.7,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " reckon",
+              "start": 4.7,
+              "end": 4.94,
+              "probability": 0.953125
+            },
+            {
+              "text": " me",
+              "start": 4.94,
+              "end": 5.12,
+              "probability": 0.99609375
+            },
+            {
+              "text": " no",
+              "start": 5.12,
+              "end": 5.3,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " more",
+              "start": 5.3,
+              "end": 5.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " As",
+              "start": 5.52,
+              "end": 5.72,
+              "probability": 0.16748046875
+            },
+            {
+              "text": " Agamemnon's",
+              "start": 5.72,
+              "end": 6.52,
+              "probability": 0.9623046875
+            },
+            {
+              "text": " spouse.",
+              "start": 6.52,
+              "end": 6.78,
+              "probability": 0.98046875
+            },
+            {
+              "text": " The",
+              "start": 7.52,
+              "end": 7.66,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " old",
+              "start": 7.66,
+              "end": 7.9,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " Avenger,",
+              "start": 7.9,
+              "end": 8.24,
+              "probability": 0.47119140625
+            },
+            {
+              "text": " stern",
+              "start": 8.82,
+              "end": 8.82,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " of",
+              "start": 8.82,
+              "end": 9.04,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " mood",
+              "start": 9.04,
+              "end": 9.24,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " For",
+              "start": 9.24,
+              "end": 9.52,
+              "probability": 0.40771484375
+            },
+            {
+              "text": " Atreus",
+              "start": 9.52,
+              "end": 10.04,
+              "probability": 0.9205729166666666
+            },
+            {
+              "text": " and",
+              "start": 10.04,
+              "end": 10.18,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " his",
+              "start": 10.18,
+              "end": 10.34,
+              "probability": 0.994140625
+            },
+            {
+              "text": " feast",
+              "start": 10.34,
+              "end": 10.5,
+              "probability": 0.916015625
+            },
+            {
+              "text": " of",
+              "start": 10.5,
+              "end": 10.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " blood,",
+              "start": 10.7,
+              "end": 10.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Hath",
+              "start": 11.42,
+              "end": 11.44,
+              "probability": 0.65283203125
+            },
+            {
+              "text": " struck",
+              "start": 11.44,
+              "end": 11.74,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " the",
+              "start": 11.74,
+              "end": 12.0,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " lord",
+              "start": 12.0,
+              "end": 12.22,
+              "probability": 0.66943359375
+            },
+            {
+              "text": " of",
+              "start": 12.22,
+              "end": 12.4,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " Atreus'",
+              "start": 12.4,
+              "end": 12.94,
+              "probability": 0.9959309895833334
+            },
+            {
+              "text": " house,",
+              "start": 13.02,
+              "end": 13.24,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " And",
+              "start": 13.74,
+              "end": 13.86,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " in",
+              "start": 13.86,
+              "end": 13.94,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " the",
+              "start": 13.94,
+              "end": 14.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " semblance",
+              "start": 14.08,
+              "end": 14.32,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " of",
+              "start": 14.32,
+              "end": 14.62,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " his",
+              "start": 14.62,
+              "end": 14.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " wife",
+              "start": 14.76,
+              "end": 15.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " The",
+              "start": 15.04,
+              "end": 15.28,
+              "probability": 0.5078125
+            },
+            {
+              "text": " king",
+              "start": 15.28,
+              "end": 15.48,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " hath",
+              "start": 15.48,
+              "end": 15.68,
+              "probability": 0.990234375
+            },
+            {
+              "text": " slain.",
+              "start": 15.68,
+              "end": 16.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Yea,",
+              "start": 17.04,
+              "end": 17.38,
+              "probability": 0.885009765625
+            },
+            {
+              "text": " for",
+              "start": 17.42,
+              "end": 17.54,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " the",
+              "start": 17.54,
+              "end": 17.7,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " murdered",
+              "start": 17.7,
+              "end": 17.92,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " children's",
+              "start": 17.92,
+              "end": 18.62,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " life,",
+              "start": 18.62,
+              "end": 18.9,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " A",
+              "start": 19.3,
+              "end": 19.34,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " chieftain's",
+              "start": 19.34,
+              "end": 20.0,
+              "probability": 0.680908203125
+            },
+            {
+              "text": " in",
+              "start": 20.0,
+              "end": 20.12,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " requital",
+              "start": 20.12,
+              "end": 20.54,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " ta",
+              "start": 20.54,
+              "end": 20.9,
+              "probability": 0.001674652099609375
+            },
+            {
+              "text": "'en.",
+              "start": 20.9,
+              "end": 21.26,
+              "probability": 0.296356201171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "raw": "guilt",
+          "start": 0.6,
+          "end": 2.08
+        },
+        {
+          "raw": "thou",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "raw": "harpest,",
+          "start": 2.32,
+          "end": 2.88
+        },
+        {
+          "raw": "o",
+          "start": 3.22,
+          "end": 3.22
+        },
+        {
+          "raw": "'er",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "raw": "and",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "raw": "o",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "raw": "'er!",
+          "start": 3.7,
+          "end": 3.92
+        },
+        {
+          "raw": "I",
+          "start": 4.36,
+          "end": 4.44
+        },
+        {
+          "raw": "bid",
+          "start": 4.44,
+          "end": 4.58
+        },
+        {
+          "raw": "thee",
+          "start": 4.58,
+          "end": 4.7
+        },
+        {
+          "raw": "reckon",
+          "start": 4.7,
+          "end": 4.94
+        },
+        {
+          "raw": "me",
+          "start": 4.94,
+          "end": 5.12
+        },
+        {
+          "raw": "no",
+          "start": 5.12,
+          "end": 5.3
+        },
+        {
+          "raw": "more",
+          "start": 5.3,
+          "end": 5.52
+        },
+        {
+          "raw": "As",
+          "start": 5.52,
+          "end": 5.72
+        },
+        {
+          "raw": "Agamemnon's",
+          "start": 5.72,
+          "end": 6.52
+        },
+        {
+          "raw": "spouse.",
+          "start": 6.52,
+          "end": 6.78
+        },
+        {
+          "raw": "The",
+          "start": 7.52,
+          "end": 7.66
+        },
+        {
+          "raw": "old",
+          "start": 7.66,
+          "end": 7.9
+        },
+        {
+          "raw": "Avenger,",
+          "start": 7.9,
+          "end": 8.24
+        },
+        {
+          "raw": "stern",
+          "start": 8.82,
+          "end": 8.82
+        },
+        {
+          "raw": "of",
+          "start": 8.82,
+          "end": 9.04
+        },
+        {
+          "raw": "mood",
+          "start": 9.04,
+          "end": 9.24
+        },
+        {
+          "raw": "For",
+          "start": 9.24,
+          "end": 9.52
+        },
+        {
+          "raw": "Atreus",
+          "start": 9.52,
+          "end": 10.04
+        },
+        {
+          "raw": "and",
+          "start": 10.04,
+          "end": 10.18
+        },
+        {
+          "raw": "his",
+          "start": 10.18,
+          "end": 10.34
+        },
+        {
+          "raw": "feast",
+          "start": 10.34,
+          "end": 10.5
+        },
+        {
+          "raw": "of",
+          "start": 10.5,
+          "end": 10.7
+        },
+        {
+          "raw": "blood,",
+          "start": 10.7,
+          "end": 10.98
+        },
+        {
+          "raw": "Hath",
+          "start": 11.42,
+          "end": 11.44
+        },
+        {
+          "raw": "struck",
+          "start": 11.44,
+          "end": 11.74
+        },
+        {
+          "raw": "the",
+          "start": 11.74,
+          "end": 12.0
+        },
+        {
+          "raw": "lord",
+          "start": 12.0,
+          "end": 12.22
+        },
+        {
+          "raw": "of",
+          "start": 12.22,
+          "end": 12.4
+        },
+        {
+          "raw": "Atreus'",
+          "start": 12.4,
+          "end": 12.94
+        },
+        {
+          "raw": "house,",
+          "start": 13.02,
+          "end": 13.24
+        },
+        {
+          "raw": "And",
+          "start": 13.74,
+          "end": 13.86
+        },
+        {
+          "raw": "in",
+          "start": 13.86,
+          "end": 13.94
+        },
+        {
+          "raw": "the",
+          "start": 13.94,
+          "end": 14.08
+        },
+        {
+          "raw": "semblance",
+          "start": 14.08,
+          "end": 14.32
+        },
+        {
+          "raw": "of",
+          "start": 14.32,
+          "end": 14.62
+        },
+        {
+          "raw": "his",
+          "start": 14.62,
+          "end": 14.76
+        },
+        {
+          "raw": "wife",
+          "start": 14.76,
+          "end": 15.04
+        },
+        {
+          "raw": "The",
+          "start": 15.04,
+          "end": 15.28
+        },
+        {
+          "raw": "king",
+          "start": 15.28,
+          "end": 15.48
+        },
+        {
+          "raw": "hath",
+          "start": 15.48,
+          "end": 15.68
+        },
+        {
+          "raw": "slain.",
+          "start": 15.68,
+          "end": 16.1
+        },
+        {
+          "raw": "Yea,",
+          "start": 17.04,
+          "end": 17.38
+        },
+        {
+          "raw": "for",
+          "start": 17.42,
+          "end": 17.54
+        },
+        {
+          "raw": "the",
+          "start": 17.54,
+          "end": 17.7
+        },
+        {
+          "raw": "murdered",
+          "start": 17.7,
+          "end": 17.92
+        },
+        {
+          "raw": "children's",
+          "start": 17.92,
+          "end": 18.62
+        },
+        {
+          "raw": "life,",
+          "start": 18.62,
+          "end": 18.9
+        },
+        {
+          "raw": "A",
+          "start": 19.3,
+          "end": 19.34
+        },
+        {
+          "raw": "chieftain's",
+          "start": 19.34,
+          "end": 20.0
+        },
+        {
+          "raw": "in",
+          "start": 20.0,
+          "end": 20.12
+        },
+        {
+          "raw": "requital",
+          "start": 20.12,
+          "end": 20.54
+        },
+        {
+          "raw": "ta",
+          "start": 20.54,
+          "end": 20.9
+        },
+        {
+          "raw": "'en.",
+          "start": 20.9,
+          "end": 21.26
+        }
+      ],
+      "expected_tokens": [
+        "Clytemnestra.",
+        "My",
+        "guilt",
+        "thou",
+        "harpest,",
+        "o'er",
+        "and",
+        "o'er!",
+        "I",
+        "bid",
+        "thee",
+        "reckon",
+        "me",
+        "no",
+        "more",
+        "As",
+        "Agamemnon's",
+        "spouse.",
+        "The",
+        "old",
+        "Avenger,",
+        "stern",
+        "of",
+        "mood",
+        "For",
+        "Atreus",
+        "and",
+        "his",
+        "feast",
+        "of",
+        "blood,",
+        "Hath",
+        "struck",
+        "the",
+        "lord",
+        "of",
+        "Atreus'",
+        "house,",
+        "And",
+        "in",
+        "the",
+        "semblance",
+        "of",
+        "his",
+        "wife",
+        "The",
+        "king",
+        "hath",
+        "slain.—",
+        "Yea,",
+        "for",
+        "the",
+        "murdered",
+        "children's",
+        "life,",
+        "A",
+        "chieftain's",
+        "in",
+        "requital",
+        "ta'en."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          5,
+          0,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          4,
+          6
+        ],
+        [
+          "equal",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          59,
+          9,
+          60
+        ],
+        [
+          "replace",
+          59,
+          60,
+          60,
+          62
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          5,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "replace",
+          59,
+          60,
+          60,
+          62
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.0,
+          "end": 0.6,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "guilt",
+          "start": 0.6,
+          "end": 2.08,
+          "key": "guilt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.08,
+          "end": 2.32,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "harpest,",
+          "start": 2.32,
+          "end": 2.88,
+          "key": "harpest",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 3.22,
+          "end": 3.22,
+          "key": "o",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 3.22,
+          "end": 3.34,
+          "key": "er",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.34,
+          "end": 3.48,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 3.48,
+          "end": 3.7,
+          "key": "o",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "'er!",
+          "start": 3.7,
+          "end": 3.92,
+          "key": "er",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.36,
+          "end": 4.44,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bid",
+          "start": 4.44,
+          "end": 4.58,
+          "key": "bid",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.58,
+          "end": 4.7,
+          "key": "thee",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "reckon",
+          "start": 4.7,
+          "end": 4.94,
+          "key": "reckon",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.94,
+          "end": 5.12,
+          "key": "me",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 5.12,
+          "end": 5.3,
+          "key": "no",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 5.3,
+          "end": 5.52,
+          "key": "more",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 5.52,
+          "end": 5.72,
+          "key": "as",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Agamemnon's",
+          "start": 5.72,
+          "end": 6.52,
+          "key": "agamemnons",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "spouse.",
+          "start": 6.52,
+          "end": 6.78,
+          "key": "spouse",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 7.52,
+          "end": 7.66,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 7.66,
+          "end": 7.9,
+          "key": "old",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Avenger,",
+          "start": 7.9,
+          "end": 8.24,
+          "key": "avenger",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "stern",
+          "start": 8.82,
+          "end": 8.82,
+          "key": "stern",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.82,
+          "end": 9.04,
+          "key": "of",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "mood",
+          "start": 9.04,
+          "end": 9.24,
+          "key": "mood",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 9.24,
+          "end": 9.52,
+          "key": "for",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Atreus",
+          "start": 9.52,
+          "end": 10.04,
+          "key": "atreus",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.04,
+          "end": 10.18,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.18,
+          "end": 10.34,
+          "key": "his",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "feast",
+          "start": 10.34,
+          "end": 10.5,
+          "key": "feast",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.5,
+          "end": 10.7,
+          "key": "of",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "blood,",
+          "start": 10.7,
+          "end": 10.98,
+          "key": "blood",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Hath",
+          "start": 11.42,
+          "end": 11.44,
+          "key": "hath",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "struck",
+          "start": 11.44,
+          "end": 11.74,
+          "key": "struck",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.74,
+          "end": 12.0,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 12.0,
+          "end": 12.22,
+          "key": "lord",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.22,
+          "end": 12.4,
+          "key": "of",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Atreus'",
+          "start": 12.4,
+          "end": 12.94,
+          "key": "atreus",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "house,",
+          "start": 13.02,
+          "end": 13.24,
+          "key": "house",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 13.74,
+          "end": 13.86,
+          "key": "and",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.86,
+          "end": 13.94,
+          "key": "in",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.94,
+          "end": 14.08,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "semblance",
+          "start": 14.08,
+          "end": 14.32,
+          "key": "semblance",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.32,
+          "end": 14.62,
+          "key": "of",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 14.62,
+          "end": 14.76,
+          "key": "his",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "wife",
+          "start": 14.76,
+          "end": 15.04,
+          "key": "wife",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 15.04,
+          "end": 15.28,
+          "key": "the",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "king",
+          "start": 15.28,
+          "end": 15.48,
+          "key": "king",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 15.48,
+          "end": 15.68,
+          "key": "hath",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "slain.",
+          "start": 15.68,
+          "end": 16.1,
+          "key": "slain",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Yea,",
+          "start": 17.04,
+          "end": 17.38,
+          "key": "yea",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 17.42,
+          "end": 17.54,
+          "key": "for",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.54,
+          "end": 17.7,
+          "key": "the",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "murdered",
+          "start": 17.7,
+          "end": 17.92,
+          "key": "murdered",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "children's",
+          "start": 17.92,
+          "end": 18.62,
+          "key": "childrens",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "life,",
+          "start": 18.62,
+          "end": 18.9,
+          "key": "life",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 19.3,
+          "end": 19.34,
+          "key": "a",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "chieftain's",
+          "start": 19.34,
+          "end": 20.0,
+          "key": "chieftains",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 20.0,
+          "end": 20.12,
+          "key": "in",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "requital",
+          "start": 20.12,
+          "end": 20.54,
+          "key": "requital",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "ta",
+          "start": 20.54,
+          "end": 20.9,
+          "key": "ta",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "'en.",
+          "start": 20.9,
+          "end": 21.26,
+          "key": "en",
+          "pieces": [
+            61
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clytemnestra.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "My",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "guilt",
+          "start": 0.6,
+          "end": 2.08
+        },
+        {
+          "text": "thou",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "text": "harpest,",
+          "start": 2.32,
+          "end": 2.88
+        },
+        {
+          "text": "o'er",
+          "start": 2.88,
+          "end": 3.11
+        },
+        {
+          "text": "and",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "text": "o'er!",
+          "start": 3.48,
+          "end": 3.92
+        },
+        {
+          "text": "I",
+          "start": 4.36,
+          "end": 4.44
+        },
+        {
+          "text": "bid",
+          "start": 4.44,
+          "end": 4.58
+        },
+        {
+          "text": "thee",
+          "start": 4.58,
+          "end": 4.7
+        },
+        {
+          "text": "reckon",
+          "start": 4.7,
+          "end": 4.94
+        },
+        {
+          "text": "me",
+          "start": 4.94,
+          "end": 5.12
+        },
+        {
+          "text": "no",
+          "start": 5.12,
+          "end": 5.3
+        },
+        {
+          "text": "more",
+          "start": 5.3,
+          "end": 5.52
+        },
+        {
+          "text": "As",
+          "start": 5.52,
+          "end": 5.72
+        },
+        {
+          "text": "Agamemnon's",
+          "start": 5.72,
+          "end": 6.52
+        },
+        {
+          "text": "spouse.",
+          "start": 6.52,
+          "end": 6.78
+        },
+        {
+          "text": "The",
+          "start": 7.52,
+          "end": 7.66
+        },
+        {
+          "text": "old",
+          "start": 7.66,
+          "end": 7.9
+        },
+        {
+          "text": "Avenger,",
+          "start": 7.9,
+          "end": 8.24
+        },
+        {
+          "text": "stern",
+          "start": 8.82,
+          "end": 8.82
+        },
+        {
+          "text": "of",
+          "start": 8.82,
+          "end": 9.04
+        },
+        {
+          "text": "mood",
+          "start": 9.04,
+          "end": 9.24
+        },
+        {
+          "text": "For",
+          "start": 9.24,
+          "end": 9.52
+        },
+        {
+          "text": "Atreus",
+          "start": 9.52,
+          "end": 10.04
+        },
+        {
+          "text": "and",
+          "start": 10.04,
+          "end": 10.18
+        },
+        {
+          "text": "his",
+          "start": 10.18,
+          "end": 10.34
+        },
+        {
+          "text": "feast",
+          "start": 10.34,
+          "end": 10.5
+        },
+        {
+          "text": "of",
+          "start": 10.5,
+          "end": 10.7
+        },
+        {
+          "text": "blood,",
+          "start": 10.7,
+          "end": 10.98
+        },
+        {
+          "text": "Hath",
+          "start": 11.42,
+          "end": 11.44
+        },
+        {
+          "text": "struck",
+          "start": 11.44,
+          "end": 11.74
+        },
+        {
+          "text": "the",
+          "start": 11.74,
+          "end": 12.0
+        },
+        {
+          "text": "lord",
+          "start": 12.0,
+          "end": 12.22
+        },
+        {
+          "text": "of",
+          "start": 12.22,
+          "end": 12.4
+        },
+        {
+          "text": "Atreus'",
+          "start": 12.4,
+          "end": 12.94
+        },
+        {
+          "text": "house,",
+          "start": 13.02,
+          "end": 13.24
+        },
+        {
+          "text": "And",
+          "start": 13.74,
+          "end": 13.86
+        },
+        {
+          "text": "in",
+          "start": 13.86,
+          "end": 13.94
+        },
+        {
+          "text": "the",
+          "start": 13.94,
+          "end": 14.08
+        },
+        {
+          "text": "semblance",
+          "start": 14.08,
+          "end": 14.32
+        },
+        {
+          "text": "of",
+          "start": 14.32,
+          "end": 14.62
+        },
+        {
+          "text": "his",
+          "start": 14.62,
+          "end": 14.76
+        },
+        {
+          "text": "wife",
+          "start": 14.76,
+          "end": 15.04
+        },
+        {
+          "text": "The",
+          "start": 15.04,
+          "end": 15.28
+        },
+        {
+          "text": "king",
+          "start": 15.28,
+          "end": 15.48
+        },
+        {
+          "text": "hath",
+          "start": 15.48,
+          "end": 15.68
+        },
+        {
+          "text": "slain.—",
+          "start": 15.68,
+          "end": 16.1
+        },
+        {
+          "text": "Yea,",
+          "start": 17.04,
+          "end": 17.38
+        },
+        {
+          "text": "for",
+          "start": 17.42,
+          "end": 17.54
+        },
+        {
+          "text": "the",
+          "start": 17.54,
+          "end": 17.7
+        },
+        {
+          "text": "murdered",
+          "start": 17.7,
+          "end": 17.92
+        },
+        {
+          "text": "children's",
+          "start": 17.92,
+          "end": 18.62
+        },
+        {
+          "text": "life,",
+          "start": 18.62,
+          "end": 18.9
+        },
+        {
+          "text": "A",
+          "start": 19.3,
+          "end": 19.34
+        },
+        {
+          "text": "chieftain's",
+          "start": 19.34,
+          "end": 20.0
+        },
+        {
+          "text": "in",
+          "start": 20.0,
+          "end": 20.12
+        },
+        {
+          "text": "requital",
+          "start": 20.12,
+          "end": 20.54
+        },
+        {
+          "text": "ta'en.",
+          "start": 20.54,
+          "end": 20.9
+        }
+      ],
+      "stats": {
+        "expected_words": 60,
+        "heard_words": 62,
+        "matched_words": 56
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.5918851460155565
+    },
+    {
+      "asr_seconds": 0.6562637119786814,
+      "alignment_seconds": 0.0012679389910772443,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Clytemnestra, My, I, As, Agamemnon's, Avenger, Atreus, Yea, A"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " The Old Avenger, stern of mood for Atreus and his feast of blood, hath struck the lord",
+          "start": 6.92,
+          "end": 12.22,
+          "words": [
+            {
+              "text": " The",
+              "start": 6.92,
+              "end": 7.38,
+              "probability": 0.0003581047058105469
+            },
+            {
+              "text": " Old",
+              "start": 7.38,
+              "end": 7.84,
+              "probability": 0.377685546875
+            },
+            {
+              "text": " Avenger,",
+              "start": 7.84,
+              "end": 8.24,
+              "probability": 0.94921875
+            },
+            {
+              "text": " stern",
+              "start": 8.74,
+              "end": 8.82,
+              "probability": 0.9296875
+            },
+            {
+              "text": " of",
+              "start": 8.82,
+              "end": 9.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " mood",
+              "start": 9.02,
+              "end": 9.24,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " for",
+              "start": 9.24,
+              "end": 9.54,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Atreus",
+              "start": 9.54,
+              "end": 10.06,
+              "probability": 0.9152018229166666
+            },
+            {
+              "text": " and",
+              "start": 10.06,
+              "end": 10.18,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " his",
+              "start": 10.18,
+              "end": 10.34,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " feast",
+              "start": 10.34,
+              "end": 10.52,
+              "probability": 0.63916015625
+            },
+            {
+              "text": " of",
+              "start": 10.52,
+              "end": 10.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " blood,",
+              "start": 10.7,
+              "end": 10.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " hath",
+              "start": 11.4,
+              "end": 11.44,
+              "probability": 0.77783203125
+            },
+            {
+              "text": " struck",
+              "start": 11.44,
+              "end": 11.74,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 11.74,
+              "end": 12.0,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " lord",
+              "start": 12.0,
+              "end": 12.22,
+              "probability": 0.6806640625
+            }
+          ]
+        },
+        {
+          "text": " of Atreus' house, and in the semblance of his wife the king hath slain. Yea, for the",
+          "start": 12.22,
+          "end": 17.77,
+          "words": [
+            {
+              "text": " of",
+              "start": 12.22,
+              "end": 12.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Atreus'",
+              "start": 12.4,
+              "end": 12.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " house,",
+              "start": 13.04,
+              "end": 13.24,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 13.7,
+              "end": 13.86,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " in",
+              "start": 13.86,
+              "end": 13.94,
+              "probability": 0.984375
+            },
+            {
+              "text": " the",
+              "start": 13.94,
+              "end": 14.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " semblance",
+              "start": 14.06,
+              "end": 14.34,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " of",
+              "start": 14.34,
+              "end": 14.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 14.62,
+              "end": 14.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wife",
+              "start": 14.74,
+              "end": 15.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 15.04,
+              "end": 15.28,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " king",
+              "start": 15.28,
+              "end": 15.48,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " hath",
+              "start": 15.48,
+              "end": 15.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " slain.",
+              "start": 15.7,
+              "end": 16.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Yea,",
+              "start": 17.06,
+              "end": 17.34,
+              "probability": 0.877685546875
+            },
+            {
+              "text": " for",
+              "start": 17.42,
+              "end": 17.54,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 17.54,
+              "end": 17.77,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " murdered children's life, a chieftains in requital tan.",
+          "start": 17.77,
+          "end": 20.93,
+          "words": [
+            {
+              "text": " murdered",
+              "start": 17.77,
+              "end": 18.03,
+              "probability": 0.322998046875
+            },
+            {
+              "text": " children's",
+              "start": 18.03,
+              "end": 18.63,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " life,",
+              "start": 18.63,
+              "end": 18.95,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " a",
+              "start": 19.29,
+              "end": 19.35,
+              "probability": 0.161376953125
+            },
+            {
+              "text": " chieftains",
+              "start": 19.35,
+              "end": 19.95,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " in",
+              "start": 19.95,
+              "end": 20.13,
+              "probability": 0.970703125
+            },
+            {
+              "text": " requital",
+              "start": 20.13,
+              "end": 20.53,
+              "probability": 0.5989990234375
+            },
+            {
+              "text": " tan.",
+              "start": 20.53,
+              "end": 20.93,
+              "probability": 0.85400390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 6.92,
+          "end": 7.38
+        },
+        {
+          "raw": "Old",
+          "start": 7.38,
+          "end": 7.84
+        },
+        {
+          "raw": "Avenger,",
+          "start": 7.84,
+          "end": 8.24
+        },
+        {
+          "raw": "stern",
+          "start": 8.74,
+          "end": 8.82
+        },
+        {
+          "raw": "of",
+          "start": 8.82,
+          "end": 9.02
+        },
+        {
+          "raw": "mood",
+          "start": 9.02,
+          "end": 9.24
+        },
+        {
+          "raw": "for",
+          "start": 9.24,
+          "end": 9.54
+        },
+        {
+          "raw": "Atreus",
+          "start": 9.54,
+          "end": 10.06
+        },
+        {
+          "raw": "and",
+          "start": 10.06,
+          "end": 10.18
+        },
+        {
+          "raw": "his",
+          "start": 10.18,
+          "end": 10.34
+        },
+        {
+          "raw": "feast",
+          "start": 10.34,
+          "end": 10.52
+        },
+        {
+          "raw": "of",
+          "start": 10.52,
+          "end": 10.7
+        },
+        {
+          "raw": "blood,",
+          "start": 10.7,
+          "end": 10.98
+        },
+        {
+          "raw": "hath",
+          "start": 11.4,
+          "end": 11.44
+        },
+        {
+          "raw": "struck",
+          "start": 11.44,
+          "end": 11.74
+        },
+        {
+          "raw": "the",
+          "start": 11.74,
+          "end": 12.0
+        },
+        {
+          "raw": "lord",
+          "start": 12.0,
+          "end": 12.22
+        },
+        {
+          "raw": "of",
+          "start": 12.22,
+          "end": 12.4
+        },
+        {
+          "raw": "Atreus'",
+          "start": 12.4,
+          "end": 12.94
+        },
+        {
+          "raw": "house,",
+          "start": 13.04,
+          "end": 13.24
+        },
+        {
+          "raw": "and",
+          "start": 13.7,
+          "end": 13.86
+        },
+        {
+          "raw": "in",
+          "start": 13.86,
+          "end": 13.94
+        },
+        {
+          "raw": "the",
+          "start": 13.94,
+          "end": 14.06
+        },
+        {
+          "raw": "semblance",
+          "start": 14.06,
+          "end": 14.34
+        },
+        {
+          "raw": "of",
+          "start": 14.34,
+          "end": 14.62
+        },
+        {
+          "raw": "his",
+          "start": 14.62,
+          "end": 14.74
+        },
+        {
+          "raw": "wife",
+          "start": 14.74,
+          "end": 15.04
+        },
+        {
+          "raw": "the",
+          "start": 15.04,
+          "end": 15.28
+        },
+        {
+          "raw": "king",
+          "start": 15.28,
+          "end": 15.48
+        },
+        {
+          "raw": "hath",
+          "start": 15.48,
+          "end": 15.7
+        },
+        {
+          "raw": "slain.",
+          "start": 15.7,
+          "end": 16.1
+        },
+        {
+          "raw": "Yea,",
+          "start": 17.06,
+          "end": 17.34
+        },
+        {
+          "raw": "for",
+          "start": 17.42,
+          "end": 17.54
+        },
+        {
+          "raw": "the",
+          "start": 17.54,
+          "end": 17.77
+        },
+        {
+          "raw": "murdered",
+          "start": 17.77,
+          "end": 18.03
+        },
+        {
+          "raw": "children's",
+          "start": 18.03,
+          "end": 18.63
+        },
+        {
+          "raw": "life,",
+          "start": 18.63,
+          "end": 18.95
+        },
+        {
+          "raw": "a",
+          "start": 19.29,
+          "end": 19.35
+        },
+        {
+          "raw": "chieftains",
+          "start": 19.35,
+          "end": 19.95
+        },
+        {
+          "raw": "in",
+          "start": 19.95,
+          "end": 20.13
+        },
+        {
+          "raw": "requital",
+          "start": 20.13,
+          "end": 20.53
+        },
+        {
+          "raw": "tan.",
+          "start": 20.53,
+          "end": 20.93
+        }
+      ],
+      "expected_tokens": [
+        "Clytemnestra.",
+        "My",
+        "guilt",
+        "thou",
+        "harpest,",
+        "o'er",
+        "and",
+        "o'er!",
+        "I",
+        "bid",
+        "thee",
+        "reckon",
+        "me",
+        "no",
+        "more",
+        "As",
+        "Agamemnon's",
+        "spouse.",
+        "The",
+        "old",
+        "Avenger,",
+        "stern",
+        "of",
+        "mood",
+        "For",
+        "Atreus",
+        "and",
+        "his",
+        "feast",
+        "of",
+        "blood,",
+        "Hath",
+        "struck",
+        "the",
+        "lord",
+        "of",
+        "Atreus'",
+        "house,",
+        "And",
+        "in",
+        "the",
+        "semblance",
+        "of",
+        "his",
+        "wife",
+        "The",
+        "king",
+        "hath",
+        "slain.—",
+        "Yea,",
+        "for",
+        "the",
+        "murdered",
+        "children's",
+        "life,",
+        "A",
+        "chieftain's",
+        "in",
+        "requital",
+        "ta'en."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          18,
+          0,
+          0
+        ],
+        [
+          "equal",
+          18,
+          59,
+          0,
+          41
+        ],
+        [
+          "replace",
+          59,
+          60,
+          41,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          18,
+          0,
+          0
+        ],
+        [
+          "replace",
+          59,
+          60,
+          41,
+          42
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 6.92,
+          "end": 7.38,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Old",
+          "start": 7.38,
+          "end": 7.84,
+          "key": "old",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Avenger,",
+          "start": 7.84,
+          "end": 8.24,
+          "key": "avenger",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stern",
+          "start": 8.74,
+          "end": 8.82,
+          "key": "stern",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.82,
+          "end": 9.02,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mood",
+          "start": 9.02,
+          "end": 9.24,
+          "key": "mood",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 9.24,
+          "end": 9.54,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Atreus",
+          "start": 9.54,
+          "end": 10.06,
+          "key": "atreus",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.06,
+          "end": 10.18,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.18,
+          "end": 10.34,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "feast",
+          "start": 10.34,
+          "end": 10.52,
+          "key": "feast",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.52,
+          "end": 10.7,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "blood,",
+          "start": 10.7,
+          "end": 10.98,
+          "key": "blood",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 11.4,
+          "end": 11.44,
+          "key": "hath",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "struck",
+          "start": 11.44,
+          "end": 11.74,
+          "key": "struck",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.74,
+          "end": 12.0,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 12.0,
+          "end": 12.22,
+          "key": "lord",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.22,
+          "end": 12.4,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Atreus'",
+          "start": 12.4,
+          "end": 12.94,
+          "key": "atreus",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "house,",
+          "start": 13.04,
+          "end": 13.24,
+          "key": "house",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.7,
+          "end": 13.86,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.86,
+          "end": 13.94,
+          "key": "in",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.94,
+          "end": 14.06,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "semblance",
+          "start": 14.06,
+          "end": 14.34,
+          "key": "semblance",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.34,
+          "end": 14.62,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 14.62,
+          "end": 14.74,
+          "key": "his",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "wife",
+          "start": 14.74,
+          "end": 15.04,
+          "key": "wife",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.04,
+          "end": 15.28,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "king",
+          "start": 15.28,
+          "end": 15.48,
+          "key": "king",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 15.48,
+          "end": 15.7,
+          "key": "hath",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "slain.",
+          "start": 15.7,
+          "end": 16.1,
+          "key": "slain",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Yea,",
+          "start": 17.06,
+          "end": 17.34,
+          "key": "yea",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 17.42,
+          "end": 17.54,
+          "key": "for",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.54,
+          "end": 17.77,
+          "key": "the",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "murdered",
+          "start": 17.77,
+          "end": 18.03,
+          "key": "murdered",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "children's",
+          "start": 18.03,
+          "end": 18.63,
+          "key": "childrens",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "life,",
+          "start": 18.63,
+          "end": 18.95,
+          "key": "life",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.29,
+          "end": 19.35,
+          "key": "a",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "chieftains",
+          "start": 19.35,
+          "end": 19.95,
+          "key": "chieftains",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 19.95,
+          "end": 20.13,
+          "key": "in",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "requital",
+          "start": 20.13,
+          "end": 20.53,
+          "key": "requital",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "tan.",
+          "start": 20.53,
+          "end": 20.93,
+          "key": "tan",
+          "pieces": [
+            41
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clytemnestra.",
+          "start": 0.0,
+          "end": 3.46
+        },
+        {
+          "text": "My",
+          "start": 3.46,
+          "end": 5.19
+        },
+        {
+          "text": "guilt",
+          "start": 5.19,
+          "end": 6.055
+        },
+        {
+          "text": "thou",
+          "start": 6.055,
+          "end": 6.487
+        },
+        {
+          "text": "harpest,",
+          "start": 6.487,
+          "end": 6.704
+        },
+        {
+          "text": "o'er",
+          "start": 6.704,
+          "end": 6.812
+        },
+        {
+          "text": "and",
+          "start": 6.812,
+          "end": 6.866
+        },
+        {
+          "text": "o'er!",
+          "start": 6.866,
+          "end": 6.893
+        },
+        {
+          "text": "I",
+          "start": 6.893,
+          "end": 6.906
+        },
+        {
+          "text": "bid",
+          "start": 6.906,
+          "end": 6.913
+        },
+        {
+          "text": "thee",
+          "start": 6.913,
+          "end": 6.917
+        },
+        {
+          "text": "reckon",
+          "start": 6.917,
+          "end": 6.918
+        },
+        {
+          "text": "me",
+          "start": 6.918,
+          "end": 6.919
+        },
+        {
+          "text": "no",
+          "start": 6.919,
+          "end": 6.919
+        },
+        {
+          "text": "more",
+          "start": 6.919,
+          "end": 6.919
+        },
+        {
+          "text": "As",
+          "start": 6.919,
+          "end": 6.919
+        },
+        {
+          "text": "Agamemnon's",
+          "start": 6.919,
+          "end": 6.919
+        },
+        {
+          "text": "spouse.",
+          "start": 6.919,
+          "end": 6.919
+        },
+        {
+          "text": "The",
+          "start": 6.92,
+          "end": 7.38
+        },
+        {
+          "text": "old",
+          "start": 7.38,
+          "end": 7.84
+        },
+        {
+          "text": "Avenger,",
+          "start": 7.84,
+          "end": 8.24
+        },
+        {
+          "text": "stern",
+          "start": 8.74,
+          "end": 8.82
+        },
+        {
+          "text": "of",
+          "start": 8.82,
+          "end": 9.02
+        },
+        {
+          "text": "mood",
+          "start": 9.02,
+          "end": 9.24
+        },
+        {
+          "text": "For",
+          "start": 9.24,
+          "end": 9.54
+        },
+        {
+          "text": "Atreus",
+          "start": 9.54,
+          "end": 10.06
+        },
+        {
+          "text": "and",
+          "start": 10.06,
+          "end": 10.18
+        },
+        {
+          "text": "his",
+          "start": 10.18,
+          "end": 10.34
+        },
+        {
+          "text": "feast",
+          "start": 10.34,
+          "end": 10.52
+        },
+        {
+          "text": "of",
+          "start": 10.52,
+          "end": 10.7
+        },
+        {
+          "text": "blood,",
+          "start": 10.7,
+          "end": 10.98
+        },
+        {
+          "text": "Hath",
+          "start": 11.4,
+          "end": 11.44
+        },
+        {
+          "text": "struck",
+          "start": 11.44,
+          "end": 11.74
+        },
+        {
+          "text": "the",
+          "start": 11.74,
+          "end": 12.0
+        },
+        {
+          "text": "lord",
+          "start": 12.0,
+          "end": 12.22
+        },
+        {
+          "text": "of",
+          "start": 12.22,
+          "end": 12.4
+        },
+        {
+          "text": "Atreus'",
+          "start": 12.4,
+          "end": 12.94
+        },
+        {
+          "text": "house,",
+          "start": 13.04,
+          "end": 13.24
+        },
+        {
+          "text": "And",
+          "start": 13.7,
+          "end": 13.86
+        },
+        {
+          "text": "in",
+          "start": 13.86,
+          "end": 13.94
+        },
+        {
+          "text": "the",
+          "start": 13.94,
+          "end": 14.06
+        },
+        {
+          "text": "semblance",
+          "start": 14.06,
+          "end": 14.34
+        },
+        {
+          "text": "of",
+          "start": 14.34,
+          "end": 14.62
+        },
+        {
+          "text": "his",
+          "start": 14.62,
+          "end": 14.74
+        },
+        {
+          "text": "wife",
+          "start": 14.74,
+          "end": 15.04
+        },
+        {
+          "text": "The",
+          "start": 15.04,
+          "end": 15.28
+        },
+        {
+          "text": "king",
+          "start": 15.28,
+          "end": 15.48
+        },
+        {
+          "text": "hath",
+          "start": 15.48,
+          "end": 15.7
+        },
+        {
+          "text": "slain.—",
+          "start": 15.7,
+          "end": 16.1
+        },
+        {
+          "text": "Yea,",
+          "start": 17.06,
+          "end": 17.34
+        },
+        {
+          "text": "for",
+          "start": 17.42,
+          "end": 17.54
+        },
+        {
+          "text": "the",
+          "start": 17.54,
+          "end": 17.77
+        },
+        {
+          "text": "murdered",
+          "start": 17.77,
+          "end": 18.03
+        },
+        {
+          "text": "children's",
+          "start": 18.03,
+          "end": 18.63
+        },
+        {
+          "text": "life,",
+          "start": 18.63,
+          "end": 18.95
+        },
+        {
+          "text": "A",
+          "start": 19.29,
+          "end": 19.35
+        },
+        {
+          "text": "chieftain's",
+          "start": 19.35,
+          "end": 19.95
+        },
+        {
+          "text": "in",
+          "start": 19.95,
+          "end": 20.13
+        },
+        {
+          "text": "requital",
+          "start": 20.13,
+          "end": 20.53
+        },
+        {
+          "text": "ta'en.",
+          "start": 20.53,
+          "end": 20.73
+        }
+      ],
+      "stats": {
+        "expected_words": 60,
+        "heard_words": 42,
+        "matched_words": 41
+      },
+      "match_ratio": 0.6833333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.6579555929929484
+    },
+    {
+      "asr_seconds": 0.7276792610064149,
+      "alignment_seconds": 0.0011081139964517206,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clytemnestra, my guilt thou harpist, o'er and o'er, I bid thee reckon me no more as",
+          "start": 0.82,
+          "end": 5.72,
+          "words": [
+            {
+              "text": " Clytemnestra,",
+              "start": 0.82,
+              "end": 1.28,
+              "probability": 0.79002685546875
+            },
+            {
+              "text": " my",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.79150390625
+            },
+            {
+              "text": " guilt",
+              "start": 1.88,
+              "end": 2.08,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " thou",
+              "start": 2.08,
+              "end": 2.32,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " harpist,",
+              "start": 2.32,
+              "end": 2.9,
+              "probability": 0.8060709635416666
+            },
+            {
+              "text": " o",
+              "start": 3.22,
+              "end": 3.22,
+              "probability": 0.72900390625
+            },
+            {
+              "text": "'er",
+              "start": 3.22,
+              "end": 3.34,
+              "probability": 0.875
+            },
+            {
+              "text": " and",
+              "start": 3.34,
+              "end": 3.48,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " o",
+              "start": 3.48,
+              "end": 3.7,
+              "probability": 0.9921875
+            },
+            {
+              "text": "'er,",
+              "start": 3.7,
+              "end": 3.92,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I",
+              "start": 4.36,
+              "end": 4.44,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " bid",
+              "start": 4.44,
+              "end": 4.58,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " thee",
+              "start": 4.58,
+              "end": 4.7,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " reckon",
+              "start": 4.7,
+              "end": 4.94,
+              "probability": 0.966796875
+            },
+            {
+              "text": " me",
+              "start": 4.94,
+              "end": 5.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " no",
+              "start": 5.12,
+              "end": 5.3,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " more",
+              "start": 5.3,
+              "end": 5.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " as",
+              "start": 5.52,
+              "end": 5.72,
+              "probability": 0.96728515625
+            }
+          ]
+        },
+        {
+          "text": " Agamemnon's spouse.",
+          "start": 5.72,
+          "end": 6.8,
+          "words": [
+            {
+              "text": " Agamemnon's",
+              "start": 5.72,
+              "end": 6.5,
+              "probability": 0.97744140625
+            },
+            {
+              "text": " spouse.",
+              "start": 6.5,
+              "end": 6.8,
+              "probability": 0.986328125
+            }
+          ]
+        },
+        {
+          "text": " The old avenger, stern of mood for Atreus and his feast of blood, hath struck the lord",
+          "start": 7.5,
+          "end": 12.22,
+          "words": [
+            {
+              "text": " The",
+              "start": 7.5,
+              "end": 7.68,
+              "probability": 0.974609375
+            },
+            {
+              "text": " old",
+              "start": 7.68,
+              "end": 7.9,
+              "probability": 0.80859375
+            },
+            {
+              "text": " avenger,",
+              "start": 7.9,
+              "end": 8.36,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " stern",
+              "start": 8.8,
+              "end": 8.82,
+              "probability": 0.984375
+            },
+            {
+              "text": " of",
+              "start": 8.82,
+              "end": 9.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mood",
+              "start": 9.04,
+              "end": 9.24,
+              "probability": 0.98828125
+            },
+            {
+              "text": " for",
+              "start": 9.24,
+              "end": 9.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Atreus",
+              "start": 9.54,
+              "end": 10.04,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " and",
+              "start": 10.04,
+              "end": 10.18,
+              "probability": 0.9921875
+            },
+            {
+              "text": " his",
+              "start": 10.18,
+              "end": 10.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " feast",
+              "start": 10.34,
+              "end": 10.52,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " of",
+              "start": 10.52,
+              "end": 10.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " blood,",
+              "start": 10.7,
+              "end": 10.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hath",
+              "start": 11.4,
+              "end": 11.46,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " struck",
+              "start": 11.46,
+              "end": 11.74,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 11.74,
+              "end": 12.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lord",
+              "start": 12.0,
+              "end": 12.22,
+              "probability": 0.78857421875
+            }
+          ]
+        },
+        {
+          "text": " of Atreus' house, and in the semblance of his wife the king hath slain.",
+          "start": 12.22,
+          "end": 16.1,
+          "words": [
+            {
+              "text": " of",
+              "start": 12.22,
+              "end": 12.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Atreus'",
+              "start": 12.4,
+              "end": 12.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " house,",
+              "start": 12.98,
+              "end": 13.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 13.72,
+              "end": 13.86,
+              "probability": 0.98828125
+            },
+            {
+              "text": " in",
+              "start": 13.86,
+              "end": 13.96,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 13.96,
+              "end": 14.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " semblance",
+              "start": 14.08,
+              "end": 14.34,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " of",
+              "start": 14.34,
+              "end": 14.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 14.62,
+              "end": 14.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wife",
+              "start": 14.76,
+              "end": 15.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 15.04,
+              "end": 15.28,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " king",
+              "start": 15.28,
+              "end": 15.5,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " hath",
+              "start": 15.5,
+              "end": 15.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " slain.",
+              "start": 15.7,
+              "end": 16.1,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Yea, for the murdered children's life, a chieftain's in requital tan.",
+          "start": 17.06,
+          "end": 20.94,
+          "words": [
+            {
+              "text": " Yea,",
+              "start": 17.06,
+              "end": 17.34,
+              "probability": 0.882568359375
+            },
+            {
+              "text": " for",
+              "start": 17.42,
+              "end": 17.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 17.54,
+              "end": 17.68,
+              "probability": 0.9921875
+            },
+            {
+              "text": " murdered",
+              "start": 17.68,
+              "end": 17.92,
+              "probability": 0.9765625
+            },
+            {
+              "text": " children's",
+              "start": 17.92,
+              "end": 18.6,
+              "probability": 0.986083984375
+            },
+            {
+              "text": " life,",
+              "start": 18.6,
+              "end": 18.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 19.32,
+              "end": 19.32,
+              "probability": 0.29638671875
+            },
+            {
+              "text": " chieftain's",
+              "start": 19.32,
+              "end": 20.0,
+              "probability": 0.8758544921875
+            },
+            {
+              "text": " in",
+              "start": 20.0,
+              "end": 20.12,
+              "probability": 0.990234375
+            },
+            {
+              "text": " requital",
+              "start": 20.12,
+              "end": 20.54,
+              "probability": 0.885498046875
+            },
+            {
+              "text": " tan.",
+              "start": 20.54,
+              "end": 20.94,
+              "probability": 0.9306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clytemnestra,",
+          "start": 0.82,
+          "end": 1.28
+        },
+        {
+          "raw": "my",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": "guilt",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "raw": "thou",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "raw": "harpist,",
+          "start": 2.32,
+          "end": 2.9
+        },
+        {
+          "raw": "o",
+          "start": 3.22,
+          "end": 3.22
+        },
+        {
+          "raw": "'er",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "raw": "and",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "raw": "o",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "raw": "'er,",
+          "start": 3.7,
+          "end": 3.92
+        },
+        {
+          "raw": "I",
+          "start": 4.36,
+          "end": 4.44
+        },
+        {
+          "raw": "bid",
+          "start": 4.44,
+          "end": 4.58
+        },
+        {
+          "raw": "thee",
+          "start": 4.58,
+          "end": 4.7
+        },
+        {
+          "raw": "reckon",
+          "start": 4.7,
+          "end": 4.94
+        },
+        {
+          "raw": "me",
+          "start": 4.94,
+          "end": 5.12
+        },
+        {
+          "raw": "no",
+          "start": 5.12,
+          "end": 5.3
+        },
+        {
+          "raw": "more",
+          "start": 5.3,
+          "end": 5.52
+        },
+        {
+          "raw": "as",
+          "start": 5.52,
+          "end": 5.72
+        },
+        {
+          "raw": "Agamemnon's",
+          "start": 5.72,
+          "end": 6.5
+        },
+        {
+          "raw": "spouse.",
+          "start": 6.5,
+          "end": 6.8
+        },
+        {
+          "raw": "The",
+          "start": 7.5,
+          "end": 7.68
+        },
+        {
+          "raw": "old",
+          "start": 7.68,
+          "end": 7.9
+        },
+        {
+          "raw": "avenger,",
+          "start": 7.9,
+          "end": 8.36
+        },
+        {
+          "raw": "stern",
+          "start": 8.8,
+          "end": 8.82
+        },
+        {
+          "raw": "of",
+          "start": 8.82,
+          "end": 9.04
+        },
+        {
+          "raw": "mood",
+          "start": 9.04,
+          "end": 9.24
+        },
+        {
+          "raw": "for",
+          "start": 9.24,
+          "end": 9.54
+        },
+        {
+          "raw": "Atreus",
+          "start": 9.54,
+          "end": 10.04
+        },
+        {
+          "raw": "and",
+          "start": 10.04,
+          "end": 10.18
+        },
+        {
+          "raw": "his",
+          "start": 10.18,
+          "end": 10.34
+        },
+        {
+          "raw": "feast",
+          "start": 10.34,
+          "end": 10.52
+        },
+        {
+          "raw": "of",
+          "start": 10.52,
+          "end": 10.7
+        },
+        {
+          "raw": "blood,",
+          "start": 10.7,
+          "end": 10.98
+        },
+        {
+          "raw": "hath",
+          "start": 11.4,
+          "end": 11.46
+        },
+        {
+          "raw": "struck",
+          "start": 11.46,
+          "end": 11.74
+        },
+        {
+          "raw": "the",
+          "start": 11.74,
+          "end": 12.0
+        },
+        {
+          "raw": "lord",
+          "start": 12.0,
+          "end": 12.22
+        },
+        {
+          "raw": "of",
+          "start": 12.22,
+          "end": 12.4
+        },
+        {
+          "raw": "Atreus'",
+          "start": 12.4,
+          "end": 12.94
+        },
+        {
+          "raw": "house,",
+          "start": 12.98,
+          "end": 13.24
+        },
+        {
+          "raw": "and",
+          "start": 13.72,
+          "end": 13.86
+        },
+        {
+          "raw": "in",
+          "start": 13.86,
+          "end": 13.96
+        },
+        {
+          "raw": "the",
+          "start": 13.96,
+          "end": 14.08
+        },
+        {
+          "raw": "semblance",
+          "start": 14.08,
+          "end": 14.34
+        },
+        {
+          "raw": "of",
+          "start": 14.34,
+          "end": 14.62
+        },
+        {
+          "raw": "his",
+          "start": 14.62,
+          "end": 14.76
+        },
+        {
+          "raw": "wife",
+          "start": 14.76,
+          "end": 15.04
+        },
+        {
+          "raw": "the",
+          "start": 15.04,
+          "end": 15.28
+        },
+        {
+          "raw": "king",
+          "start": 15.28,
+          "end": 15.5
+        },
+        {
+          "raw": "hath",
+          "start": 15.5,
+          "end": 15.7
+        },
+        {
+          "raw": "slain.",
+          "start": 15.7,
+          "end": 16.1
+        },
+        {
+          "raw": "Yea,",
+          "start": 17.06,
+          "end": 17.34
+        },
+        {
+          "raw": "for",
+          "start": 17.42,
+          "end": 17.54
+        },
+        {
+          "raw": "the",
+          "start": 17.54,
+          "end": 17.68
+        },
+        {
+          "raw": "murdered",
+          "start": 17.68,
+          "end": 17.92
+        },
+        {
+          "raw": "children's",
+          "start": 17.92,
+          "end": 18.6
+        },
+        {
+          "raw": "life,",
+          "start": 18.6,
+          "end": 18.9
+        },
+        {
+          "raw": "a",
+          "start": 19.32,
+          "end": 19.32
+        },
+        {
+          "raw": "chieftain's",
+          "start": 19.32,
+          "end": 20.0
+        },
+        {
+          "raw": "in",
+          "start": 20.0,
+          "end": 20.12
+        },
+        {
+          "raw": "requital",
+          "start": 20.12,
+          "end": 20.54
+        },
+        {
+          "raw": "tan.",
+          "start": 20.54,
+          "end": 20.94
+        }
+      ],
+      "expected_tokens": [
+        "Clytemnestra.",
+        "My",
+        "guilt",
+        "thou",
+        "harpest,",
+        "o'er",
+        "and",
+        "o'er!",
+        "I",
+        "bid",
+        "thee",
+        "reckon",
+        "me",
+        "no",
+        "more",
+        "As",
+        "Agamemnon's",
+        "spouse.",
+        "The",
+        "old",
+        "Avenger,",
+        "stern",
+        "of",
+        "mood",
+        "For",
+        "Atreus",
+        "and",
+        "his",
+        "feast",
+        "of",
+        "blood,",
+        "Hath",
+        "struck",
+        "the",
+        "lord",
+        "of",
+        "Atreus'",
+        "house,",
+        "And",
+        "in",
+        "the",
+        "semblance",
+        "of",
+        "his",
+        "wife",
+        "The",
+        "king",
+        "hath",
+        "slain.—",
+        "Yea,",
+        "for",
+        "the",
+        "murdered",
+        "children's",
+        "life,",
+        "A",
+        "chieftain's",
+        "in",
+        "requital",
+        "ta'en."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          7
+        ],
+        [
+          "equal",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          10
+        ],
+        [
+          "equal",
+          8,
+          59,
+          10,
+          61
+        ],
+        [
+          "replace",
+          59,
+          60,
+          61,
+          62
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          6,
+          4,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          10
+        ],
+        [
+          "replace",
+          59,
+          60,
+          61,
+          62
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clytemnestra,",
+          "start": 0.82,
+          "end": 1.28,
+          "key": "clytemnestra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "guilt",
+          "start": 1.88,
+          "end": 2.08,
+          "key": "guilt",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.08,
+          "end": 2.32,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "harpist,",
+          "start": 2.32,
+          "end": 2.9,
+          "key": "harpist",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 3.22,
+          "end": 3.22,
+          "key": "o",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 3.22,
+          "end": 3.34,
+          "key": "er",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.34,
+          "end": 3.48,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 3.48,
+          "end": 3.7,
+          "key": "o",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "'er,",
+          "start": 3.7,
+          "end": 3.92,
+          "key": "er",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.36,
+          "end": 4.44,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bid",
+          "start": 4.44,
+          "end": 4.58,
+          "key": "bid",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.58,
+          "end": 4.7,
+          "key": "thee",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "reckon",
+          "start": 4.7,
+          "end": 4.94,
+          "key": "reckon",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.94,
+          "end": 5.12,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 5.12,
+          "end": 5.3,
+          "key": "no",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 5.3,
+          "end": 5.52,
+          "key": "more",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.52,
+          "end": 5.72,
+          "key": "as",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Agamemnon's",
+          "start": 5.72,
+          "end": 6.5,
+          "key": "agamemnons",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "spouse.",
+          "start": 6.5,
+          "end": 6.8,
+          "key": "spouse",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 7.5,
+          "end": 7.68,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 7.68,
+          "end": 7.9,
+          "key": "old",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "avenger,",
+          "start": 7.9,
+          "end": 8.36,
+          "key": "avenger",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "stern",
+          "start": 8.8,
+          "end": 8.82,
+          "key": "stern",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.82,
+          "end": 9.04,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "mood",
+          "start": 9.04,
+          "end": 9.24,
+          "key": "mood",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 9.24,
+          "end": 9.54,
+          "key": "for",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Atreus",
+          "start": 9.54,
+          "end": 10.04,
+          "key": "atreus",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.04,
+          "end": 10.18,
+          "key": "and",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.18,
+          "end": 10.34,
+          "key": "his",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "feast",
+          "start": 10.34,
+          "end": 10.52,
+          "key": "feast",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.52,
+          "end": 10.7,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "blood,",
+          "start": 10.7,
+          "end": 10.98,
+          "key": "blood",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 11.4,
+          "end": 11.46,
+          "key": "hath",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "struck",
+          "start": 11.46,
+          "end": 11.74,
+          "key": "struck",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.74,
+          "end": 12.0,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 12.0,
+          "end": 12.22,
+          "key": "lord",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.22,
+          "end": 12.4,
+          "key": "of",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Atreus'",
+          "start": 12.4,
+          "end": 12.94,
+          "key": "atreus",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "house,",
+          "start": 12.98,
+          "end": 13.24,
+          "key": "house",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.72,
+          "end": 13.86,
+          "key": "and",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.86,
+          "end": 13.96,
+          "key": "in",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.96,
+          "end": 14.08,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "semblance",
+          "start": 14.08,
+          "end": 14.34,
+          "key": "semblance",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.34,
+          "end": 14.62,
+          "key": "of",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 14.62,
+          "end": 14.76,
+          "key": "his",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "wife",
+          "start": 14.76,
+          "end": 15.04,
+          "key": "wife",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.04,
+          "end": 15.28,
+          "key": "the",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "king",
+          "start": 15.28,
+          "end": 15.5,
+          "key": "king",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 15.5,
+          "end": 15.7,
+          "key": "hath",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "slain.",
+          "start": 15.7,
+          "end": 16.1,
+          "key": "slain",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Yea,",
+          "start": 17.06,
+          "end": 17.34,
+          "key": "yea",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 17.42,
+          "end": 17.54,
+          "key": "for",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.54,
+          "end": 17.68,
+          "key": "the",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "murdered",
+          "start": 17.68,
+          "end": 17.92,
+          "key": "murdered",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "children's",
+          "start": 17.92,
+          "end": 18.6,
+          "key": "childrens",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "life,",
+          "start": 18.6,
+          "end": 18.9,
+          "key": "life",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.32,
+          "end": 19.32,
+          "key": "a",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "chieftain's",
+          "start": 19.32,
+          "end": 20.0,
+          "key": "chieftains",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 20.0,
+          "end": 20.12,
+          "key": "in",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "requital",
+          "start": 20.12,
+          "end": 20.54,
+          "key": "requital",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "tan.",
+          "start": 20.54,
+          "end": 20.94,
+          "key": "tan",
+          "pieces": [
+            61
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clytemnestra.",
+          "start": 0.82,
+          "end": 1.28
+        },
+        {
+          "text": "My",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "text": "guilt",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "text": "thou",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "text": "harpest,",
+          "start": 2.32,
+          "end": 2.83
+        },
+        {
+          "text": "o'er",
+          "start": 2.83,
+          "end": 3.085
+        },
+        {
+          "text": "and",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "text": "o'er!",
+          "start": 3.48,
+          "end": 3.92
+        },
+        {
+          "text": "I",
+          "start": 4.36,
+          "end": 4.44
+        },
+        {
+          "text": "bid",
+          "start": 4.44,
+          "end": 4.58
+        },
+        {
+          "text": "thee",
+          "start": 4.58,
+          "end": 4.7
+        },
+        {
+          "text": "reckon",
+          "start": 4.7,
+          "end": 4.94
+        },
+        {
+          "text": "me",
+          "start": 4.94,
+          "end": 5.12
+        },
+        {
+          "text": "no",
+          "start": 5.12,
+          "end": 5.3
+        },
+        {
+          "text": "more",
+          "start": 5.3,
+          "end": 5.52
+        },
+        {
+          "text": "As",
+          "start": 5.52,
+          "end": 5.72
+        },
+        {
+          "text": "Agamemnon's",
+          "start": 5.72,
+          "end": 6.5
+        },
+        {
+          "text": "spouse.",
+          "start": 6.5,
+          "end": 6.8
+        },
+        {
+          "text": "The",
+          "start": 7.5,
+          "end": 7.68
+        },
+        {
+          "text": "old",
+          "start": 7.68,
+          "end": 7.9
+        },
+        {
+          "text": "Avenger,",
+          "start": 7.9,
+          "end": 8.36
+        },
+        {
+          "text": "stern",
+          "start": 8.8,
+          "end": 8.82
+        },
+        {
+          "text": "of",
+          "start": 8.82,
+          "end": 9.04
+        },
+        {
+          "text": "mood",
+          "start": 9.04,
+          "end": 9.24
+        },
+        {
+          "text": "For",
+          "start": 9.24,
+          "end": 9.54
+        },
+        {
+          "text": "Atreus",
+          "start": 9.54,
+          "end": 10.04
+        },
+        {
+          "text": "and",
+          "start": 10.04,
+          "end": 10.18
+        },
+        {
+          "text": "his",
+          "start": 10.18,
+          "end": 10.34
+        },
+        {
+          "text": "feast",
+          "start": 10.34,
+          "end": 10.52
+        },
+        {
+          "text": "of",
+          "start": 10.52,
+          "end": 10.7
+        },
+        {
+          "text": "blood,",
+          "start": 10.7,
+          "end": 10.98
+        },
+        {
+          "text": "Hath",
+          "start": 11.4,
+          "end": 11.46
+        },
+        {
+          "text": "struck",
+          "start": 11.46,
+          "end": 11.74
+        },
+        {
+          "text": "the",
+          "start": 11.74,
+          "end": 12.0
+        },
+        {
+          "text": "lord",
+          "start": 12.0,
+          "end": 12.22
+        },
+        {
+          "text": "of",
+          "start": 12.22,
+          "end": 12.4
+        },
+        {
+          "text": "Atreus'",
+          "start": 12.4,
+          "end": 12.94
+        },
+        {
+          "text": "house,",
+          "start": 12.98,
+          "end": 13.24
+        },
+        {
+          "text": "And",
+          "start": 13.72,
+          "end": 13.86
+        },
+        {
+          "text": "in",
+          "start": 13.86,
+          "end": 13.96
+        },
+        {
+          "text": "the",
+          "start": 13.96,
+          "end": 14.08
+        },
+        {
+          "text": "semblance",
+          "start": 14.08,
+          "end": 14.34
+        },
+        {
+          "text": "of",
+          "start": 14.34,
+          "end": 14.62
+        },
+        {
+          "text": "his",
+          "start": 14.62,
+          "end": 14.76
+        },
+        {
+          "text": "wife",
+          "start": 14.76,
+          "end": 15.04
+        },
+        {
+          "text": "The",
+          "start": 15.04,
+          "end": 15.28
+        },
+        {
+          "text": "king",
+          "start": 15.28,
+          "end": 15.5
+        },
+        {
+          "text": "hath",
+          "start": 15.5,
+          "end": 15.7
+        },
+        {
+          "text": "slain.—",
+          "start": 15.7,
+          "end": 16.1
+        },
+        {
+          "text": "Yea,",
+          "start": 17.06,
+          "end": 17.34
+        },
+        {
+          "text": "for",
+          "start": 17.42,
+          "end": 17.54
+        },
+        {
+          "text": "the",
+          "start": 17.54,
+          "end": 17.68
+        },
+        {
+          "text": "murdered",
+          "start": 17.68,
+          "end": 17.92
+        },
+        {
+          "text": "children's",
+          "start": 17.92,
+          "end": 18.6
+        },
+        {
+          "text": "life,",
+          "start": 18.6,
+          "end": 18.9
+        },
+        {
+          "text": "A",
+          "start": 19.32,
+          "end": 19.32
+        },
+        {
+          "text": "chieftain's",
+          "start": 19.32,
+          "end": 20.0
+        },
+        {
+          "text": "in",
+          "start": 20.0,
+          "end": 20.12
+        },
+        {
+          "text": "requital",
+          "start": 20.12,
+          "end": 20.54
+        },
+        {
+          "text": "ta'en.",
+          "start": 20.54,
+          "end": 20.74
+        }
+      ],
+      "stats": {
+        "expected_words": 60,
+        "heard_words": 62,
+        "matched_words": 56
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.7292644809931517
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "06cca444f479d09bb2a01cfae2c97594fbaa433ca0b093a5aa951c987a62d5eb",
+  "selected_reasons": []
+}

@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "d6384aa8258bfe389fa76f7d2aa199a493f9b72b56f88d61d27523e34a189ee7",
+  "attempts": [
+    {
+      "asr_seconds": 0.11393345426768064,
+      "alignment_seconds": 0.00030487170442938805,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pip ma'am",
+          "start": 0.05,
+          "end": 1.31,
+          "words": [
+            {
+              "text": " Pip",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.87109375
+            },
+            {
+              "text": " ma",
+              "start": 0.57,
+              "end": 0.83,
+              "probability": 0.18701171875
+            },
+            {
+              "text": "'am",
+              "start": 0.83,
+              "end": 1.31,
+              "probability": 0.993896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pip",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "ma",
+          "start": 0.57,
+          "end": 0.83
+        },
+        {
+          "raw": "'am",
+          "start": 0.83,
+          "end": 1.31
+        }
+      ],
+      "expected_tokens": [
+        "\"Pip,",
+        "ma'am.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pip",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "pip",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 0.57,
+          "end": 0.83,
+          "key": "ma",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'am",
+          "start": 0.83,
+          "end": 1.31,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Pip,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "ma'am.\"",
+          "start": 0.57,
+          "end": 0.94
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11437150416895747
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "621aa25c3b65ea1726e2dbe8f1fc9bee791104739373f0fab783857ece6f8cc4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

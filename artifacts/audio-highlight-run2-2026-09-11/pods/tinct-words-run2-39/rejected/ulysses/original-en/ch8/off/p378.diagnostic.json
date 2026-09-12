@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "8754dcf9e5cde308e61a75588f520c87c7ed1913ef5ee8f8040d1fdcdb83285c",
+  "attempts": [
+    {
+      "asr_seconds": 0.10065458784811199,
+      "alignment_seconds": 0.00021357089281082153,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Busy looking.",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " Busy",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " looking.",
+              "start": 0.75,
+              "end": 0.97,
+              "probability": 0.74658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Busy",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "looking.",
+          "start": 0.75,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "Busy",
+        "looking."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Busy",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "busy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "looking.",
+          "start": 0.75,
+          "end": 0.97,
+          "key": "looking",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Busy",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "looking.",
+          "start": 0.75,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10094174696132541
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a2ced754bfd9c1f5e9a8dadc81183f9cc249e29429120f77434735ee40585754",
+  "selected_reasons": []
+}

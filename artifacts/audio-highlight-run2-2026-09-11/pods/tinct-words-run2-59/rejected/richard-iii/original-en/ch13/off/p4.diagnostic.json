@@ -1,0 +1,291 @@
+{
+  "complete": true,
+  "signature": "df8329115fc16411a24b8330865aa81a760067e3660940337bc2e4008e64c213",
+  "attempts": [
+    {
+      "asr_seconds": 0.19250839902088046,
+      "alignment_seconds": 0.0004264309536665678,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter the Lord Mayor and Caddis B.",
+          "start": 0.11,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.377197265625
+            },
+            {
+              "text": " the",
+              "start": 0.61,
+              "end": 0.77,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Lord",
+              "start": 0.77,
+              "end": 0.95,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " Mayor",
+              "start": 0.95,
+              "end": 1.29,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " and",
+              "start": 1.29,
+              "end": 1.53,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " Caddis",
+              "start": 1.53,
+              "end": 1.89,
+              "probability": 0.7469075520833334
+            },
+            {
+              "text": " B.",
+              "start": 1.89,
+              "end": 2.03,
+              "probability": 0.384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "raw": "Lord",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "raw": "Mayor",
+          "start": 0.95,
+          "end": 1.29
+        },
+        {
+          "raw": "and",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "raw": "Caddis",
+          "start": 1.53,
+          "end": 1.89
+        },
+        {
+          "raw": "B.",
+          "start": 1.89,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "the",
+        "Lord",
+        "Mayor",
+        "and",
+        "Catesby."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.77,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 0.77,
+          "end": 0.95,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mayor",
+          "start": 0.95,
+          "end": 1.29,
+          "key": "mayor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.29,
+          "end": 1.53,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Caddis",
+          "start": 1.53,
+          "end": 1.89,
+          "key": "caddis",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "B.",
+          "start": 1.89,
+          "end": 2.03,
+          "key": "b",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "text": "the",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "text": "Lord",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "text": "Mayor",
+          "start": 0.95,
+          "end": 1.29
+        },
+        {
+          "text": "and",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "text": "Catesby.",
+          "start": 1.53,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19308792403899133
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "949cbe353f97d8ede8acafe73ec3d8144189fccfecf6d63a84bb719a1218dba1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,562 @@
+{
+  "complete": true,
+  "signature": "872b24c076ae4d31ee4a6680144954caa1833f289cfca6796d773b9c61b7af02",
+  "attempts": [
+    {
+      "asr_seconds": 0.2592133916914463,
+      "alignment_seconds": 0.00047260895371437073,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Richard good Norfolk high thee to thy charge use careful watch choose trusty sentinels",
+          "start": 0.05,
+          "end": 5.83,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.748046875
+            },
+            {
+              "text": " Richard",
+              "start": 0.55,
+              "end": 0.97,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " good",
+              "start": 0.97,
+              "end": 1.69,
+              "probability": 0.424072265625
+            },
+            {
+              "text": " Norfolk",
+              "start": 1.69,
+              "end": 2.09,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " high",
+              "start": 2.09,
+              "end": 2.39,
+              "probability": 0.35205078125
+            },
+            {
+              "text": " thee",
+              "start": 2.39,
+              "end": 2.55,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " to",
+              "start": 2.55,
+              "end": 2.65,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " thy",
+              "start": 2.65,
+              "end": 2.81,
+              "probability": 0.984375
+            },
+            {
+              "text": " charge",
+              "start": 2.81,
+              "end": 3.19,
+              "probability": 0.990234375
+            },
+            {
+              "text": " use",
+              "start": 3.19,
+              "end": 3.61,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " careful",
+              "start": 3.61,
+              "end": 4.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " watch",
+              "start": 4.01,
+              "end": 4.43,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " choose",
+              "start": 4.43,
+              "end": 4.83,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " trusty",
+              "start": 4.83,
+              "end": 5.35,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " sentinels",
+              "start": 5.35,
+              "end": 5.83,
+              "probability": 0.93701171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Richard",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "raw": "good",
+          "start": 0.97,
+          "end": 1.69
+        },
+        {
+          "raw": "Norfolk",
+          "start": 1.69,
+          "end": 2.09
+        },
+        {
+          "raw": "high",
+          "start": 2.09,
+          "end": 2.39
+        },
+        {
+          "raw": "thee",
+          "start": 2.39,
+          "end": 2.55
+        },
+        {
+          "raw": "to",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "raw": "thy",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "raw": "charge",
+          "start": 2.81,
+          "end": 3.19
+        },
+        {
+          "raw": "use",
+          "start": 3.19,
+          "end": 3.61
+        },
+        {
+          "raw": "careful",
+          "start": 3.61,
+          "end": 4.01
+        },
+        {
+          "raw": "watch",
+          "start": 4.01,
+          "end": 4.43
+        },
+        {
+          "raw": "choose",
+          "start": 4.43,
+          "end": 4.83
+        },
+        {
+          "raw": "trusty",
+          "start": 4.83,
+          "end": 5.35
+        },
+        {
+          "raw": "sentinels",
+          "start": 5.35,
+          "end": 5.83
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Good",
+        "Norfolk,",
+        "hie",
+        "thee",
+        "to",
+        "thy",
+        "charge;",
+        "Use",
+        "careful",
+        "watch;",
+        "choose",
+        "trusty",
+        "sentinels."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          15,
+          5,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard",
+          "start": 0.55,
+          "end": 0.97,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 0.97,
+          "end": 1.69,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Norfolk",
+          "start": 1.69,
+          "end": 2.09,
+          "key": "norfolk",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "high",
+          "start": 2.09,
+          "end": 2.39,
+          "key": "high",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.39,
+          "end": 2.55,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.55,
+          "end": 2.65,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 2.65,
+          "end": 2.81,
+          "key": "thy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "charge",
+          "start": 2.81,
+          "end": 3.19,
+          "key": "charge",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 3.19,
+          "end": 3.61,
+          "key": "use",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "careful",
+          "start": 3.61,
+          "end": 4.01,
+          "key": "careful",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 4.01,
+          "end": 4.43,
+          "key": "watch",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "choose",
+          "start": 4.43,
+          "end": 4.83,
+          "key": "choose",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "trusty",
+          "start": 4.83,
+          "end": 5.35,
+          "key": "trusty",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sentinels",
+          "start": 5.35,
+          "end": 5.83,
+          "key": "sentinels",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Richard.",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "text": "Good",
+          "start": 0.97,
+          "end": 1.69
+        },
+        {
+          "text": "Norfolk,",
+          "start": 1.69,
+          "end": 2.09
+        },
+        {
+          "text": "hie",
+          "start": 2.09,
+          "end": 2.24
+        },
+        {
+          "text": "thee",
+          "start": 2.39,
+          "end": 2.55
+        },
+        {
+          "text": "to",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "text": "thy",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "text": "charge;",
+          "start": 2.81,
+          "end": 3.19
+        },
+        {
+          "text": "Use",
+          "start": 3.19,
+          "end": 3.61
+        },
+        {
+          "text": "careful",
+          "start": 3.61,
+          "end": 4.01
+        },
+        {
+          "text": "watch;",
+          "start": 4.01,
+          "end": 4.43
+        },
+        {
+          "text": "choose",
+          "start": 4.43,
+          "end": 4.83
+        },
+        {
+          "text": "trusty",
+          "start": 4.83,
+          "end": 5.35
+        },
+        {
+          "text": "sentinels.",
+          "start": 5.35,
+          "end": 5.83
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.25987422093749046
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1eecac5d274f7a16caa79487664c5b933e2271133d269a0c27175d87c05da737",
+  "selected_reasons": []
+}

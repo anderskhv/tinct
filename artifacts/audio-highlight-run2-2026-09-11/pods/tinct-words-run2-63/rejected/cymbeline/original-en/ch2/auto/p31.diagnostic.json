@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "8428fc89432a89bb251f6351fbc75587cf9ac0ae975156af568a57dd81af88f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.2318604625761509,
+      "alignment_seconds": 0.000367799773812294,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cymbeline. O thou vile one!",
+        "hotwords": "Cymbeline, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, O thou vile one!",
+          "start": 0.08,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.4506632486979167
+            },
+            {
+              "text": " O",
+              "start": 1.26,
+              "end": 1.34,
+              "probability": 0.6533203125
+            },
+            {
+              "text": " thou",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.64501953125
+            },
+            {
+              "text": " vile",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.268310546875
+            },
+            {
+              "text": " one!",
+              "start": 1.74,
+              "end": 2.08,
+              "probability": 0.97509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "O",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "raw": "thou",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "vile",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "raw": "one!",
+          "start": 1.74,
+          "end": 2.08
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "O",
+        "thou",
+        "vile",
+        "one!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.26,
+          "end": 1.34,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "vile",
+          "start": 1.5,
+          "end": 1.74,
+          "key": "vile",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "one!",
+          "start": 1.74,
+          "end": 2.08,
+          "key": "one",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "O",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "text": "thou",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "vile",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "text": "one!",
+          "start": 1.74,
+          "end": 2.08
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2323544230312109
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3838c6fa1c00133db0452bfeeb4640a7d3d831319ffe9b0cceb8f73e5172e92c",
+  "selected_reasons": []
+}

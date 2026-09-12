@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "5d4c52b220b94a5fb9aa8307c3b84772c8faef9d5a87fafcfba21be850a3fec2",
+  "attempts": [
+    {
+      "asr_seconds": 0.35478445142507553,
+      "alignment_seconds": 0.00023657269775867462,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menenius. Wondrous? Ay, I warrant you, and not without his true purchasing.",
+        "hotwords": "Menenius, Wondrous, Ay, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menenius, Wondrous, Ay, I warrant you, and not without his true purchasing.",
+          "start": 1.0,
+          "end": 4.68,
+          "words": [
+            {
+              "text": " Menenius,",
+              "start": 1.0,
+              "end": 1.44,
+              "probability": 0.5938313802083334
+            },
+            {
+              "text": " Wondrous,",
+              "start": 1.44,
+              "end": 1.88,
+              "probability": 0.53839111328125
+            },
+            {
+              "text": " Ay,",
+              "start": 2.38,
+              "end": 2.58,
+              "probability": 0.0143280029296875
+            },
+            {
+              "text": " I",
+              "start": 2.68,
+              "end": 2.74,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " warrant",
+              "start": 2.74,
+              "end": 2.94,
+              "probability": 0.943359375
+            },
+            {
+              "text": " you,",
+              "start": 2.94,
+              "end": 3.24,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " and",
+              "start": 3.4,
+              "end": 3.44,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " not",
+              "start": 3.44,
+              "end": 3.6,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " without",
+              "start": 3.6,
+              "end": 3.82,
+              "probability": 0.994140625
+            },
+            {
+              "text": " his",
+              "start": 3.82,
+              "end": 4.0,
+              "probability": 0.96484375
+            },
+            {
+              "text": " true",
+              "start": 4.0,
+              "end": 4.24,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " purchasing.",
+              "start": 4.24,
+              "end": 4.68,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius,",
+          "start": 1.0,
+          "end": 1.44
+        },
+        {
+          "raw": "Wondrous,",
+          "start": 1.44,
+          "end": 1.88
+        },
+        {
+          "raw": "Ay,",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "raw": "I",
+          "start": 2.68,
+          "end": 2.74
+        },
+        {
+          "raw": "warrant",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "raw": "you,",
+          "start": 2.94,
+          "end": 3.24
+        },
+        {
+          "raw": "and",
+          "start": 3.4,
+          "end": 3.44
+        },
+        {
+          "raw": "not",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "raw": "without",
+          "start": 3.6,
+          "end": 3.82
+        },
+        {
+          "raw": "his",
+          "start": 3.82,
+          "end": 4.0
+        },
+        {
+          "raw": "true",
+          "start": 4.0,
+          "end": 4.24
+        },
+        {
+          "raw": "purchasing.",
+          "start": 4.24,
+          "end": 4.68
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "Wondrous?",
+        "Ay,",
+        "I",
+        "warrant",
+        "you,",
+        "and",
+        "not",
+        "without",
+        "his",
+        "true",
+        "purchasing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius,",
+          "start": 1.0,
+          "end": 1.44,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Wondrous,",
+          "start": 1.44,
+          "end": 1.88,
+          "key": "wondrous",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 2.38,
+          "end": 2.58,
+          "key": "ay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.68,
+          "end": 2.74,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 2.74,
+          "end": 2.94,
+          "key": "warrant",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 2.94,
+          "end": 3.24,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.4,
+          "end": 3.44,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.44,
+          "end": 3.6,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 3.6,
+          "end": 3.82,
+          "key": "without",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.82,
+          "end": 4.0,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 4.0,
+          "end": 4.24,
+          "key": "true",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "purchasing.",
+          "start": 4.24,
+          "end": 4.68,
+          "key": "purchasing",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 1.0,
+          "end": 1.44
+        },
+        {
+          "text": "Wondrous?",
+          "start": 1.44,
+          "end": 1.88
+        },
+        {
+          "text": "Ay,",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "text": "I",
+          "start": 2.68,
+          "end": 2.74
+        },
+        {
+          "text": "warrant",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "text": "you,",
+          "start": 2.94,
+          "end": 3.24
+        },
+        {
+          "text": "and",
+          "start": 3.4,
+          "end": 3.44
+        },
+        {
+          "text": "not",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "text": "without",
+          "start": 3.6,
+          "end": 3.82
+        },
+        {
+          "text": "his",
+          "start": 3.82,
+          "end": 4.0
+        },
+        {
+          "text": "true",
+          "start": 4.0,
+          "end": 4.24
+        },
+        {
+          "text": "purchasing.",
+          "start": 4.24,
+          "end": 4.68
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3551232758909464
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "581f9a8acde4dd5f1560a2b6e51e5c20d8ea030b85668298c290248e53a4d8ee",
+  "selected_reasons": []
+}

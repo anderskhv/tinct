@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "c3e49917f06c41e47171041d674e1b806a8d5618047dd07fa87976e0a99e9639",
+  "attempts": [
+    {
+      "asr_seconds": 0.24963971599936485,
+      "alignment_seconds": 0.0005768593400716782,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Reads, He is one of the noblest note to whose kindnesses I am.",
+          "start": 0.82,
+          "end": 4.2,
+          "words": [
+            {
+              "text": " Reads,",
+              "start": 0.82,
+              "end": 1.26,
+              "probability": 0.680908203125
+            },
+            {
+              "text": " He",
+              "start": 1.26,
+              "end": 1.46,
+              "probability": 0.40576171875
+            },
+            {
+              "text": " is",
+              "start": 1.46,
+              "end": 1.58,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " one",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " of",
+              "start": 1.72,
+              "end": 1.82,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 1.82,
+              "end": 1.9,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " noblest",
+              "start": 1.9,
+              "end": 2.32,
+              "probability": 0.9396158854166666
+            },
+            {
+              "text": " note",
+              "start": 2.32,
+              "end": 2.62,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " to",
+              "start": 2.62,
+              "end": 2.96,
+              "probability": 0.625
+            },
+            {
+              "text": " whose",
+              "start": 2.96,
+              "end": 3.14,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " kindnesses",
+              "start": 3.14,
+              "end": 3.76,
+              "probability": 0.919189453125
+            },
+            {
+              "text": " I",
+              "start": 3.76,
+              "end": 3.96,
+              "probability": 0.98828125
+            },
+            {
+              "text": " am.",
+              "start": 3.96,
+              "end": 4.2,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Reads,",
+          "start": 0.82,
+          "end": 1.26
+        },
+        {
+          "raw": "He",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "raw": "is",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "raw": "one",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "of",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "raw": "the",
+          "start": 1.82,
+          "end": 1.9
+        },
+        {
+          "raw": "noblest",
+          "start": 1.9,
+          "end": 2.32
+        },
+        {
+          "raw": "note",
+          "start": 2.32,
+          "end": 2.62
+        },
+        {
+          "raw": "to",
+          "start": 2.62,
+          "end": 2.96
+        },
+        {
+          "raw": "whose",
+          "start": 2.96,
+          "end": 3.14
+        },
+        {
+          "raw": "kindnesses",
+          "start": 3.14,
+          "end": 3.76
+        },
+        {
+          "raw": "I",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "raw": "am.",
+          "start": 3.96,
+          "end": 4.2
+        }
+      ],
+      "expected_tokens": [
+        "[_Reads._]",
+        "_He",
+        "is",
+        "one",
+        "of",
+        "the",
+        "noblest",
+        "note,",
+        "to",
+        "whose",
+        "kindnesses",
+        "I",
+        "am"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Reads,",
+          "start": 0.82,
+          "end": 1.26,
+          "key": "reads",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.26,
+          "end": 1.46,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.46,
+          "end": 1.58,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "one",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.72,
+          "end": 1.82,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.82,
+          "end": 1.9,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "noblest",
+          "start": 1.9,
+          "end": 2.32,
+          "key": "noblest",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "note",
+          "start": 2.32,
+          "end": 2.62,
+          "key": "note",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.62,
+          "end": 2.96,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "whose",
+          "start": 2.96,
+          "end": 3.14,
+          "key": "whose",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "kindnesses",
+          "start": 3.14,
+          "end": 3.76,
+          "key": "kindnesses",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.76,
+          "end": 3.96,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "am.",
+          "start": 3.96,
+          "end": 4.2,
+          "key": "am",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Reads._]",
+          "start": 0.82,
+          "end": 1.26
+        },
+        {
+          "text": "_He",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "text": "is",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "text": "one",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "of",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "text": "the",
+          "start": 1.82,
+          "end": 1.9
+        },
+        {
+          "text": "noblest",
+          "start": 1.9,
+          "end": 2.32
+        },
+        {
+          "text": "note,",
+          "start": 2.32,
+          "end": 2.62
+        },
+        {
+          "text": "to",
+          "start": 2.62,
+          "end": 2.96
+        },
+        {
+          "text": "whose",
+          "start": 2.96,
+          "end": 3.14
+        },
+        {
+          "text": "kindnesses",
+          "start": 3.14,
+          "end": 3.76
+        },
+        {
+          "text": "I",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "text": "am",
+          "start": 3.96,
+          "end": 4.2
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25046576000750065
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "97a52241e5daace2643596f329dd3b027d0f6e317d6366889888cad1331e4d87",
+  "selected_reasons": []
+}

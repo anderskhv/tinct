@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "0d81ce3063316ca390ce844e2001c4005119707d3449020cac87b275566ad7d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.06160186976194382,
+      "alignment_seconds": 7.873028516769409e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Read.",
+        "hotwords": "Lear, Read"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, Read.",
+          "start": 0.02,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.66455078125
+            },
+            {
+              "text": " Read.",
+              "start": 0.94,
+              "end": 1.2,
+              "probability": 0.154541015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Read.",
+          "start": 0.94,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Read."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Read.",
+          "start": 0.94,
+          "end": 1.2,
+          "key": "read",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Read.",
+          "start": 0.94,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06170707941055298
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cf8be27e658192aff5ebdcf05f45d277805f0f78cb775f8abdff08bf94a2525c",
+  "selected_reasons": []
+}

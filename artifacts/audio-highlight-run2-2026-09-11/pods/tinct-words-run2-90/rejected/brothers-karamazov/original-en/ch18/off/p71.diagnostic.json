@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "bfc47e502d938b68fe37a5c9a0fdf7db38c410dc77215033040f6377fea730cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.11210346221923828,
+      "alignment_seconds": 0.00015472620725631714,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alyosha went thoughtfully towards his father's house.",
+          "start": 0.14,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " Alyosha",
+              "start": 0.14,
+              "end": 0.94,
+              "probability": 0.892578125
+            },
+            {
+              "text": " went",
+              "start": 0.94,
+              "end": 1.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thoughtfully",
+              "start": 1.1,
+              "end": 1.6,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " towards",
+              "start": 1.6,
+              "end": 1.92,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " his",
+              "start": 1.92,
+              "end": 2.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " father's",
+              "start": 2.14,
+              "end": 2.58,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " house.",
+              "start": 2.58,
+              "end": 2.9,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alyosha",
+          "start": 0.14,
+          "end": 0.94
+        },
+        {
+          "raw": "went",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "raw": "thoughtfully",
+          "start": 1.1,
+          "end": 1.6
+        },
+        {
+          "raw": "towards",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "raw": "his",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "raw": "father's",
+          "start": 2.14,
+          "end": 2.58
+        },
+        {
+          "raw": "house.",
+          "start": 2.58,
+          "end": 2.9
+        }
+      ],
+      "expected_tokens": [
+        "Alyosha",
+        "went",
+        "thoughtfully",
+        "towards",
+        "his",
+        "father's",
+        "house."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alyosha",
+          "start": 0.14,
+          "end": 0.94,
+          "key": "alyosha",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 0.94,
+          "end": 1.1,
+          "key": "went",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thoughtfully",
+          "start": 1.1,
+          "end": 1.6,
+          "key": "thoughtfully",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 1.6,
+          "end": 1.92,
+          "key": "towards",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.92,
+          "end": 2.14,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "father's",
+          "start": 2.14,
+          "end": 2.58,
+          "key": "fathers",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "house.",
+          "start": 2.58,
+          "end": 2.9,
+          "key": "house",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alyosha",
+          "start": 0.14,
+          "end": 0.94
+        },
+        {
+          "text": "went",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "text": "thoughtfully",
+          "start": 1.1,
+          "end": 1.6
+        },
+        {
+          "text": "towards",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "text": "his",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "text": "father's",
+          "start": 2.14,
+          "end": 2.58
+        },
+        {
+          "text": "house.",
+          "start": 2.58,
+          "end": 2.9
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11231588013470173
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "650735201f93217bf780ff195ca08670e23c87df59ed71614d34e18dddb5f286",
+  "selected_reasons": []
+}

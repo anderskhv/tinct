@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "1e0c2b8f5f194713c5ad4b6a71f0afa8d46f8168776fab8c00d9a389236bb13f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1889127939939499,
+      "alignment_seconds": 0.0003193095326423645,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Malvolio. How now, mistress!",
+        "hotwords": "Malvolio, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Malvolio, How now, mistress!",
+          "start": 0.63,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " Malvolio,",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.8240559895833334
+            },
+            {
+              "text": " How",
+              "start": 1.37,
+              "end": 1.39,
+              "probability": 0.06866455078125
+            },
+            {
+              "text": " now,",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.04937744140625
+            },
+            {
+              "text": " mistress!",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.1734619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "How",
+          "start": 1.37,
+          "end": 1.39
+        },
+        {
+          "raw": "now,",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "mistress!",
+          "start": 1.61,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "How",
+        "now,",
+        "mistress!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.37,
+          "end": 1.39,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mistress!",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "mistress",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "text": "How",
+          "start": 1.37,
+          "end": 1.39
+        },
+        {
+          "text": "now,",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "mistress!",
+          "start": 1.61,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18934326618909836
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "54e78c61716c10336cdb6b8dbb6399a735cf37750366cb6c71a97921f6a77abe",
+  "selected_reasons": []
+}

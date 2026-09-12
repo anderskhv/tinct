@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "f73041da234bb6dcd1b3e326dc488854760aab83295d2b8bacb9ea20ce767f61",
+  "attempts": [
+    {
+      "asr_seconds": 0.18705398123711348,
+      "alignment_seconds": 0.0003814278170466423,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, Oat is Treason.",
+          "start": 0.05,
+          "end": 2.21,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.9503580729166666
+            },
+            {
+              "text": " Oat",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.373046875
+            },
+            {
+              "text": " is",
+              "start": 1.61,
+              "end": 1.75,
+              "probability": 0.59375
+            },
+            {
+              "text": " Treason.",
+              "start": 1.75,
+              "end": 2.21,
+              "probability": 0.799560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "Oat",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "is",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "raw": "Treason.",
+          "start": 1.75,
+          "end": 2.21
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "O,",
+        "'tis",
+        "treason!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Oat",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "oat",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.61,
+          "end": 1.75,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Treason.",
+          "start": 1.75,
+          "end": 2.21,
+          "key": "treason",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "O,",
+          "start": 1.03,
+          "end": 1.39
+        },
+        {
+          "text": "'tis",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "text": "treason!",
+          "start": 1.75,
+          "end": 2.21
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18754643108695745
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "00942f43ce08290ec972ea5574dc9be7b0352e760fd1dfd31ab4f4e2b8230516",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

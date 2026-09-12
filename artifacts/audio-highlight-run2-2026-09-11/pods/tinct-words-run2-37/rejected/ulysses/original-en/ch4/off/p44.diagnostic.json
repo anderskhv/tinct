@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "3e9e20e538cc3db1dfd664b011be0f281550faf88134de40d7d23aa8bcd04b12",
+  "attempts": [
+    {
+      "asr_seconds": 0.1401970720035024,
+      "alignment_seconds": 0.00033052402432076633,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Now my miss he said",
+          "start": 0.05,
+          "end": 1.45,
+          "words": [
+            {
+              "text": " Now",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.51416015625
+            },
+            {
+              "text": " my",
+              "start": 0.63,
+              "end": 0.81,
+              "probability": 0.822265625
+            },
+            {
+              "text": " miss",
+              "start": 0.81,
+              "end": 1.03,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " he",
+              "start": 1.03,
+              "end": 1.21,
+              "probability": 0.329833984375
+            },
+            {
+              "text": " said",
+              "start": 1.21,
+              "end": 1.45,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "my",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "raw": "miss",
+          "start": 0.81,
+          "end": 1.03
+        },
+        {
+          "raw": "he",
+          "start": 1.03,
+          "end": 1.21
+        },
+        {
+          "raw": "said",
+          "start": 1.21,
+          "end": 1.45
+        }
+      ],
+      "expected_tokens": [
+        "—Now,",
+        "my",
+        "miss,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Now",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "now",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.63,
+          "end": 0.81,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "miss",
+          "start": 0.81,
+          "end": 1.03,
+          "key": "miss",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.03,
+          "end": 1.21,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.21,
+          "end": 1.45,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Now,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "my",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "text": "miss,",
+          "start": 0.81,
+          "end": 1.03
+        },
+        {
+          "text": "he",
+          "start": 1.03,
+          "end": 1.21
+        },
+        {
+          "text": "said.",
+          "start": 1.21,
+          "end": 1.45
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14065256001777016
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3bfb84a805b9d688b90a78762089d9c215115424e44996133986d4a9c15863f6",
+  "selected_reasons": []
+}

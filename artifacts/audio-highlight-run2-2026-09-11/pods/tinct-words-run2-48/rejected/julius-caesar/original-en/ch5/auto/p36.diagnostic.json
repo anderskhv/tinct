@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "47b6a1e88d2ac8e40e21b7586200f0c2306a5d7adb840aa2b1a5a62bcf069b8f",
+  "attempts": [
+    {
+      "asr_seconds": 0.16809401754289865,
+      "alignment_seconds": 0.00039384886622428894,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Caesar, 'tis strucken eight.",
+        "hotwords": "Brutus, Caesar"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, Caesar, tis strucken eight.",
+          "start": 0.05,
+          "end": 2.49,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.982666015625
+            },
+            {
+              "text": " Caesar,",
+              "start": 1.19,
+              "end": 1.41,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " tis",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.013600349426269531
+            },
+            {
+              "text": " strucken",
+              "start": 1.95,
+              "end": 2.27,
+              "probability": 0.4900088310241699
+            },
+            {
+              "text": " eight.",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.5078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "raw": "tis",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "strucken",
+          "start": 1.95,
+          "end": 2.27
+        },
+        {
+          "raw": "eight.",
+          "start": 2.27,
+          "end": 2.49
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Caesar,",
+        "'tis",
+        "strucken",
+        "eight."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.19,
+          "end": 1.41,
+          "key": "caesar",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tis",
+          "start": 1.81,
+          "end": 1.95,
+          "key": "tis",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "strucken",
+          "start": 1.95,
+          "end": 2.27,
+          "key": "strucken",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "eight.",
+          "start": 2.27,
+          "end": 2.49,
+          "key": "eight",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Caesar,",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "text": "'tis",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "strucken",
+          "start": 1.95,
+          "end": 2.27
+        },
+        {
+          "text": "eight.",
+          "start": 2.27,
+          "end": 2.49
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16862124111503363
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9d5cfd9fea9d5e33ebbb8acbd04171c3bc2086b8091734667bf2443d9440605d",
+  "selected_reasons": []
+}

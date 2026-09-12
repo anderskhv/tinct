@@ -1,0 +1,148 @@
+{
+  "complete": true,
+  "signature": "386b83c4e51c40aa8c23012f1ffb1c1101c85d31e3357b73189d694f7871b870",
+  "attempts": [
+    {
+      "asr_seconds": 0.08133580995490775,
+      "alignment_seconds": 0.00012476998381316662,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No one spoke.",
+          "start": 0.02,
+          "end": 1.06,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " one",
+              "start": 0.58,
+              "end": 0.76,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " spoke.",
+              "start": 0.76,
+              "end": 1.06,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "one",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "raw": "spoke.",
+          "start": 0.76,
+          "end": 1.06
+        }
+      ],
+      "expected_tokens": [
+        "No-one",
+        "spoke."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No one",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "noone",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "spoke.",
+          "start": 0.76,
+          "end": 1.06,
+          "key": "spoke",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "No-one",
+          "heard": "No one",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.02,
+          "end": 0.76
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "No-one",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "spoke.",
+          "start": 0.76,
+          "end": 1.06
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08149579097516835
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fa2006e3304f4af75c75d8941665ca5ad19e34d7735bbafc42cb6a2034016ee0",
+  "selected_reasons": []
+}

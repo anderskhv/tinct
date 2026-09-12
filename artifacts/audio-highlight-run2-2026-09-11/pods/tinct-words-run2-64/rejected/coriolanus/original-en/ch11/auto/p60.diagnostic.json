@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "bb97570410000c26b8dc8f5688b49d77618bf21f3c8f1ede51d6299556ad8da9",
+  "attempts": [
+    {
+      "asr_seconds": 0.1288294168189168,
+      "alignment_seconds": 0.0002837385982275009,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hark, the trumpets!",
+        "hotwords": "Hark"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hark, the trumpets!",
+          "start": 0.05,
+          "end": 1.33,
+          "words": [
+            {
+              "text": " Hark,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.926025390625
+            },
+            {
+              "text": " the",
+              "start": 0.71,
+              "end": 0.81,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " trumpets!",
+              "start": 0.81,
+              "end": 1.33,
+              "probability": 0.92236328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hark,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "the",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "raw": "trumpets!",
+          "start": 0.81,
+          "end": 1.33
+        }
+      ],
+      "expected_tokens": [
+        "Hark,",
+        "the",
+        "trumpets!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hark,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "hark",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.71,
+          "end": 0.81,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "trumpets!",
+          "start": 0.81,
+          "end": 1.33,
+          "key": "trumpets",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hark,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "the",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "text": "trumpets!",
+          "start": 0.81,
+          "end": 1.33
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12922016717493534
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "13624de72e4b6e87ccc75e59f7d95b229b5be17dc6578ae86bd1df5217b6a324",
+  "selected_reasons": []
+}

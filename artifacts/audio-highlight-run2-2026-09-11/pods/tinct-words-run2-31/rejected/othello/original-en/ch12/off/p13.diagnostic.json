@@ -1,0 +1,251 @@
+{
+  "complete": true,
+  "signature": "e09b8c741deaaffcacd47bb06fa465699fa3b589a00560ff35c8cf7576b5075d",
+  "attempts": [
+    {
+      "asr_seconds": 0.12809201097115874,
+      "alignment_seconds": 0.00014875829219818115,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ocelo, bitter come hither, go.",
+          "start": 0.02,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " Ocelo,",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.6171061197916666
+            },
+            {
+              "text": " bitter",
+              "start": 1.14,
+              "end": 1.22,
+              "probability": 0.71142578125
+            },
+            {
+              "text": " come",
+              "start": 1.22,
+              "end": 1.44,
+              "probability": 0.66357421875
+            },
+            {
+              "text": " hither,",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " go.",
+              "start": 1.94,
+              "end": 2.2,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ocelo,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "bitter",
+          "start": 1.14,
+          "end": 1.22
+        },
+        {
+          "raw": "come",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "raw": "hither,",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "go.",
+          "start": 1.94,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Bid",
+        "her",
+        "come",
+        "hither.",
+        "Go."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          "equal",
+          3,
+          6,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ocelo,",
+          "start": 0.02,
+          "end": 0.94,
+          "key": "ocelo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bitter",
+          "start": 1.14,
+          "end": 1.22,
+          "key": "bitter",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.22,
+          "end": 1.44,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hither,",
+          "start": 1.44,
+          "end": 1.68,
+          "key": "hither",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "go.",
+          "start": 1.94,
+          "end": 2.2,
+          "key": "go",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.0,
+          "end": 0.61
+        },
+        {
+          "text": "Bid",
+          "start": 0.61,
+          "end": 0.915
+        },
+        {
+          "text": "her",
+          "start": 0.915,
+          "end": 1.067
+        },
+        {
+          "text": "come",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "text": "hither.",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "Go.",
+          "start": 1.94,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1282884692773223
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7cc072a2c8b3174947059ce13864112eb9dda2611762cd5a9c518d55e9b41ac6",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

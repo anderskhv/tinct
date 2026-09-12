@@ -1,0 +1,293 @@
+{
+  "complete": true,
+  "signature": "c766a147209209137be431df8696e1563af6a17132e417714f849e752e6be79b",
+  "attempts": [
+    {
+      "asr_seconds": 0.21943762246519327,
+      "alignment_seconds": 0.0005700569599866867,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gaedrius, Ghost Unlaid for Bear Thee.",
+          "start": 0.08,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " Gaedrius,",
+              "start": 0.08,
+              "end": 0.96,
+              "probability": 0.372802734375
+            },
+            {
+              "text": " Ghost",
+              "start": 1.48,
+              "end": 1.58,
+              "probability": 0.63720703125
+            },
+            {
+              "text": " Unlaid",
+              "start": 1.58,
+              "end": 1.98,
+              "probability": 0.9459635416666666
+            },
+            {
+              "text": " for",
+              "start": 1.98,
+              "end": 2.14,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " Bear",
+              "start": 2.14,
+              "end": 2.32,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " Thee.",
+              "start": 2.32,
+              "end": 2.94,
+              "probability": 0.682861328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gaedrius,",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "raw": "Ghost",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "raw": "Unlaid",
+          "start": 1.58,
+          "end": 1.98
+        },
+        {
+          "raw": "for",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "raw": "Bear",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "raw": "Thee.",
+          "start": 2.32,
+          "end": 2.94
+        }
+      ],
+      "expected_tokens": [
+        "Guiderius.",
+        "_",
+        "Ghost",
+        "unlaid",
+        "forbear",
+        "thee!_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [
+        1
+      ],
+      "compared_heard": [
+        {
+          "raw": "Gaedrius,",
+          "start": 0.08,
+          "end": 0.96,
+          "key": "gaedrius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ghost",
+          "start": 1.48,
+          "end": 1.58,
+          "key": "ghost",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Unlaid",
+          "start": 1.58,
+          "end": 1.98,
+          "key": "unlaid",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.98,
+          "end": 2.14,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Bear",
+          "start": 2.14,
+          "end": 2.32,
+          "key": "bear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Thee.",
+          "start": 2.32,
+          "end": 2.94,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guiderius.",
+          "start": 0.0,
+          "end": 0.74
+        },
+        {
+          "text": "_",
+          "start": 0.74,
+          "end": 1.11
+        },
+        {
+          "text": "Ghost",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "text": "unlaid",
+          "start": 1.58,
+          "end": 1.98
+        },
+        {
+          "text": "forbear",
+          "start": 1.98,
+          "end": 2.15
+        },
+        {
+          "text": "thee!_",
+          "start": 2.32,
+          "end": 2.94
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22023660968989134
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f6ecaae4744057df6f75e0a6128033e70f7434a23641d10498c23f7fe089884d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

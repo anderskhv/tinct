@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "e723fdfeb8815d0cc44a92e51c601278d442ccd5eac3bcf059dff901f5d3491d",
+  "attempts": [
+    {
+      "asr_seconds": 0.19253933802247047,
+      "alignment_seconds": 0.00025617657229304314,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Out, strumpet! Weep'st thou for him to my face?",
+        "hotwords": "Othello, Out, Weep'st"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Out, strumpet! Weep'st thou for him to my face?",
+          "start": 0.08,
+          "end": 3.62,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.9527994791666666
+            },
+            {
+              "text": " Out,",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.08465576171875
+            },
+            {
+              "text": " strumpet!",
+              "start": 1.6,
+              "end": 1.96,
+              "probability": 0.6259765625
+            },
+            {
+              "text": " Weep'st",
+              "start": 2.32,
+              "end": 2.56,
+              "probability": 0.455841064453125
+            },
+            {
+              "text": " thou",
+              "start": 2.56,
+              "end": 2.76,
+              "probability": 0.2264404296875
+            },
+            {
+              "text": " for",
+              "start": 2.76,
+              "end": 2.96,
+              "probability": 0.7353515625
+            },
+            {
+              "text": " him",
+              "start": 2.96,
+              "end": 3.08,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " to",
+              "start": 3.08,
+              "end": 3.2,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " my",
+              "start": 3.2,
+              "end": 3.36,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " face?",
+              "start": 3.36,
+              "end": 3.62,
+              "probability": 0.96533203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "Out,",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "strumpet!",
+          "start": 1.6,
+          "end": 1.96
+        },
+        {
+          "raw": "Weep'st",
+          "start": 2.32,
+          "end": 2.56
+        },
+        {
+          "raw": "thou",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "raw": "for",
+          "start": 2.76,
+          "end": 2.96
+        },
+        {
+          "raw": "him",
+          "start": 2.96,
+          "end": 3.08
+        },
+        {
+          "raw": "to",
+          "start": 3.08,
+          "end": 3.2
+        },
+        {
+          "raw": "my",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "raw": "face?",
+          "start": 3.36,
+          "end": 3.62
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Out,",
+        "strumpet!",
+        "Weep'st",
+        "thou",
+        "for",
+        "him",
+        "to",
+        "my",
+        "face?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Out,",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "out",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "strumpet!",
+          "start": 1.6,
+          "end": 1.96,
+          "key": "strumpet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Weep'st",
+          "start": 2.32,
+          "end": 2.56,
+          "key": "weepst",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.56,
+          "end": 2.76,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.76,
+          "end": 2.96,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.96,
+          "end": 3.08,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.08,
+          "end": 3.2,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.2,
+          "end": 3.36,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "face?",
+          "start": 3.36,
+          "end": 3.62,
+          "key": "face",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Out,",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "strumpet!",
+          "start": 1.6,
+          "end": 1.96
+        },
+        {
+          "text": "Weep'st",
+          "start": 2.32,
+          "end": 2.56
+        },
+        {
+          "text": "thou",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "text": "for",
+          "start": 2.76,
+          "end": 2.96
+        },
+        {
+          "text": "him",
+          "start": 2.96,
+          "end": 3.08
+        },
+        {
+          "text": "to",
+          "start": 3.08,
+          "end": 3.2
+        },
+        {
+          "text": "my",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "text": "face?",
+          "start": 3.36,
+          "end": 3.62
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19291201420128345
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d539a7e1e5d2594dc8f6f1cf273715da1eca4d2313e7030aa3a8e30ccfd29bce",
+  "selected_reasons": []
+}

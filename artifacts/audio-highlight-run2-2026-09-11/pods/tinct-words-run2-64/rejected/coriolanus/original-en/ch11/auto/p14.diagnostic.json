@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "3cc504d14b65d237668bc91c7d10d29937de8707676cab11f4c744c71e8007bb",
+  "attempts": [
+    {
+      "asr_seconds": 0.23208517394959927,
+      "alignment_seconds": 0.00031094346195459366,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. And topping all others in boasting.",
+        "hotwords": "Brutus, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus. And topping all others in boasting.",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " Brutus.",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " And",
+              "start": 1.29,
+              "end": 1.33,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " topping",
+              "start": 1.33,
+              "end": 1.59,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " all",
+              "start": 1.59,
+              "end": 1.89,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " others",
+              "start": 1.89,
+              "end": 2.15,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " in",
+              "start": 2.15,
+              "end": 2.37,
+              "probability": 0.69189453125
+            },
+            {
+              "text": " boasting.",
+              "start": 2.37,
+              "end": 2.73,
+              "probability": 0.78662109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "And",
+          "start": 1.29,
+          "end": 1.33
+        },
+        {
+          "raw": "topping",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "raw": "all",
+          "start": 1.59,
+          "end": 1.89
+        },
+        {
+          "raw": "others",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "raw": "in",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "raw": "boasting.",
+          "start": 2.37,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "And",
+        "topping",
+        "all",
+        "others",
+        "in",
+        "boasting."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus.",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.29,
+          "end": 1.33,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "topping",
+          "start": 1.33,
+          "end": 1.59,
+          "key": "topping",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.59,
+          "end": 1.89,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 1.89,
+          "end": 2.15,
+          "key": "others",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.15,
+          "end": 2.37,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "boasting.",
+          "start": 2.37,
+          "end": 2.73,
+          "key": "boasting",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "And",
+          "start": 1.29,
+          "end": 1.33
+        },
+        {
+          "text": "topping",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "text": "all",
+          "start": 1.59,
+          "end": 1.89
+        },
+        {
+          "text": "others",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "text": "in",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "text": "boasting.",
+          "start": 2.37,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2325086984783411
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7ecc19505dd55e9b781d1c8946f0e40c77122443fc68cbc219a1e1eb78d24235",
+  "selected_reasons": []
+}

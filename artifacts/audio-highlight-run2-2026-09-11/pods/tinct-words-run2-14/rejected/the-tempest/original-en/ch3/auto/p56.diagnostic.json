@@ -1,0 +1,181 @@
+{
+  "complete": true,
+  "signature": "0ce987987814bcfe4d4455c8e10a7b96466b79fb5047ff8e74c6e4167c55127b",
+  "attempts": [
+    {
+      "asr_seconds": 0.13752856850624084,
+      "alignment_seconds": 0.00023485347628593445,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Adrian. Carthage?",
+        "hotwords": "Adrian, Carthage"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Adrian, Carthage Adrian, Carthage",
+          "start": 0.05,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Adrian,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.591796875
+            },
+            {
+              "text": " Carthage",
+              "start": 1.09,
+              "end": 1.49,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " Adrian,",
+              "start": 1.49,
+              "end": 2.03,
+              "probability": 4.172325134277344e-07
+            },
+            {
+              "text": " Carthage",
+              "start": 2.03,
+              "end": 2.03,
+              "probability": 0.998291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Adrian,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Carthage",
+          "start": 1.09,
+          "end": 1.49
+        },
+        {
+          "raw": "Adrian,",
+          "start": 1.49,
+          "end": 2.03
+        },
+        {
+          "raw": "Carthage",
+          "start": 2.03,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "Adrian.",
+        "Carthage?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Adrian,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "adrian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Carthage",
+          "start": 1.09,
+          "end": 1.49,
+          "key": "carthage",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Adrian,",
+          "start": 1.49,
+          "end": 2.03,
+          "key": "adrian",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Carthage",
+          "start": 2.03,
+          "end": 2.03,
+          "key": "carthage",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Adrian.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Carthage?",
+          "start": 1.09,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13786621019244194
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0aa80bb61e670e9b5ab589efd13d39ea5247ff25d2068c236e071168a1a33b07",
+  "selected_reasons": []
+}

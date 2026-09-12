@@ -1,0 +1,498 @@
+{
+  "complete": true,
+  "signature": "282a87ae9bd55112b68267bc8f530f72476f0ffef85be182e7b69c987a35db4c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2386975735425949,
+      "alignment_seconds": 0.0003629066050052643,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That will be so I understand you Karamazov cried Kalia with flashing eyes",
+          "start": 0.02,
+          "end": 5.02,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.19384765625
+            },
+            {
+              "text": " will",
+              "start": 0.54,
+              "end": 0.64,
+              "probability": 0.9921875
+            },
+            {
+              "text": " be",
+              "start": 0.64,
+              "end": 0.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so",
+              "start": 0.78,
+              "end": 1.04,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " I",
+              "start": 1.04,
+              "end": 1.46,
+              "probability": 0.332763671875
+            },
+            {
+              "text": " understand",
+              "start": 1.46,
+              "end": 1.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 1.86,
+              "end": 2.14,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " Karamazov",
+              "start": 2.14,
+              "end": 3.02,
+              "probability": 0.7093912760416666
+            },
+            {
+              "text": " cried",
+              "start": 3.02,
+              "end": 3.54,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Kalia",
+              "start": 3.54,
+              "end": 3.94,
+              "probability": 0.561279296875
+            },
+            {
+              "text": " with",
+              "start": 3.94,
+              "end": 4.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " flashing",
+              "start": 4.2,
+              "end": 4.64,
+              "probability": 0.98828125
+            },
+            {
+              "text": " eyes",
+              "start": 4.64,
+              "end": 5.02,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "will",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "raw": "be",
+          "start": 0.64,
+          "end": 0.78
+        },
+        {
+          "raw": "so",
+          "start": 0.78,
+          "end": 1.04
+        },
+        {
+          "raw": "I",
+          "start": 1.04,
+          "end": 1.46
+        },
+        {
+          "raw": "understand",
+          "start": 1.46,
+          "end": 1.86
+        },
+        {
+          "raw": "you",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "raw": "Karamazov",
+          "start": 2.14,
+          "end": 3.02
+        },
+        {
+          "raw": "cried",
+          "start": 3.02,
+          "end": 3.54
+        },
+        {
+          "raw": "Kalia",
+          "start": 3.54,
+          "end": 3.94
+        },
+        {
+          "raw": "with",
+          "start": 3.94,
+          "end": 4.2
+        },
+        {
+          "raw": "flashing",
+          "start": 4.2,
+          "end": 4.64
+        },
+        {
+          "raw": "eyes",
+          "start": 4.64,
+          "end": 5.02
+        }
+      ],
+      "expected_tokens": [
+        "\"That",
+        "will",
+        "be",
+        "so,",
+        "I",
+        "understand",
+        "you,",
+        "Karamazov!\"",
+        "cried",
+        "Kolya,",
+        "with",
+        "flashing",
+        "eyes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          13,
+          10,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.54,
+          "end": 0.64,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.64,
+          "end": 0.78,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.78,
+          "end": 1.04,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.04,
+          "end": 1.46,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 1.46,
+          "end": 1.86,
+          "key": "understand",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.86,
+          "end": 2.14,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Karamazov",
+          "start": 2.14,
+          "end": 3.02,
+          "key": "karamazov",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 3.02,
+          "end": 3.54,
+          "key": "cried",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Kalia",
+          "start": 3.54,
+          "end": 3.94,
+          "key": "kalia",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.94,
+          "end": 4.2,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "flashing",
+          "start": 4.2,
+          "end": 4.64,
+          "key": "flashing",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 4.64,
+          "end": 5.02,
+          "key": "eyes",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "will",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "text": "be",
+          "start": 0.64,
+          "end": 0.78
+        },
+        {
+          "text": "so,",
+          "start": 0.78,
+          "end": 1.04
+        },
+        {
+          "text": "I",
+          "start": 1.04,
+          "end": 1.46
+        },
+        {
+          "text": "understand",
+          "start": 1.46,
+          "end": 1.86
+        },
+        {
+          "text": "you,",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "text": "Karamazov!\"",
+          "start": 2.14,
+          "end": 3.02
+        },
+        {
+          "text": "cried",
+          "start": 3.02,
+          "end": 3.54
+        },
+        {
+          "text": "Kolya,",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "text": "with",
+          "start": 3.94,
+          "end": 4.2
+        },
+        {
+          "text": "flashing",
+          "start": 4.2,
+          "end": 4.64
+        },
+        {
+          "text": "eyes.",
+          "start": 4.64,
+          "end": 5.02
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.23920723050832748
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "106698539b5de9764bcf1917e4ef9a9010e74ce361685ac515faf3b63abc370f",
+  "selected_reasons": []
+}

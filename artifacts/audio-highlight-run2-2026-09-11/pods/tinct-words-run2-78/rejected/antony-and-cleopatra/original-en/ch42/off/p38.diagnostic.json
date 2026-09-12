@@ -1,0 +1,291 @@
+{
+  "complete": true,
+  "signature": "4e141016f0510c5eb8b335527949098a419f546f34e079516ad9528047e79b7e",
+  "attempts": [
+    {
+      "asr_seconds": 0.14714192133396864,
+      "alignment_seconds": 0.00038543250411748886,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dalle Bella, if it might please you.",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Dalle",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.637451171875
+            },
+            {
+              "text": " Bella,",
+              "start": 0.67,
+              "end": 0.97,
+              "probability": 0.6416015625
+            },
+            {
+              "text": " if",
+              "start": 1.25,
+              "end": 1.45,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " it",
+              "start": 1.45,
+              "end": 1.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " might",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " please",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " you.",
+              "start": 1.91,
+              "end": 2.23,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dalle",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Bella,",
+          "start": 0.67,
+          "end": 0.97
+        },
+        {
+          "raw": "if",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "raw": "it",
+          "start": 1.45,
+          "end": 1.53
+        },
+        {
+          "raw": "might",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "please",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "raw": "you.",
+          "start": 1.91,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "Dolabella.",
+        "If",
+        "it",
+        "might",
+        "please",
+        "you—"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          6,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dalle",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "dalle",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bella,",
+          "start": 0.67,
+          "end": 0.97,
+          "key": "bella",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.25,
+          "end": 1.45,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.45,
+          "end": 1.53,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "might",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 1.67,
+          "end": 1.91,
+          "key": "please",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.91,
+          "end": 2.23,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dolabella.",
+          "start": 0.0,
+          "end": 0.625
+        },
+        {
+          "text": "If",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "it",
+          "start": 1.45,
+          "end": 1.53
+        },
+        {
+          "text": "might",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "please",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "text": "you—",
+          "start": 1.91,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1476669441908598
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b2d24fa7baae36479b34004ff5eb3995bc00c7bf3309b04dd38fba83d45e406c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

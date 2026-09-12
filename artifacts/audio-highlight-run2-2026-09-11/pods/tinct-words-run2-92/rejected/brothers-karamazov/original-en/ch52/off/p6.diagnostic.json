@@ -1,0 +1,459 @@
+{
+  "complete": true,
+  "signature": "dba4c5995642b6826d8cd7cbeb39ee638fb6437036f9a05eb9d6f3e5680b9e6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.3113343622535467,
+      "alignment_seconds": 0.0006193844601511955,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aya, how tight you squeeze. You've quite broken my fingers,\" laughed Kalganov.",
+          "start": 0.05,
+          "end": 4.73,
+          "words": [
+            {
+              "text": " Aya,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.402374267578125
+            },
+            {
+              "text": " how",
+              "start": 0.79,
+              "end": 0.93,
+              "probability": 0.990234375
+            },
+            {
+              "text": " tight",
+              "start": 0.93,
+              "end": 1.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " squeeze.",
+              "start": 1.27,
+              "end": 1.59,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " You've",
+              "start": 2.13,
+              "end": 2.25,
+              "probability": 0.945556640625
+            },
+            {
+              "text": " quite",
+              "start": 2.25,
+              "end": 2.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " broken",
+              "start": 2.39,
+              "end": 2.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 2.73,
+              "end": 2.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fingers,\"",
+              "start": 2.93,
+              "end": 3.99,
+              "probability": 0.7078857421875
+            },
+            {
+              "text": " laughed",
+              "start": 3.99,
+              "end": 4.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Kalganov.",
+              "start": 4.07,
+              "end": 4.73,
+              "probability": 0.8009440104166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aya,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "how",
+          "start": 0.79,
+          "end": 0.93
+        },
+        {
+          "raw": "tight",
+          "start": 0.93,
+          "end": 1.09
+        },
+        {
+          "raw": "you",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "squeeze.",
+          "start": 1.27,
+          "end": 1.59
+        },
+        {
+          "raw": "You've",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "raw": "quite",
+          "start": 2.25,
+          "end": 2.39
+        },
+        {
+          "raw": "broken",
+          "start": 2.39,
+          "end": 2.73
+        },
+        {
+          "raw": "my",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "raw": "fingers,\"",
+          "start": 2.93,
+          "end": 3.99
+        },
+        {
+          "raw": "laughed",
+          "start": 3.99,
+          "end": 4.07
+        },
+        {
+          "raw": "Kalganov.",
+          "start": 4.07,
+          "end": 4.73
+        }
+      ],
+      "expected_tokens": [
+        "\"Aie!",
+        "How",
+        "tight",
+        "you",
+        "squeeze!",
+        "You've",
+        "quite",
+        "broken",
+        "my",
+        "fingers,\"",
+        "laughed",
+        "Kalganov."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          12,
+          1,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aya,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "aya",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 0.79,
+          "end": 0.93,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tight",
+          "start": 0.93,
+          "end": 1.09,
+          "key": "tight",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.09,
+          "end": 1.27,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "squeeze.",
+          "start": 1.27,
+          "end": 1.59,
+          "key": "squeeze",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "You've",
+          "start": 2.13,
+          "end": 2.25,
+          "key": "youve",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 2.25,
+          "end": 2.39,
+          "key": "quite",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "broken",
+          "start": 2.39,
+          "end": 2.73,
+          "key": "broken",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.73,
+          "end": 2.93,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fingers,\"",
+          "start": 2.93,
+          "end": 3.99,
+          "key": "fingers",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "laughed",
+          "start": 3.99,
+          "end": 4.07,
+          "key": "laughed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Kalganov.",
+          "start": 4.07,
+          "end": 4.73,
+          "key": "kalganov",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Aie!",
+          "start": 0.0,
+          "end": 0.395
+        },
+        {
+          "text": "How",
+          "start": 0.79,
+          "end": 0.93
+        },
+        {
+          "text": "tight",
+          "start": 0.93,
+          "end": 1.09
+        },
+        {
+          "text": "you",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "text": "squeeze!",
+          "start": 1.27,
+          "end": 1.59
+        },
+        {
+          "text": "You've",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "text": "quite",
+          "start": 2.25,
+          "end": 2.39
+        },
+        {
+          "text": "broken",
+          "start": 2.39,
+          "end": 2.73
+        },
+        {
+          "text": "my",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "text": "fingers,\"",
+          "start": 2.93,
+          "end": 3.99
+        },
+        {
+          "text": "laughed",
+          "start": 3.99,
+          "end": 4.07
+        },
+        {
+          "text": "Kalganov.",
+          "start": 4.07,
+          "end": 4.73
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.31218317802995443
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "16a977303f686a6b71203950f22136bd79c2c078432cf4f3c844998abf77bb36",
+  "selected_reasons": []
+}

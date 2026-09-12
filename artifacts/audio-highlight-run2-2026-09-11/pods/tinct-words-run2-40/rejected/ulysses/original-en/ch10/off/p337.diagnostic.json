@@ -1,0 +1,454 @@
+{
+  "complete": true,
+  "signature": "7af0b3aab8d8e2ee54eba863650cb7948223c4d9bce475f255a6317965d11519",
+  "attempts": [
+    {
+      "asr_seconds": 0.3246474820189178,
+      "alignment_seconds": 0.000568067654967308,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The vice regal cavalcade passed greeted by obsequious policemen out of Parkgate",
+          "start": 0.02,
+          "end": 5.44,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " vice",
+              "start": 0.5,
+              "end": 0.76,
+              "probability": 0.52099609375
+            },
+            {
+              "text": " regal",
+              "start": 0.76,
+              "end": 1.14,
+              "probability": 0.896240234375
+            },
+            {
+              "text": " cavalcade",
+              "start": 1.14,
+              "end": 1.72,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " passed",
+              "start": 1.72,
+              "end": 2.28,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " greeted",
+              "start": 2.28,
+              "end": 2.92,
+              "probability": 0.4990234375
+            },
+            {
+              "text": " by",
+              "start": 2.92,
+              "end": 3.18,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " obsequious",
+              "start": 3.18,
+              "end": 3.84,
+              "probability": 0.8829752604166666
+            },
+            {
+              "text": " policemen",
+              "start": 3.84,
+              "end": 4.36,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " out",
+              "start": 4.36,
+              "end": 4.84,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " of",
+              "start": 4.84,
+              "end": 4.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Parkgate",
+              "start": 4.96,
+              "end": 5.44,
+              "probability": 0.707275390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "vice",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "raw": "regal",
+          "start": 0.76,
+          "end": 1.14
+        },
+        {
+          "raw": "cavalcade",
+          "start": 1.14,
+          "end": 1.72
+        },
+        {
+          "raw": "passed",
+          "start": 1.72,
+          "end": 2.28
+        },
+        {
+          "raw": "greeted",
+          "start": 2.28,
+          "end": 2.92
+        },
+        {
+          "raw": "by",
+          "start": 2.92,
+          "end": 3.18
+        },
+        {
+          "raw": "obsequious",
+          "start": 3.18,
+          "end": 3.84
+        },
+        {
+          "raw": "policemen",
+          "start": 3.84,
+          "end": 4.36
+        },
+        {
+          "raw": "out",
+          "start": 4.36,
+          "end": 4.84
+        },
+        {
+          "raw": "of",
+          "start": 4.84,
+          "end": 4.96
+        },
+        {
+          "raw": "Parkgate",
+          "start": 4.96,
+          "end": 5.44
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "viceregal",
+        "cavalcade",
+        "passed,",
+        "greeted",
+        "by",
+        "obsequious",
+        "policemen,",
+        "out",
+        "of",
+        "Parkgate."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          11,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "vice",
+          "start": 0.5,
+          "end": 0.76,
+          "key": "vice",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "regal",
+          "start": 0.76,
+          "end": 1.14,
+          "key": "regal",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cavalcade",
+          "start": 1.14,
+          "end": 1.72,
+          "key": "cavalcade",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "passed",
+          "start": 1.72,
+          "end": 2.28,
+          "key": "passed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "greeted",
+          "start": 2.28,
+          "end": 2.92,
+          "key": "greeted",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.92,
+          "end": 3.18,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "obsequious",
+          "start": 3.18,
+          "end": 3.84,
+          "key": "obsequious",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "policemen",
+          "start": 3.84,
+          "end": 4.36,
+          "key": "policemen",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 4.36,
+          "end": 4.84,
+          "key": "out",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.84,
+          "end": 4.96,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Parkgate",
+          "start": 4.96,
+          "end": 5.44,
+          "key": "parkgate",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "viceregal",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "text": "cavalcade",
+          "start": 1.14,
+          "end": 1.72
+        },
+        {
+          "text": "passed,",
+          "start": 1.72,
+          "end": 2.28
+        },
+        {
+          "text": "greeted",
+          "start": 2.28,
+          "end": 2.92
+        },
+        {
+          "text": "by",
+          "start": 2.92,
+          "end": 3.18
+        },
+        {
+          "text": "obsequious",
+          "start": 3.18,
+          "end": 3.84
+        },
+        {
+          "text": "policemen,",
+          "start": 3.84,
+          "end": 4.36
+        },
+        {
+          "text": "out",
+          "start": 4.36,
+          "end": 4.84
+        },
+        {
+          "text": "of",
+          "start": 4.84,
+          "end": 4.96
+        },
+        {
+          "text": "Parkgate.",
+          "start": 4.96,
+          "end": 5.44
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.32543436298146844
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f59bc1a4f1397fbee7e31e2e731423a57a1c27b0211595169764e1f3b418f4e2",
+  "selected_reasons": []
+}

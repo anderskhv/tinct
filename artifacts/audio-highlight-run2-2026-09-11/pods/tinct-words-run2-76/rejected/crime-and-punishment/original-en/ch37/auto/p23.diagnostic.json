@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "9c2d4e184d66bda7c9e82c272d45850f7764fe5107bb329b907b20635ea9d67f",
+  "attempts": [
+    {
+      "asr_seconds": 0.13347402354702353,
+      "alignment_seconds": 0.00037537189200520515,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Bring me tea and veal.\"",
+        "hotwords": "Bring"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bring me tea and veal.",
+          "start": 0.02,
+          "end": 1.36,
+          "words": [
+            {
+              "text": " Bring",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.845703125
+            },
+            {
+              "text": " me",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " tea",
+              "start": 0.68,
+              "end": 0.86,
+              "probability": 0.94921875
+            },
+            {
+              "text": " and",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " veal.",
+              "start": 1.0,
+              "end": 1.36,
+              "probability": 0.990966796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bring",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "me",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "tea",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "raw": "and",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "veal.",
+          "start": 1.0,
+          "end": 1.36
+        }
+      ],
+      "expected_tokens": [
+        "\"Bring",
+        "me",
+        "tea",
+        "and",
+        "veal.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bring",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "bring",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tea",
+          "start": 0.68,
+          "end": 0.86,
+          "key": "tea",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.86,
+          "end": 1.0,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "veal.",
+          "start": 1.0,
+          "end": 1.36,
+          "key": "veal",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Bring",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "me",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "tea",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "text": "and",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "veal.\"",
+          "start": 1.0,
+          "end": 1.36
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1339718489907682
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "677d7e580269bb38e2c8a1181bb9624cf94aad981aba75c36264bd117e8782ea",
+  "selected_reasons": []
+}

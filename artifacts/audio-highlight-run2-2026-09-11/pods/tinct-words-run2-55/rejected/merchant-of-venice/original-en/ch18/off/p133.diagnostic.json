@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "68fe53904040389186c097518afceab0675ba0bfa2a5e814e77aa68f8781dd7b",
+  "attempts": [
+    {
+      "asr_seconds": 0.27257145941257477,
+      "alignment_seconds": 0.00026576779782772064,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, and stand indebted over and above in love and service to you evermore.",
+          "start": 0.11,
+          "end": 5.49,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.89,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " and",
+              "start": 1.47,
+              "end": 1.69,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " stand",
+              "start": 1.69,
+              "end": 1.97,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " indebted",
+              "start": 1.97,
+              "end": 2.41,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " over",
+              "start": 2.41,
+              "end": 3.07,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " and",
+              "start": 3.07,
+              "end": 3.25,
+              "probability": 0.978515625
+            },
+            {
+              "text": " above",
+              "start": 3.25,
+              "end": 3.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 3.51,
+              "end": 3.79,
+              "probability": 0.974609375
+            },
+            {
+              "text": " love",
+              "start": 3.79,
+              "end": 4.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 4.07,
+              "end": 4.31,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " service",
+              "start": 4.31,
+              "end": 4.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 4.63,
+              "end": 4.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 4.89,
+              "end": 5.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " evermore.",
+              "start": 5.01,
+              "end": 5.49,
+              "probability": 0.8818359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.89
+        },
+        {
+          "raw": "and",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "raw": "stand",
+          "start": 1.69,
+          "end": 1.97
+        },
+        {
+          "raw": "indebted",
+          "start": 1.97,
+          "end": 2.41
+        },
+        {
+          "raw": "over",
+          "start": 2.41,
+          "end": 3.07
+        },
+        {
+          "raw": "and",
+          "start": 3.07,
+          "end": 3.25
+        },
+        {
+          "raw": "above",
+          "start": 3.25,
+          "end": 3.51
+        },
+        {
+          "raw": "in",
+          "start": 3.51,
+          "end": 3.79
+        },
+        {
+          "raw": "love",
+          "start": 3.79,
+          "end": 4.07
+        },
+        {
+          "raw": "and",
+          "start": 4.07,
+          "end": 4.31
+        },
+        {
+          "raw": "service",
+          "start": 4.31,
+          "end": 4.63
+        },
+        {
+          "raw": "to",
+          "start": 4.63,
+          "end": 4.89
+        },
+        {
+          "raw": "you",
+          "start": 4.89,
+          "end": 5.01
+        },
+        {
+          "raw": "evermore.",
+          "start": 5.01,
+          "end": 5.49
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "And",
+        "stand",
+        "indebted,",
+        "over",
+        "and",
+        "above",
+        "In",
+        "love",
+        "and",
+        "service",
+        "to",
+        "you",
+        "evermore."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.89,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.47,
+          "end": 1.69,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 1.69,
+          "end": 1.97,
+          "key": "stand",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "indebted",
+          "start": 1.97,
+          "end": 2.41,
+          "key": "indebted",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 2.41,
+          "end": 3.07,
+          "key": "over",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.07,
+          "end": 3.25,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "above",
+          "start": 3.25,
+          "end": 3.51,
+          "key": "above",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.51,
+          "end": 3.79,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 3.79,
+          "end": 4.07,
+          "key": "love",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.07,
+          "end": 4.31,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "service",
+          "start": 4.31,
+          "end": 4.63,
+          "key": "service",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.63,
+          "end": 4.89,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.89,
+          "end": 5.01,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "evermore.",
+          "start": 5.01,
+          "end": 5.49,
+          "key": "evermore",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.89
+        },
+        {
+          "text": "And",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "text": "stand",
+          "start": 1.69,
+          "end": 1.97
+        },
+        {
+          "text": "indebted,",
+          "start": 1.97,
+          "end": 2.41
+        },
+        {
+          "text": "over",
+          "start": 2.41,
+          "end": 3.07
+        },
+        {
+          "text": "and",
+          "start": 3.07,
+          "end": 3.25
+        },
+        {
+          "text": "above",
+          "start": 3.25,
+          "end": 3.51
+        },
+        {
+          "text": "In",
+          "start": 3.51,
+          "end": 3.79
+        },
+        {
+          "text": "love",
+          "start": 3.79,
+          "end": 4.07
+        },
+        {
+          "text": "and",
+          "start": 4.07,
+          "end": 4.31
+        },
+        {
+          "text": "service",
+          "start": 4.31,
+          "end": 4.63
+        },
+        {
+          "text": "to",
+          "start": 4.63,
+          "end": 4.89
+        },
+        {
+          "text": "you",
+          "start": 4.89,
+          "end": 5.01
+        },
+        {
+          "text": "evermore.",
+          "start": 5.01,
+          "end": 5.49
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2729426072910428
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0d9492473e123357b269602aaac357a9f083dab4a0dbd2675b972bce436c496e",
+  "selected_reasons": []
+}

@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "171c159f3f7be080a2736c1ed95b9532ee576bd5c1e402b481cb6c8dc8808d8f",
+  "attempts": [
+    {
+      "asr_seconds": 0.21814607502892613,
+      "alignment_seconds": 0.0003993560094386339,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rivers, she may my lord for.",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Rivers,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " she",
+              "start": 1.27,
+              "end": 1.29,
+              "probability": 0.96484375
+            },
+            {
+              "text": " may",
+              "start": 1.29,
+              "end": 1.41,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " my",
+              "start": 1.41,
+              "end": 1.59,
+              "probability": 0.990234375
+            },
+            {
+              "text": " lord",
+              "start": 1.59,
+              "end": 1.79,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " for.",
+              "start": 1.79,
+              "end": 2.09,
+              "probability": 0.70263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rivers,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "she",
+          "start": 1.27,
+          "end": 1.29
+        },
+        {
+          "raw": "may",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "raw": "my",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "raw": "lord",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "raw": "for.",
+          "start": 1.79,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "Rivers.",
+        "She",
+        "may,",
+        "my",
+        "lord;",
+        "for—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rivers,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "rivers",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.27,
+          "end": 1.29,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.29,
+          "end": 1.41,
+          "key": "may",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.41,
+          "end": 1.59,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 1.59,
+          "end": 1.79,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for.",
+          "start": 1.79,
+          "end": 2.09,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Rivers.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "She",
+          "start": 1.27,
+          "end": 1.29
+        },
+        {
+          "text": "may,",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "text": "my",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "text": "lord;",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "text": "for—",
+          "start": 1.79,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21870125201530755
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "68ebf2babb71575d6281350512702f02541635b28155095ff40d4c179ab9eee9",
+  "selected_reasons": []
+}

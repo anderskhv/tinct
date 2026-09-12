@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "5984bb444c6b0cd93e242c1dcd86add9035022d545dc3067279c2ab914ec7eaa",
+  "attempts": [
+    {
+      "asr_seconds": 0.20037696091458201,
+      "alignment_seconds": 0.00044797779992222786,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The lacwee rang his bell behind their backs.",
+          "start": 0.05,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " lacwee",
+              "start": 0.51,
+              "end": 0.99,
+              "probability": 0.61358642578125
+            },
+            {
+              "text": " rang",
+              "start": 0.99,
+              "end": 1.23,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " his",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bell",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " behind",
+              "start": 1.63,
+              "end": 1.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " their",
+              "start": 1.93,
+              "end": 2.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " backs.",
+              "start": 2.09,
+              "end": 2.47,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "lacwee",
+          "start": 0.51,
+          "end": 0.99
+        },
+        {
+          "raw": "rang",
+          "start": 0.99,
+          "end": 1.23
+        },
+        {
+          "raw": "his",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "bell",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "behind",
+          "start": 1.63,
+          "end": 1.93
+        },
+        {
+          "raw": "their",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "raw": "backs.",
+          "start": 2.09,
+          "end": 2.47
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "lacquey",
+        "rang",
+        "his",
+        "bell",
+        "behind",
+        "their",
+        "backs."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          8,
+          2,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lacwee",
+          "start": 0.51,
+          "end": 0.99,
+          "key": "lacwee",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rang",
+          "start": 0.99,
+          "end": 1.23,
+          "key": "rang",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bell",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "bell",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "behind",
+          "start": 1.63,
+          "end": 1.93,
+          "key": "behind",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.93,
+          "end": 2.09,
+          "key": "their",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "backs.",
+          "start": 2.09,
+          "end": 2.47,
+          "key": "backs",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "lacquey",
+          "start": 0.51,
+          "end": 0.75
+        },
+        {
+          "text": "rang",
+          "start": 0.99,
+          "end": 1.23
+        },
+        {
+          "text": "his",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "bell",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "behind",
+          "start": 1.63,
+          "end": 1.93
+        },
+        {
+          "text": "their",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "text": "backs.",
+          "start": 2.09,
+          "end": 2.47
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.20099029410630465
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6136c365c919e234fcffa85fc08eaa7b5be0c5d1fdf0467a9b50997681fa1fc3",
+  "selected_reasons": []
+}

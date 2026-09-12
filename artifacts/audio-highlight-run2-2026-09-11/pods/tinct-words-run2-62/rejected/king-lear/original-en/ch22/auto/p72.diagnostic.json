@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "c78d9a1bb8aa912a0a056489cfda4f1d68e49ca7c24281123a628eae110598d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.20980531722307205,
+      "alignment_seconds": 0.000241890549659729,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Then there's life in't. Come, and you get it, You shall get it by running. Sa, sa, sa, sa!",
+        "hotwords": "Lear, Then, Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, Then there's life in't. Come, and you get it, You shall get it by running. Sa, sa, sa, sa!",
+          "start": 0.02,
+          "end": 5.82,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.63134765625
+            },
+            {
+              "text": " Then",
+              "start": 0.98,
+              "end": 1.06,
+              "probability": 0.019195556640625
+            },
+            {
+              "text": " there's",
+              "start": 1.06,
+              "end": 1.32,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " life",
+              "start": 1.32,
+              "end": 1.52,
+              "probability": 0.6689453125
+            },
+            {
+              "text": " in't.",
+              "start": 1.52,
+              "end": 2.04,
+              "probability": 0.393829345703125
+            },
+            {
+              "text": " Come,",
+              "start": 2.32,
+              "end": 2.52,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " and",
+              "start": 2.64,
+              "end": 2.66,
+              "probability": 0.7177734375
+            },
+            {
+              "text": " you",
+              "start": 2.66,
+              "end": 2.76,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " get",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " it,",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " You",
+              "start": 3.1,
+              "end": 3.16,
+              "probability": 0.0877685546875
+            },
+            {
+              "text": " shall",
+              "start": 3.16,
+              "end": 3.3,
+              "probability": 0.953125
+            },
+            {
+              "text": " get",
+              "start": 3.3,
+              "end": 3.42,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " it",
+              "start": 3.42,
+              "end": 3.54,
+              "probability": 0.97265625
+            },
+            {
+              "text": " by",
+              "start": 3.54,
+              "end": 3.64,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " running.",
+              "start": 3.64,
+              "end": 3.92,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " Sa,",
+              "start": 4.66,
+              "end": 4.66,
+              "probability": 0.04583740234375
+            },
+            {
+              "text": " sa,",
+              "start": 5.02,
+              "end": 5.02,
+              "probability": 0.853515625
+            },
+            {
+              "text": " sa,",
+              "start": 5.24,
+              "end": 5.42,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " sa!",
+              "start": 5.56,
+              "end": 5.82,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Then",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "raw": "there's",
+          "start": 1.06,
+          "end": 1.32
+        },
+        {
+          "raw": "life",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "raw": "in't.",
+          "start": 1.52,
+          "end": 2.04
+        },
+        {
+          "raw": "Come,",
+          "start": 2.32,
+          "end": 2.52
+        },
+        {
+          "raw": "and",
+          "start": 2.64,
+          "end": 2.66
+        },
+        {
+          "raw": "you",
+          "start": 2.66,
+          "end": 2.76
+        },
+        {
+          "raw": "get",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "it,",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "You",
+          "start": 3.1,
+          "end": 3.16
+        },
+        {
+          "raw": "shall",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "raw": "get",
+          "start": 3.3,
+          "end": 3.42
+        },
+        {
+          "raw": "it",
+          "start": 3.42,
+          "end": 3.54
+        },
+        {
+          "raw": "by",
+          "start": 3.54,
+          "end": 3.64
+        },
+        {
+          "raw": "running.",
+          "start": 3.64,
+          "end": 3.92
+        },
+        {
+          "raw": "Sa,",
+          "start": 4.66,
+          "end": 4.66
+        },
+        {
+          "raw": "sa,",
+          "start": 5.02,
+          "end": 5.02
+        },
+        {
+          "raw": "sa,",
+          "start": 5.24,
+          "end": 5.42
+        },
+        {
+          "raw": "sa!",
+          "start": 5.56,
+          "end": 5.82
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Then",
+        "there's",
+        "life",
+        "in't.",
+        "Come,",
+        "and",
+        "you",
+        "get",
+        "it,",
+        "You",
+        "shall",
+        "get",
+        "it",
+        "by",
+        "running.",
+        "Sa,",
+        "sa,",
+        "sa,",
+        "sa!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 0.98,
+          "end": 1.06,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 1.06,
+          "end": 1.32,
+          "key": "theres",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 1.32,
+          "end": 1.52,
+          "key": "life",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in't.",
+          "start": 1.52,
+          "end": 2.04,
+          "key": "int",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 2.32,
+          "end": 2.52,
+          "key": "come",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.64,
+          "end": 2.66,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.66,
+          "end": 2.76,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "get",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 3.1,
+          "end": 3.16,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.16,
+          "end": 3.3,
+          "key": "shall",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 3.3,
+          "end": 3.42,
+          "key": "get",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.42,
+          "end": 3.54,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.54,
+          "end": 3.64,
+          "key": "by",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "running.",
+          "start": 3.64,
+          "end": 3.92,
+          "key": "running",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Sa,",
+          "start": 4.66,
+          "end": 4.66,
+          "key": "sa",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "sa,",
+          "start": 5.02,
+          "end": 5.02,
+          "key": "sa",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "sa,",
+          "start": 5.24,
+          "end": 5.42,
+          "key": "sa",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sa!",
+          "start": 5.56,
+          "end": 5.82,
+          "key": "sa",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Then",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "text": "there's",
+          "start": 1.06,
+          "end": 1.32
+        },
+        {
+          "text": "life",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "text": "in't.",
+          "start": 1.52,
+          "end": 2.04
+        },
+        {
+          "text": "Come,",
+          "start": 2.32,
+          "end": 2.52
+        },
+        {
+          "text": "and",
+          "start": 2.64,
+          "end": 2.66
+        },
+        {
+          "text": "you",
+          "start": 2.66,
+          "end": 2.76
+        },
+        {
+          "text": "get",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "it,",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "You",
+          "start": 3.1,
+          "end": 3.16
+        },
+        {
+          "text": "shall",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "text": "get",
+          "start": 3.3,
+          "end": 3.42
+        },
+        {
+          "text": "it",
+          "start": 3.42,
+          "end": 3.54
+        },
+        {
+          "text": "by",
+          "start": 3.54,
+          "end": 3.64
+        },
+        {
+          "text": "running.",
+          "start": 3.64,
+          "end": 3.92
+        },
+        {
+          "text": "Sa,",
+          "start": 4.66,
+          "end": 4.66
+        },
+        {
+          "text": "sa,",
+          "start": 5.02,
+          "end": 5.02
+        },
+        {
+          "text": "sa,",
+          "start": 5.24,
+          "end": 5.42
+        },
+        {
+          "text": "sa!",
+          "start": 5.56,
+          "end": 5.82
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21015983074903488
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "622e758d8f7f2ff0050481dc64b4d27be26827ccd8a40427f21b65c90e130b3f",
+  "selected_reasons": []
+}

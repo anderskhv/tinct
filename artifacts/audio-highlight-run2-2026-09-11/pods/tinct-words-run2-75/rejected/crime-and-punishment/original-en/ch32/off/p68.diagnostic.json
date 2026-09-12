@@ -1,0 +1,771 @@
+{
+  "complete": true,
+  "signature": "53545477d2b1e3d2f039e8fd1f5c60c9454da65af6a3f6d9a994f43b309f59e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.38748957216739655,
+      "alignment_seconds": 0.0005955062806606293,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Raskolnikov seated himself directly facing Porfiry and looked at him without flinching.",
+          "start": 0.02,
+          "end": 5.72,
+          "words": [
+            {
+              "text": " Raskolnikov",
+              "start": 0.02,
+              "end": 1.2,
+              "probability": 0.94033203125
+            },
+            {
+              "text": " seated",
+              "start": 1.2,
+              "end": 1.46,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " himself",
+              "start": 1.46,
+              "end": 1.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " directly",
+              "start": 1.92,
+              "end": 2.36,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " facing",
+              "start": 2.36,
+              "end": 2.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Porfiry",
+              "start": 2.98,
+              "end": 3.5,
+              "probability": 0.8963216145833334
+            },
+            {
+              "text": " and",
+              "start": 3.5,
+              "end": 4.14,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " looked",
+              "start": 4.14,
+              "end": 4.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " at",
+              "start": 4.3,
+              "end": 4.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 4.48,
+              "end": 4.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " without",
+              "start": 4.66,
+              "end": 4.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " flinching.",
+              "start": 4.98,
+              "end": 5.72,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Porfiry screwed up his eyes and began lighting a cigarette.",
+          "start": 6.42,
+          "end": 9.18,
+          "words": [
+            {
+              "text": " Porfiry",
+              "start": 6.42,
+              "end": 6.68,
+              "probability": 0.9978841145833334
+            },
+            {
+              "text": " screwed",
+              "start": 6.68,
+              "end": 7.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " up",
+              "start": 7.08,
+              "end": 7.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 7.28,
+              "end": 7.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " eyes",
+              "start": 7.42,
+              "end": 7.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 7.76,
+              "end": 8.04,
+              "probability": 0.986328125
+            },
+            {
+              "text": " began",
+              "start": 8.04,
+              "end": 8.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " lighting",
+              "start": 8.3,
+              "end": 8.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 8.66,
+              "end": 8.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cigarette.",
+              "start": 8.9,
+              "end": 9.18,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Raskolnikov",
+          "start": 0.02,
+          "end": 1.2
+        },
+        {
+          "raw": "seated",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "raw": "himself",
+          "start": 1.46,
+          "end": 1.92
+        },
+        {
+          "raw": "directly",
+          "start": 1.92,
+          "end": 2.36
+        },
+        {
+          "raw": "facing",
+          "start": 2.36,
+          "end": 2.98
+        },
+        {
+          "raw": "Porfiry",
+          "start": 2.98,
+          "end": 3.5
+        },
+        {
+          "raw": "and",
+          "start": 3.5,
+          "end": 4.14
+        },
+        {
+          "raw": "looked",
+          "start": 4.14,
+          "end": 4.3
+        },
+        {
+          "raw": "at",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "raw": "him",
+          "start": 4.48,
+          "end": 4.66
+        },
+        {
+          "raw": "without",
+          "start": 4.66,
+          "end": 4.98
+        },
+        {
+          "raw": "flinching.",
+          "start": 4.98,
+          "end": 5.72
+        },
+        {
+          "raw": "Porfiry",
+          "start": 6.42,
+          "end": 6.68
+        },
+        {
+          "raw": "screwed",
+          "start": 6.68,
+          "end": 7.08
+        },
+        {
+          "raw": "up",
+          "start": 7.08,
+          "end": 7.28
+        },
+        {
+          "raw": "his",
+          "start": 7.28,
+          "end": 7.42
+        },
+        {
+          "raw": "eyes",
+          "start": 7.42,
+          "end": 7.76
+        },
+        {
+          "raw": "and",
+          "start": 7.76,
+          "end": 8.04
+        },
+        {
+          "raw": "began",
+          "start": 8.04,
+          "end": 8.3
+        },
+        {
+          "raw": "lighting",
+          "start": 8.3,
+          "end": 8.66
+        },
+        {
+          "raw": "a",
+          "start": 8.66,
+          "end": 8.9
+        },
+        {
+          "raw": "cigarette.",
+          "start": 8.9,
+          "end": 9.18
+        }
+      ],
+      "expected_tokens": [
+        "Raskolnikov",
+        "seated",
+        "himself",
+        "directly",
+        "facing",
+        "Porfiry,",
+        "and",
+        "looked",
+        "at",
+        "him",
+        "without",
+        "flinching.",
+        "Porfiry",
+        "screwed",
+        "up",
+        "his",
+        "eyes",
+        "and",
+        "began",
+        "lighting",
+        "a",
+        "cigarette."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Raskolnikov",
+          "start": 0.02,
+          "end": 1.2,
+          "key": "raskolnikov",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "seated",
+          "start": 1.2,
+          "end": 1.46,
+          "key": "seated",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 1.46,
+          "end": 1.92,
+          "key": "himself",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "directly",
+          "start": 1.92,
+          "end": 2.36,
+          "key": "directly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "facing",
+          "start": 2.36,
+          "end": 2.98,
+          "key": "facing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Porfiry",
+          "start": 2.98,
+          "end": 3.5,
+          "key": "porfiry",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.5,
+          "end": 4.14,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 4.14,
+          "end": 4.3,
+          "key": "looked",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.3,
+          "end": 4.48,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.48,
+          "end": 4.66,
+          "key": "him",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 4.66,
+          "end": 4.98,
+          "key": "without",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "flinching.",
+          "start": 4.98,
+          "end": 5.72,
+          "key": "flinching",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Porfiry",
+          "start": 6.42,
+          "end": 6.68,
+          "key": "porfiry",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "screwed",
+          "start": 6.68,
+          "end": 7.08,
+          "key": "screwed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 7.08,
+          "end": 7.28,
+          "key": "up",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 7.28,
+          "end": 7.42,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 7.42,
+          "end": 7.76,
+          "key": "eyes",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.76,
+          "end": 8.04,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 8.04,
+          "end": 8.3,
+          "key": "began",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "lighting",
+          "start": 8.3,
+          "end": 8.66,
+          "key": "lighting",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.66,
+          "end": 8.9,
+          "key": "a",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "cigarette.",
+          "start": 8.9,
+          "end": 9.18,
+          "key": "cigarette",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Raskolnikov",
+          "start": 0.02,
+          "end": 1.2
+        },
+        {
+          "text": "seated",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "text": "himself",
+          "start": 1.46,
+          "end": 1.92
+        },
+        {
+          "text": "directly",
+          "start": 1.92,
+          "end": 2.36
+        },
+        {
+          "text": "facing",
+          "start": 2.36,
+          "end": 2.98
+        },
+        {
+          "text": "Porfiry,",
+          "start": 2.98,
+          "end": 3.5
+        },
+        {
+          "text": "and",
+          "start": 3.5,
+          "end": 4.14
+        },
+        {
+          "text": "looked",
+          "start": 4.14,
+          "end": 4.3
+        },
+        {
+          "text": "at",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "text": "him",
+          "start": 4.48,
+          "end": 4.66
+        },
+        {
+          "text": "without",
+          "start": 4.66,
+          "end": 4.98
+        },
+        {
+          "text": "flinching.",
+          "start": 4.98,
+          "end": 5.72
+        },
+        {
+          "text": "Porfiry",
+          "start": 6.42,
+          "end": 6.68
+        },
+        {
+          "text": "screwed",
+          "start": 6.68,
+          "end": 7.08
+        },
+        {
+          "text": "up",
+          "start": 7.08,
+          "end": 7.28
+        },
+        {
+          "text": "his",
+          "start": 7.28,
+          "end": 7.42
+        },
+        {
+          "text": "eyes",
+          "start": 7.42,
+          "end": 7.76
+        },
+        {
+          "text": "and",
+          "start": 7.76,
+          "end": 8.04
+        },
+        {
+          "text": "began",
+          "start": 8.04,
+          "end": 8.3
+        },
+        {
+          "text": "lighting",
+          "start": 8.3,
+          "end": 8.66
+        },
+        {
+          "text": "a",
+          "start": 8.66,
+          "end": 8.9
+        },
+        {
+          "text": "cigarette.",
+          "start": 8.9,
+          "end": 9.18
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3883550502359867
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c42b8403d271ed0fd5276544a7a7768c623457b77e52c3104b98767ad32addc3",
+  "selected_reasons": []
+}

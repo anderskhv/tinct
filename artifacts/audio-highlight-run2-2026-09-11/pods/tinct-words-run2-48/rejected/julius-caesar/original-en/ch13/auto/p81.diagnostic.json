@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "611724508252161599e83888a5c08ea1385a3ff44958495c0f7d075464876a71",
+  "attempts": [
+    {
+      "asr_seconds": 2.9869267912581563,
+      "alignment_seconds": 0.00022362079471349716,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Lucius, with wine and a taper.",
+        "hotwords": "Enter, Lucius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Lucius, with wine and a taper.",
+          "start": 0.11,
+          "end": 2.51,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.67,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " Lucius,",
+              "start": 0.67,
+              "end": 0.97,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " with",
+              "start": 1.47,
+              "end": 1.59,
+              "probability": 0.994140625
+            },
+            {
+              "text": " wine",
+              "start": 1.59,
+              "end": 1.89,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " and",
+              "start": 1.89,
+              "end": 2.07,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " a",
+              "start": 2.07,
+              "end": 2.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " taper.",
+              "start": 2.17,
+              "end": 2.51,
+              "probability": 0.967529296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "raw": "Lucius,",
+          "start": 0.67,
+          "end": 0.97
+        },
+        {
+          "raw": "with",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "raw": "wine",
+          "start": 1.59,
+          "end": 1.89
+        },
+        {
+          "raw": "and",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "raw": "a",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "raw": "taper.",
+          "start": 2.17,
+          "end": 2.51
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Lucius,",
+        "with",
+        "wine",
+        "and",
+        "a",
+        "taper."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.67,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lucius,",
+          "start": 0.67,
+          "end": 0.97,
+          "key": "lucius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.47,
+          "end": 1.59,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wine",
+          "start": 1.59,
+          "end": 1.89,
+          "key": "wine",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.89,
+          "end": 2.07,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.07,
+          "end": 2.17,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "taper.",
+          "start": 2.17,
+          "end": 2.51,
+          "key": "taper",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "text": "Lucius,",
+          "start": 0.67,
+          "end": 0.97
+        },
+        {
+          "text": "with",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "text": "wine",
+          "start": 1.59,
+          "end": 1.89
+        },
+        {
+          "text": "and",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "text": "a",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "text": "taper.",
+          "start": 2.17,
+          "end": 2.51
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.987243674695492
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b78b31f1d34facb11ef0095f94cc6a379db6d8f26d4aa7d5f5cf5247e4ae2f2a",
+  "selected_reasons": []
+}

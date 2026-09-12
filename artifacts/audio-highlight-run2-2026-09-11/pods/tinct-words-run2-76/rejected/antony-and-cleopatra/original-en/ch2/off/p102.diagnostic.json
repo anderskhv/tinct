@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "d17beb8e1e10de715dcff4c88e9e1bc7c7798857f26d8d9b378b11edba1b4b26",
+  "attempts": [
+    {
+      "asr_seconds": 0.13678816985338926,
+      "alignment_seconds": 0.00024245958775281906,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, dead.",
+          "start": 0.05,
+          "end": 1.39,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " dead.",
+              "start": 1.09,
+              "end": 1.39,
+              "probability": 0.927734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "dead.",
+          "start": 1.09,
+          "end": 1.39
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Dead."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dead.",
+          "start": 1.09,
+          "end": 1.39,
+          "key": "dead",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Dead.",
+          "start": 1.09,
+          "end": 1.39
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13713843189179897
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3966e14127ddc1fd95ab78d880e55f7feff558f181932d03ede4f648f9f68e8e",
+  "selected_reasons": []
+}

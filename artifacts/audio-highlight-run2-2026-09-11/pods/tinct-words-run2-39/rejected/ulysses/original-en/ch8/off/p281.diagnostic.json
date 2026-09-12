@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "2ae1a99fa8b8390b234a82912c948214179e86cc2933683c8e74ae23ad0360af",
+  "attempts": [
+    {
+      "asr_seconds": 0.1671458911150694,
+      "alignment_seconds": 0.00028905714862048626,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Davey Byans smiled young it nodded all in one",
+          "start": 0.08,
+          "end": 2.82,
+          "words": [
+            {
+              "text": " Davey",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.680419921875
+            },
+            {
+              "text": " Byans",
+              "start": 0.76,
+              "end": 1.12,
+              "probability": 0.4920654296875
+            },
+            {
+              "text": " smiled",
+              "start": 1.12,
+              "end": 1.38,
+              "probability": 0.904296875
+            },
+            {
+              "text": " young",
+              "start": 1.38,
+              "end": 1.64,
+              "probability": 0.04901123046875
+            },
+            {
+              "text": " it",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.55322265625
+            },
+            {
+              "text": " nodded",
+              "start": 1.76,
+              "end": 1.96,
+              "probability": 0.68310546875
+            },
+            {
+              "text": " all",
+              "start": 1.96,
+              "end": 2.3,
+              "probability": 0.98046875
+            },
+            {
+              "text": " in",
+              "start": 2.3,
+              "end": 2.44,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " one",
+              "start": 2.44,
+              "end": 2.82,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Davey",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "Byans",
+          "start": 0.76,
+          "end": 1.12
+        },
+        {
+          "raw": "smiled",
+          "start": 1.12,
+          "end": 1.38
+        },
+        {
+          "raw": "young",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "raw": "it",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "nodded",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "raw": "all",
+          "start": 1.96,
+          "end": 2.3
+        },
+        {
+          "raw": "in",
+          "start": 2.3,
+          "end": 2.44
+        },
+        {
+          "raw": "one",
+          "start": 2.44,
+          "end": 2.82
+        }
+      ],
+      "expected_tokens": [
+        "Davy",
+        "Byrne",
+        "smiledyawnednodded",
+        "all",
+        "in",
+        "one:"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          6
+        ],
+        [
+          "equal",
+          3,
+          6,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Davey",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "davey",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Byans",
+          "start": 0.76,
+          "end": 1.12,
+          "key": "byans",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "smiled",
+          "start": 1.12,
+          "end": 1.38,
+          "key": "smiled",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 1.38,
+          "end": 1.64,
+          "key": "young",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nodded",
+          "start": 1.76,
+          "end": 1.96,
+          "key": "nodded",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.96,
+          "end": 2.3,
+          "key": "all",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.3,
+          "end": 2.44,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.44,
+          "end": 2.82,
+          "key": "one",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Davy",
+          "start": 0.0,
+          "end": 0.98
+        },
+        {
+          "text": "Byrne",
+          "start": 0.98,
+          "end": 1.47
+        },
+        {
+          "text": "smiledyawnednodded",
+          "start": 1.47,
+          "end": 1.715
+        },
+        {
+          "text": "all",
+          "start": 1.96,
+          "end": 2.3
+        },
+        {
+          "text": "in",
+          "start": 2.3,
+          "end": 2.44
+        },
+        {
+          "text": "one:",
+          "start": 2.44,
+          "end": 2.82
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 9,
+        "matched_words": 3
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16756806010380387
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c394f22752971fa99a9d4ec364136aea3c2a10217d80db22791132804eae3b97",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

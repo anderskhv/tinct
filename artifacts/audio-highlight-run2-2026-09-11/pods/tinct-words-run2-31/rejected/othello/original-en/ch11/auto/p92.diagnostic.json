@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "6034a52e78316103c1cec290ab4433d178bdbb6d161536c9cd4c0334888e7e7a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1278796773403883,
+      "alignment_seconds": 0.00016937823966145515,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. O Iago!",
+        "hotwords": "Othello, O, Iago"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, O, Iago.",
+          "start": 0.11,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.11,
+              "end": 0.89,
+              "probability": 0.3578745524088542
+            },
+            {
+              "text": " O,",
+              "start": 1.09,
+              "end": 1.23,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " Iago.",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.03650045394897461
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.11,
+          "end": 0.89
+        },
+        {
+          "raw": "O,",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "raw": "Iago.",
+          "start": 1.35,
+          "end": 1.59
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "O",
+        "Iago!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.11,
+          "end": 0.89,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.09,
+          "end": 1.23,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Iago.",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "iago",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.11,
+          "end": 0.89
+        },
+        {
+          "text": "O",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "text": "Iago!",
+          "start": 1.35,
+          "end": 1.59
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12810701504349709
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "484f4ce14ff8983b07b7c4ef4468af932eb7d634e9d95340c63064852979119f",
+  "selected_reasons": []
+}

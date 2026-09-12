@@ -1,0 +1,627 @@
+{
+  "complete": true,
+  "signature": "2d98625fc7ffbdba1a1f4bbf913aab2a33013077fd83512b53a005fbc8ac4ed9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2043666746467352,
+      "alignment_seconds": 0.00035889819264411926,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Don'T Go Home.\"",
+        "hotwords": "Don'T, Go, Home"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don'T, Go, Home",
+          "start": 0.05,
+          "end": 1.21,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.78076171875
+            },
+            {
+              "text": "'T,",
+              "start": 0.57,
+              "end": 0.67,
+              "probability": 0.24949604272842407
+            },
+            {
+              "text": " Go,",
+              "start": 0.85,
+              "end": 0.89,
+              "probability": 0.01003265380859375
+            },
+            {
+              "text": " Home",
+              "start": 0.93,
+              "end": 1.21,
+              "probability": 0.98779296875
+            }
+          ]
+        },
+        {
+          "text": " Don'T, Go, Home",
+          "start": 1.21,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Don",
+              "start": 1.21,
+              "end": 1.29,
+              "probability": 0.00012791156768798828
+            },
+            {
+              "text": "'T,",
+              "start": 1.29,
+              "end": 1.77,
+              "probability": 0.019187182188034058
+            },
+            {
+              "text": " Go,",
+              "start": 1.77,
+              "end": 1.87,
+              "probability": 0.0028667449951171875
+            },
+            {
+              "text": " Home",
+              "start": 1.87,
+              "end": 1.87,
+              "probability": 0.03192138671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "'T,",
+          "start": 0.57,
+          "end": 0.67
+        },
+        {
+          "raw": "Go,",
+          "start": 0.85,
+          "end": 0.89
+        },
+        {
+          "raw": "Home",
+          "start": 0.93,
+          "end": 1.21
+        },
+        {
+          "raw": "Don",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "raw": "'T,",
+          "start": 1.29,
+          "end": 1.77
+        },
+        {
+          "raw": "Go,",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "raw": "Home",
+          "start": 1.87,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "\"Don'T",
+        "Go",
+        "Home.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          3,
+          2,
+          4
+        ],
+        [
+          "insert",
+          3,
+          3,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "insert",
+          3,
+          3,
+          4,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "'T,",
+          "start": 0.57,
+          "end": 0.67,
+          "key": "t",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Go,",
+          "start": 0.85,
+          "end": 0.89,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Home",
+          "start": 0.93,
+          "end": 1.21,
+          "key": "home",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Don",
+          "start": 1.21,
+          "end": 1.29,
+          "key": "don",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "'T,",
+          "start": 1.29,
+          "end": 1.77,
+          "key": "t",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Go,",
+          "start": 1.77,
+          "end": 1.87,
+          "key": "go",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Home",
+          "start": 1.87,
+          "end": 1.87,
+          "key": "home",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Don'T",
+          "start": 0.0,
+          "end": 0.425
+        },
+        {
+          "text": "Go",
+          "start": 0.85,
+          "end": 0.89
+        },
+        {
+          "text": "Home.\"",
+          "start": 0.93,
+          "end": 1.21
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 8,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20490940567106009
+    },
+    {
+      "asr_seconds": 0.13418192509561777,
+      "alignment_seconds": 0.00033428240567445755,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Don'T, Go, Home"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Don'T, Go, Home",
+          "start": 0.05,
+          "end": 1.21,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.78076171875
+            },
+            {
+              "text": "'T,",
+              "start": 0.57,
+              "end": 0.67,
+              "probability": 0.24949604272842407
+            },
+            {
+              "text": " Go,",
+              "start": 0.85,
+              "end": 0.89,
+              "probability": 0.01003265380859375
+            },
+            {
+              "text": " Home",
+              "start": 0.93,
+              "end": 1.21,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "'T,",
+          "start": 0.57,
+          "end": 0.67
+        },
+        {
+          "raw": "Go,",
+          "start": 0.85,
+          "end": 0.89
+        },
+        {
+          "raw": "Home",
+          "start": 0.93,
+          "end": 1.21
+        }
+      ],
+      "expected_tokens": [
+        "\"Don'T",
+        "Go",
+        "Home.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "'T,",
+          "start": 0.57,
+          "end": 0.67,
+          "key": "t",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Go,",
+          "start": 0.85,
+          "end": 0.89,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Home",
+          "start": 0.93,
+          "end": 1.21,
+          "key": "home",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Don'T",
+          "start": 0.0,
+          "end": 0.425
+        },
+        {
+          "text": "Go",
+          "start": 0.85,
+          "end": 0.89
+        },
+        {
+          "text": "Home.\"",
+          "start": 0.93,
+          "end": 1.21
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1346381874755025
+    },
+    {
+      "asr_seconds": 0.12934718187898397,
+      "alignment_seconds": 0.00029910821467638016,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don't geohome.",
+          "start": 0.05,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " Don't",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.889404296875
+            },
+            {
+              "text": " geohome.",
+              "start": 0.67,
+              "end": 1.25,
+              "probability": 0.5938720703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don't",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "geohome.",
+          "start": 0.67,
+          "end": 1.25
+        }
+      ],
+      "expected_tokens": [
+        "\"Don'T",
+        "Go",
+        "Home.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don't",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "dont",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "geohome.",
+          "start": 0.67,
+          "end": 1.25,
+          "key": "geohome",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Don'T",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Go",
+          "start": 0.67,
+          "end": 0.96
+        },
+        {
+          "text": "Home.\"",
+          "start": 0.96,
+          "end": 1.105
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12973576597869396
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "868096c8b75141e1c8f70a49f1a7dfbfb78d37c5c6211c436b95540af095e922",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

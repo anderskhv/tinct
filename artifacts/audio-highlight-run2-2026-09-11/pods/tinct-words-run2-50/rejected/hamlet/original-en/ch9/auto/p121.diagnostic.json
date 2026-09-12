@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "49d84bfda30e7568db39491eaa7667071fbb4d410c0ff1cb1d82796daf55239d",
+  "attempts": [
+    {
+      "asr_seconds": 0.227851128205657,
+      "alignment_seconds": 0.0004368927329778671,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Guildenstern. No, my lord; rather with choler.",
+        "hotwords": "Guildenstern, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Guildenstern, No, my lord, rather with choler.",
+          "start": 0.65,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Guildenstern,",
+              "start": 0.65,
+              "end": 1.13,
+              "probability": 0.8585205078125
+            },
+            {
+              "text": " No,",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.002948760986328125
+            },
+            {
+              "text": " my",
+              "start": 1.87,
+              "end": 1.89,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " lord,",
+              "start": 1.89,
+              "end": 2.13,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " rather",
+              "start": 2.41,
+              "end": 2.51,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " with",
+              "start": 2.51,
+              "end": 2.73,
+              "probability": 0.896484375
+            },
+            {
+              "text": " choler.",
+              "start": 2.73,
+              "end": 3.09,
+              "probability": 0.020721435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guildenstern,",
+          "start": 0.65,
+          "end": 1.13
+        },
+        {
+          "raw": "No,",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "my",
+          "start": 1.87,
+          "end": 1.89
+        },
+        {
+          "raw": "lord,",
+          "start": 1.89,
+          "end": 2.13
+        },
+        {
+          "raw": "rather",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "raw": "with",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "raw": "choler.",
+          "start": 2.73,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "Guildenstern.",
+        "No,",
+        "my",
+        "lord;",
+        "rather",
+        "with",
+        "choler."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guildenstern,",
+          "start": 0.65,
+          "end": 1.13,
+          "key": "guildenstern",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.87,
+          "end": 1.89,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.89,
+          "end": 2.13,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 2.41,
+          "end": 2.51,
+          "key": "rather",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.51,
+          "end": 2.73,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "choler.",
+          "start": 2.73,
+          "end": 3.09,
+          "key": "choler",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guildenstern.",
+          "start": 0.65,
+          "end": 1.13
+        },
+        {
+          "text": "No,",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "my",
+          "start": 1.87,
+          "end": 1.89
+        },
+        {
+          "text": "lord;",
+          "start": 1.89,
+          "end": 2.13
+        },
+        {
+          "text": "rather",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "text": "with",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "text": "choler.",
+          "start": 2.73,
+          "end": 3.09
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22844291292130947
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ba4f025f8ee24c468beba69d86c2536b3d3a3854caa9a55600999ecc21483533",
+  "selected_reasons": []
+}

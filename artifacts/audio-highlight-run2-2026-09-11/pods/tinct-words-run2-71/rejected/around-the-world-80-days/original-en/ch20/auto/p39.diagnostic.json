@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "b2e15194b52f4965c663e31a4eaba974513ab35c4b99ae341263dd7b0889f4fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.19067507982254028,
+      "alignment_seconds": 0.0003949310630559921,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Only sixteen hundred,\" said Mr. Fogg.",
+        "hotwords": "Only, Mr, Fogg"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Only sixteen hundred, said Mr. Fogg.",
+          "start": 0.02,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " Only",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.359375
+            },
+            {
+              "text": " sixteen",
+              "start": 0.64,
+              "end": 0.9,
+              "probability": 0.04010009765625
+            },
+            {
+              "text": " hundred,",
+              "start": 0.9,
+              "end": 1.5,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " said",
+              "start": 1.88,
+              "end": 2.06,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Mr.",
+              "start": 2.06,
+              "end": 2.34,
+              "probability": 0.9765625
+            },
+            {
+              "text": " Fogg.",
+              "start": 2.54,
+              "end": 2.68,
+              "probability": 0.890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Only",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "sixteen",
+          "start": 0.64,
+          "end": 0.9
+        },
+        {
+          "raw": "hundred,",
+          "start": 0.9,
+          "end": 1.5
+        },
+        {
+          "raw": "said",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "raw": "Fogg.",
+          "start": 2.54,
+          "end": 2.68
+        }
+      ],
+      "expected_tokens": [
+        "\"Only",
+        "sixteen",
+        "hundred,\"",
+        "said",
+        "Mr.",
+        "Fogg."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Only",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "only",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sixteen",
+          "start": 0.64,
+          "end": 0.9,
+          "key": "sixteen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hundred,",
+          "start": 0.9,
+          "end": 1.5,
+          "key": "hundred",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.88,
+          "end": 2.06,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.06,
+          "end": 2.34,
+          "key": "mr",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Fogg.",
+          "start": 2.54,
+          "end": 2.68,
+          "key": "fogg",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Only",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "sixteen",
+          "start": 0.64,
+          "end": 0.9
+        },
+        {
+          "text": "hundred,\"",
+          "start": 0.9,
+          "end": 1.5
+        },
+        {
+          "text": "said",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "text": "Mr.",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "text": "Fogg.",
+          "start": 2.54,
+          "end": 2.68
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19120725244283676
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7c1495b48806445948ecb4d2478590725fb52d6ea5ce27ed47d75b7c2db05a24",
+  "selected_reasons": []
+}

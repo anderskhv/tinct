@@ -1,0 +1,727 @@
+{
+  "complete": true,
+  "signature": "39ee1a5091c14616484580ac593f9ab6fd64f417ace6ade000a9d915a01753ea",
+  "attempts": [
+    {
+      "asr_seconds": 0.19642244279384613,
+      "alignment_seconds": 0.0004879273474216461,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Viola. _Et vous aussi; votre serviteur._",
+        "hotwords": "Viola"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Viola et vous aussi, votre serviteur._",
+          "start": 0.08,
+          "end": 3.08,
+          "words": [
+            {
+              "text": " Viola",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.6756591796875
+            },
+            {
+              "text": " et",
+              "start": 0.98,
+              "end": 1.34,
+              "probability": 0.52734375
+            },
+            {
+              "text": " vous",
+              "start": 1.34,
+              "end": 1.56,
+              "probability": 0.52899169921875
+            },
+            {
+              "text": " aussi,",
+              "start": 1.56,
+              "end": 1.94,
+              "probability": 0.7228190104166666
+            },
+            {
+              "text": " votre",
+              "start": 2.22,
+              "end": 2.42,
+              "probability": 0.4305839538574219
+            },
+            {
+              "text": " serviteur._",
+              "start": 2.42,
+              "end": 3.08,
+              "probability": 0.4466438442468643
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "et",
+          "start": 0.98,
+          "end": 1.34
+        },
+        {
+          "raw": "vous",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "raw": "aussi,",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "raw": "votre",
+          "start": 2.22,
+          "end": 2.42
+        },
+        {
+          "raw": "serviteur._",
+          "start": 2.42,
+          "end": 3.08
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "_Et",
+        "vous",
+        "aussi;",
+        "votre",
+        "serviteur._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 0.98,
+          "end": 1.34,
+          "key": "et",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "vous",
+          "start": 1.34,
+          "end": 1.56,
+          "key": "vous",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "aussi,",
+          "start": 1.56,
+          "end": 1.94,
+          "key": "aussi",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "votre",
+          "start": 2.22,
+          "end": 2.42,
+          "key": "votre",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "serviteur._",
+          "start": 2.42,
+          "end": 3.08,
+          "key": "serviteur_",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "text": "_Et",
+          "start": 0.98,
+          "end": 1.34
+        },
+        {
+          "text": "vous",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "text": "aussi;",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "text": "votre",
+          "start": 2.22,
+          "end": 2.42
+        },
+        {
+          "text": "serviteur._",
+          "start": 2.42,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1970619596540928
+    },
+    {
+      "asr_seconds": 0.19478565081954002,
+      "alignment_seconds": 0.00034692510962486267,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Viola"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " at Fusossi, Vater serviter.",
+          "start": 0.08,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " at",
+              "start": 0.08,
+              "end": 1.06,
+              "probability": 0.007091522216796875
+            },
+            {
+              "text": " Fusossi,",
+              "start": 1.06,
+              "end": 1.96,
+              "probability": 0.503936767578125
+            },
+            {
+              "text": " Vater",
+              "start": 2.22,
+              "end": 2.38,
+              "probability": 0.409423828125
+            },
+            {
+              "text": " serviter.",
+              "start": 2.38,
+              "end": 2.9,
+              "probability": 0.52337646484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "at",
+          "start": 0.08,
+          "end": 1.06
+        },
+        {
+          "raw": "Fusossi,",
+          "start": 1.06,
+          "end": 1.96
+        },
+        {
+          "raw": "Vater",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "raw": "serviter.",
+          "start": 2.38,
+          "end": 2.9
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "_Et",
+        "vous",
+        "aussi;",
+        "votre",
+        "serviteur._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          6,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          6,
+          0,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "at",
+          "start": 0.08,
+          "end": 1.06,
+          "key": "at",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fusossi,",
+          "start": 1.06,
+          "end": 1.96,
+          "key": "fusossi",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Vater",
+          "start": 2.22,
+          "end": 2.38,
+          "key": "vater",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "serviter.",
+          "start": 2.38,
+          "end": 2.9,
+          "key": "serviter",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.0,
+          "end": 1.45
+        },
+        {
+          "text": "_Et",
+          "start": 1.45,
+          "end": 2.175
+        },
+        {
+          "text": "vous",
+          "start": 2.175,
+          "end": 2.537
+        },
+        {
+          "text": "aussi;",
+          "start": 2.537,
+          "end": 2.718
+        },
+        {
+          "text": "votre",
+          "start": 2.718,
+          "end": 2.809
+        },
+        {
+          "text": "serviteur._",
+          "start": 2.809,
+          "end": 2.854
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 4,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19525863975286484
+    },
+    {
+      "asr_seconds": 0.21113410964608192,
+      "alignment_seconds": 0.000446513295173645,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Viola, at Fuzasi, Vodr Serviter.",
+          "start": 0.08,
+          "end": 2.88,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.5679931640625
+            },
+            {
+              "text": " at",
+              "start": 1.3,
+              "end": 1.36,
+              "probability": 0.5302734375
+            },
+            {
+              "text": " Fuzasi,",
+              "start": 1.36,
+              "end": 1.88,
+              "probability": 0.4685872395833333
+            },
+            {
+              "text": " Vodr",
+              "start": 2.22,
+              "end": 2.42,
+              "probability": 0.4377644856770833
+            },
+            {
+              "text": " Serviter.",
+              "start": 2.42,
+              "end": 2.88,
+              "probability": 0.52056884765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "at",
+          "start": 1.3,
+          "end": 1.36
+        },
+        {
+          "raw": "Fuzasi,",
+          "start": 1.36,
+          "end": 1.88
+        },
+        {
+          "raw": "Vodr",
+          "start": 2.22,
+          "end": 2.42
+        },
+        {
+          "raw": "Serviter.",
+          "start": 2.42,
+          "end": 2.88
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "_Et",
+        "vous",
+        "aussi;",
+        "votre",
+        "serviteur._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          6,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          6,
+          1,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.3,
+          "end": 1.36,
+          "key": "at",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Fuzasi,",
+          "start": 1.36,
+          "end": 1.88,
+          "key": "fuzasi",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Vodr",
+          "start": 2.22,
+          "end": 2.42,
+          "key": "vodr",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Serviter.",
+          "start": 2.42,
+          "end": 2.88,
+          "key": "serviter",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "_Et",
+          "start": 0.86,
+          "end": 1.87
+        },
+        {
+          "text": "vous",
+          "start": 1.87,
+          "end": 2.375
+        },
+        {
+          "text": "aussi;",
+          "start": 2.375,
+          "end": 2.627
+        },
+        {
+          "text": "votre",
+          "start": 2.627,
+          "end": 2.753
+        },
+        {
+          "text": "serviteur._",
+          "start": 2.753,
+          "end": 2.817
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 1
+      },
+      "match_ratio": 0.16666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21171758696436882
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b850bf547b2deed87772ee4ac842072eec50c808de49b7b61f75bd34ae53d6f1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

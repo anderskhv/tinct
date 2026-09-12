@@ -1,0 +1,387 @@
+{
+  "complete": true,
+  "signature": "db05bcab9d7a7f9f66281ff3ca5d4b06ee3d1ad2ba6348249ef10890c973912f",
+  "attempts": [
+    {
+      "asr_seconds": 0.24573511630296707,
+      "alignment_seconds": 0.0004730653017759323,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Jagger's is your guardian, I understand.\"",
+          "start": 0.08,
+          "end": 3.16,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.185302734375
+            },
+            {
+              "text": " Jagger's",
+              "start": 0.96,
+              "end": 1.24,
+              "probability": 0.752197265625
+            },
+            {
+              "text": " is",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " your",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.994140625
+            },
+            {
+              "text": " guardian,",
+              "start": 1.5,
+              "end": 1.84,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " I",
+              "start": 2.04,
+              "end": 2.12,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " understand.\"",
+              "start": 2.12,
+              "end": 3.16,
+              "probability": 0.7105712890625
+            }
+          ]
+        },
+        {
+          "text": " He went on.",
+          "start": 3.16,
+          "end": 3.8,
+          "words": [
+            {
+              "text": " He",
+              "start": 3.16,
+              "end": 3.38,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " went",
+              "start": 3.38,
+              "end": 3.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on.",
+              "start": 3.52,
+              "end": 3.8,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Jagger's",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "raw": "is",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "your",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "guardian,",
+          "start": 1.5,
+          "end": 1.84
+        },
+        {
+          "raw": "I",
+          "start": 2.04,
+          "end": 2.12
+        },
+        {
+          "raw": "understand.\"",
+          "start": 2.12,
+          "end": 3.16
+        },
+        {
+          "raw": "He",
+          "start": 3.16,
+          "end": 3.38
+        },
+        {
+          "raw": "went",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "raw": "on.",
+          "start": 3.52,
+          "end": 3.8
+        }
+      ],
+      "expected_tokens": [
+        "\"Mr.",
+        "Jaggers",
+        "is",
+        "your",
+        "guardian,",
+        "I",
+        "understand?\"",
+        "he",
+        "went",
+        "on."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jagger's",
+          "start": 0.96,
+          "end": 1.24,
+          "key": "jaggers",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.24,
+          "end": 1.34,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "guardian,",
+          "start": 1.5,
+          "end": 1.84,
+          "key": "guardian",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.04,
+          "end": 2.12,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "understand.\"",
+          "start": 2.12,
+          "end": 3.16,
+          "key": "understand",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.16,
+          "end": 3.38,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 3.38,
+          "end": 3.52,
+          "key": "went",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 3.52,
+          "end": 3.8,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Mr.",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Jaggers",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "text": "is",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "text": "your",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "guardian,",
+          "start": 1.5,
+          "end": 1.84
+        },
+        {
+          "text": "I",
+          "start": 2.04,
+          "end": 2.12
+        },
+        {
+          "text": "understand?\"",
+          "start": 2.12,
+          "end": 3.16
+        },
+        {
+          "text": "he",
+          "start": 3.16,
+          "end": 3.38
+        },
+        {
+          "text": "went",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "text": "on.",
+          "start": 3.52,
+          "end": 3.8
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24638326093554497
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c5177a541c6e894246d09ef20541bdfd30d6a5bd9ac860c3439da3a9a53fec83",
+  "selected_reasons": []
+}

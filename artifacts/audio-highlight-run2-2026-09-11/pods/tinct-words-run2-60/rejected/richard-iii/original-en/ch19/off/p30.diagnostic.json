@@ -1,0 +1,699 @@
+{
+  "complete": true,
+  "signature": "9c5956555ac1b232c88c9eba434594d5e10bd71a5cc6ae835c8fd3332ea5f249",
+  "attempts": [
+    {
+      "asr_seconds": 0.2936110980808735,
+      "alignment_seconds": 0.0005523376166820526,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Queen Elizabeth oh thou well skilled in curses stay a while and teach me how to curse mine enemies",
+          "start": 0.05,
+          "end": 6.19,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " Elizabeth",
+              "start": 0.59,
+              "end": 1.09,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " oh",
+              "start": 1.09,
+              "end": 1.83,
+              "probability": 0.08514404296875
+            },
+            {
+              "text": " thou",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " well",
+              "start": 1.99,
+              "end": 2.21,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " skilled",
+              "start": 2.21,
+              "end": 2.53,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " in",
+              "start": 2.53,
+              "end": 2.73,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " curses",
+              "start": 2.73,
+              "end": 3.11,
+              "probability": 0.9921875
+            },
+            {
+              "text": " stay",
+              "start": 3.11,
+              "end": 3.83,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " a",
+              "start": 3.83,
+              "end": 3.97,
+              "probability": 0.89453125
+            },
+            {
+              "text": " while",
+              "start": 3.97,
+              "end": 4.27,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " and",
+              "start": 4.27,
+              "end": 4.67,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " teach",
+              "start": 4.67,
+              "end": 4.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me",
+              "start": 4.87,
+              "end": 5.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " how",
+              "start": 5.09,
+              "end": 5.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 5.23,
+              "end": 5.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " curse",
+              "start": 5.33,
+              "end": 5.57,
+              "probability": 0.99609375
+            },
+            {
+              "text": " mine",
+              "start": 5.57,
+              "end": 5.85,
+              "probability": 0.96484375
+            },
+            {
+              "text": " enemies",
+              "start": 5.85,
+              "end": 6.19,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "Elizabeth",
+          "start": 0.59,
+          "end": 1.09
+        },
+        {
+          "raw": "oh",
+          "start": 1.09,
+          "end": 1.83
+        },
+        {
+          "raw": "thou",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "well",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "raw": "skilled",
+          "start": 2.21,
+          "end": 2.53
+        },
+        {
+          "raw": "in",
+          "start": 2.53,
+          "end": 2.73
+        },
+        {
+          "raw": "curses",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "raw": "stay",
+          "start": 3.11,
+          "end": 3.83
+        },
+        {
+          "raw": "a",
+          "start": 3.83,
+          "end": 3.97
+        },
+        {
+          "raw": "while",
+          "start": 3.97,
+          "end": 4.27
+        },
+        {
+          "raw": "and",
+          "start": 4.27,
+          "end": 4.67
+        },
+        {
+          "raw": "teach",
+          "start": 4.67,
+          "end": 4.87
+        },
+        {
+          "raw": "me",
+          "start": 4.87,
+          "end": 5.09
+        },
+        {
+          "raw": "how",
+          "start": 5.09,
+          "end": 5.23
+        },
+        {
+          "raw": "to",
+          "start": 5.23,
+          "end": 5.33
+        },
+        {
+          "raw": "curse",
+          "start": 5.33,
+          "end": 5.57
+        },
+        {
+          "raw": "mine",
+          "start": 5.57,
+          "end": 5.85
+        },
+        {
+          "raw": "enemies",
+          "start": 5.85,
+          "end": 6.19
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "O",
+        "thou",
+        "well",
+        "skilled",
+        "in",
+        "curses,",
+        "stay",
+        "awhile,",
+        "And",
+        "teach",
+        "me",
+        "how",
+        "to",
+        "curse",
+        "mine",
+        "enemies."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          9,
+          3,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          18,
+          11,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Elizabeth",
+          "start": 0.59,
+          "end": 1.09,
+          "key": "elizabeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.09,
+          "end": 1.83,
+          "key": "oh",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.99,
+          "end": 2.21,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "skilled",
+          "start": 2.21,
+          "end": 2.53,
+          "key": "skilled",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.53,
+          "end": 2.73,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "curses",
+          "start": 2.73,
+          "end": 3.11,
+          "key": "curses",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 3.11,
+          "end": 3.83,
+          "key": "stay",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.83,
+          "end": 3.97,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 3.97,
+          "end": 4.27,
+          "key": "while",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.27,
+          "end": 4.67,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "teach",
+          "start": 4.67,
+          "end": 4.87,
+          "key": "teach",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.87,
+          "end": 5.09,
+          "key": "me",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 5.09,
+          "end": 5.23,
+          "key": "how",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.23,
+          "end": 5.33,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "curse",
+          "start": 5.33,
+          "end": 5.57,
+          "key": "curse",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 5.57,
+          "end": 5.85,
+          "key": "mine",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "enemies",
+          "start": 5.85,
+          "end": 6.19,
+          "key": "enemies",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.59,
+          "end": 1.09
+        },
+        {
+          "text": "O",
+          "start": 1.09,
+          "end": 1.46
+        },
+        {
+          "text": "thou",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "well",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "text": "skilled",
+          "start": 2.21,
+          "end": 2.53
+        },
+        {
+          "text": "in",
+          "start": 2.53,
+          "end": 2.73
+        },
+        {
+          "text": "curses,",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "text": "stay",
+          "start": 3.11,
+          "end": 3.83
+        },
+        {
+          "text": "awhile,",
+          "start": 3.83,
+          "end": 4.05
+        },
+        {
+          "text": "And",
+          "start": 4.27,
+          "end": 4.67
+        },
+        {
+          "text": "teach",
+          "start": 4.67,
+          "end": 4.87
+        },
+        {
+          "text": "me",
+          "start": 4.87,
+          "end": 5.09
+        },
+        {
+          "text": "how",
+          "start": 5.09,
+          "end": 5.23
+        },
+        {
+          "text": "to",
+          "start": 5.23,
+          "end": 5.33
+        },
+        {
+          "text": "curse",
+          "start": 5.33,
+          "end": 5.57
+        },
+        {
+          "text": "mine",
+          "start": 5.57,
+          "end": 5.85
+        },
+        {
+          "text": "enemies.",
+          "start": 5.85,
+          "end": 6.19
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2943648435175419
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "388ec12fe85f07068d5b1ecb33518d1a76a2d03abfb1a5812c7a56ddb4e68dca",
+  "selected_reasons": []
+}

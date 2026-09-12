@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "912b4d47f42f49d0683c6a2fb2cb649e5fe2304081c471cb0d9af5d609571db1",
+  "attempts": [
+    {
+      "asr_seconds": 0.10382240638136864,
+      "alignment_seconds": 0.0002867951989173889,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Sir Andrew.",
+          "start": 0.08,
+          "end": 1.24,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Sir",
+              "start": 0.68,
+              "end": 0.9,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " Andrew.",
+              "start": 0.9,
+              "end": 1.24,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Sir",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "raw": "Andrew.",
+          "start": 0.9,
+          "end": 1.24
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Sir",
+        "Andrew."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 0.68,
+          "end": 0.9,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Andrew.",
+          "start": 0.9,
+          "end": 1.24,
+          "key": "andrew",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Sir",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "text": "Andrew.",
+          "start": 0.9,
+          "end": 1.24
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10420826822519302
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5a3f7ecce65cf01e033c34555fcc926b7cff24ecd064fb8d7cb36eb0310b82ac",
+  "selected_reasons": []
+}

@@ -1,0 +1,341 @@
+{
+  "complete": true,
+  "signature": "ea6518fa765e64a897c4d9dc34faa511626c145d808417ffa2f64a2bc6e163d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.21569939702749252,
+      "alignment_seconds": 0.00048452243208885193,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It is come now—I must give it to-night.\""
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It is come now—I must give it to-night.",
+          "start": 0.05,
+          "end": 2.41,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " is",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " come",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " now—I",
+              "start": 0.87,
+              "end": 1.59,
+              "probability": 0.646399180094401
+            },
+            {
+              "text": " must",
+              "start": 1.59,
+              "end": 1.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " give",
+              "start": 1.73,
+              "end": 1.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 1.95,
+              "end": 2.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 2.09,
+              "end": 2.19,
+              "probability": 0.263671875
+            },
+            {
+              "text": "-night.",
+              "start": 2.19,
+              "end": 2.41,
+              "probability": 0.730224609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "come",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "now—I",
+          "start": 0.87,
+          "end": 1.59
+        },
+        {
+          "raw": "must",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "raw": "give",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "raw": "it",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "raw": "to",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "raw": "-night.",
+          "start": 2.19,
+          "end": 2.41
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "is",
+        "come",
+        "now—I",
+        "must",
+        "give",
+        "it",
+        "to-night.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 0.65,
+          "end": 0.87,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now—I",
+          "start": 0.87,
+          "end": 1.59,
+          "key": "nowi",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.59,
+          "end": 1.73,
+          "key": "must",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.73,
+          "end": 1.95,
+          "key": "give",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.95,
+          "end": 2.09,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to -night.",
+          "start": 2.09,
+          "end": 2.41,
+          "key": "tonight",
+          "pieces": [
+            7,
+            8
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "to-night.\"",
+          "heard": "to -night.",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 2.09,
+          "end": 2.41
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "is",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "come",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "text": "now—I",
+          "start": 0.87,
+          "end": 1.59
+        },
+        {
+          "text": "must",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "text": "give",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "text": "it",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "text": "to-night.\"",
+          "start": 2.09,
+          "end": 2.41
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21633495390415192
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f004fb66cdea342ff79946aeb19614f5e8567ee937d6a3afb99be2d42519bc88",
+  "selected_reasons": []
+}

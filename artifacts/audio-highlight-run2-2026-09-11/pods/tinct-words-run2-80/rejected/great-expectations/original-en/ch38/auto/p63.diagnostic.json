@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "40ea82947bb0f668e2f9c8627ee797a09950ae10cf049576841537fc5b961e62",
+  "attempts": [
+    {
+      "asr_seconds": 0.15515713579952717,
+      "alignment_seconds": 0.00035555101931095123,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Estella who?\" said I.",
+        "hotwords": "Estella, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Estella who? said I.",
+          "start": 0.11,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " Estella",
+              "start": 0.11,
+              "end": 0.85,
+              "probability": 0.792236328125
+            },
+            {
+              "text": " who?",
+              "start": 0.85,
+              "end": 1.05,
+              "probability": 0.6376953125
+            },
+            {
+              "text": " said",
+              "start": 1.41,
+              "end": 1.47,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " I.",
+              "start": 1.47,
+              "end": 1.73,
+              "probability": 0.87548828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Estella",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "raw": "who?",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "raw": "said",
+          "start": 1.41,
+          "end": 1.47
+        },
+        {
+          "raw": "I.",
+          "start": 1.47,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "\"Estella",
+        "who?\"",
+        "said",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Estella",
+          "start": 0.11,
+          "end": 0.85,
+          "key": "estella",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who?",
+          "start": 0.85,
+          "end": 1.05,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.41,
+          "end": 1.47,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 1.47,
+          "end": 1.73,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Estella",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "text": "who?\"",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "text": "said",
+          "start": 1.41,
+          "end": 1.47
+        },
+        {
+          "text": "I.",
+          "start": 1.47,
+          "end": 1.73
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1556296031922102
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0629cb64d4f5bc38d0e6d89f5abcb8638c4f0cdd97c65d6864cffea9fef0261a",
+  "selected_reasons": []
+}

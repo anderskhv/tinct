@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "f10b802496afe718742c167635277e889df8bb20e2945ceb4932a57d62f8eb54",
+  "attempts": [
+    {
+      "asr_seconds": 0.18262817338109016,
+      "alignment_seconds": 0.0002642236649990082,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"My eye, Miss Sara!\" gasped Becky again.",
+        "hotwords": "My, Miss, Sara, Becky"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " My eye, Miss Sara! gasped Becky again.",
+          "start": 0.05,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.4306640625
+            },
+            {
+              "text": " eye,",
+              "start": 0.59,
+              "end": 0.75,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " Miss",
+              "start": 0.83,
+              "end": 0.93,
+              "probability": 0.5810546875
+            },
+            {
+              "text": " Sara!",
+              "start": 0.93,
+              "end": 1.23,
+              "probability": 0.05633544921875
+            },
+            {
+              "text": " gasped",
+              "start": 1.89,
+              "end": 1.89,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " Becky",
+              "start": 1.89,
+              "end": 2.23,
+              "probability": 0.984375
+            },
+            {
+              "text": " again.",
+              "start": 2.23,
+              "end": 2.59,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "eye,",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "raw": "Miss",
+          "start": 0.83,
+          "end": 0.93
+        },
+        {
+          "raw": "Sara!",
+          "start": 0.93,
+          "end": 1.23
+        },
+        {
+          "raw": "gasped",
+          "start": 1.89,
+          "end": 1.89
+        },
+        {
+          "raw": "Becky",
+          "start": 1.89,
+          "end": 2.23
+        },
+        {
+          "raw": "again.",
+          "start": 2.23,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "\"My",
+        "eye,",
+        "Miss",
+        "Sara!\"",
+        "gasped",
+        "Becky",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "eye,",
+          "start": 0.59,
+          "end": 0.75,
+          "key": "eye",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 0.83,
+          "end": 0.93,
+          "key": "miss",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sara!",
+          "start": 0.93,
+          "end": 1.23,
+          "key": "sara",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gasped",
+          "start": 1.89,
+          "end": 1.89,
+          "key": "gasped",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Becky",
+          "start": 1.89,
+          "end": 2.23,
+          "key": "becky",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 2.23,
+          "end": 2.59,
+          "key": "again",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"My",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "eye,",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "text": "Miss",
+          "start": 0.83,
+          "end": 0.93
+        },
+        {
+          "text": "Sara!\"",
+          "start": 0.93,
+          "end": 1.23
+        },
+        {
+          "text": "gasped",
+          "start": 1.89,
+          "end": 1.89
+        },
+        {
+          "text": "Becky",
+          "start": 1.89,
+          "end": 2.23
+        },
+        {
+          "text": "again.",
+          "start": 2.23,
+          "end": 2.59
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1830199807882309
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "64af5c0361be94589dad176fb1a36653aab129a4f7d0abfcad03fd4dd712597d",
+  "selected_reasons": []
+}

@@ -1,0 +1,260 @@
+{
+  "complete": true,
+  "signature": "31d2f73823a5379c7db2692ca7402455a6ababdbf8ad69517b6e3b387ac60761",
+  "attempts": [
+    {
+      "asr_seconds": 0.10304536344483495,
+      "alignment_seconds": 0.0001253797672688961,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First musician house or how",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.71142578125
+            },
+            {
+              "text": " musician",
+              "start": 0.63,
+              "end": 1.11,
+              "probability": 0.845703125
+            },
+            {
+              "text": " house",
+              "start": 1.11,
+              "end": 1.69,
+              "probability": 0.1607666015625
+            },
+            {
+              "text": " or",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " how",
+              "start": 1.87,
+              "end": 2.11,
+              "probability": 0.966796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "musician",
+          "start": 0.63,
+          "end": 1.11
+        },
+        {
+          "raw": "house",
+          "start": 1.11,
+          "end": 1.69
+        },
+        {
+          "raw": "or",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "how",
+          "start": 1.87,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Musician.",
+        "How,",
+        "sir,",
+        "how?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ],
+        [
+          "equal",
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          "delete",
+          3,
+          5,
+          5,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ],
+        [
+          "delete",
+          3,
+          5,
+          5,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "musician",
+          "start": 0.63,
+          "end": 1.11,
+          "key": "musician",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 1.11,
+          "end": 1.69,
+          "key": "house",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "or",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.87,
+          "end": 2.11,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Musician.",
+          "start": 0.63,
+          "end": 1.11
+        },
+        {
+          "text": "How,",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "text": "sir,",
+          "start": 2.11,
+          "end": 2.11
+        },
+        {
+          "text": "how?",
+          "start": 2.11,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10321444226428866
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "546a016983e67df85c80a059c9a860a658b4824dbd72a184a4ec9d9606340c4b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "fd0472ff6526fdb788c7125285889cb9ef1089e882682240939b061a29407d97",
+  "attempts": [
+    {
+      "asr_seconds": 0.09327224176377058,
+      "alignment_seconds": 0.00010426994413137436,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. What noise?",
+        "hotwords": "Cassio, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio, What noise?",
+          "start": 0.45,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.45,
+              "end": 0.85,
+              "probability": 0.681640625
+            },
+            {
+              "text": " What",
+              "start": 1.05,
+              "end": 1.17,
+              "probability": 0.0129852294921875
+            },
+            {
+              "text": " noise?",
+              "start": 1.17,
+              "end": 1.37,
+              "probability": 0.4189453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.45,
+          "end": 0.85
+        },
+        {
+          "raw": "What",
+          "start": 1.05,
+          "end": 1.17
+        },
+        {
+          "raw": "noise?",
+          "start": 1.17,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "What",
+        "noise?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.45,
+          "end": 0.85,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.05,
+          "end": 1.17,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "noise?",
+          "start": 1.17,
+          "end": 1.37,
+          "key": "noise",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.45,
+          "end": 0.85
+        },
+        {
+          "text": "What",
+          "start": 1.05,
+          "end": 1.17
+        },
+        {
+          "text": "noise?",
+          "start": 1.17,
+          "end": 1.37
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09341157088056207
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5468c181e83f840194cb50eceea975b3b5b575c552c761ef87dc17f3e0e9bbf5",
+  "selected_reasons": []
+}

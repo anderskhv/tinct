@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "00e3c7da28d3ebdd088c50d90e22f0cef9b0a133f013320a85d0cfaa312f590a",
+  "attempts": [
+    {
+      "asr_seconds": 0.12375826016068459,
+      "alignment_seconds": 0.0003746822476387024,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sonya looked at him quickly.",
+          "start": 0.11,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " Sonya",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " looked",
+              "start": 0.83,
+              "end": 0.93,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " at",
+              "start": 0.93,
+              "end": 1.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " quickly.",
+              "start": 1.25,
+              "end": 1.61,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sonya",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "looked",
+          "start": 0.83,
+          "end": 0.93
+        },
+        {
+          "raw": "at",
+          "start": 0.93,
+          "end": 1.11
+        },
+        {
+          "raw": "him",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "quickly.",
+          "start": 1.25,
+          "end": 1.61
+        }
+      ],
+      "expected_tokens": [
+        "Sonia",
+        "looked",
+        "at",
+        "him",
+        "quickly."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sonya",
+          "start": 0.11,
+          "end": 0.83,
+          "key": "sonya",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.83,
+          "end": 0.93,
+          "key": "looked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.93,
+          "end": 1.11,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "quickly.",
+          "start": 1.25,
+          "end": 1.61,
+          "key": "quickly",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sonia",
+          "start": 0.0,
+          "end": 0.415
+        },
+        {
+          "text": "looked",
+          "start": 0.83,
+          "end": 0.93
+        },
+        {
+          "text": "at",
+          "start": 0.93,
+          "end": 1.11
+        },
+        {
+          "text": "him",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "quickly.",
+          "start": 1.25,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1242610290646553
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f5bf27d0b5df37801671c51d6c0c5c4e34ea0f443cd5c80e827523a5dea8832c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

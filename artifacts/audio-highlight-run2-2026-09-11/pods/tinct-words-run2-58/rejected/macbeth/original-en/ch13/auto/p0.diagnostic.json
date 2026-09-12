@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "181497571f5095b0acf7681ae4c7db826fdc2c3036e99c4e992497550fc02f3a",
+  "attempts": [
+    {
+      "asr_seconds": 0.19365305919200182,
+      "alignment_seconds": 0.00038875825703144073,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Lady Macbeth and a Servant.]",
+        "hotwords": "Enter, Lady, Macbeth, Servant"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Lady Macbeth and a Servant.",
+          "start": 0.14,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.14,
+              "end": 0.64,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " Lady",
+              "start": 0.64,
+              "end": 0.88,
+              "probability": 0.876953125
+            },
+            {
+              "text": " Macbeth",
+              "start": 0.88,
+              "end": 1.4,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " and",
+              "start": 1.4,
+              "end": 1.62,
+              "probability": 0.791015625
+            },
+            {
+              "text": " a",
+              "start": 1.62,
+              "end": 1.78,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Servant.",
+              "start": 1.78,
+              "end": 2.2,
+              "probability": 0.5162353515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "raw": "Lady",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "raw": "Macbeth",
+          "start": 0.88,
+          "end": 1.4
+        },
+        {
+          "raw": "and",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "raw": "a",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "raw": "Servant.",
+          "start": 1.78,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Lady",
+        "Macbeth",
+        "and",
+        "a",
+        "Servant.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.14,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 0.64,
+          "end": 0.88,
+          "key": "lady",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Macbeth",
+          "start": 0.88,
+          "end": 1.4,
+          "key": "macbeth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.4,
+          "end": 1.62,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.62,
+          "end": 1.78,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Servant.",
+          "start": 1.78,
+          "end": 2.2,
+          "key": "servant",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "text": "Lady",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "text": "Macbeth",
+          "start": 0.88,
+          "end": 1.4
+        },
+        {
+          "text": "and",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "text": "a",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "text": "Servant.]",
+          "start": 1.78,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19419327192008495
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6054146120c6d06a2ce9e718b9980cc3c118be4cd572c3eb6b3c07770b62b9bb",
+  "selected_reasons": []
+}

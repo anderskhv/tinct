@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "0c199d30d067f713a7043665b356ac6fbbe6acd30880f12094fed33b69386689",
+  "attempts": [
+    {
+      "asr_seconds": 0.12304496485739946,
+      "alignment_seconds": 0.00018486473709344864,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sicinius. What more fearful?",
+        "hotwords": "Sicinius, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sicinius, What more fearful?",
+          "start": 0.08,
+          "end": 1.88,
+          "words": [
+            {
+              "text": " Sicinius,",
+              "start": 0.08,
+              "end": 0.96,
+              "probability": 0.4649251302083333
+            },
+            {
+              "text": " What",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.055084228515625
+            },
+            {
+              "text": " more",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.298828125
+            },
+            {
+              "text": " fearful?",
+              "start": 1.54,
+              "end": 1.88,
+              "probability": 0.693359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "raw": "What",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "more",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "fearful?",
+          "start": 1.54,
+          "end": 1.88
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "What",
+        "more",
+        "fearful?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 0.96,
+          "key": "sicinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "more",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fearful?",
+          "start": 1.54,
+          "end": 1.88,
+          "key": "fearful",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "text": "What",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "text": "more",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "fearful?",
+          "start": 1.54,
+          "end": 1.88
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12329454207792878
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b4482dabe9ea655e8b0541190d14123ccac67a6b0bc57d8065d1bb0d89d95daf",
+  "selected_reasons": []
+}

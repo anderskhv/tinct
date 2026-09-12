@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "70b975ddea62b2fb8dbc62ac5c11a19db94d75d1b3253c15e769590013cc9139",
+  "attempts": [
+    {
+      "asr_seconds": 0.29421352595090866,
+      "alignment_seconds": 0.0003577079623937607,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Who's Old Thunder?\" said I, again riveted with the insane earnestness of his manner.",
+        "hotwords": "Who's, Old, Thunder, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Who's, Old, Thunder? said I, again riveted with the insane earnestness of his manner.",
+          "start": 0.05,
+          "end": 5.33,
+          "words": [
+            {
+              "text": " Who's,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.49663543701171875
+            },
+            {
+              "text": " Old,",
+              "start": 0.77,
+              "end": 0.83,
+              "probability": 0.048095703125
+            },
+            {
+              "text": " Thunder?",
+              "start": 1.05,
+              "end": 1.25,
+              "probability": 0.978515625
+            },
+            {
+              "text": " said",
+              "start": 1.77,
+              "end": 1.87,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " I,",
+              "start": 1.87,
+              "end": 2.15,
+              "probability": 0.4248046875
+            },
+            {
+              "text": " again",
+              "start": 2.27,
+              "end": 2.73,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " riveted",
+              "start": 2.73,
+              "end": 3.21,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " with",
+              "start": 3.21,
+              "end": 3.41,
+              "probability": 0.958984375
+            },
+            {
+              "text": " the",
+              "start": 3.41,
+              "end": 3.57,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " insane",
+              "start": 3.57,
+              "end": 4.05,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " earnestness",
+              "start": 4.05,
+              "end": 4.77,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " of",
+              "start": 4.77,
+              "end": 4.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 4.87,
+              "end": 4.99,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " manner.",
+              "start": 4.99,
+              "end": 5.33,
+              "probability": 0.79443359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who's,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Old,",
+          "start": 0.77,
+          "end": 0.83
+        },
+        {
+          "raw": "Thunder?",
+          "start": 1.05,
+          "end": 1.25
+        },
+        {
+          "raw": "said",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "raw": "I,",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "raw": "again",
+          "start": 2.27,
+          "end": 2.73
+        },
+        {
+          "raw": "riveted",
+          "start": 2.73,
+          "end": 3.21
+        },
+        {
+          "raw": "with",
+          "start": 3.21,
+          "end": 3.41
+        },
+        {
+          "raw": "the",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "raw": "insane",
+          "start": 3.57,
+          "end": 4.05
+        },
+        {
+          "raw": "earnestness",
+          "start": 4.05,
+          "end": 4.77
+        },
+        {
+          "raw": "of",
+          "start": 4.77,
+          "end": 4.87
+        },
+        {
+          "raw": "his",
+          "start": 4.87,
+          "end": 4.99
+        },
+        {
+          "raw": "manner.",
+          "start": 4.99,
+          "end": 5.33
+        }
+      ],
+      "expected_tokens": [
+        "\"Who's",
+        "Old",
+        "Thunder?\"",
+        "said",
+        "I,",
+        "again",
+        "riveted",
+        "with",
+        "the",
+        "insane",
+        "earnestness",
+        "of",
+        "his",
+        "manner."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who's,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "whos",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Old,",
+          "start": 0.77,
+          "end": 0.83,
+          "key": "old",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Thunder?",
+          "start": 1.05,
+          "end": 1.25,
+          "key": "thunder",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.77,
+          "end": 1.87,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 1.87,
+          "end": 2.15,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 2.27,
+          "end": 2.73,
+          "key": "again",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "riveted",
+          "start": 2.73,
+          "end": 3.21,
+          "key": "riveted",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.21,
+          "end": 3.41,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.41,
+          "end": 3.57,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "insane",
+          "start": 3.57,
+          "end": 4.05,
+          "key": "insane",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "earnestness",
+          "start": 4.05,
+          "end": 4.77,
+          "key": "earnestness",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.77,
+          "end": 4.87,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.87,
+          "end": 4.99,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "manner.",
+          "start": 4.99,
+          "end": 5.33,
+          "key": "manner",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Who's",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Old",
+          "start": 0.77,
+          "end": 0.83
+        },
+        {
+          "text": "Thunder?\"",
+          "start": 1.05,
+          "end": 1.25
+        },
+        {
+          "text": "said",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "text": "I,",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "text": "again",
+          "start": 2.27,
+          "end": 2.73
+        },
+        {
+          "text": "riveted",
+          "start": 2.73,
+          "end": 3.21
+        },
+        {
+          "text": "with",
+          "start": 3.21,
+          "end": 3.41
+        },
+        {
+          "text": "the",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "text": "insane",
+          "start": 3.57,
+          "end": 4.05
+        },
+        {
+          "text": "earnestness",
+          "start": 4.05,
+          "end": 4.77
+        },
+        {
+          "text": "of",
+          "start": 4.77,
+          "end": 4.87
+        },
+        {
+          "text": "his",
+          "start": 4.87,
+          "end": 4.99
+        },
+        {
+          "text": "manner.",
+          "start": 4.99,
+          "end": 5.33
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2946983790025115
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5733d4084232e4ea7adf24382b2a9e7254e904a5e349bd13f113294d573ce6d5",
+  "selected_reasons": []
+}

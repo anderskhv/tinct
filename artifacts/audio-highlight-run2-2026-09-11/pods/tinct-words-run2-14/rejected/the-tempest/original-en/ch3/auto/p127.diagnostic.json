@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "a46bbd6cd41ee13e37c4619d282be7295f611bab1535da3d22290bd48c4fc3a5",
+  "attempts": [
+    {
+      "asr_seconds": 0.2101733386516571,
+      "alignment_seconds": 0.00029436126351356506,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sebastian. Well, I am standing water.",
+        "hotwords": "Sebastian, Well, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sebastian, Well, I am standing water.",
+          "start": 0.08,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.74072265625
+            },
+            {
+              "text": " Well,",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.0019197463989257812
+            },
+            {
+              "text": " I",
+              "start": 1.64,
+              "end": 1.66,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " am",
+              "start": 1.66,
+              "end": 1.74,
+              "probability": 0.61669921875
+            },
+            {
+              "text": " standing",
+              "start": 1.74,
+              "end": 2.02,
+              "probability": 0.97265625
+            },
+            {
+              "text": " water.",
+              "start": 2.02,
+              "end": 2.42,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "Well,",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "I",
+          "start": 1.64,
+          "end": 1.66
+        },
+        {
+          "raw": "am",
+          "start": 1.66,
+          "end": 1.74
+        },
+        {
+          "raw": "standing",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "raw": "water.",
+          "start": 2.02,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "Well,",
+        "I",
+        "am",
+        "standing",
+        "water."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "sebastian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 1.34,
+          "end": 1.52,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.64,
+          "end": 1.66,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.66,
+          "end": 1.74,
+          "key": "am",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "standing",
+          "start": 1.74,
+          "end": 2.02,
+          "key": "standing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "water.",
+          "start": 2.02,
+          "end": 2.42,
+          "key": "water",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "Well,",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "text": "I",
+          "start": 1.64,
+          "end": 1.66
+        },
+        {
+          "text": "am",
+          "start": 1.66,
+          "end": 1.74
+        },
+        {
+          "text": "standing",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "text": "water.",
+          "start": 2.02,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21059443056583405
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9fd896c3e350d2b19e26afa05dfa6e7cd3e99ef392472d5a089249e25eb935bf",
+  "selected_reasons": []
+}

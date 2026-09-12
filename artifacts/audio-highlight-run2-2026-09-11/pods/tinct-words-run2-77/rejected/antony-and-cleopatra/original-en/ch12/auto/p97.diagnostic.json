@@ -1,0 +1,221 @@
+{
+  "complete": true,
+  "signature": "2ec27e369ee7c9a4fb6623fb28f4bf08c1a73d2162d24f484447b173b361c832",
+  "attempts": [
+    {
+      "asr_seconds": 0.0930053019837942,
+      "alignment_seconds": 0.00016768500790931284,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Sound a flourish with drums._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sound a flourish with drums.",
+          "start": 0.08,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " Sound",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.6162109375
+            },
+            {
+              "text": " a",
+              "start": 0.62,
+              "end": 0.74,
+              "probability": 0.411376953125
+            },
+            {
+              "text": " flourish",
+              "start": 0.74,
+              "end": 1.0,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " with",
+              "start": 1.0,
+              "end": 1.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " drums.",
+              "start": 1.26,
+              "end": 1.56,
+              "probability": 0.9736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sound",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "a",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "raw": "flourish",
+          "start": 0.74,
+          "end": 1.0
+        },
+        {
+          "raw": "with",
+          "start": 1.0,
+          "end": 1.26
+        },
+        {
+          "raw": "drums.",
+          "start": 1.26,
+          "end": 1.56
+        }
+      ],
+      "expected_tokens": [
+        "[_Sound",
+        "a",
+        "flourish",
+        "with",
+        "drums._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sound",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "sound",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.62,
+          "end": 0.74,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "flourish",
+          "start": 0.74,
+          "end": 1.0,
+          "key": "flourish",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.0,
+          "end": 1.26,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "drums.",
+          "start": 1.26,
+          "end": 1.56,
+          "key": "drums",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Sound",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "a",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "text": "flourish",
+          "start": 0.74,
+          "end": 1.0
+        },
+        {
+          "text": "with",
+          "start": 1.0,
+          "end": 1.26
+        },
+        {
+          "text": "drums._]",
+          "start": 1.26,
+          "end": 1.56
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09322807000717148
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "51472df970c5c86b69ff0c421122b06c826819ad5556ed4a45fa7622eff261c3",
+  "selected_reasons": []
+}

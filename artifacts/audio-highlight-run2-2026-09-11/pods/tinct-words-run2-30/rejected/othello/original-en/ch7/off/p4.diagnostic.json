@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "3cc228aa31828cae3deef5c540a9bdd34653f4a44f6473a51f4fe4841bbf4312",
+  "attempts": [
+    {
+      "asr_seconds": 0.17789816483855247,
+      "alignment_seconds": 0.00030812807381153107,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown, why, masters, have your instruments been in Naples, that they speak aye the nose thus?",
+          "start": 0.02,
+          "end": 5.46,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.59613037109375
+            },
+            {
+              "text": " why,",
+              "start": 1.22,
+              "end": 1.54,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " masters,",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.87890625
+            },
+            {
+              "text": " have",
+              "start": 2.34,
+              "end": 2.4,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " your",
+              "start": 2.4,
+              "end": 2.54,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " instruments",
+              "start": 2.54,
+              "end": 2.94,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " been",
+              "start": 2.94,
+              "end": 3.2,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " in",
+              "start": 3.2,
+              "end": 3.32,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " Naples,",
+              "start": 3.32,
+              "end": 3.66,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " that",
+              "start": 4.16,
+              "end": 4.24,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " they",
+              "start": 4.24,
+              "end": 4.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " speak",
+              "start": 4.38,
+              "end": 4.64,
+              "probability": 0.9921875
+            },
+            {
+              "text": " aye",
+              "start": 4.64,
+              "end": 4.8,
+              "probability": 0.52325439453125
+            },
+            {
+              "text": " the",
+              "start": 4.8,
+              "end": 4.92,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " nose",
+              "start": 4.92,
+              "end": 5.16,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " thus?",
+              "start": 5.16,
+              "end": 5.46,
+              "probability": 0.96728515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "why,",
+          "start": 1.22,
+          "end": 1.54
+        },
+        {
+          "raw": "masters,",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "have",
+          "start": 2.34,
+          "end": 2.4
+        },
+        {
+          "raw": "your",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "raw": "instruments",
+          "start": 2.54,
+          "end": 2.94
+        },
+        {
+          "raw": "been",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "raw": "in",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "raw": "Naples,",
+          "start": 3.32,
+          "end": 3.66
+        },
+        {
+          "raw": "that",
+          "start": 4.16,
+          "end": 4.24
+        },
+        {
+          "raw": "they",
+          "start": 4.24,
+          "end": 4.38
+        },
+        {
+          "raw": "speak",
+          "start": 4.38,
+          "end": 4.64
+        },
+        {
+          "raw": "aye",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "raw": "the",
+          "start": 4.8,
+          "end": 4.92
+        },
+        {
+          "raw": "nose",
+          "start": 4.92,
+          "end": 5.16
+        },
+        {
+          "raw": "thus?",
+          "start": 5.16,
+          "end": 5.46
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Why,",
+        "masters,",
+        "have",
+        "your",
+        "instruments",
+        "been",
+        "in",
+        "Naples,",
+        "that",
+        "they",
+        "speak",
+        "i'",
+        "the",
+        "nose",
+        "thus?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          16,
+          13,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why,",
+          "start": 1.22,
+          "end": 1.54,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "masters,",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "masters",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.34,
+          "end": 2.4,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.4,
+          "end": 2.54,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "instruments",
+          "start": 2.54,
+          "end": 2.94,
+          "key": "instruments",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.94,
+          "end": 3.2,
+          "key": "been",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.2,
+          "end": 3.32,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Naples,",
+          "start": 3.32,
+          "end": 3.66,
+          "key": "naples",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.16,
+          "end": 4.24,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.24,
+          "end": 4.38,
+          "key": "they",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 4.38,
+          "end": 4.64,
+          "key": "speak",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "aye",
+          "start": 4.64,
+          "end": 4.8,
+          "key": "aye",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.8,
+          "end": 4.92,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "nose",
+          "start": 4.92,
+          "end": 5.16,
+          "key": "nose",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "thus?",
+          "start": 5.16,
+          "end": 5.46,
+          "key": "thus",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "Why,",
+          "start": 1.22,
+          "end": 1.54
+        },
+        {
+          "text": "masters,",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "have",
+          "start": 2.34,
+          "end": 2.4
+        },
+        {
+          "text": "your",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "text": "instruments",
+          "start": 2.54,
+          "end": 2.94
+        },
+        {
+          "text": "been",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "text": "in",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "text": "Naples,",
+          "start": 3.32,
+          "end": 3.66
+        },
+        {
+          "text": "that",
+          "start": 4.16,
+          "end": 4.24
+        },
+        {
+          "text": "they",
+          "start": 4.24,
+          "end": 4.38
+        },
+        {
+          "text": "speak",
+          "start": 4.38,
+          "end": 4.64
+        },
+        {
+          "text": "i'",
+          "start": 4.64,
+          "end": 4.72
+        },
+        {
+          "text": "the",
+          "start": 4.8,
+          "end": 4.92
+        },
+        {
+          "text": "nose",
+          "start": 4.92,
+          "end": 5.16
+        },
+        {
+          "text": "thus?",
+          "start": 5.16,
+          "end": 5.46
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.17833980219438672
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a82056c890407907bd129dd151b3072df438fbbc1d4308ea0f2f9e69e91ae401",
+  "selected_reasons": []
+}

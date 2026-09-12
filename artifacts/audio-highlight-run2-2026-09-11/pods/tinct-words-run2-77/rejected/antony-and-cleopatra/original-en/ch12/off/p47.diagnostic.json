@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "0436988a59f2a81484314b98e1c23bac19e2a7e06b582a9467988ade975ba819",
+  "attempts": [
+    {
+      "asr_seconds": 0.08267254399834201,
+      "alignment_seconds": 0.0001065740070771426,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The Matter",
+          "start": 0.05,
+          "end": 0.81,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.716796875
+            },
+            {
+              "text": " Matter",
+              "start": 0.51,
+              "end": 0.81,
+              "probability": 0.78662109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "Matter",
+          "start": 0.51,
+          "end": 0.81
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "matter?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Matter",
+          "start": 0.51,
+          "end": 0.81,
+          "key": "matter",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "matter?",
+          "start": 0.51,
+          "end": 0.81
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08281552899279632
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8dcf872331159426f322ad09ec361509b6a079a729a72fc51ef6c1530295a71f",
+  "selected_reasons": []
+}

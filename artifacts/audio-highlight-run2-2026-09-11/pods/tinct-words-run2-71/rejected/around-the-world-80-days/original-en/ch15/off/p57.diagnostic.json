@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "37667002338f77c6555d401ed266b1208d9b1e6248befe93ad466f47580bdae1",
+  "attempts": [
+    {
+      "asr_seconds": 0.19423156324774027,
+      "alignment_seconds": 0.000378989614546299,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The facts are admitted ask the judge",
+          "start": 0.02,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.7880859375
+            },
+            {
+              "text": " facts",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " are",
+              "start": 0.8,
+              "end": 0.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " admitted",
+              "start": 0.96,
+              "end": 1.32,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " ask",
+              "start": 1.32,
+              "end": 1.92,
+              "probability": 0.11810302734375
+            },
+            {
+              "text": " the",
+              "start": 1.92,
+              "end": 2.12,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " judge",
+              "start": 2.12,
+              "end": 2.42,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "facts",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "are",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "raw": "admitted",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "raw": "ask",
+          "start": 1.32,
+          "end": 1.92
+        },
+        {
+          "raw": "the",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "raw": "judge",
+          "start": 2.12,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "facts",
+        "are",
+        "admitted?\"",
+        "asked",
+        "the",
+        "judge."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "facts",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "facts",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.8,
+          "end": 0.96,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "admitted",
+          "start": 0.96,
+          "end": 1.32,
+          "key": "admitted",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 1.32,
+          "end": 1.92,
+          "key": "ask",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.92,
+          "end": 2.12,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "judge",
+          "start": 2.12,
+          "end": 2.42,
+          "key": "judge",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "facts",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "are",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "text": "admitted?\"",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "text": "asked",
+          "start": 1.32,
+          "end": 1.62
+        },
+        {
+          "text": "the",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "text": "judge.",
+          "start": 2.12,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.1947325337678194
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0508e639679409a23b4ee4ccfe22fb97c6a714e91c792a3f8247323163c1c343",
+  "selected_reasons": []
+}

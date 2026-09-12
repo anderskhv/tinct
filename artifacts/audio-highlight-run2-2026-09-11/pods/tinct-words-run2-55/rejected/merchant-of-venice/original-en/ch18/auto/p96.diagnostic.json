@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "418e086800efe71af3a5f5d2c98aadc6e34ad85fd355ba6c60f75d6e967e4238",
+  "attempts": [
+    {
+      "asr_seconds": 0.43555061984807253,
+      "alignment_seconds": 0.0005464851856231689,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Portia. Thyself shalt see the act. For, as thou urgest justice, be assur'd Thou shalt have justice more than thou desir'st.",
+        "hotwords": "Portia, Thyself, For"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Portia, Thyself shalt see the act. For, as thou urgest justice, be assur'd Thou shalt have justice more than thou desir'st.",
+          "start": 0.02,
+          "end": 8.08,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.6978759765625
+            },
+            {
+              "text": " Thyself",
+              "start": 1.38,
+              "end": 1.68,
+              "probability": 0.510986328125
+            },
+            {
+              "text": " shalt",
+              "start": 1.68,
+              "end": 1.84,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " see",
+              "start": 1.84,
+              "end": 2.06,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 2.06,
+              "end": 2.2,
+              "probability": 0.876953125
+            },
+            {
+              "text": " act.",
+              "start": 2.2,
+              "end": 2.56,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " For,",
+              "start": 3.0,
+              "end": 3.22,
+              "probability": 0.970703125
+            },
+            {
+              "text": " as",
+              "start": 3.52,
+              "end": 3.66,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " thou",
+              "start": 3.66,
+              "end": 3.82,
+              "probability": 0.4345703125
+            },
+            {
+              "text": " urgest",
+              "start": 3.82,
+              "end": 4.24,
+              "probability": 0.02846527099609375
+            },
+            {
+              "text": " justice,",
+              "start": 4.24,
+              "end": 4.76,
+              "probability": 0.900390625
+            },
+            {
+              "text": " be",
+              "start": 5.04,
+              "end": 5.12,
+              "probability": 0.77783203125
+            },
+            {
+              "text": " assur'd",
+              "start": 5.12,
+              "end": 5.6,
+              "probability": 0.17089271545410156
+            },
+            {
+              "text": " Thou",
+              "start": 5.6,
+              "end": 5.72,
+              "probability": 0.01146697998046875
+            },
+            {
+              "text": " shalt",
+              "start": 5.72,
+              "end": 5.92,
+              "probability": 0.990234375
+            },
+            {
+              "text": " have",
+              "start": 5.92,
+              "end": 6.16,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " justice",
+              "start": 6.16,
+              "end": 6.56,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " more",
+              "start": 6.56,
+              "end": 6.88,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " than",
+              "start": 6.88,
+              "end": 7.1,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " thou",
+              "start": 7.1,
+              "end": 7.26,
+              "probability": 0.68603515625
+            },
+            {
+              "text": " desir'st.",
+              "start": 7.26,
+              "end": 8.08,
+              "probability": 0.5792236328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Thyself",
+          "start": 1.38,
+          "end": 1.68
+        },
+        {
+          "raw": "shalt",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "raw": "see",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "raw": "the",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "raw": "act.",
+          "start": 2.2,
+          "end": 2.56
+        },
+        {
+          "raw": "For,",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "raw": "as",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "raw": "thou",
+          "start": 3.66,
+          "end": 3.82
+        },
+        {
+          "raw": "urgest",
+          "start": 3.82,
+          "end": 4.24
+        },
+        {
+          "raw": "justice,",
+          "start": 4.24,
+          "end": 4.76
+        },
+        {
+          "raw": "be",
+          "start": 5.04,
+          "end": 5.12
+        },
+        {
+          "raw": "assur'd",
+          "start": 5.12,
+          "end": 5.6
+        },
+        {
+          "raw": "Thou",
+          "start": 5.6,
+          "end": 5.72
+        },
+        {
+          "raw": "shalt",
+          "start": 5.72,
+          "end": 5.92
+        },
+        {
+          "raw": "have",
+          "start": 5.92,
+          "end": 6.16
+        },
+        {
+          "raw": "justice",
+          "start": 6.16,
+          "end": 6.56
+        },
+        {
+          "raw": "more",
+          "start": 6.56,
+          "end": 6.88
+        },
+        {
+          "raw": "than",
+          "start": 6.88,
+          "end": 7.1
+        },
+        {
+          "raw": "thou",
+          "start": 7.1,
+          "end": 7.26
+        },
+        {
+          "raw": "desir'st.",
+          "start": 7.26,
+          "end": 8.08
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "Thyself",
+        "shalt",
+        "see",
+        "the",
+        "act.",
+        "For,",
+        "as",
+        "thou",
+        "urgest",
+        "justice,",
+        "be",
+        "assur'd",
+        "Thou",
+        "shalt",
+        "have",
+        "justice",
+        "more",
+        "than",
+        "thou",
+        "desir'st."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thyself",
+          "start": 1.38,
+          "end": 1.68,
+          "key": "thyself",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shalt",
+          "start": 1.68,
+          "end": 1.84,
+          "key": "shalt",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.84,
+          "end": 2.06,
+          "key": "see",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.06,
+          "end": 2.2,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "act.",
+          "start": 2.2,
+          "end": 2.56,
+          "key": "act",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "For,",
+          "start": 3.0,
+          "end": 3.22,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.52,
+          "end": 3.66,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.66,
+          "end": 3.82,
+          "key": "thou",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "urgest",
+          "start": 3.82,
+          "end": 4.24,
+          "key": "urgest",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "justice,",
+          "start": 4.24,
+          "end": 4.76,
+          "key": "justice",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.04,
+          "end": 5.12,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "assur'd",
+          "start": 5.12,
+          "end": 5.6,
+          "key": "assurd",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 5.6,
+          "end": 5.72,
+          "key": "thou",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shalt",
+          "start": 5.72,
+          "end": 5.92,
+          "key": "shalt",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.92,
+          "end": 6.16,
+          "key": "have",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "justice",
+          "start": 6.16,
+          "end": 6.56,
+          "key": "justice",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 6.56,
+          "end": 6.88,
+          "key": "more",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 6.88,
+          "end": 7.1,
+          "key": "than",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 7.1,
+          "end": 7.26,
+          "key": "thou",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "desir'st.",
+          "start": 7.26,
+          "end": 8.08,
+          "key": "desirst",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Thyself",
+          "start": 1.38,
+          "end": 1.68
+        },
+        {
+          "text": "shalt",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "text": "see",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "text": "the",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "text": "act.",
+          "start": 2.2,
+          "end": 2.56
+        },
+        {
+          "text": "For,",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "text": "as",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "text": "thou",
+          "start": 3.66,
+          "end": 3.82
+        },
+        {
+          "text": "urgest",
+          "start": 3.82,
+          "end": 4.24
+        },
+        {
+          "text": "justice,",
+          "start": 4.24,
+          "end": 4.76
+        },
+        {
+          "text": "be",
+          "start": 5.04,
+          "end": 5.12
+        },
+        {
+          "text": "assur'd",
+          "start": 5.12,
+          "end": 5.6
+        },
+        {
+          "text": "Thou",
+          "start": 5.6,
+          "end": 5.72
+        },
+        {
+          "text": "shalt",
+          "start": 5.72,
+          "end": 5.92
+        },
+        {
+          "text": "have",
+          "start": 5.92,
+          "end": 6.16
+        },
+        {
+          "text": "justice",
+          "start": 6.16,
+          "end": 6.56
+        },
+        {
+          "text": "more",
+          "start": 6.56,
+          "end": 6.88
+        },
+        {
+          "text": "than",
+          "start": 6.88,
+          "end": 7.1
+        },
+        {
+          "text": "thou",
+          "start": 7.1,
+          "end": 7.26
+        },
+        {
+          "text": "desir'st.",
+          "start": 7.26,
+          "end": 8.08
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.436239717528224
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1dfc663cc74f6a3d1c60ffedbd6e07d915e12505ce519f0f907f0afa4b56ed43",
+  "selected_reasons": []
+}

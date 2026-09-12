@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "1283d99833e2475158c3c76a0d2a8376d0ab48b301087b67a6e186aa22a3be49",
+  "attempts": [
+    {
+      "asr_seconds": 0.14755589235574007,
+      "alignment_seconds": 0.000313345342874527,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In what respects?",
+        "hotwords": "In"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In what respects?",
+          "start": 0.02,
+          "end": 1.02,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.6787109375
+            },
+            {
+              "text": " what",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " respects?",
+              "start": 0.66,
+              "end": 1.02,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "what",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "respects?",
+          "start": 0.66,
+          "end": 1.02
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "what",
+        "respects?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "respects?",
+          "start": 0.66,
+          "end": 1.02,
+          "key": "respects",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "what",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "respects?",
+          "start": 0.66,
+          "end": 1.02
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1479708468541503
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "17b1af4872280c530f399698e265a06d2c1f3ee0c5b7fa6457fcfb00ab42ff10",
+  "selected_reasons": []
+}

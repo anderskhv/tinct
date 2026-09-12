@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "f2c55042f1661835e05a06c886f032e9b9ef5c7b18b6596ce6243ffc82070887",
+  "attempts": [
+    {
+      "asr_seconds": 0.29814114421606064,
+      "alignment_seconds": 0.0006210952997207642,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. I will help you to't. But tell me true, are you not mad indeed? or do you but counterfeit?",
+        "hotwords": "Clown, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, I will help you to't. But tell me true, are you not mad indeed? or do you but counterfeit?",
+          "start": 0.0,
+          "end": 5.78,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.0,
+              "end": 0.66,
+              "probability": 0.568359375
+            },
+            {
+              "text": " I",
+              "start": 0.96,
+              "end": 1.0,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " will",
+              "start": 1.0,
+              "end": 1.1,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " help",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 1.26,
+              "end": 1.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to't.",
+              "start": 1.44,
+              "end": 1.86,
+              "probability": 0.025595784187316895
+            },
+            {
+              "text": " But",
+              "start": 2.26,
+              "end": 2.42,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " tell",
+              "start": 2.42,
+              "end": 2.58,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " me",
+              "start": 2.58,
+              "end": 2.76,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " true,",
+              "start": 2.76,
+              "end": 3.06,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " are",
+              "start": 3.32,
+              "end": 3.34,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " you",
+              "start": 3.34,
+              "end": 3.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 3.46,
+              "end": 3.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " mad",
+              "start": 3.6,
+              "end": 3.84,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " indeed?",
+              "start": 3.84,
+              "end": 4.18,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " or",
+              "start": 4.78,
+              "end": 4.88,
+              "probability": 0.048431396484375
+            },
+            {
+              "text": " do",
+              "start": 4.88,
+              "end": 5.02,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " you",
+              "start": 5.02,
+              "end": 5.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " but",
+              "start": 5.18,
+              "end": 5.34,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " counterfeit?",
+              "start": 5.34,
+              "end": 5.78,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "raw": "I",
+          "start": 0.96,
+          "end": 1.0
+        },
+        {
+          "raw": "will",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "raw": "help",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "you",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "raw": "to't.",
+          "start": 1.44,
+          "end": 1.86
+        },
+        {
+          "raw": "But",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "raw": "tell",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "raw": "me",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "raw": "true,",
+          "start": 2.76,
+          "end": 3.06
+        },
+        {
+          "raw": "are",
+          "start": 3.32,
+          "end": 3.34
+        },
+        {
+          "raw": "you",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "raw": "not",
+          "start": 3.46,
+          "end": 3.6
+        },
+        {
+          "raw": "mad",
+          "start": 3.6,
+          "end": 3.84
+        },
+        {
+          "raw": "indeed?",
+          "start": 3.84,
+          "end": 4.18
+        },
+        {
+          "raw": "or",
+          "start": 4.78,
+          "end": 4.88
+        },
+        {
+          "raw": "do",
+          "start": 4.88,
+          "end": 5.02
+        },
+        {
+          "raw": "you",
+          "start": 5.02,
+          "end": 5.18
+        },
+        {
+          "raw": "but",
+          "start": 5.18,
+          "end": 5.34
+        },
+        {
+          "raw": "counterfeit?",
+          "start": 5.34,
+          "end": 5.78
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "I",
+        "will",
+        "help",
+        "you",
+        "to't.",
+        "But",
+        "tell",
+        "me",
+        "true,",
+        "are",
+        "you",
+        "not",
+        "mad",
+        "indeed?",
+        "or",
+        "do",
+        "you",
+        "but",
+        "counterfeit?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.66,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.96,
+          "end": 1.0,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.0,
+          "end": 1.1,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "help",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.26,
+          "end": 1.44,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to't.",
+          "start": 1.44,
+          "end": 1.86,
+          "key": "tot",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 2.26,
+          "end": 2.42,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.42,
+          "end": 2.58,
+          "key": "tell",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.58,
+          "end": 2.76,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 2.76,
+          "end": 3.06,
+          "key": "true",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.32,
+          "end": 3.34,
+          "key": "are",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.34,
+          "end": 3.46,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.46,
+          "end": 3.6,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "mad",
+          "start": 3.6,
+          "end": 3.84,
+          "key": "mad",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "indeed?",
+          "start": 3.84,
+          "end": 4.18,
+          "key": "indeed",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 4.78,
+          "end": 4.88,
+          "key": "or",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 4.88,
+          "end": 5.02,
+          "key": "do",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.02,
+          "end": 5.18,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.18,
+          "end": 5.34,
+          "key": "but",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "counterfeit?",
+          "start": 5.34,
+          "end": 5.78,
+          "key": "counterfeit",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "I",
+          "start": 0.96,
+          "end": 1.0
+        },
+        {
+          "text": "will",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "text": "help",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "you",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "text": "to't.",
+          "start": 1.44,
+          "end": 1.86
+        },
+        {
+          "text": "But",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "text": "tell",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "text": "me",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "text": "true,",
+          "start": 2.76,
+          "end": 3.06
+        },
+        {
+          "text": "are",
+          "start": 3.32,
+          "end": 3.34
+        },
+        {
+          "text": "you",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "text": "not",
+          "start": 3.46,
+          "end": 3.6
+        },
+        {
+          "text": "mad",
+          "start": 3.6,
+          "end": 3.84
+        },
+        {
+          "text": "indeed?",
+          "start": 3.84,
+          "end": 4.18
+        },
+        {
+          "text": "or",
+          "start": 4.78,
+          "end": 4.88
+        },
+        {
+          "text": "do",
+          "start": 4.88,
+          "end": 5.02
+        },
+        {
+          "text": "you",
+          "start": 5.02,
+          "end": 5.18
+        },
+        {
+          "text": "but",
+          "start": 5.18,
+          "end": 5.34
+        },
+        {
+          "text": "counterfeit?",
+          "start": 5.34,
+          "end": 5.78
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29902753606438637
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e1f5e7c7e9bb8459de456341001db8109fa99c916e4575f2770a6fc3e7cf9b3f",
+  "selected_reasons": []
+}

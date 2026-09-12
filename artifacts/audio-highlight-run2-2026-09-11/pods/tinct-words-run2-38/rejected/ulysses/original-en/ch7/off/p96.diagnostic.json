@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "c66e88349316711acd1f3ae07634f8b68bd15b595f11e4c748888189404bc9ab",
+  "attempts": [
+    {
+      "asr_seconds": 0.08797890198184177,
+      "alignment_seconds": 0.00010458100587129593,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A day father.",
+          "start": 0.05,
+          "end": 1.01,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.765625
+            },
+            {
+              "text": " day",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.53369140625
+            },
+            {
+              "text": " father.",
+              "start": 0.67,
+              "end": 1.01,
+              "probability": 0.55712890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "day",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "father.",
+          "start": 0.67,
+          "end": 1.01
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "Dayfather"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 0.51,
+          "end": 0.67,
+          "key": "day",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "father.",
+          "start": 0.67,
+          "end": 1.01,
+          "key": "father",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "Dayfather",
+          "start": 0.51,
+          "end": 0.76
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08812698302790523
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2c3ce40ee2522746e5d0516cc0e31ee515a9ca9777af78d3a2d2fd7b69e9950f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "complete": true,
+  "signature": "d8b0faef1dfbf2b4da18c283c4d3715bdb7b80dc11913686ec4707a59f7c8426",
+  "attempts": [
+    {
+      "asr_seconds": 0.16575986007228494,
+      "alignment_seconds": 0.00026050815358757973,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, what do you pray to service?",
+          "start": 0.74,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.74,
+              "end": 1.06,
+              "probability": 0.733154296875
+            },
+            {
+              "text": " what",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " do",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " you",
+              "start": 1.72,
+              "end": 1.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pray",
+              "start": 1.8,
+              "end": 1.96,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " to",
+              "start": 1.96,
+              "end": 2.08,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " service?",
+              "start": 2.08,
+              "end": 2.38,
+              "probability": 0.44189453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.74,
+          "end": 1.06
+        },
+        {
+          "raw": "what",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "do",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "you",
+          "start": 1.72,
+          "end": 1.8
+        },
+        {
+          "raw": "pray",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "raw": "to",
+          "start": 1.96,
+          "end": 2.08
+        },
+        {
+          "raw": "service?",
+          "start": 2.08,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "What",
+        "do",
+        "you",
+        "prate",
+        "of",
+        "service?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "equal",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.74,
+          "end": 1.06,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.62,
+          "end": 1.72,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.72,
+          "end": 1.8,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.8,
+          "end": 1.96,
+          "key": "pray",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.96,
+          "end": 2.08,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "service?",
+          "start": 2.08,
+          "end": 2.38,
+          "key": "service",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.74,
+          "end": 1.06
+        },
+        {
+          "text": "What",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "do",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "text": "you",
+          "start": 1.72,
+          "end": 1.8
+        },
+        {
+          "text": "prate",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "text": "of",
+          "start": 1.94,
+          "end": 2.01
+        },
+        {
+          "text": "service?",
+          "start": 2.08,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16611306136474013
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ef1dca4d03f9b234011e09b2d95154162c881cd43b51c3bb9ef09f980af02572",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

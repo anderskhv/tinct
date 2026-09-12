@@ -1,0 +1,771 @@
+{
+  "complete": true,
+  "signature": "092f7a70932b7bde1aa8696a1dc4269456fb768561a44e0731b2f33c97e9b457",
+  "attempts": [
+    {
+      "asr_seconds": 0.3128308691084385,
+      "alignment_seconds": 0.000477006658911705,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The servants being all gone, the six strangers with Candide and Martin remained in a profound silence.",
+          "start": 0.02,
+          "end": 6.4,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " servants",
+              "start": 0.5,
+              "end": 0.84,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " being",
+              "start": 0.84,
+              "end": 1.2,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " all",
+              "start": 1.2,
+              "end": 1.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gone,",
+              "start": 1.48,
+              "end": 1.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 2.34,
+              "end": 2.38,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " six",
+              "start": 2.38,
+              "end": 2.58,
+              "probability": 0.8173828125
+            },
+            {
+              "text": " strangers",
+              "start": 2.58,
+              "end": 3.06,
+              "probability": 0.978515625
+            },
+            {
+              "text": " with",
+              "start": 3.06,
+              "end": 3.4,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Candide",
+              "start": 3.4,
+              "end": 3.92,
+              "probability": 0.70068359375
+            },
+            {
+              "text": " and",
+              "start": 3.92,
+              "end": 4.12,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Martin",
+              "start": 4.12,
+              "end": 4.42,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " remained",
+              "start": 4.42,
+              "end": 5.1,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " in",
+              "start": 5.1,
+              "end": 5.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 5.36,
+              "end": 5.44,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " profound",
+              "start": 5.44,
+              "end": 5.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " silence.",
+              "start": 5.82,
+              "end": 6.4,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " At length Candide broke it.",
+          "start": 7.1,
+          "end": 8.5,
+          "words": [
+            {
+              "text": " At",
+              "start": 7.1,
+              "end": 7.24,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " length",
+              "start": 7.24,
+              "end": 7.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Candide",
+              "start": 7.46,
+              "end": 8.0,
+              "probability": 0.7362060546875
+            },
+            {
+              "text": " broke",
+              "start": 8.0,
+              "end": 8.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it.",
+              "start": 8.2,
+              "end": 8.5,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "servants",
+          "start": 0.5,
+          "end": 0.84
+        },
+        {
+          "raw": "being",
+          "start": 0.84,
+          "end": 1.2
+        },
+        {
+          "raw": "all",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "raw": "gone,",
+          "start": 1.48,
+          "end": 1.86
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.38
+        },
+        {
+          "raw": "six",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "raw": "strangers",
+          "start": 2.58,
+          "end": 3.06
+        },
+        {
+          "raw": "with",
+          "start": 3.06,
+          "end": 3.4
+        },
+        {
+          "raw": "Candide",
+          "start": 3.4,
+          "end": 3.92
+        },
+        {
+          "raw": "and",
+          "start": 3.92,
+          "end": 4.12
+        },
+        {
+          "raw": "Martin",
+          "start": 4.12,
+          "end": 4.42
+        },
+        {
+          "raw": "remained",
+          "start": 4.42,
+          "end": 5.1
+        },
+        {
+          "raw": "in",
+          "start": 5.1,
+          "end": 5.36
+        },
+        {
+          "raw": "a",
+          "start": 5.36,
+          "end": 5.44
+        },
+        {
+          "raw": "profound",
+          "start": 5.44,
+          "end": 5.82
+        },
+        {
+          "raw": "silence.",
+          "start": 5.82,
+          "end": 6.4
+        },
+        {
+          "raw": "At",
+          "start": 7.1,
+          "end": 7.24
+        },
+        {
+          "raw": "length",
+          "start": 7.24,
+          "end": 7.46
+        },
+        {
+          "raw": "Candide",
+          "start": 7.46,
+          "end": 8.0
+        },
+        {
+          "raw": "broke",
+          "start": 8.0,
+          "end": 8.2
+        },
+        {
+          "raw": "it.",
+          "start": 8.2,
+          "end": 8.5
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "servants",
+        "being",
+        "all",
+        "gone,",
+        "the",
+        "six",
+        "strangers,",
+        "with",
+        "Candide",
+        "and",
+        "Martin,",
+        "remained",
+        "in",
+        "a",
+        "profound",
+        "silence.",
+        "At",
+        "length",
+        "Candide",
+        "broke",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "servants",
+          "start": 0.5,
+          "end": 0.84,
+          "key": "servants",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 0.84,
+          "end": 1.2,
+          "key": "being",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.2,
+          "end": 1.48,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gone,",
+          "start": 1.48,
+          "end": 1.86,
+          "key": "gone",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.38,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "six",
+          "start": 2.38,
+          "end": 2.58,
+          "key": "six",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "strangers",
+          "start": 2.58,
+          "end": 3.06,
+          "key": "strangers",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.06,
+          "end": 3.4,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Candide",
+          "start": 3.4,
+          "end": 3.92,
+          "key": "candide",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.92,
+          "end": 4.12,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Martin",
+          "start": 4.12,
+          "end": 4.42,
+          "key": "martin",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "remained",
+          "start": 4.42,
+          "end": 5.1,
+          "key": "remained",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.1,
+          "end": 5.36,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.36,
+          "end": 5.44,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "profound",
+          "start": 5.44,
+          "end": 5.82,
+          "key": "profound",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "silence.",
+          "start": 5.82,
+          "end": 6.4,
+          "key": "silence",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 7.1,
+          "end": 7.24,
+          "key": "at",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "length",
+          "start": 7.24,
+          "end": 7.46,
+          "key": "length",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Candide",
+          "start": 7.46,
+          "end": 8.0,
+          "key": "candide",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "broke",
+          "start": 8.0,
+          "end": 8.2,
+          "key": "broke",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 8.2,
+          "end": 8.5,
+          "key": "it",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "servants",
+          "start": 0.5,
+          "end": 0.84
+        },
+        {
+          "text": "being",
+          "start": 0.84,
+          "end": 1.2
+        },
+        {
+          "text": "all",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "text": "gone,",
+          "start": 1.48,
+          "end": 1.86
+        },
+        {
+          "text": "the",
+          "start": 2.34,
+          "end": 2.38
+        },
+        {
+          "text": "six",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "text": "strangers,",
+          "start": 2.58,
+          "end": 3.06
+        },
+        {
+          "text": "with",
+          "start": 3.06,
+          "end": 3.4
+        },
+        {
+          "text": "Candide",
+          "start": 3.4,
+          "end": 3.92
+        },
+        {
+          "text": "and",
+          "start": 3.92,
+          "end": 4.12
+        },
+        {
+          "text": "Martin,",
+          "start": 4.12,
+          "end": 4.42
+        },
+        {
+          "text": "remained",
+          "start": 4.42,
+          "end": 5.1
+        },
+        {
+          "text": "in",
+          "start": 5.1,
+          "end": 5.36
+        },
+        {
+          "text": "a",
+          "start": 5.36,
+          "end": 5.44
+        },
+        {
+          "text": "profound",
+          "start": 5.44,
+          "end": 5.82
+        },
+        {
+          "text": "silence.",
+          "start": 5.82,
+          "end": 6.4
+        },
+        {
+          "text": "At",
+          "start": 7.1,
+          "end": 7.24
+        },
+        {
+          "text": "length",
+          "start": 7.24,
+          "end": 7.46
+        },
+        {
+          "text": "Candide",
+          "start": 7.46,
+          "end": 8.0
+        },
+        {
+          "text": "broke",
+          "start": 8.0,
+          "end": 8.2
+        },
+        {
+          "text": "it.",
+          "start": 8.2,
+          "end": 8.5
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31349970679730177
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "077d1e2d9644024d4305bb46b83c37b52a1158c23e3b8963fe5d1ed6646a5a04",
+  "selected_reasons": []
+}

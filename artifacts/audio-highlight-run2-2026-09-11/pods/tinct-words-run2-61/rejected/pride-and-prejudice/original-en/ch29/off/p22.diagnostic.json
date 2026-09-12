@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "7352366319dd46e9aebea7df63e2c9916f8972f3cdc60604df96dced83187ba8",
+  "attempts": [
+    {
+      "asr_seconds": 0.09953953512012959,
+      "alignment_seconds": 0.0001338701695203781,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Not one.",
+          "start": 0.02,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.751953125
+            },
+            {
+              "text": " one.",
+              "start": 0.62,
+              "end": 0.9,
+              "probability": 0.92724609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "one.",
+          "start": 0.62,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "one.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "one.",
+          "start": 0.62,
+          "end": 0.9,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "one.\"",
+          "start": 0.62,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09971804916858673
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "96edc1ffedd69aa82d4706eb31c50fa11379f62958d86c08720e9d1baa413578",
+  "selected_reasons": []
+}

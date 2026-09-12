@@ -1,0 +1,616 @@
+{
+  "complete": true,
+  "signature": "2be3243513e2db2286fb4a704c459350994903de48cfad8e5ff70252321be679",
+  "attempts": [
+    {
+      "asr_seconds": 0.23857441917061806,
+      "alignment_seconds": 0.00046902894973754883,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I will get a good deal out of her before she grows older!\" exclaimed Miss Minchin.",
+        "hotwords": "I, Miss, Minchin"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I will get a good deal out of her before she grows older!\" exclaimed Miss Minchin.",
+          "start": 0.08,
+          "end": 4.58,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.327880859375
+            },
+            {
+              "text": " will",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.994140625
+            },
+            {
+              "text": " get",
+              "start": 0.62,
+              "end": 0.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 0.74,
+              "end": 0.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " good",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " deal",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " out",
+              "start": 1.2,
+              "end": 1.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " her",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " before",
+              "start": 1.64,
+              "end": 1.92,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " she",
+              "start": 1.92,
+              "end": 2.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " grows",
+              "start": 2.12,
+              "end": 2.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " older",
+              "start": 2.34,
+              "end": 2.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": "!\"",
+              "start": 2.86,
+              "end": 3.5,
+              "probability": 0.04620361328125
+            },
+            {
+              "text": " exclaimed",
+              "start": 3.5,
+              "end": 3.82,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Miss",
+              "start": 3.82,
+              "end": 4.18,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " Minchin.",
+              "start": 4.18,
+              "end": 4.58,
+              "probability": 0.6851806640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "will",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "get",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "raw": "a",
+          "start": 0.74,
+          "end": 0.84
+        },
+        {
+          "raw": "good",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "deal",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "out",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "raw": "of",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "her",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "before",
+          "start": 1.64,
+          "end": 1.92
+        },
+        {
+          "raw": "she",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "raw": "grows",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "raw": "older",
+          "start": 2.34,
+          "end": 2.86
+        },
+        {
+          "raw": "!\"",
+          "start": 2.86,
+          "end": 3.5
+        },
+        {
+          "raw": "exclaimed",
+          "start": 3.5,
+          "end": 3.82
+        },
+        {
+          "raw": "Miss",
+          "start": 3.82,
+          "end": 4.18
+        },
+        {
+          "raw": "Minchin.",
+          "start": 4.18,
+          "end": 4.58
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "will",
+        "get",
+        "a",
+        "good",
+        "deal",
+        "out",
+        "of",
+        "her",
+        "before",
+        "she",
+        "grows",
+        "older!\"",
+        "exclaimed",
+        "Miss",
+        "Minchin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "insert",
+          13,
+          13,
+          13,
+          14
+        ],
+        [
+          "equal",
+          13,
+          16,
+          14,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          13,
+          13,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 0.62,
+          "end": 0.74,
+          "key": "get",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.74,
+          "end": 0.84,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 0.84,
+          "end": 1.0,
+          "key": "good",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "deal",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "deal",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.2,
+          "end": 1.42,
+          "key": "out",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.54,
+          "end": 1.64,
+          "key": "her",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 1.64,
+          "end": 1.92,
+          "key": "before",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.92,
+          "end": 2.12,
+          "key": "she",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "grows",
+          "start": 2.12,
+          "end": 2.34,
+          "key": "grows",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "older",
+          "start": 2.34,
+          "end": 2.86,
+          "key": "older",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 2.86,
+          "end": 3.5,
+          "key": "",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 3.5,
+          "end": 3.82,
+          "key": "exclaimed",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 3.82,
+          "end": 4.18,
+          "key": "miss",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Minchin.",
+          "start": 4.18,
+          "end": 4.58,
+          "key": "minchin",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "will",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "get",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "text": "a",
+          "start": 0.74,
+          "end": 0.84
+        },
+        {
+          "text": "good",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "text": "deal",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "out",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "text": "of",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "her",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "before",
+          "start": 1.64,
+          "end": 1.92
+        },
+        {
+          "text": "she",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "text": "grows",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "text": "older!\"",
+          "start": 2.34,
+          "end": 2.86
+        },
+        {
+          "text": "exclaimed",
+          "start": 3.5,
+          "end": 3.82
+        },
+        {
+          "text": "Miss",
+          "start": 3.82,
+          "end": 4.18
+        },
+        {
+          "text": "Minchin.",
+          "start": 4.18,
+          "end": 4.58
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23924201354384422
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6ee4b2edbd0e8748e1c6db50ea118aade39e7bd9de50b3b7145212fc296735f3",
+  "selected_reasons": []
+}

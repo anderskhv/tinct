@@ -1,0 +1,643 @@
+{
+  "complete": true,
+  "signature": "f9b2dce3a4132183f3b1bf90dcece5e92d42b52f7370fea10026af69f967122d",
+  "attempts": [
+    {
+      "asr_seconds": 0.38902141572907567,
+      "alignment_seconds": 0.0005632271058857441,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, said Miss Kennedy. It gets brown after. Did you try the borax with the cherry laurel",
+          "start": 0.05,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.049285888671875
+            },
+            {
+              "text": " said",
+              "start": 0.89,
+              "end": 1.09,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Miss",
+              "start": 1.09,
+              "end": 1.31,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " Kennedy.",
+              "start": 1.31,
+              "end": 1.61,
+              "probability": 0.96484375
+            },
+            {
+              "text": " It",
+              "start": 2.15,
+              "end": 2.31,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " gets",
+              "start": 2.31,
+              "end": 2.51,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " brown",
+              "start": 2.51,
+              "end": 2.79,
+              "probability": 0.947265625
+            },
+            {
+              "text": " after.",
+              "start": 2.79,
+              "end": 3.21,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Did",
+              "start": 3.75,
+              "end": 3.83,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 3.83,
+              "end": 3.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " try",
+              "start": 3.97,
+              "end": 4.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 4.19,
+              "end": 4.35,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " borax",
+              "start": 4.35,
+              "end": 4.75,
+              "probability": 0.9153645833333334
+            },
+            {
+              "text": " with",
+              "start": 4.75,
+              "end": 4.97,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 4.97,
+              "end": 5.09,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " cherry",
+              "start": 5.09,
+              "end": 5.41,
+              "probability": 0.96875
+            },
+            {
+              "text": " laurel",
+              "start": 5.41,
+              "end": 5.89,
+              "probability": 0.837158203125
+            }
+          ]
+        },
+        {
+          "text": " water?",
+          "start": 5.89,
+          "end": 6.15,
+          "words": [
+            {
+              "text": " water?",
+              "start": 5.89,
+              "end": 6.15,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "said",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "raw": "Miss",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "raw": "Kennedy.",
+          "start": 1.31,
+          "end": 1.61
+        },
+        {
+          "raw": "It",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "raw": "gets",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "raw": "brown",
+          "start": 2.51,
+          "end": 2.79
+        },
+        {
+          "raw": "after.",
+          "start": 2.79,
+          "end": 3.21
+        },
+        {
+          "raw": "Did",
+          "start": 3.75,
+          "end": 3.83
+        },
+        {
+          "raw": "you",
+          "start": 3.83,
+          "end": 3.97
+        },
+        {
+          "raw": "try",
+          "start": 3.97,
+          "end": 4.19
+        },
+        {
+          "raw": "the",
+          "start": 4.19,
+          "end": 4.35
+        },
+        {
+          "raw": "borax",
+          "start": 4.35,
+          "end": 4.75
+        },
+        {
+          "raw": "with",
+          "start": 4.75,
+          "end": 4.97
+        },
+        {
+          "raw": "the",
+          "start": 4.97,
+          "end": 5.09
+        },
+        {
+          "raw": "cherry",
+          "start": 5.09,
+          "end": 5.41
+        },
+        {
+          "raw": "laurel",
+          "start": 5.41,
+          "end": 5.89
+        },
+        {
+          "raw": "water?",
+          "start": 5.89,
+          "end": 6.15
+        }
+      ],
+      "expected_tokens": [
+        "—No,",
+        "said",
+        "miss",
+        "Kennedy.",
+        "It",
+        "gets",
+        "brown",
+        "after.",
+        "Did",
+        "you",
+        "try",
+        "the",
+        "borax",
+        "with",
+        "the",
+        "cherry",
+        "laurel",
+        "water?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.89,
+          "end": 1.09,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.09,
+          "end": 1.31,
+          "key": "miss",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Kennedy.",
+          "start": 1.31,
+          "end": 1.61,
+          "key": "kennedy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 2.15,
+          "end": 2.31,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gets",
+          "start": 2.31,
+          "end": 2.51,
+          "key": "gets",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "brown",
+          "start": 2.51,
+          "end": 2.79,
+          "key": "brown",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "after.",
+          "start": 2.79,
+          "end": 3.21,
+          "key": "after",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 3.75,
+          "end": 3.83,
+          "key": "did",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.83,
+          "end": 3.97,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "try",
+          "start": 3.97,
+          "end": 4.19,
+          "key": "try",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.19,
+          "end": 4.35,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "borax",
+          "start": 4.35,
+          "end": 4.75,
+          "key": "borax",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.75,
+          "end": 4.97,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.97,
+          "end": 5.09,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "cherry",
+          "start": 5.09,
+          "end": 5.41,
+          "key": "cherry",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "laurel",
+          "start": 5.41,
+          "end": 5.89,
+          "key": "laurel",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "water?",
+          "start": 5.89,
+          "end": 6.15,
+          "key": "water",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—No,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "said",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "text": "miss",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "text": "Kennedy.",
+          "start": 1.31,
+          "end": 1.61
+        },
+        {
+          "text": "It",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "text": "gets",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "text": "brown",
+          "start": 2.51,
+          "end": 2.79
+        },
+        {
+          "text": "after.",
+          "start": 2.79,
+          "end": 3.21
+        },
+        {
+          "text": "Did",
+          "start": 3.75,
+          "end": 3.83
+        },
+        {
+          "text": "you",
+          "start": 3.83,
+          "end": 3.97
+        },
+        {
+          "text": "try",
+          "start": 3.97,
+          "end": 4.19
+        },
+        {
+          "text": "the",
+          "start": 4.19,
+          "end": 4.35
+        },
+        {
+          "text": "borax",
+          "start": 4.35,
+          "end": 4.75
+        },
+        {
+          "text": "with",
+          "start": 4.75,
+          "end": 4.97
+        },
+        {
+          "text": "the",
+          "start": 4.97,
+          "end": 5.09
+        },
+        {
+          "text": "cherry",
+          "start": 5.09,
+          "end": 5.41
+        },
+        {
+          "text": "laurel",
+          "start": 5.41,
+          "end": 5.89
+        },
+        {
+          "text": "water?",
+          "start": 5.89,
+          "end": 6.15
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3898779107257724
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f04fceecabd334bf184c802a85aee421aa6c3575e13b10170c737e4b8d2a1167",
+  "selected_reasons": []
+}

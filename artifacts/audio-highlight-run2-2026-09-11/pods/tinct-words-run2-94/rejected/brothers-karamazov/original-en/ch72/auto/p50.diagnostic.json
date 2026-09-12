@@ -1,0 +1,815 @@
+{
+  "complete": true,
+  "signature": "0c721d8b5bfef2688e7480e5758d9076432189460cc84a9645940ee6139b16ee",
+  "attempts": [
+    {
+      "asr_seconds": 0.1742197573184967,
+      "alignment_seconds": 0.00047056935727596283,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Loves his having killed his father?\"",
+        "hotwords": "Loves"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Loves is having killed his father?",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Loves",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.6112060546875
+            },
+            {
+              "text": " is",
+              "start": 0.75,
+              "end": 0.89,
+              "probability": 0.978515625
+            },
+            {
+              "text": " having",
+              "start": 0.89,
+              "end": 1.15,
+              "probability": 0.994140625
+            },
+            {
+              "text": " killed",
+              "start": 1.15,
+              "end": 1.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " father?",
+              "start": 1.65,
+              "end": 1.95,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Loves",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "is",
+          "start": 0.75,
+          "end": 0.89
+        },
+        {
+          "raw": "having",
+          "start": 0.89,
+          "end": 1.15
+        },
+        {
+          "raw": "killed",
+          "start": 1.15,
+          "end": 1.43
+        },
+        {
+          "raw": "his",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "father?",
+          "start": 1.65,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "\"Loves",
+        "his",
+        "having",
+        "killed",
+        "his",
+        "father?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Loves",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "loves",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.75,
+          "end": 0.89,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "having",
+          "start": 0.89,
+          "end": 1.15,
+          "key": "having",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "killed",
+          "start": 1.15,
+          "end": 1.43,
+          "key": "killed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "father?",
+          "start": 1.65,
+          "end": 1.95,
+          "key": "father",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Loves",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "his",
+          "start": 0.75,
+          "end": 0.82
+        },
+        {
+          "text": "having",
+          "start": 0.89,
+          "end": 1.15
+        },
+        {
+          "text": "killed",
+          "start": 1.15,
+          "end": 1.43
+        },
+        {
+          "text": "his",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "father?\"",
+          "start": 1.65,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17483282461762428
+    },
+    {
+      "asr_seconds": 0.1977716162800789,
+      "alignment_seconds": 0.0004163123667240143,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Loves"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Loves is having killed his father.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Loves",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.6112060546875
+            },
+            {
+              "text": " is",
+              "start": 0.75,
+              "end": 0.89,
+              "probability": 0.978515625
+            },
+            {
+              "text": " having",
+              "start": 0.89,
+              "end": 1.15,
+              "probability": 0.994140625
+            },
+            {
+              "text": " killed",
+              "start": 1.15,
+              "end": 1.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " father.",
+              "start": 1.65,
+              "end": 1.95,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Loves",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "is",
+          "start": 0.75,
+          "end": 0.89
+        },
+        {
+          "raw": "having",
+          "start": 0.89,
+          "end": 1.15
+        },
+        {
+          "raw": "killed",
+          "start": 1.15,
+          "end": 1.43
+        },
+        {
+          "raw": "his",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "father.",
+          "start": 1.65,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "\"Loves",
+        "his",
+        "having",
+        "killed",
+        "his",
+        "father?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Loves",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "loves",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.75,
+          "end": 0.89,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "having",
+          "start": 0.89,
+          "end": 1.15,
+          "key": "having",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "killed",
+          "start": 1.15,
+          "end": 1.43,
+          "key": "killed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "father.",
+          "start": 1.65,
+          "end": 1.95,
+          "key": "father",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Loves",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "his",
+          "start": 0.75,
+          "end": 0.82
+        },
+        {
+          "text": "having",
+          "start": 0.89,
+          "end": 1.15
+        },
+        {
+          "text": "killed",
+          "start": 1.15,
+          "end": 1.43
+        },
+        {
+          "text": "his",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "father?\"",
+          "start": 1.65,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19838245399296284
+    },
+    {
+      "asr_seconds": 0.218275411054492,
+      "alignment_seconds": 0.00043302029371261597,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Loves is having killed his father.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Loves",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.6112060546875
+            },
+            {
+              "text": " is",
+              "start": 0.75,
+              "end": 0.89,
+              "probability": 0.978515625
+            },
+            {
+              "text": " having",
+              "start": 0.89,
+              "end": 1.15,
+              "probability": 0.994140625
+            },
+            {
+              "text": " killed",
+              "start": 1.15,
+              "end": 1.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " father.",
+              "start": 1.65,
+              "end": 1.95,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Loves",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "is",
+          "start": 0.75,
+          "end": 0.89
+        },
+        {
+          "raw": "having",
+          "start": 0.89,
+          "end": 1.15
+        },
+        {
+          "raw": "killed",
+          "start": 1.15,
+          "end": 1.43
+        },
+        {
+          "raw": "his",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "father.",
+          "start": 1.65,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "\"Loves",
+        "his",
+        "having",
+        "killed",
+        "his",
+        "father?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Loves",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "loves",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.75,
+          "end": 0.89,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "having",
+          "start": 0.89,
+          "end": 1.15,
+          "key": "having",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "killed",
+          "start": 1.15,
+          "end": 1.43,
+          "key": "killed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "father.",
+          "start": 1.65,
+          "end": 1.95,
+          "key": "father",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Loves",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "his",
+          "start": 0.75,
+          "end": 0.82
+        },
+        {
+          "text": "having",
+          "start": 0.89,
+          "end": 1.15
+        },
+        {
+          "text": "killed",
+          "start": 1.15,
+          "end": 1.43
+        },
+        {
+          "text": "his",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "father?\"",
+          "start": 1.65,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2188489083200693
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "88bebc6e822893199ed68cbe9e71846f4f347ff5bd47e76913aed261011b6349",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

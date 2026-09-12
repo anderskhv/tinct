@@ -1,0 +1,963 @@
+{
+  "complete": true,
+  "signature": "199209ff41a5c817f0308ac4c440c3b6d4b2bca9a1b34925f22ee7079cd22f39",
+  "attempts": [
+    {
+      "asr_seconds": 0.47462707897648215,
+      "alignment_seconds": 0.0008100527338683605,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Maggie poured yellow thick soup from the kettle into a bowl.",
+          "start": 0.02,
+          "end": 3.38,
+          "words": [
+            {
+              "text": " Maggie",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " poured",
+              "start": 0.66,
+              "end": 1.04,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " yellow",
+              "start": 1.04,
+              "end": 1.38,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thick",
+              "start": 1.38,
+              "end": 1.7,
+              "probability": 0.642578125
+            },
+            {
+              "text": " soup",
+              "start": 1.7,
+              "end": 2.02,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " from",
+              "start": 2.02,
+              "end": 2.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.24,
+              "end": 2.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " kettle",
+              "start": 2.36,
+              "end": 2.58,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " into",
+              "start": 2.58,
+              "end": 2.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 2.82,
+              "end": 3.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bowl.",
+              "start": 3.02,
+              "end": 3.38,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " Katie, sitting opposite Booty, said quietly as her fingertip lifted to her mouth random",
+          "start": 4.26,
+          "end": 9.5,
+          "words": [
+            {
+              "text": " Katie,",
+              "start": 4.26,
+              "end": 4.3,
+              "probability": 0.71337890625
+            },
+            {
+              "text": " sitting",
+              "start": 4.86,
+              "end": 5.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " opposite",
+              "start": 5.1,
+              "end": 5.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Booty,",
+              "start": 5.54,
+              "end": 6.06,
+              "probability": 0.743408203125
+            },
+            {
+              "text": " said",
+              "start": 6.24,
+              "end": 6.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " quietly",
+              "start": 6.4,
+              "end": 6.94,
+              "probability": 0.994140625
+            },
+            {
+              "text": " as",
+              "start": 6.94,
+              "end": 7.54,
+              "probability": 0.62158203125
+            },
+            {
+              "text": " her",
+              "start": 7.54,
+              "end": 7.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fingertip",
+              "start": 7.7,
+              "end": 8.22,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " lifted",
+              "start": 8.22,
+              "end": 8.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 8.44,
+              "end": 8.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " her",
+              "start": 8.64,
+              "end": 8.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mouth",
+              "start": 8.78,
+              "end": 9.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " random",
+              "start": 9.06,
+              "end": 9.5,
+              "probability": 0.97119140625
+            }
+          ]
+        },
+        {
+          "text": " crumbs.",
+          "start": 9.5,
+          "end": 9.98,
+          "words": [
+            {
+              "text": " crumbs.",
+              "start": 9.5,
+              "end": 9.98,
+              "probability": 0.993896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Maggie",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "poured",
+          "start": 0.66,
+          "end": 1.04
+        },
+        {
+          "raw": "yellow",
+          "start": 1.04,
+          "end": 1.38
+        },
+        {
+          "raw": "thick",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "raw": "soup",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "raw": "from",
+          "start": 2.02,
+          "end": 2.24
+        },
+        {
+          "raw": "the",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "raw": "kettle",
+          "start": 2.36,
+          "end": 2.58
+        },
+        {
+          "raw": "into",
+          "start": 2.58,
+          "end": 2.82
+        },
+        {
+          "raw": "a",
+          "start": 2.82,
+          "end": 3.02
+        },
+        {
+          "raw": "bowl.",
+          "start": 3.02,
+          "end": 3.38
+        },
+        {
+          "raw": "Katie,",
+          "start": 4.26,
+          "end": 4.3
+        },
+        {
+          "raw": "sitting",
+          "start": 4.86,
+          "end": 5.1
+        },
+        {
+          "raw": "opposite",
+          "start": 5.1,
+          "end": 5.54
+        },
+        {
+          "raw": "Booty,",
+          "start": 5.54,
+          "end": 6.06
+        },
+        {
+          "raw": "said",
+          "start": 6.24,
+          "end": 6.4
+        },
+        {
+          "raw": "quietly",
+          "start": 6.4,
+          "end": 6.94
+        },
+        {
+          "raw": "as",
+          "start": 6.94,
+          "end": 7.54
+        },
+        {
+          "raw": "her",
+          "start": 7.54,
+          "end": 7.7
+        },
+        {
+          "raw": "fingertip",
+          "start": 7.7,
+          "end": 8.22
+        },
+        {
+          "raw": "lifted",
+          "start": 8.22,
+          "end": 8.44
+        },
+        {
+          "raw": "to",
+          "start": 8.44,
+          "end": 8.64
+        },
+        {
+          "raw": "her",
+          "start": 8.64,
+          "end": 8.78
+        },
+        {
+          "raw": "mouth",
+          "start": 8.78,
+          "end": 9.06
+        },
+        {
+          "raw": "random",
+          "start": 9.06,
+          "end": 9.5
+        },
+        {
+          "raw": "crumbs.",
+          "start": 9.5,
+          "end": 9.98
+        }
+      ],
+      "expected_tokens": [
+        "Maggy",
+        "poured",
+        "yellow",
+        "thick",
+        "soup",
+        "from",
+        "the",
+        "kettle",
+        "into",
+        "a",
+        "bowl.",
+        "Katey,",
+        "sitting",
+        "opposite",
+        "Boody,",
+        "said",
+        "quietly,",
+        "as",
+        "her",
+        "fingertip",
+        "lifted",
+        "to",
+        "her",
+        "mouth",
+        "random",
+        "crumbs:"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          11,
+          1,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          14,
+          12,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          26,
+          15,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Maggie",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "maggie",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "poured",
+          "start": 0.66,
+          "end": 1.04,
+          "key": "poured",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yellow",
+          "start": 1.04,
+          "end": 1.38,
+          "key": "yellow",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thick",
+          "start": 1.38,
+          "end": 1.7,
+          "key": "thick",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "soup",
+          "start": 1.7,
+          "end": 2.02,
+          "key": "soup",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.02,
+          "end": 2.24,
+          "key": "from",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.24,
+          "end": 2.36,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "kettle",
+          "start": 2.36,
+          "end": 2.58,
+          "key": "kettle",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 2.58,
+          "end": 2.82,
+          "key": "into",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.82,
+          "end": 3.02,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bowl.",
+          "start": 3.02,
+          "end": 3.38,
+          "key": "bowl",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Katie,",
+          "start": 4.26,
+          "end": 4.3,
+          "key": "katie",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sitting",
+          "start": 4.86,
+          "end": 5.1,
+          "key": "sitting",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "opposite",
+          "start": 5.1,
+          "end": 5.54,
+          "key": "opposite",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Booty,",
+          "start": 5.54,
+          "end": 6.06,
+          "key": "booty",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 6.24,
+          "end": 6.4,
+          "key": "said",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "quietly",
+          "start": 6.4,
+          "end": 6.94,
+          "key": "quietly",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.94,
+          "end": 7.54,
+          "key": "as",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 7.54,
+          "end": 7.7,
+          "key": "her",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "fingertip",
+          "start": 7.7,
+          "end": 8.22,
+          "key": "fingertip",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "lifted",
+          "start": 8.22,
+          "end": 8.44,
+          "key": "lifted",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.44,
+          "end": 8.64,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 8.64,
+          "end": 8.78,
+          "key": "her",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "mouth",
+          "start": 8.78,
+          "end": 9.06,
+          "key": "mouth",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "random",
+          "start": 9.06,
+          "end": 9.5,
+          "key": "random",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "crumbs.",
+          "start": 9.5,
+          "end": 9.98,
+          "key": "crumbs",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Maggy",
+          "start": 0.0,
+          "end": 0.33
+        },
+        {
+          "text": "poured",
+          "start": 0.66,
+          "end": 1.04
+        },
+        {
+          "text": "yellow",
+          "start": 1.04,
+          "end": 1.38
+        },
+        {
+          "text": "thick",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "text": "soup",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "text": "from",
+          "start": 2.02,
+          "end": 2.24
+        },
+        {
+          "text": "the",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "text": "kettle",
+          "start": 2.36,
+          "end": 2.58
+        },
+        {
+          "text": "into",
+          "start": 2.58,
+          "end": 2.82
+        },
+        {
+          "text": "a",
+          "start": 2.82,
+          "end": 3.02
+        },
+        {
+          "text": "bowl.",
+          "start": 3.02,
+          "end": 3.38
+        },
+        {
+          "text": "Katey,",
+          "start": 3.38,
+          "end": 4.12
+        },
+        {
+          "text": "sitting",
+          "start": 4.86,
+          "end": 5.1
+        },
+        {
+          "text": "opposite",
+          "start": 5.1,
+          "end": 5.54
+        },
+        {
+          "text": "Boody,",
+          "start": 5.54,
+          "end": 5.89
+        },
+        {
+          "text": "said",
+          "start": 6.24,
+          "end": 6.4
+        },
+        {
+          "text": "quietly,",
+          "start": 6.4,
+          "end": 6.94
+        },
+        {
+          "text": "as",
+          "start": 6.94,
+          "end": 7.54
+        },
+        {
+          "text": "her",
+          "start": 7.54,
+          "end": 7.7
+        },
+        {
+          "text": "fingertip",
+          "start": 7.7,
+          "end": 8.22
+        },
+        {
+          "text": "lifted",
+          "start": 8.22,
+          "end": 8.44
+        },
+        {
+          "text": "to",
+          "start": 8.44,
+          "end": 8.64
+        },
+        {
+          "text": "her",
+          "start": 8.64,
+          "end": 8.78
+        },
+        {
+          "text": "mouth",
+          "start": 8.78,
+          "end": 9.06
+        },
+        {
+          "text": "random",
+          "start": 9.06,
+          "end": 9.5
+        },
+        {
+          "text": "crumbs:",
+          "start": 9.5,
+          "end": 9.98
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 23
+      },
+      "match_ratio": 0.8846153846153846,
+      "rejection_reasons": [],
+      "seconds": 0.47576279612258077
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1e230fa606f96664304ee2f16da4e065b120e921c16db218df44792af23fb748",
+  "selected_reasons": []
+}

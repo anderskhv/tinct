@@ -1,0 +1,818 @@
+{
+  "complete": true,
+  "signature": "d92a523dabbbab1bae08e6d403cfa80758c145e0cb7c9c25bdbb49052207692d",
+  "attempts": [
+    {
+      "asr_seconds": 0.44053015299141407,
+      "alignment_seconds": 0.000844910740852356,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A. Confused noise within. Mercy on us. We split, we split. Farewell, my wife and children.",
+          "start": 0.05,
+          "end": 6.11,
+          "words": [
+            {
+              "text": " A.",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.435546875
+            },
+            {
+              "text": " Confused",
+              "start": 0.67,
+              "end": 1.21,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " noise",
+              "start": 1.21,
+              "end": 1.51,
+              "probability": 0.42822265625
+            },
+            {
+              "text": " within.",
+              "start": 1.51,
+              "end": 1.93,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " Mercy",
+              "start": 2.43,
+              "end": 2.67,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " on",
+              "start": 2.67,
+              "end": 2.95,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " us.",
+              "start": 2.95,
+              "end": 3.19,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " We",
+              "start": 3.69,
+              "end": 3.83,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " split,",
+              "start": 3.83,
+              "end": 4.15,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " we",
+              "start": 4.33,
+              "end": 4.37,
+              "probability": 0.98828125
+            },
+            {
+              "text": " split.",
+              "start": 4.37,
+              "end": 4.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Farewell,",
+              "start": 4.95,
+              "end": 5.25,
+              "probability": 0.970947265625
+            },
+            {
+              "text": " my",
+              "start": 5.35,
+              "end": 5.43,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " wife",
+              "start": 5.43,
+              "end": 5.63,
+              "probability": 0.984375
+            },
+            {
+              "text": " and",
+              "start": 5.63,
+              "end": 5.83,
+              "probability": 0.958984375
+            },
+            {
+              "text": " children.",
+              "start": 5.83,
+              "end": 6.11,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " Farewell, brother, we split, we split, we split.",
+          "start": 6.91,
+          "end": 9.21,
+          "words": [
+            {
+              "text": " Farewell,",
+              "start": 6.91,
+              "end": 7.39,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " brother,",
+              "start": 7.51,
+              "end": 7.59,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " we",
+              "start": 7.89,
+              "end": 7.93,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " split,",
+              "start": 7.93,
+              "end": 8.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " we",
+              "start": 8.37,
+              "end": 8.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " split,",
+              "start": 8.43,
+              "end": 8.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " we",
+              "start": 8.81,
+              "end": 8.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " split.",
+              "start": 8.93,
+              "end": 9.21,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A.",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Confused",
+          "start": 0.67,
+          "end": 1.21
+        },
+        {
+          "raw": "noise",
+          "start": 1.21,
+          "end": 1.51
+        },
+        {
+          "raw": "within.",
+          "start": 1.51,
+          "end": 1.93
+        },
+        {
+          "raw": "Mercy",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "raw": "on",
+          "start": 2.67,
+          "end": 2.95
+        },
+        {
+          "raw": "us.",
+          "start": 2.95,
+          "end": 3.19
+        },
+        {
+          "raw": "We",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "raw": "split,",
+          "start": 3.83,
+          "end": 4.15
+        },
+        {
+          "raw": "we",
+          "start": 4.33,
+          "end": 4.37
+        },
+        {
+          "raw": "split.",
+          "start": 4.37,
+          "end": 4.69
+        },
+        {
+          "raw": "Farewell,",
+          "start": 4.95,
+          "end": 5.25
+        },
+        {
+          "raw": "my",
+          "start": 5.35,
+          "end": 5.43
+        },
+        {
+          "raw": "wife",
+          "start": 5.43,
+          "end": 5.63
+        },
+        {
+          "raw": "and",
+          "start": 5.63,
+          "end": 5.83
+        },
+        {
+          "raw": "children.",
+          "start": 5.83,
+          "end": 6.11
+        },
+        {
+          "raw": "Farewell,",
+          "start": 6.91,
+          "end": 7.39
+        },
+        {
+          "raw": "brother,",
+          "start": 7.51,
+          "end": 7.59
+        },
+        {
+          "raw": "we",
+          "start": 7.89,
+          "end": 7.93
+        },
+        {
+          "raw": "split,",
+          "start": 7.93,
+          "end": 8.21
+        },
+        {
+          "raw": "we",
+          "start": 8.37,
+          "end": 8.43
+        },
+        {
+          "raw": "split,",
+          "start": 8.43,
+          "end": 8.71
+        },
+        {
+          "raw": "we",
+          "start": 8.81,
+          "end": 8.93
+        },
+        {
+          "raw": "split.",
+          "start": 8.93,
+          "end": 9.21
+        }
+      ],
+      "expected_tokens": [
+        "[A",
+        "confused",
+        "noise",
+        "within:",
+        "'Mercy",
+        "on",
+        "us!'--",
+        "'We",
+        "split,",
+        "we",
+        "split!'--'Farewell,",
+        "my",
+        "wife",
+        "and",
+        "children!'--",
+        "'Farewell,",
+        "brother!'--'We",
+        "split,",
+        "we",
+        "split,",
+        "we",
+        "split!']"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A.",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Confused",
+          "start": 0.67,
+          "end": 1.21,
+          "key": "confused",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "noise",
+          "start": 1.21,
+          "end": 1.51,
+          "key": "noise",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "within.",
+          "start": 1.51,
+          "end": 1.93,
+          "key": "within",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mercy",
+          "start": 2.43,
+          "end": 2.67,
+          "key": "mercy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.67,
+          "end": 2.95,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 2.95,
+          "end": 3.19,
+          "key": "us",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 3.69,
+          "end": 3.83,
+          "key": "we",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "split,",
+          "start": 3.83,
+          "end": 4.15,
+          "key": "split",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 4.33,
+          "end": 4.37,
+          "key": "we",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "split. Farewell,",
+          "start": 4.37,
+          "end": 5.25,
+          "key": "splitfarewell",
+          "pieces": [
+            10,
+            11
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.35,
+          "end": 5.43,
+          "key": "my",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "wife",
+          "start": 5.43,
+          "end": 5.63,
+          "key": "wife",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.63,
+          "end": 5.83,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "children.",
+          "start": 5.83,
+          "end": 6.11,
+          "key": "children",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Farewell,",
+          "start": 6.91,
+          "end": 7.39,
+          "key": "farewell",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "brother, we",
+          "start": 7.51,
+          "end": 7.93,
+          "key": "brotherwe",
+          "pieces": [
+            17,
+            18
+          ]
+        },
+        {
+          "raw": "split,",
+          "start": 7.93,
+          "end": 8.21,
+          "key": "split",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 8.37,
+          "end": 8.43,
+          "key": "we",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "split,",
+          "start": 8.43,
+          "end": 8.71,
+          "key": "split",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 8.81,
+          "end": 8.93,
+          "key": "we",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "split.",
+          "start": 8.93,
+          "end": 9.21,
+          "key": "split",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "split!'--'Farewell,",
+          "heard": "split. Farewell,",
+          "heard_indexes": [
+            10,
+            11
+          ],
+          "start": 4.37,
+          "end": 5.25
+        },
+        {
+          "expected_index": 16,
+          "text": "brother!'--'We",
+          "heard": "brother, we",
+          "heard_indexes": [
+            17,
+            18
+          ],
+          "start": 7.51,
+          "end": 7.93
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "[A",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "confused",
+          "start": 0.67,
+          "end": 1.21
+        },
+        {
+          "text": "noise",
+          "start": 1.21,
+          "end": 1.51
+        },
+        {
+          "text": "within:",
+          "start": 1.51,
+          "end": 1.93
+        },
+        {
+          "text": "'Mercy",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "text": "on",
+          "start": 2.67,
+          "end": 2.95
+        },
+        {
+          "text": "us!'--",
+          "start": 2.95,
+          "end": 3.19
+        },
+        {
+          "text": "'We",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "text": "split,",
+          "start": 3.83,
+          "end": 4.15
+        },
+        {
+          "text": "we",
+          "start": 4.33,
+          "end": 4.37
+        },
+        {
+          "text": "split!'--'Farewell,",
+          "start": 4.37,
+          "end": 5.25
+        },
+        {
+          "text": "my",
+          "start": 5.35,
+          "end": 5.43
+        },
+        {
+          "text": "wife",
+          "start": 5.43,
+          "end": 5.63
+        },
+        {
+          "text": "and",
+          "start": 5.63,
+          "end": 5.83
+        },
+        {
+          "text": "children!'--",
+          "start": 5.83,
+          "end": 6.11
+        },
+        {
+          "text": "'Farewell,",
+          "start": 6.91,
+          "end": 7.39
+        },
+        {
+          "text": "brother!'--'We",
+          "start": 7.51,
+          "end": 7.93
+        },
+        {
+          "text": "split,",
+          "start": 7.93,
+          "end": 8.21
+        },
+        {
+          "text": "we",
+          "start": 8.37,
+          "end": 8.43
+        },
+        {
+          "text": "split,",
+          "start": 8.43,
+          "end": 8.71
+        },
+        {
+          "text": "we",
+          "start": 8.81,
+          "end": 8.93
+        },
+        {
+          "text": "split!']",
+          "start": 8.93,
+          "end": 9.21
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.44165956508368254
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "921394beb306c5f94d8f269e093467bd35f4a7ffdf13aced3b69c0a3b73163ec",
+  "selected_reasons": []
+}

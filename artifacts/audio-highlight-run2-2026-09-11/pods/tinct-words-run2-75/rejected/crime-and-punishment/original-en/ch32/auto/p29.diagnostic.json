@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "54ca6f94c71c4edfc87a498c468821f208a8b65344dddf4a3b0fb3f68c83202d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2125103734433651,
+      "alignment_seconds": 0.0005035661160945892,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What did you say to her... I mean, about me?\"",
+        "hotwords": "What, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What did you say to her... I mean, about me?",
+          "start": 0.02,
+          "end": 2.46,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " did",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " say",
+              "start": 0.76,
+              "end": 0.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 0.96,
+              "end": 1.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her...",
+              "start": 1.12,
+              "end": 1.56,
+              "probability": 0.5022201538085938
+            },
+            {
+              "text": " I",
+              "start": 1.56,
+              "end": 1.78,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " mean,",
+              "start": 1.78,
+              "end": 1.96,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " about",
+              "start": 1.98,
+              "end": 2.2,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " me?",
+              "start": 2.2,
+              "end": 2.46,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "did",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "say",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "raw": "to",
+          "start": 0.96,
+          "end": 1.12
+        },
+        {
+          "raw": "her...",
+          "start": 1.12,
+          "end": 1.56
+        },
+        {
+          "raw": "I",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "raw": "mean,",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "raw": "about",
+          "start": 1.98,
+          "end": 2.2
+        },
+        {
+          "raw": "me?",
+          "start": 2.2,
+          "end": 2.46
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "did",
+        "you",
+        "say",
+        "to",
+        "her...",
+        "I",
+        "mean,",
+        "about",
+        "me?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.76,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 0.76,
+          "end": 0.96,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.96,
+          "end": 1.12,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her...",
+          "start": 1.12,
+          "end": 1.56,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.56,
+          "end": 1.78,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mean,",
+          "start": 1.78,
+          "end": 1.96,
+          "key": "mean",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.98,
+          "end": 2.2,
+          "key": "about",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 2.2,
+          "end": 2.46,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "did",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "you",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "text": "say",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "text": "to",
+          "start": 0.96,
+          "end": 1.12
+        },
+        {
+          "text": "her...",
+          "start": 1.12,
+          "end": 1.56
+        },
+        {
+          "text": "I",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "text": "mean,",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "text": "about",
+          "start": 1.98,
+          "end": 2.2
+        },
+        {
+          "text": "me?\"",
+          "start": 2.2,
+          "end": 2.46
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21320710703730583
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5c57fd4bd155aac75788f9928ff24034ccb816f6ae13253d95ad9e5fab6c8ca6",
+  "selected_reasons": []
+}

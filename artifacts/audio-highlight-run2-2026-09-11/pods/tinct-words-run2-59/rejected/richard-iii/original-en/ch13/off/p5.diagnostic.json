@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "1702597cc371fe2f1c98032852f3560b5442e3db08798cd965e3ef7ebc0d0a31",
+  "attempts": [
+    {
+      "asr_seconds": 0.12557866098359227,
+      "alignment_seconds": 0.00015154806897044182,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Buckingham, Lord Mayor.",
+          "start": 0.05,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " Buckingham,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Lord",
+              "start": 1.39,
+              "end": 1.45,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Mayor.",
+              "start": 1.45,
+              "end": 1.81,
+              "probability": 0.87939453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Lord",
+          "start": 1.39,
+          "end": 1.45
+        },
+        {
+          "raw": "Mayor.",
+          "start": 1.45,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "Lord",
+        "Mayor—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 1.39,
+          "end": 1.45,
+          "key": "lord",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mayor.",
+          "start": 1.45,
+          "end": 1.81,
+          "key": "mayor",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Lord",
+          "start": 1.39,
+          "end": 1.45
+        },
+        {
+          "text": "Mayor—",
+          "start": 1.45,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12577930511906743
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9e1837f74f32717789b5e457df8acd8453b5d87c78c77a626c76c0bdd797bb34",
+  "selected_reasons": []
+}

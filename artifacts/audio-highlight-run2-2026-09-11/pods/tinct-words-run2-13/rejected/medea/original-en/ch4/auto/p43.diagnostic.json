@@ -1,0 +1,469 @@
+{
+  "complete": true,
+  "signature": "eb3c693e6c882b6b2b3ef90d196809e7296039c3518c3d5bb2935c59e12d9013",
+  "attempts": [
+    {
+      "asr_seconds": 0.22835996467620134,
+      "alignment_seconds": 0.0005310801789164543,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Medea. Much use in God's ways hath he, and much skill.",
+        "hotwords": "Medea, God's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Medea, God's Medea. Much use in God's ways hath he, and much skill.",
+          "start": 0.05,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.651611328125
+            },
+            {
+              "text": " God's",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.2827194333076477
+            },
+            {
+              "text": " Medea.",
+              "start": 1.49,
+              "end": 1.49,
+              "probability": 0.47562164068222046
+            },
+            {
+              "text": " Much",
+              "start": 1.49,
+              "end": 1.49,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " use",
+              "start": 1.49,
+              "end": 1.59,
+              "probability": 0.79296875
+            },
+            {
+              "text": " in",
+              "start": 1.59,
+              "end": 1.77,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " God's",
+              "start": 1.77,
+              "end": 2.09,
+              "probability": 0.970703125
+            },
+            {
+              "text": " ways",
+              "start": 2.09,
+              "end": 2.27,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hath",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " he,",
+              "start": 2.49,
+              "end": 2.75,
+              "probability": 0.869140625
+            },
+            {
+              "text": " and",
+              "start": 2.95,
+              "end": 2.99,
+              "probability": 0.90234375
+            },
+            {
+              "text": " much",
+              "start": 2.99,
+              "end": 3.19,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " skill.",
+              "start": 3.19,
+              "end": 3.53,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "God's",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "Medea.",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "raw": "Much",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "raw": "use",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "raw": "in",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "raw": "God's",
+          "start": 1.77,
+          "end": 2.09
+        },
+        {
+          "raw": "ways",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "raw": "hath",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "raw": "he,",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "raw": "and",
+          "start": 2.95,
+          "end": 2.99
+        },
+        {
+          "raw": "much",
+          "start": 2.99,
+          "end": 3.19
+        },
+        {
+          "raw": "skill.",
+          "start": 3.19,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "Much",
+        "use",
+        "in",
+        "God's",
+        "ways",
+        "hath",
+        "he,",
+        "and",
+        "much",
+        "skill."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          11,
+          2,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "medea",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "God's",
+          "start": 1.27,
+          "end": 1.49,
+          "key": "gods",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Medea.",
+          "start": 1.49,
+          "end": 1.49,
+          "key": "medea",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Much",
+          "start": 1.49,
+          "end": 1.49,
+          "key": "much",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 1.49,
+          "end": 1.59,
+          "key": "use",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.59,
+          "end": 1.77,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "God's",
+          "start": 1.77,
+          "end": 2.09,
+          "key": "gods",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ways",
+          "start": 2.09,
+          "end": 2.27,
+          "key": "ways",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 2.27,
+          "end": 2.49,
+          "key": "hath",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 2.49,
+          "end": 2.75,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.95,
+          "end": 2.99,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.99,
+          "end": 3.19,
+          "key": "much",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "skill.",
+          "start": 3.19,
+          "end": 3.53,
+          "key": "skill",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "text": "Much",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "text": "use",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "text": "in",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "text": "God's",
+          "start": 1.77,
+          "end": 2.09
+        },
+        {
+          "text": "ways",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "text": "hath",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "text": "he,",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "text": "and",
+          "start": 2.95,
+          "end": 2.99
+        },
+        {
+          "text": "much",
+          "start": 2.99,
+          "end": 3.19
+        },
+        {
+          "text": "skill.",
+          "start": 3.19,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22913460712879896
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d4a1d1515dcd47d7c3d672363d6f9c3ac6bcd8a0be8a962bc2c83458d4656bca",
+  "selected_reasons": []
+}

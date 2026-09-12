@@ -1,0 +1,500 @@
+{
+  "complete": true,
+  "signature": "df01bc52ffd519b068b8587be89f6b06febcc6a06b2caf43534f4c759433fa62",
+  "attempts": [
+    {
+      "asr_seconds": 0.22038000356405973,
+      "alignment_seconds": 0.0007314635440707207,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You sir are the most phantom like of all you are a mere dream",
+          "start": 0.05,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " sir",
+              "start": 0.61,
+              "end": 0.85,
+              "probability": 0.445068359375
+            },
+            {
+              "text": " are",
+              "start": 0.85,
+              "end": 1.07,
+              "probability": 0.70458984375
+            },
+            {
+              "text": " the",
+              "start": 1.07,
+              "end": 1.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " most",
+              "start": 1.17,
+              "end": 1.33,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " phantom",
+              "start": 1.33,
+              "end": 1.69,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " like",
+              "start": 1.69,
+              "end": 1.95,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " of",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " all",
+              "start": 2.07,
+              "end": 2.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 2.29,
+              "end": 2.81,
+              "probability": 0.61669921875
+            },
+            {
+              "text": " are",
+              "start": 2.81,
+              "end": 2.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 2.93,
+              "end": 3.03,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " mere",
+              "start": 3.03,
+              "end": 3.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dream",
+              "start": 3.15,
+              "end": 3.59,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "sir",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "raw": "are",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "raw": "most",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "raw": "phantom",
+          "start": 1.33,
+          "end": 1.69
+        },
+        {
+          "raw": "like",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "raw": "of",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "all",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "raw": "you",
+          "start": 2.29,
+          "end": 2.81
+        },
+        {
+          "raw": "are",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "raw": "a",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "raw": "mere",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "raw": "dream",
+          "start": 3.15,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "\"You,",
+        "sir,",
+        "are",
+        "the",
+        "most",
+        "phantom-like",
+        "of",
+        "all:",
+        "you",
+        "are",
+        "a",
+        "mere",
+        "dream.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir",
+          "start": 0.61,
+          "end": 0.85,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.85,
+          "end": 1.07,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.17,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.17,
+          "end": 1.33,
+          "key": "most",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "phantom like",
+          "start": 1.33,
+          "end": 1.95,
+          "key": "phantomlike",
+          "pieces": [
+            5,
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.07,
+          "end": 2.29,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.29,
+          "end": 2.81,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.81,
+          "end": 2.93,
+          "key": "are",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.93,
+          "end": 3.03,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "mere",
+          "start": 3.03,
+          "end": 3.15,
+          "key": "mere",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "dream",
+          "start": 3.15,
+          "end": 3.59,
+          "key": "dream",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 5,
+          "text": "phantom-like",
+          "heard": "phantom like",
+          "heard_indexes": [
+            5,
+            6
+          ],
+          "start": 1.33,
+          "end": 1.95
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"You,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "sir,",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "text": "are",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "text": "the",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "text": "most",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "text": "phantom-like",
+          "start": 1.33,
+          "end": 1.95
+        },
+        {
+          "text": "of",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "text": "all:",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "text": "you",
+          "start": 2.29,
+          "end": 2.81
+        },
+        {
+          "text": "are",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "text": "a",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "text": "mere",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "text": "dream.\"",
+          "start": 3.15,
+          "end": 3.59
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22137117199599743
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d8dbab96a514726964216c1343b4e0a5e04041d5b271f97474c50f2e40ada292",
+  "selected_reasons": []
+}

@@ -1,0 +1,266 @@
+{
+  "complete": true,
+  "signature": "5dfbad8359e12bc995f56be141505a37b0a9744d8f79b439d8d135eca5bba699",
+  "attempts": [
+    {
+      "asr_seconds": 0.2018394786864519,
+      "alignment_seconds": 0.00041812285780906677,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That's true. Zoss'em OVLET drop.",
+          "start": 0.02,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.939697265625
+            },
+            {
+              "text": " true.",
+              "start": 0.74,
+              "end": 1.0,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Zoss",
+              "start": 1.4,
+              "end": 1.58,
+              "probability": 0.5648193359375
+            },
+            {
+              "text": "'em",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.53851318359375
+            },
+            {
+              "text": " OVLET",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.54345703125
+            },
+            {
+              "text": " drop.",
+              "start": 2.0,
+              "end": 2.24,
+              "probability": 0.465576171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "true.",
+          "start": 0.74,
+          "end": 1.0
+        },
+        {
+          "raw": "Zoss",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "raw": "'em",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "OVLET",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "raw": "drop.",
+          "start": 2.0,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "\"That's",
+        "true,\"",
+        "Zossimov",
+        "let",
+        "drop."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 0.74,
+          "end": 1.0,
+          "key": "true",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Zoss",
+          "start": 1.4,
+          "end": 1.58,
+          "key": "zoss",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'em",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "em",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "OVLET",
+          "start": 1.72,
+          "end": 2.0,
+          "key": "ovlet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "drop.",
+          "start": 2.0,
+          "end": 2.24,
+          "key": "drop",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That's",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "true,\"",
+          "start": 0.74,
+          "end": 1.0
+        },
+        {
+          "text": "Zossimov",
+          "start": 1.0,
+          "end": 1.5
+        },
+        {
+          "text": "let",
+          "start": 1.5,
+          "end": 1.75
+        },
+        {
+          "text": "drop.",
+          "start": 2.0,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2023960454389453
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0c10fd46a4aee2e577937d6baf624cdbbcbad8466b5a670f7df79df374512443",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

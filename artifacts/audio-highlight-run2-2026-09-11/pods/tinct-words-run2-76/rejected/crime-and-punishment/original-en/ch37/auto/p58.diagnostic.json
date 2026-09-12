@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "0ad86d532fb3093df83086c1fedb8a9d4b653441ab9f9a283a2c564214b50285",
+  "attempts": [
+    {
+      "asr_seconds": 0.1222530473023653,
+      "alignment_seconds": 0.00029076868668198586,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Because it isn't.\"",
+        "hotwords": "Because"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Because it isn't.",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Because",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.802734375
+            },
+            {
+              "text": " it",
+              "start": 0.64,
+              "end": 0.78,
+              "probability": 0.9921875
+            },
+            {
+              "text": " isn't.",
+              "start": 0.78,
+              "end": 1.22,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Because",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "it",
+          "start": 0.64,
+          "end": 0.78
+        },
+        {
+          "raw": "isn't.",
+          "start": 0.78,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "\"Because",
+        "it",
+        "isn't.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Because",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "because",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.64,
+          "end": 0.78,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "isn't.",
+          "start": 0.78,
+          "end": 1.22,
+          "key": "isnt",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Because",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "it",
+          "start": 0.64,
+          "end": 0.78
+        },
+        {
+          "text": "isn't.\"",
+          "start": 0.78,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12263944325968623
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5ee2e292ff478079409ea3dbe3abfd9bdca63729ee4f0d773eae48bdf66e803c",
+  "selected_reasons": []
+}

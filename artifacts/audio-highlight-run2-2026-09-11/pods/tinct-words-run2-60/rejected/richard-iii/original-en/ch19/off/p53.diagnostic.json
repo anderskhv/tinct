@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "58a03766b48aa812687883baa6228f6450773b2b8d9539c97504b853910741f6",
+  "attempts": [
+    {
+      "asr_seconds": 0.36021895334124565,
+      "alignment_seconds": 0.0004911236464977264,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Richard, madam, I have a touch of your condition that cannot brook the accent of reproof",
+          "start": 0.02,
+          "end": 5.82,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.434326171875
+            },
+            {
+              "text": " Richard,",
+              "start": 0.56,
+              "end": 0.96,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " madam,",
+              "start": 1.72,
+              "end": 2.02,
+              "probability": 0.658203125
+            },
+            {
+              "text": " I",
+              "start": 2.26,
+              "end": 2.34,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " have",
+              "start": 2.34,
+              "end": 2.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 2.48,
+              "end": 2.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " touch",
+              "start": 2.6,
+              "end": 2.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 2.76,
+              "end": 2.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " your",
+              "start": 2.92,
+              "end": 3.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " condition",
+              "start": 3.02,
+              "end": 3.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 3.4,
+              "end": 3.9,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " cannot",
+              "start": 3.9,
+              "end": 4.2,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " brook",
+              "start": 4.2,
+              "end": 4.52,
+              "probability": 0.775390625
+            },
+            {
+              "text": " the",
+              "start": 4.52,
+              "end": 4.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " accent",
+              "start": 4.7,
+              "end": 5.04,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " of",
+              "start": 5.04,
+              "end": 5.24,
+              "probability": 0.99609375
+            },
+            {
+              "text": " reproof",
+              "start": 5.24,
+              "end": 5.82,
+              "probability": 0.947509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "raw": "madam,",
+          "start": 1.72,
+          "end": 2.02
+        },
+        {
+          "raw": "I",
+          "start": 2.26,
+          "end": 2.34
+        },
+        {
+          "raw": "have",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "raw": "a",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "raw": "touch",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "raw": "of",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "raw": "your",
+          "start": 2.92,
+          "end": 3.02
+        },
+        {
+          "raw": "condition",
+          "start": 3.02,
+          "end": 3.4
+        },
+        {
+          "raw": "that",
+          "start": 3.4,
+          "end": 3.9
+        },
+        {
+          "raw": "cannot",
+          "start": 3.9,
+          "end": 4.2
+        },
+        {
+          "raw": "brook",
+          "start": 4.2,
+          "end": 4.52
+        },
+        {
+          "raw": "the",
+          "start": 4.52,
+          "end": 4.7
+        },
+        {
+          "raw": "accent",
+          "start": 4.7,
+          "end": 5.04
+        },
+        {
+          "raw": "of",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "raw": "reproof",
+          "start": 5.24,
+          "end": 5.82
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Madam,",
+        "I",
+        "have",
+        "a",
+        "touch",
+        "of",
+        "your",
+        "condition,",
+        "That",
+        "cannot",
+        "brook",
+        "the",
+        "accent",
+        "of",
+        "reproof."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.56,
+          "end": 0.96,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "madam,",
+          "start": 1.72,
+          "end": 2.02,
+          "key": "madam",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.26,
+          "end": 2.34,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.34,
+          "end": 2.48,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.48,
+          "end": 2.6,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "touch",
+          "start": 2.6,
+          "end": 2.76,
+          "key": "touch",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.76,
+          "end": 2.92,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.92,
+          "end": 3.02,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "condition",
+          "start": 3.02,
+          "end": 3.4,
+          "key": "condition",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.4,
+          "end": 3.9,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 3.9,
+          "end": 4.2,
+          "key": "cannot",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "brook",
+          "start": 4.2,
+          "end": 4.52,
+          "key": "brook",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.52,
+          "end": 4.7,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "accent",
+          "start": 4.7,
+          "end": 5.04,
+          "key": "accent",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.04,
+          "end": 5.24,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "reproof",
+          "start": 5.24,
+          "end": 5.82,
+          "key": "reproof",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "Richard.",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "text": "Madam,",
+          "start": 1.72,
+          "end": 2.02
+        },
+        {
+          "text": "I",
+          "start": 2.26,
+          "end": 2.34
+        },
+        {
+          "text": "have",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "text": "a",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "text": "touch",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "text": "of",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "text": "your",
+          "start": 2.92,
+          "end": 3.02
+        },
+        {
+          "text": "condition,",
+          "start": 3.02,
+          "end": 3.4
+        },
+        {
+          "text": "That",
+          "start": 3.4,
+          "end": 3.9
+        },
+        {
+          "text": "cannot",
+          "start": 3.9,
+          "end": 4.2
+        },
+        {
+          "text": "brook",
+          "start": 4.2,
+          "end": 4.52
+        },
+        {
+          "text": "the",
+          "start": 4.52,
+          "end": 4.7
+        },
+        {
+          "text": "accent",
+          "start": 4.7,
+          "end": 5.04
+        },
+        {
+          "text": "of",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "text": "reproof.",
+          "start": 5.24,
+          "end": 5.82
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3609166890382767
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0eb53e1f3dbebd63e1a102b4fc2623d946d3b07d7e29f1568b745dc8b72da3b2",
+  "selected_reasons": []
+}

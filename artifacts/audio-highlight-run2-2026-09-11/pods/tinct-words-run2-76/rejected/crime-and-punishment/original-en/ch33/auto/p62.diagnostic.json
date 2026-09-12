@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "f9a3cba4e87c84c8fd5f3d4f08b2b30925c9ad5a560d31890474270f64fb34e5",
+  "attempts": [
+    {
+      "asr_seconds": 0.19334782613441348,
+      "alignment_seconds": 0.00022604409605264664,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Raskolnikov positively started.",
+        "hotwords": "Raskolnikov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Raskolnikov positively started.",
+          "start": 0.05,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " Raskolnikov",
+              "start": 0.05,
+              "end": 1.17,
+              "probability": 0.94736328125
+            },
+            {
+              "text": " positively",
+              "start": 1.17,
+              "end": 1.59,
+              "probability": 0.787109375
+            },
+            {
+              "text": " started.",
+              "start": 1.59,
+              "end": 2.13,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Raskolnikov",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "raw": "positively",
+          "start": 1.17,
+          "end": 1.59
+        },
+        {
+          "raw": "started.",
+          "start": 1.59,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "Raskolnikov",
+        "positively",
+        "started."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Raskolnikov",
+          "start": 0.05,
+          "end": 1.17,
+          "key": "raskolnikov",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "positively",
+          "start": 1.17,
+          "end": 1.59,
+          "key": "positively",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "started.",
+          "start": 1.59,
+          "end": 2.13,
+          "key": "started",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Raskolnikov",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "text": "positively",
+          "start": 1.17,
+          "end": 1.59
+        },
+        {
+          "text": "started.",
+          "start": 1.59,
+          "end": 2.13
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19368817610666156
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "20b188750a68f885e19ec821c73a9072f127711a92f88cd0a1e4725cb91ef4e6",
+  "selected_reasons": []
+}

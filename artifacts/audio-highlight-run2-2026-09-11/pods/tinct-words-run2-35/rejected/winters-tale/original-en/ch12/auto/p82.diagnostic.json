@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "a485da283c57fa389c03b2e79064dec0cc5c3613dba27e3eb19253d0b76437e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.18099587969481945,
+      "alignment_seconds": 0.0004172343760728836,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mopsa. Let's have some merry ones.",
+        "hotwords": "Mopsa, Let's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mopsa, Let's have some merry ones.",
+          "start": 0.02,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Mopsa,",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.7194010416666666
+            },
+            {
+              "text": " Let's",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.5054473876953125
+            },
+            {
+              "text": " have",
+              "start": 1.42,
+              "end": 1.5,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " some",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " merry",
+              "start": 1.66,
+              "end": 1.9,
+              "probability": 0.53173828125
+            },
+            {
+              "text": " ones.",
+              "start": 1.9,
+              "end": 2.24,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mopsa,",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "raw": "Let's",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "have",
+          "start": 1.42,
+          "end": 1.5
+        },
+        {
+          "raw": "some",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "merry",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "raw": "ones.",
+          "start": 1.9,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "Mopsa.",
+        "Let's",
+        "have",
+        "some",
+        "merry",
+        "ones."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mopsa,",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "mopsa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Let's",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "lets",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.42,
+          "end": 1.5,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "some",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "merry",
+          "start": 1.66,
+          "end": 1.9,
+          "key": "merry",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ones.",
+          "start": 1.9,
+          "end": 2.24,
+          "key": "ones",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mopsa.",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "text": "Let's",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "have",
+          "start": 1.42,
+          "end": 1.5
+        },
+        {
+          "text": "some",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "merry",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "text": "ones.",
+          "start": 1.9,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18155154772102833
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7cfd5147a5a1589a49f0043acafe63d197521aa48838291fb98883b46952256a",
+  "selected_reasons": []
+}

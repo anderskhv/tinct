@@ -1,0 +1,266 @@
+{
+  "complete": true,
+  "signature": "af197b1bf4f0df0c6ab1e697448ef0b278a096c5ae427011c0a79909525215b4",
+  "attempts": [
+    {
+      "asr_seconds": 0.09320230904268101,
+      "alignment_seconds": 0.00017234100960195065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Four boot laces for a penny",
+          "start": 0.08,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Four",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.5634765625
+            },
+            {
+              "text": " boot",
+              "start": 0.6,
+              "end": 0.82,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " laces",
+              "start": 0.82,
+              "end": 1.12,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " for",
+              "start": 1.12,
+              "end": 1.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 1.34,
+              "end": 1.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " penny",
+              "start": 1.44,
+              "end": 1.62,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Four",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "boot",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "raw": "laces",
+          "start": 0.82,
+          "end": 1.12
+        },
+        {
+          "raw": "for",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "raw": "a",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "raw": "penny",
+          "start": 1.44,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "—Four",
+        "bootlaces",
+        "for",
+        "a",
+        "penny."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          5,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Four",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "four",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "boot",
+          "start": 0.6,
+          "end": 0.82,
+          "key": "boot",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "laces",
+          "start": 0.82,
+          "end": 1.12,
+          "key": "laces",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.12,
+          "end": 1.34,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.34,
+          "end": 1.44,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "penny",
+          "start": 1.44,
+          "end": 1.62,
+          "key": "penny",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Four",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "bootlaces",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "text": "for",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "text": "a",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "text": "penny.",
+          "start": 1.44,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09343259001616389
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1a412ab35fdd17b4cdf53dc5712890cf1ba1800398698ab31a80af6896416cf7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

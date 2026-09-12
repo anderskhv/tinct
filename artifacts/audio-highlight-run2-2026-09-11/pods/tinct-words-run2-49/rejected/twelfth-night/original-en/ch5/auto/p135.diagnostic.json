@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "88fc5c114b5c36f5276b24b852582e5a5978c59ccc82b00f7377111fc74f70bb",
+  "attempts": [
+    {
+      "asr_seconds": 0.1740443855524063,
+      "alignment_seconds": 0.00023967400193214417,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Malvolio. Madam, I will.",
+        "hotwords": "Malvolio, Madam, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Malvolio, Madam, I will.",
+          "start": 0.61,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Malvolio,",
+              "start": 0.61,
+              "end": 1.05,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " Madam,",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.6075439453125
+            },
+            {
+              "text": " I",
+              "start": 1.75,
+              "end": 1.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " will.",
+              "start": 1.79,
+              "end": 2.01,
+              "probability": 0.95849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.61,
+          "end": 1.05
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "I",
+          "start": 1.75,
+          "end": 1.79
+        },
+        {
+          "raw": "will.",
+          "start": 1.79,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "Madam,",
+        "I",
+        "will."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.61,
+          "end": 1.05,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "madam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.75,
+          "end": 1.79,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will.",
+          "start": 1.79,
+          "end": 2.01,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.61,
+          "end": 1.05
+        },
+        {
+          "text": "Madam,",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "I",
+          "start": 1.75,
+          "end": 1.79
+        },
+        {
+          "text": "will.",
+          "start": 1.79,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1743755340576172
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f2385a2da7cc7e9d7d514d40ebc80c18833b5852500907e6aeac3855f3c9efe9",
+  "selected_reasons": []
+}

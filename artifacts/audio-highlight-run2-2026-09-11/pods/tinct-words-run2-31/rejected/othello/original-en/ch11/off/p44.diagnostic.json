@@ -1,0 +1,557 @@
+{
+  "complete": true,
+  "signature": "9b8d22883dc7131a0c8b50a498135a6209438792a89335769ea838adb4d9627b",
+  "attempts": [
+    {
+      "asr_seconds": 0.18703061807900667,
+      "alignment_seconds": 0.0004549850709736347,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yago, that's not a miss, but yet keep time and all, will you withdraw?",
+          "start": 0.05,
+          "end": 3.73,
+          "words": [
+            {
+              "text": " Yago,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.294921875
+            },
+            {
+              "text": " that's",
+              "start": 1.01,
+              "end": 1.21,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " not",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 1.33,
+              "end": 1.43,
+              "probability": 0.72265625
+            },
+            {
+              "text": " miss,",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " but",
+              "start": 1.95,
+              "end": 1.99,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " yet",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " keep",
+              "start": 2.15,
+              "end": 2.39,
+              "probability": 0.908203125
+            },
+            {
+              "text": " time",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 2.67,
+              "end": 2.81,
+              "probability": 0.54248046875
+            },
+            {
+              "text": " all,",
+              "start": 2.81,
+              "end": 3.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " will",
+              "start": 3.23,
+              "end": 3.27,
+              "probability": 0.95703125
+            },
+            {
+              "text": " you",
+              "start": 3.27,
+              "end": 3.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " withdraw?",
+              "start": 3.41,
+              "end": 3.73,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yago,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "that's",
+          "start": 1.01,
+          "end": 1.21
+        },
+        {
+          "raw": "not",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "a",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "raw": "miss,",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "but",
+          "start": 1.95,
+          "end": 1.99
+        },
+        {
+          "raw": "yet",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "keep",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "raw": "time",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "raw": "and",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "raw": "all,",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "raw": "will",
+          "start": 3.23,
+          "end": 3.27
+        },
+        {
+          "raw": "you",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "raw": "withdraw?",
+          "start": 3.41,
+          "end": 3.73
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "That's",
+        "not",
+        "amiss.",
+        "But",
+        "yet",
+        "keep",
+        "time",
+        "in",
+        "all.",
+        "Will",
+        "you",
+        "withdraw?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          8,
+          5,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          10
+        ],
+        [
+          "equal",
+          9,
+          13,
+          10,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yago,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "yago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.01,
+          "end": 1.21,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.33,
+          "end": 1.43,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "miss,",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "miss",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.95,
+          "end": 1.99,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "yet",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 2.15,
+          "end": 2.39,
+          "key": "keep",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "time",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.67,
+          "end": 2.81,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "all,",
+          "start": 2.81,
+          "end": 3.03,
+          "key": "all",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.23,
+          "end": 3.27,
+          "key": "will",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.27,
+          "end": 3.41,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "withdraw?",
+          "start": 3.41,
+          "end": 3.73,
+          "key": "withdraw",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.505
+        },
+        {
+          "text": "That's",
+          "start": 1.01,
+          "end": 1.21
+        },
+        {
+          "text": "not",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "amiss.",
+          "start": 1.33,
+          "end": 1.64
+        },
+        {
+          "text": "But",
+          "start": 1.95,
+          "end": 1.99
+        },
+        {
+          "text": "yet",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "text": "keep",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "text": "time",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "text": "in",
+          "start": 2.67,
+          "end": 2.74
+        },
+        {
+          "text": "all.",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "text": "Will",
+          "start": 3.23,
+          "end": 3.27
+        },
+        {
+          "text": "you",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "text": "withdraw?",
+          "start": 3.41,
+          "end": 3.73
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18766071135178208
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2dedadbbb1cdd347872e4a4a3cdebb19f116470a8268c740de385fa4b1dbd6dc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

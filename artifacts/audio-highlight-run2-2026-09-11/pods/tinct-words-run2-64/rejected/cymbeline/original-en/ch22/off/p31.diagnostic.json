@@ -1,0 +1,426 @@
+{
+  "complete": true,
+  "signature": "59a6a11492030bcc068745e0c08fbfc27fcb5305d08b3fa93dff89668fc3dc38",
+  "attempts": [
+    {
+      "asr_seconds": 0.2346849013119936,
+      "alignment_seconds": 0.000193045474588871,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " This youth, how ere distressed, appears he hath had good ancestors.",
+          "start": 0.02,
+          "end": 3.9,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " youth,",
+              "start": 0.6,
+              "end": 1.0,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " how",
+              "start": 1.34,
+              "end": 1.42,
+              "probability": 0.5888671875
+            },
+            {
+              "text": " ere",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.898681640625
+            },
+            {
+              "text": " distressed,",
+              "start": 1.6,
+              "end": 2.02,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " appears",
+              "start": 2.64,
+              "end": 2.76,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " he",
+              "start": 2.76,
+              "end": 2.98,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " hath",
+              "start": 2.98,
+              "end": 3.08,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " had",
+              "start": 3.08,
+              "end": 3.26,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " good",
+              "start": 3.26,
+              "end": 3.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " ancestors.",
+              "start": 3.4,
+              "end": 3.9,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "youth,",
+          "start": 0.6,
+          "end": 1.0
+        },
+        {
+          "raw": "how",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "raw": "ere",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "distressed,",
+          "start": 1.6,
+          "end": 2.02
+        },
+        {
+          "raw": "appears",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "raw": "he",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "raw": "hath",
+          "start": 2.98,
+          "end": 3.08
+        },
+        {
+          "raw": "had",
+          "start": 3.08,
+          "end": 3.26
+        },
+        {
+          "raw": "good",
+          "start": 3.26,
+          "end": 3.4
+        },
+        {
+          "raw": "ancestors.",
+          "start": 3.4,
+          "end": 3.9
+        }
+      ],
+      "expected_tokens": [
+        "This",
+        "youth,",
+        "howe'er",
+        "distress'd,",
+        "appears",
+        "he",
+        "hath",
+        "had",
+        "Good",
+        "ancestors."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ],
+        [
+          "equal",
+          4,
+          10,
+          5,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "youth,",
+          "start": 0.6,
+          "end": 1.0,
+          "key": "youth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.34,
+          "end": 1.42,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ere",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "ere",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "distressed,",
+          "start": 1.6,
+          "end": 2.02,
+          "key": "distressed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "appears",
+          "start": 2.64,
+          "end": 2.76,
+          "key": "appears",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.76,
+          "end": 2.98,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 2.98,
+          "end": 3.08,
+          "key": "hath",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.08,
+          "end": 3.26,
+          "key": "had",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.26,
+          "end": 3.4,
+          "key": "good",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ancestors.",
+          "start": 3.4,
+          "end": 3.9,
+          "key": "ancestors",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "This",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "youth,",
+          "start": 0.6,
+          "end": 1.0
+        },
+        {
+          "text": "howe'er",
+          "start": 1.0,
+          "end": 1.82
+        },
+        {
+          "text": "distress'd,",
+          "start": 1.82,
+          "end": 2.23
+        },
+        {
+          "text": "appears",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "text": "he",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "text": "hath",
+          "start": 2.98,
+          "end": 3.08
+        },
+        {
+          "text": "had",
+          "start": 3.08,
+          "end": 3.26
+        },
+        {
+          "text": "Good",
+          "start": 3.26,
+          "end": 3.4
+        },
+        {
+          "text": "ancestors.",
+          "start": 3.4,
+          "end": 3.9
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2349438713863492
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "22d00e9bd06cba501070541a1f4d10919484dd89a4a769d76898ea04fa98e43c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

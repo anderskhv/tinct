@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "83936c19604a8983a611a073e8be1f2e00577fad414df559bdcf5381f2f35eb9",
+  "attempts": [
+    {
+      "asr_seconds": 4.04143544199178,
+      "alignment_seconds": 0.00018914599786512554,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. We will yet do well.",
+        "hotwords": "Antony, We"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, We will yet do well.",
+          "start": 0.08,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.78857421875
+            },
+            {
+              "text": " We",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.016876220703125
+            },
+            {
+              "text": " will",
+              "start": 1.26,
+              "end": 1.34,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " yet",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " do",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.9765625
+            },
+            {
+              "text": " well.",
+              "start": 1.7,
+              "end": 1.96,
+              "probability": 0.97265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "We",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "will",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "raw": "yet",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "do",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "well.",
+          "start": 1.7,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "We",
+        "will",
+        "yet",
+        "do",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.08,
+          "end": 1.26,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.26,
+          "end": 1.34,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "yet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.5,
+          "end": 1.7,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.7,
+          "end": 1.96,
+          "key": "well",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "We",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "text": "will",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "text": "yet",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "do",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "text": "well.",
+          "start": 1.7,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 4.041669679980259
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d00fc486001c792a8a2c467f3df101c6f40c2be0c4ea840e9cd08f5ac5d091a1",
+  "selected_reasons": []
+}

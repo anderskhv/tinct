@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "ffd2a0dcd2821849f853cd25a105b5a3e7be14f20ff3c1d2b8b32b3095236622",
+  "attempts": [
+    {
+      "asr_seconds": 0.19280730560421944,
+      "alignment_seconds": 0.00037720054388046265,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Norfolk. Here, most gracious liege.",
+        "hotwords": "Norfolk, Here"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Norfolk, Here most gracious liege.",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Norfolk,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.50341796875
+            },
+            {
+              "text": " Here",
+              "start": 1.27,
+              "end": 1.29,
+              "probability": 0.0428466796875
+            },
+            {
+              "text": " most",
+              "start": 1.29,
+              "end": 1.53,
+              "probability": 0.446533203125
+            },
+            {
+              "text": " gracious",
+              "start": 1.53,
+              "end": 1.93,
+              "probability": 0.87109375
+            },
+            {
+              "text": " liege.",
+              "start": 1.93,
+              "end": 2.43,
+              "probability": 0.57928466796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Norfolk,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Here",
+          "start": 1.27,
+          "end": 1.29
+        },
+        {
+          "raw": "most",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "raw": "gracious",
+          "start": 1.53,
+          "end": 1.93
+        },
+        {
+          "raw": "liege.",
+          "start": 1.93,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "Norfolk.",
+        "Here,",
+        "most",
+        "gracious",
+        "liege."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Norfolk,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "norfolk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 1.27,
+          "end": 1.29,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.29,
+          "end": 1.53,
+          "key": "most",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gracious",
+          "start": 1.53,
+          "end": 1.93,
+          "key": "gracious",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "liege.",
+          "start": 1.93,
+          "end": 2.43,
+          "key": "liege",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Norfolk.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Here,",
+          "start": 1.27,
+          "end": 1.29
+        },
+        {
+          "text": "most",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "text": "gracious",
+          "start": 1.53,
+          "end": 1.93
+        },
+        {
+          "text": "liege.",
+          "start": 1.93,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19331324473023415
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fa1a26ae75550df1059844f3e7fdd51379cfe5a5d371a59aaaee99686bb9ae8d",
+  "selected_reasons": []
+}

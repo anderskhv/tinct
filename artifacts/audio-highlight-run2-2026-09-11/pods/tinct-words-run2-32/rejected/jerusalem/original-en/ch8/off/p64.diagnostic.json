@@ -1,0 +1,374 @@
+{
+  "complete": true,
+  "signature": "4f18c082ff66ddd7e7023d2ac95b93abbe777cea1a3348ae89a7d793f7b7acef",
+  "attempts": [
+    {
+      "asr_seconds": 0.09996923245489597,
+      "alignment_seconds": 8.968822658061981e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, Gertrude can talk all right, setting Gmar approvingly.",
+          "start": 0.21,
+          "end": 3.81,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.21,
+              "end": 0.67,
+              "probability": 0.1927490234375
+            },
+            {
+              "text": " Gertrude",
+              "start": 0.95,
+              "end": 1.21,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " can",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " talk",
+              "start": 1.35,
+              "end": 1.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " all",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.62939453125
+            },
+            {
+              "text": " right,",
+              "start": 1.75,
+              "end": 2.07,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " setting",
+              "start": 2.49,
+              "end": 2.81,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " Gmar",
+              "start": 2.81,
+              "end": 3.13,
+              "probability": 0.5618896484375
+            },
+            {
+              "text": " approvingly.",
+              "start": 3.13,
+              "end": 3.81,
+              "probability": 0.990966796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.21,
+          "end": 0.67
+        },
+        {
+          "raw": "Gertrude",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "raw": "can",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "talk",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "raw": "all",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "right,",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "raw": "setting",
+          "start": 2.49,
+          "end": 2.81
+        },
+        {
+          "raw": "Gmar",
+          "start": 2.81,
+          "end": 3.13
+        },
+        {
+          "raw": "approvingly.",
+          "start": 3.13,
+          "end": 3.81
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "Gertrude",
+        "can",
+        "talk",
+        "all",
+        "right,\"",
+        "said",
+        "Ingmar",
+        "approvingly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          8,
+          6,
+          8
+        ],
+        [
+          "equal",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          8,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.21,
+          "end": 0.67,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gertrude",
+          "start": 0.95,
+          "end": 1.21,
+          "key": "gertrude",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.21,
+          "end": 1.35,
+          "key": "can",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 1.35,
+          "end": 1.57,
+          "key": "talk",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.57,
+          "end": 1.75,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 1.75,
+          "end": 2.07,
+          "key": "right",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "setting",
+          "start": 2.49,
+          "end": 2.81,
+          "key": "setting",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Gmar",
+          "start": 2.81,
+          "end": 3.13,
+          "key": "gmar",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "approvingly.",
+          "start": 3.13,
+          "end": 3.81,
+          "key": "approvingly",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.21,
+          "end": 0.67
+        },
+        {
+          "text": "Gertrude",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "text": "can",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "text": "talk",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "text": "all",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "right,\"",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "text": "said",
+          "start": 2.07,
+          "end": 2.6
+        },
+        {
+          "text": "Ingmar",
+          "start": 2.6,
+          "end": 2.865
+        },
+        {
+          "text": "approvingly.",
+          "start": 3.13,
+          "end": 3.81
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10008956864476204
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6e37b5ed785b5f33b98c03c89fdc1b290c8b8d1d91fd0e7f18fd3bba26a0821e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

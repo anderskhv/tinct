@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "41b8d1f08c93e9e0238d0f46e845b42c2198c0cc897a9ec58341292dcdf324a8",
+  "attempts": [
+    {
+      "asr_seconds": 0.10110676987096667,
+      "alignment_seconds": 0.00018876604735851288,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter a troop of Citizens.",
+        "hotwords": "Enter, Citizens"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter a troop of Citizens.",
+          "start": 0.08,
+          "end": 1.48,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " a",
+              "start": 0.62,
+              "end": 0.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " troop",
+              "start": 0.8,
+              "end": 0.94,
+              "probability": 0.78125
+            },
+            {
+              "text": " of",
+              "start": 0.94,
+              "end": 1.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Citizens.",
+              "start": 1.12,
+              "end": 1.48,
+              "probability": 0.0438232421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "a",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "raw": "troop",
+          "start": 0.8,
+          "end": 0.94
+        },
+        {
+          "raw": "of",
+          "start": 0.94,
+          "end": 1.12
+        },
+        {
+          "raw": "Citizens.",
+          "start": 1.12,
+          "end": 1.48
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "a",
+        "troop",
+        "of",
+        "Citizens."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.62,
+          "end": 0.8,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "troop",
+          "start": 0.8,
+          "end": 0.94,
+          "key": "troop",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.94,
+          "end": 1.12,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Citizens.",
+          "start": 1.12,
+          "end": 1.48,
+          "key": "citizens",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "a",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "text": "troop",
+          "start": 0.8,
+          "end": 0.94
+        },
+        {
+          "text": "of",
+          "start": 0.94,
+          "end": 1.12
+        },
+        {
+          "text": "Citizens.",
+          "start": 1.12,
+          "end": 1.48
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10136650782078505
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5a9d5b0e79e7dcccc15c75b6b6c4461f9f552768609ec2922cf0675181eb362e",
+  "selected_reasons": []
+}

@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "a2f9fdc17c07bbfeadc77a302f04a42f040091985f066751a4db0482b935566b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3129027746617794,
+      "alignment_seconds": 0.0004680268466472626,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown, what ho I say, peace in this prison.",
+          "start": 0.08,
+          "end": 2.96,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.45458984375
+            },
+            {
+              "text": " what",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " ho",
+              "start": 1.32,
+              "end": 1.5,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " I",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 0.5927734375
+            },
+            {
+              "text": " say,",
+              "start": 1.64,
+              "end": 1.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " peace",
+              "start": 2.22,
+              "end": 2.34,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " in",
+              "start": 2.34,
+              "end": 2.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 2.52,
+              "end": 2.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " prison.",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "what",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "raw": "ho",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "raw": "I",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "raw": "say,",
+          "start": 1.64,
+          "end": 1.92
+        },
+        {
+          "raw": "peace",
+          "start": 2.22,
+          "end": 2.34
+        },
+        {
+          "raw": "in",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "raw": "this",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "raw": "prison.",
+          "start": 2.64,
+          "end": 2.96
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "What",
+        "ho,",
+        "I",
+        "say!",
+        "Peace",
+        "in",
+        "this",
+        "prison!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.14,
+          "end": 1.32,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ho",
+          "start": 1.32,
+          "end": 1.5,
+          "key": "ho",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.5,
+          "end": 1.64,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 1.64,
+          "end": 1.92,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "peace",
+          "start": 2.22,
+          "end": 2.34,
+          "key": "peace",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.34,
+          "end": 2.52,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.52,
+          "end": 2.64,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "prison.",
+          "start": 2.64,
+          "end": 2.96,
+          "key": "prison",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "What",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "text": "ho,",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "text": "I",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "say!",
+          "start": 1.64,
+          "end": 1.92
+        },
+        {
+          "text": "Peace",
+          "start": 2.22,
+          "end": 2.34
+        },
+        {
+          "text": "in",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "text": "this",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "text": "prison!",
+          "start": 2.64,
+          "end": 2.96
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31355033814907074
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "64d3b817a4ae11122cdcd42413e5bcbdedb92c987ef4e3f653d55a41d8179422",
+  "selected_reasons": []
+}

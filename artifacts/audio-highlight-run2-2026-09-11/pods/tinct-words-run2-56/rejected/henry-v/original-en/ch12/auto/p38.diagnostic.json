@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "350e1a8302bd624b1336cba31d0cad3f0b6d91a5feaacb8fc5e83ebdca4233cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.14294649753719568,
+      "alignment_seconds": 0.00015861261636018753,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Henry. Unfold it.",
+        "hotwords": "King, Henry, Unfold"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Henry, Unfold it.",
+          "start": 0.02,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " Henry,",
+              "start": 0.54,
+              "end": 0.92,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Unfold",
+              "start": 1.3,
+              "end": 1.66,
+              "probability": 0.5076065063476562
+            },
+            {
+              "text": " it.",
+              "start": 1.66,
+              "end": 1.94,
+              "probability": 0.56591796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "raw": "Unfold",
+          "start": 1.3,
+          "end": 1.66
+        },
+        {
+          "raw": "it.",
+          "start": 1.66,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "Unfold",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.54,
+          "end": 0.92,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Unfold",
+          "start": 1.3,
+          "end": 1.66,
+          "key": "unfold",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.66,
+          "end": 1.94,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "Henry.",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "text": "Unfold",
+          "start": 1.3,
+          "end": 1.66
+        },
+        {
+          "text": "it.",
+          "start": 1.66,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14316268730908632
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "10cdd9b97a424c8df501617fc5ab938dce174b9e2d05b4c3d9179c8cf2706868",
+  "selected_reasons": []
+}

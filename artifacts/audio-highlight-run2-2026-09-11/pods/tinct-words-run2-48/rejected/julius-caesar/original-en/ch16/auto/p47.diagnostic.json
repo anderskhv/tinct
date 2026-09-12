@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "e5c9b8a3c48d68d8a1edffe72e6a9ee511e2a93060d80a7044354a687c3ca71b",
+  "attempts": [
+    {
+      "asr_seconds": 0.09866264089941978,
+      "alignment_seconds": 0.00011098571121692657,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cato. He is slain.",
+        "hotwords": "Cato, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cato, He is slain.",
+          "start": 0.05,
+          "end": 1.41,
+          "words": [
+            {
+              "text": " Cato,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.0004017353057861328
+            },
+            {
+              "text": " He",
+              "start": 1.01,
+              "end": 1.05,
+              "probability": 0.031494140625
+            },
+            {
+              "text": " is",
+              "start": 1.05,
+              "end": 1.15,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " slain.",
+              "start": 1.15,
+              "end": 1.41,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cato,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "He",
+          "start": 1.01,
+          "end": 1.05
+        },
+        {
+          "raw": "is",
+          "start": 1.05,
+          "end": 1.15
+        },
+        {
+          "raw": "slain.",
+          "start": 1.15,
+          "end": 1.41
+        }
+      ],
+      "expected_tokens": [
+        "Cato.",
+        "He",
+        "is",
+        "slain."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cato,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "cato",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.01,
+          "end": 1.05,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.05,
+          "end": 1.15,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "slain.",
+          "start": 1.15,
+          "end": 1.41,
+          "key": "slain",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cato.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "He",
+          "start": 1.01,
+          "end": 1.05
+        },
+        {
+          "text": "is",
+          "start": 1.05,
+          "end": 1.15
+        },
+        {
+          "text": "slain.",
+          "start": 1.15,
+          "end": 1.41
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09881177265197039
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "181131cab5770d5b3236fca8b6d01ad6fd920d2d28ac106169a21195de6c0b6d",
+  "selected_reasons": []
+}

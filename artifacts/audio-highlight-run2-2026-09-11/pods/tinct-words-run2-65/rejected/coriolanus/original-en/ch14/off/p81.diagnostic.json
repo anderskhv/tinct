@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "3f896ec77925d3d5460084dbe826732a5f77d1def72d7863601aec1dbf5e7c89",
+  "attempts": [
+    {
+      "asr_seconds": 0.09709149319678545,
+      "alignment_seconds": 0.00020976597443223,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Out of thy garments.",
+          "start": 0.08,
+          "end": 1.12,
+          "words": [
+            {
+              "text": " Out",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.58544921875
+            },
+            {
+              "text": " of",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.984375
+            },
+            {
+              "text": " thy",
+              "start": 0.66,
+              "end": 0.76,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " garments.",
+              "start": 0.76,
+              "end": 1.12,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Out",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "of",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "thy",
+          "start": 0.66,
+          "end": 0.76
+        },
+        {
+          "raw": "garments.",
+          "start": 0.76,
+          "end": 1.12
+        }
+      ],
+      "expected_tokens": [
+        "Out",
+        "of",
+        "thy",
+        "garments."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Out",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "out",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 0.66,
+          "end": 0.76,
+          "key": "thy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "garments.",
+          "start": 0.76,
+          "end": 1.12,
+          "key": "garments",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Out",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "of",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "thy",
+          "start": 0.66,
+          "end": 0.76
+        },
+        {
+          "text": "garments.",
+          "start": 0.76,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09736906131729484
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1baf591b01252564d7261da02b4c40af9058c76bebda8451ae59c14421b5c596",
+  "selected_reasons": []
+}

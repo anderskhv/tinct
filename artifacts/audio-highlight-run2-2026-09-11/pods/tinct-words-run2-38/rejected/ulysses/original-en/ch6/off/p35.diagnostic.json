@@ -1,0 +1,601 @@
+{
+  "complete": true,
+  "signature": "e5707097ede9464d1f43440028a4390d42c2fcefe76c279b760321369d441e7e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1969038100214675,
+      "alignment_seconds": 0.0003007519990205765,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He might, Mr. Daedalus said, if he hadn't that squint troubling him.",
+          "start": 0.05,
+          "end": 4.05,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.25341796875
+            },
+            {
+              "text": " might,",
+              "start": 0.53,
+              "end": 0.85,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Mr.",
+              "start": 1.07,
+              "end": 1.25,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " Daedalus",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.7610677083333334
+            },
+            {
+              "text": " said,",
+              "start": 1.71,
+              "end": 2.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " if",
+              "start": 2.29,
+              "end": 2.41,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he",
+              "start": 2.41,
+              "end": 2.51,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hadn't",
+              "start": 2.51,
+              "end": 2.83,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " that",
+              "start": 2.83,
+              "end": 2.99,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " squint",
+              "start": 2.99,
+              "end": 3.37,
+              "probability": 0.9921875
+            },
+            {
+              "text": " troubling",
+              "start": 3.37,
+              "end": 3.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him.",
+              "start": 3.73,
+              "end": 4.05,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Do you follow me?",
+          "start": 4.61,
+          "end": 5.37,
+          "words": [
+            {
+              "text": " Do",
+              "start": 4.61,
+              "end": 4.69,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " you",
+              "start": 4.69,
+              "end": 4.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " follow",
+              "start": 4.81,
+              "end": 5.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me?",
+              "start": 5.05,
+              "end": 5.37,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "might,",
+          "start": 0.53,
+          "end": 0.85
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "raw": "Daedalus",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "said,",
+          "start": 1.71,
+          "end": 2.05
+        },
+        {
+          "raw": "if",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "raw": "he",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "raw": "hadn't",
+          "start": 2.51,
+          "end": 2.83
+        },
+        {
+          "raw": "that",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "raw": "squint",
+          "start": 2.99,
+          "end": 3.37
+        },
+        {
+          "raw": "troubling",
+          "start": 3.37,
+          "end": 3.73
+        },
+        {
+          "raw": "him.",
+          "start": 3.73,
+          "end": 4.05
+        },
+        {
+          "raw": "Do",
+          "start": 4.61,
+          "end": 4.69
+        },
+        {
+          "raw": "you",
+          "start": 4.69,
+          "end": 4.81
+        },
+        {
+          "raw": "follow",
+          "start": 4.81,
+          "end": 5.05
+        },
+        {
+          "raw": "me?",
+          "start": 5.05,
+          "end": 5.37
+        }
+      ],
+      "expected_tokens": [
+        "—He",
+        "might,",
+        "Mr",
+        "Dedalus",
+        "said,",
+        "if",
+        "he",
+        "hadn't",
+        "that",
+        "squint",
+        "troubling",
+        "him.",
+        "Do",
+        "you",
+        "follow",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          16,
+          4,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "might,",
+          "start": 0.53,
+          "end": 0.85,
+          "key": "might",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.07,
+          "end": 1.25,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Daedalus",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "daedalus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.71,
+          "end": 2.05,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.29,
+          "end": 2.41,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.41,
+          "end": 2.51,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hadn't",
+          "start": 2.51,
+          "end": 2.83,
+          "key": "hadnt",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.83,
+          "end": 2.99,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "squint",
+          "start": 2.99,
+          "end": 3.37,
+          "key": "squint",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "troubling",
+          "start": 3.37,
+          "end": 3.73,
+          "key": "troubling",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 3.73,
+          "end": 4.05,
+          "key": "him",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 4.61,
+          "end": 4.69,
+          "key": "do",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.69,
+          "end": 4.81,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "follow",
+          "start": 4.81,
+          "end": 5.05,
+          "key": "follow",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 5.05,
+          "end": 5.37,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "might,",
+          "start": 0.53,
+          "end": 0.85
+        },
+        {
+          "text": "Mr",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "text": "Dedalus",
+          "start": 1.25,
+          "end": 1.48
+        },
+        {
+          "text": "said,",
+          "start": 1.71,
+          "end": 2.05
+        },
+        {
+          "text": "if",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "text": "he",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "text": "hadn't",
+          "start": 2.51,
+          "end": 2.83
+        },
+        {
+          "text": "that",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "text": "squint",
+          "start": 2.99,
+          "end": 3.37
+        },
+        {
+          "text": "troubling",
+          "start": 3.37,
+          "end": 3.73
+        },
+        {
+          "text": "him.",
+          "start": 3.73,
+          "end": 4.05
+        },
+        {
+          "text": "Do",
+          "start": 4.61,
+          "end": 4.69
+        },
+        {
+          "text": "you",
+          "start": 4.69,
+          "end": 4.81
+        },
+        {
+          "text": "follow",
+          "start": 4.81,
+          "end": 5.05
+        },
+        {
+          "text": "me?",
+          "start": 5.05,
+          "end": 5.37
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.19733517203712836
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2b3c73d1b5a5d5ee26ab0df34107cc15a4f6b767777161a4a2dc8aadd8e627a2",
+  "selected_reasons": []
+}

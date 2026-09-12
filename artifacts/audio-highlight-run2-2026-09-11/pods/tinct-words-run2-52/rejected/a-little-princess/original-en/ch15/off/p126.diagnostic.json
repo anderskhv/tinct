@@ -1,0 +1,451 @@
+{
+  "complete": true,
+  "signature": "83a98142feb479974ec1f6ea90a64e3d042f2b5162478669010eaca25cb35f1a",
+  "attempts": [
+    {
+      "asr_seconds": 0.21697798371315002,
+      "alignment_seconds": 0.0004818253219127655,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Becky's cap almost fell off entirely.",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Becky's",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.955810546875
+            },
+            {
+              "text": " cap",
+              "start": 0.77,
+              "end": 1.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " almost",
+              "start": 1.01,
+              "end": 1.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fell",
+              "start": 1.37,
+              "end": 1.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " off",
+              "start": 1.65,
+              "end": 1.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " entirely.",
+              "start": 1.91,
+              "end": 2.33,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " She broke in with such excitement.",
+          "start": 3.01,
+          "end": 4.33,
+          "words": [
+            {
+              "text": " She",
+              "start": 3.01,
+              "end": 3.09,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " broke",
+              "start": 3.09,
+              "end": 3.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 3.29,
+              "end": 3.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 3.49,
+              "end": 3.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " such",
+              "start": 3.65,
+              "end": 3.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " excitement.",
+              "start": 3.85,
+              "end": 4.33,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Becky's",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "cap",
+          "start": 0.77,
+          "end": 1.01
+        },
+        {
+          "raw": "almost",
+          "start": 1.01,
+          "end": 1.37
+        },
+        {
+          "raw": "fell",
+          "start": 1.37,
+          "end": 1.65
+        },
+        {
+          "raw": "off",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "raw": "entirely.",
+          "start": 1.91,
+          "end": 2.33
+        },
+        {
+          "raw": "She",
+          "start": 3.01,
+          "end": 3.09
+        },
+        {
+          "raw": "broke",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "raw": "in",
+          "start": 3.29,
+          "end": 3.49
+        },
+        {
+          "raw": "with",
+          "start": 3.49,
+          "end": 3.65
+        },
+        {
+          "raw": "such",
+          "start": 3.65,
+          "end": 3.85
+        },
+        {
+          "raw": "excitement.",
+          "start": 3.85,
+          "end": 4.33
+        }
+      ],
+      "expected_tokens": [
+        "Becky's",
+        "cap",
+        "almost",
+        "fell",
+        "off",
+        "entirely,",
+        "she",
+        "broke",
+        "in",
+        "with",
+        "such",
+        "excitement."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Becky's",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "beckys",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cap",
+          "start": 0.77,
+          "end": 1.01,
+          "key": "cap",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 1.01,
+          "end": 1.37,
+          "key": "almost",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fell",
+          "start": 1.37,
+          "end": 1.65,
+          "key": "fell",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 1.65,
+          "end": 1.91,
+          "key": "off",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "entirely.",
+          "start": 1.91,
+          "end": 2.33,
+          "key": "entirely",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.01,
+          "end": 3.09,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "broke",
+          "start": 3.09,
+          "end": 3.29,
+          "key": "broke",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.29,
+          "end": 3.49,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.49,
+          "end": 3.65,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 3.65,
+          "end": 3.85,
+          "key": "such",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "excitement.",
+          "start": 3.85,
+          "end": 4.33,
+          "key": "excitement",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Becky's",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "cap",
+          "start": 0.77,
+          "end": 1.01
+        },
+        {
+          "text": "almost",
+          "start": 1.01,
+          "end": 1.37
+        },
+        {
+          "text": "fell",
+          "start": 1.37,
+          "end": 1.65
+        },
+        {
+          "text": "off",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "text": "entirely,",
+          "start": 1.91,
+          "end": 2.33
+        },
+        {
+          "text": "she",
+          "start": 3.01,
+          "end": 3.09
+        },
+        {
+          "text": "broke",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "text": "in",
+          "start": 3.29,
+          "end": 3.49
+        },
+        {
+          "text": "with",
+          "start": 3.49,
+          "end": 3.65
+        },
+        {
+          "text": "such",
+          "start": 3.65,
+          "end": 3.85
+        },
+        {
+          "text": "excitement.",
+          "start": 3.85,
+          "end": 4.33
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2176547721028328
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "591044591ac6d742004253c5337595d6d0851a2088aec3d18b15e3159bda7033",
+  "selected_reasons": []
+}

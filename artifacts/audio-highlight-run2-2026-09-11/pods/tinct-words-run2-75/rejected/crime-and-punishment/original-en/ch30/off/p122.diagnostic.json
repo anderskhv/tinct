@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "5aea35d88695c2d282ec2d2277425159da27f8dffc8114c2a25974d12fe01c4c",
+  "attempts": [
+    {
+      "asr_seconds": 0.27967584505677223,
+      "alignment_seconds": 0.0006051510572433472,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You see yourself that it's not right, but I've spoken truly it's the truth",
+          "start": 0.05,
+          "end": 4.35,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " see",
+              "start": 0.53,
+              "end": 0.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " yourself",
+              "start": 0.75,
+              "end": 1.13,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " that",
+              "start": 1.13,
+              "end": 1.33,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " it's",
+              "start": 1.33,
+              "end": 1.51,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " not",
+              "start": 1.51,
+              "end": 1.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " right,",
+              "start": 1.69,
+              "end": 2.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " but",
+              "start": 2.27,
+              "end": 2.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I've",
+              "start": 2.57,
+              "end": 2.75,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " spoken",
+              "start": 2.75,
+              "end": 2.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " truly",
+              "start": 2.95,
+              "end": 3.45,
+              "probability": 0.955078125
+            },
+            {
+              "text": " it's",
+              "start": 3.45,
+              "end": 3.91,
+              "probability": 0.708740234375
+            },
+            {
+              "text": " the",
+              "start": 3.91,
+              "end": 4.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " truth",
+              "start": 4.03,
+              "end": 4.35,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "see",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "raw": "yourself",
+          "start": 0.75,
+          "end": 1.13
+        },
+        {
+          "raw": "that",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "raw": "it's",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "raw": "not",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "raw": "right,",
+          "start": 1.69,
+          "end": 2.09
+        },
+        {
+          "raw": "but",
+          "start": 2.27,
+          "end": 2.57
+        },
+        {
+          "raw": "I've",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "raw": "spoken",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "raw": "truly",
+          "start": 2.95,
+          "end": 3.45
+        },
+        {
+          "raw": "it's",
+          "start": 3.45,
+          "end": 3.91
+        },
+        {
+          "raw": "the",
+          "start": 3.91,
+          "end": 4.03
+        },
+        {
+          "raw": "truth",
+          "start": 4.03,
+          "end": 4.35
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "see",
+        "yourself",
+        "that",
+        "it's",
+        "not",
+        "right.",
+        "But",
+        "I've",
+        "spoken",
+        "truly,",
+        "it's",
+        "the",
+        "truth.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 0.53,
+          "end": 0.75,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 0.75,
+          "end": 1.13,
+          "key": "yourself",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.13,
+          "end": 1.33,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 1.33,
+          "end": 1.51,
+          "key": "its",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.51,
+          "end": 1.69,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 1.69,
+          "end": 2.09,
+          "key": "right",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.27,
+          "end": 2.57,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I've",
+          "start": 2.57,
+          "end": 2.75,
+          "key": "ive",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "spoken",
+          "start": 2.75,
+          "end": 2.95,
+          "key": "spoken",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "truly",
+          "start": 2.95,
+          "end": 3.45,
+          "key": "truly",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 3.45,
+          "end": 3.91,
+          "key": "its",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.91,
+          "end": 4.03,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "truth",
+          "start": 4.03,
+          "end": 4.35,
+          "key": "truth",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "see",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "text": "yourself",
+          "start": 0.75,
+          "end": 1.13
+        },
+        {
+          "text": "that",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "text": "it's",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "text": "not",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "right.",
+          "start": 1.69,
+          "end": 2.09
+        },
+        {
+          "text": "But",
+          "start": 2.27,
+          "end": 2.57
+        },
+        {
+          "text": "I've",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "text": "spoken",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "text": "truly,",
+          "start": 2.95,
+          "end": 3.45
+        },
+        {
+          "text": "it's",
+          "start": 3.45,
+          "end": 3.91
+        },
+        {
+          "text": "the",
+          "start": 3.91,
+          "end": 4.03
+        },
+        {
+          "text": "truth.\"",
+          "start": 4.03,
+          "end": 4.35
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28052642941474915
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "591e1aa3b5118302db6cf37379a4efddbbaf37baf8a88763327f4b8e58af5d45",
+  "selected_reasons": []
+}

@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "6e273901ed8cf188ee22cf1fa82dbb5836f3087c4c0cac2386adfa831c6488de",
+  "attempts": [
+    {
+      "asr_seconds": 0.0679093673825264,
+      "alignment_seconds": 0.00010184943675994873,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Regan. And false.",
+        "hotwords": "Regan, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Regan and false.",
+          "start": 0.05,
+          "end": 1.47,
+          "words": [
+            {
+              "text": " Regan",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.6490478515625
+            },
+            {
+              "text": " and",
+              "start": 0.81,
+              "end": 1.17,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " false.",
+              "start": 1.17,
+              "end": 1.47,
+              "probability": 0.1419677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Regan",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "and",
+          "start": 0.81,
+          "end": 1.17
+        },
+        {
+          "raw": "false.",
+          "start": 1.17,
+          "end": 1.47
+        }
+      ],
+      "expected_tokens": [
+        "Regan.",
+        "And",
+        "false."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Regan",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "regan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.81,
+          "end": 1.17,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "false.",
+          "start": 1.17,
+          "end": 1.47,
+          "key": "false",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Regan.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "And",
+          "start": 0.81,
+          "end": 1.17
+        },
+        {
+          "text": "false.",
+          "start": 1.17,
+          "end": 1.47
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06803996488451958
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "199c0d9c4e106936bc982ebf4c2e1cf99fce2f9d25e3c0052f3465dfffd3bdaf",
+  "selected_reasons": []
+}

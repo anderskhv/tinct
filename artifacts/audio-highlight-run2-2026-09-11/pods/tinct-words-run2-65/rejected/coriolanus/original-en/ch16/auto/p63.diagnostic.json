@@ -1,0 +1,801 @@
+{
+  "complete": true,
+  "signature": "fb561d8022b68ed3ed9f0ac9834b87332afac3ff8a990687402ddf05dedaee56",
+  "attempts": [
+    {
+      "asr_seconds": 0.1738642891868949,
+      "alignment_seconds": 0.0002511371858417988,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exeunt Coriolanus, Cominius, with other Senators._]",
+        "hotwords": "Coriolanus, Cominius, Senators._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt Coriolanus, Cominius, with other Senators._",
+          "start": 0.05,
+          "end": 3.89,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.6563313802083334
+            },
+            {
+              "text": " Coriolanus,",
+              "start": 0.81,
+              "end": 1.55,
+              "probability": 0.8902994791666666
+            },
+            {
+              "text": " Cominius,",
+              "start": 1.95,
+              "end": 2.35,
+              "probability": 0.4744059244791667
+            },
+            {
+              "text": " with",
+              "start": 2.51,
+              "end": 2.55,
+              "probability": 0.98828125
+            },
+            {
+              "text": " other",
+              "start": 2.55,
+              "end": 2.75,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Senators._",
+              "start": 2.75,
+              "end": 3.89,
+              "probability": 0.12347418069839478
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Coriolanus,",
+          "start": 0.81,
+          "end": 1.55
+        },
+        {
+          "raw": "Cominius,",
+          "start": 1.95,
+          "end": 2.35
+        },
+        {
+          "raw": "with",
+          "start": 2.51,
+          "end": 2.55
+        },
+        {
+          "raw": "other",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "raw": "Senators._",
+          "start": 2.75,
+          "end": 3.89
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Coriolanus,",
+        "Cominius,",
+        "with",
+        "other",
+        "Senators._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Coriolanus,",
+          "start": 0.81,
+          "end": 1.55,
+          "key": "coriolanus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cominius,",
+          "start": 1.95,
+          "end": 2.35,
+          "key": "cominius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.51,
+          "end": 2.55,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 2.55,
+          "end": 2.75,
+          "key": "other",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Senators._",
+          "start": 2.75,
+          "end": 3.89,
+          "key": "senators_",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Coriolanus,",
+          "start": 0.81,
+          "end": 1.55
+        },
+        {
+          "text": "Cominius,",
+          "start": 1.95,
+          "end": 2.35
+        },
+        {
+          "text": "with",
+          "start": 2.51,
+          "end": 2.55
+        },
+        {
+          "text": "other",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "text": "Senators._]",
+          "start": 2.75,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17420108895748854
+    },
+    {
+      "asr_seconds": 0.149700537789613,
+      "alignment_seconds": 0.0002492479979991913,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Coriolanus, Cominius, Senators._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exeunt Coriolanus, Cominius with other Senators._",
+          "start": 0.05,
+          "end": 3.89,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.6563313802083334
+            },
+            {
+              "text": " Coriolanus,",
+              "start": 0.81,
+              "end": 1.55,
+              "probability": 0.8902994791666666
+            },
+            {
+              "text": " Cominius",
+              "start": 1.95,
+              "end": 2.35,
+              "probability": 0.4744059244791667
+            },
+            {
+              "text": " with",
+              "start": 2.35,
+              "end": 2.55,
+              "probability": 0.978515625
+            },
+            {
+              "text": " other",
+              "start": 2.55,
+              "end": 2.75,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " Senators._",
+              "start": 2.75,
+              "end": 3.89,
+              "probability": 0.14318853616714478
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Coriolanus,",
+          "start": 0.81,
+          "end": 1.55
+        },
+        {
+          "raw": "Cominius",
+          "start": 1.95,
+          "end": 2.35
+        },
+        {
+          "raw": "with",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "raw": "other",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "raw": "Senators._",
+          "start": 2.75,
+          "end": 3.89
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Coriolanus,",
+        "Cominius,",
+        "with",
+        "other",
+        "Senators._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Coriolanus,",
+          "start": 0.81,
+          "end": 1.55,
+          "key": "coriolanus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cominius",
+          "start": 1.95,
+          "end": 2.35,
+          "key": "cominius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.35,
+          "end": 2.55,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 2.55,
+          "end": 2.75,
+          "key": "other",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Senators._",
+          "start": 2.75,
+          "end": 3.89,
+          "key": "senators_",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Coriolanus,",
+          "start": 0.81,
+          "end": 1.55
+        },
+        {
+          "text": "Cominius,",
+          "start": 1.95,
+          "end": 2.35
+        },
+        {
+          "text": "with",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "text": "other",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "text": "Senators._]",
+          "start": 2.75,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15003496780991554
+    },
+    {
+      "asr_seconds": 0.17479031486436725,
+      "alignment_seconds": 0.00024706823751330376,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt Coriolanus, Comineus with other senators.",
+          "start": 0.05,
+          "end": 3.05,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.6563313802083334
+            },
+            {
+              "text": " Coriolanus,",
+              "start": 0.81,
+              "end": 1.53,
+              "probability": 0.8902994791666666
+            },
+            {
+              "text": " Comineus",
+              "start": 1.95,
+              "end": 2.39,
+              "probability": 0.5860188802083334
+            },
+            {
+              "text": " with",
+              "start": 2.39,
+              "end": 2.55,
+              "probability": 0.9765625
+            },
+            {
+              "text": " other",
+              "start": 2.55,
+              "end": 2.75,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " senators.",
+              "start": 2.75,
+              "end": 3.05,
+              "probability": 0.650390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Coriolanus,",
+          "start": 0.81,
+          "end": 1.53
+        },
+        {
+          "raw": "Comineus",
+          "start": 1.95,
+          "end": 2.39
+        },
+        {
+          "raw": "with",
+          "start": 2.39,
+          "end": 2.55
+        },
+        {
+          "raw": "other",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "raw": "senators.",
+          "start": 2.75,
+          "end": 3.05
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Coriolanus,",
+        "Cominius,",
+        "with",
+        "other",
+        "Senators._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Coriolanus,",
+          "start": 0.81,
+          "end": 1.53,
+          "key": "coriolanus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Comineus",
+          "start": 1.95,
+          "end": 2.39,
+          "key": "comineus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.39,
+          "end": 2.55,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 2.55,
+          "end": 2.75,
+          "key": "other",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "senators.",
+          "start": 2.75,
+          "end": 3.05,
+          "key": "senators",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Coriolanus,",
+          "start": 0.81,
+          "end": 1.53
+        },
+        {
+          "text": "Cominius,",
+          "start": 1.53,
+          "end": 1.96
+        },
+        {
+          "text": "with",
+          "start": 2.39,
+          "end": 2.55
+        },
+        {
+          "text": "other",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "text": "Senators._]",
+          "start": 2.75,
+          "end": 3.05
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17511832481250167
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "204377f564c49cf2ad41ae134844805cdbbbf975c34e0857b9fd98e6fd4db1ac",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

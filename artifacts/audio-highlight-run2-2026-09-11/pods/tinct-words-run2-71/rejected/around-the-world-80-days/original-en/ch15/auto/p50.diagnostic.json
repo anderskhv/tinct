@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "86b679a84016392651a54b5859408beaea8fb626cc4cfaabcb49b8a0ad02a12b",
+  "attempts": [
+    {
+      "asr_seconds": 0.30397903732955456,
+      "alignment_seconds": 0.0006560618057847023,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And as a proof,\" added the clerk, \"here are the desecrator's very shoes, which he left behind him.\"",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And as a proof,\" added the clerk, \"'here are the desecrator's very shoes, which he left behind him.'\"",
+          "start": 0.08,
+          "end": 6.14,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.2353515625
+            },
+            {
+              "text": " as",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " a",
+              "start": 0.7,
+              "end": 0.86,
+              "probability": 0.974609375
+            },
+            {
+              "text": " proof,\"",
+              "start": 0.86,
+              "end": 1.58,
+              "probability": 0.847900390625
+            },
+            {
+              "text": " added",
+              "start": 1.58,
+              "end": 1.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.86,
+              "end": 2.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " clerk,",
+              "start": 2.04,
+              "end": 2.24,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " \"'here",
+              "start": 2.76,
+              "end": 3.0,
+              "probability": 0.3125886917114258
+            },
+            {
+              "text": " are",
+              "start": 3.0,
+              "end": 3.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 3.12,
+              "end": 3.24,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " desecrator's",
+              "start": 3.24,
+              "end": 3.9,
+              "probability": 0.9713134765625
+            },
+            {
+              "text": " very",
+              "start": 3.9,
+              "end": 4.12,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " shoes,",
+              "start": 4.12,
+              "end": 4.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " which",
+              "start": 4.72,
+              "end": 4.88,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " he",
+              "start": 4.88,
+              "end": 5.04,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " left",
+              "start": 5.04,
+              "end": 5.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " behind",
+              "start": 5.22,
+              "end": 5.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.'\"",
+              "start": 5.58,
+              "end": 6.14,
+              "probability": 0.874755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "as",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "a",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "raw": "proof,\"",
+          "start": 0.86,
+          "end": 1.58
+        },
+        {
+          "raw": "added",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "raw": "the",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "raw": "clerk,",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "raw": "\"'here",
+          "start": 2.76,
+          "end": 3.0
+        },
+        {
+          "raw": "are",
+          "start": 3.0,
+          "end": 3.12
+        },
+        {
+          "raw": "the",
+          "start": 3.12,
+          "end": 3.24
+        },
+        {
+          "raw": "desecrator's",
+          "start": 3.24,
+          "end": 3.9
+        },
+        {
+          "raw": "very",
+          "start": 3.9,
+          "end": 4.12
+        },
+        {
+          "raw": "shoes,",
+          "start": 4.12,
+          "end": 4.54
+        },
+        {
+          "raw": "which",
+          "start": 4.72,
+          "end": 4.88
+        },
+        {
+          "raw": "he",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "raw": "left",
+          "start": 5.04,
+          "end": 5.22
+        },
+        {
+          "raw": "behind",
+          "start": 5.22,
+          "end": 5.58
+        },
+        {
+          "raw": "him.'\"",
+          "start": 5.58,
+          "end": 6.14
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "as",
+        "a",
+        "proof,\"",
+        "added",
+        "the",
+        "clerk,",
+        "\"here",
+        "are",
+        "the",
+        "desecrator's",
+        "very",
+        "shoes,",
+        "which",
+        "he",
+        "left",
+        "behind",
+        "him.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "as",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.7,
+          "end": 0.86,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "proof,\"",
+          "start": 0.86,
+          "end": 1.58,
+          "key": "proof",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "added",
+          "start": 1.58,
+          "end": 1.86,
+          "key": "added",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.86,
+          "end": 2.04,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "clerk,",
+          "start": 2.04,
+          "end": 2.24,
+          "key": "clerk",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "\"'here",
+          "start": 2.76,
+          "end": 3.0,
+          "key": "here",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.0,
+          "end": 3.12,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.12,
+          "end": 3.24,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "desecrator's",
+          "start": 3.24,
+          "end": 3.9,
+          "key": "desecrators",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 3.9,
+          "end": 4.12,
+          "key": "very",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "shoes,",
+          "start": 4.12,
+          "end": 4.54,
+          "key": "shoes",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 4.72,
+          "end": 4.88,
+          "key": "which",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.88,
+          "end": 5.04,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "left",
+          "start": 5.04,
+          "end": 5.22,
+          "key": "left",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "behind",
+          "start": 5.22,
+          "end": 5.58,
+          "key": "behind",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "him.'\"",
+          "start": 5.58,
+          "end": 6.14,
+          "key": "him",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "as",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "a",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "text": "proof,\"",
+          "start": 0.86,
+          "end": 1.58
+        },
+        {
+          "text": "added",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "text": "the",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "text": "clerk,",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "text": "\"here",
+          "start": 2.76,
+          "end": 3.0
+        },
+        {
+          "text": "are",
+          "start": 3.0,
+          "end": 3.12
+        },
+        {
+          "text": "the",
+          "start": 3.12,
+          "end": 3.24
+        },
+        {
+          "text": "desecrator's",
+          "start": 3.24,
+          "end": 3.9
+        },
+        {
+          "text": "very",
+          "start": 3.9,
+          "end": 4.12
+        },
+        {
+          "text": "shoes,",
+          "start": 4.12,
+          "end": 4.54
+        },
+        {
+          "text": "which",
+          "start": 4.72,
+          "end": 4.88
+        },
+        {
+          "text": "he",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "text": "left",
+          "start": 5.04,
+          "end": 5.22
+        },
+        {
+          "text": "behind",
+          "start": 5.22,
+          "end": 5.58
+        },
+        {
+          "text": "him.\"",
+          "start": 5.58,
+          "end": 6.14
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3049000259488821
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0959d3c8bb844f52553914f8acb3b84175324090f7bb3f7690f6ef15639eed00",
+  "selected_reasons": []
+}

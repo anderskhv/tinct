@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "21132518c1d2e091bfb30181453ebbcd796fb23aaa5ddf7862527d71fe4185d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.11465464503271505,
+      "alignment_seconds": 0.0001637800014577806,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " At the cemetery, Martin Cunningham said.",
+          "start": 0.14,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " At",
+              "start": 0.14,
+              "end": 0.5,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " the",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " cemetery,",
+              "start": 0.64,
+              "end": 1.16,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Martin",
+              "start": 1.64,
+              "end": 1.74,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " Cunningham",
+              "start": 1.74,
+              "end": 2.12,
+              "probability": 0.994140625
+            },
+            {
+              "text": " said.",
+              "start": 2.12,
+              "end": 2.52,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "At",
+          "start": 0.14,
+          "end": 0.5
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "cemetery,",
+          "start": 0.64,
+          "end": 1.16
+        },
+        {
+          "raw": "Martin",
+          "start": 1.64,
+          "end": 1.74
+        },
+        {
+          "raw": "Cunningham",
+          "start": 1.74,
+          "end": 2.12
+        },
+        {
+          "raw": "said.",
+          "start": 2.12,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "—At",
+        "the",
+        "cemetery,",
+        "Martin",
+        "Cunningham",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "At",
+          "start": 0.14,
+          "end": 0.5,
+          "key": "at",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cemetery,",
+          "start": 0.64,
+          "end": 1.16,
+          "key": "cemetery",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Martin",
+          "start": 1.64,
+          "end": 1.74,
+          "key": "martin",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Cunningham",
+          "start": 1.74,
+          "end": 2.12,
+          "key": "cunningham",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.12,
+          "end": 2.52,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—At",
+          "start": 0.14,
+          "end": 0.5
+        },
+        {
+          "text": "the",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "cemetery,",
+          "start": 0.64,
+          "end": 1.16
+        },
+        {
+          "text": "Martin",
+          "start": 1.64,
+          "end": 1.74
+        },
+        {
+          "text": "Cunningham",
+          "start": 1.74,
+          "end": 2.12
+        },
+        {
+          "text": "said.",
+          "start": 2.12,
+          "end": 2.52
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11487988603767008
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "739360f03514dee3fd644ad5c5bbac29e565864f98cc4d46747ff84b64441fb1",
+  "selected_reasons": []
+}

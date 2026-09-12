@@ -1,0 +1,148 @@
+{
+  "complete": true,
+  "signature": "a4b23b31b82deb158be3d7bf836c8c814a1eca23b92d5039ef0a6a14ee87446d",
+  "attempts": [
+    {
+      "asr_seconds": 0.10631722211837769,
+      "alignment_seconds": 0.00017867470160126686,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Toodalaw me",
+          "start": 0.02,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " Toodalaw",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.432403564453125
+            },
+            {
+              "text": " me",
+              "start": 0.78,
+              "end": 1.0,
+              "probability": 0.59375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Toodalaw",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "me",
+          "start": 0.78,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "2.",
+        "De",
+        "Lolme."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Toodalaw",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "toodalaw",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.78,
+          "end": 1.0,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "2.",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "De",
+          "start": 0.5,
+          "end": 0.75
+        },
+        {
+          "text": "Lolme.",
+          "start": 0.75,
+          "end": 0.875
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1065442580729723
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b1fe98a2079728b72bb0a6b824f42c9212c2bb9a7937beb01e053581ef483035",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "a824ffeca5b3cf78c70bd2af05a260ab11b1e064c4883d1c18fd08cb53508b59",
+  "attempts": [
+    {
+      "asr_seconds": 0.1931309187784791,
+      "alignment_seconds": 0.0003711441531777382,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Romeo, I if I know the letters and the language.",
+          "start": 0.05,
+          "end": 3.05,
+          "words": [
+            {
+              "text": " Romeo,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.939453125
+            },
+            {
+              "text": " I",
+              "start": 1.23,
+              "end": 1.51,
+              "probability": 0.9453125
+            },
+            {
+              "text": " if",
+              "start": 1.51,
+              "end": 1.71,
+              "probability": 0.5302734375
+            },
+            {
+              "text": " I",
+              "start": 1.71,
+              "end": 1.83,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " know",
+              "start": 1.83,
+              "end": 1.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.97,
+              "end": 2.13,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " letters",
+              "start": 2.13,
+              "end": 2.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 2.37,
+              "end": 2.59,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " the",
+              "start": 2.59,
+              "end": 2.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " language.",
+              "start": 2.71,
+              "end": 3.05,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Romeo,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "I",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "raw": "if",
+          "start": 1.51,
+          "end": 1.71
+        },
+        {
+          "raw": "I",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "raw": "know",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "raw": "the",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "raw": "letters",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "raw": "and",
+          "start": 2.37,
+          "end": 2.59
+        },
+        {
+          "raw": "the",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "raw": "language.",
+          "start": 2.71,
+          "end": 3.05
+        }
+      ],
+      "expected_tokens": [
+        "Romeo.",
+        "Ay,",
+        "If",
+        "I",
+        "know",
+        "the",
+        "letters",
+        "and",
+        "the",
+        "language."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          10,
+          2,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Romeo,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "romeo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.23,
+          "end": 1.51,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.51,
+          "end": 1.71,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.71,
+          "end": 1.83,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.83,
+          "end": 1.97,
+          "key": "know",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.97,
+          "end": 2.13,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "letters",
+          "start": 2.13,
+          "end": 2.37,
+          "key": "letters",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.37,
+          "end": 2.59,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.59,
+          "end": 2.71,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "language.",
+          "start": 2.71,
+          "end": 3.05,
+          "key": "language",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Romeo.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Ay,",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "text": "If",
+          "start": 1.51,
+          "end": 1.71
+        },
+        {
+          "text": "I",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "text": "know",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "text": "the",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "text": "letters",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "text": "and",
+          "start": 2.37,
+          "end": 2.59
+        },
+        {
+          "text": "the",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "text": "language.",
+          "start": 2.71,
+          "end": 3.05
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.19363137241452932
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ff7f9c39638e9c318c086e06ca42759200e34e4feff42c137982b7227b8fbec0",
+  "selected_reasons": []
+}

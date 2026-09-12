@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "574dc94cc2f3c196e2b7dff855be1b1e9aa06e584192a9b684c2407b90d7e765",
+  "attempts": [
+    {
+      "asr_seconds": 0.1364589836448431,
+      "alignment_seconds": 0.0002819076180458069,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Verse Trumpet",
+          "start": 0.08,
+          "end": 1.16,
+          "words": [
+            {
+              "text": " Verse",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.26220703125
+            },
+            {
+              "text": " Trumpet",
+              "start": 0.66,
+              "end": 1.16,
+              "probability": 0.767578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Verse",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Trumpet",
+          "start": 0.66,
+          "end": 1.16
+        }
+      ],
+      "expected_tokens": [
+        "[_First",
+        "trumpet._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Verse",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "verse",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Trumpet",
+          "start": 0.66,
+          "end": 1.16,
+          "key": "trumpet",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_First",
+          "start": 0.0,
+          "end": 0.33
+        },
+        {
+          "text": "trumpet._]",
+          "start": 0.66,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13683165423572063
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ef1ab4e5f30edae45153ebfce6f84e5dc67695c2c3ce770f349f4029f175243a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

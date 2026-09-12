@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "438b5ae50a02660f05a84ec8784e027350615cbb8859699a0fc3def264db8829",
+  "attempts": [
+    {
+      "asr_seconds": 0.32188116014003754,
+      "alignment_seconds": 0.0006558634340763092,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown. Well, God give them wisdom that have it and those that are fools let them use their talents",
+          "start": 0.05,
+          "end": 5.97,
+          "words": [
+            {
+              "text": " Clown.",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " Well,",
+              "start": 1.27,
+              "end": 1.55,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " God",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " give",
+              "start": 1.89,
+              "end": 2.13,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " them",
+              "start": 2.13,
+              "end": 2.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wisdom",
+              "start": 2.33,
+              "end": 2.67,
+              "probability": 0.982421875
+            },
+            {
+              "text": " that",
+              "start": 2.67,
+              "end": 2.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " have",
+              "start": 2.91,
+              "end": 3.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 3.11,
+              "end": 3.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 3.33,
+              "end": 3.79,
+              "probability": 0.1693115234375
+            },
+            {
+              "text": " those",
+              "start": 3.79,
+              "end": 3.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 3.99,
+              "end": 4.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 4.15,
+              "end": 4.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fools",
+              "start": 4.29,
+              "end": 4.69,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " let",
+              "start": 4.69,
+              "end": 5.03,
+              "probability": 0.806640625
+            },
+            {
+              "text": " them",
+              "start": 5.03,
+              "end": 5.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " use",
+              "start": 5.17,
+              "end": 5.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 5.37,
+              "end": 5.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " talents",
+              "start": 5.57,
+              "end": 5.97,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Well,",
+          "start": 1.27,
+          "end": 1.55
+        },
+        {
+          "raw": "God",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "give",
+          "start": 1.89,
+          "end": 2.13
+        },
+        {
+          "raw": "them",
+          "start": 2.13,
+          "end": 2.33
+        },
+        {
+          "raw": "wisdom",
+          "start": 2.33,
+          "end": 2.67
+        },
+        {
+          "raw": "that",
+          "start": 2.67,
+          "end": 2.91
+        },
+        {
+          "raw": "have",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "raw": "it",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "raw": "and",
+          "start": 3.33,
+          "end": 3.79
+        },
+        {
+          "raw": "those",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "raw": "that",
+          "start": 3.99,
+          "end": 4.15
+        },
+        {
+          "raw": "are",
+          "start": 4.15,
+          "end": 4.29
+        },
+        {
+          "raw": "fools",
+          "start": 4.29,
+          "end": 4.69
+        },
+        {
+          "raw": "let",
+          "start": 4.69,
+          "end": 5.03
+        },
+        {
+          "raw": "them",
+          "start": 5.03,
+          "end": 5.17
+        },
+        {
+          "raw": "use",
+          "start": 5.17,
+          "end": 5.37
+        },
+        {
+          "raw": "their",
+          "start": 5.37,
+          "end": 5.57
+        },
+        {
+          "raw": "talents",
+          "start": 5.57,
+          "end": 5.97
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Well,",
+        "God",
+        "give",
+        "them",
+        "wisdom",
+        "that",
+        "have",
+        "it;",
+        "and",
+        "those",
+        "that",
+        "are",
+        "fools,",
+        "let",
+        "them",
+        "use",
+        "their",
+        "talents."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown.",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 1.27,
+          "end": 1.55,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 1.71,
+          "end": 1.89,
+          "key": "god",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.89,
+          "end": 2.13,
+          "key": "give",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.13,
+          "end": 2.33,
+          "key": "them",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wisdom",
+          "start": 2.33,
+          "end": 2.67,
+          "key": "wisdom",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.67,
+          "end": 2.91,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.91,
+          "end": 3.11,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.11,
+          "end": 3.33,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.33,
+          "end": 3.79,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 3.79,
+          "end": 3.99,
+          "key": "those",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.99,
+          "end": 4.15,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.15,
+          "end": 4.29,
+          "key": "are",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fools",
+          "start": 4.29,
+          "end": 4.69,
+          "key": "fools",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 4.69,
+          "end": 5.03,
+          "key": "let",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 5.03,
+          "end": 5.17,
+          "key": "them",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 5.17,
+          "end": 5.37,
+          "key": "use",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 5.37,
+          "end": 5.57,
+          "key": "their",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "talents",
+          "start": 5.57,
+          "end": 5.97,
+          "key": "talents",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Well,",
+          "start": 1.27,
+          "end": 1.55
+        },
+        {
+          "text": "God",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "text": "give",
+          "start": 1.89,
+          "end": 2.13
+        },
+        {
+          "text": "them",
+          "start": 2.13,
+          "end": 2.33
+        },
+        {
+          "text": "wisdom",
+          "start": 2.33,
+          "end": 2.67
+        },
+        {
+          "text": "that",
+          "start": 2.67,
+          "end": 2.91
+        },
+        {
+          "text": "have",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "text": "it;",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "text": "and",
+          "start": 3.33,
+          "end": 3.79
+        },
+        {
+          "text": "those",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "text": "that",
+          "start": 3.99,
+          "end": 4.15
+        },
+        {
+          "text": "are",
+          "start": 4.15,
+          "end": 4.29
+        },
+        {
+          "text": "fools,",
+          "start": 4.29,
+          "end": 4.69
+        },
+        {
+          "text": "let",
+          "start": 4.69,
+          "end": 5.03
+        },
+        {
+          "text": "them",
+          "start": 5.03,
+          "end": 5.17
+        },
+        {
+          "text": "use",
+          "start": 5.17,
+          "end": 5.37
+        },
+        {
+          "text": "their",
+          "start": 5.37,
+          "end": 5.57
+        },
+        {
+          "text": "talents.",
+          "start": 5.57,
+          "end": 5.97
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3228198513388634
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6ffc2e1c9cbc64d17b8428dc15d65833328c958e786ecec81def53e834d92695",
+  "selected_reasons": []
+}

@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "988ee89679c148d7bf4a4f0ab7aa7826fa59f4e2c1d57a4757b2c2783a55d662",
+  "attempts": [
+    {
+      "asr_seconds": 0.08093158341944218,
+      "alignment_seconds": 8.142180740833282e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Stop, Ingmar, and let me bind up your wound!\"",
+        "hotwords": "Stop, Ingmar"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stop, Ingmar, and let me bind up your wound!",
+          "start": 0.18,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Stop,",
+              "start": 0.18,
+              "end": 0.78,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " Ingmar,",
+              "start": 1.06,
+              "end": 1.36,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " and",
+              "start": 1.62,
+              "end": 1.68,
+              "probability": 0.9921875
+            },
+            {
+              "text": " let",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 1.8,
+              "end": 1.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bind",
+              "start": 1.92,
+              "end": 2.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " up",
+              "start": 2.12,
+              "end": 2.26,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " your",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wound!",
+              "start": 2.38,
+              "end": 2.64,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stop,",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "raw": "Ingmar,",
+          "start": 1.06,
+          "end": 1.36
+        },
+        {
+          "raw": "and",
+          "start": 1.62,
+          "end": 1.68
+        },
+        {
+          "raw": "let",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "me",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "raw": "bind",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "raw": "up",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "raw": "your",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "wound!",
+          "start": 2.38,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "\"Stop,",
+        "Ingmar,",
+        "and",
+        "let",
+        "me",
+        "bind",
+        "up",
+        "your",
+        "wound!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Stop,",
+          "start": 0.18,
+          "end": 0.78,
+          "key": "stop",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ingmar,",
+          "start": 1.06,
+          "end": 1.36,
+          "key": "ingmar",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.62,
+          "end": 1.68,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "let",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.8,
+          "end": 1.92,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bind",
+          "start": 1.92,
+          "end": 2.12,
+          "key": "bind",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.12,
+          "end": 2.26,
+          "key": "up",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wound!",
+          "start": 2.38,
+          "end": 2.64,
+          "key": "wound",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Stop,",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "text": "Ingmar,",
+          "start": 1.06,
+          "end": 1.36
+        },
+        {
+          "text": "and",
+          "start": 1.62,
+          "end": 1.68
+        },
+        {
+          "text": "let",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "me",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "text": "bind",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "text": "up",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "text": "your",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "wound!\"",
+          "start": 2.38,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08104250952601433
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4f14ee82a00e53628058055ae7830a7307a2406225d1f858e44c536607719ddc",
+  "selected_reasons": []
+}

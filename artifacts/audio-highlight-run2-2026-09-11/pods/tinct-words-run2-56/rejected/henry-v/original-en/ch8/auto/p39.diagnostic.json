@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "3a315d14ce552d17aec2d845d02f6dad8e58ab336f5a931a6ab62035f5666c21",
+  "attempts": [
+    {
+      "asr_seconds": 0.127432556822896,
+      "alignment_seconds": 0.00015203654766082764,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_A parley sounded._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A parley sounded.",
+          "start": 0.02,
+          "end": 1.16,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.56982421875
+            },
+            {
+              "text": " parley",
+              "start": 0.5,
+              "end": 0.84,
+              "probability": 0.792236328125
+            },
+            {
+              "text": " sounded.",
+              "start": 0.84,
+              "end": 1.16,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "parley",
+          "start": 0.5,
+          "end": 0.84
+        },
+        {
+          "raw": "sounded.",
+          "start": 0.84,
+          "end": 1.16
+        }
+      ],
+      "expected_tokens": [
+        "[_A",
+        "parley",
+        "sounded._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "parley",
+          "start": 0.5,
+          "end": 0.84,
+          "key": "parley",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sounded.",
+          "start": 0.84,
+          "end": 1.16,
+          "key": "sounded",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "parley",
+          "start": 0.5,
+          "end": 0.84
+        },
+        {
+          "text": "sounded._]",
+          "start": 0.84,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12763497792184353
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fe9a74bb858b6626d027a7c09127fcf6b91797a7718866e32027bd78ede93a7d",
+  "selected_reasons": []
+}

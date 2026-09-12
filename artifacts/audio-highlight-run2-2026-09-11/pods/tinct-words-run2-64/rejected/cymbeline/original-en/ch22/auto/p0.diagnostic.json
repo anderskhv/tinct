@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "341da3d85afc5c0973373e3fd95535525a310ce8d2240268975bb6965edaaa35",
+  "attempts": [
+    {
+      "asr_seconds": 0.17591111548244953,
+      "alignment_seconds": 0.0002769334241747856,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter from the cave, Belarius, Guiderius, Arviragus and Imogen.",
+        "hotwords": "Enter, Belarius, Guiderius, Arviragus, Imogen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter from the cave, Belarius, Guiderius, Arviragus and Imogen.",
+          "start": 0.14,
+          "end": 4.26,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.62,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " from",
+              "start": 0.62,
+              "end": 0.84,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 0.84,
+              "end": 0.96,
+              "probability": 0.986328125
+            },
+            {
+              "text": " cave,",
+              "start": 0.96,
+              "end": 1.3,
+              "probability": 0.912109375
+            },
+            {
+              "text": " Belarius,",
+              "start": 1.76,
+              "end": 2.18,
+              "probability": 0.38470458984375
+            },
+            {
+              "text": " Guiderius,",
+              "start": 2.54,
+              "end": 2.94,
+              "probability": 0.31622314453125
+            },
+            {
+              "text": " Arviragus",
+              "start": 3.22,
+              "end": 3.7,
+              "probability": 0.5411885579427084
+            },
+            {
+              "text": " and",
+              "start": 3.7,
+              "end": 3.94,
+              "probability": 0.51318359375
+            },
+            {
+              "text": " Imogen.",
+              "start": 3.94,
+              "end": 4.26,
+              "probability": 0.91162109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.62
+        },
+        {
+          "raw": "from",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "raw": "the",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "raw": "cave,",
+          "start": 0.96,
+          "end": 1.3
+        },
+        {
+          "raw": "Belarius,",
+          "start": 1.76,
+          "end": 2.18
+        },
+        {
+          "raw": "Guiderius,",
+          "start": 2.54,
+          "end": 2.94
+        },
+        {
+          "raw": "Arviragus",
+          "start": 3.22,
+          "end": 3.7
+        },
+        {
+          "raw": "and",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "raw": "Imogen.",
+          "start": 3.94,
+          "end": 4.26
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "from",
+        "the",
+        "cave,",
+        "Belarius,",
+        "Guiderius,",
+        "Arviragus",
+        "and",
+        "Imogen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.62,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 0.62,
+          "end": 0.84,
+          "key": "from",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.84,
+          "end": 0.96,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cave,",
+          "start": 0.96,
+          "end": 1.3,
+          "key": "cave",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Belarius,",
+          "start": 1.76,
+          "end": 2.18,
+          "key": "belarius",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Guiderius,",
+          "start": 2.54,
+          "end": 2.94,
+          "key": "guiderius",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Arviragus",
+          "start": 3.22,
+          "end": 3.7,
+          "key": "arviragus",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.7,
+          "end": 3.94,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Imogen.",
+          "start": 3.94,
+          "end": 4.26,
+          "key": "imogen",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.62
+        },
+        {
+          "text": "from",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "text": "the",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "text": "cave,",
+          "start": 0.96,
+          "end": 1.3
+        },
+        {
+          "text": "Belarius,",
+          "start": 1.76,
+          "end": 2.18
+        },
+        {
+          "text": "Guiderius,",
+          "start": 2.54,
+          "end": 2.94
+        },
+        {
+          "text": "Arviragus",
+          "start": 3.22,
+          "end": 3.7
+        },
+        {
+          "text": "and",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "text": "Imogen.",
+          "start": 3.94,
+          "end": 4.26
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17629200778901577
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cdab40edc11517ff3ce44cb0473f713d7990c517e8aa2ed907f44844a2cbc473",
+  "selected_reasons": []
+}

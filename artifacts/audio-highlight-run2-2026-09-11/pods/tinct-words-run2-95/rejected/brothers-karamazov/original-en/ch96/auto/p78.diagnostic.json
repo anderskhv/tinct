@@ -1,0 +1,647 @@
+{
+  "complete": true,
+  "signature": "ad1fca475cc3f26c3442d92496f3ebd2ec6da95cb2efe3fb5b81e720dcab8485",
+  "attempts": [
+    {
+      "asr_seconds": 0.15532905608415604,
+      "alignment_seconds": 0.00034546107053756714,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[1] In Russian, \"silen.\"",
+        "hotwords": "In, Russian"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " One in Russian, silent.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " One",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.4306640625
+            },
+            {
+              "text": " in",
+              "start": 0.59,
+              "end": 0.75,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Russian,",
+              "start": 0.75,
+              "end": 1.09,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " silent.",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.38427734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "One",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "in",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "raw": "Russian,",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "raw": "silent.",
+          "start": 1.59,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "[1]",
+        "In",
+        "Russian,",
+        "\"silen.\""
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [
+        0
+      ],
+      "compared_heard": [
+        {
+          "raw": "One",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "one",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.59,
+          "end": 0.75,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Russian,",
+          "start": 0.75,
+          "end": 1.09,
+          "key": "russian",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "silent.",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "silent",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[1]",
+          "start": 0.0,
+          "end": 0.295
+        },
+        {
+          "text": "In",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "text": "Russian,",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "text": "\"silen.\"",
+          "start": 1.09,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15579499676823616
+    },
+    {
+      "asr_seconds": 0.13513875380158424,
+      "alignment_seconds": 0.0003551207482814789,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "In, Russian"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " One in Russian, silent",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " One",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.4306640625
+            },
+            {
+              "text": " in",
+              "start": 0.59,
+              "end": 0.75,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Russian,",
+              "start": 0.75,
+              "end": 1.09,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " silent",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.38427734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "One",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "in",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "raw": "Russian,",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "raw": "silent",
+          "start": 1.59,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "[1]",
+        "In",
+        "Russian,",
+        "\"silen.\""
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [
+        0
+      ],
+      "compared_heard": [
+        {
+          "raw": "One",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "one",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.59,
+          "end": 0.75,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Russian,",
+          "start": 0.75,
+          "end": 1.09,
+          "key": "russian",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "silent",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "silent",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[1]",
+          "start": 0.0,
+          "end": 0.295
+        },
+        {
+          "text": "In",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "text": "Russian,",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "text": "\"silen.\"",
+          "start": 1.09,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13560541719198227
+    },
+    {
+      "asr_seconds": 0.1342211589217186,
+      "alignment_seconds": 0.00032831355929374695,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " One in Russian, silent.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " One",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.4306640625
+            },
+            {
+              "text": " in",
+              "start": 0.59,
+              "end": 0.75,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Russian,",
+              "start": 0.75,
+              "end": 1.09,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " silent.",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.38427734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "One",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "in",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "raw": "Russian,",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "raw": "silent.",
+          "start": 1.59,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "[1]",
+        "In",
+        "Russian,",
+        "\"silen.\""
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [
+        0
+      ],
+      "compared_heard": [
+        {
+          "raw": "One",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "one",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.59,
+          "end": 0.75,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Russian,",
+          "start": 0.75,
+          "end": 1.09,
+          "key": "russian",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "silent.",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "silent",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[1]",
+          "start": 0.0,
+          "end": 0.295
+        },
+        {
+          "text": "In",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "text": "Russian,",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "text": "\"silen.\"",
+          "start": 1.09,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13466007634997368
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8480a0a0e5741e97b149b638c95c3bdd5df5e01ae13b13fa9c99ba2293141d8d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,325 @@
+{
+  "complete": true,
+  "signature": "64345205d8f2b23953eb2874be1120a814ec91bca048605e6f780d471f772fdb",
+  "attempts": [
+    {
+      "asr_seconds": 0.13204739699722268,
+      "alignment_seconds": 0.00019447700469754636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In all purpose, oh, bear me witness, Knight.",
+          "start": 0.05,
+          "end": 2.51,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.6533203125
+            },
+            {
+              "text": " all",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.31591796875
+            },
+            {
+              "text": " purpose,",
+              "start": 0.65,
+              "end": 0.97,
+              "probability": 0.7783203125
+            },
+            {
+              "text": " oh,",
+              "start": 1.47,
+              "end": 1.57,
+              "probability": 0.431396484375
+            },
+            {
+              "text": " bear",
+              "start": 1.67,
+              "end": 1.73,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " me",
+              "start": 1.73,
+              "end": 1.89,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " witness,",
+              "start": 1.89,
+              "end": 2.19,
+              "probability": 0.9453125
+            },
+            {
+              "text": " Knight.",
+              "start": 2.45,
+              "end": 2.51,
+              "probability": 0.40380859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "all",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "purpose,",
+          "start": 0.65,
+          "end": 0.97
+        },
+        {
+          "raw": "oh,",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "raw": "bear",
+          "start": 1.67,
+          "end": 1.73
+        },
+        {
+          "raw": "me",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "raw": "witness,",
+          "start": 1.89,
+          "end": 2.19
+        },
+        {
+          "raw": "Knight.",
+          "start": 2.45,
+          "end": 2.51
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus.",
+        "O,",
+        "bear",
+        "me",
+        "witness,",
+        "night.—"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "equal",
+          2,
+          5,
+          4,
+          7
+        ],
+        [
+          "replace",
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "purpose,",
+          "start": 0.65,
+          "end": 0.97,
+          "key": "purpose",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "oh,",
+          "start": 1.47,
+          "end": 1.57,
+          "key": "oh",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 1.67,
+          "end": 1.73,
+          "key": "bear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.73,
+          "end": 1.89,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "witness,",
+          "start": 1.89,
+          "end": 2.19,
+          "key": "witness",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Knight.",
+          "start": 2.45,
+          "end": 2.51,
+          "key": "knight",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.0,
+          "end": 0.835
+        },
+        {
+          "text": "O,",
+          "start": 0.835,
+          "end": 1.252
+        },
+        {
+          "text": "bear",
+          "start": 1.67,
+          "end": 1.73
+        },
+        {
+          "text": "me",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "text": "witness,",
+          "start": 1.89,
+          "end": 2.19
+        },
+        {
+          "text": "night.—",
+          "start": 2.19,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 8,
+        "matched_words": 3
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13231543599977158
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4e7c83f6cb59b7d870f234ed13311ea6395cb46901c07091c20e5a134e5b7e5f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "b02e107eb0813316a99dac61214f24f70823148a25e287ff796da1845a85927e",
+  "attempts": [
+    {
+      "asr_seconds": 0.15829936601221561,
+      "alignment_seconds": 0.00030788686126470566,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Emilia. She said so. I must needs report the truth.",
+        "hotwords": "Emilia, She, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia, She said so. I must needs report the truth.",
+          "start": 0.08,
+          "end": 3.52,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.55780029296875
+            },
+            {
+              "text": " She",
+              "start": 1.12,
+              "end": 1.36,
+              "probability": 0.0265960693359375
+            },
+            {
+              "text": " said",
+              "start": 1.36,
+              "end": 1.54,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " so.",
+              "start": 1.54,
+              "end": 1.86,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " I",
+              "start": 2.16,
+              "end": 2.26,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " must",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " needs",
+              "start": 2.38,
+              "end": 2.66,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " report",
+              "start": 2.66,
+              "end": 3.04,
+              "probability": 0.984375
+            },
+            {
+              "text": " the",
+              "start": 3.04,
+              "end": 3.26,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " truth.",
+              "start": 3.26,
+              "end": 3.52,
+              "probability": 0.97265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "She",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "raw": "said",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "raw": "so.",
+          "start": 1.54,
+          "end": 1.86
+        },
+        {
+          "raw": "I",
+          "start": 2.16,
+          "end": 2.26
+        },
+        {
+          "raw": "must",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "needs",
+          "start": 2.38,
+          "end": 2.66
+        },
+        {
+          "raw": "report",
+          "start": 2.66,
+          "end": 3.04
+        },
+        {
+          "raw": "the",
+          "start": 3.04,
+          "end": 3.26
+        },
+        {
+          "raw": "truth.",
+          "start": 3.26,
+          "end": 3.52
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "She",
+        "said",
+        "so.",
+        "I",
+        "must",
+        "needs",
+        "report",
+        "the",
+        "truth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 1.12,
+          "end": 1.36,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.36,
+          "end": 1.54,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 1.54,
+          "end": 1.86,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.16,
+          "end": 2.26,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "must",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "needs",
+          "start": 2.38,
+          "end": 2.66,
+          "key": "needs",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "report",
+          "start": 2.66,
+          "end": 3.04,
+          "key": "report",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.04,
+          "end": 3.26,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "truth.",
+          "start": 3.26,
+          "end": 3.52,
+          "key": "truth",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "She",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "text": "said",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "text": "so.",
+          "start": 1.54,
+          "end": 1.86
+        },
+        {
+          "text": "I",
+          "start": 2.16,
+          "end": 2.26
+        },
+        {
+          "text": "must",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "needs",
+          "start": 2.38,
+          "end": 2.66
+        },
+        {
+          "text": "report",
+          "start": 2.66,
+          "end": 3.04
+        },
+        {
+          "text": "the",
+          "start": 3.04,
+          "end": 3.26
+        },
+        {
+          "text": "truth.",
+          "start": 3.26,
+          "end": 3.52
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15872746100649238
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0e7233d3da7cd6422095bf93174267c72155ce6b5c061f177e250bc4d3f1c192",
+  "selected_reasons": []
+}

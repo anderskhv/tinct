@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "5f095cbfea517e48264055a5967eda6df834168485b7e006d9fd5a3d4f920d4d",
+  "attempts": [
+    {
+      "asr_seconds": 0.14068383537232876,
+      "alignment_seconds": 0.0002001579850912094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Anne. Some dungeon.",
+        "hotwords": "Anne, Some"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anne, Some dungeon.",
+          "start": 0.02,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " Anne,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 9.799003601074219e-05
+            },
+            {
+              "text": " Some",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.0093841552734375
+            },
+            {
+              "text": " dungeon.",
+              "start": 1.2,
+              "end": 1.54,
+              "probability": 0.139892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "Some",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "dungeon.",
+          "start": 1.2,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "Anne.",
+        "Some",
+        "dungeon."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "anne",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Some",
+          "start": 1.06,
+          "end": 1.2,
+          "key": "some",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dungeon.",
+          "start": 1.2,
+          "end": 1.54,
+          "key": "dungeon",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Anne.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "Some",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "dungeon.",
+          "start": 1.2,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14095718692988157
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66fa2ada22a6a4a11caca37ad963977f6d4cc87b984d2863c5e095175b7ee794",
+  "selected_reasons": []
+}

@@ -1,0 +1,775 @@
+{
+  "complete": true,
+  "signature": "53fadb9da3b0a643c69b1edae160eec2ec3ba8ab9baf6ce9cc5de0c45091f6ca",
+  "attempts": [
+    {
+      "asr_seconds": 0.3441525772213936,
+      "alignment_seconds": 0.0003081187605857849,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Four shining sovereigns, Buck Mulligan cried with delight, will have a glorious drunk to astonish the druity druids. Four omnipotent sovereigns.",
+          "start": 0.08,
+          "end": 9.52,
+          "words": [
+            {
+              "text": " Four",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.47998046875
+            },
+            {
+              "text": " shining",
+              "start": 0.64,
+              "end": 1.06,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " sovereigns,",
+              "start": 1.06,
+              "end": 1.92,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " Buck",
+              "start": 2.16,
+              "end": 2.24,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " Mulligan",
+              "start": 2.24,
+              "end": 2.64,
+              "probability": 0.948974609375
+            },
+            {
+              "text": " cried",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 2.96,
+              "end": 3.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " delight,",
+              "start": 3.24,
+              "end": 3.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " will",
+              "start": 4.18,
+              "end": 4.3,
+              "probability": 0.658203125
+            },
+            {
+              "text": " have",
+              "start": 4.3,
+              "end": 4.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 4.44,
+              "end": 4.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " glorious",
+              "start": 4.58,
+              "end": 4.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " drunk",
+              "start": 4.98,
+              "end": 5.32,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " to",
+              "start": 5.32,
+              "end": 5.54,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " astonish",
+              "start": 5.54,
+              "end": 6.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 6.12,
+              "end": 6.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " druity",
+              "start": 6.26,
+              "end": 6.56,
+              "probability": 0.54620361328125
+            },
+            {
+              "text": " druids.",
+              "start": 6.56,
+              "end": 7.12,
+              "probability": 0.947509765625
+            },
+            {
+              "text": " Four",
+              "start": 7.74,
+              "end": 8.02,
+              "probability": 0.97265625
+            },
+            {
+              "text": " omnipotent",
+              "start": 8.02,
+              "end": 8.76,
+              "probability": 0.985107421875
+            },
+            {
+              "text": " sovereigns.",
+              "start": 8.76,
+              "end": 9.52,
+              "probability": 0.994873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Four",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "shining",
+          "start": 0.64,
+          "end": 1.06
+        },
+        {
+          "raw": "sovereigns,",
+          "start": 1.06,
+          "end": 1.92
+        },
+        {
+          "raw": "Buck",
+          "start": 2.16,
+          "end": 2.24
+        },
+        {
+          "raw": "Mulligan",
+          "start": 2.24,
+          "end": 2.64
+        },
+        {
+          "raw": "cried",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "raw": "with",
+          "start": 2.96,
+          "end": 3.24
+        },
+        {
+          "raw": "delight,",
+          "start": 3.24,
+          "end": 3.6
+        },
+        {
+          "raw": "will",
+          "start": 4.18,
+          "end": 4.3
+        },
+        {
+          "raw": "have",
+          "start": 4.3,
+          "end": 4.44
+        },
+        {
+          "raw": "a",
+          "start": 4.44,
+          "end": 4.58
+        },
+        {
+          "raw": "glorious",
+          "start": 4.58,
+          "end": 4.98
+        },
+        {
+          "raw": "drunk",
+          "start": 4.98,
+          "end": 5.32
+        },
+        {
+          "raw": "to",
+          "start": 5.32,
+          "end": 5.54
+        },
+        {
+          "raw": "astonish",
+          "start": 5.54,
+          "end": 6.12
+        },
+        {
+          "raw": "the",
+          "start": 6.12,
+          "end": 6.26
+        },
+        {
+          "raw": "druity",
+          "start": 6.26,
+          "end": 6.56
+        },
+        {
+          "raw": "druids.",
+          "start": 6.56,
+          "end": 7.12
+        },
+        {
+          "raw": "Four",
+          "start": 7.74,
+          "end": 8.02
+        },
+        {
+          "raw": "omnipotent",
+          "start": 8.02,
+          "end": 8.76
+        },
+        {
+          "raw": "sovereigns.",
+          "start": 8.76,
+          "end": 9.52
+        }
+      ],
+      "expected_tokens": [
+        "—Four",
+        "shining",
+        "sovereigns,",
+        "Buck",
+        "Mulligan",
+        "cried",
+        "with",
+        "delight.",
+        "We'll",
+        "have",
+        "a",
+        "glorious",
+        "drunk",
+        "to",
+        "astonish",
+        "the",
+        "druidy",
+        "druids.",
+        "Four",
+        "omnipotent",
+        "sovereigns."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          16,
+          9,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ],
+        [
+          "equal",
+          17,
+          21,
+          17,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Four",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "four",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shining",
+          "start": 0.64,
+          "end": 1.06,
+          "key": "shining",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sovereigns,",
+          "start": 1.06,
+          "end": 1.92,
+          "key": "sovereigns",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Buck",
+          "start": 2.16,
+          "end": 2.24,
+          "key": "buck",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mulligan",
+          "start": 2.24,
+          "end": 2.64,
+          "key": "mulligan",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.64,
+          "end": 2.96,
+          "key": "cried",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.96,
+          "end": 3.24,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "delight,",
+          "start": 3.24,
+          "end": 3.6,
+          "key": "delight",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.18,
+          "end": 4.3,
+          "key": "will",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.3,
+          "end": 4.44,
+          "key": "have",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.44,
+          "end": 4.58,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "glorious",
+          "start": 4.58,
+          "end": 4.98,
+          "key": "glorious",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "drunk",
+          "start": 4.98,
+          "end": 5.32,
+          "key": "drunk",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.32,
+          "end": 5.54,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "astonish",
+          "start": 5.54,
+          "end": 6.12,
+          "key": "astonish",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.12,
+          "end": 6.26,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "druity",
+          "start": 6.26,
+          "end": 6.56,
+          "key": "druity",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "druids.",
+          "start": 6.56,
+          "end": 7.12,
+          "key": "druids",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Four",
+          "start": 7.74,
+          "end": 8.02,
+          "key": "four",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "omnipotent",
+          "start": 8.02,
+          "end": 8.76,
+          "key": "omnipotent",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "sovereigns.",
+          "start": 8.76,
+          "end": 9.52,
+          "key": "sovereigns",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Four",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "shining",
+          "start": 0.64,
+          "end": 1.06
+        },
+        {
+          "text": "sovereigns,",
+          "start": 1.06,
+          "end": 1.92
+        },
+        {
+          "text": "Buck",
+          "start": 2.16,
+          "end": 2.24
+        },
+        {
+          "text": "Mulligan",
+          "start": 2.24,
+          "end": 2.64
+        },
+        {
+          "text": "cried",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "with",
+          "start": 2.96,
+          "end": 3.24
+        },
+        {
+          "text": "delight.",
+          "start": 3.24,
+          "end": 3.6
+        },
+        {
+          "text": "We'll",
+          "start": 3.6,
+          "end": 3.95
+        },
+        {
+          "text": "have",
+          "start": 4.3,
+          "end": 4.44
+        },
+        {
+          "text": "a",
+          "start": 4.44,
+          "end": 4.58
+        },
+        {
+          "text": "glorious",
+          "start": 4.58,
+          "end": 4.98
+        },
+        {
+          "text": "drunk",
+          "start": 4.98,
+          "end": 5.32
+        },
+        {
+          "text": "to",
+          "start": 5.32,
+          "end": 5.54
+        },
+        {
+          "text": "astonish",
+          "start": 5.54,
+          "end": 6.12
+        },
+        {
+          "text": "the",
+          "start": 6.12,
+          "end": 6.26
+        },
+        {
+          "text": "druidy",
+          "start": 6.26,
+          "end": 6.41
+        },
+        {
+          "text": "druids.",
+          "start": 6.56,
+          "end": 7.12
+        },
+        {
+          "text": "Four",
+          "start": 7.74,
+          "end": 8.02
+        },
+        {
+          "text": "omnipotent",
+          "start": 8.02,
+          "end": 8.76
+        },
+        {
+          "text": "sovereigns.",
+          "start": 8.76,
+          "end": 9.52
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.9047619047619048,
+      "rejection_reasons": [],
+      "seconds": 0.3445802666246891
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cd00534252bb2d1ba2f55d73c55186e31de93b3e4735c2967d41780557a67e6a",
+  "selected_reasons": []
+}

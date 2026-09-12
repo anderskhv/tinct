@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "373de3909b7fabf625caeb81029c17903c7da0711940cc9991ca0659df74d34c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11924994364380836,
+      "alignment_seconds": 0.00027234479784965515,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir Toby",
+          "start": 0.08,
+          "end": 0.82,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " Toby",
+              "start": 0.56,
+              "end": 0.82,
+              "probability": 0.74853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "Toby",
+          "start": 0.56,
+          "end": 0.82
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby",
+          "start": 0.56,
+          "end": 0.82,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "Toby.",
+          "start": 0.56,
+          "end": 0.82
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11961700022220612
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6c7b2bb47cb7e486c21d36277b1275cc39887cfcbd863b454a817a8d1b04c2dc",
+  "selected_reasons": []
+}

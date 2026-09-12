@@ -1,0 +1,1835 @@
+{
+  "complete": true,
+  "signature": "33f7ae2ba7306f912b322f9a9776eea62ddc5d874eec5b460cd39205c46d6cde",
+  "attempts": [
+    {
+      "asr_seconds": 0.7179922049981542,
+      "alignment_seconds": 0.0009050850057974458,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Electra. O mighty Hermes, warder of the shades, Herald of upper and of under world, Proclaim and usher down my prayer's appeal Unto the gods below, that they with eyes Watchful behold these halls, my sire's of old— And unto Earth, the mother of all things, And foster-nurse, and womb that takes their seed.",
+        "hotwords": "Electra, O, Hermes, Herald, Proclaim, Watchful, Earth"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Electra, O mighty Hermes, warder of the shades, Herald of upper and of under world, Proclaim",
+          "start": 0.02,
+          "end": 6.16,
+          "words": [
+            {
+              "text": " Electra,",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.786865234375
+            },
+            {
+              "text": " O",
+              "start": 1.4,
+              "end": 1.46,
+              "probability": 0.6416015625
+            },
+            {
+              "text": " mighty",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " Hermes,",
+              "start": 1.68,
+              "end": 2.06,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " warder",
+              "start": 2.5,
+              "end": 2.7,
+              "probability": 0.58197021484375
+            },
+            {
+              "text": " of",
+              "start": 2.7,
+              "end": 2.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.8,
+              "end": 2.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " shades,",
+              "start": 2.96,
+              "end": 3.28,
+              "probability": 0.841796875
+            },
+            {
+              "text": " Herald",
+              "start": 3.94,
+              "end": 3.94,
+              "probability": 0.005985260009765625
+            },
+            {
+              "text": " of",
+              "start": 3.94,
+              "end": 4.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " upper",
+              "start": 4.16,
+              "end": 4.44,
+              "probability": 0.29150390625
+            },
+            {
+              "text": " and",
+              "start": 4.44,
+              "end": 4.66,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " of",
+              "start": 4.66,
+              "end": 4.76,
+              "probability": 0.994140625
+            },
+            {
+              "text": " under",
+              "start": 4.76,
+              "end": 4.98,
+              "probability": 0.045745849609375
+            },
+            {
+              "text": " world,",
+              "start": 4.98,
+              "end": 5.4,
+              "probability": 0.1312255859375
+            },
+            {
+              "text": " Proclaim",
+              "start": 5.82,
+              "end": 6.16,
+              "probability": 0.624755859375
+            }
+          ]
+        },
+        {
+          "text": " and usher down my prayer's appeal Unto the gods below, that they with eyes Watchful behold",
+          "start": 6.16,
+          "end": 11.38,
+          "words": [
+            {
+              "text": " and",
+              "start": 6.16,
+              "end": 6.46,
+              "probability": 0.96875
+            },
+            {
+              "text": " usher",
+              "start": 6.46,
+              "end": 6.74,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " down",
+              "start": 6.74,
+              "end": 7.06,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " my",
+              "start": 7.06,
+              "end": 7.26,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " prayer's",
+              "start": 7.26,
+              "end": 7.72,
+              "probability": 0.7318115234375
+            },
+            {
+              "text": " appeal",
+              "start": 7.72,
+              "end": 7.98,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Unto",
+              "start": 7.98,
+              "end": 8.32,
+              "probability": 0.5209503173828125
+            },
+            {
+              "text": " the",
+              "start": 8.32,
+              "end": 8.42,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " gods",
+              "start": 8.42,
+              "end": 8.62,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " below,",
+              "start": 8.62,
+              "end": 9.1,
+              "probability": 0.943359375
+            },
+            {
+              "text": " that",
+              "start": 9.68,
+              "end": 9.84,
+              "probability": 0.498291015625
+            },
+            {
+              "text": " they",
+              "start": 9.84,
+              "end": 10.02,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " with",
+              "start": 10.02,
+              "end": 10.16,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " eyes",
+              "start": 10.16,
+              "end": 10.52,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Watchful",
+              "start": 10.52,
+              "end": 11.08,
+              "probability": 0.507171630859375
+            },
+            {
+              "text": " behold",
+              "start": 11.08,
+              "end": 11.38,
+              "probability": 0.8251953125
+            }
+          ]
+        },
+        {
+          "text": " these halls, my sire's of old— And unto Earth, the mother of all things,",
+          "start": 11.38,
+          "end": 16.44,
+          "words": [
+            {
+              "text": " these",
+              "start": 11.38,
+              "end": 11.68,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " halls,",
+              "start": 11.68,
+              "end": 12.0,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " my",
+              "start": 12.52,
+              "end": 12.62,
+              "probability": 0.2467041015625
+            },
+            {
+              "text": " sire's",
+              "start": 12.62,
+              "end": 13.1,
+              "probability": 0.5947774251302084
+            },
+            {
+              "text": " of",
+              "start": 13.1,
+              "end": 13.2,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " old—",
+              "start": 13.2,
+              "end": 14.14,
+              "probability": 0.4942798614501953
+            },
+            {
+              "text": " And",
+              "start": 14.14,
+              "end": 14.22,
+              "probability": 0.51611328125
+            },
+            {
+              "text": " unto",
+              "start": 14.22,
+              "end": 14.56,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " Earth,",
+              "start": 14.56,
+              "end": 14.92,
+              "probability": 0.1640625
+            },
+            {
+              "text": " the",
+              "start": 15.44,
+              "end": 15.54,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " mother",
+              "start": 15.54,
+              "end": 15.7,
+              "probability": 0.62841796875
+            },
+            {
+              "text": " of",
+              "start": 15.7,
+              "end": 15.92,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " all",
+              "start": 15.92,
+              "end": 16.12,
+              "probability": 0.994140625
+            },
+            {
+              "text": " things,",
+              "start": 16.12,
+              "end": 16.44,
+              "probability": 0.9697265625
+            }
+          ]
+        },
+        {
+          "text": " And foster-nurse, and womb that takes their seed.",
+          "start": 16.72,
+          "end": 19.26,
+          "words": [
+            {
+              "text": " And",
+              "start": 16.72,
+              "end": 16.82,
+              "probability": 0.66796875
+            },
+            {
+              "text": " foster",
+              "start": 16.82,
+              "end": 17.14,
+              "probability": 0.77734375
+            },
+            {
+              "text": "-nurse,",
+              "start": 17.14,
+              "end": 17.48,
+              "probability": 0.4975992838541667
+            },
+            {
+              "text": " and",
+              "start": 17.76,
+              "end": 17.9,
+              "probability": 0.978515625
+            },
+            {
+              "text": " womb",
+              "start": 17.9,
+              "end": 18.14,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " that",
+              "start": 18.14,
+              "end": 18.44,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " takes",
+              "start": 18.44,
+              "end": 18.64,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " their",
+              "start": 18.64,
+              "end": 18.9,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " seed.",
+              "start": 18.9,
+              "end": 19.26,
+              "probability": 0.9580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Electra,",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "raw": "O",
+          "start": 1.4,
+          "end": 1.46
+        },
+        {
+          "raw": "mighty",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "Hermes,",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "raw": "warder",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "raw": "of",
+          "start": 2.7,
+          "end": 2.8
+        },
+        {
+          "raw": "the",
+          "start": 2.8,
+          "end": 2.96
+        },
+        {
+          "raw": "shades,",
+          "start": 2.96,
+          "end": 3.28
+        },
+        {
+          "raw": "Herald",
+          "start": 3.94,
+          "end": 3.94
+        },
+        {
+          "raw": "of",
+          "start": 3.94,
+          "end": 4.16
+        },
+        {
+          "raw": "upper",
+          "start": 4.16,
+          "end": 4.44
+        },
+        {
+          "raw": "and",
+          "start": 4.44,
+          "end": 4.66
+        },
+        {
+          "raw": "of",
+          "start": 4.66,
+          "end": 4.76
+        },
+        {
+          "raw": "under",
+          "start": 4.76,
+          "end": 4.98
+        },
+        {
+          "raw": "world,",
+          "start": 4.98,
+          "end": 5.4
+        },
+        {
+          "raw": "Proclaim",
+          "start": 5.82,
+          "end": 6.16
+        },
+        {
+          "raw": "and",
+          "start": 6.16,
+          "end": 6.46
+        },
+        {
+          "raw": "usher",
+          "start": 6.46,
+          "end": 6.74
+        },
+        {
+          "raw": "down",
+          "start": 6.74,
+          "end": 7.06
+        },
+        {
+          "raw": "my",
+          "start": 7.06,
+          "end": 7.26
+        },
+        {
+          "raw": "prayer's",
+          "start": 7.26,
+          "end": 7.72
+        },
+        {
+          "raw": "appeal",
+          "start": 7.72,
+          "end": 7.98
+        },
+        {
+          "raw": "Unto",
+          "start": 7.98,
+          "end": 8.32
+        },
+        {
+          "raw": "the",
+          "start": 8.32,
+          "end": 8.42
+        },
+        {
+          "raw": "gods",
+          "start": 8.42,
+          "end": 8.62
+        },
+        {
+          "raw": "below,",
+          "start": 8.62,
+          "end": 9.1
+        },
+        {
+          "raw": "that",
+          "start": 9.68,
+          "end": 9.84
+        },
+        {
+          "raw": "they",
+          "start": 9.84,
+          "end": 10.02
+        },
+        {
+          "raw": "with",
+          "start": 10.02,
+          "end": 10.16
+        },
+        {
+          "raw": "eyes",
+          "start": 10.16,
+          "end": 10.52
+        },
+        {
+          "raw": "Watchful",
+          "start": 10.52,
+          "end": 11.08
+        },
+        {
+          "raw": "behold",
+          "start": 11.08,
+          "end": 11.38
+        },
+        {
+          "raw": "these",
+          "start": 11.38,
+          "end": 11.68
+        },
+        {
+          "raw": "halls,",
+          "start": 11.68,
+          "end": 12.0
+        },
+        {
+          "raw": "my",
+          "start": 12.52,
+          "end": 12.62
+        },
+        {
+          "raw": "sire's",
+          "start": 12.62,
+          "end": 13.1
+        },
+        {
+          "raw": "of",
+          "start": 13.1,
+          "end": 13.2
+        },
+        {
+          "raw": "old—",
+          "start": 13.2,
+          "end": 14.14
+        },
+        {
+          "raw": "And",
+          "start": 14.14,
+          "end": 14.22
+        },
+        {
+          "raw": "unto",
+          "start": 14.22,
+          "end": 14.56
+        },
+        {
+          "raw": "Earth,",
+          "start": 14.56,
+          "end": 14.92
+        },
+        {
+          "raw": "the",
+          "start": 15.44,
+          "end": 15.54
+        },
+        {
+          "raw": "mother",
+          "start": 15.54,
+          "end": 15.7
+        },
+        {
+          "raw": "of",
+          "start": 15.7,
+          "end": 15.92
+        },
+        {
+          "raw": "all",
+          "start": 15.92,
+          "end": 16.12
+        },
+        {
+          "raw": "things,",
+          "start": 16.12,
+          "end": 16.44
+        },
+        {
+          "raw": "And",
+          "start": 16.72,
+          "end": 16.82
+        },
+        {
+          "raw": "foster",
+          "start": 16.82,
+          "end": 17.14
+        },
+        {
+          "raw": "-nurse,",
+          "start": 17.14,
+          "end": 17.48
+        },
+        {
+          "raw": "and",
+          "start": 17.76,
+          "end": 17.9
+        },
+        {
+          "raw": "womb",
+          "start": 17.9,
+          "end": 18.14
+        },
+        {
+          "raw": "that",
+          "start": 18.14,
+          "end": 18.44
+        },
+        {
+          "raw": "takes",
+          "start": 18.44,
+          "end": 18.64
+        },
+        {
+          "raw": "their",
+          "start": 18.64,
+          "end": 18.9
+        },
+        {
+          "raw": "seed.",
+          "start": 18.9,
+          "end": 19.26
+        }
+      ],
+      "expected_tokens": [
+        "Electra.",
+        "O",
+        "mighty",
+        "Hermes,",
+        "warder",
+        "of",
+        "the",
+        "shades,",
+        "Herald",
+        "of",
+        "upper",
+        "and",
+        "of",
+        "under",
+        "world,",
+        "Proclaim",
+        "and",
+        "usher",
+        "down",
+        "my",
+        "prayer's",
+        "appeal",
+        "Unto",
+        "the",
+        "gods",
+        "below,",
+        "that",
+        "they",
+        "with",
+        "eyes",
+        "Watchful",
+        "behold",
+        "these",
+        "halls,",
+        "my",
+        "sire's",
+        "of",
+        "old—",
+        "And",
+        "unto",
+        "Earth,",
+        "the",
+        "mother",
+        "of",
+        "all",
+        "things,",
+        "And",
+        "foster-nurse,",
+        "and",
+        "womb",
+        "that",
+        "takes",
+        "their",
+        "seed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          54,
+          0,
+          54
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Electra,",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "electra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.4,
+          "end": 1.46,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mighty",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "mighty",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Hermes,",
+          "start": 1.68,
+          "end": 2.06,
+          "key": "hermes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "warder",
+          "start": 2.5,
+          "end": 2.7,
+          "key": "warder",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.7,
+          "end": 2.8,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.8,
+          "end": 2.96,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shades,",
+          "start": 2.96,
+          "end": 3.28,
+          "key": "shades",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Herald",
+          "start": 3.94,
+          "end": 3.94,
+          "key": "herald",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.94,
+          "end": 4.16,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "upper",
+          "start": 4.16,
+          "end": 4.44,
+          "key": "upper",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.44,
+          "end": 4.66,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.66,
+          "end": 4.76,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 4.76,
+          "end": 4.98,
+          "key": "under",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "world,",
+          "start": 4.98,
+          "end": 5.4,
+          "key": "world",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Proclaim",
+          "start": 5.82,
+          "end": 6.16,
+          "key": "proclaim",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.16,
+          "end": 6.46,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "usher",
+          "start": 6.46,
+          "end": 6.74,
+          "key": "usher",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 6.74,
+          "end": 7.06,
+          "key": "down",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.06,
+          "end": 7.26,
+          "key": "my",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "prayer's",
+          "start": 7.26,
+          "end": 7.72,
+          "key": "prayers",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "appeal",
+          "start": 7.72,
+          "end": 7.98,
+          "key": "appeal",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Unto",
+          "start": 7.98,
+          "end": 8.32,
+          "key": "unto",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.32,
+          "end": 8.42,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "gods",
+          "start": 8.42,
+          "end": 8.62,
+          "key": "gods",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "below,",
+          "start": 8.62,
+          "end": 9.1,
+          "key": "below",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 9.68,
+          "end": 9.84,
+          "key": "that",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 9.84,
+          "end": 10.02,
+          "key": "they",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 10.02,
+          "end": 10.16,
+          "key": "with",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 10.16,
+          "end": 10.52,
+          "key": "eyes",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Watchful",
+          "start": 10.52,
+          "end": 11.08,
+          "key": "watchful",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "behold",
+          "start": 11.08,
+          "end": 11.38,
+          "key": "behold",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 11.38,
+          "end": 11.68,
+          "key": "these",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "halls,",
+          "start": 11.68,
+          "end": 12.0,
+          "key": "halls",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 12.52,
+          "end": 12.62,
+          "key": "my",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "sire's",
+          "start": 12.62,
+          "end": 13.1,
+          "key": "sires",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.1,
+          "end": 13.2,
+          "key": "of",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "old—",
+          "start": 13.2,
+          "end": 14.14,
+          "key": "old",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 14.14,
+          "end": 14.22,
+          "key": "and",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "unto",
+          "start": 14.22,
+          "end": 14.56,
+          "key": "unto",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Earth,",
+          "start": 14.56,
+          "end": 14.92,
+          "key": "earth",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.44,
+          "end": 15.54,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "mother",
+          "start": 15.54,
+          "end": 15.7,
+          "key": "mother",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 15.7,
+          "end": 15.92,
+          "key": "of",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 15.92,
+          "end": 16.12,
+          "key": "all",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "things,",
+          "start": 16.12,
+          "end": 16.44,
+          "key": "things",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 16.72,
+          "end": 16.82,
+          "key": "and",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "foster -nurse,",
+          "start": 16.82,
+          "end": 17.48,
+          "key": "fosternurse",
+          "pieces": [
+            47,
+            48
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.76,
+          "end": 17.9,
+          "key": "and",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "womb",
+          "start": 17.9,
+          "end": 18.14,
+          "key": "womb",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 18.14,
+          "end": 18.44,
+          "key": "that",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "takes",
+          "start": 18.44,
+          "end": 18.64,
+          "key": "takes",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 18.64,
+          "end": 18.9,
+          "key": "their",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "seed.",
+          "start": 18.9,
+          "end": 19.26,
+          "key": "seed",
+          "pieces": [
+            54
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 47,
+          "text": "foster-nurse,",
+          "heard": "foster -nurse,",
+          "heard_indexes": [
+            47,
+            48
+          ],
+          "start": 16.82,
+          "end": 17.48
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Electra.",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "text": "O",
+          "start": 1.4,
+          "end": 1.46
+        },
+        {
+          "text": "mighty",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": "Hermes,",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "text": "warder",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "text": "of",
+          "start": 2.7,
+          "end": 2.8
+        },
+        {
+          "text": "the",
+          "start": 2.8,
+          "end": 2.96
+        },
+        {
+          "text": "shades,",
+          "start": 2.96,
+          "end": 3.28
+        },
+        {
+          "text": "Herald",
+          "start": 3.94,
+          "end": 3.94
+        },
+        {
+          "text": "of",
+          "start": 3.94,
+          "end": 4.16
+        },
+        {
+          "text": "upper",
+          "start": 4.16,
+          "end": 4.44
+        },
+        {
+          "text": "and",
+          "start": 4.44,
+          "end": 4.66
+        },
+        {
+          "text": "of",
+          "start": 4.66,
+          "end": 4.76
+        },
+        {
+          "text": "under",
+          "start": 4.76,
+          "end": 4.98
+        },
+        {
+          "text": "world,",
+          "start": 4.98,
+          "end": 5.4
+        },
+        {
+          "text": "Proclaim",
+          "start": 5.82,
+          "end": 6.16
+        },
+        {
+          "text": "and",
+          "start": 6.16,
+          "end": 6.46
+        },
+        {
+          "text": "usher",
+          "start": 6.46,
+          "end": 6.74
+        },
+        {
+          "text": "down",
+          "start": 6.74,
+          "end": 7.06
+        },
+        {
+          "text": "my",
+          "start": 7.06,
+          "end": 7.26
+        },
+        {
+          "text": "prayer's",
+          "start": 7.26,
+          "end": 7.72
+        },
+        {
+          "text": "appeal",
+          "start": 7.72,
+          "end": 7.98
+        },
+        {
+          "text": "Unto",
+          "start": 7.98,
+          "end": 8.32
+        },
+        {
+          "text": "the",
+          "start": 8.32,
+          "end": 8.42
+        },
+        {
+          "text": "gods",
+          "start": 8.42,
+          "end": 8.62
+        },
+        {
+          "text": "below,",
+          "start": 8.62,
+          "end": 9.1
+        },
+        {
+          "text": "that",
+          "start": 9.68,
+          "end": 9.84
+        },
+        {
+          "text": "they",
+          "start": 9.84,
+          "end": 10.02
+        },
+        {
+          "text": "with",
+          "start": 10.02,
+          "end": 10.16
+        },
+        {
+          "text": "eyes",
+          "start": 10.16,
+          "end": 10.52
+        },
+        {
+          "text": "Watchful",
+          "start": 10.52,
+          "end": 11.08
+        },
+        {
+          "text": "behold",
+          "start": 11.08,
+          "end": 11.38
+        },
+        {
+          "text": "these",
+          "start": 11.38,
+          "end": 11.68
+        },
+        {
+          "text": "halls,",
+          "start": 11.68,
+          "end": 12.0
+        },
+        {
+          "text": "my",
+          "start": 12.52,
+          "end": 12.62
+        },
+        {
+          "text": "sire's",
+          "start": 12.62,
+          "end": 13.1
+        },
+        {
+          "text": "of",
+          "start": 13.1,
+          "end": 13.2
+        },
+        {
+          "text": "old—",
+          "start": 13.2,
+          "end": 14.14
+        },
+        {
+          "text": "And",
+          "start": 14.14,
+          "end": 14.22
+        },
+        {
+          "text": "unto",
+          "start": 14.22,
+          "end": 14.56
+        },
+        {
+          "text": "Earth,",
+          "start": 14.56,
+          "end": 14.92
+        },
+        {
+          "text": "the",
+          "start": 15.44,
+          "end": 15.54
+        },
+        {
+          "text": "mother",
+          "start": 15.54,
+          "end": 15.7
+        },
+        {
+          "text": "of",
+          "start": 15.7,
+          "end": 15.92
+        },
+        {
+          "text": "all",
+          "start": 15.92,
+          "end": 16.12
+        },
+        {
+          "text": "things,",
+          "start": 16.12,
+          "end": 16.44
+        },
+        {
+          "text": "And",
+          "start": 16.72,
+          "end": 16.82
+        },
+        {
+          "text": "foster-nurse,",
+          "start": 16.82,
+          "end": 17.48
+        },
+        {
+          "text": "and",
+          "start": 17.76,
+          "end": 17.9
+        },
+        {
+          "text": "womb",
+          "start": 17.9,
+          "end": 18.14
+        },
+        {
+          "text": "that",
+          "start": 18.14,
+          "end": 18.44
+        },
+        {
+          "text": "takes",
+          "start": 18.44,
+          "end": 18.64
+        },
+        {
+          "text": "their",
+          "start": 18.64,
+          "end": 18.9
+        },
+        {
+          "text": "seed.",
+          "start": 18.9,
+          "end": 19.26
+        }
+      ],
+      "stats": {
+        "expected_words": 54,
+        "heard_words": 54,
+        "matched_words": 54
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7192494109913241
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "efd6c1a2b49cd29fc3b745a85aa97e250b723cd85ab48d5a288589f03cbd46c7",
+  "selected_reasons": []
+}

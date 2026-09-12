@@ -1,0 +1,367 @@
+{
+  "complete": true,
+  "signature": "2c516e7fc0c05e70e9776fef1155e52ef7327f38c912e29733cd8648c48d398d",
+  "attempts": [
+    {
+      "asr_seconds": 0.27512320037931204,
+      "alignment_seconds": 0.00045967474579811096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"That's capital!\" exclaimed Grushenka relentlessly. \"Serve them right!\"",
+        "hotwords": "That's, Grushenka, Serve"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That's capital!\" exclaimed Grushenka relentlessly.",
+          "start": 0.02,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.02,
+              "end": 1.2,
+              "probability": 0.61029052734375
+            },
+            {
+              "text": " capital",
+              "start": 1.2,
+              "end": 1.2,
+              "probability": 0.91357421875
+            },
+            {
+              "text": "!\"",
+              "start": 1.2,
+              "end": 1.56,
+              "probability": 0.15283203125
+            },
+            {
+              "text": " exclaimed",
+              "start": 1.56,
+              "end": 1.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Grushenka",
+              "start": 1.94,
+              "end": 2.54,
+              "probability": 0.625518798828125
+            },
+            {
+              "text": " relentlessly.",
+              "start": 2.54,
+              "end": 2.94,
+              "probability": 0.90087890625
+            }
+          ]
+        },
+        {
+          "text": " Serve them right!",
+          "start": 3.82,
+          "end": 4.42,
+          "words": [
+            {
+              "text": " Serve",
+              "start": 3.82,
+              "end": 4.02,
+              "probability": 0.01551055908203125
+            },
+            {
+              "text": " them",
+              "start": 4.02,
+              "end": 4.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " right!",
+              "start": 4.18,
+              "end": 4.42,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 1.2
+        },
+        {
+          "raw": "capital",
+          "start": 1.2,
+          "end": 1.2
+        },
+        {
+          "raw": "!\"",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "raw": "Grushenka",
+          "start": 1.94,
+          "end": 2.54
+        },
+        {
+          "raw": "relentlessly.",
+          "start": 2.54,
+          "end": 2.94
+        },
+        {
+          "raw": "Serve",
+          "start": 3.82,
+          "end": 4.02
+        },
+        {
+          "raw": "them",
+          "start": 4.02,
+          "end": 4.18
+        },
+        {
+          "raw": "right!",
+          "start": 4.18,
+          "end": 4.42
+        }
+      ],
+      "expected_tokens": [
+        "\"That's",
+        "capital!\"",
+        "exclaimed",
+        "Grushenka",
+        "relentlessly.",
+        "\"Serve",
+        "them",
+        "right!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          "equal",
+          2,
+          8,
+          3,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 1.2,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "capital",
+          "start": 1.2,
+          "end": 1.2,
+          "key": "capital",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.2,
+          "end": 1.56,
+          "key": "",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.56,
+          "end": 1.94,
+          "key": "exclaimed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Grushenka",
+          "start": 1.94,
+          "end": 2.54,
+          "key": "grushenka",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "relentlessly.",
+          "start": 2.54,
+          "end": 2.94,
+          "key": "relentlessly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Serve",
+          "start": 3.82,
+          "end": 4.02,
+          "key": "serve",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.02,
+          "end": 4.18,
+          "key": "them",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "right!",
+          "start": 4.18,
+          "end": 4.42,
+          "key": "right",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That's",
+          "start": 0.02,
+          "end": 1.2
+        },
+        {
+          "text": "capital!\"",
+          "start": 1.2,
+          "end": 1.2
+        },
+        {
+          "text": "exclaimed",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "text": "Grushenka",
+          "start": 1.94,
+          "end": 2.54
+        },
+        {
+          "text": "relentlessly.",
+          "start": 2.54,
+          "end": 2.94
+        },
+        {
+          "text": "\"Serve",
+          "start": 3.82,
+          "end": 4.02
+        },
+        {
+          "text": "them",
+          "start": 4.02,
+          "end": 4.18
+        },
+        {
+          "text": "right!\"",
+          "start": 4.18,
+          "end": 4.42
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27575282379984856
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "02949553a111723ab35f9b866bfc180bf296382bc67fe8eded5c2140d4e13984",
+  "selected_reasons": []
+}

@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "73b69b89ce37976b682ad8f041ee5725417317a49ef3431898e554c42bb506c3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1551161017268896,
+      "alignment_seconds": 0.0003719441592693329,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I hope you have done well.",
+          "start": 0.02,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " hope",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 0.64,
+              "end": 0.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 0.82,
+              "end": 0.9,
+              "probability": 0.56005859375
+            },
+            {
+              "text": " done",
+              "start": 0.9,
+              "end": 1.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " well.",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "hope",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "you",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "raw": "have",
+          "start": 0.82,
+          "end": 0.9
+        },
+        {
+          "raw": "done",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "raw": "well.",
+          "start": 1.04,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "hope",
+        "you",
+        "have",
+        "done",
+        "well?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "hope",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.64,
+          "end": 0.82,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.82,
+          "end": 0.9,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 0.9,
+          "end": 1.04,
+          "key": "done",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "well",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "hope",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "you",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "text": "have",
+          "start": 0.82,
+          "end": 0.9
+        },
+        {
+          "text": "done",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "text": "well?\"",
+          "start": 1.04,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1556199537590146
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6b227441f84e09912be7e480fd387b10cfa60f86d7a459c58d8b406622241fa2",
+  "selected_reasons": []
+}

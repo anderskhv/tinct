@@ -1,0 +1,441 @@
+{
+  "complete": true,
+  "signature": "e395eaec97fd5452b094de46516ef07f0bb0b55e7e885f6893e782acf6a379d2",
+  "attempts": [
+    {
+      "asr_seconds": 0.22268773149698973,
+      "alignment_seconds": 0.00032365601509809494,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Benvolio, I aimed so near when I supposed you loved.",
+          "start": 0.08,
+          "end": 3.44,
+          "words": [
+            {
+              "text": " Benvolio,",
+              "start": 0.08,
+              "end": 1.06,
+              "probability": 0.9085286458333334
+            },
+            {
+              "text": " I",
+              "start": 1.38,
+              "end": 1.64,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " aimed",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " so",
+              "start": 1.88,
+              "end": 2.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " near",
+              "start": 2.12,
+              "end": 2.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " when",
+              "start": 2.3,
+              "end": 2.48,
+              "probability": 0.990234375
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.62,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " supposed",
+              "start": 2.62,
+              "end": 2.92,
+              "probability": 0.358154296875
+            },
+            {
+              "text": " you",
+              "start": 2.92,
+              "end": 3.18,
+              "probability": 0.99609375
+            },
+            {
+              "text": " loved.",
+              "start": 3.18,
+              "end": 3.44,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.08,
+          "end": 1.06
+        },
+        {
+          "raw": "I",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "raw": "aimed",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "so",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "raw": "near",
+          "start": 2.12,
+          "end": 2.3
+        },
+        {
+          "raw": "when",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.62
+        },
+        {
+          "raw": "supposed",
+          "start": 2.62,
+          "end": 2.92
+        },
+        {
+          "raw": "you",
+          "start": 2.92,
+          "end": 3.18
+        },
+        {
+          "raw": "loved.",
+          "start": 3.18,
+          "end": 3.44
+        }
+      ],
+      "expected_tokens": [
+        "Benvolio.",
+        "I",
+        "aim'd",
+        "so",
+        "near",
+        "when",
+        "I",
+        "suppos'd",
+        "you",
+        "lov'd."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          7,
+          3,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.08,
+          "end": 1.06,
+          "key": "benvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.38,
+          "end": 1.64,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "aimed",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "aimed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.88,
+          "end": 2.12,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 2.12,
+          "end": 2.3,
+          "key": "near",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 2.3,
+          "end": 2.48,
+          "key": "when",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.62,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "supposed",
+          "start": 2.62,
+          "end": 2.92,
+          "key": "supposed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.92,
+          "end": 3.18,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "loved.",
+          "start": 3.18,
+          "end": 3.44,
+          "key": "loved",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Benvolio.",
+          "start": 0.08,
+          "end": 1.06
+        },
+        {
+          "text": "I",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "text": "aim'd",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "so",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "text": "near",
+          "start": 2.12,
+          "end": 2.3
+        },
+        {
+          "text": "when",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "text": "I",
+          "start": 2.48,
+          "end": 2.62
+        },
+        {
+          "text": "suppos'd",
+          "start": 2.62,
+          "end": 2.77
+        },
+        {
+          "text": "you",
+          "start": 2.92,
+          "end": 3.18
+        },
+        {
+          "text": "lov'd.",
+          "start": 3.18,
+          "end": 3.31
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22312164306640625
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0fbe7aacdfdc1f575c9f7e7153f1896eb9e5ed17685cd9bc635ff24f7adbce37",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

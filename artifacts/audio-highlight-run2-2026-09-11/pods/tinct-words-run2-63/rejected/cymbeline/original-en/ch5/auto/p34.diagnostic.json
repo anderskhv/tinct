@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "569236f941146fd7e4b33ba472f23e21a985a926915202f9352556137a9d7e80",
+  "attempts": [
+    {
+      "asr_seconds": 0.15357502177357674,
+      "alignment_seconds": 0.0003007408231496811,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Posthumus. No, no.",
+        "hotwords": "Posthumus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Posthumus. No, no.",
+          "start": 0.67,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Posthumus.",
+              "start": 0.67,
+              "end": 1.13,
+              "probability": 0.6875
+            },
+            {
+              "text": " No,",
+              "start": 1.47,
+              "end": 1.59,
+              "probability": 0.418212890625
+            },
+            {
+              "text": " no.",
+              "start": 1.67,
+              "end": 1.85,
+              "probability": 0.91748046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Posthumus.",
+          "start": 0.67,
+          "end": 1.13
+        },
+        {
+          "raw": "No,",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "raw": "no.",
+          "start": 1.67,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "Posthumus.",
+        "No,",
+        "no."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Posthumus.",
+          "start": 0.67,
+          "end": 1.13,
+          "key": "posthumus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.47,
+          "end": 1.59,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no.",
+          "start": 1.67,
+          "end": 1.85,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Posthumus.",
+          "start": 0.67,
+          "end": 1.13
+        },
+        {
+          "text": "No,",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "text": "no.",
+          "start": 1.67,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15398492477834225
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "57ba2d06ed32e95b7cd591398a4f69020f2eed164f120d8afdcb76fe07e75092",
+  "selected_reasons": []
+}

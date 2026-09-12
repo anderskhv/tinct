@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "eb22fb560911ff52788d874ec4d071a55477ef6bdd5ac043d1d1c5a4fd4be604",
+  "attempts": [
+    {
+      "asr_seconds": 0.17287215124815702,
+      "alignment_seconds": 0.0002754954621195793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Octavius, upon the right hand I keep thou the left.",
+          "start": 0.71,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " Octavius,",
+              "start": 0.71,
+              "end": 1.09,
+              "probability": 0.9581705729166666
+            },
+            {
+              "text": " upon",
+              "start": 1.51,
+              "end": 1.69,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " the",
+              "start": 1.69,
+              "end": 1.85,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " right",
+              "start": 1.85,
+              "end": 2.01,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " hand",
+              "start": 2.01,
+              "end": 2.29,
+              "probability": 0.974609375
+            },
+            {
+              "text": " I",
+              "start": 2.29,
+              "end": 2.47,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " keep",
+              "start": 2.47,
+              "end": 2.67,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thou",
+              "start": 2.67,
+              "end": 2.85,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " the",
+              "start": 2.85,
+              "end": 3.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " left.",
+              "start": 3.01,
+              "end": 3.25,
+              "probability": 0.95751953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Octavius,",
+          "start": 0.71,
+          "end": 1.09
+        },
+        {
+          "raw": "upon",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "raw": "the",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "raw": "right",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "raw": "hand",
+          "start": 2.01,
+          "end": 2.29
+        },
+        {
+          "raw": "I",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "raw": "keep",
+          "start": 2.47,
+          "end": 2.67
+        },
+        {
+          "raw": "thou",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "raw": "the",
+          "start": 2.85,
+          "end": 3.01
+        },
+        {
+          "raw": "left.",
+          "start": 3.01,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "Octavius.",
+        "Upon",
+        "the",
+        "right",
+        "hand",
+        "I.",
+        "Keep",
+        "thou",
+        "the",
+        "left."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Octavius,",
+          "start": 0.71,
+          "end": 1.09,
+          "key": "octavius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.51,
+          "end": 1.69,
+          "key": "upon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.69,
+          "end": 1.85,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "right",
+          "start": 1.85,
+          "end": 2.01,
+          "key": "right",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 2.01,
+          "end": 2.29,
+          "key": "hand",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.29,
+          "end": 2.47,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 2.47,
+          "end": 2.67,
+          "key": "keep",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.67,
+          "end": 2.85,
+          "key": "thou",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.85,
+          "end": 3.01,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "left.",
+          "start": 3.01,
+          "end": 3.25,
+          "key": "left",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Octavius.",
+          "start": 0.71,
+          "end": 1.09
+        },
+        {
+          "text": "Upon",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "the",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "text": "right",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "text": "hand",
+          "start": 2.01,
+          "end": 2.29
+        },
+        {
+          "text": "I.",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "text": "Keep",
+          "start": 2.47,
+          "end": 2.67
+        },
+        {
+          "text": "thou",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "text": "the",
+          "start": 2.85,
+          "end": 3.01
+        },
+        {
+          "text": "left.",
+          "start": 3.01,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17325660958886147
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "21e3a9e3f9c1161f41b7ccc8725a1825c37546d454cae46b9babc4ce98fff285",
+  "selected_reasons": []
+}

@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "138cad670e3ece74c4d4e8404a955c43978a31e489b1c92097b2f206b3604198",
+  "attempts": [
+    {
+      "asr_seconds": 0.08511950820684433,
+      "alignment_seconds": 0.00011893361806869507,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Regan, hard hard, oh filthy traitor.",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " Regan,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.6776123046875
+            },
+            {
+              "text": " hard",
+              "start": 1.11,
+              "end": 1.31,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " hard,",
+              "start": 1.31,
+              "end": 1.63,
+              "probability": 0.6240234375
+            },
+            {
+              "text": " oh",
+              "start": 1.99,
+              "end": 2.11,
+              "probability": 0.693359375
+            },
+            {
+              "text": " filthy",
+              "start": 2.11,
+              "end": 2.39,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " traitor.",
+              "start": 2.39,
+              "end": 2.73,
+              "probability": 0.9658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "hard",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "raw": "hard,",
+          "start": 1.31,
+          "end": 1.63
+        },
+        {
+          "raw": "oh",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "raw": "filthy",
+          "start": 2.11,
+          "end": 2.39
+        },
+        {
+          "raw": "traitor.",
+          "start": 2.39,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "Regan.",
+        "Hard,",
+        "hard.",
+        "O",
+        "filthy",
+        "traitor!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "regan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hard",
+          "start": 1.11,
+          "end": 1.31,
+          "key": "hard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hard,",
+          "start": 1.31,
+          "end": 1.63,
+          "key": "hard",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.99,
+          "end": 2.11,
+          "key": "oh",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "filthy",
+          "start": 2.11,
+          "end": 2.39,
+          "key": "filthy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "traitor.",
+          "start": 2.39,
+          "end": 2.73,
+          "key": "traitor",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Regan.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Hard,",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "text": "hard.",
+          "start": 1.31,
+          "end": 1.63
+        },
+        {
+          "text": "O",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "text": "filthy",
+          "start": 2.11,
+          "end": 2.39
+        },
+        {
+          "text": "traitor!",
+          "start": 2.39,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08527795225381851
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fb25d0fdf407220777d298748e84ad23489d7248ff20531cffb2049f7be5d84e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

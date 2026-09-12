@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "4fc83292d7ee9501a33c5e848ee68fac7bda73abcca3d3063f73ce9583394a89",
+  "attempts": [
+    {
+      "asr_seconds": 0.1032512069796212,
+      "alignment_seconds": 0.0002317480102647096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aside for this.",
+          "start": 0.05,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.5576171875
+            },
+            {
+              "text": " for",
+              "start": 0.77,
+              "end": 1.31,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " this.",
+              "start": 1.31,
+              "end": 1.57,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "for",
+          "start": 0.77,
+          "end": 1.31
+        },
+        {
+          "raw": "this.",
+          "start": 1.31,
+          "end": 1.57
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside_.]",
+        "For",
+        "this,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.77,
+          "end": 1.31,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this.",
+          "start": 1.31,
+          "end": 1.57,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside_.]",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "For",
+          "start": 0.77,
+          "end": 1.31
+        },
+        {
+          "text": "this,",
+          "start": 1.31,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10356367798522115
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "375d1595cd9fddb03868091ba3a842545b2be9f2940d1407c3b4f6d1b187d01a",
+  "selected_reasons": []
+}

@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "9e089d77e5c942193a43c59e59f3559d4972d33a7fd2c664888a55de255f040e",
+  "attempts": [
+    {
+      "asr_seconds": 0.215292789041996,
+      "alignment_seconds": 0.000590011477470398,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aye, sir. He must have the white heat for this kind of fine work.",
+          "start": 0.14,
+          "end": 3.8,
+          "words": [
+            {
+              "text": " Aye,",
+              "start": 0.14,
+              "end": 0.66,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " sir.",
+              "start": 0.8,
+              "end": 0.9,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " He",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " must",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " have",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.88,
+              "end": 2.04,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " white",
+              "start": 2.04,
+              "end": 2.26,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " heat",
+              "start": 2.26,
+              "end": 2.54,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " for",
+              "start": 2.54,
+              "end": 2.74,
+              "probability": 0.9921875
+            },
+            {
+              "text": " this",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " kind",
+              "start": 2.92,
+              "end": 3.1,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 3.1,
+              "end": 3.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fine",
+              "start": 3.24,
+              "end": 3.48,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " work.",
+              "start": 3.48,
+              "end": 3.8,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aye,",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "raw": "sir.",
+          "start": 0.8,
+          "end": 0.9
+        },
+        {
+          "raw": "He",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "must",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "raw": "have",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "the",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "raw": "white",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "raw": "heat",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "raw": "for",
+          "start": 2.54,
+          "end": 2.74
+        },
+        {
+          "raw": "this",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "kind",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "raw": "of",
+          "start": 3.1,
+          "end": 3.24
+        },
+        {
+          "raw": "fine",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "raw": "work.",
+          "start": 3.48,
+          "end": 3.8
+        }
+      ],
+      "expected_tokens": [
+        "Aye,",
+        "sir;",
+        "he",
+        "must",
+        "have",
+        "the",
+        "white",
+        "heat",
+        "for",
+        "this",
+        "kind",
+        "of",
+        "fine",
+        "work."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aye,",
+          "start": 0.14,
+          "end": 0.66,
+          "key": "aye",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 0.8,
+          "end": 0.9,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.5,
+          "end": 1.64,
+          "key": "must",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.88,
+          "end": 2.04,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "white",
+          "start": 2.04,
+          "end": 2.26,
+          "key": "white",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "heat",
+          "start": 2.26,
+          "end": 2.54,
+          "key": "heat",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.54,
+          "end": 2.74,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 2.92,
+          "end": 3.1,
+          "key": "kind",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.1,
+          "end": 3.24,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "fine",
+          "start": 3.24,
+          "end": 3.48,
+          "key": "fine",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "work.",
+          "start": 3.48,
+          "end": 3.8,
+          "key": "work",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aye,",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "text": "sir;",
+          "start": 0.8,
+          "end": 0.9
+        },
+        {
+          "text": "he",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "must",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "have",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "text": "the",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "text": "white",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "text": "heat",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "text": "for",
+          "start": 2.54,
+          "end": 2.74
+        },
+        {
+          "text": "this",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "kind",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "text": "of",
+          "start": 3.1,
+          "end": 3.24
+        },
+        {
+          "text": "fine",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "text": "work.",
+          "start": 3.48,
+          "end": 3.8
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2161579206585884
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3b58723c02e9480d69b8c75e91fa673787b29fe9a2c6a27a0a6f3fe3df674eeb",
+  "selected_reasons": []
+}

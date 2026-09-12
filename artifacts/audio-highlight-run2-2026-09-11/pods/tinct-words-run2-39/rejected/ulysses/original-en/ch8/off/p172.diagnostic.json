@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "0304b0a578dfb3493eba8f8ce34085f9e9ca106e12749b46a8ad3e6ccece8b5b",
+  "attempts": [
+    {
+      "asr_seconds": 0.10500884498469532,
+      "alignment_seconds": 0.00018728803843259811,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Jack Love",
+          "start": 0.02,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " Jack",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " Love",
+              "start": 0.6,
+              "end": 0.92,
+              "probability": 0.77392578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jack",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "Love",
+          "start": 0.6,
+          "end": 0.92
+        }
+      ],
+      "expected_tokens": [
+        "—Jack,",
+        "love!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jack",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "jack",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Love",
+          "start": 0.6,
+          "end": 0.92,
+          "key": "love",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Jack,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "love!",
+          "start": 0.6,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10525547596625984
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "da2c90a4d0607ea07f58b2188097d5bfdba6d1ef0745b89c8d88db9484ad1695",
+  "selected_reasons": []
+}

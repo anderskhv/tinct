@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "dac820a377fb060095604bcec9e94c023cb71dbe4bbf8c1d5031f438f2c6bf03",
+  "attempts": [
+    {
+      "asr_seconds": 0.16928426641970873,
+      "alignment_seconds": 0.0002713007852435112,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Further!",
+        "hotwords": "Further"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Further",
+          "start": 0.08,
+          "end": 0.72,
+          "words": [
+            {
+              "text": " Further",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.70458984375
+            }
+          ]
+        },
+        {
+          "text": " Further Further!",
+          "start": 0.72,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " Further",
+              "start": 0.72,
+              "end": 0.82,
+              "probability": 4.410743713378906e-06
+            },
+            {
+              "text": " Further!",
+              "start": 0.82,
+              "end": 1.14,
+              "probability": 0.0004711151123046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Further",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Further",
+          "start": 0.72,
+          "end": 0.82
+        },
+        {
+          "raw": "Further!",
+          "start": 0.82,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "Further!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Further",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "further",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Further",
+          "start": 0.72,
+          "end": 0.82,
+          "key": "further",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Further!",
+          "start": 0.82,
+          "end": 1.14,
+          "key": "further",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Further!",
+          "start": 0.08,
+          "end": 0.72
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16966172959655523
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bcdef034df4d4df75751dfda1e8daa88709dc7f6cffb9b3b364f0f56d4a383f8",
+  "selected_reasons": []
+}

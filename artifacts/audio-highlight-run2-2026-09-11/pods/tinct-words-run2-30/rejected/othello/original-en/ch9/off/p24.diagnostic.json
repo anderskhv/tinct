@@ -1,0 +1,267 @@
+{
+  "complete": true,
+  "signature": "bfd31516af175df05d406edb0440261693b612cdd16b83416c74a772a1c2d1f4",
+  "attempts": [
+    {
+      "asr_seconds": 0.09434656938537955,
+      "alignment_seconds": 0.00015035970136523247,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, when he hunts now.",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " when",
+              "start": 1.26,
+              "end": 1.32,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " he",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hunts",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.322265625
+            },
+            {
+              "text": " now.",
+              "start": 1.66,
+              "end": 2.0,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "when",
+          "start": 1.26,
+          "end": 1.32
+        },
+        {
+          "raw": "he",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "hunts",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "now.",
+          "start": 1.66,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Went",
+        "he",
+        "hence",
+        "now?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.26,
+          "end": 1.32,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hunts",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "hunts",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 1.66,
+          "end": 2.0,
+          "key": "now",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "Went",
+          "start": 0.9,
+          "end": 1.11
+        },
+        {
+          "text": "he",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "hence",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "text": "now?",
+          "start": 1.66,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09454024815931916
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9f70f02af33c321e60b593d0c62fb75e05a4299dc83077681acbb85028e7009c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

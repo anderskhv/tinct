@@ -1,0 +1,486 @@
+{
+  "complete": true,
+  "signature": "373699db91196a0b954d715f20056ca66d058980364aa950a16d40eddf1fa858",
+  "attempts": [
+    {
+      "asr_seconds": 0.13012270629405975,
+      "alignment_seconds": 0.0003463663160800934,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Sir Toby._]",
+        "hotwords": "Sir, Toby._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Sir Toby._",
+          "start": 0.05,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.873046875
+            },
+            {
+              "text": " Sir",
+              "start": 0.67,
+              "end": 0.89,
+              "probability": 0.390869140625
+            },
+            {
+              "text": " Toby._",
+              "start": 0.89,
+              "end": 1.87,
+              "probability": 0.37939453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Sir",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "raw": "Toby._",
+          "start": 0.89,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Sir",
+        "Toby._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 0.67,
+          "end": 0.89,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Toby._",
+          "start": 0.89,
+          "end": 1.87,
+          "key": "toby_",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Sir",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "text": "Toby._]",
+          "start": 0.89,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13061506673693657
+    },
+    {
+      "asr_seconds": 0.13264477625489235,
+      "alignment_seconds": 0.00047716498374938965,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Sir, Toby._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Sir Toby._",
+          "start": 0.05,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.873046875
+            },
+            {
+              "text": " Sir",
+              "start": 0.67,
+              "end": 0.89,
+              "probability": 0.390869140625
+            },
+            {
+              "text": " Toby._",
+              "start": 0.89,
+              "end": 1.87,
+              "probability": 0.37939453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Sir",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "raw": "Toby._",
+          "start": 0.89,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Sir",
+        "Toby._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 0.67,
+          "end": 0.89,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Toby._",
+          "start": 0.89,
+          "end": 1.87,
+          "key": "toby_",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Sir",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "text": "Toby._]",
+          "start": 0.89,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1332271695137024
+    },
+    {
+      "asr_seconds": 0.14668427780270576,
+      "alignment_seconds": 0.00038278475403785706,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Sertobi.",
+          "start": 0.05,
+          "end": 1.21,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.873046875
+            },
+            {
+              "text": " Sertobi.",
+              "start": 0.67,
+              "end": 1.21,
+              "probability": 0.5751953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Sertobi.",
+          "start": 0.67,
+          "end": 1.21
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Sir",
+        "Toby._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sertobi.",
+          "start": 0.67,
+          "end": 1.21,
+          "key": "sertobi",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Sir",
+          "start": 0.67,
+          "end": 0.94
+        },
+        {
+          "text": "Toby._]",
+          "start": 0.94,
+          "end": 1.075
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14718952775001526
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "764b225c196a87c99e669dbe363a4f8440ce64e99b4e4744be9e0415ad891c05",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

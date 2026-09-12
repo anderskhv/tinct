@@ -1,0 +1,595 @@
+{
+  "complete": true,
+  "signature": "3be1c3410280f8ed473b20e39660e1d74241c5be0029f83a2df0ba26ce356d4e",
+  "attempts": [
+    {
+      "asr_seconds": 0.31620199885219336,
+      "alignment_seconds": 0.0006139492616057396,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cashel Boyle O'Connor fits Morris Tisdall Farrell murmuring glassied strode past the Kildare Street Club",
+          "start": 0.05,
+          "end": 6.99,
+          "words": [
+            {
+              "text": " Cashel",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.575927734375
+            },
+            {
+              "text": " Boyle",
+              "start": 0.73,
+              "end": 0.91,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " O",
+              "start": 0.91,
+              "end": 1.19,
+              "probability": 0.93505859375
+            },
+            {
+              "text": "'Connor",
+              "start": 1.19,
+              "end": 1.47,
+              "probability": 0.968017578125
+            },
+            {
+              "text": " fits",
+              "start": 1.47,
+              "end": 1.69,
+              "probability": 0.61474609375
+            },
+            {
+              "text": " Morris",
+              "start": 1.69,
+              "end": 2.07,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Tisdall",
+              "start": 2.07,
+              "end": 2.57,
+              "probability": 0.7315266927083334
+            },
+            {
+              "text": " Farrell",
+              "start": 2.57,
+              "end": 2.95,
+              "probability": 0.771484375
+            },
+            {
+              "text": " murmuring",
+              "start": 2.95,
+              "end": 3.95,
+              "probability": 0.7369384765625
+            },
+            {
+              "text": " glassied",
+              "start": 3.95,
+              "end": 4.79,
+              "probability": 0.662353515625
+            },
+            {
+              "text": " strode",
+              "start": 4.79,
+              "end": 5.65,
+              "probability": 0.794921875
+            },
+            {
+              "text": " past",
+              "start": 5.65,
+              "end": 5.85,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " the",
+              "start": 5.85,
+              "end": 6.07,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Kildare",
+              "start": 6.07,
+              "end": 6.39,
+              "probability": 0.7662760416666666
+            },
+            {
+              "text": " Street",
+              "start": 6.39,
+              "end": 6.69,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Club",
+              "start": 6.69,
+              "end": 6.99,
+              "probability": 0.96142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cashel",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Boyle",
+          "start": 0.73,
+          "end": 0.91
+        },
+        {
+          "raw": "O",
+          "start": 0.91,
+          "end": 1.19
+        },
+        {
+          "raw": "'Connor",
+          "start": 1.19,
+          "end": 1.47
+        },
+        {
+          "raw": "fits",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "raw": "Morris",
+          "start": 1.69,
+          "end": 2.07
+        },
+        {
+          "raw": "Tisdall",
+          "start": 2.07,
+          "end": 2.57
+        },
+        {
+          "raw": "Farrell",
+          "start": 2.57,
+          "end": 2.95
+        },
+        {
+          "raw": "murmuring",
+          "start": 2.95,
+          "end": 3.95
+        },
+        {
+          "raw": "glassied",
+          "start": 3.95,
+          "end": 4.79
+        },
+        {
+          "raw": "strode",
+          "start": 4.79,
+          "end": 5.65
+        },
+        {
+          "raw": "past",
+          "start": 5.65,
+          "end": 5.85
+        },
+        {
+          "raw": "the",
+          "start": 5.85,
+          "end": 6.07
+        },
+        {
+          "raw": "Kildare",
+          "start": 6.07,
+          "end": 6.39
+        },
+        {
+          "raw": "Street",
+          "start": 6.39,
+          "end": 6.69
+        },
+        {
+          "raw": "Club",
+          "start": 6.69,
+          "end": 6.99
+        }
+      ],
+      "expected_tokens": [
+        "Cashel",
+        "Boyle",
+        "O'Connor",
+        "Fitzmaurice",
+        "Tisdall",
+        "Farrell,",
+        "murmuring,",
+        "glassyeyed,",
+        "strode",
+        "past",
+        "the",
+        "Kildare",
+        "street",
+        "club."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          6
+        ],
+        [
+          "equal",
+          4,
+          7,
+          6,
+          9
+        ],
+        [
+          "replace",
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          "equal",
+          8,
+          14,
+          10,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cashel",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "cashel",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Boyle",
+          "start": 0.73,
+          "end": 0.91,
+          "key": "boyle",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 0.91,
+          "end": 1.19,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'Connor",
+          "start": 1.19,
+          "end": 1.47,
+          "key": "connor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fits",
+          "start": 1.47,
+          "end": 1.69,
+          "key": "fits",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Morris",
+          "start": 1.69,
+          "end": 2.07,
+          "key": "morris",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Tisdall",
+          "start": 2.07,
+          "end": 2.57,
+          "key": "tisdall",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Farrell",
+          "start": 2.57,
+          "end": 2.95,
+          "key": "farrell",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "murmuring",
+          "start": 2.95,
+          "end": 3.95,
+          "key": "murmuring",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "glassied",
+          "start": 3.95,
+          "end": 4.79,
+          "key": "glassied",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "strode",
+          "start": 4.79,
+          "end": 5.65,
+          "key": "strode",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "past",
+          "start": 5.65,
+          "end": 5.85,
+          "key": "past",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.85,
+          "end": 6.07,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Kildare",
+          "start": 6.07,
+          "end": 6.39,
+          "key": "kildare",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Street",
+          "start": 6.39,
+          "end": 6.69,
+          "key": "street",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Club",
+          "start": 6.69,
+          "end": 6.99,
+          "key": "club",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cashel",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Boyle",
+          "start": 0.73,
+          "end": 0.91
+        },
+        {
+          "text": "O'Connor",
+          "start": 0.91,
+          "end": 1.49
+        },
+        {
+          "text": "Fitzmaurice",
+          "start": 1.49,
+          "end": 1.78
+        },
+        {
+          "text": "Tisdall",
+          "start": 2.07,
+          "end": 2.57
+        },
+        {
+          "text": "Farrell,",
+          "start": 2.57,
+          "end": 2.95
+        },
+        {
+          "text": "murmuring,",
+          "start": 2.95,
+          "end": 3.95
+        },
+        {
+          "text": "glassyeyed,",
+          "start": 3.95,
+          "end": 4.37
+        },
+        {
+          "text": "strode",
+          "start": 4.79,
+          "end": 5.65
+        },
+        {
+          "text": "past",
+          "start": 5.65,
+          "end": 5.85
+        },
+        {
+          "text": "the",
+          "start": 5.85,
+          "end": 6.07
+        },
+        {
+          "text": "Kildare",
+          "start": 6.07,
+          "end": 6.39
+        },
+        {
+          "text": "street",
+          "start": 6.39,
+          "end": 6.69
+        },
+        {
+          "text": "club.",
+          "start": 6.69,
+          "end": 6.99
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 16,
+        "matched_words": 11
+      },
+      "match_ratio": 0.7857142857142857,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.31706618377938867
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "892d7e9ec5c515fb1c9c4a68b94b10a83bd2cb39fb7215ea0c96583774ea3248",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,1086 @@
+{
+  "complete": true,
+  "signature": "bb213827e5282447681f06cfca23503ecc467c76e889541e1c08f80df6371533",
+  "attempts": [
+    {
+      "asr_seconds": 0.34630245342850685,
+      "alignment_seconds": 0.00041512399911880493,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I shall be glad so to do, sir, if you, in your turn, will promise that I and Adèle shall be both safe out of the house before your bride enters it.\"",
+        "hotwords": "I, Adèle"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I shall be glad so to do, sir, if you, in your turn, will promise that I and Adèle shall be both safe out of the house before your bride enters it.",
+          "start": 0.08,
+          "end": 8.6,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.59716796875
+            },
+            {
+              "text": " shall",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " be",
+              "start": 0.68,
+              "end": 0.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " glad",
+              "start": 0.84,
+              "end": 1.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " so",
+              "start": 1.1,
+              "end": 1.34,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " to",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " do,",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " sir,",
+              "start": 1.76,
+              "end": 2.0,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " if",
+              "start": 2.4,
+              "end": 2.62,
+              "probability": 0.951171875
+            },
+            {
+              "text": " you,",
+              "start": 2.62,
+              "end": 2.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 3.16,
+              "end": 3.28,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " your",
+              "start": 3.28,
+              "end": 3.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " turn,",
+              "start": 3.42,
+              "end": 3.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will",
+              "start": 4.16,
+              "end": 4.24,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " promise",
+              "start": 4.24,
+              "end": 4.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 4.56,
+              "end": 4.84,
+              "probability": 0.990234375
+            },
+            {
+              "text": " I",
+              "start": 4.84,
+              "end": 5.1,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " and",
+              "start": 5.1,
+              "end": 5.26,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Adèle",
+              "start": 5.26,
+              "end": 5.68,
+              "probability": 0.6689249674479166
+            },
+            {
+              "text": " shall",
+              "start": 5.68,
+              "end": 5.8,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " be",
+              "start": 5.8,
+              "end": 5.96,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " both",
+              "start": 5.96,
+              "end": 6.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " safe",
+              "start": 6.18,
+              "end": 6.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out",
+              "start": 6.5,
+              "end": 6.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 6.7,
+              "end": 6.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 6.82,
+              "end": 6.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " house",
+              "start": 6.88,
+              "end": 7.14,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " before",
+              "start": 7.14,
+              "end": 7.46,
+              "probability": 0.982421875
+            },
+            {
+              "text": " your",
+              "start": 7.46,
+              "end": 7.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bride",
+              "start": 7.64,
+              "end": 7.92,
+              "probability": 0.982421875
+            },
+            {
+              "text": " enters",
+              "start": 7.92,
+              "end": 8.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it.",
+              "start": 8.28,
+              "end": 8.6,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "shall",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "be",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "raw": "glad",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "raw": "so",
+          "start": 1.1,
+          "end": 1.34
+        },
+        {
+          "raw": "to",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "do,",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "raw": "sir,",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "raw": "if",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "raw": "you,",
+          "start": 2.62,
+          "end": 2.84
+        },
+        {
+          "raw": "in",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "raw": "your",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "raw": "turn,",
+          "start": 3.42,
+          "end": 3.78
+        },
+        {
+          "raw": "will",
+          "start": 4.16,
+          "end": 4.24
+        },
+        {
+          "raw": "promise",
+          "start": 4.24,
+          "end": 4.56
+        },
+        {
+          "raw": "that",
+          "start": 4.56,
+          "end": 4.84
+        },
+        {
+          "raw": "I",
+          "start": 4.84,
+          "end": 5.1
+        },
+        {
+          "raw": "and",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "raw": "Adèle",
+          "start": 5.26,
+          "end": 5.68
+        },
+        {
+          "raw": "shall",
+          "start": 5.68,
+          "end": 5.8
+        },
+        {
+          "raw": "be",
+          "start": 5.8,
+          "end": 5.96
+        },
+        {
+          "raw": "both",
+          "start": 5.96,
+          "end": 6.18
+        },
+        {
+          "raw": "safe",
+          "start": 6.18,
+          "end": 6.5
+        },
+        {
+          "raw": "out",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "raw": "of",
+          "start": 6.7,
+          "end": 6.82
+        },
+        {
+          "raw": "the",
+          "start": 6.82,
+          "end": 6.88
+        },
+        {
+          "raw": "house",
+          "start": 6.88,
+          "end": 7.14
+        },
+        {
+          "raw": "before",
+          "start": 7.14,
+          "end": 7.46
+        },
+        {
+          "raw": "your",
+          "start": 7.46,
+          "end": 7.64
+        },
+        {
+          "raw": "bride",
+          "start": 7.64,
+          "end": 7.92
+        },
+        {
+          "raw": "enters",
+          "start": 7.92,
+          "end": 8.28
+        },
+        {
+          "raw": "it.",
+          "start": 8.28,
+          "end": 8.6
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "shall",
+        "be",
+        "glad",
+        "so",
+        "to",
+        "do,",
+        "sir,",
+        "if",
+        "you,",
+        "in",
+        "your",
+        "turn,",
+        "will",
+        "promise",
+        "that",
+        "I",
+        "and",
+        "Adèle",
+        "shall",
+        "be",
+        "both",
+        "safe",
+        "out",
+        "of",
+        "the",
+        "house",
+        "before",
+        "your",
+        "bride",
+        "enters",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "shall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.68,
+          "end": 0.84,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "glad",
+          "start": 0.84,
+          "end": 1.1,
+          "key": "glad",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.1,
+          "end": 1.34,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "do,",
+          "start": 1.5,
+          "end": 1.74,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.76,
+          "end": 2.0,
+          "key": "sir",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.4,
+          "end": 2.62,
+          "key": "if",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 2.62,
+          "end": 2.84,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.16,
+          "end": 3.28,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.28,
+          "end": 3.42,
+          "key": "your",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "turn,",
+          "start": 3.42,
+          "end": 3.78,
+          "key": "turn",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.16,
+          "end": 4.24,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "promise",
+          "start": 4.24,
+          "end": 4.56,
+          "key": "promise",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.56,
+          "end": 4.84,
+          "key": "that",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.84,
+          "end": 5.1,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.1,
+          "end": 5.26,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Adèle",
+          "start": 5.26,
+          "end": 5.68,
+          "key": "adèle",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 5.68,
+          "end": 5.8,
+          "key": "shall",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.8,
+          "end": 5.96,
+          "key": "be",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 5.96,
+          "end": 6.18,
+          "key": "both",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "safe",
+          "start": 6.18,
+          "end": 6.5,
+          "key": "safe",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 6.5,
+          "end": 6.7,
+          "key": "out",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.7,
+          "end": 6.82,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.82,
+          "end": 6.88,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 6.88,
+          "end": 7.14,
+          "key": "house",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 7.14,
+          "end": 7.46,
+          "key": "before",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 7.46,
+          "end": 7.64,
+          "key": "your",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "bride",
+          "start": 7.64,
+          "end": 7.92,
+          "key": "bride",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "enters",
+          "start": 7.92,
+          "end": 8.28,
+          "key": "enters",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 8.28,
+          "end": 8.6,
+          "key": "it",
+          "pieces": [
+            31
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "shall",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "be",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "text": "glad",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "text": "so",
+          "start": 1.1,
+          "end": 1.34
+        },
+        {
+          "text": "to",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "do,",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "text": "sir,",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "text": "if",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "text": "you,",
+          "start": 2.62,
+          "end": 2.84
+        },
+        {
+          "text": "in",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "text": "your",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "text": "turn,",
+          "start": 3.42,
+          "end": 3.78
+        },
+        {
+          "text": "will",
+          "start": 4.16,
+          "end": 4.24
+        },
+        {
+          "text": "promise",
+          "start": 4.24,
+          "end": 4.56
+        },
+        {
+          "text": "that",
+          "start": 4.56,
+          "end": 4.84
+        },
+        {
+          "text": "I",
+          "start": 4.84,
+          "end": 5.1
+        },
+        {
+          "text": "and",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "text": "Adèle",
+          "start": 5.26,
+          "end": 5.68
+        },
+        {
+          "text": "shall",
+          "start": 5.68,
+          "end": 5.8
+        },
+        {
+          "text": "be",
+          "start": 5.8,
+          "end": 5.96
+        },
+        {
+          "text": "both",
+          "start": 5.96,
+          "end": 6.18
+        },
+        {
+          "text": "safe",
+          "start": 6.18,
+          "end": 6.5
+        },
+        {
+          "text": "out",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "text": "of",
+          "start": 6.7,
+          "end": 6.82
+        },
+        {
+          "text": "the",
+          "start": 6.82,
+          "end": 6.88
+        },
+        {
+          "text": "house",
+          "start": 6.88,
+          "end": 7.14
+        },
+        {
+          "text": "before",
+          "start": 7.14,
+          "end": 7.46
+        },
+        {
+          "text": "your",
+          "start": 7.46,
+          "end": 7.64
+        },
+        {
+          "text": "bride",
+          "start": 7.64,
+          "end": 7.92
+        },
+        {
+          "text": "enters",
+          "start": 7.92,
+          "end": 8.28
+        },
+        {
+          "text": "it.\"",
+          "start": 8.28,
+          "end": 8.6
+        }
+      ],
+      "stats": {
+        "expected_words": 32,
+        "heard_words": 32,
+        "matched_words": 32
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.34688131883740425
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f480526a9ed20a91669b08e9a1a1d293b1d3bdd76e9760771bbf00671d1e6b36",
+  "selected_reasons": []
+}

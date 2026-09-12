@@ -1,0 +1,704 @@
+{
+  "complete": true,
+  "signature": "4371c312c2202105bdb7af0354ee83f50acaac1c6ef186c9a7a2af6823973ca4",
+  "attempts": [
+    {
+      "asr_seconds": 0.40317466109991074,
+      "alignment_seconds": 0.000773855485022068,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Juliet, I will not fail.",
+          "start": 0.02,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.75146484375
+            },
+            {
+              "text": " I",
+              "start": 1.04,
+              "end": 1.22,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " will",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 1.34,
+              "end": 1.56,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " fail.",
+              "start": 1.56,
+              "end": 1.98,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Tease twenty years till then.",
+          "start": 2.72,
+          "end": 3.86,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 2.72,
+              "end": 2.86,
+              "probability": 0.841552734375
+            },
+            {
+              "text": " twenty",
+              "start": 2.86,
+              "end": 3.02,
+              "probability": 0.880859375
+            },
+            {
+              "text": " years",
+              "start": 3.02,
+              "end": 3.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " till",
+              "start": 3.42,
+              "end": 3.58,
+              "probability": 0.71435546875
+            },
+            {
+              "text": " then.",
+              "start": 3.58,
+              "end": 3.86,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " I have forgot why I did call thee back.",
+          "start": 4.24,
+          "end": 5.84,
+          "words": [
+            {
+              "text": " I",
+              "start": 4.24,
+              "end": 4.28,
+              "probability": 0.9921875
+            },
+            {
+              "text": " have",
+              "start": 4.28,
+              "end": 4.38,
+              "probability": 0.990234375
+            },
+            {
+              "text": " forgot",
+              "start": 4.38,
+              "end": 4.66,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " why",
+              "start": 4.66,
+              "end": 4.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 4.9,
+              "end": 5.06,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " did",
+              "start": 5.06,
+              "end": 5.22,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " call",
+              "start": 5.22,
+              "end": 5.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thee",
+              "start": 5.44,
+              "end": 5.56,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " back.",
+              "start": 5.56,
+              "end": 5.84,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "I",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "raw": "will",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "not",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "raw": "fail.",
+          "start": 1.56,
+          "end": 1.98
+        },
+        {
+          "raw": "Tease",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "raw": "twenty",
+          "start": 2.86,
+          "end": 3.02
+        },
+        {
+          "raw": "years",
+          "start": 3.02,
+          "end": 3.42
+        },
+        {
+          "raw": "till",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "raw": "then.",
+          "start": 3.58,
+          "end": 3.86
+        },
+        {
+          "raw": "I",
+          "start": 4.24,
+          "end": 4.28
+        },
+        {
+          "raw": "have",
+          "start": 4.28,
+          "end": 4.38
+        },
+        {
+          "raw": "forgot",
+          "start": 4.38,
+          "end": 4.66
+        },
+        {
+          "raw": "why",
+          "start": 4.66,
+          "end": 4.9
+        },
+        {
+          "raw": "I",
+          "start": 4.9,
+          "end": 5.06
+        },
+        {
+          "raw": "did",
+          "start": 5.06,
+          "end": 5.22
+        },
+        {
+          "raw": "call",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "raw": "thee",
+          "start": 5.44,
+          "end": 5.56
+        },
+        {
+          "raw": "back.",
+          "start": 5.56,
+          "end": 5.84
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "I",
+        "will",
+        "not",
+        "fail.",
+        "'Tis",
+        "twenty",
+        "years",
+        "till",
+        "then.",
+        "I",
+        "have",
+        "forgot",
+        "why",
+        "I",
+        "did",
+        "call",
+        "thee",
+        "back."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          19,
+          6,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.04,
+          "end": 1.22,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.34,
+          "end": 1.56,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fail.",
+          "start": 1.56,
+          "end": 1.98,
+          "key": "fail",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 2.72,
+          "end": 2.86,
+          "key": "tease",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "twenty",
+          "start": 2.86,
+          "end": 3.02,
+          "key": "twenty",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "years",
+          "start": 3.02,
+          "end": 3.42,
+          "key": "years",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 3.42,
+          "end": 3.58,
+          "key": "till",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "then.",
+          "start": 3.58,
+          "end": 3.86,
+          "key": "then",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.24,
+          "end": 4.28,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.28,
+          "end": 4.38,
+          "key": "have",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "forgot",
+          "start": 4.38,
+          "end": 4.66,
+          "key": "forgot",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 4.66,
+          "end": 4.9,
+          "key": "why",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.9,
+          "end": 5.06,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 5.06,
+          "end": 5.22,
+          "key": "did",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 5.22,
+          "end": 5.44,
+          "key": "call",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 5.44,
+          "end": 5.56,
+          "key": "thee",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "back.",
+          "start": 5.56,
+          "end": 5.84,
+          "key": "back",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "I",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "text": "will",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "not",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "text": "fail.",
+          "start": 1.56,
+          "end": 1.98
+        },
+        {
+          "text": "'Tis",
+          "start": 1.98,
+          "end": 2.42
+        },
+        {
+          "text": "twenty",
+          "start": 2.86,
+          "end": 3.02
+        },
+        {
+          "text": "years",
+          "start": 3.02,
+          "end": 3.42
+        },
+        {
+          "text": "till",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "text": "then.",
+          "start": 3.58,
+          "end": 3.86
+        },
+        {
+          "text": "I",
+          "start": 4.24,
+          "end": 4.28
+        },
+        {
+          "text": "have",
+          "start": 4.28,
+          "end": 4.38
+        },
+        {
+          "text": "forgot",
+          "start": 4.38,
+          "end": 4.66
+        },
+        {
+          "text": "why",
+          "start": 4.66,
+          "end": 4.9
+        },
+        {
+          "text": "I",
+          "start": 4.9,
+          "end": 5.06
+        },
+        {
+          "text": "did",
+          "start": 5.06,
+          "end": 5.22
+        },
+        {
+          "text": "call",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "text": "thee",
+          "start": 5.44,
+          "end": 5.56
+        },
+        {
+          "text": "back.",
+          "start": 5.56,
+          "end": 5.84
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.4042460024356842
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "443f5d00be6651177f599ca1794747497e8652870f324b7bcd03126bc2d672d2",
+  "selected_reasons": []
+}

@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "2fcb5d4aac489a5d6dcdf71c06c0c6e16314627c2c66feca701fc6d979074ac8",
+  "attempts": [
+    {
+      "asr_seconds": 0.12755826898501255,
+      "alignment_seconds": 0.00018615598673932254,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " pointing to the servant who carries off Lepidus.",
+          "start": 0.05,
+          "end": 2.89,
+          "words": [
+            {
+              "text": " pointing",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " to",
+              "start": 0.59,
+              "end": 0.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 0.89,
+              "end": 1.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " servant",
+              "start": 1.03,
+              "end": 1.37,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " who",
+              "start": 1.37,
+              "end": 1.79,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " carries",
+              "start": 1.79,
+              "end": 2.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " off",
+              "start": 2.05,
+              "end": 2.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Lepidus.",
+              "start": 2.31,
+              "end": 2.89,
+              "probability": 0.8650716145833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "pointing",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "to",
+          "start": 0.59,
+          "end": 0.89
+        },
+        {
+          "raw": "the",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "raw": "servant",
+          "start": 1.03,
+          "end": 1.37
+        },
+        {
+          "raw": "who",
+          "start": 1.37,
+          "end": 1.79
+        },
+        {
+          "raw": "carries",
+          "start": 1.79,
+          "end": 2.05
+        },
+        {
+          "raw": "off",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "raw": "Lepidus.",
+          "start": 2.31,
+          "end": 2.89
+        }
+      ],
+      "expected_tokens": [
+        "[_Pointing",
+        "to",
+        "the",
+        "servant",
+        "who",
+        "carries",
+        "off",
+        "Lepidus._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "pointing",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "pointing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.59,
+          "end": 0.89,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.89,
+          "end": 1.03,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "servant",
+          "start": 1.03,
+          "end": 1.37,
+          "key": "servant",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.37,
+          "end": 1.79,
+          "key": "who",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "carries",
+          "start": 1.79,
+          "end": 2.05,
+          "key": "carries",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 2.05,
+          "end": 2.31,
+          "key": "off",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Lepidus.",
+          "start": 2.31,
+          "end": 2.89,
+          "key": "lepidus",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Pointing",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "to",
+          "start": 0.59,
+          "end": 0.89
+        },
+        {
+          "text": "the",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "text": "servant",
+          "start": 1.03,
+          "end": 1.37
+        },
+        {
+          "text": "who",
+          "start": 1.37,
+          "end": 1.79
+        },
+        {
+          "text": "carries",
+          "start": 1.79,
+          "end": 2.05
+        },
+        {
+          "text": "off",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "text": "Lepidus._]",
+          "start": 2.31,
+          "end": 2.89
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1277969169896096
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2bc736d2368223ef929728bfdc3338415cc702891b47c1be0ad394523ced1961",
+  "selected_reasons": []
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "be0e6679cef0ad592df236a1e453e9f6740f80d2300ea98860f2dbacbba2012e",
+  "attempts": [
+    {
+      "asr_seconds": 0.14369894098490477,
+      "alignment_seconds": 0.00039592012763023376,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That is what I should suppose.",
+        "hotwords": "That, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That is what I should suppose.",
+          "start": 0.32,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.32,
+              "end": 0.6,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " is",
+              "start": 0.6,
+              "end": 0.7,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " what",
+              "start": 0.7,
+              "end": 0.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 0.84,
+              "end": 0.98,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " should",
+              "start": 0.98,
+              "end": 1.12,
+              "probability": 0.994140625
+            },
+            {
+              "text": " suppose.",
+              "start": 1.12,
+              "end": 1.5,
+              "probability": 0.88916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.32,
+          "end": 0.6
+        },
+        {
+          "raw": "is",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "raw": "what",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "raw": "I",
+          "start": 0.84,
+          "end": 0.98
+        },
+        {
+          "raw": "should",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "raw": "suppose.",
+          "start": 1.12,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "what",
+        "I",
+        "should",
+        "suppose."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.32,
+          "end": 0.6,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.6,
+          "end": 0.7,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.7,
+          "end": 0.84,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.84,
+          "end": 0.98,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 0.98,
+          "end": 1.12,
+          "key": "should",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "suppose.",
+          "start": 1.12,
+          "end": 1.5,
+          "key": "suppose",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.32,
+          "end": 0.6
+        },
+        {
+          "text": "is",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "text": "what",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "text": "I",
+          "start": 0.84,
+          "end": 0.98
+        },
+        {
+          "text": "should",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "text": "suppose.",
+          "start": 1.12,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14423855487257242
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0aee051011decd2e9f9f9893eb61d93d2e6c9e0ddfe1e6372205f123c5b53a6b",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "d31cfa2b4e970fbbb1adeb5baa459d0c1e67ee31a7c84a369d0f9c43ce2c8ca6",
+  "attempts": [
+    {
+      "asr_seconds": 0.15493615716695786,
+      "alignment_seconds": 0.00034483103081583977,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Ay, Corny Kelleher said.",
+        "hotwords": "Ay, Corny, Kelleher"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ay, Corny Kelleher said.",
+          "start": 0.05,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " Ay,",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.0081939697265625
+            },
+            {
+              "text": " Corny",
+              "start": 0.75,
+              "end": 0.99,
+              "probability": 0.582763671875
+            },
+            {
+              "text": " Kelleher",
+              "start": 0.99,
+              "end": 1.35,
+              "probability": 0.7711588541666666
+            },
+            {
+              "text": " said.",
+              "start": 1.35,
+              "end": 1.61,
+              "probability": 0.9384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ay,",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Corny",
+          "start": 0.75,
+          "end": 0.99
+        },
+        {
+          "raw": "Kelleher",
+          "start": 0.99,
+          "end": 1.35
+        },
+        {
+          "raw": "said.",
+          "start": 1.35,
+          "end": 1.61
+        }
+      ],
+      "expected_tokens": [
+        "—Ay,",
+        "Corny",
+        "Kelleher",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ay,",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "ay",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Corny",
+          "start": 0.75,
+          "end": 0.99,
+          "key": "corny",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Kelleher",
+          "start": 0.99,
+          "end": 1.35,
+          "key": "kelleher",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.35,
+          "end": 1.61,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Ay,",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Corny",
+          "start": 0.75,
+          "end": 0.99
+        },
+        {
+          "text": "Kelleher",
+          "start": 0.99,
+          "end": 1.35
+        },
+        {
+          "text": "said.",
+          "start": 1.35,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15540811186656356
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2103025340cd25c5e57aaa6b4e3b75d4fe0dd8339b3931dc7c0c8c9281aca448",
+  "selected_reasons": []
+}

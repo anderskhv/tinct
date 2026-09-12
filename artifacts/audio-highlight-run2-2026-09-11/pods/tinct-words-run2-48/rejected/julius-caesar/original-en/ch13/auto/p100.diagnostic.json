@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "6c07616c725c6d1d68994c6e8f40261f58f5b4583369765de2777a5499858eaf",
+  "attempts": [
+    {
+      "asr_seconds": 0.2117224046960473,
+      "alignment_seconds": 0.0002787811681628227,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Messala. That, methinks, is strange.",
+        "hotwords": "Messala, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Messala, That, Methinks, is strange.",
+          "start": 0.05,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " Messala,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.4772148132324219
+            },
+            {
+              "text": " That,",
+              "start": 1.19,
+              "end": 1.39,
+              "probability": 0.05108642578125
+            },
+            {
+              "text": " Methinks,",
+              "start": 1.45,
+              "end": 1.81,
+              "probability": 0.49823808670043945
+            },
+            {
+              "text": " is",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.41552734375
+            },
+            {
+              "text": " strange.",
+              "start": 1.95,
+              "end": 2.27,
+              "probability": 0.1492919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messala,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "That,",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "raw": "Methinks,",
+          "start": 1.45,
+          "end": 1.81
+        },
+        {
+          "raw": "is",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "strange.",
+          "start": 1.95,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "Messala.",
+        "That,",
+        "methinks,",
+        "is",
+        "strange."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messala,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "messala",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "That,",
+          "start": 1.19,
+          "end": 1.39,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Methinks,",
+          "start": 1.45,
+          "end": 1.81,
+          "key": "methinks",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.81,
+          "end": 1.95,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "strange.",
+          "start": 1.95,
+          "end": 2.27,
+          "key": "strange",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messala.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "That,",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "text": "methinks,",
+          "start": 1.45,
+          "end": 1.81
+        },
+        {
+          "text": "is",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "strange.",
+          "start": 1.95,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2121064756065607
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "99cd39ccd23cb065004e1f4e0e89fefca277b7aa14ee7ad6405c498bc44c7801",
+  "selected_reasons": []
+}

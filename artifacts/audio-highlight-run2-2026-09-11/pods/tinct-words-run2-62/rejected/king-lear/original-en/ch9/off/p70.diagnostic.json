@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "8bdcca7662c5b7ac6f3958765d5fcfcd8bad6736fc05487711332f7dc34f5687",
+  "attempts": [
+    {
+      "asr_seconds": 0.07152876257896423,
+      "alignment_seconds": 0.00011278688907623291,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cornwall, what trumpets that?",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Cornwall,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " what",
+              "start": 1.13,
+              "end": 1.29,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " trumpets",
+              "start": 1.29,
+              "end": 1.67,
+              "probability": 0.874755859375
+            },
+            {
+              "text": " that?",
+              "start": 1.67,
+              "end": 1.95,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "what",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "raw": "trumpets",
+          "start": 1.29,
+          "end": 1.67
+        },
+        {
+          "raw": "that?",
+          "start": 1.67,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "Cornwall.",
+        "What",
+        "trumpet's",
+        "that?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "cornwall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.13,
+          "end": 1.29,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "trumpets",
+          "start": 1.29,
+          "end": 1.67,
+          "key": "trumpets",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 1.67,
+          "end": 1.95,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cornwall.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "What",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "text": "trumpet's",
+          "start": 1.29,
+          "end": 1.67
+        },
+        {
+          "text": "that?",
+          "start": 1.67,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07168154418468475
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "062c349d16668b6b8bf73daf5f1fa93c46e1f98c5d3604528334ce4118fcba13",
+  "selected_reasons": []
+}

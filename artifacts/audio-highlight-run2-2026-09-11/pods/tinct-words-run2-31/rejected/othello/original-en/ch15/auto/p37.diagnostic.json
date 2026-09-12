@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "af83f34b93df48ccc6fb6eb305846f635e307fa9b046670b5a7caf21ea49a04c",
+  "attempts": [
+    {
+      "asr_seconds": 0.16249289130792022,
+      "alignment_seconds": 0.00016156909987330437,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. What, my lord?",
+        "hotwords": "Desdemona, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, What, my lord?",
+          "start": 0.63,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.6513264973958334
+            },
+            {
+              "text": " What,",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.048004150390625
+            },
+            {
+              "text": " my",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.5654296875
+            },
+            {
+              "text": " lord?",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.5390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "What,",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "my",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "lord?",
+          "start": 1.61,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "What,",
+        "my",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord?",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "text": "What,",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "my",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "lord?",
+          "start": 1.61,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1627083490602672
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "89a7bcd38c97a2515d2d6ef933155cccb03b86b12dcb094e5505f23474825651",
+  "selected_reasons": []
+}

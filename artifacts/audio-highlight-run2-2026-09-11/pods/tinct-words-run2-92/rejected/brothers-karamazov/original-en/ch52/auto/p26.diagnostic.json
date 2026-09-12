@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "869bb7eb5fd581d617b63faea4c9b83522cb089dbdd68d88463a19f1aad3aed0",
+  "attempts": [
+    {
+      "asr_seconds": 0.3066285168752074,
+      "alignment_seconds": 0.0005461052060127258,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Why are we sitting here though, gentlemen? Why don't you begin doing something?\" his smiling eyes seemed to ask.",
+        "hotwords": "Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why are we sitting here though, gentlemen? Why don't you begin doing something?\" his smiling eyes seemed to ask.",
+          "start": 0.02,
+          "end": 6.26,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " are",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " we",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sitting",
+              "start": 0.82,
+              "end": 1.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " here",
+              "start": 1.0,
+              "end": 1.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " though,",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " gentlemen?",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.88671875
+            },
+            {
+              "text": " Why",
+              "start": 2.38,
+              "end": 2.5,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " don't",
+              "start": 2.5,
+              "end": 2.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you",
+              "start": 2.62,
+              "end": 2.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " begin",
+              "start": 2.74,
+              "end": 2.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " doing",
+              "start": 2.96,
+              "end": 3.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " something?\"",
+              "start": 3.22,
+              "end": 4.38,
+              "probability": 0.61444091796875
+            },
+            {
+              "text": " his",
+              "start": 4.38,
+              "end": 4.5,
+              "probability": 0.151611328125
+            },
+            {
+              "text": " smiling",
+              "start": 4.5,
+              "end": 5.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " eyes",
+              "start": 5.02,
+              "end": 5.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " seemed",
+              "start": 5.42,
+              "end": 5.7,
+              "probability": 0.423583984375
+            },
+            {
+              "text": " to",
+              "start": 5.7,
+              "end": 5.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ask.",
+              "start": 5.88,
+              "end": 6.26,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "are",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "we",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "sitting",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "raw": "here",
+          "start": 1.0,
+          "end": 1.26
+        },
+        {
+          "raw": "though,",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "raw": "gentlemen?",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "Why",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "raw": "don't",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "raw": "you",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "raw": "begin",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "raw": "doing",
+          "start": 2.96,
+          "end": 3.22
+        },
+        {
+          "raw": "something?\"",
+          "start": 3.22,
+          "end": 4.38
+        },
+        {
+          "raw": "his",
+          "start": 4.38,
+          "end": 4.5
+        },
+        {
+          "raw": "smiling",
+          "start": 4.5,
+          "end": 5.02
+        },
+        {
+          "raw": "eyes",
+          "start": 5.02,
+          "end": 5.42
+        },
+        {
+          "raw": "seemed",
+          "start": 5.42,
+          "end": 5.7
+        },
+        {
+          "raw": "to",
+          "start": 5.7,
+          "end": 5.88
+        },
+        {
+          "raw": "ask.",
+          "start": 5.88,
+          "end": 6.26
+        }
+      ],
+      "expected_tokens": [
+        "\"Why",
+        "are",
+        "we",
+        "sitting",
+        "here",
+        "though,",
+        "gentlemen?",
+        "Why",
+        "don't",
+        "you",
+        "begin",
+        "doing",
+        "something?\"",
+        "his",
+        "smiling",
+        "eyes",
+        "seemed",
+        "to",
+        "ask."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 0.66,
+          "end": 0.82,
+          "key": "we",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sitting",
+          "start": 0.82,
+          "end": 1.0,
+          "key": "sitting",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.0,
+          "end": 1.26,
+          "key": "here",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "though,",
+          "start": 1.26,
+          "end": 1.48,
+          "key": "though",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gentlemen?",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "gentlemen",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 2.38,
+          "end": 2.5,
+          "key": "why",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 2.5,
+          "end": 2.62,
+          "key": "dont",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.62,
+          "end": 2.74,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "begin",
+          "start": 2.74,
+          "end": 2.96,
+          "key": "begin",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "doing",
+          "start": 2.96,
+          "end": 3.22,
+          "key": "doing",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "something?\"",
+          "start": 3.22,
+          "end": 4.38,
+          "key": "something",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.38,
+          "end": 4.5,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "smiling",
+          "start": 4.5,
+          "end": 5.02,
+          "key": "smiling",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 5.02,
+          "end": 5.42,
+          "key": "eyes",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 5.42,
+          "end": 5.7,
+          "key": "seemed",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.7,
+          "end": 5.88,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "ask.",
+          "start": 5.88,
+          "end": 6.26,
+          "key": "ask",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "are",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "we",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "sitting",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "text": "here",
+          "start": 1.0,
+          "end": 1.26
+        },
+        {
+          "text": "though,",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "text": "gentlemen?",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "Why",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "text": "don't",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "text": "you",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "text": "begin",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "text": "doing",
+          "start": 2.96,
+          "end": 3.22
+        },
+        {
+          "text": "something?\"",
+          "start": 3.22,
+          "end": 4.38
+        },
+        {
+          "text": "his",
+          "start": 4.38,
+          "end": 4.5
+        },
+        {
+          "text": "smiling",
+          "start": 4.5,
+          "end": 5.02
+        },
+        {
+          "text": "eyes",
+          "start": 5.02,
+          "end": 5.42
+        },
+        {
+          "text": "seemed",
+          "start": 5.42,
+          "end": 5.7
+        },
+        {
+          "text": "to",
+          "start": 5.7,
+          "end": 5.88
+        },
+        {
+          "text": "ask.",
+          "start": 5.88,
+          "end": 6.26
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30741607397794724
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fb910933678a73e7b8a07649b7c1e17a9f63fa3865580e07de6c19966a45c534",
+  "selected_reasons": []
+}

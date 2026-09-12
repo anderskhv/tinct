@@ -1,0 +1,550 @@
+{
+  "complete": true,
+  "signature": "55ea770315ad80f3e863b07e55c77769d93cb27569a6f74da05766ec84b6aa19",
+  "attempts": [
+    {
+      "asr_seconds": 0.27270456263795495,
+      "alignment_seconds": 0.0005519618280231953,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She bestowed fat pears neatly, head by tail, and among them ripe shame-faced peaches.",
+          "start": 0.05,
+          "end": 5.35,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.87890625
+            },
+            {
+              "text": " bestowed",
+              "start": 0.51,
+              "end": 0.81,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " fat",
+              "start": 0.81,
+              "end": 1.13,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " pears",
+              "start": 1.13,
+              "end": 1.49,
+              "probability": 0.799560546875
+            },
+            {
+              "text": " neatly,",
+              "start": 1.49,
+              "end": 1.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " head",
+              "start": 2.35,
+              "end": 2.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " by",
+              "start": 2.39,
+              "end": 2.59,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " tail,",
+              "start": 2.59,
+              "end": 2.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 3.49,
+              "end": 3.53,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " among",
+              "start": 3.53,
+              "end": 3.73,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " them",
+              "start": 3.73,
+              "end": 3.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ripe",
+              "start": 3.95,
+              "end": 4.17,
+              "probability": 0.57373046875
+            },
+            {
+              "text": " shame",
+              "start": 4.17,
+              "end": 4.57,
+              "probability": 0.7529296875
+            },
+            {
+              "text": "-faced",
+              "start": 4.57,
+              "end": 4.85,
+              "probability": 0.809326171875
+            },
+            {
+              "text": " peaches.",
+              "start": 4.85,
+              "end": 5.35,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "bestowed",
+          "start": 0.51,
+          "end": 0.81
+        },
+        {
+          "raw": "fat",
+          "start": 0.81,
+          "end": 1.13
+        },
+        {
+          "raw": "pears",
+          "start": 1.13,
+          "end": 1.49
+        },
+        {
+          "raw": "neatly,",
+          "start": 1.49,
+          "end": 1.83
+        },
+        {
+          "raw": "head",
+          "start": 2.35,
+          "end": 2.39
+        },
+        {
+          "raw": "by",
+          "start": 2.39,
+          "end": 2.59
+        },
+        {
+          "raw": "tail,",
+          "start": 2.59,
+          "end": 2.97
+        },
+        {
+          "raw": "and",
+          "start": 3.49,
+          "end": 3.53
+        },
+        {
+          "raw": "among",
+          "start": 3.53,
+          "end": 3.73
+        },
+        {
+          "raw": "them",
+          "start": 3.73,
+          "end": 3.95
+        },
+        {
+          "raw": "ripe",
+          "start": 3.95,
+          "end": 4.17
+        },
+        {
+          "raw": "shame",
+          "start": 4.17,
+          "end": 4.57
+        },
+        {
+          "raw": "-faced",
+          "start": 4.57,
+          "end": 4.85
+        },
+        {
+          "raw": "peaches.",
+          "start": 4.85,
+          "end": 5.35
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "bestowed",
+        "fat",
+        "pears",
+        "neatly,",
+        "head",
+        "by",
+        "tail,",
+        "and",
+        "among",
+        "them",
+        "ripe",
+        "shamefaced",
+        "peaches."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          14,
+          14,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bestowed",
+          "start": 0.51,
+          "end": 0.81,
+          "key": "bestowed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fat",
+          "start": 0.81,
+          "end": 1.13,
+          "key": "fat",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pears",
+          "start": 1.13,
+          "end": 1.49,
+          "key": "pears",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "neatly,",
+          "start": 1.49,
+          "end": 1.83,
+          "key": "neatly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 2.35,
+          "end": 2.39,
+          "key": "head",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.39,
+          "end": 2.59,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tail,",
+          "start": 2.59,
+          "end": 2.97,
+          "key": "tail",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.49,
+          "end": 3.53,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "among",
+          "start": 3.53,
+          "end": 3.73,
+          "key": "among",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.73,
+          "end": 3.95,
+          "key": "them",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ripe",
+          "start": 3.95,
+          "end": 4.17,
+          "key": "ripe",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "shame",
+          "start": 4.17,
+          "end": 4.57,
+          "key": "shame",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "-faced",
+          "start": 4.57,
+          "end": 4.85,
+          "key": "faced",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "peaches.",
+          "start": 4.85,
+          "end": 5.35,
+          "key": "peaches",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "bestowed",
+          "start": 0.51,
+          "end": 0.81
+        },
+        {
+          "text": "fat",
+          "start": 0.81,
+          "end": 1.13
+        },
+        {
+          "text": "pears",
+          "start": 1.13,
+          "end": 1.49
+        },
+        {
+          "text": "neatly,",
+          "start": 1.49,
+          "end": 1.83
+        },
+        {
+          "text": "head",
+          "start": 2.35,
+          "end": 2.39
+        },
+        {
+          "text": "by",
+          "start": 2.39,
+          "end": 2.59
+        },
+        {
+          "text": "tail,",
+          "start": 2.59,
+          "end": 2.97
+        },
+        {
+          "text": "and",
+          "start": 3.49,
+          "end": 3.53
+        },
+        {
+          "text": "among",
+          "start": 3.53,
+          "end": 3.73
+        },
+        {
+          "text": "them",
+          "start": 3.73,
+          "end": 3.95
+        },
+        {
+          "text": "ripe",
+          "start": 3.95,
+          "end": 4.17
+        },
+        {
+          "text": "shamefaced",
+          "start": 4.17,
+          "end": 4.51
+        },
+        {
+          "text": "peaches.",
+          "start": 4.85,
+          "end": 5.35
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.2734956368803978
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "821843258272ecd861f734e6f16cdae5962535db63c7b0665352fe403e750288",
+  "selected_reasons": []
+}

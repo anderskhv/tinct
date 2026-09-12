@@ -1,0 +1,643 @@
+{
+  "complete": true,
+  "signature": "39e9a3c9668294ab9fe5fe55d1a9669b0dd61a1a7d1810135535d4f3889b00a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.3070194832980633,
+      "alignment_seconds": 0.0006904676556587219,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And what is your view about them?",
+          "start": 0.08,
+          "end": 1.76,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " what",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " is",
+              "start": 0.68,
+              "end": 0.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 0.82,
+              "end": 0.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " view",
+              "start": 0.98,
+              "end": 1.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " about",
+              "start": 1.2,
+              "end": 1.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " them?",
+              "start": 1.5,
+              "end": 1.76,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Would you call one of them virtue and the other vice?",
+          "start": 2.3,
+          "end": 4.6,
+          "words": [
+            {
+              "text": " Would",
+              "start": 2.3,
+              "end": 2.4,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " you",
+              "start": 2.4,
+              "end": 2.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " call",
+              "start": 2.52,
+              "end": 2.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " one",
+              "start": 2.76,
+              "end": 2.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 2.94,
+              "end": 3.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them",
+              "start": 3.02,
+              "end": 3.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " virtue",
+              "start": 3.18,
+              "end": 3.56,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " and",
+              "start": 3.56,
+              "end": 3.98,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " the",
+              "start": 3.98,
+              "end": 4.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " other",
+              "start": 4.1,
+              "end": 4.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " vice?",
+              "start": 4.34,
+              "end": 4.6,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "what",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "is",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "raw": "your",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "raw": "view",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "raw": "about",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "raw": "them?",
+          "start": 1.5,
+          "end": 1.76
+        },
+        {
+          "raw": "Would",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "raw": "you",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "raw": "call",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "raw": "one",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "raw": "of",
+          "start": 2.94,
+          "end": 3.02
+        },
+        {
+          "raw": "them",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "raw": "virtue",
+          "start": 3.18,
+          "end": 3.56
+        },
+        {
+          "raw": "and",
+          "start": 3.56,
+          "end": 3.98
+        },
+        {
+          "raw": "the",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "raw": "other",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "raw": "vice?",
+          "start": 4.34,
+          "end": 4.6
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "what",
+        "is",
+        "your",
+        "view",
+        "about",
+        "them?",
+        "Would",
+        "you",
+        "call",
+        "one",
+        "of",
+        "them",
+        "virtue",
+        "and",
+        "the",
+        "other",
+        "vice?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.68,
+          "end": 0.82,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.82,
+          "end": 0.98,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "view",
+          "start": 0.98,
+          "end": 1.2,
+          "key": "view",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.2,
+          "end": 1.5,
+          "key": "about",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "them?",
+          "start": 1.5,
+          "end": 1.76,
+          "key": "them",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Would",
+          "start": 2.3,
+          "end": 2.4,
+          "key": "would",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.4,
+          "end": 2.52,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 2.52,
+          "end": 2.76,
+          "key": "call",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.76,
+          "end": 2.94,
+          "key": "one",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.94,
+          "end": 3.02,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.02,
+          "end": 3.18,
+          "key": "them",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "virtue",
+          "start": 3.18,
+          "end": 3.56,
+          "key": "virtue",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.56,
+          "end": 3.98,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.98,
+          "end": 4.1,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 4.1,
+          "end": 4.34,
+          "key": "other",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "vice?",
+          "start": 4.34,
+          "end": 4.6,
+          "key": "vice",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "what",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "is",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "text": "your",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "text": "view",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "text": "about",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "text": "them?",
+          "start": 1.5,
+          "end": 1.76
+        },
+        {
+          "text": "Would",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "text": "you",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "text": "call",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "text": "one",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "text": "of",
+          "start": 2.94,
+          "end": 3.02
+        },
+        {
+          "text": "them",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "text": "virtue",
+          "start": 3.18,
+          "end": 3.56
+        },
+        {
+          "text": "and",
+          "start": 3.56,
+          "end": 3.98
+        },
+        {
+          "text": "the",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "text": "other",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "text": "vice?",
+          "start": 4.34,
+          "end": 4.6
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3080308809876442
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b7855407722236d21a181eff05fdb4b5ef6bdb8ff3a9f5bd91996a60109c7e5c",
+  "selected_reasons": []
+}

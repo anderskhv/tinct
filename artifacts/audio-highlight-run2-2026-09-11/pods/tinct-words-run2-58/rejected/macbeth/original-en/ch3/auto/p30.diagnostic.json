@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "95cf1a6ff5a7eca4c6fa3440c3343c81130dfc31a390a4553032ac72c56377cf",
+  "attempts": [
+    {
+      "asr_seconds": 0.10138388723134995,
+      "alignment_seconds": 0.00011000130325555801,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Witches vanish.]",
+        "hotwords": "Witches"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Witches vanish.",
+          "start": 0.02,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " Witches",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.57861328125
+            },
+            {
+              "text": " vanish.",
+              "start": 0.72,
+              "end": 1.1,
+              "probability": 0.78662109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Witches",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "vanish.",
+          "start": 0.72,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "[Witches",
+        "vanish.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Witches",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "witches",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "vanish.",
+          "start": 0.72,
+          "end": 1.1,
+          "key": "vanish",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Witches",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "vanish.]",
+          "start": 0.72,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10153033025562763
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "726e0a70bbac6c2044246c8019b3f41a0bd5cb6340913c3367efdecad71d2528",
+  "selected_reasons": []
+}

@@ -1,0 +1,3454 @@
+{
+  "complete": true,
+  "signature": "ffbbcb8be69387f6ce09680d0c84febd95fd5db3d578310b2ff5cf0c6ff540ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.674477931112051,
+      "alignment_seconds": 0.00171617791056633,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_ Not a flower, not a flower sweet, On my black coffin let there be strown: Not a friend, not a friend greet My poor corpse where my bones shall be thrown: A thousand thousand sighs to save, Lay me, O, where Sad true lover never find my grave, To weep there._",
+        "hotwords": "On, Lay, O, Sad"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Not a flower, not a flower sweet, On my black coffin let there be strown,",
+          "start": 0.05,
+          "end": 4.37,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " a",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " flower,",
+              "start": 0.67,
+              "end": 1.01,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " not",
+              "start": 1.27,
+              "end": 1.35,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " a",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " flower",
+              "start": 1.49,
+              "end": 1.75,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " sweet,",
+              "start": 1.75,
+              "end": 2.15,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " On",
+              "start": 2.59,
+              "end": 2.67,
+              "probability": 0.390380859375
+            },
+            {
+              "text": " my",
+              "start": 2.67,
+              "end": 2.81,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " black",
+              "start": 2.81,
+              "end": 3.05,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " coffin",
+              "start": 3.05,
+              "end": 3.49,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " let",
+              "start": 3.49,
+              "end": 3.69,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " there",
+              "start": 3.69,
+              "end": 3.83,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " be",
+              "start": 3.83,
+              "end": 3.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " strown,",
+              "start": 3.97,
+              "end": 4.37,
+              "probability": 0.649169921875
+            }
+          ]
+        },
+        {
+          "text": " Not a friend, not a friend greet My poor corpse where my bones shall be thrown.",
+          "start": 4.37,
+          "end": 9.05,
+          "words": [
+            {
+              "text": " Not",
+              "start": 4.37,
+              "end": 5.17,
+              "probability": 0.59375
+            },
+            {
+              "text": " a",
+              "start": 5.17,
+              "end": 5.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " friend,",
+              "start": 5.31,
+              "end": 5.61,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " not",
+              "start": 6.09,
+              "end": 6.17,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " a",
+              "start": 6.17,
+              "end": 6.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " friend",
+              "start": 6.33,
+              "end": 6.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " greet",
+              "start": 6.57,
+              "end": 6.83,
+              "probability": 0.372802734375
+            },
+            {
+              "text": " My",
+              "start": 6.83,
+              "end": 7.07,
+              "probability": 0.1025390625
+            },
+            {
+              "text": " poor",
+              "start": 7.07,
+              "end": 7.33,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " corpse",
+              "start": 7.33,
+              "end": 7.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " where",
+              "start": 7.69,
+              "end": 7.89,
+              "probability": 0.818359375
+            },
+            {
+              "text": " my",
+              "start": 7.89,
+              "end": 8.05,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " bones",
+              "start": 8.05,
+              "end": 8.37,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " shall",
+              "start": 8.37,
+              "end": 8.61,
+              "probability": 0.6787109375
+            },
+            {
+              "text": " be",
+              "start": 8.61,
+              "end": 8.75,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thrown.",
+              "start": 8.75,
+              "end": 9.05,
+              "probability": 0.970703125
+            }
+          ]
+        },
+        {
+          "text": " A thousand thousand sighs to save, Lay me, O, where Sad true lover never find my grave,",
+          "start": 9.81,
+          "end": 15.51,
+          "words": [
+            {
+              "text": " A",
+              "start": 9.81,
+              "end": 9.91,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " thousand",
+              "start": 9.91,
+              "end": 10.25,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " thousand",
+              "start": 10.25,
+              "end": 10.69,
+              "probability": 0.79150390625
+            },
+            {
+              "text": " sighs",
+              "start": 10.69,
+              "end": 11.21,
+              "probability": 0.89453125
+            },
+            {
+              "text": " to",
+              "start": 11.21,
+              "end": 11.31,
+              "probability": 0.943359375
+            },
+            {
+              "text": " save,",
+              "start": 11.31,
+              "end": 11.73,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Lay",
+              "start": 12.09,
+              "end": 12.21,
+              "probability": 0.261962890625
+            },
+            {
+              "text": " me,",
+              "start": 12.21,
+              "end": 12.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " O,",
+              "start": 12.95,
+              "end": 13.15,
+              "probability": 0.2144775390625
+            },
+            {
+              "text": " where",
+              "start": 13.39,
+              "end": 13.45,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " Sad",
+              "start": 13.45,
+              "end": 13.77,
+              "probability": 0.00455474853515625
+            },
+            {
+              "text": " true",
+              "start": 13.77,
+              "end": 14.13,
+              "probability": 0.7216796875
+            },
+            {
+              "text": " lover",
+              "start": 14.13,
+              "end": 14.41,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " never",
+              "start": 14.41,
+              "end": 14.65,
+              "probability": 0.51416015625
+            },
+            {
+              "text": " find",
+              "start": 14.65,
+              "end": 14.99,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " my",
+              "start": 14.99,
+              "end": 15.19,
+              "probability": 0.489013671875
+            },
+            {
+              "text": " grave,",
+              "start": 15.19,
+              "end": 15.51,
+              "probability": 0.9501953125
+            }
+          ]
+        },
+        {
+          "text": " To weep there._",
+          "start": 15.75,
+          "end": 16.25,
+          "words": [
+            {
+              "text": " To",
+              "start": 15.75,
+              "end": 15.81,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " weep",
+              "start": 15.81,
+              "end": 15.99,
+              "probability": 0.990234375
+            },
+            {
+              "text": " there._",
+              "start": 15.99,
+              "end": 16.25,
+              "probability": 0.48779311776161194
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "a",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "flower,",
+          "start": 0.67,
+          "end": 1.01
+        },
+        {
+          "raw": "not",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "raw": "a",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "flower",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "raw": "sweet,",
+          "start": 1.75,
+          "end": 2.15
+        },
+        {
+          "raw": "On",
+          "start": 2.59,
+          "end": 2.67
+        },
+        {
+          "raw": "my",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "raw": "black",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "raw": "coffin",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "raw": "let",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "raw": "there",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "raw": "be",
+          "start": 3.83,
+          "end": 3.97
+        },
+        {
+          "raw": "strown,",
+          "start": 3.97,
+          "end": 4.37
+        },
+        {
+          "raw": "Not",
+          "start": 4.37,
+          "end": 5.17
+        },
+        {
+          "raw": "a",
+          "start": 5.17,
+          "end": 5.31
+        },
+        {
+          "raw": "friend,",
+          "start": 5.31,
+          "end": 5.61
+        },
+        {
+          "raw": "not",
+          "start": 6.09,
+          "end": 6.17
+        },
+        {
+          "raw": "a",
+          "start": 6.17,
+          "end": 6.33
+        },
+        {
+          "raw": "friend",
+          "start": 6.33,
+          "end": 6.57
+        },
+        {
+          "raw": "greet",
+          "start": 6.57,
+          "end": 6.83
+        },
+        {
+          "raw": "My",
+          "start": 6.83,
+          "end": 7.07
+        },
+        {
+          "raw": "poor",
+          "start": 7.07,
+          "end": 7.33
+        },
+        {
+          "raw": "corpse",
+          "start": 7.33,
+          "end": 7.69
+        },
+        {
+          "raw": "where",
+          "start": 7.69,
+          "end": 7.89
+        },
+        {
+          "raw": "my",
+          "start": 7.89,
+          "end": 8.05
+        },
+        {
+          "raw": "bones",
+          "start": 8.05,
+          "end": 8.37
+        },
+        {
+          "raw": "shall",
+          "start": 8.37,
+          "end": 8.61
+        },
+        {
+          "raw": "be",
+          "start": 8.61,
+          "end": 8.75
+        },
+        {
+          "raw": "thrown.",
+          "start": 8.75,
+          "end": 9.05
+        },
+        {
+          "raw": "A",
+          "start": 9.81,
+          "end": 9.91
+        },
+        {
+          "raw": "thousand",
+          "start": 9.91,
+          "end": 10.25
+        },
+        {
+          "raw": "thousand",
+          "start": 10.25,
+          "end": 10.69
+        },
+        {
+          "raw": "sighs",
+          "start": 10.69,
+          "end": 11.21
+        },
+        {
+          "raw": "to",
+          "start": 11.21,
+          "end": 11.31
+        },
+        {
+          "raw": "save,",
+          "start": 11.31,
+          "end": 11.73
+        },
+        {
+          "raw": "Lay",
+          "start": 12.09,
+          "end": 12.21
+        },
+        {
+          "raw": "me,",
+          "start": 12.21,
+          "end": 12.55
+        },
+        {
+          "raw": "O,",
+          "start": 12.95,
+          "end": 13.15
+        },
+        {
+          "raw": "where",
+          "start": 13.39,
+          "end": 13.45
+        },
+        {
+          "raw": "Sad",
+          "start": 13.45,
+          "end": 13.77
+        },
+        {
+          "raw": "true",
+          "start": 13.77,
+          "end": 14.13
+        },
+        {
+          "raw": "lover",
+          "start": 14.13,
+          "end": 14.41
+        },
+        {
+          "raw": "never",
+          "start": 14.41,
+          "end": 14.65
+        },
+        {
+          "raw": "find",
+          "start": 14.65,
+          "end": 14.99
+        },
+        {
+          "raw": "my",
+          "start": 14.99,
+          "end": 15.19
+        },
+        {
+          "raw": "grave,",
+          "start": 15.19,
+          "end": 15.51
+        },
+        {
+          "raw": "To",
+          "start": 15.75,
+          "end": 15.81
+        },
+        {
+          "raw": "weep",
+          "start": 15.81,
+          "end": 15.99
+        },
+        {
+          "raw": "there._",
+          "start": 15.99,
+          "end": 16.25
+        }
+      ],
+      "expected_tokens": [
+        "_",
+        "Not",
+        "a",
+        "flower,",
+        "not",
+        "a",
+        "flower",
+        "sweet,",
+        "On",
+        "my",
+        "black",
+        "coffin",
+        "let",
+        "there",
+        "be",
+        "strown:",
+        "Not",
+        "a",
+        "friend,",
+        "not",
+        "a",
+        "friend",
+        "greet",
+        "My",
+        "poor",
+        "corpse",
+        "where",
+        "my",
+        "bones",
+        "shall",
+        "be",
+        "thrown:",
+        "A",
+        "thousand",
+        "thousand",
+        "sighs",
+        "to",
+        "save,",
+        "Lay",
+        "me,",
+        "O,",
+        "where",
+        "Sad",
+        "true",
+        "lover",
+        "never",
+        "find",
+        "my",
+        "grave,",
+        "To",
+        "weep",
+        "there._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          50,
+          0,
+          50
+        ],
+        [
+          "replace",
+          50,
+          51,
+          50,
+          51
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          50,
+          51,
+          50,
+          51
+        ]
+      ],
+      "spoken_expected_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [
+        0
+      ],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.55,
+          "end": 0.67,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "flower,",
+          "start": 0.67,
+          "end": 1.01,
+          "key": "flower",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.27,
+          "end": 1.35,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "flower",
+          "start": 1.49,
+          "end": 1.75,
+          "key": "flower",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sweet,",
+          "start": 1.75,
+          "end": 2.15,
+          "key": "sweet",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "On",
+          "start": 2.59,
+          "end": 2.67,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.67,
+          "end": 2.81,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "black",
+          "start": 2.81,
+          "end": 3.05,
+          "key": "black",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "coffin",
+          "start": 3.05,
+          "end": 3.49,
+          "key": "coffin",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 3.49,
+          "end": 3.69,
+          "key": "let",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 3.69,
+          "end": 3.83,
+          "key": "there",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.83,
+          "end": 3.97,
+          "key": "be",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "strown,",
+          "start": 3.97,
+          "end": 4.37,
+          "key": "strown",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 4.37,
+          "end": 5.17,
+          "key": "not",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.17,
+          "end": 5.31,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "friend,",
+          "start": 5.31,
+          "end": 5.61,
+          "key": "friend",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.09,
+          "end": 6.17,
+          "key": "not",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.17,
+          "end": 6.33,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "friend",
+          "start": 6.33,
+          "end": 6.57,
+          "key": "friend",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "greet",
+          "start": 6.57,
+          "end": 6.83,
+          "key": "greet",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 6.83,
+          "end": 7.07,
+          "key": "my",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 7.07,
+          "end": 7.33,
+          "key": "poor",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "corpse",
+          "start": 7.33,
+          "end": 7.69,
+          "key": "corpse",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 7.69,
+          "end": 7.89,
+          "key": "where",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.89,
+          "end": 8.05,
+          "key": "my",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "bones",
+          "start": 8.05,
+          "end": 8.37,
+          "key": "bones",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 8.37,
+          "end": 8.61,
+          "key": "shall",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 8.61,
+          "end": 8.75,
+          "key": "be",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "thrown.",
+          "start": 8.75,
+          "end": 9.05,
+          "key": "thrown",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 9.81,
+          "end": 9.91,
+          "key": "a",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 9.91,
+          "end": 10.25,
+          "key": "thousand",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 10.25,
+          "end": 10.69,
+          "key": "thousand",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "sighs",
+          "start": 10.69,
+          "end": 11.21,
+          "key": "sighs",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.21,
+          "end": 11.31,
+          "key": "to",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "save,",
+          "start": 11.31,
+          "end": 11.73,
+          "key": "save",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Lay",
+          "start": 12.09,
+          "end": 12.21,
+          "key": "lay",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 12.21,
+          "end": 12.55,
+          "key": "me",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 12.95,
+          "end": 13.15,
+          "key": "o",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 13.39,
+          "end": 13.45,
+          "key": "where",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Sad",
+          "start": 13.45,
+          "end": 13.77,
+          "key": "sad",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 13.77,
+          "end": 14.13,
+          "key": "true",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "lover",
+          "start": 14.13,
+          "end": 14.41,
+          "key": "lover",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 14.41,
+          "end": 14.65,
+          "key": "never",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 14.65,
+          "end": 14.99,
+          "key": "find",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 14.99,
+          "end": 15.19,
+          "key": "my",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "grave,",
+          "start": 15.19,
+          "end": 15.51,
+          "key": "grave",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 15.75,
+          "end": 15.81,
+          "key": "to",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "weep",
+          "start": 15.81,
+          "end": 15.99,
+          "key": "weep",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "there._",
+          "start": 15.99,
+          "end": 16.25,
+          "key": "there_",
+          "pieces": [
+            50
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "Not",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "a",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "flower,",
+          "start": 0.67,
+          "end": 1.01
+        },
+        {
+          "text": "not",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "text": "a",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "flower",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "text": "sweet,",
+          "start": 1.75,
+          "end": 2.15
+        },
+        {
+          "text": "On",
+          "start": 2.59,
+          "end": 2.67
+        },
+        {
+          "text": "my",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "text": "black",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "text": "coffin",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "text": "let",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "text": "there",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "text": "be",
+          "start": 3.83,
+          "end": 3.97
+        },
+        {
+          "text": "strown:",
+          "start": 3.97,
+          "end": 4.37
+        },
+        {
+          "text": "Not",
+          "start": 4.37,
+          "end": 5.17
+        },
+        {
+          "text": "a",
+          "start": 5.17,
+          "end": 5.31
+        },
+        {
+          "text": "friend,",
+          "start": 5.31,
+          "end": 5.61
+        },
+        {
+          "text": "not",
+          "start": 6.09,
+          "end": 6.17
+        },
+        {
+          "text": "a",
+          "start": 6.17,
+          "end": 6.33
+        },
+        {
+          "text": "friend",
+          "start": 6.33,
+          "end": 6.57
+        },
+        {
+          "text": "greet",
+          "start": 6.57,
+          "end": 6.83
+        },
+        {
+          "text": "My",
+          "start": 6.83,
+          "end": 7.07
+        },
+        {
+          "text": "poor",
+          "start": 7.07,
+          "end": 7.33
+        },
+        {
+          "text": "corpse",
+          "start": 7.33,
+          "end": 7.69
+        },
+        {
+          "text": "where",
+          "start": 7.69,
+          "end": 7.89
+        },
+        {
+          "text": "my",
+          "start": 7.89,
+          "end": 8.05
+        },
+        {
+          "text": "bones",
+          "start": 8.05,
+          "end": 8.37
+        },
+        {
+          "text": "shall",
+          "start": 8.37,
+          "end": 8.61
+        },
+        {
+          "text": "be",
+          "start": 8.61,
+          "end": 8.75
+        },
+        {
+          "text": "thrown:",
+          "start": 8.75,
+          "end": 9.05
+        },
+        {
+          "text": "A",
+          "start": 9.81,
+          "end": 9.91
+        },
+        {
+          "text": "thousand",
+          "start": 9.91,
+          "end": 10.25
+        },
+        {
+          "text": "thousand",
+          "start": 10.25,
+          "end": 10.69
+        },
+        {
+          "text": "sighs",
+          "start": 10.69,
+          "end": 11.21
+        },
+        {
+          "text": "to",
+          "start": 11.21,
+          "end": 11.31
+        },
+        {
+          "text": "save,",
+          "start": 11.31,
+          "end": 11.73
+        },
+        {
+          "text": "Lay",
+          "start": 12.09,
+          "end": 12.21
+        },
+        {
+          "text": "me,",
+          "start": 12.21,
+          "end": 12.55
+        },
+        {
+          "text": "O,",
+          "start": 12.95,
+          "end": 13.15
+        },
+        {
+          "text": "where",
+          "start": 13.39,
+          "end": 13.45
+        },
+        {
+          "text": "Sad",
+          "start": 13.45,
+          "end": 13.77
+        },
+        {
+          "text": "true",
+          "start": 13.77,
+          "end": 14.13
+        },
+        {
+          "text": "lover",
+          "start": 14.13,
+          "end": 14.41
+        },
+        {
+          "text": "never",
+          "start": 14.41,
+          "end": 14.65
+        },
+        {
+          "text": "find",
+          "start": 14.65,
+          "end": 14.99
+        },
+        {
+          "text": "my",
+          "start": 14.99,
+          "end": 15.19
+        },
+        {
+          "text": "grave,",
+          "start": 15.19,
+          "end": 15.51
+        },
+        {
+          "text": "To",
+          "start": 15.75,
+          "end": 15.81
+        },
+        {
+          "text": "weep",
+          "start": 15.81,
+          "end": 15.99
+        },
+        {
+          "text": "there._",
+          "start": 15.99,
+          "end": 16.12
+        }
+      ],
+      "stats": {
+        "expected_words": 51,
+        "heard_words": 51,
+        "matched_words": 50
+      },
+      "match_ratio": 0.9803921568627451,
+      "rejection_reasons": [],
+      "seconds": 0.6769735105335712
+    },
+    {
+      "asr_seconds": 0.5542760789394379,
+      "alignment_seconds": 0.0010508447885513306,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "On, Lay, O, Sad"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Not a flower, not a flower sweet. On my black coffin let there be strown. Not a friend, not a friend",
+          "start": 0.05,
+          "end": 6.55,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " a",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " flower,",
+              "start": 0.67,
+              "end": 1.01,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " not",
+              "start": 1.27,
+              "end": 1.35,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " a",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " flower",
+              "start": 1.49,
+              "end": 1.75,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " sweet.",
+              "start": 1.75,
+              "end": 2.15,
+              "probability": 0.884765625
+            },
+            {
+              "text": " On",
+              "start": 2.57,
+              "end": 2.67,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " my",
+              "start": 2.67,
+              "end": 2.81,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " black",
+              "start": 2.81,
+              "end": 3.05,
+              "probability": 0.984375
+            },
+            {
+              "text": " coffin",
+              "start": 3.05,
+              "end": 3.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " let",
+              "start": 3.49,
+              "end": 3.69,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " there",
+              "start": 3.69,
+              "end": 3.83,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " be",
+              "start": 3.83,
+              "end": 3.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " strown.",
+              "start": 3.97,
+              "end": 4.37,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " Not",
+              "start": 5.03,
+              "end": 5.17,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " a",
+              "start": 5.17,
+              "end": 5.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " friend,",
+              "start": 5.31,
+              "end": 5.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 6.07,
+              "end": 6.17,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " a",
+              "start": 6.17,
+              "end": 6.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " friend",
+              "start": 6.31,
+              "end": 6.55,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " greet my poor corpse where my bones shall be thrown. A thousand thousand sighs to save, lay me,",
+          "start": 6.55,
+          "end": 12.53,
+          "words": [
+            {
+              "text": " greet",
+              "start": 6.55,
+              "end": 6.83,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " my",
+              "start": 6.83,
+              "end": 7.09,
+              "probability": 0.9609375
+            },
+            {
+              "text": " poor",
+              "start": 7.09,
+              "end": 7.35,
+              "probability": 0.97265625
+            },
+            {
+              "text": " corpse",
+              "start": 7.35,
+              "end": 7.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " where",
+              "start": 7.67,
+              "end": 7.89,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " my",
+              "start": 7.89,
+              "end": 8.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bones",
+              "start": 8.05,
+              "end": 8.37,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " shall",
+              "start": 8.37,
+              "end": 8.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 8.61,
+              "end": 8.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thrown.",
+              "start": 8.75,
+              "end": 9.05,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " A",
+              "start": 9.85,
+              "end": 9.91,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " thousand",
+              "start": 9.91,
+              "end": 10.25,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " thousand",
+              "start": 10.25,
+              "end": 10.65,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " sighs",
+              "start": 10.65,
+              "end": 11.21,
+              "probability": 0.886474609375
+            },
+            {
+              "text": " to",
+              "start": 11.21,
+              "end": 11.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " save,",
+              "start": 11.31,
+              "end": 11.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lay",
+              "start": 12.19,
+              "end": 12.23,
+              "probability": 0.927734375
+            },
+            {
+              "text": " me,",
+              "start": 12.23,
+              "end": 12.53,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " O, where sad true lover never find my grave, to weep there.",
+          "start": 12.95,
+          "end": 16.31,
+          "words": [
+            {
+              "text": " O,",
+              "start": 12.95,
+              "end": 13.15,
+              "probability": 0.12396240234375
+            },
+            {
+              "text": " where",
+              "start": 13.45,
+              "end": 13.45,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " sad",
+              "start": 13.45,
+              "end": 13.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " true",
+              "start": 13.77,
+              "end": 14.11,
+              "probability": 0.875
+            },
+            {
+              "text": " lover",
+              "start": 14.11,
+              "end": 14.41,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " never",
+              "start": 14.41,
+              "end": 14.67,
+              "probability": 0.95703125
+            },
+            {
+              "text": " find",
+              "start": 14.67,
+              "end": 14.97,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " my",
+              "start": 14.97,
+              "end": 15.19,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " grave,",
+              "start": 15.19,
+              "end": 15.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 15.75,
+              "end": 15.81,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " weep",
+              "start": 15.81,
+              "end": 15.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " there.",
+              "start": 15.99,
+              "end": 16.31,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "a",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "flower,",
+          "start": 0.67,
+          "end": 1.01
+        },
+        {
+          "raw": "not",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "raw": "a",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "flower",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "raw": "sweet.",
+          "start": 1.75,
+          "end": 2.15
+        },
+        {
+          "raw": "On",
+          "start": 2.57,
+          "end": 2.67
+        },
+        {
+          "raw": "my",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "raw": "black",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "raw": "coffin",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "raw": "let",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "raw": "there",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "raw": "be",
+          "start": 3.83,
+          "end": 3.97
+        },
+        {
+          "raw": "strown.",
+          "start": 3.97,
+          "end": 4.37
+        },
+        {
+          "raw": "Not",
+          "start": 5.03,
+          "end": 5.17
+        },
+        {
+          "raw": "a",
+          "start": 5.17,
+          "end": 5.31
+        },
+        {
+          "raw": "friend,",
+          "start": 5.31,
+          "end": 5.57
+        },
+        {
+          "raw": "not",
+          "start": 6.07,
+          "end": 6.17
+        },
+        {
+          "raw": "a",
+          "start": 6.17,
+          "end": 6.31
+        },
+        {
+          "raw": "friend",
+          "start": 6.31,
+          "end": 6.55
+        },
+        {
+          "raw": "greet",
+          "start": 6.55,
+          "end": 6.83
+        },
+        {
+          "raw": "my",
+          "start": 6.83,
+          "end": 7.09
+        },
+        {
+          "raw": "poor",
+          "start": 7.09,
+          "end": 7.35
+        },
+        {
+          "raw": "corpse",
+          "start": 7.35,
+          "end": 7.67
+        },
+        {
+          "raw": "where",
+          "start": 7.67,
+          "end": 7.89
+        },
+        {
+          "raw": "my",
+          "start": 7.89,
+          "end": 8.05
+        },
+        {
+          "raw": "bones",
+          "start": 8.05,
+          "end": 8.37
+        },
+        {
+          "raw": "shall",
+          "start": 8.37,
+          "end": 8.61
+        },
+        {
+          "raw": "be",
+          "start": 8.61,
+          "end": 8.75
+        },
+        {
+          "raw": "thrown.",
+          "start": 8.75,
+          "end": 9.05
+        },
+        {
+          "raw": "A",
+          "start": 9.85,
+          "end": 9.91
+        },
+        {
+          "raw": "thousand",
+          "start": 9.91,
+          "end": 10.25
+        },
+        {
+          "raw": "thousand",
+          "start": 10.25,
+          "end": 10.65
+        },
+        {
+          "raw": "sighs",
+          "start": 10.65,
+          "end": 11.21
+        },
+        {
+          "raw": "to",
+          "start": 11.21,
+          "end": 11.31
+        },
+        {
+          "raw": "save,",
+          "start": 11.31,
+          "end": 11.73
+        },
+        {
+          "raw": "lay",
+          "start": 12.19,
+          "end": 12.23
+        },
+        {
+          "raw": "me,",
+          "start": 12.23,
+          "end": 12.53
+        },
+        {
+          "raw": "O,",
+          "start": 12.95,
+          "end": 13.15
+        },
+        {
+          "raw": "where",
+          "start": 13.45,
+          "end": 13.45
+        },
+        {
+          "raw": "sad",
+          "start": 13.45,
+          "end": 13.77
+        },
+        {
+          "raw": "true",
+          "start": 13.77,
+          "end": 14.11
+        },
+        {
+          "raw": "lover",
+          "start": 14.11,
+          "end": 14.41
+        },
+        {
+          "raw": "never",
+          "start": 14.41,
+          "end": 14.67
+        },
+        {
+          "raw": "find",
+          "start": 14.67,
+          "end": 14.97
+        },
+        {
+          "raw": "my",
+          "start": 14.97,
+          "end": 15.19
+        },
+        {
+          "raw": "grave,",
+          "start": 15.19,
+          "end": 15.53
+        },
+        {
+          "raw": "to",
+          "start": 15.75,
+          "end": 15.81
+        },
+        {
+          "raw": "weep",
+          "start": 15.81,
+          "end": 15.99
+        },
+        {
+          "raw": "there.",
+          "start": 15.99,
+          "end": 16.31
+        }
+      ],
+      "expected_tokens": [
+        "_",
+        "Not",
+        "a",
+        "flower,",
+        "not",
+        "a",
+        "flower",
+        "sweet,",
+        "On",
+        "my",
+        "black",
+        "coffin",
+        "let",
+        "there",
+        "be",
+        "strown:",
+        "Not",
+        "a",
+        "friend,",
+        "not",
+        "a",
+        "friend",
+        "greet",
+        "My",
+        "poor",
+        "corpse",
+        "where",
+        "my",
+        "bones",
+        "shall",
+        "be",
+        "thrown:",
+        "A",
+        "thousand",
+        "thousand",
+        "sighs",
+        "to",
+        "save,",
+        "Lay",
+        "me,",
+        "O,",
+        "where",
+        "Sad",
+        "true",
+        "lover",
+        "never",
+        "find",
+        "my",
+        "grave,",
+        "To",
+        "weep",
+        "there._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          51,
+          0,
+          51
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 50
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [
+        0
+      ],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.55,
+          "end": 0.67,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "flower,",
+          "start": 0.67,
+          "end": 1.01,
+          "key": "flower",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.27,
+          "end": 1.35,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "flower",
+          "start": 1.49,
+          "end": 1.75,
+          "key": "flower",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sweet.",
+          "start": 1.75,
+          "end": 2.15,
+          "key": "sweet",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "On",
+          "start": 2.57,
+          "end": 2.67,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.67,
+          "end": 2.81,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "black",
+          "start": 2.81,
+          "end": 3.05,
+          "key": "black",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "coffin",
+          "start": 3.05,
+          "end": 3.49,
+          "key": "coffin",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 3.49,
+          "end": 3.69,
+          "key": "let",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 3.69,
+          "end": 3.83,
+          "key": "there",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.83,
+          "end": 3.97,
+          "key": "be",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "strown.",
+          "start": 3.97,
+          "end": 4.37,
+          "key": "strown",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 5.03,
+          "end": 5.17,
+          "key": "not",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.17,
+          "end": 5.31,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "friend,",
+          "start": 5.31,
+          "end": 5.57,
+          "key": "friend",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.07,
+          "end": 6.17,
+          "key": "not",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.17,
+          "end": 6.31,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "friend",
+          "start": 6.31,
+          "end": 6.55,
+          "key": "friend",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "greet",
+          "start": 6.55,
+          "end": 6.83,
+          "key": "greet",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 6.83,
+          "end": 7.09,
+          "key": "my",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 7.09,
+          "end": 7.35,
+          "key": "poor",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "corpse",
+          "start": 7.35,
+          "end": 7.67,
+          "key": "corpse",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 7.67,
+          "end": 7.89,
+          "key": "where",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.89,
+          "end": 8.05,
+          "key": "my",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "bones",
+          "start": 8.05,
+          "end": 8.37,
+          "key": "bones",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 8.37,
+          "end": 8.61,
+          "key": "shall",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 8.61,
+          "end": 8.75,
+          "key": "be",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "thrown.",
+          "start": 8.75,
+          "end": 9.05,
+          "key": "thrown",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 9.85,
+          "end": 9.91,
+          "key": "a",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 9.91,
+          "end": 10.25,
+          "key": "thousand",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 10.25,
+          "end": 10.65,
+          "key": "thousand",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "sighs",
+          "start": 10.65,
+          "end": 11.21,
+          "key": "sighs",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.21,
+          "end": 11.31,
+          "key": "to",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "save,",
+          "start": 11.31,
+          "end": 11.73,
+          "key": "save",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 12.19,
+          "end": 12.23,
+          "key": "lay",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 12.23,
+          "end": 12.53,
+          "key": "me",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 12.95,
+          "end": 13.15,
+          "key": "o",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 13.45,
+          "end": 13.45,
+          "key": "where",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "sad",
+          "start": 13.45,
+          "end": 13.77,
+          "key": "sad",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 13.77,
+          "end": 14.11,
+          "key": "true",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "lover",
+          "start": 14.11,
+          "end": 14.41,
+          "key": "lover",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 14.41,
+          "end": 14.67,
+          "key": "never",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 14.67,
+          "end": 14.97,
+          "key": "find",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 14.97,
+          "end": 15.19,
+          "key": "my",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "grave,",
+          "start": 15.19,
+          "end": 15.53,
+          "key": "grave",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.75,
+          "end": 15.81,
+          "key": "to",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "weep",
+          "start": 15.81,
+          "end": 15.99,
+          "key": "weep",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 15.99,
+          "end": 16.31,
+          "key": "there",
+          "pieces": [
+            50
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "Not",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "a",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "flower,",
+          "start": 0.67,
+          "end": 1.01
+        },
+        {
+          "text": "not",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "text": "a",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "flower",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "text": "sweet,",
+          "start": 1.75,
+          "end": 2.15
+        },
+        {
+          "text": "On",
+          "start": 2.57,
+          "end": 2.67
+        },
+        {
+          "text": "my",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "text": "black",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "text": "coffin",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "text": "let",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "text": "there",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "text": "be",
+          "start": 3.83,
+          "end": 3.97
+        },
+        {
+          "text": "strown:",
+          "start": 3.97,
+          "end": 4.37
+        },
+        {
+          "text": "Not",
+          "start": 5.03,
+          "end": 5.17
+        },
+        {
+          "text": "a",
+          "start": 5.17,
+          "end": 5.31
+        },
+        {
+          "text": "friend,",
+          "start": 5.31,
+          "end": 5.57
+        },
+        {
+          "text": "not",
+          "start": 6.07,
+          "end": 6.17
+        },
+        {
+          "text": "a",
+          "start": 6.17,
+          "end": 6.31
+        },
+        {
+          "text": "friend",
+          "start": 6.31,
+          "end": 6.55
+        },
+        {
+          "text": "greet",
+          "start": 6.55,
+          "end": 6.83
+        },
+        {
+          "text": "My",
+          "start": 6.83,
+          "end": 7.09
+        },
+        {
+          "text": "poor",
+          "start": 7.09,
+          "end": 7.35
+        },
+        {
+          "text": "corpse",
+          "start": 7.35,
+          "end": 7.67
+        },
+        {
+          "text": "where",
+          "start": 7.67,
+          "end": 7.89
+        },
+        {
+          "text": "my",
+          "start": 7.89,
+          "end": 8.05
+        },
+        {
+          "text": "bones",
+          "start": 8.05,
+          "end": 8.37
+        },
+        {
+          "text": "shall",
+          "start": 8.37,
+          "end": 8.61
+        },
+        {
+          "text": "be",
+          "start": 8.61,
+          "end": 8.75
+        },
+        {
+          "text": "thrown:",
+          "start": 8.75,
+          "end": 9.05
+        },
+        {
+          "text": "A",
+          "start": 9.85,
+          "end": 9.91
+        },
+        {
+          "text": "thousand",
+          "start": 9.91,
+          "end": 10.25
+        },
+        {
+          "text": "thousand",
+          "start": 10.25,
+          "end": 10.65
+        },
+        {
+          "text": "sighs",
+          "start": 10.65,
+          "end": 11.21
+        },
+        {
+          "text": "to",
+          "start": 11.21,
+          "end": 11.31
+        },
+        {
+          "text": "save,",
+          "start": 11.31,
+          "end": 11.73
+        },
+        {
+          "text": "Lay",
+          "start": 12.19,
+          "end": 12.23
+        },
+        {
+          "text": "me,",
+          "start": 12.23,
+          "end": 12.53
+        },
+        {
+          "text": "O,",
+          "start": 12.95,
+          "end": 13.15
+        },
+        {
+          "text": "where",
+          "start": 13.45,
+          "end": 13.45
+        },
+        {
+          "text": "Sad",
+          "start": 13.45,
+          "end": 13.77
+        },
+        {
+          "text": "true",
+          "start": 13.77,
+          "end": 14.11
+        },
+        {
+          "text": "lover",
+          "start": 14.11,
+          "end": 14.41
+        },
+        {
+          "text": "never",
+          "start": 14.41,
+          "end": 14.67
+        },
+        {
+          "text": "find",
+          "start": 14.67,
+          "end": 14.97
+        },
+        {
+          "text": "my",
+          "start": 14.97,
+          "end": 15.19
+        },
+        {
+          "text": "grave,",
+          "start": 15.19,
+          "end": 15.53
+        },
+        {
+          "text": "To",
+          "start": 15.75,
+          "end": 15.81
+        },
+        {
+          "text": "weep",
+          "start": 15.81,
+          "end": 15.99
+        },
+        {
+          "text": "there._",
+          "start": 15.99,
+          "end": 16.31
+        }
+      ],
+      "stats": {
+        "expected_words": 51,
+        "heard_words": 51,
+        "matched_words": 51
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5557867102324963
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "a2065fc6f3c85fc050661a7cc0d543eb65f73caa90b22963ccfc136b166a17f0",
+  "selected_reasons": []
+}

@@ -1,0 +1,192 @@
+{
+  "complete": true,
+  "signature": "5928c496f4e281b79c80229ec02199b501bd105dba9246983dfcd656a40725e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1358026280067861,
+      "alignment_seconds": 0.00011536898091435432,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lego, hehe, teasy.",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Lego,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.6435546875
+            },
+            {
+              "text": " hehe,",
+              "start": 1.09,
+              "end": 1.25,
+              "probability": 0.753173828125
+            },
+            {
+              "text": " teasy.",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.5067138671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lego,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "hehe,",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "raw": "teasy.",
+          "start": 1.55,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "He,",
+        "he,",
+        "'tis",
+        "he."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lego,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "lego",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hehe,",
+          "start": 1.09,
+          "end": 1.25,
+          "key": "hehe",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "teasy.",
+          "start": 1.55,
+          "end": 1.83,
+          "key": "teasy",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.915
+        },
+        {
+          "text": "He,",
+          "start": 0.915,
+          "end": 1.373
+        },
+        {
+          "text": "he,",
+          "start": 1.373,
+          "end": 1.602
+        },
+        {
+          "text": "'tis",
+          "start": 1.602,
+          "end": 1.716
+        },
+        {
+          "text": "he.",
+          "start": 1.716,
+          "end": 1.773
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1359489462338388
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d72cdfba45920521fac45fb2da617be5561589a9c44f73770ba1ec67d810a6fa",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

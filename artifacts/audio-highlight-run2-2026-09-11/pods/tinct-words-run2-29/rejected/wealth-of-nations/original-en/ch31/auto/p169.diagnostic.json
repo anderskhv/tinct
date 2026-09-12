@@ -1,0 +1,8616 @@
+{
+  "complete": true,
+  "signature": "7352d2033d25cf2f77efc7ab8a1dcfb39e9f8e4f3debc96695947a2e8b525835",
+  "attempts": [
+    {
+      "asr_seconds": 0.48379648849368095,
+      "alignment_seconds": 0.0016617178916931152,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Taxes upon butcher's meat are still more common than those upon bread. It may indeed be doubted, whether butcher's meat is any where a necessary of life. Grain and other vegetables, with the help of milk, cheese, and butter, or oil, where butter is not to be had, it is known from experience, can, without any butcher's meat, afford the most plentiful, the most wholesome, the most nourishing, and the most invigorating diet. Decency nowhere requires that any man should eat butcher's meat, as it in most places requires that he should wear a linen shirt or a pair of leather shoes.",
+        "hotwords": "Taxes, Grain, Decency"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Taxes upon butcher's meat are still more common than those upon bread, as it in most places",
+          "start": 0.05,
+          "end": 28.09,
+          "words": [
+            {
+              "text": " Taxes",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.1646728515625
+            },
+            {
+              "text": " upon",
+              "start": 0.71,
+              "end": 1.05,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " butcher's",
+              "start": 1.05,
+              "end": 1.51,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " meat",
+              "start": 1.51,
+              "end": 1.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " are",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " still",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " more",
+              "start": 2.03,
+              "end": 2.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " common",
+              "start": 2.27,
+              "end": 2.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " than",
+              "start": 2.63,
+              "end": 2.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " those",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " upon",
+              "start": 3.03,
+              "end": 3.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bread,",
+              "start": 3.37,
+              "end": 3.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " as",
+              "start": 4.37,
+              "end": 4.47,
+              "probability": 0.0016727447509765625
+            },
+            {
+              "text": " it",
+              "start": 4.47,
+              "end": 4.47,
+              "probability": 0.72900390625
+            },
+            {
+              "text": " in",
+              "start": 4.47,
+              "end": 4.71,
+              "probability": 0.00019979476928710938
+            },
+            {
+              "text": " most",
+              "start": 4.71,
+              "end": 10.01,
+              "probability": 0.003917694091796875
+            },
+            {
+              "text": " places",
+              "start": 10.01,
+              "end": 28.09,
+              "probability": 0.047607421875
+            }
+          ]
+        },
+        {
+          "text": " requires that he should wear a linen shirt or a pair of leather shoes.",
+          "start": 30.93,
+          "end": 34.77,
+          "words": [
+            {
+              "text": " requires",
+              "start": 30.93,
+              "end": 31.37,
+              "probability": 1.7762184143066406e-05
+            },
+            {
+              "text": " that",
+              "start": 31.37,
+              "end": 31.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " he",
+              "start": 31.81,
+              "end": 31.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " should",
+              "start": 31.97,
+              "end": 32.13,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " wear",
+              "start": 32.13,
+              "end": 32.35,
+              "probability": 0.986328125
+            },
+            {
+              "text": " a",
+              "start": 32.35,
+              "end": 32.51,
+              "probability": 0.994140625
+            },
+            {
+              "text": " linen",
+              "start": 32.51,
+              "end": 32.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shirt",
+              "start": 32.73,
+              "end": 33.15,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " or",
+              "start": 33.15,
+              "end": 33.69,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " a",
+              "start": 33.69,
+              "end": 33.81,
+              "probability": 0.990234375
+            },
+            {
+              "text": " pair",
+              "start": 33.81,
+              "end": 33.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 33.99,
+              "end": 34.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " leather",
+              "start": 34.15,
+              "end": 34.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shoes.",
+              "start": 34.37,
+              "end": 34.77,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Taxes",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "upon",
+          "start": 0.71,
+          "end": 1.05
+        },
+        {
+          "raw": "butcher's",
+          "start": 1.05,
+          "end": 1.51
+        },
+        {
+          "raw": "meat",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "raw": "are",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "raw": "still",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "more",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "raw": "common",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "raw": "than",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "raw": "those",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "upon",
+          "start": 3.03,
+          "end": 3.37
+        },
+        {
+          "raw": "bread,",
+          "start": 3.37,
+          "end": 3.71
+        },
+        {
+          "raw": "as",
+          "start": 4.37,
+          "end": 4.47
+        },
+        {
+          "raw": "it",
+          "start": 4.47,
+          "end": 4.47
+        },
+        {
+          "raw": "in",
+          "start": 4.47,
+          "end": 4.71
+        },
+        {
+          "raw": "most",
+          "start": 4.71,
+          "end": 10.01
+        },
+        {
+          "raw": "places",
+          "start": 10.01,
+          "end": 28.09
+        },
+        {
+          "raw": "requires",
+          "start": 30.93,
+          "end": 31.37
+        },
+        {
+          "raw": "that",
+          "start": 31.37,
+          "end": 31.81
+        },
+        {
+          "raw": "he",
+          "start": 31.81,
+          "end": 31.97
+        },
+        {
+          "raw": "should",
+          "start": 31.97,
+          "end": 32.13
+        },
+        {
+          "raw": "wear",
+          "start": 32.13,
+          "end": 32.35
+        },
+        {
+          "raw": "a",
+          "start": 32.35,
+          "end": 32.51
+        },
+        {
+          "raw": "linen",
+          "start": 32.51,
+          "end": 32.73
+        },
+        {
+          "raw": "shirt",
+          "start": 32.73,
+          "end": 33.15
+        },
+        {
+          "raw": "or",
+          "start": 33.15,
+          "end": 33.69
+        },
+        {
+          "raw": "a",
+          "start": 33.69,
+          "end": 33.81
+        },
+        {
+          "raw": "pair",
+          "start": 33.81,
+          "end": 33.99
+        },
+        {
+          "raw": "of",
+          "start": 33.99,
+          "end": 34.15
+        },
+        {
+          "raw": "leather",
+          "start": 34.15,
+          "end": 34.37
+        },
+        {
+          "raw": "shoes.",
+          "start": 34.37,
+          "end": 34.77
+        }
+      ],
+      "expected_tokens": [
+        "Taxes",
+        "upon",
+        "butcher's",
+        "meat",
+        "are",
+        "still",
+        "more",
+        "common",
+        "than",
+        "those",
+        "upon",
+        "bread.",
+        "It",
+        "may",
+        "indeed",
+        "be",
+        "doubted,",
+        "whether",
+        "butcher's",
+        "meat",
+        "is",
+        "any",
+        "where",
+        "a",
+        "necessary",
+        "of",
+        "life.",
+        "Grain",
+        "and",
+        "other",
+        "vegetables,",
+        "with",
+        "the",
+        "help",
+        "of",
+        "milk,",
+        "cheese,",
+        "and",
+        "butter,",
+        "or",
+        "oil,",
+        "where",
+        "butter",
+        "is",
+        "not",
+        "to",
+        "be",
+        "had,",
+        "it",
+        "is",
+        "known",
+        "from",
+        "experience,",
+        "can,",
+        "without",
+        "any",
+        "butcher's",
+        "meat,",
+        "afford",
+        "the",
+        "most",
+        "plentiful,",
+        "the",
+        "most",
+        "wholesome,",
+        "the",
+        "most",
+        "nourishing,",
+        "and",
+        "the",
+        "most",
+        "invigorating",
+        "diet.",
+        "Decency",
+        "nowhere",
+        "requires",
+        "that",
+        "any",
+        "man",
+        "should",
+        "eat",
+        "butcher's",
+        "meat,",
+        "as",
+        "it",
+        "in",
+        "most",
+        "places",
+        "requires",
+        "that",
+        "he",
+        "should",
+        "wear",
+        "a",
+        "linen",
+        "shirt",
+        "or",
+        "a",
+        "pair",
+        "of",
+        "leather",
+        "shoes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "delete",
+          12,
+          83,
+          12,
+          12
+        ],
+        [
+          "equal",
+          83,
+          102,
+          12,
+          31
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 78,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 79,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 80,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 81,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 82,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 30
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          12,
+          83,
+          12,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Taxes",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "taxes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 0.71,
+          "end": 1.05,
+          "key": "upon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "butcher's",
+          "start": 1.05,
+          "end": 1.51,
+          "key": "butchers",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "meat",
+          "start": 1.51,
+          "end": 1.69,
+          "key": "meat",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 1.83,
+          "end": 2.03,
+          "key": "still",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.03,
+          "end": 2.27,
+          "key": "more",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "common",
+          "start": 2.27,
+          "end": 2.63,
+          "key": "common",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.63,
+          "end": 2.87,
+          "key": "than",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "those",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.03,
+          "end": 3.37,
+          "key": "upon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bread,",
+          "start": 3.37,
+          "end": 3.71,
+          "key": "bread",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.37,
+          "end": 4.47,
+          "key": "as",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.47,
+          "end": 4.47,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.47,
+          "end": 4.71,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 4.71,
+          "end": 10.01,
+          "key": "most",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "places",
+          "start": 10.01,
+          "end": 28.09,
+          "key": "places",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "requires",
+          "start": 30.93,
+          "end": 31.37,
+          "key": "requires",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 31.37,
+          "end": 31.81,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 31.81,
+          "end": 31.97,
+          "key": "he",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 31.97,
+          "end": 32.13,
+          "key": "should",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 32.13,
+          "end": 32.35,
+          "key": "wear",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 32.35,
+          "end": 32.51,
+          "key": "a",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "linen",
+          "start": 32.51,
+          "end": 32.73,
+          "key": "linen",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "shirt",
+          "start": 32.73,
+          "end": 33.15,
+          "key": "shirt",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 33.15,
+          "end": 33.69,
+          "key": "or",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 33.69,
+          "end": 33.81,
+          "key": "a",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "pair",
+          "start": 33.81,
+          "end": 33.99,
+          "key": "pair",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 33.99,
+          "end": 34.15,
+          "key": "of",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "leather",
+          "start": 34.15,
+          "end": 34.37,
+          "key": "leather",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "shoes.",
+          "start": 34.37,
+          "end": 34.77,
+          "key": "shoes",
+          "pieces": [
+            30
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Taxes",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "upon",
+          "start": 0.71,
+          "end": 1.05
+        },
+        {
+          "text": "butcher's",
+          "start": 1.05,
+          "end": 1.51
+        },
+        {
+          "text": "meat",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "are",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "text": "still",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "more",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "text": "common",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "text": "than",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "text": "those",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "text": "upon",
+          "start": 3.03,
+          "end": 3.37
+        },
+        {
+          "text": "bread.",
+          "start": 3.37,
+          "end": 3.71
+        },
+        {
+          "text": "It",
+          "start": 3.71,
+          "end": 4.04
+        },
+        {
+          "text": "may",
+          "start": 4.04,
+          "end": 4.205
+        },
+        {
+          "text": "indeed",
+          "start": 4.205,
+          "end": 4.287
+        },
+        {
+          "text": "be",
+          "start": 4.287,
+          "end": 4.329
+        },
+        {
+          "text": "doubted,",
+          "start": 4.329,
+          "end": 4.349
+        },
+        {
+          "text": "whether",
+          "start": 4.349,
+          "end": 4.36
+        },
+        {
+          "text": "butcher's",
+          "start": 4.36,
+          "end": 4.365
+        },
+        {
+          "text": "meat",
+          "start": 4.365,
+          "end": 4.367
+        },
+        {
+          "text": "is",
+          "start": 4.367,
+          "end": 4.369
+        },
+        {
+          "text": "any",
+          "start": 4.369,
+          "end": 4.37
+        },
+        {
+          "text": "where",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "a",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "necessary",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "of",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "life.",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "Grain",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "and",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "other",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "vegetables,",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "with",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "the",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "help",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "of",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "milk,",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "cheese,",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "and",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "butter,",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "or",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "oil,",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "where",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "butter",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "is",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "not",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "to",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "be",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "had,",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "it",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "is",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "known",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "from",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "experience,",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "can,",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "without",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "any",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "butcher's",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "meat,",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "afford",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "the",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "most",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "plentiful,",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "the",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "most",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "wholesome,",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "the",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "most",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "nourishing,",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "and",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "the",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "most",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "invigorating",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "diet.",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "Decency",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "nowhere",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "requires",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "that",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "any",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "man",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "should",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "eat",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "butcher's",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "meat,",
+          "start": 4.37,
+          "end": 4.37
+        },
+        {
+          "text": "as",
+          "start": 4.37,
+          "end": 4.47
+        },
+        {
+          "text": "it",
+          "start": 4.47,
+          "end": 4.47
+        },
+        {
+          "text": "in",
+          "start": 4.47,
+          "end": 4.71
+        },
+        {
+          "text": "most",
+          "start": 4.71,
+          "end": 10.01
+        },
+        {
+          "text": "places",
+          "start": 10.01,
+          "end": 28.09
+        },
+        {
+          "text": "requires",
+          "start": 30.93,
+          "end": 31.37
+        },
+        {
+          "text": "that",
+          "start": 31.37,
+          "end": 31.81
+        },
+        {
+          "text": "he",
+          "start": 31.81,
+          "end": 31.97
+        },
+        {
+          "text": "should",
+          "start": 31.97,
+          "end": 32.13
+        },
+        {
+          "text": "wear",
+          "start": 32.13,
+          "end": 32.35
+        },
+        {
+          "text": "a",
+          "start": 32.35,
+          "end": 32.51
+        },
+        {
+          "text": "linen",
+          "start": 32.51,
+          "end": 32.73
+        },
+        {
+          "text": "shirt",
+          "start": 32.73,
+          "end": 33.15
+        },
+        {
+          "text": "or",
+          "start": 33.15,
+          "end": 33.69
+        },
+        {
+          "text": "a",
+          "start": 33.69,
+          "end": 33.81
+        },
+        {
+          "text": "pair",
+          "start": 33.81,
+          "end": 33.99
+        },
+        {
+          "text": "of",
+          "start": 33.99,
+          "end": 34.15
+        },
+        {
+          "text": "leather",
+          "start": 34.15,
+          "end": 34.37
+        },
+        {
+          "text": "shoes.",
+          "start": 34.37,
+          "end": 34.77
+        }
+      ],
+      "stats": {
+        "expected_words": 102,
+        "heard_words": 31,
+        "matched_words": 31
+      },
+      "match_ratio": 0.30392156862745096,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.48574951011687517
+    },
+    {
+      "asr_seconds": 0.9526563147082925,
+      "alignment_seconds": 0.001888170838356018,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Taxes, Grain, Decency"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Taxes upon butcher's meat are still more common than those upon bread. It may indeed",
+          "start": 0.05,
+          "end": 4.93,
+          "words": [
+            {
+              "text": " Taxes",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.164794921875
+            },
+            {
+              "text": " upon",
+              "start": 0.69,
+              "end": 1.05,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " butcher's",
+              "start": 1.05,
+              "end": 1.51,
+              "probability": 0.819091796875
+            },
+            {
+              "text": " meat",
+              "start": 1.51,
+              "end": 1.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " are",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " still",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " more",
+              "start": 2.03,
+              "end": 2.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " common",
+              "start": 2.27,
+              "end": 2.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " than",
+              "start": 2.63,
+              "end": 2.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " those",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " upon",
+              "start": 3.03,
+              "end": 3.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bread.",
+              "start": 3.37,
+              "end": 3.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " It",
+              "start": 4.39,
+              "end": 4.45,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " may",
+              "start": 4.45,
+              "end": 4.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " indeed",
+              "start": 4.63,
+              "end": 4.93,
+              "probability": 0.97216796875
+            }
+          ]
+        },
+        {
+          "text": " be doubted whether butcher's meat is anywhere necessary of life. Grain and other vegetables",
+          "start": 4.93,
+          "end": 10.49,
+          "words": [
+            {
+              "text": " be",
+              "start": 4.93,
+              "end": 5.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " doubted",
+              "start": 5.17,
+              "end": 5.51,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " whether",
+              "start": 5.51,
+              "end": 6.09,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " butcher's",
+              "start": 6.09,
+              "end": 6.53,
+              "probability": 0.962890625
+            },
+            {
+              "text": " meat",
+              "start": 6.53,
+              "end": 6.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 6.69,
+              "end": 6.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " anywhere",
+              "start": 6.89,
+              "end": 7.33,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " necessary",
+              "start": 7.33,
+              "end": 7.75,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " of",
+              "start": 7.75,
+              "end": 8.15,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " life.",
+              "start": 8.15,
+              "end": 8.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Grain",
+              "start": 9.49,
+              "end": 9.49,
+              "probability": 0.974609375
+            },
+            {
+              "text": " and",
+              "start": 9.49,
+              "end": 9.79,
+              "probability": 0.98046875
+            },
+            {
+              "text": " other",
+              "start": 9.79,
+              "end": 10.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " vegetables",
+              "start": 10.03,
+              "end": 10.49,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " with the help of milk, cheese, and butter or oil, where butter is not to be had, it",
+          "start": 10.49,
+          "end": 15.65,
+          "words": [
+            {
+              "text": " with",
+              "start": 10.49,
+              "end": 10.77,
+              "probability": 0.6435546875
+            },
+            {
+              "text": " the",
+              "start": 10.77,
+              "end": 10.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " help",
+              "start": 10.87,
+              "end": 11.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 11.05,
+              "end": 11.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " milk,",
+              "start": 11.29,
+              "end": 11.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cheese,",
+              "start": 11.95,
+              "end": 12.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 12.37,
+              "end": 12.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " butter",
+              "start": 12.47,
+              "end": 12.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " or",
+              "start": 12.71,
+              "end": 12.97,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " oil,",
+              "start": 12.97,
+              "end": 13.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " where",
+              "start": 13.69,
+              "end": 13.83,
+              "probability": 0.990234375
+            },
+            {
+              "text": " butter",
+              "start": 13.83,
+              "end": 14.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 14.09,
+              "end": 14.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 14.29,
+              "end": 14.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 14.49,
+              "end": 14.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 14.63,
+              "end": 14.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " had,",
+              "start": 14.75,
+              "end": 15.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 15.51,
+              "end": 15.65,
+              "probability": 0.98193359375
+            }
+          ]
+        },
+        {
+          "text": " is known from experience, can, without any butcher's meat, afford the most plentiful,",
+          "start": 15.65,
+          "end": 19.89,
+          "words": [
+            {
+              "text": " is",
+              "start": 15.65,
+              "end": 15.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " known",
+              "start": 15.77,
+              "end": 15.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " from",
+              "start": 15.99,
+              "end": 16.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " experience,",
+              "start": 16.21,
+              "end": 16.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " can,",
+              "start": 17.21,
+              "end": 17.41,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " without",
+              "start": 17.57,
+              "end": 17.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " any",
+              "start": 17.81,
+              "end": 18.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " butcher's",
+              "start": 18.07,
+              "end": 18.49,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " meat,",
+              "start": 18.49,
+              "end": 18.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " afford",
+              "start": 18.83,
+              "end": 19.05,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 19.05,
+              "end": 19.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " most",
+              "start": 19.23,
+              "end": 19.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " plentiful,",
+              "start": 19.49,
+              "end": 19.89,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " the most wholesome, the most nourishing, and the most invigorating diet. Decency nowhere",
+          "start": 20.49,
+          "end": 26.61,
+          "words": [
+            {
+              "text": " the",
+              "start": 20.49,
+              "end": 20.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " most",
+              "start": 20.57,
+              "end": 20.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wholesome,",
+              "start": 20.79,
+              "end": 21.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 21.73,
+              "end": 21.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " most",
+              "start": 21.81,
+              "end": 22.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " nourishing,",
+              "start": 22.05,
+              "end": 22.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 22.81,
+              "end": 22.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 22.93,
+              "end": 23.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " most",
+              "start": 23.01,
+              "end": 23.27,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " invigorating",
+              "start": 23.27,
+              "end": 23.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " diet.",
+              "start": 23.93,
+              "end": 24.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Decency",
+              "start": 25.55,
+              "end": 26.01,
+              "probability": 0.9765625
+            },
+            {
+              "text": " nowhere",
+              "start": 26.01,
+              "end": 26.61,
+              "probability": 0.81201171875
+            }
+          ]
+        },
+        {
+          "text": " requires that any man should eat butcher's meat, as it in most places requires that he",
+          "start": 26.61,
+          "end": 31.97,
+          "words": [
+            {
+              "text": " requires",
+              "start": 26.61,
+              "end": 27.09,
+              "probability": 0.806640625
+            },
+            {
+              "text": " that",
+              "start": 27.09,
+              "end": 27.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " any",
+              "start": 27.51,
+              "end": 27.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " man",
+              "start": 27.73,
+              "end": 28.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " should",
+              "start": 28.05,
+              "end": 28.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " eat",
+              "start": 28.29,
+              "end": 28.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " butcher's",
+              "start": 28.57,
+              "end": 29.07,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " meat,",
+              "start": 29.07,
+              "end": 29.31,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " as",
+              "start": 29.75,
+              "end": 29.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 29.95,
+              "end": 30.05,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " in",
+              "start": 30.05,
+              "end": 30.17,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " most",
+              "start": 30.17,
+              "end": 30.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " places",
+              "start": 30.45,
+              "end": 30.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " requires",
+              "start": 30.93,
+              "end": 31.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 31.41,
+              "end": 31.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 31.81,
+              "end": 31.97,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " should wear a linen shirt or a pair of leather shoes.",
+          "start": 31.97,
+          "end": 34.75,
+          "words": [
+            {
+              "text": " should",
+              "start": 31.97,
+              "end": 32.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wear",
+              "start": 32.13,
+              "end": 32.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 32.35,
+              "end": 32.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " linen",
+              "start": 32.51,
+              "end": 32.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shirt",
+              "start": 32.73,
+              "end": 33.15,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " or",
+              "start": 33.15,
+              "end": 33.69,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " a",
+              "start": 33.69,
+              "end": 33.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " pair",
+              "start": 33.81,
+              "end": 33.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 33.99,
+              "end": 34.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " leather",
+              "start": 34.15,
+              "end": 34.35,
+              "probability": 1.0
+            },
+            {
+              "text": " shoes.",
+              "start": 34.35,
+              "end": 34.75,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Taxes",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "upon",
+          "start": 0.69,
+          "end": 1.05
+        },
+        {
+          "raw": "butcher's",
+          "start": 1.05,
+          "end": 1.51
+        },
+        {
+          "raw": "meat",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "raw": "are",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "raw": "still",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "more",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "raw": "common",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "raw": "than",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "raw": "those",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "upon",
+          "start": 3.03,
+          "end": 3.37
+        },
+        {
+          "raw": "bread.",
+          "start": 3.37,
+          "end": 3.71
+        },
+        {
+          "raw": "It",
+          "start": 4.39,
+          "end": 4.45
+        },
+        {
+          "raw": "may",
+          "start": 4.45,
+          "end": 4.63
+        },
+        {
+          "raw": "indeed",
+          "start": 4.63,
+          "end": 4.93
+        },
+        {
+          "raw": "be",
+          "start": 4.93,
+          "end": 5.17
+        },
+        {
+          "raw": "doubted",
+          "start": 5.17,
+          "end": 5.51
+        },
+        {
+          "raw": "whether",
+          "start": 5.51,
+          "end": 6.09
+        },
+        {
+          "raw": "butcher's",
+          "start": 6.09,
+          "end": 6.53
+        },
+        {
+          "raw": "meat",
+          "start": 6.53,
+          "end": 6.69
+        },
+        {
+          "raw": "is",
+          "start": 6.69,
+          "end": 6.89
+        },
+        {
+          "raw": "anywhere",
+          "start": 6.89,
+          "end": 7.33
+        },
+        {
+          "raw": "necessary",
+          "start": 7.33,
+          "end": 7.75
+        },
+        {
+          "raw": "of",
+          "start": 7.75,
+          "end": 8.15
+        },
+        {
+          "raw": "life.",
+          "start": 8.15,
+          "end": 8.43
+        },
+        {
+          "raw": "Grain",
+          "start": 9.49,
+          "end": 9.49
+        },
+        {
+          "raw": "and",
+          "start": 9.49,
+          "end": 9.79
+        },
+        {
+          "raw": "other",
+          "start": 9.79,
+          "end": 10.03
+        },
+        {
+          "raw": "vegetables",
+          "start": 10.03,
+          "end": 10.49
+        },
+        {
+          "raw": "with",
+          "start": 10.49,
+          "end": 10.77
+        },
+        {
+          "raw": "the",
+          "start": 10.77,
+          "end": 10.87
+        },
+        {
+          "raw": "help",
+          "start": 10.87,
+          "end": 11.05
+        },
+        {
+          "raw": "of",
+          "start": 11.05,
+          "end": 11.29
+        },
+        {
+          "raw": "milk,",
+          "start": 11.29,
+          "end": 11.51
+        },
+        {
+          "raw": "cheese,",
+          "start": 11.95,
+          "end": 12.13
+        },
+        {
+          "raw": "and",
+          "start": 12.37,
+          "end": 12.47
+        },
+        {
+          "raw": "butter",
+          "start": 12.47,
+          "end": 12.71
+        },
+        {
+          "raw": "or",
+          "start": 12.71,
+          "end": 12.97
+        },
+        {
+          "raw": "oil,",
+          "start": 12.97,
+          "end": 13.29
+        },
+        {
+          "raw": "where",
+          "start": 13.69,
+          "end": 13.83
+        },
+        {
+          "raw": "butter",
+          "start": 13.83,
+          "end": 14.09
+        },
+        {
+          "raw": "is",
+          "start": 14.09,
+          "end": 14.29
+        },
+        {
+          "raw": "not",
+          "start": 14.29,
+          "end": 14.49
+        },
+        {
+          "raw": "to",
+          "start": 14.49,
+          "end": 14.63
+        },
+        {
+          "raw": "be",
+          "start": 14.63,
+          "end": 14.75
+        },
+        {
+          "raw": "had,",
+          "start": 14.75,
+          "end": 15.11
+        },
+        {
+          "raw": "it",
+          "start": 15.51,
+          "end": 15.65
+        },
+        {
+          "raw": "is",
+          "start": 15.65,
+          "end": 15.77
+        },
+        {
+          "raw": "known",
+          "start": 15.77,
+          "end": 15.99
+        },
+        {
+          "raw": "from",
+          "start": 15.99,
+          "end": 16.21
+        },
+        {
+          "raw": "experience,",
+          "start": 16.21,
+          "end": 16.87
+        },
+        {
+          "raw": "can,",
+          "start": 17.21,
+          "end": 17.41
+        },
+        {
+          "raw": "without",
+          "start": 17.57,
+          "end": 17.81
+        },
+        {
+          "raw": "any",
+          "start": 17.81,
+          "end": 18.07
+        },
+        {
+          "raw": "butcher's",
+          "start": 18.07,
+          "end": 18.49
+        },
+        {
+          "raw": "meat,",
+          "start": 18.49,
+          "end": 18.73
+        },
+        {
+          "raw": "afford",
+          "start": 18.83,
+          "end": 19.05
+        },
+        {
+          "raw": "the",
+          "start": 19.05,
+          "end": 19.23
+        },
+        {
+          "raw": "most",
+          "start": 19.23,
+          "end": 19.49
+        },
+        {
+          "raw": "plentiful,",
+          "start": 19.49,
+          "end": 19.89
+        },
+        {
+          "raw": "the",
+          "start": 20.49,
+          "end": 20.57
+        },
+        {
+          "raw": "most",
+          "start": 20.57,
+          "end": 20.79
+        },
+        {
+          "raw": "wholesome,",
+          "start": 20.79,
+          "end": 21.35
+        },
+        {
+          "raw": "the",
+          "start": 21.73,
+          "end": 21.81
+        },
+        {
+          "raw": "most",
+          "start": 21.81,
+          "end": 22.05
+        },
+        {
+          "raw": "nourishing,",
+          "start": 22.05,
+          "end": 22.59
+        },
+        {
+          "raw": "and",
+          "start": 22.81,
+          "end": 22.93
+        },
+        {
+          "raw": "the",
+          "start": 22.93,
+          "end": 23.01
+        },
+        {
+          "raw": "most",
+          "start": 23.01,
+          "end": 23.27
+        },
+        {
+          "raw": "invigorating",
+          "start": 23.27,
+          "end": 23.93
+        },
+        {
+          "raw": "diet.",
+          "start": 23.93,
+          "end": 24.35
+        },
+        {
+          "raw": "Decency",
+          "start": 25.55,
+          "end": 26.01
+        },
+        {
+          "raw": "nowhere",
+          "start": 26.01,
+          "end": 26.61
+        },
+        {
+          "raw": "requires",
+          "start": 26.61,
+          "end": 27.09
+        },
+        {
+          "raw": "that",
+          "start": 27.09,
+          "end": 27.51
+        },
+        {
+          "raw": "any",
+          "start": 27.51,
+          "end": 27.73
+        },
+        {
+          "raw": "man",
+          "start": 27.73,
+          "end": 28.05
+        },
+        {
+          "raw": "should",
+          "start": 28.05,
+          "end": 28.29
+        },
+        {
+          "raw": "eat",
+          "start": 28.29,
+          "end": 28.57
+        },
+        {
+          "raw": "butcher's",
+          "start": 28.57,
+          "end": 29.07
+        },
+        {
+          "raw": "meat,",
+          "start": 29.07,
+          "end": 29.31
+        },
+        {
+          "raw": "as",
+          "start": 29.75,
+          "end": 29.95
+        },
+        {
+          "raw": "it",
+          "start": 29.95,
+          "end": 30.05
+        },
+        {
+          "raw": "in",
+          "start": 30.05,
+          "end": 30.17
+        },
+        {
+          "raw": "most",
+          "start": 30.17,
+          "end": 30.45
+        },
+        {
+          "raw": "places",
+          "start": 30.45,
+          "end": 30.93
+        },
+        {
+          "raw": "requires",
+          "start": 30.93,
+          "end": 31.41
+        },
+        {
+          "raw": "that",
+          "start": 31.41,
+          "end": 31.81
+        },
+        {
+          "raw": "he",
+          "start": 31.81,
+          "end": 31.97
+        },
+        {
+          "raw": "should",
+          "start": 31.97,
+          "end": 32.13
+        },
+        {
+          "raw": "wear",
+          "start": 32.13,
+          "end": 32.35
+        },
+        {
+          "raw": "a",
+          "start": 32.35,
+          "end": 32.51
+        },
+        {
+          "raw": "linen",
+          "start": 32.51,
+          "end": 32.73
+        },
+        {
+          "raw": "shirt",
+          "start": 32.73,
+          "end": 33.15
+        },
+        {
+          "raw": "or",
+          "start": 33.15,
+          "end": 33.69
+        },
+        {
+          "raw": "a",
+          "start": 33.69,
+          "end": 33.81
+        },
+        {
+          "raw": "pair",
+          "start": 33.81,
+          "end": 33.99
+        },
+        {
+          "raw": "of",
+          "start": 33.99,
+          "end": 34.15
+        },
+        {
+          "raw": "leather",
+          "start": 34.15,
+          "end": 34.35
+        },
+        {
+          "raw": "shoes.",
+          "start": 34.35,
+          "end": 34.75
+        }
+      ],
+      "expected_tokens": [
+        "Taxes",
+        "upon",
+        "butcher's",
+        "meat",
+        "are",
+        "still",
+        "more",
+        "common",
+        "than",
+        "those",
+        "upon",
+        "bread.",
+        "It",
+        "may",
+        "indeed",
+        "be",
+        "doubted,",
+        "whether",
+        "butcher's",
+        "meat",
+        "is",
+        "any",
+        "where",
+        "a",
+        "necessary",
+        "of",
+        "life.",
+        "Grain",
+        "and",
+        "other",
+        "vegetables,",
+        "with",
+        "the",
+        "help",
+        "of",
+        "milk,",
+        "cheese,",
+        "and",
+        "butter,",
+        "or",
+        "oil,",
+        "where",
+        "butter",
+        "is",
+        "not",
+        "to",
+        "be",
+        "had,",
+        "it",
+        "is",
+        "known",
+        "from",
+        "experience,",
+        "can,",
+        "without",
+        "any",
+        "butcher's",
+        "meat,",
+        "afford",
+        "the",
+        "most",
+        "plentiful,",
+        "the",
+        "most",
+        "wholesome,",
+        "the",
+        "most",
+        "nourishing,",
+        "and",
+        "the",
+        "most",
+        "invigorating",
+        "diet.",
+        "Decency",
+        "nowhere",
+        "requires",
+        "that",
+        "any",
+        "man",
+        "should",
+        "eat",
+        "butcher's",
+        "meat,",
+        "as",
+        "it",
+        "in",
+        "most",
+        "places",
+        "requires",
+        "that",
+        "he",
+        "should",
+        "wear",
+        "a",
+        "linen",
+        "shirt",
+        "or",
+        "a",
+        "pair",
+        "of",
+        "leather",
+        "shoes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ],
+        [
+          "replace",
+          21,
+          24,
+          21,
+          22
+        ],
+        [
+          "equal",
+          24,
+          102,
+          22,
+          100
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 99
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          21,
+          24,
+          21,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Taxes",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "taxes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 0.69,
+          "end": 1.05,
+          "key": "upon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "butcher's",
+          "start": 1.05,
+          "end": 1.51,
+          "key": "butchers",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "meat",
+          "start": 1.51,
+          "end": 1.69,
+          "key": "meat",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 1.83,
+          "end": 2.03,
+          "key": "still",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.03,
+          "end": 2.27,
+          "key": "more",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "common",
+          "start": 2.27,
+          "end": 2.63,
+          "key": "common",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.63,
+          "end": 2.87,
+          "key": "than",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "those",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.03,
+          "end": 3.37,
+          "key": "upon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bread.",
+          "start": 3.37,
+          "end": 3.71,
+          "key": "bread",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 4.39,
+          "end": 4.45,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 4.45,
+          "end": 4.63,
+          "key": "may",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "indeed",
+          "start": 4.63,
+          "end": 4.93,
+          "key": "indeed",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.93,
+          "end": 5.17,
+          "key": "be",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "doubted",
+          "start": 5.17,
+          "end": 5.51,
+          "key": "doubted",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "whether",
+          "start": 5.51,
+          "end": 6.09,
+          "key": "whether",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "butcher's",
+          "start": 6.09,
+          "end": 6.53,
+          "key": "butchers",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "meat",
+          "start": 6.53,
+          "end": 6.69,
+          "key": "meat",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.69,
+          "end": 6.89,
+          "key": "is",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "anywhere",
+          "start": 6.89,
+          "end": 7.33,
+          "key": "anywhere",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "necessary",
+          "start": 7.33,
+          "end": 7.75,
+          "key": "necessary",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.75,
+          "end": 8.15,
+          "key": "of",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "life.",
+          "start": 8.15,
+          "end": 8.43,
+          "key": "life",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Grain",
+          "start": 9.49,
+          "end": 9.49,
+          "key": "grain",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.49,
+          "end": 9.79,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 9.79,
+          "end": 10.03,
+          "key": "other",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "vegetables",
+          "start": 10.03,
+          "end": 10.49,
+          "key": "vegetables",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 10.49,
+          "end": 10.77,
+          "key": "with",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.77,
+          "end": 10.87,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 10.87,
+          "end": 11.05,
+          "key": "help",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.05,
+          "end": 11.29,
+          "key": "of",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "milk,",
+          "start": 11.29,
+          "end": 11.51,
+          "key": "milk",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "cheese,",
+          "start": 11.95,
+          "end": 12.13,
+          "key": "cheese",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.37,
+          "end": 12.47,
+          "key": "and",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "butter",
+          "start": 12.47,
+          "end": 12.71,
+          "key": "butter",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 12.71,
+          "end": 12.97,
+          "key": "or",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "oil,",
+          "start": 12.97,
+          "end": 13.29,
+          "key": "oil",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 13.69,
+          "end": 13.83,
+          "key": "where",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "butter",
+          "start": 13.83,
+          "end": 14.09,
+          "key": "butter",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 14.09,
+          "end": 14.29,
+          "key": "is",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 14.29,
+          "end": 14.49,
+          "key": "not",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.49,
+          "end": 14.63,
+          "key": "to",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 14.63,
+          "end": 14.75,
+          "key": "be",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "had,",
+          "start": 14.75,
+          "end": 15.11,
+          "key": "had",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 15.51,
+          "end": 15.65,
+          "key": "it",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 15.65,
+          "end": 15.77,
+          "key": "is",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 15.77,
+          "end": 15.99,
+          "key": "known",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 15.99,
+          "end": 16.21,
+          "key": "from",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "experience,",
+          "start": 16.21,
+          "end": 16.87,
+          "key": "experience",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "can,",
+          "start": 17.21,
+          "end": 17.41,
+          "key": "can",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 17.57,
+          "end": 17.81,
+          "key": "without",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 17.81,
+          "end": 18.07,
+          "key": "any",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "butcher's",
+          "start": 18.07,
+          "end": 18.49,
+          "key": "butchers",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "meat,",
+          "start": 18.49,
+          "end": 18.73,
+          "key": "meat",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "afford",
+          "start": 18.83,
+          "end": 19.05,
+          "key": "afford",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.05,
+          "end": 19.23,
+          "key": "the",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 19.23,
+          "end": 19.49,
+          "key": "most",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "plentiful,",
+          "start": 19.49,
+          "end": 19.89,
+          "key": "plentiful",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.49,
+          "end": 20.57,
+          "key": "the",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 20.57,
+          "end": 20.79,
+          "key": "most",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "wholesome,",
+          "start": 20.79,
+          "end": 21.35,
+          "key": "wholesome",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.73,
+          "end": 21.81,
+          "key": "the",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 21.81,
+          "end": 22.05,
+          "key": "most",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "nourishing,",
+          "start": 22.05,
+          "end": 22.59,
+          "key": "nourishing",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.81,
+          "end": 22.93,
+          "key": "and",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.93,
+          "end": 23.01,
+          "key": "the",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 23.01,
+          "end": 23.27,
+          "key": "most",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "invigorating",
+          "start": 23.27,
+          "end": 23.93,
+          "key": "invigorating",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "diet.",
+          "start": 23.93,
+          "end": 24.35,
+          "key": "diet",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "Decency",
+          "start": 25.55,
+          "end": 26.01,
+          "key": "decency",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "nowhere",
+          "start": 26.01,
+          "end": 26.61,
+          "key": "nowhere",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "requires",
+          "start": 26.61,
+          "end": 27.09,
+          "key": "requires",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 27.09,
+          "end": 27.51,
+          "key": "that",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 27.51,
+          "end": 27.73,
+          "key": "any",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 27.73,
+          "end": 28.05,
+          "key": "man",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 28.05,
+          "end": 28.29,
+          "key": "should",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "eat",
+          "start": 28.29,
+          "end": 28.57,
+          "key": "eat",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "butcher's",
+          "start": 28.57,
+          "end": 29.07,
+          "key": "butchers",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "meat,",
+          "start": 29.07,
+          "end": 29.31,
+          "key": "meat",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 29.75,
+          "end": 29.95,
+          "key": "as",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 29.95,
+          "end": 30.05,
+          "key": "it",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 30.05,
+          "end": 30.17,
+          "key": "in",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 30.17,
+          "end": 30.45,
+          "key": "most",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "places",
+          "start": 30.45,
+          "end": 30.93,
+          "key": "places",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "requires",
+          "start": 30.93,
+          "end": 31.41,
+          "key": "requires",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 31.41,
+          "end": 31.81,
+          "key": "that",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 31.81,
+          "end": 31.97,
+          "key": "he",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 31.97,
+          "end": 32.13,
+          "key": "should",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 32.13,
+          "end": 32.35,
+          "key": "wear",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 32.35,
+          "end": 32.51,
+          "key": "a",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "linen",
+          "start": 32.51,
+          "end": 32.73,
+          "key": "linen",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "shirt",
+          "start": 32.73,
+          "end": 33.15,
+          "key": "shirt",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 33.15,
+          "end": 33.69,
+          "key": "or",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 33.69,
+          "end": 33.81,
+          "key": "a",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "pair",
+          "start": 33.81,
+          "end": 33.99,
+          "key": "pair",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 33.99,
+          "end": 34.15,
+          "key": "of",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "leather",
+          "start": 34.15,
+          "end": 34.35,
+          "key": "leather",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "shoes.",
+          "start": 34.35,
+          "end": 34.75,
+          "key": "shoes",
+          "pieces": [
+            99
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Taxes",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "upon",
+          "start": 0.69,
+          "end": 1.05
+        },
+        {
+          "text": "butcher's",
+          "start": 1.05,
+          "end": 1.51
+        },
+        {
+          "text": "meat",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "are",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "text": "still",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "more",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "text": "common",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "text": "than",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "text": "those",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "text": "upon",
+          "start": 3.03,
+          "end": 3.37
+        },
+        {
+          "text": "bread.",
+          "start": 3.37,
+          "end": 3.71
+        },
+        {
+          "text": "It",
+          "start": 4.39,
+          "end": 4.45
+        },
+        {
+          "text": "may",
+          "start": 4.45,
+          "end": 4.63
+        },
+        {
+          "text": "indeed",
+          "start": 4.63,
+          "end": 4.93
+        },
+        {
+          "text": "be",
+          "start": 4.93,
+          "end": 5.17
+        },
+        {
+          "text": "doubted,",
+          "start": 5.17,
+          "end": 5.51
+        },
+        {
+          "text": "whether",
+          "start": 5.51,
+          "end": 6.09
+        },
+        {
+          "text": "butcher's",
+          "start": 6.09,
+          "end": 6.53
+        },
+        {
+          "text": "meat",
+          "start": 6.53,
+          "end": 6.69
+        },
+        {
+          "text": "is",
+          "start": 6.69,
+          "end": 6.89
+        },
+        {
+          "text": "any",
+          "start": 6.89,
+          "end": 7.11
+        },
+        {
+          "text": "where",
+          "start": 7.11,
+          "end": 7.22
+        },
+        {
+          "text": "a",
+          "start": 7.22,
+          "end": 7.275
+        },
+        {
+          "text": "necessary",
+          "start": 7.33,
+          "end": 7.75
+        },
+        {
+          "text": "of",
+          "start": 7.75,
+          "end": 8.15
+        },
+        {
+          "text": "life.",
+          "start": 8.15,
+          "end": 8.43
+        },
+        {
+          "text": "Grain",
+          "start": 9.49,
+          "end": 9.49
+        },
+        {
+          "text": "and",
+          "start": 9.49,
+          "end": 9.79
+        },
+        {
+          "text": "other",
+          "start": 9.79,
+          "end": 10.03
+        },
+        {
+          "text": "vegetables,",
+          "start": 10.03,
+          "end": 10.49
+        },
+        {
+          "text": "with",
+          "start": 10.49,
+          "end": 10.77
+        },
+        {
+          "text": "the",
+          "start": 10.77,
+          "end": 10.87
+        },
+        {
+          "text": "help",
+          "start": 10.87,
+          "end": 11.05
+        },
+        {
+          "text": "of",
+          "start": 11.05,
+          "end": 11.29
+        },
+        {
+          "text": "milk,",
+          "start": 11.29,
+          "end": 11.51
+        },
+        {
+          "text": "cheese,",
+          "start": 11.95,
+          "end": 12.13
+        },
+        {
+          "text": "and",
+          "start": 12.37,
+          "end": 12.47
+        },
+        {
+          "text": "butter,",
+          "start": 12.47,
+          "end": 12.71
+        },
+        {
+          "text": "or",
+          "start": 12.71,
+          "end": 12.97
+        },
+        {
+          "text": "oil,",
+          "start": 12.97,
+          "end": 13.29
+        },
+        {
+          "text": "where",
+          "start": 13.69,
+          "end": 13.83
+        },
+        {
+          "text": "butter",
+          "start": 13.83,
+          "end": 14.09
+        },
+        {
+          "text": "is",
+          "start": 14.09,
+          "end": 14.29
+        },
+        {
+          "text": "not",
+          "start": 14.29,
+          "end": 14.49
+        },
+        {
+          "text": "to",
+          "start": 14.49,
+          "end": 14.63
+        },
+        {
+          "text": "be",
+          "start": 14.63,
+          "end": 14.75
+        },
+        {
+          "text": "had,",
+          "start": 14.75,
+          "end": 15.11
+        },
+        {
+          "text": "it",
+          "start": 15.51,
+          "end": 15.65
+        },
+        {
+          "text": "is",
+          "start": 15.65,
+          "end": 15.77
+        },
+        {
+          "text": "known",
+          "start": 15.77,
+          "end": 15.99
+        },
+        {
+          "text": "from",
+          "start": 15.99,
+          "end": 16.21
+        },
+        {
+          "text": "experience,",
+          "start": 16.21,
+          "end": 16.87
+        },
+        {
+          "text": "can,",
+          "start": 17.21,
+          "end": 17.41
+        },
+        {
+          "text": "without",
+          "start": 17.57,
+          "end": 17.81
+        },
+        {
+          "text": "any",
+          "start": 17.81,
+          "end": 18.07
+        },
+        {
+          "text": "butcher's",
+          "start": 18.07,
+          "end": 18.49
+        },
+        {
+          "text": "meat,",
+          "start": 18.49,
+          "end": 18.73
+        },
+        {
+          "text": "afford",
+          "start": 18.83,
+          "end": 19.05
+        },
+        {
+          "text": "the",
+          "start": 19.05,
+          "end": 19.23
+        },
+        {
+          "text": "most",
+          "start": 19.23,
+          "end": 19.49
+        },
+        {
+          "text": "plentiful,",
+          "start": 19.49,
+          "end": 19.89
+        },
+        {
+          "text": "the",
+          "start": 20.49,
+          "end": 20.57
+        },
+        {
+          "text": "most",
+          "start": 20.57,
+          "end": 20.79
+        },
+        {
+          "text": "wholesome,",
+          "start": 20.79,
+          "end": 21.35
+        },
+        {
+          "text": "the",
+          "start": 21.73,
+          "end": 21.81
+        },
+        {
+          "text": "most",
+          "start": 21.81,
+          "end": 22.05
+        },
+        {
+          "text": "nourishing,",
+          "start": 22.05,
+          "end": 22.59
+        },
+        {
+          "text": "and",
+          "start": 22.81,
+          "end": 22.93
+        },
+        {
+          "text": "the",
+          "start": 22.93,
+          "end": 23.01
+        },
+        {
+          "text": "most",
+          "start": 23.01,
+          "end": 23.27
+        },
+        {
+          "text": "invigorating",
+          "start": 23.27,
+          "end": 23.93
+        },
+        {
+          "text": "diet.",
+          "start": 23.93,
+          "end": 24.35
+        },
+        {
+          "text": "Decency",
+          "start": 25.55,
+          "end": 26.01
+        },
+        {
+          "text": "nowhere",
+          "start": 26.01,
+          "end": 26.61
+        },
+        {
+          "text": "requires",
+          "start": 26.61,
+          "end": 27.09
+        },
+        {
+          "text": "that",
+          "start": 27.09,
+          "end": 27.51
+        },
+        {
+          "text": "any",
+          "start": 27.51,
+          "end": 27.73
+        },
+        {
+          "text": "man",
+          "start": 27.73,
+          "end": 28.05
+        },
+        {
+          "text": "should",
+          "start": 28.05,
+          "end": 28.29
+        },
+        {
+          "text": "eat",
+          "start": 28.29,
+          "end": 28.57
+        },
+        {
+          "text": "butcher's",
+          "start": 28.57,
+          "end": 29.07
+        },
+        {
+          "text": "meat,",
+          "start": 29.07,
+          "end": 29.31
+        },
+        {
+          "text": "as",
+          "start": 29.75,
+          "end": 29.95
+        },
+        {
+          "text": "it",
+          "start": 29.95,
+          "end": 30.05
+        },
+        {
+          "text": "in",
+          "start": 30.05,
+          "end": 30.17
+        },
+        {
+          "text": "most",
+          "start": 30.17,
+          "end": 30.45
+        },
+        {
+          "text": "places",
+          "start": 30.45,
+          "end": 30.93
+        },
+        {
+          "text": "requires",
+          "start": 30.93,
+          "end": 31.41
+        },
+        {
+          "text": "that",
+          "start": 31.41,
+          "end": 31.81
+        },
+        {
+          "text": "he",
+          "start": 31.81,
+          "end": 31.97
+        },
+        {
+          "text": "should",
+          "start": 31.97,
+          "end": 32.13
+        },
+        {
+          "text": "wear",
+          "start": 32.13,
+          "end": 32.35
+        },
+        {
+          "text": "a",
+          "start": 32.35,
+          "end": 32.51
+        },
+        {
+          "text": "linen",
+          "start": 32.51,
+          "end": 32.73
+        },
+        {
+          "text": "shirt",
+          "start": 32.73,
+          "end": 33.15
+        },
+        {
+          "text": "or",
+          "start": 33.15,
+          "end": 33.69
+        },
+        {
+          "text": "a",
+          "start": 33.69,
+          "end": 33.81
+        },
+        {
+          "text": "pair",
+          "start": 33.81,
+          "end": 33.99
+        },
+        {
+          "text": "of",
+          "start": 33.99,
+          "end": 34.15
+        },
+        {
+          "text": "leather",
+          "start": 34.15,
+          "end": 34.35
+        },
+        {
+          "text": "shoes.",
+          "start": 34.35,
+          "end": 34.75
+        }
+      ],
+      "stats": {
+        "expected_words": 102,
+        "heard_words": 100,
+        "matched_words": 99
+      },
+      "match_ratio": 0.9705882352941176,
+      "rejection_reasons": [],
+      "seconds": 0.9553704550489783
+    },
+    {
+      "asr_seconds": 0.9884351454675198,
+      "alignment_seconds": 0.0018958011642098427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Taxes upon butcher's meat are still more common than those upon bread.",
+          "start": 0.05,
+          "end": 3.71,
+          "words": [
+            {
+              "text": " Taxes",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.164794921875
+            },
+            {
+              "text": " upon",
+              "start": 0.69,
+              "end": 1.05,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " butcher's",
+              "start": 1.05,
+              "end": 1.51,
+              "probability": 0.819091796875
+            },
+            {
+              "text": " meat",
+              "start": 1.51,
+              "end": 1.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " are",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " still",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " more",
+              "start": 2.03,
+              "end": 2.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " common",
+              "start": 2.27,
+              "end": 2.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " than",
+              "start": 2.63,
+              "end": 2.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " those",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " upon",
+              "start": 3.03,
+              "end": 3.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bread.",
+              "start": 3.37,
+              "end": 3.71,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " It may indeed be doubted whether butcher's meat is anywhere necessary of life.",
+          "start": 4.39,
+          "end": 8.43,
+          "words": [
+            {
+              "text": " It",
+              "start": 4.39,
+              "end": 4.45,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " may",
+              "start": 4.45,
+              "end": 4.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " indeed",
+              "start": 4.63,
+              "end": 4.93,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " be",
+              "start": 4.93,
+              "end": 5.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " doubted",
+              "start": 5.17,
+              "end": 5.51,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " whether",
+              "start": 5.51,
+              "end": 6.09,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " butcher's",
+              "start": 6.09,
+              "end": 6.53,
+              "probability": 0.962890625
+            },
+            {
+              "text": " meat",
+              "start": 6.53,
+              "end": 6.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 6.69,
+              "end": 6.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " anywhere",
+              "start": 6.89,
+              "end": 7.33,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " necessary",
+              "start": 7.33,
+              "end": 7.75,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " of",
+              "start": 7.75,
+              "end": 8.15,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " life.",
+              "start": 8.15,
+              "end": 8.43,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " Grain and other vegetables with the help of milk, cheese, and butter or oil, where butter",
+          "start": 9.49,
+          "end": 14.09,
+          "words": [
+            {
+              "text": " Grain",
+              "start": 9.49,
+              "end": 9.49,
+              "probability": 0.974609375
+            },
+            {
+              "text": " and",
+              "start": 9.49,
+              "end": 9.79,
+              "probability": 0.98046875
+            },
+            {
+              "text": " other",
+              "start": 9.79,
+              "end": 10.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " vegetables",
+              "start": 10.03,
+              "end": 10.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 10.49,
+              "end": 10.77,
+              "probability": 0.6435546875
+            },
+            {
+              "text": " the",
+              "start": 10.77,
+              "end": 10.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " help",
+              "start": 10.87,
+              "end": 11.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 11.05,
+              "end": 11.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " milk,",
+              "start": 11.29,
+              "end": 11.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cheese,",
+              "start": 11.95,
+              "end": 12.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 12.37,
+              "end": 12.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " butter",
+              "start": 12.47,
+              "end": 12.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " or",
+              "start": 12.71,
+              "end": 12.97,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " oil,",
+              "start": 12.97,
+              "end": 13.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " where",
+              "start": 13.69,
+              "end": 13.83,
+              "probability": 0.990234375
+            },
+            {
+              "text": " butter",
+              "start": 13.83,
+              "end": 14.09,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " is not to be had, it is known from experience can, without any butcher's meat, afford the",
+          "start": 14.09,
+          "end": 19.23,
+          "words": [
+            {
+              "text": " is",
+              "start": 14.09,
+              "end": 14.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 14.29,
+              "end": 14.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 14.49,
+              "end": 14.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 14.63,
+              "end": 14.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " had,",
+              "start": 14.75,
+              "end": 15.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 15.51,
+              "end": 15.65,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " is",
+              "start": 15.65,
+              "end": 15.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " known",
+              "start": 15.77,
+              "end": 15.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " from",
+              "start": 15.99,
+              "end": 16.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " experience",
+              "start": 16.21,
+              "end": 16.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " can,",
+              "start": 16.85,
+              "end": 17.41,
+              "probability": 0.578125
+            },
+            {
+              "text": " without",
+              "start": 17.57,
+              "end": 17.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " any",
+              "start": 17.81,
+              "end": 18.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " butcher's",
+              "start": 18.07,
+              "end": 18.49,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " meat,",
+              "start": 18.49,
+              "end": 18.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " afford",
+              "start": 18.83,
+              "end": 19.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 19.05,
+              "end": 19.23,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " most plentiful, the most wholesome, the most nourishing, and the most invigorating diet.",
+          "start": 19.23,
+          "end": 24.35,
+          "words": [
+            {
+              "text": " most",
+              "start": 19.23,
+              "end": 19.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " plentiful,",
+              "start": 19.49,
+              "end": 19.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 20.49,
+              "end": 20.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " most",
+              "start": 20.57,
+              "end": 20.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wholesome,",
+              "start": 20.79,
+              "end": 21.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 21.73,
+              "end": 21.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " most",
+              "start": 21.81,
+              "end": 22.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " nourishing,",
+              "start": 22.05,
+              "end": 22.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 22.81,
+              "end": 22.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 22.93,
+              "end": 23.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " most",
+              "start": 23.01,
+              "end": 23.27,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " invigorating",
+              "start": 23.27,
+              "end": 23.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " diet.",
+              "start": 23.93,
+              "end": 24.35,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " Decency nowhere requires that any man should eat butcher's meat.",
+          "start": 25.55,
+          "end": 29.31,
+          "words": [
+            {
+              "text": " Decency",
+              "start": 25.55,
+              "end": 26.01,
+              "probability": 0.9765625
+            },
+            {
+              "text": " nowhere",
+              "start": 26.01,
+              "end": 26.55,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " requires",
+              "start": 26.55,
+              "end": 27.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 27.15,
+              "end": 27.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " any",
+              "start": 27.49,
+              "end": 27.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " man",
+              "start": 27.75,
+              "end": 28.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " should",
+              "start": 28.07,
+              "end": 28.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " eat",
+              "start": 28.29,
+              "end": 28.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " butcher's",
+              "start": 28.53,
+              "end": 29.05,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " meat.",
+              "start": 29.05,
+              "end": 29.31,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " As it in most places requires that he should wear a linen shirt or a pair of leather shoes.",
+          "start": 29.31,
+          "end": 34.75,
+          "words": [
+            {
+              "text": " As",
+              "start": 29.31,
+              "end": 29.93,
+              "probability": 0.0638427734375
+            },
+            {
+              "text": " it",
+              "start": 29.93,
+              "end": 30.05,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " in",
+              "start": 30.05,
+              "end": 30.17,
+              "probability": 0.9140625
+            },
+            {
+              "text": " most",
+              "start": 30.17,
+              "end": 30.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " places",
+              "start": 30.45,
+              "end": 30.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " requires",
+              "start": 30.91,
+              "end": 31.39,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " that",
+              "start": 31.39,
+              "end": 31.81,
+              "probability": 0.982421875
+            },
+            {
+              "text": " he",
+              "start": 31.81,
+              "end": 31.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " should",
+              "start": 31.97,
+              "end": 32.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wear",
+              "start": 32.13,
+              "end": 32.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 32.35,
+              "end": 32.51,
+              "probability": 0.99609375
+            },
+            {
+              "text": " linen",
+              "start": 32.51,
+              "end": 32.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shirt",
+              "start": 32.73,
+              "end": 33.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " or",
+              "start": 33.15,
+              "end": 33.69,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " a",
+              "start": 33.69,
+              "end": 33.81,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " pair",
+              "start": 33.81,
+              "end": 33.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 33.99,
+              "end": 34.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " leather",
+              "start": 34.15,
+              "end": 34.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shoes.",
+              "start": 34.35,
+              "end": 34.75,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Taxes",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "upon",
+          "start": 0.69,
+          "end": 1.05
+        },
+        {
+          "raw": "butcher's",
+          "start": 1.05,
+          "end": 1.51
+        },
+        {
+          "raw": "meat",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "raw": "are",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "raw": "still",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "more",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "raw": "common",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "raw": "than",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "raw": "those",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "upon",
+          "start": 3.03,
+          "end": 3.37
+        },
+        {
+          "raw": "bread.",
+          "start": 3.37,
+          "end": 3.71
+        },
+        {
+          "raw": "It",
+          "start": 4.39,
+          "end": 4.45
+        },
+        {
+          "raw": "may",
+          "start": 4.45,
+          "end": 4.63
+        },
+        {
+          "raw": "indeed",
+          "start": 4.63,
+          "end": 4.93
+        },
+        {
+          "raw": "be",
+          "start": 4.93,
+          "end": 5.17
+        },
+        {
+          "raw": "doubted",
+          "start": 5.17,
+          "end": 5.51
+        },
+        {
+          "raw": "whether",
+          "start": 5.51,
+          "end": 6.09
+        },
+        {
+          "raw": "butcher's",
+          "start": 6.09,
+          "end": 6.53
+        },
+        {
+          "raw": "meat",
+          "start": 6.53,
+          "end": 6.69
+        },
+        {
+          "raw": "is",
+          "start": 6.69,
+          "end": 6.89
+        },
+        {
+          "raw": "anywhere",
+          "start": 6.89,
+          "end": 7.33
+        },
+        {
+          "raw": "necessary",
+          "start": 7.33,
+          "end": 7.75
+        },
+        {
+          "raw": "of",
+          "start": 7.75,
+          "end": 8.15
+        },
+        {
+          "raw": "life.",
+          "start": 8.15,
+          "end": 8.43
+        },
+        {
+          "raw": "Grain",
+          "start": 9.49,
+          "end": 9.49
+        },
+        {
+          "raw": "and",
+          "start": 9.49,
+          "end": 9.79
+        },
+        {
+          "raw": "other",
+          "start": 9.79,
+          "end": 10.03
+        },
+        {
+          "raw": "vegetables",
+          "start": 10.03,
+          "end": 10.49
+        },
+        {
+          "raw": "with",
+          "start": 10.49,
+          "end": 10.77
+        },
+        {
+          "raw": "the",
+          "start": 10.77,
+          "end": 10.87
+        },
+        {
+          "raw": "help",
+          "start": 10.87,
+          "end": 11.05
+        },
+        {
+          "raw": "of",
+          "start": 11.05,
+          "end": 11.29
+        },
+        {
+          "raw": "milk,",
+          "start": 11.29,
+          "end": 11.51
+        },
+        {
+          "raw": "cheese,",
+          "start": 11.95,
+          "end": 12.13
+        },
+        {
+          "raw": "and",
+          "start": 12.37,
+          "end": 12.47
+        },
+        {
+          "raw": "butter",
+          "start": 12.47,
+          "end": 12.71
+        },
+        {
+          "raw": "or",
+          "start": 12.71,
+          "end": 12.97
+        },
+        {
+          "raw": "oil,",
+          "start": 12.97,
+          "end": 13.29
+        },
+        {
+          "raw": "where",
+          "start": 13.69,
+          "end": 13.83
+        },
+        {
+          "raw": "butter",
+          "start": 13.83,
+          "end": 14.09
+        },
+        {
+          "raw": "is",
+          "start": 14.09,
+          "end": 14.29
+        },
+        {
+          "raw": "not",
+          "start": 14.29,
+          "end": 14.49
+        },
+        {
+          "raw": "to",
+          "start": 14.49,
+          "end": 14.63
+        },
+        {
+          "raw": "be",
+          "start": 14.63,
+          "end": 14.75
+        },
+        {
+          "raw": "had,",
+          "start": 14.75,
+          "end": 15.11
+        },
+        {
+          "raw": "it",
+          "start": 15.51,
+          "end": 15.65
+        },
+        {
+          "raw": "is",
+          "start": 15.65,
+          "end": 15.77
+        },
+        {
+          "raw": "known",
+          "start": 15.77,
+          "end": 15.99
+        },
+        {
+          "raw": "from",
+          "start": 15.99,
+          "end": 16.21
+        },
+        {
+          "raw": "experience",
+          "start": 16.21,
+          "end": 16.85
+        },
+        {
+          "raw": "can,",
+          "start": 16.85,
+          "end": 17.41
+        },
+        {
+          "raw": "without",
+          "start": 17.57,
+          "end": 17.81
+        },
+        {
+          "raw": "any",
+          "start": 17.81,
+          "end": 18.07
+        },
+        {
+          "raw": "butcher's",
+          "start": 18.07,
+          "end": 18.49
+        },
+        {
+          "raw": "meat,",
+          "start": 18.49,
+          "end": 18.73
+        },
+        {
+          "raw": "afford",
+          "start": 18.83,
+          "end": 19.05
+        },
+        {
+          "raw": "the",
+          "start": 19.05,
+          "end": 19.23
+        },
+        {
+          "raw": "most",
+          "start": 19.23,
+          "end": 19.49
+        },
+        {
+          "raw": "plentiful,",
+          "start": 19.49,
+          "end": 19.89
+        },
+        {
+          "raw": "the",
+          "start": 20.49,
+          "end": 20.57
+        },
+        {
+          "raw": "most",
+          "start": 20.57,
+          "end": 20.79
+        },
+        {
+          "raw": "wholesome,",
+          "start": 20.79,
+          "end": 21.35
+        },
+        {
+          "raw": "the",
+          "start": 21.73,
+          "end": 21.81
+        },
+        {
+          "raw": "most",
+          "start": 21.81,
+          "end": 22.05
+        },
+        {
+          "raw": "nourishing,",
+          "start": 22.05,
+          "end": 22.59
+        },
+        {
+          "raw": "and",
+          "start": 22.81,
+          "end": 22.93
+        },
+        {
+          "raw": "the",
+          "start": 22.93,
+          "end": 23.01
+        },
+        {
+          "raw": "most",
+          "start": 23.01,
+          "end": 23.27
+        },
+        {
+          "raw": "invigorating",
+          "start": 23.27,
+          "end": 23.93
+        },
+        {
+          "raw": "diet.",
+          "start": 23.93,
+          "end": 24.35
+        },
+        {
+          "raw": "Decency",
+          "start": 25.55,
+          "end": 26.01
+        },
+        {
+          "raw": "nowhere",
+          "start": 26.01,
+          "end": 26.55
+        },
+        {
+          "raw": "requires",
+          "start": 26.55,
+          "end": 27.15
+        },
+        {
+          "raw": "that",
+          "start": 27.15,
+          "end": 27.49
+        },
+        {
+          "raw": "any",
+          "start": 27.49,
+          "end": 27.75
+        },
+        {
+          "raw": "man",
+          "start": 27.75,
+          "end": 28.07
+        },
+        {
+          "raw": "should",
+          "start": 28.07,
+          "end": 28.29
+        },
+        {
+          "raw": "eat",
+          "start": 28.29,
+          "end": 28.53
+        },
+        {
+          "raw": "butcher's",
+          "start": 28.53,
+          "end": 29.05
+        },
+        {
+          "raw": "meat.",
+          "start": 29.05,
+          "end": 29.31
+        },
+        {
+          "raw": "As",
+          "start": 29.31,
+          "end": 29.93
+        },
+        {
+          "raw": "it",
+          "start": 29.93,
+          "end": 30.05
+        },
+        {
+          "raw": "in",
+          "start": 30.05,
+          "end": 30.17
+        },
+        {
+          "raw": "most",
+          "start": 30.17,
+          "end": 30.45
+        },
+        {
+          "raw": "places",
+          "start": 30.45,
+          "end": 30.91
+        },
+        {
+          "raw": "requires",
+          "start": 30.91,
+          "end": 31.39
+        },
+        {
+          "raw": "that",
+          "start": 31.39,
+          "end": 31.81
+        },
+        {
+          "raw": "he",
+          "start": 31.81,
+          "end": 31.97
+        },
+        {
+          "raw": "should",
+          "start": 31.97,
+          "end": 32.13
+        },
+        {
+          "raw": "wear",
+          "start": 32.13,
+          "end": 32.35
+        },
+        {
+          "raw": "a",
+          "start": 32.35,
+          "end": 32.51
+        },
+        {
+          "raw": "linen",
+          "start": 32.51,
+          "end": 32.73
+        },
+        {
+          "raw": "shirt",
+          "start": 32.73,
+          "end": 33.15
+        },
+        {
+          "raw": "or",
+          "start": 33.15,
+          "end": 33.69
+        },
+        {
+          "raw": "a",
+          "start": 33.69,
+          "end": 33.81
+        },
+        {
+          "raw": "pair",
+          "start": 33.81,
+          "end": 33.99
+        },
+        {
+          "raw": "of",
+          "start": 33.99,
+          "end": 34.15
+        },
+        {
+          "raw": "leather",
+          "start": 34.15,
+          "end": 34.35
+        },
+        {
+          "raw": "shoes.",
+          "start": 34.35,
+          "end": 34.75
+        }
+      ],
+      "expected_tokens": [
+        "Taxes",
+        "upon",
+        "butcher's",
+        "meat",
+        "are",
+        "still",
+        "more",
+        "common",
+        "than",
+        "those",
+        "upon",
+        "bread.",
+        "It",
+        "may",
+        "indeed",
+        "be",
+        "doubted,",
+        "whether",
+        "butcher's",
+        "meat",
+        "is",
+        "any",
+        "where",
+        "a",
+        "necessary",
+        "of",
+        "life.",
+        "Grain",
+        "and",
+        "other",
+        "vegetables,",
+        "with",
+        "the",
+        "help",
+        "of",
+        "milk,",
+        "cheese,",
+        "and",
+        "butter,",
+        "or",
+        "oil,",
+        "where",
+        "butter",
+        "is",
+        "not",
+        "to",
+        "be",
+        "had,",
+        "it",
+        "is",
+        "known",
+        "from",
+        "experience,",
+        "can,",
+        "without",
+        "any",
+        "butcher's",
+        "meat,",
+        "afford",
+        "the",
+        "most",
+        "plentiful,",
+        "the",
+        "most",
+        "wholesome,",
+        "the",
+        "most",
+        "nourishing,",
+        "and",
+        "the",
+        "most",
+        "invigorating",
+        "diet.",
+        "Decency",
+        "nowhere",
+        "requires",
+        "that",
+        "any",
+        "man",
+        "should",
+        "eat",
+        "butcher's",
+        "meat,",
+        "as",
+        "it",
+        "in",
+        "most",
+        "places",
+        "requires",
+        "that",
+        "he",
+        "should",
+        "wear",
+        "a",
+        "linen",
+        "shirt",
+        "or",
+        "a",
+        "pair",
+        "of",
+        "leather",
+        "shoes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ],
+        [
+          "replace",
+          21,
+          24,
+          21,
+          22
+        ],
+        [
+          "equal",
+          24,
+          102,
+          22,
+          100
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 99
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          21,
+          24,
+          21,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Taxes",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "taxes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 0.69,
+          "end": 1.05,
+          "key": "upon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "butcher's",
+          "start": 1.05,
+          "end": 1.51,
+          "key": "butchers",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "meat",
+          "start": 1.51,
+          "end": 1.69,
+          "key": "meat",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 1.83,
+          "end": 2.03,
+          "key": "still",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.03,
+          "end": 2.27,
+          "key": "more",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "common",
+          "start": 2.27,
+          "end": 2.63,
+          "key": "common",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.63,
+          "end": 2.87,
+          "key": "than",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "those",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.03,
+          "end": 3.37,
+          "key": "upon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bread.",
+          "start": 3.37,
+          "end": 3.71,
+          "key": "bread",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 4.39,
+          "end": 4.45,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 4.45,
+          "end": 4.63,
+          "key": "may",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "indeed",
+          "start": 4.63,
+          "end": 4.93,
+          "key": "indeed",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.93,
+          "end": 5.17,
+          "key": "be",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "doubted",
+          "start": 5.17,
+          "end": 5.51,
+          "key": "doubted",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "whether",
+          "start": 5.51,
+          "end": 6.09,
+          "key": "whether",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "butcher's",
+          "start": 6.09,
+          "end": 6.53,
+          "key": "butchers",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "meat",
+          "start": 6.53,
+          "end": 6.69,
+          "key": "meat",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.69,
+          "end": 6.89,
+          "key": "is",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "anywhere",
+          "start": 6.89,
+          "end": 7.33,
+          "key": "anywhere",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "necessary",
+          "start": 7.33,
+          "end": 7.75,
+          "key": "necessary",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.75,
+          "end": 8.15,
+          "key": "of",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "life.",
+          "start": 8.15,
+          "end": 8.43,
+          "key": "life",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Grain",
+          "start": 9.49,
+          "end": 9.49,
+          "key": "grain",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.49,
+          "end": 9.79,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 9.79,
+          "end": 10.03,
+          "key": "other",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "vegetables",
+          "start": 10.03,
+          "end": 10.49,
+          "key": "vegetables",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 10.49,
+          "end": 10.77,
+          "key": "with",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.77,
+          "end": 10.87,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 10.87,
+          "end": 11.05,
+          "key": "help",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.05,
+          "end": 11.29,
+          "key": "of",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "milk,",
+          "start": 11.29,
+          "end": 11.51,
+          "key": "milk",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "cheese,",
+          "start": 11.95,
+          "end": 12.13,
+          "key": "cheese",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.37,
+          "end": 12.47,
+          "key": "and",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "butter",
+          "start": 12.47,
+          "end": 12.71,
+          "key": "butter",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 12.71,
+          "end": 12.97,
+          "key": "or",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "oil,",
+          "start": 12.97,
+          "end": 13.29,
+          "key": "oil",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 13.69,
+          "end": 13.83,
+          "key": "where",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "butter",
+          "start": 13.83,
+          "end": 14.09,
+          "key": "butter",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 14.09,
+          "end": 14.29,
+          "key": "is",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 14.29,
+          "end": 14.49,
+          "key": "not",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.49,
+          "end": 14.63,
+          "key": "to",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 14.63,
+          "end": 14.75,
+          "key": "be",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "had,",
+          "start": 14.75,
+          "end": 15.11,
+          "key": "had",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 15.51,
+          "end": 15.65,
+          "key": "it",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 15.65,
+          "end": 15.77,
+          "key": "is",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 15.77,
+          "end": 15.99,
+          "key": "known",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 15.99,
+          "end": 16.21,
+          "key": "from",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "experience",
+          "start": 16.21,
+          "end": 16.85,
+          "key": "experience",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "can,",
+          "start": 16.85,
+          "end": 17.41,
+          "key": "can",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 17.57,
+          "end": 17.81,
+          "key": "without",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 17.81,
+          "end": 18.07,
+          "key": "any",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "butcher's",
+          "start": 18.07,
+          "end": 18.49,
+          "key": "butchers",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "meat,",
+          "start": 18.49,
+          "end": 18.73,
+          "key": "meat",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "afford",
+          "start": 18.83,
+          "end": 19.05,
+          "key": "afford",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.05,
+          "end": 19.23,
+          "key": "the",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 19.23,
+          "end": 19.49,
+          "key": "most",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "plentiful,",
+          "start": 19.49,
+          "end": 19.89,
+          "key": "plentiful",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.49,
+          "end": 20.57,
+          "key": "the",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 20.57,
+          "end": 20.79,
+          "key": "most",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "wholesome,",
+          "start": 20.79,
+          "end": 21.35,
+          "key": "wholesome",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.73,
+          "end": 21.81,
+          "key": "the",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 21.81,
+          "end": 22.05,
+          "key": "most",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "nourishing,",
+          "start": 22.05,
+          "end": 22.59,
+          "key": "nourishing",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.81,
+          "end": 22.93,
+          "key": "and",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.93,
+          "end": 23.01,
+          "key": "the",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 23.01,
+          "end": 23.27,
+          "key": "most",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "invigorating",
+          "start": 23.27,
+          "end": 23.93,
+          "key": "invigorating",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "diet.",
+          "start": 23.93,
+          "end": 24.35,
+          "key": "diet",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "Decency",
+          "start": 25.55,
+          "end": 26.01,
+          "key": "decency",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "nowhere",
+          "start": 26.01,
+          "end": 26.55,
+          "key": "nowhere",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "requires",
+          "start": 26.55,
+          "end": 27.15,
+          "key": "requires",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 27.15,
+          "end": 27.49,
+          "key": "that",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 27.49,
+          "end": 27.75,
+          "key": "any",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 27.75,
+          "end": 28.07,
+          "key": "man",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 28.07,
+          "end": 28.29,
+          "key": "should",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "eat",
+          "start": 28.29,
+          "end": 28.53,
+          "key": "eat",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "butcher's",
+          "start": 28.53,
+          "end": 29.05,
+          "key": "butchers",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "meat.",
+          "start": 29.05,
+          "end": 29.31,
+          "key": "meat",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 29.31,
+          "end": 29.93,
+          "key": "as",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 29.93,
+          "end": 30.05,
+          "key": "it",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 30.05,
+          "end": 30.17,
+          "key": "in",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 30.17,
+          "end": 30.45,
+          "key": "most",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "places",
+          "start": 30.45,
+          "end": 30.91,
+          "key": "places",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "requires",
+          "start": 30.91,
+          "end": 31.39,
+          "key": "requires",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 31.39,
+          "end": 31.81,
+          "key": "that",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 31.81,
+          "end": 31.97,
+          "key": "he",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 31.97,
+          "end": 32.13,
+          "key": "should",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 32.13,
+          "end": 32.35,
+          "key": "wear",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 32.35,
+          "end": 32.51,
+          "key": "a",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "linen",
+          "start": 32.51,
+          "end": 32.73,
+          "key": "linen",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "shirt",
+          "start": 32.73,
+          "end": 33.15,
+          "key": "shirt",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 33.15,
+          "end": 33.69,
+          "key": "or",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 33.69,
+          "end": 33.81,
+          "key": "a",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "pair",
+          "start": 33.81,
+          "end": 33.99,
+          "key": "pair",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 33.99,
+          "end": 34.15,
+          "key": "of",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "leather",
+          "start": 34.15,
+          "end": 34.35,
+          "key": "leather",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "shoes.",
+          "start": 34.35,
+          "end": 34.75,
+          "key": "shoes",
+          "pieces": [
+            99
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Taxes",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "upon",
+          "start": 0.69,
+          "end": 1.05
+        },
+        {
+          "text": "butcher's",
+          "start": 1.05,
+          "end": 1.51
+        },
+        {
+          "text": "meat",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "are",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "text": "still",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "more",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "text": "common",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "text": "than",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "text": "those",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "text": "upon",
+          "start": 3.03,
+          "end": 3.37
+        },
+        {
+          "text": "bread.",
+          "start": 3.37,
+          "end": 3.71
+        },
+        {
+          "text": "It",
+          "start": 4.39,
+          "end": 4.45
+        },
+        {
+          "text": "may",
+          "start": 4.45,
+          "end": 4.63
+        },
+        {
+          "text": "indeed",
+          "start": 4.63,
+          "end": 4.93
+        },
+        {
+          "text": "be",
+          "start": 4.93,
+          "end": 5.17
+        },
+        {
+          "text": "doubted,",
+          "start": 5.17,
+          "end": 5.51
+        },
+        {
+          "text": "whether",
+          "start": 5.51,
+          "end": 6.09
+        },
+        {
+          "text": "butcher's",
+          "start": 6.09,
+          "end": 6.53
+        },
+        {
+          "text": "meat",
+          "start": 6.53,
+          "end": 6.69
+        },
+        {
+          "text": "is",
+          "start": 6.69,
+          "end": 6.89
+        },
+        {
+          "text": "any",
+          "start": 6.89,
+          "end": 7.11
+        },
+        {
+          "text": "where",
+          "start": 7.11,
+          "end": 7.22
+        },
+        {
+          "text": "a",
+          "start": 7.22,
+          "end": 7.275
+        },
+        {
+          "text": "necessary",
+          "start": 7.33,
+          "end": 7.75
+        },
+        {
+          "text": "of",
+          "start": 7.75,
+          "end": 8.15
+        },
+        {
+          "text": "life.",
+          "start": 8.15,
+          "end": 8.43
+        },
+        {
+          "text": "Grain",
+          "start": 9.49,
+          "end": 9.49
+        },
+        {
+          "text": "and",
+          "start": 9.49,
+          "end": 9.79
+        },
+        {
+          "text": "other",
+          "start": 9.79,
+          "end": 10.03
+        },
+        {
+          "text": "vegetables,",
+          "start": 10.03,
+          "end": 10.49
+        },
+        {
+          "text": "with",
+          "start": 10.49,
+          "end": 10.77
+        },
+        {
+          "text": "the",
+          "start": 10.77,
+          "end": 10.87
+        },
+        {
+          "text": "help",
+          "start": 10.87,
+          "end": 11.05
+        },
+        {
+          "text": "of",
+          "start": 11.05,
+          "end": 11.29
+        },
+        {
+          "text": "milk,",
+          "start": 11.29,
+          "end": 11.51
+        },
+        {
+          "text": "cheese,",
+          "start": 11.95,
+          "end": 12.13
+        },
+        {
+          "text": "and",
+          "start": 12.37,
+          "end": 12.47
+        },
+        {
+          "text": "butter,",
+          "start": 12.47,
+          "end": 12.71
+        },
+        {
+          "text": "or",
+          "start": 12.71,
+          "end": 12.97
+        },
+        {
+          "text": "oil,",
+          "start": 12.97,
+          "end": 13.29
+        },
+        {
+          "text": "where",
+          "start": 13.69,
+          "end": 13.83
+        },
+        {
+          "text": "butter",
+          "start": 13.83,
+          "end": 14.09
+        },
+        {
+          "text": "is",
+          "start": 14.09,
+          "end": 14.29
+        },
+        {
+          "text": "not",
+          "start": 14.29,
+          "end": 14.49
+        },
+        {
+          "text": "to",
+          "start": 14.49,
+          "end": 14.63
+        },
+        {
+          "text": "be",
+          "start": 14.63,
+          "end": 14.75
+        },
+        {
+          "text": "had,",
+          "start": 14.75,
+          "end": 15.11
+        },
+        {
+          "text": "it",
+          "start": 15.51,
+          "end": 15.65
+        },
+        {
+          "text": "is",
+          "start": 15.65,
+          "end": 15.77
+        },
+        {
+          "text": "known",
+          "start": 15.77,
+          "end": 15.99
+        },
+        {
+          "text": "from",
+          "start": 15.99,
+          "end": 16.21
+        },
+        {
+          "text": "experience,",
+          "start": 16.21,
+          "end": 16.85
+        },
+        {
+          "text": "can,",
+          "start": 16.85,
+          "end": 17.41
+        },
+        {
+          "text": "without",
+          "start": 17.57,
+          "end": 17.81
+        },
+        {
+          "text": "any",
+          "start": 17.81,
+          "end": 18.07
+        },
+        {
+          "text": "butcher's",
+          "start": 18.07,
+          "end": 18.49
+        },
+        {
+          "text": "meat,",
+          "start": 18.49,
+          "end": 18.73
+        },
+        {
+          "text": "afford",
+          "start": 18.83,
+          "end": 19.05
+        },
+        {
+          "text": "the",
+          "start": 19.05,
+          "end": 19.23
+        },
+        {
+          "text": "most",
+          "start": 19.23,
+          "end": 19.49
+        },
+        {
+          "text": "plentiful,",
+          "start": 19.49,
+          "end": 19.89
+        },
+        {
+          "text": "the",
+          "start": 20.49,
+          "end": 20.57
+        },
+        {
+          "text": "most",
+          "start": 20.57,
+          "end": 20.79
+        },
+        {
+          "text": "wholesome,",
+          "start": 20.79,
+          "end": 21.35
+        },
+        {
+          "text": "the",
+          "start": 21.73,
+          "end": 21.81
+        },
+        {
+          "text": "most",
+          "start": 21.81,
+          "end": 22.05
+        },
+        {
+          "text": "nourishing,",
+          "start": 22.05,
+          "end": 22.59
+        },
+        {
+          "text": "and",
+          "start": 22.81,
+          "end": 22.93
+        },
+        {
+          "text": "the",
+          "start": 22.93,
+          "end": 23.01
+        },
+        {
+          "text": "most",
+          "start": 23.01,
+          "end": 23.27
+        },
+        {
+          "text": "invigorating",
+          "start": 23.27,
+          "end": 23.93
+        },
+        {
+          "text": "diet.",
+          "start": 23.93,
+          "end": 24.35
+        },
+        {
+          "text": "Decency",
+          "start": 25.55,
+          "end": 26.01
+        },
+        {
+          "text": "nowhere",
+          "start": 26.01,
+          "end": 26.55
+        },
+        {
+          "text": "requires",
+          "start": 26.55,
+          "end": 27.15
+        },
+        {
+          "text": "that",
+          "start": 27.15,
+          "end": 27.49
+        },
+        {
+          "text": "any",
+          "start": 27.49,
+          "end": 27.75
+        },
+        {
+          "text": "man",
+          "start": 27.75,
+          "end": 28.07
+        },
+        {
+          "text": "should",
+          "start": 28.07,
+          "end": 28.29
+        },
+        {
+          "text": "eat",
+          "start": 28.29,
+          "end": 28.53
+        },
+        {
+          "text": "butcher's",
+          "start": 28.53,
+          "end": 29.05
+        },
+        {
+          "text": "meat,",
+          "start": 29.05,
+          "end": 29.31
+        },
+        {
+          "text": "as",
+          "start": 29.31,
+          "end": 29.93
+        },
+        {
+          "text": "it",
+          "start": 29.93,
+          "end": 30.05
+        },
+        {
+          "text": "in",
+          "start": 30.05,
+          "end": 30.17
+        },
+        {
+          "text": "most",
+          "start": 30.17,
+          "end": 30.45
+        },
+        {
+          "text": "places",
+          "start": 30.45,
+          "end": 30.91
+        },
+        {
+          "text": "requires",
+          "start": 30.91,
+          "end": 31.39
+        },
+        {
+          "text": "that",
+          "start": 31.39,
+          "end": 31.81
+        },
+        {
+          "text": "he",
+          "start": 31.81,
+          "end": 31.97
+        },
+        {
+          "text": "should",
+          "start": 31.97,
+          "end": 32.13
+        },
+        {
+          "text": "wear",
+          "start": 32.13,
+          "end": 32.35
+        },
+        {
+          "text": "a",
+          "start": 32.35,
+          "end": 32.51
+        },
+        {
+          "text": "linen",
+          "start": 32.51,
+          "end": 32.73
+        },
+        {
+          "text": "shirt",
+          "start": 32.73,
+          "end": 33.15
+        },
+        {
+          "text": "or",
+          "start": 33.15,
+          "end": 33.69
+        },
+        {
+          "text": "a",
+          "start": 33.69,
+          "end": 33.81
+        },
+        {
+          "text": "pair",
+          "start": 33.81,
+          "end": 33.99
+        },
+        {
+          "text": "of",
+          "start": 33.99,
+          "end": 34.15
+        },
+        {
+          "text": "leather",
+          "start": 34.15,
+          "end": 34.35
+        },
+        {
+          "text": "shoes.",
+          "start": 34.35,
+          "end": 34.75
+        }
+      ],
+      "stats": {
+        "expected_words": 102,
+        "heard_words": 100,
+        "matched_words": 99
+      },
+      "match_ratio": 0.9705882352941176,
+      "rejection_reasons": [],
+      "seconds": 0.9911802858114243
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "bdbe9c70249a607f8076066d2b39337766932477ab9253f0df0db7b33a501dd1",
+  "selected_reasons": []
+}

@@ -1,0 +1,1867 @@
+{
+  "complete": true,
+  "signature": "3602392e29c493c76d40506ab1946354b53e1b617e07f8466a891a62f3d6e3b9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2849294478073716,
+      "alignment_seconds": 0.0005703875795006752,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "119. Our loathing of dirt may be so great as to prevent our cleaning ourselves--\"justifying\" ourselves."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 119. Our loathing of dirt may be so great as to prevent our cleaning ourselves-justifying ourselves.",
+          "start": 0.63,
+          "end": 7.35,
+          "words": [
+            {
+              "text": " 119.",
+              "start": 0.63,
+              "end": 1.15,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " Our",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " loathing",
+              "start": 2.35,
+              "end": 2.69,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " of",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dirt",
+              "start": 2.87,
+              "end": 3.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " may",
+              "start": 3.11,
+              "end": 3.33,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " be",
+              "start": 3.33,
+              "end": 3.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so",
+              "start": 3.51,
+              "end": 3.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " great",
+              "start": 3.69,
+              "end": 3.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 3.97,
+              "end": 4.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 4.19,
+              "end": 4.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " prevent",
+              "start": 4.37,
+              "end": 4.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " our",
+              "start": 4.65,
+              "end": 4.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " cleaning",
+              "start": 4.85,
+              "end": 5.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ourselves",
+              "start": 5.11,
+              "end": 5.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": "-justifying",
+              "start": 5.77,
+              "end": 6.77,
+              "probability": 0.5587170918782552
+            },
+            {
+              "text": " ourselves.",
+              "start": 6.77,
+              "end": 7.35,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "119.",
+          "start": 0.63,
+          "end": 1.15
+        },
+        {
+          "raw": "Our",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "loathing",
+          "start": 2.35,
+          "end": 2.69
+        },
+        {
+          "raw": "of",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "dirt",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "raw": "may",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "raw": "be",
+          "start": 3.33,
+          "end": 3.51
+        },
+        {
+          "raw": "so",
+          "start": 3.51,
+          "end": 3.69
+        },
+        {
+          "raw": "great",
+          "start": 3.69,
+          "end": 3.97
+        },
+        {
+          "raw": "as",
+          "start": 3.97,
+          "end": 4.19
+        },
+        {
+          "raw": "to",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "raw": "prevent",
+          "start": 4.37,
+          "end": 4.65
+        },
+        {
+          "raw": "our",
+          "start": 4.65,
+          "end": 4.85
+        },
+        {
+          "raw": "cleaning",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "raw": "ourselves",
+          "start": 5.11,
+          "end": 5.77
+        },
+        {
+          "raw": "-justifying",
+          "start": 5.77,
+          "end": 6.77
+        },
+        {
+          "raw": "ourselves.",
+          "start": 6.77,
+          "end": 7.35
+        }
+      ],
+      "expected_tokens": [
+        "119.",
+        "Our",
+        "loathing",
+        "of",
+        "dirt",
+        "may",
+        "be",
+        "so",
+        "great",
+        "as",
+        "to",
+        "prevent",
+        "our",
+        "cleaning",
+        "ourselves--\"justifying\"",
+        "ourselves."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "delete",
+          14,
+          15,
+          14,
+          14
+        ],
+        [
+          "equal",
+          15,
+          16,
+          14,
+          15
+        ],
+        [
+          "insert",
+          16,
+          16,
+          15,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          14,
+          15,
+          14,
+          14
+        ],
+        [
+          "insert",
+          16,
+          16,
+          15,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "119.",
+          "start": 0.63,
+          "end": 1.15,
+          "key": "119",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "our",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "loathing",
+          "start": 2.35,
+          "end": 2.69,
+          "key": "loathing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dirt",
+          "start": 2.87,
+          "end": 3.11,
+          "key": "dirt",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 3.11,
+          "end": 3.33,
+          "key": "may",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.33,
+          "end": 3.51,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.51,
+          "end": 3.69,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 3.69,
+          "end": 3.97,
+          "key": "great",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.97,
+          "end": 4.19,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.19,
+          "end": 4.37,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "prevent",
+          "start": 4.37,
+          "end": 4.65,
+          "key": "prevent",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.65,
+          "end": 4.85,
+          "key": "our",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "cleaning",
+          "start": 4.85,
+          "end": 5.11,
+          "key": "cleaning",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "ourselves",
+          "start": 5.11,
+          "end": 5.77,
+          "key": "ourselves",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "-justifying",
+          "start": 5.77,
+          "end": 6.77,
+          "key": "justifying",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ourselves.",
+          "start": 6.77,
+          "end": 7.35,
+          "key": "ourselves",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "119.",
+          "start": 0.63,
+          "end": 1.15
+        },
+        {
+          "text": "Our",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "text": "loathing",
+          "start": 2.35,
+          "end": 2.69
+        },
+        {
+          "text": "of",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "text": "dirt",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "text": "may",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "text": "be",
+          "start": 3.33,
+          "end": 3.51
+        },
+        {
+          "text": "so",
+          "start": 3.51,
+          "end": 3.69
+        },
+        {
+          "text": "great",
+          "start": 3.69,
+          "end": 3.97
+        },
+        {
+          "text": "as",
+          "start": 3.97,
+          "end": 4.19
+        },
+        {
+          "text": "to",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "text": "prevent",
+          "start": 4.37,
+          "end": 4.65
+        },
+        {
+          "text": "our",
+          "start": 4.65,
+          "end": 4.85
+        },
+        {
+          "text": "cleaning",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "text": "ourselves--\"justifying\"",
+          "start": 5.11,
+          "end": 5.11
+        },
+        {
+          "text": "ourselves.",
+          "start": 5.11,
+          "end": 5.77
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.28577938862144947
+    },
+    {
+      "asr_seconds": 0.3299213871359825,
+      "alignment_seconds": 0.0004919860512018204,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " 119. Our loathing of dirt may be so great as to prevent our cleaning ourselves, justifying ourselves.",
+          "start": 0.61,
+          "end": 7.41,
+          "words": [
+            {
+              "text": " 119.",
+              "start": 0.61,
+              "end": 1.15,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " Our",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " loathing",
+              "start": 2.35,
+              "end": 2.69,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " of",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dirt",
+              "start": 2.87,
+              "end": 3.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " may",
+              "start": 3.11,
+              "end": 3.33,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " be",
+              "start": 3.33,
+              "end": 3.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so",
+              "start": 3.51,
+              "end": 3.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " great",
+              "start": 3.69,
+              "end": 3.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 3.97,
+              "end": 4.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 4.19,
+              "end": 4.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " prevent",
+              "start": 4.37,
+              "end": 4.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " our",
+              "start": 4.65,
+              "end": 4.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " cleaning",
+              "start": 4.85,
+              "end": 5.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ourselves,",
+              "start": 5.11,
+              "end": 5.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " justifying",
+              "start": 6.25,
+              "end": 6.71,
+              "probability": 0.990234375
+            },
+            {
+              "text": " ourselves.",
+              "start": 6.71,
+              "end": 7.41,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "119.",
+          "start": 0.61,
+          "end": 1.15
+        },
+        {
+          "raw": "Our",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "loathing",
+          "start": 2.35,
+          "end": 2.69
+        },
+        {
+          "raw": "of",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "dirt",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "raw": "may",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "raw": "be",
+          "start": 3.33,
+          "end": 3.51
+        },
+        {
+          "raw": "so",
+          "start": 3.51,
+          "end": 3.69
+        },
+        {
+          "raw": "great",
+          "start": 3.69,
+          "end": 3.97
+        },
+        {
+          "raw": "as",
+          "start": 3.97,
+          "end": 4.19
+        },
+        {
+          "raw": "to",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "raw": "prevent",
+          "start": 4.37,
+          "end": 4.65
+        },
+        {
+          "raw": "our",
+          "start": 4.65,
+          "end": 4.85
+        },
+        {
+          "raw": "cleaning",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "raw": "ourselves,",
+          "start": 5.11,
+          "end": 5.75
+        },
+        {
+          "raw": "justifying",
+          "start": 6.25,
+          "end": 6.71
+        },
+        {
+          "raw": "ourselves.",
+          "start": 6.71,
+          "end": 7.41
+        }
+      ],
+      "expected_tokens": [
+        "119.",
+        "Our",
+        "loathing",
+        "of",
+        "dirt",
+        "may",
+        "be",
+        "so",
+        "great",
+        "as",
+        "to",
+        "prevent",
+        "our",
+        "cleaning",
+        "ourselves--\"justifying\"",
+        "ourselves."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "delete",
+          14,
+          15,
+          14,
+          14
+        ],
+        [
+          "equal",
+          15,
+          16,
+          14,
+          15
+        ],
+        [
+          "insert",
+          16,
+          16,
+          15,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          14,
+          15,
+          14,
+          14
+        ],
+        [
+          "insert",
+          16,
+          16,
+          15,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "119.",
+          "start": 0.61,
+          "end": 1.15,
+          "key": "119",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "our",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "loathing",
+          "start": 2.35,
+          "end": 2.69,
+          "key": "loathing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dirt",
+          "start": 2.87,
+          "end": 3.11,
+          "key": "dirt",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 3.11,
+          "end": 3.33,
+          "key": "may",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.33,
+          "end": 3.51,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.51,
+          "end": 3.69,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 3.69,
+          "end": 3.97,
+          "key": "great",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.97,
+          "end": 4.19,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.19,
+          "end": 4.37,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "prevent",
+          "start": 4.37,
+          "end": 4.65,
+          "key": "prevent",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.65,
+          "end": 4.85,
+          "key": "our",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "cleaning",
+          "start": 4.85,
+          "end": 5.11,
+          "key": "cleaning",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "ourselves,",
+          "start": 5.11,
+          "end": 5.75,
+          "key": "ourselves",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "justifying",
+          "start": 6.25,
+          "end": 6.71,
+          "key": "justifying",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ourselves.",
+          "start": 6.71,
+          "end": 7.41,
+          "key": "ourselves",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "119.",
+          "start": 0.61,
+          "end": 1.15
+        },
+        {
+          "text": "Our",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "text": "loathing",
+          "start": 2.35,
+          "end": 2.69
+        },
+        {
+          "text": "of",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "text": "dirt",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "text": "may",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "text": "be",
+          "start": 3.33,
+          "end": 3.51
+        },
+        {
+          "text": "so",
+          "start": 3.51,
+          "end": 3.69
+        },
+        {
+          "text": "great",
+          "start": 3.69,
+          "end": 3.97
+        },
+        {
+          "text": "as",
+          "start": 3.97,
+          "end": 4.19
+        },
+        {
+          "text": "to",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "text": "prevent",
+          "start": 4.37,
+          "end": 4.65
+        },
+        {
+          "text": "our",
+          "start": 4.65,
+          "end": 4.85
+        },
+        {
+          "text": "cleaning",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "text": "ourselves--\"justifying\"",
+          "start": 5.11,
+          "end": 5.11
+        },
+        {
+          "text": "ourselves.",
+          "start": 5.11,
+          "end": 5.75
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.33064666762948036
+    },
+    {
+      "asr_seconds": 0.34279503114521503,
+      "alignment_seconds": 0.0004530595615506172,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 119. Our loathing of dirt may be so great as to prevent our cleaning ourselves, justifying ourselves.",
+          "start": 0.61,
+          "end": 7.41,
+          "words": [
+            {
+              "text": " 119.",
+              "start": 0.61,
+              "end": 1.15,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " Our",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " loathing",
+              "start": 2.35,
+              "end": 2.69,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " of",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dirt",
+              "start": 2.87,
+              "end": 3.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " may",
+              "start": 3.11,
+              "end": 3.33,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " be",
+              "start": 3.33,
+              "end": 3.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so",
+              "start": 3.51,
+              "end": 3.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " great",
+              "start": 3.69,
+              "end": 3.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 3.97,
+              "end": 4.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 4.19,
+              "end": 4.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " prevent",
+              "start": 4.37,
+              "end": 4.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " our",
+              "start": 4.65,
+              "end": 4.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " cleaning",
+              "start": 4.85,
+              "end": 5.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ourselves,",
+              "start": 5.11,
+              "end": 5.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " justifying",
+              "start": 6.25,
+              "end": 6.71,
+              "probability": 0.990234375
+            },
+            {
+              "text": " ourselves.",
+              "start": 6.71,
+              "end": 7.41,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "119.",
+          "start": 0.61,
+          "end": 1.15
+        },
+        {
+          "raw": "Our",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "loathing",
+          "start": 2.35,
+          "end": 2.69
+        },
+        {
+          "raw": "of",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "dirt",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "raw": "may",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "raw": "be",
+          "start": 3.33,
+          "end": 3.51
+        },
+        {
+          "raw": "so",
+          "start": 3.51,
+          "end": 3.69
+        },
+        {
+          "raw": "great",
+          "start": 3.69,
+          "end": 3.97
+        },
+        {
+          "raw": "as",
+          "start": 3.97,
+          "end": 4.19
+        },
+        {
+          "raw": "to",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "raw": "prevent",
+          "start": 4.37,
+          "end": 4.65
+        },
+        {
+          "raw": "our",
+          "start": 4.65,
+          "end": 4.85
+        },
+        {
+          "raw": "cleaning",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "raw": "ourselves,",
+          "start": 5.11,
+          "end": 5.75
+        },
+        {
+          "raw": "justifying",
+          "start": 6.25,
+          "end": 6.71
+        },
+        {
+          "raw": "ourselves.",
+          "start": 6.71,
+          "end": 7.41
+        }
+      ],
+      "expected_tokens": [
+        "119.",
+        "Our",
+        "loathing",
+        "of",
+        "dirt",
+        "may",
+        "be",
+        "so",
+        "great",
+        "as",
+        "to",
+        "prevent",
+        "our",
+        "cleaning",
+        "ourselves--\"justifying\"",
+        "ourselves."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "delete",
+          14,
+          15,
+          14,
+          14
+        ],
+        [
+          "equal",
+          15,
+          16,
+          14,
+          15
+        ],
+        [
+          "insert",
+          16,
+          16,
+          15,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          14,
+          15,
+          14,
+          14
+        ],
+        [
+          "insert",
+          16,
+          16,
+          15,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "119.",
+          "start": 0.61,
+          "end": 1.15,
+          "key": "119",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "our",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "loathing",
+          "start": 2.35,
+          "end": 2.69,
+          "key": "loathing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dirt",
+          "start": 2.87,
+          "end": 3.11,
+          "key": "dirt",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 3.11,
+          "end": 3.33,
+          "key": "may",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.33,
+          "end": 3.51,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.51,
+          "end": 3.69,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 3.69,
+          "end": 3.97,
+          "key": "great",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.97,
+          "end": 4.19,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.19,
+          "end": 4.37,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "prevent",
+          "start": 4.37,
+          "end": 4.65,
+          "key": "prevent",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.65,
+          "end": 4.85,
+          "key": "our",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "cleaning",
+          "start": 4.85,
+          "end": 5.11,
+          "key": "cleaning",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "ourselves,",
+          "start": 5.11,
+          "end": 5.75,
+          "key": "ourselves",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "justifying",
+          "start": 6.25,
+          "end": 6.71,
+          "key": "justifying",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ourselves.",
+          "start": 6.71,
+          "end": 7.41,
+          "key": "ourselves",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "119.",
+          "start": 0.61,
+          "end": 1.15
+        },
+        {
+          "text": "Our",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "text": "loathing",
+          "start": 2.35,
+          "end": 2.69
+        },
+        {
+          "text": "of",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "text": "dirt",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "text": "may",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "text": "be",
+          "start": 3.33,
+          "end": 3.51
+        },
+        {
+          "text": "so",
+          "start": 3.51,
+          "end": 3.69
+        },
+        {
+          "text": "great",
+          "start": 3.69,
+          "end": 3.97
+        },
+        {
+          "text": "as",
+          "start": 3.97,
+          "end": 4.19
+        },
+        {
+          "text": "to",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "text": "prevent",
+          "start": 4.37,
+          "end": 4.65
+        },
+        {
+          "text": "our",
+          "start": 4.65,
+          "end": 4.85
+        },
+        {
+          "text": "cleaning",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "text": "ourselves--\"justifying\"",
+          "start": 5.11,
+          "end": 5.11
+        },
+        {
+          "text": "ourselves.",
+          "start": 5.11,
+          "end": 5.75
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.3434882555156946
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "52e069cf593e2e155a4cd07267a4d25a5b3de6ac1e74d3a559ee2fe348c5125f",
+  "selected_reasons": []
+}

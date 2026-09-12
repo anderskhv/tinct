@@ -1,0 +1,383 @@
+{
+  "complete": true,
+  "signature": "8e81ee151d9c823f9d6d261c0e457b6cf096b011831e7a830201af77124ed2d6",
+  "attempts": [
+    {
+      "asr_seconds": 0.25369903445243835,
+      "alignment_seconds": 0.000508500263094902,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cloten, I'll be revanged. His means de-garment, well.",
+          "start": 0.08,
+          "end": 3.5,
+          "words": [
+            {
+              "text": " Cloten,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.3773193359375
+            },
+            {
+              "text": " I'll",
+              "start": 0.82,
+              "end": 0.92,
+              "probability": 0.982421875
+            },
+            {
+              "text": " be",
+              "start": 0.92,
+              "end": 1.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " revanged.",
+              "start": 1.02,
+              "end": 1.5,
+              "probability": 0.45611572265625
+            },
+            {
+              "text": " His",
+              "start": 2.0,
+              "end": 2.1,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " means",
+              "start": 2.1,
+              "end": 2.34,
+              "probability": 0.68896484375
+            },
+            {
+              "text": " de",
+              "start": 2.34,
+              "end": 2.56,
+              "probability": 0.431884765625
+            },
+            {
+              "text": "-garment,",
+              "start": 2.56,
+              "end": 3.0,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " well.",
+              "start": 3.22,
+              "end": 3.5,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cloten,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "I'll",
+          "start": 0.82,
+          "end": 0.92
+        },
+        {
+          "raw": "be",
+          "start": 0.92,
+          "end": 1.02
+        },
+        {
+          "raw": "revanged.",
+          "start": 1.02,
+          "end": 1.5
+        },
+        {
+          "raw": "His",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "raw": "means",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "raw": "de",
+          "start": 2.34,
+          "end": 2.56
+        },
+        {
+          "raw": "-garment,",
+          "start": 2.56,
+          "end": 3.0
+        },
+        {
+          "raw": "well.",
+          "start": 3.22,
+          "end": 3.5
+        }
+      ],
+      "expected_tokens": [
+        "Cloten.",
+        "I'll",
+        "be",
+        "reveng'd.",
+        "'His",
+        "mean'st",
+        "garment'!",
+        "Well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          8,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cloten,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "cloten",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 0.82,
+          "end": 0.92,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.92,
+          "end": 1.02,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "revanged.",
+          "start": 1.02,
+          "end": 1.5,
+          "key": "revanged",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 2.0,
+          "end": 2.1,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 2.1,
+          "end": 2.34,
+          "key": "means",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.34,
+          "end": 2.56,
+          "key": "de",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "-garment,",
+          "start": 2.56,
+          "end": 3.0,
+          "key": "garment",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 3.22,
+          "end": 3.5,
+          "key": "well",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cloten.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "I'll",
+          "start": 0.82,
+          "end": 0.92
+        },
+        {
+          "text": "be",
+          "start": 0.92,
+          "end": 1.02
+        },
+        {
+          "text": "reveng'd.",
+          "start": 1.02,
+          "end": 1.51
+        },
+        {
+          "text": "'His",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "text": "mean'st",
+          "start": 2.1,
+          "end": 2.33
+        },
+        {
+          "text": "garment'!",
+          "start": 2.56,
+          "end": 3.0
+        },
+        {
+          "text": "Well.",
+          "start": 3.22,
+          "end": 3.5
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.25451321341097355
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1a3657da387ce8caee5f0cd2003768bf0a3fcec00e4d556df75b0dfec2d38ecb",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

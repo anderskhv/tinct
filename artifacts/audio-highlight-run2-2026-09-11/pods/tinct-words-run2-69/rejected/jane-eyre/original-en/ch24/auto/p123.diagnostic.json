@@ -1,0 +1,862 @@
+{
+  "complete": true,
+  "signature": "18e44ce804519eccf339e51924ba2218ab34c721ad3ec22490d27b7f42e16b29",
+  "attempts": [
+    {
+      "asr_seconds": 0.32849567756056786,
+      "alignment_seconds": 0.0007605049759149551,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But what has mademoiselle to do with it? I don't care for the fairy: you said it was mademoiselle you would take to the moon?\"",
+        "hotwords": "But, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But what has mademoiselle to do with it? I don't care for the fairy. You said it was mademoiselle you would take to the moon?",
+          "start": 0.02,
+          "end": 6.58,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " what",
+              "start": 0.54,
+              "end": 0.76,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " has",
+              "start": 0.76,
+              "end": 0.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " mademoiselle",
+              "start": 0.98,
+              "end": 1.64,
+              "probability": 0.560028076171875
+            },
+            {
+              "text": " to",
+              "start": 1.64,
+              "end": 1.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " do",
+              "start": 1.86,
+              "end": 2.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 2.02,
+              "end": 2.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it?",
+              "start": 2.2,
+              "end": 2.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 2.76,
+              "end": 2.94,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " don't",
+              "start": 2.94,
+              "end": 3.12,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " care",
+              "start": 3.12,
+              "end": 3.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 3.26,
+              "end": 3.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.44,
+              "end": 3.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fairy.",
+              "start": 3.56,
+              "end": 3.84,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " You",
+              "start": 4.42,
+              "end": 4.5,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " said",
+              "start": 4.5,
+              "end": 4.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it",
+              "start": 4.68,
+              "end": 4.78,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " was",
+              "start": 4.78,
+              "end": 4.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " mademoiselle",
+              "start": 4.88,
+              "end": 5.64,
+              "probability": 0.9627685546875
+            },
+            {
+              "text": " you",
+              "start": 5.64,
+              "end": 5.8,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " would",
+              "start": 5.8,
+              "end": 5.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " take",
+              "start": 5.92,
+              "end": 6.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 6.08,
+              "end": 6.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 6.26,
+              "end": 6.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " moon?",
+              "start": 6.36,
+              "end": 6.58,
+              "probability": 0.9482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "what",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "raw": "has",
+          "start": 0.76,
+          "end": 0.98
+        },
+        {
+          "raw": "mademoiselle",
+          "start": 0.98,
+          "end": 1.64
+        },
+        {
+          "raw": "to",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "raw": "do",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "raw": "with",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "raw": "it?",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "raw": "I",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "raw": "don't",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "raw": "care",
+          "start": 3.12,
+          "end": 3.26
+        },
+        {
+          "raw": "for",
+          "start": 3.26,
+          "end": 3.44
+        },
+        {
+          "raw": "the",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "raw": "fairy.",
+          "start": 3.56,
+          "end": 3.84
+        },
+        {
+          "raw": "You",
+          "start": 4.42,
+          "end": 4.5
+        },
+        {
+          "raw": "said",
+          "start": 4.5,
+          "end": 4.68
+        },
+        {
+          "raw": "it",
+          "start": 4.68,
+          "end": 4.78
+        },
+        {
+          "raw": "was",
+          "start": 4.78,
+          "end": 4.88
+        },
+        {
+          "raw": "mademoiselle",
+          "start": 4.88,
+          "end": 5.64
+        },
+        {
+          "raw": "you",
+          "start": 5.64,
+          "end": 5.8
+        },
+        {
+          "raw": "would",
+          "start": 5.8,
+          "end": 5.92
+        },
+        {
+          "raw": "take",
+          "start": 5.92,
+          "end": 6.08
+        },
+        {
+          "raw": "to",
+          "start": 6.08,
+          "end": 6.26
+        },
+        {
+          "raw": "the",
+          "start": 6.26,
+          "end": 6.36
+        },
+        {
+          "raw": "moon?",
+          "start": 6.36,
+          "end": 6.58
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "what",
+        "has",
+        "mademoiselle",
+        "to",
+        "do",
+        "with",
+        "it?",
+        "I",
+        "don't",
+        "care",
+        "for",
+        "the",
+        "fairy:",
+        "you",
+        "said",
+        "it",
+        "was",
+        "mademoiselle",
+        "you",
+        "would",
+        "take",
+        "to",
+        "the",
+        "moon?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.54,
+          "end": 0.76,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 0.76,
+          "end": 0.98,
+          "key": "has",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mademoiselle",
+          "start": 0.98,
+          "end": 1.64,
+          "key": "mademoiselle",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.64,
+          "end": 1.86,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.86,
+          "end": 2.02,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.02,
+          "end": 2.2,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 2.2,
+          "end": 2.44,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.76,
+          "end": 2.94,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 2.94,
+          "end": 3.12,
+          "key": "dont",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 3.12,
+          "end": 3.26,
+          "key": "care",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.26,
+          "end": 3.44,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.44,
+          "end": 3.56,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fairy.",
+          "start": 3.56,
+          "end": 3.84,
+          "key": "fairy",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 4.42,
+          "end": 4.5,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 4.5,
+          "end": 4.68,
+          "key": "said",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.68,
+          "end": 4.78,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.78,
+          "end": 4.88,
+          "key": "was",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "mademoiselle",
+          "start": 4.88,
+          "end": 5.64,
+          "key": "mademoiselle",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.64,
+          "end": 5.8,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 5.8,
+          "end": 5.92,
+          "key": "would",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 5.92,
+          "end": 6.08,
+          "key": "take",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.08,
+          "end": 6.26,
+          "key": "to",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.26,
+          "end": 6.36,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "moon?",
+          "start": 6.36,
+          "end": 6.58,
+          "key": "moon",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "what",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "text": "has",
+          "start": 0.76,
+          "end": 0.98
+        },
+        {
+          "text": "mademoiselle",
+          "start": 0.98,
+          "end": 1.64
+        },
+        {
+          "text": "to",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "text": "do",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "text": "with",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "text": "it?",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "text": "I",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "text": "don't",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "text": "care",
+          "start": 3.12,
+          "end": 3.26
+        },
+        {
+          "text": "for",
+          "start": 3.26,
+          "end": 3.44
+        },
+        {
+          "text": "the",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "text": "fairy:",
+          "start": 3.56,
+          "end": 3.84
+        },
+        {
+          "text": "you",
+          "start": 4.42,
+          "end": 4.5
+        },
+        {
+          "text": "said",
+          "start": 4.5,
+          "end": 4.68
+        },
+        {
+          "text": "it",
+          "start": 4.68,
+          "end": 4.78
+        },
+        {
+          "text": "was",
+          "start": 4.78,
+          "end": 4.88
+        },
+        {
+          "text": "mademoiselle",
+          "start": 4.88,
+          "end": 5.64
+        },
+        {
+          "text": "you",
+          "start": 5.64,
+          "end": 5.8
+        },
+        {
+          "text": "would",
+          "start": 5.8,
+          "end": 5.92
+        },
+        {
+          "text": "take",
+          "start": 5.92,
+          "end": 6.08
+        },
+        {
+          "text": "to",
+          "start": 6.08,
+          "end": 6.26
+        },
+        {
+          "text": "the",
+          "start": 6.26,
+          "end": 6.36
+        },
+        {
+          "text": "moon?\"",
+          "start": 6.36,
+          "end": 6.58
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 25
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.329571389593184
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6accbec9d98ea14c4c6d5ffa641c3512b38676db265ed9c014b7ff3f629fce2c",
+  "selected_reasons": []
+}

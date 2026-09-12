@@ -1,0 +1,794 @@
+{
+  "complete": true,
+  "signature": "6a7f4bbff3190105b19f4c09c8a0bf2fc09fb937df77d6b5b7cabea6a245254e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1770463064312935,
+      "alignment_seconds": 0.0003719376400113106,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Banquo. Look, how our partner's rapt.",
+        "hotwords": "Banquo, Look"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Banquo, Look, how our partner's wrapped.",
+          "start": 0.02,
+          "end": 2.46,
+          "words": [
+            {
+              "text": " Banquo,",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.8689778645833334
+            },
+            {
+              "text": " Look,",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 0.023590087890625
+            },
+            {
+              "text": " how",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.478759765625
+            },
+            {
+              "text": " our",
+              "start": 1.62,
+              "end": 1.76,
+              "probability": 0.677734375
+            },
+            {
+              "text": " partner's",
+              "start": 1.76,
+              "end": 2.16,
+              "probability": 0.47723388671875
+            },
+            {
+              "text": " wrapped.",
+              "start": 2.16,
+              "end": 2.46,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Banquo,",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "Look,",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "how",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "our",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "raw": "partner's",
+          "start": 1.76,
+          "end": 2.16
+        },
+        {
+          "raw": "wrapped.",
+          "start": 2.16,
+          "end": 2.46
+        }
+      ],
+      "expected_tokens": [
+        "Banquo.",
+        "Look,",
+        "how",
+        "our",
+        "partner's",
+        "rapt."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Banquo,",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "banquo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Look,",
+          "start": 1.24,
+          "end": 1.34,
+          "key": "look",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.62,
+          "end": 1.76,
+          "key": "our",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "partner's",
+          "start": 1.76,
+          "end": 2.16,
+          "key": "partners",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wrapped.",
+          "start": 2.16,
+          "end": 2.46,
+          "key": "wrapped",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Banquo.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "Look,",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "text": "how",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "our",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "text": "partner's",
+          "start": 1.76,
+          "end": 2.16
+        },
+        {
+          "text": "rapt.",
+          "start": 2.16,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1775541976094246
+    },
+    {
+      "asr_seconds": 0.1955897333100438,
+      "alignment_seconds": 0.0002524908632040024,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Banquo, Look"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Banquo, Look How Our Partners Wrapped.",
+          "start": 0.02,
+          "end": 2.56,
+          "words": [
+            {
+              "text": " Banquo,",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.8689778645833334
+            },
+            {
+              "text": " Look",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 0.023590087890625
+            },
+            {
+              "text": " How",
+              "start": 1.34,
+              "end": 1.6,
+              "probability": 0.1767578125
+            },
+            {
+              "text": " Our",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.6318359375
+            },
+            {
+              "text": " Partners",
+              "start": 1.76,
+              "end": 2.02,
+              "probability": 0.81640625
+            },
+            {
+              "text": " Wrapped.",
+              "start": 2.02,
+              "end": 2.56,
+              "probability": 0.835205078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Banquo,",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "Look",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "How",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "raw": "Our",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "Partners",
+          "start": 1.76,
+          "end": 2.02
+        },
+        {
+          "raw": "Wrapped.",
+          "start": 2.02,
+          "end": 2.56
+        }
+      ],
+      "expected_tokens": [
+        "Banquo.",
+        "Look,",
+        "how",
+        "our",
+        "partner's",
+        "rapt."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Banquo,",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "banquo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 1.24,
+          "end": 1.34,
+          "key": "look",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.34,
+          "end": 1.6,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "our",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Partners",
+          "start": 1.76,
+          "end": 2.02,
+          "key": "partners",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Wrapped.",
+          "start": 2.02,
+          "end": 2.56,
+          "key": "wrapped",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Banquo.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "Look,",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "text": "how",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "text": "our",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "partner's",
+          "start": 1.76,
+          "end": 2.02
+        },
+        {
+          "text": "rapt.",
+          "start": 2.02,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1959253940731287
+    },
+    {
+      "asr_seconds": 0.1983928456902504,
+      "alignment_seconds": 0.00041002780199050903,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Banquo, look how our partners wrapped.",
+          "start": 0.02,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Banquo,",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.8689778645833334
+            },
+            {
+              "text": " look",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " how",
+              "start": 1.34,
+              "end": 1.6,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " our",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " partners",
+              "start": 1.74,
+              "end": 2.04,
+              "probability": 0.873046875
+            },
+            {
+              "text": " wrapped.",
+              "start": 2.04,
+              "end": 2.44,
+              "probability": 0.96337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Banquo,",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "look",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "how",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "raw": "our",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "partners",
+          "start": 1.74,
+          "end": 2.04
+        },
+        {
+          "raw": "wrapped.",
+          "start": 2.04,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "Banquo.",
+        "Look,",
+        "how",
+        "our",
+        "partner's",
+        "rapt."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Banquo,",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "banquo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.24,
+          "end": 1.34,
+          "key": "look",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.34,
+          "end": 1.6,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.6,
+          "end": 1.74,
+          "key": "our",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "partners",
+          "start": 1.74,
+          "end": 2.04,
+          "key": "partners",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wrapped.",
+          "start": 2.04,
+          "end": 2.44,
+          "key": "wrapped",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Banquo.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "Look,",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "text": "how",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "text": "our",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "partner's",
+          "start": 1.74,
+          "end": 2.04
+        },
+        {
+          "text": "rapt.",
+          "start": 2.04,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19894471857696772
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e7f16a93cec23dc67cca5bced6cb4ecc7eb09adc8b2af24d4696897fce02f2d2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

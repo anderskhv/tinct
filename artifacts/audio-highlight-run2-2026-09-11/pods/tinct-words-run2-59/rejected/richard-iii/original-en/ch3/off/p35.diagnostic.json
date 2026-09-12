@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "bca2e43c1ab0a7e21aee172151a079e86099273dd1735285b68656d4c6190635",
+  "attempts": [
+    {
+      "asr_seconds": 0.16708101402036846,
+      "alignment_seconds": 0.00035806605592370033,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rivers, what Mary may she?",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Rivers,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " what",
+              "start": 1.19,
+              "end": 1.29,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " Mary",
+              "start": 1.29,
+              "end": 1.55,
+              "probability": 0.81640625
+            },
+            {
+              "text": " may",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " she?",
+              "start": 1.73,
+              "end": 1.93,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rivers,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "what",
+          "start": 1.19,
+          "end": 1.29
+        },
+        {
+          "raw": "Mary",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "raw": "may",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "raw": "she?",
+          "start": 1.73,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "Rivers.",
+        "What,",
+        "marry,",
+        "may",
+        "she?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rivers,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "rivers",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.19,
+          "end": 1.29,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mary",
+          "start": 1.29,
+          "end": 1.55,
+          "key": "mary",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.55,
+          "end": 1.73,
+          "key": "may",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she?",
+          "start": 1.73,
+          "end": 1.93,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Rivers.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "What,",
+          "start": 1.19,
+          "end": 1.29
+        },
+        {
+          "text": "marry,",
+          "start": 1.29,
+          "end": 1.42
+        },
+        {
+          "text": "may",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "text": "she?",
+          "start": 1.73,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16755238617770374
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7db62fa38ac28e7dbea57b474cc019699155b28ebe6438c4b786b08aea47b44c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

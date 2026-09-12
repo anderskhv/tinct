@@ -1,0 +1,613 @@
+{
+  "complete": true,
+  "signature": "9e57d9027cbc6b341e07d843021f4db7d02b5b6463119000885b090f0dbbae5a",
+  "attempts": [
+    {
+      "asr_seconds": 0.44828240759670734,
+      "alignment_seconds": 0.0005796607583761215,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"On the contrary. You've expressed all that so well, Dmitri Fyodorovitch,\" Nikolay Parfenovitch answered with dignified approbation.",
+        "hotwords": "On, You've, Dmitri, Fyodorovitch, Nikolay, Parfenovitch"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " On the contrary. You've expressed all that so well, Dmitri Fyodorovitch,\" Nikolay Parfenovitch",
+          "start": 0.05,
+          "end": 6.49,
+          "words": [
+            {
+              "text": " On",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.252685546875
+            },
+            {
+              "text": " the",
+              "start": 0.55,
+              "end": 0.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " contrary.",
+              "start": 0.65,
+              "end": 1.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " You've",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.970703125
+            },
+            {
+              "text": " expressed",
+              "start": 1.99,
+              "end": 2.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " all",
+              "start": 2.31,
+              "end": 2.59,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that",
+              "start": 2.59,
+              "end": 2.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " so",
+              "start": 2.75,
+              "end": 3.01,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " well,",
+              "start": 3.01,
+              "end": 3.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Dmitri",
+              "start": 3.67,
+              "end": 4.09,
+              "probability": 0.6475830078125
+            },
+            {
+              "text": " Fyodorovitch,\"",
+              "start": 4.09,
+              "end": 5.49,
+              "probability": 0.6558024088541666
+            },
+            {
+              "text": " Nikolay",
+              "start": 5.49,
+              "end": 5.85,
+              "probability": 0.796875
+            },
+            {
+              "text": " Parfenovitch",
+              "start": 5.85,
+              "end": 6.49,
+              "probability": 0.502899169921875
+            }
+          ]
+        },
+        {
+          "text": " answered with dignified approbation.",
+          "start": 6.49,
+          "end": 8.43,
+          "words": [
+            {
+              "text": " answered",
+              "start": 6.49,
+              "end": 6.85,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " with",
+              "start": 6.85,
+              "end": 7.17,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " dignified",
+              "start": 7.17,
+              "end": 7.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " approbation.",
+              "start": 7.77,
+              "end": 8.43,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "On",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "the",
+          "start": 0.55,
+          "end": 0.65
+        },
+        {
+          "raw": "contrary.",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "raw": "You've",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "expressed",
+          "start": 1.99,
+          "end": 2.31
+        },
+        {
+          "raw": "all",
+          "start": 2.31,
+          "end": 2.59
+        },
+        {
+          "raw": "that",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "raw": "so",
+          "start": 2.75,
+          "end": 3.01
+        },
+        {
+          "raw": "well,",
+          "start": 3.01,
+          "end": 3.39
+        },
+        {
+          "raw": "Dmitri",
+          "start": 3.67,
+          "end": 4.09
+        },
+        {
+          "raw": "Fyodorovitch,\"",
+          "start": 4.09,
+          "end": 5.49
+        },
+        {
+          "raw": "Nikolay",
+          "start": 5.49,
+          "end": 5.85
+        },
+        {
+          "raw": "Parfenovitch",
+          "start": 5.85,
+          "end": 6.49
+        },
+        {
+          "raw": "answered",
+          "start": 6.49,
+          "end": 6.85
+        },
+        {
+          "raw": "with",
+          "start": 6.85,
+          "end": 7.17
+        },
+        {
+          "raw": "dignified",
+          "start": 7.17,
+          "end": 7.77
+        },
+        {
+          "raw": "approbation.",
+          "start": 7.77,
+          "end": 8.43
+        }
+      ],
+      "expected_tokens": [
+        "\"On",
+        "the",
+        "contrary.",
+        "You've",
+        "expressed",
+        "all",
+        "that",
+        "so",
+        "well,",
+        "Dmitri",
+        "Fyodorovitch,\"",
+        "Nikolay",
+        "Parfenovitch",
+        "answered",
+        "with",
+        "dignified",
+        "approbation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "On",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "on",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.55,
+          "end": 0.65,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "contrary.",
+          "start": 0.65,
+          "end": 1.11,
+          "key": "contrary",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "You've",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "youve",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "expressed",
+          "start": 1.99,
+          "end": 2.31,
+          "key": "expressed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.31,
+          "end": 2.59,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.59,
+          "end": 2.75,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.75,
+          "end": 3.01,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 3.01,
+          "end": 3.39,
+          "key": "well",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Dmitri",
+          "start": 3.67,
+          "end": 4.09,
+          "key": "dmitri",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Fyodorovitch,\"",
+          "start": 4.09,
+          "end": 5.49,
+          "key": "fyodorovitch",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Nikolay",
+          "start": 5.49,
+          "end": 5.85,
+          "key": "nikolay",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Parfenovitch",
+          "start": 5.85,
+          "end": 6.49,
+          "key": "parfenovitch",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 6.49,
+          "end": 6.85,
+          "key": "answered",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.85,
+          "end": 7.17,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "dignified",
+          "start": 7.17,
+          "end": 7.77,
+          "key": "dignified",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "approbation.",
+          "start": 7.77,
+          "end": 8.43,
+          "key": "approbation",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"On",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "the",
+          "start": 0.55,
+          "end": 0.65
+        },
+        {
+          "text": "contrary.",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "text": "You've",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "expressed",
+          "start": 1.99,
+          "end": 2.31
+        },
+        {
+          "text": "all",
+          "start": 2.31,
+          "end": 2.59
+        },
+        {
+          "text": "that",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "text": "so",
+          "start": 2.75,
+          "end": 3.01
+        },
+        {
+          "text": "well,",
+          "start": 3.01,
+          "end": 3.39
+        },
+        {
+          "text": "Dmitri",
+          "start": 3.67,
+          "end": 4.09
+        },
+        {
+          "text": "Fyodorovitch,\"",
+          "start": 4.09,
+          "end": 5.49
+        },
+        {
+          "text": "Nikolay",
+          "start": 5.49,
+          "end": 5.85
+        },
+        {
+          "text": "Parfenovitch",
+          "start": 5.85,
+          "end": 6.49
+        },
+        {
+          "text": "answered",
+          "start": 6.49,
+          "end": 6.85
+        },
+        {
+          "text": "with",
+          "start": 6.85,
+          "end": 7.17
+        },
+        {
+          "text": "dignified",
+          "start": 7.17,
+          "end": 7.77
+        },
+        {
+          "text": "approbation.",
+          "start": 7.77,
+          "end": 8.43
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.44907933846116066
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "10d4a3cf437a45ba8255b328b6f5108e76b0e48975060ccd9fb8063f9dd0b3ec",
+  "selected_reasons": []
+}

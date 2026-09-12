@@ -1,0 +1,676 @@
+{
+  "complete": true,
+  "signature": "ed7a3aaa302ea37e6016aac117cd0e52009bc9f327992aa1baba9b3a1e7cca7c",
+  "attempts": [
+    {
+      "asr_seconds": 0.34653996769338846,
+      "alignment_seconds": 0.0005170870572328568,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Paney, Paney, yelled Midia. She's pure and shining and I have never been her lover. That's a lie",
+          "start": 0.02,
+          "end": 5.68,
+          "words": [
+            {
+              "text": " Paney,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.306243896484375
+            },
+            {
+              "text": " Paney,",
+              "start": 0.86,
+              "end": 1.22,
+              "probability": 0.814697265625
+            },
+            {
+              "text": " yelled",
+              "start": 1.54,
+              "end": 1.92,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Midia.",
+              "start": 1.92,
+              "end": 2.32,
+              "probability": 0.725341796875
+            },
+            {
+              "text": " She's",
+              "start": 2.7,
+              "end": 2.88,
+              "probability": 0.854248046875
+            },
+            {
+              "text": " pure",
+              "start": 2.88,
+              "end": 3.14,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 3.14,
+              "end": 3.36,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " shining",
+              "start": 3.36,
+              "end": 3.7,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " and",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 0.63525390625
+            },
+            {
+              "text": " I",
+              "start": 3.96,
+              "end": 4.08,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " have",
+              "start": 4.08,
+              "end": 4.16,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " never",
+              "start": 4.16,
+              "end": 4.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " been",
+              "start": 4.36,
+              "end": 4.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 4.5,
+              "end": 4.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lover.",
+              "start": 4.64,
+              "end": 4.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " That's",
+              "start": 5.12,
+              "end": 5.36,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " a",
+              "start": 5.36,
+              "end": 5.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lie",
+              "start": 5.44,
+              "end": 5.68,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Paney,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Paney,",
+          "start": 0.86,
+          "end": 1.22
+        },
+        {
+          "raw": "yelled",
+          "start": 1.54,
+          "end": 1.92
+        },
+        {
+          "raw": "Midia.",
+          "start": 1.92,
+          "end": 2.32
+        },
+        {
+          "raw": "She's",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "raw": "pure",
+          "start": 2.88,
+          "end": 3.14
+        },
+        {
+          "raw": "and",
+          "start": 3.14,
+          "end": 3.36
+        },
+        {
+          "raw": "shining",
+          "start": 3.36,
+          "end": 3.7
+        },
+        {
+          "raw": "and",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "raw": "I",
+          "start": 3.96,
+          "end": 4.08
+        },
+        {
+          "raw": "have",
+          "start": 4.08,
+          "end": 4.16
+        },
+        {
+          "raw": "never",
+          "start": 4.16,
+          "end": 4.36
+        },
+        {
+          "raw": "been",
+          "start": 4.36,
+          "end": 4.5
+        },
+        {
+          "raw": "her",
+          "start": 4.5,
+          "end": 4.64
+        },
+        {
+          "raw": "lover.",
+          "start": 4.64,
+          "end": 4.84
+        },
+        {
+          "raw": "That's",
+          "start": 5.12,
+          "end": 5.36
+        },
+        {
+          "raw": "a",
+          "start": 5.36,
+          "end": 5.44
+        },
+        {
+          "raw": "lie",
+          "start": 5.44,
+          "end": 5.68
+        }
+      ],
+      "expected_tokens": [
+        "\"_Panie,",
+        "panie!_\"",
+        "yelled",
+        "Mitya,",
+        "\"she's",
+        "pure",
+        "and",
+        "shining,",
+        "and",
+        "I",
+        "have",
+        "never",
+        "been",
+        "her",
+        "lover!",
+        "That's",
+        "a",
+        "lie....\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          18,
+          4,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Paney,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "paney",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Paney,",
+          "start": 0.86,
+          "end": 1.22,
+          "key": "paney",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yelled",
+          "start": 1.54,
+          "end": 1.92,
+          "key": "yelled",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Midia.",
+          "start": 1.92,
+          "end": 2.32,
+          "key": "midia",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "She's",
+          "start": 2.7,
+          "end": 2.88,
+          "key": "shes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pure",
+          "start": 2.88,
+          "end": 3.14,
+          "key": "pure",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.14,
+          "end": 3.36,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shining",
+          "start": 3.36,
+          "end": 3.7,
+          "key": "shining",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.7,
+          "end": 3.96,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.96,
+          "end": 4.08,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.08,
+          "end": 4.16,
+          "key": "have",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 4.16,
+          "end": 4.36,
+          "key": "never",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 4.36,
+          "end": 4.5,
+          "key": "been",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.5,
+          "end": 4.64,
+          "key": "her",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "lover.",
+          "start": 4.64,
+          "end": 4.84,
+          "key": "lover",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 5.12,
+          "end": 5.36,
+          "key": "thats",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.36,
+          "end": 5.44,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "lie",
+          "start": 5.44,
+          "end": 5.68,
+          "key": "lie",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_Panie,",
+          "start": 0.0,
+          "end": 0.77
+        },
+        {
+          "text": "panie!_\"",
+          "start": 0.77,
+          "end": 1.155
+        },
+        {
+          "text": "yelled",
+          "start": 1.54,
+          "end": 1.92
+        },
+        {
+          "text": "Mitya,",
+          "start": 1.92,
+          "end": 2.31
+        },
+        {
+          "text": "\"she's",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "text": "pure",
+          "start": 2.88,
+          "end": 3.14
+        },
+        {
+          "text": "and",
+          "start": 3.14,
+          "end": 3.36
+        },
+        {
+          "text": "shining,",
+          "start": 3.36,
+          "end": 3.7
+        },
+        {
+          "text": "and",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "text": "I",
+          "start": 3.96,
+          "end": 4.08
+        },
+        {
+          "text": "have",
+          "start": 4.08,
+          "end": 4.16
+        },
+        {
+          "text": "never",
+          "start": 4.16,
+          "end": 4.36
+        },
+        {
+          "text": "been",
+          "start": 4.36,
+          "end": 4.5
+        },
+        {
+          "text": "her",
+          "start": 4.5,
+          "end": 4.64
+        },
+        {
+          "text": "lover!",
+          "start": 4.64,
+          "end": 4.84
+        },
+        {
+          "text": "That's",
+          "start": 5.12,
+          "end": 5.36
+        },
+        {
+          "text": "a",
+          "start": 5.36,
+          "end": 5.44
+        },
+        {
+          "text": "lie....\"",
+          "start": 5.44,
+          "end": 5.68
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3473032535985112
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "773042d46cb6e0ff590897e915101a3be183a6414b8d492ad4513e174304d84f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "3df54fd02ff361ef841dec4cd79c2a3337a70259cd550ca00793bdadf45aa559",
+  "attempts": [
+    {
+      "asr_seconds": 0.18101518787443638,
+      "alignment_seconds": 0.0002903691492974758,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cominius. Hath he not passed the noble and the common?",
+        "hotwords": "Cominius, Hath"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cominius, Hath he not passed the noble and the common?",
+          "start": 0.55,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " Cominius,",
+              "start": 0.55,
+              "end": 1.03,
+              "probability": 0.533935546875
+            },
+            {
+              "text": " Hath",
+              "start": 1.51,
+              "end": 1.55,
+              "probability": 0.51904296875
+            },
+            {
+              "text": " he",
+              "start": 1.55,
+              "end": 1.65,
+              "probability": 0.0244140625
+            },
+            {
+              "text": " not",
+              "start": 1.65,
+              "end": 1.81,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " passed",
+              "start": 1.81,
+              "end": 2.07,
+              "probability": 0.06939697265625
+            },
+            {
+              "text": " the",
+              "start": 2.07,
+              "end": 2.25,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " noble",
+              "start": 2.25,
+              "end": 2.49,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " and",
+              "start": 2.49,
+              "end": 2.73,
+              "probability": 0.50830078125
+            },
+            {
+              "text": " the",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " common?",
+              "start": 2.85,
+              "end": 3.17,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cominius,",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "raw": "Hath",
+          "start": 1.51,
+          "end": 1.55
+        },
+        {
+          "raw": "he",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "raw": "not",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "raw": "passed",
+          "start": 1.81,
+          "end": 2.07
+        },
+        {
+          "raw": "the",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "raw": "noble",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "raw": "and",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "raw": "the",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "common?",
+          "start": 2.85,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "Cominius.",
+        "Hath",
+        "he",
+        "not",
+        "passed",
+        "the",
+        "noble",
+        "and",
+        "the",
+        "common?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cominius,",
+          "start": 0.55,
+          "end": 1.03,
+          "key": "cominius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hath",
+          "start": 1.51,
+          "end": 1.55,
+          "key": "hath",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.55,
+          "end": 1.65,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.65,
+          "end": 1.81,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "passed",
+          "start": 1.81,
+          "end": 2.07,
+          "key": "passed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.07,
+          "end": 2.25,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 2.25,
+          "end": 2.49,
+          "key": "noble",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.49,
+          "end": 2.73,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.73,
+          "end": 2.85,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "common?",
+          "start": 2.85,
+          "end": 3.17,
+          "key": "common",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cominius.",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "text": "Hath",
+          "start": 1.51,
+          "end": 1.55
+        },
+        {
+          "text": "he",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "text": "not",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "text": "passed",
+          "start": 1.81,
+          "end": 2.07
+        },
+        {
+          "text": "the",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "text": "noble",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "text": "and",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "text": "the",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "common?",
+          "start": 2.85,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18143066111952066
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b8588ce0a2e49b84f02f1a2dbd85ba8f1ba40b68f57022aae24948b0502de994",
+  "selected_reasons": []
+}

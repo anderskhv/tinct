@@ -1,0 +1,266 @@
+{
+  "complete": true,
+  "signature": "cc42550e21d7ec50c702ed0dece7ceaba8c80b1b763709606340f5eaafedc8a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.13914782600477338,
+      "alignment_seconds": 0.00042150169610977173,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Are you caught-ing, says I.",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Are",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.68115234375
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " caught",
+              "start": 0.63,
+              "end": 0.85,
+              "probability": 0.67236328125
+            },
+            {
+              "text": "-ing,",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.527923583984375
+            },
+            {
+              "text": " says",
+              "start": 1.33,
+              "end": 1.41,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " I.",
+              "start": 1.41,
+              "end": 1.69,
+              "probability": 0.91064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Are",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "caught",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "raw": "-ing,",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "raw": "says",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "raw": "I.",
+          "start": 1.41,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "—Are",
+        "you",
+        "codding?",
+        "says",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          5,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Are",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "are",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "caught",
+          "start": 0.63,
+          "end": 0.85,
+          "key": "caught",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-ing,",
+          "start": 0.85,
+          "end": 1.03,
+          "key": "ing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.33,
+          "end": 1.41,
+          "key": "says",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 1.41,
+          "end": 1.69,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Are",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "codding?",
+          "start": 0.63,
+          "end": 0.98
+        },
+        {
+          "text": "says",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "text": "I.",
+          "start": 1.41,
+          "end": 1.69
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13972184900194407
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e905f1f972b0aa1a63339c90daef1b52f0ca015e64b2b297d08deb75bc40eec4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

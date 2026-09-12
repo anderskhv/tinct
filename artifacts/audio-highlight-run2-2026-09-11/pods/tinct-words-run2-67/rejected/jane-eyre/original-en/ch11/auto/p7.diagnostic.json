@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "009eb6a5079b71d6c633f81f98fbe16d22ba0c10acca47aed72b9adc47c445f4",
+  "attempts": [
+    {
+      "asr_seconds": 0.1329506109468639,
+      "alignment_seconds": 0.0003693029284477234,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Person here waiting for you.\"",
+        "hotwords": "Person"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Person here waiting for you.",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " Person",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " here",
+              "start": 0.73,
+              "end": 0.95,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " waiting",
+              "start": 0.95,
+              "end": 1.19,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " for",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you.",
+              "start": 1.45,
+              "end": 1.67,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Person",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "here",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "raw": "waiting",
+          "start": 0.95,
+          "end": 1.19
+        },
+        {
+          "raw": "for",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "you.",
+          "start": 1.45,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "\"Person",
+        "here",
+        "waiting",
+        "for",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Person",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "person",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 0.73,
+          "end": 0.95,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "waiting",
+          "start": 0.95,
+          "end": 1.19,
+          "key": "waiting",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.19,
+          "end": 1.45,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.45,
+          "end": 1.67,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Person",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "here",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "text": "waiting",
+          "start": 0.95,
+          "end": 1.19
+        },
+        {
+          "text": "for",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "you.\"",
+          "start": 1.45,
+          "end": 1.67
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1334476349875331
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f27f84ecba9f34ad61d401c8f34fb875d455670f29faa0858211b082a66940bf",
+  "selected_reasons": []
+}

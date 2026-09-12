@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "a2ad017d0d3272eee20baa997881d5c12be8e25d99741e05f9f0b29261467575",
+  "attempts": [
+    {
+      "asr_seconds": 0.2311210511252284,
+      "alignment_seconds": 0.00017990078777074814,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Soot's luck says Joe. Who's the old bollocks you were talking to?",
+          "start": 0.14,
+          "end": 3.86,
+          "words": [
+            {
+              "text": " Soot's",
+              "start": 0.14,
+              "end": 0.76,
+              "probability": 0.5701497395833334
+            },
+            {
+              "text": " luck",
+              "start": 0.76,
+              "end": 1.02,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " says",
+              "start": 1.02,
+              "end": 1.36,
+              "probability": 0.494140625
+            },
+            {
+              "text": " Joe.",
+              "start": 1.36,
+              "end": 1.7,
+              "probability": 0.71533203125
+            },
+            {
+              "text": " Who's",
+              "start": 2.06,
+              "end": 2.36,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " the",
+              "start": 2.36,
+              "end": 2.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " old",
+              "start": 2.46,
+              "end": 2.68,
+              "probability": 0.9921875
+            },
+            {
+              "text": " bollocks",
+              "start": 2.68,
+              "end": 3.04,
+              "probability": 0.5580240885416666
+            },
+            {
+              "text": " you",
+              "start": 3.04,
+              "end": 3.16,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " were",
+              "start": 3.16,
+              "end": 3.24,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " talking",
+              "start": 3.24,
+              "end": 3.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to?",
+              "start": 3.54,
+              "end": 3.86,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soot's",
+          "start": 0.14,
+          "end": 0.76
+        },
+        {
+          "raw": "luck",
+          "start": 0.76,
+          "end": 1.02
+        },
+        {
+          "raw": "says",
+          "start": 1.02,
+          "end": 1.36
+        },
+        {
+          "raw": "Joe.",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "raw": "Who's",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "raw": "the",
+          "start": 2.36,
+          "end": 2.46
+        },
+        {
+          "raw": "old",
+          "start": 2.46,
+          "end": 2.68
+        },
+        {
+          "raw": "bollocks",
+          "start": 2.68,
+          "end": 3.04
+        },
+        {
+          "raw": "you",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "raw": "were",
+          "start": 3.16,
+          "end": 3.24
+        },
+        {
+          "raw": "talking",
+          "start": 3.24,
+          "end": 3.54
+        },
+        {
+          "raw": "to?",
+          "start": 3.54,
+          "end": 3.86
+        }
+      ],
+      "expected_tokens": [
+        "—Soot's",
+        "luck,",
+        "says",
+        "Joe.",
+        "Who's",
+        "the",
+        "old",
+        "ballocks",
+        "you",
+        "were",
+        "talking",
+        "to?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          12,
+          8,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soot's",
+          "start": 0.14,
+          "end": 0.76,
+          "key": "soots",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "luck",
+          "start": 0.76,
+          "end": 1.02,
+          "key": "luck",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.02,
+          "end": 1.36,
+          "key": "says",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Joe.",
+          "start": 1.36,
+          "end": 1.7,
+          "key": "joe",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Who's",
+          "start": 2.06,
+          "end": 2.36,
+          "key": "whos",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.36,
+          "end": 2.46,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 2.46,
+          "end": 2.68,
+          "key": "old",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bollocks",
+          "start": 2.68,
+          "end": 3.04,
+          "key": "bollocks",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.04,
+          "end": 3.16,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 3.16,
+          "end": 3.24,
+          "key": "were",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "talking",
+          "start": 3.24,
+          "end": 3.54,
+          "key": "talking",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to?",
+          "start": 3.54,
+          "end": 3.86,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Soot's",
+          "start": 0.14,
+          "end": 0.76
+        },
+        {
+          "text": "luck,",
+          "start": 0.76,
+          "end": 1.02
+        },
+        {
+          "text": "says",
+          "start": 1.02,
+          "end": 1.36
+        },
+        {
+          "text": "Joe.",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "text": "Who's",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "text": "the",
+          "start": 2.36,
+          "end": 2.46
+        },
+        {
+          "text": "old",
+          "start": 2.46,
+          "end": 2.68
+        },
+        {
+          "text": "ballocks",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "text": "you",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "text": "were",
+          "start": 3.16,
+          "end": 3.24
+        },
+        {
+          "text": "talking",
+          "start": 3.24,
+          "end": 3.54
+        },
+        {
+          "text": "to?",
+          "start": 3.54,
+          "end": 3.86
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.23136089276522398
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2b00dd50ed382f09bccd3e8b0258f62f8ba83eea72ccaabffb0079908d6cc688",
+  "selected_reasons": []
+}

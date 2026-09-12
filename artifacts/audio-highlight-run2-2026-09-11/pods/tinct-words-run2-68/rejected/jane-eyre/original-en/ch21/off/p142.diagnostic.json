@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "91f4840bf2b69b359b7a8c5ca1a4faf361d5768866517a50e747a366a833e0f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.22339480742812157,
+      "alignment_seconds": 0.00047961995005607605,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A strange wish, Mrs. Reed. Why do you hate her so?",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.69482421875
+            },
+            {
+              "text": " strange",
+              "start": 0.51,
+              "end": 0.87,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " wish,",
+              "start": 0.87,
+              "end": 1.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Mrs.",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Reed.",
+              "start": 1.87,
+              "end": 1.87,
+              "probability": 0.693359375
+            },
+            {
+              "text": " Why",
+              "start": 2.41,
+              "end": 2.47,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " do",
+              "start": 2.47,
+              "end": 2.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 2.57,
+              "end": 2.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hate",
+              "start": 2.67,
+              "end": 2.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 2.81,
+              "end": 2.97,
+              "probability": 0.876953125
+            },
+            {
+              "text": " so?",
+              "start": 2.97,
+              "end": 3.21,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "strange",
+          "start": 0.51,
+          "end": 0.87
+        },
+        {
+          "raw": "wish,",
+          "start": 0.87,
+          "end": 1.25
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "Reed.",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "raw": "Why",
+          "start": 2.41,
+          "end": 2.47
+        },
+        {
+          "raw": "do",
+          "start": 2.47,
+          "end": 2.57
+        },
+        {
+          "raw": "you",
+          "start": 2.57,
+          "end": 2.67
+        },
+        {
+          "raw": "hate",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "raw": "her",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "raw": "so?",
+          "start": 2.97,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "strange",
+        "wish,",
+        "Mrs.",
+        "Reed;",
+        "why",
+        "do",
+        "you",
+        "hate",
+        "her",
+        "so?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 0.51,
+          "end": 0.87,
+          "key": "strange",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wish,",
+          "start": 0.87,
+          "end": 1.25,
+          "key": "wish",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.43,
+          "end": 1.53,
+          "key": "mrs",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Reed.",
+          "start": 1.87,
+          "end": 1.87,
+          "key": "reed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 2.41,
+          "end": 2.47,
+          "key": "why",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.47,
+          "end": 2.57,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.57,
+          "end": 2.67,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hate",
+          "start": 2.67,
+          "end": 2.81,
+          "key": "hate",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.81,
+          "end": 2.97,
+          "key": "her",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "so?",
+          "start": 2.97,
+          "end": 3.21,
+          "key": "so",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "strange",
+          "start": 0.51,
+          "end": 0.87
+        },
+        {
+          "text": "wish,",
+          "start": 0.87,
+          "end": 1.25
+        },
+        {
+          "text": "Mrs.",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "text": "Reed;",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "text": "why",
+          "start": 2.41,
+          "end": 2.47
+        },
+        {
+          "text": "do",
+          "start": 2.47,
+          "end": 2.57
+        },
+        {
+          "text": "you",
+          "start": 2.57,
+          "end": 2.67
+        },
+        {
+          "text": "hate",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "text": "her",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "text": "so?\"",
+          "start": 2.97,
+          "end": 3.21
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2240564338862896
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e3975b489471a4388f68157bacd0839a2d0c4b665183c8105c08462be84934e7",
+  "selected_reasons": []
+}

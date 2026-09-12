@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "9ed3a01cd86938beab40696f4c30bc17fa16039afbad5c6500f2ada832cc2471",
+  "attempts": [
+    {
+      "asr_seconds": 0.12822197200148366,
+      "alignment_seconds": 0.0001412249985150993,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enobarbus. But why, why, why?",
+        "hotwords": "Enobarbus, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enobarbus, But why, why, why?",
+          "start": 0.59,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Enobarbus,",
+              "start": 0.59,
+              "end": 1.05,
+              "probability": 0.2940938472747803
+            },
+            {
+              "text": " But",
+              "start": 1.29,
+              "end": 1.45,
+              "probability": 0.0285186767578125
+            },
+            {
+              "text": " why,",
+              "start": 1.45,
+              "end": 1.67,
+              "probability": 0.61328125
+            },
+            {
+              "text": " why,",
+              "start": 1.89,
+              "end": 1.89,
+              "probability": 0.869140625
+            },
+            {
+              "text": " why?",
+              "start": 2.13,
+              "end": 2.17,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enobarbus,",
+          "start": 0.59,
+          "end": 1.05
+        },
+        {
+          "raw": "But",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "raw": "why,",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "raw": "why,",
+          "start": 1.89,
+          "end": 1.89
+        },
+        {
+          "raw": "why?",
+          "start": 2.13,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus.",
+        "But",
+        "why,",
+        "why,",
+        "why?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enobarbus,",
+          "start": 0.59,
+          "end": 1.05,
+          "key": "enobarbus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.29,
+          "end": 1.45,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "why,",
+          "start": 1.45,
+          "end": 1.67,
+          "key": "why",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "why,",
+          "start": 1.89,
+          "end": 1.89,
+          "key": "why",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "why?",
+          "start": 2.13,
+          "end": 2.17,
+          "key": "why",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.59,
+          "end": 1.05
+        },
+        {
+          "text": "But",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "text": "why,",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "text": "why,",
+          "start": 1.89,
+          "end": 1.89
+        },
+        {
+          "text": "why?",
+          "start": 2.13,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12841431898414157
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "86a328291b14a68c5072edf09e7cf115161f54b3ec6398bbf8e09dabfe0c8a7c",
+  "selected_reasons": []
+}

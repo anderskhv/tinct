@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "00c10a8eafc1e652ddd512c4262b7ea3db7d09425f44a290f4071a85d3c5bb1f",
+  "attempts": [
+    {
+      "asr_seconds": 0.13875954109244049,
+      "alignment_seconds": 0.00035288906656205654,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Are you a German?\"",
+        "hotwords": "Are, German"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Are you a German?",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " Are",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 0.63,
+              "end": 0.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " German?",
+              "start": 0.73,
+              "end": 0.99,
+              "probability": 0.93212890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Are",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "a",
+          "start": 0.63,
+          "end": 0.73
+        },
+        {
+          "raw": "German?",
+          "start": 0.73,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "\"Are",
+        "you",
+        "a",
+        "German?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Are",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "are",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.63,
+          "end": 0.73,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "German?",
+          "start": 0.73,
+          "end": 0.99,
+          "key": "german",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Are",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "a",
+          "start": 0.63,
+          "end": 0.73
+        },
+        {
+          "text": "German?\"",
+          "start": 0.73,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13923590490594506
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6ae7fbc8a60452501a49fc1634c7ee4cb6799a4e03c3ff3c1823ea8c5ce32968",
+  "selected_reasons": []
+}

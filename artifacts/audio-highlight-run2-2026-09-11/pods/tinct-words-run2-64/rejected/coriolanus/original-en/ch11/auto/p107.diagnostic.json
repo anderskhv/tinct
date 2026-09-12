@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "d3d8dc06b2bd47f08048f6b6d4a35c9934d291a0b86637896e0eef00a974b854",
+  "attempts": [
+    {
+      "asr_seconds": 0.33019997738301754,
+      "alignment_seconds": 0.0004172772169113159,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Let's to the Capitol; And carry with us ears and eyes for th' time, But hearts for the event.",
+        "hotwords": "Brutus, Let's, Capitol, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, Let's to the Capitol, And carry with us ears and eyes for th' time, But hearts for the event.",
+          "start": 0.05,
+          "end": 6.51,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Let's",
+              "start": 1.15,
+              "end": 1.53,
+              "probability": 0.4926605224609375
+            },
+            {
+              "text": " to",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.951171875
+            },
+            {
+              "text": " the",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Capitol,",
+              "start": 1.75,
+              "end": 2.07,
+              "probability": 0.275390625
+            },
+            {
+              "text": " And",
+              "start": 2.53,
+              "end": 2.63,
+              "probability": 0.147216796875
+            },
+            {
+              "text": " carry",
+              "start": 2.63,
+              "end": 2.85,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " with",
+              "start": 2.85,
+              "end": 3.05,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " us",
+              "start": 3.05,
+              "end": 3.27,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " ears",
+              "start": 3.27,
+              "end": 3.55,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " and",
+              "start": 3.55,
+              "end": 3.79,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " eyes",
+              "start": 3.79,
+              "end": 4.07,
+              "probability": 0.97265625
+            },
+            {
+              "text": " for",
+              "start": 4.07,
+              "end": 4.31,
+              "probability": 0.51904296875
+            },
+            {
+              "text": " th'",
+              "start": 4.31,
+              "end": 4.71,
+              "probability": 0.134765625
+            },
+            {
+              "text": " time,",
+              "start": 4.71,
+              "end": 5.23,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " But",
+              "start": 5.51,
+              "end": 5.65,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " hearts",
+              "start": 5.65,
+              "end": 5.87,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " for",
+              "start": 5.87,
+              "end": 6.09,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 6.09,
+              "end": 6.23,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " event.",
+              "start": 6.23,
+              "end": 6.51,
+              "probability": 0.9443359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Let's",
+          "start": 1.15,
+          "end": 1.53
+        },
+        {
+          "raw": "to",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "the",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "Capitol,",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "raw": "And",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "raw": "carry",
+          "start": 2.63,
+          "end": 2.85
+        },
+        {
+          "raw": "with",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "raw": "us",
+          "start": 3.05,
+          "end": 3.27
+        },
+        {
+          "raw": "ears",
+          "start": 3.27,
+          "end": 3.55
+        },
+        {
+          "raw": "and",
+          "start": 3.55,
+          "end": 3.79
+        },
+        {
+          "raw": "eyes",
+          "start": 3.79,
+          "end": 4.07
+        },
+        {
+          "raw": "for",
+          "start": 4.07,
+          "end": 4.31
+        },
+        {
+          "raw": "th'",
+          "start": 4.31,
+          "end": 4.71
+        },
+        {
+          "raw": "time,",
+          "start": 4.71,
+          "end": 5.23
+        },
+        {
+          "raw": "But",
+          "start": 5.51,
+          "end": 5.65
+        },
+        {
+          "raw": "hearts",
+          "start": 5.65,
+          "end": 5.87
+        },
+        {
+          "raw": "for",
+          "start": 5.87,
+          "end": 6.09
+        },
+        {
+          "raw": "the",
+          "start": 6.09,
+          "end": 6.23
+        },
+        {
+          "raw": "event.",
+          "start": 6.23,
+          "end": 6.51
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Let's",
+        "to",
+        "the",
+        "Capitol;",
+        "And",
+        "carry",
+        "with",
+        "us",
+        "ears",
+        "and",
+        "eyes",
+        "for",
+        "th'",
+        "time,",
+        "But",
+        "hearts",
+        "for",
+        "the",
+        "event."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Let's",
+          "start": 1.15,
+          "end": 1.53,
+          "key": "lets",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.53,
+          "end": 1.63,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Capitol,",
+          "start": 1.75,
+          "end": 2.07,
+          "key": "capitol",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 2.53,
+          "end": 2.63,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "carry",
+          "start": 2.63,
+          "end": 2.85,
+          "key": "carry",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.85,
+          "end": 3.05,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 3.05,
+          "end": 3.27,
+          "key": "us",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ears",
+          "start": 3.27,
+          "end": 3.55,
+          "key": "ears",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.55,
+          "end": 3.79,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 3.79,
+          "end": 4.07,
+          "key": "eyes",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.07,
+          "end": 4.31,
+          "key": "for",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 4.31,
+          "end": 4.71,
+          "key": "th",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "time,",
+          "start": 4.71,
+          "end": 5.23,
+          "key": "time",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 5.51,
+          "end": 5.65,
+          "key": "but",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "hearts",
+          "start": 5.65,
+          "end": 5.87,
+          "key": "hearts",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.87,
+          "end": 6.09,
+          "key": "for",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.09,
+          "end": 6.23,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "event.",
+          "start": 6.23,
+          "end": 6.51,
+          "key": "event",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Let's",
+          "start": 1.15,
+          "end": 1.53
+        },
+        {
+          "text": "to",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "the",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "Capitol;",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "text": "And",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "text": "carry",
+          "start": 2.63,
+          "end": 2.85
+        },
+        {
+          "text": "with",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "text": "us",
+          "start": 3.05,
+          "end": 3.27
+        },
+        {
+          "text": "ears",
+          "start": 3.27,
+          "end": 3.55
+        },
+        {
+          "text": "and",
+          "start": 3.55,
+          "end": 3.79
+        },
+        {
+          "text": "eyes",
+          "start": 3.79,
+          "end": 4.07
+        },
+        {
+          "text": "for",
+          "start": 4.07,
+          "end": 4.31
+        },
+        {
+          "text": "th'",
+          "start": 4.31,
+          "end": 4.71
+        },
+        {
+          "text": "time,",
+          "start": 4.71,
+          "end": 5.23
+        },
+        {
+          "text": "But",
+          "start": 5.51,
+          "end": 5.65
+        },
+        {
+          "text": "hearts",
+          "start": 5.65,
+          "end": 5.87
+        },
+        {
+          "text": "for",
+          "start": 5.87,
+          "end": 6.09
+        },
+        {
+          "text": "the",
+          "start": 6.09,
+          "end": 6.23
+        },
+        {
+          "text": "event.",
+          "start": 6.23,
+          "end": 6.51
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3307984545826912
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "23d312e01e7a0f24a05c73f343de2f5136c7ce22323382bb303f7a14c42050b1",
+  "selected_reasons": []
+}

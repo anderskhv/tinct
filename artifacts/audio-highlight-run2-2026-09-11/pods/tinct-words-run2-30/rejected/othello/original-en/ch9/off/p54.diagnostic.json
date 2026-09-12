@@ -1,0 +1,304 @@
+{
+  "complete": true,
+  "signature": "8ba0644a7a71448f82420c0b539e715742216a4d031a0c63ee1501e00882ce9e",
+  "attempts": [
+    {
+      "asr_seconds": 0.09979928005486727,
+      "alignment_seconds": 0.0001916489563882351,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sago, my lord fraud I know.",
+          "start": 0.08,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " Sago,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.557861328125
+            },
+            {
+              "text": " my",
+              "start": 1.04,
+              "end": 1.24,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " lord",
+              "start": 1.24,
+              "end": 1.48,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " fraud",
+              "start": 1.48,
+              "end": 1.76,
+              "probability": 0.5166015625
+            },
+            {
+              "text": " I",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " know.",
+              "start": 1.94,
+              "end": 2.18,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sago,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "my",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "raw": "lord",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "raw": "fraud",
+          "start": 1.48,
+          "end": 1.76
+        },
+        {
+          "raw": "I",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "raw": "know.",
+          "start": 1.94,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "My",
+        "lord,",
+        "for",
+        "aught",
+        "I",
+        "know."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ],
+        [
+          "equal",
+          5,
+          7,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sago,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "sago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.04,
+          "end": 1.24,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 1.24,
+          "end": 1.48,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fraud",
+          "start": 1.48,
+          "end": 1.76,
+          "key": "fraud",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.76,
+          "end": 1.94,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "know.",
+          "start": 1.94,
+          "end": 2.18,
+          "key": "know",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "My",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "text": "lord,",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "text": "for",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "aught",
+          "start": 1.62,
+          "end": 1.69
+        },
+        {
+          "text": "I",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "text": "know.",
+          "start": 1.94,
+          "end": 2.18
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.5714285714285714,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10004633897915483
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fbbed892aeff8155eb0e7b1195f009f68efb15d7e8b54abb1c2192d12e09b547",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

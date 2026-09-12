@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "793b1f9c32a6d8458e2558bebc2b4c190cd30055c368d2739b76a80706eea1a1",
+  "attempts": [
+    {
+      "asr_seconds": 0.29048431292176247,
+      "alignment_seconds": 0.0007071699947118759,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. Have I not told thee how I was cozened by the way and lost all my money?",
+        "hotwords": "Clown, Have, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, Have I not told thee how I was cozened by the way and lost all my money?",
+          "start": 0.0,
+          "end": 4.48,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.0,
+              "end": 0.68,
+              "probability": 0.309326171875
+            },
+            {
+              "text": " Have",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.0499267578125
+            },
+            {
+              "text": " I",
+              "start": 1.38,
+              "end": 1.48,
+              "probability": 0.978515625
+            },
+            {
+              "text": " not",
+              "start": 1.48,
+              "end": 1.64,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " told",
+              "start": 1.64,
+              "end": 1.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thee",
+              "start": 1.86,
+              "end": 2.06,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " how",
+              "start": 2.06,
+              "end": 2.22,
+              "probability": 0.908203125
+            },
+            {
+              "text": " I",
+              "start": 2.22,
+              "end": 2.36,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " was",
+              "start": 2.36,
+              "end": 2.46,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " cozened",
+              "start": 2.46,
+              "end": 2.86,
+              "probability": 0.4827067057291667
+            },
+            {
+              "text": " by",
+              "start": 2.86,
+              "end": 3.0,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " the",
+              "start": 3.0,
+              "end": 3.1,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " way",
+              "start": 3.1,
+              "end": 3.32,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " and",
+              "start": 3.32,
+              "end": 3.54,
+              "probability": 0.50146484375
+            },
+            {
+              "text": " lost",
+              "start": 3.54,
+              "end": 3.8,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " all",
+              "start": 3.8,
+              "end": 4.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " my",
+              "start": 4.08,
+              "end": 4.22,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " money?",
+              "start": 4.22,
+              "end": 4.48,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "raw": "Have",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "I",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "raw": "not",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "raw": "told",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "raw": "thee",
+          "start": 1.86,
+          "end": 2.06
+        },
+        {
+          "raw": "how",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "raw": "I",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "raw": "was",
+          "start": 2.36,
+          "end": 2.46
+        },
+        {
+          "raw": "cozened",
+          "start": 2.46,
+          "end": 2.86
+        },
+        {
+          "raw": "by",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "raw": "the",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "raw": "way",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "raw": "and",
+          "start": 3.32,
+          "end": 3.54
+        },
+        {
+          "raw": "lost",
+          "start": 3.54,
+          "end": 3.8
+        },
+        {
+          "raw": "all",
+          "start": 3.8,
+          "end": 4.08
+        },
+        {
+          "raw": "my",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "raw": "money?",
+          "start": 4.22,
+          "end": 4.48
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Have",
+        "I",
+        "not",
+        "told",
+        "thee",
+        "how",
+        "I",
+        "was",
+        "cozened",
+        "by",
+        "the",
+        "way",
+        "and",
+        "lost",
+        "all",
+        "my",
+        "money?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.68,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.38,
+          "end": 1.48,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.48,
+          "end": 1.64,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 1.64,
+          "end": 1.86,
+          "key": "told",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.86,
+          "end": 2.06,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.06,
+          "end": 2.22,
+          "key": "how",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.22,
+          "end": 2.36,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.36,
+          "end": 2.46,
+          "key": "was",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "cozened",
+          "start": 2.46,
+          "end": 2.86,
+          "key": "cozened",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.86,
+          "end": 3.0,
+          "key": "by",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.0,
+          "end": 3.1,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 3.1,
+          "end": 3.32,
+          "key": "way",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.32,
+          "end": 3.54,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "lost",
+          "start": 3.54,
+          "end": 3.8,
+          "key": "lost",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.8,
+          "end": 4.08,
+          "key": "all",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.08,
+          "end": 4.22,
+          "key": "my",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "money?",
+          "start": 4.22,
+          "end": 4.48,
+          "key": "money",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "text": "Have",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "text": "I",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "text": "not",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "text": "told",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "text": "thee",
+          "start": 1.86,
+          "end": 2.06
+        },
+        {
+          "text": "how",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "text": "I",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "text": "was",
+          "start": 2.36,
+          "end": 2.46
+        },
+        {
+          "text": "cozened",
+          "start": 2.46,
+          "end": 2.86
+        },
+        {
+          "text": "by",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "text": "the",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "text": "way",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "text": "and",
+          "start": 3.32,
+          "end": 3.54
+        },
+        {
+          "text": "lost",
+          "start": 3.54,
+          "end": 3.8
+        },
+        {
+          "text": "all",
+          "start": 3.8,
+          "end": 4.08
+        },
+        {
+          "text": "my",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "text": "money?",
+          "start": 4.22,
+          "end": 4.48
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29149334877729416
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ecbf762bbf9cc9337aa5f5530efe748fa44bc30dd0eca54ffae1d34146758719",
+  "selected_reasons": []
+}

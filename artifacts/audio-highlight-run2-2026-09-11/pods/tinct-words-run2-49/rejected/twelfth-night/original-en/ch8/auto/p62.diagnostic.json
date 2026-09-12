@@ -1,0 +1,253 @@
+{
+  "complete": true,
+  "signature": "3ff59d7d50d960d32cdde399cbad7393ead4c1c46e38a7cf8fded225d5ac02f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.14812472090125084,
+      "alignment_seconds": 0.00039588287472724915,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Sings._] _What and if you do?_"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sings. What and if you do.",
+          "start": 0.11,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Sings.",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.783203125
+            },
+            {
+              "text": " What",
+              "start": 1.13,
+              "end": 1.29,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " and",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.6279296875
+            },
+            {
+              "text": " if",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.912109375
+            },
+            {
+              "text": " you",
+              "start": 1.49,
+              "end": 1.63,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " do.",
+              "start": 1.63,
+              "end": 1.85,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sings.",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "What",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "raw": "and",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "if",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "you",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "raw": "do.",
+          "start": 1.63,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "[_Sings._]",
+        "_What",
+        "and",
+        "if",
+        "you",
+        "do?_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sings.",
+          "start": 0.11,
+          "end": 0.83,
+          "key": "sings",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.13,
+          "end": 1.29,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.29,
+          "end": 1.39,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.39,
+          "end": 1.49,
+          "key": "if",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.49,
+          "end": 1.63,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "do.",
+          "start": 1.63,
+          "end": 1.85,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Sings._]",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "_What",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "text": "and",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "text": "if",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "you",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "text": "do?_",
+          "start": 1.63,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14865703135728836
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "83c2645db77c3cb3642f607e74fa191685a400e3ec76cd8f0c83a2fd7ad4e575",
+  "selected_reasons": []
+}

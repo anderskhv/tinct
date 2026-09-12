@@ -1,0 +1,391 @@
+{
+  "complete": true,
+  "signature": "a212a7f38741d605c3cc39d824b3e68c9d379debac23b1dc856ed5136404dba0",
+  "attempts": [
+    {
+      "asr_seconds": 0.14252001233398914,
+      "alignment_seconds": 0.00029431842267513275,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Poet._]",
+        "hotwords": "Poet._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Poet._",
+          "start": 0.08,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.81640625
+            },
+            {
+              "text": " Poet._",
+              "start": 0.64,
+              "end": 1.7,
+              "probability": 0.5109049677848816
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Poet._",
+          "start": 0.64,
+          "end": 1.7
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Poet._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Poet._",
+          "start": 0.64,
+          "end": 1.7,
+          "key": "poet_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Poet._]",
+          "start": 0.64,
+          "end": 1.17
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1429105205461383
+    },
+    {
+      "asr_seconds": 0.12875876668840647,
+      "alignment_seconds": 0.0002986108884215355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Poet._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Poet._",
+          "start": 0.08,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.81640625
+            },
+            {
+              "text": " Poet._",
+              "start": 0.64,
+              "end": 1.7,
+              "probability": 0.5109049677848816
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Poet._",
+          "start": 0.64,
+          "end": 1.7
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Poet._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Poet._",
+          "start": 0.64,
+          "end": 1.7,
+          "key": "poet_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Poet._]",
+          "start": 0.64,
+          "end": 1.17
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12916317395865917
+    },
+    {
+      "asr_seconds": 0.122111851349473,
+      "alignment_seconds": 0.0002918057143688202,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Poet",
+          "start": 0.08,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.81640625
+            },
+            {
+              "text": " Poet",
+              "start": 0.66,
+              "end": 1.14,
+              "probability": 0.766357421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Poet",
+          "start": 0.66,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Poet._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Poet",
+          "start": 0.66,
+          "end": 1.14,
+          "key": "poet",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Poet._]",
+          "start": 0.66,
+          "end": 1.14
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12249966710805893
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "38512a02d2a3a8e44ec25a8c6194a968fc7e93c64debeeccd0d2d2fe0d8c6734",
+  "selected_reasons": []
+}

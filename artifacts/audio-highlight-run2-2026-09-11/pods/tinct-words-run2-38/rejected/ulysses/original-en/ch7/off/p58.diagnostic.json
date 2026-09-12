@@ -1,0 +1,397 @@
+{
+  "complete": true,
+  "signature": "1834a7993cd85ea9aad912520bf999cacc25224f8d9a69a7cb479c09314bd49d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1246068769833073,
+      "alignment_seconds": 0.00020202097948640585,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Nanetti, consider the cutting of wile and knotted.",
+          "start": 0.05,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.495361328125
+            },
+            {
+              "text": " Nanetti,",
+              "start": 0.89,
+              "end": 1.09,
+              "probability": 0.654541015625
+            },
+            {
+              "text": " consider",
+              "start": 1.45,
+              "end": 1.81,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " the",
+              "start": 1.81,
+              "end": 2.03,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " cutting",
+              "start": 2.03,
+              "end": 2.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 2.27,
+              "end": 2.45,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " wile",
+              "start": 2.45,
+              "end": 2.81,
+              "probability": 0.489715576171875
+            },
+            {
+              "text": " and",
+              "start": 2.81,
+              "end": 3.07,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " knotted.",
+              "start": 3.07,
+              "end": 3.41,
+              "probability": 0.964111328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Nanetti,",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "raw": "consider",
+          "start": 1.45,
+          "end": 1.81
+        },
+        {
+          "raw": "the",
+          "start": 1.81,
+          "end": 2.03
+        },
+        {
+          "raw": "cutting",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "raw": "of",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "raw": "wile",
+          "start": 2.45,
+          "end": 2.81
+        },
+        {
+          "raw": "and",
+          "start": 2.81,
+          "end": 3.07
+        },
+        {
+          "raw": "knotted.",
+          "start": 3.07,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "Nannetti",
+        "considered",
+        "the",
+        "cutting",
+        "awhile",
+        "and",
+        "nodded."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nanetti,",
+          "start": 0.89,
+          "end": 1.09,
+          "key": "nanetti",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "consider",
+          "start": 1.45,
+          "end": 1.81,
+          "key": "consider",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.81,
+          "end": 2.03,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cutting",
+          "start": 2.03,
+          "end": 2.27,
+          "key": "cutting",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.27,
+          "end": 2.45,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wile",
+          "start": 2.45,
+          "end": 2.81,
+          "key": "wile",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.81,
+          "end": 3.07,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "knotted.",
+          "start": 3.07,
+          "end": 3.41,
+          "key": "knotted",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Nannetti",
+          "start": 0.71,
+          "end": 1.26
+        },
+        {
+          "text": "considered",
+          "start": 1.26,
+          "end": 1.535
+        },
+        {
+          "text": "the",
+          "start": 1.81,
+          "end": 2.03
+        },
+        {
+          "text": "cutting",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "text": "awhile",
+          "start": 2.27,
+          "end": 2.54
+        },
+        {
+          "text": "and",
+          "start": 2.81,
+          "end": 3.07
+        },
+        {
+          "text": "nodded.",
+          "start": 3.07,
+          "end": 3.24
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 4
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12487734900787473
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3f1662efa5ca568c958cb8c5d52a09b7782fd359fbf52897765841f66031e517",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

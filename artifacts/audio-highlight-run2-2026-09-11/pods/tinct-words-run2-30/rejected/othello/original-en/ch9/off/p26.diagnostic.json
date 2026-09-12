@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "98ea852b2496a53751e6908810245260f1fd0295313ee2b908ff7bed3f02ded4",
+  "attempts": [
+    {
+      "asr_seconds": 0.1273620226420462,
+      "alignment_seconds": 0.00015915930271148682,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, not now sweet distemmin' some other time.",
+          "start": 0.24,
+          "end": 3.22,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.24,
+              "end": 0.92,
+              "probability": 0.9583333333333334
+            },
+            {
+              "text": " not",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " now",
+              "start": 1.44,
+              "end": 1.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sweet",
+              "start": 1.66,
+              "end": 1.98,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " distemmin'",
+              "start": 1.98,
+              "end": 2.54,
+              "probability": 0.5353190104166666
+            },
+            {
+              "text": " some",
+              "start": 2.62,
+              "end": 2.74,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " other",
+              "start": 2.74,
+              "end": 2.9,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " time.",
+              "start": 2.9,
+              "end": 3.22,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.92
+        },
+        {
+          "raw": "not",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "now",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "raw": "sweet",
+          "start": 1.66,
+          "end": 1.98
+        },
+        {
+          "raw": "distemmin'",
+          "start": 1.98,
+          "end": 2.54
+        },
+        {
+          "raw": "some",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "raw": "other",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "raw": "time.",
+          "start": 2.9,
+          "end": 3.22
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Not",
+        "now,",
+        "sweet",
+        "Desdemon,",
+        "some",
+        "other",
+        "time."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          8,
+          5,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.92,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 1.44,
+          "end": 1.66,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 1.66,
+          "end": 1.98,
+          "key": "sweet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "distemmin'",
+          "start": 1.98,
+          "end": 2.54,
+          "key": "distemmin",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 2.62,
+          "end": 2.74,
+          "key": "some",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 2.74,
+          "end": 2.9,
+          "key": "other",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 2.9,
+          "end": 3.22,
+          "key": "time",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.24,
+          "end": 0.92
+        },
+        {
+          "text": "Not",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "now,",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "text": "sweet",
+          "start": 1.66,
+          "end": 1.98
+        },
+        {
+          "text": "Desdemon,",
+          "start": 1.98,
+          "end": 2.3
+        },
+        {
+          "text": "some",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "text": "other",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "text": "time.",
+          "start": 2.9,
+          "end": 3.22
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.12757555162534118
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fc19c4540d92adbc011baaac3200c5e462b1eafa774b3eedfc809419a07b6e92",
+  "selected_reasons": []
+}

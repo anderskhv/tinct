@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "ff0e75228dc27db5f227878f4f3bbefc62431eebc03e17d11a4bd34b64436ccc",
+  "attempts": [
+    {
+      "asr_seconds": 0.10731539689004421,
+      "alignment_seconds": 0.0002313246950507164,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Romeo.",
+          "start": 0.05,
+          "end": 1.07,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " Romeo.",
+              "start": 0.69,
+              "end": 1.07,
+              "probability": 0.94677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Romeo.",
+          "start": 0.69,
+          "end": 1.07
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Romeo.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Romeo.",
+          "start": 0.69,
+          "end": 1.07,
+          "key": "romeo",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Romeo.]",
+          "start": 0.69,
+          "end": 1.07
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10761619359254837
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6d04f56648114cf28746d9c7845c305998fef6c61b359722d725ae78b7a66fa6",
+  "selected_reasons": []
+}

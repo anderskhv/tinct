@@ -1,0 +1,927 @@
+{
+  "complete": true,
+  "signature": "eb78ee6f80cdd810683b7578cec6c192059bfb814b063b9b04fdd7165be0e0e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.4342166669666767,
+      "alignment_seconds": 0.0009013479575514793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Henry, how now? What means this, herald? No, stethow not that I offend these bones",
+          "start": 0.02,
+          "end": 5.64,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.276611328125
+            },
+            {
+              "text": " Henry,",
+              "start": 0.56,
+              "end": 0.92,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " how",
+              "start": 1.36,
+              "end": 1.42,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " now?",
+              "start": 1.42,
+              "end": 1.7,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " What",
+              "start": 2.12,
+              "end": 2.24,
+              "probability": 0.875
+            },
+            {
+              "text": " means",
+              "start": 2.24,
+              "end": 2.44,
+              "probability": 0.986328125
+            },
+            {
+              "text": " this,",
+              "start": 2.44,
+              "end": 2.76,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " herald?",
+              "start": 3.14,
+              "end": 3.14,
+              "probability": 0.2587890625
+            },
+            {
+              "text": " No,",
+              "start": 3.86,
+              "end": 4.0,
+              "probability": 0.6455078125
+            },
+            {
+              "text": " stethow",
+              "start": 4.14,
+              "end": 4.4,
+              "probability": 0.4915364583333333
+            },
+            {
+              "text": " not",
+              "start": 4.4,
+              "end": 4.6,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " that",
+              "start": 4.6,
+              "end": 4.74,
+              "probability": 0.9375
+            },
+            {
+              "text": " I",
+              "start": 4.74,
+              "end": 4.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " offend",
+              "start": 4.86,
+              "end": 5.1,
+              "probability": 0.6748046875
+            },
+            {
+              "text": " these",
+              "start": 5.1,
+              "end": 5.34,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " bones",
+              "start": 5.34,
+              "end": 5.64,
+              "probability": 0.97314453125
+            }
+          ]
+        },
+        {
+          "text": " of mine for ransom. Comstethow again for ransom.",
+          "start": 5.64,
+          "end": 8.88,
+          "words": [
+            {
+              "text": " of",
+              "start": 5.64,
+              "end": 5.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mine",
+              "start": 5.88,
+              "end": 6.1,
+              "probability": 0.962890625
+            },
+            {
+              "text": " for",
+              "start": 6.1,
+              "end": 6.34,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " ransom.",
+              "start": 6.34,
+              "end": 6.72,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Comstethow",
+              "start": 7.5,
+              "end": 8.02,
+              "probability": 0.7037353515625
+            },
+            {
+              "text": " again",
+              "start": 8.02,
+              "end": 8.28,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " for",
+              "start": 8.28,
+              "end": 8.5,
+              "probability": 0.984375
+            },
+            {
+              "text": " ransom.",
+              "start": 8.5,
+              "end": 8.88,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "raw": "how",
+          "start": 1.36,
+          "end": 1.42
+        },
+        {
+          "raw": "now?",
+          "start": 1.42,
+          "end": 1.7
+        },
+        {
+          "raw": "What",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "raw": "means",
+          "start": 2.24,
+          "end": 2.44
+        },
+        {
+          "raw": "this,",
+          "start": 2.44,
+          "end": 2.76
+        },
+        {
+          "raw": "herald?",
+          "start": 3.14,
+          "end": 3.14
+        },
+        {
+          "raw": "No,",
+          "start": 3.86,
+          "end": 4.0
+        },
+        {
+          "raw": "stethow",
+          "start": 4.14,
+          "end": 4.4
+        },
+        {
+          "raw": "not",
+          "start": 4.4,
+          "end": 4.6
+        },
+        {
+          "raw": "that",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "raw": "I",
+          "start": 4.74,
+          "end": 4.86
+        },
+        {
+          "raw": "offend",
+          "start": 4.86,
+          "end": 5.1
+        },
+        {
+          "raw": "these",
+          "start": 5.1,
+          "end": 5.34
+        },
+        {
+          "raw": "bones",
+          "start": 5.34,
+          "end": 5.64
+        },
+        {
+          "raw": "of",
+          "start": 5.64,
+          "end": 5.88
+        },
+        {
+          "raw": "mine",
+          "start": 5.88,
+          "end": 6.1
+        },
+        {
+          "raw": "for",
+          "start": 6.1,
+          "end": 6.34
+        },
+        {
+          "raw": "ransom.",
+          "start": 6.34,
+          "end": 6.72
+        },
+        {
+          "raw": "Comstethow",
+          "start": 7.5,
+          "end": 8.02
+        },
+        {
+          "raw": "again",
+          "start": 8.02,
+          "end": 8.28
+        },
+        {
+          "raw": "for",
+          "start": 8.28,
+          "end": 8.5
+        },
+        {
+          "raw": "ransom.",
+          "start": 8.5,
+          "end": 8.88
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "How",
+        "now!",
+        "what",
+        "means",
+        "this,",
+        "herald?",
+        "Know'st",
+        "thou",
+        "not",
+        "That",
+        "I",
+        "have",
+        "fin'd",
+        "these",
+        "bones",
+        "of",
+        "mine",
+        "for",
+        "ransom?",
+        "Com'st",
+        "thou",
+        "again",
+        "for",
+        "ransom?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          10,
+          8,
+          10
+        ],
+        [
+          "equal",
+          10,
+          13,
+          10,
+          13
+        ],
+        [
+          "replace",
+          13,
+          15,
+          13,
+          14
+        ],
+        [
+          "equal",
+          15,
+          21,
+          14,
+          20
+        ],
+        [
+          "replace",
+          21,
+          23,
+          20,
+          21
+        ],
+        [
+          "equal",
+          23,
+          26,
+          21,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          10,
+          8,
+          10
+        ],
+        [
+          "replace",
+          13,
+          15,
+          13,
+          14
+        ],
+        [
+          "replace",
+          21,
+          23,
+          20,
+          21
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.56,
+          "end": 0.92,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.36,
+          "end": 1.42,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now?",
+          "start": 1.42,
+          "end": 1.7,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.12,
+          "end": 2.24,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 2.24,
+          "end": 2.44,
+          "key": "means",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 2.44,
+          "end": 2.76,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "herald?",
+          "start": 3.14,
+          "end": 3.14,
+          "key": "herald",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 3.86,
+          "end": 4.0,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "stethow",
+          "start": 4.14,
+          "end": 4.4,
+          "key": "stethow",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.4,
+          "end": 4.6,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.6,
+          "end": 4.74,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.74,
+          "end": 4.86,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "offend",
+          "start": 4.86,
+          "end": 5.1,
+          "key": "offend",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 5.1,
+          "end": 5.34,
+          "key": "these",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "bones",
+          "start": 5.34,
+          "end": 5.64,
+          "key": "bones",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.64,
+          "end": 5.88,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 5.88,
+          "end": 6.1,
+          "key": "mine",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 6.1,
+          "end": 6.34,
+          "key": "for",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "ransom.",
+          "start": 6.34,
+          "end": 6.72,
+          "key": "ransom",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Comstethow",
+          "start": 7.5,
+          "end": 8.02,
+          "key": "comstethow",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 8.02,
+          "end": 8.28,
+          "key": "again",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.28,
+          "end": 8.5,
+          "key": "for",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "ransom.",
+          "start": 8.5,
+          "end": 8.88,
+          "key": "ransom",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "Henry.",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "text": "How",
+          "start": 1.36,
+          "end": 1.42
+        },
+        {
+          "text": "now!",
+          "start": 1.42,
+          "end": 1.7
+        },
+        {
+          "text": "what",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "text": "means",
+          "start": 2.24,
+          "end": 2.44
+        },
+        {
+          "text": "this,",
+          "start": 2.44,
+          "end": 2.76
+        },
+        {
+          "text": "herald?",
+          "start": 3.14,
+          "end": 3.14
+        },
+        {
+          "text": "Know'st",
+          "start": 3.14,
+          "end": 3.77
+        },
+        {
+          "text": "thou",
+          "start": 3.77,
+          "end": 4.085
+        },
+        {
+          "text": "not",
+          "start": 4.4,
+          "end": 4.6
+        },
+        {
+          "text": "That",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "text": "I",
+          "start": 4.74,
+          "end": 4.86
+        },
+        {
+          "text": "have",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "text": "fin'd",
+          "start": 4.98,
+          "end": 5.04
+        },
+        {
+          "text": "these",
+          "start": 5.1,
+          "end": 5.34
+        },
+        {
+          "text": "bones",
+          "start": 5.34,
+          "end": 5.64
+        },
+        {
+          "text": "of",
+          "start": 5.64,
+          "end": 5.88
+        },
+        {
+          "text": "mine",
+          "start": 5.88,
+          "end": 6.1
+        },
+        {
+          "text": "for",
+          "start": 6.1,
+          "end": 6.34
+        },
+        {
+          "text": "ransom?",
+          "start": 6.34,
+          "end": 6.72
+        },
+        {
+          "text": "Com'st",
+          "start": 6.72,
+          "end": 7.37
+        },
+        {
+          "text": "thou",
+          "start": 7.37,
+          "end": 7.695
+        },
+        {
+          "text": "again",
+          "start": 8.02,
+          "end": 8.28
+        },
+        {
+          "text": "for",
+          "start": 8.28,
+          "end": 8.5
+        },
+        {
+          "text": "ransom?",
+          "start": 8.5,
+          "end": 8.88
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 24,
+        "matched_words": 20
+      },
+      "match_ratio": 0.7692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4354460791219026
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f5cb8f2efd380da1ba1526563be4b7ddc3dc58ed67aa24c3a10afe9486ad1f05",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

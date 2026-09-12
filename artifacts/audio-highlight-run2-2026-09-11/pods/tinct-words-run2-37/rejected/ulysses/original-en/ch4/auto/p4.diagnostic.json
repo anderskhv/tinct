@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "88177f35015734a944dffbd894b159dd6bb22609c8c0c4cd1236b20d04181937",
+  "attempts": [
+    {
+      "asr_seconds": 0.13117945700651035,
+      "alignment_seconds": 0.0002293399884365499,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Mkgnao!",
+        "hotwords": "Mkgnao"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mkgnao!",
+          "start": 0.05,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " Mkgnao!",
+              "start": 0.05,
+              "end": 1.37,
+              "probability": 0.20990927517414093
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mkgnao!",
+          "start": 0.05,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "—Mkgnao!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mkgnao!",
+          "start": 0.05,
+          "end": 1.37,
+          "key": "mkgnao",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Mkgnao!",
+          "start": 0.05,
+          "end": 1.37
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13148076902143657
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6bca41f8e679e855c302f78e12084a72b5b28c32e121eaa24c58e4b3ddf94374",
+  "selected_reasons": []
+}

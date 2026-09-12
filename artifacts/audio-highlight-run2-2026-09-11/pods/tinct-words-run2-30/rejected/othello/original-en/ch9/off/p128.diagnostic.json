@@ -1,0 +1,556 @@
+{
+  "complete": true,
+  "signature": "8a6e0086c90fe55cfaa222b2bb4063bc5513e56ea65a6f313057cb39ebd7c1af",
+  "attempts": [
+    {
+      "asr_seconds": 0.13048609672114253,
+      "alignment_seconds": 0.00026390887796878815,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ye go be not ik known aunt. I have use for it. Go leave me",
+          "start": 0.08,
+          "end": 3.94,
+          "words": [
+            {
+              "text": " Ye",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.389404296875
+            },
+            {
+              "text": " go",
+              "start": 0.58,
+              "end": 0.82,
+              "probability": 0.4580078125
+            },
+            {
+              "text": " be",
+              "start": 0.82,
+              "end": 1.08,
+              "probability": 0.25244140625
+            },
+            {
+              "text": " not",
+              "start": 1.08,
+              "end": 1.24,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " ik",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 0.4146728515625
+            },
+            {
+              "text": " known",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.56591796875
+            },
+            {
+              "text": " aunt.",
+              "start": 1.52,
+              "end": 1.82,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " I",
+              "start": 1.94,
+              "end": 1.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have",
+              "start": 1.98,
+              "end": 2.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " use",
+              "start": 2.1,
+              "end": 2.28,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " for",
+              "start": 2.28,
+              "end": 2.5,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " it.",
+              "start": 2.5,
+              "end": 2.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Go",
+              "start": 2.84,
+              "end": 3.3,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " leave",
+              "start": 3.3,
+              "end": 3.54,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " me",
+              "start": 3.54,
+              "end": 3.94,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ye",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "go",
+          "start": 0.58,
+          "end": 0.82
+        },
+        {
+          "raw": "be",
+          "start": 0.82,
+          "end": 1.08
+        },
+        {
+          "raw": "not",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "raw": "ik",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "known",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "aunt.",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "raw": "I",
+          "start": 1.94,
+          "end": 1.98
+        },
+        {
+          "raw": "have",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "raw": "use",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "raw": "for",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "raw": "it.",
+          "start": 2.5,
+          "end": 2.78
+        },
+        {
+          "raw": "Go",
+          "start": 2.84,
+          "end": 3.3
+        },
+        {
+          "raw": "leave",
+          "start": 3.3,
+          "end": 3.54
+        },
+        {
+          "raw": "me",
+          "start": 3.54,
+          "end": 3.94
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Be",
+        "not",
+        "acknown",
+        "on't,",
+        "I",
+        "have",
+        "use",
+        "for",
+        "it.",
+        "Go,",
+        "leave",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          3,
+          5,
+          4,
+          7
+        ],
+        [
+          "equal",
+          5,
+          13,
+          7,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          3,
+          5,
+          4,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ye",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "ye",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.58,
+          "end": 0.82,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.82,
+          "end": 1.08,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.08,
+          "end": 1.24,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ik",
+          "start": 1.24,
+          "end": 1.34,
+          "key": "ik",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 1.34,
+          "end": 1.52,
+          "key": "known",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "aunt.",
+          "start": 1.52,
+          "end": 1.82,
+          "key": "aunt",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.94,
+          "end": 1.98,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.98,
+          "end": 2.1,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 2.1,
+          "end": 2.28,
+          "key": "use",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.28,
+          "end": 2.5,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.5,
+          "end": 2.78,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 2.84,
+          "end": 3.3,
+          "key": "go",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 3.3,
+          "end": 3.54,
+          "key": "leave",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.54,
+          "end": 3.94,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.41
+        },
+        {
+          "text": "Be",
+          "start": 0.82,
+          "end": 1.08
+        },
+        {
+          "text": "not",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "text": "acknown",
+          "start": 1.24,
+          "end": 1.59
+        },
+        {
+          "text": "on't,",
+          "start": 1.59,
+          "end": 1.765
+        },
+        {
+          "text": "I",
+          "start": 1.94,
+          "end": 1.98
+        },
+        {
+          "text": "have",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "text": "use",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "text": "for",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "text": "it.",
+          "start": 2.5,
+          "end": 2.78
+        },
+        {
+          "text": "Go,",
+          "start": 2.84,
+          "end": 3.3
+        },
+        {
+          "text": "leave",
+          "start": 3.3,
+          "end": 3.54
+        },
+        {
+          "text": "me.",
+          "start": 3.54,
+          "end": 3.94
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 15,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13086268492043018
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8afa6c5601f504729f467f5ec0598b2da3f5d830d43c8ba23c995f05b4158eac",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

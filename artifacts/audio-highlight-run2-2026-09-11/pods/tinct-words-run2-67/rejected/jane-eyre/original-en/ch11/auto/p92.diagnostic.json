@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "6fdb59d3f27357e2616c9a9f987941c2e4cc71a4ff8c210e098a319cb53fef52",
+  "attempts": [
+    {
+      "asr_seconds": 0.19502008007839322,
+      "alignment_seconds": 0.0004221019335091114,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Do you like him? Is he generally liked?\"",
+        "hotwords": "Do, Is"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Do you like him? Is he generally liked?",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.8671875
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " like",
+              "start": 0.67,
+              "end": 0.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " him?",
+              "start": 0.85,
+              "end": 1.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Is",
+              "start": 1.45,
+              "end": 1.51,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " he",
+              "start": 1.51,
+              "end": 1.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " generally",
+              "start": 1.65,
+              "end": 1.93,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " liked?",
+              "start": 1.93,
+              "end": 2.33,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "like",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "raw": "him?",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "raw": "Is",
+          "start": 1.45,
+          "end": 1.51
+        },
+        {
+          "raw": "he",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "raw": "generally",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "raw": "liked?",
+          "start": 1.93,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "\"Do",
+        "you",
+        "like",
+        "him?",
+        "Is",
+        "he",
+        "generally",
+        "liked?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.67,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 0.67,
+          "end": 0.85,
+          "key": "like",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him?",
+          "start": 0.85,
+          "end": 1.07,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 1.45,
+          "end": 1.51,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.51,
+          "end": 1.65,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "generally",
+          "start": 1.65,
+          "end": 1.93,
+          "key": "generally",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "liked?",
+          "start": 1.93,
+          "end": 2.33,
+          "key": "liked",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Do",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "text": "like",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "text": "him?",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "text": "Is",
+          "start": 1.45,
+          "end": 1.51
+        },
+        {
+          "text": "he",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "text": "generally",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "text": "liked?\"",
+          "start": 1.93,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19561886321753263
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "813aaf55f192e2383f7acb089a866e1f2c9658e63835f6a9383a499304c99eea",
+  "selected_reasons": []
+}

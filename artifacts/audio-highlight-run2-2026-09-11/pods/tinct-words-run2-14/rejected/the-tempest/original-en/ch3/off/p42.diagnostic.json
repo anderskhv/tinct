@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "4ed1e9c3f33e1083cb69dbf59821e8276cc167d26d28e51dd68ece541790f39a",
+  "attempts": [
+    {
+      "asr_seconds": 0.20980408042669296,
+      "alignment_seconds": 0.0002025812864303589,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, no, he doth but mistake the truth totally.",
+          "start": 0.08,
+          "end": 3.64,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.740234375
+            },
+            {
+              "text": " no,",
+              "start": 1.3,
+              "end": 1.66,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " he",
+              "start": 2.06,
+              "end": 2.12,
+              "probability": 0.9921875
+            },
+            {
+              "text": " doth",
+              "start": 2.12,
+              "end": 2.32,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " but",
+              "start": 2.32,
+              "end": 2.48,
+              "probability": 0.986328125
+            },
+            {
+              "text": " mistake",
+              "start": 2.48,
+              "end": 2.76,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " the",
+              "start": 2.76,
+              "end": 2.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " truth",
+              "start": 2.98,
+              "end": 3.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " totally.",
+              "start": 3.18,
+              "end": 3.64,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "no,",
+          "start": 1.3,
+          "end": 1.66
+        },
+        {
+          "raw": "he",
+          "start": 2.06,
+          "end": 2.12
+        },
+        {
+          "raw": "doth",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "raw": "but",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "raw": "mistake",
+          "start": 2.48,
+          "end": 2.76
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "raw": "truth",
+          "start": 2.98,
+          "end": 3.18
+        },
+        {
+          "raw": "totally.",
+          "start": 3.18,
+          "end": 3.64
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "No;",
+        "he",
+        "doth",
+        "but",
+        "mistake",
+        "the",
+        "truth",
+        "totally."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "sebastian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 1.3,
+          "end": 1.66,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.06,
+          "end": 2.12,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 2.12,
+          "end": 2.32,
+          "key": "doth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.32,
+          "end": 2.48,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mistake",
+          "start": 2.48,
+          "end": 2.76,
+          "key": "mistake",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.98,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "truth",
+          "start": 2.98,
+          "end": 3.18,
+          "key": "truth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "totally.",
+          "start": 3.18,
+          "end": 3.64,
+          "key": "totally",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "No;",
+          "start": 1.3,
+          "end": 1.66
+        },
+        {
+          "text": "he",
+          "start": 2.06,
+          "end": 2.12
+        },
+        {
+          "text": "doth",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "text": "but",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "text": "mistake",
+          "start": 2.48,
+          "end": 2.76
+        },
+        {
+          "text": "the",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "text": "truth",
+          "start": 2.98,
+          "end": 3.18
+        },
+        {
+          "text": "totally.",
+          "start": 3.18,
+          "end": 3.64
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21008601412177086
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e84e1c32dbab76a988fdf1c2be5587c300a5fa90e6575e2201b23cf07b296439",
+  "selected_reasons": []
+}

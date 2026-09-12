@@ -1,0 +1,354 @@
+{
+  "complete": true,
+  "signature": "2f6a15cb859e4e5087cc134db5ad90321d621546e54542f8061a4cb2d59e2130",
+  "attempts": [
+    {
+      "asr_seconds": 0.19922004081308842,
+      "alignment_seconds": 0.0004075821489095688,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And you worry everyone about you, smiled Alyosha.",
+          "start": 0.05,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.59423828125
+            },
+            {
+              "text": " you",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.990234375
+            },
+            {
+              "text": " worry",
+              "start": 0.65,
+              "end": 0.85,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " everyone",
+              "start": 0.85,
+              "end": 1.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " about",
+              "start": 1.23,
+              "end": 1.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you,",
+              "start": 1.47,
+              "end": 1.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " smiled",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " Alyosha.",
+              "start": 2.49,
+              "end": 3.19,
+              "probability": 0.89892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "you",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "worry",
+          "start": 0.65,
+          "end": 0.85
+        },
+        {
+          "raw": "everyone",
+          "start": 0.85,
+          "end": 1.23
+        },
+        {
+          "raw": "about",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "raw": "you,",
+          "start": 1.47,
+          "end": 1.93
+        },
+        {
+          "raw": "smiled",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Alyosha.",
+          "start": 2.49,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "you",
+        "worry",
+        "every",
+        "one",
+        "about",
+        "you,\"",
+        "smiled",
+        "Alyosha."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ],
+        [
+          "equal",
+          5,
+          9,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "worry",
+          "start": 0.65,
+          "end": 0.85,
+          "key": "worry",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "everyone",
+          "start": 0.85,
+          "end": 1.23,
+          "key": "everyone",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.23,
+          "end": 1.47,
+          "key": "about",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.47,
+          "end": 1.93,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "smiled",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "smiled",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Alyosha.",
+          "start": 2.49,
+          "end": 3.19,
+          "key": "alyosha",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "you",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "worry",
+          "start": 0.65,
+          "end": 0.85
+        },
+        {
+          "text": "every",
+          "start": 0.85,
+          "end": 1.04
+        },
+        {
+          "text": "one",
+          "start": 1.04,
+          "end": 1.135
+        },
+        {
+          "text": "about",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "text": "you,\"",
+          "start": 1.47,
+          "end": 1.93
+        },
+        {
+          "text": "smiled",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "text": "Alyosha.",
+          "start": 2.49,
+          "end": 3.19
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19975402019917965
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1b7a8f906f19f64708361855a822b3b0f89bee395ab4e4111ad9f3a4ba70a0e9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

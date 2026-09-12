@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "c0153b82bc39214d4db5048afa2345d6129a6d38b6e6dd6895ef5eebda3a5b33",
+  "attempts": [
+    {
+      "asr_seconds": 0.3424724228680134,
+      "alignment_seconds": 0.000615682452917099,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown, I must catechize you for it Madonna, good my mouse of virtue answer me",
+          "start": 0.08,
+          "end": 5.2,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.55126953125
+            },
+            {
+              "text": " I",
+              "start": 1.2,
+              "end": 1.3,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " must",
+              "start": 1.3,
+              "end": 1.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " catechize",
+              "start": 1.44,
+              "end": 2.04,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " you",
+              "start": 2.04,
+              "end": 2.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 2.22,
+              "end": 2.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 2.4,
+              "end": 2.54,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Madonna,",
+              "start": 2.54,
+              "end": 2.82,
+              "probability": 0.401123046875
+            },
+            {
+              "text": " good",
+              "start": 3.48,
+              "end": 3.6,
+              "probability": 0.3779296875
+            },
+            {
+              "text": " my",
+              "start": 3.6,
+              "end": 3.74,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " mouse",
+              "start": 3.74,
+              "end": 3.96,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " of",
+              "start": 3.96,
+              "end": 4.12,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " virtue",
+              "start": 4.12,
+              "end": 4.46,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " answer",
+              "start": 4.46,
+              "end": 4.78,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " me",
+              "start": 4.78,
+              "end": 5.2,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "I",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "raw": "must",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "raw": "catechize",
+          "start": 1.44,
+          "end": 2.04
+        },
+        {
+          "raw": "you",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "raw": "for",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "raw": "it",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "raw": "Madonna,",
+          "start": 2.54,
+          "end": 2.82
+        },
+        {
+          "raw": "good",
+          "start": 3.48,
+          "end": 3.6
+        },
+        {
+          "raw": "my",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "raw": "mouse",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "raw": "of",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "raw": "virtue",
+          "start": 4.12,
+          "end": 4.46
+        },
+        {
+          "raw": "answer",
+          "start": 4.46,
+          "end": 4.78
+        },
+        {
+          "raw": "me",
+          "start": 4.78,
+          "end": 5.2
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "I",
+        "must",
+        "catechize",
+        "you",
+        "for",
+        "it,",
+        "madonna.",
+        "Good",
+        "my",
+        "mouse",
+        "of",
+        "virtue,",
+        "answer",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.2,
+          "end": 1.3,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.3,
+          "end": 1.44,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "catechize",
+          "start": 1.44,
+          "end": 2.04,
+          "key": "catechize",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.04,
+          "end": 2.22,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.22,
+          "end": 2.4,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.4,
+          "end": 2.54,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Madonna,",
+          "start": 2.54,
+          "end": 2.82,
+          "key": "madonna",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.48,
+          "end": 3.6,
+          "key": "good",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.6,
+          "end": 3.74,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mouse",
+          "start": 3.74,
+          "end": 3.96,
+          "key": "mouse",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.96,
+          "end": 4.12,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "virtue",
+          "start": 4.12,
+          "end": 4.46,
+          "key": "virtue",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 4.46,
+          "end": 4.78,
+          "key": "answer",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.78,
+          "end": 5.2,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "I",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "text": "must",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "text": "catechize",
+          "start": 1.44,
+          "end": 2.04
+        },
+        {
+          "text": "you",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "text": "for",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "text": "it,",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "text": "madonna.",
+          "start": 2.54,
+          "end": 2.82
+        },
+        {
+          "text": "Good",
+          "start": 3.48,
+          "end": 3.6
+        },
+        {
+          "text": "my",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "text": "mouse",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "text": "of",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "text": "virtue,",
+          "start": 4.12,
+          "end": 4.46
+        },
+        {
+          "text": "answer",
+          "start": 4.46,
+          "end": 4.78
+        },
+        {
+          "text": "me.",
+          "start": 4.78,
+          "end": 5.2
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3433501571416855
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6ad8ad3c62c698d39d7809f2288c73f254aac4822018ecea70b2f7534e911a3a",
+  "selected_reasons": []
+}

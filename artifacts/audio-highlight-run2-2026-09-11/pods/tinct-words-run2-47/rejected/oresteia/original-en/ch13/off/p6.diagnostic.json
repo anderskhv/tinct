@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "407490763a48f1ca530cec67e911adc3472925103b3b696bf8c85d6e74876c5c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2540137030009646,
+      "alignment_seconds": 0.0004335420089773834,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Electra, then tis myself and thou, my prayer must name.",
+          "start": 0.08,
+          "end": 3.68,
+          "words": [
+            {
+              "text": " Electra,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.7578125
+            },
+            {
+              "text": " then",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.93359375
+            },
+            {
+              "text": " tis",
+              "start": 1.42,
+              "end": 1.66,
+              "probability": 0.54559326171875
+            },
+            {
+              "text": " myself",
+              "start": 1.66,
+              "end": 2.0,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " and",
+              "start": 2.0,
+              "end": 2.26,
+              "probability": 0.6875
+            },
+            {
+              "text": " thou,",
+              "start": 2.26,
+              "end": 2.52,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " my",
+              "start": 2.8,
+              "end": 2.84,
+              "probability": 0.970703125
+            },
+            {
+              "text": " prayer",
+              "start": 2.84,
+              "end": 3.1,
+              "probability": 0.970703125
+            },
+            {
+              "text": " must",
+              "start": 3.1,
+              "end": 3.34,
+              "probability": 0.986328125
+            },
+            {
+              "text": " name.",
+              "start": 3.34,
+              "end": 3.68,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Electra,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "then",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "tis",
+          "start": 1.42,
+          "end": 1.66
+        },
+        {
+          "raw": "myself",
+          "start": 1.66,
+          "end": 2.0
+        },
+        {
+          "raw": "and",
+          "start": 2.0,
+          "end": 2.26
+        },
+        {
+          "raw": "thou,",
+          "start": 2.26,
+          "end": 2.52
+        },
+        {
+          "raw": "my",
+          "start": 2.8,
+          "end": 2.84
+        },
+        {
+          "raw": "prayer",
+          "start": 2.84,
+          "end": 3.1
+        },
+        {
+          "raw": "must",
+          "start": 3.1,
+          "end": 3.34
+        },
+        {
+          "raw": "name.",
+          "start": 3.34,
+          "end": 3.68
+        }
+      ],
+      "expected_tokens": [
+        "Electra.",
+        "Then",
+        "'tis",
+        "myself",
+        "and",
+        "thou,",
+        "my",
+        "prayer",
+        "must",
+        "name."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Electra,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "electra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tis",
+          "start": 1.42,
+          "end": 1.66,
+          "key": "tis",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 1.66,
+          "end": 2.0,
+          "key": "myself",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.0,
+          "end": 2.26,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou,",
+          "start": 2.26,
+          "end": 2.52,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.8,
+          "end": 2.84,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "prayer",
+          "start": 2.84,
+          "end": 3.1,
+          "key": "prayer",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 3.1,
+          "end": 3.34,
+          "key": "must",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "name.",
+          "start": 3.34,
+          "end": 3.68,
+          "key": "name",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Electra.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Then",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "'tis",
+          "start": 1.42,
+          "end": 1.66
+        },
+        {
+          "text": "myself",
+          "start": 1.66,
+          "end": 2.0
+        },
+        {
+          "text": "and",
+          "start": 2.0,
+          "end": 2.26
+        },
+        {
+          "text": "thou,",
+          "start": 2.26,
+          "end": 2.52
+        },
+        {
+          "text": "my",
+          "start": 2.8,
+          "end": 2.84
+        },
+        {
+          "text": "prayer",
+          "start": 2.84,
+          "end": 3.1
+        },
+        {
+          "text": "must",
+          "start": 3.1,
+          "end": 3.34
+        },
+        {
+          "text": "name.",
+          "start": 3.34,
+          "end": 3.68
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2545848010049667
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8d67e339fc4774d1388de5bf9a2663863c7ff00fd2ae86f1fc38507f2136a7e0",
+  "selected_reasons": []
+}

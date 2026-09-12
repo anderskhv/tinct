@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "7b7b00f8bd9ff0ffb7ed7424c76c216f5ae49a6e98910286e94c1b93a2a9ebac",
+  "attempts": [
+    {
+      "asr_seconds": 0.22101379558444023,
+      "alignment_seconds": 0.0003964081406593323,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Tell Perezvon to pretend to be dead!\" Kostya begged.",
+        "hotwords": "Tell, Perezvon, Kostya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Tell Perezvon to pretend to be dead. Kostya begged.",
+          "start": 0.08,
+          "end": 3.24,
+          "words": [
+            {
+              "text": " Tell",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.7412109375
+            },
+            {
+              "text": " Perezvon",
+              "start": 0.6,
+              "end": 1.1,
+              "probability": 0.019945144653320312
+            },
+            {
+              "text": " to",
+              "start": 1.1,
+              "end": 1.22,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " pretend",
+              "start": 1.22,
+              "end": 1.5,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dead.",
+              "start": 1.76,
+              "end": 2.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Kostya",
+              "start": 2.66,
+              "end": 2.92,
+              "probability": 0.65478515625
+            },
+            {
+              "text": " begged.",
+              "start": 2.92,
+              "end": 3.24,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tell",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "Perezvon",
+          "start": 0.6,
+          "end": 1.1
+        },
+        {
+          "raw": "to",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "raw": "pretend",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "raw": "to",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "raw": "be",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "dead.",
+          "start": 1.76,
+          "end": 2.06
+        },
+        {
+          "raw": "Kostya",
+          "start": 2.66,
+          "end": 2.92
+        },
+        {
+          "raw": "begged.",
+          "start": 2.92,
+          "end": 3.24
+        }
+      ],
+      "expected_tokens": [
+        "\"Tell",
+        "Perezvon",
+        "to",
+        "pretend",
+        "to",
+        "be",
+        "dead!\"",
+        "Kostya",
+        "begged."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tell",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "tell",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Perezvon",
+          "start": 0.6,
+          "end": 1.1,
+          "key": "perezvon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.1,
+          "end": 1.22,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pretend",
+          "start": 1.22,
+          "end": 1.5,
+          "key": "pretend",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.5,
+          "end": 1.64,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dead.",
+          "start": 1.76,
+          "end": 2.06,
+          "key": "dead",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Kostya",
+          "start": 2.66,
+          "end": 2.92,
+          "key": "kostya",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "begged.",
+          "start": 2.92,
+          "end": 3.24,
+          "key": "begged",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Tell",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "Perezvon",
+          "start": 0.6,
+          "end": 1.1
+        },
+        {
+          "text": "to",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "text": "pretend",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "text": "to",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "be",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "dead!\"",
+          "start": 1.76,
+          "end": 2.06
+        },
+        {
+          "text": "Kostya",
+          "start": 2.66,
+          "end": 2.92
+        },
+        {
+          "text": "begged.",
+          "start": 2.92,
+          "end": 3.24
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22155657038092613
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fdea8f6d7e9bb89fce0d8cfb0e794446de5117021af9133ebb0db1db5bc48cd6",
+  "selected_reasons": []
+}

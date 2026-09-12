@@ -1,0 +1,614 @@
+{
+  "complete": true,
+  "signature": "86f6c75e0e1755aee40e6c8f6eea8e4894f0cf71034b529037853578837bd45d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3144695432856679,
+      "alignment_seconds": 0.0004910491406917572,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Portia nothing is good. I see without respect me thinks it sounds much sweeter than by day",
+          "start": 0.05,
+          "end": 5.81,
+          "words": [
+            {
+              "text": " Portia",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.716064453125
+            },
+            {
+              "text": " nothing",
+              "start": 0.85,
+              "end": 1.53,
+              "probability": 0.185546875
+            },
+            {
+              "text": " is",
+              "start": 1.53,
+              "end": 1.79,
+              "probability": 0.98828125
+            },
+            {
+              "text": " good.",
+              "start": 1.79,
+              "end": 2.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 2.19,
+              "end": 2.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " see",
+              "start": 2.19,
+              "end": 2.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " without",
+              "start": 2.45,
+              "end": 2.75,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " respect",
+              "start": 2.75,
+              "end": 3.37,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " me",
+              "start": 3.37,
+              "end": 3.93,
+              "probability": 0.402099609375
+            },
+            {
+              "text": " thinks",
+              "start": 3.93,
+              "end": 4.11,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " it",
+              "start": 4.11,
+              "end": 4.25,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " sounds",
+              "start": 4.25,
+              "end": 4.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " much",
+              "start": 4.49,
+              "end": 4.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sweeter",
+              "start": 4.73,
+              "end": 5.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " than",
+              "start": 5.15,
+              "end": 5.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " by",
+              "start": 5.31,
+              "end": 5.53,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " day",
+              "start": 5.53,
+              "end": 5.81,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "nothing",
+          "start": 0.85,
+          "end": 1.53
+        },
+        {
+          "raw": "is",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "raw": "good.",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "raw": "I",
+          "start": 2.19,
+          "end": 2.19
+        },
+        {
+          "raw": "see",
+          "start": 2.19,
+          "end": 2.45
+        },
+        {
+          "raw": "without",
+          "start": 2.45,
+          "end": 2.75
+        },
+        {
+          "raw": "respect",
+          "start": 2.75,
+          "end": 3.37
+        },
+        {
+          "raw": "me",
+          "start": 3.37,
+          "end": 3.93
+        },
+        {
+          "raw": "thinks",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "raw": "it",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "raw": "sounds",
+          "start": 4.25,
+          "end": 4.49
+        },
+        {
+          "raw": "much",
+          "start": 4.49,
+          "end": 4.73
+        },
+        {
+          "raw": "sweeter",
+          "start": 4.73,
+          "end": 5.15
+        },
+        {
+          "raw": "than",
+          "start": 5.15,
+          "end": 5.31
+        },
+        {
+          "raw": "by",
+          "start": 5.31,
+          "end": 5.53
+        },
+        {
+          "raw": "day",
+          "start": 5.53,
+          "end": 5.81
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "Nothing",
+        "is",
+        "good,",
+        "I",
+        "see,",
+        "without",
+        "respect.",
+        "Methinks",
+        "it",
+        "sounds",
+        "much",
+        "sweeter",
+        "than",
+        "by",
+        "day."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          16,
+          10,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 0.85,
+          "end": 1.53,
+          "key": "nothing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.53,
+          "end": 1.79,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good.",
+          "start": 1.79,
+          "end": 2.01,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.19,
+          "end": 2.19,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.19,
+          "end": 2.45,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 2.45,
+          "end": 2.75,
+          "key": "without",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "respect",
+          "start": 2.75,
+          "end": 3.37,
+          "key": "respect",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.37,
+          "end": 3.93,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thinks",
+          "start": 3.93,
+          "end": 4.11,
+          "key": "thinks",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.11,
+          "end": 4.25,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sounds",
+          "start": 4.25,
+          "end": 4.49,
+          "key": "sounds",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 4.49,
+          "end": 4.73,
+          "key": "much",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sweeter",
+          "start": 4.73,
+          "end": 5.15,
+          "key": "sweeter",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 5.15,
+          "end": 5.31,
+          "key": "than",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 5.31,
+          "end": 5.53,
+          "key": "by",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 5.53,
+          "end": 5.81,
+          "key": "day",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Nothing",
+          "start": 0.85,
+          "end": 1.53
+        },
+        {
+          "text": "is",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "text": "good,",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "text": "I",
+          "start": 2.19,
+          "end": 2.19
+        },
+        {
+          "text": "see,",
+          "start": 2.19,
+          "end": 2.45
+        },
+        {
+          "text": "without",
+          "start": 2.45,
+          "end": 2.75
+        },
+        {
+          "text": "respect.",
+          "start": 2.75,
+          "end": 3.37
+        },
+        {
+          "text": "Methinks",
+          "start": 3.37,
+          "end": 3.74
+        },
+        {
+          "text": "it",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "text": "sounds",
+          "start": 4.25,
+          "end": 4.49
+        },
+        {
+          "text": "much",
+          "start": 4.49,
+          "end": 4.73
+        },
+        {
+          "text": "sweeter",
+          "start": 4.73,
+          "end": 5.15
+        },
+        {
+          "text": "than",
+          "start": 5.15,
+          "end": 5.31
+        },
+        {
+          "text": "by",
+          "start": 5.31,
+          "end": 5.53
+        },
+        {
+          "text": "day.",
+          "start": 5.53,
+          "end": 5.81
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.3151524197310209
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ef51ba447dd18f8f79941215ae79fd62bb1440729fa3e265472ad7ccb6cedbea",
+  "selected_reasons": []
+}

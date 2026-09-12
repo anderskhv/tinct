@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "62dcaed2fccf731e2cc7f8d936eb14c9c5b77a1636c7037b5638967cb539be1e",
+  "attempts": [
+    {
+      "asr_seconds": 0.11310746311210096,
+      "alignment_seconds": 0.0003618260379880667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ah, so that was it!",
+        "hotwords": "Ah"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ah, so that was it!",
+          "start": 0.02,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.7744140625
+            },
+            {
+              "text": " so",
+              "start": 0.74,
+              "end": 0.82,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " that",
+              "start": 0.82,
+              "end": 0.98,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " was",
+              "start": 0.98,
+              "end": 1.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it!",
+              "start": 1.1,
+              "end": 1.32,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "so",
+          "start": 0.74,
+          "end": 0.82
+        },
+        {
+          "raw": "that",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "raw": "was",
+          "start": 0.98,
+          "end": 1.1
+        },
+        {
+          "raw": "it!",
+          "start": 1.1,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "Ah,",
+        "so",
+        "that",
+        "was",
+        "it!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.74,
+          "end": 0.82,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.82,
+          "end": 0.98,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.98,
+          "end": 1.1,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it!",
+          "start": 1.1,
+          "end": 1.32,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ah,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "so",
+          "start": 0.74,
+          "end": 0.82
+        },
+        {
+          "text": "that",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "text": "was",
+          "start": 0.98,
+          "end": 1.1
+        },
+        {
+          "text": "it!",
+          "start": 1.1,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11361396103166044
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b657966c45204cfb546ccfeb9ba7c746d31e42253e0f60990e3e35bd5836a711",
+  "selected_reasons": []
+}

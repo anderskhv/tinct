@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "9d2fa23bbea0ec309d58f582016671bbee005f48aa70eb6bac3bf28462b05252",
+  "attempts": [
+    {
+      "asr_seconds": 0.2911128308624029,
+      "alignment_seconds": 0.000529726967215538,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Humph! I think so,\" replied Passepartout, recalling the exercises of his younger days.",
+        "hotwords": "Humph, I, Passepartout"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Humph! I think so,\" replied Passepartout, recalling the exercises of his younger days.",
+          "start": 0.05,
+          "end": 5.99,
+          "words": [
+            {
+              "text": " Humph!",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.0289154052734375
+            },
+            {
+              "text": " I",
+              "start": 0.97,
+              "end": 1.13,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " think",
+              "start": 1.13,
+              "end": 1.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " so,\"",
+              "start": 1.31,
+              "end": 2.09,
+              "probability": 0.7236328125
+            },
+            {
+              "text": " replied",
+              "start": 2.09,
+              "end": 2.47,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Passepartout,",
+              "start": 2.47,
+              "end": 3.37,
+              "probability": 0.4648399353027344
+            },
+            {
+              "text": " recalling",
+              "start": 3.57,
+              "end": 3.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.99,
+              "end": 4.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " exercises",
+              "start": 4.25,
+              "end": 4.85,
+              "probability": 0.958984375
+            },
+            {
+              "text": " of",
+              "start": 4.85,
+              "end": 5.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 5.17,
+              "end": 5.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " younger",
+              "start": 5.31,
+              "end": 5.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " days.",
+              "start": 5.61,
+              "end": 5.99,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Humph!",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "I",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "raw": "think",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "raw": "so,\"",
+          "start": 1.31,
+          "end": 2.09
+        },
+        {
+          "raw": "replied",
+          "start": 2.09,
+          "end": 2.47
+        },
+        {
+          "raw": "Passepartout,",
+          "start": 2.47,
+          "end": 3.37
+        },
+        {
+          "raw": "recalling",
+          "start": 3.57,
+          "end": 3.99
+        },
+        {
+          "raw": "the",
+          "start": 3.99,
+          "end": 4.25
+        },
+        {
+          "raw": "exercises",
+          "start": 4.25,
+          "end": 4.85
+        },
+        {
+          "raw": "of",
+          "start": 4.85,
+          "end": 5.17
+        },
+        {
+          "raw": "his",
+          "start": 5.17,
+          "end": 5.31
+        },
+        {
+          "raw": "younger",
+          "start": 5.31,
+          "end": 5.61
+        },
+        {
+          "raw": "days.",
+          "start": 5.61,
+          "end": 5.99
+        }
+      ],
+      "expected_tokens": [
+        "\"Humph!",
+        "I",
+        "think",
+        "so,\"",
+        "replied",
+        "Passepartout,",
+        "recalling",
+        "the",
+        "exercises",
+        "of",
+        "his",
+        "younger",
+        "days."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Humph!",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "humph",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.97,
+          "end": 1.13,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.13,
+          "end": 1.31,
+          "key": "think",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so,\"",
+          "start": 1.31,
+          "end": 2.09,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 2.09,
+          "end": 2.47,
+          "key": "replied",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Passepartout,",
+          "start": 2.47,
+          "end": 3.37,
+          "key": "passepartout",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "recalling",
+          "start": 3.57,
+          "end": 3.99,
+          "key": "recalling",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.99,
+          "end": 4.25,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "exercises",
+          "start": 4.25,
+          "end": 4.85,
+          "key": "exercises",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.85,
+          "end": 5.17,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.17,
+          "end": 5.31,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "younger",
+          "start": 5.31,
+          "end": 5.61,
+          "key": "younger",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "days.",
+          "start": 5.61,
+          "end": 5.99,
+          "key": "days",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Humph!",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "I",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "text": "think",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "text": "so,\"",
+          "start": 1.31,
+          "end": 2.09
+        },
+        {
+          "text": "replied",
+          "start": 2.09,
+          "end": 2.47
+        },
+        {
+          "text": "Passepartout,",
+          "start": 2.47,
+          "end": 3.37
+        },
+        {
+          "text": "recalling",
+          "start": 3.57,
+          "end": 3.99
+        },
+        {
+          "text": "the",
+          "start": 3.99,
+          "end": 4.25
+        },
+        {
+          "text": "exercises",
+          "start": 4.25,
+          "end": 4.85
+        },
+        {
+          "text": "of",
+          "start": 4.85,
+          "end": 5.17
+        },
+        {
+          "text": "his",
+          "start": 5.17,
+          "end": 5.31
+        },
+        {
+          "text": "younger",
+          "start": 5.31,
+          "end": 5.61
+        },
+        {
+          "text": "days.",
+          "start": 5.61,
+          "end": 5.99
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.291862852871418
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cc881df1c7a3a18460bc44ae8a09960ece02bd17413c302949dbdc2cbbef7e72",
+  "selected_reasons": []
+}

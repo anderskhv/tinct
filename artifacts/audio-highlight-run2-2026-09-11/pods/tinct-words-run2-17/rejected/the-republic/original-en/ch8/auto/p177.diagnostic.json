@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "47119f4c8b32136159349bff7c36aec85df7184f3cf180e1b0bdb3861bc41611",
+  "attempts": [
+    {
+      "asr_seconds": 0.12401717621833086,
+      "alignment_seconds": 0.00016689114272594452,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What then?",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What then?",
+          "start": 0.02,
+          "end": 0.84,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " then?",
+              "start": 0.58,
+              "end": 0.84,
+              "probability": 0.95068359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "then?",
+          "start": 0.58,
+          "end": 0.84
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "then?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then?",
+          "start": 0.58,
+          "end": 0.84,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "then?",
+          "start": 0.58,
+          "end": 0.84
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12423515599220991
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "95fd343b9e15d572959cd987ccdd9078c5d7539afed1d830396ee96ff23f4631",
+  "selected_reasons": []
+}

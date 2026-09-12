@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "ae630f89f70036005ea63019bbfc85eeb051a566310fb70756006858ade5bfcb",
+  "attempts": [
+    {
+      "asr_seconds": 0.12423005420714617,
+      "alignment_seconds": 0.00020353682339191437,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tomorrow, I thought.",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " Tomorrow,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.435791015625
+            },
+            {
+              "text": " I",
+              "start": 1.11,
+              "end": 1.15,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thought.",
+              "start": 1.15,
+              "end": 1.43,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tomorrow,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.15
+        },
+        {
+          "raw": "thought.",
+          "start": 1.15,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "\"To-morrow,\"",
+        "I",
+        "thought."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tomorrow,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "tomorrow",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.15,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thought.",
+          "start": 1.15,
+          "end": 1.43,
+          "key": "thought",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"To-morrow,\"",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "I",
+          "start": 1.11,
+          "end": 1.15
+        },
+        {
+          "text": "thought.",
+          "start": 1.15,
+          "end": 1.43
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12449671979993582
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0c06720ddd71632d2fe5ff97370f20e4268d8b5a561558ee3fbb91382bc01ff4",
+  "selected_reasons": []
+}

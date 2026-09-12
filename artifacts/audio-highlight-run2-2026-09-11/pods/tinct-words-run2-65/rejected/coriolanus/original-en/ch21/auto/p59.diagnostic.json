@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "619caad9b1ba4e38f4902c796088e6b19bd8ef7fa111f6ad57d85264d19e7a80",
+  "attempts": [
+    {
+      "asr_seconds": 0.14454782707616687,
+      "alignment_seconds": 0.0001533040776848793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Coriolanus. You bless me, gods!",
+        "hotwords": "Coriolanus, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, You bless me, gods!",
+          "start": 0.08,
+          "end": 2.28,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.08,
+              "end": 1.02,
+              "probability": 0.7605794270833334
+            },
+            {
+              "text": " You",
+              "start": 1.44,
+              "end": 1.54,
+              "probability": 0.04522705078125
+            },
+            {
+              "text": " bless",
+              "start": 1.54,
+              "end": 1.72,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " me,",
+              "start": 1.72,
+              "end": 1.96,
+              "probability": 0.98828125
+            },
+            {
+              "text": " gods!",
+              "start": 2.04,
+              "end": 2.28,
+              "probability": 0.66064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.08,
+          "end": 1.02
+        },
+        {
+          "raw": "You",
+          "start": 1.44,
+          "end": 1.54
+        },
+        {
+          "raw": "bless",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "raw": "me,",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "raw": "gods!",
+          "start": 2.04,
+          "end": 2.28
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "You",
+        "bless",
+        "me,",
+        "gods!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.08,
+          "end": 1.02,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.44,
+          "end": 1.54,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bless",
+          "start": 1.54,
+          "end": 1.72,
+          "key": "bless",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.72,
+          "end": 1.96,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gods!",
+          "start": 2.04,
+          "end": 2.28,
+          "key": "gods",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.08,
+          "end": 1.02
+        },
+        {
+          "text": "You",
+          "start": 1.44,
+          "end": 1.54
+        },
+        {
+          "text": "bless",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "text": "me,",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "text": "gods!",
+          "start": 2.04,
+          "end": 2.28
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14475430315360427
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7e47982ab94cdd429e5d9e344020e2b6552b5d239ea306f2f134da3431004a8f",
+  "selected_reasons": []
+}

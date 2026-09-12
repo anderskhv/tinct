@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "153bb17b8438fd8092100eec3b7ba4b1897d00ff8cbe7cd886f5608c120722a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.09971786290407181,
+      "alignment_seconds": 0.00022130832076072693,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " strongly.",
+          "start": 0.05,
+          "end": 0.71,
+          "words": [
+            {
+              "text": " strongly.",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.86767578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "strongly.",
+          "start": 0.05,
+          "end": 0.71
+        }
+      ],
+      "expected_tokens": [
+        "Strongly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "strongly.",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "strongly",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Strongly.",
+          "start": 0.05,
+          "end": 0.71
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10000824881717563
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "03dcf25752bed0c50cfe274853b555dc36471229a6b28a68f00ac2e95a381232",
+  "selected_reasons": []
+}

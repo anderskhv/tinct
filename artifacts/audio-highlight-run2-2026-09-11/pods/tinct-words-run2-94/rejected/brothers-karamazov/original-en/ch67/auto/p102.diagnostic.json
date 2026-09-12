@@ -1,0 +1,2002 @@
+{
+  "complete": true,
+  "signature": "471ad22cd2e91b35fbf1ddaee7e5e0bdb3ac628f628dfa7810a3f1586e6ea3eb",
+  "attempts": [
+    {
+      "asr_seconds": 0.35220248997211456,
+      "alignment_seconds": 0.0005051102489233017,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The classical languages, too ... they are simply madness, nothing more. You seem to disagree with me again, Karamazov?\"",
+        "hotwords": "The, You, Karamazov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The classical languages, too. They are simply madness, nothing more. You seem to disagree",
+          "start": 0.05,
+          "end": 5.83,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " classical",
+              "start": 0.49,
+              "end": 0.87,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " languages,",
+              "start": 0.87,
+              "end": 1.43,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " too.",
+              "start": 1.59,
+              "end": 1.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " They",
+              "start": 2.49,
+              "end": 2.59,
+              "probability": 0.990234375
+            },
+            {
+              "text": " are",
+              "start": 2.59,
+              "end": 2.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " simply",
+              "start": 2.73,
+              "end": 3.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " madness,",
+              "start": 3.05,
+              "end": 3.49,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " nothing",
+              "start": 3.91,
+              "end": 4.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " more.",
+              "start": 4.05,
+              "end": 4.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " You",
+              "start": 5.05,
+              "end": 5.13,
+              "probability": 0.98828125
+            },
+            {
+              "text": " seem",
+              "start": 5.13,
+              "end": 5.29,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " to",
+              "start": 5.29,
+              "end": 5.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " disagree",
+              "start": 5.45,
+              "end": 5.83,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " with me again, Karamazov.",
+          "start": 5.83,
+          "end": 7.37,
+          "words": [
+            {
+              "text": " with",
+              "start": 5.83,
+              "end": 6.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 6.01,
+              "end": 6.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " again,",
+              "start": 6.19,
+              "end": 6.49,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Karamazov.",
+              "start": 6.83,
+              "end": 7.37,
+              "probability": 0.8229166666666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "classical",
+          "start": 0.49,
+          "end": 0.87
+        },
+        {
+          "raw": "languages,",
+          "start": 0.87,
+          "end": 1.43
+        },
+        {
+          "raw": "too.",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "raw": "They",
+          "start": 2.49,
+          "end": 2.59
+        },
+        {
+          "raw": "are",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "raw": "simply",
+          "start": 2.73,
+          "end": 3.05
+        },
+        {
+          "raw": "madness,",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "raw": "nothing",
+          "start": 3.91,
+          "end": 4.05
+        },
+        {
+          "raw": "more.",
+          "start": 4.05,
+          "end": 4.43
+        },
+        {
+          "raw": "You",
+          "start": 5.05,
+          "end": 5.13
+        },
+        {
+          "raw": "seem",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "raw": "to",
+          "start": 5.29,
+          "end": 5.45
+        },
+        {
+          "raw": "disagree",
+          "start": 5.45,
+          "end": 5.83
+        },
+        {
+          "raw": "with",
+          "start": 5.83,
+          "end": 6.01
+        },
+        {
+          "raw": "me",
+          "start": 6.01,
+          "end": 6.19
+        },
+        {
+          "raw": "again,",
+          "start": 6.19,
+          "end": 6.49
+        },
+        {
+          "raw": "Karamazov.",
+          "start": 6.83,
+          "end": 7.37
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "classical",
+        "languages,",
+        "too",
+        "...",
+        "they",
+        "are",
+        "simply",
+        "madness,",
+        "nothing",
+        "more.",
+        "You",
+        "seem",
+        "to",
+        "disagree",
+        "with",
+        "me",
+        "again,",
+        "Karamazov?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "delete",
+          4,
+          5,
+          4,
+          4
+        ],
+        [
+          "equal",
+          5,
+          19,
+          4,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          4,
+          5,
+          4,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "classical",
+          "start": 0.49,
+          "end": 0.87,
+          "key": "classical",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "languages,",
+          "start": 0.87,
+          "end": 1.43,
+          "key": "languages",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 1.59,
+          "end": 1.85,
+          "key": "too",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 2.49,
+          "end": 2.59,
+          "key": "they",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.59,
+          "end": 2.73,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "simply",
+          "start": 2.73,
+          "end": 3.05,
+          "key": "simply",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "madness,",
+          "start": 3.05,
+          "end": 3.49,
+          "key": "madness",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 3.91,
+          "end": 4.05,
+          "key": "nothing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 4.05,
+          "end": 4.43,
+          "key": "more",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 5.05,
+          "end": 5.13,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 5.13,
+          "end": 5.29,
+          "key": "seem",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.29,
+          "end": 5.45,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "disagree",
+          "start": 5.45,
+          "end": 5.83,
+          "key": "disagree",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.83,
+          "end": 6.01,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 6.01,
+          "end": 6.19,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 6.19,
+          "end": 6.49,
+          "key": "again",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Karamazov.",
+          "start": 6.83,
+          "end": 7.37,
+          "key": "karamazov",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "classical",
+          "start": 0.49,
+          "end": 0.87
+        },
+        {
+          "text": "languages,",
+          "start": 0.87,
+          "end": 1.43
+        },
+        {
+          "text": "too",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "text": "...",
+          "start": 1.85,
+          "end": 2.17
+        },
+        {
+          "text": "they",
+          "start": 2.49,
+          "end": 2.59
+        },
+        {
+          "text": "are",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "text": "simply",
+          "start": 2.73,
+          "end": 3.05
+        },
+        {
+          "text": "madness,",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "text": "nothing",
+          "start": 3.91,
+          "end": 4.05
+        },
+        {
+          "text": "more.",
+          "start": 4.05,
+          "end": 4.43
+        },
+        {
+          "text": "You",
+          "start": 5.05,
+          "end": 5.13
+        },
+        {
+          "text": "seem",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "text": "to",
+          "start": 5.29,
+          "end": 5.45
+        },
+        {
+          "text": "disagree",
+          "start": 5.45,
+          "end": 5.83
+        },
+        {
+          "text": "with",
+          "start": 5.83,
+          "end": 6.01
+        },
+        {
+          "text": "me",
+          "start": 6.01,
+          "end": 6.19
+        },
+        {
+          "text": "again,",
+          "start": 6.19,
+          "end": 6.49
+        },
+        {
+          "text": "Karamazov?\"",
+          "start": 6.83,
+          "end": 7.37
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.35292569175362587
+    },
+    {
+      "asr_seconds": 0.34111054614186287,
+      "alignment_seconds": 0.000665934756398201,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "The, You, Karamazov"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " The classical languages, too. They are simply madness, nothing more. You seem to disagree with me again, Karamazov.",
+          "start": 0.05,
+          "end": 7.37,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " classical",
+              "start": 0.49,
+              "end": 0.87,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " languages,",
+              "start": 0.87,
+              "end": 1.43,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " too.",
+              "start": 1.59,
+              "end": 1.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " They",
+              "start": 2.49,
+              "end": 2.59,
+              "probability": 0.990234375
+            },
+            {
+              "text": " are",
+              "start": 2.59,
+              "end": 2.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " simply",
+              "start": 2.73,
+              "end": 3.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " madness,",
+              "start": 3.05,
+              "end": 3.49,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " nothing",
+              "start": 3.91,
+              "end": 4.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " more.",
+              "start": 4.05,
+              "end": 4.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " You",
+              "start": 5.05,
+              "end": 5.13,
+              "probability": 0.98828125
+            },
+            {
+              "text": " seem",
+              "start": 5.13,
+              "end": 5.29,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " to",
+              "start": 5.29,
+              "end": 5.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " disagree",
+              "start": 5.45,
+              "end": 5.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 5.83,
+              "end": 6.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 6.01,
+              "end": 6.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " again,",
+              "start": 6.19,
+              "end": 6.49,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Karamazov.",
+              "start": 6.83,
+              "end": 7.37,
+              "probability": 0.8229166666666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "classical",
+          "start": 0.49,
+          "end": 0.87
+        },
+        {
+          "raw": "languages,",
+          "start": 0.87,
+          "end": 1.43
+        },
+        {
+          "raw": "too.",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "raw": "They",
+          "start": 2.49,
+          "end": 2.59
+        },
+        {
+          "raw": "are",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "raw": "simply",
+          "start": 2.73,
+          "end": 3.05
+        },
+        {
+          "raw": "madness,",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "raw": "nothing",
+          "start": 3.91,
+          "end": 4.05
+        },
+        {
+          "raw": "more.",
+          "start": 4.05,
+          "end": 4.43
+        },
+        {
+          "raw": "You",
+          "start": 5.05,
+          "end": 5.13
+        },
+        {
+          "raw": "seem",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "raw": "to",
+          "start": 5.29,
+          "end": 5.45
+        },
+        {
+          "raw": "disagree",
+          "start": 5.45,
+          "end": 5.83
+        },
+        {
+          "raw": "with",
+          "start": 5.83,
+          "end": 6.01
+        },
+        {
+          "raw": "me",
+          "start": 6.01,
+          "end": 6.19
+        },
+        {
+          "raw": "again,",
+          "start": 6.19,
+          "end": 6.49
+        },
+        {
+          "raw": "Karamazov.",
+          "start": 6.83,
+          "end": 7.37
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "classical",
+        "languages,",
+        "too",
+        "...",
+        "they",
+        "are",
+        "simply",
+        "madness,",
+        "nothing",
+        "more.",
+        "You",
+        "seem",
+        "to",
+        "disagree",
+        "with",
+        "me",
+        "again,",
+        "Karamazov?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "delete",
+          4,
+          5,
+          4,
+          4
+        ],
+        [
+          "equal",
+          5,
+          19,
+          4,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          4,
+          5,
+          4,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "classical",
+          "start": 0.49,
+          "end": 0.87,
+          "key": "classical",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "languages,",
+          "start": 0.87,
+          "end": 1.43,
+          "key": "languages",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 1.59,
+          "end": 1.85,
+          "key": "too",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 2.49,
+          "end": 2.59,
+          "key": "they",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.59,
+          "end": 2.73,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "simply",
+          "start": 2.73,
+          "end": 3.05,
+          "key": "simply",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "madness,",
+          "start": 3.05,
+          "end": 3.49,
+          "key": "madness",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 3.91,
+          "end": 4.05,
+          "key": "nothing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 4.05,
+          "end": 4.43,
+          "key": "more",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 5.05,
+          "end": 5.13,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 5.13,
+          "end": 5.29,
+          "key": "seem",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.29,
+          "end": 5.45,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "disagree",
+          "start": 5.45,
+          "end": 5.83,
+          "key": "disagree",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.83,
+          "end": 6.01,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 6.01,
+          "end": 6.19,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 6.19,
+          "end": 6.49,
+          "key": "again",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Karamazov.",
+          "start": 6.83,
+          "end": 7.37,
+          "key": "karamazov",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "classical",
+          "start": 0.49,
+          "end": 0.87
+        },
+        {
+          "text": "languages,",
+          "start": 0.87,
+          "end": 1.43
+        },
+        {
+          "text": "too",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "text": "...",
+          "start": 1.85,
+          "end": 2.17
+        },
+        {
+          "text": "they",
+          "start": 2.49,
+          "end": 2.59
+        },
+        {
+          "text": "are",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "text": "simply",
+          "start": 2.73,
+          "end": 3.05
+        },
+        {
+          "text": "madness,",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "text": "nothing",
+          "start": 3.91,
+          "end": 4.05
+        },
+        {
+          "text": "more.",
+          "start": 4.05,
+          "end": 4.43
+        },
+        {
+          "text": "You",
+          "start": 5.05,
+          "end": 5.13
+        },
+        {
+          "text": "seem",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "text": "to",
+          "start": 5.29,
+          "end": 5.45
+        },
+        {
+          "text": "disagree",
+          "start": 5.45,
+          "end": 5.83
+        },
+        {
+          "text": "with",
+          "start": 5.83,
+          "end": 6.01
+        },
+        {
+          "text": "me",
+          "start": 6.01,
+          "end": 6.19
+        },
+        {
+          "text": "again,",
+          "start": 6.19,
+          "end": 6.49
+        },
+        {
+          "text": "Karamazov?\"",
+          "start": 6.83,
+          "end": 7.37
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.34201814606785774
+    },
+    {
+      "asr_seconds": 0.3205085378140211,
+      "alignment_seconds": 0.0005092844367027283,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The classical languages, too. They are simply madness, nothing more. You seem to disagree with me again, Karamazov.",
+          "start": 0.05,
+          "end": 7.37,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " classical",
+              "start": 0.49,
+              "end": 0.87,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " languages,",
+              "start": 0.87,
+              "end": 1.43,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " too.",
+              "start": 1.59,
+              "end": 1.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " They",
+              "start": 2.49,
+              "end": 2.59,
+              "probability": 0.990234375
+            },
+            {
+              "text": " are",
+              "start": 2.59,
+              "end": 2.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " simply",
+              "start": 2.73,
+              "end": 3.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " madness,",
+              "start": 3.05,
+              "end": 3.49,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " nothing",
+              "start": 3.91,
+              "end": 4.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " more.",
+              "start": 4.05,
+              "end": 4.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " You",
+              "start": 5.05,
+              "end": 5.13,
+              "probability": 0.98828125
+            },
+            {
+              "text": " seem",
+              "start": 5.13,
+              "end": 5.29,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " to",
+              "start": 5.29,
+              "end": 5.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " disagree",
+              "start": 5.45,
+              "end": 5.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 5.83,
+              "end": 6.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 6.01,
+              "end": 6.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " again,",
+              "start": 6.19,
+              "end": 6.49,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Karamazov.",
+              "start": 6.83,
+              "end": 7.37,
+              "probability": 0.8229166666666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "classical",
+          "start": 0.49,
+          "end": 0.87
+        },
+        {
+          "raw": "languages,",
+          "start": 0.87,
+          "end": 1.43
+        },
+        {
+          "raw": "too.",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "raw": "They",
+          "start": 2.49,
+          "end": 2.59
+        },
+        {
+          "raw": "are",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "raw": "simply",
+          "start": 2.73,
+          "end": 3.05
+        },
+        {
+          "raw": "madness,",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "raw": "nothing",
+          "start": 3.91,
+          "end": 4.05
+        },
+        {
+          "raw": "more.",
+          "start": 4.05,
+          "end": 4.43
+        },
+        {
+          "raw": "You",
+          "start": 5.05,
+          "end": 5.13
+        },
+        {
+          "raw": "seem",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "raw": "to",
+          "start": 5.29,
+          "end": 5.45
+        },
+        {
+          "raw": "disagree",
+          "start": 5.45,
+          "end": 5.83
+        },
+        {
+          "raw": "with",
+          "start": 5.83,
+          "end": 6.01
+        },
+        {
+          "raw": "me",
+          "start": 6.01,
+          "end": 6.19
+        },
+        {
+          "raw": "again,",
+          "start": 6.19,
+          "end": 6.49
+        },
+        {
+          "raw": "Karamazov.",
+          "start": 6.83,
+          "end": 7.37
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "classical",
+        "languages,",
+        "too",
+        "...",
+        "they",
+        "are",
+        "simply",
+        "madness,",
+        "nothing",
+        "more.",
+        "You",
+        "seem",
+        "to",
+        "disagree",
+        "with",
+        "me",
+        "again,",
+        "Karamazov?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "delete",
+          4,
+          5,
+          4,
+          4
+        ],
+        [
+          "equal",
+          5,
+          19,
+          4,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          4,
+          5,
+          4,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "classical",
+          "start": 0.49,
+          "end": 0.87,
+          "key": "classical",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "languages,",
+          "start": 0.87,
+          "end": 1.43,
+          "key": "languages",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 1.59,
+          "end": 1.85,
+          "key": "too",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 2.49,
+          "end": 2.59,
+          "key": "they",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.59,
+          "end": 2.73,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "simply",
+          "start": 2.73,
+          "end": 3.05,
+          "key": "simply",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "madness,",
+          "start": 3.05,
+          "end": 3.49,
+          "key": "madness",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 3.91,
+          "end": 4.05,
+          "key": "nothing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 4.05,
+          "end": 4.43,
+          "key": "more",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 5.05,
+          "end": 5.13,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 5.13,
+          "end": 5.29,
+          "key": "seem",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.29,
+          "end": 5.45,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "disagree",
+          "start": 5.45,
+          "end": 5.83,
+          "key": "disagree",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.83,
+          "end": 6.01,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 6.01,
+          "end": 6.19,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 6.19,
+          "end": 6.49,
+          "key": "again",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Karamazov.",
+          "start": 6.83,
+          "end": 7.37,
+          "key": "karamazov",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "classical",
+          "start": 0.49,
+          "end": 0.87
+        },
+        {
+          "text": "languages,",
+          "start": 0.87,
+          "end": 1.43
+        },
+        {
+          "text": "too",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "text": "...",
+          "start": 1.85,
+          "end": 2.17
+        },
+        {
+          "text": "they",
+          "start": 2.49,
+          "end": 2.59
+        },
+        {
+          "text": "are",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "text": "simply",
+          "start": 2.73,
+          "end": 3.05
+        },
+        {
+          "text": "madness,",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "text": "nothing",
+          "start": 3.91,
+          "end": 4.05
+        },
+        {
+          "text": "more.",
+          "start": 4.05,
+          "end": 4.43
+        },
+        {
+          "text": "You",
+          "start": 5.05,
+          "end": 5.13
+        },
+        {
+          "text": "seem",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "text": "to",
+          "start": 5.29,
+          "end": 5.45
+        },
+        {
+          "text": "disagree",
+          "start": 5.45,
+          "end": 5.83
+        },
+        {
+          "text": "with",
+          "start": 5.83,
+          "end": 6.01
+        },
+        {
+          "text": "me",
+          "start": 6.01,
+          "end": 6.19
+        },
+        {
+          "text": "again,",
+          "start": 6.19,
+          "end": 6.49
+        },
+        {
+          "text": "Karamazov?\"",
+          "start": 6.83,
+          "end": 7.37
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.32120051607489586
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cd40292033101775977af983ba7ec61578491bb56a50333651bab4323fe1a14e",
+  "selected_reasons": []
+}

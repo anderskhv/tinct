@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "5394558ef1c9d850da5a00654e792efc594f9237102984e244b29ac4a59132d9",
+  "attempts": [
+    {
+      "asr_seconds": 0.21471132338047028,
+      "alignment_seconds": 0.0004632435739040375,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Viola. My lord would speak, my duty hushes me.",
+        "hotwords": "Viola"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Viola. My lord would speak, my duty hushes me.",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " Viola.",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.782958984375
+            },
+            {
+              "text": " My",
+              "start": 1.27,
+              "end": 1.41,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " lord",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " would",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " speak,",
+              "start": 1.79,
+              "end": 2.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 2.25,
+              "end": 2.35,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " duty",
+              "start": 2.35,
+              "end": 2.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " hushes",
+              "start": 2.57,
+              "end": 2.93,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " me.",
+              "start": 2.93,
+              "end": 3.21,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "My",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "raw": "lord",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "raw": "would",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "speak,",
+          "start": 1.79,
+          "end": 2.09
+        },
+        {
+          "raw": "my",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "raw": "duty",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "raw": "hushes",
+          "start": 2.57,
+          "end": 2.93
+        },
+        {
+          "raw": "me.",
+          "start": 2.93,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "My",
+        "lord",
+        "would",
+        "speak,",
+        "my",
+        "duty",
+        "hushes",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola.",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.27,
+          "end": 1.41,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 1.41,
+          "end": 1.61,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "would",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "speak,",
+          "start": 1.79,
+          "end": 2.09,
+          "key": "speak",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.25,
+          "end": 2.35,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "duty",
+          "start": 2.35,
+          "end": 2.57,
+          "key": "duty",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hushes",
+          "start": 2.57,
+          "end": 2.93,
+          "key": "hushes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.93,
+          "end": 3.21,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "My",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "text": "lord",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "text": "would",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "speak,",
+          "start": 1.79,
+          "end": 2.09
+        },
+        {
+          "text": "my",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "text": "duty",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "text": "hushes",
+          "start": 2.57,
+          "end": 2.93
+        },
+        {
+          "text": "me.",
+          "start": 2.93,
+          "end": 3.21
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21535607054829597
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4355bb1d4979f124e26541af3d532a1ff8aa321397553f0e5ee95ca75ab19dea",
+  "selected_reasons": []
+}

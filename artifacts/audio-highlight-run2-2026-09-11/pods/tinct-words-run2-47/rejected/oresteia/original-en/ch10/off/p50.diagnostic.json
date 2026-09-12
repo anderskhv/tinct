@@ -1,0 +1,805 @@
+{
+  "complete": true,
+  "signature": "d8cec372d3fdc8282012217c824cf8b029ff46fce688f4c09f6f732d243d35af",
+  "attempts": [
+    {
+      "asr_seconds": 0.3799590669805184,
+      "alignment_seconds": 0.00045886498992331326,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Chorus, Thou womanish man, waiting till war did cease,",
+          "start": 0.05,
+          "end": 3.93,
+          "words": [
+            {
+              "text": " Chorus,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " Thou",
+              "start": 1.27,
+              "end": 1.53,
+              "probability": 0.398193359375
+            },
+            {
+              "text": " womanish",
+              "start": 1.53,
+              "end": 1.97,
+              "probability": 0.824462890625
+            },
+            {
+              "text": " man,",
+              "start": 1.97,
+              "end": 2.31,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " waiting",
+              "start": 2.67,
+              "end": 2.85,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " till",
+              "start": 2.85,
+              "end": 3.15,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " war",
+              "start": 3.15,
+              "end": 3.43,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " did",
+              "start": 3.43,
+              "end": 3.61,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " cease,",
+              "start": 3.61,
+              "end": 3.93,
+              "probability": 0.98388671875
+            }
+          ]
+        },
+        {
+          "text": " Home watcher and defiler of the couch, And arch-divisor of the chieftain's doom.",
+          "start": 4.57,
+          "end": 8.47,
+          "words": [
+            {
+              "text": " Home",
+              "start": 4.57,
+              "end": 4.67,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " watcher",
+              "start": 4.67,
+              "end": 5.11,
+              "probability": 0.771728515625
+            },
+            {
+              "text": " and",
+              "start": 5.11,
+              "end": 5.27,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " defiler",
+              "start": 5.27,
+              "end": 5.65,
+              "probability": 0.969970703125
+            },
+            {
+              "text": " of",
+              "start": 5.65,
+              "end": 5.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 5.81,
+              "end": 5.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " couch,",
+              "start": 5.93,
+              "end": 6.19,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " And",
+              "start": 6.65,
+              "end": 6.73,
+              "probability": 0.6796875
+            },
+            {
+              "text": " arch",
+              "start": 6.73,
+              "end": 6.95,
+              "probability": 0.9130859375
+            },
+            {
+              "text": "-divisor",
+              "start": 6.95,
+              "end": 7.43,
+              "probability": 0.696533203125
+            },
+            {
+              "text": " of",
+              "start": 7.43,
+              "end": 7.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.55,
+              "end": 7.67,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " chieftain's",
+              "start": 7.67,
+              "end": 8.21,
+              "probability": 0.9063720703125
+            },
+            {
+              "text": " doom.",
+              "start": 8.21,
+              "end": 8.47,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chorus,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Thou",
+          "start": 1.27,
+          "end": 1.53
+        },
+        {
+          "raw": "womanish",
+          "start": 1.53,
+          "end": 1.97
+        },
+        {
+          "raw": "man,",
+          "start": 1.97,
+          "end": 2.31
+        },
+        {
+          "raw": "waiting",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "raw": "till",
+          "start": 2.85,
+          "end": 3.15
+        },
+        {
+          "raw": "war",
+          "start": 3.15,
+          "end": 3.43
+        },
+        {
+          "raw": "did",
+          "start": 3.43,
+          "end": 3.61
+        },
+        {
+          "raw": "cease,",
+          "start": 3.61,
+          "end": 3.93
+        },
+        {
+          "raw": "Home",
+          "start": 4.57,
+          "end": 4.67
+        },
+        {
+          "raw": "watcher",
+          "start": 4.67,
+          "end": 5.11
+        },
+        {
+          "raw": "and",
+          "start": 5.11,
+          "end": 5.27
+        },
+        {
+          "raw": "defiler",
+          "start": 5.27,
+          "end": 5.65
+        },
+        {
+          "raw": "of",
+          "start": 5.65,
+          "end": 5.81
+        },
+        {
+          "raw": "the",
+          "start": 5.81,
+          "end": 5.93
+        },
+        {
+          "raw": "couch,",
+          "start": 5.93,
+          "end": 6.19
+        },
+        {
+          "raw": "And",
+          "start": 6.65,
+          "end": 6.73
+        },
+        {
+          "raw": "arch",
+          "start": 6.73,
+          "end": 6.95
+        },
+        {
+          "raw": "-divisor",
+          "start": 6.95,
+          "end": 7.43
+        },
+        {
+          "raw": "of",
+          "start": 7.43,
+          "end": 7.55
+        },
+        {
+          "raw": "the",
+          "start": 7.55,
+          "end": 7.67
+        },
+        {
+          "raw": "chieftain's",
+          "start": 7.67,
+          "end": 8.21
+        },
+        {
+          "raw": "doom.",
+          "start": 8.21,
+          "end": 8.47
+        }
+      ],
+      "expected_tokens": [
+        "Chorus.",
+        "Thou",
+        "womanish",
+        "man,",
+        "waiting",
+        "till",
+        "war",
+        "did",
+        "cease,",
+        "Home-watcher",
+        "and",
+        "defiler",
+        "of",
+        "the",
+        "couch,",
+        "And",
+        "arch-deviser",
+        "of",
+        "the",
+        "chieftain's",
+        "doom!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "equal",
+          17,
+          21,
+          18,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chorus,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "chorus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 1.27,
+          "end": 1.53,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "womanish",
+          "start": 1.53,
+          "end": 1.97,
+          "key": "womanish",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 1.97,
+          "end": 2.31,
+          "key": "man",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "waiting",
+          "start": 2.67,
+          "end": 2.85,
+          "key": "waiting",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 2.85,
+          "end": 3.15,
+          "key": "till",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "war",
+          "start": 3.15,
+          "end": 3.43,
+          "key": "war",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 3.43,
+          "end": 3.61,
+          "key": "did",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cease,",
+          "start": 3.61,
+          "end": 3.93,
+          "key": "cease",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Home watcher",
+          "start": 4.57,
+          "end": 5.11,
+          "key": "homewatcher",
+          "pieces": [
+            9,
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.11,
+          "end": 5.27,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "defiler",
+          "start": 5.27,
+          "end": 5.65,
+          "key": "defiler",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.65,
+          "end": 5.81,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.81,
+          "end": 5.93,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "couch,",
+          "start": 5.93,
+          "end": 6.19,
+          "key": "couch",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 6.65,
+          "end": 6.73,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "arch",
+          "start": 6.73,
+          "end": 6.95,
+          "key": "arch",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "-divisor",
+          "start": 6.95,
+          "end": 7.43,
+          "key": "divisor",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.43,
+          "end": 7.55,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.55,
+          "end": 7.67,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "chieftain's",
+          "start": 7.67,
+          "end": 8.21,
+          "key": "chieftains",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "doom.",
+          "start": 8.21,
+          "end": 8.47,
+          "key": "doom",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 9,
+          "text": "Home-watcher",
+          "heard": "Home watcher",
+          "heard_indexes": [
+            9,
+            10
+          ],
+          "start": 4.57,
+          "end": 5.11
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Chorus.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Thou",
+          "start": 1.27,
+          "end": 1.53
+        },
+        {
+          "text": "womanish",
+          "start": 1.53,
+          "end": 1.97
+        },
+        {
+          "text": "man,",
+          "start": 1.97,
+          "end": 2.31
+        },
+        {
+          "text": "waiting",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "text": "till",
+          "start": 2.85,
+          "end": 3.15
+        },
+        {
+          "text": "war",
+          "start": 3.15,
+          "end": 3.43
+        },
+        {
+          "text": "did",
+          "start": 3.43,
+          "end": 3.61
+        },
+        {
+          "text": "cease,",
+          "start": 3.61,
+          "end": 3.93
+        },
+        {
+          "text": "Home-watcher",
+          "start": 4.57,
+          "end": 5.11
+        },
+        {
+          "text": "and",
+          "start": 5.11,
+          "end": 5.27
+        },
+        {
+          "text": "defiler",
+          "start": 5.27,
+          "end": 5.65
+        },
+        {
+          "text": "of",
+          "start": 5.65,
+          "end": 5.81
+        },
+        {
+          "text": "the",
+          "start": 5.81,
+          "end": 5.93
+        },
+        {
+          "text": "couch,",
+          "start": 5.93,
+          "end": 6.19
+        },
+        {
+          "text": "And",
+          "start": 6.65,
+          "end": 6.73
+        },
+        {
+          "text": "arch-deviser",
+          "start": 6.73,
+          "end": 7.08
+        },
+        {
+          "text": "of",
+          "start": 7.43,
+          "end": 7.55
+        },
+        {
+          "text": "the",
+          "start": 7.55,
+          "end": 7.67
+        },
+        {
+          "text": "chieftain's",
+          "start": 7.67,
+          "end": 8.21
+        },
+        {
+          "text": "doom!",
+          "start": 8.21,
+          "end": 8.47
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.3805772159830667
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2ab1def46732436732c54db04977cb740cc8aed295c8fbe78ac4ad80fceb2144",
+  "selected_reasons": []
+}

@@ -1,0 +1,883 @@
+{
+  "complete": true,
+  "signature": "4434a47b41ed8381eb3becbc0b3daf350e672c498ce822f9d72a524d221e693b",
+  "attempts": [
+    {
+      "asr_seconds": 0.21677798964083195,
+      "alignment_seconds": 0.0004533287137746811,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_to Goneril._] Detested kite, thou liest.",
+        "hotwords": "Goneril._, Detested"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To Goneril._, Detested kite, thou liest.",
+          "start": 0.02,
+          "end": 2.74,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.62646484375
+            },
+            {
+              "text": " Goneril._,",
+              "start": 0.5,
+              "end": 1.5,
+              "probability": 0.3452989310026169
+            },
+            {
+              "text": " Detested",
+              "start": 1.5,
+              "end": 1.88,
+              "probability": 0.52850341796875
+            },
+            {
+              "text": " kite,",
+              "start": 1.88,
+              "end": 2.2,
+              "probability": 0.606689453125
+            },
+            {
+              "text": " thou",
+              "start": 2.3,
+              "end": 2.36,
+              "probability": 0.916015625
+            },
+            {
+              "text": " liest.",
+              "start": 2.36,
+              "end": 2.74,
+              "probability": 0.4579010009765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Goneril._,",
+          "start": 0.5,
+          "end": 1.5
+        },
+        {
+          "raw": "Detested",
+          "start": 1.5,
+          "end": 1.88
+        },
+        {
+          "raw": "kite,",
+          "start": 1.88,
+          "end": 2.2
+        },
+        {
+          "raw": "thou",
+          "start": 2.3,
+          "end": 2.36
+        },
+        {
+          "raw": "liest.",
+          "start": 2.36,
+          "end": 2.74
+        }
+      ],
+      "expected_tokens": [
+        "[_to",
+        "Goneril._]",
+        "Detested",
+        "kite,",
+        "thou",
+        "liest."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Goneril._,",
+          "start": 0.5,
+          "end": 1.5,
+          "key": "goneril_",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Detested",
+          "start": 1.5,
+          "end": 1.88,
+          "key": "detested",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "kite,",
+          "start": 1.88,
+          "end": 2.2,
+          "key": "kite",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.3,
+          "end": 2.36,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "liest.",
+          "start": 2.36,
+          "end": 2.74,
+          "key": "liest",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_to",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Goneril._]",
+          "start": 0.5,
+          "end": 1.0
+        },
+        {
+          "text": "Detested",
+          "start": 1.5,
+          "end": 1.88
+        },
+        {
+          "text": "kite,",
+          "start": 1.88,
+          "end": 2.2
+        },
+        {
+          "text": "thou",
+          "start": 2.3,
+          "end": 2.36
+        },
+        {
+          "text": "liest.",
+          "start": 2.36,
+          "end": 2.74
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21739207208156586
+    },
+    {
+      "asr_seconds": 0.37740309722721577,
+      "alignment_seconds": 0.0004746764898300171,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Goneril._, Detested"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Kite thou least._",
+          "start": 0.02,
+          "end": 3.0,
+          "words": [
+            {
+              "text": " Kite",
+              "start": 0.02,
+              "end": 2.18,
+              "probability": 0.05278724431991577
+            },
+            {
+              "text": " thou",
+              "start": 2.18,
+              "end": 2.36,
+              "probability": 0.55615234375
+            },
+            {
+              "text": " least._",
+              "start": 2.36,
+              "end": 3.0,
+              "probability": 0.15979045629501343
+            }
+          ]
+        },
+        {
+          "text": " Goneril._, Detested Kite thou least._",
+          "start": 3.0,
+          "end": 3.24,
+          "words": [
+            {
+              "text": " Goneril._,",
+              "start": 3.0,
+              "end": 3.24,
+              "probability": 0.00032176077365875244
+            },
+            {
+              "text": " Detested",
+              "start": 3.24,
+              "end": 3.24,
+              "probability": 0.0001373291015625
+            },
+            {
+              "text": " Kite",
+              "start": 3.24,
+              "end": 3.24,
+              "probability": 0.0001221299171447754
+            },
+            {
+              "text": " thou",
+              "start": 3.24,
+              "end": 3.24,
+              "probability": 9.417533874511719e-06
+            },
+            {
+              "text": " least._",
+              "start": 3.24,
+              "end": 3.24,
+              "probability": 1.2755393981933594e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kite",
+          "start": 0.02,
+          "end": 2.18
+        },
+        {
+          "raw": "thou",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "raw": "least._",
+          "start": 2.36,
+          "end": 3.0
+        },
+        {
+          "raw": "Goneril._,",
+          "start": 3.0,
+          "end": 3.24
+        },
+        {
+          "raw": "Detested",
+          "start": 3.24,
+          "end": 3.24
+        },
+        {
+          "raw": "Kite",
+          "start": 3.24,
+          "end": 3.24
+        },
+        {
+          "raw": "thou",
+          "start": 3.24,
+          "end": 3.24
+        },
+        {
+          "raw": "least._",
+          "start": 3.24,
+          "end": 3.24
+        }
+      ],
+      "expected_tokens": [
+        "[_to",
+        "Goneril._]",
+        "Detested",
+        "kite,",
+        "thou",
+        "liest."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "equal",
+          2,
+          5,
+          4,
+          7
+        ],
+        [
+          "replace",
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kite",
+          "start": 0.02,
+          "end": 2.18,
+          "key": "kite",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.18,
+          "end": 2.36,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "least._",
+          "start": 2.36,
+          "end": 3.0,
+          "key": "least_",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Goneril._,",
+          "start": 3.0,
+          "end": 3.24,
+          "key": "goneril_",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Detested",
+          "start": 3.24,
+          "end": 3.24,
+          "key": "detested",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Kite",
+          "start": 3.24,
+          "end": 3.24,
+          "key": "kite",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.24,
+          "end": 3.24,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "least._",
+          "start": 3.24,
+          "end": 3.24,
+          "key": "least_",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_to",
+          "start": 0.0,
+          "end": 1.62
+        },
+        {
+          "text": "Goneril._]",
+          "start": 1.62,
+          "end": 2.43
+        },
+        {
+          "text": "Detested",
+          "start": 3.24,
+          "end": 3.24
+        },
+        {
+          "text": "kite,",
+          "start": 3.24,
+          "end": 3.24
+        },
+        {
+          "text": "thou",
+          "start": 3.24,
+          "end": 3.24
+        },
+        {
+          "text": "liest.",
+          "start": 3.24,
+          "end": 3.24
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 8,
+        "matched_words": 3
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3780489321798086
+    },
+    {
+      "asr_seconds": 0.20148719288408756,
+      "alignment_seconds": 0.00045350007712841034,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To gonorrel, detested kite thou least.",
+          "start": 0.02,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.6279296875
+            },
+            {
+              "text": " gonorrel,",
+              "start": 0.5,
+              "end": 1.18,
+              "probability": 0.42529296875
+            },
+            {
+              "text": " detested",
+              "start": 1.52,
+              "end": 1.88,
+              "probability": 0.897216796875
+            },
+            {
+              "text": " kite",
+              "start": 1.88,
+              "end": 2.2,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " thou",
+              "start": 2.2,
+              "end": 2.36,
+              "probability": 0.958984375
+            },
+            {
+              "text": " least.",
+              "start": 2.36,
+              "end": 2.64,
+              "probability": 0.6220703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "gonorrel,",
+          "start": 0.5,
+          "end": 1.18
+        },
+        {
+          "raw": "detested",
+          "start": 1.52,
+          "end": 1.88
+        },
+        {
+          "raw": "kite",
+          "start": 1.88,
+          "end": 2.2
+        },
+        {
+          "raw": "thou",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "raw": "least.",
+          "start": 2.36,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "[_to",
+        "Goneril._]",
+        "Detested",
+        "kite,",
+        "thou",
+        "liest."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gonorrel,",
+          "start": 0.5,
+          "end": 1.18,
+          "key": "gonorrel",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "detested",
+          "start": 1.52,
+          "end": 1.88,
+          "key": "detested",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "kite",
+          "start": 1.88,
+          "end": 2.2,
+          "key": "kite",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.2,
+          "end": 2.36,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "least.",
+          "start": 2.36,
+          "end": 2.64,
+          "key": "least",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_to",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Goneril._]",
+          "start": 0.5,
+          "end": 1.01
+        },
+        {
+          "text": "Detested",
+          "start": 1.52,
+          "end": 1.88
+        },
+        {
+          "text": "kite,",
+          "start": 1.88,
+          "end": 2.2
+        },
+        {
+          "text": "thou",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "text": "liest.",
+          "start": 2.36,
+          "end": 2.5
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2020848374813795
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5b53705747e08fd8eb4e32cd9eb091308fdc0798acf7bf5d34a85a631bcd6f93",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

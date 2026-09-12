@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "e0d4b0f9d53972276418522a93bf9ae909988d90d36eeada6d5205a88671363c",
+  "attempts": [
+    {
+      "asr_seconds": 3.9307737620547414,
+      "alignment_seconds": 0.0004781251773238182,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. My lord is fallen into an epilepsy. This is his second fit. He had one yesterday.",
+        "hotwords": "Iago, My, This, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, My Lord is fallen into an epilepsy. This is his second fit. He had one yesterday.",
+          "start": 0.05,
+          "end": 5.99,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.19080352783203125
+            },
+            {
+              "text": " My",
+              "start": 1.07,
+              "end": 1.25,
+              "probability": 0.018768310546875
+            },
+            {
+              "text": " Lord",
+              "start": 1.25,
+              "end": 1.45,
+              "probability": 0.4521484375
+            },
+            {
+              "text": " is",
+              "start": 1.45,
+              "end": 1.65,
+              "probability": 0.1416015625
+            },
+            {
+              "text": " fallen",
+              "start": 1.65,
+              "end": 1.89,
+              "probability": 0.87890625
+            },
+            {
+              "text": " into",
+              "start": 1.89,
+              "end": 2.19,
+              "probability": 0.986328125
+            },
+            {
+              "text": " an",
+              "start": 2.19,
+              "end": 2.33,
+              "probability": 0.974609375
+            },
+            {
+              "text": " epilepsy.",
+              "start": 2.33,
+              "end": 2.75,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " This",
+              "start": 3.49,
+              "end": 3.69,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " is",
+              "start": 3.69,
+              "end": 3.87,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " his",
+              "start": 3.87,
+              "end": 3.99,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " second",
+              "start": 3.99,
+              "end": 4.31,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " fit.",
+              "start": 4.31,
+              "end": 4.69,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " He",
+              "start": 5.13,
+              "end": 5.21,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " had",
+              "start": 5.21,
+              "end": 5.35,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " one",
+              "start": 5.35,
+              "end": 5.57,
+              "probability": 0.869140625
+            },
+            {
+              "text": " yesterday.",
+              "start": 5.57,
+              "end": 5.99,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "My",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "raw": "Lord",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "raw": "is",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "raw": "fallen",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "raw": "into",
+          "start": 1.89,
+          "end": 2.19
+        },
+        {
+          "raw": "an",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "raw": "epilepsy.",
+          "start": 2.33,
+          "end": 2.75
+        },
+        {
+          "raw": "This",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "raw": "is",
+          "start": 3.69,
+          "end": 3.87
+        },
+        {
+          "raw": "his",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "raw": "second",
+          "start": 3.99,
+          "end": 4.31
+        },
+        {
+          "raw": "fit.",
+          "start": 4.31,
+          "end": 4.69
+        },
+        {
+          "raw": "He",
+          "start": 5.13,
+          "end": 5.21
+        },
+        {
+          "raw": "had",
+          "start": 5.21,
+          "end": 5.35
+        },
+        {
+          "raw": "one",
+          "start": 5.35,
+          "end": 5.57
+        },
+        {
+          "raw": "yesterday.",
+          "start": 5.57,
+          "end": 5.99
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "My",
+        "lord",
+        "is",
+        "fallen",
+        "into",
+        "an",
+        "epilepsy.",
+        "This",
+        "is",
+        "his",
+        "second",
+        "fit.",
+        "He",
+        "had",
+        "one",
+        "yesterday."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.07,
+          "end": 1.25,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 1.25,
+          "end": 1.45,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.45,
+          "end": 1.65,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fallen",
+          "start": 1.65,
+          "end": 1.89,
+          "key": "fallen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.89,
+          "end": 2.19,
+          "key": "into",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.19,
+          "end": 2.33,
+          "key": "an",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "epilepsy.",
+          "start": 2.33,
+          "end": 2.75,
+          "key": "epilepsy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 3.49,
+          "end": 3.69,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.69,
+          "end": 3.87,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.87,
+          "end": 3.99,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 3.99,
+          "end": 4.31,
+          "key": "second",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "fit.",
+          "start": 4.31,
+          "end": 4.69,
+          "key": "fit",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 5.13,
+          "end": 5.21,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 5.21,
+          "end": 5.35,
+          "key": "had",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 5.35,
+          "end": 5.57,
+          "key": "one",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "yesterday.",
+          "start": 5.57,
+          "end": 5.99,
+          "key": "yesterday",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "My",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "text": "lord",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "is",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "text": "fallen",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "text": "into",
+          "start": 1.89,
+          "end": 2.19
+        },
+        {
+          "text": "an",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "text": "epilepsy.",
+          "start": 2.33,
+          "end": 2.75
+        },
+        {
+          "text": "This",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "text": "is",
+          "start": 3.69,
+          "end": 3.87
+        },
+        {
+          "text": "his",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "text": "second",
+          "start": 3.99,
+          "end": 4.31
+        },
+        {
+          "text": "fit.",
+          "start": 4.31,
+          "end": 4.69
+        },
+        {
+          "text": "He",
+          "start": 5.13,
+          "end": 5.21
+        },
+        {
+          "text": "had",
+          "start": 5.21,
+          "end": 5.35
+        },
+        {
+          "text": "one",
+          "start": 5.35,
+          "end": 5.57
+        },
+        {
+          "text": "yesterday.",
+          "start": 5.57,
+          "end": 5.99
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.931439444422722
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "164f6f4264ce5f8a5ac1ad42922710640cc35d6794a8597f9313396bd2e4c081",
+  "selected_reasons": []
+}

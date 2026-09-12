@@ -1,0 +1,344 @@
+{
+  "complete": true,
+  "signature": "2f8990dc97daf28bbd7b8f730f6db56c7ebf5f771ebe83505040ae3ea82801c5",
+  "attempts": [
+    {
+      "asr_seconds": 0.23360076919198036,
+      "alignment_seconds": 0.0004909653216600418,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Krasetkin suddenly released himself from a luscious embrace.",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " Krasetkin",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.883056640625
+            },
+            {
+              "text": " suddenly",
+              "start": 0.95,
+              "end": 1.69,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " released",
+              "start": 1.69,
+              "end": 2.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " himself",
+              "start": 2.11,
+              "end": 2.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " from",
+              "start": 2.47,
+              "end": 2.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 2.75,
+              "end": 2.87,
+              "probability": 0.5234375
+            },
+            {
+              "text": " luscious",
+              "start": 2.87,
+              "end": 3.21,
+              "probability": 0.8387044270833334
+            },
+            {
+              "text": " embrace.",
+              "start": 3.21,
+              "end": 3.63,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Krasetkin",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "suddenly",
+          "start": 0.95,
+          "end": 1.69
+        },
+        {
+          "raw": "released",
+          "start": 1.69,
+          "end": 2.11
+        },
+        {
+          "raw": "himself",
+          "start": 2.11,
+          "end": 2.47
+        },
+        {
+          "raw": "from",
+          "start": 2.47,
+          "end": 2.75
+        },
+        {
+          "raw": "a",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "raw": "luscious",
+          "start": 2.87,
+          "end": 3.21
+        },
+        {
+          "raw": "embrace.",
+          "start": 3.21,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "Krassotkin",
+        "suddenly",
+        "released",
+        "himself",
+        "from",
+        "Ilusha's",
+        "embrace."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          7,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Krasetkin",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "krasetkin",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 0.95,
+          "end": 1.69,
+          "key": "suddenly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "released",
+          "start": 1.69,
+          "end": 2.11,
+          "key": "released",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 2.11,
+          "end": 2.47,
+          "key": "himself",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.47,
+          "end": 2.75,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.75,
+          "end": 2.87,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "luscious",
+          "start": 2.87,
+          "end": 3.21,
+          "key": "luscious",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "embrace.",
+          "start": 3.21,
+          "end": 3.63,
+          "key": "embrace",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Krassotkin",
+          "start": 0.0,
+          "end": 0.475
+        },
+        {
+          "text": "suddenly",
+          "start": 0.95,
+          "end": 1.69
+        },
+        {
+          "text": "released",
+          "start": 1.69,
+          "end": 2.11
+        },
+        {
+          "text": "himself",
+          "start": 2.11,
+          "end": 2.47
+        },
+        {
+          "text": "from",
+          "start": 2.47,
+          "end": 2.75
+        },
+        {
+          "text": "Ilusha's",
+          "start": 2.75,
+          "end": 2.98
+        },
+        {
+          "text": "embrace.",
+          "start": 3.21,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23426653631031513
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f4698813b77221171039796d7cd338b6fe8527e98e51cc27aaf8cbe58234a6b6",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

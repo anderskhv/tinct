@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "be9c27476e756ead6750812f3c86dd4123dbc144095fe85fc680de1a790143d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.13299263920634985,
+      "alignment_seconds": 0.00018159812316298485,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, how unlawfully.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.63336181640625
+            },
+            {
+              "text": " how",
+              "start": 1.45,
+              "end": 1.53,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " unlawfully.",
+              "start": 1.53,
+              "end": 2.11,
+              "probability": 0.900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "how",
+          "start": 1.45,
+          "end": 1.53
+        },
+        {
+          "raw": "unlawfully.",
+          "start": 1.53,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "How?",
+        "Unlawfully?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.45,
+          "end": 1.53,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "unlawfully.",
+          "start": 1.53,
+          "end": 2.11,
+          "key": "unlawfully",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.725
+        },
+        {
+          "text": "How?",
+          "start": 1.45,
+          "end": 1.53
+        },
+        {
+          "text": "Unlawfully?",
+          "start": 1.53,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13323288643732667
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7a30ed4416a46d9bcab1ddac8a45cbbfe0808672f25458e2bab92db7257c0591",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

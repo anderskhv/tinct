@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "3e2c0e9e50849fd03e450194d9d3eb50dd82ca5fa69667355ec74783e3819646",
+  "attempts": [
+    {
+      "asr_seconds": 0.1989978514611721,
+      "alignment_seconds": 0.0006160419434309006,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, why he more than another?",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.962646484375
+            },
+            {
+              "text": " why",
+              "start": 1.25,
+              "end": 1.27,
+              "probability": 0.61328125
+            },
+            {
+              "text": " he",
+              "start": 1.27,
+              "end": 1.39,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " more",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " than",
+              "start": 1.51,
+              "end": 1.65,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " another?",
+              "start": 1.65,
+              "end": 1.93,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "why",
+          "start": 1.25,
+          "end": 1.27
+        },
+        {
+          "raw": "he",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "raw": "more",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "than",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "raw": "another?",
+          "start": 1.65,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Why",
+        "he",
+        "more",
+        "than",
+        "another?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.25,
+          "end": 1.27,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.27,
+          "end": 1.39,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "more",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 1.51,
+          "end": 1.65,
+          "key": "than",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "another?",
+          "start": 1.65,
+          "end": 1.93,
+          "key": "another",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Why",
+          "start": 1.25,
+          "end": 1.27
+        },
+        {
+          "text": "he",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "text": "more",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "than",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "text": "another?",
+          "start": 1.65,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19985493924468756
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aecf15163cc4fe9a23cfe5293b7358ffe9bc13bdd9482c0dd5555ecf2583d989",
+  "selected_reasons": []
+}

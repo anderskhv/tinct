@@ -1,0 +1,633 @@
+{
+  "complete": true,
+  "signature": "b980bf32818a08e10dd251e8158caa9a4c53a1840af3521525c75f05cc6dbcbd",
+  "attempts": [
+    {
+      "asr_seconds": 0.3246275745332241,
+      "alignment_seconds": 0.0005076462402939796,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gower, why, this is an errant counterfeit rascal. I remember him now abode a cut-purse.",
+          "start": 0.05,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " Gower,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.81201171875
+            },
+            {
+              "text": " why,",
+              "start": 1.05,
+              "end": 1.35,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " this",
+              "start": 1.57,
+              "end": 1.63,
+              "probability": 0.98828125
+            },
+            {
+              "text": " is",
+              "start": 1.63,
+              "end": 1.79,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " an",
+              "start": 1.79,
+              "end": 1.91,
+              "probability": 0.9921875
+            },
+            {
+              "text": " errant",
+              "start": 1.91,
+              "end": 2.23,
+              "probability": 0.947021484375
+            },
+            {
+              "text": " counterfeit",
+              "start": 2.23,
+              "end": 2.67,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " rascal.",
+              "start": 2.67,
+              "end": 3.19,
+              "probability": 0.975830078125
+            },
+            {
+              "text": " I",
+              "start": 3.83,
+              "end": 3.91,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " remember",
+              "start": 3.91,
+              "end": 4.17,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " him",
+              "start": 4.17,
+              "end": 4.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " now",
+              "start": 4.37,
+              "end": 4.69,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " abode",
+              "start": 4.69,
+              "end": 5.23,
+              "probability": 0.56689453125
+            },
+            {
+              "text": " a",
+              "start": 5.23,
+              "end": 5.41,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " cut",
+              "start": 5.41,
+              "end": 5.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": "-purse.",
+              "start": 5.57,
+              "end": 5.89,
+              "probability": 0.7843424479166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gower,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "why,",
+          "start": 1.05,
+          "end": 1.35
+        },
+        {
+          "raw": "this",
+          "start": 1.57,
+          "end": 1.63
+        },
+        {
+          "raw": "is",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "raw": "an",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "raw": "errant",
+          "start": 1.91,
+          "end": 2.23
+        },
+        {
+          "raw": "counterfeit",
+          "start": 2.23,
+          "end": 2.67
+        },
+        {
+          "raw": "rascal.",
+          "start": 2.67,
+          "end": 3.19
+        },
+        {
+          "raw": "I",
+          "start": 3.83,
+          "end": 3.91
+        },
+        {
+          "raw": "remember",
+          "start": 3.91,
+          "end": 4.17
+        },
+        {
+          "raw": "him",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "raw": "now",
+          "start": 4.37,
+          "end": 4.69
+        },
+        {
+          "raw": "abode",
+          "start": 4.69,
+          "end": 5.23
+        },
+        {
+          "raw": "a",
+          "start": 5.23,
+          "end": 5.41
+        },
+        {
+          "raw": "cut",
+          "start": 5.41,
+          "end": 5.57
+        },
+        {
+          "raw": "-purse.",
+          "start": 5.57,
+          "end": 5.89
+        }
+      ],
+      "expected_tokens": [
+        "Gower.",
+        "Why,",
+        "this",
+        "is",
+        "an",
+        "arrant",
+        "counterfeit",
+        "rascal.",
+        "I",
+        "remember",
+        "him",
+        "now;",
+        "a",
+        "bawd,",
+        "a",
+        "cutpurse."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          12,
+          6,
+          12
+        ],
+        [
+          "insert",
+          12,
+          12,
+          12,
+          13
+        ],
+        [
+          "equal",
+          12,
+          13,
+          13,
+          14
+        ],
+        [
+          "replace",
+          13,
+          16,
+          14,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "insert",
+          12,
+          12,
+          12,
+          13
+        ],
+        [
+          "replace",
+          13,
+          16,
+          14,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gower,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "gower",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why,",
+          "start": 1.05,
+          "end": 1.35,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.57,
+          "end": 1.63,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.63,
+          "end": 1.79,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.79,
+          "end": 1.91,
+          "key": "an",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "errant",
+          "start": 1.91,
+          "end": 2.23,
+          "key": "errant",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "counterfeit",
+          "start": 2.23,
+          "end": 2.67,
+          "key": "counterfeit",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rascal.",
+          "start": 2.67,
+          "end": 3.19,
+          "key": "rascal",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.83,
+          "end": 3.91,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "remember",
+          "start": 3.91,
+          "end": 4.17,
+          "key": "remember",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.17,
+          "end": 4.37,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 4.37,
+          "end": 4.69,
+          "key": "now",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "abode",
+          "start": 4.69,
+          "end": 5.23,
+          "key": "abode",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.23,
+          "end": 5.41,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "cut",
+          "start": 5.41,
+          "end": 5.57,
+          "key": "cut",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "-purse.",
+          "start": 5.57,
+          "end": 5.89,
+          "key": "purse",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gower.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Why,",
+          "start": 1.05,
+          "end": 1.35
+        },
+        {
+          "text": "this",
+          "start": 1.57,
+          "end": 1.63
+        },
+        {
+          "text": "is",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "text": "an",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "text": "arrant",
+          "start": 1.91,
+          "end": 2.07
+        },
+        {
+          "text": "counterfeit",
+          "start": 2.23,
+          "end": 2.67
+        },
+        {
+          "text": "rascal.",
+          "start": 2.67,
+          "end": 3.19
+        },
+        {
+          "text": "I",
+          "start": 3.83,
+          "end": 3.91
+        },
+        {
+          "text": "remember",
+          "start": 3.91,
+          "end": 4.17
+        },
+        {
+          "text": "him",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "text": "now;",
+          "start": 4.37,
+          "end": 4.69
+        },
+        {
+          "text": "a",
+          "start": 5.23,
+          "end": 5.41
+        },
+        {
+          "text": "bawd,",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "text": "a",
+          "start": 5.65,
+          "end": 5.77
+        },
+        {
+          "text": "cutpurse.",
+          "start": 5.77,
+          "end": 5.83
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 12
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.32532190531492233
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4fc610677f6bb0baff83a3174441ea0185e10d06fce1dfdb8c1d48cd5ee37af6",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

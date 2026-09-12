@@ -1,0 +1,410 @@
+{
+  "complete": true,
+  "signature": "291a9268233cc9f655c657b5ea442ea40d4cf3da65d4671ebfbb5552ab6b68be",
+  "attempts": [
+    {
+      "asr_seconds": 0.12398841604590416,
+      "alignment_seconds": 0.0002940557897090912,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Guardsman._]",
+        "hotwords": "Guardsman._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Guardsman._",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " Guardsman._",
+              "start": 0.65,
+              "end": 1.73,
+              "probability": 0.3551432291666667
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Guardsman._",
+          "start": 0.65,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Guardsman._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Guardsman._",
+          "start": 0.65,
+          "end": 1.73,
+          "key": "guardsman_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Guardsman._]",
+          "start": 0.65,
+          "end": 1.19
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12437247391790152
+    },
+    {
+      "asr_seconds": 0.0996006466448307,
+      "alignment_seconds": 0.00026431307196617126,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Guardsman._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Guardsman._",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " Guardsman._",
+              "start": 0.65,
+              "end": 1.73,
+              "probability": 0.3551432291666667
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Guardsman._",
+          "start": 0.65,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Guardsman._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Guardsman._",
+          "start": 0.65,
+          "end": 1.73,
+          "key": "guardsman_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Guardsman._]",
+          "start": 0.65,
+          "end": 1.19
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0999459745362401
+    },
+    {
+      "asr_seconds": 0.1326514333486557,
+      "alignment_seconds": 0.00028748344630002975,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Guardsmen.",
+          "start": 0.05,
+          "end": 1.19,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " Guardsmen.",
+              "start": 0.65,
+              "end": 1.19,
+              "probability": 0.81103515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Guardsmen.",
+          "start": 0.65,
+          "end": 1.19
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Guardsman._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Guardsmen.",
+          "start": 0.65,
+          "end": 1.19,
+          "key": "guardsmen",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Guardsman._]",
+          "start": 0.65,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13303273636847734
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3945f2ee9bc10630696b446fad548ce381c3410009b812d3109aab6c8151da6b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

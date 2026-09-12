@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "5e9872695f104b06eb2307a5272560d2c935070cd86deb0f107fce4781da9d08",
+  "attempts": [
+    {
+      "asr_seconds": 0.11476885399315506,
+      "alignment_seconds": 0.00016116502229124308,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Good morning, sir.",
+        "hotwords": "Good"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Good morning, sir.",
+          "start": 0.02,
+          "end": 1.12,
+          "words": [
+            {
+              "text": " Good",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " morning,",
+              "start": 0.54,
+              "end": 0.82,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " sir.",
+              "start": 0.98,
+              "end": 1.12,
+              "probability": 0.9091796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "morning,",
+          "start": 0.54,
+          "end": 0.82
+        },
+        {
+          "raw": "sir.",
+          "start": 0.98,
+          "end": 1.12
+        }
+      ],
+      "expected_tokens": [
+        "—Good",
+        "morning,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Good",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "good",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "morning,",
+          "start": 0.54,
+          "end": 0.82,
+          "key": "morning",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 0.98,
+          "end": 1.12,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Good",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "morning,",
+          "start": 0.54,
+          "end": 0.82
+        },
+        {
+          "text": "sir.",
+          "start": 0.98,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1149788329785224
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b83c2893b45168eb980fbff56da7282a1af13649ec770aba9d2f531596c1a23b",
+  "selected_reasons": []
+}

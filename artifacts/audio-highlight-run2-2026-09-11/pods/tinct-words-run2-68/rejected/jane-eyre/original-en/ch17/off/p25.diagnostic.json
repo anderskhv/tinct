@@ -1,0 +1,504 @@
+{
+  "complete": true,
+  "signature": "619cab0414f3dce2fb9c98ab42656996b38ab214939324dd6983de726e0fe920",
+  "attempts": [
+    {
+      "asr_seconds": 0.27105285599827766,
+      "alignment_seconds": 0.0006285011768341064,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Their coming ma'am was the answer. They'll be here in 10 minutes",
+          "start": 0.05,
+          "end": 4.03,
+          "words": [
+            {
+              "text": " Their",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.39990234375
+            },
+            {
+              "text": " coming",
+              "start": 0.55,
+              "end": 0.91,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " ma",
+              "start": 0.91,
+              "end": 1.21,
+              "probability": 0.354736328125
+            },
+            {
+              "text": "'am",
+              "start": 1.21,
+              "end": 1.37,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " was",
+              "start": 1.37,
+              "end": 1.71,
+              "probability": 0.76708984375
+            },
+            {
+              "text": " the",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " answer.",
+              "start": 1.89,
+              "end": 2.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " They'll",
+              "start": 2.77,
+              "end": 2.95,
+              "probability": 0.980712890625
+            },
+            {
+              "text": " be",
+              "start": 2.95,
+              "end": 3.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " here",
+              "start": 3.05,
+              "end": 3.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 3.27,
+              "end": 3.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " 10",
+              "start": 3.45,
+              "end": 3.67,
+              "probability": 0.55322265625
+            },
+            {
+              "text": " minutes",
+              "start": 3.67,
+              "end": 4.03,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Their",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "coming",
+          "start": 0.55,
+          "end": 0.91
+        },
+        {
+          "raw": "ma",
+          "start": 0.91,
+          "end": 1.21
+        },
+        {
+          "raw": "'am",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "raw": "was",
+          "start": 1.37,
+          "end": 1.71
+        },
+        {
+          "raw": "the",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "answer.",
+          "start": 1.89,
+          "end": 2.23
+        },
+        {
+          "raw": "They'll",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "raw": "be",
+          "start": 2.95,
+          "end": 3.05
+        },
+        {
+          "raw": "here",
+          "start": 3.05,
+          "end": 3.27
+        },
+        {
+          "raw": "in",
+          "start": 3.27,
+          "end": 3.45
+        },
+        {
+          "raw": "10",
+          "start": 3.45,
+          "end": 3.67
+        },
+        {
+          "raw": "minutes",
+          "start": 3.67,
+          "end": 4.03
+        }
+      ],
+      "expected_tokens": [
+        "\"They're",
+        "coming,",
+        "ma'am,\"",
+        "was",
+        "the",
+        "answer.",
+        "\"They'll",
+        "be",
+        "here",
+        "in",
+        "ten",
+        "minutes.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          12,
+          4,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Their",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "their",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "coming",
+          "start": 0.55,
+          "end": 0.91,
+          "key": "coming",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 0.91,
+          "end": 1.21,
+          "key": "ma",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'am",
+          "start": 1.21,
+          "end": 1.37,
+          "key": "am",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.37,
+          "end": 1.71,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.71,
+          "end": 1.89,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "answer.",
+          "start": 1.89,
+          "end": 2.23,
+          "key": "answer",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "They'll",
+          "start": 2.77,
+          "end": 2.95,
+          "key": "theyll",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.95,
+          "end": 3.05,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 3.05,
+          "end": 3.27,
+          "key": "here",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.27,
+          "end": 3.45,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "10",
+          "start": 3.45,
+          "end": 3.67,
+          "key": "ten",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "minutes",
+          "start": 3.67,
+          "end": 4.03,
+          "key": "minutes",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"They're",
+          "start": 0.0,
+          "end": 0.275
+        },
+        {
+          "text": "coming,",
+          "start": 0.55,
+          "end": 0.91
+        },
+        {
+          "text": "ma'am,\"",
+          "start": 0.91,
+          "end": 1.14
+        },
+        {
+          "text": "was",
+          "start": 1.37,
+          "end": 1.71
+        },
+        {
+          "text": "the",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "text": "answer.",
+          "start": 1.89,
+          "end": 2.23
+        },
+        {
+          "text": "\"They'll",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "text": "be",
+          "start": 2.95,
+          "end": 3.05
+        },
+        {
+          "text": "here",
+          "start": 3.05,
+          "end": 3.27
+        },
+        {
+          "text": "in",
+          "start": 3.27,
+          "end": 3.45
+        },
+        {
+          "text": "ten",
+          "start": 3.45,
+          "end": 3.67
+        },
+        {
+          "text": "minutes.\"",
+          "start": 3.67,
+          "end": 4.03
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2719201147556305
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f4762f725941702abe9d4f44b351b43732d2cc8c6a4fa371fca577c53bd086c7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

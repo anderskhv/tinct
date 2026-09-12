@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "4ea24d838924c1350d893e58abfff9d496eb80cf79036f850b9e595e228023fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.2404971793293953,
+      "alignment_seconds": 0.0005135349929332733,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caesar arise you shall not kneel. I pray you rise rise Egypt",
+          "start": 0.11,
+          "end": 4.27,
+          "words": [
+            {
+              "text": " Caesar",
+              "start": 0.11,
+              "end": 0.79,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " arise",
+              "start": 0.79,
+              "end": 1.49,
+              "probability": 0.64599609375
+            },
+            {
+              "text": " you",
+              "start": 1.49,
+              "end": 1.73,
+              "probability": 0.60595703125
+            },
+            {
+              "text": " shall",
+              "start": 1.73,
+              "end": 1.85,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " kneel.",
+              "start": 2.03,
+              "end": 2.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 2.41,
+              "end": 2.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " pray",
+              "start": 2.63,
+              "end": 2.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 2.81,
+              "end": 2.99,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " rise",
+              "start": 2.99,
+              "end": 3.39,
+              "probability": 0.9921875
+            },
+            {
+              "text": " rise",
+              "start": 3.39,
+              "end": 3.81,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Egypt",
+              "start": 3.81,
+              "end": 4.27,
+              "probability": 0.9296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "raw": "arise",
+          "start": 0.79,
+          "end": 1.49
+        },
+        {
+          "raw": "you",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "raw": "shall",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "raw": "not",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "kneel.",
+          "start": 2.03,
+          "end": 2.41
+        },
+        {
+          "raw": "I",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "raw": "pray",
+          "start": 2.63,
+          "end": 2.81
+        },
+        {
+          "raw": "you",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "raw": "rise",
+          "start": 2.99,
+          "end": 3.39
+        },
+        {
+          "raw": "rise",
+          "start": 3.39,
+          "end": 3.81
+        },
+        {
+          "raw": "Egypt",
+          "start": 3.81,
+          "end": 4.27
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "Arise,",
+        "you",
+        "shall",
+        "not",
+        "kneel.",
+        "I",
+        "pray",
+        "you,",
+        "rise.",
+        "Rise,",
+        "Egypt."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar",
+          "start": 0.11,
+          "end": 0.79,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "arise",
+          "start": 0.79,
+          "end": 1.49,
+          "key": "arise",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.49,
+          "end": 1.73,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.73,
+          "end": 1.85,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.85,
+          "end": 2.03,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "kneel.",
+          "start": 2.03,
+          "end": 2.41,
+          "key": "kneel",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.41,
+          "end": 2.63,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 2.63,
+          "end": 2.81,
+          "key": "pray",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.81,
+          "end": 2.99,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "rise",
+          "start": 2.99,
+          "end": 3.39,
+          "key": "rise",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "rise",
+          "start": 3.39,
+          "end": 3.81,
+          "key": "rise",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Egypt",
+          "start": 3.81,
+          "end": 4.27,
+          "key": "egypt",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "text": "Arise,",
+          "start": 0.79,
+          "end": 1.49
+        },
+        {
+          "text": "you",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "text": "shall",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "text": "not",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "kneel.",
+          "start": 2.03,
+          "end": 2.41
+        },
+        {
+          "text": "I",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "text": "pray",
+          "start": 2.63,
+          "end": 2.81
+        },
+        {
+          "text": "you,",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "text": "rise.",
+          "start": 2.99,
+          "end": 3.39
+        },
+        {
+          "text": "Rise,",
+          "start": 3.39,
+          "end": 3.81
+        },
+        {
+          "text": "Egypt.",
+          "start": 3.81,
+          "end": 4.27
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24115630146116018
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2a26058b379997eabf1c9e8b17bc87d482afe2867a29ad67e4081d2750f77d87",
+  "selected_reasons": []
+}

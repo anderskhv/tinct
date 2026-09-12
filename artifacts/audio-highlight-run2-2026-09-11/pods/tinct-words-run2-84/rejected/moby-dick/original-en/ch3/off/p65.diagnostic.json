@@ -1,0 +1,646 @@
+{
+  "complete": true,
+  "signature": "201cec83218d92ee3f7d72ec492913f6001a61b3fd95c6b4c8556f401cc3f995",
+  "attempts": [
+    {
+      "asr_seconds": 0.2787649305537343,
+      "alignment_seconds": 0.0005220295861363411,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don't be afraid now said he grinning again quick. Weg here wouldn't harm a hair of your head",
+          "start": 0.05,
+          "end": 5.49,
+          "words": [
+            {
+              "text": " Don't",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.57177734375
+            },
+            {
+              "text": " be",
+              "start": 0.65,
+              "end": 0.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " afraid",
+              "start": 0.75,
+              "end": 1.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " now",
+              "start": 1.09,
+              "end": 1.59,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " said",
+              "start": 1.59,
+              "end": 2.05,
+              "probability": 0.35302734375
+            },
+            {
+              "text": " he",
+              "start": 2.05,
+              "end": 2.29,
+              "probability": 0.966796875
+            },
+            {
+              "text": " grinning",
+              "start": 2.29,
+              "end": 2.61,
+              "probability": 0.978515625
+            },
+            {
+              "text": " again",
+              "start": 2.61,
+              "end": 3.11,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " quick.",
+              "start": 3.11,
+              "end": 3.69,
+              "probability": 0.179931640625
+            },
+            {
+              "text": " Weg",
+              "start": 3.87,
+              "end": 4.03,
+              "probability": 0.8515625
+            },
+            {
+              "text": " here",
+              "start": 4.03,
+              "end": 4.21,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " wouldn't",
+              "start": 4.21,
+              "end": 4.55,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " harm",
+              "start": 4.55,
+              "end": 4.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 4.71,
+              "end": 4.83,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " hair",
+              "start": 4.83,
+              "end": 4.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 4.97,
+              "end": 5.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 5.09,
+              "end": 5.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " head",
+              "start": 5.19,
+              "end": 5.49,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don't",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "be",
+          "start": 0.65,
+          "end": 0.75
+        },
+        {
+          "raw": "afraid",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "raw": "now",
+          "start": 1.09,
+          "end": 1.59
+        },
+        {
+          "raw": "said",
+          "start": 1.59,
+          "end": 2.05
+        },
+        {
+          "raw": "he",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "raw": "grinning",
+          "start": 2.29,
+          "end": 2.61
+        },
+        {
+          "raw": "again",
+          "start": 2.61,
+          "end": 3.11
+        },
+        {
+          "raw": "quick.",
+          "start": 3.11,
+          "end": 3.69
+        },
+        {
+          "raw": "Weg",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "raw": "here",
+          "start": 4.03,
+          "end": 4.21
+        },
+        {
+          "raw": "wouldn't",
+          "start": 4.21,
+          "end": 4.55
+        },
+        {
+          "raw": "harm",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "raw": "a",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "raw": "hair",
+          "start": 4.83,
+          "end": 4.97
+        },
+        {
+          "raw": "of",
+          "start": 4.97,
+          "end": 5.09
+        },
+        {
+          "raw": "your",
+          "start": 5.09,
+          "end": 5.19
+        },
+        {
+          "raw": "head",
+          "start": 5.19,
+          "end": 5.49
+        }
+      ],
+      "expected_tokens": [
+        "\"Don't",
+        "be",
+        "afraid",
+        "now,\"",
+        "said",
+        "he,",
+        "grinning",
+        "again,",
+        "\"Queequeg",
+        "here",
+        "wouldn't",
+        "harm",
+        "a",
+        "hair",
+        "of",
+        "your",
+        "head.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          17,
+          10,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don't",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "dont",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.65,
+          "end": 0.75,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "afraid",
+          "start": 0.75,
+          "end": 1.09,
+          "key": "afraid",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 1.09,
+          "end": 1.59,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.59,
+          "end": 2.05,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.05,
+          "end": 2.29,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "grinning",
+          "start": 2.29,
+          "end": 2.61,
+          "key": "grinning",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 2.61,
+          "end": 3.11,
+          "key": "again",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "quick.",
+          "start": 3.11,
+          "end": 3.69,
+          "key": "quick",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Weg",
+          "start": 3.87,
+          "end": 4.03,
+          "key": "weg",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 4.03,
+          "end": 4.21,
+          "key": "here",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "wouldn't",
+          "start": 4.21,
+          "end": 4.55,
+          "key": "wouldnt",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "harm",
+          "start": 4.55,
+          "end": 4.71,
+          "key": "harm",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.71,
+          "end": 4.83,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "hair",
+          "start": 4.83,
+          "end": 4.97,
+          "key": "hair",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.97,
+          "end": 5.09,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.09,
+          "end": 5.19,
+          "key": "your",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 5.19,
+          "end": 5.49,
+          "key": "head",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Don't",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "be",
+          "start": 0.65,
+          "end": 0.75
+        },
+        {
+          "text": "afraid",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "text": "now,\"",
+          "start": 1.09,
+          "end": 1.59
+        },
+        {
+          "text": "said",
+          "start": 1.59,
+          "end": 2.05
+        },
+        {
+          "text": "he,",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "text": "grinning",
+          "start": 2.29,
+          "end": 2.61
+        },
+        {
+          "text": "again,",
+          "start": 2.61,
+          "end": 3.11
+        },
+        {
+          "text": "\"Queequeg",
+          "start": 3.11,
+          "end": 3.57
+        },
+        {
+          "text": "here",
+          "start": 4.03,
+          "end": 4.21
+        },
+        {
+          "text": "wouldn't",
+          "start": 4.21,
+          "end": 4.55
+        },
+        {
+          "text": "harm",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "text": "a",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "text": "hair",
+          "start": 4.83,
+          "end": 4.97
+        },
+        {
+          "text": "of",
+          "start": 4.97,
+          "end": 5.09
+        },
+        {
+          "text": "your",
+          "start": 5.09,
+          "end": 5.19
+        },
+        {
+          "text": "head.\"",
+          "start": 5.19,
+          "end": 5.49
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.2795089203864336
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a580c0828dc72746121651e566e5fe82be6382be3215bc7955c85abc9414eea4",
+  "selected_reasons": []
+}

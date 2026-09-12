@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "04b8df30ea09db36ea8a32258e6a4d46444817ae1e6c39387ad0eb0b329634c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.18167712911963463,
+      "alignment_seconds": 0.0005225725471973419,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Margaret. 'Twill be heavier soon by the weight of a man.",
+        "hotwords": "Margaret, Twill"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Margaret, Twill be heavier soon by the weight of a man.",
+          "start": 0.05,
+          "end": 3.35,
+          "words": [
+            {
+              "text": " Margaret,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.798828125
+            },
+            {
+              "text": " Twill",
+              "start": 1.47,
+              "end": 1.57,
+              "probability": 0.408721923828125
+            },
+            {
+              "text": " be",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " heavier",
+              "start": 1.75,
+              "end": 2.01,
+              "probability": 0.966796875
+            },
+            {
+              "text": " soon",
+              "start": 2.01,
+              "end": 2.35,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " by",
+              "start": 2.35,
+              "end": 2.59,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " the",
+              "start": 2.59,
+              "end": 2.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " weight",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 2.87,
+              "end": 2.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 2.99,
+              "end": 3.09,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " man.",
+              "start": 3.09,
+              "end": 3.35,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Margaret,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Twill",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "raw": "be",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "heavier",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "raw": "soon",
+          "start": 2.01,
+          "end": 2.35
+        },
+        {
+          "raw": "by",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "raw": "the",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "raw": "weight",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "of",
+          "start": 2.87,
+          "end": 2.99
+        },
+        {
+          "raw": "a",
+          "start": 2.99,
+          "end": 3.09
+        },
+        {
+          "raw": "man.",
+          "start": 3.09,
+          "end": 3.35
+        }
+      ],
+      "expected_tokens": [
+        "Margaret.",
+        "'Twill",
+        "be",
+        "heavier",
+        "soon",
+        "by",
+        "the",
+        "weight",
+        "of",
+        "a",
+        "man."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Margaret,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "margaret",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Twill",
+          "start": 1.47,
+          "end": 1.57,
+          "key": "twill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.57,
+          "end": 1.75,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heavier",
+          "start": 1.75,
+          "end": 2.01,
+          "key": "heavier",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "soon",
+          "start": 2.01,
+          "end": 2.35,
+          "key": "soon",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.35,
+          "end": 2.59,
+          "key": "by",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.59,
+          "end": 2.69,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "weight",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "weight",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.87,
+          "end": 2.99,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.99,
+          "end": 3.09,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 3.09,
+          "end": 3.35,
+          "key": "man",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Margaret.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "'Twill",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "text": "be",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "heavier",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "text": "soon",
+          "start": 2.01,
+          "end": 2.35
+        },
+        {
+          "text": "by",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "text": "the",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "text": "weight",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "text": "of",
+          "start": 2.87,
+          "end": 2.99
+        },
+        {
+          "text": "a",
+          "start": 2.99,
+          "end": 3.09
+        },
+        {
+          "text": "man.",
+          "start": 3.09,
+          "end": 3.35
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18241934850811958
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ff62c75629f8a6fcf3e758f90bba21035a0d1f75f83a31eb49c580691211ddc8",
+  "selected_reasons": []
+}

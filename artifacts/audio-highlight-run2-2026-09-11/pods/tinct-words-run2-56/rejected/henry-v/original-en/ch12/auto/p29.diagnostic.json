@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "de4b1a6deb9c4d9b1452148cb0385dd51d5df95474778827743eb39a1cd3c756",
+  "attempts": [
+    {
+      "asr_seconds": 0.252747711725533,
+      "alignment_seconds": 0.0005086120218038559,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Henry. How now, Fluellen! cam'st thou from the bridge?",
+        "hotwords": "King, Henry, How, Fluellen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King, Henry, How now, Fluellen Cam'st thou from the bridge?",
+          "start": 0.05,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " King,",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.73681640625
+            },
+            {
+              "text": " Henry,",
+              "start": 0.87,
+              "end": 0.95,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " How",
+              "start": 1.15,
+              "end": 1.37,
+              "probability": 0.0479736328125
+            },
+            {
+              "text": " now,",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " Fluellen",
+              "start": 1.69,
+              "end": 2.07,
+              "probability": 0.46541184186935425
+            },
+            {
+              "text": " Cam'st",
+              "start": 2.07,
+              "end": 2.75,
+              "probability": 0.051785786946614586
+            },
+            {
+              "text": " thou",
+              "start": 2.75,
+              "end": 2.87,
+              "probability": 0.058502197265625
+            },
+            {
+              "text": " from",
+              "start": 2.87,
+              "end": 3.15,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " the",
+              "start": 3.15,
+              "end": 3.27,
+              "probability": 0.982421875
+            },
+            {
+              "text": " bridge?",
+              "start": 3.27,
+              "end": 3.55,
+              "probability": 0.89013671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.87,
+          "end": 0.95
+        },
+        {
+          "raw": "How",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "raw": "now,",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "Fluellen",
+          "start": 1.69,
+          "end": 2.07
+        },
+        {
+          "raw": "Cam'st",
+          "start": 2.07,
+          "end": 2.75
+        },
+        {
+          "raw": "thou",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "raw": "from",
+          "start": 2.87,
+          "end": 3.15
+        },
+        {
+          "raw": "the",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "raw": "bridge?",
+          "start": 3.27,
+          "end": 3.55
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "How",
+        "now,",
+        "Fluellen!",
+        "cam'st",
+        "thou",
+        "from",
+        "the",
+        "bridge?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.87,
+          "end": 0.95,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.15,
+          "end": 1.37,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.37,
+          "end": 1.55,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Fluellen",
+          "start": 1.69,
+          "end": 2.07,
+          "key": "fluellen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Cam'st",
+          "start": 2.07,
+          "end": 2.75,
+          "key": "camst",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.75,
+          "end": 2.87,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.87,
+          "end": 3.15,
+          "key": "from",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.15,
+          "end": 3.27,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "bridge?",
+          "start": 3.27,
+          "end": 3.55,
+          "key": "bridge",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Henry.",
+          "start": 0.87,
+          "end": 0.95
+        },
+        {
+          "text": "How",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "text": "now,",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "Fluellen!",
+          "start": 1.69,
+          "end": 2.07
+        },
+        {
+          "text": "cam'st",
+          "start": 2.07,
+          "end": 2.75
+        },
+        {
+          "text": "thou",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "text": "from",
+          "start": 2.87,
+          "end": 3.15
+        },
+        {
+          "text": "the",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "text": "bridge?",
+          "start": 3.27,
+          "end": 3.55
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2534648207947612
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "51cd8f782e2a50a32ef2b0813aa1bd3a120c2f4637f189eb8c81d8c5795232c9",
+  "selected_reasons": []
+}

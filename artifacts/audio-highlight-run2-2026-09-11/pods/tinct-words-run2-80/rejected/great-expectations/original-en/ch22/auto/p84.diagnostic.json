@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "ea30518c08846058e15c3b9002eb53a9b1edd3a42cfe5f8f89851563bc30f9c8",
+  "attempts": [
+    {
+      "asr_seconds": 0.1333367321640253,
+      "alignment_seconds": 0.00031825341284275055,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes; to you.\"",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, to you.",
+          "start": 0.05,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.74560546875
+            },
+            {
+              "text": " to",
+              "start": 0.87,
+              "end": 1.03,
+              "probability": 0.990234375
+            },
+            {
+              "text": " you.",
+              "start": 1.03,
+              "end": 1.25,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "to",
+          "start": 0.87,
+          "end": 1.03
+        },
+        {
+          "raw": "you.",
+          "start": 1.03,
+          "end": 1.25
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes;",
+        "to",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.87,
+          "end": 1.03,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.03,
+          "end": 1.25,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes;",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "to",
+          "start": 0.87,
+          "end": 1.03
+        },
+        {
+          "text": "you.\"",
+          "start": 1.03,
+          "end": 1.25
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13376617804169655
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b5cd7520795268e5c764100d13aaca1de2b88a70970be7adbdd4af5370da68ba",
+  "selected_reasons": []
+}

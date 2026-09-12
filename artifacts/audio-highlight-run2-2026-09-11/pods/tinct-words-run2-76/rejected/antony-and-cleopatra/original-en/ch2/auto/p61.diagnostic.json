@@ -1,0 +1,3710 @@
+{
+  "complete": true,
+  "signature": "3b31521c5b065003fe4ebb70d30eed46416f76202e875dfac140b364eb85b68e",
+  "attempts": [
+    {
+      "asr_seconds": 0.5256540011614561,
+      "alignment_seconds": 0.001244792714715004,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Messenger. Ay. But soon that war had end, and the time's state Made friends of them, jointing their force 'gainst Caesar, Whose better issue in the war from Italy Upon the first encounter drave them.",
+        "hotwords": "Messenger, Ay, But, Made, Caesar, Whose, Italy, Upon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Messenger, Ay. But soon that war had end, and the time's state Made friends of them, jointing their force",
+          "start": 0.02,
+          "end": 7.24,
+          "words": [
+            {
+              "text": " Messenger,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.490478515625
+            },
+            {
+              "text": " Ay.",
+              "start": 1.3,
+              "end": 1.6,
+              "probability": 0.08355712890625
+            },
+            {
+              "text": " But",
+              "start": 2.14,
+              "end": 2.28,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " soon",
+              "start": 2.28,
+              "end": 2.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " that",
+              "start": 2.52,
+              "end": 2.78,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " war",
+              "start": 2.78,
+              "end": 3.0,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " had",
+              "start": 3.0,
+              "end": 3.16,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " end,",
+              "start": 3.16,
+              "end": 3.58,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " and",
+              "start": 3.94,
+              "end": 4.08,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " the",
+              "start": 4.08,
+              "end": 4.18,
+              "probability": 0.986328125
+            },
+            {
+              "text": " time's",
+              "start": 4.18,
+              "end": 4.62,
+              "probability": 0.41574573516845703
+            },
+            {
+              "text": " state",
+              "start": 4.62,
+              "end": 4.88,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " Made",
+              "start": 4.88,
+              "end": 5.1,
+              "probability": 0.00019299983978271484
+            },
+            {
+              "text": " friends",
+              "start": 5.1,
+              "end": 5.44,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 5.44,
+              "end": 5.62,
+              "probability": 0.994140625
+            },
+            {
+              "text": " them,",
+              "start": 5.62,
+              "end": 5.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " jointing",
+              "start": 6.2,
+              "end": 6.66,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " their",
+              "start": 6.66,
+              "end": 6.8,
+              "probability": 0.74609375
+            },
+            {
+              "text": " force",
+              "start": 6.8,
+              "end": 7.24,
+              "probability": 0.84375
+            }
+          ]
+        },
+        {
+          "text": " Against Caesar, Whose better issue in the war from Italy Upon the first encounter drave them.",
+          "start": 7.24,
+          "end": 12.8,
+          "words": [
+            {
+              "text": " Against",
+              "start": 7.24,
+              "end": 7.86,
+              "probability": 0.018585205078125
+            },
+            {
+              "text": " Caesar,",
+              "start": 7.86,
+              "end": 8.4,
+              "probability": 0.837890625
+            },
+            {
+              "text": " Whose",
+              "start": 8.52,
+              "end": 9.02,
+              "probability": 0.49755859375
+            },
+            {
+              "text": " better",
+              "start": 9.02,
+              "end": 9.28,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " issue",
+              "start": 9.28,
+              "end": 9.66,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " in",
+              "start": 9.66,
+              "end": 9.84,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " the",
+              "start": 9.84,
+              "end": 9.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " war",
+              "start": 9.96,
+              "end": 10.18,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " from",
+              "start": 10.18,
+              "end": 10.44,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " Italy",
+              "start": 10.44,
+              "end": 10.8,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Upon",
+              "start": 10.8,
+              "end": 11.12,
+              "probability": 0.0611572265625
+            },
+            {
+              "text": " the",
+              "start": 11.12,
+              "end": 11.3,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " first",
+              "start": 11.3,
+              "end": 11.58,
+              "probability": 0.982421875
+            },
+            {
+              "text": " encounter",
+              "start": 11.58,
+              "end": 12.08,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " drave",
+              "start": 12.08,
+              "end": 12.48,
+              "probability": 0.4832916259765625
+            },
+            {
+              "text": " them.",
+              "start": 12.48,
+              "end": 12.8,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Ay.",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "raw": "But",
+          "start": 2.14,
+          "end": 2.28
+        },
+        {
+          "raw": "soon",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "raw": "that",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "raw": "war",
+          "start": 2.78,
+          "end": 3.0
+        },
+        {
+          "raw": "had",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "raw": "end,",
+          "start": 3.16,
+          "end": 3.58
+        },
+        {
+          "raw": "and",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "raw": "the",
+          "start": 4.08,
+          "end": 4.18
+        },
+        {
+          "raw": "time's",
+          "start": 4.18,
+          "end": 4.62
+        },
+        {
+          "raw": "state",
+          "start": 4.62,
+          "end": 4.88
+        },
+        {
+          "raw": "Made",
+          "start": 4.88,
+          "end": 5.1
+        },
+        {
+          "raw": "friends",
+          "start": 5.1,
+          "end": 5.44
+        },
+        {
+          "raw": "of",
+          "start": 5.44,
+          "end": 5.62
+        },
+        {
+          "raw": "them,",
+          "start": 5.62,
+          "end": 5.86
+        },
+        {
+          "raw": "jointing",
+          "start": 6.2,
+          "end": 6.66
+        },
+        {
+          "raw": "their",
+          "start": 6.66,
+          "end": 6.8
+        },
+        {
+          "raw": "force",
+          "start": 6.8,
+          "end": 7.24
+        },
+        {
+          "raw": "Against",
+          "start": 7.24,
+          "end": 7.86
+        },
+        {
+          "raw": "Caesar,",
+          "start": 7.86,
+          "end": 8.4
+        },
+        {
+          "raw": "Whose",
+          "start": 8.52,
+          "end": 9.02
+        },
+        {
+          "raw": "better",
+          "start": 9.02,
+          "end": 9.28
+        },
+        {
+          "raw": "issue",
+          "start": 9.28,
+          "end": 9.66
+        },
+        {
+          "raw": "in",
+          "start": 9.66,
+          "end": 9.84
+        },
+        {
+          "raw": "the",
+          "start": 9.84,
+          "end": 9.96
+        },
+        {
+          "raw": "war",
+          "start": 9.96,
+          "end": 10.18
+        },
+        {
+          "raw": "from",
+          "start": 10.18,
+          "end": 10.44
+        },
+        {
+          "raw": "Italy",
+          "start": 10.44,
+          "end": 10.8
+        },
+        {
+          "raw": "Upon",
+          "start": 10.8,
+          "end": 11.12
+        },
+        {
+          "raw": "the",
+          "start": 11.12,
+          "end": 11.3
+        },
+        {
+          "raw": "first",
+          "start": 11.3,
+          "end": 11.58
+        },
+        {
+          "raw": "encounter",
+          "start": 11.58,
+          "end": 12.08
+        },
+        {
+          "raw": "drave",
+          "start": 12.08,
+          "end": 12.48
+        },
+        {
+          "raw": "them.",
+          "start": 12.48,
+          "end": 12.8
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "Ay.",
+        "But",
+        "soon",
+        "that",
+        "war",
+        "had",
+        "end,",
+        "and",
+        "the",
+        "time's",
+        "state",
+        "Made",
+        "friends",
+        "of",
+        "them,",
+        "jointing",
+        "their",
+        "force",
+        "'gainst",
+        "Caesar,",
+        "Whose",
+        "better",
+        "issue",
+        "in",
+        "the",
+        "war",
+        "from",
+        "Italy",
+        "Upon",
+        "the",
+        "first",
+        "encounter",
+        "drave",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          35,
+          20,
+          35
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay.",
+          "start": 1.3,
+          "end": 1.6,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 2.14,
+          "end": 2.28,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "soon",
+          "start": 2.28,
+          "end": 2.52,
+          "key": "soon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.52,
+          "end": 2.78,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "war",
+          "start": 2.78,
+          "end": 3.0,
+          "key": "war",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.0,
+          "end": 3.16,
+          "key": "had",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "end,",
+          "start": 3.16,
+          "end": 3.58,
+          "key": "end",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.94,
+          "end": 4.08,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.08,
+          "end": 4.18,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "time's",
+          "start": 4.18,
+          "end": 4.62,
+          "key": "times",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "state",
+          "start": 4.62,
+          "end": 4.88,
+          "key": "state",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Made",
+          "start": 4.88,
+          "end": 5.1,
+          "key": "made",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "friends",
+          "start": 5.1,
+          "end": 5.44,
+          "key": "friends",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.44,
+          "end": 5.62,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 5.62,
+          "end": 5.86,
+          "key": "them",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "jointing",
+          "start": 6.2,
+          "end": 6.66,
+          "key": "jointing",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 6.66,
+          "end": 6.8,
+          "key": "their",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "force",
+          "start": 6.8,
+          "end": 7.24,
+          "key": "force",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Against",
+          "start": 7.24,
+          "end": 7.86,
+          "key": "against",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Caesar,",
+          "start": 7.86,
+          "end": 8.4,
+          "key": "caesar",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Whose",
+          "start": 8.52,
+          "end": 9.02,
+          "key": "whose",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 9.02,
+          "end": 9.28,
+          "key": "better",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "issue",
+          "start": 9.28,
+          "end": 9.66,
+          "key": "issue",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.66,
+          "end": 9.84,
+          "key": "in",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.84,
+          "end": 9.96,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "war",
+          "start": 9.96,
+          "end": 10.18,
+          "key": "war",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 10.18,
+          "end": 10.44,
+          "key": "from",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Italy",
+          "start": 10.44,
+          "end": 10.8,
+          "key": "italy",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 10.8,
+          "end": 11.12,
+          "key": "upon",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.12,
+          "end": 11.3,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 11.3,
+          "end": 11.58,
+          "key": "first",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "encounter",
+          "start": 11.58,
+          "end": 12.08,
+          "key": "encounter",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "drave",
+          "start": 12.08,
+          "end": 12.48,
+          "key": "drave",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 12.48,
+          "end": 12.8,
+          "key": "them",
+          "pieces": [
+            34
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Ay.",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "text": "But",
+          "start": 2.14,
+          "end": 2.28
+        },
+        {
+          "text": "soon",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "text": "that",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "text": "war",
+          "start": 2.78,
+          "end": 3.0
+        },
+        {
+          "text": "had",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "text": "end,",
+          "start": 3.16,
+          "end": 3.58
+        },
+        {
+          "text": "and",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "text": "the",
+          "start": 4.08,
+          "end": 4.18
+        },
+        {
+          "text": "time's",
+          "start": 4.18,
+          "end": 4.62
+        },
+        {
+          "text": "state",
+          "start": 4.62,
+          "end": 4.88
+        },
+        {
+          "text": "Made",
+          "start": 4.88,
+          "end": 5.1
+        },
+        {
+          "text": "friends",
+          "start": 5.1,
+          "end": 5.44
+        },
+        {
+          "text": "of",
+          "start": 5.44,
+          "end": 5.62
+        },
+        {
+          "text": "them,",
+          "start": 5.62,
+          "end": 5.86
+        },
+        {
+          "text": "jointing",
+          "start": 6.2,
+          "end": 6.66
+        },
+        {
+          "text": "their",
+          "start": 6.66,
+          "end": 6.8
+        },
+        {
+          "text": "force",
+          "start": 6.8,
+          "end": 7.24
+        },
+        {
+          "text": "'gainst",
+          "start": 7.24,
+          "end": 7.55
+        },
+        {
+          "text": "Caesar,",
+          "start": 7.86,
+          "end": 8.4
+        },
+        {
+          "text": "Whose",
+          "start": 8.52,
+          "end": 9.02
+        },
+        {
+          "text": "better",
+          "start": 9.02,
+          "end": 9.28
+        },
+        {
+          "text": "issue",
+          "start": 9.28,
+          "end": 9.66
+        },
+        {
+          "text": "in",
+          "start": 9.66,
+          "end": 9.84
+        },
+        {
+          "text": "the",
+          "start": 9.84,
+          "end": 9.96
+        },
+        {
+          "text": "war",
+          "start": 9.96,
+          "end": 10.18
+        },
+        {
+          "text": "from",
+          "start": 10.18,
+          "end": 10.44
+        },
+        {
+          "text": "Italy",
+          "start": 10.44,
+          "end": 10.8
+        },
+        {
+          "text": "Upon",
+          "start": 10.8,
+          "end": 11.12
+        },
+        {
+          "text": "the",
+          "start": 11.12,
+          "end": 11.3
+        },
+        {
+          "text": "first",
+          "start": 11.3,
+          "end": 11.58
+        },
+        {
+          "text": "encounter",
+          "start": 11.58,
+          "end": 12.08
+        },
+        {
+          "text": "drave",
+          "start": 12.08,
+          "end": 12.48
+        },
+        {
+          "text": "them.",
+          "start": 12.48,
+          "end": 12.8
+        }
+      ],
+      "stats": {
+        "expected_words": 35,
+        "heard_words": 35,
+        "matched_words": 34
+      },
+      "match_ratio": 0.9714285714285714,
+      "rejection_reasons": [],
+      "seconds": 0.5274255978874862
+    },
+    {
+      "asr_seconds": 0.48230099491775036,
+      "alignment_seconds": 0.0009413221850991249,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Messenger, Ay, But, Made, Caesar, Whose, Italy, Upon"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Messenger, Ay, But, Soon That War Had End, And The Time State Made Friends Of Them, Joining",
+          "start": 0.02,
+          "end": 6.54,
+          "words": [
+            {
+              "text": " Messenger,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.490966796875
+            },
+            {
+              "text": " Ay,",
+              "start": 1.3,
+              "end": 1.6,
+              "probability": 0.08367919921875
+            },
+            {
+              "text": " But,",
+              "start": 2.12,
+              "end": 2.28,
+              "probability": 0.1319580078125
+            },
+            {
+              "text": " Soon",
+              "start": 2.48,
+              "end": 2.52,
+              "probability": 0.018157958984375
+            },
+            {
+              "text": " That",
+              "start": 2.52,
+              "end": 2.78,
+              "probability": 0.19140625
+            },
+            {
+              "text": " War",
+              "start": 2.78,
+              "end": 3.0,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " Had",
+              "start": 3.0,
+              "end": 3.16,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " End,",
+              "start": 3.16,
+              "end": 3.58,
+              "probability": 0.935546875
+            },
+            {
+              "text": " And",
+              "start": 3.96,
+              "end": 4.08,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " The",
+              "start": 4.08,
+              "end": 4.2,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " Time",
+              "start": 4.2,
+              "end": 4.46,
+              "probability": 0.837890625
+            },
+            {
+              "text": " State",
+              "start": 4.46,
+              "end": 4.86,
+              "probability": 0.6748046875
+            },
+            {
+              "text": " Made",
+              "start": 4.86,
+              "end": 5.1,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Friends",
+              "start": 5.1,
+              "end": 5.42,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Of",
+              "start": 5.42,
+              "end": 5.62,
+              "probability": 0.849609375
+            },
+            {
+              "text": " Them,",
+              "start": 5.62,
+              "end": 5.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Joining",
+              "start": 6.32,
+              "end": 6.54,
+              "probability": 0.73828125
+            }
+          ]
+        },
+        {
+          "text": " Their Force, Against Caesar, Whose Better Issue In The War From Italy Upon The First",
+          "start": 6.54,
+          "end": 11.6,
+          "words": [
+            {
+              "text": " Their",
+              "start": 6.54,
+              "end": 6.8,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Force,",
+              "start": 6.8,
+              "end": 7.26,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Against",
+              "start": 7.68,
+              "end": 7.78,
+              "probability": 0.1519775390625
+            },
+            {
+              "text": " Caesar,",
+              "start": 7.78,
+              "end": 8.3,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " Whose",
+              "start": 8.82,
+              "end": 9.0,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Better",
+              "start": 9.0,
+              "end": 9.3,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Issue",
+              "start": 9.3,
+              "end": 9.6,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " In",
+              "start": 9.6,
+              "end": 9.86,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " The",
+              "start": 9.86,
+              "end": 9.96,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " War",
+              "start": 9.96,
+              "end": 10.18,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " From",
+              "start": 10.18,
+              "end": 10.44,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " Italy",
+              "start": 10.44,
+              "end": 10.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Upon",
+              "start": 10.8,
+              "end": 11.12,
+              "probability": 0.966796875
+            },
+            {
+              "text": " The",
+              "start": 11.12,
+              "end": 11.32,
+              "probability": 0.9765625
+            },
+            {
+              "text": " First",
+              "start": 11.32,
+              "end": 11.6,
+              "probability": 0.8759765625
+            }
+          ]
+        },
+        {
+          "text": " Encounter Drave Them.",
+          "start": 11.6,
+          "end": 12.8,
+          "words": [
+            {
+              "text": " Encounter",
+              "start": 11.6,
+              "end": 12.04,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " Drave",
+              "start": 12.04,
+              "end": 12.46,
+              "probability": 0.5985107421875
+            },
+            {
+              "text": " Them.",
+              "start": 12.46,
+              "end": 12.8,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "raw": "But,",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "raw": "Soon",
+          "start": 2.48,
+          "end": 2.52
+        },
+        {
+          "raw": "That",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "raw": "War",
+          "start": 2.78,
+          "end": 3.0
+        },
+        {
+          "raw": "Had",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "raw": "End,",
+          "start": 3.16,
+          "end": 3.58
+        },
+        {
+          "raw": "And",
+          "start": 3.96,
+          "end": 4.08
+        },
+        {
+          "raw": "The",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "raw": "Time",
+          "start": 4.2,
+          "end": 4.46
+        },
+        {
+          "raw": "State",
+          "start": 4.46,
+          "end": 4.86
+        },
+        {
+          "raw": "Made",
+          "start": 4.86,
+          "end": 5.1
+        },
+        {
+          "raw": "Friends",
+          "start": 5.1,
+          "end": 5.42
+        },
+        {
+          "raw": "Of",
+          "start": 5.42,
+          "end": 5.62
+        },
+        {
+          "raw": "Them,",
+          "start": 5.62,
+          "end": 5.88
+        },
+        {
+          "raw": "Joining",
+          "start": 6.32,
+          "end": 6.54
+        },
+        {
+          "raw": "Their",
+          "start": 6.54,
+          "end": 6.8
+        },
+        {
+          "raw": "Force,",
+          "start": 6.8,
+          "end": 7.26
+        },
+        {
+          "raw": "Against",
+          "start": 7.68,
+          "end": 7.78
+        },
+        {
+          "raw": "Caesar,",
+          "start": 7.78,
+          "end": 8.3
+        },
+        {
+          "raw": "Whose",
+          "start": 8.82,
+          "end": 9.0
+        },
+        {
+          "raw": "Better",
+          "start": 9.0,
+          "end": 9.3
+        },
+        {
+          "raw": "Issue",
+          "start": 9.3,
+          "end": 9.6
+        },
+        {
+          "raw": "In",
+          "start": 9.6,
+          "end": 9.86
+        },
+        {
+          "raw": "The",
+          "start": 9.86,
+          "end": 9.96
+        },
+        {
+          "raw": "War",
+          "start": 9.96,
+          "end": 10.18
+        },
+        {
+          "raw": "From",
+          "start": 10.18,
+          "end": 10.44
+        },
+        {
+          "raw": "Italy",
+          "start": 10.44,
+          "end": 10.8
+        },
+        {
+          "raw": "Upon",
+          "start": 10.8,
+          "end": 11.12
+        },
+        {
+          "raw": "The",
+          "start": 11.12,
+          "end": 11.32
+        },
+        {
+          "raw": "First",
+          "start": 11.32,
+          "end": 11.6
+        },
+        {
+          "raw": "Encounter",
+          "start": 11.6,
+          "end": 12.04
+        },
+        {
+          "raw": "Drave",
+          "start": 12.04,
+          "end": 12.46
+        },
+        {
+          "raw": "Them.",
+          "start": 12.46,
+          "end": 12.8
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "Ay.",
+        "But",
+        "soon",
+        "that",
+        "war",
+        "had",
+        "end,",
+        "and",
+        "the",
+        "time's",
+        "state",
+        "Made",
+        "friends",
+        "of",
+        "them,",
+        "jointing",
+        "their",
+        "force",
+        "'gainst",
+        "Caesar,",
+        "Whose",
+        "better",
+        "issue",
+        "in",
+        "the",
+        "war",
+        "from",
+        "Italy",
+        "Upon",
+        "the",
+        "first",
+        "encounter",
+        "drave",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          16,
+          11,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ],
+        [
+          "equal",
+          17,
+          19,
+          17,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          35,
+          20,
+          35
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.3,
+          "end": 1.6,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "But,",
+          "start": 2.12,
+          "end": 2.28,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Soon",
+          "start": 2.48,
+          "end": 2.52,
+          "key": "soon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 2.52,
+          "end": 2.78,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "War",
+          "start": 2.78,
+          "end": 3.0,
+          "key": "war",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Had",
+          "start": 3.0,
+          "end": 3.16,
+          "key": "had",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "End,",
+          "start": 3.16,
+          "end": 3.58,
+          "key": "end",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.96,
+          "end": 4.08,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.08,
+          "end": 4.2,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Time",
+          "start": 4.2,
+          "end": 4.46,
+          "key": "time",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "State",
+          "start": 4.46,
+          "end": 4.86,
+          "key": "state",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Made",
+          "start": 4.86,
+          "end": 5.1,
+          "key": "made",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Friends",
+          "start": 5.1,
+          "end": 5.42,
+          "key": "friends",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 5.42,
+          "end": 5.62,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Them,",
+          "start": 5.62,
+          "end": 5.88,
+          "key": "them",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Joining",
+          "start": 6.32,
+          "end": 6.54,
+          "key": "joining",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 6.54,
+          "end": 6.8,
+          "key": "their",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Force,",
+          "start": 6.8,
+          "end": 7.26,
+          "key": "force",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Against",
+          "start": 7.68,
+          "end": 7.78,
+          "key": "against",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Caesar,",
+          "start": 7.78,
+          "end": 8.3,
+          "key": "caesar",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Whose",
+          "start": 8.82,
+          "end": 9.0,
+          "key": "whose",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Better",
+          "start": 9.0,
+          "end": 9.3,
+          "key": "better",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Issue",
+          "start": 9.3,
+          "end": 9.6,
+          "key": "issue",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 9.6,
+          "end": 9.86,
+          "key": "in",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 9.86,
+          "end": 9.96,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "War",
+          "start": 9.96,
+          "end": 10.18,
+          "key": "war",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "From",
+          "start": 10.18,
+          "end": 10.44,
+          "key": "from",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Italy",
+          "start": 10.44,
+          "end": 10.8,
+          "key": "italy",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 10.8,
+          "end": 11.12,
+          "key": "upon",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 11.12,
+          "end": 11.32,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "First",
+          "start": 11.32,
+          "end": 11.6,
+          "key": "first",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Encounter",
+          "start": 11.6,
+          "end": 12.04,
+          "key": "encounter",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Drave",
+          "start": 12.04,
+          "end": 12.46,
+          "key": "drave",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Them.",
+          "start": 12.46,
+          "end": 12.8,
+          "key": "them",
+          "pieces": [
+            34
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Ay.",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "text": "But",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "text": "soon",
+          "start": 2.48,
+          "end": 2.52
+        },
+        {
+          "text": "that",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "text": "war",
+          "start": 2.78,
+          "end": 3.0
+        },
+        {
+          "text": "had",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "text": "end,",
+          "start": 3.16,
+          "end": 3.58
+        },
+        {
+          "text": "and",
+          "start": 3.96,
+          "end": 4.08
+        },
+        {
+          "text": "the",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "text": "time's",
+          "start": 4.2,
+          "end": 4.33
+        },
+        {
+          "text": "state",
+          "start": 4.46,
+          "end": 4.86
+        },
+        {
+          "text": "Made",
+          "start": 4.86,
+          "end": 5.1
+        },
+        {
+          "text": "friends",
+          "start": 5.1,
+          "end": 5.42
+        },
+        {
+          "text": "of",
+          "start": 5.42,
+          "end": 5.62
+        },
+        {
+          "text": "them,",
+          "start": 5.62,
+          "end": 5.88
+        },
+        {
+          "text": "jointing",
+          "start": 5.88,
+          "end": 6.21
+        },
+        {
+          "text": "their",
+          "start": 6.54,
+          "end": 6.8
+        },
+        {
+          "text": "force",
+          "start": 6.8,
+          "end": 7.26
+        },
+        {
+          "text": "'gainst",
+          "start": 7.26,
+          "end": 7.52
+        },
+        {
+          "text": "Caesar,",
+          "start": 7.78,
+          "end": 8.3
+        },
+        {
+          "text": "Whose",
+          "start": 8.82,
+          "end": 9.0
+        },
+        {
+          "text": "better",
+          "start": 9.0,
+          "end": 9.3
+        },
+        {
+          "text": "issue",
+          "start": 9.3,
+          "end": 9.6
+        },
+        {
+          "text": "in",
+          "start": 9.6,
+          "end": 9.86
+        },
+        {
+          "text": "the",
+          "start": 9.86,
+          "end": 9.96
+        },
+        {
+          "text": "war",
+          "start": 9.96,
+          "end": 10.18
+        },
+        {
+          "text": "from",
+          "start": 10.18,
+          "end": 10.44
+        },
+        {
+          "text": "Italy",
+          "start": 10.44,
+          "end": 10.8
+        },
+        {
+          "text": "Upon",
+          "start": 10.8,
+          "end": 11.12
+        },
+        {
+          "text": "the",
+          "start": 11.12,
+          "end": 11.32
+        },
+        {
+          "text": "first",
+          "start": 11.32,
+          "end": 11.6
+        },
+        {
+          "text": "encounter",
+          "start": 11.6,
+          "end": 12.04
+        },
+        {
+          "text": "drave",
+          "start": 12.04,
+          "end": 12.46
+        },
+        {
+          "text": "them.",
+          "start": 12.46,
+          "end": 12.8
+        }
+      ],
+      "stats": {
+        "expected_words": 35,
+        "heard_words": 35,
+        "matched_words": 32
+      },
+      "match_ratio": 0.9142857142857143,
+      "rejection_reasons": [],
+      "seconds": 0.4836392030119896
+    },
+    {
+      "asr_seconds": 0.5758675448596478,
+      "alignment_seconds": 0.001296792645007372,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Messenger, aye, but soon that war had end, and the time-state made friends of them, jointing",
+          "start": 0.02,
+          "end": 6.66,
+          "words": [
+            {
+              "text": " Messenger,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.48974609375
+            },
+            {
+              "text": " aye,",
+              "start": 1.56,
+              "end": 1.66,
+              "probability": 0.60565185546875
+            },
+            {
+              "text": " but",
+              "start": 2.12,
+              "end": 2.26,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " soon",
+              "start": 2.26,
+              "end": 2.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " that",
+              "start": 2.52,
+              "end": 2.78,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " war",
+              "start": 2.78,
+              "end": 3.0,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " had",
+              "start": 3.0,
+              "end": 3.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " end,",
+              "start": 3.16,
+              "end": 3.6,
+              "probability": 0.81201171875
+            },
+            {
+              "text": " and",
+              "start": 3.94,
+              "end": 4.08,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " the",
+              "start": 4.08,
+              "end": 4.2,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " time",
+              "start": 4.2,
+              "end": 4.48,
+              "probability": 0.86376953125
+            },
+            {
+              "text": "-state",
+              "start": 4.48,
+              "end": 4.82,
+              "probability": 0.6744384765625
+            },
+            {
+              "text": " made",
+              "start": 4.82,
+              "end": 5.12,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " friends",
+              "start": 5.12,
+              "end": 5.44,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 5.44,
+              "end": 5.62,
+              "probability": 0.9921875
+            },
+            {
+              "text": " them,",
+              "start": 5.62,
+              "end": 5.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " jointing",
+              "start": 6.2,
+              "end": 6.66,
+              "probability": 0.908203125
+            }
+          ]
+        },
+        {
+          "text": " their force against Caesar, whose better issue in the war from Italy upon the first encounter",
+          "start": 6.66,
+          "end": 12.1,
+          "words": [
+            {
+              "text": " their",
+              "start": 6.66,
+              "end": 6.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " force",
+              "start": 6.8,
+              "end": 7.24,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " against",
+              "start": 7.24,
+              "end": 7.8,
+              "probability": 0.382080078125
+            },
+            {
+              "text": " Caesar,",
+              "start": 7.8,
+              "end": 8.34,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " whose",
+              "start": 8.8,
+              "end": 8.98,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " better",
+              "start": 8.98,
+              "end": 9.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " issue",
+              "start": 9.3,
+              "end": 9.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 9.66,
+              "end": 9.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 9.86,
+              "end": 9.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " war",
+              "start": 9.96,
+              "end": 10.18,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " from",
+              "start": 10.18,
+              "end": 10.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Italy",
+              "start": 10.44,
+              "end": 10.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " upon",
+              "start": 10.8,
+              "end": 11.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 11.14,
+              "end": 11.32,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " first",
+              "start": 11.32,
+              "end": 11.56,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " encounter",
+              "start": 11.56,
+              "end": 12.1,
+              "probability": 0.99072265625
+            }
+          ]
+        },
+        {
+          "text": " drave them.",
+          "start": 12.1,
+          "end": 12.78,
+          "words": [
+            {
+              "text": " drave",
+              "start": 12.1,
+              "end": 12.54,
+              "probability": 0.430450439453125
+            },
+            {
+              "text": " them.",
+              "start": 12.54,
+              "end": 12.78,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "aye,",
+          "start": 1.56,
+          "end": 1.66
+        },
+        {
+          "raw": "but",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "raw": "soon",
+          "start": 2.26,
+          "end": 2.52
+        },
+        {
+          "raw": "that",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "raw": "war",
+          "start": 2.78,
+          "end": 3.0
+        },
+        {
+          "raw": "had",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "raw": "end,",
+          "start": 3.16,
+          "end": 3.6
+        },
+        {
+          "raw": "and",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "raw": "the",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "raw": "time",
+          "start": 4.2,
+          "end": 4.48
+        },
+        {
+          "raw": "-state",
+          "start": 4.48,
+          "end": 4.82
+        },
+        {
+          "raw": "made",
+          "start": 4.82,
+          "end": 5.12
+        },
+        {
+          "raw": "friends",
+          "start": 5.12,
+          "end": 5.44
+        },
+        {
+          "raw": "of",
+          "start": 5.44,
+          "end": 5.62
+        },
+        {
+          "raw": "them,",
+          "start": 5.62,
+          "end": 5.86
+        },
+        {
+          "raw": "jointing",
+          "start": 6.2,
+          "end": 6.66
+        },
+        {
+          "raw": "their",
+          "start": 6.66,
+          "end": 6.8
+        },
+        {
+          "raw": "force",
+          "start": 6.8,
+          "end": 7.24
+        },
+        {
+          "raw": "against",
+          "start": 7.24,
+          "end": 7.8
+        },
+        {
+          "raw": "Caesar,",
+          "start": 7.8,
+          "end": 8.34
+        },
+        {
+          "raw": "whose",
+          "start": 8.8,
+          "end": 8.98
+        },
+        {
+          "raw": "better",
+          "start": 8.98,
+          "end": 9.3
+        },
+        {
+          "raw": "issue",
+          "start": 9.3,
+          "end": 9.66
+        },
+        {
+          "raw": "in",
+          "start": 9.66,
+          "end": 9.86
+        },
+        {
+          "raw": "the",
+          "start": 9.86,
+          "end": 9.96
+        },
+        {
+          "raw": "war",
+          "start": 9.96,
+          "end": 10.18
+        },
+        {
+          "raw": "from",
+          "start": 10.18,
+          "end": 10.44
+        },
+        {
+          "raw": "Italy",
+          "start": 10.44,
+          "end": 10.8
+        },
+        {
+          "raw": "upon",
+          "start": 10.8,
+          "end": 11.14
+        },
+        {
+          "raw": "the",
+          "start": 11.14,
+          "end": 11.32
+        },
+        {
+          "raw": "first",
+          "start": 11.32,
+          "end": 11.56
+        },
+        {
+          "raw": "encounter",
+          "start": 11.56,
+          "end": 12.1
+        },
+        {
+          "raw": "drave",
+          "start": 12.1,
+          "end": 12.54
+        },
+        {
+          "raw": "them.",
+          "start": 12.54,
+          "end": 12.78
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "Ay.",
+        "But",
+        "soon",
+        "that",
+        "war",
+        "had",
+        "end,",
+        "and",
+        "the",
+        "time's",
+        "state",
+        "Made",
+        "friends",
+        "of",
+        "them,",
+        "jointing",
+        "their",
+        "force",
+        "'gainst",
+        "Caesar,",
+        "Whose",
+        "better",
+        "issue",
+        "in",
+        "the",
+        "war",
+        "from",
+        "Italy",
+        "Upon",
+        "the",
+        "first",
+        "encounter",
+        "drave",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          10,
+          2,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          19,
+          11,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          35,
+          20,
+          35
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "aye,",
+          "start": 1.56,
+          "end": 1.66,
+          "key": "aye",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.12,
+          "end": 2.26,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "soon",
+          "start": 2.26,
+          "end": 2.52,
+          "key": "soon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.52,
+          "end": 2.78,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "war",
+          "start": 2.78,
+          "end": 3.0,
+          "key": "war",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.0,
+          "end": 3.16,
+          "key": "had",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "end,",
+          "start": 3.16,
+          "end": 3.6,
+          "key": "end",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.94,
+          "end": 4.08,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.08,
+          "end": 4.2,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 4.2,
+          "end": 4.48,
+          "key": "time",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "-state",
+          "start": 4.48,
+          "end": 4.82,
+          "key": "state",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 4.82,
+          "end": 5.12,
+          "key": "made",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "friends",
+          "start": 5.12,
+          "end": 5.44,
+          "key": "friends",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.44,
+          "end": 5.62,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 5.62,
+          "end": 5.86,
+          "key": "them",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "jointing",
+          "start": 6.2,
+          "end": 6.66,
+          "key": "jointing",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 6.66,
+          "end": 6.8,
+          "key": "their",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "force",
+          "start": 6.8,
+          "end": 7.24,
+          "key": "force",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 7.24,
+          "end": 7.8,
+          "key": "against",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Caesar,",
+          "start": 7.8,
+          "end": 8.34,
+          "key": "caesar",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "whose",
+          "start": 8.8,
+          "end": 8.98,
+          "key": "whose",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 8.98,
+          "end": 9.3,
+          "key": "better",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "issue",
+          "start": 9.3,
+          "end": 9.66,
+          "key": "issue",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.66,
+          "end": 9.86,
+          "key": "in",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.86,
+          "end": 9.96,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "war",
+          "start": 9.96,
+          "end": 10.18,
+          "key": "war",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 10.18,
+          "end": 10.44,
+          "key": "from",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Italy",
+          "start": 10.44,
+          "end": 10.8,
+          "key": "italy",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 10.8,
+          "end": 11.14,
+          "key": "upon",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.14,
+          "end": 11.32,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 11.32,
+          "end": 11.56,
+          "key": "first",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "encounter",
+          "start": 11.56,
+          "end": 12.1,
+          "key": "encounter",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "drave",
+          "start": 12.1,
+          "end": 12.54,
+          "key": "drave",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 12.54,
+          "end": 12.78,
+          "key": "them",
+          "pieces": [
+            34
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Ay.",
+          "start": 0.88,
+          "end": 1.5
+        },
+        {
+          "text": "But",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "text": "soon",
+          "start": 2.26,
+          "end": 2.52
+        },
+        {
+          "text": "that",
+          "start": 2.52,
+          "end": 2.78
+        },
+        {
+          "text": "war",
+          "start": 2.78,
+          "end": 3.0
+        },
+        {
+          "text": "had",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "text": "end,",
+          "start": 3.16,
+          "end": 3.6
+        },
+        {
+          "text": "and",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "text": "the",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "text": "time's",
+          "start": 4.2,
+          "end": 4.34
+        },
+        {
+          "text": "state",
+          "start": 4.48,
+          "end": 4.82
+        },
+        {
+          "text": "Made",
+          "start": 4.82,
+          "end": 5.12
+        },
+        {
+          "text": "friends",
+          "start": 5.12,
+          "end": 5.44
+        },
+        {
+          "text": "of",
+          "start": 5.44,
+          "end": 5.62
+        },
+        {
+          "text": "them,",
+          "start": 5.62,
+          "end": 5.86
+        },
+        {
+          "text": "jointing",
+          "start": 6.2,
+          "end": 6.66
+        },
+        {
+          "text": "their",
+          "start": 6.66,
+          "end": 6.8
+        },
+        {
+          "text": "force",
+          "start": 6.8,
+          "end": 7.24
+        },
+        {
+          "text": "'gainst",
+          "start": 7.24,
+          "end": 7.52
+        },
+        {
+          "text": "Caesar,",
+          "start": 7.8,
+          "end": 8.34
+        },
+        {
+          "text": "Whose",
+          "start": 8.8,
+          "end": 8.98
+        },
+        {
+          "text": "better",
+          "start": 8.98,
+          "end": 9.3
+        },
+        {
+          "text": "issue",
+          "start": 9.3,
+          "end": 9.66
+        },
+        {
+          "text": "in",
+          "start": 9.66,
+          "end": 9.86
+        },
+        {
+          "text": "the",
+          "start": 9.86,
+          "end": 9.96
+        },
+        {
+          "text": "war",
+          "start": 9.96,
+          "end": 10.18
+        },
+        {
+          "text": "from",
+          "start": 10.18,
+          "end": 10.44
+        },
+        {
+          "text": "Italy",
+          "start": 10.44,
+          "end": 10.8
+        },
+        {
+          "text": "Upon",
+          "start": 10.8,
+          "end": 11.14
+        },
+        {
+          "text": "the",
+          "start": 11.14,
+          "end": 11.32
+        },
+        {
+          "text": "first",
+          "start": 11.32,
+          "end": 11.56
+        },
+        {
+          "text": "encounter",
+          "start": 11.56,
+          "end": 12.1
+        },
+        {
+          "text": "drave",
+          "start": 12.1,
+          "end": 12.54
+        },
+        {
+          "text": "them.",
+          "start": 12.54,
+          "end": 12.78
+        }
+      ],
+      "stats": {
+        "expected_words": 35,
+        "heard_words": 35,
+        "matched_words": 32
+      },
+      "match_ratio": 0.9142857142857143,
+      "rejection_reasons": [],
+      "seconds": 0.5776879880577326
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f902b6558c6983ccb7966bc9161e231d125685384ac4548bff09d449efb6031e",
+  "selected_reasons": []
+}

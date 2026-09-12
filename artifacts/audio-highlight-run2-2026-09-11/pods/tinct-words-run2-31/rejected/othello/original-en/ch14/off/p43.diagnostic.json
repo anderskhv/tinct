@@ -1,0 +1,537 @@
+{
+  "complete": true,
+  "signature": "7092a91e0d38c987cdd4f56728737f7d9fcef31f0cff29942a87a2d9ce6a1674",
+  "attempts": [
+    {
+      "asr_seconds": 0.186440943274647,
+      "alignment_seconds": 0.00030998745933175087,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Casio Iago. Oh, I am spoiled undone by villains. Give me some help",
+          "start": 0.0,
+          "end": 4.72,
+          "words": [
+            {
+              "text": " Casio",
+              "start": 0.0,
+              "end": 0.86,
+              "probability": 0.60687255859375
+            },
+            {
+              "text": " Iago.",
+              "start": 0.86,
+              "end": 1.36,
+              "probability": 0.4239501953125
+            },
+            {
+              "text": " Oh,",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " I",
+              "start": 1.92,
+              "end": 2.0,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " am",
+              "start": 2.0,
+              "end": 2.12,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " spoiled",
+              "start": 2.12,
+              "end": 2.48,
+              "probability": 0.93359375
+            },
+            {
+              "text": " undone",
+              "start": 2.48,
+              "end": 2.9,
+              "probability": 0.4765625
+            },
+            {
+              "text": " by",
+              "start": 2.9,
+              "end": 3.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " villains.",
+              "start": 3.18,
+              "end": 3.54,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " Give",
+              "start": 4.08,
+              "end": 4.16,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " me",
+              "start": 4.16,
+              "end": 4.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " some",
+              "start": 4.28,
+              "end": 4.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " help",
+              "start": 4.42,
+              "end": 4.72,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Casio",
+          "start": 0.0,
+          "end": 0.86
+        },
+        {
+          "raw": "Iago.",
+          "start": 0.86,
+          "end": 1.36
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "I",
+          "start": 1.92,
+          "end": 2.0
+        },
+        {
+          "raw": "am",
+          "start": 2.0,
+          "end": 2.12
+        },
+        {
+          "raw": "spoiled",
+          "start": 2.12,
+          "end": 2.48
+        },
+        {
+          "raw": "undone",
+          "start": 2.48,
+          "end": 2.9
+        },
+        {
+          "raw": "by",
+          "start": 2.9,
+          "end": 3.18
+        },
+        {
+          "raw": "villains.",
+          "start": 3.18,
+          "end": 3.54
+        },
+        {
+          "raw": "Give",
+          "start": 4.08,
+          "end": 4.16
+        },
+        {
+          "raw": "me",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "raw": "some",
+          "start": 4.28,
+          "end": 4.42
+        },
+        {
+          "raw": "help",
+          "start": 4.42,
+          "end": 4.72
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "Iago?",
+        "O,",
+        "I",
+        "am",
+        "spoil'd,",
+        "undone",
+        "by",
+        "villains!",
+        "Give",
+        "me",
+        "some",
+        "help."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          13,
+          6,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Casio",
+          "start": 0.0,
+          "end": 0.86,
+          "key": "casio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Iago.",
+          "start": 0.86,
+          "end": 1.36,
+          "key": "iago",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.72,
+          "end": 1.86,
+          "key": "oh",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.92,
+          "end": 2.0,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.0,
+          "end": 2.12,
+          "key": "am",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "spoiled",
+          "start": 2.12,
+          "end": 2.48,
+          "key": "spoiled",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "undone",
+          "start": 2.48,
+          "end": 2.9,
+          "key": "undone",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.9,
+          "end": 3.18,
+          "key": "by",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "villains.",
+          "start": 3.18,
+          "end": 3.54,
+          "key": "villains",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Give",
+          "start": 4.08,
+          "end": 4.16,
+          "key": "give",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.16,
+          "end": 4.28,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 4.28,
+          "end": 4.42,
+          "key": "some",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 4.42,
+          "end": 4.72,
+          "key": "help",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.0,
+          "end": 0.43
+        },
+        {
+          "text": "Iago?",
+          "start": 0.86,
+          "end": 1.36
+        },
+        {
+          "text": "O,",
+          "start": 1.36,
+          "end": 1.64
+        },
+        {
+          "text": "I",
+          "start": 1.92,
+          "end": 2.0
+        },
+        {
+          "text": "am",
+          "start": 2.0,
+          "end": 2.12
+        },
+        {
+          "text": "spoil'd,",
+          "start": 2.12,
+          "end": 2.3
+        },
+        {
+          "text": "undone",
+          "start": 2.48,
+          "end": 2.9
+        },
+        {
+          "text": "by",
+          "start": 2.9,
+          "end": 3.18
+        },
+        {
+          "text": "villains!",
+          "start": 3.18,
+          "end": 3.54
+        },
+        {
+          "text": "Give",
+          "start": 4.08,
+          "end": 4.16
+        },
+        {
+          "text": "me",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "text": "some",
+          "start": 4.28,
+          "end": 4.42
+        },
+        {
+          "text": "help.",
+          "start": 4.42,
+          "end": 4.72
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18685963889583945
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b5c98633352af7cad859f4a1523d5a2a8c01681e4098552497be2f28b575ad93",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

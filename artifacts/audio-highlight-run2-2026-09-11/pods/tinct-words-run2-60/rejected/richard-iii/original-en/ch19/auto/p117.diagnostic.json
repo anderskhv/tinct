@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "27ebd3d30e54b5d51771e34ce9d9aa7273af0768d12bd449825960617c794c25",
+  "attempts": [
+    {
+      "asr_seconds": 0.17559515684843063,
+      "alignment_seconds": 0.00038107484579086304,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Richard. Say I will love her everlastingly.",
+        "hotwords": "King, Richard, Say, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Richard, Say I will love her everlastingly.",
+          "start": 0.05,
+          "end": 3.07,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " Richard,",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Say",
+              "start": 1.31,
+              "end": 1.55,
+              "probability": 0.00786590576171875
+            },
+            {
+              "text": " I",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " will",
+              "start": 1.67,
+              "end": 1.79,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " love",
+              "start": 1.79,
+              "end": 1.99,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " her",
+              "start": 1.99,
+              "end": 2.19,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " everlastingly.",
+              "start": 2.19,
+              "end": 3.07,
+              "probability": 0.8455403645833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "Say",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "raw": "I",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "will",
+          "start": 1.67,
+          "end": 1.79
+        },
+        {
+          "raw": "love",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "raw": "her",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "raw": "everlastingly.",
+          "start": 2.19,
+          "end": 3.07
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Say",
+        "I",
+        "will",
+        "love",
+        "her",
+        "everlastingly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Say",
+          "start": 1.31,
+          "end": 1.55,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.55,
+          "end": 1.67,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.67,
+          "end": 1.79,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 1.79,
+          "end": 1.99,
+          "key": "love",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.99,
+          "end": 2.19,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "everlastingly.",
+          "start": 2.19,
+          "end": 3.07,
+          "key": "everlastingly",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Richard.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "Say",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "text": "I",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "will",
+          "start": 1.67,
+          "end": 1.79
+        },
+        {
+          "text": "love",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "text": "her",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "text": "everlastingly.",
+          "start": 2.19,
+          "end": 3.07
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17612333595752716
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3fb093c639c1ad3eba1cc3c8a0895e8819d8958fbaabb884b55f5ac86d1d0547",
+  "selected_reasons": []
+}

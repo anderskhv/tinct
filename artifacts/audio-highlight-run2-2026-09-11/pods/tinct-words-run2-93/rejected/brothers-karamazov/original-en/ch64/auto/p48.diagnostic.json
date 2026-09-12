@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "43510f31702da77089e26f893d54bc3c9dab890bcb3a748925d11524c4dd133e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1954008750617504,
+      "alignment_seconds": 0.00042345933616161346,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Female, indeed! Go on with you, you brat.\"",
+        "hotwords": "Female, Go"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Female, indeed! Go on with you, you brat.",
+          "start": 0.44,
+          "end": 2.6,
+          "words": [
+            {
+              "text": " Female,",
+              "start": 0.44,
+              "end": 0.72,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " indeed!",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Go",
+              "start": 1.68,
+              "end": 1.78,
+              "probability": 0.986328125
+            },
+            {
+              "text": " on",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 1.92,
+              "end": 2.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you,",
+              "start": 2.06,
+              "end": 2.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 2.28,
+              "end": 2.32,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " brat.",
+              "start": 2.32,
+              "end": 2.6,
+              "probability": 0.995361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Female,",
+          "start": 0.44,
+          "end": 0.72
+        },
+        {
+          "raw": "indeed!",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "Go",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "raw": "on",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "with",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "raw": "you,",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "raw": "you",
+          "start": 2.28,
+          "end": 2.32
+        },
+        {
+          "raw": "brat.",
+          "start": 2.32,
+          "end": 2.6
+        }
+      ],
+      "expected_tokens": [
+        "\"Female,",
+        "indeed!",
+        "Go",
+        "on",
+        "with",
+        "you,",
+        "you",
+        "brat.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Female,",
+          "start": 0.44,
+          "end": 0.72,
+          "key": "female",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "indeed!",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "indeed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 1.68,
+          "end": 1.78,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.78,
+          "end": 1.92,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.92,
+          "end": 2.06,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 2.06,
+          "end": 2.2,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.28,
+          "end": 2.32,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "brat.",
+          "start": 2.32,
+          "end": 2.6,
+          "key": "brat",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Female,",
+          "start": 0.44,
+          "end": 0.72
+        },
+        {
+          "text": "indeed!",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "Go",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "text": "on",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "with",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "text": "you,",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "text": "you",
+          "start": 2.28,
+          "end": 2.32
+        },
+        {
+          "text": "brat.\"",
+          "start": 2.32,
+          "end": 2.6
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19597152061760426
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "551aee2c755038d89231c31de6e88da644b1b43f75869d0afaf7ed58a2b46040",
+  "selected_reasons": []
+}

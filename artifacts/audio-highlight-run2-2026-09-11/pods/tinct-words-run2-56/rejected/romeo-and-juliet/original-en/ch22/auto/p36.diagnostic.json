@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "b8d8dc7ce5fdd7752a68a2536c11ef4d1e7479b25950b88d55a31c5ddcd1f5f3",
+  "attempts": [
+    {
+      "asr_seconds": 0.24338125251233578,
+      "alignment_seconds": 0.00035216379910707474,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Musician. Not a dump we, 'tis no time to play now.",
+        "hotwords": "First, Musician, Not"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Musician, Not a Dump We, Tis No Time to Play Now.",
+          "start": 0.05,
+          "end": 3.89,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.818359375
+            },
+            {
+              "text": " Musician,",
+              "start": 0.69,
+              "end": 1.23,
+              "probability": 0.521575927734375
+            },
+            {
+              "text": " Not",
+              "start": 1.79,
+              "end": 1.85,
+              "probability": 0.1495361328125
+            },
+            {
+              "text": " a",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " Dump",
+              "start": 1.99,
+              "end": 2.23,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " We,",
+              "start": 2.23,
+              "end": 2.45,
+              "probability": 0.693359375
+            },
+            {
+              "text": " Tis",
+              "start": 2.69,
+              "end": 2.77,
+              "probability": 0.5697021484375
+            },
+            {
+              "text": " No",
+              "start": 2.77,
+              "end": 2.97,
+              "probability": 0.54150390625
+            },
+            {
+              "text": " Time",
+              "start": 2.97,
+              "end": 3.15,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " to",
+              "start": 3.15,
+              "end": 3.35,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " Play",
+              "start": 3.35,
+              "end": 3.53,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " Now.",
+              "start": 3.53,
+              "end": 3.89,
+              "probability": 0.9609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Musician,",
+          "start": 0.69,
+          "end": 1.23
+        },
+        {
+          "raw": "Not",
+          "start": 1.79,
+          "end": 1.85
+        },
+        {
+          "raw": "a",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "Dump",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "raw": "We,",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "raw": "Tis",
+          "start": 2.69,
+          "end": 2.77
+        },
+        {
+          "raw": "No",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "raw": "Time",
+          "start": 2.97,
+          "end": 3.15
+        },
+        {
+          "raw": "to",
+          "start": 3.15,
+          "end": 3.35
+        },
+        {
+          "raw": "Play",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "raw": "Now.",
+          "start": 3.53,
+          "end": 3.89
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Musician.",
+        "Not",
+        "a",
+        "dump",
+        "we,",
+        "'tis",
+        "no",
+        "time",
+        "to",
+        "play",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Musician,",
+          "start": 0.69,
+          "end": 1.23,
+          "key": "musician",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 1.79,
+          "end": 1.85,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.85,
+          "end": 1.99,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Dump",
+          "start": 1.99,
+          "end": 2.23,
+          "key": "dump",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "We,",
+          "start": 2.23,
+          "end": 2.45,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 2.69,
+          "end": 2.77,
+          "key": "tis",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 2.77,
+          "end": 2.97,
+          "key": "no",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Time",
+          "start": 2.97,
+          "end": 3.15,
+          "key": "time",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.15,
+          "end": 3.35,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Play",
+          "start": 3.35,
+          "end": 3.53,
+          "key": "play",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Now.",
+          "start": 3.53,
+          "end": 3.89,
+          "key": "now",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Musician.",
+          "start": 0.69,
+          "end": 1.23
+        },
+        {
+          "text": "Not",
+          "start": 1.79,
+          "end": 1.85
+        },
+        {
+          "text": "a",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "dump",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "text": "we,",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "text": "'tis",
+          "start": 2.69,
+          "end": 2.77
+        },
+        {
+          "text": "no",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "text": "time",
+          "start": 2.97,
+          "end": 3.15
+        },
+        {
+          "text": "to",
+          "start": 3.15,
+          "end": 3.35
+        },
+        {
+          "text": "play",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "text": "now.",
+          "start": 3.53,
+          "end": 3.89
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24386403523385525
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6059fba19b01f37b7ae41297409cc89a0da48103a8c95c6ec8c681038283cf56",
+  "selected_reasons": []
+}

@@ -1,0 +1,576 @@
+{
+  "complete": true,
+  "signature": "5b57d18087d9d0ae7154aa39eb5d5d717b3ada9363caed746f893cfaa3e291d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.25421248842030764,
+      "alignment_seconds": 0.0005497187376022339,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gower how now Captain McMorris have you quit the mines have the pioneers given over",
+          "start": 0.05,
+          "end": 5.41,
+          "words": [
+            {
+              "text": " Gower",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.8984375
+            },
+            {
+              "text": " how",
+              "start": 0.71,
+              "end": 0.97,
+              "probability": 0.368896484375
+            },
+            {
+              "text": " now",
+              "start": 0.97,
+              "end": 1.27,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Captain",
+              "start": 1.27,
+              "end": 1.59,
+              "probability": 0.71337890625
+            },
+            {
+              "text": " McMorris",
+              "start": 1.59,
+              "end": 2.21,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " have",
+              "start": 2.21,
+              "end": 2.73,
+              "probability": 0.6630859375
+            },
+            {
+              "text": " you",
+              "start": 2.73,
+              "end": 2.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " quit",
+              "start": 2.83,
+              "end": 2.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.99,
+              "end": 3.13,
+              "probability": 0.994140625
+            },
+            {
+              "text": " mines",
+              "start": 3.13,
+              "end": 3.53,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " have",
+              "start": 3.53,
+              "end": 4.13,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " the",
+              "start": 4.13,
+              "end": 4.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pioneers",
+              "start": 4.29,
+              "end": 4.63,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " given",
+              "start": 4.63,
+              "end": 5.03,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " over",
+              "start": 5.03,
+              "end": 5.41,
+              "probability": 0.59033203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gower",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "how",
+          "start": 0.71,
+          "end": 0.97
+        },
+        {
+          "raw": "now",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "raw": "Captain",
+          "start": 1.27,
+          "end": 1.59
+        },
+        {
+          "raw": "McMorris",
+          "start": 1.59,
+          "end": 2.21
+        },
+        {
+          "raw": "have",
+          "start": 2.21,
+          "end": 2.73
+        },
+        {
+          "raw": "you",
+          "start": 2.73,
+          "end": 2.83
+        },
+        {
+          "raw": "quit",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "raw": "the",
+          "start": 2.99,
+          "end": 3.13
+        },
+        {
+          "raw": "mines",
+          "start": 3.13,
+          "end": 3.53
+        },
+        {
+          "raw": "have",
+          "start": 3.53,
+          "end": 4.13
+        },
+        {
+          "raw": "the",
+          "start": 4.13,
+          "end": 4.29
+        },
+        {
+          "raw": "pioneers",
+          "start": 4.29,
+          "end": 4.63
+        },
+        {
+          "raw": "given",
+          "start": 4.63,
+          "end": 5.03
+        },
+        {
+          "raw": "over",
+          "start": 5.03,
+          "end": 5.41
+        }
+      ],
+      "expected_tokens": [
+        "Gower.",
+        "How",
+        "now,",
+        "Captain",
+        "Macmorris!",
+        "have",
+        "you",
+        "quit",
+        "the",
+        "mines?",
+        "Have",
+        "the",
+        "pioneers",
+        "given",
+        "o'er?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          14,
+          5,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gower",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "gower",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 0.71,
+          "end": 0.97,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.97,
+          "end": 1.27,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Captain",
+          "start": 1.27,
+          "end": 1.59,
+          "key": "captain",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "McMorris",
+          "start": 1.59,
+          "end": 2.21,
+          "key": "mcmorris",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.21,
+          "end": 2.73,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.73,
+          "end": 2.83,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "quit",
+          "start": 2.83,
+          "end": 2.99,
+          "key": "quit",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.99,
+          "end": 3.13,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mines",
+          "start": 3.13,
+          "end": 3.53,
+          "key": "mines",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.53,
+          "end": 4.13,
+          "key": "have",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.13,
+          "end": 4.29,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "pioneers",
+          "start": 4.29,
+          "end": 4.63,
+          "key": "pioneers",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "given",
+          "start": 4.63,
+          "end": 5.03,
+          "key": "given",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 5.03,
+          "end": 5.41,
+          "key": "over",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gower.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "How",
+          "start": 0.71,
+          "end": 0.97
+        },
+        {
+          "text": "now,",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "text": "Captain",
+          "start": 1.27,
+          "end": 1.59
+        },
+        {
+          "text": "Macmorris!",
+          "start": 1.59,
+          "end": 1.9
+        },
+        {
+          "text": "have",
+          "start": 2.21,
+          "end": 2.73
+        },
+        {
+          "text": "you",
+          "start": 2.73,
+          "end": 2.83
+        },
+        {
+          "text": "quit",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "text": "the",
+          "start": 2.99,
+          "end": 3.13
+        },
+        {
+          "text": "mines?",
+          "start": 3.13,
+          "end": 3.53
+        },
+        {
+          "text": "Have",
+          "start": 3.53,
+          "end": 4.13
+        },
+        {
+          "text": "the",
+          "start": 4.13,
+          "end": 4.29
+        },
+        {
+          "text": "pioneers",
+          "start": 4.29,
+          "end": 4.63
+        },
+        {
+          "text": "given",
+          "start": 4.63,
+          "end": 5.03
+        },
+        {
+          "text": "o'er?",
+          "start": 5.03,
+          "end": 5.22
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.2549676410853863
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "759241449808ee637810544d6a708d42bf6f60dfa482ed5a1c69c7db9103717e",
+  "selected_reasons": []
+}

@@ -1,0 +1,576 @@
+{
+  "complete": true,
+  "signature": "b9348f2483dc5338c1b5f89da86b2f2249a62a18d9d414debf33ced5ffaf736d",
+  "attempts": [
+    {
+      "asr_seconds": 0.22652102122083306,
+      "alignment_seconds": 0.0004019448533654213,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Daego, he hath my lord, but be you well assured, no more than he'll unswear.",
+          "start": 0.08,
+          "end": 4.8,
+          "words": [
+            {
+              "text": " Daego,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.57464599609375
+            },
+            {
+              "text": " he",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " hath",
+              "start": 1.4,
+              "end": 1.58,
+              "probability": 0.9921875
+            },
+            {
+              "text": " my",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.947265625
+            },
+            {
+              "text": " lord,",
+              "start": 1.82,
+              "end": 2.08,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " but",
+              "start": 2.3,
+              "end": 2.34,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " be",
+              "start": 2.34,
+              "end": 2.48,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 2.48,
+              "end": 2.62,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " well",
+              "start": 2.62,
+              "end": 2.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " assured,",
+              "start": 2.8,
+              "end": 3.16,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " no",
+              "start": 3.68,
+              "end": 3.76,
+              "probability": 0.900390625
+            },
+            {
+              "text": " more",
+              "start": 3.76,
+              "end": 3.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " than",
+              "start": 3.96,
+              "end": 4.1,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " he'll",
+              "start": 4.1,
+              "end": 4.3,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " unswear.",
+              "start": 4.3,
+              "end": 4.8,
+              "probability": 0.567626953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Daego,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "he",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "hath",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "raw": "my",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "lord,",
+          "start": 1.82,
+          "end": 2.08
+        },
+        {
+          "raw": "but",
+          "start": 2.3,
+          "end": 2.34
+        },
+        {
+          "raw": "be",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "raw": "you",
+          "start": 2.48,
+          "end": 2.62
+        },
+        {
+          "raw": "well",
+          "start": 2.62,
+          "end": 2.8
+        },
+        {
+          "raw": "assured,",
+          "start": 2.8,
+          "end": 3.16
+        },
+        {
+          "raw": "no",
+          "start": 3.68,
+          "end": 3.76
+        },
+        {
+          "raw": "more",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "raw": "than",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "raw": "he'll",
+          "start": 4.1,
+          "end": 4.3
+        },
+        {
+          "raw": "unswear.",
+          "start": 4.3,
+          "end": 4.8
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "He",
+        "hath,",
+        "my",
+        "lord,",
+        "but",
+        "be",
+        "you",
+        "well",
+        "assur'd,",
+        "No",
+        "more",
+        "than",
+        "he'll",
+        "unswear."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          9,
+          1,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          15,
+          10,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Daego,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "daego",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.24,
+          "end": 1.4,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.4,
+          "end": 1.58,
+          "key": "hath",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.82,
+          "end": 2.08,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.3,
+          "end": 2.34,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.34,
+          "end": 2.48,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.48,
+          "end": 2.62,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 2.62,
+          "end": 2.8,
+          "key": "well",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "assured,",
+          "start": 2.8,
+          "end": 3.16,
+          "key": "assured",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.68,
+          "end": 3.76,
+          "key": "no",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 3.76,
+          "end": 3.96,
+          "key": "more",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 3.96,
+          "end": 4.1,
+          "key": "than",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "he'll",
+          "start": 4.1,
+          "end": 4.3,
+          "key": "hell",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "unswear.",
+          "start": 4.3,
+          "end": 4.8,
+          "key": "unswear",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "text": "He",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "hath,",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "text": "my",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "lord,",
+          "start": 1.82,
+          "end": 2.08
+        },
+        {
+          "text": "but",
+          "start": 2.3,
+          "end": 2.34
+        },
+        {
+          "text": "be",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "text": "you",
+          "start": 2.48,
+          "end": 2.62
+        },
+        {
+          "text": "well",
+          "start": 2.62,
+          "end": 2.8
+        },
+        {
+          "text": "assur'd,",
+          "start": 2.8,
+          "end": 3.24
+        },
+        {
+          "text": "No",
+          "start": 3.68,
+          "end": 3.76
+        },
+        {
+          "text": "more",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "text": "than",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "text": "he'll",
+          "start": 4.1,
+          "end": 4.3
+        },
+        {
+          "text": "unswear.",
+          "start": 4.3,
+          "end": 4.8
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.22707872511819005
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "69748ebc8e736c076410b449a28fad88883cf9ef52acefecdcab0b461fd6f03d",
+  "selected_reasons": []
+}

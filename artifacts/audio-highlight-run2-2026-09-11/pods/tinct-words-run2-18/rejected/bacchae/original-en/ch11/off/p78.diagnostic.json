@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "0c732c69d7ef63cb86c601d8f608ef202ec9d9126ade63ebc8bcc66b44b6fd4e",
+  "attempts": [
+    {
+      "asr_seconds": 0.17350809392519295,
+      "alignment_seconds": 0.0004636399680748582,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cadmus, to mock the god in thine own ecstasy.",
+          "start": 0.02,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " Cadmus,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " to",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " mock",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.95703125
+            },
+            {
+              "text": " the",
+              "start": 1.54,
+              "end": 1.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " god",
+              "start": 1.72,
+              "end": 1.94,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " in",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " thine",
+              "start": 2.12,
+              "end": 2.24,
+              "probability": 0.982177734375
+            },
+            {
+              "text": " own",
+              "start": 2.24,
+              "end": 2.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ecstasy.",
+              "start": 2.46,
+              "end": 2.9,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "to",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "mock",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "the",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "raw": "god",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "raw": "in",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "raw": "thine",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "raw": "own",
+          "start": 2.24,
+          "end": 2.46
+        },
+        {
+          "raw": "ecstasy.",
+          "start": 2.46,
+          "end": 2.9
+        }
+      ],
+      "expected_tokens": [
+        "Cadmus.",
+        "To",
+        "mock",
+        "the",
+        "God",
+        "and",
+        "thine",
+        "own",
+        "ecstasy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          9,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "cadmus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.24,
+          "end": 1.34,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mock",
+          "start": 1.34,
+          "end": 1.54,
+          "key": "mock",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.54,
+          "end": 1.72,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "god",
+          "start": 1.72,
+          "end": 1.94,
+          "key": "god",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.94,
+          "end": 2.12,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 2.12,
+          "end": 2.24,
+          "key": "thine",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 2.24,
+          "end": 2.46,
+          "key": "own",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ecstasy.",
+          "start": 2.46,
+          "end": 2.9,
+          "key": "ecstasy",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cadmus.",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "text": "To",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "text": "mock",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "the",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "text": "God",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "text": "and",
+          "start": 1.94,
+          "end": 2.03
+        },
+        {
+          "text": "thine",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "text": "own",
+          "start": 2.24,
+          "end": 2.46
+        },
+        {
+          "text": "ecstasy.",
+          "start": 2.46,
+          "end": 2.9
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.1741563759278506
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4f1dbafe23ba6c930ae7cc8ddcd0f3e70765c52db1babf664d348807a9f4896b",
+  "selected_reasons": []
+}

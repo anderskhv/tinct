@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "61f9eda99400b7d9771ae109800fd9ed866a715e8236d5a4fcbbff28685ddf9e",
+  "attempts": [
+    {
+      "asr_seconds": 0.11987726017832756,
+      "alignment_seconds": 0.00025551021099090576,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit servant.",
+          "start": 0.05,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " servant.",
+              "start": 0.65,
+              "end": 1.05,
+              "probability": 0.8173828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "servant.",
+          "start": 0.65,
+          "end": 1.05
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Servant._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "servant.",
+          "start": 0.65,
+          "end": 1.05,
+          "key": "servant",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Servant._]",
+          "start": 0.65,
+          "end": 1.05
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12021468207240105
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b696a1833984370d660f7123da49b0bb8ec9ba658c784b5379cb3c80a34d7222",
+  "selected_reasons": []
+}

@@ -1,0 +1,332 @@
+{
+  "complete": true,
+  "signature": "81f46c96a58b8e15e1fe89be7a27e8e4e753b00977e71de515ca9c5b72a292d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.10160935297608376,
+      "alignment_seconds": 0.00013346970081329346,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, to tact again perforce, monster in gratitude.",
+          "start": 0.05,
+          "end": 3.69,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.6064453125
+            },
+            {
+              "text": " to",
+              "start": 0.99,
+              "end": 1.05,
+              "probability": 0.830078125
+            },
+            {
+              "text": " tact",
+              "start": 1.05,
+              "end": 1.29,
+              "probability": 0.77783203125
+            },
+            {
+              "text": " again",
+              "start": 1.29,
+              "end": 1.55,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " perforce,",
+              "start": 1.55,
+              "end": 2.09,
+              "probability": 0.7115478515625
+            },
+            {
+              "text": " monster",
+              "start": 2.75,
+              "end": 2.97,
+              "probability": 0.55517578125
+            },
+            {
+              "text": " in",
+              "start": 2.97,
+              "end": 3.21,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " gratitude.",
+              "start": 3.21,
+              "end": 3.69,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "to",
+          "start": 0.99,
+          "end": 1.05
+        },
+        {
+          "raw": "tact",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "raw": "again",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "raw": "perforce,",
+          "start": 1.55,
+          "end": 2.09
+        },
+        {
+          "raw": "monster",
+          "start": 2.75,
+          "end": 2.97
+        },
+        {
+          "raw": "in",
+          "start": 2.97,
+          "end": 3.21
+        },
+        {
+          "raw": "gratitude.",
+          "start": 3.21,
+          "end": 3.69
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "To",
+        "tak't",
+        "again",
+        "perforce!—Monster",
+        "ingratitude!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.99,
+          "end": 1.05,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tact",
+          "start": 1.05,
+          "end": 1.29,
+          "key": "tact",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 1.29,
+          "end": 1.55,
+          "key": "again",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "perforce,",
+          "start": 1.55,
+          "end": 2.09,
+          "key": "perforce",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "monster",
+          "start": 2.75,
+          "end": 2.97,
+          "key": "monster",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.97,
+          "end": 3.21,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gratitude.",
+          "start": 3.21,
+          "end": 3.69,
+          "key": "gratitude",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "To",
+          "start": 0.99,
+          "end": 1.05
+        },
+        {
+          "text": "tak't",
+          "start": 1.05,
+          "end": 1.17
+        },
+        {
+          "text": "again",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "text": "perforce!—Monster",
+          "start": 1.55,
+          "end": 2.62
+        },
+        {
+          "text": "ingratitude!",
+          "start": 2.62,
+          "end": 3.155
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 8,
+        "matched_words": 3
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10180607810616493
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "839103d5c47b64afbe001abb0312c1d4b6b4b57f0f64696433f5360211705784",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,549 @@
+{
+  "complete": true,
+  "signature": "768aa435fea826fdd44af4402b80d76cf9c9bfae700f930d62d079b707003989",
+  "attempts": [
+    {
+      "asr_seconds": 0.37722913920879364,
+      "alignment_seconds": 0.0006939079612493515,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Smurov told me about your powder, only father says it's not real gunpowder,\" responded Ilusha.",
+        "hotwords": "Smurov, Ilusha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Smurov told me about your powder, only father says it's not real gunpowder,\" responded",
+          "start": 0.11,
+          "end": 5.71,
+          "words": [
+            {
+              "text": " Smurov",
+              "start": 0.11,
+              "end": 0.97,
+              "probability": 0.5445963541666666
+            },
+            {
+              "text": " told",
+              "start": 0.97,
+              "end": 1.15,
+              "probability": 0.990234375
+            },
+            {
+              "text": " me",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " about",
+              "start": 1.35,
+              "end": 1.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " powder,",
+              "start": 1.73,
+              "end": 2.05,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " only",
+              "start": 2.53,
+              "end": 2.71,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " father",
+              "start": 2.71,
+              "end": 2.99,
+              "probability": 0.8671875
+            },
+            {
+              "text": " says",
+              "start": 2.99,
+              "end": 3.31,
+              "probability": 0.9921875
+            },
+            {
+              "text": " it's",
+              "start": 3.31,
+              "end": 3.59,
+              "probability": 0.948486328125
+            },
+            {
+              "text": " not",
+              "start": 3.59,
+              "end": 3.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " real",
+              "start": 3.77,
+              "end": 4.03,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " gunpowder,\"",
+              "start": 4.03,
+              "end": 5.55,
+              "probability": 0.6712239583333334
+            },
+            {
+              "text": " responded",
+              "start": 5.55,
+              "end": 5.71,
+              "probability": 0.96435546875
+            }
+          ]
+        },
+        {
+          "text": " Ilusha.",
+          "start": 5.71,
+          "end": 6.11,
+          "words": [
+            {
+              "text": " Ilusha.",
+              "start": 5.71,
+              "end": 6.11,
+              "probability": 0.06785953044891357
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Smurov",
+          "start": 0.11,
+          "end": 0.97
+        },
+        {
+          "raw": "told",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "raw": "me",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "about",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "raw": "your",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "raw": "powder,",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "raw": "only",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "raw": "father",
+          "start": 2.71,
+          "end": 2.99
+        },
+        {
+          "raw": "says",
+          "start": 2.99,
+          "end": 3.31
+        },
+        {
+          "raw": "it's",
+          "start": 3.31,
+          "end": 3.59
+        },
+        {
+          "raw": "not",
+          "start": 3.59,
+          "end": 3.77
+        },
+        {
+          "raw": "real",
+          "start": 3.77,
+          "end": 4.03
+        },
+        {
+          "raw": "gunpowder,\"",
+          "start": 4.03,
+          "end": 5.55
+        },
+        {
+          "raw": "responded",
+          "start": 5.55,
+          "end": 5.71
+        },
+        {
+          "raw": "Ilusha.",
+          "start": 5.71,
+          "end": 6.11
+        }
+      ],
+      "expected_tokens": [
+        "\"Smurov",
+        "told",
+        "me",
+        "about",
+        "your",
+        "powder,",
+        "only",
+        "father",
+        "says",
+        "it's",
+        "not",
+        "real",
+        "gunpowder,\"",
+        "responded",
+        "Ilusha."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Smurov",
+          "start": 0.11,
+          "end": 0.97,
+          "key": "smurov",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 0.97,
+          "end": 1.15,
+          "key": "told",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.15,
+          "end": 1.35,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.35,
+          "end": 1.55,
+          "key": "about",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.55,
+          "end": 1.73,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "powder,",
+          "start": 1.73,
+          "end": 2.05,
+          "key": "powder",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.53,
+          "end": 2.71,
+          "key": "only",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 2.71,
+          "end": 2.99,
+          "key": "father",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 2.99,
+          "end": 3.31,
+          "key": "says",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 3.31,
+          "end": 3.59,
+          "key": "its",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.59,
+          "end": 3.77,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "real",
+          "start": 3.77,
+          "end": 4.03,
+          "key": "real",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "gunpowder,\"",
+          "start": 4.03,
+          "end": 5.55,
+          "key": "gunpowder",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "responded",
+          "start": 5.55,
+          "end": 5.71,
+          "key": "responded",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Ilusha.",
+          "start": 5.71,
+          "end": 6.11,
+          "key": "ilusha",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Smurov",
+          "start": 0.11,
+          "end": 0.97
+        },
+        {
+          "text": "told",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "text": "me",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "about",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "text": "your",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "text": "powder,",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "text": "only",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "text": "father",
+          "start": 2.71,
+          "end": 2.99
+        },
+        {
+          "text": "says",
+          "start": 2.99,
+          "end": 3.31
+        },
+        {
+          "text": "it's",
+          "start": 3.31,
+          "end": 3.59
+        },
+        {
+          "text": "not",
+          "start": 3.59,
+          "end": 3.77
+        },
+        {
+          "text": "real",
+          "start": 3.77,
+          "end": 4.03
+        },
+        {
+          "text": "gunpowder,\"",
+          "start": 4.03,
+          "end": 5.55
+        },
+        {
+          "text": "responded",
+          "start": 5.55,
+          "end": 5.71
+        },
+        {
+          "text": "Ilusha.",
+          "start": 5.71,
+          "end": 6.11
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37818072736263275
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9e12cd7f457009803dd910b66dc82b8cca953089812d6db0a05f9fc7644d559c",
+  "selected_reasons": []
+}

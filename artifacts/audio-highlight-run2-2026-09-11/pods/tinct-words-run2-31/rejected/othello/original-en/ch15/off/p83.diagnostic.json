@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "056b020287f3465d9e4b306bc66ace5050a0af4ed8966aa1e599bf63627b1552",
+  "attempts": [
+    {
+      "asr_seconds": 0.13339341385290027,
+      "alignment_seconds": 0.00025430694222450256,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, why how should she be murdered?",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.9606119791666666
+            },
+            {
+              "text": " why",
+              "start": 1.17,
+              "end": 1.45,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " how",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.476806640625
+            },
+            {
+              "text": " should",
+              "start": 1.71,
+              "end": 1.85,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " she",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " be",
+              "start": 1.99,
+              "end": 2.13,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " murdered?",
+              "start": 2.13,
+              "end": 2.37,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "why",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "raw": "how",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "should",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "raw": "she",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "be",
+          "start": 1.99,
+          "end": 2.13
+        },
+        {
+          "raw": "murdered?",
+          "start": 2.13,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Why,",
+        "how",
+        "should",
+        "she",
+        "be",
+        "murder'd?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.17,
+          "end": 1.45,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.45,
+          "end": 1.71,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.71,
+          "end": 1.85,
+          "key": "should",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.85,
+          "end": 1.99,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.99,
+          "end": 2.13,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "murdered?",
+          "start": 2.13,
+          "end": 2.37,
+          "key": "murdered",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Why,",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "text": "how",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "text": "should",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "text": "she",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "be",
+          "start": 1.99,
+          "end": 2.13
+        },
+        {
+          "text": "murder'd?",
+          "start": 2.13,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.13375124987214804
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d9fe385917b76c11f796440db3bf1e84df96f63c2d77010f6f3d269e83668db2",
+  "selected_reasons": []
+}

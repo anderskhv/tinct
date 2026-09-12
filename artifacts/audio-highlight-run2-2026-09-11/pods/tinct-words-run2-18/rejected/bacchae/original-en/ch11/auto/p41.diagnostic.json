@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "ec1284fd632387f9d3cee42507a3b2bcbc43efbaa60405b933a3007073a4f1e9",
+  "attempts": [
+    {
+      "asr_seconds": 0.21520772005897015,
+      "alignment_seconds": 0.0003802620340138674,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leader. Aye, strange is thy treasure!",
+        "hotwords": "Leader, Aye"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leader, Aye, strange is thy treasure!",
+          "start": 0.02,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " Aye,",
+              "start": 1.2,
+              "end": 1.32,
+              "probability": 0.24304884672164917
+            },
+            {
+              "text": " strange",
+              "start": 1.36,
+              "end": 1.56,
+              "probability": 0.304443359375
+            },
+            {
+              "text": " is",
+              "start": 1.56,
+              "end": 1.76,
+              "probability": 0.310302734375
+            },
+            {
+              "text": " thy",
+              "start": 1.76,
+              "end": 1.92,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " treasure!",
+              "start": 1.92,
+              "end": 2.22,
+              "probability": 0.97216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Aye,",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "raw": "strange",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "raw": "is",
+          "start": 1.56,
+          "end": 1.76
+        },
+        {
+          "raw": "thy",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "raw": "treasure!",
+          "start": 1.92,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "Aye,",
+        "strange",
+        "is",
+        "thy",
+        "treasure!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "leader",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Aye,",
+          "start": 1.2,
+          "end": 1.32,
+          "key": "aye",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 1.36,
+          "end": 1.56,
+          "key": "strange",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.56,
+          "end": 1.76,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.76,
+          "end": 1.92,
+          "key": "thy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "treasure!",
+          "start": 1.92,
+          "end": 2.22,
+          "key": "treasure",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Aye,",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "text": "strange",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "text": "is",
+          "start": 1.56,
+          "end": 1.76
+        },
+        {
+          "text": "thy",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "text": "treasure!",
+          "start": 1.92,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21573439706116915
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ce92d5a0e42f96cfcd7e64dd347c5989eb67afb2a6757fa3f1aba71436c1c43d",
+  "selected_reasons": []
+}

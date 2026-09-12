@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "766534c1626edc6e61b2bf566c463dd8951365cc7dd012b36bc3e21ffb0f9547",
+  "attempts": [
+    {
+      "asr_seconds": 0.211061904206872,
+      "alignment_seconds": 0.00038650259375572205,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I got here, flopsin', asked Mrs. Pocket.",
+          "start": 0.02,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.169189453125
+            },
+            {
+              "text": " got",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " here,",
+              "start": 0.68,
+              "end": 0.9,
+              "probability": 0.982421875
+            },
+            {
+              "text": " flopsin',",
+              "start": 0.96,
+              "end": 1.76,
+              "probability": 0.57110595703125
+            },
+            {
+              "text": " asked",
+              "start": 1.76,
+              "end": 1.98,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " Mrs.",
+              "start": 1.98,
+              "end": 2.24,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " Pocket.",
+              "start": 2.54,
+              "end": 2.62,
+              "probability": 0.919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "got",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "here,",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "raw": "flopsin',",
+          "start": 0.96,
+          "end": 1.76
+        },
+        {
+          "raw": "asked",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "raw": "Pocket.",
+          "start": 2.54,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "\"_I_",
+        "got",
+        "here,",
+        "Flopson?\"",
+        "asked",
+        "Mrs.",
+        "Pocket."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "got",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 0.68,
+          "end": 0.9,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "flopsin',",
+          "start": 0.96,
+          "end": 1.76,
+          "key": "flopsin",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.76,
+          "end": 1.98,
+          "key": "asked",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.98,
+          "end": 2.24,
+          "key": "mrs",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Pocket.",
+          "start": 2.54,
+          "end": 2.62,
+          "key": "pocket",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_I_",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "got",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "here,",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "text": "Flopson?\"",
+          "start": 0.9,
+          "end": 1.33
+        },
+        {
+          "text": "asked",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "text": "Mrs.",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "text": "Pocket.",
+          "start": 2.54,
+          "end": 2.62
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.21157522685825825
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4f8d187d96f997bcc348009adddc9733fb1a53a175aaae1d8c4114daa1c2c042",
+  "selected_reasons": []
+}

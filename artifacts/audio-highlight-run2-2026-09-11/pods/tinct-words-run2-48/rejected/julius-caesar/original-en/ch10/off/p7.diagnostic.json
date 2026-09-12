@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "c2653c51187b576aa2966117d9ccaa6ae2dcb95723ca951dd430a35277e1f3aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.1999294674023986,
+      "alignment_seconds": 0.0001912154257297516,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First Citizen, I and Briefly.",
+          "start": 0.08,
+          "end": 2.32,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " Citizen,",
+              "start": 0.62,
+              "end": 1.04,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " I",
+              "start": 1.64,
+              "end": 1.66,
+              "probability": 0.658203125
+            },
+            {
+              "text": " and",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.196533203125
+            },
+            {
+              "text": " Briefly.",
+              "start": 1.84,
+              "end": 2.32,
+              "probability": 0.840576171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Citizen,",
+          "start": 0.62,
+          "end": 1.04
+        },
+        {
+          "raw": "I",
+          "start": 1.64,
+          "end": 1.66
+        },
+        {
+          "raw": "and",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "Briefly.",
+          "start": 1.84,
+          "end": 2.32
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Citizen.",
+        "Ay,",
+        "and",
+        "briefly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Citizen,",
+          "start": 0.62,
+          "end": 1.04,
+          "key": "citizen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.64,
+          "end": 1.66,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Briefly.",
+          "start": 1.84,
+          "end": 2.32,
+          "key": "briefly",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Citizen.",
+          "start": 0.62,
+          "end": 1.04
+        },
+        {
+          "text": "Ay,",
+          "start": 1.04,
+          "end": 1.35
+        },
+        {
+          "text": "and",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "briefly.",
+          "start": 1.84,
+          "end": 2.32
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20017229579389095
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "be0400ab8a8197a3cb5623c55bae2b6e0234656f881e245ed1d0910292714ecd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

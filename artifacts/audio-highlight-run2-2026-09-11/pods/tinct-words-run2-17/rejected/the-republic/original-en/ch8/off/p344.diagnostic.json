@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "ba99295a8b9f524b9e8573d982e858d833c6cb1bd2d8b0e0ed75a6fb7c49adcd",
+  "attempts": [
+    {
+      "asr_seconds": 0.18957719206809998,
+      "alignment_seconds": 0.0002646530047059059,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And this is called the wealthy class, and the drones feed upon them.",
+          "start": 0.05,
+          "end": 3.85,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.5576171875
+            },
+            {
+              "text": " this",
+              "start": 0.51,
+              "end": 0.69,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " is",
+              "start": 0.69,
+              "end": 0.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " called",
+              "start": 0.83,
+              "end": 1.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " wealthy",
+              "start": 1.21,
+              "end": 1.49,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " class,",
+              "start": 1.49,
+              "end": 1.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 2.43,
+              "end": 2.53,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " the",
+              "start": 2.53,
+              "end": 2.65,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " drones",
+              "start": 2.65,
+              "end": 2.97,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " feed",
+              "start": 2.97,
+              "end": 3.33,
+              "probability": 0.990234375
+            },
+            {
+              "text": " upon",
+              "start": 3.33,
+              "end": 3.59,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " them.",
+              "start": 3.59,
+              "end": 3.85,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "this",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "raw": "is",
+          "start": 0.69,
+          "end": 0.83
+        },
+        {
+          "raw": "called",
+          "start": 0.83,
+          "end": 1.07
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "wealthy",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "raw": "class,",
+          "start": 1.49,
+          "end": 1.91
+        },
+        {
+          "raw": "and",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "raw": "the",
+          "start": 2.53,
+          "end": 2.65
+        },
+        {
+          "raw": "drones",
+          "start": 2.65,
+          "end": 2.97
+        },
+        {
+          "raw": "feed",
+          "start": 2.97,
+          "end": 3.33
+        },
+        {
+          "raw": "upon",
+          "start": 3.33,
+          "end": 3.59
+        },
+        {
+          "raw": "them.",
+          "start": 3.59,
+          "end": 3.85
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "this",
+        "is",
+        "called",
+        "the",
+        "wealthy",
+        "class,",
+        "and",
+        "the",
+        "drones",
+        "feed",
+        "upon",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.51,
+          "end": 0.69,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.69,
+          "end": 0.83,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "called",
+          "start": 0.83,
+          "end": 1.07,
+          "key": "called",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wealthy",
+          "start": 1.21,
+          "end": 1.49,
+          "key": "wealthy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "class,",
+          "start": 1.49,
+          "end": 1.91,
+          "key": "class",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.43,
+          "end": 2.53,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.53,
+          "end": 2.65,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "drones",
+          "start": 2.65,
+          "end": 2.97,
+          "key": "drones",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "feed",
+          "start": 2.97,
+          "end": 3.33,
+          "key": "feed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.33,
+          "end": 3.59,
+          "key": "upon",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 3.59,
+          "end": 3.85,
+          "key": "them",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "this",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "text": "is",
+          "start": 0.69,
+          "end": 0.83
+        },
+        {
+          "text": "called",
+          "start": 0.83,
+          "end": 1.07
+        },
+        {
+          "text": "the",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "wealthy",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "text": "class,",
+          "start": 1.49,
+          "end": 1.91
+        },
+        {
+          "text": "and",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "text": "the",
+          "start": 2.53,
+          "end": 2.65
+        },
+        {
+          "text": "drones",
+          "start": 2.65,
+          "end": 2.97
+        },
+        {
+          "text": "feed",
+          "start": 2.97,
+          "end": 3.33
+        },
+        {
+          "text": "upon",
+          "start": 3.33,
+          "end": 3.59
+        },
+        {
+          "text": "them.",
+          "start": 3.59,
+          "end": 3.85
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1899479441344738
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9e4bff91f6269ae9f612747fd6e561e46befee9f01520dc4e10b66c448de9b47",
+  "selected_reasons": []
+}

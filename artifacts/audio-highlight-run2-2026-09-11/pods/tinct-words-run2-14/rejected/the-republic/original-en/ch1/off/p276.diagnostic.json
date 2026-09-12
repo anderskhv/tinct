@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "5e5a284ee77454957975e6639ff6cebbaee6d399f51023a0eabdccf6bc8d7b46",
+  "attempts": [
+    {
+      "asr_seconds": 0.13236772269010544,
+      "alignment_seconds": 0.0003131479024887085,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He gave a reluctant, yes.",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.8359375
+            },
+            {
+              "text": " gave",
+              "start": 0.49,
+              "end": 0.63,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 0.63,
+              "end": 0.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " reluctant,",
+              "start": 0.75,
+              "end": 1.13,
+              "probability": 0.97265625
+            },
+            {
+              "text": " yes.",
+              "start": 1.51,
+              "end": 1.73,
+              "probability": 0.4482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "gave",
+          "start": 0.49,
+          "end": 0.63
+        },
+        {
+          "raw": "a",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "raw": "reluctant,",
+          "start": 0.75,
+          "end": 1.13
+        },
+        {
+          "raw": "yes.",
+          "start": 1.51,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "gave",
+        "a",
+        "reluctant",
+        "'Yes.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 0.49,
+          "end": 0.63,
+          "key": "gave",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.63,
+          "end": 0.75,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "reluctant,",
+          "start": 0.75,
+          "end": 1.13,
+          "key": "reluctant",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "yes.",
+          "start": 1.51,
+          "end": 1.73,
+          "key": "yes",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "gave",
+          "start": 0.49,
+          "end": 0.63
+        },
+        {
+          "text": "a",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "text": "reluctant",
+          "start": 0.75,
+          "end": 1.13
+        },
+        {
+          "text": "'Yes.'",
+          "start": 1.51,
+          "end": 1.73
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13280458748340607
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7e85512b63266ce43331fd4c7f9e3f4de360b3f265f6d63298866564bcbc8d19",
+  "selected_reasons": []
+}

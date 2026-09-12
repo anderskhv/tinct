@@ -1,0 +1,830 @@
+{
+  "complete": true,
+  "signature": "e34c83b4fb75cf2b71f4b854519fa2cffc035bf8d6ccfcf0a043becf0dcf6430",
+  "attempts": [
+    {
+      "asr_seconds": 0.3355834628455341,
+      "alignment_seconds": 0.0008372310549020767,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well, brother, I don't mind that. It's a good place. When you are asked, you just say he was going, he said, to America.\"",
+        "hotwords": "Well, I, It's, When, America"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, brother, I don't mind that. It's a good place. When you are asked, you just say he was going, he said, to America.",
+          "start": 0.02,
+          "end": 6.7,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.28369140625
+            },
+            {
+              "text": " brother,",
+              "start": 0.82,
+              "end": 0.94,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " I",
+              "start": 1.16,
+              "end": 1.24,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " don't",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " mind",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that.",
+              "start": 1.56,
+              "end": 1.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " It's",
+              "start": 2.24,
+              "end": 2.38,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " a",
+              "start": 2.38,
+              "end": 2.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " good",
+              "start": 2.44,
+              "end": 2.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " place.",
+              "start": 2.56,
+              "end": 2.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " When",
+              "start": 3.52,
+              "end": 3.62,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " you",
+              "start": 3.62,
+              "end": 3.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are",
+              "start": 3.72,
+              "end": 3.84,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " asked,",
+              "start": 3.84,
+              "end": 4.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 4.4,
+              "end": 4.54,
+              "probability": 0.97265625
+            },
+            {
+              "text": " just",
+              "start": 4.54,
+              "end": 4.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " say",
+              "start": 4.68,
+              "end": 4.9,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " he",
+              "start": 4.9,
+              "end": 5.06,
+              "probability": 0.9453125
+            },
+            {
+              "text": " was",
+              "start": 5.06,
+              "end": 5.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " going,",
+              "start": 5.2,
+              "end": 5.54,
+              "probability": 0.98046875
+            },
+            {
+              "text": " he",
+              "start": 5.72,
+              "end": 5.84,
+              "probability": 0.984375
+            },
+            {
+              "text": " said,",
+              "start": 5.84,
+              "end": 6.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 6.24,
+              "end": 6.34,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " America.",
+              "start": 6.34,
+              "end": 6.7,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "brother,",
+          "start": 0.82,
+          "end": 0.94
+        },
+        {
+          "raw": "I",
+          "start": 1.16,
+          "end": 1.24
+        },
+        {
+          "raw": "don't",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "mind",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "that.",
+          "start": 1.56,
+          "end": 1.9
+        },
+        {
+          "raw": "It's",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "raw": "a",
+          "start": 2.38,
+          "end": 2.44
+        },
+        {
+          "raw": "good",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "raw": "place.",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "raw": "When",
+          "start": 3.52,
+          "end": 3.62
+        },
+        {
+          "raw": "you",
+          "start": 3.62,
+          "end": 3.72
+        },
+        {
+          "raw": "are",
+          "start": 3.72,
+          "end": 3.84
+        },
+        {
+          "raw": "asked,",
+          "start": 3.84,
+          "end": 4.26
+        },
+        {
+          "raw": "you",
+          "start": 4.4,
+          "end": 4.54
+        },
+        {
+          "raw": "just",
+          "start": 4.54,
+          "end": 4.68
+        },
+        {
+          "raw": "say",
+          "start": 4.68,
+          "end": 4.9
+        },
+        {
+          "raw": "he",
+          "start": 4.9,
+          "end": 5.06
+        },
+        {
+          "raw": "was",
+          "start": 5.06,
+          "end": 5.2
+        },
+        {
+          "raw": "going,",
+          "start": 5.2,
+          "end": 5.54
+        },
+        {
+          "raw": "he",
+          "start": 5.72,
+          "end": 5.84
+        },
+        {
+          "raw": "said,",
+          "start": 5.84,
+          "end": 6.08
+        },
+        {
+          "raw": "to",
+          "start": 6.24,
+          "end": 6.34
+        },
+        {
+          "raw": "America.",
+          "start": 6.34,
+          "end": 6.7
+        }
+      ],
+      "expected_tokens": [
+        "\"Well,",
+        "brother,",
+        "I",
+        "don't",
+        "mind",
+        "that.",
+        "It's",
+        "a",
+        "good",
+        "place.",
+        "When",
+        "you",
+        "are",
+        "asked,",
+        "you",
+        "just",
+        "say",
+        "he",
+        "was",
+        "going,",
+        "he",
+        "said,",
+        "to",
+        "America.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "brother,",
+          "start": 0.82,
+          "end": 0.94,
+          "key": "brother",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.16,
+          "end": 1.24,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "dont",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "mind",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 1.56,
+          "end": 1.9,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 2.24,
+          "end": 2.38,
+          "key": "its",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.38,
+          "end": 2.44,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.44,
+          "end": 2.56,
+          "key": "good",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "place.",
+          "start": 2.56,
+          "end": 2.86,
+          "key": "place",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 3.52,
+          "end": 3.62,
+          "key": "when",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.62,
+          "end": 3.72,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.72,
+          "end": 3.84,
+          "key": "are",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "asked,",
+          "start": 3.84,
+          "end": 4.26,
+          "key": "asked",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.4,
+          "end": 4.54,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 4.54,
+          "end": 4.68,
+          "key": "just",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 4.68,
+          "end": 4.9,
+          "key": "say",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.9,
+          "end": 5.06,
+          "key": "he",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.06,
+          "end": 5.2,
+          "key": "was",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "going,",
+          "start": 5.2,
+          "end": 5.54,
+          "key": "going",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.72,
+          "end": 5.84,
+          "key": "he",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 5.84,
+          "end": 6.08,
+          "key": "said",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.24,
+          "end": 6.34,
+          "key": "to",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "America.",
+          "start": 6.34,
+          "end": 6.7,
+          "key": "america",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Well,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "brother,",
+          "start": 0.82,
+          "end": 0.94
+        },
+        {
+          "text": "I",
+          "start": 1.16,
+          "end": 1.24
+        },
+        {
+          "text": "don't",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "mind",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "that.",
+          "start": 1.56,
+          "end": 1.9
+        },
+        {
+          "text": "It's",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "text": "a",
+          "start": 2.38,
+          "end": 2.44
+        },
+        {
+          "text": "good",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "text": "place.",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "text": "When",
+          "start": 3.52,
+          "end": 3.62
+        },
+        {
+          "text": "you",
+          "start": 3.62,
+          "end": 3.72
+        },
+        {
+          "text": "are",
+          "start": 3.72,
+          "end": 3.84
+        },
+        {
+          "text": "asked,",
+          "start": 3.84,
+          "end": 4.26
+        },
+        {
+          "text": "you",
+          "start": 4.4,
+          "end": 4.54
+        },
+        {
+          "text": "just",
+          "start": 4.54,
+          "end": 4.68
+        },
+        {
+          "text": "say",
+          "start": 4.68,
+          "end": 4.9
+        },
+        {
+          "text": "he",
+          "start": 4.9,
+          "end": 5.06
+        },
+        {
+          "text": "was",
+          "start": 5.06,
+          "end": 5.2
+        },
+        {
+          "text": "going,",
+          "start": 5.2,
+          "end": 5.54
+        },
+        {
+          "text": "he",
+          "start": 5.72,
+          "end": 5.84
+        },
+        {
+          "text": "said,",
+          "start": 5.84,
+          "end": 6.08
+        },
+        {
+          "text": "to",
+          "start": 6.24,
+          "end": 6.34
+        },
+        {
+          "text": "America.\"",
+          "start": 6.34,
+          "end": 6.7
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33675812603905797
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "51f5d0ed2bab50223ebd6e13cfef7116cfbef6e745f51f8359e99a6789967919",
+  "selected_reasons": []
+}

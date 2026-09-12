@@ -1,0 +1,3140 @@
+{
+  "complete": true,
+  "signature": "186935c768905ba4c3f1b4e3d597395d98119c1a4f63bebf21cfe0a9a3ef3a53",
+  "attempts": [
+    {
+      "asr_seconds": 3.898108402994694,
+      "alignment_seconds": 0.0011033669870812446,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And if the herrings are exported, there is besides a premium of £ 0 2 8 So the bounty paid by government in money for each barrel is £ 0 14 11¾",
+        "hotwords": "And, So"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And if the herrings are exported, there is besides a premium of £ 0 2 8",
+          "start": 0.05,
+          "end": 11.31,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.732421875
+            },
+            {
+              "text": " if",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.962890625
+            },
+            {
+              "text": " the",
+              "start": 0.63,
+              "end": 0.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " herrings",
+              "start": 0.75,
+              "end": 1.07,
+              "probability": 0.927978515625
+            },
+            {
+              "text": " are",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " exported,",
+              "start": 1.21,
+              "end": 1.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " there",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " is",
+              "start": 2.39,
+              "end": 2.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " besides",
+              "start": 2.51,
+              "end": 2.91,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " a",
+              "start": 2.91,
+              "end": 3.15,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " premium",
+              "start": 3.15,
+              "end": 3.45,
+              "probability": 0.986328125
+            },
+            {
+              "text": " of",
+              "start": 3.45,
+              "end": 3.75,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " £",
+              "start": 3.75,
+              "end": 4.01,
+              "probability": 0.019775390625
+            },
+            {
+              "text": " 0",
+              "start": 4.01,
+              "end": 4.19,
+              "probability": 0.0029544830322265625
+            },
+            {
+              "text": " 2",
+              "start": 4.19,
+              "end": 4.47,
+              "probability": 0.01180267333984375
+            },
+            {
+              "text": " 8",
+              "start": 4.47,
+              "end": 11.31,
+              "probability": 0.955078125
+            }
+          ]
+        },
+        {
+          "text": " So that is the",
+          "start": 11.31,
+          "end": 12.15,
+          "words": [
+            {
+              "text": " So",
+              "start": 11.31,
+              "end": 11.71,
+              "probability": 0.00173187255859375
+            },
+            {
+              "text": " that",
+              "start": 11.71,
+              "end": 12.15,
+              "probability": 0.0892333984375
+            },
+            {
+              "text": " is",
+              "start": 12.15,
+              "end": 12.15,
+              "probability": 0.10650634765625
+            },
+            {
+              "text": " the",
+              "start": 12.15,
+              "end": 12.15,
+              "probability": 0.130859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "if",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "the",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "raw": "herrings",
+          "start": 0.75,
+          "end": 1.07
+        },
+        {
+          "raw": "are",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "exported,",
+          "start": 1.21,
+          "end": 1.75
+        },
+        {
+          "raw": "there",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "is",
+          "start": 2.39,
+          "end": 2.51
+        },
+        {
+          "raw": "besides",
+          "start": 2.51,
+          "end": 2.91
+        },
+        {
+          "raw": "a",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "raw": "premium",
+          "start": 3.15,
+          "end": 3.45
+        },
+        {
+          "raw": "of",
+          "start": 3.45,
+          "end": 3.75
+        },
+        {
+          "raw": "£",
+          "start": 3.75,
+          "end": 4.01
+        },
+        {
+          "raw": "0",
+          "start": 4.01,
+          "end": 4.19
+        },
+        {
+          "raw": "2",
+          "start": 4.19,
+          "end": 4.47
+        },
+        {
+          "raw": "8",
+          "start": 4.47,
+          "end": 11.31
+        },
+        {
+          "raw": "So",
+          "start": 11.31,
+          "end": 11.71
+        },
+        {
+          "raw": "that",
+          "start": 11.71,
+          "end": 12.15
+        },
+        {
+          "raw": "is",
+          "start": 12.15,
+          "end": 12.15
+        },
+        {
+          "raw": "the",
+          "start": 12.15,
+          "end": 12.15
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "if",
+        "the",
+        "herrings",
+        "are",
+        "exported,",
+        "there",
+        "is",
+        "besides",
+        "a",
+        "premium",
+        "of",
+        "£",
+        "0",
+        "2",
+        "8",
+        "So",
+        "the",
+        "bounty",
+        "paid",
+        "by",
+        "government",
+        "in",
+        "money",
+        "for",
+        "each",
+        "barrel",
+        "is",
+        "£",
+        "0",
+        "14",
+        "11¾"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ],
+        [
+          "insert",
+          17,
+          17,
+          17,
+          19
+        ],
+        [
+          "equal",
+          17,
+          18,
+          19,
+          20
+        ],
+        [
+          "delete",
+          18,
+          32,
+          20,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          17,
+          17,
+          17,
+          19
+        ],
+        [
+          "delete",
+          18,
+          32,
+          20,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.63,
+          "end": 0.75,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "herrings",
+          "start": 0.75,
+          "end": 1.07,
+          "key": "herrings",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "exported,",
+          "start": 1.21,
+          "end": 1.75,
+          "key": "exported",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "there",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.39,
+          "end": 2.51,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "besides",
+          "start": 2.51,
+          "end": 2.91,
+          "key": "besides",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.91,
+          "end": 3.15,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "premium",
+          "start": 3.15,
+          "end": 3.45,
+          "key": "premium",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.45,
+          "end": 3.75,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "£",
+          "start": 3.75,
+          "end": 4.01,
+          "key": "",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "0",
+          "start": 4.01,
+          "end": 4.19,
+          "key": "zero",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "2",
+          "start": 4.19,
+          "end": 4.47,
+          "key": "two",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "8",
+          "start": 4.47,
+          "end": 11.31,
+          "key": "eight",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 11.31,
+          "end": 11.71,
+          "key": "so",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 11.71,
+          "end": 12.15,
+          "key": "that",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 12.15,
+          "end": 12.15,
+          "key": "is",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.15,
+          "end": 12.15,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "if",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "the",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "text": "herrings",
+          "start": 0.75,
+          "end": 1.07
+        },
+        {
+          "text": "are",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "exported,",
+          "start": 1.21,
+          "end": 1.75
+        },
+        {
+          "text": "there",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "is",
+          "start": 2.39,
+          "end": 2.51
+        },
+        {
+          "text": "besides",
+          "start": 2.51,
+          "end": 2.91
+        },
+        {
+          "text": "a",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "text": "premium",
+          "start": 3.15,
+          "end": 3.45
+        },
+        {
+          "text": "of",
+          "start": 3.45,
+          "end": 3.75
+        },
+        {
+          "text": "£",
+          "start": 3.75,
+          "end": 4.01
+        },
+        {
+          "text": "0",
+          "start": 4.01,
+          "end": 4.19
+        },
+        {
+          "text": "2",
+          "start": 4.19,
+          "end": 4.47
+        },
+        {
+          "text": "8",
+          "start": 4.47,
+          "end": 11.31
+        },
+        {
+          "text": "So",
+          "start": 11.31,
+          "end": 11.71
+        },
+        {
+          "text": "the",
+          "start": 12.15,
+          "end": 12.15
+        },
+        {
+          "text": "bounty",
+          "start": 12.15,
+          "end": 12.15
+        },
+        {
+          "text": "paid",
+          "start": 12.15,
+          "end": 12.15
+        },
+        {
+          "text": "by",
+          "start": 12.15,
+          "end": 12.15
+        },
+        {
+          "text": "government",
+          "start": 12.15,
+          "end": 12.15
+        },
+        {
+          "text": "in",
+          "start": 12.15,
+          "end": 12.15
+        },
+        {
+          "text": "money",
+          "start": 12.15,
+          "end": 12.15
+        },
+        {
+          "text": "for",
+          "start": 12.15,
+          "end": 12.15
+        },
+        {
+          "text": "each",
+          "start": 12.15,
+          "end": 12.15
+        },
+        {
+          "text": "barrel",
+          "start": 12.15,
+          "end": 12.15
+        },
+        {
+          "text": "is",
+          "start": 12.15,
+          "end": 12.15
+        },
+        {
+          "text": "£",
+          "start": 12.15,
+          "end": 12.15
+        },
+        {
+          "text": "0",
+          "start": 12.15,
+          "end": 12.15
+        },
+        {
+          "text": "14",
+          "start": 12.15,
+          "end": 12.15
+        },
+        {
+          "text": "11¾",
+          "start": 12.15,
+          "end": 12.15
+        }
+      ],
+      "stats": {
+        "expected_words": 32,
+        "heard_words": 20,
+        "matched_words": 18
+      },
+      "match_ratio": 0.5625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 3.899549707013648
+    },
+    {
+      "asr_seconds": 0.5013814409903716,
+      "alignment_seconds": 0.0006869870121590793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "And, So"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " And if the herrings are exported, there is besides a premium of zero to eight pounds,",
+          "start": 0.05,
+          "end": 5.17,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.73486328125
+            },
+            {
+              "text": " if",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.962890625
+            },
+            {
+              "text": " the",
+              "start": 0.63,
+              "end": 0.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " herrings",
+              "start": 0.75,
+              "end": 1.07,
+              "probability": 0.927734375
+            },
+            {
+              "text": " are",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " exported,",
+              "start": 1.21,
+              "end": 1.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " there",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " is",
+              "start": 2.39,
+              "end": 2.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " besides",
+              "start": 2.51,
+              "end": 2.91,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " a",
+              "start": 2.91,
+              "end": 3.15,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " premium",
+              "start": 3.15,
+              "end": 3.45,
+              "probability": 0.986328125
+            },
+            {
+              "text": " of",
+              "start": 3.45,
+              "end": 3.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " zero",
+              "start": 3.77,
+              "end": 4.09,
+              "probability": 0.28955078125
+            },
+            {
+              "text": " to",
+              "start": 4.09,
+              "end": 4.47,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " eight",
+              "start": 4.47,
+              "end": 4.77,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " pounds,",
+              "start": 4.77,
+              "end": 5.17,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " so the bounty paid by government in money for each barrel is zero fourteen eleven three",
+          "start": 5.67,
+          "end": 10.95,
+          "words": [
+            {
+              "text": " so",
+              "start": 5.67,
+              "end": 5.89,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 5.89,
+              "end": 6.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " bounty",
+              "start": 6.03,
+              "end": 6.29,
+              "probability": 0.99609375
+            },
+            {
+              "text": " paid",
+              "start": 6.29,
+              "end": 6.69,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " by",
+              "start": 6.69,
+              "end": 6.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " government",
+              "start": 6.97,
+              "end": 7.25,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " in",
+              "start": 7.25,
+              "end": 7.55,
+              "probability": 0.556640625
+            },
+            {
+              "text": " money",
+              "start": 7.55,
+              "end": 7.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " for",
+              "start": 7.75,
+              "end": 8.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " each",
+              "start": 8.01,
+              "end": 8.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " barrel",
+              "start": 8.21,
+              "end": 8.69,
+              "probability": 0.990234375
+            },
+            {
+              "text": " is",
+              "start": 8.69,
+              "end": 9.23,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " zero",
+              "start": 9.23,
+              "end": 9.63,
+              "probability": 0.64990234375
+            },
+            {
+              "text": " fourteen",
+              "start": 9.63,
+              "end": 10.19,
+              "probability": 0.71533203125
+            },
+            {
+              "text": " eleven",
+              "start": 10.19,
+              "end": 10.57,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " three",
+              "start": 10.57,
+              "end": 10.95,
+              "probability": 0.943359375
+            }
+          ]
+        },
+        {
+          "text": " quarters.",
+          "start": 10.95,
+          "end": 11.29,
+          "words": [
+            {
+              "text": " quarters.",
+              "start": 10.95,
+              "end": 11.29,
+              "probability": 0.55126953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "if",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "the",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "raw": "herrings",
+          "start": 0.75,
+          "end": 1.07
+        },
+        {
+          "raw": "are",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "exported,",
+          "start": 1.21,
+          "end": 1.75
+        },
+        {
+          "raw": "there",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "is",
+          "start": 2.39,
+          "end": 2.51
+        },
+        {
+          "raw": "besides",
+          "start": 2.51,
+          "end": 2.91
+        },
+        {
+          "raw": "a",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "raw": "premium",
+          "start": 3.15,
+          "end": 3.45
+        },
+        {
+          "raw": "of",
+          "start": 3.45,
+          "end": 3.77
+        },
+        {
+          "raw": "zero",
+          "start": 3.77,
+          "end": 4.09
+        },
+        {
+          "raw": "to",
+          "start": 4.09,
+          "end": 4.47
+        },
+        {
+          "raw": "eight",
+          "start": 4.47,
+          "end": 4.77
+        },
+        {
+          "raw": "pounds,",
+          "start": 4.77,
+          "end": 5.17
+        },
+        {
+          "raw": "so",
+          "start": 5.67,
+          "end": 5.89
+        },
+        {
+          "raw": "the",
+          "start": 5.89,
+          "end": 6.03
+        },
+        {
+          "raw": "bounty",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "raw": "paid",
+          "start": 6.29,
+          "end": 6.69
+        },
+        {
+          "raw": "by",
+          "start": 6.69,
+          "end": 6.97
+        },
+        {
+          "raw": "government",
+          "start": 6.97,
+          "end": 7.25
+        },
+        {
+          "raw": "in",
+          "start": 7.25,
+          "end": 7.55
+        },
+        {
+          "raw": "money",
+          "start": 7.55,
+          "end": 7.75
+        },
+        {
+          "raw": "for",
+          "start": 7.75,
+          "end": 8.01
+        },
+        {
+          "raw": "each",
+          "start": 8.01,
+          "end": 8.21
+        },
+        {
+          "raw": "barrel",
+          "start": 8.21,
+          "end": 8.69
+        },
+        {
+          "raw": "is",
+          "start": 8.69,
+          "end": 9.23
+        },
+        {
+          "raw": "zero",
+          "start": 9.23,
+          "end": 9.63
+        },
+        {
+          "raw": "fourteen",
+          "start": 9.63,
+          "end": 10.19
+        },
+        {
+          "raw": "eleven",
+          "start": 10.19,
+          "end": 10.57
+        },
+        {
+          "raw": "three",
+          "start": 10.57,
+          "end": 10.95
+        },
+        {
+          "raw": "quarters.",
+          "start": 10.95,
+          "end": 11.29
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "if",
+        "the",
+        "herrings",
+        "are",
+        "exported,",
+        "there",
+        "is",
+        "besides",
+        "a",
+        "premium",
+        "of",
+        "£",
+        "0",
+        "2",
+        "8",
+        "So",
+        "the",
+        "bounty",
+        "paid",
+        "by",
+        "government",
+        "in",
+        "money",
+        "for",
+        "each",
+        "barrel",
+        "is",
+        "£",
+        "0",
+        "14",
+        "11¾"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "delete",
+          12,
+          13,
+          12,
+          12
+        ],
+        [
+          "equal",
+          13,
+          14,
+          12,
+          13
+        ],
+        [
+          "replace",
+          14,
+          15,
+          13,
+          14
+        ],
+        [
+          "equal",
+          15,
+          16,
+          14,
+          15
+        ],
+        [
+          "insert",
+          16,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          28,
+          16,
+          28
+        ],
+        [
+          "delete",
+          28,
+          29,
+          28,
+          28
+        ],
+        [
+          "equal",
+          29,
+          31,
+          28,
+          30
+        ],
+        [
+          "replace",
+          31,
+          32,
+          30,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          12,
+          13,
+          12,
+          12
+        ],
+        [
+          "replace",
+          14,
+          15,
+          13,
+          14
+        ],
+        [
+          "insert",
+          16,
+          16,
+          15,
+          16
+        ],
+        [
+          "delete",
+          28,
+          29,
+          28,
+          28
+        ],
+        [
+          "replace",
+          31,
+          32,
+          30,
+          33
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.63,
+          "end": 0.75,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "herrings",
+          "start": 0.75,
+          "end": 1.07,
+          "key": "herrings",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "exported,",
+          "start": 1.21,
+          "end": 1.75,
+          "key": "exported",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "there",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.39,
+          "end": 2.51,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "besides",
+          "start": 2.51,
+          "end": 2.91,
+          "key": "besides",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.91,
+          "end": 3.15,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "premium",
+          "start": 3.15,
+          "end": 3.45,
+          "key": "premium",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.45,
+          "end": 3.77,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "zero",
+          "start": 3.77,
+          "end": 4.09,
+          "key": "zero",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.09,
+          "end": 4.47,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "eight",
+          "start": 4.47,
+          "end": 4.77,
+          "key": "eight",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "pounds,",
+          "start": 4.77,
+          "end": 5.17,
+          "key": "pounds",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 5.67,
+          "end": 5.89,
+          "key": "so",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.89,
+          "end": 6.03,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "bounty",
+          "start": 6.03,
+          "end": 6.29,
+          "key": "bounty",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "paid",
+          "start": 6.29,
+          "end": 6.69,
+          "key": "paid",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 6.69,
+          "end": 6.97,
+          "key": "by",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "government",
+          "start": 6.97,
+          "end": 7.25,
+          "key": "government",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.25,
+          "end": 7.55,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "money",
+          "start": 7.55,
+          "end": 7.75,
+          "key": "money",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.75,
+          "end": 8.01,
+          "key": "for",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 8.01,
+          "end": 8.21,
+          "key": "each",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "barrel",
+          "start": 8.21,
+          "end": 8.69,
+          "key": "barrel",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 8.69,
+          "end": 9.23,
+          "key": "is",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "zero",
+          "start": 9.23,
+          "end": 9.63,
+          "key": "zero",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "fourteen",
+          "start": 9.63,
+          "end": 10.19,
+          "key": "fourteen",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "eleven",
+          "start": 10.19,
+          "end": 10.57,
+          "key": "eleven",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 10.57,
+          "end": 10.95,
+          "key": "three",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "quarters.",
+          "start": 10.95,
+          "end": 11.29,
+          "key": "quarters",
+          "pieces": [
+            32
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "if",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "the",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "text": "herrings",
+          "start": 0.75,
+          "end": 1.07
+        },
+        {
+          "text": "are",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "exported,",
+          "start": 1.21,
+          "end": 1.75
+        },
+        {
+          "text": "there",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "is",
+          "start": 2.39,
+          "end": 2.51
+        },
+        {
+          "text": "besides",
+          "start": 2.51,
+          "end": 2.91
+        },
+        {
+          "text": "a",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "text": "premium",
+          "start": 3.15,
+          "end": 3.45
+        },
+        {
+          "text": "of",
+          "start": 3.45,
+          "end": 3.77
+        },
+        {
+          "text": "£",
+          "start": 3.77,
+          "end": 3.77
+        },
+        {
+          "text": "0",
+          "start": 3.77,
+          "end": 4.09
+        },
+        {
+          "text": "2",
+          "start": 4.09,
+          "end": 4.28
+        },
+        {
+          "text": "8",
+          "start": 4.47,
+          "end": 4.77
+        },
+        {
+          "text": "So",
+          "start": 5.67,
+          "end": 5.89
+        },
+        {
+          "text": "the",
+          "start": 5.89,
+          "end": 6.03
+        },
+        {
+          "text": "bounty",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "text": "paid",
+          "start": 6.29,
+          "end": 6.69
+        },
+        {
+          "text": "by",
+          "start": 6.69,
+          "end": 6.97
+        },
+        {
+          "text": "government",
+          "start": 6.97,
+          "end": 7.25
+        },
+        {
+          "text": "in",
+          "start": 7.25,
+          "end": 7.55
+        },
+        {
+          "text": "money",
+          "start": 7.55,
+          "end": 7.75
+        },
+        {
+          "text": "for",
+          "start": 7.75,
+          "end": 8.01
+        },
+        {
+          "text": "each",
+          "start": 8.01,
+          "end": 8.21
+        },
+        {
+          "text": "barrel",
+          "start": 8.21,
+          "end": 8.69
+        },
+        {
+          "text": "is",
+          "start": 8.69,
+          "end": 9.23
+        },
+        {
+          "text": "£",
+          "start": 9.23,
+          "end": 9.23
+        },
+        {
+          "text": "0",
+          "start": 9.23,
+          "end": 9.63
+        },
+        {
+          "text": "14",
+          "start": 9.63,
+          "end": 10.19
+        },
+        {
+          "text": "11¾",
+          "start": 10.19,
+          "end": 10.74
+        }
+      ],
+      "stats": {
+        "expected_words": 32,
+        "heard_words": 33,
+        "matched_words": 28
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.502345476008486
+    },
+    {
+      "asr_seconds": 0.4317132949945517,
+      "alignment_seconds": 0.0008018099761102349,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And if the herrings are exported, there is besides a premium of 028 pounds, so the bounty",
+          "start": 0.05,
+          "end": 6.29,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.7353515625
+            },
+            {
+              "text": " if",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.962890625
+            },
+            {
+              "text": " the",
+              "start": 0.63,
+              "end": 0.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " herrings",
+              "start": 0.75,
+              "end": 1.07,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " are",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " exported,",
+              "start": 1.21,
+              "end": 1.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " there",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " is",
+              "start": 2.39,
+              "end": 2.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " besides",
+              "start": 2.51,
+              "end": 2.91,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " a",
+              "start": 2.91,
+              "end": 3.15,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " premium",
+              "start": 3.15,
+              "end": 3.45,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " of",
+              "start": 3.45,
+              "end": 3.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " 028",
+              "start": 3.77,
+              "end": 4.71,
+              "probability": 0.537109375
+            },
+            {
+              "text": " pounds,",
+              "start": 4.71,
+              "end": 5.13,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " so",
+              "start": 5.67,
+              "end": 5.89,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 5.89,
+              "end": 6.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bounty",
+              "start": 6.03,
+              "end": 6.29,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " paid by government in money for each barrel is 01411 ¾.",
+          "start": 6.29,
+          "end": 11.19,
+          "words": [
+            {
+              "text": " paid",
+              "start": 6.29,
+              "end": 6.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " by",
+              "start": 6.69,
+              "end": 6.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " government",
+              "start": 6.97,
+              "end": 7.25,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " in",
+              "start": 7.25,
+              "end": 7.55,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " money",
+              "start": 7.55,
+              "end": 7.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 7.75,
+              "end": 8.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " each",
+              "start": 8.01,
+              "end": 8.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " barrel",
+              "start": 8.21,
+              "end": 8.69,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " is",
+              "start": 8.69,
+              "end": 9.23,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " 01411",
+              "start": 9.23,
+              "end": 10.59,
+              "probability": 0.7200520833333334
+            },
+            {
+              "text": " ¾.",
+              "start": 10.59,
+              "end": 11.19,
+              "probability": 0.6561279296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "if",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "the",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "raw": "herrings",
+          "start": 0.75,
+          "end": 1.07
+        },
+        {
+          "raw": "are",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "exported,",
+          "start": 1.21,
+          "end": 1.75
+        },
+        {
+          "raw": "there",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "is",
+          "start": 2.39,
+          "end": 2.51
+        },
+        {
+          "raw": "besides",
+          "start": 2.51,
+          "end": 2.91
+        },
+        {
+          "raw": "a",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "raw": "premium",
+          "start": 3.15,
+          "end": 3.45
+        },
+        {
+          "raw": "of",
+          "start": 3.45,
+          "end": 3.77
+        },
+        {
+          "raw": "028",
+          "start": 3.77,
+          "end": 4.71
+        },
+        {
+          "raw": "pounds,",
+          "start": 4.71,
+          "end": 5.13
+        },
+        {
+          "raw": "so",
+          "start": 5.67,
+          "end": 5.89
+        },
+        {
+          "raw": "the",
+          "start": 5.89,
+          "end": 6.03
+        },
+        {
+          "raw": "bounty",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "raw": "paid",
+          "start": 6.29,
+          "end": 6.69
+        },
+        {
+          "raw": "by",
+          "start": 6.69,
+          "end": 6.97
+        },
+        {
+          "raw": "government",
+          "start": 6.97,
+          "end": 7.25
+        },
+        {
+          "raw": "in",
+          "start": 7.25,
+          "end": 7.55
+        },
+        {
+          "raw": "money",
+          "start": 7.55,
+          "end": 7.75
+        },
+        {
+          "raw": "for",
+          "start": 7.75,
+          "end": 8.01
+        },
+        {
+          "raw": "each",
+          "start": 8.01,
+          "end": 8.21
+        },
+        {
+          "raw": "barrel",
+          "start": 8.21,
+          "end": 8.69
+        },
+        {
+          "raw": "is",
+          "start": 8.69,
+          "end": 9.23
+        },
+        {
+          "raw": "01411",
+          "start": 9.23,
+          "end": 10.59
+        },
+        {
+          "raw": "¾.",
+          "start": 10.59,
+          "end": 11.19
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "if",
+        "the",
+        "herrings",
+        "are",
+        "exported,",
+        "there",
+        "is",
+        "besides",
+        "a",
+        "premium",
+        "of",
+        "£",
+        "0",
+        "2",
+        "8",
+        "So",
+        "the",
+        "bounty",
+        "paid",
+        "by",
+        "government",
+        "in",
+        "money",
+        "for",
+        "each",
+        "barrel",
+        "is",
+        "£",
+        "0",
+        "14",
+        "11¾"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          16,
+          12,
+          14
+        ],
+        [
+          "equal",
+          16,
+          28,
+          14,
+          26
+        ],
+        [
+          "replace",
+          28,
+          32,
+          26,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          16,
+          12,
+          14
+        ],
+        [
+          "replace",
+          28,
+          32,
+          26,
+          28
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.63,
+          "end": 0.75,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "herrings",
+          "start": 0.75,
+          "end": 1.07,
+          "key": "herrings",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "exported,",
+          "start": 1.21,
+          "end": 1.75,
+          "key": "exported",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "there",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.39,
+          "end": 2.51,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "besides",
+          "start": 2.51,
+          "end": 2.91,
+          "key": "besides",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.91,
+          "end": 3.15,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "premium",
+          "start": 3.15,
+          "end": 3.45,
+          "key": "premium",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.45,
+          "end": 3.77,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "028",
+          "start": 3.77,
+          "end": 4.71,
+          "key": "twentyeight",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pounds,",
+          "start": 4.71,
+          "end": 5.13,
+          "key": "pounds",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 5.67,
+          "end": 5.89,
+          "key": "so",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.89,
+          "end": 6.03,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "bounty",
+          "start": 6.03,
+          "end": 6.29,
+          "key": "bounty",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "paid",
+          "start": 6.29,
+          "end": 6.69,
+          "key": "paid",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 6.69,
+          "end": 6.97,
+          "key": "by",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "government",
+          "start": 6.97,
+          "end": 7.25,
+          "key": "government",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.25,
+          "end": 7.55,
+          "key": "in",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "money",
+          "start": 7.55,
+          "end": 7.75,
+          "key": "money",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.75,
+          "end": 8.01,
+          "key": "for",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 8.01,
+          "end": 8.21,
+          "key": "each",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "barrel",
+          "start": 8.21,
+          "end": 8.69,
+          "key": "barrel",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 8.69,
+          "end": 9.23,
+          "key": "is",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "01411",
+          "start": 9.23,
+          "end": 10.59,
+          "key": "01411",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "¾.",
+          "start": 10.59,
+          "end": 11.19,
+          "key": "¾",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "if",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "the",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "text": "herrings",
+          "start": 0.75,
+          "end": 1.07
+        },
+        {
+          "text": "are",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "exported,",
+          "start": 1.21,
+          "end": 1.75
+        },
+        {
+          "text": "there",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "is",
+          "start": 2.39,
+          "end": 2.51
+        },
+        {
+          "text": "besides",
+          "start": 2.51,
+          "end": 2.91
+        },
+        {
+          "text": "a",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "text": "premium",
+          "start": 3.15,
+          "end": 3.45
+        },
+        {
+          "text": "of",
+          "start": 3.45,
+          "end": 3.77
+        },
+        {
+          "text": "£",
+          "start": 3.77,
+          "end": 4.72
+        },
+        {
+          "text": "0",
+          "start": 4.72,
+          "end": 5.195
+        },
+        {
+          "text": "2",
+          "start": 5.195,
+          "end": 5.433
+        },
+        {
+          "text": "8",
+          "start": 5.433,
+          "end": 5.551
+        },
+        {
+          "text": "So",
+          "start": 5.67,
+          "end": 5.89
+        },
+        {
+          "text": "the",
+          "start": 5.89,
+          "end": 6.03
+        },
+        {
+          "text": "bounty",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "text": "paid",
+          "start": 6.29,
+          "end": 6.69
+        },
+        {
+          "text": "by",
+          "start": 6.69,
+          "end": 6.97
+        },
+        {
+          "text": "government",
+          "start": 6.97,
+          "end": 7.25
+        },
+        {
+          "text": "in",
+          "start": 7.25,
+          "end": 7.55
+        },
+        {
+          "text": "money",
+          "start": 7.55,
+          "end": 7.75
+        },
+        {
+          "text": "for",
+          "start": 7.75,
+          "end": 8.01
+        },
+        {
+          "text": "each",
+          "start": 8.01,
+          "end": 8.21
+        },
+        {
+          "text": "barrel",
+          "start": 8.21,
+          "end": 8.69
+        },
+        {
+          "text": "is",
+          "start": 8.69,
+          "end": 9.23
+        },
+        {
+          "text": "£",
+          "start": 9.23,
+          "end": 10.21
+        },
+        {
+          "text": "0",
+          "start": 10.21,
+          "end": 10.7
+        },
+        {
+          "text": "14",
+          "start": 10.7,
+          "end": 10.945
+        },
+        {
+          "text": "11¾",
+          "start": 10.945,
+          "end": 11.067
+        }
+      ],
+      "stats": {
+        "expected_words": 32,
+        "heard_words": 28,
+        "matched_words": 24
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.43281080899760127
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "4c97be9c37c2ea40de7aa6bbed937e593db26ba75bc7882d94cd428f83717b49",
+  "selected_reasons": []
+}

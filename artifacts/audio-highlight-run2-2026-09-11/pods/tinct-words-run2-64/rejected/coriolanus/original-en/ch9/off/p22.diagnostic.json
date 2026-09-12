@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "25fd94eeac1828403aa91f96841845d211059ce8b9fa2f73e8962a2e710c2ca4",
+  "attempts": [
+    {
+      "asr_seconds": 0.4032085184007883,
+      "alignment_seconds": 0.00044256262481212616,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Coriolanus by Jupiter forgot. I am weary. Yay. My memory is tired. Have we no wine here?",
+          "start": 0.0,
+          "end": 6.04,
+          "words": [
+            {
+              "text": " Coriolanus",
+              "start": 0.0,
+              "end": 1.04,
+              "probability": 0.651123046875
+            },
+            {
+              "text": " by",
+              "start": 1.04,
+              "end": 1.42,
+              "probability": 0.492431640625
+            },
+            {
+              "text": " Jupiter",
+              "start": 1.42,
+              "end": 1.84,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " forgot.",
+              "start": 1.84,
+              "end": 2.2,
+              "probability": 0.724609375
+            },
+            {
+              "text": " I",
+              "start": 2.68,
+              "end": 2.68,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " am",
+              "start": 2.68,
+              "end": 2.8,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " weary.",
+              "start": 2.8,
+              "end": 3.16,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Yay.",
+              "start": 3.54,
+              "end": 3.6,
+              "probability": 0.716064453125
+            },
+            {
+              "text": " My",
+              "start": 3.7,
+              "end": 3.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " memory",
+              "start": 3.78,
+              "end": 4.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 4.08,
+              "end": 4.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tired.",
+              "start": 4.34,
+              "end": 4.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Have",
+              "start": 5.1,
+              "end": 5.28,
+              "probability": 0.98828125
+            },
+            {
+              "text": " we",
+              "start": 5.28,
+              "end": 5.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " no",
+              "start": 5.4,
+              "end": 5.54,
+              "probability": 0.95703125
+            },
+            {
+              "text": " wine",
+              "start": 5.54,
+              "end": 5.74,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " here?",
+              "start": 5.74,
+              "end": 6.04,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus",
+          "start": 0.0,
+          "end": 1.04
+        },
+        {
+          "raw": "by",
+          "start": 1.04,
+          "end": 1.42
+        },
+        {
+          "raw": "Jupiter",
+          "start": 1.42,
+          "end": 1.84
+        },
+        {
+          "raw": "forgot.",
+          "start": 1.84,
+          "end": 2.2
+        },
+        {
+          "raw": "I",
+          "start": 2.68,
+          "end": 2.68
+        },
+        {
+          "raw": "am",
+          "start": 2.68,
+          "end": 2.8
+        },
+        {
+          "raw": "weary.",
+          "start": 2.8,
+          "end": 3.16
+        },
+        {
+          "raw": "Yay.",
+          "start": 3.54,
+          "end": 3.6
+        },
+        {
+          "raw": "My",
+          "start": 3.7,
+          "end": 3.78
+        },
+        {
+          "raw": "memory",
+          "start": 3.78,
+          "end": 4.08
+        },
+        {
+          "raw": "is",
+          "start": 4.08,
+          "end": 4.34
+        },
+        {
+          "raw": "tired.",
+          "start": 4.34,
+          "end": 4.74
+        },
+        {
+          "raw": "Have",
+          "start": 5.1,
+          "end": 5.28
+        },
+        {
+          "raw": "we",
+          "start": 5.28,
+          "end": 5.4
+        },
+        {
+          "raw": "no",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "raw": "wine",
+          "start": 5.54,
+          "end": 5.74
+        },
+        {
+          "raw": "here?",
+          "start": 5.74,
+          "end": 6.04
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "By",
+        "Jupiter,",
+        "forgot!",
+        "I",
+        "am",
+        "weary;",
+        "yea,",
+        "my",
+        "memory",
+        "is",
+        "tired.",
+        "Have",
+        "we",
+        "no",
+        "wine",
+        "here?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          17,
+          8,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus",
+          "start": 0.0,
+          "end": 1.04,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.04,
+          "end": 1.42,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Jupiter",
+          "start": 1.42,
+          "end": 1.84,
+          "key": "jupiter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "forgot.",
+          "start": 1.84,
+          "end": 2.2,
+          "key": "forgot",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.68,
+          "end": 2.68,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.68,
+          "end": 2.8,
+          "key": "am",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "weary.",
+          "start": 2.8,
+          "end": 3.16,
+          "key": "weary",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Yay.",
+          "start": 3.54,
+          "end": 3.6,
+          "key": "yay",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 3.7,
+          "end": 3.78,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "memory",
+          "start": 3.78,
+          "end": 4.08,
+          "key": "memory",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.08,
+          "end": 4.34,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "tired.",
+          "start": 4.34,
+          "end": 4.74,
+          "key": "tired",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 5.1,
+          "end": 5.28,
+          "key": "have",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 5.28,
+          "end": 5.4,
+          "key": "we",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 5.4,
+          "end": 5.54,
+          "key": "no",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "wine",
+          "start": 5.54,
+          "end": 5.74,
+          "key": "wine",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "here?",
+          "start": 5.74,
+          "end": 6.04,
+          "key": "here",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.0,
+          "end": 1.04
+        },
+        {
+          "text": "By",
+          "start": 1.04,
+          "end": 1.42
+        },
+        {
+          "text": "Jupiter,",
+          "start": 1.42,
+          "end": 1.84
+        },
+        {
+          "text": "forgot!",
+          "start": 1.84,
+          "end": 2.2
+        },
+        {
+          "text": "I",
+          "start": 2.68,
+          "end": 2.68
+        },
+        {
+          "text": "am",
+          "start": 2.68,
+          "end": 2.8
+        },
+        {
+          "text": "weary;",
+          "start": 2.8,
+          "end": 3.16
+        },
+        {
+          "text": "yea,",
+          "start": 3.16,
+          "end": 3.43
+        },
+        {
+          "text": "my",
+          "start": 3.7,
+          "end": 3.78
+        },
+        {
+          "text": "memory",
+          "start": 3.78,
+          "end": 4.08
+        },
+        {
+          "text": "is",
+          "start": 4.08,
+          "end": 4.34
+        },
+        {
+          "text": "tired.",
+          "start": 4.34,
+          "end": 4.74
+        },
+        {
+          "text": "Have",
+          "start": 5.1,
+          "end": 5.28
+        },
+        {
+          "text": "we",
+          "start": 5.28,
+          "end": 5.4
+        },
+        {
+          "text": "no",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "text": "wine",
+          "start": 5.54,
+          "end": 5.74
+        },
+        {
+          "text": "here?",
+          "start": 5.74,
+          "end": 6.04
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.40381872560828924
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4aaa5576ce1a37d0dcec92f2c77ea37f0914bc88f825d02e35de25061c770edb",
+  "selected_reasons": []
+}

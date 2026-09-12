@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "6578c96cc9c0912f4d5201549b3b1fd8f413fc2b982aad349c68dc2c2d9c00b4",
+  "attempts": [
+    {
+      "asr_seconds": 0.22671810910105705,
+      "alignment_seconds": 0.0003850385546684265,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. Dolabella, I shall remain your debtor.",
+        "hotwords": "Cleopatra, Dolabella, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, Dolabella, I shall remain your debtor.",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 0.9435221354166666
+            },
+            {
+              "text": " Dolabella,",
+              "start": 1.63,
+              "end": 2.03,
+              "probability": 0.02212047576904297
+            },
+            {
+              "text": " I",
+              "start": 2.29,
+              "end": 2.37,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " shall",
+              "start": 2.37,
+              "end": 2.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " remain",
+              "start": 2.51,
+              "end": 2.79,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " your",
+              "start": 2.79,
+              "end": 2.99,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " debtor.",
+              "start": 2.99,
+              "end": 3.21,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "raw": "Dolabella,",
+          "start": 1.63,
+          "end": 2.03
+        },
+        {
+          "raw": "I",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "raw": "shall",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "raw": "remain",
+          "start": 2.51,
+          "end": 2.79
+        },
+        {
+          "raw": "your",
+          "start": 2.79,
+          "end": 2.99
+        },
+        {
+          "raw": "debtor.",
+          "start": 2.99,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Dolabella,",
+        "I",
+        "shall",
+        "remain",
+        "your",
+        "debtor."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.07,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dolabella,",
+          "start": 1.63,
+          "end": 2.03,
+          "key": "dolabella",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.29,
+          "end": 2.37,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.37,
+          "end": 2.51,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "remain",
+          "start": 2.51,
+          "end": 2.79,
+          "key": "remain",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.79,
+          "end": 2.99,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "debtor.",
+          "start": 2.99,
+          "end": 3.21,
+          "key": "debtor",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "text": "Dolabella,",
+          "start": 1.63,
+          "end": 2.03
+        },
+        {
+          "text": "I",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "text": "shall",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "text": "remain",
+          "start": 2.51,
+          "end": 2.79
+        },
+        {
+          "text": "your",
+          "start": 2.79,
+          "end": 2.99
+        },
+        {
+          "text": "debtor.",
+          "start": 2.99,
+          "end": 3.21
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22723980154842138
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9df35bb680ce79efe3908c30489a2e3accf7e4b65b9928a15941b74299ca9a68",
+  "selected_reasons": []
+}

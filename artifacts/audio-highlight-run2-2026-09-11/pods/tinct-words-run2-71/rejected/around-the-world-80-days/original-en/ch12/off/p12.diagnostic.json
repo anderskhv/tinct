@@ -1,0 +1,697 @@
+{
+  "complete": true,
+  "signature": "4376f559da0b91af53fc112944fc11c3214c84fb60fed4a5a11a08cd116cc413",
+  "attempts": [
+    {
+      "asr_seconds": 0.370893576182425,
+      "alignment_seconds": 0.00067128986120224,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I don't know, Officer,\" replied the Parsi, listening attentively to a confused murmur",
+          "start": 0.08,
+          "end": 5.9,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.0192413330078125
+            },
+            {
+              "text": " don't",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " know,",
+              "start": 0.7,
+              "end": 1.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Officer,\"",
+              "start": 1.24,
+              "end": 2.12,
+              "probability": 0.609130859375
+            },
+            {
+              "text": " replied",
+              "start": 2.12,
+              "end": 2.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.42,
+              "end": 2.64,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Parsi,",
+              "start": 2.64,
+              "end": 3.1,
+              "probability": 0.937744140625
+            },
+            {
+              "text": " listening",
+              "start": 3.68,
+              "end": 4.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " attentively",
+              "start": 4.0,
+              "end": 4.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 4.58,
+              "end": 4.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 4.84,
+              "end": 4.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " confused",
+              "start": 4.96,
+              "end": 5.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " murmur",
+              "start": 5.46,
+              "end": 5.9,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " which came through the thick branches.",
+          "start": 5.9,
+          "end": 7.5,
+          "words": [
+            {
+              "text": " which",
+              "start": 5.9,
+              "end": 6.12,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " came",
+              "start": 6.12,
+              "end": 6.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " through",
+              "start": 6.38,
+              "end": 6.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 6.64,
+              "end": 6.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thick",
+              "start": 6.82,
+              "end": 7.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " branches.",
+              "start": 7.04,
+              "end": 7.5,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "don't",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "know,",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "raw": "Officer,\"",
+          "start": 1.24,
+          "end": 2.12
+        },
+        {
+          "raw": "replied",
+          "start": 2.12,
+          "end": 2.42
+        },
+        {
+          "raw": "the",
+          "start": 2.42,
+          "end": 2.64
+        },
+        {
+          "raw": "Parsi,",
+          "start": 2.64,
+          "end": 3.1
+        },
+        {
+          "raw": "listening",
+          "start": 3.68,
+          "end": 4.0
+        },
+        {
+          "raw": "attentively",
+          "start": 4.0,
+          "end": 4.58
+        },
+        {
+          "raw": "to",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "raw": "a",
+          "start": 4.84,
+          "end": 4.96
+        },
+        {
+          "raw": "confused",
+          "start": 4.96,
+          "end": 5.46
+        },
+        {
+          "raw": "murmur",
+          "start": 5.46,
+          "end": 5.9
+        },
+        {
+          "raw": "which",
+          "start": 5.9,
+          "end": 6.12
+        },
+        {
+          "raw": "came",
+          "start": 6.12,
+          "end": 6.38
+        },
+        {
+          "raw": "through",
+          "start": 6.38,
+          "end": 6.64
+        },
+        {
+          "raw": "the",
+          "start": 6.64,
+          "end": 6.82
+        },
+        {
+          "raw": "thick",
+          "start": 6.82,
+          "end": 7.04
+        },
+        {
+          "raw": "branches.",
+          "start": 7.04,
+          "end": 7.5
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "don't",
+        "know,",
+        "officer,\"",
+        "replied",
+        "the",
+        "Parsee,",
+        "listening",
+        "attentively",
+        "to",
+        "a",
+        "confused",
+        "murmur",
+        "which",
+        "came",
+        "through",
+        "the",
+        "thick",
+        "branches."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          19,
+          7,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "dont",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 0.7,
+          "end": 1.0,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Officer,\"",
+          "start": 1.24,
+          "end": 2.12,
+          "key": "officer",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 2.12,
+          "end": 2.42,
+          "key": "replied",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.42,
+          "end": 2.64,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Parsi,",
+          "start": 2.64,
+          "end": 3.1,
+          "key": "parsi",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "listening",
+          "start": 3.68,
+          "end": 4.0,
+          "key": "listening",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "attentively",
+          "start": 4.0,
+          "end": 4.58,
+          "key": "attentively",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.58,
+          "end": 4.84,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.84,
+          "end": 4.96,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "confused",
+          "start": 4.96,
+          "end": 5.46,
+          "key": "confused",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "murmur",
+          "start": 5.46,
+          "end": 5.9,
+          "key": "murmur",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 5.9,
+          "end": 6.12,
+          "key": "which",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 6.12,
+          "end": 6.38,
+          "key": "came",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 6.38,
+          "end": 6.64,
+          "key": "through",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.64,
+          "end": 6.82,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "thick",
+          "start": 6.82,
+          "end": 7.04,
+          "key": "thick",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "branches.",
+          "start": 7.04,
+          "end": 7.5,
+          "key": "branches",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "don't",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "know,",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "text": "officer,\"",
+          "start": 1.24,
+          "end": 2.12
+        },
+        {
+          "text": "replied",
+          "start": 2.12,
+          "end": 2.42
+        },
+        {
+          "text": "the",
+          "start": 2.42,
+          "end": 2.64
+        },
+        {
+          "text": "Parsee,",
+          "start": 2.64,
+          "end": 3.16
+        },
+        {
+          "text": "listening",
+          "start": 3.68,
+          "end": 4.0
+        },
+        {
+          "text": "attentively",
+          "start": 4.0,
+          "end": 4.58
+        },
+        {
+          "text": "to",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "text": "a",
+          "start": 4.84,
+          "end": 4.96
+        },
+        {
+          "text": "confused",
+          "start": 4.96,
+          "end": 5.46
+        },
+        {
+          "text": "murmur",
+          "start": 5.46,
+          "end": 5.9
+        },
+        {
+          "text": "which",
+          "start": 5.9,
+          "end": 6.12
+        },
+        {
+          "text": "came",
+          "start": 6.12,
+          "end": 6.38
+        },
+        {
+          "text": "through",
+          "start": 6.38,
+          "end": 6.64
+        },
+        {
+          "text": "the",
+          "start": 6.64,
+          "end": 6.82
+        },
+        {
+          "text": "thick",
+          "start": 6.82,
+          "end": 7.04
+        },
+        {
+          "text": "branches.",
+          "start": 7.04,
+          "end": 7.5
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.3718303516507149
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8d61bbc8187605e15a246e4e1c001238b873ffe145dfd0ed0b33b3cd0a8f8143",
+  "selected_reasons": []
+}

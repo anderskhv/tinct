@@ -1,0 +1,374 @@
+{
+  "complete": true,
+  "signature": "d8ed7672483d4d61b99237bbfd31296754421ec6d4f82fa3dfc42bcfc63128aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.24928137939423323,
+      "alignment_seconds": 0.00046297814697027206,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Musician. Then will I give you the serving-creature.",
+        "hotwords": "First, Musician, Then, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Musician, Then will I give you the serving-creature.",
+          "start": 0.05,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.791015625
+            },
+            {
+              "text": " Musician,",
+              "start": 0.69,
+              "end": 1.25,
+              "probability": 0.51885986328125
+            },
+            {
+              "text": " Then",
+              "start": 1.81,
+              "end": 1.93,
+              "probability": 0.06298828125
+            },
+            {
+              "text": " will",
+              "start": 1.93,
+              "end": 2.09,
+              "probability": 0.8125
+            },
+            {
+              "text": " I",
+              "start": 2.09,
+              "end": 2.23,
+              "probability": 0.9375
+            },
+            {
+              "text": " give",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.962890625
+            },
+            {
+              "text": " you",
+              "start": 2.35,
+              "end": 2.47,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " the",
+              "start": 2.47,
+              "end": 2.61,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " serving",
+              "start": 2.61,
+              "end": 2.87,
+              "probability": 0.42724609375
+            },
+            {
+              "text": "-creature.",
+              "start": 2.87,
+              "end": 3.39,
+              "probability": 0.640557607014974
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Musician,",
+          "start": 0.69,
+          "end": 1.25
+        },
+        {
+          "raw": "Then",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "raw": "will",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "raw": "I",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "raw": "give",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "you",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "raw": "the",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "raw": "serving",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "raw": "-creature.",
+          "start": 2.87,
+          "end": 3.39
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Musician.",
+        "Then",
+        "will",
+        "I",
+        "give",
+        "you",
+        "the",
+        "serving-creature."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Musician,",
+          "start": 0.69,
+          "end": 1.25,
+          "key": "musician",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 1.81,
+          "end": 1.93,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.93,
+          "end": 2.09,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.09,
+          "end": 2.23,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "give",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.35,
+          "end": 2.47,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.47,
+          "end": 2.61,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "serving -creature.",
+          "start": 2.61,
+          "end": 3.39,
+          "key": "servingcreature",
+          "pieces": [
+            8,
+            9
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 8,
+          "text": "serving-creature.",
+          "heard": "serving -creature.",
+          "heard_indexes": [
+            8,
+            9
+          ],
+          "start": 2.61,
+          "end": 3.39
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Musician.",
+          "start": 0.69,
+          "end": 1.25
+        },
+        {
+          "text": "Then",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "text": "will",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "text": "I",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "text": "give",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "you",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "text": "the",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "text": "serving-creature.",
+          "start": 2.61,
+          "end": 3.39
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24986931774765253
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "278a27e0bccb7c0cb0ed3126e23db6f75e7d7e35917fab584c3931d988bbbb45",
+  "selected_reasons": []
+}

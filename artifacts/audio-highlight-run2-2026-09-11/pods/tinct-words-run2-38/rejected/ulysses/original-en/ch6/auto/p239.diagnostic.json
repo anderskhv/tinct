@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "3aae85fdf09b1fe039759b3bfcf89d916f0435adacb404398de73a579d6b5332",
+  "attempts": [
+    {
+      "asr_seconds": 0.113164198002778,
+      "alignment_seconds": 0.0001546810381114483,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Was he insured? Mr Bloom asked.",
+        "hotwords": "Was, Mr, Bloom"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Was he insured? Mr Bloom asked.",
+          "start": 0.02,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Was",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " he",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " insured?",
+              "start": 0.64,
+              "end": 1.04,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " Mr",
+              "start": 1.5,
+              "end": 1.6,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Bloom",
+              "start": 1.6,
+              "end": 1.86,
+              "probability": 0.023895263671875
+            },
+            {
+              "text": " asked.",
+              "start": 1.86,
+              "end": 2.36,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Was",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "he",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "insured?",
+          "start": 0.64,
+          "end": 1.04
+        },
+        {
+          "raw": "Mr",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "raw": "Bloom",
+          "start": 1.6,
+          "end": 1.86
+        },
+        {
+          "raw": "asked.",
+          "start": 1.86,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "—Was",
+        "he",
+        "insured?",
+        "Mr",
+        "Bloom",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Was",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "was",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "insured?",
+          "start": 0.64,
+          "end": 1.04,
+          "key": "insured",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mr",
+          "start": 1.5,
+          "end": 1.6,
+          "key": "mr",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Bloom",
+          "start": 1.6,
+          "end": 1.86,
+          "key": "bloom",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 1.86,
+          "end": 2.36,
+          "key": "asked",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Was",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "he",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "insured?",
+          "start": 0.64,
+          "end": 1.04
+        },
+        {
+          "text": "Mr",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "text": "Bloom",
+          "start": 1.6,
+          "end": 1.86
+        },
+        {
+          "text": "asked.",
+          "start": 1.86,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11337535904021934
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "355440a661321f30f9593ede208366f53a55cfd9d0fc22820ebf58011ab91fb8",
+  "selected_reasons": []
+}

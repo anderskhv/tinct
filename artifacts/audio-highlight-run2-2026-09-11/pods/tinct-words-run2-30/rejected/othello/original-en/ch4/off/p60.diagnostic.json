@@ -1,0 +1,442 @@
+{
+  "complete": true,
+  "signature": "ce3f1f3e930531827150f2385ac3fbb4ac629b7c9fed594dc9d594096440b02b",
+  "attempts": [
+    {
+      "asr_seconds": 0.15251806238666177,
+      "alignment_seconds": 0.00019940873607993126,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, come on and say, there's one gone to the harbor.",
+          "start": 0.61,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.61,
+              "end": 1.01,
+              "probability": 0.70733642578125
+            },
+            {
+              "text": " come",
+              "start": 1.37,
+              "end": 1.45,
+              "probability": 0.76611328125
+            },
+            {
+              "text": " on",
+              "start": 1.45,
+              "end": 1.65,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " and",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.2135009765625
+            },
+            {
+              "text": " say,",
+              "start": 1.75,
+              "end": 1.97,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " there's",
+              "start": 2.47,
+              "end": 2.65,
+              "probability": 0.877685546875
+            },
+            {
+              "text": " one",
+              "start": 2.65,
+              "end": 2.83,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " gone",
+              "start": 2.83,
+              "end": 3.03,
+              "probability": 0.970703125
+            },
+            {
+              "text": " to",
+              "start": 3.03,
+              "end": 3.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 3.23,
+              "end": 3.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " harbor.",
+              "start": 3.33,
+              "end": 3.55,
+              "probability": 0.8671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.61,
+          "end": 1.01
+        },
+        {
+          "raw": "come",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "raw": "on",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "raw": "and",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "say,",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "raw": "there's",
+          "start": 2.47,
+          "end": 2.65
+        },
+        {
+          "raw": "one",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "raw": "gone",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "raw": "to",
+          "start": 3.03,
+          "end": 3.23
+        },
+        {
+          "raw": "the",
+          "start": 3.23,
+          "end": 3.33
+        },
+        {
+          "raw": "harbor.",
+          "start": 3.33,
+          "end": 3.55
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Come",
+        "on,",
+        "assay.—There's",
+        "one",
+        "gone",
+        "to",
+        "the",
+        "harbour?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          6
+        ],
+        [
+          "equal",
+          4,
+          8,
+          6,
+          10
+        ],
+        [
+          "replace",
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          6
+        ],
+        [
+          "replace",
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.61,
+          "end": 1.01,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.37,
+          "end": 1.45,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.45,
+          "end": 1.65,
+          "key": "on",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 1.75,
+          "end": 1.97,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 2.47,
+          "end": 2.65,
+          "key": "theres",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.65,
+          "end": 2.83,
+          "key": "one",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gone",
+          "start": 2.83,
+          "end": 3.03,
+          "key": "gone",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.03,
+          "end": 3.23,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.23,
+          "end": 3.33,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "harbor.",
+          "start": 3.33,
+          "end": 3.55,
+          "key": "harbor",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.685
+        },
+        {
+          "text": "Come",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "text": "on,",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "text": "assay.—There's",
+          "start": 1.65,
+          "end": 2.15
+        },
+        {
+          "text": "one",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "text": "gone",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "text": "to",
+          "start": 3.03,
+          "end": 3.23
+        },
+        {
+          "text": "the",
+          "start": 3.23,
+          "end": 3.33
+        },
+        {
+          "text": "harbour?",
+          "start": 3.33,
+          "end": 3.44
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 11,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15278642997145653
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3fa8d241492db005a9b30b5ad92eb9af67929bb7af16eef665ae3509434a2ebf",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

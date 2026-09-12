@@ -1,0 +1,427 @@
+{
+  "complete": true,
+  "signature": "d8890bcfa46c47bc6b18ba0522a56b5cafdec5c906de8017b578d3c8d9b1e45f",
+  "attempts": [
+    {
+      "asr_seconds": 0.24135929439216852,
+      "alignment_seconds": 0.00045796576887369156,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fleets the moon is down. I have not heard the clock",
+          "start": 0.08,
+          "end": 3.14,
+          "words": [
+            {
+              "text": " Fleets",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.6798095703125
+            },
+            {
+              "text": " the",
+              "start": 0.84,
+              "end": 1.34,
+              "probability": 0.08392333984375
+            },
+            {
+              "text": " moon",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " is",
+              "start": 1.54,
+              "end": 1.72,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " down.",
+              "start": 1.72,
+              "end": 2.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 2.04,
+              "end": 2.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 2.32,
+              "end": 2.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 2.4,
+              "end": 2.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " heard",
+              "start": 2.54,
+              "end": 2.72,
+              "probability": 1.0
+            },
+            {
+              "text": " the",
+              "start": 2.72,
+              "end": 2.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " clock",
+              "start": 2.88,
+              "end": 3.14,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fleets",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "the",
+          "start": 0.84,
+          "end": 1.34
+        },
+        {
+          "raw": "moon",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "is",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "raw": "down.",
+          "start": 1.72,
+          "end": 2.04
+        },
+        {
+          "raw": "I",
+          "start": 2.04,
+          "end": 2.32
+        },
+        {
+          "raw": "have",
+          "start": 2.32,
+          "end": 2.4
+        },
+        {
+          "raw": "not",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "raw": "heard",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "raw": "the",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "raw": "clock",
+          "start": 2.88,
+          "end": 3.14
+        }
+      ],
+      "expected_tokens": [
+        "Fleance.",
+        "The",
+        "moon",
+        "is",
+        "down;",
+        "I",
+        "have",
+        "not",
+        "heard",
+        "the",
+        "clock."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          11,
+          1,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fleets",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "fleets",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.84,
+          "end": 1.34,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "moon",
+          "start": 1.34,
+          "end": 1.54,
+          "key": "moon",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.54,
+          "end": 1.72,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "down.",
+          "start": 1.72,
+          "end": 2.04,
+          "key": "down",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.04,
+          "end": 2.32,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.32,
+          "end": 2.4,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.4,
+          "end": 2.54,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 2.54,
+          "end": 2.72,
+          "key": "heard",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.72,
+          "end": 2.88,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "clock",
+          "start": 2.88,
+          "end": 3.14,
+          "key": "clock",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fleance.",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "The",
+          "start": 0.84,
+          "end": 1.34
+        },
+        {
+          "text": "moon",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "is",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "text": "down;",
+          "start": 1.72,
+          "end": 2.04
+        },
+        {
+          "text": "I",
+          "start": 2.04,
+          "end": 2.32
+        },
+        {
+          "text": "have",
+          "start": 2.32,
+          "end": 2.4
+        },
+        {
+          "text": "not",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "text": "heard",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "text": "the",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "text": "clock.",
+          "start": 2.88,
+          "end": 3.14
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.2420012578368187
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7d9a417242c0520bb7717e16d3cfbeff890879f19b902f24af103d1bd1b38d56",
+  "selected_reasons": []
+}

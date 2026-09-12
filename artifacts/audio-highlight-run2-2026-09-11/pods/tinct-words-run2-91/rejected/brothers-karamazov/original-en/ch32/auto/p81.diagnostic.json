@@ -1,0 +1,645 @@
+{
+  "complete": true,
+  "signature": "224dcd0070074205290e5eb85151af8495fb48cdea2ac557f9bee8210afad54d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3328623669221997,
+      "alignment_seconds": 0.0004809759557247162,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, together, together! Henceforward we shall be always together, all our lives! Listen, kiss me, I allow you.\"",
+        "hotwords": "Yes, Henceforward, Listen, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, together, together! Henceforward we shall be always together, all our lives! Listen,",
+          "start": 0.05,
+          "end": 5.75,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.693359375
+            },
+            {
+              "text": " together,",
+              "start": 1.01,
+              "end": 1.15,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " together!",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Henceforward",
+              "start": 2.25,
+              "end": 2.69,
+              "probability": 0.4929485321044922
+            },
+            {
+              "text": " we",
+              "start": 2.69,
+              "end": 2.97,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " shall",
+              "start": 2.97,
+              "end": 3.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 3.11,
+              "end": 3.25,
+              "probability": 0.95703125
+            },
+            {
+              "text": " always",
+              "start": 3.25,
+              "end": 3.57,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " together,",
+              "start": 3.57,
+              "end": 3.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all",
+              "start": 4.19,
+              "end": 4.25,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " our",
+              "start": 4.25,
+              "end": 4.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " lives!",
+              "start": 4.41,
+              "end": 4.69,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Listen,",
+              "start": 5.75,
+              "end": 5.75,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " kiss me, I allow you.",
+          "start": 6.11,
+          "end": 7.23,
+          "words": [
+            {
+              "text": " kiss",
+              "start": 6.11,
+              "end": 6.17,
+              "probability": 0.892578125
+            },
+            {
+              "text": " me,",
+              "start": 6.17,
+              "end": 6.43,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " I",
+              "start": 6.57,
+              "end": 6.67,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " allow",
+              "start": 6.67,
+              "end": 6.93,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " you.",
+              "start": 6.93,
+              "end": 7.23,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "together,",
+          "start": 1.01,
+          "end": 1.15
+        },
+        {
+          "raw": "together!",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "raw": "Henceforward",
+          "start": 2.25,
+          "end": 2.69
+        },
+        {
+          "raw": "we",
+          "start": 2.69,
+          "end": 2.97
+        },
+        {
+          "raw": "shall",
+          "start": 2.97,
+          "end": 3.11
+        },
+        {
+          "raw": "be",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "raw": "always",
+          "start": 3.25,
+          "end": 3.57
+        },
+        {
+          "raw": "together,",
+          "start": 3.57,
+          "end": 3.93
+        },
+        {
+          "raw": "all",
+          "start": 4.19,
+          "end": 4.25
+        },
+        {
+          "raw": "our",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "raw": "lives!",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "raw": "Listen,",
+          "start": 5.75,
+          "end": 5.75
+        },
+        {
+          "raw": "kiss",
+          "start": 6.11,
+          "end": 6.17
+        },
+        {
+          "raw": "me,",
+          "start": 6.17,
+          "end": 6.43
+        },
+        {
+          "raw": "I",
+          "start": 6.57,
+          "end": 6.67
+        },
+        {
+          "raw": "allow",
+          "start": 6.67,
+          "end": 6.93
+        },
+        {
+          "raw": "you.",
+          "start": 6.93,
+          "end": 7.23
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "together,",
+        "together!",
+        "Henceforward",
+        "we",
+        "shall",
+        "be",
+        "always",
+        "together,",
+        "all",
+        "our",
+        "lives!",
+        "Listen,",
+        "kiss",
+        "me,",
+        "I",
+        "allow",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "together,",
+          "start": 1.01,
+          "end": 1.15,
+          "key": "together",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "together!",
+          "start": 1.41,
+          "end": 1.63,
+          "key": "together",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Henceforward",
+          "start": 2.25,
+          "end": 2.69,
+          "key": "henceforward",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.69,
+          "end": 2.97,
+          "key": "we",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.97,
+          "end": 3.11,
+          "key": "shall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.11,
+          "end": 3.25,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 3.25,
+          "end": 3.57,
+          "key": "always",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "together,",
+          "start": 3.57,
+          "end": 3.93,
+          "key": "together",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 4.19,
+          "end": 4.25,
+          "key": "all",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.25,
+          "end": 4.41,
+          "key": "our",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lives!",
+          "start": 4.41,
+          "end": 4.69,
+          "key": "lives",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Listen,",
+          "start": 5.75,
+          "end": 5.75,
+          "key": "listen",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "kiss",
+          "start": 6.11,
+          "end": 6.17,
+          "key": "kiss",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 6.17,
+          "end": 6.43,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.57,
+          "end": 6.67,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "allow",
+          "start": 6.67,
+          "end": 6.93,
+          "key": "allow",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 6.93,
+          "end": 7.23,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "together,",
+          "start": 1.01,
+          "end": 1.15
+        },
+        {
+          "text": "together!",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "text": "Henceforward",
+          "start": 2.25,
+          "end": 2.69
+        },
+        {
+          "text": "we",
+          "start": 2.69,
+          "end": 2.97
+        },
+        {
+          "text": "shall",
+          "start": 2.97,
+          "end": 3.11
+        },
+        {
+          "text": "be",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "text": "always",
+          "start": 3.25,
+          "end": 3.57
+        },
+        {
+          "text": "together,",
+          "start": 3.57,
+          "end": 3.93
+        },
+        {
+          "text": "all",
+          "start": 4.19,
+          "end": 4.25
+        },
+        {
+          "text": "our",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "text": "lives!",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "text": "Listen,",
+          "start": 5.75,
+          "end": 5.75
+        },
+        {
+          "text": "kiss",
+          "start": 6.11,
+          "end": 6.17
+        },
+        {
+          "text": "me,",
+          "start": 6.17,
+          "end": 6.43
+        },
+        {
+          "text": "I",
+          "start": 6.57,
+          "end": 6.67
+        },
+        {
+          "text": "allow",
+          "start": 6.67,
+          "end": 6.93
+        },
+        {
+          "text": "you.\"",
+          "start": 6.93,
+          "end": 7.23
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.333554670214653
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5906cffc87b0dab2db22eba0fc2f0243fc38909adb89b60165d47c288edf1204",
+  "selected_reasons": []
+}

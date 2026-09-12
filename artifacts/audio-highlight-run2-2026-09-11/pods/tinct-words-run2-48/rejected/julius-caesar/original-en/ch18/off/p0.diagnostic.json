@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "e3ab7f90bc06fcc6f3773f8a6cb7fa020a6315a511d2504460f97819f2ba572c",
+  "attempts": [
+    {
+      "asr_seconds": 0.17829820606857538,
+      "alignment_seconds": 0.00019390787929296494,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Brutus, Dardanius, Clitus, Strato, and Volumnius.",
+          "start": 0.11,
+          "end": 3.71,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.67,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " Brutus,",
+              "start": 0.67,
+              "end": 1.19,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " Dardanius,",
+              "start": 1.51,
+              "end": 1.99,
+              "probability": 0.841796875
+            },
+            {
+              "text": " Clitus,",
+              "start": 2.23,
+              "end": 2.41,
+              "probability": 0.742919921875
+            },
+            {
+              "text": " Strato,",
+              "start": 2.83,
+              "end": 2.97,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " and",
+              "start": 3.09,
+              "end": 3.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Volumnius.",
+              "start": 3.19,
+              "end": 3.71,
+              "probability": 0.7360026041666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "raw": "Brutus,",
+          "start": 0.67,
+          "end": 1.19
+        },
+        {
+          "raw": "Dardanius,",
+          "start": 1.51,
+          "end": 1.99
+        },
+        {
+          "raw": "Clitus,",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "raw": "Strato,",
+          "start": 2.83,
+          "end": 2.97
+        },
+        {
+          "raw": "and",
+          "start": 3.09,
+          "end": 3.19
+        },
+        {
+          "raw": "Volumnius.",
+          "start": 3.19,
+          "end": 3.71
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Brutus,",
+        "Dardanius,",
+        "Clitus,",
+        "Strato",
+        "and",
+        "Volumnius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.67,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Brutus,",
+          "start": 0.67,
+          "end": 1.19,
+          "key": "brutus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dardanius,",
+          "start": 1.51,
+          "end": 1.99,
+          "key": "dardanius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Clitus,",
+          "start": 2.23,
+          "end": 2.41,
+          "key": "clitus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Strato,",
+          "start": 2.83,
+          "end": 2.97,
+          "key": "strato",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.09,
+          "end": 3.19,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Volumnius.",
+          "start": 3.19,
+          "end": 3.71,
+          "key": "volumnius",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "text": "Brutus,",
+          "start": 0.67,
+          "end": 1.19
+        },
+        {
+          "text": "Dardanius,",
+          "start": 1.51,
+          "end": 1.99
+        },
+        {
+          "text": "Clitus,",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "text": "Strato",
+          "start": 2.83,
+          "end": 2.97
+        },
+        {
+          "text": "and",
+          "start": 3.09,
+          "end": 3.19
+        },
+        {
+          "text": "Volumnius.",
+          "start": 3.19,
+          "end": 3.71
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17856548074632883
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4a4ec2113a43e3da286e45f2138e15c4d61bd42b2638218f1dbe1d190988e0ec",
+  "selected_reasons": []
+}

@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "82bb77d610713a2e01e4becc7b81228ab6810016a1738439e3ec8c351d8debac",
+  "attempts": [
+    {
+      "asr_seconds": 0.08503757603466511,
+      "alignment_seconds": 9.164400398731232e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I only want to say a few words to you,\" said Gertrude.",
+          "start": 0.08,
+          "end": 3.18,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.1484375
+            },
+            {
+              "text": " only",
+              "start": 0.52,
+              "end": 0.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " want",
+              "start": 0.72,
+              "end": 0.9,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " to",
+              "start": 0.9,
+              "end": 1.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " say",
+              "start": 1.02,
+              "end": 1.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 1.16,
+              "end": 1.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " few",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " words",
+              "start": 1.42,
+              "end": 1.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 1.66,
+              "end": 1.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you,\"",
+              "start": 1.9,
+              "end": 2.42,
+              "probability": 0.822998046875
+            },
+            {
+              "text": " said",
+              "start": 2.42,
+              "end": 2.66,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Gertrude.",
+              "start": 2.66,
+              "end": 3.18,
+              "probability": 0.9876708984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "only",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "raw": "want",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "raw": "to",
+          "start": 0.9,
+          "end": 1.02
+        },
+        {
+          "raw": "say",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "raw": "a",
+          "start": 1.16,
+          "end": 1.3
+        },
+        {
+          "raw": "few",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "words",
+          "start": 1.42,
+          "end": 1.66
+        },
+        {
+          "raw": "to",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "raw": "you,\"",
+          "start": 1.9,
+          "end": 2.42
+        },
+        {
+          "raw": "said",
+          "start": 2.42,
+          "end": 2.66
+        },
+        {
+          "raw": "Gertrude.",
+          "start": 2.66,
+          "end": 3.18
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "only",
+        "want",
+        "to",
+        "say",
+        "a",
+        "few",
+        "words",
+        "to",
+        "you,\"",
+        "said",
+        "Gertrude."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 0.52,
+          "end": 0.72,
+          "key": "only",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 0.72,
+          "end": 0.9,
+          "key": "want",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.9,
+          "end": 1.02,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.02,
+          "end": 1.16,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.16,
+          "end": 1.3,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "few",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "few",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 1.42,
+          "end": 1.66,
+          "key": "words",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.66,
+          "end": 1.9,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you,\"",
+          "start": 1.9,
+          "end": 2.42,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.42,
+          "end": 2.66,
+          "key": "said",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Gertrude.",
+          "start": 2.66,
+          "end": 3.18,
+          "key": "gertrude",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "only",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "text": "want",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "text": "to",
+          "start": 0.9,
+          "end": 1.02
+        },
+        {
+          "text": "say",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "text": "a",
+          "start": 1.16,
+          "end": 1.3
+        },
+        {
+          "text": "few",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "words",
+          "start": 1.42,
+          "end": 1.66
+        },
+        {
+          "text": "to",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "text": "you,\"",
+          "start": 1.9,
+          "end": 2.42
+        },
+        {
+          "text": "said",
+          "start": 2.42,
+          "end": 2.66
+        },
+        {
+          "text": "Gertrude.",
+          "start": 2.66,
+          "end": 3.18
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08516521379351616
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ee5632de119bc62bf9addf0de8c6d1312bb41d52b9742738e71e543432b192eb",
+  "selected_reasons": []
+}

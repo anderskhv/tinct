@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "b4d769d94498f333dab40937f8c954235b9a4ca1d0106892e21b7c4de2d1ada0",
+  "attempts": [
+    {
+      "asr_seconds": 0.1461134369892534,
+      "alignment_seconds": 0.0004298859857954085,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Let him in. Let Steven in.",
+          "start": 0.02,
+          "end": 1.9,
+          "words": [
+            {
+              "text": " Let",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " him",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " in.",
+              "start": 0.66,
+              "end": 0.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Let",
+              "start": 1.24,
+              "end": 1.28,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Steven",
+              "start": 1.28,
+              "end": 1.6,
+              "probability": 0.68212890625
+            },
+            {
+              "text": " in.",
+              "start": 1.6,
+              "end": 1.9,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Let",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "him",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "in.",
+          "start": 0.66,
+          "end": 0.94
+        },
+        {
+          "raw": "Let",
+          "start": 1.24,
+          "end": 1.28
+        },
+        {
+          "raw": "Steven",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "raw": "in.",
+          "start": 1.6,
+          "end": 1.9
+        }
+      ],
+      "expected_tokens": [
+        "—Let",
+        "him",
+        "in.",
+        "Let",
+        "Stephen",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Let",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "let",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "him",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 0.66,
+          "end": 0.94,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 1.24,
+          "end": 1.28,
+          "key": "let",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Steven",
+          "start": 1.28,
+          "end": 1.6,
+          "key": "steven",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 1.6,
+          "end": 1.9,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Let",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "him",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "in.",
+          "start": 0.66,
+          "end": 0.94
+        },
+        {
+          "text": "Let",
+          "start": 1.24,
+          "end": 1.28
+        },
+        {
+          "text": "Stephen",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "in.",
+          "start": 1.6,
+          "end": 1.9
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14668111701030284
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a8b71b2eb803018f1185b9de397ca04167dc7e8519ee60b37f89e08e99b7ab86",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

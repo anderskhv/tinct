@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "c9977c6a62ed81dbf3b87fa0bab8086b79bcbb90dba51734a8ddc7261dc07fa6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2552976878359914,
+      "alignment_seconds": 0.0004936205223202705,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Drive on, Andrey! Whip them up! Look alive!\" he cried, beside himself.",
+        "hotwords": "Drive, Andrey, Whip, Look"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Drive on, Andrey, Whip them up! Look alive! he cried, beside himself.",
+          "start": 0.05,
+          "end": 4.39,
+          "words": [
+            {
+              "text": " Drive",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.7578125
+            },
+            {
+              "text": " on,",
+              "start": 0.63,
+              "end": 0.83,
+              "probability": 0.9609375
+            },
+            {
+              "text": " Andrey,",
+              "start": 1.01,
+              "end": 1.27,
+              "probability": 0.25750732421875
+            },
+            {
+              "text": " Whip",
+              "start": 1.55,
+              "end": 1.65,
+              "probability": 0.0058441162109375
+            },
+            {
+              "text": " them",
+              "start": 1.65,
+              "end": 1.79,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " up!",
+              "start": 1.79,
+              "end": 1.97,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Look",
+              "start": 2.15,
+              "end": 2.25,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " alive!",
+              "start": 2.25,
+              "end": 2.59,
+              "probability": 0.908203125
+            },
+            {
+              "text": " he",
+              "start": 3.23,
+              "end": 3.31,
+              "probability": 0.1270751953125
+            },
+            {
+              "text": " cried,",
+              "start": 3.31,
+              "end": 3.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " beside",
+              "start": 3.75,
+              "end": 3.95,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " himself.",
+              "start": 3.95,
+              "end": 4.39,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Drive",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "on,",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "raw": "Andrey,",
+          "start": 1.01,
+          "end": 1.27
+        },
+        {
+          "raw": "Whip",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "raw": "them",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "raw": "up!",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "raw": "Look",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "raw": "alive!",
+          "start": 2.25,
+          "end": 2.59
+        },
+        {
+          "raw": "he",
+          "start": 3.23,
+          "end": 3.31
+        },
+        {
+          "raw": "cried,",
+          "start": 3.31,
+          "end": 3.63
+        },
+        {
+          "raw": "beside",
+          "start": 3.75,
+          "end": 3.95
+        },
+        {
+          "raw": "himself.",
+          "start": 3.95,
+          "end": 4.39
+        }
+      ],
+      "expected_tokens": [
+        "\"Drive",
+        "on,",
+        "Andrey!",
+        "Whip",
+        "them",
+        "up!",
+        "Look",
+        "alive!\"",
+        "he",
+        "cried,",
+        "beside",
+        "himself."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Drive",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "drive",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 0.63,
+          "end": 0.83,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Andrey,",
+          "start": 1.01,
+          "end": 1.27,
+          "key": "andrey",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Whip",
+          "start": 1.55,
+          "end": 1.65,
+          "key": "whip",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 1.65,
+          "end": 1.79,
+          "key": "them",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "up!",
+          "start": 1.79,
+          "end": 1.97,
+          "key": "up",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 2.15,
+          "end": 2.25,
+          "key": "look",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "alive!",
+          "start": 2.25,
+          "end": 2.59,
+          "key": "alive",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.23,
+          "end": 3.31,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "cried,",
+          "start": 3.31,
+          "end": 3.63,
+          "key": "cried",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "beside",
+          "start": 3.75,
+          "end": 3.95,
+          "key": "beside",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "himself.",
+          "start": 3.95,
+          "end": 4.39,
+          "key": "himself",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Drive",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "on,",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "text": "Andrey!",
+          "start": 1.01,
+          "end": 1.27
+        },
+        {
+          "text": "Whip",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "text": "them",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "text": "up!",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "text": "Look",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "text": "alive!\"",
+          "start": 2.25,
+          "end": 2.59
+        },
+        {
+          "text": "he",
+          "start": 3.23,
+          "end": 3.31
+        },
+        {
+          "text": "cried,",
+          "start": 3.31,
+          "end": 3.63
+        },
+        {
+          "text": "beside",
+          "start": 3.75,
+          "end": 3.95
+        },
+        {
+          "text": "himself.",
+          "start": 3.95,
+          "end": 4.39
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2559761432930827
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5022c74fc8b774c6f8e1548d23606d10aa9b1746eea98cab0dfd95d68ce64c27",
+  "selected_reasons": []
+}

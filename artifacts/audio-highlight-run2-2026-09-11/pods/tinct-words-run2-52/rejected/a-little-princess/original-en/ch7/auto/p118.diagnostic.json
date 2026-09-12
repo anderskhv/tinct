@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "60db7b636c2af790d37d492d7f1012afd686fa6aababcb06ef03106c5262ed83",
+  "attempts": [
+    {
+      "asr_seconds": 0.21716849133372307,
+      "alignment_seconds": 0.000557389110326767,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Sara!\" she stammered. \"Why, she's with the children in your room, of course.\"",
+        "hotwords": "Sara, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sara, she stammered. Why, she's with the children in your room, of course.",
+          "start": 0.11,
+          "end": 4.17,
+          "words": [
+            {
+              "text": " Sara,",
+              "start": 0.11,
+              "end": 0.79,
+              "probability": 0.00867462158203125
+            },
+            {
+              "text": " she",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.986328125
+            },
+            {
+              "text": " stammered.",
+              "start": 1.25,
+              "end": 1.77,
+              "probability": 0.9874674479166666
+            },
+            {
+              "text": " Why,",
+              "start": 2.15,
+              "end": 2.45,
+              "probability": 0.63525390625
+            },
+            {
+              "text": " she's",
+              "start": 2.59,
+              "end": 2.79,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " with",
+              "start": 2.79,
+              "end": 2.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.87,
+              "end": 2.99,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " children",
+              "start": 2.99,
+              "end": 3.17,
+              "probability": 0.984375
+            },
+            {
+              "text": " in",
+              "start": 3.17,
+              "end": 3.45,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " your",
+              "start": 3.45,
+              "end": 3.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " room,",
+              "start": 3.57,
+              "end": 3.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 3.87,
+              "end": 3.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " course.",
+              "start": 3.89,
+              "end": 4.17,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sara,",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "raw": "she",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "stammered.",
+          "start": 1.25,
+          "end": 1.77
+        },
+        {
+          "raw": "Why,",
+          "start": 2.15,
+          "end": 2.45
+        },
+        {
+          "raw": "she's",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "raw": "with",
+          "start": 2.79,
+          "end": 2.87
+        },
+        {
+          "raw": "the",
+          "start": 2.87,
+          "end": 2.99
+        },
+        {
+          "raw": "children",
+          "start": 2.99,
+          "end": 3.17
+        },
+        {
+          "raw": "in",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "raw": "your",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "raw": "room,",
+          "start": 3.57,
+          "end": 3.75
+        },
+        {
+          "raw": "of",
+          "start": 3.87,
+          "end": 3.89
+        },
+        {
+          "raw": "course.",
+          "start": 3.89,
+          "end": 4.17
+        }
+      ],
+      "expected_tokens": [
+        "\"Sara!\"",
+        "she",
+        "stammered.",
+        "\"Why,",
+        "she's",
+        "with",
+        "the",
+        "children",
+        "in",
+        "your",
+        "room,",
+        "of",
+        "course.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sara,",
+          "start": 0.11,
+          "end": 0.79,
+          "key": "sara",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stammered.",
+          "start": 1.25,
+          "end": 1.77,
+          "key": "stammered",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 2.15,
+          "end": 2.45,
+          "key": "why",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 2.59,
+          "end": 2.79,
+          "key": "shes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.79,
+          "end": 2.87,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.87,
+          "end": 2.99,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 2.99,
+          "end": 3.17,
+          "key": "children",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.17,
+          "end": 3.45,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.45,
+          "end": 3.57,
+          "key": "your",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "room,",
+          "start": 3.57,
+          "end": 3.75,
+          "key": "room",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.87,
+          "end": 3.89,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "course.",
+          "start": 3.89,
+          "end": 4.17,
+          "key": "course",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Sara!\"",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "text": "she",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "stammered.",
+          "start": 1.25,
+          "end": 1.77
+        },
+        {
+          "text": "\"Why,",
+          "start": 2.15,
+          "end": 2.45
+        },
+        {
+          "text": "she's",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "text": "with",
+          "start": 2.79,
+          "end": 2.87
+        },
+        {
+          "text": "the",
+          "start": 2.87,
+          "end": 2.99
+        },
+        {
+          "text": "children",
+          "start": 2.99,
+          "end": 3.17
+        },
+        {
+          "text": "in",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "text": "your",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "text": "room,",
+          "start": 3.57,
+          "end": 3.75
+        },
+        {
+          "text": "of",
+          "start": 3.87,
+          "end": 3.89
+        },
+        {
+          "text": "course.\"",
+          "start": 3.89,
+          "end": 4.17
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21790527552366257
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0cb83600651a36b164cae2da3d99f6afc50b554ace16c806d57e2b695d7ecb9f",
+  "selected_reasons": []
+}

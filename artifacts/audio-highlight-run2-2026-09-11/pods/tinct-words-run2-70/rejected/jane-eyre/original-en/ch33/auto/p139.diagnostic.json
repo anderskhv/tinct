@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "346527e84eb49020d68ad690be73b08a235b77d4d9c30a0710e3075ff1e26c37",
+  "attempts": [
+    {
+      "asr_seconds": 0.23069495195522904,
+      "alignment_seconds": 0.0004618139937520027,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And the school, Miss Eyre? It must now be shut up, I suppose?\"",
+        "hotwords": "And, Miss, Eyre, It, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And the school, Miss Eyre? It must now be shut up, I suppose?\"",
+          "start": 0.08,
+          "end": 4.12,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.52392578125
+            },
+            {
+              "text": " the",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " school,",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Miss",
+              "start": 1.12,
+              "end": 1.2,
+              "probability": 0.755859375
+            },
+            {
+              "text": " Eyre?",
+              "start": 1.2,
+              "end": 1.54,
+              "probability": 0.694580078125
+            },
+            {
+              "text": " It",
+              "start": 1.88,
+              "end": 1.98,
+              "probability": 0.986328125
+            },
+            {
+              "text": " must",
+              "start": 1.98,
+              "end": 2.08,
+              "probability": 0.990234375
+            },
+            {
+              "text": " now",
+              "start": 2.08,
+              "end": 2.32,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " be",
+              "start": 2.32,
+              "end": 2.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shut",
+              "start": 2.52,
+              "end": 2.7,
+              "probability": 0.986328125
+            },
+            {
+              "text": " up,",
+              "start": 2.7,
+              "end": 2.9,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " I",
+              "start": 3.02,
+              "end": 3.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " suppose?\"",
+              "start": 3.04,
+              "end": 4.12,
+              "probability": 0.5001239776611328
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "school,",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "raw": "Miss",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "raw": "Eyre?",
+          "start": 1.2,
+          "end": 1.54
+        },
+        {
+          "raw": "It",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "raw": "must",
+          "start": 1.98,
+          "end": 2.08
+        },
+        {
+          "raw": "now",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "raw": "be",
+          "start": 2.32,
+          "end": 2.52
+        },
+        {
+          "raw": "shut",
+          "start": 2.52,
+          "end": 2.7
+        },
+        {
+          "raw": "up,",
+          "start": 2.7,
+          "end": 2.9
+        },
+        {
+          "raw": "I",
+          "start": 3.02,
+          "end": 3.04
+        },
+        {
+          "raw": "suppose?\"",
+          "start": 3.04,
+          "end": 4.12
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "the",
+        "school,",
+        "Miss",
+        "Eyre?",
+        "It",
+        "must",
+        "now",
+        "be",
+        "shut",
+        "up,",
+        "I",
+        "suppose?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "school,",
+          "start": 0.66,
+          "end": 0.98,
+          "key": "school",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.12,
+          "end": 1.2,
+          "key": "miss",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Eyre?",
+          "start": 1.2,
+          "end": 1.54,
+          "key": "eyre",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 1.88,
+          "end": 1.98,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.98,
+          "end": 2.08,
+          "key": "must",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 2.08,
+          "end": 2.32,
+          "key": "now",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.32,
+          "end": 2.52,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shut",
+          "start": 2.52,
+          "end": 2.7,
+          "key": "shut",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "up,",
+          "start": 2.7,
+          "end": 2.9,
+          "key": "up",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.02,
+          "end": 3.04,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "suppose?\"",
+          "start": 3.04,
+          "end": 4.12,
+          "key": "suppose",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "the",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "school,",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "text": "Miss",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "text": "Eyre?",
+          "start": 1.2,
+          "end": 1.54
+        },
+        {
+          "text": "It",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "text": "must",
+          "start": 1.98,
+          "end": 2.08
+        },
+        {
+          "text": "now",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "text": "be",
+          "start": 2.32,
+          "end": 2.52
+        },
+        {
+          "text": "shut",
+          "start": 2.52,
+          "end": 2.7
+        },
+        {
+          "text": "up,",
+          "start": 2.7,
+          "end": 2.9
+        },
+        {
+          "text": "I",
+          "start": 3.02,
+          "end": 3.04
+        },
+        {
+          "text": "suppose?\"",
+          "start": 3.04,
+          "end": 4.12
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2313543849159032
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "966918eafb61390b5452838604a8b58d5ba89cbd4d4cdaffa9acd64afbe4830d",
+  "selected_reasons": []
+}

@@ -1,0 +1,1324 @@
+{
+  "complete": true,
+  "signature": "d308715e11dca9c308ca4e2cc53bc6020d6d3afe9e69e2f164514956709264e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.4557433854788542,
+      "alignment_seconds": 0.00037571322172880173,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Stop, Dmitri,\" Alyosha interrupted again with great anxiety. \"There's one thing you haven't made clear yet: you are still betrothed all the same, aren't you? How can you break off the engagement if she, your betrothed, doesn't want to?\"",
+        "hotwords": "Stop, Dmitri, Alyosha, There's, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stop, Dmitri, Alyosha interrupted again with great anxiety.",
+          "start": 0.18,
+          "end": 4.52,
+          "words": [
+            {
+              "text": " Stop,",
+              "start": 0.18,
+              "end": 0.82,
+              "probability": 0.029510498046875
+            },
+            {
+              "text": " Dmitri,",
+              "start": 1.18,
+              "end": 1.6,
+              "probability": 0.5174560546875
+            },
+            {
+              "text": " Alyosha",
+              "start": 2.14,
+              "end": 2.64,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " interrupted",
+              "start": 2.64,
+              "end": 3.06,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " again",
+              "start": 3.06,
+              "end": 3.48,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 3.48,
+              "end": 3.72,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " great",
+              "start": 3.72,
+              "end": 3.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " anxiety.",
+              "start": 3.98,
+              "end": 4.52,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " There's one thing you haven't made clear yet. You are still betrothed all the same, aren't you?",
+          "start": 5.3,
+          "end": 9.7,
+          "words": [
+            {
+              "text": " There's",
+              "start": 5.3,
+              "end": 5.5,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " one",
+              "start": 5.5,
+              "end": 5.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thing",
+              "start": 5.68,
+              "end": 5.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 5.86,
+              "end": 6.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " haven't",
+              "start": 6.02,
+              "end": 6.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " made",
+              "start": 6.3,
+              "end": 6.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " clear",
+              "start": 6.46,
+              "end": 6.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " yet.",
+              "start": 6.74,
+              "end": 7.0,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " You",
+              "start": 7.48,
+              "end": 7.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " are",
+              "start": 7.56,
+              "end": 7.68,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " still",
+              "start": 7.68,
+              "end": 7.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " betrothed",
+              "start": 7.9,
+              "end": 8.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " all",
+              "start": 8.52,
+              "end": 8.68,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 8.68,
+              "end": 8.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " same,",
+              "start": 8.82,
+              "end": 9.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " aren't",
+              "start": 9.26,
+              "end": 9.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you?",
+              "start": 9.46,
+              "end": 9.7,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " How can you break off the engagement if she, your betrothed, doesn't want to?",
+          "start": 10.26,
+          "end": 13.92,
+          "words": [
+            {
+              "text": " How",
+              "start": 10.26,
+              "end": 10.4,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " can",
+              "start": 10.4,
+              "end": 10.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 10.54,
+              "end": 10.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " break",
+              "start": 10.66,
+              "end": 10.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " off",
+              "start": 10.8,
+              "end": 11.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 11.02,
+              "end": 11.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " engagement",
+              "start": 11.2,
+              "end": 11.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " if",
+              "start": 11.64,
+              "end": 11.98,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " she,",
+              "start": 11.98,
+              "end": 12.2,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " your",
+              "start": 12.42,
+              "end": 12.5,
+              "probability": 0.459228515625
+            },
+            {
+              "text": " betrothed,",
+              "start": 12.5,
+              "end": 13.16,
+              "probability": 0.9925130208333334
+            },
+            {
+              "text": " doesn't",
+              "start": 13.3,
+              "end": 13.52,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " want",
+              "start": 13.52,
+              "end": 13.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to?",
+              "start": 13.66,
+              "end": 13.92,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stop,",
+          "start": 0.18,
+          "end": 0.82
+        },
+        {
+          "raw": "Dmitri,",
+          "start": 1.18,
+          "end": 1.6
+        },
+        {
+          "raw": "Alyosha",
+          "start": 2.14,
+          "end": 2.64
+        },
+        {
+          "raw": "interrupted",
+          "start": 2.64,
+          "end": 3.06
+        },
+        {
+          "raw": "again",
+          "start": 3.06,
+          "end": 3.48
+        },
+        {
+          "raw": "with",
+          "start": 3.48,
+          "end": 3.72
+        },
+        {
+          "raw": "great",
+          "start": 3.72,
+          "end": 3.98
+        },
+        {
+          "raw": "anxiety.",
+          "start": 3.98,
+          "end": 4.52
+        },
+        {
+          "raw": "There's",
+          "start": 5.3,
+          "end": 5.5
+        },
+        {
+          "raw": "one",
+          "start": 5.5,
+          "end": 5.68
+        },
+        {
+          "raw": "thing",
+          "start": 5.68,
+          "end": 5.86
+        },
+        {
+          "raw": "you",
+          "start": 5.86,
+          "end": 6.02
+        },
+        {
+          "raw": "haven't",
+          "start": 6.02,
+          "end": 6.3
+        },
+        {
+          "raw": "made",
+          "start": 6.3,
+          "end": 6.46
+        },
+        {
+          "raw": "clear",
+          "start": 6.46,
+          "end": 6.74
+        },
+        {
+          "raw": "yet.",
+          "start": 6.74,
+          "end": 7.0
+        },
+        {
+          "raw": "You",
+          "start": 7.48,
+          "end": 7.56
+        },
+        {
+          "raw": "are",
+          "start": 7.56,
+          "end": 7.68
+        },
+        {
+          "raw": "still",
+          "start": 7.68,
+          "end": 7.9
+        },
+        {
+          "raw": "betrothed",
+          "start": 7.9,
+          "end": 8.52
+        },
+        {
+          "raw": "all",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "raw": "the",
+          "start": 8.68,
+          "end": 8.82
+        },
+        {
+          "raw": "same,",
+          "start": 8.82,
+          "end": 9.14
+        },
+        {
+          "raw": "aren't",
+          "start": 9.26,
+          "end": 9.46
+        },
+        {
+          "raw": "you?",
+          "start": 9.46,
+          "end": 9.7
+        },
+        {
+          "raw": "How",
+          "start": 10.26,
+          "end": 10.4
+        },
+        {
+          "raw": "can",
+          "start": 10.4,
+          "end": 10.54
+        },
+        {
+          "raw": "you",
+          "start": 10.54,
+          "end": 10.66
+        },
+        {
+          "raw": "break",
+          "start": 10.66,
+          "end": 10.8
+        },
+        {
+          "raw": "off",
+          "start": 10.8,
+          "end": 11.02
+        },
+        {
+          "raw": "the",
+          "start": 11.02,
+          "end": 11.2
+        },
+        {
+          "raw": "engagement",
+          "start": 11.2,
+          "end": 11.64
+        },
+        {
+          "raw": "if",
+          "start": 11.64,
+          "end": 11.98
+        },
+        {
+          "raw": "she,",
+          "start": 11.98,
+          "end": 12.2
+        },
+        {
+          "raw": "your",
+          "start": 12.42,
+          "end": 12.5
+        },
+        {
+          "raw": "betrothed,",
+          "start": 12.5,
+          "end": 13.16
+        },
+        {
+          "raw": "doesn't",
+          "start": 13.3,
+          "end": 13.52
+        },
+        {
+          "raw": "want",
+          "start": 13.52,
+          "end": 13.66
+        },
+        {
+          "raw": "to?",
+          "start": 13.66,
+          "end": 13.92
+        }
+      ],
+      "expected_tokens": [
+        "\"Stop,",
+        "Dmitri,\"",
+        "Alyosha",
+        "interrupted",
+        "again",
+        "with",
+        "great",
+        "anxiety.",
+        "\"There's",
+        "one",
+        "thing",
+        "you",
+        "haven't",
+        "made",
+        "clear",
+        "yet:",
+        "you",
+        "are",
+        "still",
+        "betrothed",
+        "all",
+        "the",
+        "same,",
+        "aren't",
+        "you?",
+        "How",
+        "can",
+        "you",
+        "break",
+        "off",
+        "the",
+        "engagement",
+        "if",
+        "she,",
+        "your",
+        "betrothed,",
+        "doesn't",
+        "want",
+        "to?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          39,
+          0,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Stop,",
+          "start": 0.18,
+          "end": 0.82,
+          "key": "stop",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dmitri,",
+          "start": 1.18,
+          "end": 1.6,
+          "key": "dmitri",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 2.14,
+          "end": 2.64,
+          "key": "alyosha",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "interrupted",
+          "start": 2.64,
+          "end": 3.06,
+          "key": "interrupted",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 3.06,
+          "end": 3.48,
+          "key": "again",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.48,
+          "end": 3.72,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 3.72,
+          "end": 3.98,
+          "key": "great",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "anxiety.",
+          "start": 3.98,
+          "end": 4.52,
+          "key": "anxiety",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "There's",
+          "start": 5.3,
+          "end": 5.5,
+          "key": "theres",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 5.5,
+          "end": 5.68,
+          "key": "one",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 5.68,
+          "end": 5.86,
+          "key": "thing",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.86,
+          "end": 6.02,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "haven't",
+          "start": 6.02,
+          "end": 6.3,
+          "key": "havent",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 6.3,
+          "end": 6.46,
+          "key": "made",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "clear",
+          "start": 6.46,
+          "end": 6.74,
+          "key": "clear",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "yet.",
+          "start": 6.74,
+          "end": 7.0,
+          "key": "yet",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 7.48,
+          "end": 7.56,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 7.56,
+          "end": 7.68,
+          "key": "are",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 7.68,
+          "end": 7.9,
+          "key": "still",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "betrothed",
+          "start": 7.9,
+          "end": 8.52,
+          "key": "betrothed",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 8.52,
+          "end": 8.68,
+          "key": "all",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.68,
+          "end": 8.82,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "same,",
+          "start": 8.82,
+          "end": 9.14,
+          "key": "same",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "aren't",
+          "start": 9.26,
+          "end": 9.46,
+          "key": "arent",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 9.46,
+          "end": 9.7,
+          "key": "you",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 10.26,
+          "end": 10.4,
+          "key": "how",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 10.4,
+          "end": 10.54,
+          "key": "can",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 10.54,
+          "end": 10.66,
+          "key": "you",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "break",
+          "start": 10.66,
+          "end": 10.8,
+          "key": "break",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 10.8,
+          "end": 11.02,
+          "key": "off",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.02,
+          "end": 11.2,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "engagement",
+          "start": 11.2,
+          "end": 11.64,
+          "key": "engagement",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 11.64,
+          "end": 11.98,
+          "key": "if",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "she,",
+          "start": 11.98,
+          "end": 12.2,
+          "key": "she",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 12.42,
+          "end": 12.5,
+          "key": "your",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "betrothed,",
+          "start": 12.5,
+          "end": 13.16,
+          "key": "betrothed",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "doesn't",
+          "start": 13.3,
+          "end": 13.52,
+          "key": "doesnt",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 13.52,
+          "end": 13.66,
+          "key": "want",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "to?",
+          "start": 13.66,
+          "end": 13.92,
+          "key": "to",
+          "pieces": [
+            38
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Stop,",
+          "start": 0.18,
+          "end": 0.82
+        },
+        {
+          "text": "Dmitri,\"",
+          "start": 1.18,
+          "end": 1.6
+        },
+        {
+          "text": "Alyosha",
+          "start": 2.14,
+          "end": 2.64
+        },
+        {
+          "text": "interrupted",
+          "start": 2.64,
+          "end": 3.06
+        },
+        {
+          "text": "again",
+          "start": 3.06,
+          "end": 3.48
+        },
+        {
+          "text": "with",
+          "start": 3.48,
+          "end": 3.72
+        },
+        {
+          "text": "great",
+          "start": 3.72,
+          "end": 3.98
+        },
+        {
+          "text": "anxiety.",
+          "start": 3.98,
+          "end": 4.52
+        },
+        {
+          "text": "\"There's",
+          "start": 5.3,
+          "end": 5.5
+        },
+        {
+          "text": "one",
+          "start": 5.5,
+          "end": 5.68
+        },
+        {
+          "text": "thing",
+          "start": 5.68,
+          "end": 5.86
+        },
+        {
+          "text": "you",
+          "start": 5.86,
+          "end": 6.02
+        },
+        {
+          "text": "haven't",
+          "start": 6.02,
+          "end": 6.3
+        },
+        {
+          "text": "made",
+          "start": 6.3,
+          "end": 6.46
+        },
+        {
+          "text": "clear",
+          "start": 6.46,
+          "end": 6.74
+        },
+        {
+          "text": "yet:",
+          "start": 6.74,
+          "end": 7.0
+        },
+        {
+          "text": "you",
+          "start": 7.48,
+          "end": 7.56
+        },
+        {
+          "text": "are",
+          "start": 7.56,
+          "end": 7.68
+        },
+        {
+          "text": "still",
+          "start": 7.68,
+          "end": 7.9
+        },
+        {
+          "text": "betrothed",
+          "start": 7.9,
+          "end": 8.52
+        },
+        {
+          "text": "all",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "text": "the",
+          "start": 8.68,
+          "end": 8.82
+        },
+        {
+          "text": "same,",
+          "start": 8.82,
+          "end": 9.14
+        },
+        {
+          "text": "aren't",
+          "start": 9.26,
+          "end": 9.46
+        },
+        {
+          "text": "you?",
+          "start": 9.46,
+          "end": 9.7
+        },
+        {
+          "text": "How",
+          "start": 10.26,
+          "end": 10.4
+        },
+        {
+          "text": "can",
+          "start": 10.4,
+          "end": 10.54
+        },
+        {
+          "text": "you",
+          "start": 10.54,
+          "end": 10.66
+        },
+        {
+          "text": "break",
+          "start": 10.66,
+          "end": 10.8
+        },
+        {
+          "text": "off",
+          "start": 10.8,
+          "end": 11.02
+        },
+        {
+          "text": "the",
+          "start": 11.02,
+          "end": 11.2
+        },
+        {
+          "text": "engagement",
+          "start": 11.2,
+          "end": 11.64
+        },
+        {
+          "text": "if",
+          "start": 11.64,
+          "end": 11.98
+        },
+        {
+          "text": "she,",
+          "start": 11.98,
+          "end": 12.2
+        },
+        {
+          "text": "your",
+          "start": 12.42,
+          "end": 12.5
+        },
+        {
+          "text": "betrothed,",
+          "start": 12.5,
+          "end": 13.16
+        },
+        {
+          "text": "doesn't",
+          "start": 13.3,
+          "end": 13.52
+        },
+        {
+          "text": "want",
+          "start": 13.52,
+          "end": 13.66
+        },
+        {
+          "text": "to?\"",
+          "start": 13.66,
+          "end": 13.92
+        }
+      ],
+      "stats": {
+        "expected_words": 39,
+        "heard_words": 39,
+        "matched_words": 39
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4562766244634986
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5c99ad50225ee9f0c4b78e1f27d07defa241ad170a9318cae4fd0cb8b525fc0c",
+  "selected_reasons": []
+}

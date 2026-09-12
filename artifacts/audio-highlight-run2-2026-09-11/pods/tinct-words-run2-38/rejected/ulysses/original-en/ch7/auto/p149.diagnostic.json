@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "8fe148bba14413776d21994e67b9332526b1ea2a921a02743230193c7e838551",
+  "attempts": [
+    {
+      "asr_seconds": 0.140313194016926,
+      "alignment_seconds": 0.00020344200311228633,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Bombast! the professor broke in testily. Enough of the inflated windbag!",
+        "hotwords": "Bombast, Enough"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bombast, the professor broke in testily. Enough of the inflated windbag!",
+          "start": 0.05,
+          "end": 4.85,
+          "words": [
+            {
+              "text": " Bombast,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.918212890625
+            },
+            {
+              "text": " the",
+              "start": 1.37,
+              "end": 1.51,
+              "probability": 0.97265625
+            },
+            {
+              "text": " professor",
+              "start": 1.51,
+              "end": 1.85,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " broke",
+              "start": 1.85,
+              "end": 2.21,
+              "probability": 0.98046875
+            },
+            {
+              "text": " in",
+              "start": 2.21,
+              "end": 2.37,
+              "probability": 0.2020263671875
+            },
+            {
+              "text": " testily.",
+              "start": 2.37,
+              "end": 2.89,
+              "probability": 0.63818359375
+            },
+            {
+              "text": " Enough",
+              "start": 3.45,
+              "end": 3.53,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " of",
+              "start": 3.53,
+              "end": 3.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.69,
+              "end": 3.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " inflated",
+              "start": 3.79,
+              "end": 4.25,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " windbag!",
+              "start": 4.25,
+              "end": 4.85,
+              "probability": 0.8603515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bombast,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "the",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "raw": "professor",
+          "start": 1.51,
+          "end": 1.85
+        },
+        {
+          "raw": "broke",
+          "start": 1.85,
+          "end": 2.21
+        },
+        {
+          "raw": "in",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "raw": "testily.",
+          "start": 2.37,
+          "end": 2.89
+        },
+        {
+          "raw": "Enough",
+          "start": 3.45,
+          "end": 3.53
+        },
+        {
+          "raw": "of",
+          "start": 3.53,
+          "end": 3.69
+        },
+        {
+          "raw": "the",
+          "start": 3.69,
+          "end": 3.79
+        },
+        {
+          "raw": "inflated",
+          "start": 3.79,
+          "end": 4.25
+        },
+        {
+          "raw": "windbag!",
+          "start": 4.25,
+          "end": 4.85
+        }
+      ],
+      "expected_tokens": [
+        "—Bombast!",
+        "the",
+        "professor",
+        "broke",
+        "in",
+        "testily.",
+        "Enough",
+        "of",
+        "the",
+        "inflated",
+        "windbag!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bombast,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "bombast",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.37,
+          "end": 1.51,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "professor",
+          "start": 1.51,
+          "end": 1.85,
+          "key": "professor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "broke",
+          "start": 1.85,
+          "end": 2.21,
+          "key": "broke",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.21,
+          "end": 2.37,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "testily.",
+          "start": 2.37,
+          "end": 2.89,
+          "key": "testily",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Enough",
+          "start": 3.45,
+          "end": 3.53,
+          "key": "enough",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.53,
+          "end": 3.69,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.69,
+          "end": 3.79,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "inflated",
+          "start": 3.79,
+          "end": 4.25,
+          "key": "inflated",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "windbag!",
+          "start": 4.25,
+          "end": 4.85,
+          "key": "windbag",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Bombast!",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "the",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "text": "professor",
+          "start": 1.51,
+          "end": 1.85
+        },
+        {
+          "text": "broke",
+          "start": 1.85,
+          "end": 2.21
+        },
+        {
+          "text": "in",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "text": "testily.",
+          "start": 2.37,
+          "end": 2.89
+        },
+        {
+          "text": "Enough",
+          "start": 3.45,
+          "end": 3.53
+        },
+        {
+          "text": "of",
+          "start": 3.53,
+          "end": 3.69
+        },
+        {
+          "text": "the",
+          "start": 3.69,
+          "end": 3.79
+        },
+        {
+          "text": "inflated",
+          "start": 3.79,
+          "end": 4.25
+        },
+        {
+          "text": "windbag!",
+          "start": 4.25,
+          "end": 4.85
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1406036259722896
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "513b5e6bfe340d84ece66a8f43d13bcb31116816e258004634c92f60c3021ba7",
+  "selected_reasons": []
+}

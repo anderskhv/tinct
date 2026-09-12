@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "da02ce66bf041b207303af908751c23a5718a7257f76e418ecbbfe0141ed7b91",
+  "attempts": [
+    {
+      "asr_seconds": 0.3246185779571533,
+      "alignment_seconds": 0.0005583884194493294,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pistol. Discuss unto me; art thou officer? Or art thou base, common, and popular?",
+        "hotwords": "Pistol, Discuss, Or"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pistol, Discuss unto me, art thou officer? Or art thou base, common, and popular?",
+          "start": 0.02,
+          "end": 5.7,
+          "words": [
+            {
+              "text": " Pistol,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.28173828125
+            },
+            {
+              "text": " Discuss",
+              "start": 1.24,
+              "end": 1.46,
+              "probability": 0.0384521484375
+            },
+            {
+              "text": " unto",
+              "start": 1.46,
+              "end": 1.72,
+              "probability": 0.176025390625
+            },
+            {
+              "text": " me,",
+              "start": 1.72,
+              "end": 2.12,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " art",
+              "start": 2.46,
+              "end": 2.58,
+              "probability": 0.2064208984375
+            },
+            {
+              "text": " thou",
+              "start": 2.58,
+              "end": 2.78,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " officer?",
+              "start": 2.78,
+              "end": 3.16,
+              "probability": 0.59814453125
+            },
+            {
+              "text": " Or",
+              "start": 3.76,
+              "end": 3.88,
+              "probability": 0.50390625
+            },
+            {
+              "text": " art",
+              "start": 3.88,
+              "end": 4.12,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " thou",
+              "start": 4.12,
+              "end": 4.32,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " base,",
+              "start": 4.32,
+              "end": 4.68,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " common,",
+              "start": 4.92,
+              "end": 5.1,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " and",
+              "start": 5.32,
+              "end": 5.36,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " popular?",
+              "start": 5.36,
+              "end": 5.7,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pistol,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "Discuss",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "raw": "unto",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "raw": "me,",
+          "start": 1.72,
+          "end": 2.12
+        },
+        {
+          "raw": "art",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "raw": "thou",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "raw": "officer?",
+          "start": 2.78,
+          "end": 3.16
+        },
+        {
+          "raw": "Or",
+          "start": 3.76,
+          "end": 3.88
+        },
+        {
+          "raw": "art",
+          "start": 3.88,
+          "end": 4.12
+        },
+        {
+          "raw": "thou",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "raw": "base,",
+          "start": 4.32,
+          "end": 4.68
+        },
+        {
+          "raw": "common,",
+          "start": 4.92,
+          "end": 5.1
+        },
+        {
+          "raw": "and",
+          "start": 5.32,
+          "end": 5.36
+        },
+        {
+          "raw": "popular?",
+          "start": 5.36,
+          "end": 5.7
+        }
+      ],
+      "expected_tokens": [
+        "Pistol.",
+        "Discuss",
+        "unto",
+        "me;",
+        "art",
+        "thou",
+        "officer?",
+        "Or",
+        "art",
+        "thou",
+        "base,",
+        "common,",
+        "and",
+        "popular?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pistol,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "pistol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Discuss",
+          "start": 1.24,
+          "end": 1.46,
+          "key": "discuss",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "unto",
+          "start": 1.46,
+          "end": 1.72,
+          "key": "unto",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.72,
+          "end": 2.12,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 2.46,
+          "end": 2.58,
+          "key": "art",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.58,
+          "end": 2.78,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "officer?",
+          "start": 2.78,
+          "end": 3.16,
+          "key": "officer",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 3.76,
+          "end": 3.88,
+          "key": "or",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 3.88,
+          "end": 4.12,
+          "key": "art",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 4.12,
+          "end": 4.32,
+          "key": "thou",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "base,",
+          "start": 4.32,
+          "end": 4.68,
+          "key": "base",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "common,",
+          "start": 4.92,
+          "end": 5.1,
+          "key": "common",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.32,
+          "end": 5.36,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "popular?",
+          "start": 5.36,
+          "end": 5.7,
+          "key": "popular",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pistol.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "Discuss",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "text": "unto",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "text": "me;",
+          "start": 1.72,
+          "end": 2.12
+        },
+        {
+          "text": "art",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "text": "thou",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "text": "officer?",
+          "start": 2.78,
+          "end": 3.16
+        },
+        {
+          "text": "Or",
+          "start": 3.76,
+          "end": 3.88
+        },
+        {
+          "text": "art",
+          "start": 3.88,
+          "end": 4.12
+        },
+        {
+          "text": "thou",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "text": "base,",
+          "start": 4.32,
+          "end": 4.68
+        },
+        {
+          "text": "common,",
+          "start": 4.92,
+          "end": 5.1
+        },
+        {
+          "text": "and",
+          "start": 5.32,
+          "end": 5.36
+        },
+        {
+          "text": "popular?",
+          "start": 5.36,
+          "end": 5.7
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3253974737599492
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0919b4398ad00bc2e8cc57e4d56856dae93ef6f2320e23fa8e49e548e8fcdd89",
+  "selected_reasons": []
+}

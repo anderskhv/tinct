@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "4abff3fe13726dbd5e734c3b8574eea46e6356b68b34290a80059ff3684957d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.3039420396089554,
+      "alignment_seconds": 0.0006082681939005852,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"'To the very end,' I said, shakily. 'I heard his very last words....' I stopped in a fright.",
+        "hotwords": "To, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To the very end, I said, shakily. I heard his very last words....' I stopped in a fright.",
+          "start": 0.02,
+          "end": 5.88,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.2496337890625
+            },
+            {
+              "text": " the",
+              "start": 0.48,
+              "end": 0.6,
+              "probability": 0.99609375
+            },
+            {
+              "text": " very",
+              "start": 0.6,
+              "end": 0.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " end,",
+              "start": 0.82,
+              "end": 1.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 1.42,
+              "end": 1.68,
+              "probability": 0.9921875
+            },
+            {
+              "text": " said,",
+              "start": 1.68,
+              "end": 1.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shakily.",
+              "start": 2.2,
+              "end": 2.42,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " I",
+              "start": 2.96,
+              "end": 3.06,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " heard",
+              "start": 3.06,
+              "end": 3.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 3.28,
+              "end": 3.46,
+              "probability": 0.984375
+            },
+            {
+              "text": " very",
+              "start": 3.46,
+              "end": 3.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": " last",
+              "start": 3.72,
+              "end": 4.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " words....'",
+              "start": 4.04,
+              "end": 5.1,
+              "probability": 0.49960601329803467
+            },
+            {
+              "text": " I",
+              "start": 5.1,
+              "end": 5.12,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " stopped",
+              "start": 5.12,
+              "end": 5.4,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " in",
+              "start": 5.4,
+              "end": 5.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 5.58,
+              "end": 5.68,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " fright.",
+              "start": 5.68,
+              "end": 5.88,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "the",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "raw": "very",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "raw": "end,",
+          "start": 0.82,
+          "end": 1.3
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "raw": "said,",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "raw": "shakily.",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "raw": "I",
+          "start": 2.96,
+          "end": 3.06
+        },
+        {
+          "raw": "heard",
+          "start": 3.06,
+          "end": 3.28
+        },
+        {
+          "raw": "his",
+          "start": 3.28,
+          "end": 3.46
+        },
+        {
+          "raw": "very",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "raw": "last",
+          "start": 3.72,
+          "end": 4.04
+        },
+        {
+          "raw": "words....'",
+          "start": 4.04,
+          "end": 5.1
+        },
+        {
+          "raw": "I",
+          "start": 5.1,
+          "end": 5.12
+        },
+        {
+          "raw": "stopped",
+          "start": 5.12,
+          "end": 5.4
+        },
+        {
+          "raw": "in",
+          "start": 5.4,
+          "end": 5.58
+        },
+        {
+          "raw": "a",
+          "start": 5.58,
+          "end": 5.68
+        },
+        {
+          "raw": "fright.",
+          "start": 5.68,
+          "end": 5.88
+        }
+      ],
+      "expected_tokens": [
+        "\"'To",
+        "the",
+        "very",
+        "end,'",
+        "I",
+        "said,",
+        "shakily.",
+        "'I",
+        "heard",
+        "his",
+        "very",
+        "last",
+        "words....'",
+        "I",
+        "stopped",
+        "in",
+        "a",
+        "fright."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.48,
+          "end": 0.6,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 0.6,
+          "end": 0.82,
+          "key": "very",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "end,",
+          "start": 0.82,
+          "end": 1.3,
+          "key": "end",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.68,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.68,
+          "end": 1.96,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "shakily.",
+          "start": 2.2,
+          "end": 2.42,
+          "key": "shakily",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.96,
+          "end": 3.06,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 3.06,
+          "end": 3.28,
+          "key": "heard",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.28,
+          "end": 3.46,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 3.46,
+          "end": 3.72,
+          "key": "very",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 3.72,
+          "end": 4.04,
+          "key": "last",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "words....'",
+          "start": 4.04,
+          "end": 5.1,
+          "key": "words",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.1,
+          "end": 5.12,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "stopped",
+          "start": 5.12,
+          "end": 5.4,
+          "key": "stopped",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.4,
+          "end": 5.58,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.58,
+          "end": 5.68,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "fright.",
+          "start": 5.68,
+          "end": 5.88,
+          "key": "fright",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"'To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "the",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "text": "very",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "text": "end,'",
+          "start": 0.82,
+          "end": 1.3
+        },
+        {
+          "text": "I",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "text": "said,",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "text": "shakily.",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "text": "'I",
+          "start": 2.96,
+          "end": 3.06
+        },
+        {
+          "text": "heard",
+          "start": 3.06,
+          "end": 3.28
+        },
+        {
+          "text": "his",
+          "start": 3.28,
+          "end": 3.46
+        },
+        {
+          "text": "very",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "text": "last",
+          "start": 3.72,
+          "end": 4.04
+        },
+        {
+          "text": "words....'",
+          "start": 4.04,
+          "end": 5.1
+        },
+        {
+          "text": "I",
+          "start": 5.1,
+          "end": 5.12
+        },
+        {
+          "text": "stopped",
+          "start": 5.12,
+          "end": 5.4
+        },
+        {
+          "text": "in",
+          "start": 5.4,
+          "end": 5.58
+        },
+        {
+          "text": "a",
+          "start": 5.58,
+          "end": 5.68
+        },
+        {
+          "text": "fright.",
+          "start": 5.68,
+          "end": 5.88
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3048032708466053
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c2e4943b77c910953e26de7b2f13908dd3b4a24664eca7225143e27ae9256f5d",
+  "selected_reasons": []
+}

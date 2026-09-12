@@ -1,0 +1,391 @@
+{
+  "complete": true,
+  "signature": "d3042d751d045cefa804baf3ff810a038c514bf883680b1f5330cc482debf2d8",
+  "attempts": [
+    {
+      "asr_seconds": 0.16756618209183216,
+      "alignment_seconds": 0.00028394535183906555,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exeunt Ladies._]",
+        "hotwords": "Ladies._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " EXEUNT LADIES._",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " EXEUNT",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.2554607391357422
+            },
+            {
+              "text": " LADIES._",
+              "start": 0.83,
+              "end": 1.83,
+              "probability": 0.6973877102136612
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "EXEUNT",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "LADIES._",
+          "start": 0.83,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Ladies._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "EXEUNT",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "LADIES._",
+          "start": 0.83,
+          "end": 1.83,
+          "key": "ladies_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Ladies._]",
+          "start": 0.83,
+          "end": 1.33
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16794020682573318
+    },
+    {
+      "asr_seconds": 0.13863509893417358,
+      "alignment_seconds": 0.0002223961055278778,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Ladies._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exeunt Ladies._",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5428059895833334
+            },
+            {
+              "text": " Ladies._",
+              "start": 0.79,
+              "end": 1.83,
+              "probability": 0.392578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Ladies._",
+          "start": 0.79,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Ladies._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ladies._",
+          "start": 0.79,
+          "end": 1.83,
+          "key": "ladies_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Ladies._]",
+          "start": 0.79,
+          "end": 1.31
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13894051127135754
+    },
+    {
+      "asr_seconds": 0.13449698500335217,
+      "alignment_seconds": 0.0002830885350704193,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt Ladies.",
+          "start": 0.05,
+          "end": 1.09,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5428059895833334
+            },
+            {
+              "text": " Ladies.",
+              "start": 0.79,
+              "end": 1.09,
+              "probability": 0.78515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Ladies.",
+          "start": 0.79,
+          "end": 1.09
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Ladies._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ladies.",
+          "start": 0.79,
+          "end": 1.09,
+          "key": "ladies",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Ladies._]",
+          "start": 0.79,
+          "end": 1.09
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13487880490720272
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9ae0edc54da7d2398d5b6e7fbc09de4dcc8e4e4722911780b1a8f6f1b07b8b46",
+  "selected_reasons": []
+}

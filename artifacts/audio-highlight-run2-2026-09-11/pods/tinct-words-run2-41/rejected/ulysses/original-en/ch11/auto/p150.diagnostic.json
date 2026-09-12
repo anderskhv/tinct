@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "2c68bcdc6087375a59e5158988624591392140aef0f8fd7076c80ef6ff7454e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.09906299598515034,
+      "alignment_seconds": 0.0001524738036096096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Jingle.",
+        "hotwords": "Jingle"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Jingle.",
+          "start": 0.02,
+          "end": 0.74,
+          "words": [
+            {
+              "text": " Jingle.",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.79443359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jingle.",
+          "start": 0.02,
+          "end": 0.74
+        }
+      ],
+      "expected_tokens": [
+        "Jingle."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jingle.",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "jingle",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Jingle.",
+          "start": 0.02,
+          "end": 0.74
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09925908828154206
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "16eaa0567df164224165a67ad8a844cb405c07e07764516954e05c89caef60c1",
+  "selected_reasons": []
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "4fc0c9f0b04ecaa3ef01ff96d5bf84aee59269ecce2958165ff1392c3d455935",
+  "attempts": [
+    {
+      "asr_seconds": 0.08598395437002182,
+      "alignment_seconds": 0.0001105479896068573,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cornwall, why art thou angry?",
+          "start": 0.05,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Cornwall,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " why",
+              "start": 1.29,
+              "end": 1.35,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " art",
+              "start": 1.35,
+              "end": 1.57,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " thou",
+              "start": 1.57,
+              "end": 1.77,
+              "probability": 0.9921875
+            },
+            {
+              "text": " angry?",
+              "start": 1.77,
+              "end": 2.05,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "why",
+          "start": 1.29,
+          "end": 1.35
+        },
+        {
+          "raw": "art",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "raw": "thou",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "raw": "angry?",
+          "start": 1.77,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "Cornwall.",
+        "Why",
+        "art",
+        "thou",
+        "angry?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "cornwall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.29,
+          "end": 1.35,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 1.35,
+          "end": 1.57,
+          "key": "art",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.57,
+          "end": 1.77,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "angry?",
+          "start": 1.77,
+          "end": 2.05,
+          "key": "angry",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cornwall.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Why",
+          "start": 1.29,
+          "end": 1.35
+        },
+        {
+          "text": "art",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "text": "thou",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "text": "angry?",
+          "start": 1.77,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08613453805446625
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9c67b13ddac0a85bc101791886ce10156b682c7b215daff9b3f09b8920d29bd2",
+  "selected_reasons": []
+}

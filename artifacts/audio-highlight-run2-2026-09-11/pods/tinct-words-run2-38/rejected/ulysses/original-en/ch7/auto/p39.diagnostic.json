@@ -1,0 +1,5447 @@
+{
+  "complete": true,
+  "signature": "8724cf43e4e7eb79645a942ca88cd715f1add76e7e45015226012079e050ea9c",
+  "attempts": [
+    {
+      "asr_seconds": 6.876333904045168,
+      "alignment_seconds": 0.0007874739822000265,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hynes here too: account of the funeral probably. Thumping. Thump. This morning the remains of the late Mr Patrick Dignam. Machines. Smash a man to atoms if they got him caught. Rule the world today. His machineries are pegging away too. Like these, got out of hand: fermenting. Working away, tearing away. And that old grey rat tearing to get in.",
+        "hotwords": "Hynes, Thumping, Thump, This, Mr, Patrick, Dignam, Machines, Smash, Rule, His, Like, Working, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hehyn's here too, account of the funeral probably. Thumping. Thump. This morning the remains of the late Mr Patrick Dignam. groundain,",
+          "start": 0.05,
+          "end": 22.79,
+          "words": [
+            {
+              "text": " Hehyn's",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.14000177383422852
+            },
+            {
+              "text": " here",
+              "start": 0.75,
+              "end": 0.89,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " too,",
+              "start": 0.89,
+              "end": 1.19,
+              "probability": 0.5595703125
+            },
+            {
+              "text": " account",
+              "start": 1.37,
+              "end": 1.59,
+              "probability": 0.5634765625
+            },
+            {
+              "text": " of",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 1.75,
+              "end": 1.87,
+              "probability": 0.9921875
+            },
+            {
+              "text": " funeral",
+              "start": 1.87,
+              "end": 2.23,
+              "probability": 0.986328125
+            },
+            {
+              "text": " probably.",
+              "start": 2.23,
+              "end": 2.79,
+              "probability": 0.62841796875
+            },
+            {
+              "text": " Thumping.",
+              "start": 3.43,
+              "end": 3.65,
+              "probability": 0.915283203125
+            },
+            {
+              "text": " Thump.",
+              "start": 4.33,
+              "end": 4.63,
+              "probability": 0.97265625
+            },
+            {
+              "text": " This",
+              "start": 5.19,
+              "end": 5.37,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " morning",
+              "start": 5.37,
+              "end": 5.59,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 5.59,
+              "end": 5.85,
+              "probability": 0.896484375
+            },
+            {
+              "text": " remains",
+              "start": 5.85,
+              "end": 6.19,
+              "probability": 0.98828125
+            },
+            {
+              "text": " of",
+              "start": 6.19,
+              "end": 6.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 6.43,
+              "end": 6.53,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " late",
+              "start": 6.53,
+              "end": 6.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Mr",
+              "start": 6.73,
+              "end": 7.05,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " Patrick",
+              "start": 7.05,
+              "end": 7.49,
+              "probability": 0.0164337158203125
+            },
+            {
+              "text": " Dignam.",
+              "start": 7.49,
+              "end": 7.93,
+              "probability": 0.27606201171875
+            },
+            {
+              "text": " groundain,",
+              "start": 22.19,
+              "end": 22.79,
+              "probability": 0.00028830766677856445
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hehyn's",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "here",
+          "start": 0.75,
+          "end": 0.89
+        },
+        {
+          "raw": "too,",
+          "start": 0.89,
+          "end": 1.19
+        },
+        {
+          "raw": "account",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "raw": "of",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "the",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "raw": "funeral",
+          "start": 1.87,
+          "end": 2.23
+        },
+        {
+          "raw": "probably.",
+          "start": 2.23,
+          "end": 2.79
+        },
+        {
+          "raw": "Thumping.",
+          "start": 3.43,
+          "end": 3.65
+        },
+        {
+          "raw": "Thump.",
+          "start": 4.33,
+          "end": 4.63
+        },
+        {
+          "raw": "This",
+          "start": 5.19,
+          "end": 5.37
+        },
+        {
+          "raw": "morning",
+          "start": 5.37,
+          "end": 5.59
+        },
+        {
+          "raw": "the",
+          "start": 5.59,
+          "end": 5.85
+        },
+        {
+          "raw": "remains",
+          "start": 5.85,
+          "end": 6.19
+        },
+        {
+          "raw": "of",
+          "start": 6.19,
+          "end": 6.43
+        },
+        {
+          "raw": "the",
+          "start": 6.43,
+          "end": 6.53
+        },
+        {
+          "raw": "late",
+          "start": 6.53,
+          "end": 6.73
+        },
+        {
+          "raw": "Mr",
+          "start": 6.73,
+          "end": 7.05
+        },
+        {
+          "raw": "Patrick",
+          "start": 7.05,
+          "end": 7.49
+        },
+        {
+          "raw": "Dignam.",
+          "start": 7.49,
+          "end": 7.93
+        },
+        {
+          "raw": "groundain,",
+          "start": 22.19,
+          "end": 22.79
+        }
+      ],
+      "expected_tokens": [
+        "Hynes",
+        "here",
+        "too:",
+        "account",
+        "of",
+        "the",
+        "funeral",
+        "probably.",
+        "Thumping.",
+        "Thump.",
+        "This",
+        "morning",
+        "the",
+        "remains",
+        "of",
+        "the",
+        "late",
+        "Mr",
+        "Patrick",
+        "Dignam.",
+        "Machines.",
+        "Smash",
+        "a",
+        "man",
+        "to",
+        "atoms",
+        "if",
+        "they",
+        "got",
+        "him",
+        "caught.",
+        "Rule",
+        "the",
+        "world",
+        "today.",
+        "His",
+        "machineries",
+        "are",
+        "pegging",
+        "away",
+        "too.",
+        "Like",
+        "these,",
+        "got",
+        "out",
+        "of",
+        "hand:",
+        "fermenting.",
+        "Working",
+        "away,",
+        "tearing",
+        "away.",
+        "And",
+        "that",
+        "old",
+        "grey",
+        "rat",
+        "tearing",
+        "to",
+        "get",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          20,
+          1,
+          20
+        ],
+        [
+          "replace",
+          20,
+          61,
+          20,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          20,
+          61,
+          20,
+          21
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hehyn's",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "hehyns",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 0.75,
+          "end": 0.89,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 0.89,
+          "end": 1.19,
+          "key": "too",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "account",
+          "start": 1.37,
+          "end": 1.59,
+          "key": "account",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.75,
+          "end": 1.87,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "funeral",
+          "start": 1.87,
+          "end": 2.23,
+          "key": "funeral",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "probably.",
+          "start": 2.23,
+          "end": 2.79,
+          "key": "probably",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Thumping.",
+          "start": 3.43,
+          "end": 3.65,
+          "key": "thumping",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Thump.",
+          "start": 4.33,
+          "end": 4.63,
+          "key": "thump",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 5.19,
+          "end": 5.37,
+          "key": "this",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "morning",
+          "start": 5.37,
+          "end": 5.59,
+          "key": "morning",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.59,
+          "end": 5.85,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "remains",
+          "start": 5.85,
+          "end": 6.19,
+          "key": "remains",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.19,
+          "end": 6.43,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.43,
+          "end": 6.53,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "late",
+          "start": 6.53,
+          "end": 6.73,
+          "key": "late",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Mr",
+          "start": 6.73,
+          "end": 7.05,
+          "key": "mr",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Patrick",
+          "start": 7.05,
+          "end": 7.49,
+          "key": "patrick",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Dignam.",
+          "start": 7.49,
+          "end": 7.93,
+          "key": "dignam",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "groundain,",
+          "start": 22.19,
+          "end": 22.79,
+          "key": "groundain",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hynes",
+          "start": 0.0,
+          "end": 0.375
+        },
+        {
+          "text": "here",
+          "start": 0.75,
+          "end": 0.89
+        },
+        {
+          "text": "too:",
+          "start": 0.89,
+          "end": 1.19
+        },
+        {
+          "text": "account",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "text": "of",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "the",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "text": "funeral",
+          "start": 1.87,
+          "end": 2.23
+        },
+        {
+          "text": "probably.",
+          "start": 2.23,
+          "end": 2.79
+        },
+        {
+          "text": "Thumping.",
+          "start": 3.43,
+          "end": 3.65
+        },
+        {
+          "text": "Thump.",
+          "start": 4.33,
+          "end": 4.63
+        },
+        {
+          "text": "This",
+          "start": 5.19,
+          "end": 5.37
+        },
+        {
+          "text": "morning",
+          "start": 5.37,
+          "end": 5.59
+        },
+        {
+          "text": "the",
+          "start": 5.59,
+          "end": 5.85
+        },
+        {
+          "text": "remains",
+          "start": 5.85,
+          "end": 6.19
+        },
+        {
+          "text": "of",
+          "start": 6.19,
+          "end": 6.43
+        },
+        {
+          "text": "the",
+          "start": 6.43,
+          "end": 6.53
+        },
+        {
+          "text": "late",
+          "start": 6.53,
+          "end": 6.73
+        },
+        {
+          "text": "Mr",
+          "start": 6.73,
+          "end": 7.05
+        },
+        {
+          "text": "Patrick",
+          "start": 7.05,
+          "end": 7.49
+        },
+        {
+          "text": "Dignam.",
+          "start": 7.49,
+          "end": 7.93
+        },
+        {
+          "text": "Machines.",
+          "start": 7.93,
+          "end": 15.36
+        },
+        {
+          "text": "Smash",
+          "start": 15.36,
+          "end": 19.075
+        },
+        {
+          "text": "a",
+          "start": 19.075,
+          "end": 20.932
+        },
+        {
+          "text": "man",
+          "start": 20.932,
+          "end": 21.861
+        },
+        {
+          "text": "to",
+          "start": 21.861,
+          "end": 22.325
+        },
+        {
+          "text": "atoms",
+          "start": 22.325,
+          "end": 22.557
+        },
+        {
+          "text": "if",
+          "start": 22.557,
+          "end": 22.673
+        },
+        {
+          "text": "they",
+          "start": 22.673,
+          "end": 22.731
+        },
+        {
+          "text": "got",
+          "start": 22.731,
+          "end": 22.761
+        },
+        {
+          "text": "him",
+          "start": 22.761,
+          "end": 22.776
+        },
+        {
+          "text": "caught.",
+          "start": 22.776,
+          "end": 22.783
+        },
+        {
+          "text": "Rule",
+          "start": 22.783,
+          "end": 22.787
+        },
+        {
+          "text": "the",
+          "start": 22.787,
+          "end": 22.788
+        },
+        {
+          "text": "world",
+          "start": 22.788,
+          "end": 22.789
+        },
+        {
+          "text": "today.",
+          "start": 22.789,
+          "end": 22.79
+        },
+        {
+          "text": "His",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "machineries",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "are",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "pegging",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "away",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "too.",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "Like",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "these,",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "got",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "out",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "of",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "hand:",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "fermenting.",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "Working",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "away,",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "tearing",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "away.",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "And",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "that",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "old",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "grey",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "rat",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "tearing",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "to",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "get",
+          "start": 22.79,
+          "end": 22.79
+        },
+        {
+          "text": "in.",
+          "start": 22.79,
+          "end": 22.79
+        }
+      ],
+      "stats": {
+        "expected_words": 61,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.3114754098360656,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 6.877267049043439
+    },
+    {
+      "asr_seconds": 6.805424417019822,
+      "alignment_seconds": 0.0007811249815858901,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Hynes, Thumping, Thump, This, Mr, Patrick, Dignam, Machines, Smash, Rule, His, Like, Working, And"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Thumping, Thump, This, Mr Patrick, Dignam, Machines, Smash,",
+          "start": 3.95,
+          "end": 9.65,
+          "words": [
+            {
+              "text": " Thumping,",
+              "start": 3.95,
+              "end": 4.31,
+              "probability": 0.003421187400817871
+            },
+            {
+              "text": " Thump,",
+              "start": 4.31,
+              "end": 4.67,
+              "probability": 0.6220703125
+            },
+            {
+              "text": " This,",
+              "start": 5.33,
+              "end": 5.35,
+              "probability": 0.37255859375
+            },
+            {
+              "text": " Mr",
+              "start": 5.55,
+              "end": 5.81,
+              "probability": 0.0005726814270019531
+            },
+            {
+              "text": " Patrick,",
+              "start": 5.81,
+              "end": 7.47,
+              "probability": 0.0853271484375
+            },
+            {
+              "text": " Dignam,",
+              "start": 7.71,
+              "end": 8.03,
+              "probability": 0.26855480670928955
+            },
+            {
+              "text": " Machines,",
+              "start": 8.99,
+              "end": 8.99,
+              "probability": 0.1453857421875
+            },
+            {
+              "text": " Smash,",
+              "start": 9.65,
+              "end": 9.65,
+              "probability": 0.4169921875
+            }
+          ]
+        },
+        {
+          "text": " A, Man to, Adams, If They Got, Who They Caught, Rule, The, World, Today, His, Machineries Are,",
+          "start": 9.83,
+          "end": 14.33,
+          "words": [
+            {
+              "text": " A,",
+              "start": 9.83,
+              "end": 9.83,
+              "probability": 0.12115478515625
+            },
+            {
+              "text": " Man",
+              "start": 10.01,
+              "end": 10.01,
+              "probability": 0.5400390625
+            },
+            {
+              "text": " to,",
+              "start": 10.01,
+              "end": 10.21,
+              "probability": 0.28759765625
+            },
+            {
+              "text": " Adams,",
+              "start": 10.35,
+              "end": 10.51,
+              "probability": 0.6923828125
+            },
+            {
+              "text": " If",
+              "start": 10.69,
+              "end": 10.69,
+              "probability": 0.482666015625
+            },
+            {
+              "text": " They",
+              "start": 10.69,
+              "end": 10.81,
+              "probability": 0.17333984375
+            },
+            {
+              "text": " Got,",
+              "start": 10.81,
+              "end": 10.99,
+              "probability": 0.267333984375
+            },
+            {
+              "text": " Who",
+              "start": 11.17,
+              "end": 11.17,
+              "probability": 0.00582122802734375
+            },
+            {
+              "text": " They",
+              "start": 11.17,
+              "end": 11.25,
+              "probability": 0.00417327880859375
+            },
+            {
+              "text": " Caught,",
+              "start": 11.25,
+              "end": 11.57,
+              "probability": 0.708251953125
+            },
+            {
+              "text": " Rule,",
+              "start": 11.79,
+              "end": 12.07,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " The,",
+              "start": 12.21,
+              "end": 12.25,
+              "probability": 0.56298828125
+            },
+            {
+              "text": " World,",
+              "start": 12.43,
+              "end": 12.47,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Today,",
+              "start": 12.67,
+              "end": 12.91,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " His,",
+              "start": 13.41,
+              "end": 13.55,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " Machineries",
+              "start": 13.79,
+              "end": 14.03,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " Are,",
+              "start": 14.03,
+              "end": 14.33,
+              "probability": 0.287353515625
+            }
+          ]
+        },
+        {
+          "text": " Pegging, Away, Too, Like, These, Got, Out of Hand, Fermenting,",
+          "start": 14.47,
+          "end": 17.77,
+          "words": [
+            {
+              "text": " Pegging,",
+              "start": 14.47,
+              "end": 14.65,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " Away,",
+              "start": 14.83,
+              "end": 14.87,
+              "probability": 0.888671875
+            },
+            {
+              "text": " Too,",
+              "start": 15.17,
+              "end": 15.19,
+              "probability": 0.75927734375
+            },
+            {
+              "text": " Like,",
+              "start": 15.79,
+              "end": 15.93,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " These,",
+              "start": 15.93,
+              "end": 16.21,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Got,",
+              "start": 16.39,
+              "end": 16.49,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " Out",
+              "start": 16.57,
+              "end": 16.63,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " of",
+              "start": 16.63,
+              "end": 16.73,
+              "probability": 0.36181640625
+            },
+            {
+              "text": " Hand,",
+              "start": 16.73,
+              "end": 17.03,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " Fermenting,",
+              "start": 17.31,
+              "end": 17.77,
+              "probability": 0.8557942708333334
+            }
+          ]
+        },
+        {
+          "text": " Working, Away, Tearing, Away, And That, Old Gray, Rat, Tearing, To Get,",
+          "start": 18.01,
+          "end": 21.93,
+          "words": [
+            {
+              "text": " Working,",
+              "start": 18.01,
+              "end": 18.31,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Away,",
+              "start": 18.59,
+              "end": 18.65,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " Tearing,",
+              "start": 18.93,
+              "end": 19.09,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " Away,",
+              "start": 19.43,
+              "end": 19.47,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " And",
+              "start": 20.03,
+              "end": 20.17,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " That,",
+              "start": 20.17,
+              "end": 20.35,
+              "probability": 0.65087890625
+            },
+            {
+              "text": " Old",
+              "start": 20.53,
+              "end": 20.59,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " Gray,",
+              "start": 20.59,
+              "end": 20.89,
+              "probability": 0.217529296875
+            },
+            {
+              "text": " Rat,",
+              "start": 20.97,
+              "end": 21.23,
+              "probability": 0.9453125
+            },
+            {
+              "text": " Tearing,",
+              "start": 21.45,
+              "end": 21.59,
+              "probability": 0.967041015625
+            },
+            {
+              "text": " To",
+              "start": 21.71,
+              "end": 21.81,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " Get,",
+              "start": 21.81,
+              "end": 21.93,
+              "probability": 0.66748046875
+            }
+          ]
+        },
+        {
+          "text": " In,",
+          "start": 22.09,
+          "end": 22.21,
+          "words": [
+            {
+              "text": " In,",
+              "start": 22.09,
+              "end": 22.21,
+              "probability": 0.970703125
+            }
+          ]
+        },
+        {
+          "text": " 20, 20, 20, 40, 20 to make a fifty percent contribution.",
+          "start": 22.21,
+          "end": 22.45,
+          "words": [
+            {
+              "text": " 20,",
+              "start": 22.21,
+              "end": 22.45,
+              "probability": 5.9545040130615234e-05
+            },
+            {
+              "text": " 20,",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.052215576171875
+            },
+            {
+              "text": " 20,",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.283935546875
+            },
+            {
+              "text": " 40,",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.036041259765625
+            },
+            {
+              "text": " 20",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.035400390625
+            },
+            {
+              "text": " to",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.0016946792602539062
+            },
+            {
+              "text": " make",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.0209503173828125
+            },
+            {
+              "text": " a",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.08941650390625
+            },
+            {
+              "text": " fifty",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 9.578466415405273e-05
+            },
+            {
+              "text": " percent",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.21826171875
+            },
+            {
+              "text": " contribution.",
+              "start": 22.45,
+              "end": 22.45,
+              "probability": 0.0012426376342773438
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thumping,",
+          "start": 3.95,
+          "end": 4.31
+        },
+        {
+          "raw": "Thump,",
+          "start": 4.31,
+          "end": 4.67
+        },
+        {
+          "raw": "This,",
+          "start": 5.33,
+          "end": 5.35
+        },
+        {
+          "raw": "Mr",
+          "start": 5.55,
+          "end": 5.81
+        },
+        {
+          "raw": "Patrick,",
+          "start": 5.81,
+          "end": 7.47
+        },
+        {
+          "raw": "Dignam,",
+          "start": 7.71,
+          "end": 8.03
+        },
+        {
+          "raw": "Machines,",
+          "start": 8.99,
+          "end": 8.99
+        },
+        {
+          "raw": "Smash,",
+          "start": 9.65,
+          "end": 9.65
+        },
+        {
+          "raw": "A,",
+          "start": 9.83,
+          "end": 9.83
+        },
+        {
+          "raw": "Man",
+          "start": 10.01,
+          "end": 10.01
+        },
+        {
+          "raw": "to,",
+          "start": 10.01,
+          "end": 10.21
+        },
+        {
+          "raw": "Adams,",
+          "start": 10.35,
+          "end": 10.51
+        },
+        {
+          "raw": "If",
+          "start": 10.69,
+          "end": 10.69
+        },
+        {
+          "raw": "They",
+          "start": 10.69,
+          "end": 10.81
+        },
+        {
+          "raw": "Got,",
+          "start": 10.81,
+          "end": 10.99
+        },
+        {
+          "raw": "Who",
+          "start": 11.17,
+          "end": 11.17
+        },
+        {
+          "raw": "They",
+          "start": 11.17,
+          "end": 11.25
+        },
+        {
+          "raw": "Caught,",
+          "start": 11.25,
+          "end": 11.57
+        },
+        {
+          "raw": "Rule,",
+          "start": 11.79,
+          "end": 12.07
+        },
+        {
+          "raw": "The,",
+          "start": 12.21,
+          "end": 12.25
+        },
+        {
+          "raw": "World,",
+          "start": 12.43,
+          "end": 12.47
+        },
+        {
+          "raw": "Today,",
+          "start": 12.67,
+          "end": 12.91
+        },
+        {
+          "raw": "His,",
+          "start": 13.41,
+          "end": 13.55
+        },
+        {
+          "raw": "Machineries",
+          "start": 13.79,
+          "end": 14.03
+        },
+        {
+          "raw": "Are,",
+          "start": 14.03,
+          "end": 14.33
+        },
+        {
+          "raw": "Pegging,",
+          "start": 14.47,
+          "end": 14.65
+        },
+        {
+          "raw": "Away,",
+          "start": 14.83,
+          "end": 14.87
+        },
+        {
+          "raw": "Too,",
+          "start": 15.17,
+          "end": 15.19
+        },
+        {
+          "raw": "Like,",
+          "start": 15.79,
+          "end": 15.93
+        },
+        {
+          "raw": "These,",
+          "start": 15.93,
+          "end": 16.21
+        },
+        {
+          "raw": "Got,",
+          "start": 16.39,
+          "end": 16.49
+        },
+        {
+          "raw": "Out",
+          "start": 16.57,
+          "end": 16.63
+        },
+        {
+          "raw": "of",
+          "start": 16.63,
+          "end": 16.73
+        },
+        {
+          "raw": "Hand,",
+          "start": 16.73,
+          "end": 17.03
+        },
+        {
+          "raw": "Fermenting,",
+          "start": 17.31,
+          "end": 17.77
+        },
+        {
+          "raw": "Working,",
+          "start": 18.01,
+          "end": 18.31
+        },
+        {
+          "raw": "Away,",
+          "start": 18.59,
+          "end": 18.65
+        },
+        {
+          "raw": "Tearing,",
+          "start": 18.93,
+          "end": 19.09
+        },
+        {
+          "raw": "Away,",
+          "start": 19.43,
+          "end": 19.47
+        },
+        {
+          "raw": "And",
+          "start": 20.03,
+          "end": 20.17
+        },
+        {
+          "raw": "That,",
+          "start": 20.17,
+          "end": 20.35
+        },
+        {
+          "raw": "Old",
+          "start": 20.53,
+          "end": 20.59
+        },
+        {
+          "raw": "Gray,",
+          "start": 20.59,
+          "end": 20.89
+        },
+        {
+          "raw": "Rat,",
+          "start": 20.97,
+          "end": 21.23
+        },
+        {
+          "raw": "Tearing,",
+          "start": 21.45,
+          "end": 21.59
+        },
+        {
+          "raw": "To",
+          "start": 21.71,
+          "end": 21.81
+        },
+        {
+          "raw": "Get,",
+          "start": 21.81,
+          "end": 21.93
+        },
+        {
+          "raw": "In,",
+          "start": 22.09,
+          "end": 22.21
+        },
+        {
+          "raw": "20,",
+          "start": 22.21,
+          "end": 22.45
+        },
+        {
+          "raw": "20,",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "20,",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "40,",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "20",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "to",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "make",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "a",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "fifty",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "percent",
+          "start": 22.45,
+          "end": 22.45
+        },
+        {
+          "raw": "contribution.",
+          "start": 22.45,
+          "end": 22.45
+        }
+      ],
+      "expected_tokens": [
+        "Hynes",
+        "here",
+        "too:",
+        "account",
+        "of",
+        "the",
+        "funeral",
+        "probably.",
+        "Thumping.",
+        "Thump.",
+        "This",
+        "morning",
+        "the",
+        "remains",
+        "of",
+        "the",
+        "late",
+        "Mr",
+        "Patrick",
+        "Dignam.",
+        "Machines.",
+        "Smash",
+        "a",
+        "man",
+        "to",
+        "atoms",
+        "if",
+        "they",
+        "got",
+        "him",
+        "caught.",
+        "Rule",
+        "the",
+        "world",
+        "today.",
+        "His",
+        "machineries",
+        "are",
+        "pegging",
+        "away",
+        "too.",
+        "Like",
+        "these,",
+        "got",
+        "out",
+        "of",
+        "hand:",
+        "fermenting.",
+        "Working",
+        "away,",
+        "tearing",
+        "away.",
+        "And",
+        "that",
+        "old",
+        "grey",
+        "rat",
+        "tearing",
+        "to",
+        "get",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          8,
+          0,
+          0
+        ],
+        [
+          "equal",
+          8,
+          11,
+          0,
+          3
+        ],
+        [
+          "delete",
+          11,
+          17,
+          3,
+          3
+        ],
+        [
+          "equal",
+          17,
+          25,
+          3,
+          11
+        ],
+        [
+          "replace",
+          25,
+          26,
+          11,
+          12
+        ],
+        [
+          "equal",
+          26,
+          29,
+          12,
+          15
+        ],
+        [
+          "replace",
+          29,
+          30,
+          15,
+          17
+        ],
+        [
+          "equal",
+          30,
+          55,
+          17,
+          42
+        ],
+        [
+          "replace",
+          55,
+          56,
+          42,
+          43
+        ],
+        [
+          "equal",
+          56,
+          61,
+          43,
+          48
+        ],
+        [
+          "insert",
+          61,
+          61,
+          48,
+          59
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 47
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          8,
+          0,
+          0
+        ],
+        [
+          "delete",
+          11,
+          17,
+          3,
+          3
+        ],
+        [
+          "replace",
+          25,
+          26,
+          11,
+          12
+        ],
+        [
+          "replace",
+          29,
+          30,
+          15,
+          17
+        ],
+        [
+          "replace",
+          55,
+          56,
+          42,
+          43
+        ],
+        [
+          "insert",
+          61,
+          61,
+          48,
+          59
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thumping,",
+          "start": 3.95,
+          "end": 4.31,
+          "key": "thumping",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thump,",
+          "start": 4.31,
+          "end": 4.67,
+          "key": "thump",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "This,",
+          "start": 5.33,
+          "end": 5.35,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mr",
+          "start": 5.55,
+          "end": 5.81,
+          "key": "mr",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Patrick,",
+          "start": 5.81,
+          "end": 7.47,
+          "key": "patrick",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Dignam,",
+          "start": 7.71,
+          "end": 8.03,
+          "key": "dignam",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Machines,",
+          "start": 8.99,
+          "end": 8.99,
+          "key": "machines",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Smash,",
+          "start": 9.65,
+          "end": 9.65,
+          "key": "smash",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "A,",
+          "start": 9.83,
+          "end": 9.83,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Man",
+          "start": 10.01,
+          "end": 10.01,
+          "key": "man",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to,",
+          "start": 10.01,
+          "end": 10.21,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Adams,",
+          "start": 10.35,
+          "end": 10.51,
+          "key": "adams",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 10.69,
+          "end": 10.69,
+          "key": "if",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 10.69,
+          "end": 10.81,
+          "key": "they",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Got,",
+          "start": 10.81,
+          "end": 10.99,
+          "key": "got",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 11.17,
+          "end": 11.17,
+          "key": "who",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 11.17,
+          "end": 11.25,
+          "key": "they",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Caught,",
+          "start": 11.25,
+          "end": 11.57,
+          "key": "caught",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Rule,",
+          "start": 11.79,
+          "end": 12.07,
+          "key": "rule",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "The,",
+          "start": 12.21,
+          "end": 12.25,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "World,",
+          "start": 12.43,
+          "end": 12.47,
+          "key": "world",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Today,",
+          "start": 12.67,
+          "end": 12.91,
+          "key": "today",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "His,",
+          "start": 13.41,
+          "end": 13.55,
+          "key": "his",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Machineries",
+          "start": 13.79,
+          "end": 14.03,
+          "key": "machineries",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Are,",
+          "start": 14.03,
+          "end": 14.33,
+          "key": "are",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Pegging,",
+          "start": 14.47,
+          "end": 14.65,
+          "key": "pegging",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Away,",
+          "start": 14.83,
+          "end": 14.87,
+          "key": "away",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Too,",
+          "start": 15.17,
+          "end": 15.19,
+          "key": "too",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Like,",
+          "start": 15.79,
+          "end": 15.93,
+          "key": "like",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "These,",
+          "start": 15.93,
+          "end": 16.21,
+          "key": "these",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Got,",
+          "start": 16.39,
+          "end": 16.49,
+          "key": "got",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Out",
+          "start": 16.57,
+          "end": 16.63,
+          "key": "out",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.63,
+          "end": 16.73,
+          "key": "of",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Hand,",
+          "start": 16.73,
+          "end": 17.03,
+          "key": "hand",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Fermenting,",
+          "start": 17.31,
+          "end": 17.77,
+          "key": "fermenting",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Working,",
+          "start": 18.01,
+          "end": 18.31,
+          "key": "working",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Away,",
+          "start": 18.59,
+          "end": 18.65,
+          "key": "away",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Tearing,",
+          "start": 18.93,
+          "end": 19.09,
+          "key": "tearing",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Away,",
+          "start": 19.43,
+          "end": 19.47,
+          "key": "away",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 20.03,
+          "end": 20.17,
+          "key": "and",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "That,",
+          "start": 20.17,
+          "end": 20.35,
+          "key": "that",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Old",
+          "start": 20.53,
+          "end": 20.59,
+          "key": "old",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Gray,",
+          "start": 20.59,
+          "end": 20.89,
+          "key": "gray",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Rat,",
+          "start": 20.97,
+          "end": 21.23,
+          "key": "rat",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Tearing,",
+          "start": 21.45,
+          "end": 21.59,
+          "key": "tearing",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 21.71,
+          "end": 21.81,
+          "key": "to",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Get,",
+          "start": 21.81,
+          "end": 21.93,
+          "key": "get",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "In,",
+          "start": 22.09,
+          "end": 22.21,
+          "key": "in",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "20,",
+          "start": 22.21,
+          "end": 22.45,
+          "key": "twenty",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "20,",
+          "start": 22.45,
+          "end": 22.45,
+          "key": "twenty",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "20,",
+          "start": 22.45,
+          "end": 22.45,
+          "key": "twenty",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "40,",
+          "start": 22.45,
+          "end": 22.45,
+          "key": "forty",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "20",
+          "start": 22.45,
+          "end": 22.45,
+          "key": "twenty",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 22.45,
+          "end": 22.45,
+          "key": "to",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 22.45,
+          "end": 22.45,
+          "key": "make",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 22.45,
+          "end": 22.45,
+          "key": "a",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "fifty",
+          "start": 22.45,
+          "end": 22.45,
+          "key": "fifty",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "percent",
+          "start": 22.45,
+          "end": 22.45,
+          "key": "percent",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "contribution.",
+          "start": 22.45,
+          "end": 22.45,
+          "key": "contribution",
+          "pieces": [
+            58
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hynes",
+          "start": 0.0,
+          "end": 1.975
+        },
+        {
+          "text": "here",
+          "start": 1.975,
+          "end": 2.963
+        },
+        {
+          "text": "too:",
+          "start": 2.963,
+          "end": 3.457
+        },
+        {
+          "text": "account",
+          "start": 3.457,
+          "end": 3.704
+        },
+        {
+          "text": "of",
+          "start": 3.704,
+          "end": 3.827
+        },
+        {
+          "text": "the",
+          "start": 3.827,
+          "end": 3.889
+        },
+        {
+          "text": "funeral",
+          "start": 3.889,
+          "end": 3.92
+        },
+        {
+          "text": "probably.",
+          "start": 3.92,
+          "end": 3.935
+        },
+        {
+          "text": "Thumping.",
+          "start": 3.95,
+          "end": 4.31
+        },
+        {
+          "text": "Thump.",
+          "start": 4.31,
+          "end": 4.67
+        },
+        {
+          "text": "This",
+          "start": 5.33,
+          "end": 5.35
+        },
+        {
+          "text": "morning",
+          "start": 5.35,
+          "end": 5.45
+        },
+        {
+          "text": "the",
+          "start": 5.45,
+          "end": 5.5
+        },
+        {
+          "text": "remains",
+          "start": 5.5,
+          "end": 5.525
+        },
+        {
+          "text": "of",
+          "start": 5.525,
+          "end": 5.537
+        },
+        {
+          "text": "the",
+          "start": 5.537,
+          "end": 5.543
+        },
+        {
+          "text": "late",
+          "start": 5.543,
+          "end": 5.546
+        },
+        {
+          "text": "Mr",
+          "start": 5.55,
+          "end": 5.81
+        },
+        {
+          "text": "Patrick",
+          "start": 5.81,
+          "end": 7.47
+        },
+        {
+          "text": "Dignam.",
+          "start": 7.71,
+          "end": 8.03
+        },
+        {
+          "text": "Machines.",
+          "start": 8.99,
+          "end": 8.99
+        },
+        {
+          "text": "Smash",
+          "start": 9.65,
+          "end": 9.65
+        },
+        {
+          "text": "a",
+          "start": 9.83,
+          "end": 9.83
+        },
+        {
+          "text": "man",
+          "start": 10.01,
+          "end": 10.01
+        },
+        {
+          "text": "to",
+          "start": 10.01,
+          "end": 10.21
+        },
+        {
+          "text": "atoms",
+          "start": 10.21,
+          "end": 10.45
+        },
+        {
+          "text": "if",
+          "start": 10.69,
+          "end": 10.69
+        },
+        {
+          "text": "they",
+          "start": 10.69,
+          "end": 10.81
+        },
+        {
+          "text": "got",
+          "start": 10.81,
+          "end": 10.99
+        },
+        {
+          "text": "him",
+          "start": 10.99,
+          "end": 11.12
+        },
+        {
+          "text": "caught.",
+          "start": 11.25,
+          "end": 11.57
+        },
+        {
+          "text": "Rule",
+          "start": 11.79,
+          "end": 12.07
+        },
+        {
+          "text": "the",
+          "start": 12.21,
+          "end": 12.25
+        },
+        {
+          "text": "world",
+          "start": 12.43,
+          "end": 12.47
+        },
+        {
+          "text": "today.",
+          "start": 12.67,
+          "end": 12.91
+        },
+        {
+          "text": "His",
+          "start": 13.41,
+          "end": 13.55
+        },
+        {
+          "text": "machineries",
+          "start": 13.79,
+          "end": 14.03
+        },
+        {
+          "text": "are",
+          "start": 14.03,
+          "end": 14.33
+        },
+        {
+          "text": "pegging",
+          "start": 14.47,
+          "end": 14.65
+        },
+        {
+          "text": "away",
+          "start": 14.83,
+          "end": 14.87
+        },
+        {
+          "text": "too.",
+          "start": 15.17,
+          "end": 15.19
+        },
+        {
+          "text": "Like",
+          "start": 15.79,
+          "end": 15.93
+        },
+        {
+          "text": "these,",
+          "start": 15.93,
+          "end": 16.21
+        },
+        {
+          "text": "got",
+          "start": 16.39,
+          "end": 16.49
+        },
+        {
+          "text": "out",
+          "start": 16.57,
+          "end": 16.63
+        },
+        {
+          "text": "of",
+          "start": 16.63,
+          "end": 16.73
+        },
+        {
+          "text": "hand:",
+          "start": 16.73,
+          "end": 17.03
+        },
+        {
+          "text": "fermenting.",
+          "start": 17.31,
+          "end": 17.77
+        },
+        {
+          "text": "Working",
+          "start": 18.01,
+          "end": 18.31
+        },
+        {
+          "text": "away,",
+          "start": 18.59,
+          "end": 18.65
+        },
+        {
+          "text": "tearing",
+          "start": 18.93,
+          "end": 19.09
+        },
+        {
+          "text": "away.",
+          "start": 19.43,
+          "end": 19.47
+        },
+        {
+          "text": "And",
+          "start": 20.03,
+          "end": 20.17
+        },
+        {
+          "text": "that",
+          "start": 20.17,
+          "end": 20.35
+        },
+        {
+          "text": "old",
+          "start": 20.53,
+          "end": 20.59
+        },
+        {
+          "text": "grey",
+          "start": 20.59,
+          "end": 20.78
+        },
+        {
+          "text": "rat",
+          "start": 20.97,
+          "end": 21.23
+        },
+        {
+          "text": "tearing",
+          "start": 21.45,
+          "end": 21.59
+        },
+        {
+          "text": "to",
+          "start": 21.71,
+          "end": 21.81
+        },
+        {
+          "text": "get",
+          "start": 21.81,
+          "end": 21.93
+        },
+        {
+          "text": "in.",
+          "start": 22.09,
+          "end": 22.21
+        }
+      ],
+      "stats": {
+        "expected_words": 61,
+        "heard_words": 59,
+        "matched_words": 44
+      },
+      "match_ratio": 0.7213114754098361,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 6.806499662983697
+    },
+    {
+      "asr_seconds": 0.5864935190184042,
+      "alignment_seconds": 0.0007138130022212863,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Heinz here, too, account of the funeral, probably. Thumping. Thump.",
+          "start": 0.05,
+          "end": 4.63,
+          "words": [
+            {
+              "text": " Heinz",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.6790771484375
+            },
+            {
+              "text": " here,",
+              "start": 0.77,
+              "end": 0.89,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " too,",
+              "start": 1.19,
+              "end": 1.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " account",
+              "start": 1.33,
+              "end": 1.59,
+              "probability": 0.72119140625
+            },
+            {
+              "text": " of",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.75,
+              "end": 1.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " funeral,",
+              "start": 1.87,
+              "end": 2.23,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " probably.",
+              "start": 2.37,
+              "end": 2.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Thumping.",
+              "start": 3.41,
+              "end": 3.65,
+              "probability": 0.912109375
+            },
+            {
+              "text": " Thump.",
+              "start": 4.31,
+              "end": 4.63,
+              "probability": 0.972412109375
+            }
+          ]
+        },
+        {
+          "text": " This morning the remains of the late Mr. Patrick Dignam. Machines. Smash a man to Adams if",
+          "start": 5.19,
+          "end": 10.69,
+          "words": [
+            {
+              "text": " This",
+              "start": 5.19,
+              "end": 5.37,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " morning",
+              "start": 5.37,
+              "end": 5.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 5.59,
+              "end": 5.85,
+              "probability": 0.7451171875
+            },
+            {
+              "text": " remains",
+              "start": 5.85,
+              "end": 6.21,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 6.21,
+              "end": 6.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 6.43,
+              "end": 6.53,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " late",
+              "start": 6.53,
+              "end": 6.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Mr.",
+              "start": 6.73,
+              "end": 7.07,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " Patrick",
+              "start": 7.43,
+              "end": 7.49,
+              "probability": 0.984375
+            },
+            {
+              "text": " Dignam.",
+              "start": 7.49,
+              "end": 7.91,
+              "probability": 0.6138509114583334
+            },
+            {
+              "text": " Machines.",
+              "start": 8.45,
+              "end": 8.77,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Smash",
+              "start": 9.61,
+              "end": 9.65,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " a",
+              "start": 9.65,
+              "end": 9.83,
+              "probability": 0.9921875
+            },
+            {
+              "text": " man",
+              "start": 9.83,
+              "end": 9.97,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 9.97,
+              "end": 10.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Adams",
+              "start": 10.21,
+              "end": 10.49,
+              "probability": 0.6435546875
+            },
+            {
+              "text": " if",
+              "start": 10.49,
+              "end": 10.69,
+              "probability": 0.9765625
+            }
+          ]
+        },
+        {
+          "text": " they got him caught. Rule the world today. His machineries are pegging away, too. Like",
+          "start": 10.69,
+          "end": 15.93,
+          "words": [
+            {
+              "text": " they",
+              "start": 10.69,
+              "end": 10.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " got",
+              "start": 10.83,
+              "end": 10.99,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " him",
+              "start": 10.99,
+              "end": 11.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " caught.",
+              "start": 11.17,
+              "end": 11.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Rule",
+              "start": 11.91,
+              "end": 12.07,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 12.07,
+              "end": 12.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " world",
+              "start": 12.25,
+              "end": 12.49,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " today.",
+              "start": 12.49,
+              "end": 12.87,
+              "probability": 0.951171875
+            },
+            {
+              "text": " His",
+              "start": 13.41,
+              "end": 13.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " machineries",
+              "start": 13.55,
+              "end": 14.03,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " are",
+              "start": 14.03,
+              "end": 14.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pegging",
+              "start": 14.31,
+              "end": 14.65,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " away,",
+              "start": 14.65,
+              "end": 14.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " too.",
+              "start": 14.87,
+              "end": 15.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Like",
+              "start": 15.81,
+              "end": 15.93,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " these got out of hand, fermenting, working away, tearing away. And that old gray rat",
+          "start": 15.93,
+          "end": 21.23,
+          "words": [
+            {
+              "text": " these",
+              "start": 15.93,
+              "end": 16.21,
+              "probability": 0.9921875
+            },
+            {
+              "text": " got",
+              "start": 16.21,
+              "end": 16.49,
+              "probability": 0.339111328125
+            },
+            {
+              "text": " out",
+              "start": 16.49,
+              "end": 16.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 16.63,
+              "end": 16.73,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " hand,",
+              "start": 16.73,
+              "end": 17.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fermenting,",
+              "start": 17.29,
+              "end": 17.77,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " working",
+              "start": 18.07,
+              "end": 18.31,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " away,",
+              "start": 18.31,
+              "end": 18.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tearing",
+              "start": 18.89,
+              "end": 19.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " away.",
+              "start": 19.09,
+              "end": 19.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " And",
+              "start": 20.05,
+              "end": 20.17,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " that",
+              "start": 20.17,
+              "end": 20.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " old",
+              "start": 20.35,
+              "end": 20.61,
+              "probability": 0.984375
+            },
+            {
+              "text": " gray",
+              "start": 20.61,
+              "end": 20.89,
+              "probability": 0.58447265625
+            },
+            {
+              "text": " rat",
+              "start": 20.89,
+              "end": 21.23,
+              "probability": 0.962890625
+            }
+          ]
+        },
+        {
+          "text": " tearing to get in.",
+          "start": 21.23,
+          "end": 22.17,
+          "words": [
+            {
+              "text": " tearing",
+              "start": 21.23,
+              "end": 21.59,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " to",
+              "start": 21.59,
+              "end": 21.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " get",
+              "start": 21.81,
+              "end": 21.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in.",
+              "start": 21.93,
+              "end": 22.17,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Heinz",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "here,",
+          "start": 0.77,
+          "end": 0.89
+        },
+        {
+          "raw": "too,",
+          "start": 1.19,
+          "end": 1.19
+        },
+        {
+          "raw": "account",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "raw": "of",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "the",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "raw": "funeral,",
+          "start": 1.87,
+          "end": 2.23
+        },
+        {
+          "raw": "probably.",
+          "start": 2.37,
+          "end": 2.77
+        },
+        {
+          "raw": "Thumping.",
+          "start": 3.41,
+          "end": 3.65
+        },
+        {
+          "raw": "Thump.",
+          "start": 4.31,
+          "end": 4.63
+        },
+        {
+          "raw": "This",
+          "start": 5.19,
+          "end": 5.37
+        },
+        {
+          "raw": "morning",
+          "start": 5.37,
+          "end": 5.59
+        },
+        {
+          "raw": "the",
+          "start": 5.59,
+          "end": 5.85
+        },
+        {
+          "raw": "remains",
+          "start": 5.85,
+          "end": 6.21
+        },
+        {
+          "raw": "of",
+          "start": 6.21,
+          "end": 6.43
+        },
+        {
+          "raw": "the",
+          "start": 6.43,
+          "end": 6.53
+        },
+        {
+          "raw": "late",
+          "start": 6.53,
+          "end": 6.73
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.73,
+          "end": 7.07
+        },
+        {
+          "raw": "Patrick",
+          "start": 7.43,
+          "end": 7.49
+        },
+        {
+          "raw": "Dignam.",
+          "start": 7.49,
+          "end": 7.91
+        },
+        {
+          "raw": "Machines.",
+          "start": 8.45,
+          "end": 8.77
+        },
+        {
+          "raw": "Smash",
+          "start": 9.61,
+          "end": 9.65
+        },
+        {
+          "raw": "a",
+          "start": 9.65,
+          "end": 9.83
+        },
+        {
+          "raw": "man",
+          "start": 9.83,
+          "end": 9.97
+        },
+        {
+          "raw": "to",
+          "start": 9.97,
+          "end": 10.21
+        },
+        {
+          "raw": "Adams",
+          "start": 10.21,
+          "end": 10.49
+        },
+        {
+          "raw": "if",
+          "start": 10.49,
+          "end": 10.69
+        },
+        {
+          "raw": "they",
+          "start": 10.69,
+          "end": 10.83
+        },
+        {
+          "raw": "got",
+          "start": 10.83,
+          "end": 10.99
+        },
+        {
+          "raw": "him",
+          "start": 10.99,
+          "end": 11.17
+        },
+        {
+          "raw": "caught.",
+          "start": 11.17,
+          "end": 11.45
+        },
+        {
+          "raw": "Rule",
+          "start": 11.91,
+          "end": 12.07
+        },
+        {
+          "raw": "the",
+          "start": 12.07,
+          "end": 12.25
+        },
+        {
+          "raw": "world",
+          "start": 12.25,
+          "end": 12.49
+        },
+        {
+          "raw": "today.",
+          "start": 12.49,
+          "end": 12.87
+        },
+        {
+          "raw": "His",
+          "start": 13.41,
+          "end": 13.55
+        },
+        {
+          "raw": "machineries",
+          "start": 13.55,
+          "end": 14.03
+        },
+        {
+          "raw": "are",
+          "start": 14.03,
+          "end": 14.31
+        },
+        {
+          "raw": "pegging",
+          "start": 14.31,
+          "end": 14.65
+        },
+        {
+          "raw": "away,",
+          "start": 14.65,
+          "end": 14.87
+        },
+        {
+          "raw": "too.",
+          "start": 14.87,
+          "end": 15.17
+        },
+        {
+          "raw": "Like",
+          "start": 15.81,
+          "end": 15.93
+        },
+        {
+          "raw": "these",
+          "start": 15.93,
+          "end": 16.21
+        },
+        {
+          "raw": "got",
+          "start": 16.21,
+          "end": 16.49
+        },
+        {
+          "raw": "out",
+          "start": 16.49,
+          "end": 16.63
+        },
+        {
+          "raw": "of",
+          "start": 16.63,
+          "end": 16.73
+        },
+        {
+          "raw": "hand,",
+          "start": 16.73,
+          "end": 17.07
+        },
+        {
+          "raw": "fermenting,",
+          "start": 17.29,
+          "end": 17.77
+        },
+        {
+          "raw": "working",
+          "start": 18.07,
+          "end": 18.31
+        },
+        {
+          "raw": "away,",
+          "start": 18.31,
+          "end": 18.65
+        },
+        {
+          "raw": "tearing",
+          "start": 18.89,
+          "end": 19.09
+        },
+        {
+          "raw": "away.",
+          "start": 19.09,
+          "end": 19.45
+        },
+        {
+          "raw": "And",
+          "start": 20.05,
+          "end": 20.17
+        },
+        {
+          "raw": "that",
+          "start": 20.17,
+          "end": 20.35
+        },
+        {
+          "raw": "old",
+          "start": 20.35,
+          "end": 20.61
+        },
+        {
+          "raw": "gray",
+          "start": 20.61,
+          "end": 20.89
+        },
+        {
+          "raw": "rat",
+          "start": 20.89,
+          "end": 21.23
+        },
+        {
+          "raw": "tearing",
+          "start": 21.23,
+          "end": 21.59
+        },
+        {
+          "raw": "to",
+          "start": 21.59,
+          "end": 21.81
+        },
+        {
+          "raw": "get",
+          "start": 21.81,
+          "end": 21.93
+        },
+        {
+          "raw": "in.",
+          "start": 21.93,
+          "end": 22.17
+        }
+      ],
+      "expected_tokens": [
+        "Hynes",
+        "here",
+        "too:",
+        "account",
+        "of",
+        "the",
+        "funeral",
+        "probably.",
+        "Thumping.",
+        "Thump.",
+        "This",
+        "morning",
+        "the",
+        "remains",
+        "of",
+        "the",
+        "late",
+        "Mr",
+        "Patrick",
+        "Dignam.",
+        "Machines.",
+        "Smash",
+        "a",
+        "man",
+        "to",
+        "atoms",
+        "if",
+        "they",
+        "got",
+        "him",
+        "caught.",
+        "Rule",
+        "the",
+        "world",
+        "today.",
+        "His",
+        "machineries",
+        "are",
+        "pegging",
+        "away",
+        "too.",
+        "Like",
+        "these,",
+        "got",
+        "out",
+        "of",
+        "hand:",
+        "fermenting.",
+        "Working",
+        "away,",
+        "tearing",
+        "away.",
+        "And",
+        "that",
+        "old",
+        "grey",
+        "rat",
+        "tearing",
+        "to",
+        "get",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          25,
+          1,
+          25
+        ],
+        [
+          "replace",
+          25,
+          26,
+          25,
+          26
+        ],
+        [
+          "equal",
+          26,
+          55,
+          26,
+          55
+        ],
+        [
+          "replace",
+          55,
+          56,
+          55,
+          56
+        ],
+        [
+          "equal",
+          56,
+          61,
+          56,
+          61
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          25,
+          26,
+          25,
+          26
+        ],
+        [
+          "replace",
+          55,
+          56,
+          55,
+          56
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Heinz",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "heinz",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 0.77,
+          "end": 0.89,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 1.19,
+          "end": 1.19,
+          "key": "too",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "account",
+          "start": 1.33,
+          "end": 1.59,
+          "key": "account",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.75,
+          "end": 1.87,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "funeral,",
+          "start": 1.87,
+          "end": 2.23,
+          "key": "funeral",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "probably.",
+          "start": 2.37,
+          "end": 2.77,
+          "key": "probably",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Thumping.",
+          "start": 3.41,
+          "end": 3.65,
+          "key": "thumping",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Thump.",
+          "start": 4.31,
+          "end": 4.63,
+          "key": "thump",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 5.19,
+          "end": 5.37,
+          "key": "this",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "morning",
+          "start": 5.37,
+          "end": 5.59,
+          "key": "morning",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.59,
+          "end": 5.85,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "remains",
+          "start": 5.85,
+          "end": 6.21,
+          "key": "remains",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.21,
+          "end": 6.43,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.43,
+          "end": 6.53,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "late",
+          "start": 6.53,
+          "end": 6.73,
+          "key": "late",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.73,
+          "end": 7.07,
+          "key": "mr",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Patrick",
+          "start": 7.43,
+          "end": 7.49,
+          "key": "patrick",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Dignam.",
+          "start": 7.49,
+          "end": 7.91,
+          "key": "dignam",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Machines.",
+          "start": 8.45,
+          "end": 8.77,
+          "key": "machines",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Smash",
+          "start": 9.61,
+          "end": 9.65,
+          "key": "smash",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.65,
+          "end": 9.83,
+          "key": "a",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 9.83,
+          "end": 9.97,
+          "key": "man",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.97,
+          "end": 10.21,
+          "key": "to",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Adams",
+          "start": 10.21,
+          "end": 10.49,
+          "key": "adams",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 10.49,
+          "end": 10.69,
+          "key": "if",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 10.69,
+          "end": 10.83,
+          "key": "they",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 10.83,
+          "end": 10.99,
+          "key": "got",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 10.99,
+          "end": 11.17,
+          "key": "him",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "caught.",
+          "start": 11.17,
+          "end": 11.45,
+          "key": "caught",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Rule",
+          "start": 11.91,
+          "end": 12.07,
+          "key": "rule",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.07,
+          "end": 12.25,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "world",
+          "start": 12.25,
+          "end": 12.49,
+          "key": "world",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "today.",
+          "start": 12.49,
+          "end": 12.87,
+          "key": "today",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 13.41,
+          "end": 13.55,
+          "key": "his",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "machineries",
+          "start": 13.55,
+          "end": 14.03,
+          "key": "machineries",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 14.03,
+          "end": 14.31,
+          "key": "are",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "pegging",
+          "start": 14.31,
+          "end": 14.65,
+          "key": "pegging",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "away,",
+          "start": 14.65,
+          "end": 14.87,
+          "key": "away",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 14.87,
+          "end": 15.17,
+          "key": "too",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Like",
+          "start": 15.81,
+          "end": 15.93,
+          "key": "like",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 15.93,
+          "end": 16.21,
+          "key": "these",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 16.21,
+          "end": 16.49,
+          "key": "got",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 16.49,
+          "end": 16.63,
+          "key": "out",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.63,
+          "end": 16.73,
+          "key": "of",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "hand,",
+          "start": 16.73,
+          "end": 17.07,
+          "key": "hand",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "fermenting,",
+          "start": 17.29,
+          "end": 17.77,
+          "key": "fermenting",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "working",
+          "start": 18.07,
+          "end": 18.31,
+          "key": "working",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "away,",
+          "start": 18.31,
+          "end": 18.65,
+          "key": "away",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "tearing",
+          "start": 18.89,
+          "end": 19.09,
+          "key": "tearing",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "away.",
+          "start": 19.09,
+          "end": 19.45,
+          "key": "away",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 20.05,
+          "end": 20.17,
+          "key": "and",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 20.17,
+          "end": 20.35,
+          "key": "that",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 20.35,
+          "end": 20.61,
+          "key": "old",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "gray",
+          "start": 20.61,
+          "end": 20.89,
+          "key": "gray",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "rat",
+          "start": 20.89,
+          "end": 21.23,
+          "key": "rat",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "tearing",
+          "start": 21.23,
+          "end": 21.59,
+          "key": "tearing",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 21.59,
+          "end": 21.81,
+          "key": "to",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 21.81,
+          "end": 21.93,
+          "key": "get",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 21.93,
+          "end": 22.17,
+          "key": "in",
+          "pieces": [
+            60
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hynes",
+          "start": 0.0,
+          "end": 0.385
+        },
+        {
+          "text": "here",
+          "start": 0.77,
+          "end": 0.89
+        },
+        {
+          "text": "too:",
+          "start": 1.19,
+          "end": 1.19
+        },
+        {
+          "text": "account",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "text": "of",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "the",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "text": "funeral",
+          "start": 1.87,
+          "end": 2.23
+        },
+        {
+          "text": "probably.",
+          "start": 2.37,
+          "end": 2.77
+        },
+        {
+          "text": "Thumping.",
+          "start": 3.41,
+          "end": 3.65
+        },
+        {
+          "text": "Thump.",
+          "start": 4.31,
+          "end": 4.63
+        },
+        {
+          "text": "This",
+          "start": 5.19,
+          "end": 5.37
+        },
+        {
+          "text": "morning",
+          "start": 5.37,
+          "end": 5.59
+        },
+        {
+          "text": "the",
+          "start": 5.59,
+          "end": 5.85
+        },
+        {
+          "text": "remains",
+          "start": 5.85,
+          "end": 6.21
+        },
+        {
+          "text": "of",
+          "start": 6.21,
+          "end": 6.43
+        },
+        {
+          "text": "the",
+          "start": 6.43,
+          "end": 6.53
+        },
+        {
+          "text": "late",
+          "start": 6.53,
+          "end": 6.73
+        },
+        {
+          "text": "Mr",
+          "start": 6.73,
+          "end": 7.07
+        },
+        {
+          "text": "Patrick",
+          "start": 7.43,
+          "end": 7.49
+        },
+        {
+          "text": "Dignam.",
+          "start": 7.49,
+          "end": 7.91
+        },
+        {
+          "text": "Machines.",
+          "start": 8.45,
+          "end": 8.77
+        },
+        {
+          "text": "Smash",
+          "start": 9.61,
+          "end": 9.65
+        },
+        {
+          "text": "a",
+          "start": 9.65,
+          "end": 9.83
+        },
+        {
+          "text": "man",
+          "start": 9.83,
+          "end": 9.97
+        },
+        {
+          "text": "to",
+          "start": 9.97,
+          "end": 10.21
+        },
+        {
+          "text": "atoms",
+          "start": 10.21,
+          "end": 10.35
+        },
+        {
+          "text": "if",
+          "start": 10.49,
+          "end": 10.69
+        },
+        {
+          "text": "they",
+          "start": 10.69,
+          "end": 10.83
+        },
+        {
+          "text": "got",
+          "start": 10.83,
+          "end": 10.99
+        },
+        {
+          "text": "him",
+          "start": 10.99,
+          "end": 11.17
+        },
+        {
+          "text": "caught.",
+          "start": 11.17,
+          "end": 11.45
+        },
+        {
+          "text": "Rule",
+          "start": 11.91,
+          "end": 12.07
+        },
+        {
+          "text": "the",
+          "start": 12.07,
+          "end": 12.25
+        },
+        {
+          "text": "world",
+          "start": 12.25,
+          "end": 12.49
+        },
+        {
+          "text": "today.",
+          "start": 12.49,
+          "end": 12.87
+        },
+        {
+          "text": "His",
+          "start": 13.41,
+          "end": 13.55
+        },
+        {
+          "text": "machineries",
+          "start": 13.55,
+          "end": 14.03
+        },
+        {
+          "text": "are",
+          "start": 14.03,
+          "end": 14.31
+        },
+        {
+          "text": "pegging",
+          "start": 14.31,
+          "end": 14.65
+        },
+        {
+          "text": "away",
+          "start": 14.65,
+          "end": 14.87
+        },
+        {
+          "text": "too.",
+          "start": 14.87,
+          "end": 15.17
+        },
+        {
+          "text": "Like",
+          "start": 15.81,
+          "end": 15.93
+        },
+        {
+          "text": "these,",
+          "start": 15.93,
+          "end": 16.21
+        },
+        {
+          "text": "got",
+          "start": 16.21,
+          "end": 16.49
+        },
+        {
+          "text": "out",
+          "start": 16.49,
+          "end": 16.63
+        },
+        {
+          "text": "of",
+          "start": 16.63,
+          "end": 16.73
+        },
+        {
+          "text": "hand:",
+          "start": 16.73,
+          "end": 17.07
+        },
+        {
+          "text": "fermenting.",
+          "start": 17.29,
+          "end": 17.77
+        },
+        {
+          "text": "Working",
+          "start": 18.07,
+          "end": 18.31
+        },
+        {
+          "text": "away,",
+          "start": 18.31,
+          "end": 18.65
+        },
+        {
+          "text": "tearing",
+          "start": 18.89,
+          "end": 19.09
+        },
+        {
+          "text": "away.",
+          "start": 19.09,
+          "end": 19.45
+        },
+        {
+          "text": "And",
+          "start": 20.05,
+          "end": 20.17
+        },
+        {
+          "text": "that",
+          "start": 20.17,
+          "end": 20.35
+        },
+        {
+          "text": "old",
+          "start": 20.35,
+          "end": 20.61
+        },
+        {
+          "text": "grey",
+          "start": 20.61,
+          "end": 20.75
+        },
+        {
+          "text": "rat",
+          "start": 20.89,
+          "end": 21.23
+        },
+        {
+          "text": "tearing",
+          "start": 21.23,
+          "end": 21.59
+        },
+        {
+          "text": "to",
+          "start": 21.59,
+          "end": 21.81
+        },
+        {
+          "text": "get",
+          "start": 21.81,
+          "end": 21.93
+        },
+        {
+          "text": "in.",
+          "start": 21.93,
+          "end": 22.17
+        }
+      ],
+      "stats": {
+        "expected_words": 61,
+        "heard_words": 61,
+        "matched_words": 58
+      },
+      "match_ratio": 0.9508196721311475,
+      "rejection_reasons": [],
+      "seconds": 0.5874891050043516
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "554e0b4ff4c17948ea7f649b19079736cabe98b3fd0f8b3025229d3e3e9c56dc",
+  "selected_reasons": []
+}

@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "519dc0b147fbd0f85fe693d0f65795f4d25bd23df26e8fa3bceef0c91b24a607",
+  "attempts": [
+    {
+      "asr_seconds": 0.3234510961920023,
+      "alignment_seconds": 0.0006917938590049744,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Guiderius. I love thee; I have spoke it. How much the quantity, the weight as much As I do love my father.",
+        "hotwords": "Guiderius, I, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Guiderius, I love thee, I have spoke it. How much the quantity, the weight as much As I do love my father.",
+          "start": 0.55,
+          "end": 6.41,
+          "words": [
+            {
+              "text": " Guiderius,",
+              "start": 0.55,
+              "end": 0.99,
+              "probability": 0.2925262451171875
+            },
+            {
+              "text": " I",
+              "start": 1.23,
+              "end": 1.33,
+              "probability": 0.978515625
+            },
+            {
+              "text": " love",
+              "start": 1.33,
+              "end": 1.57,
+              "probability": 0.96875
+            },
+            {
+              "text": " thee,",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " I",
+              "start": 2.07,
+              "end": 2.15,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " have",
+              "start": 2.15,
+              "end": 2.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " spoke",
+              "start": 2.25,
+              "end": 2.53,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " it.",
+              "start": 2.53,
+              "end": 2.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " How",
+              "start": 3.33,
+              "end": 3.45,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " much",
+              "start": 3.45,
+              "end": 3.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.59,
+              "end": 3.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " quantity,",
+              "start": 3.75,
+              "end": 4.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 4.49,
+              "end": 4.55,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " weight",
+              "start": 4.55,
+              "end": 4.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 4.77,
+              "end": 4.93,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " much",
+              "start": 4.93,
+              "end": 5.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " As",
+              "start": 5.11,
+              "end": 5.29,
+              "probability": 0.0005860328674316406
+            },
+            {
+              "text": " I",
+              "start": 5.29,
+              "end": 5.41,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " do",
+              "start": 5.41,
+              "end": 5.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " love",
+              "start": 5.63,
+              "end": 5.87,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " my",
+              "start": 5.87,
+              "end": 6.11,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " father.",
+              "start": 6.11,
+              "end": 6.41,
+              "probability": 0.88134765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.55,
+          "end": 0.99
+        },
+        {
+          "raw": "I",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "raw": "love",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "raw": "thee,",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "raw": "I",
+          "start": 2.07,
+          "end": 2.15
+        },
+        {
+          "raw": "have",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "raw": "spoke",
+          "start": 2.25,
+          "end": 2.53
+        },
+        {
+          "raw": "it.",
+          "start": 2.53,
+          "end": 2.85
+        },
+        {
+          "raw": "How",
+          "start": 3.33,
+          "end": 3.45
+        },
+        {
+          "raw": "much",
+          "start": 3.45,
+          "end": 3.59
+        },
+        {
+          "raw": "the",
+          "start": 3.59,
+          "end": 3.75
+        },
+        {
+          "raw": "quantity,",
+          "start": 3.75,
+          "end": 4.13
+        },
+        {
+          "raw": "the",
+          "start": 4.49,
+          "end": 4.55
+        },
+        {
+          "raw": "weight",
+          "start": 4.55,
+          "end": 4.77
+        },
+        {
+          "raw": "as",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "raw": "much",
+          "start": 4.93,
+          "end": 5.11
+        },
+        {
+          "raw": "As",
+          "start": 5.11,
+          "end": 5.29
+        },
+        {
+          "raw": "I",
+          "start": 5.29,
+          "end": 5.41
+        },
+        {
+          "raw": "do",
+          "start": 5.41,
+          "end": 5.63
+        },
+        {
+          "raw": "love",
+          "start": 5.63,
+          "end": 5.87
+        },
+        {
+          "raw": "my",
+          "start": 5.87,
+          "end": 6.11
+        },
+        {
+          "raw": "father.",
+          "start": 6.11,
+          "end": 6.41
+        }
+      ],
+      "expected_tokens": [
+        "Guiderius.",
+        "I",
+        "love",
+        "thee;",
+        "I",
+        "have",
+        "spoke",
+        "it.",
+        "How",
+        "much",
+        "the",
+        "quantity,",
+        "the",
+        "weight",
+        "as",
+        "much",
+        "As",
+        "I",
+        "do",
+        "love",
+        "my",
+        "father."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.55,
+          "end": 0.99,
+          "key": "guiderius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.23,
+          "end": 1.33,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 1.33,
+          "end": 1.57,
+          "key": "love",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 1.57,
+          "end": 1.85,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.07,
+          "end": 2.15,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.15,
+          "end": 2.25,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "spoke",
+          "start": 2.25,
+          "end": 2.53,
+          "key": "spoke",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.53,
+          "end": 2.85,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 3.33,
+          "end": 3.45,
+          "key": "how",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 3.45,
+          "end": 3.59,
+          "key": "much",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.59,
+          "end": 3.75,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "quantity,",
+          "start": 3.75,
+          "end": 4.13,
+          "key": "quantity",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.49,
+          "end": 4.55,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "weight",
+          "start": 4.55,
+          "end": 4.77,
+          "key": "weight",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.77,
+          "end": 4.93,
+          "key": "as",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 4.93,
+          "end": 5.11,
+          "key": "much",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 5.11,
+          "end": 5.29,
+          "key": "as",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.29,
+          "end": 5.41,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 5.41,
+          "end": 5.63,
+          "key": "do",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 5.63,
+          "end": 5.87,
+          "key": "love",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.87,
+          "end": 6.11,
+          "key": "my",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "father.",
+          "start": 6.11,
+          "end": 6.41,
+          "key": "father",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guiderius.",
+          "start": 0.55,
+          "end": 0.99
+        },
+        {
+          "text": "I",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "text": "love",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "text": "thee;",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "I",
+          "start": 2.07,
+          "end": 2.15
+        },
+        {
+          "text": "have",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "text": "spoke",
+          "start": 2.25,
+          "end": 2.53
+        },
+        {
+          "text": "it.",
+          "start": 2.53,
+          "end": 2.85
+        },
+        {
+          "text": "How",
+          "start": 3.33,
+          "end": 3.45
+        },
+        {
+          "text": "much",
+          "start": 3.45,
+          "end": 3.59
+        },
+        {
+          "text": "the",
+          "start": 3.59,
+          "end": 3.75
+        },
+        {
+          "text": "quantity,",
+          "start": 3.75,
+          "end": 4.13
+        },
+        {
+          "text": "the",
+          "start": 4.49,
+          "end": 4.55
+        },
+        {
+          "text": "weight",
+          "start": 4.55,
+          "end": 4.77
+        },
+        {
+          "text": "as",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "text": "much",
+          "start": 4.93,
+          "end": 5.11
+        },
+        {
+          "text": "As",
+          "start": 5.11,
+          "end": 5.29
+        },
+        {
+          "text": "I",
+          "start": 5.29,
+          "end": 5.41
+        },
+        {
+          "text": "do",
+          "start": 5.41,
+          "end": 5.63
+        },
+        {
+          "text": "love",
+          "start": 5.63,
+          "end": 5.87
+        },
+        {
+          "text": "my",
+          "start": 5.87,
+          "end": 6.11
+        },
+        {
+          "text": "father.",
+          "start": 6.11,
+          "end": 6.41
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32449537422508
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6a10cef23f460de30926de916cb9cf98027e7c628108b7103720257b33fa488a",
+  "selected_reasons": []
+}

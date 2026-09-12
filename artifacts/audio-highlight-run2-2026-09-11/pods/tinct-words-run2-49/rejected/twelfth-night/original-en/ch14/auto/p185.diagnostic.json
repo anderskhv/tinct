@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "9552d96cc7e0e0e42544a7f5858951b29adb9e6ae9095b9be38c9fd61ba64d45",
+  "attempts": [
+    {
+      "asr_seconds": 0.15607915818691254,
+      "alignment_seconds": 0.0004147551953792572,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Andrew. And I do not—",
+        "hotwords": "Sir, Andrew, And, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Andrew, And I do not—",
+          "start": 0.08,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " Andrew,",
+              "start": 0.56,
+              "end": 0.94,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " And",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.0040435791015625
+            },
+            {
+              "text": " I",
+              "start": 1.4,
+              "end": 1.5,
+              "probability": 0.97265625
+            },
+            {
+              "text": " do",
+              "start": 1.5,
+              "end": 1.6,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " not—",
+              "start": 1.6,
+              "end": 2.44,
+              "probability": 0.48696625232696533
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "Andrew,",
+          "start": 0.56,
+          "end": 0.94
+        },
+        {
+          "raw": "And",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "I",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "raw": "do",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "raw": "not—",
+          "start": 1.6,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Andrew.",
+        "And",
+        "I",
+        "do",
+        "not—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Andrew,",
+          "start": 0.56,
+          "end": 0.94,
+          "key": "andrew",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.24,
+          "end": 1.4,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.4,
+          "end": 1.5,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.5,
+          "end": 1.6,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not—",
+          "start": 1.6,
+          "end": 2.44,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "Andrew.",
+          "start": 0.56,
+          "end": 0.94
+        },
+        {
+          "text": "And",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "I",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "text": "do",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "text": "not—",
+          "start": 1.6,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1566699966788292
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "842cfc979ef1ba4129215ac04223e413587f62d9e28bd0777c53391aa5ffc57d",
+  "selected_reasons": []
+}

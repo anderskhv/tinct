@@ -1,0 +1,324 @@
+{
+  "complete": true,
+  "signature": "9b405c69cbf02045f9cc30bb7b9b8df318a609b31337ccf897a4e68db4a5f872",
+  "attempts": [
+    {
+      "asr_seconds": 0.22498700814321637,
+      "alignment_seconds": 0.0002879370003938675,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Othello, Ladovico, Distimona, Emilia and attendance.",
+          "start": 0.08,
+          "end": 3.98,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " Othello,",
+              "start": 0.68,
+              "end": 1.22,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Ladovico,",
+              "start": 1.62,
+              "end": 2.1,
+              "probability": 0.694091796875
+            },
+            {
+              "text": " Distimona,",
+              "start": 2.3,
+              "end": 2.82,
+              "probability": 0.773193359375
+            },
+            {
+              "text": " Emilia",
+              "start": 3.08,
+              "end": 3.36,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " and",
+              "start": 3.36,
+              "end": 3.58,
+              "probability": 0.61669921875
+            },
+            {
+              "text": " attendance.",
+              "start": 3.58,
+              "end": 3.98,
+              "probability": 0.51904296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Othello,",
+          "start": 0.68,
+          "end": 1.22
+        },
+        {
+          "raw": "Ladovico,",
+          "start": 1.62,
+          "end": 2.1
+        },
+        {
+          "raw": "Distimona,",
+          "start": 2.3,
+          "end": 2.82
+        },
+        {
+          "raw": "Emilia",
+          "start": 3.08,
+          "end": 3.36
+        },
+        {
+          "raw": "and",
+          "start": 3.36,
+          "end": 3.58
+        },
+        {
+          "raw": "attendance.",
+          "start": 3.58,
+          "end": 3.98
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Othello,",
+        "Lodovico,",
+        "Desdemona,",
+        "Emilia",
+        "and",
+        "Attendants.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Othello,",
+          "start": 0.68,
+          "end": 1.22,
+          "key": "othello",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ladovico,",
+          "start": 1.62,
+          "end": 2.1,
+          "key": "ladovico",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Distimona,",
+          "start": 2.3,
+          "end": 2.82,
+          "key": "distimona",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Emilia",
+          "start": 3.08,
+          "end": 3.36,
+          "key": "emilia",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.36,
+          "end": 3.58,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "attendance.",
+          "start": 3.58,
+          "end": 3.98,
+          "key": "attendance",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Othello,",
+          "start": 0.68,
+          "end": 1.22
+        },
+        {
+          "text": "Lodovico,",
+          "start": 1.22,
+          "end": 2.15
+        },
+        {
+          "text": "Desdemona,",
+          "start": 2.15,
+          "end": 2.615
+        },
+        {
+          "text": "Emilia",
+          "start": 3.08,
+          "end": 3.36
+        },
+        {
+          "text": "and",
+          "start": 3.36,
+          "end": 3.58
+        },
+        {
+          "text": "Attendants.]",
+          "start": 3.58,
+          "end": 3.78
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 4
+      },
+      "match_ratio": 0.5714285714285714,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22537116426974535
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "db688a6f0dbe55466dd76a039ac299c0092bb6d9ca6f791105a1c0e743833c5e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

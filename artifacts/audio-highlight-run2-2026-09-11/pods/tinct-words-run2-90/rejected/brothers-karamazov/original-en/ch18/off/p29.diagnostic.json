@@ -1,0 +1,683 @@
+{
+  "complete": true,
+  "signature": "8cff3a983266c424fa04c79679277cccbea124df48477c4448070cf1f6fe0bc0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2604220909997821,
+      "alignment_seconds": 0.0003784326836466789,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Midia, you are unhappy, yes. But not as unhappy as you think. Don't worry yourself to death with despair.",
+          "start": 0.02,
+          "end": 6.66,
+          "words": [
+            {
+              "text": " Midia,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.58984375
+            },
+            {
+              "text": " you",
+              "start": 1.0,
+              "end": 1.18,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " are",
+              "start": 1.18,
+              "end": 1.32,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " unhappy,",
+              "start": 1.32,
+              "end": 1.76,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " yes.",
+              "start": 2.02,
+              "end": 2.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " But",
+              "start": 2.84,
+              "end": 2.92,
+              "probability": 0.984375
+            },
+            {
+              "text": " not",
+              "start": 2.92,
+              "end": 3.1,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " as",
+              "start": 3.1,
+              "end": 3.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " unhappy",
+              "start": 3.22,
+              "end": 3.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 3.64,
+              "end": 3.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 3.92,
+              "end": 4.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " think.",
+              "start": 4.06,
+              "end": 4.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Don't",
+              "start": 4.88,
+              "end": 5.08,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " worry",
+              "start": 5.08,
+              "end": 5.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " yourself",
+              "start": 5.22,
+              "end": 5.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 5.56,
+              "end": 5.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " death",
+              "start": 5.8,
+              "end": 6.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 6.04,
+              "end": 6.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " despair.",
+              "start": 6.26,
+              "end": 6.66,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Midia,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "you",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "raw": "are",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "raw": "unhappy,",
+          "start": 1.32,
+          "end": 1.76
+        },
+        {
+          "raw": "yes.",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "raw": "But",
+          "start": 2.84,
+          "end": 2.92
+        },
+        {
+          "raw": "not",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "raw": "as",
+          "start": 3.1,
+          "end": 3.22
+        },
+        {
+          "raw": "unhappy",
+          "start": 3.22,
+          "end": 3.64
+        },
+        {
+          "raw": "as",
+          "start": 3.64,
+          "end": 3.92
+        },
+        {
+          "raw": "you",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "raw": "think.",
+          "start": 4.06,
+          "end": 4.36
+        },
+        {
+          "raw": "Don't",
+          "start": 4.88,
+          "end": 5.08
+        },
+        {
+          "raw": "worry",
+          "start": 5.08,
+          "end": 5.22
+        },
+        {
+          "raw": "yourself",
+          "start": 5.22,
+          "end": 5.56
+        },
+        {
+          "raw": "to",
+          "start": 5.56,
+          "end": 5.8
+        },
+        {
+          "raw": "death",
+          "start": 5.8,
+          "end": 6.04
+        },
+        {
+          "raw": "with",
+          "start": 6.04,
+          "end": 6.26
+        },
+        {
+          "raw": "despair.",
+          "start": 6.26,
+          "end": 6.66
+        }
+      ],
+      "expected_tokens": [
+        "\"Mitya,",
+        "you",
+        "are",
+        "unhappy,",
+        "yes!",
+        "But",
+        "not",
+        "as",
+        "unhappy",
+        "as",
+        "you",
+        "think.",
+        "Don't",
+        "worry",
+        "yourself",
+        "to",
+        "death",
+        "with",
+        "despair.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          19,
+          1,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Midia,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "midia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.0,
+          "end": 1.18,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.18,
+          "end": 1.32,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "unhappy,",
+          "start": 1.32,
+          "end": 1.76,
+          "key": "unhappy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "yes.",
+          "start": 2.02,
+          "end": 2.2,
+          "key": "yes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 2.84,
+          "end": 2.92,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.92,
+          "end": 3.1,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.1,
+          "end": 3.22,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "unhappy",
+          "start": 3.22,
+          "end": 3.64,
+          "key": "unhappy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.64,
+          "end": 3.92,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.92,
+          "end": 4.06,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "think.",
+          "start": 4.06,
+          "end": 4.36,
+          "key": "think",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Don't",
+          "start": 4.88,
+          "end": 5.08,
+          "key": "dont",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "worry",
+          "start": 5.08,
+          "end": 5.22,
+          "key": "worry",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 5.22,
+          "end": 5.56,
+          "key": "yourself",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.56,
+          "end": 5.8,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "death",
+          "start": 5.8,
+          "end": 6.04,
+          "key": "death",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.04,
+          "end": 6.26,
+          "key": "with",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "despair.",
+          "start": 6.26,
+          "end": 6.66,
+          "key": "despair",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Mitya,",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "you",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "text": "are",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "text": "unhappy,",
+          "start": 1.32,
+          "end": 1.76
+        },
+        {
+          "text": "yes!",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "text": "But",
+          "start": 2.84,
+          "end": 2.92
+        },
+        {
+          "text": "not",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "text": "as",
+          "start": 3.1,
+          "end": 3.22
+        },
+        {
+          "text": "unhappy",
+          "start": 3.22,
+          "end": 3.64
+        },
+        {
+          "text": "as",
+          "start": 3.64,
+          "end": 3.92
+        },
+        {
+          "text": "you",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "text": "think.",
+          "start": 4.06,
+          "end": 4.36
+        },
+        {
+          "text": "Don't",
+          "start": 4.88,
+          "end": 5.08
+        },
+        {
+          "text": "worry",
+          "start": 5.08,
+          "end": 5.22
+        },
+        {
+          "text": "yourself",
+          "start": 5.22,
+          "end": 5.56
+        },
+        {
+          "text": "to",
+          "start": 5.56,
+          "end": 5.8
+        },
+        {
+          "text": "death",
+          "start": 5.8,
+          "end": 6.04
+        },
+        {
+          "text": "with",
+          "start": 6.04,
+          "end": 6.26
+        },
+        {
+          "text": "despair.\"",
+          "start": 6.26,
+          "end": 6.66
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.26096699945628643
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7453047f6417110cf5c18eb5ab167a4302ff0c8316c98f7203d28b2ad8d6841d",
+  "selected_reasons": []
+}

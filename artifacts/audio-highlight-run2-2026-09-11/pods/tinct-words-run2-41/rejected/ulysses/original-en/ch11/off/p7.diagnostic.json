@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "47048a40f4d70b508761701a00b6a44d66ed4082a76142703c818396c2690df8",
+  "attempts": [
+    {
+      "asr_seconds": 0.22207889007404447,
+      "alignment_seconds": 0.0004349122755229473,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A jumping rose on Satiny Breast of Satin, Rose of Castile.",
+          "start": 0.02,
+          "end": 3.96,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.68212890625
+            },
+            {
+              "text": " jumping",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " rose",
+              "start": 0.78,
+              "end": 1.16,
+              "probability": 0.974609375
+            },
+            {
+              "text": " on",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Satiny",
+              "start": 1.36,
+              "end": 1.72,
+              "probability": 0.65087890625
+            },
+            {
+              "text": " Breast",
+              "start": 1.72,
+              "end": 1.96,
+              "probability": 0.1778564453125
+            },
+            {
+              "text": " of",
+              "start": 1.96,
+              "end": 2.14,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Satin,",
+              "start": 2.14,
+              "end": 2.6,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " Rose",
+              "start": 3.06,
+              "end": 3.16,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " of",
+              "start": 3.16,
+              "end": 3.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Castile.",
+              "start": 3.4,
+              "end": 3.96,
+              "probability": 0.85498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "jumping",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "rose",
+          "start": 0.78,
+          "end": 1.16
+        },
+        {
+          "raw": "on",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "Satiny",
+          "start": 1.36,
+          "end": 1.72
+        },
+        {
+          "raw": "Breast",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "raw": "of",
+          "start": 1.96,
+          "end": 2.14
+        },
+        {
+          "raw": "Satin,",
+          "start": 2.14,
+          "end": 2.6
+        },
+        {
+          "raw": "Rose",
+          "start": 3.06,
+          "end": 3.16
+        },
+        {
+          "raw": "of",
+          "start": 3.16,
+          "end": 3.4
+        },
+        {
+          "raw": "Castile.",
+          "start": 3.4,
+          "end": 3.96
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "jumping",
+        "rose",
+        "on",
+        "satiny",
+        "breast",
+        "of",
+        "satin,",
+        "rose",
+        "of",
+        "Castile."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "jumping",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "jumping",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rose",
+          "start": 0.78,
+          "end": 1.16,
+          "key": "rose",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.16,
+          "end": 1.36,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Satiny",
+          "start": 1.36,
+          "end": 1.72,
+          "key": "satiny",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Breast",
+          "start": 1.72,
+          "end": 1.96,
+          "key": "breast",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.96,
+          "end": 2.14,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Satin,",
+          "start": 2.14,
+          "end": 2.6,
+          "key": "satin",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Rose",
+          "start": 3.06,
+          "end": 3.16,
+          "key": "rose",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.16,
+          "end": 3.4,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Castile.",
+          "start": 3.4,
+          "end": 3.96,
+          "key": "castile",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "jumping",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "rose",
+          "start": 0.78,
+          "end": 1.16
+        },
+        {
+          "text": "on",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "satiny",
+          "start": 1.36,
+          "end": 1.72
+        },
+        {
+          "text": "breast",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "text": "of",
+          "start": 1.96,
+          "end": 2.14
+        },
+        {
+          "text": "satin,",
+          "start": 2.14,
+          "end": 2.6
+        },
+        {
+          "text": "rose",
+          "start": 3.06,
+          "end": 3.16
+        },
+        {
+          "text": "of",
+          "start": 3.16,
+          "end": 3.4
+        },
+        {
+          "text": "Castile.",
+          "start": 3.4,
+          "end": 3.96
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22266704589128494
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5d58a8fdbc65da9ab6e3036900c38cff54f1248c00c3211f5826fefb815cae90",
+  "selected_reasons": []
+}

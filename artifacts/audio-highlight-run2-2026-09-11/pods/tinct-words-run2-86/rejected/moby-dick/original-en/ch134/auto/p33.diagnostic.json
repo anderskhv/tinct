@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "838417714190aaa865ee05bc54a9c716d924060736e1aea5dd16fa5747b35769",
+  "attempts": [
+    {
+      "asr_seconds": 0.09924430400133133,
+      "alignment_seconds": 0.00017952173948287964,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Sir?\"",
+        "hotwords": "Sir"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir?",
+          "start": 0.11,
+          "end": 0.65,
+          "words": [
+            {
+              "text": " Sir?",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.1739501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir?",
+          "start": 0.11,
+          "end": 0.65
+        }
+      ],
+      "expected_tokens": [
+        "\"Sir?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir?",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Sir?\"",
+          "start": 0.11,
+          "end": 0.65
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0994771458208561
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "481d5d6e4f8c52d6cc6ef70cd664ee5aa260d17ce8737f888cda758147553d20",
+  "selected_reasons": []
+}

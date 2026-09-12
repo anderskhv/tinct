@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "c558acf2dd63f6871f583036ebf8fb6adf6d0182c3beab1f7dfff478f891df6f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1952720198314637,
+      "alignment_seconds": 0.0003593259025365114,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Priest, I'll wait upon your lordship.",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Priest,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " I'll",
+              "start": 1.15,
+              "end": 1.21,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " wait",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " upon",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " your",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " lordship.",
+              "start": 1.71,
+              "end": 2.19,
+              "probability": 0.841796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Priest,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "I'll",
+          "start": 1.15,
+          "end": 1.21
+        },
+        {
+          "raw": "wait",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "upon",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "your",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "lordship.",
+          "start": 1.71,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Priest.",
+        "I'll",
+        "wait",
+        "upon",
+        "your",
+        "lordship."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Priest,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "priest",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.15,
+          "end": 1.21,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "wait",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.33,
+          "end": 1.55,
+          "key": "upon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lordship.",
+          "start": 1.71,
+          "end": 2.19,
+          "key": "lordship",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Priest.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "I'll",
+          "start": 1.15,
+          "end": 1.21
+        },
+        {
+          "text": "wait",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "upon",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "your",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "text": "lordship.",
+          "start": 1.71,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19576839683577418
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "da9b033f974c020e01bad6f98e33c83599491abfe5672453735cc11757d5ff54",
+  "selected_reasons": []
+}

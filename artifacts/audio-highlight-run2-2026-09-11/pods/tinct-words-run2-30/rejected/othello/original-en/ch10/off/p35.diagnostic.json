@@ -1,0 +1,339 @@
+{
+  "complete": true,
+  "signature": "3e9f4227814ff647089b611f48e1b3637a7985ee3ed217b164becf7b0dbdacea",
+  "attempts": [
+    {
+      "asr_seconds": 0.11439065216109157,
+      "alignment_seconds": 0.00014417897909879684,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Just a Mona. I have it not about me",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Just",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.029937744140625
+            },
+            {
+              "text": " a",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.51513671875
+            },
+            {
+              "text": " Mona.",
+              "start": 0.73,
+              "end": 1.13,
+              "probability": 0.931884765625
+            },
+            {
+              "text": " I",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " have",
+              "start": 1.51,
+              "end": 1.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " it",
+              "start": 1.65,
+              "end": 1.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 1.73,
+              "end": 1.87,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " about",
+              "start": 1.87,
+              "end": 2.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 2.07,
+              "end": 2.33,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Just",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "a",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "Mona.",
+          "start": 0.73,
+          "end": 1.13
+        },
+        {
+          "raw": "I",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "have",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "raw": "it",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "raw": "not",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "raw": "about",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "raw": "me",
+          "start": 2.07,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "I",
+        "have",
+        "it",
+        "not",
+        "about",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          7,
+          3,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Just",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "just",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.57,
+          "end": 0.73,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mona.",
+          "start": 0.73,
+          "end": 1.13,
+          "key": "mona",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.51,
+          "end": 1.65,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.65,
+          "end": 1.73,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.73,
+          "end": 1.87,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.87,
+          "end": 2.07,
+          "key": "about",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.07,
+          "end": 2.33,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.695
+        },
+        {
+          "text": "I",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "have",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "text": "it",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "text": "not",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "text": "about",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "text": "me.",
+          "start": 2.07,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.1145958611741662
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6614535ce0b5bb52bf7f5609d02e266b106413de7ef66fd4968942d2d06ee39d",
+  "selected_reasons": []
+}

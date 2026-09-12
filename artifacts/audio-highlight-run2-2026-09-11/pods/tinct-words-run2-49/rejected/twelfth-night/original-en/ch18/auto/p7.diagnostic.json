@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "90c5db7e61c4f45c2600ee261476e9a90818316acbafb8521b94268216d1bb5f",
+  "attempts": [
+    {
+      "asr_seconds": 0.19180386886000633,
+      "alignment_seconds": 0.00028927624225616455,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Duke. Belong you to the Lady Olivia, friends?",
+        "hotwords": "Duke, Belong, Lady, Olivia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, Belong you to the Lady Olivia, friends?",
+          "start": 0.08,
+          "end": 2.76,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " Belong",
+              "start": 1.06,
+              "end": 1.38,
+              "probability": 0.523193359375
+            },
+            {
+              "text": " you",
+              "start": 1.38,
+              "end": 1.52,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " to",
+              "start": 1.52,
+              "end": 1.66,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 1.66,
+              "end": 1.76,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Lady",
+              "start": 1.76,
+              "end": 1.96,
+              "probability": 0.40185546875
+            },
+            {
+              "text": " Olivia,",
+              "start": 1.96,
+              "end": 2.38,
+              "probability": 0.974609375
+            },
+            {
+              "text": " friends?",
+              "start": 2.56,
+              "end": 2.76,
+              "probability": 0.75146484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Belong",
+          "start": 1.06,
+          "end": 1.38
+        },
+        {
+          "raw": "you",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "raw": "to",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "raw": "the",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "raw": "Lady",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "raw": "Olivia,",
+          "start": 1.96,
+          "end": 2.38
+        },
+        {
+          "raw": "friends?",
+          "start": 2.56,
+          "end": 2.76
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "Belong",
+        "you",
+        "to",
+        "the",
+        "Lady",
+        "Olivia,",
+        "friends?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Belong",
+          "start": 1.06,
+          "end": 1.38,
+          "key": "belong",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.38,
+          "end": 1.52,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.52,
+          "end": 1.66,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.66,
+          "end": 1.76,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.76,
+          "end": 1.96,
+          "key": "lady",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Olivia,",
+          "start": 1.96,
+          "end": 2.38,
+          "key": "olivia",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "friends?",
+          "start": 2.56,
+          "end": 2.76,
+          "key": "friends",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Belong",
+          "start": 1.06,
+          "end": 1.38
+        },
+        {
+          "text": "you",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "text": "to",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "text": "the",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "text": "Lady",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "text": "Olivia,",
+          "start": 1.96,
+          "end": 2.38
+        },
+        {
+          "text": "friends?",
+          "start": 2.56,
+          "end": 2.76
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19219430908560753
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "05bf201667e0fcb07b0dd2294bc1eb5db76725e9ec045d47e9c55af77130aec7",
+  "selected_reasons": []
+}

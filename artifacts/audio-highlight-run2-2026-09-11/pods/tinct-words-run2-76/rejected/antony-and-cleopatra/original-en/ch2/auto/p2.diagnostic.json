@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "25c247505a927f867b64caea807b710dff97705882e9e7a1af6e5762047e658f",
+  "attempts": [
+    {
+      "asr_seconds": 0.14949025679379702,
+      "alignment_seconds": 0.00020907120779156685,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Alexas. Soothsayer!",
+        "hotwords": "Alexas, Soothsayer"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alexas, Soothsayer",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Alexas,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.31549072265625
+            },
+            {
+              "text": " Soothsayer",
+              "start": 1.21,
+              "end": 1.75,
+              "probability": 0.7161865234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alexas,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "Soothsayer",
+          "start": 1.21,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "Alexas.",
+        "Soothsayer!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alexas,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "alexas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Soothsayer",
+          "start": 1.21,
+          "end": 1.75,
+          "key": "soothsayer",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alexas.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "Soothsayer!",
+          "start": 1.21,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14976861281320453
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2ddee5abebf99761383bb0f3ae538de374d1c800f132bf90a7a94e30e35827a5",
+  "selected_reasons": []
+}

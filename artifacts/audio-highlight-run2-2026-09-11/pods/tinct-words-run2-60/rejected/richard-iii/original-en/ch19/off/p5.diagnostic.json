@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "431bbbf2d144432cb40c0f2a3c02826229ca3f4fa5d6e0c64bd760aff3da8d64",
+  "attempts": [
+    {
+      "asr_seconds": 0.10544152557849884,
+      "alignment_seconds": 0.0002091526985168457,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Queen Margaret",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.8828125
+            },
+            {
+              "text": " Margaret",
+              "start": 0.57,
+              "end": 0.97,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Margaret",
+          "start": 0.57,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Margaret."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Margaret",
+          "start": 0.57,
+          "end": 0.97,
+          "key": "margaret",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Margaret.",
+          "start": 0.57,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10572228208184242
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "62ae1ac82b59cdd95cf7f31c43a09913b99d85cd6d9110dec83dcef18a5503fd",
+  "selected_reasons": []
+}

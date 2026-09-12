@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "474854a688380354f5797ee8d1ad1546e6015a38ac009d6514949a041d2c54d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.2998741213232279,
+      "alignment_seconds": 0.00021259579807519913,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Well, I said, no eyes are required in order to see how the one passes into the other.",
+        "hotwords": "Well, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, I said, no eyes are required in order to see how the one passes into the other.",
+          "start": 0.05,
+          "end": 5.01,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.296875
+            },
+            {
+              "text": " I",
+              "start": 0.75,
+              "end": 0.87,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " said,",
+              "start": 0.87,
+              "end": 1.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " no",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.94921875
+            },
+            {
+              "text": " eyes",
+              "start": 1.85,
+              "end": 2.19,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " are",
+              "start": 2.19,
+              "end": 2.35,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " required",
+              "start": 2.35,
+              "end": 2.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 2.75,
+              "end": 3.03,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " order",
+              "start": 3.03,
+              "end": 3.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 3.15,
+              "end": 3.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 3.35,
+              "end": 3.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " how",
+              "start": 3.49,
+              "end": 3.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.67,
+              "end": 3.79,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " one",
+              "start": 3.79,
+              "end": 3.95,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " passes",
+              "start": 3.95,
+              "end": 4.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " into",
+              "start": 4.35,
+              "end": 4.63,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 4.63,
+              "end": 4.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " other.",
+              "start": 4.81,
+              "end": 5.01,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "I",
+          "start": 0.75,
+          "end": 0.87
+        },
+        {
+          "raw": "said,",
+          "start": 0.87,
+          "end": 1.17
+        },
+        {
+          "raw": "no",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "raw": "eyes",
+          "start": 1.85,
+          "end": 2.19
+        },
+        {
+          "raw": "are",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "raw": "required",
+          "start": 2.35,
+          "end": 2.75
+        },
+        {
+          "raw": "in",
+          "start": 2.75,
+          "end": 3.03
+        },
+        {
+          "raw": "order",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "raw": "to",
+          "start": 3.15,
+          "end": 3.35
+        },
+        {
+          "raw": "see",
+          "start": 3.35,
+          "end": 3.49
+        },
+        {
+          "raw": "how",
+          "start": 3.49,
+          "end": 3.67
+        },
+        {
+          "raw": "the",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "raw": "one",
+          "start": 3.79,
+          "end": 3.95
+        },
+        {
+          "raw": "passes",
+          "start": 3.95,
+          "end": 4.35
+        },
+        {
+          "raw": "into",
+          "start": 4.35,
+          "end": 4.63
+        },
+        {
+          "raw": "the",
+          "start": 4.63,
+          "end": 4.81
+        },
+        {
+          "raw": "other.",
+          "start": 4.81,
+          "end": 5.01
+        }
+      ],
+      "expected_tokens": [
+        "Well,",
+        "I",
+        "said,",
+        "no",
+        "eyes",
+        "are",
+        "required",
+        "in",
+        "order",
+        "to",
+        "see",
+        "how",
+        "the",
+        "one",
+        "passes",
+        "into",
+        "the",
+        "other."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.75,
+          "end": 0.87,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 0.87,
+          "end": 1.17,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.57,
+          "end": 1.85,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 1.85,
+          "end": 2.19,
+          "key": "eyes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.19,
+          "end": 2.35,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "required",
+          "start": 2.35,
+          "end": 2.75,
+          "key": "required",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.75,
+          "end": 3.03,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "order",
+          "start": 3.03,
+          "end": 3.15,
+          "key": "order",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.15,
+          "end": 3.35,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.35,
+          "end": 3.49,
+          "key": "see",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 3.49,
+          "end": 3.67,
+          "key": "how",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.67,
+          "end": 3.79,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 3.79,
+          "end": 3.95,
+          "key": "one",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "passes",
+          "start": 3.95,
+          "end": 4.35,
+          "key": "passes",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 4.35,
+          "end": 4.63,
+          "key": "into",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.63,
+          "end": 4.81,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "other.",
+          "start": 4.81,
+          "end": 5.01,
+          "key": "other",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Well,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "I",
+          "start": 0.75,
+          "end": 0.87
+        },
+        {
+          "text": "said,",
+          "start": 0.87,
+          "end": 1.17
+        },
+        {
+          "text": "no",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "eyes",
+          "start": 1.85,
+          "end": 2.19
+        },
+        {
+          "text": "are",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "text": "required",
+          "start": 2.35,
+          "end": 2.75
+        },
+        {
+          "text": "in",
+          "start": 2.75,
+          "end": 3.03
+        },
+        {
+          "text": "order",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "text": "to",
+          "start": 3.15,
+          "end": 3.35
+        },
+        {
+          "text": "see",
+          "start": 3.35,
+          "end": 3.49
+        },
+        {
+          "text": "how",
+          "start": 3.49,
+          "end": 3.67
+        },
+        {
+          "text": "the",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "text": "one",
+          "start": 3.79,
+          "end": 3.95
+        },
+        {
+          "text": "passes",
+          "start": 3.95,
+          "end": 4.35
+        },
+        {
+          "text": "into",
+          "start": 4.35,
+          "end": 4.63
+        },
+        {
+          "text": "the",
+          "start": 4.63,
+          "end": 4.81
+        },
+        {
+          "text": "other.",
+          "start": 4.81,
+          "end": 5.01
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3001763802021742
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2588b1d84829728c7a1861d58d3f8eee518d31df9c238bc6e54297fdcdf67d5a",
+  "selected_reasons": []
+}

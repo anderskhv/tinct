@@ -1,0 +1,390 @@
+{
+  "complete": true,
+  "signature": "e1990c1b8e3ef09f0eebd032ff1536371783bddb644e4a3d106ec51ec5ca8db2",
+  "attempts": [
+    {
+      "asr_seconds": 0.16668211109936237,
+      "alignment_seconds": 0.00042944028973579407,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I can see that, but then you know all descriptions.",
+          "start": 0.08,
+          "end": 2.84,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " can",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " see",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " that,",
+              "start": 0.84,
+              "end": 1.14,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " but",
+              "start": 1.48,
+              "end": 1.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " then",
+              "start": 1.64,
+              "end": 1.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you",
+              "start": 1.84,
+              "end": 2.02,
+              "probability": 0.861328125
+            },
+            {
+              "text": " know",
+              "start": 2.02,
+              "end": 2.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all",
+              "start": 2.16,
+              "end": 2.4,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " descriptions.",
+              "start": 2.4,
+              "end": 2.84,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "can",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "see",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "that,",
+          "start": 0.84,
+          "end": 1.14
+        },
+        {
+          "raw": "but",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "raw": "then",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "raw": "you",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "raw": "know",
+          "start": 2.02,
+          "end": 2.16
+        },
+        {
+          "raw": "all",
+          "start": 2.16,
+          "end": 2.4
+        },
+        {
+          "raw": "descriptions.",
+          "start": 2.4,
+          "end": 2.84
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "concede",
+        "that;",
+        "but",
+        "then,",
+        "you",
+        "know,",
+        "all",
+        "descriptions—\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          9,
+          3,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "can",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "see",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 0.84,
+          "end": 1.14,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.48,
+          "end": 1.64,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.64,
+          "end": 1.84,
+          "key": "then",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.84,
+          "end": 2.02,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 2.02,
+          "end": 2.16,
+          "key": "know",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.16,
+          "end": 2.4,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "descriptions.",
+          "start": 2.4,
+          "end": 2.84,
+          "key": "descriptions",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "concede",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "that;",
+          "start": 0.84,
+          "end": 1.14
+        },
+        {
+          "text": "but",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "text": "then,",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "text": "you",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "text": "know,",
+          "start": 2.02,
+          "end": 2.16
+        },
+        {
+          "text": "all",
+          "start": 2.16,
+          "end": 2.4
+        },
+        {
+          "text": "descriptions—\"",
+          "start": 2.4,
+          "end": 2.84
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.1672634407877922
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6894a4a5444e27cee52453073c1c2093d5d3ac55311049b9092294f9abdba41e",
+  "selected_reasons": []
+}

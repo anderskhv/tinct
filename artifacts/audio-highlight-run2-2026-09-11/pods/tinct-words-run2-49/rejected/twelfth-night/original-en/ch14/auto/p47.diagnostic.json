@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "8e2de6aff6450ac5d80ada8d945714818ee8063530b0d37dde9a65a7abedb2ee",
+  "attempts": [
+    {
+      "asr_seconds": 0.20643936470150948,
+      "alignment_seconds": 0.00039528682827949524,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Malvolio. Ah, ha! does she so?",
+        "hotwords": "Malvolio, Ah"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Malvolio, Ah, ha! does she so?",
+          "start": 0.59,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " Malvolio,",
+              "start": 0.59,
+              "end": 1.03,
+              "probability": 0.8343098958333334
+            },
+            {
+              "text": " Ah,",
+              "start": 1.47,
+              "end": 1.51,
+              "probability": 0.03448486328125
+            },
+            {
+              "text": " ha!",
+              "start": 1.77,
+              "end": 1.77,
+              "probability": 0.7734375
+            },
+            {
+              "text": " does",
+              "start": 1.85,
+              "end": 1.93,
+              "probability": 0.03656005859375
+            },
+            {
+              "text": " she",
+              "start": 1.93,
+              "end": 2.09,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " so?",
+              "start": 2.09,
+              "end": 2.31,
+              "probability": 0.07037353515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.59,
+          "end": 1.03
+        },
+        {
+          "raw": "Ah,",
+          "start": 1.47,
+          "end": 1.51
+        },
+        {
+          "raw": "ha!",
+          "start": 1.77,
+          "end": 1.77
+        },
+        {
+          "raw": "does",
+          "start": 1.85,
+          "end": 1.93
+        },
+        {
+          "raw": "she",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "raw": "so?",
+          "start": 2.09,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "Ah,",
+        "ha!",
+        "does",
+        "she",
+        "so?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.59,
+          "end": 1.03,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ah,",
+          "start": 1.47,
+          "end": 1.51,
+          "key": "ah",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ha!",
+          "start": 1.77,
+          "end": 1.77,
+          "key": "ha",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 1.85,
+          "end": 1.93,
+          "key": "does",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.93,
+          "end": 2.09,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so?",
+          "start": 2.09,
+          "end": 2.31,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.59,
+          "end": 1.03
+        },
+        {
+          "text": "Ah,",
+          "start": 1.47,
+          "end": 1.51
+        },
+        {
+          "text": "ha!",
+          "start": 1.77,
+          "end": 1.77
+        },
+        {
+          "text": "does",
+          "start": 1.85,
+          "end": 1.93
+        },
+        {
+          "text": "she",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "text": "so?",
+          "start": 2.09,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20697616413235664
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1b847266d21b477b953d36e74f9aee7282c133bd1ff2dcb128c72ecec547c89a",
+  "selected_reasons": []
+}

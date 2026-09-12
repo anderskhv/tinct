@@ -1,0 +1,1059 @@
+{
+  "complete": true,
+  "signature": "a1efac75966416ac1efb117899b9717e86f3b9ce0ed604be16d00359efcee79e",
+  "attempts": [
+    {
+      "asr_seconds": 0.16340073297033086,
+      "alignment_seconds": 0.0003021020093001425,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He took a cigarette from the open case. Lenehan, lighting it for him with quick grace, said:",
+        "hotwords": "He, Lenehan"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lenehan, lighting it for him with quick grace, said.",
+          "start": 2.62,
+          "end": 5.62,
+          "words": [
+            {
+              "text": " Lenehan,",
+              "start": 2.62,
+              "end": 3.18,
+              "probability": 0.3700116475423177
+            },
+            {
+              "text": " lighting",
+              "start": 3.48,
+              "end": 3.84,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " it",
+              "start": 3.84,
+              "end": 4.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " for",
+              "start": 4.06,
+              "end": 4.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him",
+              "start": 4.2,
+              "end": 4.38,
+              "probability": 0.994140625
+            },
+            {
+              "text": " with",
+              "start": 4.38,
+              "end": 4.58,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " quick",
+              "start": 4.58,
+              "end": 4.84,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " grace,",
+              "start": 4.84,
+              "end": 5.22,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " said.",
+              "start": 5.56,
+              "end": 5.62,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lenehan,",
+          "start": 2.62,
+          "end": 3.18
+        },
+        {
+          "raw": "lighting",
+          "start": 3.48,
+          "end": 3.84
+        },
+        {
+          "raw": "it",
+          "start": 3.84,
+          "end": 4.06
+        },
+        {
+          "raw": "for",
+          "start": 4.06,
+          "end": 4.2
+        },
+        {
+          "raw": "him",
+          "start": 4.2,
+          "end": 4.38
+        },
+        {
+          "raw": "with",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "raw": "quick",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "raw": "grace,",
+          "start": 4.84,
+          "end": 5.22
+        },
+        {
+          "raw": "said.",
+          "start": 5.56,
+          "end": 5.62
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "took",
+        "a",
+        "cigarette",
+        "from",
+        "the",
+        "open",
+        "case.",
+        "Lenehan,",
+        "lighting",
+        "it",
+        "for",
+        "him",
+        "with",
+        "quick",
+        "grace,",
+        "said:"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          8,
+          0,
+          0
+        ],
+        [
+          "equal",
+          8,
+          17,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          8,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lenehan,",
+          "start": 2.62,
+          "end": 3.18,
+          "key": "lenehan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lighting",
+          "start": 3.48,
+          "end": 3.84,
+          "key": "lighting",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.84,
+          "end": 4.06,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.06,
+          "end": 4.2,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.2,
+          "end": 4.38,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.38,
+          "end": 4.58,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "quick",
+          "start": 4.58,
+          "end": 4.84,
+          "key": "quick",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "grace,",
+          "start": 4.84,
+          "end": 5.22,
+          "key": "grace",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 5.56,
+          "end": 5.62,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.0,
+          "end": 1.31
+        },
+        {
+          "text": "took",
+          "start": 1.31,
+          "end": 1.965
+        },
+        {
+          "text": "a",
+          "start": 1.965,
+          "end": 2.292
+        },
+        {
+          "text": "cigarette",
+          "start": 2.292,
+          "end": 2.456
+        },
+        {
+          "text": "from",
+          "start": 2.456,
+          "end": 2.538
+        },
+        {
+          "text": "the",
+          "start": 2.538,
+          "end": 2.579
+        },
+        {
+          "text": "open",
+          "start": 2.579,
+          "end": 2.599
+        },
+        {
+          "text": "case.",
+          "start": 2.599,
+          "end": 2.61
+        },
+        {
+          "text": "Lenehan,",
+          "start": 2.62,
+          "end": 3.18
+        },
+        {
+          "text": "lighting",
+          "start": 3.48,
+          "end": 3.84
+        },
+        {
+          "text": "it",
+          "start": 3.84,
+          "end": 4.06
+        },
+        {
+          "text": "for",
+          "start": 4.06,
+          "end": 4.2
+        },
+        {
+          "text": "him",
+          "start": 4.2,
+          "end": 4.38
+        },
+        {
+          "text": "with",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "text": "quick",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "text": "grace,",
+          "start": 4.84,
+          "end": 5.22
+        },
+        {
+          "text": "said:",
+          "start": 5.56,
+          "end": 5.62
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 0.5294117647058824,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1637843549833633
+    },
+    {
+      "asr_seconds": 0.16205516597256064,
+      "alignment_seconds": 0.00035458203637972474,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "He, Lenehan"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " He took a cigarette from the open case. Lenehan lighting it for him with quick grace said",
+          "start": 0.02,
+          "end": 5.62,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " took",
+              "start": 0.48,
+              "end": 0.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cigarette",
+              "start": 0.76,
+              "end": 1.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " from",
+              "start": 1.1,
+              "end": 1.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 1.3,
+              "end": 1.44,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " open",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " case.",
+              "start": 1.68,
+              "end": 2.12,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Lenehan",
+              "start": 2.88,
+              "end": 3.2,
+              "probability": 0.6001180013020834
+            },
+            {
+              "text": " lighting",
+              "start": 3.2,
+              "end": 3.86,
+              "probability": 0.04217529296875
+            },
+            {
+              "text": " it",
+              "start": 3.86,
+              "end": 4.06,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " for",
+              "start": 4.06,
+              "end": 4.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him",
+              "start": 4.2,
+              "end": 4.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 4.38,
+              "end": 4.58,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " quick",
+              "start": 4.58,
+              "end": 4.84,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " grace",
+              "start": 4.84,
+              "end": 5.22,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " said",
+              "start": 5.22,
+              "end": 5.62,
+              "probability": 0.7529296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "took",
+          "start": 0.48,
+          "end": 0.62
+        },
+        {
+          "raw": "a",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "cigarette",
+          "start": 0.76,
+          "end": 1.1
+        },
+        {
+          "raw": "from",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "raw": "the",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "raw": "open",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "case.",
+          "start": 1.68,
+          "end": 2.12
+        },
+        {
+          "raw": "Lenehan",
+          "start": 2.88,
+          "end": 3.2
+        },
+        {
+          "raw": "lighting",
+          "start": 3.2,
+          "end": 3.86
+        },
+        {
+          "raw": "it",
+          "start": 3.86,
+          "end": 4.06
+        },
+        {
+          "raw": "for",
+          "start": 4.06,
+          "end": 4.2
+        },
+        {
+          "raw": "him",
+          "start": 4.2,
+          "end": 4.38
+        },
+        {
+          "raw": "with",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "raw": "quick",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "raw": "grace",
+          "start": 4.84,
+          "end": 5.22
+        },
+        {
+          "raw": "said",
+          "start": 5.22,
+          "end": 5.62
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "took",
+        "a",
+        "cigarette",
+        "from",
+        "the",
+        "open",
+        "case.",
+        "Lenehan,",
+        "lighting",
+        "it",
+        "for",
+        "him",
+        "with",
+        "quick",
+        "grace,",
+        "said:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 0.48,
+          "end": 0.62,
+          "key": "took",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.62,
+          "end": 0.76,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cigarette",
+          "start": 0.76,
+          "end": 1.1,
+          "key": "cigarette",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.1,
+          "end": 1.3,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.3,
+          "end": 1.44,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "open",
+          "start": 1.44,
+          "end": 1.68,
+          "key": "open",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "case.",
+          "start": 1.68,
+          "end": 2.12,
+          "key": "case",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Lenehan",
+          "start": 2.88,
+          "end": 3.2,
+          "key": "lenehan",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lighting",
+          "start": 3.2,
+          "end": 3.86,
+          "key": "lighting",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.86,
+          "end": 4.06,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.06,
+          "end": 4.2,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.2,
+          "end": 4.38,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.38,
+          "end": 4.58,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "quick",
+          "start": 4.58,
+          "end": 4.84,
+          "key": "quick",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "grace",
+          "start": 4.84,
+          "end": 5.22,
+          "key": "grace",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 5.22,
+          "end": 5.62,
+          "key": "said",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "took",
+          "start": 0.48,
+          "end": 0.62
+        },
+        {
+          "text": "a",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "text": "cigarette",
+          "start": 0.76,
+          "end": 1.1
+        },
+        {
+          "text": "from",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "text": "the",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "text": "open",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "case.",
+          "start": 1.68,
+          "end": 2.12
+        },
+        {
+          "text": "Lenehan,",
+          "start": 2.88,
+          "end": 3.2
+        },
+        {
+          "text": "lighting",
+          "start": 3.2,
+          "end": 3.86
+        },
+        {
+          "text": "it",
+          "start": 3.86,
+          "end": 4.06
+        },
+        {
+          "text": "for",
+          "start": 4.06,
+          "end": 4.2
+        },
+        {
+          "text": "him",
+          "start": 4.2,
+          "end": 4.38
+        },
+        {
+          "text": "with",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "text": "quick",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "text": "grace,",
+          "start": 4.84,
+          "end": 5.22
+        },
+        {
+          "text": "said:",
+          "start": 5.22,
+          "end": 5.62
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16254059900529683
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "ec7c3bf27747c30824ca1f3916bfa5256f72c0ed889412d7cfb532e69557252f",
+  "selected_reasons": []
+}

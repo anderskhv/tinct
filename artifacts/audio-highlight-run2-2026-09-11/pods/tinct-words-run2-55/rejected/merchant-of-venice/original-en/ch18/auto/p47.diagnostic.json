@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "f12d2b54eb7dd72031feaa921b1fcaff3feb9d34f2508148bfb74884a3ae53e2",
+  "attempts": [
+    {
+      "asr_seconds": 0.19907693844288588,
+      "alignment_seconds": 0.0003027329221367836,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Duke. Antonio and old Shylock, both stand forth.",
+        "hotwords": "Duke, Antonio, Shylock"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, Antonio and old Shylock, both stand forth.",
+          "start": 0.02,
+          "end": 3.48,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " Antonio",
+              "start": 1.24,
+              "end": 1.48,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " and",
+              "start": 1.48,
+              "end": 1.78,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " old",
+              "start": 1.78,
+              "end": 1.96,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " Shylock,",
+              "start": 1.96,
+              "end": 2.46,
+              "probability": 0.93359375
+            },
+            {
+              "text": " both",
+              "start": 2.66,
+              "end": 2.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " stand",
+              "start": 2.76,
+              "end": 3.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " forth.",
+              "start": 3.14,
+              "end": 3.48,
+              "probability": 0.9208984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Antonio",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "raw": "and",
+          "start": 1.48,
+          "end": 1.78
+        },
+        {
+          "raw": "old",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "raw": "Shylock,",
+          "start": 1.96,
+          "end": 2.46
+        },
+        {
+          "raw": "both",
+          "start": 2.66,
+          "end": 2.76
+        },
+        {
+          "raw": "stand",
+          "start": 2.76,
+          "end": 3.14
+        },
+        {
+          "raw": "forth.",
+          "start": 3.14,
+          "end": 3.48
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "Antonio",
+        "and",
+        "old",
+        "Shylock,",
+        "both",
+        "stand",
+        "forth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Antonio",
+          "start": 1.24,
+          "end": 1.48,
+          "key": "antonio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.48,
+          "end": 1.78,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 1.78,
+          "end": 1.96,
+          "key": "old",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Shylock,",
+          "start": 1.96,
+          "end": 2.46,
+          "key": "shylock",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 2.66,
+          "end": 2.76,
+          "key": "both",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 2.76,
+          "end": 3.14,
+          "key": "stand",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "forth.",
+          "start": 3.14,
+          "end": 3.48,
+          "key": "forth",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Antonio",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "text": "and",
+          "start": 1.48,
+          "end": 1.78
+        },
+        {
+          "text": "old",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "text": "Shylock,",
+          "start": 1.96,
+          "end": 2.46
+        },
+        {
+          "text": "both",
+          "start": 2.66,
+          "end": 2.76
+        },
+        {
+          "text": "stand",
+          "start": 2.76,
+          "end": 3.14
+        },
+        {
+          "text": "forth.",
+          "start": 3.14,
+          "end": 3.48
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19949847366660833
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a541a805423bfddca28044a0989449697cabc826b3da89adecbcde44f88f979d",
+  "selected_reasons": []
+}

@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "ae49372b456d5111b05bd76afb129814efc7367c7bf5a598e3b0e8eca90a075b",
+  "attempts": [
+    {
+      "asr_seconds": 0.19260243489407003,
+      "alignment_seconds": 0.00039390684105455875,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Henry, they did Flulan.",
+          "start": 0.02,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " Henry,",
+              "start": 0.54,
+              "end": 0.9,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " they",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.9765625
+            },
+            {
+              "text": " did",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Flulan.",
+              "start": 1.66,
+              "end": 2.18,
+              "probability": 0.4875895182291667
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.54,
+          "end": 0.9
+        },
+        {
+          "raw": "they",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "did",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "Flulan.",
+          "start": 1.66,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "They",
+        "did,",
+        "Fluellen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.54,
+          "end": 0.9,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "did",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Flulan.",
+          "start": 1.66,
+          "end": 2.18,
+          "key": "flulan",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "Henry.",
+          "start": 0.54,
+          "end": 0.9
+        },
+        {
+          "text": "They",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "did,",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "Fluellen.",
+          "start": 1.66,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19312238600105047
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "515ec4c7ff2b0d34803d099f33596473aea522737db42d54c8749a21c9dd75a3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

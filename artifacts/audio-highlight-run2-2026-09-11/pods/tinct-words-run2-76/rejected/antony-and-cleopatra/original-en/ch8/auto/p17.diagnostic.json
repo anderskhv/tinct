@@ -1,0 +1,391 @@
+{
+  "complete": true,
+  "signature": "d9bf47208f07036295e2b8d96f56c36f8ded6a0083943719536a3fd1e1f7427c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11321815429255366,
+      "alignment_seconds": 0.00024635065346956253,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Soothsayer._]",
+        "hotwords": "Soothsayer._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Soothsayer._",
+          "start": 0.02,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.921875
+            },
+            {
+              "text": " Soothsayer._",
+              "start": 0.64,
+              "end": 1.84,
+              "probability": 0.58367919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Soothsayer._",
+          "start": 0.64,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Soothsayer._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Soothsayer._",
+          "start": 0.64,
+          "end": 1.84,
+          "key": "soothsayer_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Soothsayer._]",
+          "start": 0.64,
+          "end": 1.24
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11353774927556515
+    },
+    {
+      "asr_seconds": 0.13369585014879704,
+      "alignment_seconds": 0.0003001228906214237,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Soothsayer._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Soothsayer._",
+          "start": 0.02,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.921875
+            },
+            {
+              "text": " Soothsayer._",
+              "start": 0.64,
+              "end": 1.84,
+              "probability": 0.58367919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Soothsayer._",
+          "start": 0.64,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Soothsayer._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Soothsayer._",
+          "start": 0.64,
+          "end": 1.84,
+          "key": "soothsayer_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Soothsayer._]",
+          "start": 0.64,
+          "end": 1.24
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13408632623031735
+    },
+    {
+      "asr_seconds": 0.12251979624852538,
+      "alignment_seconds": 0.0002782191149890423,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit soothsayer.",
+          "start": 0.02,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.921875
+            },
+            {
+              "text": " soothsayer.",
+              "start": 0.64,
+              "end": 1.2,
+              "probability": 0.8268229166666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "soothsayer.",
+          "start": 0.64,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Soothsayer._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soothsayer.",
+          "start": 0.64,
+          "end": 1.2,
+          "key": "soothsayer",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Soothsayer._]",
+          "start": 0.64,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1228874851949513
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a2a10ae3b983ec010e15740ad9abc21481fd2fee24691e09bb234dbf455229c1",
+  "selected_reasons": []
+}

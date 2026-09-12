@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "ec884b608c8bd554f7c0cd149bcb52dcb1b9a9023c564289c2b9e29f4cb1ef25",
+  "attempts": [
+    {
+      "asr_seconds": 0.13845597906038165,
+      "alignment_seconds": 0.000235007144510746,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All plebeians, he shall sure aunt.",
+          "start": 0.08,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.6376953125
+            },
+            {
+              "text": " plebeians,",
+              "start": 0.62,
+              "end": 1.18,
+              "probability": 0.9625651041666666
+            },
+            {
+              "text": " he",
+              "start": 1.54,
+              "end": 1.6,
+              "probability": 0.923828125
+            },
+            {
+              "text": " shall",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sure",
+              "start": 1.74,
+              "end": 1.94,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " aunt.",
+              "start": 1.94,
+              "end": 2.24,
+              "probability": 0.5797119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "plebeians,",
+          "start": 0.62,
+          "end": 1.18
+        },
+        {
+          "raw": "he",
+          "start": 1.54,
+          "end": 1.6
+        },
+        {
+          "raw": "shall",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "sure",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "raw": "aunt.",
+          "start": 1.94,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "All",
+        "Plebeians.",
+        "He",
+        "shall,",
+        "sure",
+        "on't."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "plebeians,",
+          "start": 0.62,
+          "end": 1.18,
+          "key": "plebeians",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.54,
+          "end": 1.6,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.6,
+          "end": 1.74,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sure",
+          "start": 1.74,
+          "end": 1.94,
+          "key": "sure",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "aunt.",
+          "start": 1.94,
+          "end": 2.24,
+          "key": "aunt",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Plebeians.",
+          "start": 0.62,
+          "end": 1.18
+        },
+        {
+          "text": "He",
+          "start": 1.54,
+          "end": 1.6
+        },
+        {
+          "text": "shall,",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "sure",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "text": "on't.",
+          "start": 1.94,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1387733779847622
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5d537e36186286361c3e2d9e9490fed714c0d4c28f29d09f79209428cf4b2f1f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

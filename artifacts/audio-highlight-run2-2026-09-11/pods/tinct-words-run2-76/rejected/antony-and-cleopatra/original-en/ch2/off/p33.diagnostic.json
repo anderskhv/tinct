@@ -1,0 +1,351 @@
+{
+  "complete": true,
+  "signature": "44b9f92917cc0ff4aaa16f5cef2c7c948a2205e5a663ce7d16c5bcb5019eece7",
+  "attempts": [
+    {
+      "asr_seconds": 0.24603062635287642,
+      "alignment_seconds": 0.0004900121130049229,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ira's, go you wild bedfellow, you cannot soothe, say.",
+          "start": 0.51,
+          "end": 3.31,
+          "words": [
+            {
+              "text": " Ira's,",
+              "start": 0.51,
+              "end": 0.95,
+              "probability": 0.4918212890625
+            },
+            {
+              "text": " go",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " you",
+              "start": 1.39,
+              "end": 1.57,
+              "probability": 0.900390625
+            },
+            {
+              "text": " wild",
+              "start": 1.57,
+              "end": 1.79,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " bedfellow,",
+              "start": 1.79,
+              "end": 2.27,
+              "probability": 0.8699544270833334
+            },
+            {
+              "text": " you",
+              "start": 2.41,
+              "end": 2.43,
+              "probability": 0.994140625
+            },
+            {
+              "text": " cannot",
+              "start": 2.43,
+              "end": 2.67,
+              "probability": 0.935546875
+            },
+            {
+              "text": " soothe,",
+              "start": 2.67,
+              "end": 3.11,
+              "probability": 0.841552734375
+            },
+            {
+              "text": " say.",
+              "start": 3.17,
+              "end": 3.31,
+              "probability": 0.76806640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ira's,",
+          "start": 0.51,
+          "end": 0.95
+        },
+        {
+          "raw": "go",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "you",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "raw": "wild",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "raw": "bedfellow,",
+          "start": 1.79,
+          "end": 2.27
+        },
+        {
+          "raw": "you",
+          "start": 2.41,
+          "end": 2.43
+        },
+        {
+          "raw": "cannot",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "raw": "soothe,",
+          "start": 2.67,
+          "end": 3.11
+        },
+        {
+          "raw": "say.",
+          "start": 3.17,
+          "end": 3.31
+        }
+      ],
+      "expected_tokens": [
+        "Iras.",
+        "Go,",
+        "you",
+        "wild",
+        "bedfellow,",
+        "you",
+        "cannot",
+        "soothsay."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ira's,",
+          "start": 0.51,
+          "end": 0.95,
+          "key": "iras",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.39,
+          "end": 1.57,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wild",
+          "start": 1.57,
+          "end": 1.79,
+          "key": "wild",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bedfellow,",
+          "start": 1.79,
+          "end": 2.27,
+          "key": "bedfellow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.41,
+          "end": 2.43,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 2.43,
+          "end": 2.67,
+          "key": "cannot",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "soothe,",
+          "start": 2.67,
+          "end": 3.11,
+          "key": "soothe",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "say.",
+          "start": 3.17,
+          "end": 3.31,
+          "key": "say",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iras.",
+          "start": 0.51,
+          "end": 0.95
+        },
+        {
+          "text": "Go,",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "you",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "text": "wild",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "text": "bedfellow,",
+          "start": 1.79,
+          "end": 2.27
+        },
+        {
+          "text": "you",
+          "start": 2.41,
+          "end": 2.43
+        },
+        {
+          "text": "cannot",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "text": "soothsay.",
+          "start": 2.67,
+          "end": 2.99
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.24672188516706228
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e9b27361755e8dc42f3ef31b3586ed666ecb3df3cf1cf5d4a35abd65273c7f67",
+  "selected_reasons": []
+}

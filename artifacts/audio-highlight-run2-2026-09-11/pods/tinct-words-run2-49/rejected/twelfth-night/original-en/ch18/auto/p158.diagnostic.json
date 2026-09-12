@@ -1,0 +1,2972 @@
+{
+  "complete": true,
+  "signature": "dcbc4ef70f50f37c0aa7cc2517db3d723425d5581b4ccabe7a163826c995cc6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.40724683552980423,
+      "alignment_seconds": 0.0007559247314929962,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_ But when I came, alas, to wive, With hey, ho, the wind and the rain, By swaggering could I never thrive, For the rain it raineth every day._",
+        "hotwords": "But, I, With, By, For"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But when I came, alas, to wive, With hey, ho, the wind and the rain, By swaggering could",
+          "start": 0.02,
+          "end": 6.04,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " when",
+              "start": 0.48,
+              "end": 0.6,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " I",
+              "start": 0.6,
+              "end": 0.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " came,",
+              "start": 0.74,
+              "end": 1.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " alas,",
+              "start": 1.2,
+              "end": 1.5,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " to",
+              "start": 1.82,
+              "end": 1.86,
+              "probability": 0.98828125
+            },
+            {
+              "text": " wive,",
+              "start": 1.86,
+              "end": 2.32,
+              "probability": 0.857666015625
+            },
+            {
+              "text": " With",
+              "start": 2.64,
+              "end": 2.76,
+              "probability": 0.6279296875
+            },
+            {
+              "text": " hey,",
+              "start": 2.76,
+              "end": 3.1,
+              "probability": 0.020233154296875
+            },
+            {
+              "text": " ho,",
+              "start": 3.52,
+              "end": 3.56,
+              "probability": 0.705078125
+            },
+            {
+              "text": " the",
+              "start": 3.74,
+              "end": 3.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " wind",
+              "start": 3.84,
+              "end": 4.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 4.14,
+              "end": 4.36,
+              "probability": 0.52099609375
+            },
+            {
+              "text": " the",
+              "start": 4.36,
+              "end": 4.48,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " rain,",
+              "start": 4.48,
+              "end": 4.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " By",
+              "start": 5.1,
+              "end": 5.26,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " swaggering",
+              "start": 5.26,
+              "end": 5.9,
+              "probability": 0.9454752604166666
+            },
+            {
+              "text": " could",
+              "start": 5.9,
+              "end": 6.04,
+              "probability": 0.95361328125
+            }
+          ]
+        },
+        {
+          "text": " I never thrive, For the rain it raineth every day._",
+          "start": 6.04,
+          "end": 9.16,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.04,
+              "end": 6.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " never",
+              "start": 6.16,
+              "end": 6.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thrive,",
+              "start": 6.42,
+              "end": 6.8,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " For",
+              "start": 7.34,
+              "end": 7.54,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 7.54,
+              "end": 7.66,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " rain",
+              "start": 7.66,
+              "end": 7.86,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " it",
+              "start": 7.86,
+              "end": 8.04,
+              "probability": 0.859375
+            },
+            {
+              "text": " raineth",
+              "start": 8.04,
+              "end": 8.42,
+              "probability": 0.890869140625
+            },
+            {
+              "text": " every",
+              "start": 8.42,
+              "end": 8.72,
+              "probability": 0.96484375
+            },
+            {
+              "text": " day._",
+              "start": 8.72,
+              "end": 9.16,
+              "probability": 0.4992682635784149
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "when",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "raw": "I",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "raw": "came,",
+          "start": 0.74,
+          "end": 1.08
+        },
+        {
+          "raw": "alas,",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "raw": "to",
+          "start": 1.82,
+          "end": 1.86
+        },
+        {
+          "raw": "wive,",
+          "start": 1.86,
+          "end": 2.32
+        },
+        {
+          "raw": "With",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "raw": "hey,",
+          "start": 2.76,
+          "end": 3.1
+        },
+        {
+          "raw": "ho,",
+          "start": 3.52,
+          "end": 3.56
+        },
+        {
+          "raw": "the",
+          "start": 3.74,
+          "end": 3.84
+        },
+        {
+          "raw": "wind",
+          "start": 3.84,
+          "end": 4.14
+        },
+        {
+          "raw": "and",
+          "start": 4.14,
+          "end": 4.36
+        },
+        {
+          "raw": "the",
+          "start": 4.36,
+          "end": 4.48
+        },
+        {
+          "raw": "rain,",
+          "start": 4.48,
+          "end": 4.8
+        },
+        {
+          "raw": "By",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "raw": "swaggering",
+          "start": 5.26,
+          "end": 5.9
+        },
+        {
+          "raw": "could",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "raw": "I",
+          "start": 6.04,
+          "end": 6.16
+        },
+        {
+          "raw": "never",
+          "start": 6.16,
+          "end": 6.42
+        },
+        {
+          "raw": "thrive,",
+          "start": 6.42,
+          "end": 6.8
+        },
+        {
+          "raw": "For",
+          "start": 7.34,
+          "end": 7.54
+        },
+        {
+          "raw": "the",
+          "start": 7.54,
+          "end": 7.66
+        },
+        {
+          "raw": "rain",
+          "start": 7.66,
+          "end": 7.86
+        },
+        {
+          "raw": "it",
+          "start": 7.86,
+          "end": 8.04
+        },
+        {
+          "raw": "raineth",
+          "start": 8.04,
+          "end": 8.42
+        },
+        {
+          "raw": "every",
+          "start": 8.42,
+          "end": 8.72
+        },
+        {
+          "raw": "day._",
+          "start": 8.72,
+          "end": 9.16
+        }
+      ],
+      "expected_tokens": [
+        "_",
+        "But",
+        "when",
+        "I",
+        "came,",
+        "alas,",
+        "to",
+        "wive,",
+        "With",
+        "hey,",
+        "ho,",
+        "the",
+        "wind",
+        "and",
+        "the",
+        "rain,",
+        "By",
+        "swaggering",
+        "could",
+        "I",
+        "never",
+        "thrive,",
+        "For",
+        "the",
+        "rain",
+        "it",
+        "raineth",
+        "every",
+        "day._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          27,
+          0,
+          27
+        ],
+        [
+          "replace",
+          27,
+          28,
+          27,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          27,
+          28,
+          27,
+          28
+        ]
+      ],
+      "spoken_expected_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [
+        0
+      ],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 0.48,
+          "end": 0.6,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.6,
+          "end": 0.74,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "came,",
+          "start": 0.74,
+          "end": 1.08,
+          "key": "came",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "alas,",
+          "start": 1.2,
+          "end": 1.5,
+          "key": "alas",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.82,
+          "end": 1.86,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wive,",
+          "start": 1.86,
+          "end": 2.32,
+          "key": "wive",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 2.64,
+          "end": 2.76,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hey,",
+          "start": 2.76,
+          "end": 3.1,
+          "key": "hey",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ho,",
+          "start": 3.52,
+          "end": 3.56,
+          "key": "ho",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.74,
+          "end": 3.84,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "wind",
+          "start": 3.84,
+          "end": 4.14,
+          "key": "wind",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.14,
+          "end": 4.36,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.36,
+          "end": 4.48,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "rain,",
+          "start": 4.48,
+          "end": 4.8,
+          "key": "rain",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 5.1,
+          "end": 5.26,
+          "key": "by",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "swaggering",
+          "start": 5.26,
+          "end": 5.9,
+          "key": "swaggering",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 5.9,
+          "end": 6.04,
+          "key": "could",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.04,
+          "end": 6.16,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 6.16,
+          "end": 6.42,
+          "key": "never",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "thrive,",
+          "start": 6.42,
+          "end": 6.8,
+          "key": "thrive",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 7.34,
+          "end": 7.54,
+          "key": "for",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.54,
+          "end": 7.66,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "rain",
+          "start": 7.66,
+          "end": 7.86,
+          "key": "rain",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 7.86,
+          "end": 8.04,
+          "key": "it",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "raineth",
+          "start": 8.04,
+          "end": 8.42,
+          "key": "raineth",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 8.42,
+          "end": 8.72,
+          "key": "every",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "day._",
+          "start": 8.72,
+          "end": 9.16,
+          "key": "day_",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "when",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "text": "I",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "text": "came,",
+          "start": 0.74,
+          "end": 1.08
+        },
+        {
+          "text": "alas,",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "text": "to",
+          "start": 1.82,
+          "end": 1.86
+        },
+        {
+          "text": "wive,",
+          "start": 1.86,
+          "end": 2.32
+        },
+        {
+          "text": "With",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "text": "hey,",
+          "start": 2.76,
+          "end": 3.1
+        },
+        {
+          "text": "ho,",
+          "start": 3.52,
+          "end": 3.56
+        },
+        {
+          "text": "the",
+          "start": 3.74,
+          "end": 3.84
+        },
+        {
+          "text": "wind",
+          "start": 3.84,
+          "end": 4.14
+        },
+        {
+          "text": "and",
+          "start": 4.14,
+          "end": 4.36
+        },
+        {
+          "text": "the",
+          "start": 4.36,
+          "end": 4.48
+        },
+        {
+          "text": "rain,",
+          "start": 4.48,
+          "end": 4.8
+        },
+        {
+          "text": "By",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "text": "swaggering",
+          "start": 5.26,
+          "end": 5.9
+        },
+        {
+          "text": "could",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "text": "I",
+          "start": 6.04,
+          "end": 6.16
+        },
+        {
+          "text": "never",
+          "start": 6.16,
+          "end": 6.42
+        },
+        {
+          "text": "thrive,",
+          "start": 6.42,
+          "end": 6.8
+        },
+        {
+          "text": "For",
+          "start": 7.34,
+          "end": 7.54
+        },
+        {
+          "text": "the",
+          "start": 7.54,
+          "end": 7.66
+        },
+        {
+          "text": "rain",
+          "start": 7.66,
+          "end": 7.86
+        },
+        {
+          "text": "it",
+          "start": 7.86,
+          "end": 8.04
+        },
+        {
+          "text": "raineth",
+          "start": 8.04,
+          "end": 8.42
+        },
+        {
+          "text": "every",
+          "start": 8.42,
+          "end": 8.72
+        },
+        {
+          "text": "day._",
+          "start": 8.72,
+          "end": 8.94
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 27
+      },
+      "match_ratio": 0.9642857142857143,
+      "rejection_reasons": [],
+      "seconds": 0.40833425894379616
+    },
+    {
+      "asr_seconds": 0.39002811163663864,
+      "alignment_seconds": 0.0007762312889099121,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "But, I, With, By, For"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " But when I came, alas, to wive, With hay, hoe, the wind, and the rain,",
+          "start": 0.02,
+          "end": 4.8,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " when",
+              "start": 0.48,
+              "end": 0.6,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " I",
+              "start": 0.6,
+              "end": 0.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " came,",
+              "start": 0.74,
+              "end": 1.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " alas,",
+              "start": 1.2,
+              "end": 1.5,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " to",
+              "start": 1.82,
+              "end": 1.86,
+              "probability": 0.98828125
+            },
+            {
+              "text": " wive,",
+              "start": 1.86,
+              "end": 2.32,
+              "probability": 0.857666015625
+            },
+            {
+              "text": " With",
+              "start": 2.64,
+              "end": 2.76,
+              "probability": 0.6279296875
+            },
+            {
+              "text": " hay,",
+              "start": 2.76,
+              "end": 3.1,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " hoe,",
+              "start": 3.54,
+              "end": 3.58,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " the",
+              "start": 3.74,
+              "end": 3.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " wind,",
+              "start": 3.84,
+              "end": 4.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 4.3,
+              "end": 4.38,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 4.38,
+              "end": 4.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " rain,",
+              "start": 4.46,
+              "end": 4.8,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " By swaggering could I never thrive, For the rain it raineth every day.",
+          "start": 5.1,
+          "end": 9.04,
+          "words": [
+            {
+              "text": " By",
+              "start": 5.1,
+              "end": 5.26,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " swaggering",
+              "start": 5.26,
+              "end": 5.9,
+              "probability": 0.9503580729166666
+            },
+            {
+              "text": " could",
+              "start": 5.9,
+              "end": 6.04,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " I",
+              "start": 6.04,
+              "end": 6.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " never",
+              "start": 6.16,
+              "end": 6.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thrive,",
+              "start": 6.42,
+              "end": 6.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " For",
+              "start": 7.34,
+              "end": 7.54,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 7.54,
+              "end": 7.66,
+              "probability": 0.9921875
+            },
+            {
+              "text": " rain",
+              "start": 7.66,
+              "end": 7.86,
+              "probability": 0.98828125
+            },
+            {
+              "text": " it",
+              "start": 7.86,
+              "end": 8.04,
+              "probability": 0.859375
+            },
+            {
+              "text": " raineth",
+              "start": 8.04,
+              "end": 8.42,
+              "probability": 0.888671875
+            },
+            {
+              "text": " every",
+              "start": 8.42,
+              "end": 8.72,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " day.",
+              "start": 8.72,
+              "end": 9.04,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "when",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "raw": "I",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "raw": "came,",
+          "start": 0.74,
+          "end": 1.08
+        },
+        {
+          "raw": "alas,",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "raw": "to",
+          "start": 1.82,
+          "end": 1.86
+        },
+        {
+          "raw": "wive,",
+          "start": 1.86,
+          "end": 2.32
+        },
+        {
+          "raw": "With",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "raw": "hay,",
+          "start": 2.76,
+          "end": 3.1
+        },
+        {
+          "raw": "hoe,",
+          "start": 3.54,
+          "end": 3.58
+        },
+        {
+          "raw": "the",
+          "start": 3.74,
+          "end": 3.84
+        },
+        {
+          "raw": "wind,",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "raw": "and",
+          "start": 4.3,
+          "end": 4.38
+        },
+        {
+          "raw": "the",
+          "start": 4.38,
+          "end": 4.46
+        },
+        {
+          "raw": "rain,",
+          "start": 4.46,
+          "end": 4.8
+        },
+        {
+          "raw": "By",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "raw": "swaggering",
+          "start": 5.26,
+          "end": 5.9
+        },
+        {
+          "raw": "could",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "raw": "I",
+          "start": 6.04,
+          "end": 6.16
+        },
+        {
+          "raw": "never",
+          "start": 6.16,
+          "end": 6.42
+        },
+        {
+          "raw": "thrive,",
+          "start": 6.42,
+          "end": 6.8
+        },
+        {
+          "raw": "For",
+          "start": 7.34,
+          "end": 7.54
+        },
+        {
+          "raw": "the",
+          "start": 7.54,
+          "end": 7.66
+        },
+        {
+          "raw": "rain",
+          "start": 7.66,
+          "end": 7.86
+        },
+        {
+          "raw": "it",
+          "start": 7.86,
+          "end": 8.04
+        },
+        {
+          "raw": "raineth",
+          "start": 8.04,
+          "end": 8.42
+        },
+        {
+          "raw": "every",
+          "start": 8.42,
+          "end": 8.72
+        },
+        {
+          "raw": "day.",
+          "start": 8.72,
+          "end": 9.04
+        }
+      ],
+      "expected_tokens": [
+        "_",
+        "But",
+        "when",
+        "I",
+        "came,",
+        "alas,",
+        "to",
+        "wive,",
+        "With",
+        "hey,",
+        "ho,",
+        "the",
+        "wind",
+        "and",
+        "the",
+        "rain,",
+        "By",
+        "swaggering",
+        "could",
+        "I",
+        "never",
+        "thrive,",
+        "For",
+        "the",
+        "rain",
+        "it",
+        "raineth",
+        "every",
+        "day._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          10,
+          8,
+          10
+        ],
+        [
+          "equal",
+          10,
+          28,
+          10,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          10,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [
+        0
+      ],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 0.48,
+          "end": 0.6,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.6,
+          "end": 0.74,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "came,",
+          "start": 0.74,
+          "end": 1.08,
+          "key": "came",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "alas,",
+          "start": 1.2,
+          "end": 1.5,
+          "key": "alas",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.82,
+          "end": 1.86,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wive,",
+          "start": 1.86,
+          "end": 2.32,
+          "key": "wive",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 2.64,
+          "end": 2.76,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hay,",
+          "start": 2.76,
+          "end": 3.1,
+          "key": "hay",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hoe,",
+          "start": 3.54,
+          "end": 3.58,
+          "key": "hoe",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.74,
+          "end": 3.84,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "wind,",
+          "start": 3.84,
+          "end": 4.16,
+          "key": "wind",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.3,
+          "end": 4.38,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.38,
+          "end": 4.46,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "rain,",
+          "start": 4.46,
+          "end": 4.8,
+          "key": "rain",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 5.1,
+          "end": 5.26,
+          "key": "by",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "swaggering",
+          "start": 5.26,
+          "end": 5.9,
+          "key": "swaggering",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 5.9,
+          "end": 6.04,
+          "key": "could",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.04,
+          "end": 6.16,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 6.16,
+          "end": 6.42,
+          "key": "never",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "thrive,",
+          "start": 6.42,
+          "end": 6.8,
+          "key": "thrive",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 7.34,
+          "end": 7.54,
+          "key": "for",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.54,
+          "end": 7.66,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "rain",
+          "start": 7.66,
+          "end": 7.86,
+          "key": "rain",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 7.86,
+          "end": 8.04,
+          "key": "it",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "raineth",
+          "start": 8.04,
+          "end": 8.42,
+          "key": "raineth",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 8.42,
+          "end": 8.72,
+          "key": "every",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "day.",
+          "start": 8.72,
+          "end": 9.04,
+          "key": "day",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "when",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "text": "I",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "text": "came,",
+          "start": 0.74,
+          "end": 1.08
+        },
+        {
+          "text": "alas,",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "text": "to",
+          "start": 1.82,
+          "end": 1.86
+        },
+        {
+          "text": "wive,",
+          "start": 1.86,
+          "end": 2.32
+        },
+        {
+          "text": "With",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "text": "hey,",
+          "start": 2.76,
+          "end": 3.25
+        },
+        {
+          "text": "ho,",
+          "start": 3.25,
+          "end": 3.495
+        },
+        {
+          "text": "the",
+          "start": 3.74,
+          "end": 3.84
+        },
+        {
+          "text": "wind",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "text": "and",
+          "start": 4.3,
+          "end": 4.38
+        },
+        {
+          "text": "the",
+          "start": 4.38,
+          "end": 4.46
+        },
+        {
+          "text": "rain,",
+          "start": 4.46,
+          "end": 4.8
+        },
+        {
+          "text": "By",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "text": "swaggering",
+          "start": 5.26,
+          "end": 5.9
+        },
+        {
+          "text": "could",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "text": "I",
+          "start": 6.04,
+          "end": 6.16
+        },
+        {
+          "text": "never",
+          "start": 6.16,
+          "end": 6.42
+        },
+        {
+          "text": "thrive,",
+          "start": 6.42,
+          "end": 6.8
+        },
+        {
+          "text": "For",
+          "start": 7.34,
+          "end": 7.54
+        },
+        {
+          "text": "the",
+          "start": 7.54,
+          "end": 7.66
+        },
+        {
+          "text": "rain",
+          "start": 7.66,
+          "end": 7.86
+        },
+        {
+          "text": "it",
+          "start": 7.86,
+          "end": 8.04
+        },
+        {
+          "text": "raineth",
+          "start": 8.04,
+          "end": 8.42
+        },
+        {
+          "text": "every",
+          "start": 8.42,
+          "end": 8.72
+        },
+        {
+          "text": "day._",
+          "start": 8.72,
+          "end": 9.04
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 26
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.3911236636340618
+    },
+    {
+      "asr_seconds": 0.41744041815400124,
+      "alignment_seconds": 0.0008450299501419067,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But when I came, alas, to wive, With hay, hoe, the wind, and the rain,",
+          "start": 0.02,
+          "end": 4.8,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " when",
+              "start": 0.48,
+              "end": 0.6,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " I",
+              "start": 0.6,
+              "end": 0.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " came,",
+              "start": 0.74,
+              "end": 1.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " alas,",
+              "start": 1.2,
+              "end": 1.5,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " to",
+              "start": 1.82,
+              "end": 1.86,
+              "probability": 0.98828125
+            },
+            {
+              "text": " wive,",
+              "start": 1.86,
+              "end": 2.32,
+              "probability": 0.857666015625
+            },
+            {
+              "text": " With",
+              "start": 2.64,
+              "end": 2.76,
+              "probability": 0.6279296875
+            },
+            {
+              "text": " hay,",
+              "start": 2.76,
+              "end": 3.1,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " hoe,",
+              "start": 3.54,
+              "end": 3.58,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " the",
+              "start": 3.74,
+              "end": 3.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " wind,",
+              "start": 3.84,
+              "end": 4.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 4.3,
+              "end": 4.38,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 4.38,
+              "end": 4.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " rain,",
+              "start": 4.46,
+              "end": 4.8,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " By swaggering could I never thrive, For the rain it raineth every day.",
+          "start": 5.1,
+          "end": 9.04,
+          "words": [
+            {
+              "text": " By",
+              "start": 5.1,
+              "end": 5.26,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " swaggering",
+              "start": 5.26,
+              "end": 5.9,
+              "probability": 0.9503580729166666
+            },
+            {
+              "text": " could",
+              "start": 5.9,
+              "end": 6.04,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " I",
+              "start": 6.04,
+              "end": 6.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " never",
+              "start": 6.16,
+              "end": 6.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thrive,",
+              "start": 6.42,
+              "end": 6.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " For",
+              "start": 7.34,
+              "end": 7.54,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 7.54,
+              "end": 7.66,
+              "probability": 0.9921875
+            },
+            {
+              "text": " rain",
+              "start": 7.66,
+              "end": 7.86,
+              "probability": 0.98828125
+            },
+            {
+              "text": " it",
+              "start": 7.86,
+              "end": 8.04,
+              "probability": 0.859375
+            },
+            {
+              "text": " raineth",
+              "start": 8.04,
+              "end": 8.42,
+              "probability": 0.888671875
+            },
+            {
+              "text": " every",
+              "start": 8.42,
+              "end": 8.72,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " day.",
+              "start": 8.72,
+              "end": 9.04,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "when",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "raw": "I",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "raw": "came,",
+          "start": 0.74,
+          "end": 1.08
+        },
+        {
+          "raw": "alas,",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "raw": "to",
+          "start": 1.82,
+          "end": 1.86
+        },
+        {
+          "raw": "wive,",
+          "start": 1.86,
+          "end": 2.32
+        },
+        {
+          "raw": "With",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "raw": "hay,",
+          "start": 2.76,
+          "end": 3.1
+        },
+        {
+          "raw": "hoe,",
+          "start": 3.54,
+          "end": 3.58
+        },
+        {
+          "raw": "the",
+          "start": 3.74,
+          "end": 3.84
+        },
+        {
+          "raw": "wind,",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "raw": "and",
+          "start": 4.3,
+          "end": 4.38
+        },
+        {
+          "raw": "the",
+          "start": 4.38,
+          "end": 4.46
+        },
+        {
+          "raw": "rain,",
+          "start": 4.46,
+          "end": 4.8
+        },
+        {
+          "raw": "By",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "raw": "swaggering",
+          "start": 5.26,
+          "end": 5.9
+        },
+        {
+          "raw": "could",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "raw": "I",
+          "start": 6.04,
+          "end": 6.16
+        },
+        {
+          "raw": "never",
+          "start": 6.16,
+          "end": 6.42
+        },
+        {
+          "raw": "thrive,",
+          "start": 6.42,
+          "end": 6.8
+        },
+        {
+          "raw": "For",
+          "start": 7.34,
+          "end": 7.54
+        },
+        {
+          "raw": "the",
+          "start": 7.54,
+          "end": 7.66
+        },
+        {
+          "raw": "rain",
+          "start": 7.66,
+          "end": 7.86
+        },
+        {
+          "raw": "it",
+          "start": 7.86,
+          "end": 8.04
+        },
+        {
+          "raw": "raineth",
+          "start": 8.04,
+          "end": 8.42
+        },
+        {
+          "raw": "every",
+          "start": 8.42,
+          "end": 8.72
+        },
+        {
+          "raw": "day.",
+          "start": 8.72,
+          "end": 9.04
+        }
+      ],
+      "expected_tokens": [
+        "_",
+        "But",
+        "when",
+        "I",
+        "came,",
+        "alas,",
+        "to",
+        "wive,",
+        "With",
+        "hey,",
+        "ho,",
+        "the",
+        "wind",
+        "and",
+        "the",
+        "rain,",
+        "By",
+        "swaggering",
+        "could",
+        "I",
+        "never",
+        "thrive,",
+        "For",
+        "the",
+        "rain",
+        "it",
+        "raineth",
+        "every",
+        "day._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          10,
+          8,
+          10
+        ],
+        [
+          "equal",
+          10,
+          28,
+          10,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          10,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [
+        0
+      ],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 0.48,
+          "end": 0.6,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.6,
+          "end": 0.74,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "came,",
+          "start": 0.74,
+          "end": 1.08,
+          "key": "came",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "alas,",
+          "start": 1.2,
+          "end": 1.5,
+          "key": "alas",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.82,
+          "end": 1.86,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wive,",
+          "start": 1.86,
+          "end": 2.32,
+          "key": "wive",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 2.64,
+          "end": 2.76,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hay,",
+          "start": 2.76,
+          "end": 3.1,
+          "key": "hay",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hoe,",
+          "start": 3.54,
+          "end": 3.58,
+          "key": "hoe",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.74,
+          "end": 3.84,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "wind,",
+          "start": 3.84,
+          "end": 4.16,
+          "key": "wind",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.3,
+          "end": 4.38,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.38,
+          "end": 4.46,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "rain,",
+          "start": 4.46,
+          "end": 4.8,
+          "key": "rain",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 5.1,
+          "end": 5.26,
+          "key": "by",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "swaggering",
+          "start": 5.26,
+          "end": 5.9,
+          "key": "swaggering",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 5.9,
+          "end": 6.04,
+          "key": "could",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.04,
+          "end": 6.16,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 6.16,
+          "end": 6.42,
+          "key": "never",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "thrive,",
+          "start": 6.42,
+          "end": 6.8,
+          "key": "thrive",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 7.34,
+          "end": 7.54,
+          "key": "for",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.54,
+          "end": 7.66,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "rain",
+          "start": 7.66,
+          "end": 7.86,
+          "key": "rain",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 7.86,
+          "end": 8.04,
+          "key": "it",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "raineth",
+          "start": 8.04,
+          "end": 8.42,
+          "key": "raineth",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 8.42,
+          "end": 8.72,
+          "key": "every",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "day.",
+          "start": 8.72,
+          "end": 9.04,
+          "key": "day",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "when",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "text": "I",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "text": "came,",
+          "start": 0.74,
+          "end": 1.08
+        },
+        {
+          "text": "alas,",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "text": "to",
+          "start": 1.82,
+          "end": 1.86
+        },
+        {
+          "text": "wive,",
+          "start": 1.86,
+          "end": 2.32
+        },
+        {
+          "text": "With",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "text": "hey,",
+          "start": 2.76,
+          "end": 3.25
+        },
+        {
+          "text": "ho,",
+          "start": 3.25,
+          "end": 3.495
+        },
+        {
+          "text": "the",
+          "start": 3.74,
+          "end": 3.84
+        },
+        {
+          "text": "wind",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "text": "and",
+          "start": 4.3,
+          "end": 4.38
+        },
+        {
+          "text": "the",
+          "start": 4.38,
+          "end": 4.46
+        },
+        {
+          "text": "rain,",
+          "start": 4.46,
+          "end": 4.8
+        },
+        {
+          "text": "By",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "text": "swaggering",
+          "start": 5.26,
+          "end": 5.9
+        },
+        {
+          "text": "could",
+          "start": 5.9,
+          "end": 6.04
+        },
+        {
+          "text": "I",
+          "start": 6.04,
+          "end": 6.16
+        },
+        {
+          "text": "never",
+          "start": 6.16,
+          "end": 6.42
+        },
+        {
+          "text": "thrive,",
+          "start": 6.42,
+          "end": 6.8
+        },
+        {
+          "text": "For",
+          "start": 7.34,
+          "end": 7.54
+        },
+        {
+          "text": "the",
+          "start": 7.54,
+          "end": 7.66
+        },
+        {
+          "text": "rain",
+          "start": 7.66,
+          "end": 7.86
+        },
+        {
+          "text": "it",
+          "start": 7.86,
+          "end": 8.04
+        },
+        {
+          "text": "raineth",
+          "start": 8.04,
+          "end": 8.42
+        },
+        {
+          "text": "every",
+          "start": 8.42,
+          "end": 8.72
+        },
+        {
+          "text": "day._",
+          "start": 8.72,
+          "end": 9.04
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 26
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.4186434783041477
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7a00c939a0989b8eb09ed6c744398d9b042bf07fe89d792cb48be8cf13834cb1",
+  "selected_reasons": []
+}

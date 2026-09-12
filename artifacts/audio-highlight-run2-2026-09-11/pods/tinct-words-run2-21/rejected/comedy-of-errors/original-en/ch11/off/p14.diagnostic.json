@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "b570a1ba271caf7bc87d72ca8bacc8e4a276e7e87fb3f8090d322bb7dfb0fc3b",
+  "attempts": [
+    {
+      "asr_seconds": 0.19121948210522532,
+      "alignment_seconds": 0.00017851032316684723,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Adriana, Luciana, Cordizan, and others.",
+          "start": 0.11,
+          "end": 3.05,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.9453125
+            },
+            {
+              "text": " Adriana,",
+              "start": 0.65,
+              "end": 1.21,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " Luciana,",
+              "start": 1.63,
+              "end": 1.95,
+              "probability": 0.804931640625
+            },
+            {
+              "text": " Cordizan,",
+              "start": 2.29,
+              "end": 2.65,
+              "probability": 0.5655110677083334
+            },
+            {
+              "text": " and",
+              "start": 2.71,
+              "end": 2.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " others.",
+              "start": 2.81,
+              "end": 3.05,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Adriana,",
+          "start": 0.65,
+          "end": 1.21
+        },
+        {
+          "raw": "Luciana,",
+          "start": 1.63,
+          "end": 1.95
+        },
+        {
+          "raw": "Cordizan,",
+          "start": 2.29,
+          "end": 2.65
+        },
+        {
+          "raw": "and",
+          "start": 2.71,
+          "end": 2.81
+        },
+        {
+          "raw": "others.",
+          "start": 2.81,
+          "end": 3.05
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Adriana,",
+        "Luciana,",
+        "Courtesan",
+        "and",
+        "others."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Adriana,",
+          "start": 0.65,
+          "end": 1.21,
+          "key": "adriana",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Luciana,",
+          "start": 1.63,
+          "end": 1.95,
+          "key": "luciana",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cordizan,",
+          "start": 2.29,
+          "end": 2.65,
+          "key": "cordizan",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.71,
+          "end": 2.81,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "others.",
+          "start": 2.81,
+          "end": 3.05,
+          "key": "others",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Adriana,",
+          "start": 0.65,
+          "end": 1.21
+        },
+        {
+          "text": "Luciana,",
+          "start": 1.63,
+          "end": 1.95
+        },
+        {
+          "text": "Courtesan",
+          "start": 1.95,
+          "end": 2.33
+        },
+        {
+          "text": "and",
+          "start": 2.71,
+          "end": 2.81
+        },
+        {
+          "text": "others.",
+          "start": 2.81,
+          "end": 3.05
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19145654095336795
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "00988f494d700b476bfe73d4720c5406c3fe82961228070b4796f912bf7bb5d8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

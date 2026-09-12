@@ -1,0 +1,2029 @@
+{
+  "complete": true,
+  "signature": "66131c4892ba4758fd7a5dbff1a976040d1e9ec0cd4840e3022dba38fbc26ac2",
+  "attempts": [
+    {
+      "asr_seconds": 0.5254384372383356,
+      "alignment_seconds": 0.001335076056420803,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The first tax of this kind was hearth-money; or a tax of two shillings upon every hearth. In order to ascertain how many hearths were in the house, it was necessary that the tax-gatherer should enter every room in it. This odious visit rendered the tax odious. Soon after the Revolution, therefore, it was abolished as a badge of slavery.",
+        "hotwords": "Soon, Revolution"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The first tax of this kind was hearth-money, or a tax of two shillings upon every hearth. In order to ascertain how many hearths were in the house, it was necessary that the tax-gatherer should enter every room in it. This odious visit rendered the tax odious. Soon after the Revolution, therefore, it was abolished as a badge of slavery.",
+          "start": 0.02,
+          "end": 20.48,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " first",
+              "start": 0.48,
+              "end": 0.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " tax",
+              "start": 0.74,
+              "end": 1.08,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " of",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " kind",
+              "start": 1.4,
+              "end": 1.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 1.7,
+              "end": 1.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hearth",
+              "start": 1.96,
+              "end": 2.28,
+              "probability": 0.957763671875
+            },
+            {
+              "text": "-money,",
+              "start": 2.28,
+              "end": 2.48,
+              "probability": 0.5031280517578125
+            },
+            {
+              "text": " or",
+              "start": 3.0,
+              "end": 3.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 3.16,
+              "end": 3.3,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " tax",
+              "start": 3.3,
+              "end": 3.58,
+              "probability": 0.990234375
+            },
+            {
+              "text": " of",
+              "start": 3.58,
+              "end": 3.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " two",
+              "start": 3.78,
+              "end": 4.0,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " shillings",
+              "start": 4.0,
+              "end": 4.54,
+              "probability": 0.9930013020833334
+            },
+            {
+              "text": " upon",
+              "start": 4.54,
+              "end": 4.82,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " every",
+              "start": 4.82,
+              "end": 5.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hearth.",
+              "start": 5.22,
+              "end": 5.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " In",
+              "start": 6.14,
+              "end": 6.26,
+              "probability": 0.994140625
+            },
+            {
+              "text": " order",
+              "start": 6.26,
+              "end": 6.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 6.4,
+              "end": 6.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ascertain",
+              "start": 6.58,
+              "end": 7.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " how",
+              "start": 7.02,
+              "end": 7.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " many",
+              "start": 7.34,
+              "end": 7.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hearths",
+              "start": 7.48,
+              "end": 7.88,
+              "probability": 0.986572265625
+            },
+            {
+              "text": " were",
+              "start": 7.88,
+              "end": 8.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " in",
+              "start": 8.04,
+              "end": 8.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 8.16,
+              "end": 8.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " house,",
+              "start": 8.22,
+              "end": 8.56,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " it",
+              "start": 8.98,
+              "end": 9.08,
+              "probability": 0.990234375
+            },
+            {
+              "text": " was",
+              "start": 9.08,
+              "end": 9.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " necessary",
+              "start": 9.2,
+              "end": 9.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 9.72,
+              "end": 10.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 10.04,
+              "end": 10.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tax",
+              "start": 10.16,
+              "end": 10.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": "-gatherer",
+              "start": 10.46,
+              "end": 10.86,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " should",
+              "start": 10.86,
+              "end": 11.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " enter",
+              "start": 11.08,
+              "end": 11.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " every",
+              "start": 11.4,
+              "end": 11.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " room",
+              "start": 11.76,
+              "end": 12.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 12.0,
+              "end": 12.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it.",
+              "start": 12.2,
+              "end": 12.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " This",
+              "start": 13.02,
+              "end": 13.24,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " odious",
+              "start": 13.24,
+              "end": 13.76,
+              "probability": 0.973388671875
+            },
+            {
+              "text": " visit",
+              "start": 13.76,
+              "end": 14.14,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " rendered",
+              "start": 14.14,
+              "end": 14.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 14.52,
+              "end": 14.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tax",
+              "start": 14.76,
+              "end": 15.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " odious.",
+              "start": 15.14,
+              "end": 15.7,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " Soon",
+              "start": 16.5,
+              "end": 16.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " after",
+              "start": 16.66,
+              "end": 16.96,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " the",
+              "start": 16.96,
+              "end": 17.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Revolution,",
+              "start": 17.14,
+              "end": 17.58,
+              "probability": 0.293701171875
+            },
+            {
+              "text": " therefore,",
+              "start": 17.84,
+              "end": 18.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 18.66,
+              "end": 18.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 18.74,
+              "end": 18.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " abolished",
+              "start": 18.84,
+              "end": 19.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " as",
+              "start": 19.26,
+              "end": 19.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 19.56,
+              "end": 19.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " badge",
+              "start": 19.72,
+              "end": 19.94,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " of",
+              "start": 19.94,
+              "end": 20.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " slavery.",
+              "start": 20.16,
+              "end": 20.48,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "first",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "raw": "tax",
+          "start": 0.74,
+          "end": 1.08
+        },
+        {
+          "raw": "of",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "this",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "kind",
+          "start": 1.4,
+          "end": 1.7
+        },
+        {
+          "raw": "was",
+          "start": 1.7,
+          "end": 1.96
+        },
+        {
+          "raw": "hearth",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "raw": "-money,",
+          "start": 2.28,
+          "end": 2.48
+        },
+        {
+          "raw": "or",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "raw": "a",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "raw": "tax",
+          "start": 3.3,
+          "end": 3.58
+        },
+        {
+          "raw": "of",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "raw": "two",
+          "start": 3.78,
+          "end": 4.0
+        },
+        {
+          "raw": "shillings",
+          "start": 4.0,
+          "end": 4.54
+        },
+        {
+          "raw": "upon",
+          "start": 4.54,
+          "end": 4.82
+        },
+        {
+          "raw": "every",
+          "start": 4.82,
+          "end": 5.22
+        },
+        {
+          "raw": "hearth.",
+          "start": 5.22,
+          "end": 5.66
+        },
+        {
+          "raw": "In",
+          "start": 6.14,
+          "end": 6.26
+        },
+        {
+          "raw": "order",
+          "start": 6.26,
+          "end": 6.4
+        },
+        {
+          "raw": "to",
+          "start": 6.4,
+          "end": 6.58
+        },
+        {
+          "raw": "ascertain",
+          "start": 6.58,
+          "end": 7.02
+        },
+        {
+          "raw": "how",
+          "start": 7.02,
+          "end": 7.34
+        },
+        {
+          "raw": "many",
+          "start": 7.34,
+          "end": 7.48
+        },
+        {
+          "raw": "hearths",
+          "start": 7.48,
+          "end": 7.88
+        },
+        {
+          "raw": "were",
+          "start": 7.88,
+          "end": 8.04
+        },
+        {
+          "raw": "in",
+          "start": 8.04,
+          "end": 8.16
+        },
+        {
+          "raw": "the",
+          "start": 8.16,
+          "end": 8.22
+        },
+        {
+          "raw": "house,",
+          "start": 8.22,
+          "end": 8.56
+        },
+        {
+          "raw": "it",
+          "start": 8.98,
+          "end": 9.08
+        },
+        {
+          "raw": "was",
+          "start": 9.08,
+          "end": 9.2
+        },
+        {
+          "raw": "necessary",
+          "start": 9.2,
+          "end": 9.72
+        },
+        {
+          "raw": "that",
+          "start": 9.72,
+          "end": 10.04
+        },
+        {
+          "raw": "the",
+          "start": 10.04,
+          "end": 10.16
+        },
+        {
+          "raw": "tax",
+          "start": 10.16,
+          "end": 10.46
+        },
+        {
+          "raw": "-gatherer",
+          "start": 10.46,
+          "end": 10.86
+        },
+        {
+          "raw": "should",
+          "start": 10.86,
+          "end": 11.08
+        },
+        {
+          "raw": "enter",
+          "start": 11.08,
+          "end": 11.4
+        },
+        {
+          "raw": "every",
+          "start": 11.4,
+          "end": 11.76
+        },
+        {
+          "raw": "room",
+          "start": 11.76,
+          "end": 12.0
+        },
+        {
+          "raw": "in",
+          "start": 12.0,
+          "end": 12.2
+        },
+        {
+          "raw": "it.",
+          "start": 12.2,
+          "end": 12.52
+        },
+        {
+          "raw": "This",
+          "start": 13.02,
+          "end": 13.24
+        },
+        {
+          "raw": "odious",
+          "start": 13.24,
+          "end": 13.76
+        },
+        {
+          "raw": "visit",
+          "start": 13.76,
+          "end": 14.14
+        },
+        {
+          "raw": "rendered",
+          "start": 14.14,
+          "end": 14.52
+        },
+        {
+          "raw": "the",
+          "start": 14.52,
+          "end": 14.76
+        },
+        {
+          "raw": "tax",
+          "start": 14.76,
+          "end": 15.14
+        },
+        {
+          "raw": "odious.",
+          "start": 15.14,
+          "end": 15.7
+        },
+        {
+          "raw": "Soon",
+          "start": 16.5,
+          "end": 16.66
+        },
+        {
+          "raw": "after",
+          "start": 16.66,
+          "end": 16.96
+        },
+        {
+          "raw": "the",
+          "start": 16.96,
+          "end": 17.14
+        },
+        {
+          "raw": "Revolution,",
+          "start": 17.14,
+          "end": 17.58
+        },
+        {
+          "raw": "therefore,",
+          "start": 17.84,
+          "end": 18.18
+        },
+        {
+          "raw": "it",
+          "start": 18.66,
+          "end": 18.74
+        },
+        {
+          "raw": "was",
+          "start": 18.74,
+          "end": 18.84
+        },
+        {
+          "raw": "abolished",
+          "start": 18.84,
+          "end": 19.26
+        },
+        {
+          "raw": "as",
+          "start": 19.26,
+          "end": 19.56
+        },
+        {
+          "raw": "a",
+          "start": 19.56,
+          "end": 19.72
+        },
+        {
+          "raw": "badge",
+          "start": 19.72,
+          "end": 19.94
+        },
+        {
+          "raw": "of",
+          "start": 19.94,
+          "end": 20.16
+        },
+        {
+          "raw": "slavery.",
+          "start": 20.16,
+          "end": 20.48
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "first",
+        "tax",
+        "of",
+        "this",
+        "kind",
+        "was",
+        "hearth-money;",
+        "or",
+        "a",
+        "tax",
+        "of",
+        "two",
+        "shillings",
+        "upon",
+        "every",
+        "hearth.",
+        "In",
+        "order",
+        "to",
+        "ascertain",
+        "how",
+        "many",
+        "hearths",
+        "were",
+        "in",
+        "the",
+        "house,",
+        "it",
+        "was",
+        "necessary",
+        "that",
+        "the",
+        "tax-gatherer",
+        "should",
+        "enter",
+        "every",
+        "room",
+        "in",
+        "it.",
+        "This",
+        "odious",
+        "visit",
+        "rendered",
+        "the",
+        "tax",
+        "odious.",
+        "Soon",
+        "after",
+        "the",
+        "Revolution,",
+        "therefore,",
+        "it",
+        "was",
+        "abolished",
+        "as",
+        "a",
+        "badge",
+        "of",
+        "slavery."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          60,
+          0,
+          60
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 0.48,
+          "end": 0.74,
+          "key": "first",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tax",
+          "start": 0.74,
+          "end": 1.08,
+          "key": "tax",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.08,
+          "end": 1.26,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 1.4,
+          "end": 1.7,
+          "key": "kind",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.7,
+          "end": 1.96,
+          "key": "was",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hearth -money,",
+          "start": 1.96,
+          "end": 2.48,
+          "key": "hearthmoney",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 3.0,
+          "end": 3.16,
+          "key": "or",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.16,
+          "end": 3.3,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "tax",
+          "start": 3.3,
+          "end": 3.58,
+          "key": "tax",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.58,
+          "end": 3.78,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 3.78,
+          "end": 4.0,
+          "key": "two",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shillings",
+          "start": 4.0,
+          "end": 4.54,
+          "key": "shillings",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 4.54,
+          "end": 4.82,
+          "key": "upon",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 4.82,
+          "end": 5.22,
+          "key": "every",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "hearth.",
+          "start": 5.22,
+          "end": 5.66,
+          "key": "hearth",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 6.14,
+          "end": 6.26,
+          "key": "in",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "order",
+          "start": 6.26,
+          "end": 6.4,
+          "key": "order",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.4,
+          "end": 6.58,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "ascertain",
+          "start": 6.58,
+          "end": 7.02,
+          "key": "ascertain",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 7.02,
+          "end": 7.34,
+          "key": "how",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 7.34,
+          "end": 7.48,
+          "key": "many",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "hearths",
+          "start": 7.48,
+          "end": 7.88,
+          "key": "hearths",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 7.88,
+          "end": 8.04,
+          "key": "were",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.04,
+          "end": 8.16,
+          "key": "in",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.16,
+          "end": 8.22,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "house,",
+          "start": 8.22,
+          "end": 8.56,
+          "key": "house",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 8.98,
+          "end": 9.08,
+          "key": "it",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 9.08,
+          "end": 9.2,
+          "key": "was",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "necessary",
+          "start": 9.2,
+          "end": 9.72,
+          "key": "necessary",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 9.72,
+          "end": 10.04,
+          "key": "that",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.04,
+          "end": 10.16,
+          "key": "the",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "tax -gatherer",
+          "start": 10.16,
+          "end": 10.86,
+          "key": "taxgatherer",
+          "pieces": [
+            34,
+            35
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 10.86,
+          "end": 11.08,
+          "key": "should",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 11.08,
+          "end": 11.4,
+          "key": "enter",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 11.4,
+          "end": 11.76,
+          "key": "every",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 11.76,
+          "end": 12.0,
+          "key": "room",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 12.0,
+          "end": 12.2,
+          "key": "in",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 12.2,
+          "end": 12.52,
+          "key": "it",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 13.02,
+          "end": 13.24,
+          "key": "this",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "odious",
+          "start": 13.24,
+          "end": 13.76,
+          "key": "odious",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "visit",
+          "start": 13.76,
+          "end": 14.14,
+          "key": "visit",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "rendered",
+          "start": 14.14,
+          "end": 14.52,
+          "key": "rendered",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.52,
+          "end": 14.76,
+          "key": "the",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "tax",
+          "start": 14.76,
+          "end": 15.14,
+          "key": "tax",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "odious.",
+          "start": 15.14,
+          "end": 15.7,
+          "key": "odious",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Soon",
+          "start": 16.5,
+          "end": 16.66,
+          "key": "soon",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 16.66,
+          "end": 16.96,
+          "key": "after",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.96,
+          "end": 17.14,
+          "key": "the",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Revolution,",
+          "start": 17.14,
+          "end": 17.58,
+          "key": "revolution",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "therefore,",
+          "start": 17.84,
+          "end": 18.18,
+          "key": "therefore",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 18.66,
+          "end": 18.74,
+          "key": "it",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 18.74,
+          "end": 18.84,
+          "key": "was",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "abolished",
+          "start": 18.84,
+          "end": 19.26,
+          "key": "abolished",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 19.26,
+          "end": 19.56,
+          "key": "as",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.56,
+          "end": 19.72,
+          "key": "a",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "badge",
+          "start": 19.72,
+          "end": 19.94,
+          "key": "badge",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 19.94,
+          "end": 20.16,
+          "key": "of",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "slavery.",
+          "start": 20.16,
+          "end": 20.48,
+          "key": "slavery",
+          "pieces": [
+            61
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "hearth-money;",
+          "heard": "hearth -money,",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 1.96,
+          "end": 2.48
+        },
+        {
+          "expected_index": 33,
+          "text": "tax-gatherer",
+          "heard": "tax -gatherer",
+          "heard_indexes": [
+            34,
+            35
+          ],
+          "start": 10.16,
+          "end": 10.86
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "first",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "text": "tax",
+          "start": 0.74,
+          "end": 1.08
+        },
+        {
+          "text": "of",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "text": "this",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "kind",
+          "start": 1.4,
+          "end": 1.7
+        },
+        {
+          "text": "was",
+          "start": 1.7,
+          "end": 1.96
+        },
+        {
+          "text": "hearth-money;",
+          "start": 1.96,
+          "end": 2.48
+        },
+        {
+          "text": "or",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "text": "a",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "text": "tax",
+          "start": 3.3,
+          "end": 3.58
+        },
+        {
+          "text": "of",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "text": "two",
+          "start": 3.78,
+          "end": 4.0
+        },
+        {
+          "text": "shillings",
+          "start": 4.0,
+          "end": 4.54
+        },
+        {
+          "text": "upon",
+          "start": 4.54,
+          "end": 4.82
+        },
+        {
+          "text": "every",
+          "start": 4.82,
+          "end": 5.22
+        },
+        {
+          "text": "hearth.",
+          "start": 5.22,
+          "end": 5.66
+        },
+        {
+          "text": "In",
+          "start": 6.14,
+          "end": 6.26
+        },
+        {
+          "text": "order",
+          "start": 6.26,
+          "end": 6.4
+        },
+        {
+          "text": "to",
+          "start": 6.4,
+          "end": 6.58
+        },
+        {
+          "text": "ascertain",
+          "start": 6.58,
+          "end": 7.02
+        },
+        {
+          "text": "how",
+          "start": 7.02,
+          "end": 7.34
+        },
+        {
+          "text": "many",
+          "start": 7.34,
+          "end": 7.48
+        },
+        {
+          "text": "hearths",
+          "start": 7.48,
+          "end": 7.88
+        },
+        {
+          "text": "were",
+          "start": 7.88,
+          "end": 8.04
+        },
+        {
+          "text": "in",
+          "start": 8.04,
+          "end": 8.16
+        },
+        {
+          "text": "the",
+          "start": 8.16,
+          "end": 8.22
+        },
+        {
+          "text": "house,",
+          "start": 8.22,
+          "end": 8.56
+        },
+        {
+          "text": "it",
+          "start": 8.98,
+          "end": 9.08
+        },
+        {
+          "text": "was",
+          "start": 9.08,
+          "end": 9.2
+        },
+        {
+          "text": "necessary",
+          "start": 9.2,
+          "end": 9.72
+        },
+        {
+          "text": "that",
+          "start": 9.72,
+          "end": 10.04
+        },
+        {
+          "text": "the",
+          "start": 10.04,
+          "end": 10.16
+        },
+        {
+          "text": "tax-gatherer",
+          "start": 10.16,
+          "end": 10.86
+        },
+        {
+          "text": "should",
+          "start": 10.86,
+          "end": 11.08
+        },
+        {
+          "text": "enter",
+          "start": 11.08,
+          "end": 11.4
+        },
+        {
+          "text": "every",
+          "start": 11.4,
+          "end": 11.76
+        },
+        {
+          "text": "room",
+          "start": 11.76,
+          "end": 12.0
+        },
+        {
+          "text": "in",
+          "start": 12.0,
+          "end": 12.2
+        },
+        {
+          "text": "it.",
+          "start": 12.2,
+          "end": 12.52
+        },
+        {
+          "text": "This",
+          "start": 13.02,
+          "end": 13.24
+        },
+        {
+          "text": "odious",
+          "start": 13.24,
+          "end": 13.76
+        },
+        {
+          "text": "visit",
+          "start": 13.76,
+          "end": 14.14
+        },
+        {
+          "text": "rendered",
+          "start": 14.14,
+          "end": 14.52
+        },
+        {
+          "text": "the",
+          "start": 14.52,
+          "end": 14.76
+        },
+        {
+          "text": "tax",
+          "start": 14.76,
+          "end": 15.14
+        },
+        {
+          "text": "odious.",
+          "start": 15.14,
+          "end": 15.7
+        },
+        {
+          "text": "Soon",
+          "start": 16.5,
+          "end": 16.66
+        },
+        {
+          "text": "after",
+          "start": 16.66,
+          "end": 16.96
+        },
+        {
+          "text": "the",
+          "start": 16.96,
+          "end": 17.14
+        },
+        {
+          "text": "Revolution,",
+          "start": 17.14,
+          "end": 17.58
+        },
+        {
+          "text": "therefore,",
+          "start": 17.84,
+          "end": 18.18
+        },
+        {
+          "text": "it",
+          "start": 18.66,
+          "end": 18.74
+        },
+        {
+          "text": "was",
+          "start": 18.74,
+          "end": 18.84
+        },
+        {
+          "text": "abolished",
+          "start": 18.84,
+          "end": 19.26
+        },
+        {
+          "text": "as",
+          "start": 19.26,
+          "end": 19.56
+        },
+        {
+          "text": "a",
+          "start": 19.56,
+          "end": 19.72
+        },
+        {
+          "text": "badge",
+          "start": 19.72,
+          "end": 19.94
+        },
+        {
+          "text": "of",
+          "start": 19.94,
+          "end": 20.16
+        },
+        {
+          "text": "slavery.",
+          "start": 20.16,
+          "end": 20.48
+        }
+      ],
+      "stats": {
+        "expected_words": 60,
+        "heard_words": 60,
+        "matched_words": 60
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5273084603250027
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bcdb863f572bfa55945dad000554e47950460bb38f035f57e0dd4f923321714b",
+  "selected_reasons": []
+}

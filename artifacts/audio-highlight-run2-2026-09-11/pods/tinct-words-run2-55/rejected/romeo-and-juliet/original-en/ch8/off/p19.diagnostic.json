@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "fac2164c180e648cdfe91ccb43358f08eadb4e7cb7997940c730afb7f44b81d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.21832976583391428,
+      "alignment_seconds": 0.00036959629505872726,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Juliet, I would not for the world they saw thee here.",
+          "start": 0.02,
+          "end": 3.0,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " I",
+              "start": 1.28,
+              "end": 1.38,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " would",
+              "start": 1.38,
+              "end": 1.46,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 1.46,
+              "end": 1.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " for",
+              "start": 1.62,
+              "end": 1.76,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " the",
+              "start": 1.76,
+              "end": 1.88,
+              "probability": 0.99609375
+            },
+            {
+              "text": " world",
+              "start": 1.88,
+              "end": 2.1,
+              "probability": 0.9921875
+            },
+            {
+              "text": " they",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " saw",
+              "start": 2.3,
+              "end": 2.54,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " thee",
+              "start": 2.54,
+              "end": 2.7,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " here.",
+              "start": 2.7,
+              "end": 3.0,
+              "probability": 0.9599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "I",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "raw": "would",
+          "start": 1.38,
+          "end": 1.46
+        },
+        {
+          "raw": "not",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "raw": "for",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "raw": "the",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "raw": "world",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "raw": "they",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "saw",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "raw": "thee",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "raw": "here.",
+          "start": 2.7,
+          "end": 3.0
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "I",
+        "would",
+        "not",
+        "for",
+        "the",
+        "world",
+        "they",
+        "saw",
+        "thee",
+        "here."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.28,
+          "end": 1.38,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.38,
+          "end": 1.46,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.46,
+          "end": 1.62,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.62,
+          "end": 1.76,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.76,
+          "end": 1.88,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "world",
+          "start": 1.88,
+          "end": 2.1,
+          "key": "world",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 2.1,
+          "end": 2.3,
+          "key": "they",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 2.3,
+          "end": 2.54,
+          "key": "saw",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.54,
+          "end": 2.7,
+          "key": "thee",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 2.7,
+          "end": 3.0,
+          "key": "here",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "I",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "text": "would",
+          "start": 1.38,
+          "end": 1.46
+        },
+        {
+          "text": "not",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "text": "for",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "text": "the",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "text": "world",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "text": "they",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "saw",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "text": "thee",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "text": "here.",
+          "start": 2.7,
+          "end": 3.0
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21884070057421923
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "efbfe95cb30b737079db5946fbf929969a28586b3190b6196d88815228c30498",
+  "selected_reasons": []
+}

@@ -1,0 +1,2691 @@
+{
+  "complete": true,
+  "signature": "3fc89a6843ba32e156047cea3660aba8d165a1b10ed34c12050fb0a745839b8a",
+  "attempts": [
+    {
+      "asr_seconds": 0.30256672855466604,
+      "alignment_seconds": 0.0007983846589922905,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"We mean to teach it some time—or at least the elements, as they say; and then we shall get more money than we do now.\""
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We mean to teach it some time—or at least the elements, as they say—and then we shall get more money than we do now.",
+          "start": 0.02,
+          "end": 6.84,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.87890625
+            },
+            {
+              "text": " mean",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 0.7,
+              "end": 0.88,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " teach",
+              "start": 0.88,
+              "end": 1.1,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " it",
+              "start": 1.1,
+              "end": 1.28,
+              "probability": 0.5908203125
+            },
+            {
+              "text": " some",
+              "start": 1.28,
+              "end": 1.46,
+              "probability": 0.59375
+            },
+            {
+              "text": " time—or",
+              "start": 1.46,
+              "end": 2.48,
+              "probability": 0.5937983194986979
+            },
+            {
+              "text": " at",
+              "start": 2.48,
+              "end": 2.6,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " least",
+              "start": 2.6,
+              "end": 2.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.76,
+              "end": 2.98,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " elements,",
+              "start": 2.98,
+              "end": 3.36,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " as",
+              "start": 3.6,
+              "end": 3.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " they",
+              "start": 3.74,
+              "end": 3.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " say—and",
+              "start": 3.92,
+              "end": 4.92,
+              "probability": 0.7711588541666666
+            },
+            {
+              "text": " then",
+              "start": 4.92,
+              "end": 5.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " we",
+              "start": 5.06,
+              "end": 5.26,
+              "probability": 0.990234375
+            },
+            {
+              "text": " shall",
+              "start": 5.26,
+              "end": 5.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " get",
+              "start": 5.4,
+              "end": 5.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " more",
+              "start": 5.56,
+              "end": 5.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " money",
+              "start": 5.78,
+              "end": 6.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 6.04,
+              "end": 6.22,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " we",
+              "start": 6.22,
+              "end": 6.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " do",
+              "start": 6.4,
+              "end": 6.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " now.",
+              "start": 6.56,
+              "end": 6.84,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "mean",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "to",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "raw": "teach",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "raw": "it",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "raw": "some",
+          "start": 1.28,
+          "end": 1.46
+        },
+        {
+          "raw": "time—or",
+          "start": 1.46,
+          "end": 2.48
+        },
+        {
+          "raw": "at",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "raw": "least",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "raw": "elements,",
+          "start": 2.98,
+          "end": 3.36
+        },
+        {
+          "raw": "as",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "raw": "they",
+          "start": 3.74,
+          "end": 3.92
+        },
+        {
+          "raw": "say—and",
+          "start": 3.92,
+          "end": 4.92
+        },
+        {
+          "raw": "then",
+          "start": 4.92,
+          "end": 5.06
+        },
+        {
+          "raw": "we",
+          "start": 5.06,
+          "end": 5.26
+        },
+        {
+          "raw": "shall",
+          "start": 5.26,
+          "end": 5.4
+        },
+        {
+          "raw": "get",
+          "start": 5.4,
+          "end": 5.56
+        },
+        {
+          "raw": "more",
+          "start": 5.56,
+          "end": 5.78
+        },
+        {
+          "raw": "money",
+          "start": 5.78,
+          "end": 6.04
+        },
+        {
+          "raw": "than",
+          "start": 6.04,
+          "end": 6.22
+        },
+        {
+          "raw": "we",
+          "start": 6.22,
+          "end": 6.4
+        },
+        {
+          "raw": "do",
+          "start": 6.4,
+          "end": 6.56
+        },
+        {
+          "raw": "now.",
+          "start": 6.56,
+          "end": 6.84
+        }
+      ],
+      "expected_tokens": [
+        "\"We",
+        "mean",
+        "to",
+        "teach",
+        "it",
+        "some",
+        "time—or",
+        "at",
+        "least",
+        "the",
+        "elements,",
+        "as",
+        "they",
+        "say;",
+        "and",
+        "then",
+        "we",
+        "shall",
+        "get",
+        "more",
+        "money",
+        "than",
+        "we",
+        "do",
+        "now.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          15,
+          13,
+          14
+        ],
+        [
+          "equal",
+          15,
+          25,
+          14,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          15,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "mean",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.7,
+          "end": 0.88,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "teach",
+          "start": 0.88,
+          "end": 1.1,
+          "key": "teach",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.1,
+          "end": 1.28,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 1.28,
+          "end": 1.46,
+          "key": "some",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "time—or",
+          "start": 1.46,
+          "end": 2.48,
+          "key": "timeor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.48,
+          "end": 2.6,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "least",
+          "start": 2.6,
+          "end": 2.76,
+          "key": "least",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.98,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "elements,",
+          "start": 2.98,
+          "end": 3.36,
+          "key": "elements",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.6,
+          "end": 3.74,
+          "key": "as",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.74,
+          "end": 3.92,
+          "key": "they",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "say—and",
+          "start": 3.92,
+          "end": 4.92,
+          "key": "sayand",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 4.92,
+          "end": 5.06,
+          "key": "then",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 5.06,
+          "end": 5.26,
+          "key": "we",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 5.26,
+          "end": 5.4,
+          "key": "shall",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 5.4,
+          "end": 5.56,
+          "key": "get",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 5.56,
+          "end": 5.78,
+          "key": "more",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "money",
+          "start": 5.78,
+          "end": 6.04,
+          "key": "money",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 6.04,
+          "end": 6.22,
+          "key": "than",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 6.22,
+          "end": 6.4,
+          "key": "we",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 6.4,
+          "end": 6.56,
+          "key": "do",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 6.56,
+          "end": 6.84,
+          "key": "now",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"We",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "mean",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "to",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "text": "teach",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "text": "it",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "text": "some",
+          "start": 1.28,
+          "end": 1.46
+        },
+        {
+          "text": "time—or",
+          "start": 1.46,
+          "end": 2.48
+        },
+        {
+          "text": "at",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "text": "least",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "text": "the",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "text": "elements,",
+          "start": 2.98,
+          "end": 3.36
+        },
+        {
+          "text": "as",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "text": "they",
+          "start": 3.74,
+          "end": 3.92
+        },
+        {
+          "text": "say;",
+          "start": 3.92,
+          "end": 4.42
+        },
+        {
+          "text": "and",
+          "start": 4.42,
+          "end": 4.67
+        },
+        {
+          "text": "then",
+          "start": 4.92,
+          "end": 5.06
+        },
+        {
+          "text": "we",
+          "start": 5.06,
+          "end": 5.26
+        },
+        {
+          "text": "shall",
+          "start": 5.26,
+          "end": 5.4
+        },
+        {
+          "text": "get",
+          "start": 5.4,
+          "end": 5.56
+        },
+        {
+          "text": "more",
+          "start": 5.56,
+          "end": 5.78
+        },
+        {
+          "text": "money",
+          "start": 5.78,
+          "end": 6.04
+        },
+        {
+          "text": "than",
+          "start": 6.04,
+          "end": 6.22
+        },
+        {
+          "text": "we",
+          "start": 6.22,
+          "end": 6.4
+        },
+        {
+          "text": "do",
+          "start": 6.4,
+          "end": 6.56
+        },
+        {
+          "text": "now.\"",
+          "start": 6.56,
+          "end": 6.84
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 24,
+        "matched_words": 23
+      },
+      "match_ratio": 0.92,
+      "rejection_reasons": [],
+      "seconds": 0.3036288879811764
+    },
+    {
+      "asr_seconds": 0.3223259663209319,
+      "alignment_seconds": 0.0007081190124154091,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " We mean to teach at some time or at least the elements as they say and then we shall get more money than we do now",
+          "start": 0.02,
+          "end": 6.84,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " mean",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 0.7,
+              "end": 0.88,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " teach",
+              "start": 0.88,
+              "end": 1.1,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " at",
+              "start": 1.1,
+              "end": 1.28,
+              "probability": 0.40625
+            },
+            {
+              "text": " some",
+              "start": 1.28,
+              "end": 1.48,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " time",
+              "start": 1.48,
+              "end": 1.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " or",
+              "start": 1.88,
+              "end": 2.46,
+              "probability": 0.3974609375
+            },
+            {
+              "text": " at",
+              "start": 2.46,
+              "end": 2.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " least",
+              "start": 2.6,
+              "end": 2.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.76,
+              "end": 2.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " elements",
+              "start": 2.98,
+              "end": 3.36,
+              "probability": 0.978515625
+            },
+            {
+              "text": " as",
+              "start": 3.36,
+              "end": 3.72,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " they",
+              "start": 3.72,
+              "end": 3.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " say",
+              "start": 3.92,
+              "end": 4.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 4.26,
+              "end": 4.92,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " then",
+              "start": 4.92,
+              "end": 5.04,
+              "probability": 0.98828125
+            },
+            {
+              "text": " we",
+              "start": 5.04,
+              "end": 5.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " shall",
+              "start": 5.24,
+              "end": 5.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " get",
+              "start": 5.4,
+              "end": 5.54,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " more",
+              "start": 5.54,
+              "end": 5.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " money",
+              "start": 5.78,
+              "end": 6.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " than",
+              "start": 6.04,
+              "end": 6.22,
+              "probability": 0.98828125
+            },
+            {
+              "text": " we",
+              "start": 6.22,
+              "end": 6.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " do",
+              "start": 6.38,
+              "end": 6.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " now",
+              "start": 6.56,
+              "end": 6.84,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "mean",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "to",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "raw": "teach",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "raw": "at",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "raw": "some",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "raw": "time",
+          "start": 1.48,
+          "end": 1.88
+        },
+        {
+          "raw": "or",
+          "start": 1.88,
+          "end": 2.46
+        },
+        {
+          "raw": "at",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "raw": "least",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "raw": "elements",
+          "start": 2.98,
+          "end": 3.36
+        },
+        {
+          "raw": "as",
+          "start": 3.36,
+          "end": 3.72
+        },
+        {
+          "raw": "they",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "raw": "say",
+          "start": 3.92,
+          "end": 4.26
+        },
+        {
+          "raw": "and",
+          "start": 4.26,
+          "end": 4.92
+        },
+        {
+          "raw": "then",
+          "start": 4.92,
+          "end": 5.04
+        },
+        {
+          "raw": "we",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "raw": "shall",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "raw": "get",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "raw": "more",
+          "start": 5.54,
+          "end": 5.78
+        },
+        {
+          "raw": "money",
+          "start": 5.78,
+          "end": 6.04
+        },
+        {
+          "raw": "than",
+          "start": 6.04,
+          "end": 6.22
+        },
+        {
+          "raw": "we",
+          "start": 6.22,
+          "end": 6.38
+        },
+        {
+          "raw": "do",
+          "start": 6.38,
+          "end": 6.56
+        },
+        {
+          "raw": "now",
+          "start": 6.56,
+          "end": 6.84
+        }
+      ],
+      "expected_tokens": [
+        "\"We",
+        "mean",
+        "to",
+        "teach",
+        "it",
+        "some",
+        "time—or",
+        "at",
+        "least",
+        "the",
+        "elements,",
+        "as",
+        "they",
+        "say;",
+        "and",
+        "then",
+        "we",
+        "shall",
+        "get",
+        "more",
+        "money",
+        "than",
+        "we",
+        "do",
+        "now.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          25,
+          8,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "mean",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.7,
+          "end": 0.88,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "teach",
+          "start": 0.88,
+          "end": 1.1,
+          "key": "teach",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.1,
+          "end": 1.28,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 1.28,
+          "end": 1.48,
+          "key": "some",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 1.48,
+          "end": 1.88,
+          "key": "time",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 1.88,
+          "end": 2.46,
+          "key": "or",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.46,
+          "end": 2.6,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "least",
+          "start": 2.6,
+          "end": 2.76,
+          "key": "least",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.98,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "elements",
+          "start": 2.98,
+          "end": 3.36,
+          "key": "elements",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.36,
+          "end": 3.72,
+          "key": "as",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.72,
+          "end": 3.92,
+          "key": "they",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 3.92,
+          "end": 4.26,
+          "key": "say",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.26,
+          "end": 4.92,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 4.92,
+          "end": 5.04,
+          "key": "then",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 5.04,
+          "end": 5.24,
+          "key": "we",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 5.24,
+          "end": 5.4,
+          "key": "shall",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 5.4,
+          "end": 5.54,
+          "key": "get",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 5.54,
+          "end": 5.78,
+          "key": "more",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "money",
+          "start": 5.78,
+          "end": 6.04,
+          "key": "money",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 6.04,
+          "end": 6.22,
+          "key": "than",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 6.22,
+          "end": 6.38,
+          "key": "we",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 6.38,
+          "end": 6.56,
+          "key": "do",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 6.56,
+          "end": 6.84,
+          "key": "now",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"We",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "mean",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "to",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "text": "teach",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "text": "it",
+          "start": 1.1,
+          "end": 1.19
+        },
+        {
+          "text": "some",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "text": "time—or",
+          "start": 1.48,
+          "end": 1.97
+        },
+        {
+          "text": "at",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "text": "least",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "text": "the",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "text": "elements,",
+          "start": 2.98,
+          "end": 3.36
+        },
+        {
+          "text": "as",
+          "start": 3.36,
+          "end": 3.72
+        },
+        {
+          "text": "they",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "text": "say;",
+          "start": 3.92,
+          "end": 4.26
+        },
+        {
+          "text": "and",
+          "start": 4.26,
+          "end": 4.92
+        },
+        {
+          "text": "then",
+          "start": 4.92,
+          "end": 5.04
+        },
+        {
+          "text": "we",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "text": "shall",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "text": "get",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "text": "more",
+          "start": 5.54,
+          "end": 5.78
+        },
+        {
+          "text": "money",
+          "start": 5.78,
+          "end": 6.04
+        },
+        {
+          "text": "than",
+          "start": 6.04,
+          "end": 6.22
+        },
+        {
+          "text": "we",
+          "start": 6.22,
+          "end": 6.38
+        },
+        {
+          "text": "do",
+          "start": 6.38,
+          "end": 6.56
+        },
+        {
+          "text": "now.\"",
+          "start": 6.56,
+          "end": 6.84
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 26,
+        "matched_words": 23
+      },
+      "match_ratio": 0.92,
+      "rejection_reasons": [],
+      "seconds": 0.323308989405632
+    },
+    {
+      "asr_seconds": 0.35491612181067467,
+      "alignment_seconds": 0.0008388888090848923,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We mean to teach at some time or at least the elements as they say and then we shall get more money than we do now",
+          "start": 0.02,
+          "end": 6.84,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " mean",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 0.7,
+              "end": 0.88,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " teach",
+              "start": 0.88,
+              "end": 1.1,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " at",
+              "start": 1.1,
+              "end": 1.28,
+              "probability": 0.40625
+            },
+            {
+              "text": " some",
+              "start": 1.28,
+              "end": 1.48,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " time",
+              "start": 1.48,
+              "end": 1.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " or",
+              "start": 1.88,
+              "end": 2.46,
+              "probability": 0.3974609375
+            },
+            {
+              "text": " at",
+              "start": 2.46,
+              "end": 2.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " least",
+              "start": 2.6,
+              "end": 2.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.76,
+              "end": 2.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " elements",
+              "start": 2.98,
+              "end": 3.36,
+              "probability": 0.978515625
+            },
+            {
+              "text": " as",
+              "start": 3.36,
+              "end": 3.72,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " they",
+              "start": 3.72,
+              "end": 3.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " say",
+              "start": 3.92,
+              "end": 4.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 4.26,
+              "end": 4.92,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " then",
+              "start": 4.92,
+              "end": 5.04,
+              "probability": 0.98828125
+            },
+            {
+              "text": " we",
+              "start": 5.04,
+              "end": 5.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " shall",
+              "start": 5.24,
+              "end": 5.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " get",
+              "start": 5.4,
+              "end": 5.54,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " more",
+              "start": 5.54,
+              "end": 5.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " money",
+              "start": 5.78,
+              "end": 6.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " than",
+              "start": 6.04,
+              "end": 6.22,
+              "probability": 0.98828125
+            },
+            {
+              "text": " we",
+              "start": 6.22,
+              "end": 6.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " do",
+              "start": 6.38,
+              "end": 6.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " now",
+              "start": 6.56,
+              "end": 6.84,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "mean",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "to",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "raw": "teach",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "raw": "at",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "raw": "some",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "raw": "time",
+          "start": 1.48,
+          "end": 1.88
+        },
+        {
+          "raw": "or",
+          "start": 1.88,
+          "end": 2.46
+        },
+        {
+          "raw": "at",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "raw": "least",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "raw": "elements",
+          "start": 2.98,
+          "end": 3.36
+        },
+        {
+          "raw": "as",
+          "start": 3.36,
+          "end": 3.72
+        },
+        {
+          "raw": "they",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "raw": "say",
+          "start": 3.92,
+          "end": 4.26
+        },
+        {
+          "raw": "and",
+          "start": 4.26,
+          "end": 4.92
+        },
+        {
+          "raw": "then",
+          "start": 4.92,
+          "end": 5.04
+        },
+        {
+          "raw": "we",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "raw": "shall",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "raw": "get",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "raw": "more",
+          "start": 5.54,
+          "end": 5.78
+        },
+        {
+          "raw": "money",
+          "start": 5.78,
+          "end": 6.04
+        },
+        {
+          "raw": "than",
+          "start": 6.04,
+          "end": 6.22
+        },
+        {
+          "raw": "we",
+          "start": 6.22,
+          "end": 6.38
+        },
+        {
+          "raw": "do",
+          "start": 6.38,
+          "end": 6.56
+        },
+        {
+          "raw": "now",
+          "start": 6.56,
+          "end": 6.84
+        }
+      ],
+      "expected_tokens": [
+        "\"We",
+        "mean",
+        "to",
+        "teach",
+        "it",
+        "some",
+        "time—or",
+        "at",
+        "least",
+        "the",
+        "elements,",
+        "as",
+        "they",
+        "say;",
+        "and",
+        "then",
+        "we",
+        "shall",
+        "get",
+        "more",
+        "money",
+        "than",
+        "we",
+        "do",
+        "now.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          25,
+          8,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "mean",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.7,
+          "end": 0.88,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "teach",
+          "start": 0.88,
+          "end": 1.1,
+          "key": "teach",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.1,
+          "end": 1.28,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 1.28,
+          "end": 1.48,
+          "key": "some",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 1.48,
+          "end": 1.88,
+          "key": "time",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 1.88,
+          "end": 2.46,
+          "key": "or",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.46,
+          "end": 2.6,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "least",
+          "start": 2.6,
+          "end": 2.76,
+          "key": "least",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.98,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "elements",
+          "start": 2.98,
+          "end": 3.36,
+          "key": "elements",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.36,
+          "end": 3.72,
+          "key": "as",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.72,
+          "end": 3.92,
+          "key": "they",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 3.92,
+          "end": 4.26,
+          "key": "say",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.26,
+          "end": 4.92,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 4.92,
+          "end": 5.04,
+          "key": "then",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 5.04,
+          "end": 5.24,
+          "key": "we",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 5.24,
+          "end": 5.4,
+          "key": "shall",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 5.4,
+          "end": 5.54,
+          "key": "get",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 5.54,
+          "end": 5.78,
+          "key": "more",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "money",
+          "start": 5.78,
+          "end": 6.04,
+          "key": "money",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 6.04,
+          "end": 6.22,
+          "key": "than",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 6.22,
+          "end": 6.38,
+          "key": "we",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 6.38,
+          "end": 6.56,
+          "key": "do",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 6.56,
+          "end": 6.84,
+          "key": "now",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"We",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "mean",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "to",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "text": "teach",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "text": "it",
+          "start": 1.1,
+          "end": 1.19
+        },
+        {
+          "text": "some",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "text": "time—or",
+          "start": 1.48,
+          "end": 1.97
+        },
+        {
+          "text": "at",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "text": "least",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "text": "the",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "text": "elements,",
+          "start": 2.98,
+          "end": 3.36
+        },
+        {
+          "text": "as",
+          "start": 3.36,
+          "end": 3.72
+        },
+        {
+          "text": "they",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "text": "say;",
+          "start": 3.92,
+          "end": 4.26
+        },
+        {
+          "text": "and",
+          "start": 4.26,
+          "end": 4.92
+        },
+        {
+          "text": "then",
+          "start": 4.92,
+          "end": 5.04
+        },
+        {
+          "text": "we",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "text": "shall",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "text": "get",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "text": "more",
+          "start": 5.54,
+          "end": 5.78
+        },
+        {
+          "text": "money",
+          "start": 5.78,
+          "end": 6.04
+        },
+        {
+          "text": "than",
+          "start": 6.04,
+          "end": 6.22
+        },
+        {
+          "text": "we",
+          "start": 6.22,
+          "end": 6.38
+        },
+        {
+          "text": "do",
+          "start": 6.38,
+          "end": 6.56
+        },
+        {
+          "text": "now.\"",
+          "start": 6.56,
+          "end": 6.84
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 26,
+        "matched_words": 23
+      },
+      "match_ratio": 0.92,
+      "rejection_reasons": [],
+      "seconds": 0.3560830960050225
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b725ea8c0a794bab2e046caeec16f596b67b568ed7304dfa982cd7ee850fdeaf",
+  "selected_reasons": []
+}

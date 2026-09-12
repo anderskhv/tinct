@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "19bd5ed9655f5d5708b9d0512366f0187792a8e7054e3a3d42f25c8f6d59d25c",
+  "attempts": [
+    {
+      "asr_seconds": 0.15748639032244682,
+      "alignment_seconds": 0.00044242292642593384,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "She looked at her with a face of suffering.",
+        "hotwords": "She"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She looked at her with a face of suffering.",
+          "start": 0.08,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.947265625
+            },
+            {
+              "text": " looked",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 0.7,
+              "end": 0.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 1.0,
+              "end": 1.22,
+              "probability": 0.9921875
+            },
+            {
+              "text": " a",
+              "start": 1.22,
+              "end": 1.32,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " face",
+              "start": 1.32,
+              "end": 1.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " suffering.",
+              "start": 1.7,
+              "end": 2.1,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "looked",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "at",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "raw": "her",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "with",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "raw": "a",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "raw": "face",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "raw": "of",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "suffering.",
+          "start": 1.7,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "looked",
+        "at",
+        "her",
+        "with",
+        "a",
+        "face",
+        "of",
+        "suffering."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "looked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.7,
+          "end": 0.86,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.86,
+          "end": 1.0,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.0,
+          "end": 1.22,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.22,
+          "end": 1.32,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 1.32,
+          "end": 1.52,
+          "key": "face",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.52,
+          "end": 1.7,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "suffering.",
+          "start": 1.7,
+          "end": 2.1,
+          "key": "suffering",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "looked",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "at",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "text": "her",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "with",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "text": "a",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "text": "face",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "text": "of",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "suffering.",
+          "start": 1.7,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1581071987748146
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f11e4275436fe519ba6bee19fe45e342c921c80c30adcf28dfe667c63ebcae0c",
+  "selected_reasons": []
+}

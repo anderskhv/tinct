@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "795050f88947efd141eeccfe48760c30243002541350261ebab07ccc1de9e8d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.23526041395962238,
+      "alignment_seconds": 0.0004175771027803421,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. Methinks it is like a weasel.",
+        "hotwords": "Hamlet, Methinks"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, Methinks it is like a weasel.",
+          "start": 0.08,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.952880859375
+            },
+            {
+              "text": " Methinks",
+              "start": 1.12,
+              "end": 1.56,
+              "probability": 0.5101699829101562
+            },
+            {
+              "text": " it",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.71142578125
+            },
+            {
+              "text": " is",
+              "start": 1.68,
+              "end": 1.78,
+              "probability": 0.896484375
+            },
+            {
+              "text": " like",
+              "start": 1.78,
+              "end": 1.9,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " a",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.974609375
+            },
+            {
+              "text": " weasel.",
+              "start": 2.06,
+              "end": 2.44,
+              "probability": 0.9208984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "Methinks",
+          "start": 1.12,
+          "end": 1.56
+        },
+        {
+          "raw": "it",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "is",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "raw": "like",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "raw": "a",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "weasel.",
+          "start": 2.06,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Methinks",
+        "it",
+        "is",
+        "like",
+        "a",
+        "weasel."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Methinks",
+          "start": 1.12,
+          "end": 1.56,
+          "key": "methinks",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.56,
+          "end": 1.68,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.68,
+          "end": 1.78,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.78,
+          "end": 1.9,
+          "key": "like",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.9,
+          "end": 2.06,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "weasel.",
+          "start": 2.06,
+          "end": 2.44,
+          "key": "weasel",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "Methinks",
+          "start": 1.12,
+          "end": 1.56
+        },
+        {
+          "text": "it",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "is",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "text": "like",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "text": "a",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "text": "weasel.",
+          "start": 2.06,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23583317920565605
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "662bf0ea91eb136fd2a2e9a7db6566e99f4699a93abdaf5c9a6b5ed568106e29",
+  "selected_reasons": []
+}

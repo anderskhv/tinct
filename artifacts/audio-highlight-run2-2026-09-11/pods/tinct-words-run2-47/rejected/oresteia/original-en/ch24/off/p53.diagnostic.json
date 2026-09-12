@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "61878dbe2236a17707c5e16d2234131085d9c34fff08f9286e2282cb92bdc49a",
+  "attempts": [
+    {
+      "asr_seconds": 0.18917563499417156,
+      "alignment_seconds": 0.00024192000273615122,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Two judges come forward, one to each earn.",
+          "start": 0.05,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Two",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " judges",
+              "start": 0.55,
+              "end": 0.83,
+              "probability": 0.98046875
+            },
+            {
+              "text": " come",
+              "start": 0.83,
+              "end": 1.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " forward,",
+              "start": 1.09,
+              "end": 1.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " one",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 2.03,
+              "end": 2.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " each",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " earn.",
+              "start": 2.35,
+              "end": 2.63,
+              "probability": 0.884765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Two",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "judges",
+          "start": 0.55,
+          "end": 0.83
+        },
+        {
+          "raw": "come",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "raw": "forward,",
+          "start": 1.09,
+          "end": 1.47
+        },
+        {
+          "raw": "one",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "to",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "raw": "each",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "earn.",
+          "start": 2.35,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "[Two",
+        "judges",
+        "come",
+        "forward,",
+        "one",
+        "to",
+        "each",
+        "urn]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Two",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "two",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "judges",
+          "start": 0.55,
+          "end": 0.83,
+          "key": "judges",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 0.83,
+          "end": 1.09,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "forward,",
+          "start": 1.09,
+          "end": 1.47,
+          "key": "forward",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.85,
+          "end": 2.03,
+          "key": "one",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.03,
+          "end": 2.17,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "each",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "earn.",
+          "start": 2.35,
+          "end": 2.63,
+          "key": "earn",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Two",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "judges",
+          "start": 0.55,
+          "end": 0.83
+        },
+        {
+          "text": "come",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "text": "forward,",
+          "start": 1.09,
+          "end": 1.47
+        },
+        {
+          "text": "one",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "to",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "text": "each",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "text": "urn]",
+          "start": 2.35,
+          "end": 2.49
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.18949632698786445
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ace2ea3ebd2477c4808189e632f03e4014ea7466dc2f8bbf4e6bef4c569361b0",
+  "selected_reasons": []
+}

@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "dca4b6549aa28224f59dcd6d791b22ce0a89721d64e43dc835e1edd88dc00866",
+  "attempts": [
+    {
+      "asr_seconds": 0.12900915695354342,
+      "alignment_seconds": 0.000312034972012043,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Am I pretty?",
+          "start": 0.05,
+          "end": 0.89,
+          "words": [
+            {
+              "text": " Am",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.72509765625
+            },
+            {
+              "text": " I",
+              "start": 0.51,
+              "end": 0.71,
+              "probability": 0.984375
+            },
+            {
+              "text": " pretty?",
+              "start": 0.71,
+              "end": 0.89,
+              "probability": 0.97412109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Am",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "I",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "raw": "pretty?",
+          "start": 0.71,
+          "end": 0.89
+        }
+      ],
+      "expected_tokens": [
+        "\"Am",
+        "I",
+        "pretty?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Am",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "am",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.51,
+          "end": 0.71,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pretty?",
+          "start": 0.71,
+          "end": 0.89,
+          "key": "pretty",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Am",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "I",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "text": "pretty?\"",
+          "start": 0.71,
+          "end": 0.89
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12942231399938464
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c99c0a1f6f0b462bc2091888755024aa61e5513aed464cee18af578d1755463f",
+  "selected_reasons": []
+}

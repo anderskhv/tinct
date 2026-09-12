@@ -1,0 +1,596 @@
+{
+  "complete": true,
+  "signature": "8ca4be57c6d9395631c06f9da536428a0882d9feb516093f90622acf63377451",
+  "attempts": [
+    {
+      "asr_seconds": 0.3025879506021738,
+      "alignment_seconds": 0.0005883448757231236,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sicilian sailor I girls and a green then I'll hop with ye yay turn grasshopper",
+          "start": 0.05,
+          "end": 6.01,
+          "words": [
+            {
+              "text": " Sicilian",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.736572265625
+            },
+            {
+              "text": " sailor",
+              "start": 0.87,
+              "end": 1.25,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " I",
+              "start": 1.25,
+              "end": 1.95,
+              "probability": 0.08453369140625
+            },
+            {
+              "text": " girls",
+              "start": 1.95,
+              "end": 2.41,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " and",
+              "start": 2.41,
+              "end": 2.61,
+              "probability": 0.6171875
+            },
+            {
+              "text": " a",
+              "start": 2.61,
+              "end": 2.69,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " green",
+              "start": 2.69,
+              "end": 2.99,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " then",
+              "start": 2.99,
+              "end": 3.63,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " I'll",
+              "start": 3.63,
+              "end": 3.79,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " hop",
+              "start": 3.79,
+              "end": 3.93,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " with",
+              "start": 3.93,
+              "end": 4.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ye",
+              "start": 4.11,
+              "end": 4.39,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " yay",
+              "start": 4.39,
+              "end": 4.89,
+              "probability": 0.5733642578125
+            },
+            {
+              "text": " turn",
+              "start": 4.89,
+              "end": 5.15,
+              "probability": 0.84765625
+            },
+            {
+              "text": " grasshopper",
+              "start": 5.15,
+              "end": 6.01,
+              "probability": 0.9685872395833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicilian",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "sailor",
+          "start": 0.87,
+          "end": 1.25
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.95
+        },
+        {
+          "raw": "girls",
+          "start": 1.95,
+          "end": 2.41
+        },
+        {
+          "raw": "and",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "raw": "a",
+          "start": 2.61,
+          "end": 2.69
+        },
+        {
+          "raw": "green",
+          "start": 2.69,
+          "end": 2.99
+        },
+        {
+          "raw": "then",
+          "start": 2.99,
+          "end": 3.63
+        },
+        {
+          "raw": "I'll",
+          "start": 3.63,
+          "end": 3.79
+        },
+        {
+          "raw": "hop",
+          "start": 3.79,
+          "end": 3.93
+        },
+        {
+          "raw": "with",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "raw": "ye",
+          "start": 4.11,
+          "end": 4.39
+        },
+        {
+          "raw": "yay",
+          "start": 4.39,
+          "end": 4.89
+        },
+        {
+          "raw": "turn",
+          "start": 4.89,
+          "end": 5.15
+        },
+        {
+          "raw": "grasshopper",
+          "start": 5.15,
+          "end": 6.01
+        }
+      ],
+      "expected_tokens": [
+        "Sicilian",
+        "Sailor.",
+        "Aye;",
+        "girls",
+        "and",
+        "a",
+        "green!—then",
+        "I'll",
+        "hop",
+        "with",
+        "ye;",
+        "yea,",
+        "turn",
+        "grasshopper!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          11,
+          8,
+          12
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ],
+        [
+          "equal",
+          12,
+          14,
+          13,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicilian",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "sicilian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sailor",
+          "start": 0.87,
+          "end": 1.25,
+          "key": "sailor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.95,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "girls",
+          "start": 1.95,
+          "end": 2.41,
+          "key": "girls",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.41,
+          "end": 2.61,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.61,
+          "end": 2.69,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "green",
+          "start": 2.69,
+          "end": 2.99,
+          "key": "green",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 2.99,
+          "end": 3.63,
+          "key": "then",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 3.63,
+          "end": 3.79,
+          "key": "ill",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hop",
+          "start": 3.79,
+          "end": 3.93,
+          "key": "hop",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.93,
+          "end": 4.11,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 4.11,
+          "end": 4.39,
+          "key": "ye",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "yay",
+          "start": 4.39,
+          "end": 4.89,
+          "key": "yay",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 4.89,
+          "end": 5.15,
+          "key": "turn",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "grasshopper",
+          "start": 5.15,
+          "end": 6.01,
+          "key": "grasshopper",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicilian",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Sailor.",
+          "start": 0.87,
+          "end": 1.25
+        },
+        {
+          "text": "Aye;",
+          "start": 1.25,
+          "end": 1.6
+        },
+        {
+          "text": "girls",
+          "start": 1.95,
+          "end": 2.41
+        },
+        {
+          "text": "and",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "text": "a",
+          "start": 2.61,
+          "end": 2.69
+        },
+        {
+          "text": "green!—then",
+          "start": 2.69,
+          "end": 3.16
+        },
+        {
+          "text": "I'll",
+          "start": 3.63,
+          "end": 3.79
+        },
+        {
+          "text": "hop",
+          "start": 3.79,
+          "end": 3.93
+        },
+        {
+          "text": "with",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "text": "ye;",
+          "start": 4.11,
+          "end": 4.39
+        },
+        {
+          "text": "yea,",
+          "start": 4.39,
+          "end": 4.64
+        },
+        {
+          "text": "turn",
+          "start": 4.89,
+          "end": 5.15
+        },
+        {
+          "text": "grasshopper!",
+          "start": 5.15,
+          "end": 6.01
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 11
+      },
+      "match_ratio": 0.7857142857142857,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.30338663468137383
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ae45e1a21951879fc3f7be194f96dddbe0fe5dd66159eec1d199c4247ad2c089",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

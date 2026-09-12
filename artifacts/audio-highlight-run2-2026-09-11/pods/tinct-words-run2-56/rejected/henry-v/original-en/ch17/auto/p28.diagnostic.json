@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "5f5e6e00356d8adea15857c19bd357ca40cb7f8bba4f1bb4230c96be6cffd4fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.13354927022010088,
+      "alignment_seconds": 0.0003004353493452072,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pistol. Expound unto me, boy.",
+        "hotwords": "Pistol, Expound"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pistol, Expound unto me, boy.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Pistol,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.72509765625
+            },
+            {
+              "text": " Expound",
+              "start": 1.17,
+              "end": 1.59,
+              "probability": 0.48467254638671875
+            },
+            {
+              "text": " unto",
+              "start": 1.59,
+              "end": 1.77,
+              "probability": 0.6083984375
+            },
+            {
+              "text": " me,",
+              "start": 1.77,
+              "end": 2.01,
+              "probability": 0.9375
+            },
+            {
+              "text": " boy.",
+              "start": 2.07,
+              "end": 2.25,
+              "probability": 0.86767578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pistol,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Expound",
+          "start": 1.17,
+          "end": 1.59
+        },
+        {
+          "raw": "unto",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "raw": "me,",
+          "start": 1.77,
+          "end": 2.01
+        },
+        {
+          "raw": "boy.",
+          "start": 2.07,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Pistol.",
+        "Expound",
+        "unto",
+        "me,",
+        "boy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pistol,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "pistol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Expound",
+          "start": 1.17,
+          "end": 1.59,
+          "key": "expound",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "unto",
+          "start": 1.59,
+          "end": 1.77,
+          "key": "unto",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.77,
+          "end": 2.01,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "boy.",
+          "start": 2.07,
+          "end": 2.25,
+          "key": "boy",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pistol.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Expound",
+          "start": 1.17,
+          "end": 1.59
+        },
+        {
+          "text": "unto",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "text": "me,",
+          "start": 1.77,
+          "end": 2.01
+        },
+        {
+          "text": "boy.",
+          "start": 2.07,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13395756855607033
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7626bfbc01121be93fbe8b5d9e88026e04f7bdfcacb78b9038a42f0bb69e0a26",
+  "selected_reasons": []
+}

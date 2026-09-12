@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "043a95cb14b87901e07533a34addcd998f123bef3b2d1bca99bd09a4bdc95870",
+  "attempts": [
+    {
+      "asr_seconds": 0.21154931001365185,
+      "alignment_seconds": 0.00047392211854457855,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Lost!\" shouted Mitya. \"A 'double' on the seven!\"",
+        "hotwords": "Lost, Mitya, A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lost, shouted Mitya, A double on the seven!",
+          "start": 0.05,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " Lost,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.469482421875
+            },
+            {
+              "text": " shouted",
+              "start": 1.07,
+              "end": 1.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Mitya,",
+              "start": 1.43,
+              "end": 1.95,
+              "probability": 0.3925882975260417
+            },
+            {
+              "text": " A",
+              "start": 2.23,
+              "end": 2.37,
+              "probability": 0.005191802978515625
+            },
+            {
+              "text": " double",
+              "start": 2.37,
+              "end": 2.59,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " on",
+              "start": 2.59,
+              "end": 2.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.83,
+              "end": 2.93,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " seven!",
+              "start": 2.93,
+              "end": 3.19,
+              "probability": 0.85888671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lost,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "shouted",
+          "start": 1.07,
+          "end": 1.43
+        },
+        {
+          "raw": "Mitya,",
+          "start": 1.43,
+          "end": 1.95
+        },
+        {
+          "raw": "A",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "raw": "double",
+          "start": 2.37,
+          "end": 2.59
+        },
+        {
+          "raw": "on",
+          "start": 2.59,
+          "end": 2.83
+        },
+        {
+          "raw": "the",
+          "start": 2.83,
+          "end": 2.93
+        },
+        {
+          "raw": "seven!",
+          "start": 2.93,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "\"Lost!\"",
+        "shouted",
+        "Mitya.",
+        "\"A",
+        "'double'",
+        "on",
+        "the",
+        "seven!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lost,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "lost",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shouted",
+          "start": 1.07,
+          "end": 1.43,
+          "key": "shouted",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mitya,",
+          "start": 1.43,
+          "end": 1.95,
+          "key": "mitya",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 2.23,
+          "end": 2.37,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "double",
+          "start": 2.37,
+          "end": 2.59,
+          "key": "double",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.59,
+          "end": 2.83,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.83,
+          "end": 2.93,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "seven!",
+          "start": 2.93,
+          "end": 3.19,
+          "key": "seven",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Lost!\"",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "shouted",
+          "start": 1.07,
+          "end": 1.43
+        },
+        {
+          "text": "Mitya.",
+          "start": 1.43,
+          "end": 1.95
+        },
+        {
+          "text": "\"A",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "text": "'double'",
+          "start": 2.37,
+          "end": 2.59
+        },
+        {
+          "text": "on",
+          "start": 2.59,
+          "end": 2.83
+        },
+        {
+          "text": "the",
+          "start": 2.83,
+          "end": 2.93
+        },
+        {
+          "text": "seven!\"",
+          "start": 2.93,
+          "end": 3.19
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21219194307923317
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c320304c4ed938d8282825971a33c944e039701c2d45987f6ab1fe12e854fcb5",
+  "selected_reasons": []
+}

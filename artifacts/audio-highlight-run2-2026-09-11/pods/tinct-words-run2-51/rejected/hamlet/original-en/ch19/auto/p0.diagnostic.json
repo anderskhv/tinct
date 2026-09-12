@@ -1,0 +1,523 @@
+{
+  "complete": true,
+  "signature": "bba8ea68cc306db08c87bd8cdf368d247f7304341c603a0af83bde647d953ce1",
+  "attempts": [
+    {
+      "asr_seconds": 3.8183343848213553,
+      "alignment_seconds": 0.0007107192650437355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter two Clowns with spades, &c]",
+        "hotwords": "Enter, Clowns"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter two clowns with spades, &c",
+          "start": 0.11,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " two",
+              "start": 0.61,
+              "end": 0.93,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " clowns",
+              "start": 0.93,
+              "end": 1.37,
+              "probability": 0.953857421875
+            },
+            {
+              "text": " with",
+              "start": 1.37,
+              "end": 1.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " spades,",
+              "start": 1.45,
+              "end": 1.95,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " &c",
+              "start": 2.17,
+              "end": 2.55,
+              "probability": 0.0082930326461792
+            }
+          ]
+        },
+        {
+          "text": " Enter two Clowns with spades, &c",
+          "start": 2.55,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 2.55,
+              "end": 2.55,
+              "probability": 7.867813110351562e-06
+            },
+            {
+              "text": " two",
+              "start": 2.55,
+              "end": 2.55,
+              "probability": 0.0003705024719238281
+            },
+            {
+              "text": " Clowns",
+              "start": 2.55,
+              "end": 2.59,
+              "probability": 0.14111551642417908
+            },
+            {
+              "text": " with",
+              "start": 2.59,
+              "end": 2.59,
+              "probability": 0.0080413818359375
+            },
+            {
+              "text": " spades,",
+              "start": 2.59,
+              "end": 2.61,
+              "probability": 0.006389200687408447
+            },
+            {
+              "text": " &c",
+              "start": 2.61,
+              "end": 2.61,
+              "probability": 0.00010728836059570312
+            }
+          ]
+        },
+        {
+          "text": " enter two Clowns with spades, &c",
+          "start": 2.61,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " enter",
+              "start": 2.61,
+              "end": 3.21,
+              "probability": 1.7523765563964844e-05
+            },
+            {
+              "text": " two",
+              "start": 3.21,
+              "end": 3.21,
+              "probability": 0.00019848346710205078
+            },
+            {
+              "text": " Clowns",
+              "start": 3.21,
+              "end": 3.21,
+              "probability": 0.10290655493736267
+            },
+            {
+              "text": " with",
+              "start": 3.21,
+              "end": 3.21,
+              "probability": 0.006633758544921875
+            },
+            {
+              "text": " spades,",
+              "start": 3.21,
+              "end": 3.21,
+              "probability": 0.005621761083602905
+            },
+            {
+              "text": " &c",
+              "start": 3.21,
+              "end": 3.21,
+              "probability": 0.00011298060417175293
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "two",
+          "start": 0.61,
+          "end": 0.93
+        },
+        {
+          "raw": "clowns",
+          "start": 0.93,
+          "end": 1.37
+        },
+        {
+          "raw": "with",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "raw": "spades,",
+          "start": 1.45,
+          "end": 1.95
+        },
+        {
+          "raw": "&c",
+          "start": 2.17,
+          "end": 2.55
+        },
+        {
+          "raw": "Enter",
+          "start": 2.55,
+          "end": 2.55
+        },
+        {
+          "raw": "two",
+          "start": 2.55,
+          "end": 2.55
+        },
+        {
+          "raw": "Clowns",
+          "start": 2.55,
+          "end": 2.59
+        },
+        {
+          "raw": "with",
+          "start": 2.59,
+          "end": 2.59
+        },
+        {
+          "raw": "spades,",
+          "start": 2.59,
+          "end": 2.61
+        },
+        {
+          "raw": "&c",
+          "start": 2.61,
+          "end": 2.61
+        },
+        {
+          "raw": "enter",
+          "start": 2.61,
+          "end": 3.21
+        },
+        {
+          "raw": "two",
+          "start": 3.21,
+          "end": 3.21
+        },
+        {
+          "raw": "Clowns",
+          "start": 3.21,
+          "end": 3.21
+        },
+        {
+          "raw": "with",
+          "start": 3.21,
+          "end": 3.21
+        },
+        {
+          "raw": "spades,",
+          "start": 3.21,
+          "end": 3.21
+        },
+        {
+          "raw": "&c",
+          "start": 3.21,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "two",
+        "Clowns",
+        "with",
+        "spades,",
+        "&c]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "insert",
+          6,
+          6,
+          6,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          6,
+          6,
+          6,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 0.61,
+          "end": 0.93,
+          "key": "two",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "clowns",
+          "start": 0.93,
+          "end": 1.37,
+          "key": "clowns",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.37,
+          "end": 1.45,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "spades,",
+          "start": 1.45,
+          "end": 1.95,
+          "key": "spades",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "&c",
+          "start": 2.17,
+          "end": 2.55,
+          "key": "c",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 2.55,
+          "end": 2.55,
+          "key": "enter",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 2.55,
+          "end": 2.55,
+          "key": "two",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Clowns",
+          "start": 2.55,
+          "end": 2.59,
+          "key": "clowns",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.59,
+          "end": 2.59,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "spades,",
+          "start": 2.59,
+          "end": 2.61,
+          "key": "spades",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "&c",
+          "start": 2.61,
+          "end": 2.61,
+          "key": "c",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 2.61,
+          "end": 3.21,
+          "key": "enter",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 3.21,
+          "end": 3.21,
+          "key": "two",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Clowns",
+          "start": 3.21,
+          "end": 3.21,
+          "key": "clowns",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.21,
+          "end": 3.21,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "spades,",
+          "start": 3.21,
+          "end": 3.21,
+          "key": "spades",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "&c",
+          "start": 3.21,
+          "end": 3.21,
+          "key": "c",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "text": "two",
+          "start": 0.61,
+          "end": 0.93
+        },
+        {
+          "text": "Clowns",
+          "start": 0.93,
+          "end": 1.37
+        },
+        {
+          "text": "with",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "text": "spades,",
+          "start": 1.45,
+          "end": 1.95
+        },
+        {
+          "text": "&c]",
+          "start": 2.17,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 18,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.81939450930804
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e303bc04f830031a5aa30487e155b1e8dcee4fec345d4b3671f3ef038b7b66ec",
+  "selected_reasons": []
+}

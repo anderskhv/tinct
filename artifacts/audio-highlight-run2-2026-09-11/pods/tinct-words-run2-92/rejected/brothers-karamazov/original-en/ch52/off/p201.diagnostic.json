@@ -1,0 +1,519 @@
+{
+  "complete": true,
+  "signature": "8e88d77907999bac21cfd59cbe53992cb1eccc666e47edd7b2f89cb211047f81",
+  "attempts": [
+    {
+      "asr_seconds": 0.31929111666977406,
+      "alignment_seconds": 0.0005419272929430008,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A regular Sodom, Vrubovski roared suddenly.",
+          "start": 0.02,
+          "end": 3.24,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.67529296875
+            },
+            {
+              "text": " regular",
+              "start": 0.52,
+              "end": 0.94,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Sodom,",
+              "start": 0.94,
+              "end": 1.58,
+              "probability": 0.775634765625
+            },
+            {
+              "text": " Vrubovski",
+              "start": 2.04,
+              "end": 2.46,
+              "probability": 0.65869140625
+            },
+            {
+              "text": " roared",
+              "start": 2.46,
+              "end": 2.72,
+              "probability": 0.8984375
+            },
+            {
+              "text": " suddenly.",
+              "start": 2.72,
+              "end": 3.24,
+              "probability": 0.98583984375
+            }
+          ]
+        },
+        {
+          "text": " Landlord sent the shameless husses away.",
+          "start": 4.02,
+          "end": 5.98,
+          "words": [
+            {
+              "text": " Landlord",
+              "start": 4.02,
+              "end": 4.4,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " sent",
+              "start": 4.4,
+              "end": 4.74,
+              "probability": 0.46435546875
+            },
+            {
+              "text": " the",
+              "start": 4.74,
+              "end": 4.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " shameless",
+              "start": 4.9,
+              "end": 5.26,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " husses",
+              "start": 5.26,
+              "end": 5.7,
+              "probability": 0.8414713541666666
+            },
+            {
+              "text": " away.",
+              "start": 5.7,
+              "end": 5.98,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "regular",
+          "start": 0.52,
+          "end": 0.94
+        },
+        {
+          "raw": "Sodom,",
+          "start": 0.94,
+          "end": 1.58
+        },
+        {
+          "raw": "Vrubovski",
+          "start": 2.04,
+          "end": 2.46
+        },
+        {
+          "raw": "roared",
+          "start": 2.46,
+          "end": 2.72
+        },
+        {
+          "raw": "suddenly.",
+          "start": 2.72,
+          "end": 3.24
+        },
+        {
+          "raw": "Landlord",
+          "start": 4.02,
+          "end": 4.4
+        },
+        {
+          "raw": "sent",
+          "start": 4.4,
+          "end": 4.74
+        },
+        {
+          "raw": "the",
+          "start": 4.74,
+          "end": 4.9
+        },
+        {
+          "raw": "shameless",
+          "start": 4.9,
+          "end": 5.26
+        },
+        {
+          "raw": "husses",
+          "start": 5.26,
+          "end": 5.7
+        },
+        {
+          "raw": "away.",
+          "start": 5.7,
+          "end": 5.98
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "regular",
+        "Sodom!\"",
+        "Vrublevsky",
+        "roared",
+        "suddenly.",
+        "\"Landlord,",
+        "send",
+        "the",
+        "shameless",
+        "hussies",
+        "away!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          10,
+          8,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "regular",
+          "start": 0.52,
+          "end": 0.94,
+          "key": "regular",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sodom,",
+          "start": 0.94,
+          "end": 1.58,
+          "key": "sodom",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Vrubovski",
+          "start": 2.04,
+          "end": 2.46,
+          "key": "vrubovski",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "roared",
+          "start": 2.46,
+          "end": 2.72,
+          "key": "roared",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "suddenly.",
+          "start": 2.72,
+          "end": 3.24,
+          "key": "suddenly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Landlord",
+          "start": 4.02,
+          "end": 4.4,
+          "key": "landlord",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 4.4,
+          "end": 4.74,
+          "key": "sent",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.74,
+          "end": 4.9,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shameless",
+          "start": 4.9,
+          "end": 5.26,
+          "key": "shameless",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "husses",
+          "start": 5.26,
+          "end": 5.7,
+          "key": "husses",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "away.",
+          "start": 5.7,
+          "end": 5.98,
+          "key": "away",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "regular",
+          "start": 0.52,
+          "end": 0.94
+        },
+        {
+          "text": "Sodom!\"",
+          "start": 0.94,
+          "end": 1.58
+        },
+        {
+          "text": "Vrublevsky",
+          "start": 1.58,
+          "end": 2.02
+        },
+        {
+          "text": "roared",
+          "start": 2.46,
+          "end": 2.72
+        },
+        {
+          "text": "suddenly.",
+          "start": 2.72,
+          "end": 3.24
+        },
+        {
+          "text": "\"Landlord,",
+          "start": 4.02,
+          "end": 4.4
+        },
+        {
+          "text": "send",
+          "start": 4.4,
+          "end": 4.57
+        },
+        {
+          "text": "the",
+          "start": 4.74,
+          "end": 4.9
+        },
+        {
+          "text": "shameless",
+          "start": 4.9,
+          "end": 5.26
+        },
+        {
+          "text": "hussies",
+          "start": 5.26,
+          "end": 5.48
+        },
+        {
+          "text": "away!\"",
+          "start": 5.7,
+          "end": 5.98
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3200148120522499
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d5d4db05c71fde0de6a8b699f60e71147145a300c47df912aaf4c1a1c5d8551c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

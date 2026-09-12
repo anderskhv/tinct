@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "f0ee5fa69168fdb5db81e85e96c6aa664293cb96576366b7690f1437f51ac40e",
+  "attempts": [
+    {
+      "asr_seconds": 0.19730762764811516,
+      "alignment_seconds": 0.0004682503640651703,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hero. No, pray thee, good Meg, I'll wear this.",
+        "hotwords": "Hero, No, Meg, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hero, No, pray thee, good Meg, I'll wear this.",
+          "start": 0.39,
+          "end": 2.65,
+          "words": [
+            {
+              "text": " Hero,",
+              "start": 0.39,
+              "end": 0.69,
+              "probability": 0.79296875
+            },
+            {
+              "text": " No,",
+              "start": 1.03,
+              "end": 1.27,
+              "probability": 0.0565185546875
+            },
+            {
+              "text": " pray",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.568359375
+            },
+            {
+              "text": " thee,",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " good",
+              "start": 1.77,
+              "end": 1.83,
+              "probability": 0.6513671875
+            },
+            {
+              "text": " Meg,",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.01216888427734375
+            },
+            {
+              "text": " I'll",
+              "start": 2.11,
+              "end": 2.19,
+              "probability": 0.957275390625
+            },
+            {
+              "text": " wear",
+              "start": 2.19,
+              "end": 2.33,
+              "probability": 0.978515625
+            },
+            {
+              "text": " this.",
+              "start": 2.33,
+              "end": 2.65,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hero,",
+          "start": 0.39,
+          "end": 0.69
+        },
+        {
+          "raw": "No,",
+          "start": 1.03,
+          "end": 1.27
+        },
+        {
+          "raw": "pray",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "thee,",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "raw": "good",
+          "start": 1.77,
+          "end": 1.83
+        },
+        {
+          "raw": "Meg,",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "I'll",
+          "start": 2.11,
+          "end": 2.19
+        },
+        {
+          "raw": "wear",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "raw": "this.",
+          "start": 2.33,
+          "end": 2.65
+        }
+      ],
+      "expected_tokens": [
+        "Hero.",
+        "No,",
+        "pray",
+        "thee,",
+        "good",
+        "Meg,",
+        "I'll",
+        "wear",
+        "this."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hero,",
+          "start": 0.39,
+          "end": 0.69,
+          "key": "hero",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.03,
+          "end": 1.27,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.39,
+          "end": 1.49,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 1.49,
+          "end": 1.67,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.77,
+          "end": 1.83,
+          "key": "good",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Meg,",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "meg",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.11,
+          "end": 2.19,
+          "key": "ill",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 2.19,
+          "end": 2.33,
+          "key": "wear",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this.",
+          "start": 2.33,
+          "end": 2.65,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hero.",
+          "start": 0.39,
+          "end": 0.69
+        },
+        {
+          "text": "No,",
+          "start": 1.03,
+          "end": 1.27
+        },
+        {
+          "text": "pray",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "thee,",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "good",
+          "start": 1.77,
+          "end": 1.83
+        },
+        {
+          "text": "Meg,",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "I'll",
+          "start": 2.11,
+          "end": 2.19
+        },
+        {
+          "text": "wear",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "text": "this.",
+          "start": 2.33,
+          "end": 2.65
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19795875623822212
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "73a81bb9b7b6db78ba7c6ae929c24d48683b2ccad45fa2fda28609f290099078",
+  "selected_reasons": []
+}

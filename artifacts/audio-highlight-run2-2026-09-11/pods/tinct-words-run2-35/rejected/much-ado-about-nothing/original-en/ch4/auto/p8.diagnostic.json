@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "c8cd7d04f60613bb0d237a378943568a579d29908d0bfc22b5e5c2b980b37ca7",
+  "attempts": [
+    {
+      "asr_seconds": 0.37637391500175,
+      "alignment_seconds": 0.0007703527808189392,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leonato. By my troth, niece, thou wilt never get thee a husband, if thou be so shrewd of thy tongue.",
+        "hotwords": "Leonato, By"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leonato, By my troth, niece, thou wilt never get thee a husband, if thou be so shrewd of thy tongue.",
+          "start": 0.53,
+          "end": 6.25,
+          "words": [
+            {
+              "text": " Leonato,",
+              "start": 0.53,
+              "end": 0.93,
+              "probability": 0.2866973876953125
+            },
+            {
+              "text": " By",
+              "start": 1.35,
+              "end": 1.55,
+              "probability": 0.134765625
+            },
+            {
+              "text": " my",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " troth,",
+              "start": 1.73,
+              "end": 2.19,
+              "probability": 0.859375
+            },
+            {
+              "text": " niece,",
+              "start": 2.31,
+              "end": 2.39,
+              "probability": 0.7529296875
+            },
+            {
+              "text": " thou",
+              "start": 2.97,
+              "end": 3.01,
+              "probability": 0.06512451171875
+            },
+            {
+              "text": " wilt",
+              "start": 3.01,
+              "end": 3.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " never",
+              "start": 3.23,
+              "end": 3.49,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " get",
+              "start": 3.49,
+              "end": 3.69,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " thee",
+              "start": 3.69,
+              "end": 3.83,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 3.83,
+              "end": 3.95,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " husband,",
+              "start": 3.95,
+              "end": 4.27,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " if",
+              "start": 4.57,
+              "end": 4.67,
+              "probability": 0.51318359375
+            },
+            {
+              "text": " thou",
+              "start": 4.67,
+              "end": 4.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 4.81,
+              "end": 4.97,
+              "probability": 0.9765625
+            },
+            {
+              "text": " so",
+              "start": 4.97,
+              "end": 5.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " shrewd",
+              "start": 5.27,
+              "end": 5.73,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 5.73,
+              "end": 5.79,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " thy",
+              "start": 5.79,
+              "end": 5.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " tongue.",
+              "start": 5.93,
+              "end": 6.25,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonato,",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "raw": "By",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "raw": "my",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "raw": "troth,",
+          "start": 1.73,
+          "end": 2.19
+        },
+        {
+          "raw": "niece,",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "raw": "thou",
+          "start": 2.97,
+          "end": 3.01
+        },
+        {
+          "raw": "wilt",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "raw": "never",
+          "start": 3.23,
+          "end": 3.49
+        },
+        {
+          "raw": "get",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "raw": "thee",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "raw": "a",
+          "start": 3.83,
+          "end": 3.95
+        },
+        {
+          "raw": "husband,",
+          "start": 3.95,
+          "end": 4.27
+        },
+        {
+          "raw": "if",
+          "start": 4.57,
+          "end": 4.67
+        },
+        {
+          "raw": "thou",
+          "start": 4.67,
+          "end": 4.81
+        },
+        {
+          "raw": "be",
+          "start": 4.81,
+          "end": 4.97
+        },
+        {
+          "raw": "so",
+          "start": 4.97,
+          "end": 5.27
+        },
+        {
+          "raw": "shrewd",
+          "start": 5.27,
+          "end": 5.73
+        },
+        {
+          "raw": "of",
+          "start": 5.73,
+          "end": 5.79
+        },
+        {
+          "raw": "thy",
+          "start": 5.79,
+          "end": 5.93
+        },
+        {
+          "raw": "tongue.",
+          "start": 5.93,
+          "end": 6.25
+        }
+      ],
+      "expected_tokens": [
+        "Leonato.",
+        "By",
+        "my",
+        "troth,",
+        "niece,",
+        "thou",
+        "wilt",
+        "never",
+        "get",
+        "thee",
+        "a",
+        "husband,",
+        "if",
+        "thou",
+        "be",
+        "so",
+        "shrewd",
+        "of",
+        "thy",
+        "tongue."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonato,",
+          "start": 0.53,
+          "end": 0.93,
+          "key": "leonato",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 1.35,
+          "end": 1.55,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.55,
+          "end": 1.73,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "troth,",
+          "start": 1.73,
+          "end": 2.19,
+          "key": "troth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "niece,",
+          "start": 2.31,
+          "end": 2.39,
+          "key": "niece",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.97,
+          "end": 3.01,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wilt",
+          "start": 3.01,
+          "end": 3.23,
+          "key": "wilt",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 3.23,
+          "end": 3.49,
+          "key": "never",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 3.49,
+          "end": 3.69,
+          "key": "get",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 3.69,
+          "end": 3.83,
+          "key": "thee",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.83,
+          "end": 3.95,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "husband,",
+          "start": 3.95,
+          "end": 4.27,
+          "key": "husband",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 4.57,
+          "end": 4.67,
+          "key": "if",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 4.67,
+          "end": 4.81,
+          "key": "thou",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.81,
+          "end": 4.97,
+          "key": "be",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.97,
+          "end": 5.27,
+          "key": "so",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "shrewd",
+          "start": 5.27,
+          "end": 5.73,
+          "key": "shrewd",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.73,
+          "end": 5.79,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 5.79,
+          "end": 5.93,
+          "key": "thy",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "tongue.",
+          "start": 5.93,
+          "end": 6.25,
+          "key": "tongue",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "text": "By",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "text": "my",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "text": "troth,",
+          "start": 1.73,
+          "end": 2.19
+        },
+        {
+          "text": "niece,",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "text": "thou",
+          "start": 2.97,
+          "end": 3.01
+        },
+        {
+          "text": "wilt",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "text": "never",
+          "start": 3.23,
+          "end": 3.49
+        },
+        {
+          "text": "get",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "text": "thee",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "text": "a",
+          "start": 3.83,
+          "end": 3.95
+        },
+        {
+          "text": "husband,",
+          "start": 3.95,
+          "end": 4.27
+        },
+        {
+          "text": "if",
+          "start": 4.57,
+          "end": 4.67
+        },
+        {
+          "text": "thou",
+          "start": 4.67,
+          "end": 4.81
+        },
+        {
+          "text": "be",
+          "start": 4.81,
+          "end": 4.97
+        },
+        {
+          "text": "so",
+          "start": 4.97,
+          "end": 5.27
+        },
+        {
+          "text": "shrewd",
+          "start": 5.27,
+          "end": 5.73
+        },
+        {
+          "text": "of",
+          "start": 5.73,
+          "end": 5.79
+        },
+        {
+          "text": "thy",
+          "start": 5.79,
+          "end": 5.93
+        },
+        {
+          "text": "tongue.",
+          "start": 5.93,
+          "end": 6.25
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37743094004690647
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0ec48d214441ea5dd024d838b0f6e2d320611131ef1d2b6040f95409a9b801e4",
+  "selected_reasons": []
+}

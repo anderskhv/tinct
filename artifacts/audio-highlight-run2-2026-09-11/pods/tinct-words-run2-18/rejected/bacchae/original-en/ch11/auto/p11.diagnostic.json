@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "d5f252f5c0910c634306226be1d31e80e5a7c4962d2fbeddaca9714ba993b684",
+  "attempts": [
+    {
+      "asr_seconds": 0.14038188103586435,
+      "alignment_seconds": 0.00016196200158447027,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_The_ Messenger _departs into the Castle_. Chorus.",
+        "hotwords": "Messenger, Castle_, Chorus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The Messenger departs into the Castle. Chorus.",
+          "start": 0.02,
+          "end": 2.84,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.8828125
+            },
+            {
+              "text": " Messenger",
+              "start": 0.48,
+              "end": 0.86,
+              "probability": 0.0355224609375
+            },
+            {
+              "text": " departs",
+              "start": 0.86,
+              "end": 1.32,
+              "probability": 0.975830078125
+            },
+            {
+              "text": " into",
+              "start": 1.32,
+              "end": 1.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Castle.",
+              "start": 1.66,
+              "end": 2.0,
+              "probability": 0.166259765625
+            },
+            {
+              "text": " Chorus.",
+              "start": 2.6,
+              "end": 2.84,
+              "probability": 0.859619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "Messenger",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "raw": "departs",
+          "start": 0.86,
+          "end": 1.32
+        },
+        {
+          "raw": "into",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "Castle.",
+          "start": 1.66,
+          "end": 2.0
+        },
+        {
+          "raw": "Chorus.",
+          "start": 2.6,
+          "end": 2.84
+        }
+      ],
+      "expected_tokens": [
+        "[_The_",
+        "Messenger",
+        "_departs",
+        "into",
+        "the",
+        "Castle_.",
+        "Chorus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Messenger",
+          "start": 0.48,
+          "end": 0.86,
+          "key": "messenger",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "departs",
+          "start": 0.86,
+          "end": 1.32,
+          "key": "departs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.32,
+          "end": 1.5,
+          "key": "into",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Castle.",
+          "start": 1.66,
+          "end": 2.0,
+          "key": "castle",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Chorus.",
+          "start": 2.6,
+          "end": 2.84,
+          "key": "chorus",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_The_",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "Messenger",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "text": "_departs",
+          "start": 0.86,
+          "end": 1.32
+        },
+        {
+          "text": "into",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "text": "the",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "Castle_.",
+          "start": 1.66,
+          "end": 2.0
+        },
+        {
+          "text": "Chorus.",
+          "start": 2.6,
+          "end": 2.84
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14060370903462172
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d30b27e0c591955a5e153fcc88f39cc5a8fd5f0d5e5451e2d1c0620e46cf7e95",
+  "selected_reasons": []
+}

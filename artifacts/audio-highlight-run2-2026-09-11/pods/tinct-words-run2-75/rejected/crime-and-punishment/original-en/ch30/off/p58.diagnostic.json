@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "d3c37145692cd6ee9911190b063c30c595d831bb206a8f03dec079bec55ef31e",
+  "attempts": [
+    {
+      "asr_seconds": 0.27171606943011284,
+      "alignment_seconds": 0.0006316937506198883,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But you, why do you frighten me like this?\" she said, smiling like a child.",
+          "start": 0.08,
+          "end": 4.34,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.2171630859375
+            },
+            {
+              "text": " you,",
+              "start": 0.52,
+              "end": 0.8,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " why",
+              "start": 1.14,
+              "end": 1.3,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " do",
+              "start": 1.3,
+              "end": 1.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 1.4,
+              "end": 1.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " frighten",
+              "start": 1.5,
+              "end": 1.76,
+              "probability": 0.815185546875
+            },
+            {
+              "text": " me",
+              "start": 1.76,
+              "end": 1.84,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " like",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " this?\"",
+              "start": 1.98,
+              "end": 2.64,
+              "probability": 0.75146484375
+            },
+            {
+              "text": " she",
+              "start": 2.64,
+              "end": 2.82,
+              "probability": 0.7578125
+            },
+            {
+              "text": " said,",
+              "start": 2.82,
+              "end": 3.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " smiling",
+              "start": 3.36,
+              "end": 3.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " like",
+              "start": 3.62,
+              "end": 3.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 3.88,
+              "end": 4.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " child.",
+              "start": 4.0,
+              "end": 4.34,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "you,",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "raw": "why",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "raw": "do",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "raw": "you",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "raw": "frighten",
+          "start": 1.5,
+          "end": 1.76
+        },
+        {
+          "raw": "me",
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "raw": "like",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "this?\"",
+          "start": 1.98,
+          "end": 2.64
+        },
+        {
+          "raw": "she",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "raw": "said,",
+          "start": 2.82,
+          "end": 3.12
+        },
+        {
+          "raw": "smiling",
+          "start": 3.36,
+          "end": 3.62
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.88
+        },
+        {
+          "raw": "a",
+          "start": 3.88,
+          "end": 4.0
+        },
+        {
+          "raw": "child.",
+          "start": 4.0,
+          "end": 4.34
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "you...",
+        "why",
+        "do",
+        "you",
+        "frighten",
+        "me",
+        "like",
+        "this?\"",
+        "she",
+        "said,",
+        "smiling",
+        "like",
+        "a",
+        "child."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 0.52,
+          "end": 0.8,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.14,
+          "end": 1.3,
+          "key": "why",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.3,
+          "end": 1.4,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.4,
+          "end": 1.5,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "frighten",
+          "start": 1.5,
+          "end": 1.76,
+          "key": "frighten",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.76,
+          "end": 1.84,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.84,
+          "end": 1.98,
+          "key": "like",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this?\"",
+          "start": 1.98,
+          "end": 2.64,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.64,
+          "end": 2.82,
+          "key": "she",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 2.82,
+          "end": 3.12,
+          "key": "said",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "smiling",
+          "start": 3.36,
+          "end": 3.62,
+          "key": "smiling",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.62,
+          "end": 3.88,
+          "key": "like",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.88,
+          "end": 4.0,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "child.",
+          "start": 4.0,
+          "end": 4.34,
+          "key": "child",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "you...",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "text": "why",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "text": "do",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "text": "you",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "text": "frighten",
+          "start": 1.5,
+          "end": 1.76
+        },
+        {
+          "text": "me",
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "text": "like",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "this?\"",
+          "start": 1.98,
+          "end": 2.64
+        },
+        {
+          "text": "she",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "text": "said,",
+          "start": 2.82,
+          "end": 3.12
+        },
+        {
+          "text": "smiling",
+          "start": 3.36,
+          "end": 3.62
+        },
+        {
+          "text": "like",
+          "start": 3.62,
+          "end": 3.88
+        },
+        {
+          "text": "a",
+          "start": 3.88,
+          "end": 4.0
+        },
+        {
+          "text": "child.",
+          "start": 4.0,
+          "end": 4.34
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2726069465279579
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ef6978ae87f1fbff9d8095b87c755e345f79d49403af47a9ae2a7be1956742da",
+  "selected_reasons": []
+}

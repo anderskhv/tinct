@@ -1,0 +1,6009 @@
+{
+  "complete": true,
+  "signature": "f992035a5752b3d8097266e073aa0da8da5dc8369aab1df61f30595b20d9de11",
+  "attempts": [
+    {
+      "asr_seconds": 0.5386004238389432,
+      "alignment_seconds": 0.0017622511368244886,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That were an ignominy and shame beneath This downfall; since, by fate, the strength of Gods, And this empyreal substance, cannot fail; Since, through experience of this great event, In arms not worse, in foresight much advanced, We may with more successful hope resolve To wage by force or guile eternal war, Irreconcilable to our grand Foe, Who now triumphs, and in th' excess of joy Sole reigning holds the tyranny of Heaven.\"",
+        "hotwords": "That, Gods, We, Irreconcilable, Foe, Who, Sole, Heaven"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That, Gods, We, Irreconcilable, Foe, We, Irreconcilable, Foe, Who now triumphs, and in th' excess of joy",
+          "start": 0.05,
+          "end": 24.53,
+          "words": [
+            {
+              "text": " That,",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.158447265625
+            },
+            {
+              "text": " Gods,",
+              "start": 2.93,
+              "end": 2.93,
+              "probability": 1.1920928955078125e-07
+            },
+            {
+              "text": " We,",
+              "start": 7.63,
+              "end": 7.71,
+              "probability": 0.007503509521484375
+            },
+            {
+              "text": " Irreconcilable,",
+              "start": 7.93,
+              "end": 20.19,
+              "probability": 0.7644255638122559
+            },
+            {
+              "text": " Foe,",
+              "start": 20.43,
+              "end": 20.65,
+              "probability": 0.27038073539733887
+            },
+            {
+              "text": " We,",
+              "start": 20.65,
+              "end": 20.69,
+              "probability": 0.04534912109375
+            },
+            {
+              "text": " Irreconcilable,",
+              "start": 20.69,
+              "end": 20.91,
+              "probability": 0.81348876953125
+            },
+            {
+              "text": " Foe,",
+              "start": 20.91,
+              "end": 21.19,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " Who",
+              "start": 21.67,
+              "end": 21.67,
+              "probability": 0.007633209228515625
+            },
+            {
+              "text": " now",
+              "start": 21.67,
+              "end": 21.83,
+              "probability": 0.00261688232421875
+            },
+            {
+              "text": " triumphs,",
+              "start": 21.83,
+              "end": 22.83,
+              "probability": 0.706298828125
+            },
+            {
+              "text": " and",
+              "start": 22.89,
+              "end": 22.93,
+              "probability": 0.126220703125
+            },
+            {
+              "text": " in",
+              "start": 22.93,
+              "end": 23.09,
+              "probability": 0.372802734375
+            },
+            {
+              "text": " th'",
+              "start": 23.09,
+              "end": 23.49,
+              "probability": 0.1414794921875
+            },
+            {
+              "text": " excess",
+              "start": 23.89,
+              "end": 24.13,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " of",
+              "start": 24.13,
+              "end": 24.39,
+              "probability": 0.8359375
+            },
+            {
+              "text": " joy",
+              "start": 24.39,
+              "end": 24.53,
+              "probability": 0.81591796875
+            }
+          ]
+        },
+        {
+          "text": " Sole reigning holds the tyranny of Heaven.",
+          "start": 24.53,
+          "end": 26.47,
+          "words": [
+            {
+              "text": " Sole",
+              "start": 24.53,
+              "end": 24.81,
+              "probability": 0.0002397298812866211
+            },
+            {
+              "text": " reigning",
+              "start": 24.81,
+              "end": 25.13,
+              "probability": 0.48779296875
+            },
+            {
+              "text": " holds",
+              "start": 25.13,
+              "end": 25.51,
+              "probability": 0.970703125
+            },
+            {
+              "text": " the",
+              "start": 25.51,
+              "end": 25.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tyranny",
+              "start": 25.73,
+              "end": 26.01,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " of",
+              "start": 26.01,
+              "end": 26.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Heaven.",
+              "start": 26.27,
+              "end": 26.47,
+              "probability": 0.322509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That,",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "Gods,",
+          "start": 2.93,
+          "end": 2.93
+        },
+        {
+          "raw": "We,",
+          "start": 7.63,
+          "end": 7.71
+        },
+        {
+          "raw": "Irreconcilable,",
+          "start": 7.93,
+          "end": 20.19
+        },
+        {
+          "raw": "Foe,",
+          "start": 20.43,
+          "end": 20.65
+        },
+        {
+          "raw": "We,",
+          "start": 20.65,
+          "end": 20.69
+        },
+        {
+          "raw": "Irreconcilable,",
+          "start": 20.69,
+          "end": 20.91
+        },
+        {
+          "raw": "Foe,",
+          "start": 20.91,
+          "end": 21.19
+        },
+        {
+          "raw": "Who",
+          "start": 21.67,
+          "end": 21.67
+        },
+        {
+          "raw": "now",
+          "start": 21.67,
+          "end": 21.83
+        },
+        {
+          "raw": "triumphs,",
+          "start": 21.83,
+          "end": 22.83
+        },
+        {
+          "raw": "and",
+          "start": 22.89,
+          "end": 22.93
+        },
+        {
+          "raw": "in",
+          "start": 22.93,
+          "end": 23.09
+        },
+        {
+          "raw": "th'",
+          "start": 23.09,
+          "end": 23.49
+        },
+        {
+          "raw": "excess",
+          "start": 23.89,
+          "end": 24.13
+        },
+        {
+          "raw": "of",
+          "start": 24.13,
+          "end": 24.39
+        },
+        {
+          "raw": "joy",
+          "start": 24.39,
+          "end": 24.53
+        },
+        {
+          "raw": "Sole",
+          "start": 24.53,
+          "end": 24.81
+        },
+        {
+          "raw": "reigning",
+          "start": 24.81,
+          "end": 25.13
+        },
+        {
+          "raw": "holds",
+          "start": 25.13,
+          "end": 25.51
+        },
+        {
+          "raw": "the",
+          "start": 25.51,
+          "end": 25.73
+        },
+        {
+          "raw": "tyranny",
+          "start": 25.73,
+          "end": 26.01
+        },
+        {
+          "raw": "of",
+          "start": 26.01,
+          "end": 26.27
+        },
+        {
+          "raw": "Heaven.",
+          "start": 26.27,
+          "end": 26.47
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "were",
+        "an",
+        "ignominy",
+        "and",
+        "shame",
+        "beneath",
+        "This",
+        "downfall;",
+        "since,",
+        "by",
+        "fate,",
+        "the",
+        "strength",
+        "of",
+        "Gods,",
+        "And",
+        "this",
+        "empyreal",
+        "substance,",
+        "cannot",
+        "fail;",
+        "Since,",
+        "through",
+        "experience",
+        "of",
+        "this",
+        "great",
+        "event,",
+        "In",
+        "arms",
+        "not",
+        "worse,",
+        "in",
+        "foresight",
+        "much",
+        "advanced,",
+        "We",
+        "may",
+        "with",
+        "more",
+        "successful",
+        "hope",
+        "resolve",
+        "To",
+        "wage",
+        "by",
+        "force",
+        "or",
+        "guile",
+        "eternal",
+        "war,",
+        "Irreconcilable",
+        "to",
+        "our",
+        "grand",
+        "Foe,",
+        "Who",
+        "now",
+        "triumphs,",
+        "and",
+        "in",
+        "th'",
+        "excess",
+        "of",
+        "joy",
+        "Sole",
+        "reigning",
+        "holds",
+        "the",
+        "tyranny",
+        "of",
+        "Heaven.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          15,
+          1,
+          1
+        ],
+        [
+          "equal",
+          15,
+          16,
+          1,
+          2
+        ],
+        [
+          "delete",
+          16,
+          37,
+          2,
+          2
+        ],
+        [
+          "equal",
+          37,
+          38,
+          2,
+          3
+        ],
+        [
+          "delete",
+          38,
+          52,
+          3,
+          3
+        ],
+        [
+          "equal",
+          52,
+          53,
+          3,
+          4
+        ],
+        [
+          "replace",
+          53,
+          56,
+          4,
+          7
+        ],
+        [
+          "equal",
+          56,
+          73,
+          7,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          15,
+          1,
+          1
+        ],
+        [
+          "delete",
+          16,
+          37,
+          2,
+          2
+        ],
+        [
+          "delete",
+          38,
+          52,
+          3,
+          3
+        ],
+        [
+          "replace",
+          53,
+          56,
+          4,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That,",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gods,",
+          "start": 2.93,
+          "end": 2.93,
+          "key": "gods",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "We,",
+          "start": 7.63,
+          "end": 7.71,
+          "key": "we",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Irreconcilable,",
+          "start": 7.93,
+          "end": 20.19,
+          "key": "irreconcilable",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Foe,",
+          "start": 20.43,
+          "end": 20.65,
+          "key": "foe",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "We,",
+          "start": 20.65,
+          "end": 20.69,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Irreconcilable,",
+          "start": 20.69,
+          "end": 20.91,
+          "key": "irreconcilable",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Foe,",
+          "start": 20.91,
+          "end": 21.19,
+          "key": "foe",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 21.67,
+          "end": 21.67,
+          "key": "who",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 21.67,
+          "end": 21.83,
+          "key": "now",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "triumphs,",
+          "start": 21.83,
+          "end": 22.83,
+          "key": "triumphs",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.89,
+          "end": 22.93,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 22.93,
+          "end": 23.09,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 23.09,
+          "end": 23.49,
+          "key": "th",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "excess",
+          "start": 23.89,
+          "end": 24.13,
+          "key": "excess",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 24.13,
+          "end": 24.39,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "joy",
+          "start": 24.39,
+          "end": 24.53,
+          "key": "joy",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Sole",
+          "start": 24.53,
+          "end": 24.81,
+          "key": "sole",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "reigning",
+          "start": 24.81,
+          "end": 25.13,
+          "key": "reigning",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "holds",
+          "start": 25.13,
+          "end": 25.51,
+          "key": "holds",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 25.51,
+          "end": 25.73,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "tyranny",
+          "start": 25.73,
+          "end": 26.01,
+          "key": "tyranny",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 26.01,
+          "end": 26.27,
+          "key": "of",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Heaven.",
+          "start": 26.27,
+          "end": 26.47,
+          "key": "heaven",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "were",
+          "start": 0.51,
+          "end": 1.72
+        },
+        {
+          "text": "an",
+          "start": 1.72,
+          "end": 2.325
+        },
+        {
+          "text": "ignominy",
+          "start": 2.325,
+          "end": 2.628
+        },
+        {
+          "text": "and",
+          "start": 2.628,
+          "end": 2.779
+        },
+        {
+          "text": "shame",
+          "start": 2.779,
+          "end": 2.854
+        },
+        {
+          "text": "beneath",
+          "start": 2.854,
+          "end": 2.892
+        },
+        {
+          "text": "This",
+          "start": 2.892,
+          "end": 2.911
+        },
+        {
+          "text": "downfall;",
+          "start": 2.911,
+          "end": 2.921
+        },
+        {
+          "text": "since,",
+          "start": 2.921,
+          "end": 2.925
+        },
+        {
+          "text": "by",
+          "start": 2.925,
+          "end": 2.928
+        },
+        {
+          "text": "fate,",
+          "start": 2.928,
+          "end": 2.929
+        },
+        {
+          "text": "the",
+          "start": 2.929,
+          "end": 2.929
+        },
+        {
+          "text": "strength",
+          "start": 2.929,
+          "end": 2.929
+        },
+        {
+          "text": "of",
+          "start": 2.929,
+          "end": 2.929
+        },
+        {
+          "text": "Gods,",
+          "start": 2.93,
+          "end": 2.93
+        },
+        {
+          "text": "And",
+          "start": 2.93,
+          "end": 5.28
+        },
+        {
+          "text": "this",
+          "start": 5.28,
+          "end": 6.455
+        },
+        {
+          "text": "empyreal",
+          "start": 6.455,
+          "end": 7.043
+        },
+        {
+          "text": "substance,",
+          "start": 7.043,
+          "end": 7.337
+        },
+        {
+          "text": "cannot",
+          "start": 7.337,
+          "end": 7.483
+        },
+        {
+          "text": "fail;",
+          "start": 7.483,
+          "end": 7.556
+        },
+        {
+          "text": "Since,",
+          "start": 7.556,
+          "end": 7.593
+        },
+        {
+          "text": "through",
+          "start": 7.593,
+          "end": 7.611
+        },
+        {
+          "text": "experience",
+          "start": 7.611,
+          "end": 7.62
+        },
+        {
+          "text": "of",
+          "start": 7.62,
+          "end": 7.625
+        },
+        {
+          "text": "this",
+          "start": 7.625,
+          "end": 7.627
+        },
+        {
+          "text": "great",
+          "start": 7.627,
+          "end": 7.628
+        },
+        {
+          "text": "event,",
+          "start": 7.628,
+          "end": 7.629
+        },
+        {
+          "text": "In",
+          "start": 7.629,
+          "end": 7.63
+        },
+        {
+          "text": "arms",
+          "start": 7.63,
+          "end": 7.63
+        },
+        {
+          "text": "not",
+          "start": 7.63,
+          "end": 7.63
+        },
+        {
+          "text": "worse,",
+          "start": 7.63,
+          "end": 7.63
+        },
+        {
+          "text": "in",
+          "start": 7.63,
+          "end": 7.63
+        },
+        {
+          "text": "foresight",
+          "start": 7.63,
+          "end": 7.63
+        },
+        {
+          "text": "much",
+          "start": 7.63,
+          "end": 7.63
+        },
+        {
+          "text": "advanced,",
+          "start": 7.63,
+          "end": 7.63
+        },
+        {
+          "text": "We",
+          "start": 7.63,
+          "end": 7.71
+        },
+        {
+          "text": "may",
+          "start": 7.71,
+          "end": 7.82
+        },
+        {
+          "text": "with",
+          "start": 7.82,
+          "end": 7.875
+        },
+        {
+          "text": "more",
+          "start": 7.875,
+          "end": 7.902
+        },
+        {
+          "text": "successful",
+          "start": 7.902,
+          "end": 7.916
+        },
+        {
+          "text": "hope",
+          "start": 7.916,
+          "end": 7.923
+        },
+        {
+          "text": "resolve",
+          "start": 7.923,
+          "end": 7.926
+        },
+        {
+          "text": "To",
+          "start": 7.926,
+          "end": 7.928
+        },
+        {
+          "text": "wage",
+          "start": 7.928,
+          "end": 7.929
+        },
+        {
+          "text": "by",
+          "start": 7.929,
+          "end": 7.929
+        },
+        {
+          "text": "force",
+          "start": 7.929,
+          "end": 7.929
+        },
+        {
+          "text": "or",
+          "start": 7.929,
+          "end": 7.929
+        },
+        {
+          "text": "guile",
+          "start": 7.929,
+          "end": 7.929
+        },
+        {
+          "text": "eternal",
+          "start": 7.929,
+          "end": 7.929
+        },
+        {
+          "text": "war,",
+          "start": 7.929,
+          "end": 7.929
+        },
+        {
+          "text": "Irreconcilable",
+          "start": 7.93,
+          "end": 20.19
+        },
+        {
+          "text": "to",
+          "start": 20.19,
+          "end": 20.55
+        },
+        {
+          "text": "our",
+          "start": 20.55,
+          "end": 20.73
+        },
+        {
+          "text": "grand",
+          "start": 20.73,
+          "end": 20.82
+        },
+        {
+          "text": "Foe,",
+          "start": 20.91,
+          "end": 21.19
+        },
+        {
+          "text": "Who",
+          "start": 21.67,
+          "end": 21.67
+        },
+        {
+          "text": "now",
+          "start": 21.67,
+          "end": 21.83
+        },
+        {
+          "text": "triumphs,",
+          "start": 21.83,
+          "end": 22.83
+        },
+        {
+          "text": "and",
+          "start": 22.89,
+          "end": 22.93
+        },
+        {
+          "text": "in",
+          "start": 22.93,
+          "end": 23.09
+        },
+        {
+          "text": "th'",
+          "start": 23.09,
+          "end": 23.49
+        },
+        {
+          "text": "excess",
+          "start": 23.89,
+          "end": 24.13
+        },
+        {
+          "text": "of",
+          "start": 24.13,
+          "end": 24.39
+        },
+        {
+          "text": "joy",
+          "start": 24.39,
+          "end": 24.53
+        },
+        {
+          "text": "Sole",
+          "start": 24.53,
+          "end": 24.81
+        },
+        {
+          "text": "reigning",
+          "start": 24.81,
+          "end": 25.13
+        },
+        {
+          "text": "holds",
+          "start": 25.13,
+          "end": 25.51
+        },
+        {
+          "text": "the",
+          "start": 25.51,
+          "end": 25.73
+        },
+        {
+          "text": "tyranny",
+          "start": 25.73,
+          "end": 26.01
+        },
+        {
+          "text": "of",
+          "start": 26.01,
+          "end": 26.27
+        },
+        {
+          "text": "Heaven.\"",
+          "start": 26.27,
+          "end": 26.47
+        }
+      ],
+      "stats": {
+        "expected_words": 73,
+        "heard_words": 24,
+        "matched_words": 21
+      },
+      "match_ratio": 0.2876712328767123,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.540746761020273
+    },
+    {
+      "asr_seconds": 0.8476801521610469,
+      "alignment_seconds": 0.0018637238536030054,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "That, Gods, We, Irreconcilable, Foe, Who, Sole, Heaven"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " that were in ignominy and shame beneath this downfall, since, by fate, the strength of",
+          "start": 0.05,
+          "end": 5.29,
+          "words": [
+            {
+              "text": " that",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.408447265625
+            },
+            {
+              "text": " were",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.6337890625
+            },
+            {
+              "text": " in",
+              "start": 0.63,
+              "end": 0.77,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " ignominy",
+              "start": 0.77,
+              "end": 1.25,
+              "probability": 0.9609375
+            },
+            {
+              "text": " and",
+              "start": 1.25,
+              "end": 1.51,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " shame",
+              "start": 1.51,
+              "end": 1.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " beneath",
+              "start": 1.77,
+              "end": 2.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " this",
+              "start": 2.11,
+              "end": 2.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " downfall,",
+              "start": 2.43,
+              "end": 2.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " since,",
+              "start": 3.45,
+              "end": 3.71,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " by",
+              "start": 3.93,
+              "end": 4.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " fate,",
+              "start": 4.01,
+              "end": 4.37,
+              "probability": 0.96875
+            },
+            {
+              "text": " the",
+              "start": 4.71,
+              "end": 4.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " strength",
+              "start": 4.83,
+              "end": 5.05,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 5.05,
+              "end": 5.29,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Gods and this Empireal substance cannot fail, since, through experience of this great event,",
+          "start": 5.29,
+          "end": 11.13,
+          "words": [
+            {
+              "text": " Gods",
+              "start": 5.29,
+              "end": 5.61,
+              "probability": 0.11572265625
+            },
+            {
+              "text": " and",
+              "start": 5.61,
+              "end": 5.93,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " this",
+              "start": 5.93,
+              "end": 6.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Empireal",
+              "start": 6.11,
+              "end": 6.73,
+              "probability": 0.6170654296875
+            },
+            {
+              "text": " substance",
+              "start": 6.73,
+              "end": 7.17,
+              "probability": 0.59033203125
+            },
+            {
+              "text": " cannot",
+              "start": 7.17,
+              "end": 7.79,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " fail,",
+              "start": 7.79,
+              "end": 8.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " since,",
+              "start": 8.93,
+              "end": 9.29,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " through",
+              "start": 9.45,
+              "end": 9.67,
+              "probability": 0.9921875
+            },
+            {
+              "text": " experience",
+              "start": 9.67,
+              "end": 10.25,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 10.25,
+              "end": 10.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 10.45,
+              "end": 10.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " great",
+              "start": 10.61,
+              "end": 10.83,
+              "probability": 0.9609375
+            },
+            {
+              "text": " event,",
+              "start": 10.83,
+              "end": 11.13,
+              "probability": 0.98291015625
+            }
+          ]
+        },
+        {
+          "text": " in arms not worse, in foresight much advanced, we may with more successful hope resolve to",
+          "start": 11.43,
+          "end": 16.53,
+          "words": [
+            {
+              "text": " in",
+              "start": 11.43,
+              "end": 11.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " arms",
+              "start": 11.53,
+              "end": 11.81,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " not",
+              "start": 11.81,
+              "end": 12.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " worse,",
+              "start": 12.05,
+              "end": 12.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 12.69,
+              "end": 12.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " foresight",
+              "start": 12.81,
+              "end": 13.19,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " much",
+              "start": 13.19,
+              "end": 13.41,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " advanced,",
+              "start": 13.41,
+              "end": 13.87,
+              "probability": 0.98828125
+            },
+            {
+              "text": " we",
+              "start": 14.31,
+              "end": 14.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " may",
+              "start": 14.51,
+              "end": 14.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 14.65,
+              "end": 14.79,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " more",
+              "start": 14.79,
+              "end": 15.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " successful",
+              "start": 15.01,
+              "end": 15.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hope",
+              "start": 15.39,
+              "end": 15.85,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " resolve",
+              "start": 15.85,
+              "end": 16.23,
+              "probability": 0.974609375
+            },
+            {
+              "text": " to",
+              "start": 16.23,
+              "end": 16.53,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " wage by force or guile eternal war, irreconcilable to our grand foe, who now triumphs, and in",
+          "start": 16.53,
+          "end": 27.23,
+          "words": [
+            {
+              "text": " wage",
+              "start": 16.53,
+              "end": 16.79,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " by",
+              "start": 16.79,
+              "end": 17.09,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " force",
+              "start": 17.09,
+              "end": 17.51,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " or",
+              "start": 17.51,
+              "end": 17.75,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " guile",
+              "start": 17.75,
+              "end": 18.07,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " eternal",
+              "start": 18.07,
+              "end": 18.35,
+              "probability": 0.962890625
+            },
+            {
+              "text": " war,",
+              "start": 18.35,
+              "end": 18.83,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " irreconcilable",
+              "start": 19.37,
+              "end": 20.15,
+              "probability": 0.9962158203125
+            },
+            {
+              "text": " to",
+              "start": 20.15,
+              "end": 20.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " our",
+              "start": 20.39,
+              "end": 20.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " grand",
+              "start": 20.53,
+              "end": 20.81,
+              "probability": 0.7021484375
+            },
+            {
+              "text": " foe,",
+              "start": 20.81,
+              "end": 21.13,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " who",
+              "start": 21.47,
+              "end": 21.69,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " now",
+              "start": 21.69,
+              "end": 21.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " triumphs,",
+              "start": 21.87,
+              "end": 22.55,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " and",
+              "start": 22.73,
+              "end": 27.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 27.23,
+              "end": 27.23,
+              "probability": 0.94677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "that",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "were",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "in",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "raw": "ignominy",
+          "start": 0.77,
+          "end": 1.25
+        },
+        {
+          "raw": "and",
+          "start": 1.25,
+          "end": 1.51
+        },
+        {
+          "raw": "shame",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "raw": "beneath",
+          "start": 1.77,
+          "end": 2.11
+        },
+        {
+          "raw": "this",
+          "start": 2.11,
+          "end": 2.43
+        },
+        {
+          "raw": "downfall,",
+          "start": 2.43,
+          "end": 2.87
+        },
+        {
+          "raw": "since,",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "raw": "by",
+          "start": 3.93,
+          "end": 4.01
+        },
+        {
+          "raw": "fate,",
+          "start": 4.01,
+          "end": 4.37
+        },
+        {
+          "raw": "the",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "raw": "strength",
+          "start": 4.83,
+          "end": 5.05
+        },
+        {
+          "raw": "of",
+          "start": 5.05,
+          "end": 5.29
+        },
+        {
+          "raw": "Gods",
+          "start": 5.29,
+          "end": 5.61
+        },
+        {
+          "raw": "and",
+          "start": 5.61,
+          "end": 5.93
+        },
+        {
+          "raw": "this",
+          "start": 5.93,
+          "end": 6.11
+        },
+        {
+          "raw": "Empireal",
+          "start": 6.11,
+          "end": 6.73
+        },
+        {
+          "raw": "substance",
+          "start": 6.73,
+          "end": 7.17
+        },
+        {
+          "raw": "cannot",
+          "start": 7.17,
+          "end": 7.79
+        },
+        {
+          "raw": "fail,",
+          "start": 7.79,
+          "end": 8.27
+        },
+        {
+          "raw": "since,",
+          "start": 8.93,
+          "end": 9.29
+        },
+        {
+          "raw": "through",
+          "start": 9.45,
+          "end": 9.67
+        },
+        {
+          "raw": "experience",
+          "start": 9.67,
+          "end": 10.25
+        },
+        {
+          "raw": "of",
+          "start": 10.25,
+          "end": 10.45
+        },
+        {
+          "raw": "this",
+          "start": 10.45,
+          "end": 10.61
+        },
+        {
+          "raw": "great",
+          "start": 10.61,
+          "end": 10.83
+        },
+        {
+          "raw": "event,",
+          "start": 10.83,
+          "end": 11.13
+        },
+        {
+          "raw": "in",
+          "start": 11.43,
+          "end": 11.53
+        },
+        {
+          "raw": "arms",
+          "start": 11.53,
+          "end": 11.81
+        },
+        {
+          "raw": "not",
+          "start": 11.81,
+          "end": 12.05
+        },
+        {
+          "raw": "worse,",
+          "start": 12.05,
+          "end": 12.33
+        },
+        {
+          "raw": "in",
+          "start": 12.69,
+          "end": 12.81
+        },
+        {
+          "raw": "foresight",
+          "start": 12.81,
+          "end": 13.19
+        },
+        {
+          "raw": "much",
+          "start": 13.19,
+          "end": 13.41
+        },
+        {
+          "raw": "advanced,",
+          "start": 13.41,
+          "end": 13.87
+        },
+        {
+          "raw": "we",
+          "start": 14.31,
+          "end": 14.51
+        },
+        {
+          "raw": "may",
+          "start": 14.51,
+          "end": 14.65
+        },
+        {
+          "raw": "with",
+          "start": 14.65,
+          "end": 14.79
+        },
+        {
+          "raw": "more",
+          "start": 14.79,
+          "end": 15.01
+        },
+        {
+          "raw": "successful",
+          "start": 15.01,
+          "end": 15.39
+        },
+        {
+          "raw": "hope",
+          "start": 15.39,
+          "end": 15.85
+        },
+        {
+          "raw": "resolve",
+          "start": 15.85,
+          "end": 16.23
+        },
+        {
+          "raw": "to",
+          "start": 16.23,
+          "end": 16.53
+        },
+        {
+          "raw": "wage",
+          "start": 16.53,
+          "end": 16.79
+        },
+        {
+          "raw": "by",
+          "start": 16.79,
+          "end": 17.09
+        },
+        {
+          "raw": "force",
+          "start": 17.09,
+          "end": 17.51
+        },
+        {
+          "raw": "or",
+          "start": 17.51,
+          "end": 17.75
+        },
+        {
+          "raw": "guile",
+          "start": 17.75,
+          "end": 18.07
+        },
+        {
+          "raw": "eternal",
+          "start": 18.07,
+          "end": 18.35
+        },
+        {
+          "raw": "war,",
+          "start": 18.35,
+          "end": 18.83
+        },
+        {
+          "raw": "irreconcilable",
+          "start": 19.37,
+          "end": 20.15
+        },
+        {
+          "raw": "to",
+          "start": 20.15,
+          "end": 20.39
+        },
+        {
+          "raw": "our",
+          "start": 20.39,
+          "end": 20.53
+        },
+        {
+          "raw": "grand",
+          "start": 20.53,
+          "end": 20.81
+        },
+        {
+          "raw": "foe,",
+          "start": 20.81,
+          "end": 21.13
+        },
+        {
+          "raw": "who",
+          "start": 21.47,
+          "end": 21.69
+        },
+        {
+          "raw": "now",
+          "start": 21.69,
+          "end": 21.87
+        },
+        {
+          "raw": "triumphs,",
+          "start": 21.87,
+          "end": 22.55
+        },
+        {
+          "raw": "and",
+          "start": 22.73,
+          "end": 27.23
+        },
+        {
+          "raw": "in",
+          "start": 27.23,
+          "end": 27.23
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "were",
+        "an",
+        "ignominy",
+        "and",
+        "shame",
+        "beneath",
+        "This",
+        "downfall;",
+        "since,",
+        "by",
+        "fate,",
+        "the",
+        "strength",
+        "of",
+        "Gods,",
+        "And",
+        "this",
+        "empyreal",
+        "substance,",
+        "cannot",
+        "fail;",
+        "Since,",
+        "through",
+        "experience",
+        "of",
+        "this",
+        "great",
+        "event,",
+        "In",
+        "arms",
+        "not",
+        "worse,",
+        "in",
+        "foresight",
+        "much",
+        "advanced,",
+        "We",
+        "may",
+        "with",
+        "more",
+        "successful",
+        "hope",
+        "resolve",
+        "To",
+        "wage",
+        "by",
+        "force",
+        "or",
+        "guile",
+        "eternal",
+        "war,",
+        "Irreconcilable",
+        "to",
+        "our",
+        "grand",
+        "Foe,",
+        "Who",
+        "now",
+        "triumphs,",
+        "and",
+        "in",
+        "th'",
+        "excess",
+        "of",
+        "joy",
+        "Sole",
+        "reigning",
+        "holds",
+        "the",
+        "tyranny",
+        "of",
+        "Heaven.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          18,
+          3,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "equal",
+          19,
+          62,
+          19,
+          62
+        ],
+        [
+          "delete",
+          62,
+          73,
+          62,
+          62
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "delete",
+          62,
+          73,
+          62,
+          62
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "that",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "were",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.63,
+          "end": 0.77,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ignominy",
+          "start": 0.77,
+          "end": 1.25,
+          "key": "ignominy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.25,
+          "end": 1.51,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shame",
+          "start": 1.51,
+          "end": 1.77,
+          "key": "shame",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "beneath",
+          "start": 1.77,
+          "end": 2.11,
+          "key": "beneath",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.11,
+          "end": 2.43,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "downfall,",
+          "start": 2.43,
+          "end": 2.87,
+          "key": "downfall",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "since,",
+          "start": 3.45,
+          "end": 3.71,
+          "key": "since",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.93,
+          "end": 4.01,
+          "key": "by",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "fate,",
+          "start": 4.01,
+          "end": 4.37,
+          "key": "fate",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.71,
+          "end": 4.83,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "strength",
+          "start": 4.83,
+          "end": 5.05,
+          "key": "strength",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.05,
+          "end": 5.29,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Gods",
+          "start": 5.29,
+          "end": 5.61,
+          "key": "gods",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.61,
+          "end": 5.93,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 5.93,
+          "end": 6.11,
+          "key": "this",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Empireal",
+          "start": 6.11,
+          "end": 6.73,
+          "key": "empireal",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "substance",
+          "start": 6.73,
+          "end": 7.17,
+          "key": "substance",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 7.17,
+          "end": 7.79,
+          "key": "cannot",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "fail,",
+          "start": 7.79,
+          "end": 8.27,
+          "key": "fail",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "since,",
+          "start": 8.93,
+          "end": 9.29,
+          "key": "since",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 9.45,
+          "end": 9.67,
+          "key": "through",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "experience",
+          "start": 9.67,
+          "end": 10.25,
+          "key": "experience",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.25,
+          "end": 10.45,
+          "key": "of",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 10.45,
+          "end": 10.61,
+          "key": "this",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 10.61,
+          "end": 10.83,
+          "key": "great",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "event,",
+          "start": 10.83,
+          "end": 11.13,
+          "key": "event",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.43,
+          "end": 11.53,
+          "key": "in",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "arms",
+          "start": 11.53,
+          "end": 11.81,
+          "key": "arms",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 11.81,
+          "end": 12.05,
+          "key": "not",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "worse,",
+          "start": 12.05,
+          "end": 12.33,
+          "key": "worse",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 12.69,
+          "end": 12.81,
+          "key": "in",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "foresight",
+          "start": 12.81,
+          "end": 13.19,
+          "key": "foresight",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 13.19,
+          "end": 13.41,
+          "key": "much",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "advanced,",
+          "start": 13.41,
+          "end": 13.87,
+          "key": "advanced",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 14.31,
+          "end": 14.51,
+          "key": "we",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 14.51,
+          "end": 14.65,
+          "key": "may",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 14.65,
+          "end": 14.79,
+          "key": "with",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 14.79,
+          "end": 15.01,
+          "key": "more",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "successful",
+          "start": 15.01,
+          "end": 15.39,
+          "key": "successful",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 15.39,
+          "end": 15.85,
+          "key": "hope",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "resolve",
+          "start": 15.85,
+          "end": 16.23,
+          "key": "resolve",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.23,
+          "end": 16.53,
+          "key": "to",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "wage",
+          "start": 16.53,
+          "end": 16.79,
+          "key": "wage",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 16.79,
+          "end": 17.09,
+          "key": "by",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "force",
+          "start": 17.09,
+          "end": 17.51,
+          "key": "force",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 17.51,
+          "end": 17.75,
+          "key": "or",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "guile",
+          "start": 17.75,
+          "end": 18.07,
+          "key": "guile",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "eternal",
+          "start": 18.07,
+          "end": 18.35,
+          "key": "eternal",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "war,",
+          "start": 18.35,
+          "end": 18.83,
+          "key": "war",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "irreconcilable",
+          "start": 19.37,
+          "end": 20.15,
+          "key": "irreconcilable",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 20.15,
+          "end": 20.39,
+          "key": "to",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 20.39,
+          "end": 20.53,
+          "key": "our",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "grand",
+          "start": 20.53,
+          "end": 20.81,
+          "key": "grand",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "foe,",
+          "start": 20.81,
+          "end": 21.13,
+          "key": "foe",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 21.47,
+          "end": 21.69,
+          "key": "who",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 21.69,
+          "end": 21.87,
+          "key": "now",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "triumphs,",
+          "start": 21.87,
+          "end": 22.55,
+          "key": "triumphs",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.73,
+          "end": 27.23,
+          "key": "and",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 27.23,
+          "end": 27.23,
+          "key": "in",
+          "pieces": [
+            61
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "were",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "an",
+          "start": 0.63,
+          "end": 0.7
+        },
+        {
+          "text": "ignominy",
+          "start": 0.77,
+          "end": 1.25
+        },
+        {
+          "text": "and",
+          "start": 1.25,
+          "end": 1.51
+        },
+        {
+          "text": "shame",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "text": "beneath",
+          "start": 1.77,
+          "end": 2.11
+        },
+        {
+          "text": "This",
+          "start": 2.11,
+          "end": 2.43
+        },
+        {
+          "text": "downfall;",
+          "start": 2.43,
+          "end": 2.87
+        },
+        {
+          "text": "since,",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "text": "by",
+          "start": 3.93,
+          "end": 4.01
+        },
+        {
+          "text": "fate,",
+          "start": 4.01,
+          "end": 4.37
+        },
+        {
+          "text": "the",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "text": "strength",
+          "start": 4.83,
+          "end": 5.05
+        },
+        {
+          "text": "of",
+          "start": 5.05,
+          "end": 5.29
+        },
+        {
+          "text": "Gods,",
+          "start": 5.29,
+          "end": 5.61
+        },
+        {
+          "text": "And",
+          "start": 5.61,
+          "end": 5.93
+        },
+        {
+          "text": "this",
+          "start": 5.93,
+          "end": 6.11
+        },
+        {
+          "text": "empyreal",
+          "start": 6.11,
+          "end": 6.42
+        },
+        {
+          "text": "substance,",
+          "start": 6.73,
+          "end": 7.17
+        },
+        {
+          "text": "cannot",
+          "start": 7.17,
+          "end": 7.79
+        },
+        {
+          "text": "fail;",
+          "start": 7.79,
+          "end": 8.27
+        },
+        {
+          "text": "Since,",
+          "start": 8.93,
+          "end": 9.29
+        },
+        {
+          "text": "through",
+          "start": 9.45,
+          "end": 9.67
+        },
+        {
+          "text": "experience",
+          "start": 9.67,
+          "end": 10.25
+        },
+        {
+          "text": "of",
+          "start": 10.25,
+          "end": 10.45
+        },
+        {
+          "text": "this",
+          "start": 10.45,
+          "end": 10.61
+        },
+        {
+          "text": "great",
+          "start": 10.61,
+          "end": 10.83
+        },
+        {
+          "text": "event,",
+          "start": 10.83,
+          "end": 11.13
+        },
+        {
+          "text": "In",
+          "start": 11.43,
+          "end": 11.53
+        },
+        {
+          "text": "arms",
+          "start": 11.53,
+          "end": 11.81
+        },
+        {
+          "text": "not",
+          "start": 11.81,
+          "end": 12.05
+        },
+        {
+          "text": "worse,",
+          "start": 12.05,
+          "end": 12.33
+        },
+        {
+          "text": "in",
+          "start": 12.69,
+          "end": 12.81
+        },
+        {
+          "text": "foresight",
+          "start": 12.81,
+          "end": 13.19
+        },
+        {
+          "text": "much",
+          "start": 13.19,
+          "end": 13.41
+        },
+        {
+          "text": "advanced,",
+          "start": 13.41,
+          "end": 13.87
+        },
+        {
+          "text": "We",
+          "start": 14.31,
+          "end": 14.51
+        },
+        {
+          "text": "may",
+          "start": 14.51,
+          "end": 14.65
+        },
+        {
+          "text": "with",
+          "start": 14.65,
+          "end": 14.79
+        },
+        {
+          "text": "more",
+          "start": 14.79,
+          "end": 15.01
+        },
+        {
+          "text": "successful",
+          "start": 15.01,
+          "end": 15.39
+        },
+        {
+          "text": "hope",
+          "start": 15.39,
+          "end": 15.85
+        },
+        {
+          "text": "resolve",
+          "start": 15.85,
+          "end": 16.23
+        },
+        {
+          "text": "To",
+          "start": 16.23,
+          "end": 16.53
+        },
+        {
+          "text": "wage",
+          "start": 16.53,
+          "end": 16.79
+        },
+        {
+          "text": "by",
+          "start": 16.79,
+          "end": 17.09
+        },
+        {
+          "text": "force",
+          "start": 17.09,
+          "end": 17.51
+        },
+        {
+          "text": "or",
+          "start": 17.51,
+          "end": 17.75
+        },
+        {
+          "text": "guile",
+          "start": 17.75,
+          "end": 18.07
+        },
+        {
+          "text": "eternal",
+          "start": 18.07,
+          "end": 18.35
+        },
+        {
+          "text": "war,",
+          "start": 18.35,
+          "end": 18.83
+        },
+        {
+          "text": "Irreconcilable",
+          "start": 19.37,
+          "end": 20.15
+        },
+        {
+          "text": "to",
+          "start": 20.15,
+          "end": 20.39
+        },
+        {
+          "text": "our",
+          "start": 20.39,
+          "end": 20.53
+        },
+        {
+          "text": "grand",
+          "start": 20.53,
+          "end": 20.81
+        },
+        {
+          "text": "Foe,",
+          "start": 20.81,
+          "end": 21.13
+        },
+        {
+          "text": "Who",
+          "start": 21.47,
+          "end": 21.69
+        },
+        {
+          "text": "now",
+          "start": 21.69,
+          "end": 21.87
+        },
+        {
+          "text": "triumphs,",
+          "start": 21.87,
+          "end": 22.55
+        },
+        {
+          "text": "and",
+          "start": 22.73,
+          "end": 27.23
+        },
+        {
+          "text": "in",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "th'",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "excess",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "of",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "joy",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "Sole",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "reigning",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "holds",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "the",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "tyranny",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "of",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "Heaven.\"",
+          "start": 27.23,
+          "end": 27.23
+        }
+      ],
+      "stats": {
+        "expected_words": 73,
+        "heard_words": 62,
+        "matched_words": 60
+      },
+      "match_ratio": 0.821917808219178,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.8501113599631935
+    },
+    {
+      "asr_seconds": 2.119624180952087,
+      "alignment_seconds": 0.0019357709679752588,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " that were in ignominy and shame beneath this downfall, since, by fate, the strength of",
+          "start": 0.05,
+          "end": 5.29,
+          "words": [
+            {
+              "text": " that",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.408447265625
+            },
+            {
+              "text": " were",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.6337890625
+            },
+            {
+              "text": " in",
+              "start": 0.63,
+              "end": 0.77,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " ignominy",
+              "start": 0.77,
+              "end": 1.25,
+              "probability": 0.9609375
+            },
+            {
+              "text": " and",
+              "start": 1.25,
+              "end": 1.51,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " shame",
+              "start": 1.51,
+              "end": 1.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " beneath",
+              "start": 1.77,
+              "end": 2.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " this",
+              "start": 2.11,
+              "end": 2.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " downfall,",
+              "start": 2.43,
+              "end": 2.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " since,",
+              "start": 3.45,
+              "end": 3.71,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " by",
+              "start": 3.93,
+              "end": 4.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " fate,",
+              "start": 4.01,
+              "end": 4.37,
+              "probability": 0.96875
+            },
+            {
+              "text": " the",
+              "start": 4.71,
+              "end": 4.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " strength",
+              "start": 4.83,
+              "end": 5.05,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 5.05,
+              "end": 5.29,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " gods and this empireal substance cannot fail, since, through experience of this great event,",
+          "start": 5.29,
+          "end": 11.15,
+          "words": [
+            {
+              "text": " gods",
+              "start": 5.29,
+              "end": 5.61,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " and",
+              "start": 5.61,
+              "end": 5.93,
+              "probability": 0.970703125
+            },
+            {
+              "text": " this",
+              "start": 5.93,
+              "end": 6.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " empireal",
+              "start": 6.11,
+              "end": 6.71,
+              "probability": 0.707275390625
+            },
+            {
+              "text": " substance",
+              "start": 6.71,
+              "end": 7.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " cannot",
+              "start": 7.21,
+              "end": 7.79,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " fail,",
+              "start": 7.79,
+              "end": 8.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " since,",
+              "start": 8.93,
+              "end": 9.29,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " through",
+              "start": 9.45,
+              "end": 9.67,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " experience",
+              "start": 9.67,
+              "end": 10.25,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 10.25,
+              "end": 10.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 10.45,
+              "end": 10.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " great",
+              "start": 10.61,
+              "end": 10.83,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " event,",
+              "start": 10.83,
+              "end": 11.15,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " in arms not worse, in foresight much advanced, we may with more successful hope resolve to",
+          "start": 11.43,
+          "end": 16.53,
+          "words": [
+            {
+              "text": " in",
+              "start": 11.43,
+              "end": 11.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " arms",
+              "start": 11.53,
+              "end": 11.81,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " not",
+              "start": 11.81,
+              "end": 12.05,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " worse,",
+              "start": 12.05,
+              "end": 12.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 12.69,
+              "end": 12.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " foresight",
+              "start": 12.79,
+              "end": 13.19,
+              "probability": 0.980712890625
+            },
+            {
+              "text": " much",
+              "start": 13.19,
+              "end": 13.41,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " advanced,",
+              "start": 13.41,
+              "end": 13.87,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " we",
+              "start": 14.31,
+              "end": 14.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " may",
+              "start": 14.51,
+              "end": 14.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " with",
+              "start": 14.65,
+              "end": 14.79,
+              "probability": 0.9609375
+            },
+            {
+              "text": " more",
+              "start": 14.79,
+              "end": 15.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " successful",
+              "start": 15.01,
+              "end": 15.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hope",
+              "start": 15.39,
+              "end": 15.85,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " resolve",
+              "start": 15.85,
+              "end": 16.23,
+              "probability": 0.974609375
+            },
+            {
+              "text": " to",
+              "start": 16.23,
+              "end": 16.53,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " wage by force or guile eternal war, irreconcilable to our grand foe, who now triumphs, and in",
+          "start": 16.53,
+          "end": 27.23,
+          "words": [
+            {
+              "text": " wage",
+              "start": 16.53,
+              "end": 16.79,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " by",
+              "start": 16.79,
+              "end": 17.09,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " force",
+              "start": 17.09,
+              "end": 17.51,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " or",
+              "start": 17.51,
+              "end": 17.75,
+              "probability": 0.98046875
+            },
+            {
+              "text": " guile",
+              "start": 17.75,
+              "end": 18.07,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " eternal",
+              "start": 18.07,
+              "end": 18.35,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " war,",
+              "start": 18.35,
+              "end": 18.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " irreconcilable",
+              "start": 19.37,
+              "end": 20.15,
+              "probability": 0.9964599609375
+            },
+            {
+              "text": " to",
+              "start": 20.15,
+              "end": 20.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " our",
+              "start": 20.39,
+              "end": 20.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " grand",
+              "start": 20.53,
+              "end": 20.81,
+              "probability": 0.8046875
+            },
+            {
+              "text": " foe,",
+              "start": 20.81,
+              "end": 21.13,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " who",
+              "start": 21.47,
+              "end": 21.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " now",
+              "start": 21.69,
+              "end": 21.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " triumphs,",
+              "start": 21.87,
+              "end": 22.61,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " and",
+              "start": 22.73,
+              "end": 27.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 27.23,
+              "end": 27.23,
+              "probability": 0.94384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "that",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "were",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "in",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "raw": "ignominy",
+          "start": 0.77,
+          "end": 1.25
+        },
+        {
+          "raw": "and",
+          "start": 1.25,
+          "end": 1.51
+        },
+        {
+          "raw": "shame",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "raw": "beneath",
+          "start": 1.77,
+          "end": 2.11
+        },
+        {
+          "raw": "this",
+          "start": 2.11,
+          "end": 2.43
+        },
+        {
+          "raw": "downfall,",
+          "start": 2.43,
+          "end": 2.87
+        },
+        {
+          "raw": "since,",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "raw": "by",
+          "start": 3.93,
+          "end": 4.01
+        },
+        {
+          "raw": "fate,",
+          "start": 4.01,
+          "end": 4.37
+        },
+        {
+          "raw": "the",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "raw": "strength",
+          "start": 4.83,
+          "end": 5.05
+        },
+        {
+          "raw": "of",
+          "start": 5.05,
+          "end": 5.29
+        },
+        {
+          "raw": "gods",
+          "start": 5.29,
+          "end": 5.61
+        },
+        {
+          "raw": "and",
+          "start": 5.61,
+          "end": 5.93
+        },
+        {
+          "raw": "this",
+          "start": 5.93,
+          "end": 6.11
+        },
+        {
+          "raw": "empireal",
+          "start": 6.11,
+          "end": 6.71
+        },
+        {
+          "raw": "substance",
+          "start": 6.71,
+          "end": 7.21
+        },
+        {
+          "raw": "cannot",
+          "start": 7.21,
+          "end": 7.79
+        },
+        {
+          "raw": "fail,",
+          "start": 7.79,
+          "end": 8.27
+        },
+        {
+          "raw": "since,",
+          "start": 8.93,
+          "end": 9.29
+        },
+        {
+          "raw": "through",
+          "start": 9.45,
+          "end": 9.67
+        },
+        {
+          "raw": "experience",
+          "start": 9.67,
+          "end": 10.25
+        },
+        {
+          "raw": "of",
+          "start": 10.25,
+          "end": 10.45
+        },
+        {
+          "raw": "this",
+          "start": 10.45,
+          "end": 10.61
+        },
+        {
+          "raw": "great",
+          "start": 10.61,
+          "end": 10.83
+        },
+        {
+          "raw": "event,",
+          "start": 10.83,
+          "end": 11.15
+        },
+        {
+          "raw": "in",
+          "start": 11.43,
+          "end": 11.53
+        },
+        {
+          "raw": "arms",
+          "start": 11.53,
+          "end": 11.81
+        },
+        {
+          "raw": "not",
+          "start": 11.81,
+          "end": 12.05
+        },
+        {
+          "raw": "worse,",
+          "start": 12.05,
+          "end": 12.33
+        },
+        {
+          "raw": "in",
+          "start": 12.69,
+          "end": 12.79
+        },
+        {
+          "raw": "foresight",
+          "start": 12.79,
+          "end": 13.19
+        },
+        {
+          "raw": "much",
+          "start": 13.19,
+          "end": 13.41
+        },
+        {
+          "raw": "advanced,",
+          "start": 13.41,
+          "end": 13.87
+        },
+        {
+          "raw": "we",
+          "start": 14.31,
+          "end": 14.51
+        },
+        {
+          "raw": "may",
+          "start": 14.51,
+          "end": 14.65
+        },
+        {
+          "raw": "with",
+          "start": 14.65,
+          "end": 14.79
+        },
+        {
+          "raw": "more",
+          "start": 14.79,
+          "end": 15.01
+        },
+        {
+          "raw": "successful",
+          "start": 15.01,
+          "end": 15.39
+        },
+        {
+          "raw": "hope",
+          "start": 15.39,
+          "end": 15.85
+        },
+        {
+          "raw": "resolve",
+          "start": 15.85,
+          "end": 16.23
+        },
+        {
+          "raw": "to",
+          "start": 16.23,
+          "end": 16.53
+        },
+        {
+          "raw": "wage",
+          "start": 16.53,
+          "end": 16.79
+        },
+        {
+          "raw": "by",
+          "start": 16.79,
+          "end": 17.09
+        },
+        {
+          "raw": "force",
+          "start": 17.09,
+          "end": 17.51
+        },
+        {
+          "raw": "or",
+          "start": 17.51,
+          "end": 17.75
+        },
+        {
+          "raw": "guile",
+          "start": 17.75,
+          "end": 18.07
+        },
+        {
+          "raw": "eternal",
+          "start": 18.07,
+          "end": 18.35
+        },
+        {
+          "raw": "war,",
+          "start": 18.35,
+          "end": 18.83
+        },
+        {
+          "raw": "irreconcilable",
+          "start": 19.37,
+          "end": 20.15
+        },
+        {
+          "raw": "to",
+          "start": 20.15,
+          "end": 20.39
+        },
+        {
+          "raw": "our",
+          "start": 20.39,
+          "end": 20.53
+        },
+        {
+          "raw": "grand",
+          "start": 20.53,
+          "end": 20.81
+        },
+        {
+          "raw": "foe,",
+          "start": 20.81,
+          "end": 21.13
+        },
+        {
+          "raw": "who",
+          "start": 21.47,
+          "end": 21.69
+        },
+        {
+          "raw": "now",
+          "start": 21.69,
+          "end": 21.87
+        },
+        {
+          "raw": "triumphs,",
+          "start": 21.87,
+          "end": 22.61
+        },
+        {
+          "raw": "and",
+          "start": 22.73,
+          "end": 27.23
+        },
+        {
+          "raw": "in",
+          "start": 27.23,
+          "end": 27.23
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "were",
+        "an",
+        "ignominy",
+        "and",
+        "shame",
+        "beneath",
+        "This",
+        "downfall;",
+        "since,",
+        "by",
+        "fate,",
+        "the",
+        "strength",
+        "of",
+        "Gods,",
+        "And",
+        "this",
+        "empyreal",
+        "substance,",
+        "cannot",
+        "fail;",
+        "Since,",
+        "through",
+        "experience",
+        "of",
+        "this",
+        "great",
+        "event,",
+        "In",
+        "arms",
+        "not",
+        "worse,",
+        "in",
+        "foresight",
+        "much",
+        "advanced,",
+        "We",
+        "may",
+        "with",
+        "more",
+        "successful",
+        "hope",
+        "resolve",
+        "To",
+        "wage",
+        "by",
+        "force",
+        "or",
+        "guile",
+        "eternal",
+        "war,",
+        "Irreconcilable",
+        "to",
+        "our",
+        "grand",
+        "Foe,",
+        "Who",
+        "now",
+        "triumphs,",
+        "and",
+        "in",
+        "th'",
+        "excess",
+        "of",
+        "joy",
+        "Sole",
+        "reigning",
+        "holds",
+        "the",
+        "tyranny",
+        "of",
+        "Heaven.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          18,
+          3,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "equal",
+          19,
+          62,
+          19,
+          62
+        ],
+        [
+          "delete",
+          62,
+          73,
+          62,
+          62
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "delete",
+          62,
+          73,
+          62,
+          62
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "that",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "were",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.63,
+          "end": 0.77,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ignominy",
+          "start": 0.77,
+          "end": 1.25,
+          "key": "ignominy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.25,
+          "end": 1.51,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shame",
+          "start": 1.51,
+          "end": 1.77,
+          "key": "shame",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "beneath",
+          "start": 1.77,
+          "end": 2.11,
+          "key": "beneath",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.11,
+          "end": 2.43,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "downfall,",
+          "start": 2.43,
+          "end": 2.87,
+          "key": "downfall",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "since,",
+          "start": 3.45,
+          "end": 3.71,
+          "key": "since",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.93,
+          "end": 4.01,
+          "key": "by",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "fate,",
+          "start": 4.01,
+          "end": 4.37,
+          "key": "fate",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.71,
+          "end": 4.83,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "strength",
+          "start": 4.83,
+          "end": 5.05,
+          "key": "strength",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.05,
+          "end": 5.29,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "gods",
+          "start": 5.29,
+          "end": 5.61,
+          "key": "gods",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.61,
+          "end": 5.93,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 5.93,
+          "end": 6.11,
+          "key": "this",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "empireal",
+          "start": 6.11,
+          "end": 6.71,
+          "key": "empireal",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "substance",
+          "start": 6.71,
+          "end": 7.21,
+          "key": "substance",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 7.21,
+          "end": 7.79,
+          "key": "cannot",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "fail,",
+          "start": 7.79,
+          "end": 8.27,
+          "key": "fail",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "since,",
+          "start": 8.93,
+          "end": 9.29,
+          "key": "since",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 9.45,
+          "end": 9.67,
+          "key": "through",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "experience",
+          "start": 9.67,
+          "end": 10.25,
+          "key": "experience",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.25,
+          "end": 10.45,
+          "key": "of",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 10.45,
+          "end": 10.61,
+          "key": "this",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 10.61,
+          "end": 10.83,
+          "key": "great",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "event,",
+          "start": 10.83,
+          "end": 11.15,
+          "key": "event",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.43,
+          "end": 11.53,
+          "key": "in",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "arms",
+          "start": 11.53,
+          "end": 11.81,
+          "key": "arms",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 11.81,
+          "end": 12.05,
+          "key": "not",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "worse,",
+          "start": 12.05,
+          "end": 12.33,
+          "key": "worse",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 12.69,
+          "end": 12.79,
+          "key": "in",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "foresight",
+          "start": 12.79,
+          "end": 13.19,
+          "key": "foresight",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 13.19,
+          "end": 13.41,
+          "key": "much",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "advanced,",
+          "start": 13.41,
+          "end": 13.87,
+          "key": "advanced",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 14.31,
+          "end": 14.51,
+          "key": "we",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 14.51,
+          "end": 14.65,
+          "key": "may",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 14.65,
+          "end": 14.79,
+          "key": "with",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 14.79,
+          "end": 15.01,
+          "key": "more",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "successful",
+          "start": 15.01,
+          "end": 15.39,
+          "key": "successful",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 15.39,
+          "end": 15.85,
+          "key": "hope",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "resolve",
+          "start": 15.85,
+          "end": 16.23,
+          "key": "resolve",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.23,
+          "end": 16.53,
+          "key": "to",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "wage",
+          "start": 16.53,
+          "end": 16.79,
+          "key": "wage",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 16.79,
+          "end": 17.09,
+          "key": "by",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "force",
+          "start": 17.09,
+          "end": 17.51,
+          "key": "force",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 17.51,
+          "end": 17.75,
+          "key": "or",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "guile",
+          "start": 17.75,
+          "end": 18.07,
+          "key": "guile",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "eternal",
+          "start": 18.07,
+          "end": 18.35,
+          "key": "eternal",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "war,",
+          "start": 18.35,
+          "end": 18.83,
+          "key": "war",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "irreconcilable",
+          "start": 19.37,
+          "end": 20.15,
+          "key": "irreconcilable",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 20.15,
+          "end": 20.39,
+          "key": "to",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 20.39,
+          "end": 20.53,
+          "key": "our",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "grand",
+          "start": 20.53,
+          "end": 20.81,
+          "key": "grand",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "foe,",
+          "start": 20.81,
+          "end": 21.13,
+          "key": "foe",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 21.47,
+          "end": 21.69,
+          "key": "who",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 21.69,
+          "end": 21.87,
+          "key": "now",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "triumphs,",
+          "start": 21.87,
+          "end": 22.61,
+          "key": "triumphs",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.73,
+          "end": 27.23,
+          "key": "and",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 27.23,
+          "end": 27.23,
+          "key": "in",
+          "pieces": [
+            61
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "were",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "an",
+          "start": 0.63,
+          "end": 0.7
+        },
+        {
+          "text": "ignominy",
+          "start": 0.77,
+          "end": 1.25
+        },
+        {
+          "text": "and",
+          "start": 1.25,
+          "end": 1.51
+        },
+        {
+          "text": "shame",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "text": "beneath",
+          "start": 1.77,
+          "end": 2.11
+        },
+        {
+          "text": "This",
+          "start": 2.11,
+          "end": 2.43
+        },
+        {
+          "text": "downfall;",
+          "start": 2.43,
+          "end": 2.87
+        },
+        {
+          "text": "since,",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "text": "by",
+          "start": 3.93,
+          "end": 4.01
+        },
+        {
+          "text": "fate,",
+          "start": 4.01,
+          "end": 4.37
+        },
+        {
+          "text": "the",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "text": "strength",
+          "start": 4.83,
+          "end": 5.05
+        },
+        {
+          "text": "of",
+          "start": 5.05,
+          "end": 5.29
+        },
+        {
+          "text": "Gods,",
+          "start": 5.29,
+          "end": 5.61
+        },
+        {
+          "text": "And",
+          "start": 5.61,
+          "end": 5.93
+        },
+        {
+          "text": "this",
+          "start": 5.93,
+          "end": 6.11
+        },
+        {
+          "text": "empyreal",
+          "start": 6.11,
+          "end": 6.41
+        },
+        {
+          "text": "substance,",
+          "start": 6.71,
+          "end": 7.21
+        },
+        {
+          "text": "cannot",
+          "start": 7.21,
+          "end": 7.79
+        },
+        {
+          "text": "fail;",
+          "start": 7.79,
+          "end": 8.27
+        },
+        {
+          "text": "Since,",
+          "start": 8.93,
+          "end": 9.29
+        },
+        {
+          "text": "through",
+          "start": 9.45,
+          "end": 9.67
+        },
+        {
+          "text": "experience",
+          "start": 9.67,
+          "end": 10.25
+        },
+        {
+          "text": "of",
+          "start": 10.25,
+          "end": 10.45
+        },
+        {
+          "text": "this",
+          "start": 10.45,
+          "end": 10.61
+        },
+        {
+          "text": "great",
+          "start": 10.61,
+          "end": 10.83
+        },
+        {
+          "text": "event,",
+          "start": 10.83,
+          "end": 11.15
+        },
+        {
+          "text": "In",
+          "start": 11.43,
+          "end": 11.53
+        },
+        {
+          "text": "arms",
+          "start": 11.53,
+          "end": 11.81
+        },
+        {
+          "text": "not",
+          "start": 11.81,
+          "end": 12.05
+        },
+        {
+          "text": "worse,",
+          "start": 12.05,
+          "end": 12.33
+        },
+        {
+          "text": "in",
+          "start": 12.69,
+          "end": 12.79
+        },
+        {
+          "text": "foresight",
+          "start": 12.79,
+          "end": 13.19
+        },
+        {
+          "text": "much",
+          "start": 13.19,
+          "end": 13.41
+        },
+        {
+          "text": "advanced,",
+          "start": 13.41,
+          "end": 13.87
+        },
+        {
+          "text": "We",
+          "start": 14.31,
+          "end": 14.51
+        },
+        {
+          "text": "may",
+          "start": 14.51,
+          "end": 14.65
+        },
+        {
+          "text": "with",
+          "start": 14.65,
+          "end": 14.79
+        },
+        {
+          "text": "more",
+          "start": 14.79,
+          "end": 15.01
+        },
+        {
+          "text": "successful",
+          "start": 15.01,
+          "end": 15.39
+        },
+        {
+          "text": "hope",
+          "start": 15.39,
+          "end": 15.85
+        },
+        {
+          "text": "resolve",
+          "start": 15.85,
+          "end": 16.23
+        },
+        {
+          "text": "To",
+          "start": 16.23,
+          "end": 16.53
+        },
+        {
+          "text": "wage",
+          "start": 16.53,
+          "end": 16.79
+        },
+        {
+          "text": "by",
+          "start": 16.79,
+          "end": 17.09
+        },
+        {
+          "text": "force",
+          "start": 17.09,
+          "end": 17.51
+        },
+        {
+          "text": "or",
+          "start": 17.51,
+          "end": 17.75
+        },
+        {
+          "text": "guile",
+          "start": 17.75,
+          "end": 18.07
+        },
+        {
+          "text": "eternal",
+          "start": 18.07,
+          "end": 18.35
+        },
+        {
+          "text": "war,",
+          "start": 18.35,
+          "end": 18.83
+        },
+        {
+          "text": "Irreconcilable",
+          "start": 19.37,
+          "end": 20.15
+        },
+        {
+          "text": "to",
+          "start": 20.15,
+          "end": 20.39
+        },
+        {
+          "text": "our",
+          "start": 20.39,
+          "end": 20.53
+        },
+        {
+          "text": "grand",
+          "start": 20.53,
+          "end": 20.81
+        },
+        {
+          "text": "Foe,",
+          "start": 20.81,
+          "end": 21.13
+        },
+        {
+          "text": "Who",
+          "start": 21.47,
+          "end": 21.69
+        },
+        {
+          "text": "now",
+          "start": 21.69,
+          "end": 21.87
+        },
+        {
+          "text": "triumphs,",
+          "start": 21.87,
+          "end": 22.61
+        },
+        {
+          "text": "and",
+          "start": 22.73,
+          "end": 27.23
+        },
+        {
+          "text": "in",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "th'",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "excess",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "of",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "joy",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "Sole",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "reigning",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "holds",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "the",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "tyranny",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "of",
+          "start": 27.23,
+          "end": 27.23
+        },
+        {
+          "text": "Heaven.\"",
+          "start": 27.23,
+          "end": 27.23
+        }
+      ],
+      "stats": {
+        "expected_words": 73,
+        "heard_words": 62,
+        "matched_words": 60
+      },
+      "match_ratio": 0.821917808219178,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 2.1222938979044557
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "b4fb843485432ef03025a8fee989bb7b84eb8a243f6841d83736fb463311a3dd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

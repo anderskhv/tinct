@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "cec71435c7a1288e7f0223aacc3be639394e5da83774cc2c7979d4de209e25e9",
+  "attempts": [
+    {
+      "asr_seconds": 0.10665914416313171,
+      "alignment_seconds": 0.00016785506159067154,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Aedile. I have.",
+        "hotwords": "Aedile, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aedile, I have.",
+          "start": 0.11,
+          "end": 1.45,
+          "words": [
+            {
+              "text": " Aedile,",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.08269500732421875
+            },
+            {
+              "text": " I",
+              "start": 1.03,
+              "end": 1.13,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " have.",
+              "start": 1.13,
+              "end": 1.45,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aedile,",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "I",
+          "start": 1.03,
+          "end": 1.13
+        },
+        {
+          "raw": "have.",
+          "start": 1.13,
+          "end": 1.45
+        }
+      ],
+      "expected_tokens": [
+        "Aedile.",
+        "I",
+        "have."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aedile,",
+          "start": 0.11,
+          "end": 0.83,
+          "key": "aedile",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.03,
+          "end": 1.13,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have.",
+          "start": 1.13,
+          "end": 1.45,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aedile.",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "I",
+          "start": 1.03,
+          "end": 1.13
+        },
+        {
+          "text": "have.",
+          "start": 1.13,
+          "end": 1.45
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10688875010237098
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "de29b8566bcfc07fd9fd5e4d1812d30ad15c655443de0d041c2754df51020cd2",
+  "selected_reasons": []
+}

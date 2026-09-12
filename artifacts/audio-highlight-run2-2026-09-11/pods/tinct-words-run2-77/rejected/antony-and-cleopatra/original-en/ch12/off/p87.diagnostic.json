@@ -1,0 +1,358 @@
+{
+  "complete": true,
+  "signature": "5dd1a52e0c2f153803212235311ddcdbd280d4ea1dc3f5db8b984ebc9b325068",
+  "attempts": [
+    {
+      "asr_seconds": 0.17112544900737703,
+      "alignment_seconds": 0.00025615899357944727,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Music plays, and Abarbis places them hand in hand.",
+          "start": 0.05,
+          "end": 3.45,
+          "words": [
+            {
+              "text": " Music",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.904296875
+            },
+            {
+              "text": " plays,",
+              "start": 0.69,
+              "end": 1.07,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 1.65,
+              "end": 1.71,
+              "probability": 0.6923828125
+            },
+            {
+              "text": " Abarbis",
+              "start": 1.71,
+              "end": 2.13,
+              "probability": 0.23996988932291666
+            },
+            {
+              "text": " places",
+              "start": 2.13,
+              "end": 2.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " them",
+              "start": 2.47,
+              "end": 2.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hand",
+              "start": 2.71,
+              "end": 2.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 2.95,
+              "end": 3.13,
+              "probability": 0.765625
+            },
+            {
+              "text": " hand.",
+              "start": 3.13,
+              "end": 3.45,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Music",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "plays,",
+          "start": 0.69,
+          "end": 1.07
+        },
+        {
+          "raw": "and",
+          "start": 1.65,
+          "end": 1.71
+        },
+        {
+          "raw": "Abarbis",
+          "start": 1.71,
+          "end": 2.13
+        },
+        {
+          "raw": "places",
+          "start": 2.13,
+          "end": 2.47
+        },
+        {
+          "raw": "them",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "raw": "hand",
+          "start": 2.71,
+          "end": 2.95
+        },
+        {
+          "raw": "in",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "raw": "hand.",
+          "start": 3.13,
+          "end": 3.45
+        }
+      ],
+      "expected_tokens": [
+        "Music",
+        "plays.",
+        "Enobarbus",
+        "places",
+        "them",
+        "hand",
+        "in",
+        "hand."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          8,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Music",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "music",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "plays,",
+          "start": 0.69,
+          "end": 1.07,
+          "key": "plays",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.65,
+          "end": 1.71,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Abarbis",
+          "start": 1.71,
+          "end": 2.13,
+          "key": "abarbis",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "places",
+          "start": 2.13,
+          "end": 2.47,
+          "key": "places",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.47,
+          "end": 2.71,
+          "key": "them",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 2.71,
+          "end": 2.95,
+          "key": "hand",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.95,
+          "end": 3.13,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 3.13,
+          "end": 3.45,
+          "key": "hand",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Music",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "plays.",
+          "start": 0.69,
+          "end": 1.07
+        },
+        {
+          "text": "Enobarbus",
+          "start": 1.07,
+          "end": 1.6
+        },
+        {
+          "text": "places",
+          "start": 2.13,
+          "end": 2.47
+        },
+        {
+          "text": "them",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "text": "hand",
+          "start": 2.71,
+          "end": 2.95
+        },
+        {
+          "text": "in",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "text": "hand.",
+          "start": 3.13,
+          "end": 3.45
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.171471040986944
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "46c36a122ea4718a08b5b8206f9afe40612e384a9fec2867971795da8f9e158a",
+  "selected_reasons": []
+}

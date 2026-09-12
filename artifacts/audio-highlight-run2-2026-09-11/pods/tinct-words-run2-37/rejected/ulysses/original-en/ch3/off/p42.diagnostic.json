@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "54ab5d4b8ba3fef084402f41ada71d0083d1dce9c9fb611de1562d4d4c767981",
+  "attempts": [
+    {
+      "asr_seconds": 0.20684123801765963,
+      "alignment_seconds": 0.00045508300536312163,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Quivous amis dans, set fissue position.",
+          "start": 0.08,
+          "end": 2.46,
+          "words": [
+            {
+              "text": " Quivous",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.4384765625
+            },
+            {
+              "text": " amis",
+              "start": 0.78,
+              "end": 1.08,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " dans,",
+              "start": 1.08,
+              "end": 1.48,
+              "probability": 0.70556640625
+            },
+            {
+              "text": " set",
+              "start": 1.72,
+              "end": 1.76,
+              "probability": 0.96875
+            },
+            {
+              "text": " fissue",
+              "start": 1.76,
+              "end": 2.08,
+              "probability": 0.47607421875
+            },
+            {
+              "text": " position.",
+              "start": 2.08,
+              "end": 2.46,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quivous",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "amis",
+          "start": 0.78,
+          "end": 1.08
+        },
+        {
+          "raw": "dans,",
+          "start": 1.08,
+          "end": 1.48
+        },
+        {
+          "raw": "set",
+          "start": 1.72,
+          "end": 1.76
+        },
+        {
+          "raw": "fissue",
+          "start": 1.76,
+          "end": 2.08
+        },
+        {
+          "raw": "position.",
+          "start": 2.08,
+          "end": 2.46
+        }
+      ],
+      "expected_tokens": [
+        "_—Qui",
+        "vous",
+        "a",
+        "mis",
+        "dans",
+        "cette",
+        "fichue",
+        "position?_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          "equal",
+          4,
+          5,
+          2,
+          3
+        ],
+        [
+          "replace",
+          5,
+          7,
+          3,
+          5
+        ],
+        [
+          "equal",
+          7,
+          8,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          "replace",
+          5,
+          7,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Quivous",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "quivous",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "amis",
+          "start": 0.78,
+          "end": 1.08,
+          "key": "amis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dans,",
+          "start": 1.08,
+          "end": 1.48,
+          "key": "dans",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 1.72,
+          "end": 1.76,
+          "key": "set",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fissue",
+          "start": 1.76,
+          "end": 2.08,
+          "key": "fissue",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "position.",
+          "start": 2.08,
+          "end": 2.46,
+          "key": "position",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—Qui",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "text": "vous",
+          "start": 0.54,
+          "end": 0.81
+        },
+        {
+          "text": "a",
+          "start": 0.81,
+          "end": 0.945
+        },
+        {
+          "text": "mis",
+          "start": 0.945,
+          "end": 1.012
+        },
+        {
+          "text": "dans",
+          "start": 1.08,
+          "end": 1.48
+        },
+        {
+          "text": "cette",
+          "start": 1.48,
+          "end": 1.78
+        },
+        {
+          "text": "fichue",
+          "start": 1.78,
+          "end": 1.93
+        },
+        {
+          "text": "position?_",
+          "start": 2.08,
+          "end": 2.46
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 6,
+        "matched_words": 2
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20742061000782996
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dc0ef3f3ee8e574b7064d393a7fa0703c2060d2abf433374b1c9a9c350b976b1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

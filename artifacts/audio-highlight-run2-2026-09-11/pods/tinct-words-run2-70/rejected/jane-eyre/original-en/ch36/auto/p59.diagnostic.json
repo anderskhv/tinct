@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "b50d6fc59b033335d500e3276400ca3a7cb5abf118588b1de3995dc9ef71c05e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1814483709167689,
+      "alignment_seconds": 0.0003257780335843563,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And afterwards?\" I urged.",
+        "hotwords": "And, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And afterwards, I urged.",
+          "start": 0.08,
+          "end": 1.76,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.69287109375
+            },
+            {
+              "text": " afterwards,",
+              "start": 0.54,
+              "end": 0.98,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " I",
+              "start": 1.4,
+              "end": 1.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " urged.",
+              "start": 1.48,
+              "end": 1.76,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "afterwards,",
+          "start": 0.54,
+          "end": 0.98
+        },
+        {
+          "raw": "I",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "raw": "urged.",
+          "start": 1.48,
+          "end": 1.76
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "afterwards?\"",
+        "I",
+        "urged."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "afterwards,",
+          "start": 0.54,
+          "end": 0.98,
+          "key": "afterwards",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.4,
+          "end": 1.48,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "urged.",
+          "start": 1.48,
+          "end": 1.76,
+          "key": "urged",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "afterwards?\"",
+          "start": 0.54,
+          "end": 0.98
+        },
+        {
+          "text": "I",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "text": "urged.",
+          "start": 1.48,
+          "end": 1.76
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18189774989150465
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bb68003e83a5de1f8d6fddd5dfe5d4ce02d9e70d29de4905c527f24b2561c59d",
+  "selected_reasons": []
+}

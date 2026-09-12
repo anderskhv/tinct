@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "e44b63a8219c21a58c80dd166ce12ca0e3b65997dd76c24753dad29d8cc5f511",
+  "attempts": [
+    {
+      "asr_seconds": 0.1521336550358683,
+      "alignment_seconds": 0.00033574202097952366,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " and his sisters also.",
+          "start": 0.08,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " and",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.556640625
+            },
+            {
+              "text": " his",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " sisters",
+              "start": 0.66,
+              "end": 0.96,
+              "probability": 0.96875
+            },
+            {
+              "text": " also.",
+              "start": 0.96,
+              "end": 1.42,
+              "probability": 0.84423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "and",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "his",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "sisters",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "raw": "also.",
+          "start": 0.96,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "his",
+        "sisters",
+        "also?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "and",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "his",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sisters",
+          "start": 0.66,
+          "end": 0.96,
+          "key": "sisters",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "also.",
+          "start": 0.96,
+          "end": 1.42,
+          "key": "also",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "his",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "sisters",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "text": "also?\"",
+          "start": 0.96,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15258752508088946
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "73db371ae93860440c4f85aaf531760875a1a0373d5db7577940e01950a4e6ca",
+  "selected_reasons": []
+}

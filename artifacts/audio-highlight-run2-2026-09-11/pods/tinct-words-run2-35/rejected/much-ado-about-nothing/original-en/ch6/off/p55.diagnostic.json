@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "ee32ae99492d6d83df4059b9b96ca6bd98e693540859cbe960bab217ef3e562a",
+  "attempts": [
+    {
+      "asr_seconds": 0.14408663101494312,
+      "alignment_seconds": 0.00022359564900398254,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Claudio.",
+          "start": 0.08,
+          "end": 0.8,
+          "words": [
+            {
+              "text": " Claudio.",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.90673828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Claudio.",
+          "start": 0.08,
+          "end": 0.8
+        }
+      ],
+      "expected_tokens": [
+        "Claudio."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Claudio.",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "claudio",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Claudio.",
+          "start": 0.08,
+          "end": 0.8
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1443804483860731
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "14f00d33f073dc410a613174884dcea61486dae9d78c9eefe8f5ef8cf5b05c0a",
+  "selected_reasons": []
+}

@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "223942a68a123d0898401f2137f91bf9aea26d6227bf0f1cdf2024d3ad7ce4a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.24437202792614698,
+      "alignment_seconds": 0.00038975849747657776,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It is done!\" he said. \"I've long been yearning to see you, why didn't you come?\"",
+        "hotwords": "It, I've"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It is done, he said. I've long been yearning to see you, why didn't you come?",
+          "start": 0.05,
+          "end": 4.31,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.2203369140625
+            },
+            {
+              "text": " is",
+              "start": 0.53,
+              "end": 0.69,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " done,",
+              "start": 0.69,
+              "end": 1.05,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he",
+              "start": 1.39,
+              "end": 1.57,
+              "probability": 0.984375
+            },
+            {
+              "text": " said.",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I've",
+              "start": 2.35,
+              "end": 2.49,
+              "probability": 0.961181640625
+            },
+            {
+              "text": " long",
+              "start": 2.49,
+              "end": 2.63,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " been",
+              "start": 2.63,
+              "end": 2.79,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " yearning",
+              "start": 2.79,
+              "end": 3.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 3.07,
+              "end": 3.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " see",
+              "start": 3.23,
+              "end": 3.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you,",
+              "start": 3.43,
+              "end": 3.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " why",
+              "start": 3.71,
+              "end": 3.79,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " didn't",
+              "start": 3.79,
+              "end": 3.99,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " you",
+              "start": 3.99,
+              "end": 4.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " come?",
+              "start": 4.09,
+              "end": 4.31,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "raw": "done,",
+          "start": 0.69,
+          "end": 1.05
+        },
+        {
+          "raw": "he",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "raw": "said.",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "raw": "I've",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "raw": "long",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "raw": "been",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "raw": "yearning",
+          "start": 2.79,
+          "end": 3.07
+        },
+        {
+          "raw": "to",
+          "start": 3.07,
+          "end": 3.23
+        },
+        {
+          "raw": "see",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "raw": "you,",
+          "start": 3.43,
+          "end": 3.61
+        },
+        {
+          "raw": "why",
+          "start": 3.71,
+          "end": 3.79
+        },
+        {
+          "raw": "didn't",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "raw": "you",
+          "start": 3.99,
+          "end": 4.09
+        },
+        {
+          "raw": "come?",
+          "start": 4.09,
+          "end": 4.31
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "is",
+        "done!\"",
+        "he",
+        "said.",
+        "\"I've",
+        "long",
+        "been",
+        "yearning",
+        "to",
+        "see",
+        "you,",
+        "why",
+        "didn't",
+        "you",
+        "come?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.69,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "done,",
+          "start": 0.69,
+          "end": 1.05,
+          "key": "done",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.39,
+          "end": 1.57,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.57,
+          "end": 1.85,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I've",
+          "start": 2.35,
+          "end": 2.49,
+          "key": "ive",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 2.49,
+          "end": 2.63,
+          "key": "long",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.63,
+          "end": 2.79,
+          "key": "been",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "yearning",
+          "start": 2.79,
+          "end": 3.07,
+          "key": "yearning",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.07,
+          "end": 3.23,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.23,
+          "end": 3.43,
+          "key": "see",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 3.43,
+          "end": 3.61,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 3.71,
+          "end": 3.79,
+          "key": "why",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "didn't",
+          "start": 3.79,
+          "end": 3.99,
+          "key": "didnt",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.99,
+          "end": 4.09,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "come?",
+          "start": 4.09,
+          "end": 4.31,
+          "key": "come",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "is",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "text": "done!\"",
+          "start": 0.69,
+          "end": 1.05
+        },
+        {
+          "text": "he",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "text": "said.",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "\"I've",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "text": "long",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "text": "been",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "text": "yearning",
+          "start": 2.79,
+          "end": 3.07
+        },
+        {
+          "text": "to",
+          "start": 3.07,
+          "end": 3.23
+        },
+        {
+          "text": "see",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "text": "you,",
+          "start": 3.43,
+          "end": 3.61
+        },
+        {
+          "text": "why",
+          "start": 3.71,
+          "end": 3.79
+        },
+        {
+          "text": "didn't",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "text": "you",
+          "start": 3.99,
+          "end": 4.09
+        },
+        {
+          "text": "come?\"",
+          "start": 4.09,
+          "end": 4.31
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24491144809871912
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66c1ff02e9411a9c2084208d1d946d7904340d4c212031b32d9268f2058b0de1",
+  "selected_reasons": []
+}

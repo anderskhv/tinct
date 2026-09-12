@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "f6844782e51d7b7d8b65d3e2d654d6276229acfb2a330029e108b8aee444a1c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.19490151898935437,
+      "alignment_seconds": 0.00026980199618265033,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Come Ned, Mr. Daedalus said, putting on his hat. I must get a drink after that.",
+          "start": 0.08,
+          "end": 5.24,
+          "words": [
+            {
+              "text": " Come",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.09197998046875
+            },
+            {
+              "text": " Ned,",
+              "start": 0.66,
+              "end": 1.04,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " Mr.",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.853515625
+            },
+            {
+              "text": " Daedalus",
+              "start": 1.86,
+              "end": 2.08,
+              "probability": 0.543212890625
+            },
+            {
+              "text": " said,",
+              "start": 2.08,
+              "end": 2.38,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " putting",
+              "start": 2.48,
+              "end": 2.7,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " on",
+              "start": 2.7,
+              "end": 2.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hat.",
+              "start": 3.02,
+              "end": 3.32,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " I",
+              "start": 3.84,
+              "end": 3.94,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " must",
+              "start": 3.94,
+              "end": 4.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " get",
+              "start": 4.06,
+              "end": 4.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 4.2,
+              "end": 4.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " drink",
+              "start": 4.32,
+              "end": 4.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " after",
+              "start": 4.52,
+              "end": 4.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that.",
+              "start": 4.86,
+              "end": 5.24,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Come",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Ned,",
+          "start": 0.66,
+          "end": 1.04
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "Daedalus",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "raw": "said,",
+          "start": 2.08,
+          "end": 2.38
+        },
+        {
+          "raw": "putting",
+          "start": 2.48,
+          "end": 2.7
+        },
+        {
+          "raw": "on",
+          "start": 2.7,
+          "end": 2.9
+        },
+        {
+          "raw": "his",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "hat.",
+          "start": 3.02,
+          "end": 3.32
+        },
+        {
+          "raw": "I",
+          "start": 3.84,
+          "end": 3.94
+        },
+        {
+          "raw": "must",
+          "start": 3.94,
+          "end": 4.06
+        },
+        {
+          "raw": "get",
+          "start": 4.06,
+          "end": 4.2
+        },
+        {
+          "raw": "a",
+          "start": 4.2,
+          "end": 4.32
+        },
+        {
+          "raw": "drink",
+          "start": 4.32,
+          "end": 4.52
+        },
+        {
+          "raw": "after",
+          "start": 4.52,
+          "end": 4.86
+        },
+        {
+          "raw": "that.",
+          "start": 4.86,
+          "end": 5.24
+        }
+      ],
+      "expected_tokens": [
+        "—Come,",
+        "Ned,",
+        "Mr",
+        "Dedalus",
+        "said,",
+        "putting",
+        "on",
+        "his",
+        "hat.",
+        "I",
+        "must",
+        "get",
+        "a",
+        "drink",
+        "after",
+        "that."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          16,
+          4,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Come",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "come",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ned,",
+          "start": 0.66,
+          "end": 1.04,
+          "key": "ned",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Daedalus",
+          "start": 1.86,
+          "end": 2.08,
+          "key": "daedalus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 2.08,
+          "end": 2.38,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "putting",
+          "start": 2.48,
+          "end": 2.7,
+          "key": "putting",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.7,
+          "end": 2.9,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hat.",
+          "start": 3.02,
+          "end": 3.32,
+          "key": "hat",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.84,
+          "end": 3.94,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 3.94,
+          "end": 4.06,
+          "key": "must",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 4.06,
+          "end": 4.2,
+          "key": "get",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.2,
+          "end": 4.32,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "drink",
+          "start": 4.32,
+          "end": 4.52,
+          "key": "drink",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 4.52,
+          "end": 4.86,
+          "key": "after",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 4.86,
+          "end": 5.24,
+          "key": "that",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Come,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Ned,",
+          "start": 0.66,
+          "end": 1.04
+        },
+        {
+          "text": "Mr",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "Dedalus",
+          "start": 1.66,
+          "end": 1.87
+        },
+        {
+          "text": "said,",
+          "start": 2.08,
+          "end": 2.38
+        },
+        {
+          "text": "putting",
+          "start": 2.48,
+          "end": 2.7
+        },
+        {
+          "text": "on",
+          "start": 2.7,
+          "end": 2.9
+        },
+        {
+          "text": "his",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "hat.",
+          "start": 3.02,
+          "end": 3.32
+        },
+        {
+          "text": "I",
+          "start": 3.84,
+          "end": 3.94
+        },
+        {
+          "text": "must",
+          "start": 3.94,
+          "end": 4.06
+        },
+        {
+          "text": "get",
+          "start": 4.06,
+          "end": 4.2
+        },
+        {
+          "text": "a",
+          "start": 4.2,
+          "end": 4.32
+        },
+        {
+          "text": "drink",
+          "start": 4.32,
+          "end": 4.52
+        },
+        {
+          "text": "after",
+          "start": 4.52,
+          "end": 4.86
+        },
+        {
+          "text": "that.",
+          "start": 4.86,
+          "end": 5.24
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.19525172101566568
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bf67d1be48e7e3691a6334c3f853b48d46656aaa3298da73188a186419b7b3b3",
+  "selected_reasons": []
+}

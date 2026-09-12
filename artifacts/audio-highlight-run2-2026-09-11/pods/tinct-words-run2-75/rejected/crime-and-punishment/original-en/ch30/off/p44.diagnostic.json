@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "be1b2037abee0821bd3472644eeaca2bef5792d6666d8a4902abf9095ad8888a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1311614140868187,
+      "alignment_seconds": 0.0003064088523387909,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sonya waited uneasily.",
+          "start": 0.11,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Sonya",
+              "start": 0.11,
+              "end": 0.81,
+              "probability": 0.755126953125
+            },
+            {
+              "text": " waited",
+              "start": 0.81,
+              "end": 1.01,
+              "probability": 0.990234375
+            },
+            {
+              "text": " uneasily.",
+              "start": 1.01,
+              "end": 1.59,
+              "probability": 0.9778645833333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sonya",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "raw": "waited",
+          "start": 0.81,
+          "end": 1.01
+        },
+        {
+          "raw": "uneasily.",
+          "start": 1.01,
+          "end": 1.59
+        }
+      ],
+      "expected_tokens": [
+        "Sonia",
+        "waited",
+        "uneasily."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sonya",
+          "start": 0.11,
+          "end": 0.81,
+          "key": "sonya",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "waited",
+          "start": 0.81,
+          "end": 1.01,
+          "key": "waited",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "uneasily.",
+          "start": 1.01,
+          "end": 1.59,
+          "key": "uneasily",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sonia",
+          "start": 0.0,
+          "end": 0.405
+        },
+        {
+          "text": "waited",
+          "start": 0.81,
+          "end": 1.01
+        },
+        {
+          "text": "uneasily.",
+          "start": 1.01,
+          "end": 1.59
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13157719746232033
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9150b6737091ea03578a5955d5cada78559fcb935de3aa95eed73b2cceb5ba81",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

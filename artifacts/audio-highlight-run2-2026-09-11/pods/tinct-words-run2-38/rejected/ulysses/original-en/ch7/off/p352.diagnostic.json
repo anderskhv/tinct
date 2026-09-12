@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "87339a955d9d3dbf745745c3544a194b927d1ce48cee916610709b6f5b4b6f36",
+  "attempts": [
+    {
+      "asr_seconds": 0.09806751803262159,
+      "alignment_seconds": 0.00016009004320949316,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clever Lenihan said, very.",
+          "start": 0.08,
+          "end": 1.82,
+          "words": [
+            {
+              "text": " Clever",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.595703125
+            },
+            {
+              "text": " Lenihan",
+              "start": 0.62,
+              "end": 1.08,
+              "probability": 0.6732584635416666
+            },
+            {
+              "text": " said,",
+              "start": 1.08,
+              "end": 1.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " very.",
+              "start": 1.54,
+              "end": 1.82,
+              "probability": 0.1104736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clever",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Lenihan",
+          "start": 0.62,
+          "end": 1.08
+        },
+        {
+          "raw": "said,",
+          "start": 1.08,
+          "end": 1.32
+        },
+        {
+          "raw": "very.",
+          "start": 1.54,
+          "end": 1.82
+        }
+      ],
+      "expected_tokens": [
+        "—Clever,",
+        "Lenehan",
+        "said.",
+        "Very."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clever",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "clever",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lenihan",
+          "start": 0.62,
+          "end": 1.08,
+          "key": "lenihan",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.08,
+          "end": 1.32,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "very.",
+          "start": 1.54,
+          "end": 1.82,
+          "key": "very",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Clever,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Lenehan",
+          "start": 0.62,
+          "end": 0.85
+        },
+        {
+          "text": "said.",
+          "start": 1.08,
+          "end": 1.32
+        },
+        {
+          "text": "Very.",
+          "start": 1.54,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09828067000489682
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f37e7992350e26b776228fcb2bf74bba1980e7d26392c5dbb82b6f5d24e4cb31",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

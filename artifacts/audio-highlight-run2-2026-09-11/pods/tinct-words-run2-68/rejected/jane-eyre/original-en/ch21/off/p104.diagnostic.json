@@ -1,0 +1,511 @@
+{
+  "complete": true,
+  "signature": "a8a1a73a01ccb9e4bfe136d9e06e0aba395a535cd2522eec86df2213dac54e28",
+  "attempts": [
+    {
+      "asr_seconds": 0.21692165732383728,
+      "alignment_seconds": 0.0005939304828643799,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bless you, I knew you would come,\" exclaimed Mrs. Levin as I entered.",
+          "start": 0.05,
+          "end": 4.45,
+          "words": [
+            {
+              "text": " Bless",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.06671142578125
+            },
+            {
+              "text": " you,",
+              "start": 0.61,
+              "end": 0.91,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " I",
+              "start": 1.21,
+              "end": 1.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " knew",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " would",
+              "start": 1.67,
+              "end": 1.79,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " come,\"",
+              "start": 1.79,
+              "end": 2.61,
+              "probability": 0.656982421875
+            },
+            {
+              "text": " exclaimed",
+              "start": 2.61,
+              "end": 2.97,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Mrs.",
+              "start": 2.97,
+              "end": 3.37,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Levin",
+              "start": 3.61,
+              "end": 3.65,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " as",
+              "start": 3.65,
+              "end": 3.99,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " I",
+              "start": 3.99,
+              "end": 4.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " entered.",
+              "start": 4.11,
+              "end": 4.45,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bless",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "you,",
+          "start": 0.61,
+          "end": 0.91
+        },
+        {
+          "raw": "I",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "raw": "knew",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "you",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "would",
+          "start": 1.67,
+          "end": 1.79
+        },
+        {
+          "raw": "come,\"",
+          "start": 1.79,
+          "end": 2.61
+        },
+        {
+          "raw": "exclaimed",
+          "start": 2.61,
+          "end": 2.97
+        },
+        {
+          "raw": "Mrs.",
+          "start": 2.97,
+          "end": 3.37
+        },
+        {
+          "raw": "Levin",
+          "start": 3.61,
+          "end": 3.65
+        },
+        {
+          "raw": "as",
+          "start": 3.65,
+          "end": 3.99
+        },
+        {
+          "raw": "I",
+          "start": 3.99,
+          "end": 4.11
+        },
+        {
+          "raw": "entered.",
+          "start": 4.11,
+          "end": 4.45
+        }
+      ],
+      "expected_tokens": [
+        "\"Bless",
+        "you!—I",
+        "knew",
+        "you",
+        "would",
+        "come!\"",
+        "exclaimed",
+        "Mrs.",
+        "Leaven,",
+        "as",
+        "I",
+        "entered."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          8,
+          3,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          10
+        ],
+        [
+          "equal",
+          9,
+          12,
+          10,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bless",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "bless",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 0.61,
+          "end": 0.91,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.21,
+          "end": 1.39,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 1.39,
+          "end": 1.53,
+          "key": "knew",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.67,
+          "end": 1.79,
+          "key": "would",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "come,\"",
+          "start": 1.79,
+          "end": 2.61,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 2.61,
+          "end": 2.97,
+          "key": "exclaimed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 2.97,
+          "end": 3.37,
+          "key": "mrs",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Levin",
+          "start": 3.61,
+          "end": 3.65,
+          "key": "levin",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.65,
+          "end": 3.99,
+          "key": "as",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.99,
+          "end": 4.11,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "entered.",
+          "start": 4.11,
+          "end": 4.45,
+          "key": "entered",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Bless",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "you!—I",
+          "start": 0.61,
+          "end": 1.0
+        },
+        {
+          "text": "knew",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "you",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "would",
+          "start": 1.67,
+          "end": 1.79
+        },
+        {
+          "text": "come!\"",
+          "start": 1.79,
+          "end": 2.61
+        },
+        {
+          "text": "exclaimed",
+          "start": 2.61,
+          "end": 2.97
+        },
+        {
+          "text": "Mrs.",
+          "start": 2.97,
+          "end": 3.37
+        },
+        {
+          "text": "Leaven,",
+          "start": 3.37,
+          "end": 3.51
+        },
+        {
+          "text": "as",
+          "start": 3.65,
+          "end": 3.99
+        },
+        {
+          "text": "I",
+          "start": 3.99,
+          "end": 4.11
+        },
+        {
+          "text": "entered.",
+          "start": 4.11,
+          "end": 4.45
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21772635355591774
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d14df58896dc22664c6908182bb4c5277773b8b1b59e247c9ac045fbff6cbd66",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

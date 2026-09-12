@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "7c128efa25cb677fb0aada0525a5a38415114ad5588a858170c97771ddafde25",
+  "attempts": [
+    {
+      "asr_seconds": 0.20674682408571243,
+      "alignment_seconds": 0.0004050061106681824,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter King Richard, Radcliffe and soldiers.",
+          "start": 0.14,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.64,
+              "probability": 0.947265625
+            },
+            {
+              "text": " King",
+              "start": 0.64,
+              "end": 0.88,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Richard,",
+              "start": 0.88,
+              "end": 1.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Radcliffe",
+              "start": 1.86,
+              "end": 2.08,
+              "probability": 0.6136474609375
+            },
+            {
+              "text": " and",
+              "start": 2.08,
+              "end": 2.28,
+              "probability": 0.63720703125
+            },
+            {
+              "text": " soldiers.",
+              "start": 2.28,
+              "end": 2.64,
+              "probability": 0.84521484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "raw": "King",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.88,
+          "end": 1.3
+        },
+        {
+          "raw": "Radcliffe",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "raw": "and",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "raw": "soldiers.",
+          "start": 2.28,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "King",
+        "Richard,",
+        "Ratcliffe",
+        "and",
+        "Soldiers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 0.64,
+          "end": 0.88,
+          "key": "king",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.88,
+          "end": 1.3,
+          "key": "richard",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Radcliffe",
+          "start": 1.86,
+          "end": 2.08,
+          "key": "radcliffe",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.08,
+          "end": 2.28,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "soldiers.",
+          "start": 2.28,
+          "end": 2.64,
+          "key": "soldiers",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "text": "King",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "text": "Richard,",
+          "start": 0.88,
+          "end": 1.3
+        },
+        {
+          "text": "Ratcliffe",
+          "start": 1.3,
+          "end": 1.69
+        },
+        {
+          "text": "and",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "text": "Soldiers.",
+          "start": 2.28,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20728715509176254
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "218f8b2c18553e26e494e440fb79caaa5d8c4041efc1dc2126bf9f7560337d56",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

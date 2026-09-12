@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "9d81f763d5c806528d07bc220b78148922d66df8ef5cfcee74f78a86ce927270",
+  "attempts": [
+    {
+      "asr_seconds": 0.8416858036071062,
+      "alignment_seconds": 0.00033924728631973267,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. You are welcome.",
+        "hotwords": "Hamlet, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, You are welcome.",
+          "start": 0.08,
+          "end": 1.64,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " You",
+              "start": 1.08,
+              "end": 1.2,
+              "probability": 0.0199737548828125
+            },
+            {
+              "text": " are",
+              "start": 1.2,
+              "end": 1.32,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " welcome.",
+              "start": 1.32,
+              "end": 1.64,
+              "probability": 0.9130859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "You",
+          "start": 1.08,
+          "end": 1.2
+        },
+        {
+          "raw": "are",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "raw": "welcome.",
+          "start": 1.32,
+          "end": 1.64
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "You",
+        "are",
+        "welcome."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.08,
+          "end": 1.2,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.2,
+          "end": 1.32,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "welcome.",
+          "start": 1.32,
+          "end": 1.64,
+          "key": "welcome",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "You",
+          "start": 1.08,
+          "end": 1.2
+        },
+        {
+          "text": "are",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "text": "welcome.",
+          "start": 1.32,
+          "end": 1.64
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8421422857791185
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d3983b316a2cd53b7a71b292a103b70db37cb8d2d87d1edda4e4490c6aad8349",
+  "selected_reasons": []
+}

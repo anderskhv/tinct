@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "96fab1c76007dd338e235dbdb3dd2aba88d46190d74c8d80052ebae944370949",
+  "attempts": [
+    {
+      "asr_seconds": 0.1535758469835855,
+      "alignment_seconds": 0.0003420269931666553,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It's Steven, sir.",
+          "start": 0.02,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " It's",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " Steven,",
+              "start": 0.66,
+              "end": 0.9,
+              "probability": 0.62841796875
+            },
+            {
+              "text": " sir.",
+              "start": 1.18,
+              "end": 1.18,
+              "probability": 0.88525390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It's",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Steven,",
+          "start": 0.66,
+          "end": 0.9
+        },
+        {
+          "raw": "sir.",
+          "start": 1.18,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "—It's",
+        "Stephen,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It's",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "its",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Steven,",
+          "start": 0.66,
+          "end": 0.9,
+          "key": "steven",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.18,
+          "end": 1.18,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—It's",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Stephen,",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "text": "sir.",
+          "start": 1.18,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15402739000273868
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e656f8579f0550cfa4bdd8b7bc47a83621097017579c5c7783b1a59e1c292409",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

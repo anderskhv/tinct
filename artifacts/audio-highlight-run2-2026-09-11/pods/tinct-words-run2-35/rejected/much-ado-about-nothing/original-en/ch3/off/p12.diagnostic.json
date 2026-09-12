@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "f06f306c50cafd29bc7f61b1cff3cd63def7609b9589e78e385c8c5a4f07e339",
+  "attempts": [
+    {
+      "asr_seconds": 0.14243661984801292,
+      "alignment_seconds": 0.00030810199677944183,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What news, Boratio?",
+          "start": 0.05,
+          "end": 1.41,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " news,",
+              "start": 0.55,
+              "end": 0.91,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " Boratio?",
+              "start": 1.11,
+              "end": 1.41,
+              "probability": 0.5595703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "news,",
+          "start": 0.55,
+          "end": 0.91
+        },
+        {
+          "raw": "Boratio?",
+          "start": 1.11,
+          "end": 1.41
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "news,",
+        "Borachio?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "news,",
+          "start": 0.55,
+          "end": 0.91,
+          "key": "news",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Boratio?",
+          "start": 1.11,
+          "end": 1.41,
+          "key": "boratio",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "news,",
+          "start": 0.55,
+          "end": 0.91
+        },
+        {
+          "text": "Borachio?",
+          "start": 0.91,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14284312911331654
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "898d16eb107ac3f3ece8e9930a3cf843dd74ec20923fb9aed4af92bbe148a8ba",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

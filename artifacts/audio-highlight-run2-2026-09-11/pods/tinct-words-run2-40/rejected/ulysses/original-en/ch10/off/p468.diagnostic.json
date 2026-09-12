@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "eb6cfb5571e9e57ecadf9e60e2407f470d356cec7c838f9a1eb96996734db9a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.3125527398660779,
+      "alignment_seconds": 0.0005769641138613224,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Outside, La Maison Claire blazes Boylen waylaid Jack Mooney's brother-in-law,",
+          "start": 0.08,
+          "end": 4.66,
+          "words": [
+            {
+              "text": " Outside,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.60205078125
+            },
+            {
+              "text": " La",
+              "start": 0.88,
+              "end": 0.94,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " Maison",
+              "start": 0.94,
+              "end": 1.3,
+              "probability": 0.7252197265625
+            },
+            {
+              "text": " Claire",
+              "start": 1.3,
+              "end": 1.6,
+              "probability": 0.360595703125
+            },
+            {
+              "text": " blazes",
+              "start": 1.6,
+              "end": 2.06,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " Boylen",
+              "start": 2.06,
+              "end": 2.6,
+              "probability": 0.471435546875
+            },
+            {
+              "text": " waylaid",
+              "start": 2.6,
+              "end": 3.14,
+              "probability": 0.7238362630208334
+            },
+            {
+              "text": " Jack",
+              "start": 3.14,
+              "end": 3.44,
+              "probability": 0.9765625
+            },
+            {
+              "text": " Mooney's",
+              "start": 3.44,
+              "end": 3.96,
+              "probability": 0.9593098958333334
+            },
+            {
+              "text": " brother",
+              "start": 3.96,
+              "end": 4.18,
+              "probability": 0.9326171875
+            },
+            {
+              "text": "-in",
+              "start": 4.18,
+              "end": 4.4,
+              "probability": 0.9208984375
+            },
+            {
+              "text": "-law,",
+              "start": 4.4,
+              "end": 4.66,
+              "probability": 0.998291015625
+            }
+          ]
+        },
+        {
+          "text": " humpy, tight, making for the liberties.",
+          "start": 5.1,
+          "end": 7.36,
+          "words": [
+            {
+              "text": " humpy,",
+              "start": 5.1,
+              "end": 5.32,
+              "probability": 0.771728515625
+            },
+            {
+              "text": " tight,",
+              "start": 5.74,
+              "end": 5.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " making",
+              "start": 6.46,
+              "end": 6.66,
+              "probability": 0.982421875
+            },
+            {
+              "text": " for",
+              "start": 6.66,
+              "end": 6.9,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 6.9,
+              "end": 7.04,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " liberties.",
+              "start": 7.04,
+              "end": 7.36,
+              "probability": 0.89306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Outside,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "La",
+          "start": 0.88,
+          "end": 0.94
+        },
+        {
+          "raw": "Maison",
+          "start": 0.94,
+          "end": 1.3
+        },
+        {
+          "raw": "Claire",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "raw": "blazes",
+          "start": 1.6,
+          "end": 2.06
+        },
+        {
+          "raw": "Boylen",
+          "start": 2.06,
+          "end": 2.6
+        },
+        {
+          "raw": "waylaid",
+          "start": 2.6,
+          "end": 3.14
+        },
+        {
+          "raw": "Jack",
+          "start": 3.14,
+          "end": 3.44
+        },
+        {
+          "raw": "Mooney's",
+          "start": 3.44,
+          "end": 3.96
+        },
+        {
+          "raw": "brother",
+          "start": 3.96,
+          "end": 4.18
+        },
+        {
+          "raw": "-in",
+          "start": 4.18,
+          "end": 4.4
+        },
+        {
+          "raw": "-law,",
+          "start": 4.4,
+          "end": 4.66
+        },
+        {
+          "raw": "humpy,",
+          "start": 5.1,
+          "end": 5.32
+        },
+        {
+          "raw": "tight,",
+          "start": 5.74,
+          "end": 5.96
+        },
+        {
+          "raw": "making",
+          "start": 6.46,
+          "end": 6.66
+        },
+        {
+          "raw": "for",
+          "start": 6.66,
+          "end": 6.9
+        },
+        {
+          "raw": "the",
+          "start": 6.9,
+          "end": 7.04
+        },
+        {
+          "raw": "liberties.",
+          "start": 7.04,
+          "end": 7.36
+        }
+      ],
+      "expected_tokens": [
+        "Outside",
+        "_la",
+        "Maison",
+        "Claire_",
+        "Blazes",
+        "Boylan",
+        "waylaid",
+        "Jack",
+        "Mooney's",
+        "brother-in-law,",
+        "humpy,",
+        "tight,",
+        "making",
+        "for",
+        "the",
+        "liberties."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          16,
+          6,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Outside,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "outside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "La",
+          "start": 0.88,
+          "end": 0.94,
+          "key": "la",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Maison",
+          "start": 0.94,
+          "end": 1.3,
+          "key": "maison",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Claire",
+          "start": 1.3,
+          "end": 1.6,
+          "key": "claire",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "blazes",
+          "start": 1.6,
+          "end": 2.06,
+          "key": "blazes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Boylen",
+          "start": 2.06,
+          "end": 2.6,
+          "key": "boylen",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "waylaid",
+          "start": 2.6,
+          "end": 3.14,
+          "key": "waylaid",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Jack",
+          "start": 3.14,
+          "end": 3.44,
+          "key": "jack",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Mooney's",
+          "start": 3.44,
+          "end": 3.96,
+          "key": "mooneys",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "brother -in -law,",
+          "start": 3.96,
+          "end": 4.66,
+          "key": "brotherinlaw",
+          "pieces": [
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "raw": "humpy,",
+          "start": 5.1,
+          "end": 5.32,
+          "key": "humpy",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tight,",
+          "start": 5.74,
+          "end": 5.96,
+          "key": "tight",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "making",
+          "start": 6.46,
+          "end": 6.66,
+          "key": "making",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 6.66,
+          "end": 6.9,
+          "key": "for",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.9,
+          "end": 7.04,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "liberties.",
+          "start": 7.04,
+          "end": 7.36,
+          "key": "liberties",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 9,
+          "text": "brother-in-law,",
+          "heard": "brother -in -law,",
+          "heard_indexes": [
+            9,
+            10,
+            11
+          ],
+          "start": 3.96,
+          "end": 4.66
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Outside",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "_la",
+          "start": 0.88,
+          "end": 0.94
+        },
+        {
+          "text": "Maison",
+          "start": 0.94,
+          "end": 1.3
+        },
+        {
+          "text": "Claire_",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "text": "Blazes",
+          "start": 1.6,
+          "end": 2.06
+        },
+        {
+          "text": "Boylan",
+          "start": 2.06,
+          "end": 2.33
+        },
+        {
+          "text": "waylaid",
+          "start": 2.6,
+          "end": 3.14
+        },
+        {
+          "text": "Jack",
+          "start": 3.14,
+          "end": 3.44
+        },
+        {
+          "text": "Mooney's",
+          "start": 3.44,
+          "end": 3.96
+        },
+        {
+          "text": "brother-in-law,",
+          "start": 3.96,
+          "end": 4.66
+        },
+        {
+          "text": "humpy,",
+          "start": 5.1,
+          "end": 5.32
+        },
+        {
+          "text": "tight,",
+          "start": 5.74,
+          "end": 5.96
+        },
+        {
+          "text": "making",
+          "start": 6.46,
+          "end": 6.66
+        },
+        {
+          "text": "for",
+          "start": 6.66,
+          "end": 6.9
+        },
+        {
+          "text": "the",
+          "start": 6.9,
+          "end": 7.04
+        },
+        {
+          "text": "liberties.",
+          "start": 7.04,
+          "end": 7.36
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.3133158041164279
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e0763cbf86fa3652bc43e964e245065522e3400fec2d3f9501da2ae9456a992a",
+  "selected_reasons": []
+}

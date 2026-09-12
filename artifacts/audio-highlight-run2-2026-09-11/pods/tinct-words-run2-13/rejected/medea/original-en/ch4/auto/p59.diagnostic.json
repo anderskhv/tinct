@@ -1,0 +1,1059 @@
+{
+  "complete": true,
+  "signature": "16d62adb4d0376f1ff59e5e06b8c4aa89896882860e7ba265edc3babece61d6f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1964493878185749,
+      "alignment_seconds": 0.0004573250189423561,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Medea. Creon, who o'er all Corinth standeth chief.",
+        "hotwords": "Medea, Creon, Corinth"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Medea, Creon, who o'er all Corinth standeth chief.",
+          "start": 0.05,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.800537109375
+            },
+            {
+              "text": " Creon,",
+              "start": 1.31,
+              "end": 1.65,
+              "probability": 0.650634765625
+            },
+            {
+              "text": " who",
+              "start": 1.85,
+              "end": 1.93,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " o",
+              "start": 1.93,
+              "end": 2.07,
+              "probability": 0.5400390625
+            },
+            {
+              "text": "'er",
+              "start": 2.07,
+              "end": 2.15,
+              "probability": 0.955078125
+            },
+            {
+              "text": " all",
+              "start": 2.15,
+              "end": 2.35,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Corinth",
+              "start": 2.35,
+              "end": 2.59,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " standeth",
+              "start": 2.59,
+              "end": 3.13,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " chief.",
+              "start": 3.13,
+              "end": 3.41,
+              "probability": 0.84033203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Creon,",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "raw": "who",
+          "start": 1.85,
+          "end": 1.93
+        },
+        {
+          "raw": "o",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "raw": "'er",
+          "start": 2.07,
+          "end": 2.15
+        },
+        {
+          "raw": "all",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "raw": "Corinth",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "raw": "standeth",
+          "start": 2.59,
+          "end": 3.13
+        },
+        {
+          "raw": "chief.",
+          "start": 3.13,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "Creon,",
+        "who",
+        "o'er",
+        "all",
+        "Corinth",
+        "standeth",
+        "chief."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          8,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "medea",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Creon,",
+          "start": 1.31,
+          "end": 1.65,
+          "key": "creon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.85,
+          "end": 1.93,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.93,
+          "end": 2.07,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 2.07,
+          "end": 2.15,
+          "key": "er",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.15,
+          "end": 2.35,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Corinth",
+          "start": 2.35,
+          "end": 2.59,
+          "key": "corinth",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "standeth",
+          "start": 2.59,
+          "end": 3.13,
+          "key": "standeth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "chief.",
+          "start": 3.13,
+          "end": 3.41,
+          "key": "chief",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Creon,",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "text": "who",
+          "start": 1.85,
+          "end": 1.93
+        },
+        {
+          "text": "o'er",
+          "start": 1.93,
+          "end": 2.04
+        },
+        {
+          "text": "all",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "text": "Corinth",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "text": "standeth",
+          "start": 2.59,
+          "end": 3.13
+        },
+        {
+          "text": "chief.",
+          "start": 3.13,
+          "end": 3.41
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.19708902947604656
+    },
+    {
+      "asr_seconds": 0.22726688161492348,
+      "alignment_seconds": 0.0004227887839078903,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Medea, Creon, Corinth"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Medea, Creon, who o'er all Corinth standeth chief.",
+          "start": 0.05,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.800537109375
+            },
+            {
+              "text": " Creon,",
+              "start": 1.31,
+              "end": 1.65,
+              "probability": 0.650634765625
+            },
+            {
+              "text": " who",
+              "start": 1.85,
+              "end": 1.93,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " o",
+              "start": 1.93,
+              "end": 2.07,
+              "probability": 0.5400390625
+            },
+            {
+              "text": "'er",
+              "start": 2.07,
+              "end": 2.15,
+              "probability": 0.955078125
+            },
+            {
+              "text": " all",
+              "start": 2.15,
+              "end": 2.35,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Corinth",
+              "start": 2.35,
+              "end": 2.59,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " standeth",
+              "start": 2.59,
+              "end": 3.13,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " chief.",
+              "start": 3.13,
+              "end": 3.41,
+              "probability": 0.84033203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Creon,",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "raw": "who",
+          "start": 1.85,
+          "end": 1.93
+        },
+        {
+          "raw": "o",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "raw": "'er",
+          "start": 2.07,
+          "end": 2.15
+        },
+        {
+          "raw": "all",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "raw": "Corinth",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "raw": "standeth",
+          "start": 2.59,
+          "end": 3.13
+        },
+        {
+          "raw": "chief.",
+          "start": 3.13,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "Creon,",
+        "who",
+        "o'er",
+        "all",
+        "Corinth",
+        "standeth",
+        "chief."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          8,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "medea",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Creon,",
+          "start": 1.31,
+          "end": 1.65,
+          "key": "creon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.85,
+          "end": 1.93,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.93,
+          "end": 2.07,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 2.07,
+          "end": 2.15,
+          "key": "er",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.15,
+          "end": 2.35,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Corinth",
+          "start": 2.35,
+          "end": 2.59,
+          "key": "corinth",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "standeth",
+          "start": 2.59,
+          "end": 3.13,
+          "key": "standeth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "chief.",
+          "start": 3.13,
+          "end": 3.41,
+          "key": "chief",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Creon,",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "text": "who",
+          "start": 1.85,
+          "end": 1.93
+        },
+        {
+          "text": "o'er",
+          "start": 1.93,
+          "end": 2.04
+        },
+        {
+          "text": "all",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "text": "Corinth",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "text": "standeth",
+          "start": 2.59,
+          "end": 3.13
+        },
+        {
+          "text": "chief.",
+          "start": 3.13,
+          "end": 3.41
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2278394065797329
+    },
+    {
+      "asr_seconds": 0.2378157777711749,
+      "alignment_seconds": 0.0005044573917984962,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Medea, Creon, who o'er all Corinth standeth chief.",
+          "start": 0.05,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.800537109375
+            },
+            {
+              "text": " Creon,",
+              "start": 1.31,
+              "end": 1.65,
+              "probability": 0.650634765625
+            },
+            {
+              "text": " who",
+              "start": 1.85,
+              "end": 1.93,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " o",
+              "start": 1.93,
+              "end": 2.07,
+              "probability": 0.5400390625
+            },
+            {
+              "text": "'er",
+              "start": 2.07,
+              "end": 2.15,
+              "probability": 0.955078125
+            },
+            {
+              "text": " all",
+              "start": 2.15,
+              "end": 2.35,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Corinth",
+              "start": 2.35,
+              "end": 2.59,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " standeth",
+              "start": 2.59,
+              "end": 3.13,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " chief.",
+              "start": 3.13,
+              "end": 3.41,
+              "probability": 0.84033203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Creon,",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "raw": "who",
+          "start": 1.85,
+          "end": 1.93
+        },
+        {
+          "raw": "o",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "raw": "'er",
+          "start": 2.07,
+          "end": 2.15
+        },
+        {
+          "raw": "all",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "raw": "Corinth",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "raw": "standeth",
+          "start": 2.59,
+          "end": 3.13
+        },
+        {
+          "raw": "chief.",
+          "start": 3.13,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "Creon,",
+        "who",
+        "o'er",
+        "all",
+        "Corinth",
+        "standeth",
+        "chief."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          8,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "medea",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Creon,",
+          "start": 1.31,
+          "end": 1.65,
+          "key": "creon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.85,
+          "end": 1.93,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.93,
+          "end": 2.07,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 2.07,
+          "end": 2.15,
+          "key": "er",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.15,
+          "end": 2.35,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Corinth",
+          "start": 2.35,
+          "end": 2.59,
+          "key": "corinth",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "standeth",
+          "start": 2.59,
+          "end": 3.13,
+          "key": "standeth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "chief.",
+          "start": 3.13,
+          "end": 3.41,
+          "key": "chief",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Creon,",
+          "start": 1.31,
+          "end": 1.65
+        },
+        {
+          "text": "who",
+          "start": 1.85,
+          "end": 1.93
+        },
+        {
+          "text": "o'er",
+          "start": 1.93,
+          "end": 2.04
+        },
+        {
+          "text": "all",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "text": "Corinth",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "text": "standeth",
+          "start": 2.59,
+          "end": 3.13
+        },
+        {
+          "text": "chief.",
+          "start": 3.13,
+          "end": 3.41
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2385047236457467
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c2b227b3f6f734431fd7f4d22392377f572867edcde76543656e62f44b110af4",
+  "selected_reasons": []
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "bd1858a49b4f2ec066847b1313bb97c11e5b6f9b2c08260fbd279d2032f4b77b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1596984169445932,
+      "alignment_seconds": 0.00034785177558660507,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Messenger, first madam, he's well.",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Messenger,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " first",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.68896484375
+            },
+            {
+              "text": " madam,",
+              "start": 1.55,
+              "end": 2.01,
+              "probability": 0.736083984375
+            },
+            {
+              "text": " he's",
+              "start": 2.11,
+              "end": 2.21,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " well.",
+              "start": 2.21,
+              "end": 2.43,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "first",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "madam,",
+          "start": 1.55,
+          "end": 2.01
+        },
+        {
+          "raw": "he's",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "raw": "well.",
+          "start": 2.21,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "First,",
+        "madam,",
+        "he's",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 1.33,
+          "end": 1.55,
+          "key": "first",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "madam,",
+          "start": 1.55,
+          "end": 2.01,
+          "key": "madam",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he's",
+          "start": 2.11,
+          "end": 2.21,
+          "key": "hes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 2.21,
+          "end": 2.43,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "First,",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "madam,",
+          "start": 1.55,
+          "end": 2.01
+        },
+        {
+          "text": "he's",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "text": "well.",
+          "start": 2.21,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16017180494964123
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "29dff9adbb61adde6c70228378217e002adfe7b2e048a5a4c685d7223cf0287a",
+  "selected_reasons": []
+}

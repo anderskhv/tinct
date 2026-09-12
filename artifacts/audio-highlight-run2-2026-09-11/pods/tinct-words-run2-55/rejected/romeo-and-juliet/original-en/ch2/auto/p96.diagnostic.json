@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "05f72db14a021f7c35dab1c93046eaab4bc3543051a5c630d2da1881a5689f99",
+  "attempts": [
+    {
+      "asr_seconds": 0.2220136122778058,
+      "alignment_seconds": 0.0005752788856625557,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Benvolio. Tell me in sadness who is that you love?",
+        "hotwords": "Benvolio, Tell"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Benvolio, Tell me in sadness who is that you love?",
+          "start": 0.56,
+          "end": 3.2,
+          "words": [
+            {
+              "text": " Benvolio,",
+              "start": 0.56,
+              "end": 1.04,
+              "probability": 0.9680989583333334
+            },
+            {
+              "text": " Tell",
+              "start": 1.46,
+              "end": 1.58,
+              "probability": 0.006786346435546875
+            },
+            {
+              "text": " me",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.974609375
+            },
+            {
+              "text": " in",
+              "start": 1.7,
+              "end": 1.82,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " sadness",
+              "start": 1.82,
+              "end": 2.12,
+              "probability": 0.93359375
+            },
+            {
+              "text": " who",
+              "start": 2.12,
+              "end": 2.42,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " is",
+              "start": 2.42,
+              "end": 2.56,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " that",
+              "start": 2.56,
+              "end": 2.72,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " you",
+              "start": 2.72,
+              "end": 2.9,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " love?",
+              "start": 2.9,
+              "end": 3.2,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.56,
+          "end": 1.04
+        },
+        {
+          "raw": "Tell",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "raw": "me",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "in",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "raw": "sadness",
+          "start": 1.82,
+          "end": 2.12
+        },
+        {
+          "raw": "who",
+          "start": 2.12,
+          "end": 2.42
+        },
+        {
+          "raw": "is",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "raw": "that",
+          "start": 2.56,
+          "end": 2.72
+        },
+        {
+          "raw": "you",
+          "start": 2.72,
+          "end": 2.9
+        },
+        {
+          "raw": "love?",
+          "start": 2.9,
+          "end": 3.2
+        }
+      ],
+      "expected_tokens": [
+        "Benvolio.",
+        "Tell",
+        "me",
+        "in",
+        "sadness",
+        "who",
+        "is",
+        "that",
+        "you",
+        "love?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.56,
+          "end": 1.04,
+          "key": "benvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tell",
+          "start": 1.46,
+          "end": 1.58,
+          "key": "tell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.7,
+          "end": 1.82,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sadness",
+          "start": 1.82,
+          "end": 2.12,
+          "key": "sadness",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 2.12,
+          "end": 2.42,
+          "key": "who",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.42,
+          "end": 2.56,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.56,
+          "end": 2.72,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.72,
+          "end": 2.9,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "love?",
+          "start": 2.9,
+          "end": 3.2,
+          "key": "love",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Benvolio.",
+          "start": 0.56,
+          "end": 1.04
+        },
+        {
+          "text": "Tell",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "text": "me",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "in",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "text": "sadness",
+          "start": 1.82,
+          "end": 2.12
+        },
+        {
+          "text": "who",
+          "start": 2.12,
+          "end": 2.42
+        },
+        {
+          "text": "is",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "text": "that",
+          "start": 2.56,
+          "end": 2.72
+        },
+        {
+          "text": "you",
+          "start": 2.72,
+          "end": 2.9
+        },
+        {
+          "text": "love?",
+          "start": 2.9,
+          "end": 3.2
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22281592153012753
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9cd8cd19dfedce33e197ed40bbd6ef5dfd5ef6baddd3043ad49f71c272810013",
+  "selected_reasons": []
+}

@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "afd4c7c704ac4e99eec57a3a67d2bcbd5a4ba4de2439980a4cb10daed8655231",
+  "attempts": [
+    {
+      "asr_seconds": 0.21922665601596236,
+      "alignment_seconds": 0.00046316999942064285,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Richard. Stand all apart. Cousin of Buckingham!",
+        "hotwords": "King, Richard, Stand, Cousin, Buckingham"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Richard. Stand all apart. Cousin of Buckingham.",
+          "start": 0.05,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.87890625
+            },
+            {
+              "text": " Richard.",
+              "start": 0.55,
+              "end": 0.95,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Stand",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " all",
+              "start": 1.53,
+              "end": 1.73,
+              "probability": 0.9140625
+            },
+            {
+              "text": " apart.",
+              "start": 1.73,
+              "end": 2.07,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Cousin",
+              "start": 2.57,
+              "end": 2.69,
+              "probability": 0.876220703125
+            },
+            {
+              "text": " of",
+              "start": 2.69,
+              "end": 2.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Buckingham.",
+              "start": 2.81,
+              "end": 3.11,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Richard.",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "raw": "Stand",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "all",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "raw": "apart.",
+          "start": 1.73,
+          "end": 2.07
+        },
+        {
+          "raw": "Cousin",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "raw": "of",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "raw": "Buckingham.",
+          "start": 2.81,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Stand",
+        "all",
+        "apart.",
+        "Cousin",
+        "of",
+        "Buckingham!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard.",
+          "start": 0.55,
+          "end": 0.95,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Stand",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "stand",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.53,
+          "end": 1.73,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "apart.",
+          "start": 1.73,
+          "end": 2.07,
+          "key": "apart",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Cousin",
+          "start": 2.57,
+          "end": 2.69,
+          "key": "cousin",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.69,
+          "end": 2.81,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Buckingham.",
+          "start": 2.81,
+          "end": 3.11,
+          "key": "buckingham",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Richard.",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "text": "Stand",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "all",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "text": "apart.",
+          "start": 1.73,
+          "end": 2.07
+        },
+        {
+          "text": "Cousin",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "text": "of",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "text": "Buckingham!",
+          "start": 2.81,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21986180497333407
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ade648ce06e61511d71351300ded5a6421537418ebe4b1e8803a099e2d4c9069",
+  "selected_reasons": []
+}

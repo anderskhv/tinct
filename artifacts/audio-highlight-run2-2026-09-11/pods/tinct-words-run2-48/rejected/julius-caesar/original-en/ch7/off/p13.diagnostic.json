@@ -1,0 +1,310 @@
+{
+  "complete": true,
+  "signature": "6fafbf02337fa6f0471a2481d3b3bea18982dba44c4071ab26fb15af15d051e4",
+  "attempts": [
+    {
+      "asr_seconds": 0.14253045339137316,
+      "alignment_seconds": 0.00016865134239196777,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Soothsayer at my known house good lady",
+          "start": 0.08,
+          "end": 2.66,
+          "words": [
+            {
+              "text": " Soothsayer",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " at",
+              "start": 0.94,
+              "end": 1.44,
+              "probability": 0.50341796875
+            },
+            {
+              "text": " my",
+              "start": 1.44,
+              "end": 1.56,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " known",
+              "start": 1.56,
+              "end": 1.74,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " house",
+              "start": 1.74,
+              "end": 2.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " good",
+              "start": 2.1,
+              "end": 2.34,
+              "probability": 0.5556640625
+            },
+            {
+              "text": " lady",
+              "start": 2.34,
+              "end": 2.66,
+              "probability": 0.9501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soothsayer",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "at",
+          "start": 0.94,
+          "end": 1.44
+        },
+        {
+          "raw": "my",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "raw": "known",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "raw": "house",
+          "start": 1.74,
+          "end": 2.1
+        },
+        {
+          "raw": "good",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "raw": "lady",
+          "start": 2.34,
+          "end": 2.66
+        }
+      ],
+      "expected_tokens": [
+        "Soothsayer.",
+        "At",
+        "mine",
+        "own",
+        "house,",
+        "good",
+        "lady."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soothsayer",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "soothsayer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.94,
+          "end": 1.44,
+          "key": "at",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.44,
+          "end": 1.56,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 1.56,
+          "end": 1.74,
+          "key": "known",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 1.74,
+          "end": 2.1,
+          "key": "house",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.1,
+          "end": 2.34,
+          "key": "good",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 2.34,
+          "end": 2.66,
+          "key": "lady",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Soothsayer.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "At",
+          "start": 0.94,
+          "end": 1.44
+        },
+        {
+          "text": "mine",
+          "start": 1.44,
+          "end": 1.59
+        },
+        {
+          "text": "own",
+          "start": 1.59,
+          "end": 1.665
+        },
+        {
+          "text": "house,",
+          "start": 1.74,
+          "end": 2.1
+        },
+        {
+          "text": "good",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "text": "lady.",
+          "start": 2.34,
+          "end": 2.66
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14282497856765985
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4d7417d7dfcd8cb8dd957eec262fe82eb6b1f6643fcfeea3b85f4f740cbafe1e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

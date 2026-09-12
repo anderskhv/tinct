@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "f095335a10af4910449799eabaafef2292fad84abd1317ccfb70238cea05f076",
+  "attempts": [
+    {
+      "asr_seconds": 0.36992707569152117,
+      "alignment_seconds": 0.0006476351991295815,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Guardsman. Here is a rural fellow That will not be denied your highness' presence. He brings you figs.",
+        "hotwords": "Guardsman, Here, That, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Guardsman, Here is a rural fellow That will not be denied your highness' presence. He brings you figs.",
+          "start": 0.05,
+          "end": 6.17,
+          "words": [
+            {
+              "text": " Guardsman,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.5927734375
+            },
+            {
+              "text": " Here",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.025421142578125
+            },
+            {
+              "text": " is",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " a",
+              "start": 1.71,
+              "end": 1.83,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " rural",
+              "start": 1.83,
+              "end": 2.07,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " fellow",
+              "start": 2.07,
+              "end": 2.39,
+              "probability": 0.9609375
+            },
+            {
+              "text": " That",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.038421630859375
+            },
+            {
+              "text": " will",
+              "start": 2.67,
+              "end": 2.81,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " not",
+              "start": 2.81,
+              "end": 3.01,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " be",
+              "start": 3.01,
+              "end": 3.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " denied",
+              "start": 3.17,
+              "end": 3.49,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " your",
+              "start": 3.49,
+              "end": 3.71,
+              "probability": 0.66064453125
+            },
+            {
+              "text": " highness'",
+              "start": 3.71,
+              "end": 4.09,
+              "probability": 0.680908203125
+            },
+            {
+              "text": " presence.",
+              "start": 4.17,
+              "end": 4.43,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " He",
+              "start": 5.07,
+              "end": 5.17,
+              "probability": 0.974609375
+            },
+            {
+              "text": " brings",
+              "start": 5.17,
+              "end": 5.33,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " you",
+              "start": 5.33,
+              "end": 5.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " figs.",
+              "start": 5.61,
+              "end": 6.17,
+              "probability": 0.961669921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guardsman,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Here",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "is",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "a",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "raw": "rural",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "raw": "fellow",
+          "start": 2.07,
+          "end": 2.39
+        },
+        {
+          "raw": "That",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "raw": "will",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "raw": "not",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "raw": "be",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "raw": "denied",
+          "start": 3.17,
+          "end": 3.49
+        },
+        {
+          "raw": "your",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "raw": "highness'",
+          "start": 3.71,
+          "end": 4.09
+        },
+        {
+          "raw": "presence.",
+          "start": 4.17,
+          "end": 4.43
+        },
+        {
+          "raw": "He",
+          "start": 5.07,
+          "end": 5.17
+        },
+        {
+          "raw": "brings",
+          "start": 5.17,
+          "end": 5.33
+        },
+        {
+          "raw": "you",
+          "start": 5.33,
+          "end": 5.61
+        },
+        {
+          "raw": "figs.",
+          "start": 5.61,
+          "end": 6.17
+        }
+      ],
+      "expected_tokens": [
+        "Guardsman.",
+        "Here",
+        "is",
+        "a",
+        "rural",
+        "fellow",
+        "That",
+        "will",
+        "not",
+        "be",
+        "denied",
+        "your",
+        "highness'",
+        "presence.",
+        "He",
+        "brings",
+        "you",
+        "figs."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guardsman,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "guardsman",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 1.33,
+          "end": 1.55,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.71,
+          "end": 1.83,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rural",
+          "start": 1.83,
+          "end": 2.07,
+          "key": "rural",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fellow",
+          "start": 2.07,
+          "end": 2.39,
+          "key": "fellow",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.67,
+          "end": 2.81,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.81,
+          "end": 3.01,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.01,
+          "end": 3.17,
+          "key": "be",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "denied",
+          "start": 3.17,
+          "end": 3.49,
+          "key": "denied",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.49,
+          "end": 3.71,
+          "key": "your",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "highness'",
+          "start": 3.71,
+          "end": 4.09,
+          "key": "highness",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "presence.",
+          "start": 4.17,
+          "end": 4.43,
+          "key": "presence",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 5.07,
+          "end": 5.17,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "brings",
+          "start": 5.17,
+          "end": 5.33,
+          "key": "brings",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.33,
+          "end": 5.61,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "figs.",
+          "start": 5.61,
+          "end": 6.17,
+          "key": "figs",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guardsman.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Here",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "is",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "text": "a",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "text": "rural",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "text": "fellow",
+          "start": 2.07,
+          "end": 2.39
+        },
+        {
+          "text": "That",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "text": "will",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "text": "not",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "text": "be",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "text": "denied",
+          "start": 3.17,
+          "end": 3.49
+        },
+        {
+          "text": "your",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "text": "highness'",
+          "start": 3.71,
+          "end": 4.09
+        },
+        {
+          "text": "presence.",
+          "start": 4.17,
+          "end": 4.43
+        },
+        {
+          "text": "He",
+          "start": 5.07,
+          "end": 5.17
+        },
+        {
+          "text": "brings",
+          "start": 5.17,
+          "end": 5.33
+        },
+        {
+          "text": "you",
+          "start": 5.33,
+          "end": 5.61
+        },
+        {
+          "text": "figs.",
+          "start": 5.61,
+          "end": 6.17
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37084883265197277
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9a22cd09c5f2e56952a7d3b8ebf7770780161eaec4b9ab6a5dd23c4e5b70ee01",
+  "selected_reasons": []
+}

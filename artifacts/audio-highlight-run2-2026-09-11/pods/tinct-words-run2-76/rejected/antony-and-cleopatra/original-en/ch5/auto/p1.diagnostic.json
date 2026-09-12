@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "28cf44d65795172344fbbdca48e20256817d336f9ceff0845720f591a376decb",
+  "attempts": [
+    {
+      "asr_seconds": 0.15782369207590818,
+      "alignment_seconds": 0.0002519385889172554,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. Charmian!",
+        "hotwords": "Cleopatra, Charmian"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, Charmian!",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.9405924479166666
+            },
+            {
+              "text": " Charmian!",
+              "start": 1.23,
+              "end": 1.75,
+              "probability": 0.8076171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "Charmian!",
+          "start": 1.23,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Charmian!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Charmian!",
+          "start": 1.23,
+          "end": 1.75,
+          "key": "charmian",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Charmian!",
+          "start": 1.23,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15816515404731035
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bc1ff4bec37f4bc8f3f6208dd531718aff2032cefae9bdbd32628ccf320ab913",
+  "selected_reasons": []
+}

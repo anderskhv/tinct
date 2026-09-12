@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "e1cca51e4700162e2b008c110d4e7b908ec2bc48102ab96fb2eb1fb52530262a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2705880254507065,
+      "alignment_seconds": 0.0004401886835694313,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pan-Rubovski put in the pole on the sofa",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " Pan",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.8310546875
+            },
+            {
+              "text": "-Rubovski",
+              "start": 0.61,
+              "end": 1.21,
+              "probability": 0.5412353515625
+            },
+            {
+              "text": " put",
+              "start": 1.21,
+              "end": 1.75,
+              "probability": 0.322021484375
+            },
+            {
+              "text": " in",
+              "start": 1.75,
+              "end": 1.85,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 1.85,
+              "end": 1.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " pole",
+              "start": 1.95,
+              "end": 2.15,
+              "probability": 0.68701171875
+            },
+            {
+              "text": " on",
+              "start": 2.15,
+              "end": 2.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sofa",
+              "start": 2.43,
+              "end": 2.73,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pan",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "-Rubovski",
+          "start": 0.61,
+          "end": 1.21
+        },
+        {
+          "raw": "put",
+          "start": 1.21,
+          "end": 1.75
+        },
+        {
+          "raw": "in",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "raw": "pole",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "raw": "on",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "sofa",
+          "start": 2.43,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "\"Pan",
+        "Vrublevsky,\"",
+        "put",
+        "in",
+        "the",
+        "Pole",
+        "on",
+        "the",
+        "sofa."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          9,
+          2,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pan",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "pan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "-Rubovski",
+          "start": 0.61,
+          "end": 1.21,
+          "key": "rubovski",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 1.21,
+          "end": 1.75,
+          "key": "put",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.75,
+          "end": 1.85,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 1.95,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pole",
+          "start": 1.95,
+          "end": 2.15,
+          "key": "pole",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.15,
+          "end": 2.31,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sofa",
+          "start": 2.43,
+          "end": 2.73,
+          "key": "sofa",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Pan",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Vrublevsky,\"",
+          "start": 0.61,
+          "end": 0.91
+        },
+        {
+          "text": "put",
+          "start": 1.21,
+          "end": 1.75
+        },
+        {
+          "text": "in",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "text": "the",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "text": "Pole",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "text": "on",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "text": "the",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "sofa.",
+          "start": 2.43,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2711697770282626
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "214e28e067081502a2bff5b8eb987df9f9cc9169872e2edc41b2a9bdd55f60f9",
+  "selected_reasons": []
+}

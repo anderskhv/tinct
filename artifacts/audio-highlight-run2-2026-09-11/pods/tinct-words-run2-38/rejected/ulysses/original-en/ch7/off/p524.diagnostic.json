@@ -1,0 +1,176 @@
+{
+  "complete": true,
+  "signature": "67ba7e9b75f40721080eb8f3bb24c517ccfed1f62e5a613edeba1e8f8051c184",
+  "attempts": [
+    {
+      "asr_seconds": 0.09659576002741233,
+      "alignment_seconds": 0.0001164010027423501,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What, and likewise where?",
+          "start": 0.02,
+          "end": 1.8,
+          "words": [
+            {
+              "text": " What,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.56396484375
+            },
+            {
+              "text": " and",
+              "start": 1.02,
+              "end": 1.14,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " likewise",
+              "start": 1.14,
+              "end": 1.44,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " where?",
+              "start": 1.44,
+              "end": 1.8,
+              "probability": 0.74755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "and",
+          "start": 1.02,
+          "end": 1.14
+        },
+        {
+          "raw": "likewise",
+          "start": 1.14,
+          "end": 1.44
+        },
+        {
+          "raw": "where?",
+          "start": 1.44,
+          "end": 1.8
+        }
+      ],
+      "expected_tokens": [
+        "What?—And",
+        "Likewise—Where?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.02,
+          "end": 1.14,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "likewise",
+          "start": 1.14,
+          "end": 1.44,
+          "key": "likewise",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "where?",
+          "start": 1.44,
+          "end": 1.8,
+          "key": "where",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "What?—And",
+          "start": 0.0,
+          "end": 0.9
+        },
+        {
+          "text": "Likewise—Where?",
+          "start": 0.9,
+          "end": 1.35
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09675949101801962
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "966daf7fa46ce62b37af12568f4b9ef6f33ca0da9893eae965657b8b8c209bfb",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

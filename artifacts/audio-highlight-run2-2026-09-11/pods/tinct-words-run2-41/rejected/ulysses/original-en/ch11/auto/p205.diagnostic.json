@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "117012d4bc566f0089e5602dd5bbfa09ab4723de88d6b48ad6805f577dbca7cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.1892603267915547,
+      "alignment_seconds": 0.00014499109238386154,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Twopence, sir, the shopgirl dared to say.",
+        "hotwords": "Twopence"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Twopence, sir, the shopgirl dared to say.",
+          "start": 0.05,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Twopence,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.13721895217895508
+            },
+            {
+              "text": " sir,",
+              "start": 0.79,
+              "end": 1.05,
+              "probability": 0.876953125
+            },
+            {
+              "text": " the",
+              "start": 1.35,
+              "end": 1.45,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " shopgirl",
+              "start": 1.45,
+              "end": 1.89,
+              "probability": 0.677001953125
+            },
+            {
+              "text": " dared",
+              "start": 1.89,
+              "end": 2.11,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " to",
+              "start": 2.11,
+              "end": 2.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " say.",
+              "start": 2.35,
+              "end": 2.63,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Twopence,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "sir,",
+          "start": 0.79,
+          "end": 1.05
+        },
+        {
+          "raw": "the",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "raw": "shopgirl",
+          "start": 1.45,
+          "end": 1.89
+        },
+        {
+          "raw": "dared",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "raw": "to",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "raw": "say.",
+          "start": 2.35,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "—Twopence,",
+        "sir,",
+        "the",
+        "shopgirl",
+        "dared",
+        "to",
+        "say."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Twopence,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "twopence",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 0.79,
+          "end": 1.05,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.35,
+          "end": 1.45,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shopgirl",
+          "start": 1.45,
+          "end": 1.89,
+          "key": "shopgirl",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dared",
+          "start": 1.89,
+          "end": 2.11,
+          "key": "dared",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.11,
+          "end": 2.35,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "say.",
+          "start": 2.35,
+          "end": 2.63,
+          "key": "say",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Twopence,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "sir,",
+          "start": 0.79,
+          "end": 1.05
+        },
+        {
+          "text": "the",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "text": "shopgirl",
+          "start": 1.45,
+          "end": 1.89
+        },
+        {
+          "text": "dared",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "text": "to",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "text": "say.",
+          "start": 2.35,
+          "end": 2.63
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18945298809558153
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "55a65c7a4e8db16b979c86ef7d9271be5401a0d318c26cb2150678f9d92c1452",
+  "selected_reasons": []
+}

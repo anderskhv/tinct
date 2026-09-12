@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "8cc9ab84127d663425179027442602cafe6acf6d504daa343e8e09b871458d35",
+  "attempts": [
+    {
+      "asr_seconds": 0.3295254297554493,
+      "alignment_seconds": 0.0007478892803192139,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Then why... why, you said you did it to rob, but you took nothing?\" she asked quickly, catching at a straw.",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then why... why, you said you did it to rob, but you took nothing?\" she asked quickly, catching at a straw.",
+          "start": 0.02,
+          "end": 6.02,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.157958984375
+            },
+            {
+              "text": " why...",
+              "start": 0.56,
+              "end": 1.54,
+              "probability": 0.4808492660522461
+            },
+            {
+              "text": " why,",
+              "start": 1.54,
+              "end": 1.66,
+              "probability": 0.5126953125
+            },
+            {
+              "text": " you",
+              "start": 1.84,
+              "end": 1.94,
+              "probability": 0.990234375
+            },
+            {
+              "text": " said",
+              "start": 1.94,
+              "end": 2.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 2.1,
+              "end": 2.24,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " did",
+              "start": 2.24,
+              "end": 2.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 2.34,
+              "end": 2.46,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 2.46,
+              "end": 2.6,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " rob,",
+              "start": 2.6,
+              "end": 2.8,
+              "probability": 0.050384521484375
+            },
+            {
+              "text": " but",
+              "start": 3.0,
+              "end": 3.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 3.04,
+              "end": 3.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " took",
+              "start": 3.18,
+              "end": 3.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nothing?\"",
+              "start": 3.34,
+              "end": 4.12,
+              "probability": 0.553955078125
+            },
+            {
+              "text": " she",
+              "start": 4.12,
+              "end": 4.34,
+              "probability": 0.53759765625
+            },
+            {
+              "text": " asked",
+              "start": 4.34,
+              "end": 4.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " quickly,",
+              "start": 4.62,
+              "end": 5.02,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " catching",
+              "start": 5.22,
+              "end": 5.5,
+              "probability": 0.9921875
+            },
+            {
+              "text": " at",
+              "start": 5.5,
+              "end": 5.66,
+              "probability": 0.56640625
+            },
+            {
+              "text": " a",
+              "start": 5.66,
+              "end": 5.78,
+              "probability": 0.994140625
+            },
+            {
+              "text": " straw.",
+              "start": 5.78,
+              "end": 6.02,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "why...",
+          "start": 0.56,
+          "end": 1.54
+        },
+        {
+          "raw": "why,",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "raw": "you",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "raw": "said",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "raw": "you",
+          "start": 2.1,
+          "end": 2.24
+        },
+        {
+          "raw": "did",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "raw": "it",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "raw": "to",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "raw": "rob,",
+          "start": 2.6,
+          "end": 2.8
+        },
+        {
+          "raw": "but",
+          "start": 3.0,
+          "end": 3.04
+        },
+        {
+          "raw": "you",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "raw": "took",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "raw": "nothing?\"",
+          "start": 3.34,
+          "end": 4.12
+        },
+        {
+          "raw": "she",
+          "start": 4.12,
+          "end": 4.34
+        },
+        {
+          "raw": "asked",
+          "start": 4.34,
+          "end": 4.62
+        },
+        {
+          "raw": "quickly,",
+          "start": 4.62,
+          "end": 5.02
+        },
+        {
+          "raw": "catching",
+          "start": 5.22,
+          "end": 5.5
+        },
+        {
+          "raw": "at",
+          "start": 5.5,
+          "end": 5.66
+        },
+        {
+          "raw": "a",
+          "start": 5.66,
+          "end": 5.78
+        },
+        {
+          "raw": "straw.",
+          "start": 5.78,
+          "end": 6.02
+        }
+      ],
+      "expected_tokens": [
+        "\"Then",
+        "why...",
+        "why,",
+        "you",
+        "said",
+        "you",
+        "did",
+        "it",
+        "to",
+        "rob,",
+        "but",
+        "you",
+        "took",
+        "nothing?\"",
+        "she",
+        "asked",
+        "quickly,",
+        "catching",
+        "at",
+        "a",
+        "straw."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why...",
+          "start": 0.56,
+          "end": 1.54,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "why,",
+          "start": 1.54,
+          "end": 1.66,
+          "key": "why",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.84,
+          "end": 1.94,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.94,
+          "end": 2.1,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.1,
+          "end": 2.24,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 2.24,
+          "end": 2.34,
+          "key": "did",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.34,
+          "end": 2.46,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.46,
+          "end": 2.6,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "rob,",
+          "start": 2.6,
+          "end": 2.8,
+          "key": "rob",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.0,
+          "end": 3.04,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.04,
+          "end": 3.18,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 3.18,
+          "end": 3.34,
+          "key": "took",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "nothing?\"",
+          "start": 3.34,
+          "end": 4.12,
+          "key": "nothing",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 4.12,
+          "end": 4.34,
+          "key": "she",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 4.34,
+          "end": 4.62,
+          "key": "asked",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "quickly,",
+          "start": 4.62,
+          "end": 5.02,
+          "key": "quickly",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "catching",
+          "start": 5.22,
+          "end": 5.5,
+          "key": "catching",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.5,
+          "end": 5.66,
+          "key": "at",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.66,
+          "end": 5.78,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "straw.",
+          "start": 5.78,
+          "end": 6.02,
+          "key": "straw",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Then",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "why...",
+          "start": 0.56,
+          "end": 1.54
+        },
+        {
+          "text": "why,",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "text": "you",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "text": "said",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "text": "you",
+          "start": 2.1,
+          "end": 2.24
+        },
+        {
+          "text": "did",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "text": "it",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "text": "to",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "text": "rob,",
+          "start": 2.6,
+          "end": 2.8
+        },
+        {
+          "text": "but",
+          "start": 3.0,
+          "end": 3.04
+        },
+        {
+          "text": "you",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "text": "took",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "text": "nothing?\"",
+          "start": 3.34,
+          "end": 4.12
+        },
+        {
+          "text": "she",
+          "start": 4.12,
+          "end": 4.34
+        },
+        {
+          "text": "asked",
+          "start": 4.34,
+          "end": 4.62
+        },
+        {
+          "text": "quickly,",
+          "start": 4.62,
+          "end": 5.02
+        },
+        {
+          "text": "catching",
+          "start": 5.22,
+          "end": 5.5
+        },
+        {
+          "text": "at",
+          "start": 5.5,
+          "end": 5.66
+        },
+        {
+          "text": "a",
+          "start": 5.66,
+          "end": 5.78
+        },
+        {
+          "text": "straw.",
+          "start": 5.78,
+          "end": 6.02
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33063170686364174
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "174c5abaaf40ade2cc3dbfb663ec759c7ed75c71cb00cdf98287a3925c348a90",
+  "selected_reasons": []
+}

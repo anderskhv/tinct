@@ -1,0 +1,923 @@
+{
+  "complete": true,
+  "signature": "845aca3a8fb1c87dbdf11613755c50ed16ecef25b3318968c840b63744cf4f3b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3927878802642226,
+      "alignment_seconds": 0.0005444069392979145,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bloom heard a jing a little sound. He's off. Light sob of breath bloom sighed on the silent blue-hued flowers.",
+          "start": 0.08,
+          "end": 6.58,
+          "words": [
+            {
+              "text": " Bloom",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " heard",
+              "start": 0.62,
+              "end": 0.9,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " a",
+              "start": 0.9,
+              "end": 1.06,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " jing",
+              "start": 1.06,
+              "end": 1.28,
+              "probability": 0.915771484375
+            },
+            {
+              "text": " a",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " little",
+              "start": 1.44,
+              "end": 1.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sound.",
+              "start": 1.56,
+              "end": 1.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " He's",
+              "start": 2.32,
+              "end": 2.42,
+              "probability": 0.973876953125
+            },
+            {
+              "text": " off.",
+              "start": 2.42,
+              "end": 2.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Light",
+              "start": 3.5,
+              "end": 3.5,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " sob",
+              "start": 3.5,
+              "end": 3.82,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " of",
+              "start": 3.82,
+              "end": 4.02,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " breath",
+              "start": 4.02,
+              "end": 4.24,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " bloom",
+              "start": 4.24,
+              "end": 4.56,
+              "probability": 0.619140625
+            },
+            {
+              "text": " sighed",
+              "start": 4.56,
+              "end": 4.92,
+              "probability": 0.40234375
+            },
+            {
+              "text": " on",
+              "start": 4.92,
+              "end": 5.12,
+              "probability": 0.98046875
+            },
+            {
+              "text": " the",
+              "start": 5.12,
+              "end": 5.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " silent",
+              "start": 5.24,
+              "end": 5.58,
+              "probability": 0.98828125
+            },
+            {
+              "text": " blue",
+              "start": 5.58,
+              "end": 5.88,
+              "probability": 0.81640625
+            },
+            {
+              "text": "-hued",
+              "start": 5.88,
+              "end": 6.12,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " flowers.",
+              "start": 6.12,
+              "end": 6.58,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " Jingling. He's gone. Jingle here.",
+          "start": 7.3,
+          "end": 9.52,
+          "words": [
+            {
+              "text": " Jingling.",
+              "start": 7.3,
+              "end": 7.66,
+              "probability": 0.7210286458333334
+            },
+            {
+              "text": " He's",
+              "start": 8.02,
+              "end": 8.26,
+              "probability": 0.926025390625
+            },
+            {
+              "text": " gone.",
+              "start": 8.26,
+              "end": 8.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Jingle",
+              "start": 8.96,
+              "end": 9.14,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " here.",
+              "start": 9.14,
+              "end": 9.52,
+              "probability": 0.77001953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bloom",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "heard",
+          "start": 0.62,
+          "end": 0.9
+        },
+        {
+          "raw": "a",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "raw": "jing",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "raw": "a",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "little",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "raw": "sound.",
+          "start": 1.56,
+          "end": 1.96
+        },
+        {
+          "raw": "He's",
+          "start": 2.32,
+          "end": 2.42
+        },
+        {
+          "raw": "off.",
+          "start": 2.42,
+          "end": 2.72
+        },
+        {
+          "raw": "Light",
+          "start": 3.5,
+          "end": 3.5
+        },
+        {
+          "raw": "sob",
+          "start": 3.5,
+          "end": 3.82
+        },
+        {
+          "raw": "of",
+          "start": 3.82,
+          "end": 4.02
+        },
+        {
+          "raw": "breath",
+          "start": 4.02,
+          "end": 4.24
+        },
+        {
+          "raw": "bloom",
+          "start": 4.24,
+          "end": 4.56
+        },
+        {
+          "raw": "sighed",
+          "start": 4.56,
+          "end": 4.92
+        },
+        {
+          "raw": "on",
+          "start": 4.92,
+          "end": 5.12
+        },
+        {
+          "raw": "the",
+          "start": 5.12,
+          "end": 5.24
+        },
+        {
+          "raw": "silent",
+          "start": 5.24,
+          "end": 5.58
+        },
+        {
+          "raw": "blue",
+          "start": 5.58,
+          "end": 5.88
+        },
+        {
+          "raw": "-hued",
+          "start": 5.88,
+          "end": 6.12
+        },
+        {
+          "raw": "flowers.",
+          "start": 6.12,
+          "end": 6.58
+        },
+        {
+          "raw": "Jingling.",
+          "start": 7.3,
+          "end": 7.66
+        },
+        {
+          "raw": "He's",
+          "start": 8.02,
+          "end": 8.26
+        },
+        {
+          "raw": "gone.",
+          "start": 8.26,
+          "end": 8.52
+        },
+        {
+          "raw": "Jingle",
+          "start": 8.96,
+          "end": 9.14
+        },
+        {
+          "raw": "here.",
+          "start": 9.14,
+          "end": 9.52
+        }
+      ],
+      "expected_tokens": [
+        "Bloom",
+        "heard",
+        "a",
+        "jing,",
+        "a",
+        "little",
+        "sound.",
+        "He's",
+        "off.",
+        "Light",
+        "sob",
+        "of",
+        "breath",
+        "Bloom",
+        "sighed",
+        "on",
+        "the",
+        "silent",
+        "bluehued",
+        "flowers.",
+        "Jingling.",
+        "He's",
+        "gone.",
+        "Jingle.",
+        "Hear."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          20
+        ],
+        [
+          "equal",
+          19,
+          24,
+          20,
+          25
+        ],
+        [
+          "replace",
+          24,
+          25,
+          25,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          18,
+          19,
+          18,
+          20
+        ],
+        [
+          "replace",
+          24,
+          25,
+          25,
+          26
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bloom",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "bloom",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 0.62,
+          "end": 0.9,
+          "key": "heard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.9,
+          "end": 1.06,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "jing",
+          "start": 1.06,
+          "end": 1.28,
+          "key": "jing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 1.44,
+          "end": 1.56,
+          "key": "little",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sound.",
+          "start": 1.56,
+          "end": 1.96,
+          "key": "sound",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 2.32,
+          "end": 2.42,
+          "key": "hes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 2.42,
+          "end": 2.72,
+          "key": "off",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Light",
+          "start": 3.5,
+          "end": 3.5,
+          "key": "light",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sob",
+          "start": 3.5,
+          "end": 3.82,
+          "key": "sob",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.82,
+          "end": 4.02,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "breath",
+          "start": 4.02,
+          "end": 4.24,
+          "key": "breath",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "bloom",
+          "start": 4.24,
+          "end": 4.56,
+          "key": "bloom",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sighed",
+          "start": 4.56,
+          "end": 4.92,
+          "key": "sighed",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.92,
+          "end": 5.12,
+          "key": "on",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.12,
+          "end": 5.24,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "silent",
+          "start": 5.24,
+          "end": 5.58,
+          "key": "silent",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "blue",
+          "start": 5.58,
+          "end": 5.88,
+          "key": "blue",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "-hued",
+          "start": 5.88,
+          "end": 6.12,
+          "key": "hued",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "flowers.",
+          "start": 6.12,
+          "end": 6.58,
+          "key": "flowers",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Jingling.",
+          "start": 7.3,
+          "end": 7.66,
+          "key": "jingling",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 8.02,
+          "end": 8.26,
+          "key": "hes",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "gone.",
+          "start": 8.26,
+          "end": 8.52,
+          "key": "gone",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Jingle",
+          "start": 8.96,
+          "end": 9.14,
+          "key": "jingle",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 9.14,
+          "end": 9.52,
+          "key": "here",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bloom",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "heard",
+          "start": 0.62,
+          "end": 0.9
+        },
+        {
+          "text": "a",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "text": "jing,",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "text": "a",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "little",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "text": "sound.",
+          "start": 1.56,
+          "end": 1.96
+        },
+        {
+          "text": "He's",
+          "start": 2.32,
+          "end": 2.42
+        },
+        {
+          "text": "off.",
+          "start": 2.42,
+          "end": 2.72
+        },
+        {
+          "text": "Light",
+          "start": 3.5,
+          "end": 3.5
+        },
+        {
+          "text": "sob",
+          "start": 3.5,
+          "end": 3.82
+        },
+        {
+          "text": "of",
+          "start": 3.82,
+          "end": 4.02
+        },
+        {
+          "text": "breath",
+          "start": 4.02,
+          "end": 4.24
+        },
+        {
+          "text": "Bloom",
+          "start": 4.24,
+          "end": 4.56
+        },
+        {
+          "text": "sighed",
+          "start": 4.56,
+          "end": 4.92
+        },
+        {
+          "text": "on",
+          "start": 4.92,
+          "end": 5.12
+        },
+        {
+          "text": "the",
+          "start": 5.12,
+          "end": 5.24
+        },
+        {
+          "text": "silent",
+          "start": 5.24,
+          "end": 5.58
+        },
+        {
+          "text": "bluehued",
+          "start": 5.58,
+          "end": 5.85
+        },
+        {
+          "text": "flowers.",
+          "start": 6.12,
+          "end": 6.58
+        },
+        {
+          "text": "Jingling.",
+          "start": 7.3,
+          "end": 7.66
+        },
+        {
+          "text": "He's",
+          "start": 8.02,
+          "end": 8.26
+        },
+        {
+          "text": "gone.",
+          "start": 8.26,
+          "end": 8.52
+        },
+        {
+          "text": "Jingle.",
+          "start": 8.96,
+          "end": 9.14
+        },
+        {
+          "text": "Hear.",
+          "start": 9.14,
+          "end": 9.33
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 26,
+        "matched_words": 23
+      },
+      "match_ratio": 0.92,
+      "rejection_reasons": [],
+      "seconds": 0.39355823397636414
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0cc96d6faeab88c145e955ac3494e20ac3fc31df9965aa4239c9d7970da6d349",
+  "selected_reasons": []
+}

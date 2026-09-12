@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "bfb5326e161ab8c96f61c971d790a13362ae8c4115cc95109518ebf7857754f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.1406031223013997,
+      "alignment_seconds": 0.00029850099235773087,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. No, Messala.",
+        "hotwords": "Brutus, No, Messala"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, No, Messala.",
+          "start": 0.05,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.982421875
+            },
+            {
+              "text": " No,",
+              "start": 1.25,
+              "end": 1.41,
+              "probability": 0.044097900390625
+            },
+            {
+              "text": " Messala.",
+              "start": 1.53,
+              "end": 1.87,
+              "probability": 0.4965362548828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "No,",
+          "start": 1.25,
+          "end": 1.41
+        },
+        {
+          "raw": "Messala.",
+          "start": 1.53,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "No,",
+        "Messala."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.25,
+          "end": 1.41,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Messala.",
+          "start": 1.53,
+          "end": 1.87,
+          "key": "messala",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "No,",
+          "start": 1.25,
+          "end": 1.41
+        },
+        {
+          "text": "Messala.",
+          "start": 1.53,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1410120129585266
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5593fcca95ced4c4631f4778b7b37850d5766fed379f7e7333add8b255c4e437",
+  "selected_reasons": []
+}

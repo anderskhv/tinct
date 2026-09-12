@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "53fe113d11aaf287d1793c5b856a695bb88b59b617266dd4b7785c41eb0acba1",
+  "attempts": [
+    {
+      "asr_seconds": 0.11427850276231766,
+      "alignment_seconds": 0.0002389848232269287,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " or again.",
+          "start": 0.02,
+          "end": 0.84,
+          "words": [
+            {
+              "text": " or",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.41943359375
+            },
+            {
+              "text": " again.",
+              "start": 0.52,
+              "end": 0.84,
+              "probability": 0.9716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "or",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "again.",
+          "start": 0.52,
+          "end": 0.84
+        }
+      ],
+      "expected_tokens": [
+        "Or",
+        "again:—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "or",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "or",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 0.52,
+          "end": 0.84,
+          "key": "again",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Or",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "again:—",
+          "start": 0.52,
+          "end": 0.84
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11462025344371796
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "58481a5993df067671f745e5d7dc9f74bb714b5bf3ef19167cb11974abf423f3",
+  "selected_reasons": []
+}

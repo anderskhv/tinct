@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "ee9e1ea6e6ea9842805baa38fe0d7cbd6a4e37546cd79d87efe49b18c74b9e39",
+  "attempts": [
+    {
+      "asr_seconds": 0.22586334869265556,
+      "alignment_seconds": 0.0005503296852111816,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh no, I shall certainly return if I'll be well.",
+          "start": 0.08,
+          "end": 2.88,
+          "words": [
+            {
+              "text": " Oh",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " no,",
+              "start": 0.58,
+              "end": 0.84,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " I",
+              "start": 1.2,
+              "end": 1.4,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " shall",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " certainly",
+              "start": 1.52,
+              "end": 1.82,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " return",
+              "start": 1.82,
+              "end": 2.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " if",
+              "start": 2.22,
+              "end": 2.4,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " I'll",
+              "start": 2.4,
+              "end": 2.52,
+              "probability": 0.958251953125
+            },
+            {
+              "text": " be",
+              "start": 2.52,
+              "end": 2.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " well.",
+              "start": 2.62,
+              "end": 2.88,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "no,",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "raw": "I",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "raw": "shall",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "certainly",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "raw": "return",
+          "start": 1.82,
+          "end": 2.22
+        },
+        {
+          "raw": "if",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "raw": "I'll",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "raw": "be",
+          "start": 2.52,
+          "end": 2.62
+        },
+        {
+          "raw": "well.",
+          "start": 2.62,
+          "end": 2.88
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "no!",
+        "I",
+        "shall",
+        "certainly",
+        "return",
+        "if",
+        "all",
+        "be",
+        "well.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          10,
+          8,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 0.58,
+          "end": 0.84,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.2,
+          "end": 1.4,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "certainly",
+          "start": 1.52,
+          "end": 1.82,
+          "key": "certainly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "return",
+          "start": 1.82,
+          "end": 2.22,
+          "key": "return",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.22,
+          "end": 2.4,
+          "key": "if",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.4,
+          "end": 2.52,
+          "key": "ill",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.52,
+          "end": 2.62,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 2.62,
+          "end": 2.88,
+          "key": "well",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "no!",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "text": "I",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "text": "shall",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "certainly",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "text": "return",
+          "start": 1.82,
+          "end": 2.22
+        },
+        {
+          "text": "if",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "text": "all",
+          "start": 2.4,
+          "end": 2.46
+        },
+        {
+          "text": "be",
+          "start": 2.52,
+          "end": 2.62
+        },
+        {
+          "text": "well.\"",
+          "start": 2.62,
+          "end": 2.88
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.22660642117261887
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "28a1b52a6bf2e7b8f74828724ba7e056bd895f9a25c2e33a18528f505fac530e",
+  "selected_reasons": []
+}

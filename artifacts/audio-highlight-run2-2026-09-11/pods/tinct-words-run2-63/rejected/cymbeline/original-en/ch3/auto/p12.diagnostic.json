@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "93be733d73e8bb8a373be58cc8539c4745267dbda0576af0b723dd91fdf0697b",
+  "attempts": [
+    {
+      "asr_seconds": 0.11879649385809898,
+      "alignment_seconds": 0.00023976899683475494,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Lord.",
+        "hotwords": "Second, Lord"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second Lord.",
+          "start": 0.08,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.67578125
+            },
+            {
+              "text": " Lord.",
+              "start": 0.7,
+              "end": 0.96,
+              "probability": 0.859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Lord.",
+          "start": 0.7,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lord.",
+          "start": 0.7,
+          "end": 0.96,
+          "key": "lord",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Lord.",
+          "start": 0.7,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11912268027663231
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3341f476298d255df04e23f733cf746ab468e48632f0b29d0a017be0354be271",
+  "selected_reasons": []
+}

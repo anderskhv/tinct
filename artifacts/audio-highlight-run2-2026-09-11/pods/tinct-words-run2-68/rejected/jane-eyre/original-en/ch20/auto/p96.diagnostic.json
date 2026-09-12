@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "acef0d88f98407d2d5e5a27230aaee04a7c8bb3cf96ea60c7c4472fe6579394c",
+  "attempts": [
+    {
+      "asr_seconds": 0.14163024723529816,
+      "alignment_seconds": 0.00028596818447113037,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Drink! drink! drink!\""
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Drink! drink! drink!",
+          "start": 0.05,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " Drink!",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.61962890625
+            },
+            {
+              "text": " drink!",
+              "start": 1.01,
+              "end": 1.03,
+              "probability": 0.08172607421875
+            },
+            {
+              "text": " drink!",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.96533203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Drink!",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "drink!",
+          "start": 1.01,
+          "end": 1.03
+        },
+        {
+          "raw": "drink!",
+          "start": 1.33,
+          "end": 1.49
+        }
+      ],
+      "expected_tokens": [
+        "\"Drink!",
+        "drink!",
+        "drink!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Drink!",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "drink",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "drink!",
+          "start": 1.01,
+          "end": 1.03,
+          "key": "drink",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "drink!",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "drink",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Drink!",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "drink!",
+          "start": 1.01,
+          "end": 1.03
+        },
+        {
+          "text": "drink!\"",
+          "start": 1.33,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1420147940516472
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5c4434e8947fef164bd882a89f3c7fc63ca4ce71d5c5f8aa633c1884346fbcd3",
+  "selected_reasons": []
+}

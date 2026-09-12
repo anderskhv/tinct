@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "6e02dbcf99bcec459baf2931b6d1df34becf3b60e5448c5ed41b56b47a03401f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1633307160809636,
+      "alignment_seconds": 0.00039697717875242233,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But if he is caught he dies.",
+        "hotwords": "But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But if he is caught he dies.",
+          "start": 0.02,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " if",
+              "start": 0.48,
+              "end": 0.56,
+              "probability": 0.970703125
+            },
+            {
+              "text": " he",
+              "start": 0.56,
+              "end": 0.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 0.66,
+              "end": 0.76,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " caught",
+              "start": 0.76,
+              "end": 0.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 0.98,
+              "end": 1.14,
+              "probability": 0.27294921875
+            },
+            {
+              "text": " dies.",
+              "start": 1.14,
+              "end": 1.4,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "if",
+          "start": 0.48,
+          "end": 0.56
+        },
+        {
+          "raw": "he",
+          "start": 0.56,
+          "end": 0.66
+        },
+        {
+          "raw": "is",
+          "start": 0.66,
+          "end": 0.76
+        },
+        {
+          "raw": "caught",
+          "start": 0.76,
+          "end": 0.98
+        },
+        {
+          "raw": "he",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "raw": "dies.",
+          "start": 1.14,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "if",
+        "he",
+        "is",
+        "caught",
+        "he",
+        "dies."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 0.48,
+          "end": 0.56,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.56,
+          "end": 0.66,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.66,
+          "end": 0.76,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "caught",
+          "start": 0.76,
+          "end": 0.98,
+          "key": "caught",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.98,
+          "end": 1.14,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dies.",
+          "start": 1.14,
+          "end": 1.4,
+          "key": "dies",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "if",
+          "start": 0.48,
+          "end": 0.56
+        },
+        {
+          "text": "he",
+          "start": 0.56,
+          "end": 0.66
+        },
+        {
+          "text": "is",
+          "start": 0.66,
+          "end": 0.76
+        },
+        {
+          "text": "caught",
+          "start": 0.76,
+          "end": 0.98
+        },
+        {
+          "text": "he",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "text": "dies.",
+          "start": 1.14,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16386535484343767
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a7d03c65e23ad8aa5dc523a9647a32aff4704e603ea656dcdc71e05de28c8b3a",
+  "selected_reasons": []
+}

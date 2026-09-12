@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "e43712590935d9182ac11c6c26c550b789afb1ebdbddd8b9a5bf7c4f83102de0",
+  "attempts": [
+    {
+      "asr_seconds": 0.14377808570861816,
+      "alignment_seconds": 0.0004327213391661644,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A heavy fume gushed an answer.",
+          "start": 0.14,
+          "end": 1.82,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.14,
+              "end": 0.5,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " heavy",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.962890625
+            },
+            {
+              "text": " fume",
+              "start": 0.68,
+              "end": 1.04,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " gushed",
+              "start": 1.04,
+              "end": 1.3,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " an",
+              "start": 1.3,
+              "end": 1.46,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " answer.",
+              "start": 1.46,
+              "end": 1.82,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.14,
+          "end": 0.5
+        },
+        {
+          "raw": "heavy",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "fume",
+          "start": 0.68,
+          "end": 1.04
+        },
+        {
+          "raw": "gushed",
+          "start": 1.04,
+          "end": 1.3
+        },
+        {
+          "raw": "an",
+          "start": 1.3,
+          "end": 1.46
+        },
+        {
+          "raw": "answer.",
+          "start": 1.46,
+          "end": 1.82
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "heavy",
+        "fume",
+        "gushed",
+        "in",
+        "answer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.14,
+          "end": 0.5,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "heavy",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "heavy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fume",
+          "start": 0.68,
+          "end": 1.04,
+          "key": "fume",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gushed",
+          "start": 1.04,
+          "end": 1.3,
+          "key": "gushed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.3,
+          "end": 1.46,
+          "key": "an",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "answer.",
+          "start": 1.46,
+          "end": 1.82,
+          "key": "answer",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.14,
+          "end": 0.5
+        },
+        {
+          "text": "heavy",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "fume",
+          "start": 0.68,
+          "end": 1.04
+        },
+        {
+          "text": "gushed",
+          "start": 1.04,
+          "end": 1.3
+        },
+        {
+          "text": "in",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "text": "answer.",
+          "start": 1.46,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14434364577755332
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "69a8b8b7cf948474241068aa756c9126b8b5b88b714ffd55136aa5dbafc5caa8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "c8ad6a48aec19ba07206adb50057b0e09c58681c919522ef039c37d51c4baf93",
+  "attempts": [
+    {
+      "asr_seconds": 0.18043185118585825,
+      "alignment_seconds": 0.00018477905541658401,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Antipholus and Dromio of Ephesus.",
+        "hotwords": "Enter, Antipholus, Dromio, Ephesus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Antipholus and Dromio of Ephesus.",
+          "start": 0.08,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.853515625
+            },
+            {
+              "text": " Antipholus",
+              "start": 0.64,
+              "end": 1.46,
+              "probability": 0.5766429901123047
+            },
+            {
+              "text": " and",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.123779296875
+            },
+            {
+              "text": " Dromio",
+              "start": 1.66,
+              "end": 2.16,
+              "probability": 0.6681722005208334
+            },
+            {
+              "text": " of",
+              "start": 2.16,
+              "end": 2.32,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Ephesus.",
+              "start": 2.32,
+              "end": 2.9,
+              "probability": 0.9816080729166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Antipholus",
+          "start": 0.64,
+          "end": 1.46
+        },
+        {
+          "raw": "and",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "Dromio",
+          "start": 1.66,
+          "end": 2.16
+        },
+        {
+          "raw": "of",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "raw": "Ephesus.",
+          "start": 2.32,
+          "end": 2.9
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Antipholus",
+        "and",
+        "Dromio",
+        "of",
+        "Ephesus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Antipholus",
+          "start": 0.64,
+          "end": 1.46,
+          "key": "antipholus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dromio",
+          "start": 1.66,
+          "end": 2.16,
+          "key": "dromio",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.16,
+          "end": 2.32,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Ephesus.",
+          "start": 2.32,
+          "end": 2.9,
+          "key": "ephesus",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Antipholus",
+          "start": 0.64,
+          "end": 1.46
+        },
+        {
+          "text": "and",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "Dromio",
+          "start": 1.66,
+          "end": 2.16
+        },
+        {
+          "text": "of",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "text": "Ephesus.",
+          "start": 2.32,
+          "end": 2.9
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18068238999694586
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "07ac45c485bb80a5e87eabdd7464d8ff27fbf8368cd99a8197e7298cbfd428cf",
+  "selected_reasons": []
+}

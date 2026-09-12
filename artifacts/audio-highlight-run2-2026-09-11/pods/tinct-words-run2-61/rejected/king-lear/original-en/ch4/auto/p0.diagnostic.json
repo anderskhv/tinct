@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "38bf709f0b880e791b3426082f1bae513e0fa7c4e9f5373b6cc4e58bdfd1a5fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.10410013794898987,
+      "alignment_seconds": 0.0001490265130996704,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Kent, disguised.",
+        "hotwords": "Enter, Kent"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Kent, disguised.",
+          "start": 0.11,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.958984375
+            },
+            {
+              "text": " Kent,",
+              "start": 0.79,
+              "end": 0.93,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " disguised.",
+              "start": 1.15,
+              "end": 1.49,
+              "probability": 0.833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Kent,",
+          "start": 0.79,
+          "end": 0.93
+        },
+        {
+          "raw": "disguised.",
+          "start": 1.15,
+          "end": 1.49
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Kent,",
+        "disguised."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kent,",
+          "start": 0.79,
+          "end": 0.93,
+          "key": "kent",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "disguised.",
+          "start": 1.15,
+          "end": 1.49,
+          "key": "disguised",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Kent,",
+          "start": 0.79,
+          "end": 0.93
+        },
+        {
+          "text": "disguised.",
+          "start": 1.15,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10429555177688599
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "42b82f8536ea567fea804c32e3055a3bc3da68955208c9b1d429bd12dfd27d4f",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "a61aa522f2a6a9c454739ebc69ed0c70a0e48ff05acc3303fae2e15e500eb26e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1317896759719588,
+      "alignment_seconds": 0.00018484098836779594,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The Grandeur That Was Rome",
+        "hotwords": "The, Grandeur, That, Was, Rome"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The Grandeur That Was Rome",
+          "start": 0.02,
+          "end": 1.44,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.52783203125
+            },
+            {
+              "text": " Grandeur",
+              "start": 0.48,
+              "end": 0.88,
+              "probability": 0.5185546875
+            },
+            {
+              "text": " That",
+              "start": 0.88,
+              "end": 1.0,
+              "probability": 0.30419921875
+            },
+            {
+              "text": " Was",
+              "start": 1.0,
+              "end": 1.16,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " Rome",
+              "start": 1.16,
+              "end": 1.44,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "Grandeur",
+          "start": 0.48,
+          "end": 0.88
+        },
+        {
+          "raw": "That",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "raw": "Was",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "raw": "Rome",
+          "start": 1.16,
+          "end": 1.44
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Grandeur",
+        "That",
+        "Was",
+        "Rome"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Grandeur",
+          "start": 0.48,
+          "end": 0.88,
+          "key": "grandeur",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 0.88,
+          "end": 1.0,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Was",
+          "start": 1.0,
+          "end": 1.16,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Rome",
+          "start": 1.16,
+          "end": 1.44,
+          "key": "rome",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "Grandeur",
+          "start": 0.48,
+          "end": 0.88
+        },
+        {
+          "text": "That",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "text": "Was",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "text": "Rome",
+          "start": 1.16,
+          "end": 1.44
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13203653797972947
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c846627f8aa88717b6180f30b77e10c0e5a92b4c81358b7d8ed877fdb79d250a",
+  "selected_reasons": []
+}

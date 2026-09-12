@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "d598022b114810513b0f22bfd0da32f379318cb42757315e8ea4672ac6f96ea7",
+  "attempts": [
+    {
+      "asr_seconds": 0.21928861108608544,
+      "alignment_seconds": 0.0003082219045609236,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Everybody was looking, and when Lavinia looked she turned quite red.",
+        "hotwords": "Everybody, Lavinia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Everybody was looking, and when Lavinia looked she turned quite red.",
+          "start": 0.08,
+          "end": 4.04,
+          "words": [
+            {
+              "text": " Everybody",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.87890625
+            },
+            {
+              "text": " was",
+              "start": 0.7,
+              "end": 0.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " looking,",
+              "start": 0.98,
+              "end": 1.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 1.84,
+              "end": 1.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " when",
+              "start": 1.92,
+              "end": 2.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Lavinia",
+              "start": 2.04,
+              "end": 2.5,
+              "probability": 0.73486328125
+            },
+            {
+              "text": " looked",
+              "start": 2.5,
+              "end": 2.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " she",
+              "start": 2.78,
+              "end": 3.06,
+              "probability": 0.2274169921875
+            },
+            {
+              "text": " turned",
+              "start": 3.06,
+              "end": 3.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " quite",
+              "start": 3.36,
+              "end": 3.68,
+              "probability": 0.986328125
+            },
+            {
+              "text": " red.",
+              "start": 3.68,
+              "end": 4.04,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Everybody",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "was",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "raw": "looking,",
+          "start": 0.98,
+          "end": 1.34
+        },
+        {
+          "raw": "and",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "raw": "when",
+          "start": 1.92,
+          "end": 2.04
+        },
+        {
+          "raw": "Lavinia",
+          "start": 2.04,
+          "end": 2.5
+        },
+        {
+          "raw": "looked",
+          "start": 2.5,
+          "end": 2.78
+        },
+        {
+          "raw": "she",
+          "start": 2.78,
+          "end": 3.06
+        },
+        {
+          "raw": "turned",
+          "start": 3.06,
+          "end": 3.36
+        },
+        {
+          "raw": "quite",
+          "start": 3.36,
+          "end": 3.68
+        },
+        {
+          "raw": "red.",
+          "start": 3.68,
+          "end": 4.04
+        }
+      ],
+      "expected_tokens": [
+        "Everybody",
+        "was",
+        "looking,",
+        "and",
+        "when",
+        "Lavinia",
+        "looked",
+        "she",
+        "turned",
+        "quite",
+        "red."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Everybody",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "everybody",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.7,
+          "end": 0.98,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "looking,",
+          "start": 0.98,
+          "end": 1.34,
+          "key": "looking",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.84,
+          "end": 1.92,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.92,
+          "end": 2.04,
+          "key": "when",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Lavinia",
+          "start": 2.04,
+          "end": 2.5,
+          "key": "lavinia",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 2.5,
+          "end": 2.78,
+          "key": "looked",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.78,
+          "end": 3.06,
+          "key": "she",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 3.06,
+          "end": 3.36,
+          "key": "turned",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 3.36,
+          "end": 3.68,
+          "key": "quite",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "red.",
+          "start": 3.68,
+          "end": 4.04,
+          "key": "red",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Everybody",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "was",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "text": "looking,",
+          "start": 0.98,
+          "end": 1.34
+        },
+        {
+          "text": "and",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "text": "when",
+          "start": 1.92,
+          "end": 2.04
+        },
+        {
+          "text": "Lavinia",
+          "start": 2.04,
+          "end": 2.5
+        },
+        {
+          "text": "looked",
+          "start": 2.5,
+          "end": 2.78
+        },
+        {
+          "text": "she",
+          "start": 2.78,
+          "end": 3.06
+        },
+        {
+          "text": "turned",
+          "start": 3.06,
+          "end": 3.36
+        },
+        {
+          "text": "quite",
+          "start": 3.36,
+          "end": 3.68
+        },
+        {
+          "text": "red.",
+          "start": 3.68,
+          "end": 4.04
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21971315913833678
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3edd6459a4e5334ebf37ebbaf5d40c56c029fb48c7669d00c16fe3e1a2e417b1",
+  "selected_reasons": []
+}

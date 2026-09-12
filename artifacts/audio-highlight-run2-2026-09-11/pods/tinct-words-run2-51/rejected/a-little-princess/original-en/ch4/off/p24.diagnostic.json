@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "7ac3d23149afd07447d27b448c69b677c2143a2eecddfe585822f8a4a61d5ba5",
+  "attempts": [
+    {
+      "asr_seconds": 0.20459176879376173,
+      "alignment_seconds": 0.00040602218359708786,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, Sarah, she exclaimed, endeavoring to produce a suitable smile.",
+          "start": 0.05,
+          "end": 4.39,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.095458984375
+            },
+            {
+              "text": " Sarah,",
+              "start": 0.67,
+              "end": 0.99,
+              "probability": 0.927734375
+            },
+            {
+              "text": " she",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " exclaimed,",
+              "start": 1.63,
+              "end": 2.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " endeavoring",
+              "start": 2.61,
+              "end": 2.93,
+              "probability": 0.942626953125
+            },
+            {
+              "text": " to",
+              "start": 2.93,
+              "end": 3.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " produce",
+              "start": 3.15,
+              "end": 3.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 3.41,
+              "end": 3.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " suitable",
+              "start": 3.63,
+              "end": 3.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " smile.",
+              "start": 3.91,
+              "end": 4.39,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Sarah,",
+          "start": 0.67,
+          "end": 0.99
+        },
+        {
+          "raw": "she",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "exclaimed,",
+          "start": 1.63,
+          "end": 2.05
+        },
+        {
+          "raw": "endeavoring",
+          "start": 2.61,
+          "end": 2.93
+        },
+        {
+          "raw": "to",
+          "start": 2.93,
+          "end": 3.15
+        },
+        {
+          "raw": "produce",
+          "start": 3.15,
+          "end": 3.41
+        },
+        {
+          "raw": "a",
+          "start": 3.41,
+          "end": 3.63
+        },
+        {
+          "raw": "suitable",
+          "start": 3.63,
+          "end": 3.91
+        },
+        {
+          "raw": "smile.",
+          "start": 3.91,
+          "end": 4.39
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "Sara!\"",
+        "she",
+        "exclaimed,",
+        "endeavoring",
+        "to",
+        "produce",
+        "a",
+        "suitable",
+        "smile."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          10,
+          2,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sarah,",
+          "start": 0.67,
+          "end": 0.99,
+          "key": "sarah",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.53,
+          "end": 1.63,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "exclaimed,",
+          "start": 1.63,
+          "end": 2.05,
+          "key": "exclaimed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "endeavoring",
+          "start": 2.61,
+          "end": 2.93,
+          "key": "endeavoring",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.93,
+          "end": 3.15,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "produce",
+          "start": 3.15,
+          "end": 3.41,
+          "key": "produce",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.41,
+          "end": 3.63,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "suitable",
+          "start": 3.63,
+          "end": 3.91,
+          "key": "suitable",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "smile.",
+          "start": 3.91,
+          "end": 4.39,
+          "key": "smile",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Sara!\"",
+          "start": 0.63,
+          "end": 1.08
+        },
+        {
+          "text": "she",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "exclaimed,",
+          "start": 1.63,
+          "end": 2.05
+        },
+        {
+          "text": "endeavoring",
+          "start": 2.61,
+          "end": 2.93
+        },
+        {
+          "text": "to",
+          "start": 2.93,
+          "end": 3.15
+        },
+        {
+          "text": "produce",
+          "start": 3.15,
+          "end": 3.41
+        },
+        {
+          "text": "a",
+          "start": 3.41,
+          "end": 3.63
+        },
+        {
+          "text": "suitable",
+          "start": 3.63,
+          "end": 3.91
+        },
+        {
+          "text": "smile.",
+          "start": 3.91,
+          "end": 4.39
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.2051438968628645
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9d3085d4f000bf614560d8d9229aa69e00861a550a365df1a0b54ab45533c0c5",
+  "selected_reasons": []
+}

@@ -1,0 +1,3172 @@
+{
+  "complete": true,
+  "signature": "fff9ddb472eaa680ef571b7eeb0b86996f7b5f4c7cf829a290ec5ed3dedb10a0",
+  "attempts": [
+    {
+      "asr_seconds": 6.307552680984372,
+      "alignment_seconds": 0.0010557670029811561,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Guard. Nor I.",
+        "hotwords": "Second, Guard, Nor, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second, Guard, Nor, I",
+          "start": 0.08,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " Second,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.54052734375
+            },
+            {
+              "text": " Guard,",
+              "start": 0.96,
+              "end": 1.02,
+              "probability": 0.132080078125
+            },
+            {
+              "text": " Nor,",
+              "start": 1.56,
+              "end": 1.64,
+              "probability": 0.43212890625
+            },
+            {
+              "text": " I",
+              "start": 1.72,
+              "end": 1.92,
+              "probability": 0.5732421875
+            }
+          ]
+        },
+        {
+          "text": " Second, Guard, Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I Second Guard. Nor, I",
+          "start": 1.92,
+          "end": 2.48,
+          "words": [
+            {
+              "text": " Second,",
+              "start": 1.92,
+              "end": 1.92,
+              "probability": 1.621246337890625e-05
+            },
+            {
+              "text": " Guard,",
+              "start": 1.92,
+              "end": 1.92,
+              "probability": 6.198883056640625e-06
+            },
+            {
+              "text": " Nor,",
+              "start": 1.92,
+              "end": 1.92,
+              "probability": 1.627206802368164e-05
+            },
+            {
+              "text": " I",
+              "start": 1.92,
+              "end": 1.92,
+              "probability": 0.0122833251953125
+            },
+            {
+              "text": " Second",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 4.655122756958008e-05
+            },
+            {
+              "text": " Guard.",
+              "start": 2.1,
+              "end": 2.1,
+              "probability": 0.02301025390625
+            },
+            {
+              "text": " Nor,",
+              "start": 2.1,
+              "end": 2.1,
+              "probability": 0.0002651214599609375
+            },
+            {
+              "text": " I",
+              "start": 2.1,
+              "end": 2.1,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " Second",
+              "start": 2.1,
+              "end": 2.12,
+              "probability": 0.2034912109375
+            },
+            {
+              "text": " Guard.",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " Nor,",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.04412841796875
+            },
+            {
+              "text": " I",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.953125
+            },
+            {
+              "text": " Second",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.464111328125
+            },
+            {
+              "text": " Guard.",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Nor,",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.13818359375
+            },
+            {
+              "text": " I",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.984375
+            },
+            {
+              "text": " Second",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.6044921875
+            },
+            {
+              "text": " Guard.",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Nor,",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.26806640625
+            },
+            {
+              "text": " I",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Second",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.703125
+            },
+            {
+              "text": " Guard.",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Nor,",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.41845703125
+            },
+            {
+              "text": " I",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Second",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " Guard.",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Nor,",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.56494140625
+            },
+            {
+              "text": " I",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Second",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " Guard.",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Nor,",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.6650390625
+            },
+            {
+              "text": " I",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Second",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " Guard.",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Nor,",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.7353515625
+            },
+            {
+              "text": " I",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Second",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " Guard.",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Nor,",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " I",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Second",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " Guard.",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Nor,",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " I",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Second",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " Guard.",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Nor,",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " I",
+              "start": 2.12,
+              "end": 2.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Second",
+              "start": 2.12,
+              "end": 2.44,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " Guard.",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Nor,",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " I",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Second",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " Guard.",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Nor,",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.875
+            },
+            {
+              "text": " I",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Second",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " Guard.",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Nor,",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " I",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Second",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.884765625
+            },
+            {
+              "text": " Guard.",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Nor,",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " I",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Second",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " Guard.",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Nor,",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " I",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Second",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " Guard.",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Nor,",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " I",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Second",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " Guard.",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Nor,",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.927734375
+            },
+            {
+              "text": " I",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Second",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.892578125
+            },
+            {
+              "text": " Guard.",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Nor,",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " I",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Second",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " Guard.",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Nor,",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " I",
+              "start": 2.44,
+              "end": 2.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Second",
+              "start": 2.44,
+              "end": 2.48,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " Guard.",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Nor,",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.943359375
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Second",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " Guard.",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Nor,",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Second",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " Guard.",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Nor,",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Second",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.900390625
+            },
+            {
+              "text": " Guard.",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Nor,",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Second",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " Guard.",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Nor,",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Second",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " Guard.",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Nor,",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Second",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " Guard.",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Nor,",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Second",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " Guard.",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.9765625
+            },
+            {
+              "text": " Nor,",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.962890625
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Second",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " Guard.",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Nor,",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Second",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " Guard.",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Nor,",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Second",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " Guard.",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Nor,",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Second",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.91796875
+            },
+            {
+              "text": " Guard.",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Nor,",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Second",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " Guard.",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Nor,",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Second",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " Guard.",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Nor,",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Second",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " Guard.",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Nor,",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.970703125
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Second",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " Guard.",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Nor,",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " I",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Guard,",
+          "start": 0.96,
+          "end": 1.02
+        },
+        {
+          "raw": "Nor,",
+          "start": 1.56,
+          "end": 1.64
+        },
+        {
+          "raw": "I",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "raw": "Second,",
+          "start": 1.92,
+          "end": 1.92
+        },
+        {
+          "raw": "Guard,",
+          "start": 1.92,
+          "end": 1.92
+        },
+        {
+          "raw": "Nor,",
+          "start": 1.92,
+          "end": 1.92
+        },
+        {
+          "raw": "I",
+          "start": 1.92,
+          "end": 1.92
+        },
+        {
+          "raw": "Second",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.1,
+          "end": 2.1
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.1,
+          "end": 2.1
+        },
+        {
+          "raw": "I",
+          "start": 2.1,
+          "end": 2.1
+        },
+        {
+          "raw": "Second",
+          "start": 2.1,
+          "end": 2.12
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.44
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.48
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Guard.",
+        "Nor",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "insert",
+          4,
+          4,
+          4,
+          152
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          4,
+          4,
+          4,
+          152
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Guard,",
+          "start": 0.96,
+          "end": 1.02,
+          "key": "guard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 1.56,
+          "end": 1.64,
+          "key": "nor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.72,
+          "end": 1.92,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Second,",
+          "start": 1.92,
+          "end": 1.92,
+          "key": "second",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Guard,",
+          "start": 1.92,
+          "end": 1.92,
+          "key": "guard",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 1.92,
+          "end": 1.92,
+          "key": "nor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.92,
+          "end": 1.92,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 1.92,
+          "end": 2.1,
+          "key": "second",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.1,
+          "end": 2.1,
+          "key": "guard",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.1,
+          "end": 2.1,
+          "key": "nor",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.1,
+          "end": 2.1,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.1,
+          "end": 2.12,
+          "key": "second",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "guard",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "nor",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "second",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "guard",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "nor",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "i",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "second",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "guard",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "nor",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "second",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "guard",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "nor",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "i",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "second",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "guard",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "nor",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "i",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "second",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "guard",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "nor",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "i",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "second",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "guard",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "nor",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "i",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "second",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "guard",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "nor",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "i",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "second",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "guard",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "nor",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "i",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "second",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "guard",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "nor",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.12,
+          "key": "i",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.12,
+          "end": 2.44,
+          "key": "second",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "guard",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "nor",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "i",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "second",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "guard",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "nor",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "i",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "second",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "guard",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "nor",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "i",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "second",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "guard",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "nor",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "i",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "second",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "guard",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "nor",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "i",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "second",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "guard",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "nor",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "i",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "second",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "guard",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "nor",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "i",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "second",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "guard",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "nor",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "i",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "second",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "guard",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "nor",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.44,
+          "key": "i",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.44,
+          "end": 2.48,
+          "key": "second",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "guard",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "nor",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "second",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "guard",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "nor",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "second",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "guard",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "nor",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "second",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "guard",
+          "pieces": [
+            101
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "nor",
+          "pieces": [
+            102
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            103
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "second",
+          "pieces": [
+            104
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "guard",
+          "pieces": [
+            105
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "nor",
+          "pieces": [
+            106
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            107
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "second",
+          "pieces": [
+            108
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "guard",
+          "pieces": [
+            109
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "nor",
+          "pieces": [
+            110
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            111
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "second",
+          "pieces": [
+            112
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "guard",
+          "pieces": [
+            113
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "nor",
+          "pieces": [
+            114
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            115
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "second",
+          "pieces": [
+            116
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "guard",
+          "pieces": [
+            117
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "nor",
+          "pieces": [
+            118
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            119
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "second",
+          "pieces": [
+            120
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "guard",
+          "pieces": [
+            121
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "nor",
+          "pieces": [
+            122
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            123
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "second",
+          "pieces": [
+            124
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "guard",
+          "pieces": [
+            125
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "nor",
+          "pieces": [
+            126
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            127
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "second",
+          "pieces": [
+            128
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "guard",
+          "pieces": [
+            129
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "nor",
+          "pieces": [
+            130
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            131
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "second",
+          "pieces": [
+            132
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "guard",
+          "pieces": [
+            133
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "nor",
+          "pieces": [
+            134
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            135
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "second",
+          "pieces": [
+            136
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "guard",
+          "pieces": [
+            137
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "nor",
+          "pieces": [
+            138
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            139
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "second",
+          "pieces": [
+            140
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "guard",
+          "pieces": [
+            141
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "nor",
+          "pieces": [
+            142
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            143
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "second",
+          "pieces": [
+            144
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "guard",
+          "pieces": [
+            145
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "nor",
+          "pieces": [
+            146
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            147
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "second",
+          "pieces": [
+            148
+          ]
+        },
+        {
+          "raw": "Guard.",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "guard",
+          "pieces": [
+            149
+          ]
+        },
+        {
+          "raw": "Nor,",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "nor",
+          "pieces": [
+            150
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "i",
+          "pieces": [
+            151
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Guard.",
+          "start": 0.96,
+          "end": 1.02
+        },
+        {
+          "text": "Nor",
+          "start": 1.56,
+          "end": 1.64
+        },
+        {
+          "text": "I.",
+          "start": 1.72,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 152,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 6.30991831299616
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "74fc4be098a80ef1feb4503a497357eb416949c187b48250ef25947d5acd29db",
+  "selected_reasons": []
+}

@@ -1,0 +1,2469 @@
+{
+  "complete": true,
+  "signature": "10328f76532e6689c7d702361c53a0ff6a7ddd6f515183f5b165f82dcb1cae0b",
+  "attempts": [
+    {
+      "asr_seconds": 0.6742351790890098,
+      "alignment_seconds": 0.0009318506345152855,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sophie came at seven to dress me: she was very long indeed in accomplishing her task; so long that Mr. Rochester, grown, I suppose, impatient of my delay, sent up to ask why I did not come. She was just fastening my veil (the plain square of blond after all) to my hair with a brooch; I hurried from under her hands as soon as I could.",
+        "hotwords": "Sophie, Mr, Rochester, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sophie came at seven to dress me. She was very long indeed in accomplishing her task. So long",
+          "start": 0.08,
+          "end": 6.18,
+          "words": [
+            {
+              "text": " Sophie",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.61181640625
+            },
+            {
+              "text": " came",
+              "start": 0.66,
+              "end": 0.96,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " at",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seven",
+              "start": 1.16,
+              "end": 1.44,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " to",
+              "start": 1.44,
+              "end": 1.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " dress",
+              "start": 1.66,
+              "end": 1.88,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " me.",
+              "start": 1.88,
+              "end": 2.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " She",
+              "start": 2.68,
+              "end": 2.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " was",
+              "start": 2.7,
+              "end": 2.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " very",
+              "start": 2.78,
+              "end": 3.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " long",
+              "start": 3.06,
+              "end": 3.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " indeed",
+              "start": 3.36,
+              "end": 3.74,
+              "probability": 0.72900390625
+            },
+            {
+              "text": " in",
+              "start": 3.74,
+              "end": 3.96,
+              "probability": 0.990234375
+            },
+            {
+              "text": " accomplishing",
+              "start": 3.96,
+              "end": 4.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 4.6,
+              "end": 4.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " task.",
+              "start": 4.76,
+              "end": 5.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " So",
+              "start": 5.74,
+              "end": 5.92,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " long",
+              "start": 5.92,
+              "end": 6.18,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " that Mr. Rochester, grown, I suppose, impatient of my delay, sent up to ask why I did not come.",
+          "start": 6.18,
+          "end": 12.74,
+          "words": [
+            {
+              "text": " that",
+              "start": 6.18,
+              "end": 6.42,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Mr.",
+              "start": 6.42,
+              "end": 6.68,
+              "probability": 0.94921875
+            },
+            {
+              "text": " Rochester,",
+              "start": 6.98,
+              "end": 7.2,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " grown,",
+              "start": 7.9,
+              "end": 7.98,
+              "probability": 0.5546875
+            },
+            {
+              "text": " I",
+              "start": 8.42,
+              "end": 8.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " suppose,",
+              "start": 8.52,
+              "end": 8.96,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " impatient",
+              "start": 9.46,
+              "end": 9.84,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " of",
+              "start": 9.84,
+              "end": 10.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 10.08,
+              "end": 10.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " delay,",
+              "start": 10.24,
+              "end": 10.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sent",
+              "start": 11.04,
+              "end": 11.18,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " up",
+              "start": 11.18,
+              "end": 11.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 11.32,
+              "end": 11.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ask",
+              "start": 11.46,
+              "end": 11.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " why",
+              "start": 11.74,
+              "end": 11.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 11.96,
+              "end": 12.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " did",
+              "start": 12.12,
+              "end": 12.22,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " not",
+              "start": 12.22,
+              "end": 12.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " come.",
+              "start": 12.44,
+              "end": 12.74,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " She was just fastening my veil, the plain square of blond after all, to my hair with",
+          "start": 13.52,
+          "end": 18.3,
+          "words": [
+            {
+              "text": " She",
+              "start": 13.52,
+              "end": 13.74,
+              "probability": 0.994140625
+            },
+            {
+              "text": " was",
+              "start": 13.74,
+              "end": 13.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " just",
+              "start": 13.84,
+              "end": 14.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fastening",
+              "start": 14.08,
+              "end": 14.58,
+              "probability": 0.912109375
+            },
+            {
+              "text": " my",
+              "start": 14.58,
+              "end": 14.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " veil,",
+              "start": 14.8,
+              "end": 15.14,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 15.58,
+              "end": 15.72,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " plain",
+              "start": 15.72,
+              "end": 16.0,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " square",
+              "start": 16.0,
+              "end": 16.36,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " of",
+              "start": 16.36,
+              "end": 16.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " blond",
+              "start": 16.56,
+              "end": 16.86,
+              "probability": 0.22998046875
+            },
+            {
+              "text": " after",
+              "start": 16.86,
+              "end": 17.24,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " all,",
+              "start": 17.24,
+              "end": 17.54,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " to",
+              "start": 17.66,
+              "end": 17.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 17.74,
+              "end": 17.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hair",
+              "start": 17.9,
+              "end": 18.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 18.14,
+              "end": 18.3,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " a brooch. I hurried from under her hands as soon as I could.",
+          "start": 18.3,
+          "end": 21.48,
+          "words": [
+            {
+              "text": " a",
+              "start": 18.3,
+              "end": 18.42,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " brooch.",
+              "start": 18.42,
+              "end": 18.82,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " I",
+              "start": 19.26,
+              "end": 19.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hurried",
+              "start": 19.38,
+              "end": 19.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " from",
+              "start": 19.66,
+              "end": 19.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " under",
+              "start": 19.88,
+              "end": 20.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 20.06,
+              "end": 20.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hands",
+              "start": 20.24,
+              "end": 20.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 20.54,
+              "end": 20.78,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " soon",
+              "start": 20.78,
+              "end": 20.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 20.96,
+              "end": 21.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 21.08,
+              "end": 21.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " could.",
+              "start": 21.24,
+              "end": 21.48,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " I hurried from under her hands as soon as I could.",
+          "start": 21.48,
+          "end": 21.54,
+          "words": [
+            {
+              "text": " I",
+              "start": 21.48,
+              "end": 21.48,
+              "probability": 0.0027141571044921875
+            },
+            {
+              "text": " hurried",
+              "start": 21.48,
+              "end": 21.48,
+              "probability": 1.3709068298339844e-06
+            },
+            {
+              "text": " from",
+              "start": 21.48,
+              "end": 21.48,
+              "probability": 0.002796173095703125
+            },
+            {
+              "text": " under",
+              "start": 21.48,
+              "end": 21.48,
+              "probability": 0.0004756450653076172
+            },
+            {
+              "text": " her",
+              "start": 21.48,
+              "end": 21.48,
+              "probability": 0.004535675048828125
+            },
+            {
+              "text": " hands",
+              "start": 21.48,
+              "end": 21.48,
+              "probability": 0.002788543701171875
+            },
+            {
+              "text": " as",
+              "start": 21.48,
+              "end": 21.48,
+              "probability": 0.0116729736328125
+            },
+            {
+              "text": " soon",
+              "start": 21.48,
+              "end": 21.48,
+              "probability": 0.0111846923828125
+            },
+            {
+              "text": " as",
+              "start": 21.48,
+              "end": 21.48,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " I",
+              "start": 21.48,
+              "end": 21.48,
+              "probability": 0.488525390625
+            },
+            {
+              "text": " could.",
+              "start": 21.48,
+              "end": 21.54,
+              "probability": 0.05609130859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sophie",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "came",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "raw": "at",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "raw": "seven",
+          "start": 1.16,
+          "end": 1.44
+        },
+        {
+          "raw": "to",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "raw": "dress",
+          "start": 1.66,
+          "end": 1.88
+        },
+        {
+          "raw": "me.",
+          "start": 1.88,
+          "end": 2.2
+        },
+        {
+          "raw": "She",
+          "start": 2.68,
+          "end": 2.7
+        },
+        {
+          "raw": "was",
+          "start": 2.7,
+          "end": 2.78
+        },
+        {
+          "raw": "very",
+          "start": 2.78,
+          "end": 3.06
+        },
+        {
+          "raw": "long",
+          "start": 3.06,
+          "end": 3.36
+        },
+        {
+          "raw": "indeed",
+          "start": 3.36,
+          "end": 3.74
+        },
+        {
+          "raw": "in",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "raw": "accomplishing",
+          "start": 3.96,
+          "end": 4.6
+        },
+        {
+          "raw": "her",
+          "start": 4.6,
+          "end": 4.76
+        },
+        {
+          "raw": "task.",
+          "start": 4.76,
+          "end": 5.18
+        },
+        {
+          "raw": "So",
+          "start": 5.74,
+          "end": 5.92
+        },
+        {
+          "raw": "long",
+          "start": 5.92,
+          "end": 6.18
+        },
+        {
+          "raw": "that",
+          "start": 6.18,
+          "end": 6.42
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.42,
+          "end": 6.68
+        },
+        {
+          "raw": "Rochester,",
+          "start": 6.98,
+          "end": 7.2
+        },
+        {
+          "raw": "grown,",
+          "start": 7.9,
+          "end": 7.98
+        },
+        {
+          "raw": "I",
+          "start": 8.42,
+          "end": 8.52
+        },
+        {
+          "raw": "suppose,",
+          "start": 8.52,
+          "end": 8.96
+        },
+        {
+          "raw": "impatient",
+          "start": 9.46,
+          "end": 9.84
+        },
+        {
+          "raw": "of",
+          "start": 9.84,
+          "end": 10.08
+        },
+        {
+          "raw": "my",
+          "start": 10.08,
+          "end": 10.24
+        },
+        {
+          "raw": "delay,",
+          "start": 10.24,
+          "end": 10.62
+        },
+        {
+          "raw": "sent",
+          "start": 11.04,
+          "end": 11.18
+        },
+        {
+          "raw": "up",
+          "start": 11.18,
+          "end": 11.32
+        },
+        {
+          "raw": "to",
+          "start": 11.32,
+          "end": 11.46
+        },
+        {
+          "raw": "ask",
+          "start": 11.46,
+          "end": 11.74
+        },
+        {
+          "raw": "why",
+          "start": 11.74,
+          "end": 11.96
+        },
+        {
+          "raw": "I",
+          "start": 11.96,
+          "end": 12.12
+        },
+        {
+          "raw": "did",
+          "start": 12.12,
+          "end": 12.22
+        },
+        {
+          "raw": "not",
+          "start": 12.22,
+          "end": 12.44
+        },
+        {
+          "raw": "come.",
+          "start": 12.44,
+          "end": 12.74
+        },
+        {
+          "raw": "She",
+          "start": 13.52,
+          "end": 13.74
+        },
+        {
+          "raw": "was",
+          "start": 13.74,
+          "end": 13.84
+        },
+        {
+          "raw": "just",
+          "start": 13.84,
+          "end": 14.08
+        },
+        {
+          "raw": "fastening",
+          "start": 14.08,
+          "end": 14.58
+        },
+        {
+          "raw": "my",
+          "start": 14.58,
+          "end": 14.8
+        },
+        {
+          "raw": "veil,",
+          "start": 14.8,
+          "end": 15.14
+        },
+        {
+          "raw": "the",
+          "start": 15.58,
+          "end": 15.72
+        },
+        {
+          "raw": "plain",
+          "start": 15.72,
+          "end": 16.0
+        },
+        {
+          "raw": "square",
+          "start": 16.0,
+          "end": 16.36
+        },
+        {
+          "raw": "of",
+          "start": 16.36,
+          "end": 16.56
+        },
+        {
+          "raw": "blond",
+          "start": 16.56,
+          "end": 16.86
+        },
+        {
+          "raw": "after",
+          "start": 16.86,
+          "end": 17.24
+        },
+        {
+          "raw": "all,",
+          "start": 17.24,
+          "end": 17.54
+        },
+        {
+          "raw": "to",
+          "start": 17.66,
+          "end": 17.74
+        },
+        {
+          "raw": "my",
+          "start": 17.74,
+          "end": 17.9
+        },
+        {
+          "raw": "hair",
+          "start": 17.9,
+          "end": 18.14
+        },
+        {
+          "raw": "with",
+          "start": 18.14,
+          "end": 18.3
+        },
+        {
+          "raw": "a",
+          "start": 18.3,
+          "end": 18.42
+        },
+        {
+          "raw": "brooch.",
+          "start": 18.42,
+          "end": 18.82
+        },
+        {
+          "raw": "I",
+          "start": 19.26,
+          "end": 19.38
+        },
+        {
+          "raw": "hurried",
+          "start": 19.38,
+          "end": 19.66
+        },
+        {
+          "raw": "from",
+          "start": 19.66,
+          "end": 19.88
+        },
+        {
+          "raw": "under",
+          "start": 19.88,
+          "end": 20.06
+        },
+        {
+          "raw": "her",
+          "start": 20.06,
+          "end": 20.24
+        },
+        {
+          "raw": "hands",
+          "start": 20.24,
+          "end": 20.54
+        },
+        {
+          "raw": "as",
+          "start": 20.54,
+          "end": 20.78
+        },
+        {
+          "raw": "soon",
+          "start": 20.78,
+          "end": 20.96
+        },
+        {
+          "raw": "as",
+          "start": 20.96,
+          "end": 21.08
+        },
+        {
+          "raw": "I",
+          "start": 21.08,
+          "end": 21.24
+        },
+        {
+          "raw": "could.",
+          "start": 21.24,
+          "end": 21.48
+        },
+        {
+          "raw": "I",
+          "start": 21.48,
+          "end": 21.48
+        },
+        {
+          "raw": "hurried",
+          "start": 21.48,
+          "end": 21.48
+        },
+        {
+          "raw": "from",
+          "start": 21.48,
+          "end": 21.48
+        },
+        {
+          "raw": "under",
+          "start": 21.48,
+          "end": 21.48
+        },
+        {
+          "raw": "her",
+          "start": 21.48,
+          "end": 21.48
+        },
+        {
+          "raw": "hands",
+          "start": 21.48,
+          "end": 21.48
+        },
+        {
+          "raw": "as",
+          "start": 21.48,
+          "end": 21.48
+        },
+        {
+          "raw": "soon",
+          "start": 21.48,
+          "end": 21.48
+        },
+        {
+          "raw": "as",
+          "start": 21.48,
+          "end": 21.48
+        },
+        {
+          "raw": "I",
+          "start": 21.48,
+          "end": 21.48
+        },
+        {
+          "raw": "could.",
+          "start": 21.48,
+          "end": 21.54
+        }
+      ],
+      "expected_tokens": [
+        "Sophie",
+        "came",
+        "at",
+        "seven",
+        "to",
+        "dress",
+        "me:",
+        "she",
+        "was",
+        "very",
+        "long",
+        "indeed",
+        "in",
+        "accomplishing",
+        "her",
+        "task;",
+        "so",
+        "long",
+        "that",
+        "Mr.",
+        "Rochester,",
+        "grown,",
+        "I",
+        "suppose,",
+        "impatient",
+        "of",
+        "my",
+        "delay,",
+        "sent",
+        "up",
+        "to",
+        "ask",
+        "why",
+        "I",
+        "did",
+        "not",
+        "come.",
+        "She",
+        "was",
+        "just",
+        "fastening",
+        "my",
+        "veil",
+        "(the",
+        "plain",
+        "square",
+        "of",
+        "blond",
+        "after",
+        "all)",
+        "to",
+        "my",
+        "hair",
+        "with",
+        "a",
+        "brooch;",
+        "I",
+        "hurried",
+        "from",
+        "under",
+        "her",
+        "hands",
+        "as",
+        "soon",
+        "as",
+        "I",
+        "could."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          67,
+          0,
+          67
+        ],
+        [
+          "insert",
+          67,
+          67,
+          67,
+          78
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          67,
+          67,
+          67,
+          78
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sophie",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "sophie",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 0.66,
+          "end": 0.96,
+          "key": "came",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.96,
+          "end": 1.16,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "seven",
+          "start": 1.16,
+          "end": 1.44,
+          "key": "seven",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.44,
+          "end": 1.66,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dress",
+          "start": 1.66,
+          "end": 1.88,
+          "key": "dress",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 1.88,
+          "end": 2.2,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 2.68,
+          "end": 2.7,
+          "key": "she",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.7,
+          "end": 2.78,
+          "key": "was",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 2.78,
+          "end": 3.06,
+          "key": "very",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 3.06,
+          "end": 3.36,
+          "key": "long",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "indeed",
+          "start": 3.36,
+          "end": 3.74,
+          "key": "indeed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.74,
+          "end": 3.96,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "accomplishing",
+          "start": 3.96,
+          "end": 4.6,
+          "key": "accomplishing",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.6,
+          "end": 4.76,
+          "key": "her",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "task.",
+          "start": 4.76,
+          "end": 5.18,
+          "key": "task",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 5.74,
+          "end": 5.92,
+          "key": "so",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 5.92,
+          "end": 6.18,
+          "key": "long",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.18,
+          "end": 6.42,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.42,
+          "end": 6.68,
+          "key": "mr",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Rochester,",
+          "start": 6.98,
+          "end": 7.2,
+          "key": "rochester",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "grown,",
+          "start": 7.9,
+          "end": 7.98,
+          "key": "grown",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.42,
+          "end": 8.52,
+          "key": "i",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "suppose,",
+          "start": 8.52,
+          "end": 8.96,
+          "key": "suppose",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "impatient",
+          "start": 9.46,
+          "end": 9.84,
+          "key": "impatient",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.84,
+          "end": 10.08,
+          "key": "of",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 10.08,
+          "end": 10.24,
+          "key": "my",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "delay,",
+          "start": 10.24,
+          "end": 10.62,
+          "key": "delay",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 11.04,
+          "end": 11.18,
+          "key": "sent",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 11.18,
+          "end": 11.32,
+          "key": "up",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.32,
+          "end": 11.46,
+          "key": "to",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 11.46,
+          "end": 11.74,
+          "key": "ask",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 11.74,
+          "end": 11.96,
+          "key": "why",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 11.96,
+          "end": 12.12,
+          "key": "i",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 12.12,
+          "end": 12.22,
+          "key": "did",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 12.22,
+          "end": 12.44,
+          "key": "not",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 12.44,
+          "end": 12.74,
+          "key": "come",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 13.52,
+          "end": 13.74,
+          "key": "she",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 13.74,
+          "end": 13.84,
+          "key": "was",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 13.84,
+          "end": 14.08,
+          "key": "just",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "fastening",
+          "start": 14.08,
+          "end": 14.58,
+          "key": "fastening",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 14.58,
+          "end": 14.8,
+          "key": "my",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "veil,",
+          "start": 14.8,
+          "end": 15.14,
+          "key": "veil",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.58,
+          "end": 15.72,
+          "key": "the",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "plain",
+          "start": 15.72,
+          "end": 16.0,
+          "key": "plain",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "square",
+          "start": 16.0,
+          "end": 16.36,
+          "key": "square",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.36,
+          "end": 16.56,
+          "key": "of",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "blond",
+          "start": 16.56,
+          "end": 16.86,
+          "key": "blond",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 16.86,
+          "end": 17.24,
+          "key": "after",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "all,",
+          "start": 17.24,
+          "end": 17.54,
+          "key": "all",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 17.66,
+          "end": 17.74,
+          "key": "to",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 17.74,
+          "end": 17.9,
+          "key": "my",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "hair",
+          "start": 17.9,
+          "end": 18.14,
+          "key": "hair",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 18.14,
+          "end": 18.3,
+          "key": "with",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 18.3,
+          "end": 18.42,
+          "key": "a",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "brooch.",
+          "start": 18.42,
+          "end": 18.82,
+          "key": "brooch",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 19.26,
+          "end": 19.38,
+          "key": "i",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "hurried",
+          "start": 19.38,
+          "end": 19.66,
+          "key": "hurried",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 19.66,
+          "end": 19.88,
+          "key": "from",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 19.88,
+          "end": 20.06,
+          "key": "under",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 20.06,
+          "end": 20.24,
+          "key": "her",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 20.24,
+          "end": 20.54,
+          "key": "hands",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 20.54,
+          "end": 20.78,
+          "key": "as",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "soon",
+          "start": 20.78,
+          "end": 20.96,
+          "key": "soon",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 20.96,
+          "end": 21.08,
+          "key": "as",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 21.08,
+          "end": 21.24,
+          "key": "i",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "could.",
+          "start": 21.24,
+          "end": 21.48,
+          "key": "could",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 21.48,
+          "end": 21.48,
+          "key": "i",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "hurried",
+          "start": 21.48,
+          "end": 21.48,
+          "key": "hurried",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 21.48,
+          "end": 21.48,
+          "key": "from",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 21.48,
+          "end": 21.48,
+          "key": "under",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 21.48,
+          "end": 21.48,
+          "key": "her",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 21.48,
+          "end": 21.48,
+          "key": "hands",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 21.48,
+          "end": 21.48,
+          "key": "as",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "soon",
+          "start": 21.48,
+          "end": 21.48,
+          "key": "soon",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 21.48,
+          "end": 21.48,
+          "key": "as",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 21.48,
+          "end": 21.48,
+          "key": "i",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "could.",
+          "start": 21.48,
+          "end": 21.54,
+          "key": "could",
+          "pieces": [
+            77
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sophie",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "came",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "text": "at",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "text": "seven",
+          "start": 1.16,
+          "end": 1.44
+        },
+        {
+          "text": "to",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "text": "dress",
+          "start": 1.66,
+          "end": 1.88
+        },
+        {
+          "text": "me:",
+          "start": 1.88,
+          "end": 2.2
+        },
+        {
+          "text": "she",
+          "start": 2.68,
+          "end": 2.7
+        },
+        {
+          "text": "was",
+          "start": 2.7,
+          "end": 2.78
+        },
+        {
+          "text": "very",
+          "start": 2.78,
+          "end": 3.06
+        },
+        {
+          "text": "long",
+          "start": 3.06,
+          "end": 3.36
+        },
+        {
+          "text": "indeed",
+          "start": 3.36,
+          "end": 3.74
+        },
+        {
+          "text": "in",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "text": "accomplishing",
+          "start": 3.96,
+          "end": 4.6
+        },
+        {
+          "text": "her",
+          "start": 4.6,
+          "end": 4.76
+        },
+        {
+          "text": "task;",
+          "start": 4.76,
+          "end": 5.18
+        },
+        {
+          "text": "so",
+          "start": 5.74,
+          "end": 5.92
+        },
+        {
+          "text": "long",
+          "start": 5.92,
+          "end": 6.18
+        },
+        {
+          "text": "that",
+          "start": 6.18,
+          "end": 6.42
+        },
+        {
+          "text": "Mr.",
+          "start": 6.42,
+          "end": 6.68
+        },
+        {
+          "text": "Rochester,",
+          "start": 6.98,
+          "end": 7.2
+        },
+        {
+          "text": "grown,",
+          "start": 7.9,
+          "end": 7.98
+        },
+        {
+          "text": "I",
+          "start": 8.42,
+          "end": 8.52
+        },
+        {
+          "text": "suppose,",
+          "start": 8.52,
+          "end": 8.96
+        },
+        {
+          "text": "impatient",
+          "start": 9.46,
+          "end": 9.84
+        },
+        {
+          "text": "of",
+          "start": 9.84,
+          "end": 10.08
+        },
+        {
+          "text": "my",
+          "start": 10.08,
+          "end": 10.24
+        },
+        {
+          "text": "delay,",
+          "start": 10.24,
+          "end": 10.62
+        },
+        {
+          "text": "sent",
+          "start": 11.04,
+          "end": 11.18
+        },
+        {
+          "text": "up",
+          "start": 11.18,
+          "end": 11.32
+        },
+        {
+          "text": "to",
+          "start": 11.32,
+          "end": 11.46
+        },
+        {
+          "text": "ask",
+          "start": 11.46,
+          "end": 11.74
+        },
+        {
+          "text": "why",
+          "start": 11.74,
+          "end": 11.96
+        },
+        {
+          "text": "I",
+          "start": 11.96,
+          "end": 12.12
+        },
+        {
+          "text": "did",
+          "start": 12.12,
+          "end": 12.22
+        },
+        {
+          "text": "not",
+          "start": 12.22,
+          "end": 12.44
+        },
+        {
+          "text": "come.",
+          "start": 12.44,
+          "end": 12.74
+        },
+        {
+          "text": "She",
+          "start": 13.52,
+          "end": 13.74
+        },
+        {
+          "text": "was",
+          "start": 13.74,
+          "end": 13.84
+        },
+        {
+          "text": "just",
+          "start": 13.84,
+          "end": 14.08
+        },
+        {
+          "text": "fastening",
+          "start": 14.08,
+          "end": 14.58
+        },
+        {
+          "text": "my",
+          "start": 14.58,
+          "end": 14.8
+        },
+        {
+          "text": "veil",
+          "start": 14.8,
+          "end": 15.14
+        },
+        {
+          "text": "(the",
+          "start": 15.58,
+          "end": 15.72
+        },
+        {
+          "text": "plain",
+          "start": 15.72,
+          "end": 16.0
+        },
+        {
+          "text": "square",
+          "start": 16.0,
+          "end": 16.36
+        },
+        {
+          "text": "of",
+          "start": 16.36,
+          "end": 16.56
+        },
+        {
+          "text": "blond",
+          "start": 16.56,
+          "end": 16.86
+        },
+        {
+          "text": "after",
+          "start": 16.86,
+          "end": 17.24
+        },
+        {
+          "text": "all)",
+          "start": 17.24,
+          "end": 17.54
+        },
+        {
+          "text": "to",
+          "start": 17.66,
+          "end": 17.74
+        },
+        {
+          "text": "my",
+          "start": 17.74,
+          "end": 17.9
+        },
+        {
+          "text": "hair",
+          "start": 17.9,
+          "end": 18.14
+        },
+        {
+          "text": "with",
+          "start": 18.14,
+          "end": 18.3
+        },
+        {
+          "text": "a",
+          "start": 18.3,
+          "end": 18.42
+        },
+        {
+          "text": "brooch;",
+          "start": 18.42,
+          "end": 18.82
+        },
+        {
+          "text": "I",
+          "start": 19.26,
+          "end": 19.38
+        },
+        {
+          "text": "hurried",
+          "start": 19.38,
+          "end": 19.66
+        },
+        {
+          "text": "from",
+          "start": 19.66,
+          "end": 19.88
+        },
+        {
+          "text": "under",
+          "start": 19.88,
+          "end": 20.06
+        },
+        {
+          "text": "her",
+          "start": 20.06,
+          "end": 20.24
+        },
+        {
+          "text": "hands",
+          "start": 20.24,
+          "end": 20.54
+        },
+        {
+          "text": "as",
+          "start": 20.54,
+          "end": 20.78
+        },
+        {
+          "text": "soon",
+          "start": 20.78,
+          "end": 20.96
+        },
+        {
+          "text": "as",
+          "start": 20.96,
+          "end": 21.08
+        },
+        {
+          "text": "I",
+          "start": 21.08,
+          "end": 21.24
+        },
+        {
+          "text": "could.",
+          "start": 21.24,
+          "end": 21.48
+        }
+      ],
+      "stats": {
+        "expected_words": 67,
+        "heard_words": 78,
+        "matched_words": 67
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6756144408136606
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f69dc440471016d996ab10e54aa3ee1a6012379e412e36f9d077e44b109951ba",
+  "selected_reasons": []
+}

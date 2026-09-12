@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "a306ac5f43f6afaf9b07b0b68d00a1263d25176079eada167201e92403b93814",
+  "attempts": [
+    {
+      "asr_seconds": 0.2481694940943271,
+      "alignment_seconds": 0.0003134340513497591,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Bloom, on his way out, raised three fingers in greeting.",
+          "start": 0.05,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.943359375
+            },
+            {
+              "text": " Bloom,",
+              "start": 0.93,
+              "end": 0.97,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " on",
+              "start": 1.09,
+              "end": 1.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 1.17,
+              "end": 1.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " way",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " out,",
+              "start": 1.49,
+              "end": 1.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " raised",
+              "start": 2.25,
+              "end": 2.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " three",
+              "start": 2.41,
+              "end": 2.73,
+              "probability": 0.96875
+            },
+            {
+              "text": " fingers",
+              "start": 2.73,
+              "end": 3.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 3.07,
+              "end": 3.33,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " greeting.",
+              "start": 3.33,
+              "end": 3.59,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Bloom,",
+          "start": 0.93,
+          "end": 0.97
+        },
+        {
+          "raw": "on",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "raw": "his",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "raw": "way",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "out,",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "raw": "raised",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "raw": "three",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "raw": "fingers",
+          "start": 2.73,
+          "end": 3.07
+        },
+        {
+          "raw": "in",
+          "start": 3.07,
+          "end": 3.33
+        },
+        {
+          "raw": "greeting.",
+          "start": 3.33,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "Bloom",
+        "on",
+        "his",
+        "way",
+        "out",
+        "raised",
+        "three",
+        "fingers",
+        "in",
+        "greeting."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bloom,",
+          "start": 0.93,
+          "end": 0.97,
+          "key": "bloom",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.09,
+          "end": 1.17,
+          "key": "on",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.17,
+          "end": 1.31,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "way",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "out,",
+          "start": 1.49,
+          "end": 1.77,
+          "key": "out",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "raised",
+          "start": 2.25,
+          "end": 2.41,
+          "key": "raised",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 2.41,
+          "end": 2.73,
+          "key": "three",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fingers",
+          "start": 2.73,
+          "end": 3.07,
+          "key": "fingers",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.07,
+          "end": 3.33,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "greeting.",
+          "start": 3.33,
+          "end": 3.59,
+          "key": "greeting",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Bloom",
+          "start": 0.93,
+          "end": 0.97
+        },
+        {
+          "text": "on",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "text": "his",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "text": "way",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "out",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "text": "raised",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "text": "three",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "text": "fingers",
+          "start": 2.73,
+          "end": 3.07
+        },
+        {
+          "text": "in",
+          "start": 3.07,
+          "end": 3.33
+        },
+        {
+          "text": "greeting.",
+          "start": 3.33,
+          "end": 3.59
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24863813095726073
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "78f356889a4938f257ab50ddbacb85f69a784c8c835ffeba2b1b3d2033508fad",
+  "selected_reasons": []
+}

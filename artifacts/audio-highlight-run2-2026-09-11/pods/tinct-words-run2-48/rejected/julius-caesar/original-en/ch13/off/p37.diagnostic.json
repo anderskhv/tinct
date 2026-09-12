@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "59c490947ed783b0d255a82a6762c9cea525e80579b52f9bbd4b734417bcee33",
+  "attempts": [
+    {
+      "asr_seconds": 0.17660609353333712,
+      "alignment_seconds": 0.0003106081858277321,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassius, a friendly eye could never see such faults.",
+          "start": 0.05,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.9140625
+            },
+            {
+              "text": " a",
+              "start": 1.27,
+              "end": 1.47,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " friendly",
+              "start": 1.47,
+              "end": 1.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " eye",
+              "start": 1.69,
+              "end": 1.99,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " could",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.974609375
+            },
+            {
+              "text": " never",
+              "start": 2.15,
+              "end": 2.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 2.37,
+              "end": 2.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " such",
+              "start": 2.61,
+              "end": 2.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " faults.",
+              "start": 2.85,
+              "end": 3.19,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "a",
+          "start": 1.27,
+          "end": 1.47
+        },
+        {
+          "raw": "friendly",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "raw": "eye",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "raw": "could",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "never",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "raw": "see",
+          "start": 2.37,
+          "end": 2.61
+        },
+        {
+          "raw": "such",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "raw": "faults.",
+          "start": 2.85,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "A",
+        "friendly",
+        "eye",
+        "could",
+        "never",
+        "see",
+        "such",
+        "faults."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.27,
+          "end": 1.47,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "friendly",
+          "start": 1.47,
+          "end": 1.69,
+          "key": "friendly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "eye",
+          "start": 1.69,
+          "end": 1.99,
+          "key": "eye",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "could",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 2.15,
+          "end": 2.37,
+          "key": "never",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.37,
+          "end": 2.61,
+          "key": "see",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 2.61,
+          "end": 2.85,
+          "key": "such",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "faults.",
+          "start": 2.85,
+          "end": 3.19,
+          "key": "faults",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "A",
+          "start": 1.27,
+          "end": 1.47
+        },
+        {
+          "text": "friendly",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "text": "eye",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "text": "could",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "text": "never",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "text": "see",
+          "start": 2.37,
+          "end": 2.61
+        },
+        {
+          "text": "such",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "text": "faults.",
+          "start": 2.85,
+          "end": 3.19
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1770448051393032
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7c441fd7e6038b985e034a77edcc8830fb349047c10a77efa978a23fdb62e8ee",
+  "selected_reasons": []
+}

@@ -1,0 +1,764 @@
+{
+  "complete": true,
+  "signature": "0da335644cc07dec1dc672180c83b613dfcd6bb965d52cb72dfa32c104f2a383",
+  "attempts": [
+    {
+      "asr_seconds": 0.3502156361937523,
+      "alignment_seconds": 0.0005581788718700409,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We are not in a way to know what Mr. Bingley likes, said her mother resentfully, since we are not to visit.",
+          "start": 0.02,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.09918212890625
+            },
+            {
+              "text": " are",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " not",
+              "start": 0.62,
+              "end": 0.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 0.8,
+              "end": 0.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 0.92,
+              "end": 1.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " way",
+              "start": 1.0,
+              "end": 1.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 1.12,
+              "end": 1.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " know",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 1.42,
+              "end": 1.62,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Mr.",
+              "start": 1.62,
+              "end": 1.9,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " Bingley",
+              "start": 2.12,
+              "end": 2.26,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " likes,",
+              "start": 2.26,
+              "end": 2.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " said",
+              "start": 3.08,
+              "end": 3.32,
+              "probability": 0.98828125
+            },
+            {
+              "text": " her",
+              "start": 3.32,
+              "end": 3.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " mother",
+              "start": 3.46,
+              "end": 3.72,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " resentfully,",
+              "start": 3.72,
+              "end": 4.4,
+              "probability": 0.912841796875
+            },
+            {
+              "text": " since",
+              "start": 4.82,
+              "end": 5.06,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " we",
+              "start": 5.06,
+              "end": 5.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " are",
+              "start": 5.26,
+              "end": 5.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 5.38,
+              "end": 5.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 5.58,
+              "end": 5.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " visit.",
+              "start": 5.72,
+              "end": 5.92,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "are",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "not",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "raw": "in",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "raw": "a",
+          "start": 0.92,
+          "end": 1.0
+        },
+        {
+          "raw": "way",
+          "start": 1.0,
+          "end": 1.12
+        },
+        {
+          "raw": "to",
+          "start": 1.12,
+          "end": 1.26
+        },
+        {
+          "raw": "know",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "what",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.62,
+          "end": 1.9
+        },
+        {
+          "raw": "Bingley",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "raw": "likes,",
+          "start": 2.26,
+          "end": 2.74
+        },
+        {
+          "raw": "said",
+          "start": 3.08,
+          "end": 3.32
+        },
+        {
+          "raw": "her",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "raw": "mother",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "raw": "resentfully,",
+          "start": 3.72,
+          "end": 4.4
+        },
+        {
+          "raw": "since",
+          "start": 4.82,
+          "end": 5.06
+        },
+        {
+          "raw": "we",
+          "start": 5.06,
+          "end": 5.26
+        },
+        {
+          "raw": "are",
+          "start": 5.26,
+          "end": 5.38
+        },
+        {
+          "raw": "not",
+          "start": 5.38,
+          "end": 5.58
+        },
+        {
+          "raw": "to",
+          "start": 5.58,
+          "end": 5.72
+        },
+        {
+          "raw": "visit.",
+          "start": 5.72,
+          "end": 5.92
+        }
+      ],
+      "expected_tokens": [
+        "\"We",
+        "are",
+        "not",
+        "in",
+        "a",
+        "way",
+        "to",
+        "know",
+        "_what_",
+        "Mr.",
+        "Bingley",
+        "likes,\"",
+        "said",
+        "her",
+        "mother,",
+        "resentfully,",
+        "\"since",
+        "we",
+        "are",
+        "not",
+        "to",
+        "visit.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.62,
+          "end": 0.8,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.8,
+          "end": 0.92,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.92,
+          "end": 1.0,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 1.0,
+          "end": 1.12,
+          "key": "way",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.12,
+          "end": 1.26,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "know",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.42,
+          "end": 1.62,
+          "key": "what",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.62,
+          "end": 1.9,
+          "key": "mr",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Bingley",
+          "start": 2.12,
+          "end": 2.26,
+          "key": "bingley",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "likes,",
+          "start": 2.26,
+          "end": 2.74,
+          "key": "likes",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.08,
+          "end": 3.32,
+          "key": "said",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.32,
+          "end": 3.46,
+          "key": "her",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "mother",
+          "start": 3.46,
+          "end": 3.72,
+          "key": "mother",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "resentfully,",
+          "start": 3.72,
+          "end": 4.4,
+          "key": "resentfully",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 4.82,
+          "end": 5.06,
+          "key": "since",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 5.06,
+          "end": 5.26,
+          "key": "we",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.26,
+          "end": 5.38,
+          "key": "are",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.38,
+          "end": 5.58,
+          "key": "not",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.58,
+          "end": 5.72,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "visit.",
+          "start": 5.72,
+          "end": 5.92,
+          "key": "visit",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"We",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "are",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "not",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "text": "in",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "text": "a",
+          "start": 0.92,
+          "end": 1.0
+        },
+        {
+          "text": "way",
+          "start": 1.0,
+          "end": 1.12
+        },
+        {
+          "text": "to",
+          "start": 1.12,
+          "end": 1.26
+        },
+        {
+          "text": "know",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "_what_",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "text": "Mr.",
+          "start": 1.62,
+          "end": 1.9
+        },
+        {
+          "text": "Bingley",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "text": "likes,\"",
+          "start": 2.26,
+          "end": 2.74
+        },
+        {
+          "text": "said",
+          "start": 3.08,
+          "end": 3.32
+        },
+        {
+          "text": "her",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "text": "mother,",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "text": "resentfully,",
+          "start": 3.72,
+          "end": 4.4
+        },
+        {
+          "text": "\"since",
+          "start": 4.82,
+          "end": 5.06
+        },
+        {
+          "text": "we",
+          "start": 5.06,
+          "end": 5.26
+        },
+        {
+          "text": "are",
+          "start": 5.26,
+          "end": 5.38
+        },
+        {
+          "text": "not",
+          "start": 5.38,
+          "end": 5.58
+        },
+        {
+          "text": "to",
+          "start": 5.58,
+          "end": 5.72
+        },
+        {
+          "text": "visit.\"",
+          "start": 5.72,
+          "end": 5.92
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35104183852672577
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "895e53ade1f8d0c9add110423b48e4ca4d637e83540b0119623addf5b01ff17e",
+  "selected_reasons": []
+}

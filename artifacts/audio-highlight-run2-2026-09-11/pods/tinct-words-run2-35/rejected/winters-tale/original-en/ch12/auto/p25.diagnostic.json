@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "edef11cabbfd89dc7d935d6e44f35d85cae4cf1b9c09dd9b9d8586009ee613ba",
+  "attempts": [
+    {
+      "asr_seconds": 0.3176166284829378,
+      "alignment_seconds": 0.0004454944282770157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Camillo. I should leave grazing, were I of your flock, And only live by gazing.",
+        "hotwords": "Camillo, I, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Camillo, I should leave grazing, were I of your flock, And only live by gazing.",
+          "start": 0.0,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " Camillo,",
+              "start": 0.0,
+              "end": 0.8,
+              "probability": 0.67333984375
+            },
+            {
+              "text": " I",
+              "start": 1.22,
+              "end": 1.44,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " should",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " leave",
+              "start": 1.58,
+              "end": 1.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " grazing,",
+              "start": 1.8,
+              "end": 2.22,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " were",
+              "start": 2.6,
+              "end": 2.68,
+              "probability": 0.0038280487060546875
+            },
+            {
+              "text": " I",
+              "start": 2.68,
+              "end": 2.8,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " of",
+              "start": 2.8,
+              "end": 2.9,
+              "probability": 0.06805419921875
+            },
+            {
+              "text": " your",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " flock,",
+              "start": 3.02,
+              "end": 3.3,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " And",
+              "start": 3.52,
+              "end": 3.6,
+              "probability": 0.0083770751953125
+            },
+            {
+              "text": " only",
+              "start": 3.6,
+              "end": 3.86,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " live",
+              "start": 3.86,
+              "end": 4.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " by",
+              "start": 4.08,
+              "end": 4.32,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " gazing.",
+              "start": 4.32,
+              "end": 4.64,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Camillo,",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "raw": "should",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "leave",
+          "start": 1.58,
+          "end": 1.8
+        },
+        {
+          "raw": "grazing,",
+          "start": 1.8,
+          "end": 2.22
+        },
+        {
+          "raw": "were",
+          "start": 2.6,
+          "end": 2.68
+        },
+        {
+          "raw": "I",
+          "start": 2.68,
+          "end": 2.8
+        },
+        {
+          "raw": "of",
+          "start": 2.8,
+          "end": 2.9
+        },
+        {
+          "raw": "your",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "flock,",
+          "start": 3.02,
+          "end": 3.3
+        },
+        {
+          "raw": "And",
+          "start": 3.52,
+          "end": 3.6
+        },
+        {
+          "raw": "only",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "raw": "live",
+          "start": 3.86,
+          "end": 4.08
+        },
+        {
+          "raw": "by",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "raw": "gazing.",
+          "start": 4.32,
+          "end": 4.64
+        }
+      ],
+      "expected_tokens": [
+        "Camillo.",
+        "I",
+        "should",
+        "leave",
+        "grazing,",
+        "were",
+        "I",
+        "of",
+        "your",
+        "flock,",
+        "And",
+        "only",
+        "live",
+        "by",
+        "gazing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Camillo,",
+          "start": 0.0,
+          "end": 0.8,
+          "key": "camillo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.44,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "should",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 1.58,
+          "end": 1.8,
+          "key": "leave",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "grazing,",
+          "start": 1.8,
+          "end": 2.22,
+          "key": "grazing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.6,
+          "end": 2.68,
+          "key": "were",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.68,
+          "end": 2.8,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.8,
+          "end": 2.9,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "flock,",
+          "start": 3.02,
+          "end": 3.3,
+          "key": "flock",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.52,
+          "end": 3.6,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 3.6,
+          "end": 3.86,
+          "key": "only",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 3.86,
+          "end": 4.08,
+          "key": "live",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.08,
+          "end": 4.32,
+          "key": "by",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "gazing.",
+          "start": 4.32,
+          "end": 4.64,
+          "key": "gazing",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Camillo.",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "text": "I",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "text": "should",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "leave",
+          "start": 1.58,
+          "end": 1.8
+        },
+        {
+          "text": "grazing,",
+          "start": 1.8,
+          "end": 2.22
+        },
+        {
+          "text": "were",
+          "start": 2.6,
+          "end": 2.68
+        },
+        {
+          "text": "I",
+          "start": 2.68,
+          "end": 2.8
+        },
+        {
+          "text": "of",
+          "start": 2.8,
+          "end": 2.9
+        },
+        {
+          "text": "your",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "flock,",
+          "start": 3.02,
+          "end": 3.3
+        },
+        {
+          "text": "And",
+          "start": 3.52,
+          "end": 3.6
+        },
+        {
+          "text": "only",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "text": "live",
+          "start": 3.86,
+          "end": 4.08
+        },
+        {
+          "text": "by",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "text": "gazing.",
+          "start": 4.32,
+          "end": 4.64
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.318240636959672
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "374442db9b9c44e2f4e7f199d5f829fd23313c2f9d2dca21ae4766323e7637d1",
+  "selected_reasons": []
+}

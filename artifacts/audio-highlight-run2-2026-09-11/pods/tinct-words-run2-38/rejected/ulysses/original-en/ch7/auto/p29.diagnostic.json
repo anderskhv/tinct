@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "bc1bb5ce06e8c1d7472c20049ca28081dc7730d23f2c222e941f640d5e040a3d",
+  "attempts": [
+    {
+      "asr_seconds": 0.09625637897988781,
+      "alignment_seconds": 0.00013110000872984529,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The Crozier And The Pen",
+        "hotwords": "The, Crozier, And, Pen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The Crozier And The Pen",
+          "start": 0.02,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.6689453125
+            },
+            {
+              "text": " Crozier",
+              "start": 0.48,
+              "end": 0.84,
+              "probability": 0.628662109375
+            },
+            {
+              "text": " And",
+              "start": 0.84,
+              "end": 0.96,
+              "probability": 0.002544403076171875
+            },
+            {
+              "text": " The",
+              "start": 0.96,
+              "end": 1.06,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Pen",
+              "start": 1.06,
+              "end": 1.28,
+              "probability": 0.81982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "Crozier",
+          "start": 0.48,
+          "end": 0.84
+        },
+        {
+          "raw": "And",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "raw": "The",
+          "start": 0.96,
+          "end": 1.06
+        },
+        {
+          "raw": "Pen",
+          "start": 1.06,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Crozier",
+        "And",
+        "The",
+        "Pen"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Crozier",
+          "start": 0.48,
+          "end": 0.84,
+          "key": "crozier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 0.84,
+          "end": 0.96,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 0.96,
+          "end": 1.06,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Pen",
+          "start": 1.06,
+          "end": 1.28,
+          "key": "pen",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "Crozier",
+          "start": 0.48,
+          "end": 0.84
+        },
+        {
+          "text": "And",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "text": "The",
+          "start": 0.96,
+          "end": 1.06
+        },
+        {
+          "text": "Pen",
+          "start": 1.06,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09643904998665676
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8c748c7152a0f5edaa5b0732aa7c4c7ce29bff5866a5e3c4425f3741715dc868",
+  "selected_reasons": []
+}

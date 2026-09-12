@@ -1,0 +1,199 @@
+{
+  "complete": true,
+  "signature": "a72c0af7bb7bbdf2b1c26f968949593995be07b0b3c266f59e5da9ac27cdc1e9",
+  "attempts": [
+    {
+      "asr_seconds": 0.12808662187308073,
+      "alignment_seconds": 0.0003794888034462929,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ophimus,\" said Bessie.",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Ophimus,\"",
+              "start": 0.05,
+              "end": 1.35,
+              "probability": 0.47493743896484375
+            },
+            {
+              "text": " said",
+              "start": 1.35,
+              "end": 1.57,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Bessie.",
+              "start": 1.57,
+              "end": 2.01,
+              "probability": 0.9656575520833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ophimus,\"",
+          "start": 0.05,
+          "end": 1.35
+        },
+        {
+          "raw": "said",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "raw": "Bessie.",
+          "start": 1.57,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh",
+        "fie,",
+        "Miss!\"",
+        "said",
+        "Bessie."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          1
+        ],
+        [
+          "equal",
+          3,
+          5,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ophimus,\"",
+          "start": 0.05,
+          "end": 1.35,
+          "key": "ophimus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.35,
+          "end": 1.57,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Bessie.",
+          "start": 1.57,
+          "end": 2.01,
+          "key": "bessie",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh",
+          "start": 0.0,
+          "end": 0.675
+        },
+        {
+          "text": "fie,",
+          "start": 0.675,
+          "end": 1.013
+        },
+        {
+          "text": "Miss!\"",
+          "start": 1.013,
+          "end": 1.181
+        },
+        {
+          "text": "said",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "text": "Bessie.",
+          "start": 1.57,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12857061717659235
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "48b63430acfcb8ba5a3cf6ba36484712b64baaf394968181e138c6d4b1cdb1ef",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

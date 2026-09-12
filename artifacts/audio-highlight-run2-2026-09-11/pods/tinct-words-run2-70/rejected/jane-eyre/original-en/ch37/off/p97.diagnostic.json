@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "dd8c551dbc5df19098deecdc9636c588ba053df249d19723844469e13e8bef1d",
+  "attempts": [
+    {
+      "asr_seconds": 0.14867725502699614,
+      "alignment_seconds": 0.00033867498859763145,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Am I hideous, Jane?",
+          "start": 0.05,
+          "end": 1.29,
+          "words": [
+            {
+              "text": " Am",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " I",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " hideous,",
+              "start": 0.65,
+              "end": 0.95,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Jane?",
+              "start": 1.15,
+              "end": 1.29,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Am",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "I",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "hideous,",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "raw": "Jane?",
+          "start": 1.15,
+          "end": 1.29
+        }
+      ],
+      "expected_tokens": [
+        "\"Am",
+        "I",
+        "hideous,",
+        "Jane?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Am",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "am",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hideous,",
+          "start": 0.65,
+          "end": 0.95,
+          "key": "hideous",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Jane?",
+          "start": 1.15,
+          "end": 1.29,
+          "key": "jane",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Am",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "I",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "hideous,",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "text": "Jane?\"",
+          "start": 1.15,
+          "end": 1.29
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14913873304612935
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "551a4854308cb7e2fea39946ab928248c92c01b3521c9a3e97dd7dd8c4d61cb3",
+  "selected_reasons": []
+}

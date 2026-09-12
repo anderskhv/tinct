@@ -1,0 +1,4572 @@
+{
+  "complete": true,
+  "signature": "5e0b684dbcd5d7bc070781d888fbbc2ca696c038027287a3a3b96bec0506c444",
+  "attempts": [
+    {
+      "asr_seconds": 0.6062693693675101,
+      "alignment_seconds": 0.0009020748548209667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Amen to that, sweet powers! I cannot speak enough of this content. It stops me here; it is too much of joy: And this, and this, the greatest discords be That e'er our hearts shall make!",
+        "hotwords": "Othello, Amen, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Amen to that, sweet powers! I cannot speak enough of this content. It stops me here. It is too much of joy. And this, and this, the greatest discords be That e'er our hearts shall make!",
+          "start": 0.05,
+          "end": 12.09,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.8531901041666666
+            },
+            {
+              "text": " Amen",
+              "start": 1.43,
+              "end": 1.43,
+              "probability": 0.5869140625
+            },
+            {
+              "text": " to",
+              "start": 1.43,
+              "end": 1.73,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " that,",
+              "start": 1.73,
+              "end": 1.97,
+              "probability": 0.978515625
+            },
+            {
+              "text": " sweet",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " powers!",
+              "start": 2.35,
+              "end": 2.77,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " I",
+              "start": 3.43,
+              "end": 3.53,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " cannot",
+              "start": 3.53,
+              "end": 3.77,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " speak",
+              "start": 3.77,
+              "end": 4.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " enough",
+              "start": 4.09,
+              "end": 4.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 4.33,
+              "end": 4.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " this",
+              "start": 4.49,
+              "end": 4.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " content.",
+              "start": 4.63,
+              "end": 5.05,
+              "probability": 0.9921875
+            },
+            {
+              "text": " It",
+              "start": 5.63,
+              "end": 5.77,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " stops",
+              "start": 5.77,
+              "end": 6.03,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " me",
+              "start": 6.03,
+              "end": 6.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " here.",
+              "start": 6.29,
+              "end": 6.57,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " It",
+              "start": 6.83,
+              "end": 6.89,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " is",
+              "start": 6.89,
+              "end": 7.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " too",
+              "start": 7.03,
+              "end": 7.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " much",
+              "start": 7.21,
+              "end": 7.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 7.39,
+              "end": 7.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " joy.",
+              "start": 7.55,
+              "end": 7.79,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " And",
+              "start": 8.47,
+              "end": 8.59,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " this,",
+              "start": 8.59,
+              "end": 8.81,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " and",
+              "start": 9.07,
+              "end": 9.13,
+              "probability": 0.982421875
+            },
+            {
+              "text": " this,",
+              "start": 9.13,
+              "end": 9.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 9.65,
+              "end": 9.71,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " greatest",
+              "start": 9.71,
+              "end": 10.01,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " discords",
+              "start": 10.01,
+              "end": 10.59,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " be",
+              "start": 10.59,
+              "end": 10.83,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " That",
+              "start": 10.83,
+              "end": 11.01,
+              "probability": 0.0054473876953125
+            },
+            {
+              "text": " e",
+              "start": 11.01,
+              "end": 11.21,
+              "probability": 0.60400390625
+            },
+            {
+              "text": "'er",
+              "start": 11.21,
+              "end": 11.29,
+              "probability": 0.572509765625
+            },
+            {
+              "text": " our",
+              "start": 11.29,
+              "end": 11.45,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " hearts",
+              "start": 11.45,
+              "end": 11.65,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " shall",
+              "start": 11.65,
+              "end": 11.85,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " make!",
+              "start": 11.85,
+              "end": 12.09,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " Othello, Amen to that, sweet powers! I cannot speak enough of this content. It stops me here. It stops me here. And this, and this, the greatest discords be That e'er our hearts shall make!",
+          "start": 12.09,
+          "end": 12.41,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 12.09,
+              "end": 12.41,
+              "probability": 0.0031438271204630532
+            },
+            {
+              "text": " Amen",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 2.086162567138672e-06
+            },
+            {
+              "text": " to",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.002227783203125
+            },
+            {
+              "text": " that,",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.021148681640625
+            },
+            {
+              "text": " sweet",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.00026106834411621094
+            },
+            {
+              "text": " powers!",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 8.255243301391602e-05
+            },
+            {
+              "text": " I",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.031524658203125
+            },
+            {
+              "text": " cannot",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.002140045166015625
+            },
+            {
+              "text": " speak",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.00897216796875
+            },
+            {
+              "text": " enough",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.0008554458618164062
+            },
+            {
+              "text": " of",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.120361328125
+            },
+            {
+              "text": " this",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.10565185546875
+            },
+            {
+              "text": " content.",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.00037980079650878906
+            },
+            {
+              "text": " It",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.034149169921875
+            },
+            {
+              "text": " stops",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 8.26716423034668e-05
+            },
+            {
+              "text": " me",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.1241455078125
+            },
+            {
+              "text": " here.",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.004123687744140625
+            },
+            {
+              "text": " It",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.058380126953125
+            },
+            {
+              "text": " stops",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.02264404296875
+            },
+            {
+              "text": " me",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.748046875
+            },
+            {
+              "text": " here.",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.52734375
+            },
+            {
+              "text": " And",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.02972412109375
+            },
+            {
+              "text": " this,",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.0277557373046875
+            },
+            {
+              "text": " and",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.024627685546875
+            },
+            {
+              "text": " this,",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.37939453125
+            },
+            {
+              "text": " the",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.00917816162109375
+            },
+            {
+              "text": " greatest",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.00011146068572998047
+            },
+            {
+              "text": " discords",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.00019171833992004395
+            },
+            {
+              "text": " be",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.0003066062927246094
+            },
+            {
+              "text": " That",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 2.7179718017578125e-05
+            },
+            {
+              "text": " e",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.0002543926239013672
+            },
+            {
+              "text": "'er",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.43775177001953125
+            },
+            {
+              "text": " our",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.003971099853515625
+            },
+            {
+              "text": " hearts",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.0210418701171875
+            },
+            {
+              "text": " shall",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.00684356689453125
+            },
+            {
+              "text": " make!",
+              "start": 12.41,
+              "end": 12.41,
+              "probability": 0.007381439208984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Amen",
+          "start": 1.43,
+          "end": 1.43
+        },
+        {
+          "raw": "to",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "raw": "that,",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "raw": "sweet",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "powers!",
+          "start": 2.35,
+          "end": 2.77
+        },
+        {
+          "raw": "I",
+          "start": 3.43,
+          "end": 3.53
+        },
+        {
+          "raw": "cannot",
+          "start": 3.53,
+          "end": 3.77
+        },
+        {
+          "raw": "speak",
+          "start": 3.77,
+          "end": 4.09
+        },
+        {
+          "raw": "enough",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "raw": "of",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "raw": "this",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "raw": "content.",
+          "start": 4.63,
+          "end": 5.05
+        },
+        {
+          "raw": "It",
+          "start": 5.63,
+          "end": 5.77
+        },
+        {
+          "raw": "stops",
+          "start": 5.77,
+          "end": 6.03
+        },
+        {
+          "raw": "me",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "raw": "here.",
+          "start": 6.29,
+          "end": 6.57
+        },
+        {
+          "raw": "It",
+          "start": 6.83,
+          "end": 6.89
+        },
+        {
+          "raw": "is",
+          "start": 6.89,
+          "end": 7.03
+        },
+        {
+          "raw": "too",
+          "start": 7.03,
+          "end": 7.21
+        },
+        {
+          "raw": "much",
+          "start": 7.21,
+          "end": 7.39
+        },
+        {
+          "raw": "of",
+          "start": 7.39,
+          "end": 7.55
+        },
+        {
+          "raw": "joy.",
+          "start": 7.55,
+          "end": 7.79
+        },
+        {
+          "raw": "And",
+          "start": 8.47,
+          "end": 8.59
+        },
+        {
+          "raw": "this,",
+          "start": 8.59,
+          "end": 8.81
+        },
+        {
+          "raw": "and",
+          "start": 9.07,
+          "end": 9.13
+        },
+        {
+          "raw": "this,",
+          "start": 9.13,
+          "end": 9.37
+        },
+        {
+          "raw": "the",
+          "start": 9.65,
+          "end": 9.71
+        },
+        {
+          "raw": "greatest",
+          "start": 9.71,
+          "end": 10.01
+        },
+        {
+          "raw": "discords",
+          "start": 10.01,
+          "end": 10.59
+        },
+        {
+          "raw": "be",
+          "start": 10.59,
+          "end": 10.83
+        },
+        {
+          "raw": "That",
+          "start": 10.83,
+          "end": 11.01
+        },
+        {
+          "raw": "e",
+          "start": 11.01,
+          "end": 11.21
+        },
+        {
+          "raw": "'er",
+          "start": 11.21,
+          "end": 11.29
+        },
+        {
+          "raw": "our",
+          "start": 11.29,
+          "end": 11.45
+        },
+        {
+          "raw": "hearts",
+          "start": 11.45,
+          "end": 11.65
+        },
+        {
+          "raw": "shall",
+          "start": 11.65,
+          "end": 11.85
+        },
+        {
+          "raw": "make!",
+          "start": 11.85,
+          "end": 12.09
+        },
+        {
+          "raw": "Othello,",
+          "start": 12.09,
+          "end": 12.41
+        },
+        {
+          "raw": "Amen",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "to",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "that,",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "sweet",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "powers!",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "I",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "cannot",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "speak",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "enough",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "of",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "this",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "content.",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "It",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "stops",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "me",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "here.",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "It",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "stops",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "me",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "here.",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "And",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "this,",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "and",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "this,",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "the",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "greatest",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "discords",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "be",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "That",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "e",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "'er",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "our",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "hearts",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "shall",
+          "start": 12.41,
+          "end": 12.41
+        },
+        {
+          "raw": "make!",
+          "start": 12.41,
+          "end": 12.41
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Amen",
+        "to",
+        "that,",
+        "sweet",
+        "powers!",
+        "I",
+        "cannot",
+        "speak",
+        "enough",
+        "of",
+        "this",
+        "content.",
+        "It",
+        "stops",
+        "me",
+        "here;",
+        "it",
+        "is",
+        "too",
+        "much",
+        "of",
+        "joy:",
+        "And",
+        "this,",
+        "and",
+        "this,",
+        "the",
+        "greatest",
+        "discords",
+        "be",
+        "That",
+        "e'er",
+        "our",
+        "hearts",
+        "shall",
+        "make!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ],
+        [
+          "equal",
+          33,
+          37,
+          34,
+          38
+        ],
+        [
+          "insert",
+          37,
+          37,
+          38,
+          74
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ],
+        [
+          "insert",
+          37,
+          37,
+          38,
+          74
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Amen",
+          "start": 1.43,
+          "end": 1.43,
+          "key": "amen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.43,
+          "end": 1.73,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 1.73,
+          "end": 1.97,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "sweet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "powers!",
+          "start": 2.35,
+          "end": 2.77,
+          "key": "powers",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.43,
+          "end": 3.53,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 3.53,
+          "end": 3.77,
+          "key": "cannot",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 3.77,
+          "end": 4.09,
+          "key": "speak",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 4.09,
+          "end": 4.33,
+          "key": "enough",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.33,
+          "end": 4.49,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.49,
+          "end": 4.63,
+          "key": "this",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "content.",
+          "start": 4.63,
+          "end": 5.05,
+          "key": "content",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 5.63,
+          "end": 5.77,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "stops",
+          "start": 5.77,
+          "end": 6.03,
+          "key": "stops",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 6.03,
+          "end": 6.29,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 6.29,
+          "end": 6.57,
+          "key": "here",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 6.83,
+          "end": 6.89,
+          "key": "it",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.89,
+          "end": 7.03,
+          "key": "is",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 7.03,
+          "end": 7.21,
+          "key": "too",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 7.21,
+          "end": 7.39,
+          "key": "much",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.39,
+          "end": 7.55,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "joy.",
+          "start": 7.55,
+          "end": 7.79,
+          "key": "joy",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 8.47,
+          "end": 8.59,
+          "key": "and",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 8.59,
+          "end": 8.81,
+          "key": "this",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.07,
+          "end": 9.13,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 9.13,
+          "end": 9.37,
+          "key": "this",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.65,
+          "end": 9.71,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "greatest",
+          "start": 9.71,
+          "end": 10.01,
+          "key": "greatest",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "discords",
+          "start": 10.01,
+          "end": 10.59,
+          "key": "discords",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 10.59,
+          "end": 10.83,
+          "key": "be",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 10.83,
+          "end": 11.01,
+          "key": "that",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 11.01,
+          "end": 11.21,
+          "key": "e",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 11.21,
+          "end": 11.29,
+          "key": "er",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 11.29,
+          "end": 11.45,
+          "key": "our",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "hearts",
+          "start": 11.45,
+          "end": 11.65,
+          "key": "hearts",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 11.65,
+          "end": 11.85,
+          "key": "shall",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "make!",
+          "start": 11.85,
+          "end": 12.09,
+          "key": "make",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Othello,",
+          "start": 12.09,
+          "end": 12.41,
+          "key": "othello",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Amen",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "amen",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "to",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "that",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "sweet",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "powers!",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "powers",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "i",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "cannot",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "speak",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "enough",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "of",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "this",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "content.",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "content",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "it",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "stops",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "stops",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "me",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "here",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "it",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "stops",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "stops",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "me",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "here",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "and",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "this",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "and",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "this",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "the",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "greatest",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "greatest",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "discords",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "discords",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "be",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "that",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "e",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "er",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "our",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "hearts",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "hearts",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "shall",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "make!",
+          "start": 12.41,
+          "end": 12.41,
+          "key": "make",
+          "pieces": [
+            73
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Amen",
+          "start": 1.43,
+          "end": 1.43
+        },
+        {
+          "text": "to",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "text": "that,",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "text": "sweet",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "powers!",
+          "start": 2.35,
+          "end": 2.77
+        },
+        {
+          "text": "I",
+          "start": 3.43,
+          "end": 3.53
+        },
+        {
+          "text": "cannot",
+          "start": 3.53,
+          "end": 3.77
+        },
+        {
+          "text": "speak",
+          "start": 3.77,
+          "end": 4.09
+        },
+        {
+          "text": "enough",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "text": "of",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "text": "this",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "text": "content.",
+          "start": 4.63,
+          "end": 5.05
+        },
+        {
+          "text": "It",
+          "start": 5.63,
+          "end": 5.77
+        },
+        {
+          "text": "stops",
+          "start": 5.77,
+          "end": 6.03
+        },
+        {
+          "text": "me",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "text": "here;",
+          "start": 6.29,
+          "end": 6.57
+        },
+        {
+          "text": "it",
+          "start": 6.83,
+          "end": 6.89
+        },
+        {
+          "text": "is",
+          "start": 6.89,
+          "end": 7.03
+        },
+        {
+          "text": "too",
+          "start": 7.03,
+          "end": 7.21
+        },
+        {
+          "text": "much",
+          "start": 7.21,
+          "end": 7.39
+        },
+        {
+          "text": "of",
+          "start": 7.39,
+          "end": 7.55
+        },
+        {
+          "text": "joy:",
+          "start": 7.55,
+          "end": 7.79
+        },
+        {
+          "text": "And",
+          "start": 8.47,
+          "end": 8.59
+        },
+        {
+          "text": "this,",
+          "start": 8.59,
+          "end": 8.81
+        },
+        {
+          "text": "and",
+          "start": 9.07,
+          "end": 9.13
+        },
+        {
+          "text": "this,",
+          "start": 9.13,
+          "end": 9.37
+        },
+        {
+          "text": "the",
+          "start": 9.65,
+          "end": 9.71
+        },
+        {
+          "text": "greatest",
+          "start": 9.71,
+          "end": 10.01
+        },
+        {
+          "text": "discords",
+          "start": 10.01,
+          "end": 10.59
+        },
+        {
+          "text": "be",
+          "start": 10.59,
+          "end": 10.83
+        },
+        {
+          "text": "That",
+          "start": 10.83,
+          "end": 11.01
+        },
+        {
+          "text": "e'er",
+          "start": 11.01,
+          "end": 11.15
+        },
+        {
+          "text": "our",
+          "start": 11.29,
+          "end": 11.45
+        },
+        {
+          "text": "hearts",
+          "start": 11.45,
+          "end": 11.65
+        },
+        {
+          "text": "shall",
+          "start": 11.65,
+          "end": 11.85
+        },
+        {
+          "text": "make!",
+          "start": 11.85,
+          "end": 12.09
+        }
+      ],
+      "stats": {
+        "expected_words": 37,
+        "heard_words": 74,
+        "matched_words": 36
+      },
+      "match_ratio": 0.972972972972973,
+      "rejection_reasons": [],
+      "seconds": 0.6077867313288152
+    },
+    {
+      "asr_seconds": 0.4004037529230118,
+      "alignment_seconds": 0.0005393372848629951,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Othello, Amen, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Othello, Amen to that, sweet powers. I cannot speak enough of this content. It stops me",
+          "start": 0.05,
+          "end": 6.29,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.8531901041666666
+            },
+            {
+              "text": " Amen",
+              "start": 1.43,
+              "end": 1.43,
+              "probability": 0.5869140625
+            },
+            {
+              "text": " to",
+              "start": 1.43,
+              "end": 1.73,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " that,",
+              "start": 1.73,
+              "end": 1.97,
+              "probability": 0.978515625
+            },
+            {
+              "text": " sweet",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " powers.",
+              "start": 2.35,
+              "end": 2.77,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " I",
+              "start": 3.43,
+              "end": 3.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " cannot",
+              "start": 3.53,
+              "end": 3.75,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " speak",
+              "start": 3.75,
+              "end": 4.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " enough",
+              "start": 4.09,
+              "end": 4.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 4.33,
+              "end": 4.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 4.49,
+              "end": 4.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " content.",
+              "start": 4.63,
+              "end": 5.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " It",
+              "start": 5.65,
+              "end": 5.77,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " stops",
+              "start": 5.77,
+              "end": 6.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " me",
+              "start": 6.03,
+              "end": 6.29,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " here, it is too much of joy. And this, and this, the greatest discords be that ere our",
+          "start": 6.29,
+          "end": 11.45,
+          "words": [
+            {
+              "text": " here,",
+              "start": 6.29,
+              "end": 6.57,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " it",
+              "start": 6.81,
+              "end": 6.91,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " is",
+              "start": 6.91,
+              "end": 7.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " too",
+              "start": 7.03,
+              "end": 7.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " much",
+              "start": 7.21,
+              "end": 7.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 7.39,
+              "end": 7.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " joy.",
+              "start": 7.55,
+              "end": 7.81,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " And",
+              "start": 8.47,
+              "end": 8.59,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " this,",
+              "start": 8.59,
+              "end": 8.81,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " and",
+              "start": 9.07,
+              "end": 9.13,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " this,",
+              "start": 9.13,
+              "end": 9.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 9.67,
+              "end": 9.71,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " greatest",
+              "start": 9.71,
+              "end": 10.01,
+              "probability": 0.986328125
+            },
+            {
+              "text": " discords",
+              "start": 10.01,
+              "end": 10.59,
+              "probability": 0.873779296875
+            },
+            {
+              "text": " be",
+              "start": 10.59,
+              "end": 10.83,
+              "probability": 0.94140625
+            },
+            {
+              "text": " that",
+              "start": 10.83,
+              "end": 11.01,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " ere",
+              "start": 11.01,
+              "end": 11.29,
+              "probability": 0.776611328125
+            },
+            {
+              "text": " our",
+              "start": 11.29,
+              "end": 11.45,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " hearts shall make.",
+          "start": 11.45,
+          "end": 12.09,
+          "words": [
+            {
+              "text": " hearts",
+              "start": 11.45,
+              "end": 11.65,
+              "probability": 0.931640625
+            },
+            {
+              "text": " shall",
+              "start": 11.65,
+              "end": 11.85,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " make.",
+              "start": 11.85,
+              "end": 12.09,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Amen",
+          "start": 1.43,
+          "end": 1.43
+        },
+        {
+          "raw": "to",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "raw": "that,",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "raw": "sweet",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "powers.",
+          "start": 2.35,
+          "end": 2.77
+        },
+        {
+          "raw": "I",
+          "start": 3.43,
+          "end": 3.53
+        },
+        {
+          "raw": "cannot",
+          "start": 3.53,
+          "end": 3.75
+        },
+        {
+          "raw": "speak",
+          "start": 3.75,
+          "end": 4.09
+        },
+        {
+          "raw": "enough",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "raw": "of",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "raw": "this",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "raw": "content.",
+          "start": 4.63,
+          "end": 5.05
+        },
+        {
+          "raw": "It",
+          "start": 5.65,
+          "end": 5.77
+        },
+        {
+          "raw": "stops",
+          "start": 5.77,
+          "end": 6.03
+        },
+        {
+          "raw": "me",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "raw": "here,",
+          "start": 6.29,
+          "end": 6.57
+        },
+        {
+          "raw": "it",
+          "start": 6.81,
+          "end": 6.91
+        },
+        {
+          "raw": "is",
+          "start": 6.91,
+          "end": 7.03
+        },
+        {
+          "raw": "too",
+          "start": 7.03,
+          "end": 7.21
+        },
+        {
+          "raw": "much",
+          "start": 7.21,
+          "end": 7.39
+        },
+        {
+          "raw": "of",
+          "start": 7.39,
+          "end": 7.55
+        },
+        {
+          "raw": "joy.",
+          "start": 7.55,
+          "end": 7.81
+        },
+        {
+          "raw": "And",
+          "start": 8.47,
+          "end": 8.59
+        },
+        {
+          "raw": "this,",
+          "start": 8.59,
+          "end": 8.81
+        },
+        {
+          "raw": "and",
+          "start": 9.07,
+          "end": 9.13
+        },
+        {
+          "raw": "this,",
+          "start": 9.13,
+          "end": 9.37
+        },
+        {
+          "raw": "the",
+          "start": 9.67,
+          "end": 9.71
+        },
+        {
+          "raw": "greatest",
+          "start": 9.71,
+          "end": 10.01
+        },
+        {
+          "raw": "discords",
+          "start": 10.01,
+          "end": 10.59
+        },
+        {
+          "raw": "be",
+          "start": 10.59,
+          "end": 10.83
+        },
+        {
+          "raw": "that",
+          "start": 10.83,
+          "end": 11.01
+        },
+        {
+          "raw": "ere",
+          "start": 11.01,
+          "end": 11.29
+        },
+        {
+          "raw": "our",
+          "start": 11.29,
+          "end": 11.45
+        },
+        {
+          "raw": "hearts",
+          "start": 11.45,
+          "end": 11.65
+        },
+        {
+          "raw": "shall",
+          "start": 11.65,
+          "end": 11.85
+        },
+        {
+          "raw": "make.",
+          "start": 11.85,
+          "end": 12.09
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Amen",
+        "to",
+        "that,",
+        "sweet",
+        "powers!",
+        "I",
+        "cannot",
+        "speak",
+        "enough",
+        "of",
+        "this",
+        "content.",
+        "It",
+        "stops",
+        "me",
+        "here;",
+        "it",
+        "is",
+        "too",
+        "much",
+        "of",
+        "joy:",
+        "And",
+        "this,",
+        "and",
+        "this,",
+        "the",
+        "greatest",
+        "discords",
+        "be",
+        "That",
+        "e'er",
+        "our",
+        "hearts",
+        "shall",
+        "make!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          33
+        ],
+        [
+          "equal",
+          33,
+          37,
+          33,
+          37
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          32,
+          33,
+          32,
+          33
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Amen",
+          "start": 1.43,
+          "end": 1.43,
+          "key": "amen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.43,
+          "end": 1.73,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 1.73,
+          "end": 1.97,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "sweet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "powers.",
+          "start": 2.35,
+          "end": 2.77,
+          "key": "powers",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.43,
+          "end": 3.53,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 3.53,
+          "end": 3.75,
+          "key": "cannot",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 3.75,
+          "end": 4.09,
+          "key": "speak",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 4.09,
+          "end": 4.33,
+          "key": "enough",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.33,
+          "end": 4.49,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.49,
+          "end": 4.63,
+          "key": "this",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "content.",
+          "start": 4.63,
+          "end": 5.05,
+          "key": "content",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 5.65,
+          "end": 5.77,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "stops",
+          "start": 5.77,
+          "end": 6.03,
+          "key": "stops",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 6.03,
+          "end": 6.29,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 6.29,
+          "end": 6.57,
+          "key": "here",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.81,
+          "end": 6.91,
+          "key": "it",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.91,
+          "end": 7.03,
+          "key": "is",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 7.03,
+          "end": 7.21,
+          "key": "too",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 7.21,
+          "end": 7.39,
+          "key": "much",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.39,
+          "end": 7.55,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "joy.",
+          "start": 7.55,
+          "end": 7.81,
+          "key": "joy",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 8.47,
+          "end": 8.59,
+          "key": "and",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 8.59,
+          "end": 8.81,
+          "key": "this",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.07,
+          "end": 9.13,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 9.13,
+          "end": 9.37,
+          "key": "this",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.67,
+          "end": 9.71,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "greatest",
+          "start": 9.71,
+          "end": 10.01,
+          "key": "greatest",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "discords",
+          "start": 10.01,
+          "end": 10.59,
+          "key": "discords",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 10.59,
+          "end": 10.83,
+          "key": "be",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 10.83,
+          "end": 11.01,
+          "key": "that",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "ere",
+          "start": 11.01,
+          "end": 11.29,
+          "key": "ere",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 11.29,
+          "end": 11.45,
+          "key": "our",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "hearts",
+          "start": 11.45,
+          "end": 11.65,
+          "key": "hearts",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 11.65,
+          "end": 11.85,
+          "key": "shall",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "make.",
+          "start": 11.85,
+          "end": 12.09,
+          "key": "make",
+          "pieces": [
+            36
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Amen",
+          "start": 1.43,
+          "end": 1.43
+        },
+        {
+          "text": "to",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "text": "that,",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "text": "sweet",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "powers!",
+          "start": 2.35,
+          "end": 2.77
+        },
+        {
+          "text": "I",
+          "start": 3.43,
+          "end": 3.53
+        },
+        {
+          "text": "cannot",
+          "start": 3.53,
+          "end": 3.75
+        },
+        {
+          "text": "speak",
+          "start": 3.75,
+          "end": 4.09
+        },
+        {
+          "text": "enough",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "text": "of",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "text": "this",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "text": "content.",
+          "start": 4.63,
+          "end": 5.05
+        },
+        {
+          "text": "It",
+          "start": 5.65,
+          "end": 5.77
+        },
+        {
+          "text": "stops",
+          "start": 5.77,
+          "end": 6.03
+        },
+        {
+          "text": "me",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "text": "here;",
+          "start": 6.29,
+          "end": 6.57
+        },
+        {
+          "text": "it",
+          "start": 6.81,
+          "end": 6.91
+        },
+        {
+          "text": "is",
+          "start": 6.91,
+          "end": 7.03
+        },
+        {
+          "text": "too",
+          "start": 7.03,
+          "end": 7.21
+        },
+        {
+          "text": "much",
+          "start": 7.21,
+          "end": 7.39
+        },
+        {
+          "text": "of",
+          "start": 7.39,
+          "end": 7.55
+        },
+        {
+          "text": "joy:",
+          "start": 7.55,
+          "end": 7.81
+        },
+        {
+          "text": "And",
+          "start": 8.47,
+          "end": 8.59
+        },
+        {
+          "text": "this,",
+          "start": 8.59,
+          "end": 8.81
+        },
+        {
+          "text": "and",
+          "start": 9.07,
+          "end": 9.13
+        },
+        {
+          "text": "this,",
+          "start": 9.13,
+          "end": 9.37
+        },
+        {
+          "text": "the",
+          "start": 9.67,
+          "end": 9.71
+        },
+        {
+          "text": "greatest",
+          "start": 9.71,
+          "end": 10.01
+        },
+        {
+          "text": "discords",
+          "start": 10.01,
+          "end": 10.59
+        },
+        {
+          "text": "be",
+          "start": 10.59,
+          "end": 10.83
+        },
+        {
+          "text": "That",
+          "start": 10.83,
+          "end": 11.01
+        },
+        {
+          "text": "e'er",
+          "start": 11.01,
+          "end": 11.15
+        },
+        {
+          "text": "our",
+          "start": 11.29,
+          "end": 11.45
+        },
+        {
+          "text": "hearts",
+          "start": 11.45,
+          "end": 11.65
+        },
+        {
+          "text": "shall",
+          "start": 11.65,
+          "end": 11.85
+        },
+        {
+          "text": "make!",
+          "start": 11.85,
+          "end": 12.09
+        }
+      ],
+      "stats": {
+        "expected_words": 37,
+        "heard_words": 37,
+        "matched_words": 36
+      },
+      "match_ratio": 0.972972972972973,
+      "rejection_reasons": [],
+      "seconds": 0.40117564937099814
+    },
+    {
+      "asr_seconds": 0.3823720491491258,
+      "alignment_seconds": 0.0003555179573595524,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, Amen to that, sweet powers. I cannot speak enough of this content. It stops me",
+          "start": 0.05,
+          "end": 6.29,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.8531901041666666
+            },
+            {
+              "text": " Amen",
+              "start": 1.43,
+              "end": 1.43,
+              "probability": 0.5869140625
+            },
+            {
+              "text": " to",
+              "start": 1.43,
+              "end": 1.73,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " that,",
+              "start": 1.73,
+              "end": 1.97,
+              "probability": 0.978515625
+            },
+            {
+              "text": " sweet",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " powers.",
+              "start": 2.35,
+              "end": 2.77,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " I",
+              "start": 3.43,
+              "end": 3.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " cannot",
+              "start": 3.53,
+              "end": 3.75,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " speak",
+              "start": 3.75,
+              "end": 4.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " enough",
+              "start": 4.09,
+              "end": 4.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 4.33,
+              "end": 4.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 4.49,
+              "end": 4.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " content.",
+              "start": 4.63,
+              "end": 5.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " It",
+              "start": 5.65,
+              "end": 5.77,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " stops",
+              "start": 5.77,
+              "end": 6.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " me",
+              "start": 6.03,
+              "end": 6.29,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " here, it is too much of joy. And this, and this, the greatest discords be that ere our",
+          "start": 6.29,
+          "end": 11.45,
+          "words": [
+            {
+              "text": " here,",
+              "start": 6.29,
+              "end": 6.57,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " it",
+              "start": 6.81,
+              "end": 6.91,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " is",
+              "start": 6.91,
+              "end": 7.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " too",
+              "start": 7.03,
+              "end": 7.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " much",
+              "start": 7.21,
+              "end": 7.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 7.39,
+              "end": 7.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " joy.",
+              "start": 7.55,
+              "end": 7.81,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " And",
+              "start": 8.47,
+              "end": 8.59,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " this,",
+              "start": 8.59,
+              "end": 8.81,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " and",
+              "start": 9.07,
+              "end": 9.13,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " this,",
+              "start": 9.13,
+              "end": 9.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 9.67,
+              "end": 9.71,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " greatest",
+              "start": 9.71,
+              "end": 10.01,
+              "probability": 0.986328125
+            },
+            {
+              "text": " discords",
+              "start": 10.01,
+              "end": 10.59,
+              "probability": 0.873779296875
+            },
+            {
+              "text": " be",
+              "start": 10.59,
+              "end": 10.83,
+              "probability": 0.94140625
+            },
+            {
+              "text": " that",
+              "start": 10.83,
+              "end": 11.01,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " ere",
+              "start": 11.01,
+              "end": 11.29,
+              "probability": 0.776611328125
+            },
+            {
+              "text": " our",
+              "start": 11.29,
+              "end": 11.45,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " hearts shall make.",
+          "start": 11.45,
+          "end": 12.09,
+          "words": [
+            {
+              "text": " hearts",
+              "start": 11.45,
+              "end": 11.65,
+              "probability": 0.931640625
+            },
+            {
+              "text": " shall",
+              "start": 11.65,
+              "end": 11.85,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " make.",
+              "start": 11.85,
+              "end": 12.09,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Amen",
+          "start": 1.43,
+          "end": 1.43
+        },
+        {
+          "raw": "to",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "raw": "that,",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "raw": "sweet",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "powers.",
+          "start": 2.35,
+          "end": 2.77
+        },
+        {
+          "raw": "I",
+          "start": 3.43,
+          "end": 3.53
+        },
+        {
+          "raw": "cannot",
+          "start": 3.53,
+          "end": 3.75
+        },
+        {
+          "raw": "speak",
+          "start": 3.75,
+          "end": 4.09
+        },
+        {
+          "raw": "enough",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "raw": "of",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "raw": "this",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "raw": "content.",
+          "start": 4.63,
+          "end": 5.05
+        },
+        {
+          "raw": "It",
+          "start": 5.65,
+          "end": 5.77
+        },
+        {
+          "raw": "stops",
+          "start": 5.77,
+          "end": 6.03
+        },
+        {
+          "raw": "me",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "raw": "here,",
+          "start": 6.29,
+          "end": 6.57
+        },
+        {
+          "raw": "it",
+          "start": 6.81,
+          "end": 6.91
+        },
+        {
+          "raw": "is",
+          "start": 6.91,
+          "end": 7.03
+        },
+        {
+          "raw": "too",
+          "start": 7.03,
+          "end": 7.21
+        },
+        {
+          "raw": "much",
+          "start": 7.21,
+          "end": 7.39
+        },
+        {
+          "raw": "of",
+          "start": 7.39,
+          "end": 7.55
+        },
+        {
+          "raw": "joy.",
+          "start": 7.55,
+          "end": 7.81
+        },
+        {
+          "raw": "And",
+          "start": 8.47,
+          "end": 8.59
+        },
+        {
+          "raw": "this,",
+          "start": 8.59,
+          "end": 8.81
+        },
+        {
+          "raw": "and",
+          "start": 9.07,
+          "end": 9.13
+        },
+        {
+          "raw": "this,",
+          "start": 9.13,
+          "end": 9.37
+        },
+        {
+          "raw": "the",
+          "start": 9.67,
+          "end": 9.71
+        },
+        {
+          "raw": "greatest",
+          "start": 9.71,
+          "end": 10.01
+        },
+        {
+          "raw": "discords",
+          "start": 10.01,
+          "end": 10.59
+        },
+        {
+          "raw": "be",
+          "start": 10.59,
+          "end": 10.83
+        },
+        {
+          "raw": "that",
+          "start": 10.83,
+          "end": 11.01
+        },
+        {
+          "raw": "ere",
+          "start": 11.01,
+          "end": 11.29
+        },
+        {
+          "raw": "our",
+          "start": 11.29,
+          "end": 11.45
+        },
+        {
+          "raw": "hearts",
+          "start": 11.45,
+          "end": 11.65
+        },
+        {
+          "raw": "shall",
+          "start": 11.65,
+          "end": 11.85
+        },
+        {
+          "raw": "make.",
+          "start": 11.85,
+          "end": 12.09
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Amen",
+        "to",
+        "that,",
+        "sweet",
+        "powers!",
+        "I",
+        "cannot",
+        "speak",
+        "enough",
+        "of",
+        "this",
+        "content.",
+        "It",
+        "stops",
+        "me",
+        "here;",
+        "it",
+        "is",
+        "too",
+        "much",
+        "of",
+        "joy:",
+        "And",
+        "this,",
+        "and",
+        "this,",
+        "the",
+        "greatest",
+        "discords",
+        "be",
+        "That",
+        "e'er",
+        "our",
+        "hearts",
+        "shall",
+        "make!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          33
+        ],
+        [
+          "equal",
+          33,
+          37,
+          33,
+          37
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          32,
+          33,
+          32,
+          33
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Amen",
+          "start": 1.43,
+          "end": 1.43,
+          "key": "amen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.43,
+          "end": 1.73,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 1.73,
+          "end": 1.97,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "sweet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "powers.",
+          "start": 2.35,
+          "end": 2.77,
+          "key": "powers",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.43,
+          "end": 3.53,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 3.53,
+          "end": 3.75,
+          "key": "cannot",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 3.75,
+          "end": 4.09,
+          "key": "speak",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 4.09,
+          "end": 4.33,
+          "key": "enough",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.33,
+          "end": 4.49,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.49,
+          "end": 4.63,
+          "key": "this",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "content.",
+          "start": 4.63,
+          "end": 5.05,
+          "key": "content",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 5.65,
+          "end": 5.77,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "stops",
+          "start": 5.77,
+          "end": 6.03,
+          "key": "stops",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 6.03,
+          "end": 6.29,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 6.29,
+          "end": 6.57,
+          "key": "here",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.81,
+          "end": 6.91,
+          "key": "it",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.91,
+          "end": 7.03,
+          "key": "is",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 7.03,
+          "end": 7.21,
+          "key": "too",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 7.21,
+          "end": 7.39,
+          "key": "much",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.39,
+          "end": 7.55,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "joy.",
+          "start": 7.55,
+          "end": 7.81,
+          "key": "joy",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 8.47,
+          "end": 8.59,
+          "key": "and",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 8.59,
+          "end": 8.81,
+          "key": "this",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.07,
+          "end": 9.13,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 9.13,
+          "end": 9.37,
+          "key": "this",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.67,
+          "end": 9.71,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "greatest",
+          "start": 9.71,
+          "end": 10.01,
+          "key": "greatest",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "discords",
+          "start": 10.01,
+          "end": 10.59,
+          "key": "discords",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 10.59,
+          "end": 10.83,
+          "key": "be",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 10.83,
+          "end": 11.01,
+          "key": "that",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "ere",
+          "start": 11.01,
+          "end": 11.29,
+          "key": "ere",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 11.29,
+          "end": 11.45,
+          "key": "our",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "hearts",
+          "start": 11.45,
+          "end": 11.65,
+          "key": "hearts",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 11.65,
+          "end": 11.85,
+          "key": "shall",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "make.",
+          "start": 11.85,
+          "end": 12.09,
+          "key": "make",
+          "pieces": [
+            36
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Amen",
+          "start": 1.43,
+          "end": 1.43
+        },
+        {
+          "text": "to",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "text": "that,",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "text": "sweet",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "powers!",
+          "start": 2.35,
+          "end": 2.77
+        },
+        {
+          "text": "I",
+          "start": 3.43,
+          "end": 3.53
+        },
+        {
+          "text": "cannot",
+          "start": 3.53,
+          "end": 3.75
+        },
+        {
+          "text": "speak",
+          "start": 3.75,
+          "end": 4.09
+        },
+        {
+          "text": "enough",
+          "start": 4.09,
+          "end": 4.33
+        },
+        {
+          "text": "of",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "text": "this",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "text": "content.",
+          "start": 4.63,
+          "end": 5.05
+        },
+        {
+          "text": "It",
+          "start": 5.65,
+          "end": 5.77
+        },
+        {
+          "text": "stops",
+          "start": 5.77,
+          "end": 6.03
+        },
+        {
+          "text": "me",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "text": "here;",
+          "start": 6.29,
+          "end": 6.57
+        },
+        {
+          "text": "it",
+          "start": 6.81,
+          "end": 6.91
+        },
+        {
+          "text": "is",
+          "start": 6.91,
+          "end": 7.03
+        },
+        {
+          "text": "too",
+          "start": 7.03,
+          "end": 7.21
+        },
+        {
+          "text": "much",
+          "start": 7.21,
+          "end": 7.39
+        },
+        {
+          "text": "of",
+          "start": 7.39,
+          "end": 7.55
+        },
+        {
+          "text": "joy:",
+          "start": 7.55,
+          "end": 7.81
+        },
+        {
+          "text": "And",
+          "start": 8.47,
+          "end": 8.59
+        },
+        {
+          "text": "this,",
+          "start": 8.59,
+          "end": 8.81
+        },
+        {
+          "text": "and",
+          "start": 9.07,
+          "end": 9.13
+        },
+        {
+          "text": "this,",
+          "start": 9.13,
+          "end": 9.37
+        },
+        {
+          "text": "the",
+          "start": 9.67,
+          "end": 9.71
+        },
+        {
+          "text": "greatest",
+          "start": 9.71,
+          "end": 10.01
+        },
+        {
+          "text": "discords",
+          "start": 10.01,
+          "end": 10.59
+        },
+        {
+          "text": "be",
+          "start": 10.59,
+          "end": 10.83
+        },
+        {
+          "text": "That",
+          "start": 10.83,
+          "end": 11.01
+        },
+        {
+          "text": "e'er",
+          "start": 11.01,
+          "end": 11.15
+        },
+        {
+          "text": "our",
+          "start": 11.29,
+          "end": 11.45
+        },
+        {
+          "text": "hearts",
+          "start": 11.45,
+          "end": 11.65
+        },
+        {
+          "text": "shall",
+          "start": 11.65,
+          "end": 11.85
+        },
+        {
+          "text": "make!",
+          "start": 11.85,
+          "end": 12.09
+        }
+      ],
+      "stats": {
+        "expected_words": 37,
+        "heard_words": 37,
+        "matched_words": 36
+      },
+      "match_ratio": 0.972972972972973,
+      "rejection_reasons": [],
+      "seconds": 0.3828855361789465
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "030ca5649fbd06979ff0ca8647286cee246116fe6f44510537dc28ab39e11acf",
+  "selected_reasons": []
+}

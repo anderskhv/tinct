@@ -1,0 +1,509 @@
+{
+  "complete": true,
+  "signature": "214108b7cb4cd491d8c4081c1c439954314f830f5babae33d6194b6932da77cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.3020801255479455,
+      "alignment_seconds": 0.0004335353150963783,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, Andriy Semyonovich Lebesiotnikov, a clerk in the ministry.",
+          "start": 0.02,
+          "end": 4.12,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " Andriy",
+              "start": 1.22,
+              "end": 1.48,
+              "probability": 0.6136881510416666
+            },
+            {
+              "text": " Semyonovich",
+              "start": 1.48,
+              "end": 2.0,
+              "probability": 0.7535400390625
+            },
+            {
+              "text": " Lebesiotnikov,",
+              "start": 2.0,
+              "end": 2.84,
+              "probability": 0.548583984375
+            },
+            {
+              "text": " a",
+              "start": 3.18,
+              "end": 3.3,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " clerk",
+              "start": 3.3,
+              "end": 3.52,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " in",
+              "start": 3.52,
+              "end": 3.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 3.72,
+              "end": 3.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ministry.",
+              "start": 3.8,
+              "end": 4.12,
+              "probability": 0.69091796875
+            }
+          ]
+        },
+        {
+          "text": " Do you know him?",
+          "start": 4.78,
+          "end": 5.36,
+          "words": [
+            {
+              "text": " Do",
+              "start": 4.78,
+              "end": 4.86,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 4.86,
+              "end": 4.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " know",
+              "start": 4.98,
+              "end": 5.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him?",
+              "start": 5.12,
+              "end": 5.36,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "Andriy",
+          "start": 1.22,
+          "end": 1.48
+        },
+        {
+          "raw": "Semyonovich",
+          "start": 1.48,
+          "end": 2.0
+        },
+        {
+          "raw": "Lebesiotnikov,",
+          "start": 2.0,
+          "end": 2.84
+        },
+        {
+          "raw": "a",
+          "start": 3.18,
+          "end": 3.3
+        },
+        {
+          "raw": "clerk",
+          "start": 3.3,
+          "end": 3.52
+        },
+        {
+          "raw": "in",
+          "start": 3.52,
+          "end": 3.72
+        },
+        {
+          "raw": "the",
+          "start": 3.72,
+          "end": 3.8
+        },
+        {
+          "raw": "ministry.",
+          "start": 3.8,
+          "end": 4.12
+        },
+        {
+          "raw": "Do",
+          "start": 4.78,
+          "end": 4.86
+        },
+        {
+          "raw": "you",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "raw": "know",
+          "start": 4.98,
+          "end": 5.12
+        },
+        {
+          "raw": "him?",
+          "start": 5.12,
+          "end": 5.36
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "Andrey",
+        "Semyonovitch",
+        "Lebeziatnikov,",
+        "a",
+        "clerk",
+        "in",
+        "the",
+        "Ministry.",
+        "Do",
+        "you",
+        "know",
+        "him?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "equal",
+          4,
+          13,
+          4,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Andriy",
+          "start": 1.22,
+          "end": 1.48,
+          "key": "andriy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Semyonovich",
+          "start": 1.48,
+          "end": 2.0,
+          "key": "semyonovich",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lebesiotnikov,",
+          "start": 2.0,
+          "end": 2.84,
+          "key": "lebesiotnikov",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.18,
+          "end": 3.3,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "clerk",
+          "start": 3.3,
+          "end": 3.52,
+          "key": "clerk",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.52,
+          "end": 3.72,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.72,
+          "end": 3.8,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ministry.",
+          "start": 3.8,
+          "end": 4.12,
+          "key": "ministry",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 4.78,
+          "end": 4.86,
+          "key": "do",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.86,
+          "end": 4.98,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 4.98,
+          "end": 5.12,
+          "key": "know",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him?",
+          "start": 5.12,
+          "end": 5.36,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "Andrey",
+          "start": 0.74,
+          "end": 1.96
+        },
+        {
+          "text": "Semyonovitch",
+          "start": 1.96,
+          "end": 2.57
+        },
+        {
+          "text": "Lebeziatnikov,",
+          "start": 2.57,
+          "end": 2.875
+        },
+        {
+          "text": "a",
+          "start": 3.18,
+          "end": 3.3
+        },
+        {
+          "text": "clerk",
+          "start": 3.3,
+          "end": 3.52
+        },
+        {
+          "text": "in",
+          "start": 3.52,
+          "end": 3.72
+        },
+        {
+          "text": "the",
+          "start": 3.72,
+          "end": 3.8
+        },
+        {
+          "text": "Ministry.",
+          "start": 3.8,
+          "end": 4.12
+        },
+        {
+          "text": "Do",
+          "start": 4.78,
+          "end": 4.86
+        },
+        {
+          "text": "you",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "text": "know",
+          "start": 4.98,
+          "end": 5.12
+        },
+        {
+          "text": "him?\"",
+          "start": 5.12,
+          "end": 5.36
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3026747955009341
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ad0deafa45e3c1d10bb8b4782afd37c46d0b7191ebdd7c98bf0a06b4808b208d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

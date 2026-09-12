@@ -1,0 +1,3561 @@
+{
+  "complete": true,
+  "signature": "39162017c0373f62562f89bc946694e7a220b10285147f4569e69a68c6d56826",
+  "attempts": [
+    {
+      "asr_seconds": 0.5239669689908624,
+      "alignment_seconds": 0.0019567899871617556,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "After he woke me last night same dream or was it? Wait. Open hallway. Street of harlots. Remember. Haroun al Raschid. I am almosting it. That man led me, spoke. I was not afraid. The melon he had he held against my face. Smiled: creamfruit smell. That was the rule, said. In. Come. Red carpet spread. You will see who.",
+        "hotwords": "After, Wait, Open, Street, Remember, Haroun, Raschid, I, That, Smiled, In, Come, Red, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " After he woke me last night same dream or was it? Wait. Open hallway. Street of harlots. Remember. Haroun",
+          "start": 0.08,
+          "end": 18.28,
+          "words": [
+            {
+              "text": " After",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.1212158203125
+            },
+            {
+              "text": " he",
+              "start": 0.6,
+              "end": 0.74,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " woke",
+              "start": 0.74,
+              "end": 0.9,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " me",
+              "start": 0.9,
+              "end": 1.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " last",
+              "start": 1.08,
+              "end": 1.3,
+              "probability": 0.978515625
+            },
+            {
+              "text": " night",
+              "start": 1.3,
+              "end": 1.54,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " same",
+              "start": 1.54,
+              "end": 1.78,
+              "probability": 0.63134765625
+            },
+            {
+              "text": " dream",
+              "start": 1.78,
+              "end": 2.1,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " or",
+              "start": 2.1,
+              "end": 2.34,
+              "probability": 0.461669921875
+            },
+            {
+              "text": " was",
+              "start": 2.34,
+              "end": 2.5,
+              "probability": 0.990234375
+            },
+            {
+              "text": " it?",
+              "start": 2.5,
+              "end": 2.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Wait.",
+              "start": 3.24,
+              "end": 3.4,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " Open",
+              "start": 4.04,
+              "end": 4.06,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " hallway.",
+              "start": 4.06,
+              "end": 4.46,
+              "probability": 0.96484375
+            },
+            {
+              "text": " Street",
+              "start": 4.86,
+              "end": 4.94,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 4.94,
+              "end": 5.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " harlots.",
+              "start": 5.1,
+              "end": 15.36,
+              "probability": 0.9251302083333334
+            },
+            {
+              "text": " Remember.",
+              "start": 15.54,
+              "end": 15.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Haroun",
+              "start": 17.8,
+              "end": 18.28,
+              "probability": 0.3771171569824219
+            }
+          ]
+        },
+        {
+          "text": " al Raschid smell. That man led me last night same dream or was it? Wait. Open hallway.",
+          "start": 18.28,
+          "end": 20.74,
+          "words": [
+            {
+              "text": " al",
+              "start": 18.28,
+              "end": 18.28,
+              "probability": 2.1457672119140625e-06
+            },
+            {
+              "text": " Raschid",
+              "start": 18.28,
+              "end": 18.28,
+              "probability": 1.1622905731201172e-06
+            },
+            {
+              "text": " smell.",
+              "start": 18.28,
+              "end": 18.28,
+              "probability": 5.447864532470703e-05
+            },
+            {
+              "text": " That",
+              "start": 18.28,
+              "end": 18.28,
+              "probability": 0.00936126708984375
+            },
+            {
+              "text": " man",
+              "start": 18.28,
+              "end": 18.28,
+              "probability": 8.922815322875977e-05
+            },
+            {
+              "text": " led",
+              "start": 18.28,
+              "end": 18.28,
+              "probability": 1.811981201171875e-05
+            },
+            {
+              "text": " me",
+              "start": 18.28,
+              "end": 18.28,
+              "probability": 0.026214599609375
+            },
+            {
+              "text": " last",
+              "start": 18.28,
+              "end": 18.28,
+              "probability": 9.781122207641602e-05
+            },
+            {
+              "text": " night",
+              "start": 18.28,
+              "end": 18.28,
+              "probability": 0.290283203125
+            },
+            {
+              "text": " same",
+              "start": 18.28,
+              "end": 18.28,
+              "probability": 1.6689300537109375e-06
+            },
+            {
+              "text": " dream",
+              "start": 18.28,
+              "end": 18.5,
+              "probability": 4.7147274017333984e-05
+            },
+            {
+              "text": " or",
+              "start": 18.5,
+              "end": 18.54,
+              "probability": 0.0015058517456054688
+            },
+            {
+              "text": " was",
+              "start": 18.54,
+              "end": 19.04,
+              "probability": 0.0037136077880859375
+            },
+            {
+              "text": " it?",
+              "start": 19.04,
+              "end": 19.94,
+              "probability": 0.0268707275390625
+            },
+            {
+              "text": " Wait.",
+              "start": 19.94,
+              "end": 19.94,
+              "probability": 0.0005383491516113281
+            },
+            {
+              "text": " Open",
+              "start": 20.74,
+              "end": 20.74,
+              "probability": 0.0004620552062988281
+            },
+            {
+              "text": " hallway.",
+              "start": 20.74,
+              "end": 20.74,
+              "probability": 6.556510925292969e-07
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "After",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "he",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "raw": "woke",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "raw": "me",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "raw": "last",
+          "start": 1.08,
+          "end": 1.3
+        },
+        {
+          "raw": "night",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "raw": "same",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "raw": "dream",
+          "start": 1.78,
+          "end": 2.1
+        },
+        {
+          "raw": "or",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "raw": "was",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "raw": "it?",
+          "start": 2.5,
+          "end": 2.78
+        },
+        {
+          "raw": "Wait.",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "raw": "Open",
+          "start": 4.04,
+          "end": 4.06
+        },
+        {
+          "raw": "hallway.",
+          "start": 4.06,
+          "end": 4.46
+        },
+        {
+          "raw": "Street",
+          "start": 4.86,
+          "end": 4.94
+        },
+        {
+          "raw": "of",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "raw": "harlots.",
+          "start": 5.1,
+          "end": 15.36
+        },
+        {
+          "raw": "Remember.",
+          "start": 15.54,
+          "end": 15.96
+        },
+        {
+          "raw": "Haroun",
+          "start": 17.8,
+          "end": 18.28
+        },
+        {
+          "raw": "al",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "raw": "Raschid",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "raw": "smell.",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "raw": "That",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "raw": "man",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "raw": "led",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "raw": "me",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "raw": "last",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "raw": "night",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "raw": "same",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "raw": "dream",
+          "start": 18.28,
+          "end": 18.5
+        },
+        {
+          "raw": "or",
+          "start": 18.5,
+          "end": 18.54
+        },
+        {
+          "raw": "was",
+          "start": 18.54,
+          "end": 19.04
+        },
+        {
+          "raw": "it?",
+          "start": 19.04,
+          "end": 19.94
+        },
+        {
+          "raw": "Wait.",
+          "start": 19.94,
+          "end": 19.94
+        },
+        {
+          "raw": "Open",
+          "start": 20.74,
+          "end": 20.74
+        },
+        {
+          "raw": "hallway.",
+          "start": 20.74,
+          "end": 20.74
+        }
+      ],
+      "expected_tokens": [
+        "After",
+        "he",
+        "woke",
+        "me",
+        "last",
+        "night",
+        "same",
+        "dream",
+        "or",
+        "was",
+        "it?",
+        "Wait.",
+        "Open",
+        "hallway.",
+        "Street",
+        "of",
+        "harlots.",
+        "Remember.",
+        "Haroun",
+        "al",
+        "Raschid.",
+        "I",
+        "am",
+        "almosting",
+        "it.",
+        "That",
+        "man",
+        "led",
+        "me,",
+        "spoke.",
+        "I",
+        "was",
+        "not",
+        "afraid.",
+        "The",
+        "melon",
+        "he",
+        "had",
+        "he",
+        "held",
+        "against",
+        "my",
+        "face.",
+        "Smiled:",
+        "creamfruit",
+        "smell.",
+        "That",
+        "was",
+        "the",
+        "rule,",
+        "said.",
+        "In.",
+        "Come.",
+        "Red",
+        "carpet",
+        "spread.",
+        "You",
+        "will",
+        "see",
+        "who."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ],
+        [
+          "replace",
+          21,
+          25,
+          21,
+          22
+        ],
+        [
+          "equal",
+          25,
+          29,
+          22,
+          26
+        ],
+        [
+          "replace",
+          29,
+          31,
+          26,
+          31
+        ],
+        [
+          "equal",
+          31,
+          32,
+          31,
+          32
+        ],
+        [
+          "replace",
+          32,
+          60,
+          32,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          21,
+          25,
+          21,
+          22
+        ],
+        [
+          "replace",
+          29,
+          31,
+          26,
+          31
+        ],
+        [
+          "replace",
+          32,
+          60,
+          32,
+          36
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "After",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "after",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.6,
+          "end": 0.74,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "woke",
+          "start": 0.74,
+          "end": 0.9,
+          "key": "woke",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.9,
+          "end": 1.08,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 1.08,
+          "end": 1.3,
+          "key": "last",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 1.3,
+          "end": 1.54,
+          "key": "night",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 1.54,
+          "end": 1.78,
+          "key": "same",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dream",
+          "start": 1.78,
+          "end": 2.1,
+          "key": "dream",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 2.1,
+          "end": 2.34,
+          "key": "or",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.34,
+          "end": 2.5,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 2.5,
+          "end": 2.78,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Wait.",
+          "start": 3.24,
+          "end": 3.4,
+          "key": "wait",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Open",
+          "start": 4.04,
+          "end": 4.06,
+          "key": "open",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hallway.",
+          "start": 4.06,
+          "end": 4.46,
+          "key": "hallway",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Street",
+          "start": 4.86,
+          "end": 4.94,
+          "key": "street",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.94,
+          "end": 5.1,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "harlots.",
+          "start": 5.1,
+          "end": 15.36,
+          "key": "harlots",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Remember.",
+          "start": 15.54,
+          "end": 15.96,
+          "key": "remember",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Haroun",
+          "start": 17.8,
+          "end": 18.28,
+          "key": "haroun",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "al",
+          "start": 18.28,
+          "end": 18.28,
+          "key": "al",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Raschid",
+          "start": 18.28,
+          "end": 18.28,
+          "key": "raschid",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "smell.",
+          "start": 18.28,
+          "end": 18.28,
+          "key": "smell",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 18.28,
+          "end": 18.28,
+          "key": "that",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 18.28,
+          "end": 18.28,
+          "key": "man",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "led",
+          "start": 18.28,
+          "end": 18.28,
+          "key": "led",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 18.28,
+          "end": 18.28,
+          "key": "me",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 18.28,
+          "end": 18.28,
+          "key": "last",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 18.28,
+          "end": 18.28,
+          "key": "night",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 18.28,
+          "end": 18.28,
+          "key": "same",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "dream",
+          "start": 18.28,
+          "end": 18.5,
+          "key": "dream",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 18.5,
+          "end": 18.54,
+          "key": "or",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 18.54,
+          "end": 19.04,
+          "key": "was",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 19.04,
+          "end": 19.94,
+          "key": "it",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Wait.",
+          "start": 19.94,
+          "end": 19.94,
+          "key": "wait",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Open",
+          "start": 20.74,
+          "end": 20.74,
+          "key": "open",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "hallway.",
+          "start": 20.74,
+          "end": 20.74,
+          "key": "hallway",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "After",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "he",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "text": "woke",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "text": "me",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "text": "last",
+          "start": 1.08,
+          "end": 1.3
+        },
+        {
+          "text": "night",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "text": "same",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "text": "dream",
+          "start": 1.78,
+          "end": 2.1
+        },
+        {
+          "text": "or",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "text": "was",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "text": "it?",
+          "start": 2.5,
+          "end": 2.78
+        },
+        {
+          "text": "Wait.",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "text": "Open",
+          "start": 4.04,
+          "end": 4.06
+        },
+        {
+          "text": "hallway.",
+          "start": 4.06,
+          "end": 4.46
+        },
+        {
+          "text": "Street",
+          "start": 4.86,
+          "end": 4.94
+        },
+        {
+          "text": "of",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "text": "harlots.",
+          "start": 5.1,
+          "end": 15.36
+        },
+        {
+          "text": "Remember.",
+          "start": 15.54,
+          "end": 15.96
+        },
+        {
+          "text": "Haroun",
+          "start": 17.8,
+          "end": 18.28
+        },
+        {
+          "text": "al",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "text": "Raschid.",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "text": "I",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "text": "am",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "text": "almosting",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "text": "it.",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "text": "That",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "text": "man",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "text": "led",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "text": "me,",
+          "start": 18.28,
+          "end": 18.28
+        },
+        {
+          "text": "spoke.",
+          "start": 18.28,
+          "end": 18.41
+        },
+        {
+          "text": "I",
+          "start": 18.41,
+          "end": 18.475
+        },
+        {
+          "text": "was",
+          "start": 18.54,
+          "end": 19.04
+        },
+        {
+          "text": "not",
+          "start": 19.04,
+          "end": 19.89
+        },
+        {
+          "text": "afraid.",
+          "start": 19.89,
+          "end": 20.315
+        },
+        {
+          "text": "The",
+          "start": 20.315,
+          "end": 20.527
+        },
+        {
+          "text": "melon",
+          "start": 20.527,
+          "end": 20.633
+        },
+        {
+          "text": "he",
+          "start": 20.633,
+          "end": 20.686
+        },
+        {
+          "text": "had",
+          "start": 20.686,
+          "end": 20.713
+        },
+        {
+          "text": "he",
+          "start": 20.713,
+          "end": 20.727
+        },
+        {
+          "text": "held",
+          "start": 20.727,
+          "end": 20.733
+        },
+        {
+          "text": "against",
+          "start": 20.733,
+          "end": 20.736
+        },
+        {
+          "text": "my",
+          "start": 20.736,
+          "end": 20.738
+        },
+        {
+          "text": "face.",
+          "start": 20.738,
+          "end": 20.739
+        },
+        {
+          "text": "Smiled:",
+          "start": 20.739,
+          "end": 20.739
+        },
+        {
+          "text": "creamfruit",
+          "start": 20.739,
+          "end": 20.739
+        },
+        {
+          "text": "smell.",
+          "start": 20.739,
+          "end": 20.739
+        },
+        {
+          "text": "That",
+          "start": 20.739,
+          "end": 20.739
+        },
+        {
+          "text": "was",
+          "start": 20.739,
+          "end": 20.739
+        },
+        {
+          "text": "the",
+          "start": 20.739,
+          "end": 20.739
+        },
+        {
+          "text": "rule,",
+          "start": 20.739,
+          "end": 20.739
+        },
+        {
+          "text": "said.",
+          "start": 20.739,
+          "end": 20.739
+        },
+        {
+          "text": "In.",
+          "start": 20.739,
+          "end": 20.739
+        },
+        {
+          "text": "Come.",
+          "start": 20.739,
+          "end": 20.739
+        },
+        {
+          "text": "Red",
+          "start": 20.739,
+          "end": 20.739
+        },
+        {
+          "text": "carpet",
+          "start": 20.739,
+          "end": 20.739
+        },
+        {
+          "text": "spread.",
+          "start": 20.739,
+          "end": 20.739
+        },
+        {
+          "text": "You",
+          "start": 20.739,
+          "end": 20.739
+        },
+        {
+          "text": "will",
+          "start": 20.739,
+          "end": 20.739
+        },
+        {
+          "text": "see",
+          "start": 20.739,
+          "end": 20.739
+        },
+        {
+          "text": "who.",
+          "start": 20.739,
+          "end": 20.739
+        }
+      ],
+      "stats": {
+        "expected_words": 60,
+        "heard_words": 36,
+        "matched_words": 26
+      },
+      "match_ratio": 0.43333333333333335,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.5264764059975278
+    },
+    {
+      "asr_seconds": 0.6856873590149917,
+      "alignment_seconds": 0.001020782015984878,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "After, Wait, Open, Street, Remember, Haroun, Raschid, I, That, Smiled, In, Come, Red, You"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " After he woke me last night same dream, or was it? Wait, Open, Hallway, Street of Harlots,",
+          "start": 0.08,
+          "end": 5.5,
+          "words": [
+            {
+              "text": " After",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.11993408203125
+            },
+            {
+              "text": " he",
+              "start": 0.6,
+              "end": 0.74,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " woke",
+              "start": 0.74,
+              "end": 0.9,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " me",
+              "start": 0.9,
+              "end": 1.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " last",
+              "start": 1.08,
+              "end": 1.3,
+              "probability": 0.978515625
+            },
+            {
+              "text": " night",
+              "start": 1.3,
+              "end": 1.54,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " same",
+              "start": 1.54,
+              "end": 1.78,
+              "probability": 0.63232421875
+            },
+            {
+              "text": " dream,",
+              "start": 1.78,
+              "end": 2.1,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " or",
+              "start": 2.28,
+              "end": 2.34,
+              "probability": 0.990234375
+            },
+            {
+              "text": " was",
+              "start": 2.34,
+              "end": 2.5,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " it?",
+              "start": 2.5,
+              "end": 2.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Wait,",
+              "start": 3.22,
+              "end": 3.4,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " Open,",
+              "start": 4.06,
+              "end": 4.06,
+              "probability": 0.047607421875
+            },
+            {
+              "text": " Hallway,",
+              "start": 4.18,
+              "end": 4.58,
+              "probability": 0.526336669921875
+            },
+            {
+              "text": " Street",
+              "start": 4.92,
+              "end": 4.94,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " of",
+              "start": 4.94,
+              "end": 5.1,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Harlots,",
+              "start": 5.1,
+              "end": 5.5,
+              "probability": 0.8990885416666666
+            }
+          ]
+        },
+        {
+          "text": " Remember, Haroun, Al, Raschid, I am almosting it. That man led me, spoke, I was not afraid.",
+          "start": 5.6,
+          "end": 10.94,
+          "words": [
+            {
+              "text": " Remember,",
+              "start": 5.6,
+              "end": 5.92,
+              "probability": 0.405029296875
+            },
+            {
+              "text": " Haroun,",
+              "start": 6.44,
+              "end": 6.58,
+              "probability": 0.41372108459472656
+            },
+            {
+              "text": " Al,",
+              "start": 6.76,
+              "end": 6.82,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " Raschid,",
+              "start": 7.1,
+              "end": 7.34,
+              "probability": 0.02072906494140625
+            },
+            {
+              "text": " I",
+              "start": 7.48,
+              "end": 7.58,
+              "probability": 0.994140625
+            },
+            {
+              "text": " am",
+              "start": 7.58,
+              "end": 7.68,
+              "probability": 0.95703125
+            },
+            {
+              "text": " almosting",
+              "start": 7.68,
+              "end": 8.26,
+              "probability": 0.865234375
+            },
+            {
+              "text": " it.",
+              "start": 8.26,
+              "end": 8.46,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " That",
+              "start": 8.96,
+              "end": 9.1,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " man",
+              "start": 9.1,
+              "end": 9.32,
+              "probability": 0.984375
+            },
+            {
+              "text": " led",
+              "start": 9.32,
+              "end": 9.54,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " me,",
+              "start": 9.54,
+              "end": 9.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " spoke,",
+              "start": 9.78,
+              "end": 10.02,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " I",
+              "start": 10.26,
+              "end": 10.32,
+              "probability": 0.994140625
+            },
+            {
+              "text": " was",
+              "start": 10.32,
+              "end": 10.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 10.44,
+              "end": 10.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " afraid.",
+              "start": 10.6,
+              "end": 10.94,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " The melon he had he held against my face. Smiled, Creamfruit, Smell, That was the rule,",
+          "start": 11.58,
+          "end": 16.74,
+          "words": [
+            {
+              "text": " The",
+              "start": 11.58,
+              "end": 11.72,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " melon",
+              "start": 11.72,
+              "end": 12.02,
+              "probability": 0.958251953125
+            },
+            {
+              "text": " he",
+              "start": 12.02,
+              "end": 12.2,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " had",
+              "start": 12.2,
+              "end": 12.32,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " he",
+              "start": 12.32,
+              "end": 12.42,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " held",
+              "start": 12.42,
+              "end": 12.62,
+              "probability": 0.97265625
+            },
+            {
+              "text": " against",
+              "start": 12.62,
+              "end": 12.84,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " my",
+              "start": 12.84,
+              "end": 13.1,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " face.",
+              "start": 13.1,
+              "end": 13.46,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Smiled,",
+              "start": 14.2,
+              "end": 14.62,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " Creamfruit,",
+              "start": 14.88,
+              "end": 15.22,
+              "probability": 0.427490234375
+            },
+            {
+              "text": " Smell,",
+              "start": 15.34,
+              "end": 15.7,
+              "probability": 0.69873046875
+            },
+            {
+              "text": " That",
+              "start": 16.06,
+              "end": 16.16,
+              "probability": 0.385986328125
+            },
+            {
+              "text": " was",
+              "start": 16.16,
+              "end": 16.28,
+              "probability": 0.986328125
+            },
+            {
+              "text": " the",
+              "start": 16.28,
+              "end": 16.46,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " rule,",
+              "start": 16.46,
+              "end": 16.74,
+              "probability": 0.8818359375
+            }
+          ]
+        },
+        {
+          "text": " said, In, Come, Red, Carpet, Spread, You will see who.",
+          "start": 16.86,
+          "end": 20.12,
+          "words": [
+            {
+              "text": " said,",
+              "start": 16.86,
+              "end": 17.1,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " In,",
+              "start": 17.5,
+              "end": 17.7,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " Come,",
+              "start": 17.98,
+              "end": 18.16,
+              "probability": 0.484375
+            },
+            {
+              "text": " Red,",
+              "start": 18.48,
+              "end": 18.58,
+              "probability": 0.63818359375
+            },
+            {
+              "text": " Carpet,",
+              "start": 18.6,
+              "end": 18.98,
+              "probability": 0.976318359375
+            },
+            {
+              "text": " Spread,",
+              "start": 19.02,
+              "end": 19.26,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " You",
+              "start": 19.52,
+              "end": 19.58,
+              "probability": 0.5146484375
+            },
+            {
+              "text": " will",
+              "start": 19.58,
+              "end": 19.7,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " see",
+              "start": 19.7,
+              "end": 19.9,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " who.",
+              "start": 19.9,
+              "end": 20.12,
+              "probability": 0.96142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "After",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "he",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "raw": "woke",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "raw": "me",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "raw": "last",
+          "start": 1.08,
+          "end": 1.3
+        },
+        {
+          "raw": "night",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "raw": "same",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "raw": "dream,",
+          "start": 1.78,
+          "end": 2.1
+        },
+        {
+          "raw": "or",
+          "start": 2.28,
+          "end": 2.34
+        },
+        {
+          "raw": "was",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "raw": "it?",
+          "start": 2.5,
+          "end": 2.76
+        },
+        {
+          "raw": "Wait,",
+          "start": 3.22,
+          "end": 3.4
+        },
+        {
+          "raw": "Open,",
+          "start": 4.06,
+          "end": 4.06
+        },
+        {
+          "raw": "Hallway,",
+          "start": 4.18,
+          "end": 4.58
+        },
+        {
+          "raw": "Street",
+          "start": 4.92,
+          "end": 4.94
+        },
+        {
+          "raw": "of",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "raw": "Harlots,",
+          "start": 5.1,
+          "end": 5.5
+        },
+        {
+          "raw": "Remember,",
+          "start": 5.6,
+          "end": 5.92
+        },
+        {
+          "raw": "Haroun,",
+          "start": 6.44,
+          "end": 6.58
+        },
+        {
+          "raw": "Al,",
+          "start": 6.76,
+          "end": 6.82
+        },
+        {
+          "raw": "Raschid,",
+          "start": 7.1,
+          "end": 7.34
+        },
+        {
+          "raw": "I",
+          "start": 7.48,
+          "end": 7.58
+        },
+        {
+          "raw": "am",
+          "start": 7.58,
+          "end": 7.68
+        },
+        {
+          "raw": "almosting",
+          "start": 7.68,
+          "end": 8.26
+        },
+        {
+          "raw": "it.",
+          "start": 8.26,
+          "end": 8.46
+        },
+        {
+          "raw": "That",
+          "start": 8.96,
+          "end": 9.1
+        },
+        {
+          "raw": "man",
+          "start": 9.1,
+          "end": 9.32
+        },
+        {
+          "raw": "led",
+          "start": 9.32,
+          "end": 9.54
+        },
+        {
+          "raw": "me,",
+          "start": 9.54,
+          "end": 9.78
+        },
+        {
+          "raw": "spoke,",
+          "start": 9.78,
+          "end": 10.02
+        },
+        {
+          "raw": "I",
+          "start": 10.26,
+          "end": 10.32
+        },
+        {
+          "raw": "was",
+          "start": 10.32,
+          "end": 10.44
+        },
+        {
+          "raw": "not",
+          "start": 10.44,
+          "end": 10.6
+        },
+        {
+          "raw": "afraid.",
+          "start": 10.6,
+          "end": 10.94
+        },
+        {
+          "raw": "The",
+          "start": 11.58,
+          "end": 11.72
+        },
+        {
+          "raw": "melon",
+          "start": 11.72,
+          "end": 12.02
+        },
+        {
+          "raw": "he",
+          "start": 12.02,
+          "end": 12.2
+        },
+        {
+          "raw": "had",
+          "start": 12.2,
+          "end": 12.32
+        },
+        {
+          "raw": "he",
+          "start": 12.32,
+          "end": 12.42
+        },
+        {
+          "raw": "held",
+          "start": 12.42,
+          "end": 12.62
+        },
+        {
+          "raw": "against",
+          "start": 12.62,
+          "end": 12.84
+        },
+        {
+          "raw": "my",
+          "start": 12.84,
+          "end": 13.1
+        },
+        {
+          "raw": "face.",
+          "start": 13.1,
+          "end": 13.46
+        },
+        {
+          "raw": "Smiled,",
+          "start": 14.2,
+          "end": 14.62
+        },
+        {
+          "raw": "Creamfruit,",
+          "start": 14.88,
+          "end": 15.22
+        },
+        {
+          "raw": "Smell,",
+          "start": 15.34,
+          "end": 15.7
+        },
+        {
+          "raw": "That",
+          "start": 16.06,
+          "end": 16.16
+        },
+        {
+          "raw": "was",
+          "start": 16.16,
+          "end": 16.28
+        },
+        {
+          "raw": "the",
+          "start": 16.28,
+          "end": 16.46
+        },
+        {
+          "raw": "rule,",
+          "start": 16.46,
+          "end": 16.74
+        },
+        {
+          "raw": "said,",
+          "start": 16.86,
+          "end": 17.1
+        },
+        {
+          "raw": "In,",
+          "start": 17.5,
+          "end": 17.7
+        },
+        {
+          "raw": "Come,",
+          "start": 17.98,
+          "end": 18.16
+        },
+        {
+          "raw": "Red,",
+          "start": 18.48,
+          "end": 18.58
+        },
+        {
+          "raw": "Carpet,",
+          "start": 18.6,
+          "end": 18.98
+        },
+        {
+          "raw": "Spread,",
+          "start": 19.02,
+          "end": 19.26
+        },
+        {
+          "raw": "You",
+          "start": 19.52,
+          "end": 19.58
+        },
+        {
+          "raw": "will",
+          "start": 19.58,
+          "end": 19.7
+        },
+        {
+          "raw": "see",
+          "start": 19.7,
+          "end": 19.9
+        },
+        {
+          "raw": "who.",
+          "start": 19.9,
+          "end": 20.12
+        }
+      ],
+      "expected_tokens": [
+        "After",
+        "he",
+        "woke",
+        "me",
+        "last",
+        "night",
+        "same",
+        "dream",
+        "or",
+        "was",
+        "it?",
+        "Wait.",
+        "Open",
+        "hallway.",
+        "Street",
+        "of",
+        "harlots.",
+        "Remember.",
+        "Haroun",
+        "al",
+        "Raschid.",
+        "I",
+        "am",
+        "almosting",
+        "it.",
+        "That",
+        "man",
+        "led",
+        "me,",
+        "spoke.",
+        "I",
+        "was",
+        "not",
+        "afraid.",
+        "The",
+        "melon",
+        "he",
+        "had",
+        "he",
+        "held",
+        "against",
+        "my",
+        "face.",
+        "Smiled:",
+        "creamfruit",
+        "smell.",
+        "That",
+        "was",
+        "the",
+        "rule,",
+        "said.",
+        "In.",
+        "Come.",
+        "Red",
+        "carpet",
+        "spread.",
+        "You",
+        "will",
+        "see",
+        "who."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          60,
+          0,
+          60
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "After",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "after",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.6,
+          "end": 0.74,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "woke",
+          "start": 0.74,
+          "end": 0.9,
+          "key": "woke",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.9,
+          "end": 1.08,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 1.08,
+          "end": 1.3,
+          "key": "last",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 1.3,
+          "end": 1.54,
+          "key": "night",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 1.54,
+          "end": 1.78,
+          "key": "same",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dream,",
+          "start": 1.78,
+          "end": 2.1,
+          "key": "dream",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 2.28,
+          "end": 2.34,
+          "key": "or",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.34,
+          "end": 2.5,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 2.5,
+          "end": 2.76,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Wait,",
+          "start": 3.22,
+          "end": 3.4,
+          "key": "wait",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Open,",
+          "start": 4.06,
+          "end": 4.06,
+          "key": "open",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Hallway,",
+          "start": 4.18,
+          "end": 4.58,
+          "key": "hallway",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Street",
+          "start": 4.92,
+          "end": 4.94,
+          "key": "street",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.94,
+          "end": 5.1,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Harlots,",
+          "start": 5.1,
+          "end": 5.5,
+          "key": "harlots",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Remember,",
+          "start": 5.6,
+          "end": 5.92,
+          "key": "remember",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Haroun,",
+          "start": 6.44,
+          "end": 6.58,
+          "key": "haroun",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Al,",
+          "start": 6.76,
+          "end": 6.82,
+          "key": "al",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Raschid,",
+          "start": 7.1,
+          "end": 7.34,
+          "key": "raschid",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.48,
+          "end": 7.58,
+          "key": "i",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 7.58,
+          "end": 7.68,
+          "key": "am",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "almosting",
+          "start": 7.68,
+          "end": 8.26,
+          "key": "almosting",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 8.26,
+          "end": 8.46,
+          "key": "it",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 8.96,
+          "end": 9.1,
+          "key": "that",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 9.1,
+          "end": 9.32,
+          "key": "man",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "led",
+          "start": 9.32,
+          "end": 9.54,
+          "key": "led",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 9.54,
+          "end": 9.78,
+          "key": "me",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "spoke,",
+          "start": 9.78,
+          "end": 10.02,
+          "key": "spoke",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.26,
+          "end": 10.32,
+          "key": "i",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 10.32,
+          "end": 10.44,
+          "key": "was",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 10.44,
+          "end": 10.6,
+          "key": "not",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "afraid.",
+          "start": 10.6,
+          "end": 10.94,
+          "key": "afraid",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 11.58,
+          "end": 11.72,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "melon",
+          "start": 11.72,
+          "end": 12.02,
+          "key": "melon",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.02,
+          "end": 12.2,
+          "key": "he",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 12.2,
+          "end": 12.32,
+          "key": "had",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.32,
+          "end": 12.42,
+          "key": "he",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "held",
+          "start": 12.42,
+          "end": 12.62,
+          "key": "held",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 12.62,
+          "end": 12.84,
+          "key": "against",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 12.84,
+          "end": 13.1,
+          "key": "my",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "face.",
+          "start": 13.1,
+          "end": 13.46,
+          "key": "face",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Smiled,",
+          "start": 14.2,
+          "end": 14.62,
+          "key": "smiled",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Creamfruit,",
+          "start": 14.88,
+          "end": 15.22,
+          "key": "creamfruit",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Smell,",
+          "start": 15.34,
+          "end": 15.7,
+          "key": "smell",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 16.06,
+          "end": 16.16,
+          "key": "that",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 16.16,
+          "end": 16.28,
+          "key": "was",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.28,
+          "end": 16.46,
+          "key": "the",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "rule,",
+          "start": 16.46,
+          "end": 16.74,
+          "key": "rule",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 16.86,
+          "end": 17.1,
+          "key": "said",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "In,",
+          "start": 17.5,
+          "end": 17.7,
+          "key": "in",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 17.98,
+          "end": 18.16,
+          "key": "come",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Red,",
+          "start": 18.48,
+          "end": 18.58,
+          "key": "red",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Carpet,",
+          "start": 18.6,
+          "end": 18.98,
+          "key": "carpet",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Spread,",
+          "start": 19.02,
+          "end": 19.26,
+          "key": "spread",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 19.52,
+          "end": 19.58,
+          "key": "you",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 19.58,
+          "end": 19.7,
+          "key": "will",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 19.7,
+          "end": 19.9,
+          "key": "see",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "who.",
+          "start": 19.9,
+          "end": 20.12,
+          "key": "who",
+          "pieces": [
+            59
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "After",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "he",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "text": "woke",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "text": "me",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "text": "last",
+          "start": 1.08,
+          "end": 1.3
+        },
+        {
+          "text": "night",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "text": "same",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "text": "dream",
+          "start": 1.78,
+          "end": 2.1
+        },
+        {
+          "text": "or",
+          "start": 2.28,
+          "end": 2.34
+        },
+        {
+          "text": "was",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "text": "it?",
+          "start": 2.5,
+          "end": 2.76
+        },
+        {
+          "text": "Wait.",
+          "start": 3.22,
+          "end": 3.4
+        },
+        {
+          "text": "Open",
+          "start": 4.06,
+          "end": 4.06
+        },
+        {
+          "text": "hallway.",
+          "start": 4.18,
+          "end": 4.58
+        },
+        {
+          "text": "Street",
+          "start": 4.92,
+          "end": 4.94
+        },
+        {
+          "text": "of",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "text": "harlots.",
+          "start": 5.1,
+          "end": 5.5
+        },
+        {
+          "text": "Remember.",
+          "start": 5.6,
+          "end": 5.92
+        },
+        {
+          "text": "Haroun",
+          "start": 6.44,
+          "end": 6.58
+        },
+        {
+          "text": "al",
+          "start": 6.76,
+          "end": 6.82
+        },
+        {
+          "text": "Raschid.",
+          "start": 7.1,
+          "end": 7.34
+        },
+        {
+          "text": "I",
+          "start": 7.48,
+          "end": 7.58
+        },
+        {
+          "text": "am",
+          "start": 7.58,
+          "end": 7.68
+        },
+        {
+          "text": "almosting",
+          "start": 7.68,
+          "end": 8.26
+        },
+        {
+          "text": "it.",
+          "start": 8.26,
+          "end": 8.46
+        },
+        {
+          "text": "That",
+          "start": 8.96,
+          "end": 9.1
+        },
+        {
+          "text": "man",
+          "start": 9.1,
+          "end": 9.32
+        },
+        {
+          "text": "led",
+          "start": 9.32,
+          "end": 9.54
+        },
+        {
+          "text": "me,",
+          "start": 9.54,
+          "end": 9.78
+        },
+        {
+          "text": "spoke.",
+          "start": 9.78,
+          "end": 10.02
+        },
+        {
+          "text": "I",
+          "start": 10.26,
+          "end": 10.32
+        },
+        {
+          "text": "was",
+          "start": 10.32,
+          "end": 10.44
+        },
+        {
+          "text": "not",
+          "start": 10.44,
+          "end": 10.6
+        },
+        {
+          "text": "afraid.",
+          "start": 10.6,
+          "end": 10.94
+        },
+        {
+          "text": "The",
+          "start": 11.58,
+          "end": 11.72
+        },
+        {
+          "text": "melon",
+          "start": 11.72,
+          "end": 12.02
+        },
+        {
+          "text": "he",
+          "start": 12.02,
+          "end": 12.2
+        },
+        {
+          "text": "had",
+          "start": 12.2,
+          "end": 12.32
+        },
+        {
+          "text": "he",
+          "start": 12.32,
+          "end": 12.42
+        },
+        {
+          "text": "held",
+          "start": 12.42,
+          "end": 12.62
+        },
+        {
+          "text": "against",
+          "start": 12.62,
+          "end": 12.84
+        },
+        {
+          "text": "my",
+          "start": 12.84,
+          "end": 13.1
+        },
+        {
+          "text": "face.",
+          "start": 13.1,
+          "end": 13.46
+        },
+        {
+          "text": "Smiled:",
+          "start": 14.2,
+          "end": 14.62
+        },
+        {
+          "text": "creamfruit",
+          "start": 14.88,
+          "end": 15.22
+        },
+        {
+          "text": "smell.",
+          "start": 15.34,
+          "end": 15.7
+        },
+        {
+          "text": "That",
+          "start": 16.06,
+          "end": 16.16
+        },
+        {
+          "text": "was",
+          "start": 16.16,
+          "end": 16.28
+        },
+        {
+          "text": "the",
+          "start": 16.28,
+          "end": 16.46
+        },
+        {
+          "text": "rule,",
+          "start": 16.46,
+          "end": 16.74
+        },
+        {
+          "text": "said.",
+          "start": 16.86,
+          "end": 17.1
+        },
+        {
+          "text": "In.",
+          "start": 17.5,
+          "end": 17.7
+        },
+        {
+          "text": "Come.",
+          "start": 17.98,
+          "end": 18.16
+        },
+        {
+          "text": "Red",
+          "start": 18.48,
+          "end": 18.58
+        },
+        {
+          "text": "carpet",
+          "start": 18.6,
+          "end": 18.98
+        },
+        {
+          "text": "spread.",
+          "start": 19.02,
+          "end": 19.26
+        },
+        {
+          "text": "You",
+          "start": 19.52,
+          "end": 19.58
+        },
+        {
+          "text": "will",
+          "start": 19.58,
+          "end": 19.7
+        },
+        {
+          "text": "see",
+          "start": 19.7,
+          "end": 19.9
+        },
+        {
+          "text": "who.",
+          "start": 19.9,
+          "end": 20.12
+        }
+      ],
+      "stats": {
+        "expected_words": 60,
+        "heard_words": 60,
+        "matched_words": 60
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.687175515020499
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "50db56e7a78468c4ddaeef0006458992dee76d83936ddc373e7c83ed6e105975",
+  "selected_reasons": []
+}

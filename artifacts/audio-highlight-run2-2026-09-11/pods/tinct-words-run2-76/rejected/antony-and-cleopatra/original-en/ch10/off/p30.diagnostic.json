@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "60bcda7ccc3d2f7b63bfdc2c7667753c3663d56f9c195d959fd36fc1a0cf6458",
+  "attempts": [
+    {
+      "asr_seconds": 0.15603069309145212,
+      "alignment_seconds": 0.00031609879806637764,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cleopatra for what good turn?",
+          "start": 0.05,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " Cleopatra",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.9591471354166666
+            },
+            {
+              "text": " for",
+              "start": 1.03,
+              "end": 1.49,
+              "probability": 0.332763671875
+            },
+            {
+              "text": " what",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.931640625
+            },
+            {
+              "text": " good",
+              "start": 1.65,
+              "end": 1.79,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " turn?",
+              "start": 1.79,
+              "end": 2.13,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "for",
+          "start": 1.03,
+          "end": 1.49
+        },
+        {
+          "raw": "what",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "good",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "raw": "turn?",
+          "start": 1.79,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "For",
+        "what",
+        "good",
+        "turn?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.03,
+          "end": 1.49,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.65,
+          "end": 1.79,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "turn?",
+          "start": 1.79,
+          "end": 2.13,
+          "key": "turn",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "For",
+          "start": 1.03,
+          "end": 1.49
+        },
+        {
+          "text": "what",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "good",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "text": "turn?",
+          "start": 1.79,
+          "end": 2.13
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15647277794778347
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6d6431abacf476a67b5b38409af238cd01af222f930b73d6b21d904d43cf71f9",
+  "selected_reasons": []
+}

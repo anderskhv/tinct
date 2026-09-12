@@ -1,0 +1,562 @@
+{
+  "complete": true,
+  "signature": "c9c2d84c7b29e27dd1668126187c8451869d91b773bef71e814439b371369113",
+  "attempts": [
+    {
+      "asr_seconds": 0.1895762280037161,
+      "alignment_seconds": 0.0005448989977594465,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pompey will feast each other ere we part and let's draw lots who shall begin",
+          "start": 0.05,
+          "end": 4.57,
+          "words": [
+            {
+              "text": " Pompey",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " will",
+              "start": 1.03,
+              "end": 1.43,
+              "probability": 0.286376953125
+            },
+            {
+              "text": " feast",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " each",
+              "start": 1.69,
+              "end": 1.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " other",
+              "start": 1.95,
+              "end": 2.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ere",
+              "start": 2.15,
+              "end": 2.43,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " we",
+              "start": 2.43,
+              "end": 2.55,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " part",
+              "start": 2.55,
+              "end": 2.79,
+              "probability": 0.98046875
+            },
+            {
+              "text": " and",
+              "start": 2.79,
+              "end": 3.15,
+              "probability": 0.7216796875
+            },
+            {
+              "text": " let's",
+              "start": 3.15,
+              "end": 3.41,
+              "probability": 0.9765625
+            },
+            {
+              "text": " draw",
+              "start": 3.41,
+              "end": 3.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lots",
+              "start": 3.59,
+              "end": 3.89,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " who",
+              "start": 3.89,
+              "end": 4.11,
+              "probability": 0.927734375
+            },
+            {
+              "text": " shall",
+              "start": 4.11,
+              "end": 4.25,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " begin",
+              "start": 4.25,
+              "end": 4.57,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pompey",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "will",
+          "start": 1.03,
+          "end": 1.43
+        },
+        {
+          "raw": "feast",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "raw": "each",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "raw": "other",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "raw": "ere",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "raw": "we",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "raw": "part",
+          "start": 2.55,
+          "end": 2.79
+        },
+        {
+          "raw": "and",
+          "start": 2.79,
+          "end": 3.15
+        },
+        {
+          "raw": "let's",
+          "start": 3.15,
+          "end": 3.41
+        },
+        {
+          "raw": "draw",
+          "start": 3.41,
+          "end": 3.59
+        },
+        {
+          "raw": "lots",
+          "start": 3.59,
+          "end": 3.89
+        },
+        {
+          "raw": "who",
+          "start": 3.89,
+          "end": 4.11
+        },
+        {
+          "raw": "shall",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "raw": "begin",
+          "start": 4.25,
+          "end": 4.57
+        }
+      ],
+      "expected_tokens": [
+        "Pompey.",
+        "We'll",
+        "feast",
+        "each",
+        "other",
+        "ere",
+        "we",
+        "part,",
+        "and",
+        "let's",
+        "Draw",
+        "lots",
+        "who",
+        "shall",
+        "begin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          15,
+          2,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pompey",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "pompey",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.03,
+          "end": 1.43,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "feast",
+          "start": 1.43,
+          "end": 1.69,
+          "key": "feast",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 1.69,
+          "end": 1.95,
+          "key": "each",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 1.95,
+          "end": 2.15,
+          "key": "other",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ere",
+          "start": 2.15,
+          "end": 2.43,
+          "key": "ere",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.43,
+          "end": 2.55,
+          "key": "we",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 2.55,
+          "end": 2.79,
+          "key": "part",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.79,
+          "end": 3.15,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "let's",
+          "start": 3.15,
+          "end": 3.41,
+          "key": "lets",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "draw",
+          "start": 3.41,
+          "end": 3.59,
+          "key": "draw",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lots",
+          "start": 3.59,
+          "end": 3.89,
+          "key": "lots",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 3.89,
+          "end": 4.11,
+          "key": "who",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 4.11,
+          "end": 4.25,
+          "key": "shall",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "begin",
+          "start": 4.25,
+          "end": 4.57,
+          "key": "begin",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pompey.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "We'll",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "text": "feast",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "text": "each",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "text": "other",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "text": "ere",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "text": "we",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "text": "part,",
+          "start": 2.55,
+          "end": 2.79
+        },
+        {
+          "text": "and",
+          "start": 2.79,
+          "end": 3.15
+        },
+        {
+          "text": "let's",
+          "start": 3.15,
+          "end": 3.41
+        },
+        {
+          "text": "Draw",
+          "start": 3.41,
+          "end": 3.59
+        },
+        {
+          "text": "lots",
+          "start": 3.59,
+          "end": 3.89
+        },
+        {
+          "text": "who",
+          "start": 3.89,
+          "end": 4.11
+        },
+        {
+          "text": "shall",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "text": "begin.",
+          "start": 4.25,
+          "end": 4.57
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.19028438199893571
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e921894b262ec6e4c5b284ae4a8e2c91f37c7f282a9b70d01a1815af43eb141d",
+  "selected_reasons": []
+}

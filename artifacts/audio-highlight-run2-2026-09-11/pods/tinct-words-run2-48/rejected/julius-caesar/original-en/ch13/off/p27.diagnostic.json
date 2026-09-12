@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "f76e8d7bff1416ffa97dcdf3a1fb781c7eb7134b52e523a3d4c0d2ec17dc2376",
+  "attempts": [
+    {
+      "asr_seconds": 0.2089137490838766,
+      "alignment_seconds": 0.0003928123041987419,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassius, what? Durst not tempt him.",
+          "start": 0.05,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " what?",
+              "start": 1.11,
+              "end": 1.35,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Durst",
+              "start": 1.83,
+              "end": 1.97,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " not",
+              "start": 1.97,
+              "end": 2.13,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " tempt",
+              "start": 2.13,
+              "end": 2.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " him.",
+              "start": 2.37,
+              "end": 2.63,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "what?",
+          "start": 1.11,
+          "end": 1.35
+        },
+        {
+          "raw": "Durst",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "raw": "not",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "raw": "tempt",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "raw": "him.",
+          "start": 2.37,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "What?",
+        "durst",
+        "not",
+        "tempt",
+        "him?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what?",
+          "start": 1.11,
+          "end": 1.35,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Durst",
+          "start": 1.83,
+          "end": 1.97,
+          "key": "durst",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.97,
+          "end": 2.13,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tempt",
+          "start": 2.13,
+          "end": 2.37,
+          "key": "tempt",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 2.37,
+          "end": 2.63,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "What?",
+          "start": 1.11,
+          "end": 1.35
+        },
+        {
+          "text": "durst",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "text": "not",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "text": "tempt",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "text": "him?",
+          "start": 2.37,
+          "end": 2.63
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20944805908948183
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fefd749bbb32635cbcd3537e13c76a4ccc15fbb73d5abf45f62aa52e9650e189",
+  "selected_reasons": []
+}

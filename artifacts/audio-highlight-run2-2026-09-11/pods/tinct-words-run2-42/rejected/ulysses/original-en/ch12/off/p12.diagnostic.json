@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "20c96400e26aa407154d94c6d945a8484cd1bac4d646142ce459772e538fc8fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.18390600429847836,
+      "alignment_seconds": 0.0003886590711772442,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Not taking anything between drinks, says I.",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " taking",
+              "start": 0.59,
+              "end": 0.91,
+              "probability": 0.98046875
+            },
+            {
+              "text": " anything",
+              "start": 0.91,
+              "end": 1.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " between",
+              "start": 1.25,
+              "end": 1.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " drinks,",
+              "start": 1.55,
+              "end": 2.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " says",
+              "start": 2.33,
+              "end": 2.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I.",
+              "start": 2.43,
+              "end": 2.73,
+              "probability": 0.873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "taking",
+          "start": 0.59,
+          "end": 0.91
+        },
+        {
+          "raw": "anything",
+          "start": 0.91,
+          "end": 1.25
+        },
+        {
+          "raw": "between",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "raw": "drinks,",
+          "start": 1.55,
+          "end": 2.01
+        },
+        {
+          "raw": "says",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "raw": "I.",
+          "start": 2.43,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "—Not",
+        "taking",
+        "anything",
+        "between",
+        "drinks,",
+        "says",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "taking",
+          "start": 0.59,
+          "end": 0.91,
+          "key": "taking",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "anything",
+          "start": 0.91,
+          "end": 1.25,
+          "key": "anything",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 1.25,
+          "end": 1.55,
+          "key": "between",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "drinks,",
+          "start": 1.55,
+          "end": 2.01,
+          "key": "drinks",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 2.33,
+          "end": 2.43,
+          "key": "says",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 2.43,
+          "end": 2.73,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Not",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "taking",
+          "start": 0.59,
+          "end": 0.91
+        },
+        {
+          "text": "anything",
+          "start": 0.91,
+          "end": 1.25
+        },
+        {
+          "text": "between",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "text": "drinks,",
+          "start": 1.55,
+          "end": 2.01
+        },
+        {
+          "text": "says",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "text": "I.",
+          "start": 2.43,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18443323019891977
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "95f25af47f86cb294df11e320bb57512817ba7bc86d521445029f6039da00590",
+  "selected_reasons": []
+}

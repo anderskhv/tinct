@@ -1,0 +1,58 @@
+[2026-09-12T07:25:35Z] created hrd1ozely3cwkp tinct-words-run2-79 gpu=None $0.49/hr
+[2026-09-12T07:25:36Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-12T07:25:53Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-12T07:26:10Z] phase cohort at 0.6 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T07:26:10Z] 0.6 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T07:26:41Z] 1.1 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T07:27:12Z] 1.6 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T07:27:42Z] phase aligning at 2.1 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T07:27:42Z] 2.1 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 46}
+[2026-09-12T07:28:13Z] 2.6 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 80}
+[2026-09-12T07:28:44Z] 3.1 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 126}
+[2026-09-12T07:29:15Z] 3.6 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 189}
+[2026-09-12T07:29:46Z] 4.2 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 234}
+[2026-09-12T07:30:19Z] snapshot 1004197 bytes
+[2026-09-12T07:30:19Z] 4.7 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 2, "arm_chapters_running": 1, "paragraph_diagnostics": 275}
+[2026-09-12T07:30:50Z] 5.2 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 2, "arm_chapters_running": 1, "paragraph_diagnostics": 320}
+[2026-09-12T07:31:21Z] 5.7 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 2, "arm_chapters_running": 1, "paragraph_diagnostics": 358}
+[2026-09-12T07:31:52Z] 6.3 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 3, "arm_chapters_running": 1, "paragraph_diagnostics": 388}
+[2026-09-12T07:32:22Z] 6.8 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 4, "arm_chapters_running": 1, "paragraph_diagnostics": 400}
+[2026-09-12T07:32:53Z] 7.3 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 4, "arm_chapters_running": 1, "paragraph_diagnostics": 419}
+[2026-09-12T07:33:24Z] 7.8 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 5, "arm_chapters_running": 1, "paragraph_diagnostics": 476}
+[2026-09-12T07:33:55Z] 8.3 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 6, "arm_chapters_running": 1, "paragraph_diagnostics": 509}
+[2026-09-12T07:34:30Z] snapshot 2433196 bytes
+[2026-09-12T07:34:30Z] 8.8 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 6, "arm_chapters_running": 1, "paragraph_diagnostics": 553}
+[2026-09-12T07:35:01Z] 9.4 min: aligning {"arm_chapters_passed": 2, "arm_chapters_rejected": 6, "arm_chapters_running": 1, "paragraph_diagnostics": 617}
+[2026-09-12T07:35:32Z] 9.9 min: aligning {"arm_chapters_passed": 2, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 651}
+[2026-09-12T07:36:03Z] 10.4 min: aligning {"arm_chapters_passed": 2, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 698}
+[2026-09-12T07:36:34Z] 11.0 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 756}
+[2026-09-12T07:37:05Z] 11.5 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 820}
+[2026-09-12T07:37:36Z] 12.0 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 8, "arm_chapters_running": 1, "paragraph_diagnostics": 864}
+[2026-09-12T07:38:06Z] 12.5 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 8, "arm_chapters_running": 1, "paragraph_diagnostics": 908}
+[2026-09-12T07:38:44Z] snapshot 3832083 bytes
+[2026-09-12T07:38:44Z] 13.0 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 8, "arm_chapters_running": 1, "paragraph_diagnostics": 960}
+[2026-09-12T07:39:15Z] 13.6 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 8, "arm_chapters_running": 1, "paragraph_diagnostics": 1021}
+[2026-09-12T07:39:46Z] 14.2 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 8, "arm_chapters_running": 1, "paragraph_diagnostics": 1069}
+[2026-09-12T07:40:16Z] 14.7 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 9, "arm_chapters_running": 1, "paragraph_diagnostics": 1114}
+[2026-09-12T07:40:47Z] 15.2 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 9, "arm_chapters_running": 1, "paragraph_diagnostics": 1135}
+[2026-09-12T07:41:18Z] 15.7 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 9, "arm_chapters_running": 1, "paragraph_diagnostics": 1156}
+[2026-09-12T07:41:49Z] 16.2 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 9, "arm_chapters_running": 1, "paragraph_diagnostics": 1187}
+[2026-09-12T07:42:20Z] 16.7 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 10, "arm_chapters_running": 1, "paragraph_diagnostics": 1226}
+[2026-09-12T07:42:59Z] snapshot 5341228 bytes
+[2026-09-12T07:42:59Z] 17.2 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 11, "arm_chapters_running": 1, "paragraph_diagnostics": 1283}
+[2026-09-12T07:43:29Z] 17.9 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 11, "arm_chapters_running": 1, "paragraph_diagnostics": 1327}
+[2026-09-12T07:44:03Z] 18.4 min: aligning {"arm_chapters_passed": 5, "arm_chapters_rejected": 11, "arm_chapters_running": 1, "paragraph_diagnostics": 1378}
+[2026-09-12T07:44:34Z] 19.0 min: aligning {"arm_chapters_passed": 5, "arm_chapters_rejected": 11, "arm_chapters_running": 1, "paragraph_diagnostics": 1439}
+[2026-09-12T07:45:05Z] 19.5 min: aligning {"arm_chapters_passed": 5, "arm_chapters_rejected": 12, "arm_chapters_running": 1, "paragraph_diagnostics": 1458}
+[2026-09-12T07:45:36Z] 20.0 min: aligning {"arm_chapters_passed": 5, "arm_chapters_rejected": 12, "arm_chapters_running": 1, "paragraph_diagnostics": 1495}
+[2026-09-12T07:46:06Z] 20.5 min: aligning {"arm_chapters_passed": 5, "arm_chapters_rejected": 12, "arm_chapters_running": 1, "paragraph_diagnostics": 1539}
+[2026-09-12T07:46:37Z] 21.0 min: aligning {"arm_chapters_passed": 5, "arm_chapters_rejected": 13, "arm_chapters_running": 1, "paragraph_diagnostics": 1573}
+[2026-09-12T07:47:18Z] snapshot 6798897 bytes
+[2026-09-12T07:47:18Z] 21.5 min: aligning {"arm_chapters_passed": 5, "arm_chapters_rejected": 14, "arm_chapters_running": 1, "paragraph_diagnostics": 1625}
+[2026-09-12T07:47:49Z] 22.2 min: aligning {"arm_chapters_passed": 5, "arm_chapters_rejected": 14, "arm_chapters_running": 1, "paragraph_diagnostics": 1689}
+[2026-09-12T07:48:20Z] phase done at 22.7 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T07:48:20Z] 22.7 min: done {"arm_chapters_passed": 6, "arm_chapters_rejected": 14, "arm_chapters_running": 0, "paragraph_diagnostics": 1696}
+[2026-09-12T07:48:33Z] fetched out.tar.gz (7029753 bytes)
+[2026-09-12T07:48:34Z] stop hrd1ozely3cwkp: HTTP 200
+[2026-09-12T07:48:36Z] terminate hrd1ozely3cwkp: HTTP 204
+[2026-09-12T07:48:36Z] pod hrd1ozely3cwkp done: outcome=done uptime=23.0m est $0.19

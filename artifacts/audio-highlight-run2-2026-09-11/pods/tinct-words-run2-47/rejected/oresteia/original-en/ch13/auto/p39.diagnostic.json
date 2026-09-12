@@ -1,0 +1,1263 @@
+{
+  "complete": true,
+  "signature": "fc8ce3a1511d134004b462e9a8763be4546117c1065de73e9ceebbf73d22ed64",
+  "attempts": [
+    {
+      "asr_seconds": 0.19420464400900528,
+      "alignment_seconds": 0.0005440230015665293,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Electra. He hath but sent it, clipt to mourn his sire.",
+        "hotwords": "Electra, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Electra, He hath but sent it, clipped to mourn his sire.",
+          "start": 0.57,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Electra,",
+              "start": 0.57,
+              "end": 0.95,
+              "probability": 0.738525390625
+            },
+            {
+              "text": " He",
+              "start": 1.25,
+              "end": 1.37,
+              "probability": 0.01348876953125
+            },
+            {
+              "text": " hath",
+              "start": 1.37,
+              "end": 1.51,
+              "probability": 0.986328125
+            },
+            {
+              "text": " but",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " sent",
+              "start": 1.67,
+              "end": 1.93,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " it,",
+              "start": 1.93,
+              "end": 2.17,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " clipped",
+              "start": 2.31,
+              "end": 2.45,
+              "probability": 0.525390625
+            },
+            {
+              "text": " to",
+              "start": 2.45,
+              "end": 2.65,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " mourn",
+              "start": 2.65,
+              "end": 2.81,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " his",
+              "start": 2.81,
+              "end": 2.99,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " sire.",
+              "start": 2.99,
+              "end": 3.37,
+              "probability": 0.983154296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Electra,",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "raw": "He",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "raw": "hath",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "raw": "but",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "sent",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "raw": "it,",
+          "start": 1.93,
+          "end": 2.17
+        },
+        {
+          "raw": "clipped",
+          "start": 2.31,
+          "end": 2.45
+        },
+        {
+          "raw": "to",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "raw": "mourn",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "raw": "his",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "raw": "sire.",
+          "start": 2.99,
+          "end": 3.37
+        }
+      ],
+      "expected_tokens": [
+        "Electra.",
+        "He",
+        "hath",
+        "but",
+        "sent",
+        "it,",
+        "clipt",
+        "to",
+        "mourn",
+        "his",
+        "sire."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          11,
+          7,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Electra,",
+          "start": 0.57,
+          "end": 0.95,
+          "key": "electra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.25,
+          "end": 1.37,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.37,
+          "end": 1.51,
+          "key": "hath",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 1.67,
+          "end": 1.93,
+          "key": "sent",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 1.93,
+          "end": 2.17,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "clipped",
+          "start": 2.31,
+          "end": 2.45,
+          "key": "clipped",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.45,
+          "end": 2.65,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mourn",
+          "start": 2.65,
+          "end": 2.81,
+          "key": "mourn",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.81,
+          "end": 2.99,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sire.",
+          "start": 2.99,
+          "end": 3.37,
+          "key": "sire",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Electra.",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "text": "He",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "text": "hath",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "text": "but",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "text": "sent",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "text": "it,",
+          "start": 1.93,
+          "end": 2.17
+        },
+        {
+          "text": "clipt",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "text": "to",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "text": "mourn",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "text": "his",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "text": "sire.",
+          "start": 2.99,
+          "end": 3.37
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.19495794700924307
+    },
+    {
+      "asr_seconds": 0.17887903499649838,
+      "alignment_seconds": 0.0005469510215334594,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Electra, He"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " hath but sent it clipped to mourn his sire.",
+          "start": 0.05,
+          "end": 3.35,
+          "words": [
+            {
+              "text": " hath",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 2.384185791015625e-07
+            },
+            {
+              "text": " but",
+              "start": 0.83,
+              "end": 1.65,
+              "probability": 0.869140625
+            },
+            {
+              "text": " sent",
+              "start": 1.65,
+              "end": 1.93,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " it",
+              "start": 1.93,
+              "end": 2.15,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " clipped",
+              "start": 2.15,
+              "end": 2.43,
+              "probability": 0.42578125
+            },
+            {
+              "text": " to",
+              "start": 2.43,
+              "end": 2.65,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " mourn",
+              "start": 2.65,
+              "end": 2.81,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " his",
+              "start": 2.81,
+              "end": 2.99,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " sire.",
+              "start": 2.99,
+              "end": 3.35,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "hath",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "but",
+          "start": 0.83,
+          "end": 1.65
+        },
+        {
+          "raw": "sent",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "raw": "it",
+          "start": 1.93,
+          "end": 2.15
+        },
+        {
+          "raw": "clipped",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "raw": "to",
+          "start": 2.43,
+          "end": 2.65
+        },
+        {
+          "raw": "mourn",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "raw": "his",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "raw": "sire.",
+          "start": 2.99,
+          "end": 3.35
+        }
+      ],
+      "expected_tokens": [
+        "Electra.",
+        "He",
+        "hath",
+        "but",
+        "sent",
+        "it,",
+        "clipt",
+        "to",
+        "mourn",
+        "his",
+        "sire."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          6,
+          0,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          4,
+          5
+        ],
+        [
+          "equal",
+          7,
+          11,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "replace",
+          6,
+          7,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "hath",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "hath",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 0.83,
+          "end": 1.65,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 1.65,
+          "end": 1.93,
+          "key": "sent",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.93,
+          "end": 2.15,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "clipped",
+          "start": 2.15,
+          "end": 2.43,
+          "key": "clipped",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.43,
+          "end": 2.65,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mourn",
+          "start": 2.65,
+          "end": 2.81,
+          "key": "mourn",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.81,
+          "end": 2.99,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sire.",
+          "start": 2.99,
+          "end": 3.35,
+          "key": "sire",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Electra.",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "He",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "hath",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "but",
+          "start": 0.83,
+          "end": 1.65
+        },
+        {
+          "text": "sent",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "text": "it,",
+          "start": 1.93,
+          "end": 2.15
+        },
+        {
+          "text": "clipt",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "text": "to",
+          "start": 2.43,
+          "end": 2.65
+        },
+        {
+          "text": "mourn",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "text": "his",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "text": "sire.",
+          "start": 2.99,
+          "end": 3.35
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.7272727272727273,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17960276899975725
+    },
+    {
+      "asr_seconds": 0.20609496301040053,
+      "alignment_seconds": 0.0005519539990928024,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Electra, he hath but sent it, clipped to mourn his sire.",
+          "start": 0.57,
+          "end": 3.35,
+          "words": [
+            {
+              "text": " Electra,",
+              "start": 0.57,
+              "end": 0.95,
+              "probability": 0.738525390625
+            },
+            {
+              "text": " he",
+              "start": 1.25,
+              "end": 1.37,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " hath",
+              "start": 1.37,
+              "end": 1.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " but",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " sent",
+              "start": 1.67,
+              "end": 1.93,
+              "probability": 0.935546875
+            },
+            {
+              "text": " it,",
+              "start": 1.93,
+              "end": 2.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " clipped",
+              "start": 2.31,
+              "end": 2.45,
+              "probability": 0.67041015625
+            },
+            {
+              "text": " to",
+              "start": 2.45,
+              "end": 2.65,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " mourn",
+              "start": 2.65,
+              "end": 2.81,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " his",
+              "start": 2.81,
+              "end": 2.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sire.",
+              "start": 2.99,
+              "end": 3.35,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Electra,",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "raw": "he",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "raw": "hath",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "raw": "but",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "sent",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "raw": "it,",
+          "start": 1.93,
+          "end": 2.17
+        },
+        {
+          "raw": "clipped",
+          "start": 2.31,
+          "end": 2.45
+        },
+        {
+          "raw": "to",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "raw": "mourn",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "raw": "his",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "raw": "sire.",
+          "start": 2.99,
+          "end": 3.35
+        }
+      ],
+      "expected_tokens": [
+        "Electra.",
+        "He",
+        "hath",
+        "but",
+        "sent",
+        "it,",
+        "clipt",
+        "to",
+        "mourn",
+        "his",
+        "sire."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          11,
+          7,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Electra,",
+          "start": 0.57,
+          "end": 0.95,
+          "key": "electra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.25,
+          "end": 1.37,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.37,
+          "end": 1.51,
+          "key": "hath",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 1.67,
+          "end": 1.93,
+          "key": "sent",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 1.93,
+          "end": 2.17,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "clipped",
+          "start": 2.31,
+          "end": 2.45,
+          "key": "clipped",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.45,
+          "end": 2.65,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mourn",
+          "start": 2.65,
+          "end": 2.81,
+          "key": "mourn",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.81,
+          "end": 2.99,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sire.",
+          "start": 2.99,
+          "end": 3.35,
+          "key": "sire",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Electra.",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "text": "He",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "text": "hath",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "text": "but",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "text": "sent",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "text": "it,",
+          "start": 1.93,
+          "end": 2.17
+        },
+        {
+          "text": "clipt",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "text": "to",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "text": "mourn",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "text": "his",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "text": "sire.",
+          "start": 2.99,
+          "end": 3.35
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.20685320100164972
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2edf3ddd799b414dacb888c3f2e12312107103a7b933ba2fff4954c802448b78",
+  "selected_reasons": []
+}

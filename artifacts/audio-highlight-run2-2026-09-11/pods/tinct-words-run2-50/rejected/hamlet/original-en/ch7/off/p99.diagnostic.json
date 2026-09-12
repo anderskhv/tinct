@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "04bc8c1593193f2777683604109cf16747ee8a31cb3fdb5fcb332210d7964b73",
+  "attempts": [
+    {
+      "asr_seconds": 0.18136433884501457,
+      "alignment_seconds": 0.0003539901226758957,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Guildenstern, prison my lord.",
+          "start": 0.59,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Guildenstern,",
+              "start": 0.59,
+              "end": 1.11,
+              "probability": 0.8944091796875
+            },
+            {
+              "text": " prison",
+              "start": 1.39,
+              "end": 1.63,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " my",
+              "start": 1.63,
+              "end": 1.87,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " lord.",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.77978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guildenstern,",
+          "start": 0.59,
+          "end": 1.11
+        },
+        {
+          "raw": "prison",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "raw": "my",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "raw": "lord.",
+          "start": 1.87,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "Guildenstern.",
+        "Prison,",
+        "my",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guildenstern,",
+          "start": 0.59,
+          "end": 1.11,
+          "key": "guildenstern",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "prison",
+          "start": 1.39,
+          "end": 1.63,
+          "key": "prison",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.63,
+          "end": 1.87,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.87,
+          "end": 2.09,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guildenstern.",
+          "start": 0.59,
+          "end": 1.11
+        },
+        {
+          "text": "Prison,",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "text": "my",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "text": "lord?",
+          "start": 1.87,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18184216506779194
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7791aa59cda9f09d4bc9580292ec3c77893bc9e70b65375c4771c90b898b5608",
+  "selected_reasons": []
+}

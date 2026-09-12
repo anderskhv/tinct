@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "2117c8cf1774df186d574156dbb18b2d63e8f802ec66701bdef509e107300d70",
+  "attempts": [
+    {
+      "asr_seconds": 0.2496267892420292,
+      "alignment_seconds": 0.0006152801215648651,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Not to advertise and to trust this quest of a situation to me. I'll find you one in time",
+          "start": 0.05,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.69580078125
+            },
+            {
+              "text": " to",
+              "start": 0.63,
+              "end": 0.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " advertise",
+              "start": 0.81,
+              "end": 1.37,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 1.37,
+              "end": 2.05,
+              "probability": 0.6357421875
+            },
+            {
+              "text": " to",
+              "start": 2.05,
+              "end": 2.13,
+              "probability": 0.994140625
+            },
+            {
+              "text": " trust",
+              "start": 2.13,
+              "end": 2.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " this",
+              "start": 2.35,
+              "end": 2.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " quest",
+              "start": 2.61,
+              "end": 2.87,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 3.03,
+              "end": 3.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " situation",
+              "start": 3.13,
+              "end": 3.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 3.55,
+              "end": 3.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me.",
+              "start": 3.93,
+              "end": 4.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I'll",
+              "start": 4.47,
+              "end": 4.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " find",
+              "start": 4.79,
+              "end": 4.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 4.99,
+              "end": 5.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " one",
+              "start": 5.19,
+              "end": 5.37,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " in",
+              "start": 5.37,
+              "end": 5.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " time",
+              "start": 5.53,
+              "end": 5.89,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "to",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "raw": "advertise",
+          "start": 0.81,
+          "end": 1.37
+        },
+        {
+          "raw": "and",
+          "start": 1.37,
+          "end": 2.05
+        },
+        {
+          "raw": "to",
+          "start": 2.05,
+          "end": 2.13
+        },
+        {
+          "raw": "trust",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "raw": "this",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "raw": "quest",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "raw": "of",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "a",
+          "start": 3.03,
+          "end": 3.13
+        },
+        {
+          "raw": "situation",
+          "start": 3.13,
+          "end": 3.55
+        },
+        {
+          "raw": "to",
+          "start": 3.55,
+          "end": 3.93
+        },
+        {
+          "raw": "me.",
+          "start": 3.93,
+          "end": 4.19
+        },
+        {
+          "raw": "I'll",
+          "start": 4.47,
+          "end": 4.79
+        },
+        {
+          "raw": "find",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "raw": "you",
+          "start": 4.99,
+          "end": 5.19
+        },
+        {
+          "raw": "one",
+          "start": 5.19,
+          "end": 5.37
+        },
+        {
+          "raw": "in",
+          "start": 5.37,
+          "end": 5.53
+        },
+        {
+          "raw": "time",
+          "start": 5.53,
+          "end": 5.89
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "to",
+        "advertise:",
+        "and",
+        "to",
+        "trust",
+        "this",
+        "quest",
+        "of",
+        "a",
+        "situation",
+        "to",
+        "me.",
+        "I'll",
+        "find",
+        "you",
+        "one",
+        "in",
+        "time.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.63,
+          "end": 0.81,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "advertise",
+          "start": 0.81,
+          "end": 1.37,
+          "key": "advertise",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.37,
+          "end": 2.05,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.05,
+          "end": 2.13,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "trust",
+          "start": 2.13,
+          "end": 2.35,
+          "key": "trust",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.35,
+          "end": 2.61,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "quest",
+          "start": 2.61,
+          "end": 2.87,
+          "key": "quest",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.03,
+          "end": 3.13,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "situation",
+          "start": 3.13,
+          "end": 3.55,
+          "key": "situation",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.55,
+          "end": 3.93,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 3.93,
+          "end": 4.19,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 4.47,
+          "end": 4.79,
+          "key": "ill",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 4.79,
+          "end": 4.99,
+          "key": "find",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.99,
+          "end": 5.19,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 5.19,
+          "end": 5.37,
+          "key": "one",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.37,
+          "end": 5.53,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 5.53,
+          "end": 5.89,
+          "key": "time",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "to",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "text": "advertise:",
+          "start": 0.81,
+          "end": 1.37
+        },
+        {
+          "text": "and",
+          "start": 1.37,
+          "end": 2.05
+        },
+        {
+          "text": "to",
+          "start": 2.05,
+          "end": 2.13
+        },
+        {
+          "text": "trust",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "text": "this",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "text": "quest",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "text": "of",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "text": "a",
+          "start": 3.03,
+          "end": 3.13
+        },
+        {
+          "text": "situation",
+          "start": 3.13,
+          "end": 3.55
+        },
+        {
+          "text": "to",
+          "start": 3.55,
+          "end": 3.93
+        },
+        {
+          "text": "me.",
+          "start": 3.93,
+          "end": 4.19
+        },
+        {
+          "text": "I'll",
+          "start": 4.47,
+          "end": 4.79
+        },
+        {
+          "text": "find",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "text": "you",
+          "start": 4.99,
+          "end": 5.19
+        },
+        {
+          "text": "one",
+          "start": 5.19,
+          "end": 5.37
+        },
+        {
+          "text": "in",
+          "start": 5.37,
+          "end": 5.53
+        },
+        {
+          "text": "time.\"",
+          "start": 5.53,
+          "end": 5.89
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25049542635679245
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "322cee469f1e2ba86f48527adc2700a9e324676fe9aace917ef534fb42ea1c7b",
+  "selected_reasons": []
+}

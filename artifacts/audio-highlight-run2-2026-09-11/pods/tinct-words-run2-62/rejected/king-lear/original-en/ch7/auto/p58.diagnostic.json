@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "c04551a8f61ecdf55a829782dd07e7f4e3e240e4085b88aa806862717d722acb",
+  "attempts": [
+    {
+      "asr_seconds": 0.19191555306315422,
+      "alignment_seconds": 0.00017546862363815308,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kent. Why, madam, if I were your father's dog, You should not use me so.",
+        "hotwords": "Kent, Why, I, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kent, Why, madam, if I were your father's dog, You should not use me so.",
+          "start": 0.05,
+          "end": 4.59,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " Why,",
+              "start": 1.07,
+              "end": 1.39,
+              "probability": 0.04058837890625
+            },
+            {
+              "text": " madam,",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.6551513671875
+            },
+            {
+              "text": " if",
+              "start": 1.97,
+              "end": 2.07,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " I",
+              "start": 2.07,
+              "end": 2.17,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " were",
+              "start": 2.17,
+              "end": 2.27,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " your",
+              "start": 2.27,
+              "end": 2.41,
+              "probability": 0.986328125
+            },
+            {
+              "text": " father's",
+              "start": 2.41,
+              "end": 2.83,
+              "probability": 0.968017578125
+            },
+            {
+              "text": " dog,",
+              "start": 2.83,
+              "end": 3.11,
+              "probability": 0.994140625
+            },
+            {
+              "text": " You",
+              "start": 3.55,
+              "end": 3.63,
+              "probability": 0.06427001953125
+            },
+            {
+              "text": " should",
+              "start": 3.63,
+              "end": 3.75,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " not",
+              "start": 3.75,
+              "end": 3.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " use",
+              "start": 3.93,
+              "end": 4.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " me",
+              "start": 4.11,
+              "end": 4.31,
+              "probability": 0.9765625
+            },
+            {
+              "text": " so.",
+              "start": 4.31,
+              "end": 4.59,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "Why,",
+          "start": 1.07,
+          "end": 1.39
+        },
+        {
+          "raw": "madam,",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "raw": "if",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "raw": "I",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "raw": "were",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "raw": "your",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "raw": "father's",
+          "start": 2.41,
+          "end": 2.83
+        },
+        {
+          "raw": "dog,",
+          "start": 2.83,
+          "end": 3.11
+        },
+        {
+          "raw": "You",
+          "start": 3.55,
+          "end": 3.63
+        },
+        {
+          "raw": "should",
+          "start": 3.63,
+          "end": 3.75
+        },
+        {
+          "raw": "not",
+          "start": 3.75,
+          "end": 3.93
+        },
+        {
+          "raw": "use",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "raw": "me",
+          "start": 4.11,
+          "end": 4.31
+        },
+        {
+          "raw": "so.",
+          "start": 4.31,
+          "end": 4.59
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "Why,",
+        "madam,",
+        "if",
+        "I",
+        "were",
+        "your",
+        "father's",
+        "dog,",
+        "You",
+        "should",
+        "not",
+        "use",
+        "me",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.07,
+          "end": 1.39,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "madam,",
+          "start": 1.57,
+          "end": 1.85,
+          "key": "madam",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.97,
+          "end": 2.07,
+          "key": "if",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.07,
+          "end": 2.17,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.17,
+          "end": 2.27,
+          "key": "were",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.27,
+          "end": 2.41,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "father's",
+          "start": 2.41,
+          "end": 2.83,
+          "key": "fathers",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dog,",
+          "start": 2.83,
+          "end": 3.11,
+          "key": "dog",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 3.55,
+          "end": 3.63,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 3.63,
+          "end": 3.75,
+          "key": "should",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.75,
+          "end": 3.93,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 3.93,
+          "end": 4.11,
+          "key": "use",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.11,
+          "end": 4.31,
+          "key": "me",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 4.31,
+          "end": 4.59,
+          "key": "so",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Why,",
+          "start": 1.07,
+          "end": 1.39
+        },
+        {
+          "text": "madam,",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "if",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "text": "I",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "text": "were",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "text": "your",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "text": "father's",
+          "start": 2.41,
+          "end": 2.83
+        },
+        {
+          "text": "dog,",
+          "start": 2.83,
+          "end": 3.11
+        },
+        {
+          "text": "You",
+          "start": 3.55,
+          "end": 3.63
+        },
+        {
+          "text": "should",
+          "start": 3.63,
+          "end": 3.75
+        },
+        {
+          "text": "not",
+          "start": 3.75,
+          "end": 3.93
+        },
+        {
+          "text": "use",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "text": "me",
+          "start": 4.11,
+          "end": 4.31
+        },
+        {
+          "text": "so.",
+          "start": 4.31,
+          "end": 4.59
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1921781525015831
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ef168dfcd488563e9a61e14d5b5257b1407ed4704b24fd69ad80d3471981a09a",
+  "selected_reasons": []
+}

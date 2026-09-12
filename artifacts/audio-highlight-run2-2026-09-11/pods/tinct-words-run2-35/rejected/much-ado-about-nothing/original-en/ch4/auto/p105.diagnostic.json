@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "e04ca26b5c78a859a0fc39ada3474cf7fb7763637d4129eaf5d75f54aa6c9a70",
+  "attempts": [
+    {
+      "asr_seconds": 0.18719110265374184,
+      "alignment_seconds": 0.0004177410155534744,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Re-enter Claudio, Beatrice, Hero and Leonato.",
+        "hotwords": "Re-enter, Claudio, Beatrice, Hero, Leonato"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Re-enter Claudio, Beatrice, Hero and Leonato.",
+          "start": 0.05,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " Re",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.86474609375
+            },
+            {
+              "text": "-enter",
+              "start": 0.55,
+              "end": 0.75,
+              "probability": 0.767333984375
+            },
+            {
+              "text": " Claudio,",
+              "start": 0.75,
+              "end": 1.15,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " Beatrice,",
+              "start": 1.55,
+              "end": 1.99,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Hero",
+              "start": 2.29,
+              "end": 2.43,
+              "probability": 0.40283203125
+            },
+            {
+              "text": " and",
+              "start": 2.43,
+              "end": 2.67,
+              "probability": 0.537109375
+            },
+            {
+              "text": " Leonato.",
+              "start": 2.67,
+              "end": 3.13,
+              "probability": 0.182952880859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Re",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "-enter",
+          "start": 0.55,
+          "end": 0.75
+        },
+        {
+          "raw": "Claudio,",
+          "start": 0.75,
+          "end": 1.15
+        },
+        {
+          "raw": "Beatrice,",
+          "start": 1.55,
+          "end": 1.99
+        },
+        {
+          "raw": "Hero",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "raw": "and",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "raw": "Leonato.",
+          "start": 2.67,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "Re-enter",
+        "Claudio,",
+        "Beatrice,",
+        "Hero",
+        "and",
+        "Leonato."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Re -enter",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "reenter",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "Claudio,",
+          "start": 0.75,
+          "end": 1.15,
+          "key": "claudio",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Beatrice,",
+          "start": 1.55,
+          "end": 1.99,
+          "key": "beatrice",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Hero",
+          "start": 2.29,
+          "end": 2.43,
+          "key": "hero",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.43,
+          "end": 2.67,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Leonato.",
+          "start": 2.67,
+          "end": 3.13,
+          "key": "leonato",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "Re-enter",
+          "heard": "Re -enter",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.05,
+          "end": 0.75
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Re-enter",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Claudio,",
+          "start": 0.75,
+          "end": 1.15
+        },
+        {
+          "text": "Beatrice,",
+          "start": 1.55,
+          "end": 1.99
+        },
+        {
+          "text": "Hero",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "text": "and",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "text": "Leonato.",
+          "start": 2.67,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18772818706929684
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7c44b85aed3d1d93d6189399ed9df8b05a2505508bb6fecbaeab899a80191bb9",
+  "selected_reasons": []
+}

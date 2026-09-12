@@ -1,0 +1,266 @@
+{
+  "complete": true,
+  "signature": "a2d54b7ce3e2bf605e466d6044a2f58a7e8169de6756d40b7e5cfc6e696fca4a",
+  "attempts": [
+    {
+      "asr_seconds": 0.08080453798174858,
+      "alignment_seconds": 0.00018766149878501892,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, my curse is on her.",
+          "start": 0.02,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.490966796875
+            },
+            {
+              "text": " my",
+              "start": 1.0,
+              "end": 1.1,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " curse",
+              "start": 1.1,
+              "end": 1.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " is",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " her.",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "my",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "raw": "curse",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "raw": "is",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "on",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "her.",
+          "start": 1.66,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "My",
+        "curses",
+        "on",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          5,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.0,
+          "end": 1.1,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "curse",
+          "start": 1.1,
+          "end": 1.36,
+          "key": "curse",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 1.66,
+          "end": 1.86,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "My",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "text": "curses",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "text": "on",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "her.",
+          "start": 1.66,
+          "end": 1.86
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08105979859828949
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a6c2ded3f0e8f0681b3b74cd3f4bbe702d2220e46680220d59205855b547bbda",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

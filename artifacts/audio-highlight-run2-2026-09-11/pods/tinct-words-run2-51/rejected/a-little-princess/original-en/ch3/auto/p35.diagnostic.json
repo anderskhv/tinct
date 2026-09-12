@@ -1,0 +1,598 @@
+{
+  "complete": true,
+  "signature": "9d2fdbe23bfe75045603b18c42a29241e9b2d4bfe8d334355809c215c4f3e240",
+  "attempts": [
+    {
+      "asr_seconds": 0.3798708822578192,
+      "alignment_seconds": 0.0008797422051429749,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You Make up stories!\" she gasped. \"Can you do that--as well as speak French? Can you?\"",
+        "hotwords": "Make, Can, French"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You make up stories,\" she gasped. Can you do that as well as speak French? Can you?",
+          "start": 0.02,
+          "end": 4.94,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.1810302734375
+            },
+            {
+              "text": " make",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " up",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " stories,\"",
+              "start": 0.8,
+              "end": 1.58,
+              "probability": 0.7166748046875
+            },
+            {
+              "text": " she",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " gasped.",
+              "start": 1.82,
+              "end": 2.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Can",
+              "start": 2.78,
+              "end": 2.88,
+              "probability": 0.01763916015625
+            },
+            {
+              "text": " you",
+              "start": 2.88,
+              "end": 3.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " do",
+              "start": 3.0,
+              "end": 3.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 3.14,
+              "end": 3.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 3.32,
+              "end": 3.46,
+              "probability": 0.97265625
+            },
+            {
+              "text": " well",
+              "start": 3.46,
+              "end": 3.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 3.62,
+              "end": 3.78,
+              "probability": 0.994140625
+            },
+            {
+              "text": " speak",
+              "start": 3.78,
+              "end": 3.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " French?",
+              "start": 3.96,
+              "end": 4.3,
+              "probability": 0.984375
+            },
+            {
+              "text": " Can",
+              "start": 4.54,
+              "end": 4.66,
+              "probability": 0.9765625
+            },
+            {
+              "text": " you?",
+              "start": 4.66,
+              "end": 4.94,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "make",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "up",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "stories,\"",
+          "start": 0.8,
+          "end": 1.58
+        },
+        {
+          "raw": "she",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "gasped.",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "raw": "Can",
+          "start": 2.78,
+          "end": 2.88
+        },
+        {
+          "raw": "you",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "raw": "do",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "raw": "that",
+          "start": 3.14,
+          "end": 3.32
+        },
+        {
+          "raw": "as",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "raw": "well",
+          "start": 3.46,
+          "end": 3.62
+        },
+        {
+          "raw": "as",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "raw": "speak",
+          "start": 3.78,
+          "end": 3.96
+        },
+        {
+          "raw": "French?",
+          "start": 3.96,
+          "end": 4.3
+        },
+        {
+          "raw": "Can",
+          "start": 4.54,
+          "end": 4.66
+        },
+        {
+          "raw": "you?",
+          "start": 4.66,
+          "end": 4.94
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "Make",
+        "up",
+        "stories!\"",
+        "she",
+        "gasped.",
+        "\"Can",
+        "you",
+        "do",
+        "that--as",
+        "well",
+        "as",
+        "speak",
+        "French?",
+        "Can",
+        "you?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "make",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "up",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stories,\"",
+          "start": 0.8,
+          "end": 1.58,
+          "key": "stories",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gasped.",
+          "start": 1.82,
+          "end": 2.16,
+          "key": "gasped",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Can",
+          "start": 2.78,
+          "end": 2.88,
+          "key": "can",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.88,
+          "end": 3.0,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.0,
+          "end": 3.14,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that as",
+          "start": 3.14,
+          "end": 3.46,
+          "key": "thatas",
+          "pieces": [
+            9,
+            10
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 3.46,
+          "end": 3.62,
+          "key": "well",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.62,
+          "end": 3.78,
+          "key": "as",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 3.78,
+          "end": 3.96,
+          "key": "speak",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "French?",
+          "start": 3.96,
+          "end": 4.3,
+          "key": "french",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Can",
+          "start": 4.54,
+          "end": 4.66,
+          "key": "can",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 4.66,
+          "end": 4.94,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 9,
+          "text": "that--as",
+          "heard": "that as",
+          "heard_indexes": [
+            9,
+            10
+          ],
+          "start": 3.14,
+          "end": 3.46
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Make",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "up",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "stories!\"",
+          "start": 0.8,
+          "end": 1.58
+        },
+        {
+          "text": "she",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "gasped.",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "text": "\"Can",
+          "start": 2.78,
+          "end": 2.88
+        },
+        {
+          "text": "you",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "text": "do",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "text": "that--as",
+          "start": 3.14,
+          "end": 3.46
+        },
+        {
+          "text": "well",
+          "start": 3.46,
+          "end": 3.62
+        },
+        {
+          "text": "as",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "text": "speak",
+          "start": 3.78,
+          "end": 3.96
+        },
+        {
+          "text": "French?",
+          "start": 3.96,
+          "end": 4.3
+        },
+        {
+          "text": "Can",
+          "start": 4.54,
+          "end": 4.66
+        },
+        {
+          "text": "you?\"",
+          "start": 4.66,
+          "end": 4.94
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3810429126024246
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2d944c333aafffb84254adedb267a49139a6bdbe5aba926a72996ae33e092f22",
+  "selected_reasons": []
+}

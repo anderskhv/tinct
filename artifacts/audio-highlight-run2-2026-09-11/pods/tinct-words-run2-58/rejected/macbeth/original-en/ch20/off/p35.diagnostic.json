@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "eae97ab736a74e685d05e158ee5fdd5ac5923ef35be1b92e21c272e758ac03c2",
+  "attempts": [
+    {
+      "asr_seconds": 0.12467878125607967,
+      "alignment_seconds": 0.00025076139718294144,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ross.",
+          "start": 0.02,
+          "end": 0.8,
+          "words": [
+            {
+              "text": " Ross.",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.8095703125
+            }
+          ]
+        },
+        {
+          "text": " Sir Amen.",
+          "start": 1.16,
+          "end": 1.44,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 1.16,
+              "end": 1.2,
+              "probability": 0.740234375
+            },
+            {
+              "text": " Amen.",
+              "start": 1.2,
+              "end": 1.44,
+              "probability": 0.9248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ross.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Sir",
+          "start": 1.16,
+          "end": 1.2
+        },
+        {
+          "raw": "Amen.",
+          "start": 1.2,
+          "end": 1.44
+        }
+      ],
+      "expected_tokens": [
+        "Ross.",
+        "Sir,",
+        "amen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ross.",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "ross",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 1.16,
+          "end": 1.2,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Amen.",
+          "start": 1.2,
+          "end": 1.44,
+          "key": "amen",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ross.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Sir,",
+          "start": 1.16,
+          "end": 1.2
+        },
+        {
+          "text": "amen.",
+          "start": 1.2,
+          "end": 1.44
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12502515874803066
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "72deb85d990296e7749f80706d79d445a536204158b6c340e9e3a8093919ab10",
+  "selected_reasons": []
+}

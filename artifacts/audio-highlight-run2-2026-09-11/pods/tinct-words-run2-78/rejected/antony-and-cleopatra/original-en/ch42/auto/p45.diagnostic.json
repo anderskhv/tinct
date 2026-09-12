@@ -1,0 +1,1587 @@
+{
+  "complete": true,
+  "signature": "85770f498ff146e8240647d6ae2b4281cb9fbe5f2252ae8dcc14ce50033987ae",
+  "attempts": [
+    {
+      "asr_seconds": 0.6408759839832783,
+      "alignment_seconds": 0.0015935972332954407,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. You lie up to the hearing of the gods! But if there be nor ever were one such, It's past the size of dreaming. Nature wants stuff To vie strange forms with fancy; yet t' imagine An Antony were nature's piece 'gainst fancy, Condemning shadows quite.",
+        "hotwords": "Cleopatra, You, But, It's, Nature, An, Antony, Condemning"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, You lie up to the hearing of the gods, But if there be nor ever were one such,",
+          "start": 0.68,
+          "end": 5.22,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.68,
+              "end": 1.06,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " You",
+              "start": 1.44,
+              "end": 1.62,
+              "probability": 0.1181640625
+            },
+            {
+              "text": " lie",
+              "start": 1.62,
+              "end": 1.78,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " up",
+              "start": 1.78,
+              "end": 1.94,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 1.94,
+              "end": 2.08,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 2.08,
+              "end": 2.18,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " hearing",
+              "start": 2.18,
+              "end": 2.38,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " of",
+              "start": 2.38,
+              "end": 2.56,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 2.56,
+              "end": 2.68,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " gods,",
+              "start": 2.68,
+              "end": 3.02,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " But",
+              "start": 3.5,
+              "end": 3.66,
+              "probability": 0.62841796875
+            },
+            {
+              "text": " if",
+              "start": 3.66,
+              "end": 3.8,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " there",
+              "start": 3.8,
+              "end": 3.9,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " be",
+              "start": 3.9,
+              "end": 4.04,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " nor",
+              "start": 4.04,
+              "end": 4.24,
+              "probability": 0.900390625
+            },
+            {
+              "text": " ever",
+              "start": 4.24,
+              "end": 4.5,
+              "probability": 0.96875
+            },
+            {
+              "text": " were",
+              "start": 4.5,
+              "end": 4.72,
+              "probability": 0.98828125
+            },
+            {
+              "text": " one",
+              "start": 4.72,
+              "end": 4.96,
+              "probability": 0.982421875
+            },
+            {
+              "text": " such,",
+              "start": 4.96,
+              "end": 5.22,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " It's past the size of dreaming. Nature wants stuff To vie strange forms with fancy,",
+          "start": 5.22,
+          "end": 10.56,
+          "words": [
+            {
+              "text": " It's",
+              "start": 5.22,
+              "end": 5.68,
+              "probability": 0.6064453125
+            },
+            {
+              "text": " past",
+              "start": 5.68,
+              "end": 5.94,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " the",
+              "start": 5.94,
+              "end": 6.18,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " size",
+              "start": 6.18,
+              "end": 6.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 6.48,
+              "end": 6.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dreaming.",
+              "start": 6.68,
+              "end": 7.02,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Nature",
+              "start": 8.06,
+              "end": 8.06,
+              "probability": 0.978515625
+            },
+            {
+              "text": " wants",
+              "start": 8.06,
+              "end": 8.36,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " stuff",
+              "start": 8.36,
+              "end": 8.64,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " To",
+              "start": 8.64,
+              "end": 8.82,
+              "probability": 0.0006041526794433594
+            },
+            {
+              "text": " vie",
+              "start": 8.82,
+              "end": 9.06,
+              "probability": 0.74365234375
+            },
+            {
+              "text": " strange",
+              "start": 9.06,
+              "end": 9.46,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " forms",
+              "start": 9.46,
+              "end": 9.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 9.82,
+              "end": 10.1,
+              "probability": 0.986328125
+            },
+            {
+              "text": " fancy,",
+              "start": 10.1,
+              "end": 10.56,
+              "probability": 0.9814453125
+            }
+          ]
+        },
+        {
+          "text": " Yet t' imagine An Antony were nature's piece,",
+          "start": 11.04,
+          "end": 14.08,
+          "words": [
+            {
+              "text": " Yet",
+              "start": 11.04,
+              "end": 11.26,
+              "probability": 0.50146484375
+            },
+            {
+              "text": " t'",
+              "start": 11.26,
+              "end": 11.6,
+              "probability": 0.0163421630859375
+            },
+            {
+              "text": " imagine",
+              "start": 12.4,
+              "end": 12.4,
+              "probability": 0.5517578125
+            },
+            {
+              "text": " An",
+              "start": 12.4,
+              "end": 12.64,
+              "probability": 0.007762908935546875
+            },
+            {
+              "text": " Antony",
+              "start": 12.64,
+              "end": 13.1,
+              "probability": 0.5086898803710938
+            },
+            {
+              "text": " were",
+              "start": 13.1,
+              "end": 13.3,
+              "probability": 0.11798095703125
+            },
+            {
+              "text": " nature's",
+              "start": 13.3,
+              "end": 13.78,
+              "probability": 0.7291259765625
+            },
+            {
+              "text": " piece,",
+              "start": 13.78,
+              "end": 14.08,
+              "probability": 0.17431640625
+            }
+          ]
+        },
+        {
+          "text": " Gains't fancy, Condemning shadows quite.",
+          "start": 14.48,
+          "end": 16.88,
+          "words": [
+            {
+              "text": " Gains't",
+              "start": 14.48,
+              "end": 14.78,
+              "probability": 0.2823079427083333
+            },
+            {
+              "text": " fancy,",
+              "start": 14.78,
+              "end": 15.16,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Condemning",
+              "start": 15.7,
+              "end": 16.08,
+              "probability": 0.9060872395833334
+            },
+            {
+              "text": " shadows",
+              "start": 16.08,
+              "end": 16.48,
+              "probability": 0.91015625
+            },
+            {
+              "text": " quite.",
+              "start": 16.48,
+              "end": 16.88,
+              "probability": 0.94384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "raw": "You",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "raw": "lie",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "raw": "up",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "raw": "to",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "raw": "the",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "raw": "hearing",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "raw": "of",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "raw": "the",
+          "start": 2.56,
+          "end": 2.68
+        },
+        {
+          "raw": "gods,",
+          "start": 2.68,
+          "end": 3.02
+        },
+        {
+          "raw": "But",
+          "start": 3.5,
+          "end": 3.66
+        },
+        {
+          "raw": "if",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "raw": "there",
+          "start": 3.8,
+          "end": 3.9
+        },
+        {
+          "raw": "be",
+          "start": 3.9,
+          "end": 4.04
+        },
+        {
+          "raw": "nor",
+          "start": 4.04,
+          "end": 4.24
+        },
+        {
+          "raw": "ever",
+          "start": 4.24,
+          "end": 4.5
+        },
+        {
+          "raw": "were",
+          "start": 4.5,
+          "end": 4.72
+        },
+        {
+          "raw": "one",
+          "start": 4.72,
+          "end": 4.96
+        },
+        {
+          "raw": "such,",
+          "start": 4.96,
+          "end": 5.22
+        },
+        {
+          "raw": "It's",
+          "start": 5.22,
+          "end": 5.68
+        },
+        {
+          "raw": "past",
+          "start": 5.68,
+          "end": 5.94
+        },
+        {
+          "raw": "the",
+          "start": 5.94,
+          "end": 6.18
+        },
+        {
+          "raw": "size",
+          "start": 6.18,
+          "end": 6.48
+        },
+        {
+          "raw": "of",
+          "start": 6.48,
+          "end": 6.68
+        },
+        {
+          "raw": "dreaming.",
+          "start": 6.68,
+          "end": 7.02
+        },
+        {
+          "raw": "Nature",
+          "start": 8.06,
+          "end": 8.06
+        },
+        {
+          "raw": "wants",
+          "start": 8.06,
+          "end": 8.36
+        },
+        {
+          "raw": "stuff",
+          "start": 8.36,
+          "end": 8.64
+        },
+        {
+          "raw": "To",
+          "start": 8.64,
+          "end": 8.82
+        },
+        {
+          "raw": "vie",
+          "start": 8.82,
+          "end": 9.06
+        },
+        {
+          "raw": "strange",
+          "start": 9.06,
+          "end": 9.46
+        },
+        {
+          "raw": "forms",
+          "start": 9.46,
+          "end": 9.82
+        },
+        {
+          "raw": "with",
+          "start": 9.82,
+          "end": 10.1
+        },
+        {
+          "raw": "fancy,",
+          "start": 10.1,
+          "end": 10.56
+        },
+        {
+          "raw": "Yet",
+          "start": 11.04,
+          "end": 11.26
+        },
+        {
+          "raw": "t'",
+          "start": 11.26,
+          "end": 11.6
+        },
+        {
+          "raw": "imagine",
+          "start": 12.4,
+          "end": 12.4
+        },
+        {
+          "raw": "An",
+          "start": 12.4,
+          "end": 12.64
+        },
+        {
+          "raw": "Antony",
+          "start": 12.64,
+          "end": 13.1
+        },
+        {
+          "raw": "were",
+          "start": 13.1,
+          "end": 13.3
+        },
+        {
+          "raw": "nature's",
+          "start": 13.3,
+          "end": 13.78
+        },
+        {
+          "raw": "piece,",
+          "start": 13.78,
+          "end": 14.08
+        },
+        {
+          "raw": "Gains't",
+          "start": 14.48,
+          "end": 14.78
+        },
+        {
+          "raw": "fancy,",
+          "start": 14.78,
+          "end": 15.16
+        },
+        {
+          "raw": "Condemning",
+          "start": 15.7,
+          "end": 16.08
+        },
+        {
+          "raw": "shadows",
+          "start": 16.08,
+          "end": 16.48
+        },
+        {
+          "raw": "quite.",
+          "start": 16.48,
+          "end": 16.88
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "You",
+        "lie",
+        "up",
+        "to",
+        "the",
+        "hearing",
+        "of",
+        "the",
+        "gods!",
+        "But",
+        "if",
+        "there",
+        "be",
+        "nor",
+        "ever",
+        "were",
+        "one",
+        "such,",
+        "It's",
+        "past",
+        "the",
+        "size",
+        "of",
+        "dreaming.",
+        "Nature",
+        "wants",
+        "stuff",
+        "To",
+        "vie",
+        "strange",
+        "forms",
+        "with",
+        "fancy;",
+        "yet",
+        "t'",
+        "imagine",
+        "An",
+        "Antony",
+        "were",
+        "nature's",
+        "piece",
+        "'gainst",
+        "fancy,",
+        "Condemning",
+        "shadows",
+        "quite."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          47,
+          0,
+          47
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.68,
+          "end": 1.06,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.44,
+          "end": 1.62,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lie",
+          "start": 1.62,
+          "end": 1.78,
+          "key": "lie",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 1.78,
+          "end": 1.94,
+          "key": "up",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.94,
+          "end": 2.08,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.08,
+          "end": 2.18,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hearing",
+          "start": 2.18,
+          "end": 2.38,
+          "key": "hearing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.38,
+          "end": 2.56,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.56,
+          "end": 2.68,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "gods,",
+          "start": 2.68,
+          "end": 3.02,
+          "key": "gods",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 3.5,
+          "end": 3.66,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.66,
+          "end": 3.8,
+          "key": "if",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 3.8,
+          "end": 3.9,
+          "key": "there",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.9,
+          "end": 4.04,
+          "key": "be",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 4.04,
+          "end": 4.24,
+          "key": "nor",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 4.24,
+          "end": 4.5,
+          "key": "ever",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 4.5,
+          "end": 4.72,
+          "key": "were",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 4.72,
+          "end": 4.96,
+          "key": "one",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "such,",
+          "start": 4.96,
+          "end": 5.22,
+          "key": "such",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 5.22,
+          "end": 5.68,
+          "key": "its",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "past",
+          "start": 5.68,
+          "end": 5.94,
+          "key": "past",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.94,
+          "end": 6.18,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "size",
+          "start": 6.18,
+          "end": 6.48,
+          "key": "size",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.48,
+          "end": 6.68,
+          "key": "of",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "dreaming.",
+          "start": 6.68,
+          "end": 7.02,
+          "key": "dreaming",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Nature",
+          "start": 8.06,
+          "end": 8.06,
+          "key": "nature",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "wants",
+          "start": 8.06,
+          "end": 8.36,
+          "key": "wants",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "stuff",
+          "start": 8.36,
+          "end": 8.64,
+          "key": "stuff",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 8.64,
+          "end": 8.82,
+          "key": "to",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "vie",
+          "start": 8.82,
+          "end": 9.06,
+          "key": "vie",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 9.06,
+          "end": 9.46,
+          "key": "strange",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "forms",
+          "start": 9.46,
+          "end": 9.82,
+          "key": "forms",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.82,
+          "end": 10.1,
+          "key": "with",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "fancy,",
+          "start": 10.1,
+          "end": 10.56,
+          "key": "fancy",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Yet",
+          "start": 11.04,
+          "end": 11.26,
+          "key": "yet",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "t'",
+          "start": 11.26,
+          "end": 11.6,
+          "key": "t",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "imagine",
+          "start": 12.4,
+          "end": 12.4,
+          "key": "imagine",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "An",
+          "start": 12.4,
+          "end": 12.64,
+          "key": "an",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Antony",
+          "start": 12.64,
+          "end": 13.1,
+          "key": "antony",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 13.1,
+          "end": 13.3,
+          "key": "were",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "nature's",
+          "start": 13.3,
+          "end": 13.78,
+          "key": "natures",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "piece,",
+          "start": 13.78,
+          "end": 14.08,
+          "key": "piece",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Gains't",
+          "start": 14.48,
+          "end": 14.78,
+          "key": "gainst",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "fancy,",
+          "start": 14.78,
+          "end": 15.16,
+          "key": "fancy",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Condemning",
+          "start": 15.7,
+          "end": 16.08,
+          "key": "condemning",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "shadows",
+          "start": 16.08,
+          "end": 16.48,
+          "key": "shadows",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "quite.",
+          "start": 16.48,
+          "end": 16.88,
+          "key": "quite",
+          "pieces": [
+            46
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "text": "You",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "text": "lie",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "text": "up",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "text": "to",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "text": "the",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "text": "hearing",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "text": "of",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "text": "the",
+          "start": 2.56,
+          "end": 2.68
+        },
+        {
+          "text": "gods!",
+          "start": 2.68,
+          "end": 3.02
+        },
+        {
+          "text": "But",
+          "start": 3.5,
+          "end": 3.66
+        },
+        {
+          "text": "if",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "text": "there",
+          "start": 3.8,
+          "end": 3.9
+        },
+        {
+          "text": "be",
+          "start": 3.9,
+          "end": 4.04
+        },
+        {
+          "text": "nor",
+          "start": 4.04,
+          "end": 4.24
+        },
+        {
+          "text": "ever",
+          "start": 4.24,
+          "end": 4.5
+        },
+        {
+          "text": "were",
+          "start": 4.5,
+          "end": 4.72
+        },
+        {
+          "text": "one",
+          "start": 4.72,
+          "end": 4.96
+        },
+        {
+          "text": "such,",
+          "start": 4.96,
+          "end": 5.22
+        },
+        {
+          "text": "It's",
+          "start": 5.22,
+          "end": 5.68
+        },
+        {
+          "text": "past",
+          "start": 5.68,
+          "end": 5.94
+        },
+        {
+          "text": "the",
+          "start": 5.94,
+          "end": 6.18
+        },
+        {
+          "text": "size",
+          "start": 6.18,
+          "end": 6.48
+        },
+        {
+          "text": "of",
+          "start": 6.48,
+          "end": 6.68
+        },
+        {
+          "text": "dreaming.",
+          "start": 6.68,
+          "end": 7.02
+        },
+        {
+          "text": "Nature",
+          "start": 8.06,
+          "end": 8.06
+        },
+        {
+          "text": "wants",
+          "start": 8.06,
+          "end": 8.36
+        },
+        {
+          "text": "stuff",
+          "start": 8.36,
+          "end": 8.64
+        },
+        {
+          "text": "To",
+          "start": 8.64,
+          "end": 8.82
+        },
+        {
+          "text": "vie",
+          "start": 8.82,
+          "end": 9.06
+        },
+        {
+          "text": "strange",
+          "start": 9.06,
+          "end": 9.46
+        },
+        {
+          "text": "forms",
+          "start": 9.46,
+          "end": 9.82
+        },
+        {
+          "text": "with",
+          "start": 9.82,
+          "end": 10.1
+        },
+        {
+          "text": "fancy;",
+          "start": 10.1,
+          "end": 10.56
+        },
+        {
+          "text": "yet",
+          "start": 11.04,
+          "end": 11.26
+        },
+        {
+          "text": "t'",
+          "start": 11.26,
+          "end": 11.6
+        },
+        {
+          "text": "imagine",
+          "start": 12.4,
+          "end": 12.4
+        },
+        {
+          "text": "An",
+          "start": 12.4,
+          "end": 12.64
+        },
+        {
+          "text": "Antony",
+          "start": 12.64,
+          "end": 13.1
+        },
+        {
+          "text": "were",
+          "start": 13.1,
+          "end": 13.3
+        },
+        {
+          "text": "nature's",
+          "start": 13.3,
+          "end": 13.78
+        },
+        {
+          "text": "piece",
+          "start": 13.78,
+          "end": 14.08
+        },
+        {
+          "text": "'gainst",
+          "start": 14.48,
+          "end": 14.78
+        },
+        {
+          "text": "fancy,",
+          "start": 14.78,
+          "end": 15.16
+        },
+        {
+          "text": "Condemning",
+          "start": 15.7,
+          "end": 16.08
+        },
+        {
+          "text": "shadows",
+          "start": 16.08,
+          "end": 16.48
+        },
+        {
+          "text": "quite.",
+          "start": 16.48,
+          "end": 16.88
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 47,
+        "matched_words": 47
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6431653294712305
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "856db2236e54e6c5959e235573ba07cbf85b286f051797dd21c65f7ea564da68",
+  "selected_reasons": []
+}

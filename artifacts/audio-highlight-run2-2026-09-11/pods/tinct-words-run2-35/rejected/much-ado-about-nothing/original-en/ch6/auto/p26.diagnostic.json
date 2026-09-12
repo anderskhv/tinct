@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "3f6c6b706141d56f309d8fbd15ac7a578951a4d668c3a3bbfb52e7075c47d5f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.2363841738551855,
+      "alignment_seconds": 0.00043589435517787933,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Don Pedro. By my troth, a good song.",
+        "hotwords": "Don, Pedro, By"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don, Pedro, By my troth, a good song.",
+          "start": 0.05,
+          "end": 2.67,
+          "words": [
+            {
+              "text": " Don,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.61962890625
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.73,
+              "end": 1.05,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " By",
+              "start": 1.49,
+              "end": 1.57,
+              "probability": 0.2138671875
+            },
+            {
+              "text": " my",
+              "start": 1.57,
+              "end": 1.71,
+              "probability": 0.053924560546875
+            },
+            {
+              "text": " troth,",
+              "start": 1.71,
+              "end": 2.07,
+              "probability": 0.5513916015625
+            },
+            {
+              "text": " a",
+              "start": 2.15,
+              "end": 2.19,
+              "probability": 0.837890625
+            },
+            {
+              "text": " good",
+              "start": 2.19,
+              "end": 2.31,
+              "probability": 0.9765625
+            },
+            {
+              "text": " song.",
+              "start": 2.31,
+              "end": 2.67,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.73,
+          "end": 1.05
+        },
+        {
+          "raw": "By",
+          "start": 1.49,
+          "end": 1.57
+        },
+        {
+          "raw": "my",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "raw": "troth,",
+          "start": 1.71,
+          "end": 2.07
+        },
+        {
+          "raw": "a",
+          "start": 2.15,
+          "end": 2.19
+        },
+        {
+          "raw": "good",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "raw": "song.",
+          "start": 2.31,
+          "end": 2.67
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "By",
+        "my",
+        "troth,",
+        "a",
+        "good",
+        "song."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.73,
+          "end": 1.05,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 1.49,
+          "end": 1.57,
+          "key": "by",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.57,
+          "end": 1.71,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "troth,",
+          "start": 1.71,
+          "end": 2.07,
+          "key": "troth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.15,
+          "end": 2.19,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.19,
+          "end": 2.31,
+          "key": "good",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "song.",
+          "start": 2.31,
+          "end": 2.67,
+          "key": "song",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.73,
+          "end": 1.05
+        },
+        {
+          "text": "By",
+          "start": 1.49,
+          "end": 1.57
+        },
+        {
+          "text": "my",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "text": "troth,",
+          "start": 1.71,
+          "end": 2.07
+        },
+        {
+          "text": "a",
+          "start": 2.15,
+          "end": 2.19
+        },
+        {
+          "text": "good",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "text": "song.",
+          "start": 2.31,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23698584362864494
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bb28aed94fdf57d3b67668792476e235b69be9986d59e4f4bddfd230e09525aa",
+  "selected_reasons": []
+}

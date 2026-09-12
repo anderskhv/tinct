@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "1c0aa7d5ce1dd701aa05a889e8507d103e17a305fd81fddae900899c32386c09",
+  "attempts": [
+    {
+      "asr_seconds": 0.11049940111115575,
+      "alignment_seconds": 0.00010426901280879974,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Devil!",
+        "hotwords": "Othello, Devil"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Devil.",
+          "start": 0.08,
+          "end": 1.3,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.4547526041666667
+            },
+            {
+              "text": " Devil.",
+              "start": 1.08,
+              "end": 1.3,
+              "probability": 0.513671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "Devil.",
+          "start": 1.08,
+          "end": 1.3
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Devil!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Devil.",
+          "start": 1.08,
+          "end": 1.3,
+          "key": "devil",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "Devil!",
+          "start": 1.08,
+          "end": 1.3
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11063878890126944
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d53e3b417cdc2930bdaa8ec174e6478fa817855bbd1f26ac8f8cddcc76d7aacc",
+  "selected_reasons": []
+}

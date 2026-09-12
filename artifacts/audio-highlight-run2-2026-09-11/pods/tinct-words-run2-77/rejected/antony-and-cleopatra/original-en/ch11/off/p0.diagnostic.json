@@ -1,0 +1,846 @@
+{
+  "complete": true,
+  "signature": "27b63096780f853fbf01cdfc3a9082edb11afc4f5dc5a212f0a5ecd45a755448",
+  "attempts": [
+    {
+      "asr_seconds": 0.8750344949949067,
+      "alignment_seconds": 0.0008739899785723537,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Flourish. Enter Pompey and Mina's at one door with drum and trumpet. At another, Caesar,",
+          "start": 0.05,
+          "end": 5.97,
+          "words": [
+            {
+              "text": " Flourish.",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " Enter",
+              "start": 1.49,
+              "end": 1.73,
+              "probability": 0.984375
+            },
+            {
+              "text": " Pompey",
+              "start": 1.73,
+              "end": 2.23,
+              "probability": 0.96875
+            },
+            {
+              "text": " and",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Mina's",
+              "start": 2.35,
+              "end": 2.73,
+              "probability": 0.6590983072916666
+            },
+            {
+              "text": " at",
+              "start": 2.73,
+              "end": 2.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " one",
+              "start": 2.83,
+              "end": 3.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " door",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " with",
+              "start": 3.25,
+              "end": 3.49,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " drum",
+              "start": 3.49,
+              "end": 3.79,
+              "probability": 0.45703125
+            },
+            {
+              "text": " and",
+              "start": 3.79,
+              "end": 3.99,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " trumpet.",
+              "start": 3.99,
+              "end": 4.37,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " At",
+              "start": 4.91,
+              "end": 4.99,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " another,",
+              "start": 4.99,
+              "end": 5.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Caesar,",
+              "start": 5.77,
+              "end": 5.97,
+              "probability": 0.986328125
+            }
+          ]
+        },
+        {
+          "text": " Lepidus, Antony, Anabarbus, Messina's Agrippa, with soldiers marching.",
+          "start": 6.43,
+          "end": 10.75,
+          "words": [
+            {
+              "text": " Lepidus,",
+              "start": 6.43,
+              "end": 6.87,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " Antony,",
+              "start": 7.11,
+              "end": 7.47,
+              "probability": 0.960205078125
+            },
+            {
+              "text": " Anabarbus,",
+              "start": 7.69,
+              "end": 8.33,
+              "probability": 0.60028076171875
+            },
+            {
+              "text": " Messina's",
+              "start": 8.47,
+              "end": 9.07,
+              "probability": 0.669189453125
+            },
+            {
+              "text": " Agrippa,",
+              "start": 9.07,
+              "end": 9.59,
+              "probability": 0.6998697916666666
+            },
+            {
+              "text": " with",
+              "start": 9.85,
+              "end": 9.93,
+              "probability": 0.986328125
+            },
+            {
+              "text": " soldiers",
+              "start": 9.93,
+              "end": 10.33,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " marching.",
+              "start": 10.33,
+              "end": 10.75,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Flourish.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "Enter",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "raw": "Pompey",
+          "start": 1.73,
+          "end": 2.23
+        },
+        {
+          "raw": "and",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "Mina's",
+          "start": 2.35,
+          "end": 2.73
+        },
+        {
+          "raw": "at",
+          "start": 2.73,
+          "end": 2.83
+        },
+        {
+          "raw": "one",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "raw": "door",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "raw": "with",
+          "start": 3.25,
+          "end": 3.49
+        },
+        {
+          "raw": "drum",
+          "start": 3.49,
+          "end": 3.79
+        },
+        {
+          "raw": "and",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "raw": "trumpet.",
+          "start": 3.99,
+          "end": 4.37
+        },
+        {
+          "raw": "At",
+          "start": 4.91,
+          "end": 4.99
+        },
+        {
+          "raw": "another,",
+          "start": 4.99,
+          "end": 5.33
+        },
+        {
+          "raw": "Caesar,",
+          "start": 5.77,
+          "end": 5.97
+        },
+        {
+          "raw": "Lepidus,",
+          "start": 6.43,
+          "end": 6.87
+        },
+        {
+          "raw": "Antony,",
+          "start": 7.11,
+          "end": 7.47
+        },
+        {
+          "raw": "Anabarbus,",
+          "start": 7.69,
+          "end": 8.33
+        },
+        {
+          "raw": "Messina's",
+          "start": 8.47,
+          "end": 9.07
+        },
+        {
+          "raw": "Agrippa,",
+          "start": 9.07,
+          "end": 9.59
+        },
+        {
+          "raw": "with",
+          "start": 9.85,
+          "end": 9.93
+        },
+        {
+          "raw": "soldiers",
+          "start": 9.93,
+          "end": 10.33
+        },
+        {
+          "raw": "marching.",
+          "start": 10.33,
+          "end": 10.75
+        }
+      ],
+      "expected_tokens": [
+        "Flourish.",
+        "Enter",
+        "Pompey",
+        "and",
+        "Menas",
+        "at",
+        "one",
+        "door,",
+        "with",
+        "drum",
+        "and",
+        "trumpet;",
+        "at",
+        "another,",
+        "Caesar,",
+        "Lepidus,",
+        "Antony,",
+        "Enobarbus,",
+        "Maecenas,",
+        "Agrippa,",
+        "with",
+        "Soldiers",
+        "marching."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          17,
+          5,
+          17
+        ],
+        [
+          "replace",
+          17,
+          19,
+          17,
+          19
+        ],
+        [
+          "equal",
+          19,
+          23,
+          19,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          17,
+          19,
+          17,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Flourish.",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "flourish",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 1.49,
+          "end": 1.73,
+          "key": "enter",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pompey",
+          "start": 1.73,
+          "end": 2.23,
+          "key": "pompey",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mina's",
+          "start": 2.35,
+          "end": 2.73,
+          "key": "minas",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.73,
+          "end": 2.83,
+          "key": "at",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.83,
+          "end": 3.03,
+          "key": "one",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "door",
+          "start": 3.03,
+          "end": 3.25,
+          "key": "door",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.25,
+          "end": 3.49,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "drum",
+          "start": 3.49,
+          "end": 3.79,
+          "key": "drum",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.79,
+          "end": 3.99,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "trumpet.",
+          "start": 3.99,
+          "end": 4.37,
+          "key": "trumpet",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 4.91,
+          "end": 4.99,
+          "key": "at",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "another,",
+          "start": 4.99,
+          "end": 5.33,
+          "key": "another",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Caesar,",
+          "start": 5.77,
+          "end": 5.97,
+          "key": "caesar",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Lepidus,",
+          "start": 6.43,
+          "end": 6.87,
+          "key": "lepidus",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Antony,",
+          "start": 7.11,
+          "end": 7.47,
+          "key": "antony",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Anabarbus,",
+          "start": 7.69,
+          "end": 8.33,
+          "key": "anabarbus",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Messina's",
+          "start": 8.47,
+          "end": 9.07,
+          "key": "messinas",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Agrippa,",
+          "start": 9.07,
+          "end": 9.59,
+          "key": "agrippa",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.85,
+          "end": 9.93,
+          "key": "with",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "soldiers",
+          "start": 9.93,
+          "end": 10.33,
+          "key": "soldiers",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "marching.",
+          "start": 10.33,
+          "end": 10.75,
+          "key": "marching",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Flourish.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "Enter",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "text": "Pompey",
+          "start": 1.73,
+          "end": 2.23
+        },
+        {
+          "text": "and",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "Menas",
+          "start": 2.35,
+          "end": 2.54
+        },
+        {
+          "text": "at",
+          "start": 2.73,
+          "end": 2.83
+        },
+        {
+          "text": "one",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "text": "door,",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "text": "with",
+          "start": 3.25,
+          "end": 3.49
+        },
+        {
+          "text": "drum",
+          "start": 3.49,
+          "end": 3.79
+        },
+        {
+          "text": "and",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "text": "trumpet;",
+          "start": 3.99,
+          "end": 4.37
+        },
+        {
+          "text": "at",
+          "start": 4.91,
+          "end": 4.99
+        },
+        {
+          "text": "another,",
+          "start": 4.99,
+          "end": 5.33
+        },
+        {
+          "text": "Caesar,",
+          "start": 5.77,
+          "end": 5.97
+        },
+        {
+          "text": "Lepidus,",
+          "start": 6.43,
+          "end": 6.87
+        },
+        {
+          "text": "Antony,",
+          "start": 7.11,
+          "end": 7.47
+        },
+        {
+          "text": "Enobarbus,",
+          "start": 7.47,
+          "end": 8.27
+        },
+        {
+          "text": "Maecenas,",
+          "start": 8.27,
+          "end": 8.67
+        },
+        {
+          "text": "Agrippa,",
+          "start": 9.07,
+          "end": 9.59
+        },
+        {
+          "text": "with",
+          "start": 9.85,
+          "end": 9.93
+        },
+        {
+          "text": "Soldiers",
+          "start": 9.93,
+          "end": 10.33
+        },
+        {
+          "text": "marching.",
+          "start": 10.33,
+          "end": 10.75
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 23,
+        "matched_words": 20
+      },
+      "match_ratio": 0.8695652173913043,
+      "rejection_reasons": [],
+      "seconds": 0.8762573070125654
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c6bc999c005ca4084825734ee7170f39476c04c78ec1fa6af652743042645b12",
+  "selected_reasons": []
+}

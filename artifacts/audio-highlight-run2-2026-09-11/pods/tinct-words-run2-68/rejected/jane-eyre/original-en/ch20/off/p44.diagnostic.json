@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "049aca4da004dfa1fc2e9ded3fefec5c5d32f994c377e1ddf4ffdea88edc18f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.20189358666539192,
+      "alignment_seconds": 0.00042212754487991333,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Is there immediate danger? murmured Mr. Mason.",
+          "start": 0.05,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.1514892578125
+            },
+            {
+              "text": " there",
+              "start": 0.55,
+              "end": 0.75,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " immediate",
+              "start": 0.75,
+              "end": 1.13,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " danger?",
+              "start": 1.13,
+              "end": 1.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " murmured",
+              "start": 2.23,
+              "end": 2.49,
+              "probability": 0.956298828125
+            },
+            {
+              "text": " Mr.",
+              "start": 2.49,
+              "end": 2.79,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " Mason.",
+              "start": 3.01,
+              "end": 3.09,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "there",
+          "start": 0.55,
+          "end": 0.75
+        },
+        {
+          "raw": "immediate",
+          "start": 0.75,
+          "end": 1.13
+        },
+        {
+          "raw": "danger?",
+          "start": 1.13,
+          "end": 1.65
+        },
+        {
+          "raw": "murmured",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.49,
+          "end": 2.79
+        },
+        {
+          "raw": "Mason.",
+          "start": 3.01,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "\"Is",
+        "there",
+        "immediate",
+        "danger?\"",
+        "murmured",
+        "Mr.",
+        "Mason."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "is",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 0.55,
+          "end": 0.75,
+          "key": "there",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "immediate",
+          "start": 0.75,
+          "end": 1.13,
+          "key": "immediate",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "danger?",
+          "start": 1.13,
+          "end": 1.65,
+          "key": "danger",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "murmured",
+          "start": 2.23,
+          "end": 2.49,
+          "key": "murmured",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.49,
+          "end": 2.79,
+          "key": "mr",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Mason.",
+          "start": 3.01,
+          "end": 3.09,
+          "key": "mason",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Is",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "there",
+          "start": 0.55,
+          "end": 0.75
+        },
+        {
+          "text": "immediate",
+          "start": 0.75,
+          "end": 1.13
+        },
+        {
+          "text": "danger?\"",
+          "start": 1.13,
+          "end": 1.65
+        },
+        {
+          "text": "murmured",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "text": "Mr.",
+          "start": 2.49,
+          "end": 2.79
+        },
+        {
+          "text": "Mason.",
+          "start": 3.01,
+          "end": 3.09
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20246516168117523
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "737d9db47d1cdabafecb649fc1626289ea23db50f74b6220d2726f7e5e014e04",
+  "selected_reasons": []
+}

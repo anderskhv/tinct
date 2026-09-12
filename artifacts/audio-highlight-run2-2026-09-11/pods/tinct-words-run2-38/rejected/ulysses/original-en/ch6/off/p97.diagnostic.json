@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "1314f00ba1ce86a511ead648b21c82aa8e1bf8ffc5678d686793078fb41e9b80",
+  "attempts": [
+    {
+      "asr_seconds": 0.09773446101462469,
+      "alignment_seconds": 0.0001288210041821003,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Have you good artists.",
+          "start": 0.05,
+          "end": 1.15,
+          "words": [
+            {
+              "text": " Have",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.982421875
+            },
+            {
+              "text": " good",
+              "start": 0.61,
+              "end": 0.75,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " artists.",
+              "start": 0.75,
+              "end": 1.15,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Have",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "good",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "raw": "artists.",
+          "start": 0.75,
+          "end": 1.15
+        }
+      ],
+      "expected_tokens": [
+        "Have",
+        "you",
+        "good",
+        "artists?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Have",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "have",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.61,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 0.61,
+          "end": 0.75,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "artists.",
+          "start": 0.75,
+          "end": 1.15,
+          "key": "artists",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Have",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "good",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "text": "artists?",
+          "start": 0.75,
+          "end": 1.15
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09791041200514883
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "501c07cd82e9f1f512768e50e59fcf0cf1a05094e2d1258191a37bc10da24e09",
+  "selected_reasons": []
+}

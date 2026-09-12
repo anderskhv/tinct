@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "9d253347d6b2db1be722dda65b51b1f25f37068ed62ba123044b45b168cc1918",
+  "attempts": [
+    {
+      "asr_seconds": 0.37545559694990516,
+      "alignment_seconds": 0.0006579142063856125,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, the present Mr. Rochester has not been very long in possession of the property, only about nine years.",
+          "start": 0.05,
+          "end": 6.89,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " the",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " present",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Mr.",
+              "start": 1.69,
+              "end": 2.01,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " Rochester",
+              "start": 2.33,
+              "end": 2.49,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " has",
+              "start": 2.49,
+              "end": 2.91,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " not",
+              "start": 2.91,
+              "end": 3.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " been",
+              "start": 3.13,
+              "end": 3.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " very",
+              "start": 3.31,
+              "end": 3.59,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " long",
+              "start": 3.59,
+              "end": 3.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 3.91,
+              "end": 4.11,
+              "probability": 0.994140625
+            },
+            {
+              "text": " possession",
+              "start": 4.11,
+              "end": 4.41,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " of",
+              "start": 4.41,
+              "end": 4.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.67,
+              "end": 4.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " property,",
+              "start": 4.79,
+              "end": 5.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " only",
+              "start": 5.65,
+              "end": 5.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " about",
+              "start": 5.89,
+              "end": 6.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nine",
+              "start": 6.23,
+              "end": 6.53,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " years.",
+              "start": 6.53,
+              "end": 6.89,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "the",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "present",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.69,
+          "end": 2.01
+        },
+        {
+          "raw": "Rochester",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "raw": "has",
+          "start": 2.49,
+          "end": 2.91
+        },
+        {
+          "raw": "not",
+          "start": 2.91,
+          "end": 3.13
+        },
+        {
+          "raw": "been",
+          "start": 3.13,
+          "end": 3.31
+        },
+        {
+          "raw": "very",
+          "start": 3.31,
+          "end": 3.59
+        },
+        {
+          "raw": "long",
+          "start": 3.59,
+          "end": 3.91
+        },
+        {
+          "raw": "in",
+          "start": 3.91,
+          "end": 4.11
+        },
+        {
+          "raw": "possession",
+          "start": 4.11,
+          "end": 4.41
+        },
+        {
+          "raw": "of",
+          "start": 4.41,
+          "end": 4.67
+        },
+        {
+          "raw": "the",
+          "start": 4.67,
+          "end": 4.79
+        },
+        {
+          "raw": "property,",
+          "start": 4.79,
+          "end": 5.19
+        },
+        {
+          "raw": "only",
+          "start": 5.65,
+          "end": 5.89
+        },
+        {
+          "raw": "about",
+          "start": 5.89,
+          "end": 6.23
+        },
+        {
+          "raw": "nine",
+          "start": 6.23,
+          "end": 6.53
+        },
+        {
+          "raw": "years.",
+          "start": 6.53,
+          "end": 6.89
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes.",
+        "The",
+        "present",
+        "Mr.",
+        "Rochester",
+        "has",
+        "not",
+        "been",
+        "very",
+        "long",
+        "in",
+        "possession",
+        "of",
+        "the",
+        "property;",
+        "only",
+        "about",
+        "nine",
+        "years.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 1.43,
+          "end": 1.69,
+          "key": "present",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.69,
+          "end": 2.01,
+          "key": "mr",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Rochester",
+          "start": 2.33,
+          "end": 2.49,
+          "key": "rochester",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 2.49,
+          "end": 2.91,
+          "key": "has",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.91,
+          "end": 3.13,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 3.13,
+          "end": 3.31,
+          "key": "been",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 3.31,
+          "end": 3.59,
+          "key": "very",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 3.59,
+          "end": 3.91,
+          "key": "long",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.91,
+          "end": 4.11,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "possession",
+          "start": 4.11,
+          "end": 4.41,
+          "key": "possession",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.41,
+          "end": 4.67,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.67,
+          "end": 4.79,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "property,",
+          "start": 4.79,
+          "end": 5.19,
+          "key": "property",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 5.65,
+          "end": 5.89,
+          "key": "only",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 5.89,
+          "end": 6.23,
+          "key": "about",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "nine",
+          "start": 6.23,
+          "end": 6.53,
+          "key": "nine",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "years.",
+          "start": 6.53,
+          "end": 6.89,
+          "key": "years",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "The",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "present",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "text": "Mr.",
+          "start": 1.69,
+          "end": 2.01
+        },
+        {
+          "text": "Rochester",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "text": "has",
+          "start": 2.49,
+          "end": 2.91
+        },
+        {
+          "text": "not",
+          "start": 2.91,
+          "end": 3.13
+        },
+        {
+          "text": "been",
+          "start": 3.13,
+          "end": 3.31
+        },
+        {
+          "text": "very",
+          "start": 3.31,
+          "end": 3.59
+        },
+        {
+          "text": "long",
+          "start": 3.59,
+          "end": 3.91
+        },
+        {
+          "text": "in",
+          "start": 3.91,
+          "end": 4.11
+        },
+        {
+          "text": "possession",
+          "start": 4.11,
+          "end": 4.41
+        },
+        {
+          "text": "of",
+          "start": 4.41,
+          "end": 4.67
+        },
+        {
+          "text": "the",
+          "start": 4.67,
+          "end": 4.79
+        },
+        {
+          "text": "property;",
+          "start": 4.79,
+          "end": 5.19
+        },
+        {
+          "text": "only",
+          "start": 5.65,
+          "end": 5.89
+        },
+        {
+          "text": "about",
+          "start": 5.89,
+          "end": 6.23
+        },
+        {
+          "text": "nine",
+          "start": 6.23,
+          "end": 6.53
+        },
+        {
+          "text": "years.\"",
+          "start": 6.53,
+          "end": 6.89
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37644345313310623
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2170f76095d14406b72d7c4698a5ff1a9f35ba5468769a61bcf7c9f642d9911c",
+  "selected_reasons": []
+}

@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "79cf5fbcf5da1e85ecab8b366f5ed7d28fd240e3851d1e945871cb709fd354be",
+  "attempts": [
+    {
+      "asr_seconds": 0.1337153450003825,
+      "alignment_seconds": 0.00017253600526601076,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Dursettis with the Sword of Antony.",
+          "start": 0.21,
+          "end": 2.65,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.21,
+              "end": 0.75,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " Dursettis",
+              "start": 0.75,
+              "end": 1.41,
+              "probability": 0.7288818359375
+            },
+            {
+              "text": " with",
+              "start": 1.41,
+              "end": 1.71,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " the",
+              "start": 1.71,
+              "end": 1.85,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " Sword",
+              "start": 1.85,
+              "end": 2.05,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " of",
+              "start": 2.05,
+              "end": 2.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Antony.",
+              "start": 2.21,
+              "end": 2.65,
+              "probability": 0.970947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.21,
+          "end": 0.75
+        },
+        {
+          "raw": "Dursettis",
+          "start": 0.75,
+          "end": 1.41
+        },
+        {
+          "raw": "with",
+          "start": 1.41,
+          "end": 1.71
+        },
+        {
+          "raw": "the",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "raw": "Sword",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "raw": "of",
+          "start": 2.05,
+          "end": 2.21
+        },
+        {
+          "raw": "Antony.",
+          "start": 2.21,
+          "end": 2.65
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Dercetus",
+        "with",
+        "the",
+        "sword",
+        "of",
+        "Antony."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          7,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.21,
+          "end": 0.75,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dursettis",
+          "start": 0.75,
+          "end": 1.41,
+          "key": "dursettis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.41,
+          "end": 1.71,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.71,
+          "end": 1.85,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Sword",
+          "start": 1.85,
+          "end": 2.05,
+          "key": "sword",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.05,
+          "end": 2.21,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Antony.",
+          "start": 2.21,
+          "end": 2.65,
+          "key": "antony",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.21,
+          "end": 0.75
+        },
+        {
+          "text": "Dercetus",
+          "start": 0.75,
+          "end": 1.08
+        },
+        {
+          "text": "with",
+          "start": 1.41,
+          "end": 1.71
+        },
+        {
+          "text": "the",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "text": "sword",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "text": "of",
+          "start": 2.05,
+          "end": 2.21
+        },
+        {
+          "text": "Antony.",
+          "start": 2.21,
+          "end": 2.65
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.1339508129749447
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "580b647a82acb2659213868741ea9d5dcbdb786a872957e34ebc5ad1d2e65a88",
+  "selected_reasons": []
+}

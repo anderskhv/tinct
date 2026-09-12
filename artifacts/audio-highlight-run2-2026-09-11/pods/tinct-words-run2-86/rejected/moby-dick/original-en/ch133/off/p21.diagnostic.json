@@ -1,0 +1,287 @@
+{
+  "complete": true,
+  "signature": "caa8583774b3a7b61f1e3fdbae8559c7427c5f4837f276636d463a593dbba72c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1767612360417843,
+      "alignment_seconds": 0.0003970600664615631,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The birds, the birds, cry Tashtego.",
+          "start": 0.02,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.537109375
+            },
+            {
+              "text": " birds,",
+              "start": 0.5,
+              "end": 0.88,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " the",
+              "start": 1.22,
+              "end": 1.26,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " birds,",
+              "start": 1.26,
+              "end": 1.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " cry",
+              "start": 2.12,
+              "end": 2.18,
+              "probability": 0.57421875
+            },
+            {
+              "text": " Tashtego.",
+              "start": 2.18,
+              "end": 2.8,
+              "probability": 0.74163818359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "birds,",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.26
+        },
+        {
+          "raw": "birds,",
+          "start": 1.26,
+          "end": 1.68
+        },
+        {
+          "raw": "cry",
+          "start": 2.12,
+          "end": 2.18
+        },
+        {
+          "raw": "Tashtego.",
+          "start": 2.18,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "birds!—the",
+        "birds!\"",
+        "cried",
+        "Tashtego."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          3,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          2,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "birds,",
+          "start": 0.5,
+          "end": 0.88,
+          "key": "birds",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.26,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "birds,",
+          "start": 1.26,
+          "end": 1.68,
+          "key": "birds",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 2.12,
+          "end": 2.18,
+          "key": "cry",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Tashtego.",
+          "start": 2.18,
+          "end": 2.8,
+          "key": "tashtego",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "birds!—the",
+          "start": 0.5,
+          "end": 0.5
+        },
+        {
+          "text": "birds!\"",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "text": "cried",
+          "start": 0.88,
+          "end": 1.53
+        },
+        {
+          "text": "Tashtego.",
+          "start": 2.18,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1772824227809906
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7b08b6a252e92087a9ad6e1e19002ec39f6fa0b062f764be2297874775e9a05e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

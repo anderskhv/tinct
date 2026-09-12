@@ -1,0 +1,707 @@
+{
+  "complete": true,
+  "signature": "b54101971b597d75b668876e2b6684eb7ebd191aa696b8e002044697567b50f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.34204316698014736,
+      "alignment_seconds": 0.0005978960543870926,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, he acquiesced. I heard it had happened very lately. I was rather on the lookout for",
+          "start": 0.02,
+          "end": 5.52,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.06500244140625
+            },
+            {
+              "text": " he",
+              "start": 1.08,
+              "end": 1.24,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " acquiesced.",
+              "start": 1.24,
+              "end": 1.86,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " I",
+              "start": 2.26,
+              "end": 2.44,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " heard",
+              "start": 2.44,
+              "end": 2.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it",
+              "start": 2.62,
+              "end": 2.76,
+              "probability": 0.986328125
+            },
+            {
+              "text": " had",
+              "start": 2.76,
+              "end": 2.86,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " happened",
+              "start": 2.86,
+              "end": 3.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " very",
+              "start": 3.12,
+              "end": 3.42,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " lately.",
+              "start": 3.42,
+              "end": 3.8,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 4.34,
+              "end": 4.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 4.4,
+              "end": 4.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rather",
+              "start": 4.5,
+              "end": 4.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on",
+              "start": 4.72,
+              "end": 4.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.9,
+              "end": 5.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lookout",
+              "start": 5.02,
+              "end": 5.26,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " for",
+              "start": 5.26,
+              "end": 5.52,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " good fortune then.",
+          "start": 5.52,
+          "end": 6.36,
+          "words": [
+            {
+              "text": " good",
+              "start": 5.52,
+              "end": 5.7,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " fortune",
+              "start": 5.7,
+              "end": 6.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " then.",
+              "start": 6.04,
+              "end": 6.36,
+              "probability": 0.859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "he",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "raw": "acquiesced.",
+          "start": 1.24,
+          "end": 1.86
+        },
+        {
+          "raw": "I",
+          "start": 2.26,
+          "end": 2.44
+        },
+        {
+          "raw": "heard",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "raw": "it",
+          "start": 2.62,
+          "end": 2.76
+        },
+        {
+          "raw": "had",
+          "start": 2.76,
+          "end": 2.86
+        },
+        {
+          "raw": "happened",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "raw": "very",
+          "start": 3.12,
+          "end": 3.42
+        },
+        {
+          "raw": "lately.",
+          "start": 3.42,
+          "end": 3.8
+        },
+        {
+          "raw": "I",
+          "start": 4.34,
+          "end": 4.4
+        },
+        {
+          "raw": "was",
+          "start": 4.4,
+          "end": 4.5
+        },
+        {
+          "raw": "rather",
+          "start": 4.5,
+          "end": 4.72
+        },
+        {
+          "raw": "on",
+          "start": 4.72,
+          "end": 4.9
+        },
+        {
+          "raw": "the",
+          "start": 4.9,
+          "end": 5.02
+        },
+        {
+          "raw": "lookout",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "raw": "for",
+          "start": 5.26,
+          "end": 5.52
+        },
+        {
+          "raw": "good",
+          "start": 5.52,
+          "end": 5.7
+        },
+        {
+          "raw": "fortune",
+          "start": 5.7,
+          "end": 6.04
+        },
+        {
+          "raw": "then.",
+          "start": 6.04,
+          "end": 6.36
+        }
+      ],
+      "expected_tokens": [
+        "\"No,\"",
+        "he",
+        "acquiesced:",
+        "\"I",
+        "heard",
+        "it",
+        "had",
+        "happened",
+        "very",
+        "lately.",
+        "_I_",
+        "was",
+        "rather",
+        "on",
+        "the",
+        "lookout",
+        "for",
+        "good",
+        "fortune",
+        "then.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.08,
+          "end": 1.24,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "acquiesced.",
+          "start": 1.24,
+          "end": 1.86,
+          "key": "acquiesced",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.26,
+          "end": 2.44,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 2.44,
+          "end": 2.62,
+          "key": "heard",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.62,
+          "end": 2.76,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.76,
+          "end": 2.86,
+          "key": "had",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "happened",
+          "start": 2.86,
+          "end": 3.12,
+          "key": "happened",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 3.12,
+          "end": 3.42,
+          "key": "very",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lately.",
+          "start": 3.42,
+          "end": 3.8,
+          "key": "lately",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.34,
+          "end": 4.4,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.4,
+          "end": 4.5,
+          "key": "was",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 4.5,
+          "end": 4.72,
+          "key": "rather",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.72,
+          "end": 4.9,
+          "key": "on",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.9,
+          "end": 5.02,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "lookout",
+          "start": 5.02,
+          "end": 5.26,
+          "key": "lookout",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.26,
+          "end": 5.52,
+          "key": "for",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 5.52,
+          "end": 5.7,
+          "key": "good",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "fortune",
+          "start": 5.7,
+          "end": 6.04,
+          "key": "fortune",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "then.",
+          "start": 6.04,
+          "end": 6.36,
+          "key": "then",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,\"",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "he",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "text": "acquiesced:",
+          "start": 1.24,
+          "end": 1.86
+        },
+        {
+          "text": "\"I",
+          "start": 2.26,
+          "end": 2.44
+        },
+        {
+          "text": "heard",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "text": "it",
+          "start": 2.62,
+          "end": 2.76
+        },
+        {
+          "text": "had",
+          "start": 2.76,
+          "end": 2.86
+        },
+        {
+          "text": "happened",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "text": "very",
+          "start": 3.12,
+          "end": 3.42
+        },
+        {
+          "text": "lately.",
+          "start": 3.42,
+          "end": 3.8
+        },
+        {
+          "text": "_I_",
+          "start": 4.34,
+          "end": 4.4
+        },
+        {
+          "text": "was",
+          "start": 4.4,
+          "end": 4.5
+        },
+        {
+          "text": "rather",
+          "start": 4.5,
+          "end": 4.72
+        },
+        {
+          "text": "on",
+          "start": 4.72,
+          "end": 4.9
+        },
+        {
+          "text": "the",
+          "start": 4.9,
+          "end": 5.02
+        },
+        {
+          "text": "lookout",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "text": "for",
+          "start": 5.26,
+          "end": 5.52
+        },
+        {
+          "text": "good",
+          "start": 5.52,
+          "end": 5.7
+        },
+        {
+          "text": "fortune",
+          "start": 5.7,
+          "end": 6.04
+        },
+        {
+          "text": "then.\"",
+          "start": 6.04,
+          "end": 6.36
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3429161850363016
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7b36588aa9b36c552170d2b15fd4c1c207275c1567be231c1a5f333c3aadc57a",
+  "selected_reasons": []
+}

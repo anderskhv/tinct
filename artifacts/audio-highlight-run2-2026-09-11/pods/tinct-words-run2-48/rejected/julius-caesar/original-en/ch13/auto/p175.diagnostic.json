@@ -1,0 +1,741 @@
+{
+  "complete": true,
+  "signature": "3c24f24a0c5893e28ef096b7b0121de3467a27fccfdf9f595a8fe577fee47fbb",
+  "attempts": [
+    {
+      "asr_seconds": 0.3681293176487088,
+      "alignment_seconds": 0.0007484192028641701,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Go and commend me to my brother Cassius; Bid him set on his powers betimes before, And we will follow.",
+        "hotwords": "Brutus, Go, Cassius, Bid"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, Go and commend me to my brother Cassius. Bid him set on his powers betimes before,",
+          "start": 0.05,
+          "end": 5.87,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " Go",
+              "start": 1.23,
+              "end": 1.49,
+              "probability": 0.026031494140625
+            },
+            {
+              "text": " and",
+              "start": 1.49,
+              "end": 1.63,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " commend",
+              "start": 1.63,
+              "end": 1.91,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " me",
+              "start": 1.91,
+              "end": 2.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 2.13,
+              "end": 2.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " my",
+              "start": 2.25,
+              "end": 2.41,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " brother",
+              "start": 2.41,
+              "end": 2.63,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " Cassius.",
+              "start": 2.63,
+              "end": 3.25,
+              "probability": 0.934326171875
+            },
+            {
+              "text": " Bid",
+              "start": 3.85,
+              "end": 3.89,
+              "probability": 0.1580810546875
+            },
+            {
+              "text": " him",
+              "start": 3.89,
+              "end": 4.03,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " set",
+              "start": 4.03,
+              "end": 4.25,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " on",
+              "start": 4.25,
+              "end": 4.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " his",
+              "start": 4.37,
+              "end": 4.53,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " powers",
+              "start": 4.53,
+              "end": 4.87,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " betimes",
+              "start": 4.87,
+              "end": 5.43,
+              "probability": 0.902099609375
+            },
+            {
+              "text": " before,",
+              "start": 5.43,
+              "end": 5.87,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " And we will follow.",
+          "start": 6.21,
+          "end": 6.97,
+          "words": [
+            {
+              "text": " And",
+              "start": 6.21,
+              "end": 6.29,
+              "probability": 0.0308837890625
+            },
+            {
+              "text": " we",
+              "start": 6.29,
+              "end": 6.45,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " will",
+              "start": 6.45,
+              "end": 6.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " follow.",
+              "start": 6.59,
+              "end": 6.97,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Go",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "raw": "commend",
+          "start": 1.63,
+          "end": 1.91
+        },
+        {
+          "raw": "me",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "raw": "to",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "raw": "my",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "raw": "brother",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "raw": "Cassius.",
+          "start": 2.63,
+          "end": 3.25
+        },
+        {
+          "raw": "Bid",
+          "start": 3.85,
+          "end": 3.89
+        },
+        {
+          "raw": "him",
+          "start": 3.89,
+          "end": 4.03
+        },
+        {
+          "raw": "set",
+          "start": 4.03,
+          "end": 4.25
+        },
+        {
+          "raw": "on",
+          "start": 4.25,
+          "end": 4.37
+        },
+        {
+          "raw": "his",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "raw": "powers",
+          "start": 4.53,
+          "end": 4.87
+        },
+        {
+          "raw": "betimes",
+          "start": 4.87,
+          "end": 5.43
+        },
+        {
+          "raw": "before,",
+          "start": 5.43,
+          "end": 5.87
+        },
+        {
+          "raw": "And",
+          "start": 6.21,
+          "end": 6.29
+        },
+        {
+          "raw": "we",
+          "start": 6.29,
+          "end": 6.45
+        },
+        {
+          "raw": "will",
+          "start": 6.45,
+          "end": 6.59
+        },
+        {
+          "raw": "follow.",
+          "start": 6.59,
+          "end": 6.97
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Go",
+        "and",
+        "commend",
+        "me",
+        "to",
+        "my",
+        "brother",
+        "Cassius;",
+        "Bid",
+        "him",
+        "set",
+        "on",
+        "his",
+        "powers",
+        "betimes",
+        "before,",
+        "And",
+        "we",
+        "will",
+        "follow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 1.23,
+          "end": 1.49,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.63,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "commend",
+          "start": 1.63,
+          "end": 1.91,
+          "key": "commend",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.91,
+          "end": 2.13,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.13,
+          "end": 2.25,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.25,
+          "end": 2.41,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "brother",
+          "start": 2.41,
+          "end": 2.63,
+          "key": "brother",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Cassius.",
+          "start": 2.63,
+          "end": 3.25,
+          "key": "cassius",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Bid",
+          "start": 3.85,
+          "end": 3.89,
+          "key": "bid",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.89,
+          "end": 4.03,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 4.03,
+          "end": 4.25,
+          "key": "set",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.25,
+          "end": 4.37,
+          "key": "on",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.37,
+          "end": 4.53,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "powers",
+          "start": 4.53,
+          "end": 4.87,
+          "key": "powers",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "betimes",
+          "start": 4.87,
+          "end": 5.43,
+          "key": "betimes",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "before,",
+          "start": 5.43,
+          "end": 5.87,
+          "key": "before",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 6.21,
+          "end": 6.29,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 6.29,
+          "end": 6.45,
+          "key": "we",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 6.45,
+          "end": 6.59,
+          "key": "will",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "follow.",
+          "start": 6.59,
+          "end": 6.97,
+          "key": "follow",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Go",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "text": "and",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "text": "commend",
+          "start": 1.63,
+          "end": 1.91
+        },
+        {
+          "text": "me",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "text": "to",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "text": "my",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "text": "brother",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "text": "Cassius;",
+          "start": 2.63,
+          "end": 3.25
+        },
+        {
+          "text": "Bid",
+          "start": 3.85,
+          "end": 3.89
+        },
+        {
+          "text": "him",
+          "start": 3.89,
+          "end": 4.03
+        },
+        {
+          "text": "set",
+          "start": 4.03,
+          "end": 4.25
+        },
+        {
+          "text": "on",
+          "start": 4.25,
+          "end": 4.37
+        },
+        {
+          "text": "his",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "text": "powers",
+          "start": 4.53,
+          "end": 4.87
+        },
+        {
+          "text": "betimes",
+          "start": 4.87,
+          "end": 5.43
+        },
+        {
+          "text": "before,",
+          "start": 5.43,
+          "end": 5.87
+        },
+        {
+          "text": "And",
+          "start": 6.21,
+          "end": 6.29
+        },
+        {
+          "text": "we",
+          "start": 6.29,
+          "end": 6.45
+        },
+        {
+          "text": "will",
+          "start": 6.45,
+          "end": 6.59
+        },
+        {
+          "text": "follow.",
+          "start": 6.59,
+          "end": 6.97
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3691970622166991
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ef0efcae873dc89e9ef1aebc56cf9ca561641ec09fcc40d6e6da1c491fa22051",
+  "selected_reasons": []
+}

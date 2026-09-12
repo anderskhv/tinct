@@ -1,0 +1,1172 @@
+{
+  "complete": true,
+  "signature": "f5dc73f08d776f4cfe20bf4e9dcd827707ac11c9d84447501ff0543dbfb28d78",
+  "attempts": [
+    {
+      "asr_seconds": 0.41642461717128754,
+      "alignment_seconds": 0.0014538392424583435,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Once she stopped before Emily, who sat watching her from her chair, and cried out wildly, \"Emily! Do you hear? Do you hear--papa is dead? He is dead in India--thousands of miles away.\"",
+        "hotwords": "Once, Emily, Do, He, India--thousands"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Once she stopped before Emily, who sat watching her from her chair, and cried out wildly,",
+          "start": 0.02,
+          "end": 4.94,
+          "words": [
+            {
+              "text": " Once",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.6787109375
+            },
+            {
+              "text": " she",
+              "start": 0.6,
+              "end": 0.8,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " stopped",
+              "start": 0.8,
+              "end": 1.1,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " before",
+              "start": 1.1,
+              "end": 1.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Emily,",
+              "start": 1.54,
+              "end": 1.88,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " who",
+              "start": 2.16,
+              "end": 2.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sat",
+              "start": 2.38,
+              "end": 2.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " watching",
+              "start": 2.58,
+              "end": 2.96,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " her",
+              "start": 2.96,
+              "end": 3.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " from",
+              "start": 3.16,
+              "end": 3.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 3.28,
+              "end": 3.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " chair,",
+              "start": 3.44,
+              "end": 3.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 3.9,
+              "end": 4.0,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " cried",
+              "start": 4.0,
+              "end": 4.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out",
+              "start": 4.24,
+              "end": 4.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wildly,",
+              "start": 4.46,
+              "end": 4.94,
+              "probability": 0.9775390625
+            }
+          ]
+        },
+        {
+          "text": " Emily, do you hear? Do you hear papa is dead? He is dead in India-thousands of miles away.",
+          "start": 4.94,
+          "end": 11.34,
+          "words": [
+            {
+              "text": " Emily,",
+              "start": 4.94,
+              "end": 5.7,
+              "probability": 0.64111328125
+            },
+            {
+              "text": " do",
+              "start": 6.24,
+              "end": 6.4,
+              "probability": 0.9765625
+            },
+            {
+              "text": " you",
+              "start": 6.4,
+              "end": 6.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hear?",
+              "start": 6.52,
+              "end": 6.82,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Do",
+              "start": 7.26,
+              "end": 7.44,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " you",
+              "start": 7.44,
+              "end": 7.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hear",
+              "start": 7.54,
+              "end": 7.76,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " papa",
+              "start": 7.76,
+              "end": 8.14,
+              "probability": 0.56646728515625
+            },
+            {
+              "text": " is",
+              "start": 8.14,
+              "end": 8.3,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " dead?",
+              "start": 8.3,
+              "end": 8.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " He",
+              "start": 9.12,
+              "end": 9.2,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " is",
+              "start": 9.2,
+              "end": 9.34,
+              "probability": 0.98828125
+            },
+            {
+              "text": " dead",
+              "start": 9.34,
+              "end": 9.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 9.6,
+              "end": 9.8,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " India",
+              "start": 9.8,
+              "end": 10.08,
+              "probability": 0.9853515625
+            },
+            {
+              "text": "-thousands",
+              "start": 10.08,
+              "end": 10.5,
+              "probability": 0.5611385504404703
+            },
+            {
+              "text": " of",
+              "start": 10.5,
+              "end": 10.72,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " miles",
+              "start": 10.72,
+              "end": 10.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " away.",
+              "start": 10.96,
+              "end": 11.34,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Once",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "she",
+          "start": 0.6,
+          "end": 0.8
+        },
+        {
+          "raw": "stopped",
+          "start": 0.8,
+          "end": 1.1
+        },
+        {
+          "raw": "before",
+          "start": 1.1,
+          "end": 1.54
+        },
+        {
+          "raw": "Emily,",
+          "start": 1.54,
+          "end": 1.88
+        },
+        {
+          "raw": "who",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "raw": "sat",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "raw": "watching",
+          "start": 2.58,
+          "end": 2.96
+        },
+        {
+          "raw": "her",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "raw": "from",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "raw": "her",
+          "start": 3.28,
+          "end": 3.44
+        },
+        {
+          "raw": "chair,",
+          "start": 3.44,
+          "end": 3.74
+        },
+        {
+          "raw": "and",
+          "start": 3.9,
+          "end": 4.0
+        },
+        {
+          "raw": "cried",
+          "start": 4.0,
+          "end": 4.24
+        },
+        {
+          "raw": "out",
+          "start": 4.24,
+          "end": 4.46
+        },
+        {
+          "raw": "wildly,",
+          "start": 4.46,
+          "end": 4.94
+        },
+        {
+          "raw": "Emily,",
+          "start": 4.94,
+          "end": 5.7
+        },
+        {
+          "raw": "do",
+          "start": 6.24,
+          "end": 6.4
+        },
+        {
+          "raw": "you",
+          "start": 6.4,
+          "end": 6.52
+        },
+        {
+          "raw": "hear?",
+          "start": 6.52,
+          "end": 6.82
+        },
+        {
+          "raw": "Do",
+          "start": 7.26,
+          "end": 7.44
+        },
+        {
+          "raw": "you",
+          "start": 7.44,
+          "end": 7.54
+        },
+        {
+          "raw": "hear",
+          "start": 7.54,
+          "end": 7.76
+        },
+        {
+          "raw": "papa",
+          "start": 7.76,
+          "end": 8.14
+        },
+        {
+          "raw": "is",
+          "start": 8.14,
+          "end": 8.3
+        },
+        {
+          "raw": "dead?",
+          "start": 8.3,
+          "end": 8.58
+        },
+        {
+          "raw": "He",
+          "start": 9.12,
+          "end": 9.2
+        },
+        {
+          "raw": "is",
+          "start": 9.2,
+          "end": 9.34
+        },
+        {
+          "raw": "dead",
+          "start": 9.34,
+          "end": 9.6
+        },
+        {
+          "raw": "in",
+          "start": 9.6,
+          "end": 9.8
+        },
+        {
+          "raw": "India",
+          "start": 9.8,
+          "end": 10.08
+        },
+        {
+          "raw": "-thousands",
+          "start": 10.08,
+          "end": 10.5
+        },
+        {
+          "raw": "of",
+          "start": 10.5,
+          "end": 10.72
+        },
+        {
+          "raw": "miles",
+          "start": 10.72,
+          "end": 10.96
+        },
+        {
+          "raw": "away.",
+          "start": 10.96,
+          "end": 11.34
+        }
+      ],
+      "expected_tokens": [
+        "Once",
+        "she",
+        "stopped",
+        "before",
+        "Emily,",
+        "who",
+        "sat",
+        "watching",
+        "her",
+        "from",
+        "her",
+        "chair,",
+        "and",
+        "cried",
+        "out",
+        "wildly,",
+        "\"Emily!",
+        "Do",
+        "you",
+        "hear?",
+        "Do",
+        "you",
+        "hear--papa",
+        "is",
+        "dead?",
+        "He",
+        "is",
+        "dead",
+        "in",
+        "India--thousands",
+        "of",
+        "miles",
+        "away.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          33,
+          0,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Once",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "once",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.6,
+          "end": 0.8,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stopped",
+          "start": 0.8,
+          "end": 1.1,
+          "key": "stopped",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 1.1,
+          "end": 1.54,
+          "key": "before",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Emily,",
+          "start": 1.54,
+          "end": 1.88,
+          "key": "emily",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 2.16,
+          "end": 2.38,
+          "key": "who",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 2.38,
+          "end": 2.58,
+          "key": "sat",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "watching",
+          "start": 2.58,
+          "end": 2.96,
+          "key": "watching",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.96,
+          "end": 3.16,
+          "key": "her",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.16,
+          "end": 3.28,
+          "key": "from",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.28,
+          "end": 3.44,
+          "key": "her",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "chair,",
+          "start": 3.44,
+          "end": 3.74,
+          "key": "chair",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.9,
+          "end": 4.0,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 4.0,
+          "end": 4.24,
+          "key": "cried",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 4.24,
+          "end": 4.46,
+          "key": "out",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "wildly,",
+          "start": 4.46,
+          "end": 4.94,
+          "key": "wildly",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Emily,",
+          "start": 4.94,
+          "end": 5.7,
+          "key": "emily",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 6.24,
+          "end": 6.4,
+          "key": "do",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.4,
+          "end": 6.52,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "hear?",
+          "start": 6.52,
+          "end": 6.82,
+          "key": "hear",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 7.26,
+          "end": 7.44,
+          "key": "do",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 7.44,
+          "end": 7.54,
+          "key": "you",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "hear papa",
+          "start": 7.54,
+          "end": 8.14,
+          "key": "hearpapa",
+          "pieces": [
+            22,
+            23
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 8.14,
+          "end": 8.3,
+          "key": "is",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "dead?",
+          "start": 8.3,
+          "end": 8.58,
+          "key": "dead",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 9.12,
+          "end": 9.2,
+          "key": "he",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 9.2,
+          "end": 9.34,
+          "key": "is",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 9.34,
+          "end": 9.6,
+          "key": "dead",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.6,
+          "end": 9.8,
+          "key": "in",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "India -thousands",
+          "start": 9.8,
+          "end": 10.5,
+          "key": "indiathousands",
+          "pieces": [
+            30,
+            31
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.5,
+          "end": 10.72,
+          "key": "of",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "miles",
+          "start": 10.72,
+          "end": 10.96,
+          "key": "miles",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "away.",
+          "start": 10.96,
+          "end": 11.34,
+          "key": "away",
+          "pieces": [
+            34
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 22,
+          "text": "hear--papa",
+          "heard": "hear papa",
+          "heard_indexes": [
+            22,
+            23
+          ],
+          "start": 7.54,
+          "end": 8.14
+        },
+        {
+          "expected_index": 29,
+          "text": "India--thousands",
+          "heard": "India -thousands",
+          "heard_indexes": [
+            30,
+            31
+          ],
+          "start": 9.8,
+          "end": 10.5
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Once",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "she",
+          "start": 0.6,
+          "end": 0.8
+        },
+        {
+          "text": "stopped",
+          "start": 0.8,
+          "end": 1.1
+        },
+        {
+          "text": "before",
+          "start": 1.1,
+          "end": 1.54
+        },
+        {
+          "text": "Emily,",
+          "start": 1.54,
+          "end": 1.88
+        },
+        {
+          "text": "who",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "text": "sat",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "text": "watching",
+          "start": 2.58,
+          "end": 2.96
+        },
+        {
+          "text": "her",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "text": "from",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "text": "her",
+          "start": 3.28,
+          "end": 3.44
+        },
+        {
+          "text": "chair,",
+          "start": 3.44,
+          "end": 3.74
+        },
+        {
+          "text": "and",
+          "start": 3.9,
+          "end": 4.0
+        },
+        {
+          "text": "cried",
+          "start": 4.0,
+          "end": 4.24
+        },
+        {
+          "text": "out",
+          "start": 4.24,
+          "end": 4.46
+        },
+        {
+          "text": "wildly,",
+          "start": 4.46,
+          "end": 4.94
+        },
+        {
+          "text": "\"Emily!",
+          "start": 4.94,
+          "end": 5.7
+        },
+        {
+          "text": "Do",
+          "start": 6.24,
+          "end": 6.4
+        },
+        {
+          "text": "you",
+          "start": 6.4,
+          "end": 6.52
+        },
+        {
+          "text": "hear?",
+          "start": 6.52,
+          "end": 6.82
+        },
+        {
+          "text": "Do",
+          "start": 7.26,
+          "end": 7.44
+        },
+        {
+          "text": "you",
+          "start": 7.44,
+          "end": 7.54
+        },
+        {
+          "text": "hear--papa",
+          "start": 7.54,
+          "end": 8.14
+        },
+        {
+          "text": "is",
+          "start": 8.14,
+          "end": 8.3
+        },
+        {
+          "text": "dead?",
+          "start": 8.3,
+          "end": 8.58
+        },
+        {
+          "text": "He",
+          "start": 9.12,
+          "end": 9.2
+        },
+        {
+          "text": "is",
+          "start": 9.2,
+          "end": 9.34
+        },
+        {
+          "text": "dead",
+          "start": 9.34,
+          "end": 9.6
+        },
+        {
+          "text": "in",
+          "start": 9.6,
+          "end": 9.8
+        },
+        {
+          "text": "India--thousands",
+          "start": 9.8,
+          "end": 10.5
+        },
+        {
+          "text": "of",
+          "start": 10.5,
+          "end": 10.72
+        },
+        {
+          "text": "miles",
+          "start": 10.72,
+          "end": 10.96
+        },
+        {
+          "text": "away.\"",
+          "start": 10.96,
+          "end": 11.34
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 33,
+        "matched_words": 33
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.41842079162597656
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4ba09f667482bb1f8c9c3eae24984d687958d8d30adc26966107f960c4b36640",
+  "selected_reasons": []
+}

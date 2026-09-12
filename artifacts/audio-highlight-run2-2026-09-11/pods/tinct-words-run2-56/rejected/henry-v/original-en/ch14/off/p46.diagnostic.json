@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "d9bc3fe4364c8e1889d72b4dcde135b73fd56137537bfaa2db7c8fd1efaf9eaf",
+  "attempts": [
+    {
+      "asr_seconds": 0.22394533455371857,
+      "alignment_seconds": 0.0004319390282034874,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Court, Brother John Bates, is not that the morning which breaks yonder.",
+          "start": 0.02,
+          "end": 4.16,
+          "words": [
+            {
+              "text": " Court,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.775390625
+            },
+            {
+              "text": " Brother",
+              "start": 1.36,
+              "end": 1.36,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " John",
+              "start": 1.36,
+              "end": 1.68,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Bates,",
+              "start": 1.68,
+              "end": 1.96,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " is",
+              "start": 2.34,
+              "end": 2.42,
+              "probability": 0.9765625
+            },
+            {
+              "text": " not",
+              "start": 2.42,
+              "end": 2.62,
+              "probability": 0.994140625
+            },
+            {
+              "text": " that",
+              "start": 2.62,
+              "end": 2.76,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " the",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " morning",
+              "start": 2.9,
+              "end": 3.12,
+              "probability": 0.755859375
+            },
+            {
+              "text": " which",
+              "start": 3.12,
+              "end": 3.4,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " breaks",
+              "start": 3.4,
+              "end": 3.78,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " yonder.",
+              "start": 3.78,
+              "end": 4.16,
+              "probability": 0.993408203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Court,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Brother",
+          "start": 1.36,
+          "end": 1.36
+        },
+        {
+          "raw": "John",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "raw": "Bates,",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "raw": "is",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "raw": "not",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "raw": "that",
+          "start": 2.62,
+          "end": 2.76
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "morning",
+          "start": 2.9,
+          "end": 3.12
+        },
+        {
+          "raw": "which",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "raw": "breaks",
+          "start": 3.4,
+          "end": 3.78
+        },
+        {
+          "raw": "yonder.",
+          "start": 3.78,
+          "end": 4.16
+        }
+      ],
+      "expected_tokens": [
+        "Court.",
+        "Brother",
+        "John",
+        "Bates,",
+        "is",
+        "not",
+        "that",
+        "the",
+        "morning",
+        "which",
+        "breaks",
+        "yonder?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Court,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "court",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Brother",
+          "start": 1.36,
+          "end": 1.36,
+          "key": "brother",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 1.36,
+          "end": 1.68,
+          "key": "john",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Bates,",
+          "start": 1.68,
+          "end": 1.96,
+          "key": "bates",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.34,
+          "end": 2.42,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.42,
+          "end": 2.62,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.62,
+          "end": 2.76,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "morning",
+          "start": 2.9,
+          "end": 3.12,
+          "key": "morning",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.12,
+          "end": 3.4,
+          "key": "which",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "breaks",
+          "start": 3.4,
+          "end": 3.78,
+          "key": "breaks",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "yonder.",
+          "start": 3.78,
+          "end": 4.16,
+          "key": "yonder",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Court.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Brother",
+          "start": 1.36,
+          "end": 1.36
+        },
+        {
+          "text": "John",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "text": "Bates,",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "text": "is",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "text": "not",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "text": "that",
+          "start": 2.62,
+          "end": 2.76
+        },
+        {
+          "text": "the",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "morning",
+          "start": 2.9,
+          "end": 3.12
+        },
+        {
+          "text": "which",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "text": "breaks",
+          "start": 3.4,
+          "end": 3.78
+        },
+        {
+          "text": "yonder?",
+          "start": 3.78,
+          "end": 4.16
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2245408883318305
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "74d1be4a107451f246ff3f11450baddbf5d0ce68879ae3bb9e827b3a7dd466b0",
+  "selected_reasons": []
+}

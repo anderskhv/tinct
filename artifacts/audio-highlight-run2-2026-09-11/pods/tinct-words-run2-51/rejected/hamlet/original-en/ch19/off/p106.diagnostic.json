@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "430fcde56c99553a019707212977259567d720662bfead60d9a716632561b47d",
+  "attempts": [
+    {
+      "asr_seconds": 0.18078494351357222,
+      "alignment_seconds": 0.0003577275201678276,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, what the fair Ophelia?",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.9296875
+            },
+            {
+              "text": " what",
+              "start": 1.15,
+              "end": 1.25,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " the",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " fair",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.53271484375
+            },
+            {
+              "text": " Ophelia?",
+              "start": 1.59,
+              "end": 2.09,
+              "probability": 0.9348958333333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "what",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "raw": "the",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "fair",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "Ophelia?",
+          "start": 1.59,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "What,",
+        "the",
+        "fair",
+        "Ophelia?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.15,
+          "end": 1.25,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "fair",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Ophelia?",
+          "start": 1.59,
+          "end": 2.09,
+          "key": "ophelia",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "What,",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "text": "the",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "fair",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "text": "Ophelia?",
+          "start": 1.59,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18126124050468206
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "082a0f67ee1ffebe6139b3449ea91ffe6e15c00a7dd58337cac6203df66ddd65",
+  "selected_reasons": []
+}

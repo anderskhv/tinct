@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "bb2a3b4dd2b8f64909be08fe8ec531cb94a9ba551e331c2e18aeecbb6167da56",
+  "attempts": [
+    {
+      "asr_seconds": 0.23638998996466398,
+      "alignment_seconds": 0.000560603104531765,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Be silent! You are in a government office. Don't be impudent, sir!\"",
+        "hotwords": "You, Don't"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Be silent! You are in a government office. Don't be impudent, sir!",
+          "start": 0.05,
+          "end": 4.03,
+          "words": [
+            {
+              "text": " Be",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " silent!",
+              "start": 0.57,
+              "end": 1.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " You",
+              "start": 1.51,
+              "end": 1.59,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " are",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " in",
+              "start": 1.75,
+              "end": 1.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 1.87,
+              "end": 1.99,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " government",
+              "start": 1.99,
+              "end": 2.25,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " office.",
+              "start": 2.25,
+              "end": 2.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Don't",
+              "start": 3.13,
+              "end": 3.27,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " be",
+              "start": 3.27,
+              "end": 3.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " impudent,",
+              "start": 3.37,
+              "end": 3.87,
+              "probability": 0.9749348958333334
+            },
+            {
+              "text": " sir!",
+              "start": 3.95,
+              "end": 4.03,
+              "probability": 0.89013671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Be",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "silent!",
+          "start": 0.57,
+          "end": 1.03
+        },
+        {
+          "raw": "You",
+          "start": 1.51,
+          "end": 1.59
+        },
+        {
+          "raw": "are",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "in",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "raw": "a",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "raw": "government",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "raw": "office.",
+          "start": 2.25,
+          "end": 2.71
+        },
+        {
+          "raw": "Don't",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "raw": "be",
+          "start": 3.27,
+          "end": 3.37
+        },
+        {
+          "raw": "impudent,",
+          "start": 3.37,
+          "end": 3.87
+        },
+        {
+          "raw": "sir!",
+          "start": 3.95,
+          "end": 4.03
+        }
+      ],
+      "expected_tokens": [
+        "\"Be",
+        "silent!",
+        "You",
+        "are",
+        "in",
+        "a",
+        "government",
+        "office.",
+        "Don't",
+        "be",
+        "impudent,",
+        "sir!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Be",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "be",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "silent!",
+          "start": 0.57,
+          "end": 1.03,
+          "key": "silent",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.51,
+          "end": 1.59,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.75,
+          "end": 1.87,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.87,
+          "end": 1.99,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "government",
+          "start": 1.99,
+          "end": 2.25,
+          "key": "government",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "office.",
+          "start": 2.25,
+          "end": 2.71,
+          "key": "office",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Don't",
+          "start": 3.13,
+          "end": 3.27,
+          "key": "dont",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.27,
+          "end": 3.37,
+          "key": "be",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "impudent,",
+          "start": 3.37,
+          "end": 3.87,
+          "key": "impudent",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sir!",
+          "start": 3.95,
+          "end": 4.03,
+          "key": "sir",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Be",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "silent!",
+          "start": 0.57,
+          "end": 1.03
+        },
+        {
+          "text": "You",
+          "start": 1.51,
+          "end": 1.59
+        },
+        {
+          "text": "are",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "in",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "text": "a",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "text": "government",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "text": "office.",
+          "start": 2.25,
+          "end": 2.71
+        },
+        {
+          "text": "Don't",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "text": "be",
+          "start": 3.27,
+          "end": 3.37
+        },
+        {
+          "text": "impudent,",
+          "start": 3.37,
+          "end": 3.87
+        },
+        {
+          "text": "sir!\"",
+          "start": 3.95,
+          "end": 4.03
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23717020638287067
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "63b876f1b64ebe775d6f8c68a4a2445e3558cb047412e6b0a0b354bbb4002ac0",
+  "selected_reasons": []
+}

@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "3e2cf5c1e604eaaf530e3b5d4d3b539366b9d93c1db5368263751213ef4af18b",
+  "attempts": [
+    {
+      "asr_seconds": 3.4751007594168186,
+      "alignment_seconds": 0.0001872759312391281,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. Nor the soles of her shoe?",
+        "hotwords": "Hamlet, Nor"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet. Nor the soles of her shoe?",
+          "start": 0.08,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " Hamlet.",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.923583984375
+            },
+            {
+              "text": " Nor",
+              "start": 1.16,
+              "end": 1.28,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " the",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.9921875
+            },
+            {
+              "text": " soles",
+              "start": 1.44,
+              "end": 1.7,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " of",
+              "start": 1.7,
+              "end": 1.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " her",
+              "start": 1.78,
+              "end": 1.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " shoe?",
+              "start": 1.9,
+              "end": 2.14,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "Nor",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "raw": "the",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "soles",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "raw": "of",
+          "start": 1.7,
+          "end": 1.78
+        },
+        {
+          "raw": "her",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "raw": "shoe?",
+          "start": 1.9,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Nor",
+        "the",
+        "soles",
+        "of",
+        "her",
+        "shoe?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nor",
+          "start": 1.16,
+          "end": 1.28,
+          "key": "nor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "soles",
+          "start": 1.44,
+          "end": 1.7,
+          "key": "soles",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.7,
+          "end": 1.78,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.78,
+          "end": 1.9,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "shoe?",
+          "start": 1.9,
+          "end": 2.14,
+          "key": "shoe",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "Nor",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "text": "the",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "soles",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "text": "of",
+          "start": 1.7,
+          "end": 1.78
+        },
+        {
+          "text": "her",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "text": "shoe?",
+          "start": 1.9,
+          "end": 2.14
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.4753546118736267
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "16809b4cd7f456e3b4caff859af992d1600f23691ba832a63db2791fd3e37332",
+  "selected_reasons": []
+}

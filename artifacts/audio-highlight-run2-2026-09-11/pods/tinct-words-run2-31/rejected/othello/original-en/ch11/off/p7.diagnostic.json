@@ -1,0 +1,660 @@
+{
+  "complete": true,
+  "signature": "784e34f2976b1c7b154341454092b24924400cf0b8695b4ecb609ca7e425bcee",
+  "attempts": [
+    {
+      "asr_seconds": 0.2790100737474859,
+      "alignment_seconds": 0.0003190157003700733,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ye go, so they do nothing, tease a venial slip, but if I give my wife a handkerchief.",
+          "start": 0.02,
+          "end": 5.24,
+          "words": [
+            {
+              "text": " Ye",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.437255859375
+            },
+            {
+              "text": " go,",
+              "start": 0.58,
+              "end": 0.8,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " so",
+              "start": 1.0,
+              "end": 1.1,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " they",
+              "start": 1.1,
+              "end": 1.22,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " do",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " nothing,",
+              "start": 1.36,
+              "end": 1.68,
+              "probability": 0.97265625
+            },
+            {
+              "text": " tease",
+              "start": 2.32,
+              "end": 2.32,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " a",
+              "start": 2.32,
+              "end": 2.48,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " venial",
+              "start": 2.48,
+              "end": 2.88,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " slip,",
+              "start": 2.88,
+              "end": 3.28,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " but",
+              "start": 3.78,
+              "end": 3.84,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " if",
+              "start": 3.84,
+              "end": 3.96,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " I",
+              "start": 3.96,
+              "end": 4.08,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " give",
+              "start": 4.08,
+              "end": 4.22,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " my",
+              "start": 4.22,
+              "end": 4.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wife",
+              "start": 4.38,
+              "end": 4.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 4.62,
+              "end": 4.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " handkerchief.",
+              "start": 4.76,
+              "end": 5.24,
+              "probability": 0.9855143229166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ye",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "go,",
+          "start": 0.58,
+          "end": 0.8
+        },
+        {
+          "raw": "so",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "raw": "they",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "raw": "do",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "nothing,",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "raw": "tease",
+          "start": 2.32,
+          "end": 2.32
+        },
+        {
+          "raw": "a",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "raw": "venial",
+          "start": 2.48,
+          "end": 2.88
+        },
+        {
+          "raw": "slip,",
+          "start": 2.88,
+          "end": 3.28
+        },
+        {
+          "raw": "but",
+          "start": 3.78,
+          "end": 3.84
+        },
+        {
+          "raw": "if",
+          "start": 3.84,
+          "end": 3.96
+        },
+        {
+          "raw": "I",
+          "start": 3.96,
+          "end": 4.08
+        },
+        {
+          "raw": "give",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "raw": "my",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "raw": "wife",
+          "start": 4.38,
+          "end": 4.62
+        },
+        {
+          "raw": "a",
+          "start": 4.62,
+          "end": 4.76
+        },
+        {
+          "raw": "handkerchief.",
+          "start": 4.76,
+          "end": 5.24
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "So",
+        "they",
+        "do",
+        "nothing,",
+        "'tis",
+        "a",
+        "venial",
+        "slip.",
+        "But",
+        "if",
+        "I",
+        "give",
+        "my",
+        "wife",
+        "a",
+        "handkerchief—"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          5,
+          2,
+          6
+        ],
+        [
+          "replace",
+          5,
+          6,
+          6,
+          7
+        ],
+        [
+          "equal",
+          6,
+          17,
+          7,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ye",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "ye",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go,",
+          "start": 0.58,
+          "end": 0.8,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.0,
+          "end": 1.1,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.1,
+          "end": 1.22,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.22,
+          "end": 1.36,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nothing,",
+          "start": 1.36,
+          "end": 1.68,
+          "key": "nothing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 2.32,
+          "end": 2.32,
+          "key": "tease",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.32,
+          "end": 2.48,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "venial",
+          "start": 2.48,
+          "end": 2.88,
+          "key": "venial",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "slip,",
+          "start": 2.88,
+          "end": 3.28,
+          "key": "slip",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.78,
+          "end": 3.84,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.84,
+          "end": 3.96,
+          "key": "if",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.96,
+          "end": 4.08,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 4.08,
+          "end": 4.22,
+          "key": "give",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.22,
+          "end": 4.38,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "wife",
+          "start": 4.38,
+          "end": 4.62,
+          "key": "wife",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.62,
+          "end": 4.76,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "handkerchief.",
+          "start": 4.76,
+          "end": 5.24,
+          "key": "handkerchief",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "So",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "text": "they",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "text": "do",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "nothing,",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "text": "'tis",
+          "start": 1.68,
+          "end": 2.0
+        },
+        {
+          "text": "a",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "text": "venial",
+          "start": 2.48,
+          "end": 2.88
+        },
+        {
+          "text": "slip.",
+          "start": 2.88,
+          "end": 3.28
+        },
+        {
+          "text": "But",
+          "start": 3.78,
+          "end": 3.84
+        },
+        {
+          "text": "if",
+          "start": 3.84,
+          "end": 3.96
+        },
+        {
+          "text": "I",
+          "start": 3.96,
+          "end": 4.08
+        },
+        {
+          "text": "give",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "text": "my",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "text": "wife",
+          "start": 4.38,
+          "end": 4.62
+        },
+        {
+          "text": "a",
+          "start": 4.62,
+          "end": 4.76
+        },
+        {
+          "text": "handkerchief—",
+          "start": 4.76,
+          "end": 5.24
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.2794661591760814
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2818eeb81ef4dd89238f315abc43c5438c4419c307f5391f3ccaa6c446c8720e",
+  "selected_reasons": []
+}

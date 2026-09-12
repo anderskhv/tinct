@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "b636d3ebf0fa8ff143615fd20b6237d7875c191e2284038d28c797e321d24fe4",
+  "attempts": [
+    {
+      "asr_seconds": 0.20093777030706406,
+      "alignment_seconds": 0.00046895816922187805,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. I think his soul is in hell, madonna.",
+        "hotwords": "Clown, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, I think his soul is in hell, madonna.",
+          "start": 0.08,
+          "end": 2.76,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.77392578125
+            },
+            {
+              "text": " I",
+              "start": 1.08,
+              "end": 1.28,
+              "probability": 0.970703125
+            },
+            {
+              "text": " think",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.990234375
+            },
+            {
+              "text": " soul",
+              "start": 1.58,
+              "end": 1.8,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " is",
+              "start": 1.8,
+              "end": 1.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 1.98,
+              "end": 2.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hell,",
+              "start": 2.12,
+              "end": 2.34,
+              "probability": 0.765625
+            },
+            {
+              "text": " madonna.",
+              "start": 2.52,
+              "end": 2.76,
+              "probability": 0.4896414279937744
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "raw": "think",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "his",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "soul",
+          "start": 1.58,
+          "end": 1.8
+        },
+        {
+          "raw": "is",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "raw": "in",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "raw": "hell,",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "raw": "madonna.",
+          "start": 2.52,
+          "end": 2.76
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "I",
+        "think",
+        "his",
+        "soul",
+        "is",
+        "in",
+        "hell,",
+        "madonna."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.28,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.28,
+          "end": 1.42,
+          "key": "think",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.42,
+          "end": 1.58,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "soul",
+          "start": 1.58,
+          "end": 1.8,
+          "key": "soul",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.8,
+          "end": 1.98,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.98,
+          "end": 2.12,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hell,",
+          "start": 2.12,
+          "end": 2.34,
+          "key": "hell",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "madonna.",
+          "start": 2.52,
+          "end": 2.76,
+          "key": "madonna",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "I",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "text": "think",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "his",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "soul",
+          "start": 1.58,
+          "end": 1.8
+        },
+        {
+          "text": "is",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "text": "in",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "text": "hell,",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "text": "madonna.",
+          "start": 2.52,
+          "end": 2.76
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20158568397164345
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7fe89e891160a7030893d8dba9fc5968d49fa0757960a1653610ebe7a1cbf209",
+  "selected_reasons": []
+}

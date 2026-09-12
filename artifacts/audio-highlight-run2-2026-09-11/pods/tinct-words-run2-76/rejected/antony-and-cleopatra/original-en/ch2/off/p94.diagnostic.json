@@ -1,0 +1,290 @@
+{
+  "complete": true,
+  "signature": "d1a8a01f1b978438dcb0b405902b507e8b7401b3d86d6c55198bdd6cc0553a5e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1701928023248911,
+      "alignment_seconds": 0.0004589357413351536,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, she's cunning past man's thought.",
+          "start": 0.05,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " she's",
+              "start": 1.13,
+              "end": 1.39,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " cunning",
+              "start": 1.39,
+              "end": 1.57,
+              "probability": 0.6533203125
+            },
+            {
+              "text": " past",
+              "start": 1.57,
+              "end": 1.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " man's",
+              "start": 1.91,
+              "end": 2.31,
+              "probability": 0.961669921875
+            },
+            {
+              "text": " thought.",
+              "start": 2.31,
+              "end": 2.55,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "she's",
+          "start": 1.13,
+          "end": 1.39
+        },
+        {
+          "raw": "cunning",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "raw": "past",
+          "start": 1.57,
+          "end": 1.91
+        },
+        {
+          "raw": "man's",
+          "start": 1.91,
+          "end": 2.31
+        },
+        {
+          "raw": "thought.",
+          "start": 2.31,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "She",
+        "is",
+        "cunning",
+        "past",
+        "man's",
+        "thought."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          7,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 1.13,
+          "end": 1.39,
+          "key": "shes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cunning",
+          "start": 1.39,
+          "end": 1.57,
+          "key": "cunning",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "past",
+          "start": 1.57,
+          "end": 1.91,
+          "key": "past",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "man's",
+          "start": 1.91,
+          "end": 2.31,
+          "key": "mans",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thought.",
+          "start": 2.31,
+          "end": 2.55,
+          "key": "thought",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "She",
+          "start": 0.81,
+          "end": 1.1
+        },
+        {
+          "text": "is",
+          "start": 1.1,
+          "end": 1.245
+        },
+        {
+          "text": "cunning",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "text": "past",
+          "start": 1.57,
+          "end": 1.91
+        },
+        {
+          "text": "man's",
+          "start": 1.91,
+          "end": 2.31
+        },
+        {
+          "text": "thought.",
+          "start": 2.31,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1707955040037632
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6fc3d58f032bf71b207fbd2a6f0d3e7cc77f32ace847c1789a53dda7b034579f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

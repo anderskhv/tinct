@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "e3e76583f46e1b18edf938de9da384d7e166d86a54a9e87ec22bc2d076cd4f95",
+  "attempts": [
+    {
+      "asr_seconds": 0.2267111986875534,
+      "alignment_seconds": 0.0004938002675771713,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aside, he hath tanned the infection. Hold it.",
+          "start": 0.02,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " Aside,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.45166015625
+            },
+            {
+              "text": " he",
+              "start": 0.98,
+              "end": 1.04,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " hath",
+              "start": 1.04,
+              "end": 1.18,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " tanned",
+              "start": 1.18,
+              "end": 1.46,
+              "probability": 0.765625
+            },
+            {
+              "text": " the",
+              "start": 1.46,
+              "end": 1.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " infection.",
+              "start": 1.56,
+              "end": 1.94,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Hold",
+              "start": 2.44,
+              "end": 2.6,
+              "probability": 0.943359375
+            },
+            {
+              "text": " it.",
+              "start": 2.6,
+              "end": 2.8,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "he",
+          "start": 0.98,
+          "end": 1.04
+        },
+        {
+          "raw": "hath",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "raw": "tanned",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "raw": "the",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "raw": "infection.",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "raw": "Hold",
+          "start": 2.44,
+          "end": 2.6
+        },
+        {
+          "raw": "it.",
+          "start": 2.6,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "[Aside]",
+        "He",
+        "hath",
+        "ta'en",
+        "the",
+        "infection:",
+        "hold",
+        "it"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.98,
+          "end": 1.04,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.04,
+          "end": 1.18,
+          "key": "hath",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tanned",
+          "start": 1.18,
+          "end": 1.46,
+          "key": "tanned",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.46,
+          "end": 1.56,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "infection.",
+          "start": 1.56,
+          "end": 1.94,
+          "key": "infection",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Hold",
+          "start": 2.44,
+          "end": 2.6,
+          "key": "hold",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.6,
+          "end": 2.8,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Aside]",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "He",
+          "start": 0.98,
+          "end": 1.04
+        },
+        {
+          "text": "hath",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "text": "ta'en",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "text": "the",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "text": "infection:",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "text": "hold",
+          "start": 2.44,
+          "end": 2.6
+        },
+        {
+          "text": "it",
+          "start": 2.6,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.22737480886280537
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e147d7d3f4bb079d185d686175e1fe79f08460df2880ba14cc42473a861c6208",
+  "selected_reasons": []
+}

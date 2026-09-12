@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "5ef31fda35d04d815c21d34ad015a2923bf666e9a6eb17f6dfb43481a1db9b27",
+  "attempts": [
+    {
+      "asr_seconds": 0.3587989052757621,
+      "alignment_seconds": 0.000552724115550518,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I thought, Jane, you had told me all. I thought I had found the source of your melancholy in a dream.",
+          "start": 0.02,
+          "end": 5.54,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.459716796875
+            },
+            {
+              "text": " thought,",
+              "start": 0.54,
+              "end": 0.84,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Jane,",
+              "start": 1.18,
+              "end": 1.26,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " you",
+              "start": 1.74,
+              "end": 1.86,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " had",
+              "start": 1.86,
+              "end": 1.96,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " told",
+              "start": 1.96,
+              "end": 2.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 2.14,
+              "end": 2.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all.",
+              "start": 2.34,
+              "end": 2.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 3.16,
+              "end": 3.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thought",
+              "start": 3.2,
+              "end": 3.32,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I",
+              "start": 3.32,
+              "end": 3.44,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " had",
+              "start": 3.44,
+              "end": 3.54,
+              "probability": 0.986328125
+            },
+            {
+              "text": " found",
+              "start": 3.54,
+              "end": 3.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.72,
+              "end": 3.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " source",
+              "start": 3.92,
+              "end": 4.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 4.12,
+              "end": 4.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 4.3,
+              "end": 4.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " melancholy",
+              "start": 4.42,
+              "end": 4.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " in",
+              "start": 4.86,
+              "end": 5.16,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " a",
+              "start": 5.16,
+              "end": 5.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dream.",
+              "start": 5.28,
+              "end": 5.54,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "thought,",
+          "start": 0.54,
+          "end": 0.84
+        },
+        {
+          "raw": "Jane,",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "raw": "you",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "raw": "had",
+          "start": 1.86,
+          "end": 1.96
+        },
+        {
+          "raw": "told",
+          "start": 1.96,
+          "end": 2.14
+        },
+        {
+          "raw": "me",
+          "start": 2.14,
+          "end": 2.34
+        },
+        {
+          "raw": "all.",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "raw": "I",
+          "start": 3.16,
+          "end": 3.2
+        },
+        {
+          "raw": "thought",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "raw": "I",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "raw": "had",
+          "start": 3.44,
+          "end": 3.54
+        },
+        {
+          "raw": "found",
+          "start": 3.54,
+          "end": 3.72
+        },
+        {
+          "raw": "the",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "raw": "source",
+          "start": 3.92,
+          "end": 4.12
+        },
+        {
+          "raw": "of",
+          "start": 4.12,
+          "end": 4.3
+        },
+        {
+          "raw": "your",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "raw": "melancholy",
+          "start": 4.42,
+          "end": 4.86
+        },
+        {
+          "raw": "in",
+          "start": 4.86,
+          "end": 5.16
+        },
+        {
+          "raw": "a",
+          "start": 5.16,
+          "end": 5.28
+        },
+        {
+          "raw": "dream.",
+          "start": 5.28,
+          "end": 5.54
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "thought,",
+        "Jane,",
+        "you",
+        "had",
+        "told",
+        "me",
+        "all.",
+        "I",
+        "thought",
+        "I",
+        "had",
+        "found",
+        "the",
+        "source",
+        "of",
+        "your",
+        "melancholy",
+        "in",
+        "a",
+        "dream.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thought,",
+          "start": 0.54,
+          "end": 0.84,
+          "key": "thought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Jane,",
+          "start": 1.18,
+          "end": 1.26,
+          "key": "jane",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.74,
+          "end": 1.86,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.86,
+          "end": 1.96,
+          "key": "had",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 1.96,
+          "end": 2.14,
+          "key": "told",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.14,
+          "end": 2.34,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 2.34,
+          "end": 2.58,
+          "key": "all",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.16,
+          "end": 3.2,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 3.2,
+          "end": 3.32,
+          "key": "thought",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.32,
+          "end": 3.44,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.44,
+          "end": 3.54,
+          "key": "had",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 3.54,
+          "end": 3.72,
+          "key": "found",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.72,
+          "end": 3.92,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "source",
+          "start": 3.92,
+          "end": 4.12,
+          "key": "source",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.12,
+          "end": 4.3,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.3,
+          "end": 4.42,
+          "key": "your",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "melancholy",
+          "start": 4.42,
+          "end": 4.86,
+          "key": "melancholy",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.86,
+          "end": 5.16,
+          "key": "in",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.16,
+          "end": 5.28,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "dream.",
+          "start": 5.28,
+          "end": 5.54,
+          "key": "dream",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "thought,",
+          "start": 0.54,
+          "end": 0.84
+        },
+        {
+          "text": "Jane,",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "text": "you",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "text": "had",
+          "start": 1.86,
+          "end": 1.96
+        },
+        {
+          "text": "told",
+          "start": 1.96,
+          "end": 2.14
+        },
+        {
+          "text": "me",
+          "start": 2.14,
+          "end": 2.34
+        },
+        {
+          "text": "all.",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "text": "I",
+          "start": 3.16,
+          "end": 3.2
+        },
+        {
+          "text": "thought",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "text": "I",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "text": "had",
+          "start": 3.44,
+          "end": 3.54
+        },
+        {
+          "text": "found",
+          "start": 3.54,
+          "end": 3.72
+        },
+        {
+          "text": "the",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "text": "source",
+          "start": 3.92,
+          "end": 4.12
+        },
+        {
+          "text": "of",
+          "start": 4.12,
+          "end": 4.3
+        },
+        {
+          "text": "your",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "text": "melancholy",
+          "start": 4.42,
+          "end": 4.86
+        },
+        {
+          "text": "in",
+          "start": 4.86,
+          "end": 5.16
+        },
+        {
+          "text": "a",
+          "start": 5.16,
+          "end": 5.28
+        },
+        {
+          "text": "dream.\"",
+          "start": 5.28,
+          "end": 5.54
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3595862649381161
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5307be0bb4e0cf73c132f955278626875d4563debe004f18c32ea89b331e822e",
+  "selected_reasons": []
+}

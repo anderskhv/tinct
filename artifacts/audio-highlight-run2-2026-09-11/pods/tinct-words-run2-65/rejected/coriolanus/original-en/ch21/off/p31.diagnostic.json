@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "f867777e6bb154cd4e16bc9c92422cba5775b4db68af6f49bc16add41513435f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1430513528175652,
+      "alignment_seconds": 0.00021144608035683632,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second Servingman, and I shall.",
+          "start": 0.08,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.7265625
+            },
+            {
+              "text": " Servingman,",
+              "start": 0.72,
+              "end": 1.26,
+              "probability": 0.614013671875
+            },
+            {
+              "text": " and",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " I",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shall.",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.9638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Servingman,",
+          "start": 0.72,
+          "end": 1.26
+        },
+        {
+          "raw": "and",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "I",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "shall.",
+          "start": 1.78,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Servingman.",
+        "And",
+        "I",
+        "shall."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Servingman,",
+          "start": 0.72,
+          "end": 1.26,
+          "key": "servingman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.54,
+          "end": 1.64,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shall.",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "shall",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Servingman.",
+          "start": 0.72,
+          "end": 1.26
+        },
+        {
+          "text": "And",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "I",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "shall.",
+          "start": 1.78,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14333862205967307
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4f8bb7ea8eddddd13bc7ad59ec5c1fceab3da5dd00586c84ca0bb642786c2892",
+  "selected_reasons": []
+}

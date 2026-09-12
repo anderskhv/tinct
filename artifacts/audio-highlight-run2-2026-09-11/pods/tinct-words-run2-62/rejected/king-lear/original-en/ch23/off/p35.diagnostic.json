@@ -1,0 +1,618 @@
+{
+  "complete": true,
+  "signature": "b188eff093647c370750a6582da9711aac08c0e29d90f3f9ca48d82f5022384d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2220376469194889,
+      "alignment_seconds": 0.0003116913139820099,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, you must bear with me.",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.386474609375
+            },
+            {
+              "text": " you",
+              "start": 0.97,
+              "end": 1.03,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " must",
+              "start": 1.03,
+              "end": 1.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bear",
+              "start": 1.17,
+              "end": 1.39,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " with",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me.",
+              "start": 1.55,
+              "end": 1.91,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Pray you now forget and forgive.",
+          "start": 2.25,
+          "end": 3.43,
+          "words": [
+            {
+              "text": " Pray",
+              "start": 2.25,
+              "end": 2.37,
+              "probability": 0.951171875
+            },
+            {
+              "text": " you",
+              "start": 2.37,
+              "end": 2.49,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " now",
+              "start": 2.49,
+              "end": 2.63,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " forget",
+              "start": 2.63,
+              "end": 2.93,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " and",
+              "start": 2.93,
+              "end": 3.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " forgive.",
+              "start": 3.11,
+              "end": 3.43,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " I am old and foolish.",
+          "start": 3.87,
+          "end": 4.87,
+          "words": [
+            {
+              "text": " I",
+              "start": 3.87,
+              "end": 3.95,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " am",
+              "start": 3.95,
+              "end": 4.05,
+              "probability": 0.990234375
+            },
+            {
+              "text": " old",
+              "start": 4.05,
+              "end": 4.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 4.35,
+              "end": 4.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " foolish.",
+              "start": 4.55,
+              "end": 4.87,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "you",
+          "start": 0.97,
+          "end": 1.03
+        },
+        {
+          "raw": "must",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "raw": "bear",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "raw": "with",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "me.",
+          "start": 1.55,
+          "end": 1.91
+        },
+        {
+          "raw": "Pray",
+          "start": 2.25,
+          "end": 2.37
+        },
+        {
+          "raw": "you",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "raw": "now",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "raw": "forget",
+          "start": 2.63,
+          "end": 2.93
+        },
+        {
+          "raw": "and",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "raw": "forgive.",
+          "start": 3.11,
+          "end": 3.43
+        },
+        {
+          "raw": "I",
+          "start": 3.87,
+          "end": 3.95
+        },
+        {
+          "raw": "am",
+          "start": 3.95,
+          "end": 4.05
+        },
+        {
+          "raw": "old",
+          "start": 4.05,
+          "end": 4.35
+        },
+        {
+          "raw": "and",
+          "start": 4.35,
+          "end": 4.55
+        },
+        {
+          "raw": "foolish.",
+          "start": 4.55,
+          "end": 4.87
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "You",
+        "must",
+        "bear",
+        "with",
+        "me:",
+        "Pray",
+        "you",
+        "now,",
+        "forget",
+        "and",
+        "forgive:",
+        "I",
+        "am",
+        "old",
+        "and",
+        "foolish."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.97,
+          "end": 1.03,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.03,
+          "end": 1.17,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 1.17,
+          "end": 1.39,
+          "key": "bear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 1.55,
+          "end": 1.91,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Pray",
+          "start": 2.25,
+          "end": 2.37,
+          "key": "pray",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.37,
+          "end": 2.49,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 2.49,
+          "end": 2.63,
+          "key": "now",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "forget",
+          "start": 2.63,
+          "end": 2.93,
+          "key": "forget",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.93,
+          "end": 3.11,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "forgive.",
+          "start": 3.11,
+          "end": 3.43,
+          "key": "forgive",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.87,
+          "end": 3.95,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 3.95,
+          "end": 4.05,
+          "key": "am",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 4.05,
+          "end": 4.35,
+          "key": "old",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.35,
+          "end": 4.55,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "foolish.",
+          "start": 4.55,
+          "end": 4.87,
+          "key": "foolish",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "You",
+          "start": 0.97,
+          "end": 1.03
+        },
+        {
+          "text": "must",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "text": "bear",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "text": "with",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "me:",
+          "start": 1.55,
+          "end": 1.91
+        },
+        {
+          "text": "Pray",
+          "start": 2.25,
+          "end": 2.37
+        },
+        {
+          "text": "you",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "text": "now,",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "text": "forget",
+          "start": 2.63,
+          "end": 2.93
+        },
+        {
+          "text": "and",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "text": "forgive:",
+          "start": 3.11,
+          "end": 3.43
+        },
+        {
+          "text": "I",
+          "start": 3.87,
+          "end": 3.95
+        },
+        {
+          "text": "am",
+          "start": 3.95,
+          "end": 4.05
+        },
+        {
+          "text": "old",
+          "start": 4.05,
+          "end": 4.35
+        },
+        {
+          "text": "and",
+          "start": 4.35,
+          "end": 4.55
+        },
+        {
+          "text": "foolish.",
+          "start": 4.55,
+          "end": 4.87
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2224702164530754
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "30b2c704c19851e03dae3dfb274ebdd92c8f92f0a88dc023f81ee0fb209a4bde",
+  "selected_reasons": []
+}

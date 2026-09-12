@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "40a361eabf872b65e538be78afac826ed09a6ebf0d827f6e51f0486634ba2913",
+  "attempts": [
+    {
+      "asr_seconds": 0.12899174104677513,
+      "alignment_seconds": 0.00017489097081124783,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The editor laid a nervous hand on Stephen's shoulder.",
+          "start": 0.02,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " editor",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " laid",
+              "start": 0.8,
+              "end": 1.08,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 1.08,
+              "end": 1.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nervous",
+              "start": 1.24,
+              "end": 1.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hand",
+              "start": 1.46,
+              "end": 1.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 1.94,
+              "end": 2.24,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Stephen's",
+              "start": 2.24,
+              "end": 2.72,
+              "probability": 0.712890625
+            },
+            {
+              "text": " shoulder.",
+              "start": 2.72,
+              "end": 2.94,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "editor",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "laid",
+          "start": 0.8,
+          "end": 1.08
+        },
+        {
+          "raw": "a",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "raw": "nervous",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "raw": "hand",
+          "start": 1.46,
+          "end": 1.94
+        },
+        {
+          "raw": "on",
+          "start": 1.94,
+          "end": 2.24
+        },
+        {
+          "raw": "Stephen's",
+          "start": 2.24,
+          "end": 2.72
+        },
+        {
+          "raw": "shoulder.",
+          "start": 2.72,
+          "end": 2.94
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "editor",
+        "laid",
+        "a",
+        "nervous",
+        "hand",
+        "on",
+        "Stephen's",
+        "shoulder."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "editor",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "editor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "laid",
+          "start": 0.8,
+          "end": 1.08,
+          "key": "laid",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.08,
+          "end": 1.24,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "nervous",
+          "start": 1.24,
+          "end": 1.46,
+          "key": "nervous",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 1.46,
+          "end": 1.94,
+          "key": "hand",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.94,
+          "end": 2.24,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Stephen's",
+          "start": 2.24,
+          "end": 2.72,
+          "key": "stephens",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shoulder.",
+          "start": 2.72,
+          "end": 2.94,
+          "key": "shoulder",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "editor",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "laid",
+          "start": 0.8,
+          "end": 1.08
+        },
+        {
+          "text": "a",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "text": "nervous",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "text": "hand",
+          "start": 1.46,
+          "end": 1.94
+        },
+        {
+          "text": "on",
+          "start": 1.94,
+          "end": 2.24
+        },
+        {
+          "text": "Stephen's",
+          "start": 2.24,
+          "end": 2.72
+        },
+        {
+          "text": "shoulder.",
+          "start": 2.72,
+          "end": 2.94
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1292356220073998
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4152ef384f7b64d97bbdd87218b2238cd0af83d0ce0575aeef932307ce438002",
+  "selected_reasons": []
+}

@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "c3205e7b2bb316ea1a4aba88f1232a24f70e6b6b192a633926001460667328f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.23952140845358372,
+      "alignment_seconds": 0.0005667731165885925,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, I do not well understand that. Will you play upon this pipe?",
+          "start": 0.08,
+          "end": 4.0,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.912109375
+            },
+            {
+              "text": " I",
+              "start": 1.0,
+              "end": 1.22,
+              "probability": 0.986328125
+            },
+            {
+              "text": " do",
+              "start": 1.22,
+              "end": 1.32,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " well",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " understand",
+              "start": 1.66,
+              "end": 2.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that.",
+              "start": 2.1,
+              "end": 2.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Will",
+              "start": 2.96,
+              "end": 3.0,
+              "probability": 0.990234375
+            },
+            {
+              "text": " you",
+              "start": 3.0,
+              "end": 3.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " play",
+              "start": 3.12,
+              "end": 3.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " upon",
+              "start": 3.32,
+              "end": 3.56,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " this",
+              "start": 3.56,
+              "end": 3.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pipe?",
+              "start": 3.76,
+              "end": 4.0,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "I",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "raw": "do",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "raw": "not",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "well",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "understand",
+          "start": 1.66,
+          "end": 2.1
+        },
+        {
+          "raw": "that.",
+          "start": 2.1,
+          "end": 2.44
+        },
+        {
+          "raw": "Will",
+          "start": 2.96,
+          "end": 3.0
+        },
+        {
+          "raw": "you",
+          "start": 3.0,
+          "end": 3.12
+        },
+        {
+          "raw": "play",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "raw": "upon",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "raw": "this",
+          "start": 3.56,
+          "end": 3.76
+        },
+        {
+          "raw": "pipe?",
+          "start": 3.76,
+          "end": 4.0
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "I",
+        "do",
+        "not",
+        "well",
+        "understand",
+        "that.",
+        "Will",
+        "you",
+        "play",
+        "upon",
+        "this",
+        "pipe?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.0,
+          "end": 1.22,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.22,
+          "end": 1.32,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 1.66,
+          "end": 2.1,
+          "key": "understand",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 2.1,
+          "end": 2.44,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 2.96,
+          "end": 3.0,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.0,
+          "end": 3.12,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "play",
+          "start": 3.12,
+          "end": 3.32,
+          "key": "play",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.32,
+          "end": 3.56,
+          "key": "upon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.56,
+          "end": 3.76,
+          "key": "this",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "pipe?",
+          "start": 3.76,
+          "end": 4.0,
+          "key": "pipe",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "I",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "text": "do",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "text": "not",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "well",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "understand",
+          "start": 1.66,
+          "end": 2.1
+        },
+        {
+          "text": "that.",
+          "start": 2.1,
+          "end": 2.44
+        },
+        {
+          "text": "Will",
+          "start": 2.96,
+          "end": 3.0
+        },
+        {
+          "text": "you",
+          "start": 3.0,
+          "end": 3.12
+        },
+        {
+          "text": "play",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "text": "upon",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "text": "this",
+          "start": 3.56,
+          "end": 3.76
+        },
+        {
+          "text": "pipe?",
+          "start": 3.76,
+          "end": 4.0
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24033477902412415
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "880cf20d45b1d18901ba060e2cbc95c9e58cd2f23496d06405f7d9a129002c65",
+  "selected_reasons": []
+}

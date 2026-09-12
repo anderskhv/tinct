@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "83bbfe91c18efe761f5cb8af3e8c00943387761eca6d43001372ae568a3ff08c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11889424361288548,
+      "alignment_seconds": 0.00012164656072854996,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassius, then leave him out.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.924560546875
+            },
+            {
+              "text": " then",
+              "start": 1.29,
+              "end": 1.35,
+              "probability": 0.98828125
+            },
+            {
+              "text": " leave",
+              "start": 1.35,
+              "end": 1.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " out.",
+              "start": 1.67,
+              "end": 1.95,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "then",
+          "start": 1.29,
+          "end": 1.35
+        },
+        {
+          "raw": "leave",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "raw": "him",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "out.",
+          "start": 1.67,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Then",
+        "leave",
+        "him",
+        "out."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.29,
+          "end": 1.35,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 1.35,
+          "end": 1.55,
+          "key": "leave",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.55,
+          "end": 1.67,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 1.67,
+          "end": 1.95,
+          "key": "out",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Then",
+          "start": 1.29,
+          "end": 1.35
+        },
+        {
+          "text": "leave",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "text": "him",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "out.",
+          "start": 1.67,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1190597265958786
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8a1fca0821e9fdda87c8816e60b6f015e9ab00a463886bbc5685666cb35471ec",
+  "selected_reasons": []
+}

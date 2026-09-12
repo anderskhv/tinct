@@ -1,0 +1,771 @@
+{
+  "complete": true,
+  "signature": "233ebe3f89b8d0a537503f87a176af9754f941a424bed9d9a49641f72f6b7f5d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3871137648820877,
+      "alignment_seconds": 0.0006587952375411987,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Servant, Madam, the young gentleman of the Count Orsinos is returned.",
+          "start": 0.08,
+          "end": 4.8,
+          "words": [
+            {
+              "text": " Servant,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " Madam,",
+              "start": 1.24,
+              "end": 1.8,
+              "probability": 0.68017578125
+            },
+            {
+              "text": " the",
+              "start": 2.14,
+              "end": 2.2,
+              "probability": 0.9140625
+            },
+            {
+              "text": " young",
+              "start": 2.2,
+              "end": 2.46,
+              "probability": 0.931640625
+            },
+            {
+              "text": " gentleman",
+              "start": 2.46,
+              "end": 2.86,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " of",
+              "start": 2.86,
+              "end": 3.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 3.1,
+              "end": 3.22,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Count",
+              "start": 3.22,
+              "end": 3.46,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " Orsinos",
+              "start": 3.46,
+              "end": 4.0,
+              "probability": 0.6419270833333334
+            },
+            {
+              "text": " is",
+              "start": 4.0,
+              "end": 4.3,
+              "probability": 0.958984375
+            },
+            {
+              "text": " returned.",
+              "start": 4.3,
+              "end": 4.8,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " I could hardly entreat him back. He attends your ladyship's pleasure.",
+          "start": 5.42,
+          "end": 8.94,
+          "words": [
+            {
+              "text": " I",
+              "start": 5.42,
+              "end": 5.5,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " could",
+              "start": 5.5,
+              "end": 5.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " hardly",
+              "start": 5.62,
+              "end": 5.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " entreat",
+              "start": 5.94,
+              "end": 6.38,
+              "probability": 0.951171875
+            },
+            {
+              "text": " him",
+              "start": 6.38,
+              "end": 6.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " back.",
+              "start": 6.56,
+              "end": 6.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He",
+              "start": 7.44,
+              "end": 7.56,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " attends",
+              "start": 7.56,
+              "end": 7.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 7.82,
+              "end": 8.04,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " ladyship's",
+              "start": 8.04,
+              "end": 8.66,
+              "probability": 0.9107666015625
+            },
+            {
+              "text": " pleasure.",
+              "start": 8.66,
+              "end": 8.94,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Servant,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.24,
+          "end": 1.8
+        },
+        {
+          "raw": "the",
+          "start": 2.14,
+          "end": 2.2
+        },
+        {
+          "raw": "young",
+          "start": 2.2,
+          "end": 2.46
+        },
+        {
+          "raw": "gentleman",
+          "start": 2.46,
+          "end": 2.86
+        },
+        {
+          "raw": "of",
+          "start": 2.86,
+          "end": 3.1
+        },
+        {
+          "raw": "the",
+          "start": 3.1,
+          "end": 3.22
+        },
+        {
+          "raw": "Count",
+          "start": 3.22,
+          "end": 3.46
+        },
+        {
+          "raw": "Orsinos",
+          "start": 3.46,
+          "end": 4.0
+        },
+        {
+          "raw": "is",
+          "start": 4.0,
+          "end": 4.3
+        },
+        {
+          "raw": "returned.",
+          "start": 4.3,
+          "end": 4.8
+        },
+        {
+          "raw": "I",
+          "start": 5.42,
+          "end": 5.5
+        },
+        {
+          "raw": "could",
+          "start": 5.5,
+          "end": 5.62
+        },
+        {
+          "raw": "hardly",
+          "start": 5.62,
+          "end": 5.94
+        },
+        {
+          "raw": "entreat",
+          "start": 5.94,
+          "end": 6.38
+        },
+        {
+          "raw": "him",
+          "start": 6.38,
+          "end": 6.56
+        },
+        {
+          "raw": "back.",
+          "start": 6.56,
+          "end": 6.84
+        },
+        {
+          "raw": "He",
+          "start": 7.44,
+          "end": 7.56
+        },
+        {
+          "raw": "attends",
+          "start": 7.56,
+          "end": 7.82
+        },
+        {
+          "raw": "your",
+          "start": 7.82,
+          "end": 8.04
+        },
+        {
+          "raw": "ladyship's",
+          "start": 8.04,
+          "end": 8.66
+        },
+        {
+          "raw": "pleasure.",
+          "start": 8.66,
+          "end": 8.94
+        }
+      ],
+      "expected_tokens": [
+        "Servant.",
+        "Madam,",
+        "the",
+        "young",
+        "gentleman",
+        "of",
+        "the",
+        "Count",
+        "Orsino's",
+        "is",
+        "returned;",
+        "I",
+        "could",
+        "hardly",
+        "entreat",
+        "him",
+        "back.",
+        "He",
+        "attends",
+        "your",
+        "ladyship's",
+        "pleasure."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Servant,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "servant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.24,
+          "end": 1.8,
+          "key": "madam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.14,
+          "end": 2.2,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 2.2,
+          "end": 2.46,
+          "key": "young",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gentleman",
+          "start": 2.46,
+          "end": 2.86,
+          "key": "gentleman",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.86,
+          "end": 3.1,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.1,
+          "end": 3.22,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Count",
+          "start": 3.22,
+          "end": 3.46,
+          "key": "count",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Orsinos",
+          "start": 3.46,
+          "end": 4.0,
+          "key": "orsinos",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.0,
+          "end": 4.3,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "returned.",
+          "start": 4.3,
+          "end": 4.8,
+          "key": "returned",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.42,
+          "end": 5.5,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 5.5,
+          "end": 5.62,
+          "key": "could",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hardly",
+          "start": 5.62,
+          "end": 5.94,
+          "key": "hardly",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "entreat",
+          "start": 5.94,
+          "end": 6.38,
+          "key": "entreat",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 6.38,
+          "end": 6.56,
+          "key": "him",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "back.",
+          "start": 6.56,
+          "end": 6.84,
+          "key": "back",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 7.44,
+          "end": 7.56,
+          "key": "he",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "attends",
+          "start": 7.56,
+          "end": 7.82,
+          "key": "attends",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 7.82,
+          "end": 8.04,
+          "key": "your",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "ladyship's",
+          "start": 8.04,
+          "end": 8.66,
+          "key": "ladyships",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "pleasure.",
+          "start": 8.66,
+          "end": 8.94,
+          "key": "pleasure",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Servant.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "Madam,",
+          "start": 1.24,
+          "end": 1.8
+        },
+        {
+          "text": "the",
+          "start": 2.14,
+          "end": 2.2
+        },
+        {
+          "text": "young",
+          "start": 2.2,
+          "end": 2.46
+        },
+        {
+          "text": "gentleman",
+          "start": 2.46,
+          "end": 2.86
+        },
+        {
+          "text": "of",
+          "start": 2.86,
+          "end": 3.1
+        },
+        {
+          "text": "the",
+          "start": 3.1,
+          "end": 3.22
+        },
+        {
+          "text": "Count",
+          "start": 3.22,
+          "end": 3.46
+        },
+        {
+          "text": "Orsino's",
+          "start": 3.46,
+          "end": 4.0
+        },
+        {
+          "text": "is",
+          "start": 4.0,
+          "end": 4.3
+        },
+        {
+          "text": "returned;",
+          "start": 4.3,
+          "end": 4.8
+        },
+        {
+          "text": "I",
+          "start": 5.42,
+          "end": 5.5
+        },
+        {
+          "text": "could",
+          "start": 5.5,
+          "end": 5.62
+        },
+        {
+          "text": "hardly",
+          "start": 5.62,
+          "end": 5.94
+        },
+        {
+          "text": "entreat",
+          "start": 5.94,
+          "end": 6.38
+        },
+        {
+          "text": "him",
+          "start": 6.38,
+          "end": 6.56
+        },
+        {
+          "text": "back.",
+          "start": 6.56,
+          "end": 6.84
+        },
+        {
+          "text": "He",
+          "start": 7.44,
+          "end": 7.56
+        },
+        {
+          "text": "attends",
+          "start": 7.56,
+          "end": 7.82
+        },
+        {
+          "text": "your",
+          "start": 7.82,
+          "end": 8.04
+        },
+        {
+          "text": "ladyship's",
+          "start": 8.04,
+          "end": 8.66
+        },
+        {
+          "text": "pleasure.",
+          "start": 8.66,
+          "end": 8.94
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.38805828243494034
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aba1bae5979fe54ccdb62cd0d0e81c261355dde6146987ad4459c2f8b2e44f41",
+  "selected_reasons": []
+}

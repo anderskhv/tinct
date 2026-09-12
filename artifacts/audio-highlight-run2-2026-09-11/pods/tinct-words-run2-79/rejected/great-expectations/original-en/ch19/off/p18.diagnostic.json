@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "d6c1a41eb322ae32664a9959dfd914d1a73d8548ba7d446fd2de147e74ad254c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2232365868985653,
+      "alignment_seconds": 0.0003720968961715698,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " How helping him on asked Biddy with a steady sort of glance",
+          "start": 0.05,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.3525390625
+            },
+            {
+              "text": " helping",
+              "start": 0.53,
+              "end": 0.85,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " him",
+              "start": 0.85,
+              "end": 0.97,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " on",
+              "start": 0.97,
+              "end": 1.41,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " asked",
+              "start": 1.41,
+              "end": 1.97,
+              "probability": 0.218017578125
+            },
+            {
+              "text": " Biddy",
+              "start": 1.97,
+              "end": 2.25,
+              "probability": 0.6650390625
+            },
+            {
+              "text": " with",
+              "start": 2.25,
+              "end": 2.53,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " a",
+              "start": 2.53,
+              "end": 2.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " steady",
+              "start": 2.63,
+              "end": 2.91,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sort",
+              "start": 2.91,
+              "end": 3.13,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " of",
+              "start": 3.13,
+              "end": 3.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " glance",
+              "start": 3.27,
+              "end": 3.59,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "helping",
+          "start": 0.53,
+          "end": 0.85
+        },
+        {
+          "raw": "him",
+          "start": 0.85,
+          "end": 0.97
+        },
+        {
+          "raw": "on",
+          "start": 0.97,
+          "end": 1.41
+        },
+        {
+          "raw": "asked",
+          "start": 1.41,
+          "end": 1.97
+        },
+        {
+          "raw": "Biddy",
+          "start": 1.97,
+          "end": 2.25
+        },
+        {
+          "raw": "with",
+          "start": 2.25,
+          "end": 2.53
+        },
+        {
+          "raw": "a",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "raw": "steady",
+          "start": 2.63,
+          "end": 2.91
+        },
+        {
+          "raw": "sort",
+          "start": 2.91,
+          "end": 3.13
+        },
+        {
+          "raw": "of",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "raw": "glance",
+          "start": 3.27,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "\"How",
+        "helping",
+        "him",
+        "on?\"",
+        "asked",
+        "Biddy,",
+        "with",
+        "a",
+        "steady",
+        "sort",
+        "of",
+        "glance."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "helping",
+          "start": 0.53,
+          "end": 0.85,
+          "key": "helping",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.85,
+          "end": 0.97,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 0.97,
+          "end": 1.41,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.41,
+          "end": 1.97,
+          "key": "asked",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Biddy",
+          "start": 1.97,
+          "end": 2.25,
+          "key": "biddy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.25,
+          "end": 2.53,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.53,
+          "end": 2.63,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "steady",
+          "start": 2.63,
+          "end": 2.91,
+          "key": "steady",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 2.91,
+          "end": 3.13,
+          "key": "sort",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.13,
+          "end": 3.27,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "glance",
+          "start": 3.27,
+          "end": 3.59,
+          "key": "glance",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"How",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "helping",
+          "start": 0.53,
+          "end": 0.85
+        },
+        {
+          "text": "him",
+          "start": 0.85,
+          "end": 0.97
+        },
+        {
+          "text": "on?\"",
+          "start": 0.97,
+          "end": 1.41
+        },
+        {
+          "text": "asked",
+          "start": 1.41,
+          "end": 1.97
+        },
+        {
+          "text": "Biddy,",
+          "start": 1.97,
+          "end": 2.25
+        },
+        {
+          "text": "with",
+          "start": 2.25,
+          "end": 2.53
+        },
+        {
+          "text": "a",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "text": "steady",
+          "start": 2.63,
+          "end": 2.91
+        },
+        {
+          "text": "sort",
+          "start": 2.91,
+          "end": 3.13
+        },
+        {
+          "text": "of",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "text": "glance.",
+          "start": 3.27,
+          "end": 3.59
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2237481391057372
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "830290c97de6d6d88f8388452bd4c4953165faceecfc07d9bb6989888071e7a3",
+  "selected_reasons": []
+}

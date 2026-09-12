@@ -1,0 +1,292 @@
+{
+  "complete": true,
+  "signature": "eda4230a1337fa30ee2da9950f715b6ac3d0dd51b09378319c79400aa53273b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.13861954200547189,
+      "alignment_seconds": 0.00018181599443778396,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt, all but anabarbis and minas.",
+          "start": 0.05,
+          "end": 2.49,
+          "words": [
+            {
+              "text": " Exeunt,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.6109415690104166
+            },
+            {
+              "text": " all",
+              "start": 1.11,
+              "end": 1.19,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " but",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " anabarbis",
+              "start": 1.31,
+              "end": 1.91,
+              "probability": 0.31561279296875
+            },
+            {
+              "text": " and",
+              "start": 1.91,
+              "end": 2.07,
+              "probability": 0.822265625
+            },
+            {
+              "text": " minas.",
+              "start": 2.07,
+              "end": 2.49,
+              "probability": 0.78564453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "all",
+          "start": 1.11,
+          "end": 1.19
+        },
+        {
+          "raw": "but",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "anabarbis",
+          "start": 1.31,
+          "end": 1.91
+        },
+        {
+          "raw": "and",
+          "start": 1.91,
+          "end": 2.07
+        },
+        {
+          "raw": "minas.",
+          "start": 2.07,
+          "end": 2.49
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "all",
+        "but",
+        "Enobarbus",
+        "and",
+        "Menas._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.11,
+          "end": 1.19,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.19,
+          "end": 1.31,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "anabarbis",
+          "start": 1.31,
+          "end": 1.91,
+          "key": "anabarbis",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.91,
+          "end": 2.07,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "minas.",
+          "start": 2.07,
+          "end": 2.49,
+          "key": "minas",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "all",
+          "start": 1.11,
+          "end": 1.19
+        },
+        {
+          "text": "but",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "text": "Enobarbus",
+          "start": 1.31,
+          "end": 1.61
+        },
+        {
+          "text": "and",
+          "start": 1.91,
+          "end": 2.07
+        },
+        {
+          "text": "Menas._]",
+          "start": 2.07,
+          "end": 2.28
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1388606200052891
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "628e35511c63fd2cf01331020dbb06c66810dea690e213c6350e5b98922ce3a4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

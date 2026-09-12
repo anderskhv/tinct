@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "e82d9aa6948bd76e5189edc82291c47b9caa72f2dc29113d6ef7186129c113cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.219830222427845,
+      "alignment_seconds": 0.0003750808537006378,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassius, I do not think it good.",
+          "start": 0.49,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.49,
+              "end": 0.85,
+              "probability": 0.950439453125
+            },
+            {
+              "text": " I",
+              "start": 1.15,
+              "end": 1.33,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " do",
+              "start": 1.33,
+              "end": 1.43,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " think",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 1.73,
+              "end": 1.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " good.",
+              "start": 1.87,
+              "end": 2.07,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.49,
+          "end": 0.85
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "raw": "do",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "raw": "not",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "think",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "it",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "raw": "good.",
+          "start": 1.87,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "I",
+        "do",
+        "not",
+        "think",
+        "it",
+        "good."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.49,
+          "end": 0.85,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.33,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.33,
+          "end": 1.43,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.73,
+          "end": 1.87,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "good.",
+          "start": 1.87,
+          "end": 2.07,
+          "key": "good",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.49,
+          "end": 0.85
+        },
+        {
+          "text": "I",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "text": "do",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "text": "not",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "think",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "it",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "text": "good.",
+          "start": 1.87,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2203417932614684
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "88a52f58ae432b986e6e950f669744eca99b9e32fb46668e849c91c4e27746f7",
+  "selected_reasons": []
+}

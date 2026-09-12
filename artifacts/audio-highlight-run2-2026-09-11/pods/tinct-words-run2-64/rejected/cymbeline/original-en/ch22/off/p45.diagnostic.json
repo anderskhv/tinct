@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "140a3d111b2ce32c2e0f9820dfe7f6e04f52dd2de5495c3049e4cd4f1bdf15a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.27054949942976236,
+      "alignment_seconds": 0.0005532391369342804,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cloten, thou art a robber, a lawbreaker, a villain. Yield thee, thief.",
+          "start": 0.05,
+          "end": 4.11,
+          "words": [
+            {
+              "text": " Cloten,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.5607096354166666
+            },
+            {
+              "text": " thou",
+              "start": 1.23,
+              "end": 1.27,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " art",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.9453125
+            },
+            {
+              "text": " a",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " robber,",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 2.01,
+              "end": 2.03,
+              "probability": 0.970703125
+            },
+            {
+              "text": " lawbreaker,",
+              "start": 2.03,
+              "end": 2.37,
+              "probability": 0.867431640625
+            },
+            {
+              "text": " a",
+              "start": 2.61,
+              "end": 2.63,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " villain.",
+              "start": 2.63,
+              "end": 2.91,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Yield",
+              "start": 3.45,
+              "end": 3.59,
+              "probability": 0.963623046875
+            },
+            {
+              "text": " thee,",
+              "start": 3.59,
+              "end": 3.85,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " thief.",
+              "start": 3.91,
+              "end": 4.11,
+              "probability": 0.65625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cloten,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "thou",
+          "start": 1.23,
+          "end": 1.27
+        },
+        {
+          "raw": "art",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "a",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "robber,",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "a",
+          "start": 2.01,
+          "end": 2.03
+        },
+        {
+          "raw": "lawbreaker,",
+          "start": 2.03,
+          "end": 2.37
+        },
+        {
+          "raw": "a",
+          "start": 2.61,
+          "end": 2.63
+        },
+        {
+          "raw": "villain.",
+          "start": 2.63,
+          "end": 2.91
+        },
+        {
+          "raw": "Yield",
+          "start": 3.45,
+          "end": 3.59
+        },
+        {
+          "raw": "thee,",
+          "start": 3.59,
+          "end": 3.85
+        },
+        {
+          "raw": "thief.",
+          "start": 3.91,
+          "end": 4.11
+        }
+      ],
+      "expected_tokens": [
+        "Cloten.",
+        "Thou",
+        "art",
+        "a",
+        "robber,",
+        "A",
+        "law-breaker,",
+        "a",
+        "villain.",
+        "Yield",
+        "thee,",
+        "thief."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cloten,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "cloten",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.23,
+          "end": 1.27,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 1.27,
+          "end": 1.49,
+          "key": "art",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "robber,",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "robber",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.01,
+          "end": 2.03,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lawbreaker,",
+          "start": 2.03,
+          "end": 2.37,
+          "key": "lawbreaker",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.61,
+          "end": 2.63,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "villain.",
+          "start": 2.63,
+          "end": 2.91,
+          "key": "villain",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Yield",
+          "start": 3.45,
+          "end": 3.59,
+          "key": "yield",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 3.59,
+          "end": 3.85,
+          "key": "thee",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thief.",
+          "start": 3.91,
+          "end": 4.11,
+          "key": "thief",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cloten.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Thou",
+          "start": 1.23,
+          "end": 1.27
+        },
+        {
+          "text": "art",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "text": "a",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "robber,",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "A",
+          "start": 2.01,
+          "end": 2.03
+        },
+        {
+          "text": "law-breaker,",
+          "start": 2.03,
+          "end": 2.37
+        },
+        {
+          "text": "a",
+          "start": 2.61,
+          "end": 2.63
+        },
+        {
+          "text": "villain.",
+          "start": 2.63,
+          "end": 2.91
+        },
+        {
+          "text": "Yield",
+          "start": 3.45,
+          "end": 3.59
+        },
+        {
+          "text": "thee,",
+          "start": 3.59,
+          "end": 3.85
+        },
+        {
+          "text": "thief.",
+          "start": 3.91,
+          "end": 4.11
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27131867222487926
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "596e7815fbd26b8e30cff76b3e2700de06f0fa92ebc58f2a616421aa01569678",
+  "selected_reasons": []
+}

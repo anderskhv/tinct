@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "742c8c7c761f6a3406074195cd3f07fba05a26a185735bd04e4c3172aab9522f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1661053410207387,
+      "alignment_seconds": 0.0002628999936860055,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "No sign. Gone. What matter?",
+        "hotwords": "No, Gone, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No sign. Gone. What matter?",
+          "start": 0.05,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.8984375
+            },
+            {
+              "text": " sign.",
+              "start": 0.59,
+              "end": 0.93,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Gone.",
+              "start": 1.25,
+              "end": 1.49,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " What",
+              "start": 1.69,
+              "end": 1.75,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " matter?",
+              "start": 1.75,
+              "end": 2.03,
+              "probability": 0.96240234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "sign.",
+          "start": 0.59,
+          "end": 0.93
+        },
+        {
+          "raw": "Gone.",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "raw": "What",
+          "start": 1.69,
+          "end": 1.75
+        },
+        {
+          "raw": "matter?",
+          "start": 1.75,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "No",
+        "sign.",
+        "Gone.",
+        "What",
+        "matter?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sign.",
+          "start": 0.59,
+          "end": 0.93,
+          "key": "sign",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Gone.",
+          "start": 1.25,
+          "end": 1.49,
+          "key": "gone",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.69,
+          "end": 1.75,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "matter?",
+          "start": 1.75,
+          "end": 2.03,
+          "key": "matter",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "No",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "sign.",
+          "start": 0.59,
+          "end": 0.93
+        },
+        {
+          "text": "Gone.",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "text": "What",
+          "start": 1.69,
+          "end": 1.75
+        },
+        {
+          "text": "matter?",
+          "start": 1.75,
+          "end": 2.03
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1664696490042843
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4c72f25ac03d5b8bcff472ed49f13aa963a42bb39d0e0af6954c0a988a9cc78d",
+  "selected_reasons": []
+}

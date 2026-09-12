@@ -1,0 +1,773 @@
+{
+  "complete": true,
+  "signature": "da704e898d7795738de463f403df4c637c8aec10ca15aa404aa4d1386c1945ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.34289571829140186,
+      "alignment_seconds": 0.0007162299007177353,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Polonius. Hath there been such a time, I'd fain know that, That I have positively said ''Tis so,' When it prov'd otherwise?",
+        "hotwords": "Polonius, Hath, I'd, I, Tis, When"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Polonius, Hath there been such a time, I'd fain know that, That I have positively said",
+          "start": 0.52,
+          "end": 5.22,
+          "words": [
+            {
+              "text": " Polonius,",
+              "start": 0.52,
+              "end": 1.0,
+              "probability": 0.657958984375
+            },
+            {
+              "text": " Hath",
+              "start": 1.66,
+              "end": 1.74,
+              "probability": 0.041473388671875
+            },
+            {
+              "text": " there",
+              "start": 1.74,
+              "end": 1.92,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " been",
+              "start": 1.92,
+              "end": 2.04,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " such",
+              "start": 2.04,
+              "end": 2.26,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " a",
+              "start": 2.26,
+              "end": 2.42,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " time,",
+              "start": 2.42,
+              "end": 2.7,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " I'd",
+              "start": 2.94,
+              "end": 3.08,
+              "probability": 0.892578125
+            },
+            {
+              "text": " fain",
+              "start": 3.08,
+              "end": 3.34,
+              "probability": 0.828369140625
+            },
+            {
+              "text": " know",
+              "start": 3.34,
+              "end": 3.54,
+              "probability": 0.978515625
+            },
+            {
+              "text": " that,",
+              "start": 3.54,
+              "end": 3.78,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " That",
+              "start": 4.02,
+              "end": 4.12,
+              "probability": 0.53466796875
+            },
+            {
+              "text": " I",
+              "start": 4.12,
+              "end": 4.22,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " have",
+              "start": 4.22,
+              "end": 4.36,
+              "probability": 0.9765625
+            },
+            {
+              "text": " positively",
+              "start": 4.36,
+              "end": 4.82,
+              "probability": 0.984375
+            },
+            {
+              "text": " said",
+              "start": 4.82,
+              "end": 5.22,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " Tis so, When it prov'd otherwise?",
+          "start": 5.22,
+          "end": 7.46,
+          "words": [
+            {
+              "text": " Tis",
+              "start": 5.22,
+              "end": 5.7,
+              "probability": 0.0233154296875
+            },
+            {
+              "text": " so,",
+              "start": 5.7,
+              "end": 6.02,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " When",
+              "start": 6.48,
+              "end": 6.58,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " it",
+              "start": 6.58,
+              "end": 6.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " prov'd",
+              "start": 6.7,
+              "end": 7.1,
+              "probability": 0.481109619140625
+            },
+            {
+              "text": " otherwise?",
+              "start": 7.1,
+              "end": 7.46,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polonius,",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "raw": "Hath",
+          "start": 1.66,
+          "end": 1.74
+        },
+        {
+          "raw": "there",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "raw": "been",
+          "start": 1.92,
+          "end": 2.04
+        },
+        {
+          "raw": "such",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "raw": "a",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "raw": "time,",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "raw": "I'd",
+          "start": 2.94,
+          "end": 3.08
+        },
+        {
+          "raw": "fain",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "raw": "know",
+          "start": 3.34,
+          "end": 3.54
+        },
+        {
+          "raw": "that,",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "raw": "That",
+          "start": 4.02,
+          "end": 4.12
+        },
+        {
+          "raw": "I",
+          "start": 4.12,
+          "end": 4.22
+        },
+        {
+          "raw": "have",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "raw": "positively",
+          "start": 4.36,
+          "end": 4.82
+        },
+        {
+          "raw": "said",
+          "start": 4.82,
+          "end": 5.22
+        },
+        {
+          "raw": "Tis",
+          "start": 5.22,
+          "end": 5.7
+        },
+        {
+          "raw": "so,",
+          "start": 5.7,
+          "end": 6.02
+        },
+        {
+          "raw": "When",
+          "start": 6.48,
+          "end": 6.58
+        },
+        {
+          "raw": "it",
+          "start": 6.58,
+          "end": 6.7
+        },
+        {
+          "raw": "prov'd",
+          "start": 6.7,
+          "end": 7.1
+        },
+        {
+          "raw": "otherwise?",
+          "start": 7.1,
+          "end": 7.46
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "Hath",
+        "there",
+        "been",
+        "such",
+        "a",
+        "time,",
+        "I'd",
+        "fain",
+        "know",
+        "that,",
+        "That",
+        "I",
+        "have",
+        "positively",
+        "said",
+        "''Tis",
+        "so,'",
+        "When",
+        "it",
+        "prov'd",
+        "otherwise?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polonius,",
+          "start": 0.52,
+          "end": 1.0,
+          "key": "polonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hath",
+          "start": 1.66,
+          "end": 1.74,
+          "key": "hath",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.74,
+          "end": 1.92,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.92,
+          "end": 2.04,
+          "key": "been",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 2.04,
+          "end": 2.26,
+          "key": "such",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.26,
+          "end": 2.42,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "time,",
+          "start": 2.42,
+          "end": 2.7,
+          "key": "time",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I'd",
+          "start": 2.94,
+          "end": 3.08,
+          "key": "id",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fain",
+          "start": 3.08,
+          "end": 3.34,
+          "key": "fain",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 3.34,
+          "end": 3.54,
+          "key": "know",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 3.54,
+          "end": 3.78,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 4.02,
+          "end": 4.12,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.12,
+          "end": 4.22,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.22,
+          "end": 4.36,
+          "key": "have",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "positively",
+          "start": 4.36,
+          "end": 4.82,
+          "key": "positively",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 4.82,
+          "end": 5.22,
+          "key": "said",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 5.22,
+          "end": 5.7,
+          "key": "tis",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 5.7,
+          "end": 6.02,
+          "key": "so",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 6.48,
+          "end": 6.58,
+          "key": "when",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.58,
+          "end": 6.7,
+          "key": "it",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "prov'd",
+          "start": 6.7,
+          "end": 7.1,
+          "key": "provd",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "otherwise?",
+          "start": 7.1,
+          "end": 7.46,
+          "key": "otherwise",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "text": "Hath",
+          "start": 1.66,
+          "end": 1.74
+        },
+        {
+          "text": "there",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "text": "been",
+          "start": 1.92,
+          "end": 2.04
+        },
+        {
+          "text": "such",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "text": "a",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "text": "time,",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "text": "I'd",
+          "start": 2.94,
+          "end": 3.08
+        },
+        {
+          "text": "fain",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "text": "know",
+          "start": 3.34,
+          "end": 3.54
+        },
+        {
+          "text": "that,",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "text": "That",
+          "start": 4.02,
+          "end": 4.12
+        },
+        {
+          "text": "I",
+          "start": 4.12,
+          "end": 4.22
+        },
+        {
+          "text": "have",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "text": "positively",
+          "start": 4.36,
+          "end": 4.82
+        },
+        {
+          "text": "said",
+          "start": 4.82,
+          "end": 5.22
+        },
+        {
+          "text": "''Tis",
+          "start": 5.22,
+          "end": 5.7
+        },
+        {
+          "text": "so,'",
+          "start": 5.7,
+          "end": 6.02
+        },
+        {
+          "text": "When",
+          "start": 6.48,
+          "end": 6.58
+        },
+        {
+          "text": "it",
+          "start": 6.58,
+          "end": 6.7
+        },
+        {
+          "text": "prov'd",
+          "start": 6.7,
+          "end": 7.1
+        },
+        {
+          "text": "otherwise?",
+          "start": 7.1,
+          "end": 7.46
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.34389848448336124
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eb2a30d0132889db6b08babf982592ca9d169b492675e5c3871f0ccc166907f8",
+  "selected_reasons": []
+}

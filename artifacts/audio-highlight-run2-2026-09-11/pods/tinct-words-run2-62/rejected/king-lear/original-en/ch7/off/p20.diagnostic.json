@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "6c0e4cb204b6e34a007b7c3264735ca2511d3d7ece29c896f7ccc518e6ce643c",
+  "attempts": [
+    {
+      "asr_seconds": 0.06132826209068298,
+      "alignment_seconds": 7.551908493041992e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " beating him",
+          "start": 0.05,
+          "end": 0.91,
+          "words": [
+            {
+              "text": " beating",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.837890625
+            },
+            {
+              "text": " him",
+              "start": 0.61,
+              "end": 0.91,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "beating",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "him",
+          "start": 0.61,
+          "end": 0.91
+        }
+      ],
+      "expected_tokens": [
+        "[_Beating",
+        "him._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "beating",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "beating",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.61,
+          "end": 0.91,
+          "key": "him",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Beating",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "him._]",
+          "start": 0.61,
+          "end": 0.91
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.061427295207977295
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6bbb7d9d863077c7bbe46423a606e5bff1d9bc4ceb3d3d82edab18aba83a15f4",
+  "selected_reasons": []
+}

@@ -1,0 +1,572 @@
+{
+  "complete": true,
+  "signature": "4c2c0fcec06f8db963f2cbc3f51de6e05b11d15989566e1ae6b225bd4b7250d7",
+  "attempts": [
+    {
+      "asr_seconds": 0.35955125093460083,
+      "alignment_seconds": 0.000652167946100235,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kent, no, sir, but you have that in your countenance which I would fain call master.",
+          "start": 0.05,
+          "end": 4.93,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.7216796875
+            },
+            {
+              "text": " no,",
+              "start": 0.99,
+              "end": 1.29,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " sir,",
+              "start": 1.43,
+              "end": 1.59,
+              "probability": 0.951171875
+            },
+            {
+              "text": " but",
+              "start": 2.05,
+              "end": 2.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 2.21,
+              "end": 2.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have",
+              "start": 2.33,
+              "end": 2.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 2.51,
+              "end": 2.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " your",
+              "start": 2.85,
+              "end": 2.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " countenance",
+              "start": 2.99,
+              "end": 3.47,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " which",
+              "start": 3.47,
+              "end": 3.67,
+              "probability": 0.865234375
+            },
+            {
+              "text": " I",
+              "start": 3.67,
+              "end": 3.85,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " would",
+              "start": 3.85,
+              "end": 3.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " fain",
+              "start": 3.97,
+              "end": 4.29,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " call",
+              "start": 4.29,
+              "end": 4.53,
+              "probability": 0.98828125
+            },
+            {
+              "text": " master.",
+              "start": 4.53,
+              "end": 4.93,
+              "probability": 0.8681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "no,",
+          "start": 0.99,
+          "end": 1.29
+        },
+        {
+          "raw": "sir,",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "raw": "but",
+          "start": 2.05,
+          "end": 2.21
+        },
+        {
+          "raw": "you",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "raw": "have",
+          "start": 2.33,
+          "end": 2.51
+        },
+        {
+          "raw": "that",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "raw": "in",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "your",
+          "start": 2.85,
+          "end": 2.99
+        },
+        {
+          "raw": "countenance",
+          "start": 2.99,
+          "end": 3.47
+        },
+        {
+          "raw": "which",
+          "start": 3.47,
+          "end": 3.67
+        },
+        {
+          "raw": "I",
+          "start": 3.67,
+          "end": 3.85
+        },
+        {
+          "raw": "would",
+          "start": 3.85,
+          "end": 3.97
+        },
+        {
+          "raw": "fain",
+          "start": 3.97,
+          "end": 4.29
+        },
+        {
+          "raw": "call",
+          "start": 4.29,
+          "end": 4.53
+        },
+        {
+          "raw": "master.",
+          "start": 4.53,
+          "end": 4.93
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "No,",
+        "sir;",
+        "but",
+        "you",
+        "have",
+        "that",
+        "in",
+        "your",
+        "countenance",
+        "which",
+        "I",
+        "would",
+        "fain",
+        "call",
+        "master."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 0.99,
+          "end": 1.29,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.43,
+          "end": 1.59,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.05,
+          "end": 2.21,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.21,
+          "end": 2.33,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.33,
+          "end": 2.51,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.51,
+          "end": 2.73,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.73,
+          "end": 2.85,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.85,
+          "end": 2.99,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "countenance",
+          "start": 2.99,
+          "end": 3.47,
+          "key": "countenance",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.47,
+          "end": 3.67,
+          "key": "which",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.67,
+          "end": 3.85,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 3.85,
+          "end": 3.97,
+          "key": "would",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fain",
+          "start": 3.97,
+          "end": 4.29,
+          "key": "fain",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 4.29,
+          "end": 4.53,
+          "key": "call",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "master.",
+          "start": 4.53,
+          "end": 4.93,
+          "key": "master",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "No,",
+          "start": 0.99,
+          "end": 1.29
+        },
+        {
+          "text": "sir;",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "text": "but",
+          "start": 2.05,
+          "end": 2.21
+        },
+        {
+          "text": "you",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "text": "have",
+          "start": 2.33,
+          "end": 2.51
+        },
+        {
+          "text": "that",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "text": "in",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "your",
+          "start": 2.85,
+          "end": 2.99
+        },
+        {
+          "text": "countenance",
+          "start": 2.99,
+          "end": 3.47
+        },
+        {
+          "text": "which",
+          "start": 3.47,
+          "end": 3.67
+        },
+        {
+          "text": "I",
+          "start": 3.67,
+          "end": 3.85
+        },
+        {
+          "text": "would",
+          "start": 3.85,
+          "end": 3.97
+        },
+        {
+          "text": "fain",
+          "start": 3.97,
+          "end": 4.29
+        },
+        {
+          "text": "call",
+          "start": 4.29,
+          "end": 4.53
+        },
+        {
+          "text": "master.",
+          "start": 4.53,
+          "end": 4.93
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36048053950071335
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cf3e71e101d309306ae28119d15b61379650a2bbc522a9c995987129156fcc40",
+  "selected_reasons": []
+}

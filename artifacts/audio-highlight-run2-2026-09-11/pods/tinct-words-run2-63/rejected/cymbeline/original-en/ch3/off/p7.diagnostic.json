@@ -1,0 +1,543 @@
+{
+  "complete": true,
+  "signature": "4fd14f068c521f6d137e18724f1861a33e74310d1950edcb3b95785bb9718b52",
+  "attempts": [
+    {
+      "asr_seconds": 0.2493557184934616,
+      "alignment_seconds": 0.0006590317934751511,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aside, his deal was in debt. It went O.T.H. backside the town.",
+          "start": 0.18,
+          "end": 4.44,
+          "words": [
+            {
+              "text": " Aside,",
+              "start": 0.18,
+              "end": 0.8,
+              "probability": 0.69970703125
+            },
+            {
+              "text": " his",
+              "start": 1.42,
+              "end": 1.5,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " deal",
+              "start": 1.5,
+              "end": 1.72,
+              "probability": 0.517578125
+            },
+            {
+              "text": " was",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 1.9,
+              "end": 2.02,
+              "probability": 0.9921875
+            },
+            {
+              "text": " debt.",
+              "start": 2.02,
+              "end": 2.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " It",
+              "start": 2.58,
+              "end": 2.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " went",
+              "start": 2.64,
+              "end": 2.76,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " O",
+              "start": 2.76,
+              "end": 2.96,
+              "probability": 0.86962890625
+            },
+            {
+              "text": ".T",
+              "start": 2.96,
+              "end": 3.18,
+              "probability": 0.58135986328125
+            },
+            {
+              "text": ".H.",
+              "start": 3.18,
+              "end": 3.52,
+              "probability": 0.990234375
+            },
+            {
+              "text": " backside",
+              "start": 3.72,
+              "end": 4.0,
+              "probability": 0.758544921875
+            },
+            {
+              "text": " the",
+              "start": 4.0,
+              "end": 4.14,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " town.",
+              "start": 4.14,
+              "end": 4.44,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside,",
+          "start": 0.18,
+          "end": 0.8
+        },
+        {
+          "raw": "his",
+          "start": 1.42,
+          "end": 1.5
+        },
+        {
+          "raw": "deal",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "raw": "was",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "raw": "in",
+          "start": 1.9,
+          "end": 2.02
+        },
+        {
+          "raw": "debt.",
+          "start": 2.02,
+          "end": 2.28
+        },
+        {
+          "raw": "It",
+          "start": 2.58,
+          "end": 2.64
+        },
+        {
+          "raw": "went",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "raw": "O",
+          "start": 2.76,
+          "end": 2.96
+        },
+        {
+          "raw": ".T",
+          "start": 2.96,
+          "end": 3.18
+        },
+        {
+          "raw": ".H.",
+          "start": 3.18,
+          "end": 3.52
+        },
+        {
+          "raw": "backside",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "raw": "the",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "raw": "town.",
+          "start": 4.14,
+          "end": 4.44
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside._]",
+        "His",
+        "steel",
+        "was",
+        "in",
+        "debt;",
+        "it",
+        "went",
+        "o'",
+        "th'",
+        "backside",
+        "the",
+        "town."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          9,
+          3,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          13,
+          11,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside,",
+          "start": 0.18,
+          "end": 0.8,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.42,
+          "end": 1.5,
+          "key": "his",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "deal",
+          "start": 1.5,
+          "end": 1.72,
+          "key": "deal",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.72,
+          "end": 1.9,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.9,
+          "end": 2.02,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "debt.",
+          "start": 2.02,
+          "end": 2.28,
+          "key": "debt",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 2.58,
+          "end": 2.64,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 2.64,
+          "end": 2.76,
+          "key": "went",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 2.76,
+          "end": 2.96,
+          "key": "o",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": ".T",
+          "start": 2.96,
+          "end": 3.18,
+          "key": "t",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": ".H.",
+          "start": 3.18,
+          "end": 3.52,
+          "key": "h",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "backside",
+          "start": 3.72,
+          "end": 4.0,
+          "key": "backside",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.0,
+          "end": 4.14,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "town.",
+          "start": 4.14,
+          "end": 4.44,
+          "key": "town",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside._]",
+          "start": 0.18,
+          "end": 0.8
+        },
+        {
+          "text": "His",
+          "start": 1.42,
+          "end": 1.5
+        },
+        {
+          "text": "steel",
+          "start": 1.5,
+          "end": 1.61
+        },
+        {
+          "text": "was",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "in",
+          "start": 1.9,
+          "end": 2.02
+        },
+        {
+          "text": "debt;",
+          "start": 2.02,
+          "end": 2.28
+        },
+        {
+          "text": "it",
+          "start": 2.58,
+          "end": 2.64
+        },
+        {
+          "text": "went",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "text": "o'",
+          "start": 2.76,
+          "end": 2.96
+        },
+        {
+          "text": "th'",
+          "start": 2.96,
+          "end": 3.34
+        },
+        {
+          "text": "backside",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "text": "the",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "text": "town.",
+          "start": 4.14,
+          "end": 4.44
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2502720057964325
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e65c2dba3970af1a3b4bdad170fc9ca57dc86cf93897babb1f492d8358710366",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

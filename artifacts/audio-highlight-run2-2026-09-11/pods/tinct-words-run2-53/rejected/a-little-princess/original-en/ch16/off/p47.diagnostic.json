@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "4086d0c62b984d0ed7fed458440fcde437d267bbd459f37028fc1a93ca476add",
+  "attempts": [
+    {
+      "asr_seconds": 0.3213632709812373,
+      "alignment_seconds": 0.0007731248624622822,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " On this night, Becky sat on a cushion upon the hearth rug and had a cup and saucer of her own.",
+          "start": 0.08,
+          "end": 5.58,
+          "words": [
+            {
+              "text": " On",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " this",
+              "start": 0.54,
+              "end": 0.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " night,",
+              "start": 0.76,
+              "end": 1.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Becky",
+              "start": 1.54,
+              "end": 1.6,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " sat",
+              "start": 1.6,
+              "end": 1.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " on",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 2.06,
+              "end": 2.18,
+              "probability": 0.990234375
+            },
+            {
+              "text": " cushion",
+              "start": 2.18,
+              "end": 2.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " upon",
+              "start": 2.46,
+              "end": 2.76,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " the",
+              "start": 2.76,
+              "end": 2.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hearth",
+              "start": 2.94,
+              "end": 3.2,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " rug",
+              "start": 3.2,
+              "end": 3.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 3.54,
+              "end": 4.04,
+              "probability": 0.791015625
+            },
+            {
+              "text": " had",
+              "start": 4.04,
+              "end": 4.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 4.16,
+              "end": 4.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " cup",
+              "start": 4.3,
+              "end": 4.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 4.44,
+              "end": 4.64,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " saucer",
+              "start": 4.64,
+              "end": 5.02,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " of",
+              "start": 5.02,
+              "end": 5.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her",
+              "start": 5.18,
+              "end": 5.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " own.",
+              "start": 5.3,
+              "end": 5.58,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "On",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "this",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "raw": "night,",
+          "start": 0.76,
+          "end": 1.14
+        },
+        {
+          "raw": "Becky",
+          "start": 1.54,
+          "end": 1.6
+        },
+        {
+          "raw": "sat",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "raw": "on",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "a",
+          "start": 2.06,
+          "end": 2.18
+        },
+        {
+          "raw": "cushion",
+          "start": 2.18,
+          "end": 2.46
+        },
+        {
+          "raw": "upon",
+          "start": 2.46,
+          "end": 2.76
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "raw": "hearth",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "raw": "rug",
+          "start": 3.2,
+          "end": 3.54
+        },
+        {
+          "raw": "and",
+          "start": 3.54,
+          "end": 4.04
+        },
+        {
+          "raw": "had",
+          "start": 4.04,
+          "end": 4.16
+        },
+        {
+          "raw": "a",
+          "start": 4.16,
+          "end": 4.3
+        },
+        {
+          "raw": "cup",
+          "start": 4.3,
+          "end": 4.44
+        },
+        {
+          "raw": "and",
+          "start": 4.44,
+          "end": 4.64
+        },
+        {
+          "raw": "saucer",
+          "start": 4.64,
+          "end": 5.02
+        },
+        {
+          "raw": "of",
+          "start": 5.02,
+          "end": 5.18
+        },
+        {
+          "raw": "her",
+          "start": 5.18,
+          "end": 5.3
+        },
+        {
+          "raw": "own.",
+          "start": 5.3,
+          "end": 5.58
+        }
+      ],
+      "expected_tokens": [
+        "On",
+        "this",
+        "night",
+        "Becky",
+        "sat",
+        "on",
+        "a",
+        "cushion",
+        "upon",
+        "the",
+        "hearth",
+        "rug",
+        "and",
+        "had",
+        "a",
+        "cup",
+        "and",
+        "saucer",
+        "of",
+        "her",
+        "own."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "On",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "on",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.54,
+          "end": 0.76,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "night,",
+          "start": 0.76,
+          "end": 1.14,
+          "key": "night",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Becky",
+          "start": 1.54,
+          "end": 1.6,
+          "key": "becky",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 1.6,
+          "end": 1.9,
+          "key": "sat",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.9,
+          "end": 2.06,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.06,
+          "end": 2.18,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cushion",
+          "start": 2.18,
+          "end": 2.46,
+          "key": "cushion",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.46,
+          "end": 2.76,
+          "key": "upon",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.94,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hearth",
+          "start": 2.94,
+          "end": 3.2,
+          "key": "hearth",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "rug",
+          "start": 3.2,
+          "end": 3.54,
+          "key": "rug",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.54,
+          "end": 4.04,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.04,
+          "end": 4.16,
+          "key": "had",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.16,
+          "end": 4.3,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "cup",
+          "start": 4.3,
+          "end": 4.44,
+          "key": "cup",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.44,
+          "end": 4.64,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "saucer",
+          "start": 4.64,
+          "end": 5.02,
+          "key": "saucer",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.02,
+          "end": 5.18,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 5.18,
+          "end": 5.3,
+          "key": "her",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "own.",
+          "start": 5.3,
+          "end": 5.58,
+          "key": "own",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "On",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "this",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "text": "night",
+          "start": 0.76,
+          "end": 1.14
+        },
+        {
+          "text": "Becky",
+          "start": 1.54,
+          "end": 1.6
+        },
+        {
+          "text": "sat",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "text": "on",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "text": "a",
+          "start": 2.06,
+          "end": 2.18
+        },
+        {
+          "text": "cushion",
+          "start": 2.18,
+          "end": 2.46
+        },
+        {
+          "text": "upon",
+          "start": 2.46,
+          "end": 2.76
+        },
+        {
+          "text": "the",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "text": "hearth",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "text": "rug",
+          "start": 3.2,
+          "end": 3.54
+        },
+        {
+          "text": "and",
+          "start": 3.54,
+          "end": 4.04
+        },
+        {
+          "text": "had",
+          "start": 4.04,
+          "end": 4.16
+        },
+        {
+          "text": "a",
+          "start": 4.16,
+          "end": 4.3
+        },
+        {
+          "text": "cup",
+          "start": 4.3,
+          "end": 4.44
+        },
+        {
+          "text": "and",
+          "start": 4.44,
+          "end": 4.64
+        },
+        {
+          "text": "saucer",
+          "start": 4.64,
+          "end": 5.02
+        },
+        {
+          "text": "of",
+          "start": 5.02,
+          "end": 5.18
+        },
+        {
+          "text": "her",
+          "start": 5.18,
+          "end": 5.3
+        },
+        {
+          "text": "own.",
+          "start": 5.3,
+          "end": 5.58
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3224770550150424
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b221e27826881f3396e5eb0772d95b4aedaf6c63332be4c7708337c9a9331a23",
+  "selected_reasons": []
+}

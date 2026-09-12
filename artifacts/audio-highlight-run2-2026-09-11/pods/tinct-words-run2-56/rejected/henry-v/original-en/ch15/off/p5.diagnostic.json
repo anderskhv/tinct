@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "66085c0c0016b60d373b7adaaec1e586ebf644c6f84e05e3a9f425eec15949ee",
+  "attempts": [
+    {
+      "asr_seconds": 0.23751861974596977,
+      "alignment_seconds": 0.00043284520506858826,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Orleans, Reem-Pewies, Al-Eret-Phew",
+          "start": 0.14,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " Orleans,",
+              "start": 0.14,
+              "end": 0.84,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " Reem",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.2474365234375
+            },
+            {
+              "text": "-Pewies,",
+              "start": 1.34,
+              "end": 1.76,
+              "probability": 0.58209228515625
+            },
+            {
+              "text": " Al",
+              "start": 2.2,
+              "end": 2.24,
+              "probability": 0.469482421875
+            },
+            {
+              "text": "-Eret",
+              "start": 2.24,
+              "end": 2.48,
+              "probability": 0.5440266927083334
+            },
+            {
+              "text": "-Phew",
+              "start": 2.48,
+              "end": 2.8,
+              "probability": 0.4713541666666667
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Orleans,",
+          "start": 0.14,
+          "end": 0.84
+        },
+        {
+          "raw": "Reem",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "-Pewies,",
+          "start": 1.34,
+          "end": 1.76
+        },
+        {
+          "raw": "Al",
+          "start": 2.2,
+          "end": 2.24
+        },
+        {
+          "raw": "-Eret",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "raw": "-Phew",
+          "start": 2.48,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "Orleans.",
+        "_Rien",
+        "puis?",
+        "L'air",
+        "et",
+        "feu?_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Orleans,",
+          "start": 0.14,
+          "end": 0.84,
+          "key": "orleans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Reem",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "reem",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "-Pewies,",
+          "start": 1.34,
+          "end": 1.76,
+          "key": "pewies",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Al",
+          "start": 2.2,
+          "end": 2.24,
+          "key": "al",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "-Eret",
+          "start": 2.24,
+          "end": 2.48,
+          "key": "eret",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "-Phew",
+          "start": 2.48,
+          "end": 2.8,
+          "key": "phew",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Orleans.",
+          "start": 0.14,
+          "end": 0.84
+        },
+        {
+          "text": "_Rien",
+          "start": 0.84,
+          "end": 1.82
+        },
+        {
+          "text": "puis?",
+          "start": 1.82,
+          "end": 2.31
+        },
+        {
+          "text": "L'air",
+          "start": 2.31,
+          "end": 2.555
+        },
+        {
+          "text": "et",
+          "start": 2.555,
+          "end": 2.678
+        },
+        {
+          "text": "feu?_",
+          "start": 2.678,
+          "end": 2.739
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 1
+      },
+      "match_ratio": 0.16666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23809069115668535
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "81fe3a631e70b30cc84f2d2d6c250a5482b4400a417cfa0be6fe6dca5f126c54",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

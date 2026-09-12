@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "7fbbc63ac744daa73f871c27f162a26dc7e1ac2f4bbbabf0b2ee4e22e9c3ffbb",
+  "attempts": [
+    {
+      "asr_seconds": 0.16688614338636398,
+      "alignment_seconds": 0.00039204396307468414,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Romeo, neither fair maid if either they dislike.",
+          "start": 0.05,
+          "end": 3.07,
+          "words": [
+            {
+              "text": " Romeo,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " neither",
+              "start": 1.53,
+              "end": 1.57,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " fair",
+              "start": 1.57,
+              "end": 1.97,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " maid",
+              "start": 1.97,
+              "end": 2.27,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " if",
+              "start": 2.27,
+              "end": 2.47,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " either",
+              "start": 2.47,
+              "end": 2.61,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " they",
+              "start": 2.61,
+              "end": 2.73,
+              "probability": 0.57470703125
+            },
+            {
+              "text": " dislike.",
+              "start": 2.73,
+              "end": 3.07,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Romeo,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "neither",
+          "start": 1.53,
+          "end": 1.57
+        },
+        {
+          "raw": "fair",
+          "start": 1.57,
+          "end": 1.97
+        },
+        {
+          "raw": "maid",
+          "start": 1.97,
+          "end": 2.27
+        },
+        {
+          "raw": "if",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "raw": "either",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "raw": "they",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "raw": "dislike.",
+          "start": 2.73,
+          "end": 3.07
+        }
+      ],
+      "expected_tokens": [
+        "Romeo.",
+        "Neither,",
+        "fair",
+        "maid,",
+        "if",
+        "either",
+        "thee",
+        "dislike."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Romeo,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "romeo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "neither",
+          "start": 1.53,
+          "end": 1.57,
+          "key": "neither",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 1.57,
+          "end": 1.97,
+          "key": "fair",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "maid",
+          "start": 1.97,
+          "end": 2.27,
+          "key": "maid",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.27,
+          "end": 2.47,
+          "key": "if",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "either",
+          "start": 2.47,
+          "end": 2.61,
+          "key": "either",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 2.61,
+          "end": 2.73,
+          "key": "they",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dislike.",
+          "start": 2.73,
+          "end": 3.07,
+          "key": "dislike",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Romeo.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Neither,",
+          "start": 1.53,
+          "end": 1.57
+        },
+        {
+          "text": "fair",
+          "start": 1.57,
+          "end": 1.97
+        },
+        {
+          "text": "maid,",
+          "start": 1.97,
+          "end": 2.27
+        },
+        {
+          "text": "if",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "text": "either",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "text": "thee",
+          "start": 2.61,
+          "end": 2.67
+        },
+        {
+          "text": "dislike.",
+          "start": 2.73,
+          "end": 3.07
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.16739261336624622
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ef95d4fdd23af8d2cda504bb846f95c73d01b22653c656aed4efde11baf5faaf",
+  "selected_reasons": []
+}

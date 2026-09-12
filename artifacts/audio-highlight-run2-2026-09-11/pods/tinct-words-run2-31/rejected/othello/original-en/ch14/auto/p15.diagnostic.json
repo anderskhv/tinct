@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "7f40aab5fdd2a34ec193f04c22f9a39c5095c7a6d8d15de524fa0525226e807e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1784897092729807,
+      "alignment_seconds": 0.0002985759638249874,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. I am maim'd forever. Help, ho! murder, murder!",
+        "hotwords": "Cassio, I, Help"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio, I am maim'd forever. Help, ho! murder, murder!",
+          "start": 0.47,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.47,
+              "end": 0.87,
+              "probability": 0.6639404296875
+            },
+            {
+              "text": " I",
+              "start": 1.07,
+              "end": 1.11,
+              "probability": 0.9921875
+            },
+            {
+              "text": " am",
+              "start": 1.11,
+              "end": 1.23,
+              "probability": 0.1783447265625
+            },
+            {
+              "text": " maim'd",
+              "start": 1.23,
+              "end": 1.51,
+              "probability": 0.475469430287679
+            },
+            {
+              "text": " forever.",
+              "start": 1.51,
+              "end": 1.77,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Help,",
+              "start": 2.39,
+              "end": 2.51,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " ho!",
+              "start": 2.69,
+              "end": 2.79,
+              "probability": 0.38623046875
+            },
+            {
+              "text": " murder,",
+              "start": 3.11,
+              "end": 3.23,
+              "probability": 0.05767822265625
+            },
+            {
+              "text": " murder!",
+              "start": 3.43,
+              "end": 3.55,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.47,
+          "end": 0.87
+        },
+        {
+          "raw": "I",
+          "start": 1.07,
+          "end": 1.11
+        },
+        {
+          "raw": "am",
+          "start": 1.11,
+          "end": 1.23
+        },
+        {
+          "raw": "maim'd",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "raw": "forever.",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "raw": "Help,",
+          "start": 2.39,
+          "end": 2.51
+        },
+        {
+          "raw": "ho!",
+          "start": 2.69,
+          "end": 2.79
+        },
+        {
+          "raw": "murder,",
+          "start": 3.11,
+          "end": 3.23
+        },
+        {
+          "raw": "murder!",
+          "start": 3.43,
+          "end": 3.55
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "I",
+        "am",
+        "maim'd",
+        "forever.",
+        "Help,",
+        "ho!",
+        "murder,",
+        "murder!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.47,
+          "end": 0.87,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.07,
+          "end": 1.11,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.11,
+          "end": 1.23,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "maim'd",
+          "start": 1.23,
+          "end": 1.51,
+          "key": "maimd",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "forever.",
+          "start": 1.51,
+          "end": 1.77,
+          "key": "forever",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Help,",
+          "start": 2.39,
+          "end": 2.51,
+          "key": "help",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ho!",
+          "start": 2.69,
+          "end": 2.79,
+          "key": "ho",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "murder,",
+          "start": 3.11,
+          "end": 3.23,
+          "key": "murder",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "murder!",
+          "start": 3.43,
+          "end": 3.55,
+          "key": "murder",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.47,
+          "end": 0.87
+        },
+        {
+          "text": "I",
+          "start": 1.07,
+          "end": 1.11
+        },
+        {
+          "text": "am",
+          "start": 1.11,
+          "end": 1.23
+        },
+        {
+          "text": "maim'd",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "text": "forever.",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "text": "Help,",
+          "start": 2.39,
+          "end": 2.51
+        },
+        {
+          "text": "ho!",
+          "start": 2.69,
+          "end": 2.79
+        },
+        {
+          "text": "murder,",
+          "start": 3.11,
+          "end": 3.23
+        },
+        {
+          "text": "murder!",
+          "start": 3.43,
+          "end": 3.55
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17891407432034612
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b868a9496b3499234c3e04d314065984886c22c690cff17823cd4b20941948da",
+  "selected_reasons": []
+}

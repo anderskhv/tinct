@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "2197292783ab29208012e729b4f777d52aa742a0474e5773e616234f533fd319",
+  "attempts": [
+    {
+      "asr_seconds": 0.10649735806509852,
+      "alignment_seconds": 0.00026029907166957855,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Is she dead, Jo?",
+          "start": 0.02,
+          "end": 1.16,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " she",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " dead,",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Jo?",
+              "start": 1.16,
+              "end": 1.16,
+              "probability": 0.56201171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "she",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "dead,",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "Jo?",
+          "start": 1.16,
+          "end": 1.16
+        }
+      ],
+      "expected_tokens": [
+        "\"Is",
+        "she",
+        "dead,",
+        "Joe?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Is",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "is",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 0.7,
+          "end": 0.94,
+          "key": "dead",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Jo?",
+          "start": 1.16,
+          "end": 1.16,
+          "key": "jo",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Is",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "she",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "dead,",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "text": "Joe?\"",
+          "start": 0.94,
+          "end": 1.05
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10684385290369391
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8152c3a6748407179237c4f7247c8ddf1ba55dea5caf2ee91fb40ae3de4c24f5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

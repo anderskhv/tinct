@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "e2ac0195f854a0484b910e9118fa81fa5f158bda84b86b32bd1ae251c9c5623b",
+  "attempts": [
+    {
+      "asr_seconds": 0.16251853108406067,
+      "alignment_seconds": 0.00037076883018016815,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. Or like a whale.",
+        "hotwords": "Hamlet, Or"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, Or like a whale.",
+          "start": 0.08,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.91015625
+            },
+            {
+              "text": " Or",
+              "start": 1.08,
+              "end": 1.14,
+              "probability": 0.00311279296875
+            },
+            {
+              "text": " like",
+              "start": 1.14,
+              "end": 1.28,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " a",
+              "start": 1.28,
+              "end": 1.38,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " whale.",
+              "start": 1.38,
+              "end": 1.62,
+              "probability": 0.76806640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "Or",
+          "start": 1.08,
+          "end": 1.14
+        },
+        {
+          "raw": "like",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "raw": "a",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "raw": "whale.",
+          "start": 1.38,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Or",
+        "like",
+        "a",
+        "whale."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 1.08,
+          "end": 1.14,
+          "key": "or",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.14,
+          "end": 1.28,
+          "key": "like",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.28,
+          "end": 1.38,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "whale.",
+          "start": 1.38,
+          "end": 1.62,
+          "key": "whale",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "Or",
+          "start": 1.08,
+          "end": 1.14
+        },
+        {
+          "text": "like",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "text": "a",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "text": "whale.",
+          "start": 1.38,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16302978433668613
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a6062feeae4633a70c8bf598880688490daa6a7beca0f335f476bfd7a96d5b88",
+  "selected_reasons": []
+}

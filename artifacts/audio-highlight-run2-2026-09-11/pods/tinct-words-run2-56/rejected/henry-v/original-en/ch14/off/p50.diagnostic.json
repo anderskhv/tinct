@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "fb18e528f9ea3d732913e5cb291ee0f419c4a33692966fe7c39764d9f14f7189",
+  "attempts": [
+    {
+      "asr_seconds": 0.2353260638192296,
+      "alignment_seconds": 0.00021537113934755325,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Williams, under what captains serve you.",
+          "start": 0.02,
+          "end": 2.5,
+          "words": [
+            {
+              "text": " Williams,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " under",
+              "start": 1.16,
+              "end": 1.4,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " what",
+              "start": 1.4,
+              "end": 1.56,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " captains",
+              "start": 1.56,
+              "end": 1.86,
+              "probability": 0.59912109375
+            },
+            {
+              "text": " serve",
+              "start": 1.86,
+              "end": 2.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you.",
+              "start": 2.22,
+              "end": 2.5,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Williams,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "under",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "raw": "what",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "raw": "captains",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "raw": "serve",
+          "start": 1.86,
+          "end": 2.22
+        },
+        {
+          "raw": "you.",
+          "start": 2.22,
+          "end": 2.5
+        }
+      ],
+      "expected_tokens": [
+        "Williams.",
+        "Under",
+        "what",
+        "captain",
+        "serve",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Williams,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "williams",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 1.16,
+          "end": 1.4,
+          "key": "under",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.4,
+          "end": 1.56,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "captains",
+          "start": 1.56,
+          "end": 1.86,
+          "key": "captains",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "serve",
+          "start": 1.86,
+          "end": 2.22,
+          "key": "serve",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.22,
+          "end": 2.5,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Williams.",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "text": "Under",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "text": "what",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "text": "captain",
+          "start": 1.56,
+          "end": 1.71
+        },
+        {
+          "text": "serve",
+          "start": 1.86,
+          "end": 2.22
+        },
+        {
+          "text": "you?",
+          "start": 2.22,
+          "end": 2.5
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23561178147792816
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3177e2ee4e39fd20640bc5362d977ac4bf7466fbad4b95728fe7d9eb1953e70a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,631 @@
+{
+  "complete": true,
+  "signature": "cbebc8482c030897e79f1d4e1d690bbc8b7fd75f95bca29a67339d5da987e4eb",
+  "attempts": [
+    {
+      "asr_seconds": 0.3261686250043567,
+      "alignment_seconds": 0.0006438779819291085,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Apollo, failed then the Councils of Mysire, when turned Ixion, first of slayers to his side.",
+          "start": 0.02,
+          "end": 6.18,
+          "words": [
+            {
+              "text": " Apollo,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.7412109375
+            },
+            {
+              "text": " failed",
+              "start": 1.4,
+              "end": 1.66,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " then",
+              "start": 1.66,
+              "end": 1.88,
+              "probability": 0.966796875
+            },
+            {
+              "text": " the",
+              "start": 1.88,
+              "end": 2.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Councils",
+              "start": 2.06,
+              "end": 2.48,
+              "probability": 0.662841796875
+            },
+            {
+              "text": " of",
+              "start": 2.48,
+              "end": 2.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Mysire,",
+              "start": 2.58,
+              "end": 3.12,
+              "probability": 0.8826497395833334
+            },
+            {
+              "text": " when",
+              "start": 3.42,
+              "end": 3.54,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " turned",
+              "start": 3.54,
+              "end": 3.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Ixion,",
+              "start": 3.88,
+              "end": 4.36,
+              "probability": 0.9059244791666666
+            },
+            {
+              "text": " first",
+              "start": 4.78,
+              "end": 4.9,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " of",
+              "start": 4.9,
+              "end": 5.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " slayers",
+              "start": 5.08,
+              "end": 5.52,
+              "probability": 0.73046875
+            },
+            {
+              "text": " to",
+              "start": 5.52,
+              "end": 5.76,
+              "probability": 0.5693359375
+            },
+            {
+              "text": " his",
+              "start": 5.76,
+              "end": 5.88,
+              "probability": 0.9921875
+            },
+            {
+              "text": " side.",
+              "start": 5.88,
+              "end": 6.18,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Apollo,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "failed",
+          "start": 1.4,
+          "end": 1.66
+        },
+        {
+          "raw": "then",
+          "start": 1.66,
+          "end": 1.88
+        },
+        {
+          "raw": "the",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "raw": "Councils",
+          "start": 2.06,
+          "end": 2.48
+        },
+        {
+          "raw": "of",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "raw": "Mysire,",
+          "start": 2.58,
+          "end": 3.12
+        },
+        {
+          "raw": "when",
+          "start": 3.42,
+          "end": 3.54
+        },
+        {
+          "raw": "turned",
+          "start": 3.54,
+          "end": 3.88
+        },
+        {
+          "raw": "Ixion,",
+          "start": 3.88,
+          "end": 4.36
+        },
+        {
+          "raw": "first",
+          "start": 4.78,
+          "end": 4.9
+        },
+        {
+          "raw": "of",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "raw": "slayers",
+          "start": 5.08,
+          "end": 5.52
+        },
+        {
+          "raw": "to",
+          "start": 5.52,
+          "end": 5.76
+        },
+        {
+          "raw": "his",
+          "start": 5.76,
+          "end": 5.88
+        },
+        {
+          "raw": "side.",
+          "start": 5.88,
+          "end": 6.18
+        }
+      ],
+      "expected_tokens": [
+        "Apollo.",
+        "Failed",
+        "then",
+        "the",
+        "counsels",
+        "of",
+        "my",
+        "sire,",
+        "when",
+        "turned",
+        "Ixion,",
+        "first",
+        "of",
+        "slayers,",
+        "to",
+        "his",
+        "side?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          6,
+          8,
+          6,
+          7
+        ],
+        [
+          "equal",
+          8,
+          17,
+          7,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          6,
+          8,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Apollo,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "apollo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "failed",
+          "start": 1.4,
+          "end": 1.66,
+          "key": "failed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.66,
+          "end": 1.88,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.88,
+          "end": 2.06,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Councils",
+          "start": 2.06,
+          "end": 2.48,
+          "key": "councils",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.48,
+          "end": 2.58,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Mysire,",
+          "start": 2.58,
+          "end": 3.12,
+          "key": "mysire",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.42,
+          "end": 3.54,
+          "key": "when",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 3.54,
+          "end": 3.88,
+          "key": "turned",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Ixion,",
+          "start": 3.88,
+          "end": 4.36,
+          "key": "ixion",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 4.78,
+          "end": 4.9,
+          "key": "first",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.9,
+          "end": 5.08,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "slayers",
+          "start": 5.08,
+          "end": 5.52,
+          "key": "slayers",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.52,
+          "end": 5.76,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.76,
+          "end": 5.88,
+          "key": "his",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "side.",
+          "start": 5.88,
+          "end": 6.18,
+          "key": "side",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Apollo.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Failed",
+          "start": 1.4,
+          "end": 1.66
+        },
+        {
+          "text": "then",
+          "start": 1.66,
+          "end": 1.88
+        },
+        {
+          "text": "the",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "text": "counsels",
+          "start": 2.06,
+          "end": 2.27
+        },
+        {
+          "text": "of",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "text": "my",
+          "start": 2.58,
+          "end": 3.0
+        },
+        {
+          "text": "sire,",
+          "start": 3.0,
+          "end": 3.21
+        },
+        {
+          "text": "when",
+          "start": 3.42,
+          "end": 3.54
+        },
+        {
+          "text": "turned",
+          "start": 3.54,
+          "end": 3.88
+        },
+        {
+          "text": "Ixion,",
+          "start": 3.88,
+          "end": 4.36
+        },
+        {
+          "text": "first",
+          "start": 4.78,
+          "end": 4.9
+        },
+        {
+          "text": "of",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "text": "slayers,",
+          "start": 5.08,
+          "end": 5.52
+        },
+        {
+          "text": "to",
+          "start": 5.52,
+          "end": 5.76
+        },
+        {
+          "text": "his",
+          "start": 5.76,
+          "end": 5.88
+        },
+        {
+          "text": "side?",
+          "start": 5.88,
+          "end": 6.18
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.8235294117647058,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.32705451801302843
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7f05f1413372c89f442c08da7be0565428b70763c203ecec25eaa94b4bca320c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

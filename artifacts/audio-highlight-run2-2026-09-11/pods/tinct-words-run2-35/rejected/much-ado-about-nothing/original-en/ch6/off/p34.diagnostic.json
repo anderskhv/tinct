@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "dc217467e60cd0f7f0eb2c1784fb5c36ccd85ea2f6c40839fbdb300b5a45f349",
+  "attempts": [
+    {
+      "asr_seconds": 0.19336254335939884,
+      "alignment_seconds": 0.00038150884211063385,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don Pedro, do so, farewell.",
+          "start": 0.05,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " do",
+              "start": 1.47,
+              "end": 1.55,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " so,",
+              "start": 1.55,
+              "end": 1.89,
+              "probability": 0.99609375
+            },
+            {
+              "text": " farewell.",
+              "start": 2.11,
+              "end": 2.39,
+              "probability": 0.93798828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "do",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "raw": "so,",
+          "start": 1.55,
+          "end": 1.89
+        },
+        {
+          "raw": "farewell.",
+          "start": 2.11,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "Do",
+        "so:",
+        "farewell."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.47,
+          "end": 1.55,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 1.55,
+          "end": 1.89,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "farewell.",
+          "start": 2.11,
+          "end": 2.39,
+          "key": "farewell",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "text": "Do",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "text": "so:",
+          "start": 1.55,
+          "end": 1.89
+        },
+        {
+          "text": "farewell.",
+          "start": 2.11,
+          "end": 2.39
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19388570077717304
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "26ab7a747f3223a77d617ad4d55e09f6120c4a004cc79efa3b86e134b3a007fb",
+  "selected_reasons": []
+}

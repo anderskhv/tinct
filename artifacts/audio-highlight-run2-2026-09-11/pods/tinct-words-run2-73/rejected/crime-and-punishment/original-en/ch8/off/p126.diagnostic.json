@@ -1,0 +1,718 @@
+{
+  "complete": true,
+  "signature": "b5981844271716b8acf10540604a1e65109a07adc4a09901844bd3210e63ee86",
+  "attempts": [
+    {
+      "asr_seconds": 0.3222678918391466,
+      "alignment_seconds": 0.0005469806492328644,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And what a regimen it was, too,\" cried Ilya Petrovich, much gratified at this agreeable",
+          "start": 0.08,
+          "end": 5.5,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.06414794921875
+            },
+            {
+              "text": " what",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.98046875
+            },
+            {
+              "text": " a",
+              "start": 0.68,
+              "end": 0.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " regimen",
+              "start": 0.82,
+              "end": 1.08,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " it",
+              "start": 1.08,
+              "end": 1.28,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " was,",
+              "start": 1.28,
+              "end": 1.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " too,\"",
+              "start": 1.62,
+              "end": 2.42,
+              "probability": 0.772216796875
+            },
+            {
+              "text": " cried",
+              "start": 2.42,
+              "end": 2.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Ilya",
+              "start": 2.62,
+              "end": 3.0,
+              "probability": 0.951171875
+            },
+            {
+              "text": " Petrovich,",
+              "start": 3.0,
+              "end": 3.56,
+              "probability": 0.9366861979166666
+            },
+            {
+              "text": " much",
+              "start": 4.02,
+              "end": 4.2,
+              "probability": 0.990234375
+            },
+            {
+              "text": " gratified",
+              "start": 4.2,
+              "end": 4.82,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " at",
+              "start": 4.82,
+              "end": 4.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this",
+              "start": 4.98,
+              "end": 5.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " agreeable",
+              "start": 5.14,
+              "end": 5.5,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " banter, though still sulky.",
+          "start": 5.5,
+          "end": 7.26,
+          "words": [
+            {
+              "text": " banter,",
+              "start": 5.5,
+              "end": 5.98,
+              "probability": 0.978515625
+            },
+            {
+              "text": " though",
+              "start": 6.34,
+              "end": 6.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " still",
+              "start": 6.54,
+              "end": 6.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sulky.",
+              "start": 6.82,
+              "end": 7.26,
+              "probability": 0.940185546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "what",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "a",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "raw": "regimen",
+          "start": 0.82,
+          "end": 1.08
+        },
+        {
+          "raw": "it",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "raw": "was,",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "raw": "too,\"",
+          "start": 1.62,
+          "end": 2.42
+        },
+        {
+          "raw": "cried",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "raw": "Ilya",
+          "start": 2.62,
+          "end": 3.0
+        },
+        {
+          "raw": "Petrovich,",
+          "start": 3.0,
+          "end": 3.56
+        },
+        {
+          "raw": "much",
+          "start": 4.02,
+          "end": 4.2
+        },
+        {
+          "raw": "gratified",
+          "start": 4.2,
+          "end": 4.82
+        },
+        {
+          "raw": "at",
+          "start": 4.82,
+          "end": 4.98
+        },
+        {
+          "raw": "this",
+          "start": 4.98,
+          "end": 5.14
+        },
+        {
+          "raw": "agreeable",
+          "start": 5.14,
+          "end": 5.5
+        },
+        {
+          "raw": "banter,",
+          "start": 5.5,
+          "end": 5.98
+        },
+        {
+          "raw": "though",
+          "start": 6.34,
+          "end": 6.54
+        },
+        {
+          "raw": "still",
+          "start": 6.54,
+          "end": 6.82
+        },
+        {
+          "raw": "sulky.",
+          "start": 6.82,
+          "end": 7.26
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "what",
+        "a",
+        "regiment",
+        "it",
+        "was,",
+        "too,\"",
+        "cried",
+        "Ilya",
+        "Petrovitch,",
+        "much",
+        "gratified",
+        "at",
+        "this",
+        "agreeable",
+        "banter,",
+        "though",
+        "still",
+        "sulky."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          19,
+          10,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.68,
+          "end": 0.82,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "regimen",
+          "start": 0.82,
+          "end": 1.08,
+          "key": "regimen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.08,
+          "end": 1.28,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "was,",
+          "start": 1.28,
+          "end": 1.56,
+          "key": "was",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "too,\"",
+          "start": 1.62,
+          "end": 2.42,
+          "key": "too",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.42,
+          "end": 2.62,
+          "key": "cried",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Ilya",
+          "start": 2.62,
+          "end": 3.0,
+          "key": "ilya",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Petrovich,",
+          "start": 3.0,
+          "end": 3.56,
+          "key": "petrovich",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 4.02,
+          "end": 4.2,
+          "key": "much",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "gratified",
+          "start": 4.2,
+          "end": 4.82,
+          "key": "gratified",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.82,
+          "end": 4.98,
+          "key": "at",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.98,
+          "end": 5.14,
+          "key": "this",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "agreeable",
+          "start": 5.14,
+          "end": 5.5,
+          "key": "agreeable",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "banter,",
+          "start": 5.5,
+          "end": 5.98,
+          "key": "banter",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 6.34,
+          "end": 6.54,
+          "key": "though",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 6.54,
+          "end": 6.82,
+          "key": "still",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "sulky.",
+          "start": 6.82,
+          "end": 7.26,
+          "key": "sulky",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "what",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "a",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "text": "regiment",
+          "start": 0.82,
+          "end": 0.95
+        },
+        {
+          "text": "it",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "text": "was,",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "text": "too,\"",
+          "start": 1.62,
+          "end": 2.42
+        },
+        {
+          "text": "cried",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "text": "Ilya",
+          "start": 2.62,
+          "end": 3.0
+        },
+        {
+          "text": "Petrovitch,",
+          "start": 3.0,
+          "end": 3.51
+        },
+        {
+          "text": "much",
+          "start": 4.02,
+          "end": 4.2
+        },
+        {
+          "text": "gratified",
+          "start": 4.2,
+          "end": 4.82
+        },
+        {
+          "text": "at",
+          "start": 4.82,
+          "end": 4.98
+        },
+        {
+          "text": "this",
+          "start": 4.98,
+          "end": 5.14
+        },
+        {
+          "text": "agreeable",
+          "start": 5.14,
+          "end": 5.5
+        },
+        {
+          "text": "banter,",
+          "start": 5.5,
+          "end": 5.98
+        },
+        {
+          "text": "though",
+          "start": 6.34,
+          "end": 6.54
+        },
+        {
+          "text": "still",
+          "start": 6.54,
+          "end": 6.82
+        },
+        {
+          "text": "sulky.",
+          "start": 6.82,
+          "end": 7.26
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8947368421052632,
+      "rejection_reasons": [],
+      "seconds": 0.32301207445561886
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a51348856d35148c37a2fee251e42d88a6179ebb1a6eebc377990c38b6c4d270",
+  "selected_reasons": []
+}

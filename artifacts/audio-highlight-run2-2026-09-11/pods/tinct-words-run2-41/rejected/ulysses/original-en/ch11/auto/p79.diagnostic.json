@@ -1,0 +1,894 @@
+{
+  "complete": true,
+  "signature": "77155af3546e3b1e70b978d5a13f528c5c4d4b11114f61fd0a97307ecd48d42c",
+  "attempts": [
+    {
+      "asr_seconds": 0.36836453527212143,
+      "alignment_seconds": 0.0007152906619012356,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The boots to them, them in the bar, them barmaids came. For them unheeding him he banged on the counter his tray of chattering china. And",
+        "hotwords": "For, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The boots to them, them in the bar, them barmaids came. For them unheeding him he banged on the counter his tray of chattering china. And",
+          "start": 0.02,
+          "end": 8.56,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " boots",
+              "start": 0.48,
+              "end": 0.68,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " to",
+              "start": 0.68,
+              "end": 0.88,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " them,",
+              "start": 0.88,
+              "end": 1.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " them",
+              "start": 1.36,
+              "end": 1.48,
+              "probability": 0.98046875
+            },
+            {
+              "text": " in",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.6,
+              "end": 1.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bar,",
+              "start": 1.7,
+              "end": 2.0,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " them",
+              "start": 2.24,
+              "end": 2.34,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " barmaids",
+              "start": 2.34,
+              "end": 2.96,
+              "probability": 0.9053955078125
+            },
+            {
+              "text": " came.",
+              "start": 2.96,
+              "end": 3.2,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " For",
+              "start": 3.86,
+              "end": 3.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " them",
+              "start": 3.94,
+              "end": 4.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " unheeding",
+              "start": 4.1,
+              "end": 4.54,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " him",
+              "start": 4.54,
+              "end": 4.82,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " he",
+              "start": 4.82,
+              "end": 5.12,
+              "probability": 0.1435546875
+            },
+            {
+              "text": " banged",
+              "start": 5.12,
+              "end": 5.48,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " on",
+              "start": 5.48,
+              "end": 5.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 5.64,
+              "end": 5.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " counter",
+              "start": 5.76,
+              "end": 6.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 6.02,
+              "end": 6.28,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " tray",
+              "start": 6.28,
+              "end": 6.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 6.6,
+              "end": 6.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " chattering",
+              "start": 6.8,
+              "end": 7.2,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " china.",
+              "start": 7.2,
+              "end": 7.96,
+              "probability": 0.821533203125
+            },
+            {
+              "text": " And",
+              "start": 8.22,
+              "end": 8.56,
+              "probability": 0.8203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "boots",
+          "start": 0.48,
+          "end": 0.68
+        },
+        {
+          "raw": "to",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "raw": "them,",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "raw": "them",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "raw": "in",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "the",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "raw": "bar,",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "raw": "them",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "raw": "barmaids",
+          "start": 2.34,
+          "end": 2.96
+        },
+        {
+          "raw": "came.",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "raw": "For",
+          "start": 3.86,
+          "end": 3.94
+        },
+        {
+          "raw": "them",
+          "start": 3.94,
+          "end": 4.1
+        },
+        {
+          "raw": "unheeding",
+          "start": 4.1,
+          "end": 4.54
+        },
+        {
+          "raw": "him",
+          "start": 4.54,
+          "end": 4.82
+        },
+        {
+          "raw": "he",
+          "start": 4.82,
+          "end": 5.12
+        },
+        {
+          "raw": "banged",
+          "start": 5.12,
+          "end": 5.48
+        },
+        {
+          "raw": "on",
+          "start": 5.48,
+          "end": 5.64
+        },
+        {
+          "raw": "the",
+          "start": 5.64,
+          "end": 5.76
+        },
+        {
+          "raw": "counter",
+          "start": 5.76,
+          "end": 6.02
+        },
+        {
+          "raw": "his",
+          "start": 6.02,
+          "end": 6.28
+        },
+        {
+          "raw": "tray",
+          "start": 6.28,
+          "end": 6.6
+        },
+        {
+          "raw": "of",
+          "start": 6.6,
+          "end": 6.8
+        },
+        {
+          "raw": "chattering",
+          "start": 6.8,
+          "end": 7.2
+        },
+        {
+          "raw": "china.",
+          "start": 7.2,
+          "end": 7.96
+        },
+        {
+          "raw": "And",
+          "start": 8.22,
+          "end": 8.56
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "boots",
+        "to",
+        "them,",
+        "them",
+        "in",
+        "the",
+        "bar,",
+        "them",
+        "barmaids",
+        "came.",
+        "For",
+        "them",
+        "unheeding",
+        "him",
+        "he",
+        "banged",
+        "on",
+        "the",
+        "counter",
+        "his",
+        "tray",
+        "of",
+        "chattering",
+        "china.",
+        "And"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "boots",
+          "start": 0.48,
+          "end": 0.68,
+          "key": "boots",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.68,
+          "end": 0.88,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 0.88,
+          "end": 1.08,
+          "key": "them",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 1.36,
+          "end": 1.48,
+          "key": "them",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.6,
+          "end": 1.7,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bar,",
+          "start": 1.7,
+          "end": 2.0,
+          "key": "bar",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.24,
+          "end": 2.34,
+          "key": "them",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "barmaids",
+          "start": 2.34,
+          "end": 2.96,
+          "key": "barmaids",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "came.",
+          "start": 2.96,
+          "end": 3.2,
+          "key": "came",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 3.86,
+          "end": 3.94,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.94,
+          "end": 4.1,
+          "key": "them",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "unheeding",
+          "start": 4.1,
+          "end": 4.54,
+          "key": "unheeding",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.54,
+          "end": 4.82,
+          "key": "him",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.82,
+          "end": 5.12,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "banged",
+          "start": 5.12,
+          "end": 5.48,
+          "key": "banged",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.48,
+          "end": 5.64,
+          "key": "on",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.64,
+          "end": 5.76,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "counter",
+          "start": 5.76,
+          "end": 6.02,
+          "key": "counter",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.02,
+          "end": 6.28,
+          "key": "his",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "tray",
+          "start": 6.28,
+          "end": 6.6,
+          "key": "tray",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.6,
+          "end": 6.8,
+          "key": "of",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "chattering",
+          "start": 6.8,
+          "end": 7.2,
+          "key": "chattering",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "china.",
+          "start": 7.2,
+          "end": 7.96,
+          "key": "china",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 8.22,
+          "end": 8.56,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "boots",
+          "start": 0.48,
+          "end": 0.68
+        },
+        {
+          "text": "to",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "text": "them,",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "text": "them",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "text": "in",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "text": "the",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "text": "bar,",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "text": "them",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "text": "barmaids",
+          "start": 2.34,
+          "end": 2.96
+        },
+        {
+          "text": "came.",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "text": "For",
+          "start": 3.86,
+          "end": 3.94
+        },
+        {
+          "text": "them",
+          "start": 3.94,
+          "end": 4.1
+        },
+        {
+          "text": "unheeding",
+          "start": 4.1,
+          "end": 4.54
+        },
+        {
+          "text": "him",
+          "start": 4.54,
+          "end": 4.82
+        },
+        {
+          "text": "he",
+          "start": 4.82,
+          "end": 5.12
+        },
+        {
+          "text": "banged",
+          "start": 5.12,
+          "end": 5.48
+        },
+        {
+          "text": "on",
+          "start": 5.48,
+          "end": 5.64
+        },
+        {
+          "text": "the",
+          "start": 5.64,
+          "end": 5.76
+        },
+        {
+          "text": "counter",
+          "start": 5.76,
+          "end": 6.02
+        },
+        {
+          "text": "his",
+          "start": 6.02,
+          "end": 6.28
+        },
+        {
+          "text": "tray",
+          "start": 6.28,
+          "end": 6.6
+        },
+        {
+          "text": "of",
+          "start": 6.6,
+          "end": 6.8
+        },
+        {
+          "text": "chattering",
+          "start": 6.8,
+          "end": 7.2
+        },
+        {
+          "text": "china.",
+          "start": 7.2,
+          "end": 7.96
+        },
+        {
+          "text": "And",
+          "start": 8.22,
+          "end": 8.56
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3693748679943383
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7616a6e12e22b754e12688efd2e64bf4d39afb8bc1e92264eec50c64f1fb958a",
+  "selected_reasons": []
+}

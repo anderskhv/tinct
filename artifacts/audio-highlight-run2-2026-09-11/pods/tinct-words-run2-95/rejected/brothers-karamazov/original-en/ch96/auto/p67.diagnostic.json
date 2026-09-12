@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "0f1f72c07cdb17bc939cd2530ee7c7b048841d20a33d07826e9a6cae9507fd6c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2904767841100693,
+      "alignment_seconds": 0.0004454515874385834,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"We love you, we love you!\" they all caught it up. There were tears in the eyes of many of them.",
+        "hotwords": "There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We love you, we love you. They all caught it up. There were tears in the eyes of many of them.",
+          "start": 0.02,
+          "end": 5.34,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.64111328125
+            },
+            {
+              "text": " love",
+              "start": 0.56,
+              "end": 0.88,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you,",
+              "start": 0.88,
+              "end": 1.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " we",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " love",
+              "start": 1.4,
+              "end": 1.62,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you.",
+              "start": 1.62,
+              "end": 1.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " They",
+              "start": 2.24,
+              "end": 2.42,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " all",
+              "start": 2.42,
+              "end": 2.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " caught",
+              "start": 2.6,
+              "end": 2.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it",
+              "start": 2.82,
+              "end": 2.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " up.",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " There",
+              "start": 3.6,
+              "end": 3.66,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " were",
+              "start": 3.66,
+              "end": 3.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tears",
+              "start": 3.78,
+              "end": 4.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 4.04,
+              "end": 4.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.26,
+              "end": 4.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " eyes",
+              "start": 4.34,
+              "end": 4.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 4.64,
+              "end": 4.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " many",
+              "start": 4.8,
+              "end": 4.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 4.96,
+              "end": 5.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them.",
+              "start": 5.14,
+              "end": 5.34,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "love",
+          "start": 0.56,
+          "end": 0.88
+        },
+        {
+          "raw": "you,",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "raw": "we",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "love",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "raw": "you.",
+          "start": 1.62,
+          "end": 1.9
+        },
+        {
+          "raw": "They",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "raw": "all",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "raw": "caught",
+          "start": 2.6,
+          "end": 2.82
+        },
+        {
+          "raw": "it",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "raw": "up.",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "raw": "There",
+          "start": 3.6,
+          "end": 3.66
+        },
+        {
+          "raw": "were",
+          "start": 3.66,
+          "end": 3.78
+        },
+        {
+          "raw": "tears",
+          "start": 3.78,
+          "end": 4.04
+        },
+        {
+          "raw": "in",
+          "start": 4.04,
+          "end": 4.26
+        },
+        {
+          "raw": "the",
+          "start": 4.26,
+          "end": 4.34
+        },
+        {
+          "raw": "eyes",
+          "start": 4.34,
+          "end": 4.64
+        },
+        {
+          "raw": "of",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "raw": "many",
+          "start": 4.8,
+          "end": 4.96
+        },
+        {
+          "raw": "of",
+          "start": 4.96,
+          "end": 5.14
+        },
+        {
+          "raw": "them.",
+          "start": 5.14,
+          "end": 5.34
+        }
+      ],
+      "expected_tokens": [
+        "\"We",
+        "love",
+        "you,",
+        "we",
+        "love",
+        "you!\"",
+        "they",
+        "all",
+        "caught",
+        "it",
+        "up.",
+        "There",
+        "were",
+        "tears",
+        "in",
+        "the",
+        "eyes",
+        "of",
+        "many",
+        "of",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 0.56,
+          "end": 0.88,
+          "key": "love",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 0.88,
+          "end": 1.14,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 1.4,
+          "end": 1.62,
+          "key": "love",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.62,
+          "end": 1.9,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 2.24,
+          "end": 2.42,
+          "key": "they",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.42,
+          "end": 2.6,
+          "key": "all",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "caught",
+          "start": 2.6,
+          "end": 2.82,
+          "key": "caught",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.82,
+          "end": 2.94,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 2.94,
+          "end": 3.18,
+          "key": "up",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 3.6,
+          "end": 3.66,
+          "key": "there",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 3.66,
+          "end": 3.78,
+          "key": "were",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tears",
+          "start": 3.78,
+          "end": 4.04,
+          "key": "tears",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.04,
+          "end": 4.26,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.26,
+          "end": 4.34,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 4.34,
+          "end": 4.64,
+          "key": "eyes",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.64,
+          "end": 4.8,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 4.8,
+          "end": 4.96,
+          "key": "many",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.96,
+          "end": 5.14,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 5.14,
+          "end": 5.34,
+          "key": "them",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"We",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "love",
+          "start": 0.56,
+          "end": 0.88
+        },
+        {
+          "text": "you,",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "text": "we",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "love",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "text": "you!\"",
+          "start": 1.62,
+          "end": 1.9
+        },
+        {
+          "text": "they",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "text": "all",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "text": "caught",
+          "start": 2.6,
+          "end": 2.82
+        },
+        {
+          "text": "it",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "text": "up.",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "text": "There",
+          "start": 3.6,
+          "end": 3.66
+        },
+        {
+          "text": "were",
+          "start": 3.66,
+          "end": 3.78
+        },
+        {
+          "text": "tears",
+          "start": 3.78,
+          "end": 4.04
+        },
+        {
+          "text": "in",
+          "start": 4.04,
+          "end": 4.26
+        },
+        {
+          "text": "the",
+          "start": 4.26,
+          "end": 4.34
+        },
+        {
+          "text": "eyes",
+          "start": 4.34,
+          "end": 4.64
+        },
+        {
+          "text": "of",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "text": "many",
+          "start": 4.8,
+          "end": 4.96
+        },
+        {
+          "text": "of",
+          "start": 4.96,
+          "end": 5.14
+        },
+        {
+          "text": "them.",
+          "start": 5.14,
+          "end": 5.34
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2911091260612011
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6b30c26fd4c42a6908c4f5b4192134ad54328756b1db4697a08475625d349a57",
+  "selected_reasons": []
+}

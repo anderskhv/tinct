@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "f5a928381235d8739a2152695a080fa322761fcb867e1d0e8e7f80ce70176574",
+  "attempts": [
+    {
+      "asr_seconds": 0.14478438533842564,
+      "alignment_seconds": 0.0003469875082373619,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Macduff. And all my children?",
+        "hotwords": "Macduff, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Macduff, And all my children?",
+          "start": 0.58,
+          "end": 1.8,
+          "words": [
+            {
+              "text": " Macduff,",
+              "start": 0.58,
+              "end": 0.98,
+              "probability": 0.696533203125
+            },
+            {
+              "text": " And",
+              "start": 1.18,
+              "end": 1.28,
+              "probability": 0.0172882080078125
+            },
+            {
+              "text": " all",
+              "start": 1.28,
+              "end": 1.36,
+              "probability": 0.41259765625
+            },
+            {
+              "text": " my",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " children?",
+              "start": 1.5,
+              "end": 1.8,
+              "probability": 0.86376953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macduff,",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "raw": "And",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "raw": "all",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "raw": "my",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "children?",
+          "start": 1.5,
+          "end": 1.8
+        }
+      ],
+      "expected_tokens": [
+        "Macduff.",
+        "And",
+        "all",
+        "my",
+        "children?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macduff,",
+          "start": 0.58,
+          "end": 0.98,
+          "key": "macduff",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.18,
+          "end": 1.28,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.28,
+          "end": 1.36,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "children?",
+          "start": 1.5,
+          "end": 1.8,
+          "key": "children",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macduff.",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "text": "And",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "text": "all",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "text": "my",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "children?",
+          "start": 1.5,
+          "end": 1.8
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14525717496871948
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bb2562540b33cc21cb01717593cf863899075d089fe7e5606a7634f460c94fa1",
+  "selected_reasons": []
+}

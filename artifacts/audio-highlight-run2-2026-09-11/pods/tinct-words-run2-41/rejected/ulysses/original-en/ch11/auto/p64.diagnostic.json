@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "bc4c6342bc174b29f28d593aa50b430c3acfecc8826fabab3925b5691941613b",
+  "attempts": [
+    {
+      "asr_seconds": 0.19457883900031447,
+      "alignment_seconds": 0.00041381223127245903,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "When all agog miss Douce said eagerly:",
+        "hotwords": "When, Douce"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " When all agog miss Douce said eagerly.",
+          "start": 0.02,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " When",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.55224609375
+            },
+            {
+              "text": " all",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.46435546875
+            },
+            {
+              "text": " agog",
+              "start": 0.62,
+              "end": 0.94,
+              "probability": 0.4171142578125
+            },
+            {
+              "text": " miss",
+              "start": 0.94,
+              "end": 1.16,
+              "probability": 0.04022216796875
+            },
+            {
+              "text": " Douce",
+              "start": 1.16,
+              "end": 1.54,
+              "probability": 0.4003105163574219
+            },
+            {
+              "text": " said",
+              "start": 1.54,
+              "end": 1.7,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " eagerly.",
+              "start": 1.7,
+              "end": 2.0,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "When",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "all",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "agog",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "raw": "miss",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "raw": "Douce",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "raw": "said",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "raw": "eagerly.",
+          "start": 1.7,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "When",
+        "all",
+        "agog",
+        "miss",
+        "Douce",
+        "said",
+        "eagerly:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "When",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "when",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "agog",
+          "start": 0.62,
+          "end": 0.94,
+          "key": "agog",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "miss",
+          "start": 0.94,
+          "end": 1.16,
+          "key": "miss",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Douce",
+          "start": 1.16,
+          "end": 1.54,
+          "key": "douce",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.54,
+          "end": 1.7,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "eagerly.",
+          "start": 1.7,
+          "end": 2.0,
+          "key": "eagerly",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "When",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "all",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "agog",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "text": "miss",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "text": "Douce",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "text": "said",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "text": "eagerly:",
+          "start": 1.7,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19516138266772032
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "74b719c0456a2759134dd7ae3233cb301fd88553112a7194a73824685f66cc32",
+  "selected_reasons": []
+}

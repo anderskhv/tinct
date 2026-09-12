@@ -1,0 +1,1651 @@
+{
+  "complete": true,
+  "signature": "d89991af33cafd2880201ff5e6aadff790646558f3c46a977840a855fb39d4fc",
+  "attempts": [
+    {
+      "asr_seconds": 0.5661229286342859,
+      "alignment_seconds": 0.0010271277278661728,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"If I was pleased,\" he articulated rather breathlessly, \"it was simply because you agreed not to go to Moscow, but to Tchermashnya. For it was nearer, anyway. Only when I said these words to you, it was not by way of praise, but of reproach. You didn't understand it.\"",
+        "hotwords": "If, I, Moscow, Tchermashnya, For, Only"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " If I was pleased, he articulated rather breathlessly,",
+          "start": 0.02,
+          "end": 3.76,
+          "words": [
+            {
+              "text": " If",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.083740234375
+            },
+            {
+              "text": " I",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.98828125
+            },
+            {
+              "text": " was",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " pleased,",
+              "start": 0.9,
+              "end": 1.42,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " he",
+              "start": 1.88,
+              "end": 2.06,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " articulated",
+              "start": 2.06,
+              "end": 2.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rather",
+              "start": 2.66,
+              "end": 3.12,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " breathlessly,",
+              "start": 3.12,
+              "end": 3.76,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " It was simply because you agreed not to go to Moscow, but to Tchermashnya.",
+          "start": 4.22,
+          "end": 8.58,
+          "words": [
+            {
+              "text": " It",
+              "start": 4.22,
+              "end": 4.42,
+              "probability": 0.00824737548828125
+            },
+            {
+              "text": " was",
+              "start": 4.42,
+              "end": 4.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " simply",
+              "start": 4.52,
+              "end": 4.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " because",
+              "start": 4.78,
+              "end": 5.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 5.12,
+              "end": 5.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " agreed",
+              "start": 5.28,
+              "end": 5.56,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " not",
+              "start": 5.56,
+              "end": 5.8,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " to",
+              "start": 5.8,
+              "end": 5.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " go",
+              "start": 5.98,
+              "end": 6.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 6.1,
+              "end": 6.26,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Moscow,",
+              "start": 6.26,
+              "end": 6.64,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " but",
+              "start": 7.0,
+              "end": 7.14,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " to",
+              "start": 7.14,
+              "end": 7.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Tchermashnya.",
+              "start": 7.3,
+              "end": 8.58,
+              "probability": 0.39289402961730957
+            }
+          ]
+        },
+        {
+          "text": " For it was nearer, anyway. Only when I said these words to you, it was not by way of praise, but of reproach.",
+          "start": 8.66,
+          "end": 14.54,
+          "words": [
+            {
+              "text": " For",
+              "start": 8.66,
+              "end": 8.9,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " it",
+              "start": 8.9,
+              "end": 8.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " was",
+              "start": 8.98,
+              "end": 9.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nearer,",
+              "start": 9.1,
+              "end": 9.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " anyway.",
+              "start": 9.58,
+              "end": 9.86,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Only",
+              "start": 10.52,
+              "end": 10.7,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " when",
+              "start": 10.7,
+              "end": 10.88,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 10.88,
+              "end": 11.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " said",
+              "start": 11.04,
+              "end": 11.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " these",
+              "start": 11.22,
+              "end": 11.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " words",
+              "start": 11.46,
+              "end": 11.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 11.7,
+              "end": 11.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you,",
+              "start": 11.98,
+              "end": 12.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 12.32,
+              "end": 12.4,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " was",
+              "start": 12.4,
+              "end": 12.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 12.5,
+              "end": 12.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " by",
+              "start": 12.74,
+              "end": 12.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " way",
+              "start": 12.96,
+              "end": 13.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 13.16,
+              "end": 13.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " praise,",
+              "start": 13.3,
+              "end": 13.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " but",
+              "start": 13.9,
+              "end": 13.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 13.94,
+              "end": 14.08,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " reproach.",
+              "start": 14.08,
+              "end": 14.54,
+              "probability": 0.993408203125
+            }
+          ]
+        },
+        {
+          "text": " You didn't understand it.",
+          "start": 15.04,
+          "end": 16.14,
+          "words": [
+            {
+              "text": " You",
+              "start": 15.04,
+              "end": 15.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " didn't",
+              "start": 15.16,
+              "end": 15.4,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " understand",
+              "start": 15.4,
+              "end": 15.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it.",
+              "start": 15.8,
+              "end": 16.14,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "If",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "I",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "was",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "pleased,",
+          "start": 0.9,
+          "end": 1.42
+        },
+        {
+          "raw": "he",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "raw": "articulated",
+          "start": 2.06,
+          "end": 2.66
+        },
+        {
+          "raw": "rather",
+          "start": 2.66,
+          "end": 3.12
+        },
+        {
+          "raw": "breathlessly,",
+          "start": 3.12,
+          "end": 3.76
+        },
+        {
+          "raw": "It",
+          "start": 4.22,
+          "end": 4.42
+        },
+        {
+          "raw": "was",
+          "start": 4.42,
+          "end": 4.52
+        },
+        {
+          "raw": "simply",
+          "start": 4.52,
+          "end": 4.78
+        },
+        {
+          "raw": "because",
+          "start": 4.78,
+          "end": 5.12
+        },
+        {
+          "raw": "you",
+          "start": 5.12,
+          "end": 5.28
+        },
+        {
+          "raw": "agreed",
+          "start": 5.28,
+          "end": 5.56
+        },
+        {
+          "raw": "not",
+          "start": 5.56,
+          "end": 5.8
+        },
+        {
+          "raw": "to",
+          "start": 5.8,
+          "end": 5.98
+        },
+        {
+          "raw": "go",
+          "start": 5.98,
+          "end": 6.1
+        },
+        {
+          "raw": "to",
+          "start": 6.1,
+          "end": 6.26
+        },
+        {
+          "raw": "Moscow,",
+          "start": 6.26,
+          "end": 6.64
+        },
+        {
+          "raw": "but",
+          "start": 7.0,
+          "end": 7.14
+        },
+        {
+          "raw": "to",
+          "start": 7.14,
+          "end": 7.3
+        },
+        {
+          "raw": "Tchermashnya.",
+          "start": 7.3,
+          "end": 8.58
+        },
+        {
+          "raw": "For",
+          "start": 8.66,
+          "end": 8.9
+        },
+        {
+          "raw": "it",
+          "start": 8.9,
+          "end": 8.98
+        },
+        {
+          "raw": "was",
+          "start": 8.98,
+          "end": 9.1
+        },
+        {
+          "raw": "nearer,",
+          "start": 9.1,
+          "end": 9.42
+        },
+        {
+          "raw": "anyway.",
+          "start": 9.58,
+          "end": 9.86
+        },
+        {
+          "raw": "Only",
+          "start": 10.52,
+          "end": 10.7
+        },
+        {
+          "raw": "when",
+          "start": 10.7,
+          "end": 10.88
+        },
+        {
+          "raw": "I",
+          "start": 10.88,
+          "end": 11.04
+        },
+        {
+          "raw": "said",
+          "start": 11.04,
+          "end": 11.22
+        },
+        {
+          "raw": "these",
+          "start": 11.22,
+          "end": 11.46
+        },
+        {
+          "raw": "words",
+          "start": 11.46,
+          "end": 11.7
+        },
+        {
+          "raw": "to",
+          "start": 11.7,
+          "end": 11.98
+        },
+        {
+          "raw": "you,",
+          "start": 11.98,
+          "end": 12.2
+        },
+        {
+          "raw": "it",
+          "start": 12.32,
+          "end": 12.4
+        },
+        {
+          "raw": "was",
+          "start": 12.4,
+          "end": 12.5
+        },
+        {
+          "raw": "not",
+          "start": 12.5,
+          "end": 12.74
+        },
+        {
+          "raw": "by",
+          "start": 12.74,
+          "end": 12.96
+        },
+        {
+          "raw": "way",
+          "start": 12.96,
+          "end": 13.16
+        },
+        {
+          "raw": "of",
+          "start": 13.16,
+          "end": 13.3
+        },
+        {
+          "raw": "praise,",
+          "start": 13.3,
+          "end": 13.6
+        },
+        {
+          "raw": "but",
+          "start": 13.9,
+          "end": 13.94
+        },
+        {
+          "raw": "of",
+          "start": 13.94,
+          "end": 14.08
+        },
+        {
+          "raw": "reproach.",
+          "start": 14.08,
+          "end": 14.54
+        },
+        {
+          "raw": "You",
+          "start": 15.04,
+          "end": 15.16
+        },
+        {
+          "raw": "didn't",
+          "start": 15.16,
+          "end": 15.4
+        },
+        {
+          "raw": "understand",
+          "start": 15.4,
+          "end": 15.8
+        },
+        {
+          "raw": "it.",
+          "start": 15.8,
+          "end": 16.14
+        }
+      ],
+      "expected_tokens": [
+        "\"If",
+        "I",
+        "was",
+        "pleased,\"",
+        "he",
+        "articulated",
+        "rather",
+        "breathlessly,",
+        "\"it",
+        "was",
+        "simply",
+        "because",
+        "you",
+        "agreed",
+        "not",
+        "to",
+        "go",
+        "to",
+        "Moscow,",
+        "but",
+        "to",
+        "Tchermashnya.",
+        "For",
+        "it",
+        "was",
+        "nearer,",
+        "anyway.",
+        "Only",
+        "when",
+        "I",
+        "said",
+        "these",
+        "words",
+        "to",
+        "you,",
+        "it",
+        "was",
+        "not",
+        "by",
+        "way",
+        "of",
+        "praise,",
+        "but",
+        "of",
+        "reproach.",
+        "You",
+        "didn't",
+        "understand",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          49,
+          0,
+          49
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "If",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "if",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.7,
+          "end": 0.9,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pleased,",
+          "start": 0.9,
+          "end": 1.42,
+          "key": "pleased",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.88,
+          "end": 2.06,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "articulated",
+          "start": 2.06,
+          "end": 2.66,
+          "key": "articulated",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 2.66,
+          "end": 3.12,
+          "key": "rather",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "breathlessly,",
+          "start": 3.12,
+          "end": 3.76,
+          "key": "breathlessly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 4.22,
+          "end": 4.42,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.42,
+          "end": 4.52,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "simply",
+          "start": 4.52,
+          "end": 4.78,
+          "key": "simply",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 4.78,
+          "end": 5.12,
+          "key": "because",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.12,
+          "end": 5.28,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "agreed",
+          "start": 5.28,
+          "end": 5.56,
+          "key": "agreed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.56,
+          "end": 5.8,
+          "key": "not",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.8,
+          "end": 5.98,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 5.98,
+          "end": 6.1,
+          "key": "go",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.1,
+          "end": 6.26,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Moscow,",
+          "start": 6.26,
+          "end": 6.64,
+          "key": "moscow",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 7.0,
+          "end": 7.14,
+          "key": "but",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.14,
+          "end": 7.3,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Tchermashnya.",
+          "start": 7.3,
+          "end": 8.58,
+          "key": "tchermashnya",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 8.66,
+          "end": 8.9,
+          "key": "for",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 8.9,
+          "end": 8.98,
+          "key": "it",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 8.98,
+          "end": 9.1,
+          "key": "was",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "nearer,",
+          "start": 9.1,
+          "end": 9.42,
+          "key": "nearer",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "anyway.",
+          "start": 9.58,
+          "end": 9.86,
+          "key": "anyway",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Only",
+          "start": 10.52,
+          "end": 10.7,
+          "key": "only",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 10.7,
+          "end": 10.88,
+          "key": "when",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.88,
+          "end": 11.04,
+          "key": "i",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 11.04,
+          "end": 11.22,
+          "key": "said",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 11.22,
+          "end": 11.46,
+          "key": "these",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 11.46,
+          "end": 11.7,
+          "key": "words",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.7,
+          "end": 11.98,
+          "key": "to",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 11.98,
+          "end": 12.2,
+          "key": "you",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 12.32,
+          "end": 12.4,
+          "key": "it",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 12.4,
+          "end": 12.5,
+          "key": "was",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 12.5,
+          "end": 12.74,
+          "key": "not",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 12.74,
+          "end": 12.96,
+          "key": "by",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 12.96,
+          "end": 13.16,
+          "key": "way",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.16,
+          "end": 13.3,
+          "key": "of",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "praise,",
+          "start": 13.3,
+          "end": 13.6,
+          "key": "praise",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 13.9,
+          "end": 13.94,
+          "key": "but",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.94,
+          "end": 14.08,
+          "key": "of",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "reproach.",
+          "start": 14.08,
+          "end": 14.54,
+          "key": "reproach",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 15.04,
+          "end": 15.16,
+          "key": "you",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "didn't",
+          "start": 15.16,
+          "end": 15.4,
+          "key": "didnt",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 15.4,
+          "end": 15.8,
+          "key": "understand",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 15.8,
+          "end": 16.14,
+          "key": "it",
+          "pieces": [
+            48
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"If",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "I",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "was",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "pleased,\"",
+          "start": 0.9,
+          "end": 1.42
+        },
+        {
+          "text": "he",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "text": "articulated",
+          "start": 2.06,
+          "end": 2.66
+        },
+        {
+          "text": "rather",
+          "start": 2.66,
+          "end": 3.12
+        },
+        {
+          "text": "breathlessly,",
+          "start": 3.12,
+          "end": 3.76
+        },
+        {
+          "text": "\"it",
+          "start": 4.22,
+          "end": 4.42
+        },
+        {
+          "text": "was",
+          "start": 4.42,
+          "end": 4.52
+        },
+        {
+          "text": "simply",
+          "start": 4.52,
+          "end": 4.78
+        },
+        {
+          "text": "because",
+          "start": 4.78,
+          "end": 5.12
+        },
+        {
+          "text": "you",
+          "start": 5.12,
+          "end": 5.28
+        },
+        {
+          "text": "agreed",
+          "start": 5.28,
+          "end": 5.56
+        },
+        {
+          "text": "not",
+          "start": 5.56,
+          "end": 5.8
+        },
+        {
+          "text": "to",
+          "start": 5.8,
+          "end": 5.98
+        },
+        {
+          "text": "go",
+          "start": 5.98,
+          "end": 6.1
+        },
+        {
+          "text": "to",
+          "start": 6.1,
+          "end": 6.26
+        },
+        {
+          "text": "Moscow,",
+          "start": 6.26,
+          "end": 6.64
+        },
+        {
+          "text": "but",
+          "start": 7.0,
+          "end": 7.14
+        },
+        {
+          "text": "to",
+          "start": 7.14,
+          "end": 7.3
+        },
+        {
+          "text": "Tchermashnya.",
+          "start": 7.3,
+          "end": 8.58
+        },
+        {
+          "text": "For",
+          "start": 8.66,
+          "end": 8.9
+        },
+        {
+          "text": "it",
+          "start": 8.9,
+          "end": 8.98
+        },
+        {
+          "text": "was",
+          "start": 8.98,
+          "end": 9.1
+        },
+        {
+          "text": "nearer,",
+          "start": 9.1,
+          "end": 9.42
+        },
+        {
+          "text": "anyway.",
+          "start": 9.58,
+          "end": 9.86
+        },
+        {
+          "text": "Only",
+          "start": 10.52,
+          "end": 10.7
+        },
+        {
+          "text": "when",
+          "start": 10.7,
+          "end": 10.88
+        },
+        {
+          "text": "I",
+          "start": 10.88,
+          "end": 11.04
+        },
+        {
+          "text": "said",
+          "start": 11.04,
+          "end": 11.22
+        },
+        {
+          "text": "these",
+          "start": 11.22,
+          "end": 11.46
+        },
+        {
+          "text": "words",
+          "start": 11.46,
+          "end": 11.7
+        },
+        {
+          "text": "to",
+          "start": 11.7,
+          "end": 11.98
+        },
+        {
+          "text": "you,",
+          "start": 11.98,
+          "end": 12.2
+        },
+        {
+          "text": "it",
+          "start": 12.32,
+          "end": 12.4
+        },
+        {
+          "text": "was",
+          "start": 12.4,
+          "end": 12.5
+        },
+        {
+          "text": "not",
+          "start": 12.5,
+          "end": 12.74
+        },
+        {
+          "text": "by",
+          "start": 12.74,
+          "end": 12.96
+        },
+        {
+          "text": "way",
+          "start": 12.96,
+          "end": 13.16
+        },
+        {
+          "text": "of",
+          "start": 13.16,
+          "end": 13.3
+        },
+        {
+          "text": "praise,",
+          "start": 13.3,
+          "end": 13.6
+        },
+        {
+          "text": "but",
+          "start": 13.9,
+          "end": 13.94
+        },
+        {
+          "text": "of",
+          "start": 13.94,
+          "end": 14.08
+        },
+        {
+          "text": "reproach.",
+          "start": 14.08,
+          "end": 14.54
+        },
+        {
+          "text": "You",
+          "start": 15.04,
+          "end": 15.16
+        },
+        {
+          "text": "didn't",
+          "start": 15.16,
+          "end": 15.4
+        },
+        {
+          "text": "understand",
+          "start": 15.4,
+          "end": 15.8
+        },
+        {
+          "text": "it.\"",
+          "start": 15.8,
+          "end": 16.14
+        }
+      ],
+      "stats": {
+        "expected_words": 49,
+        "heard_words": 49,
+        "matched_words": 49
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5675998497754335
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "82905062b47a7476a2e4ac0ca60f545c7a0d97a0274fd6b6756cdddcacd6dfe1",
+  "selected_reasons": []
+}

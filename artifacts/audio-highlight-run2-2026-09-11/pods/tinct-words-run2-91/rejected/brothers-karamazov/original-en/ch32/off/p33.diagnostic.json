@@ -1,0 +1,387 @@
+{
+  "complete": true,
+  "signature": "19b2430caa5d0638c986d5e3cf5525e955f393eb9e93667508ac9ed790668252",
+  "attempts": [
+    {
+      "asr_seconds": 0.3704388877376914,
+      "alignment_seconds": 0.00032108742743730545,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But her reproach was undeserved.",
+          "start": 0.02,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " her",
+              "start": 0.48,
+              "end": 0.58,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " reproach",
+              "start": 0.58,
+              "end": 1.04,
+              "probability": 0.7310791015625
+            },
+            {
+              "text": " was",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " undeserved.",
+              "start": 1.26,
+              "end": 2.0,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Alyosha, too, was greatly overcome.",
+          "start": 2.64,
+          "end": 4.6,
+          "words": [
+            {
+              "text": " Alyosha,",
+              "start": 2.64,
+              "end": 3.08,
+              "probability": 0.9202473958333334
+            },
+            {
+              "text": " too,",
+              "start": 3.08,
+              "end": 3.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " was",
+              "start": 3.56,
+              "end": 3.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " greatly",
+              "start": 3.72,
+              "end": 4.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " overcome.",
+              "start": 4.02,
+              "end": 4.6,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "her",
+          "start": 0.48,
+          "end": 0.58
+        },
+        {
+          "raw": "reproach",
+          "start": 0.58,
+          "end": 1.04
+        },
+        {
+          "raw": "was",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "undeserved.",
+          "start": 1.26,
+          "end": 2.0
+        },
+        {
+          "raw": "Alyosha,",
+          "start": 2.64,
+          "end": 3.08
+        },
+        {
+          "raw": "too,",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "raw": "was",
+          "start": 3.56,
+          "end": 3.72
+        },
+        {
+          "raw": "greatly",
+          "start": 3.72,
+          "end": 4.02
+        },
+        {
+          "raw": "overcome.",
+          "start": 4.02,
+          "end": 4.6
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "her",
+        "reproach",
+        "was",
+        "undeserved.",
+        "Alyosha,",
+        "too,",
+        "was",
+        "greatly",
+        "overcome."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.48,
+          "end": 0.58,
+          "key": "her",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "reproach",
+          "start": 0.58,
+          "end": 1.04,
+          "key": "reproach",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "undeserved.",
+          "start": 1.26,
+          "end": 2.0,
+          "key": "undeserved",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Alyosha,",
+          "start": 2.64,
+          "end": 3.08,
+          "key": "alyosha",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 3.08,
+          "end": 3.34,
+          "key": "too",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.56,
+          "end": 3.72,
+          "key": "was",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "greatly",
+          "start": 3.72,
+          "end": 4.02,
+          "key": "greatly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "overcome.",
+          "start": 4.02,
+          "end": 4.6,
+          "key": "overcome",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "her",
+          "start": 0.48,
+          "end": 0.58
+        },
+        {
+          "text": "reproach",
+          "start": 0.58,
+          "end": 1.04
+        },
+        {
+          "text": "was",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "undeserved.",
+          "start": 1.26,
+          "end": 2.0
+        },
+        {
+          "text": "Alyosha,",
+          "start": 2.64,
+          "end": 3.08
+        },
+        {
+          "text": "too,",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "text": "was",
+          "start": 3.56,
+          "end": 3.72
+        },
+        {
+          "text": "greatly",
+          "start": 3.72,
+          "end": 4.02
+        },
+        {
+          "text": "overcome.",
+          "start": 4.02,
+          "end": 4.6
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3708814335986972
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "996a9f75818d45442b961765da20d60fdfd01d37af8cf16b7de2b63eebc260dc",
+  "selected_reasons": []
+}

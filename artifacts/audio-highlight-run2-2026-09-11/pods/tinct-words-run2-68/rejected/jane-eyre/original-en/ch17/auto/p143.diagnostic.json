@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "2d66e3d0a22bec31ecdfadcb4dd3539d91186bae95d9663e9bfdd3eb2a3dfdec",
+  "attempts": [
+    {
+      "asr_seconds": 0.2317262403666973,
+      "alignment_seconds": 0.0005320310592651367,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I did not wish to disturb you, as you seemed engaged, sir.\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I did not wish to disturb you, as you seemed engaged, sir.",
+          "start": 0.08,
+          "end": 3.44,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.5634765625
+            },
+            {
+              "text": " did",
+              "start": 0.52,
+              "end": 0.6,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " not",
+              "start": 0.6,
+              "end": 0.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wish",
+              "start": 0.78,
+              "end": 0.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 0.94,
+              "end": 1.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " disturb",
+              "start": 1.1,
+              "end": 1.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you,",
+              "start": 1.4,
+              "end": 1.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 2.08,
+              "end": 2.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 2.2,
+              "end": 2.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seemed",
+              "start": 2.34,
+              "end": 2.58,
+              "probability": 0.98828125
+            },
+            {
+              "text": " engaged,",
+              "start": 2.58,
+              "end": 3.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sir.",
+              "start": 3.36,
+              "end": 3.44,
+              "probability": 0.8740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "did",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "raw": "not",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "raw": "wish",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "raw": "to",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "raw": "disturb",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "raw": "you,",
+          "start": 1.4,
+          "end": 1.74
+        },
+        {
+          "raw": "as",
+          "start": 2.08,
+          "end": 2.2
+        },
+        {
+          "raw": "you",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "raw": "seemed",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "raw": "engaged,",
+          "start": 2.58,
+          "end": 3.06
+        },
+        {
+          "raw": "sir.",
+          "start": 3.36,
+          "end": 3.44
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "did",
+        "not",
+        "wish",
+        "to",
+        "disturb",
+        "you,",
+        "as",
+        "you",
+        "seemed",
+        "engaged,",
+        "sir.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.52,
+          "end": 0.6,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.6,
+          "end": 0.78,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 0.78,
+          "end": 0.94,
+          "key": "wish",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.94,
+          "end": 1.1,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "disturb",
+          "start": 1.1,
+          "end": 1.4,
+          "key": "disturb",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.4,
+          "end": 1.74,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.08,
+          "end": 2.2,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.2,
+          "end": 2.34,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 2.34,
+          "end": 2.58,
+          "key": "seemed",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "engaged,",
+          "start": 2.58,
+          "end": 3.06,
+          "key": "engaged",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 3.36,
+          "end": 3.44,
+          "key": "sir",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "did",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "text": "not",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "text": "wish",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "text": "to",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "text": "disturb",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "text": "you,",
+          "start": 1.4,
+          "end": 1.74
+        },
+        {
+          "text": "as",
+          "start": 2.08,
+          "end": 2.2
+        },
+        {
+          "text": "you",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "text": "seemed",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "text": "engaged,",
+          "start": 2.58,
+          "end": 3.06
+        },
+        {
+          "text": "sir.\"",
+          "start": 3.36,
+          "end": 3.44
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2324947789311409
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2798f78f198618f1fad18bff84bda1350f6c261cbe102dba88735d1add8fd22c",
+  "selected_reasons": []
+}

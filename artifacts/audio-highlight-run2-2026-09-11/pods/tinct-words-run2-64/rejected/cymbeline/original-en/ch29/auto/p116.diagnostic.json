@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "168f68238cc1e10bf86c4ef1b8d1bd47d459b0aea6e01393d10547eb2d715f51",
+  "attempts": [
+    {
+      "asr_seconds": 0.23098704498261213,
+      "alignment_seconds": 0.0005070092156529427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cymbeline. What of him? He is A banish'd traitor.",
+        "hotwords": "Cymbeline, What, He, A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, What of him? He is A banish'd traitor.",
+          "start": 0.08,
+          "end": 2.96,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.7960611979166666
+            },
+            {
+              "text": " What",
+              "start": 1.14,
+              "end": 1.3,
+              "probability": 0.00843048095703125
+            },
+            {
+              "text": " of",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " him?",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " He",
+              "start": 2.0,
+              "end": 2.08,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " is",
+              "start": 2.08,
+              "end": 2.18,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " A",
+              "start": 2.18,
+              "end": 2.26,
+              "probability": 0.0005559921264648438
+            },
+            {
+              "text": " banish'd",
+              "start": 2.26,
+              "end": 2.7,
+              "probability": 0.04492950439453125
+            },
+            {
+              "text": " traitor.",
+              "start": 2.7,
+              "end": 2.96,
+              "probability": 0.41845703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "What",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "raw": "of",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "him?",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "He",
+          "start": 2.0,
+          "end": 2.08
+        },
+        {
+          "raw": "is",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "raw": "A",
+          "start": 2.18,
+          "end": 2.26
+        },
+        {
+          "raw": "banish'd",
+          "start": 2.26,
+          "end": 2.7
+        },
+        {
+          "raw": "traitor.",
+          "start": 2.7,
+          "end": 2.96
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "What",
+        "of",
+        "him?",
+        "He",
+        "is",
+        "A",
+        "banish'd",
+        "traitor."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.14,
+          "end": 1.3,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him?",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.0,
+          "end": 2.08,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.08,
+          "end": 2.18,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 2.18,
+          "end": 2.26,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "banish'd",
+          "start": 2.26,
+          "end": 2.7,
+          "key": "banishd",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "traitor.",
+          "start": 2.7,
+          "end": 2.96,
+          "key": "traitor",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "What",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "text": "of",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "him?",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "He",
+          "start": 2.0,
+          "end": 2.08
+        },
+        {
+          "text": "is",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "text": "A",
+          "start": 2.18,
+          "end": 2.26
+        },
+        {
+          "text": "banish'd",
+          "start": 2.26,
+          "end": 2.7
+        },
+        {
+          "text": "traitor.",
+          "start": 2.7,
+          "end": 2.96
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23167404625564814
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e341d29f7ca4abe103ccd0829343ae19e2411ffbd4066b82cffa45a0e462df56",
+  "selected_reasons": []
+}

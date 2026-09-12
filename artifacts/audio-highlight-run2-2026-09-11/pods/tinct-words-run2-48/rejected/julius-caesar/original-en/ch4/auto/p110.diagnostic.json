@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "09794fbd8fa09ee6628a0b1dad3d275cf7064dd3b70dbd4dc8fbef68b854ef51",
+  "attempts": [
+    {
+      "asr_seconds": 0.120312818326056,
+      "alignment_seconds": 0.0002631787210702896,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Follow me then.",
+        "hotwords": "Brutus, Follow"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, Follow me then.",
+          "start": 0.51,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.51,
+              "end": 0.93,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Follow",
+              "start": 1.11,
+              "end": 1.33,
+              "probability": 0.0404052734375
+            },
+            {
+              "text": " me",
+              "start": 1.33,
+              "end": 1.53,
+              "probability": 0.61962890625
+            },
+            {
+              "text": " then.",
+              "start": 1.53,
+              "end": 1.79,
+              "probability": 0.9267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.51,
+          "end": 0.93
+        },
+        {
+          "raw": "Follow",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "raw": "me",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "raw": "then.",
+          "start": 1.53,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Follow",
+        "me",
+        "then."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.51,
+          "end": 0.93,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Follow",
+          "start": 1.11,
+          "end": 1.33,
+          "key": "follow",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.33,
+          "end": 1.53,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "then.",
+          "start": 1.53,
+          "end": 1.79,
+          "key": "then",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.51,
+          "end": 0.93
+        },
+        {
+          "text": "Follow",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "text": "me",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "text": "then.",
+          "start": 1.53,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12067724205553532
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5fdb5270b84b730a15c5c68dada7ee9583ed3d11d24c526d2a8c0c4c039696ae",
+  "selected_reasons": []
+}

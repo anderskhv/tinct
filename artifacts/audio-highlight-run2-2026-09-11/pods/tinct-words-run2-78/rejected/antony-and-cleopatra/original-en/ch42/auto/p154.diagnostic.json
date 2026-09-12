@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "c296b7bb88761053ce7e479d4354679e27050710e4b06d245cce52568df690e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1252462835982442,
+      "alignment_seconds": 0.00035694893449544907,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter the Guard rustling in.",
+        "hotwords": "Enter, Guard"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter the Guard rustling in.",
+          "start": 0.11,
+          "end": 1.71,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.74755859375
+            },
+            {
+              "text": " the",
+              "start": 0.61,
+              "end": 0.75,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Guard",
+              "start": 0.75,
+              "end": 0.97,
+              "probability": 0.083740234375
+            },
+            {
+              "text": " rustling",
+              "start": 0.97,
+              "end": 1.49,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " in.",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "raw": "Guard",
+          "start": 0.75,
+          "end": 0.97
+        },
+        {
+          "raw": "rustling",
+          "start": 0.97,
+          "end": 1.49
+        },
+        {
+          "raw": "in.",
+          "start": 1.49,
+          "end": 1.71
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "the",
+        "Guard",
+        "rustling",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.75,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Guard",
+          "start": 0.75,
+          "end": 0.97,
+          "key": "guard",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rustling",
+          "start": 0.97,
+          "end": 1.49,
+          "key": "rustling",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "text": "the",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "text": "Guard",
+          "start": 0.75,
+          "end": 0.97
+        },
+        {
+          "text": "rustling",
+          "start": 0.97,
+          "end": 1.49
+        },
+        {
+          "text": "in.",
+          "start": 1.49,
+          "end": 1.71
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12573473155498505
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "13c894659454fd5be04235aef0233e621e48f820a0b37980e6f70388ab678ec3",
+  "selected_reasons": []
+}

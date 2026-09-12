@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "6e40686227ad4694dbcaaa814b6014d346c9417a952a77532010050dcd225ac4",
+  "attempts": [
+    {
+      "asr_seconds": 0.24045168235898018,
+      "alignment_seconds": 0.0004966557025909424,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The Present And Probable Future Condition Of The Indian Tribes Which Inhabit The Territory Possessed By The Union",
+        "hotwords": "The, Present, And, Probable, Future, Condition, Of, Indian, Tribes, Which, Inhabit, Territory, Possessed, By, Union"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The Present And Probable Future Condition Of The Indian Tribes Which Inhabit The Territory Possessed By The Union",
+          "start": 0.02,
+          "end": 7.08,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.2259521484375
+            },
+            {
+              "text": " Present",
+              "start": 0.5,
+              "end": 0.82,
+              "probability": 0.002971649169921875
+            },
+            {
+              "text": " And",
+              "start": 0.82,
+              "end": 1.12,
+              "probability": 0.01215362548828125
+            },
+            {
+              "text": " Probable",
+              "start": 1.12,
+              "end": 1.58,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " Future",
+              "start": 1.58,
+              "end": 1.92,
+              "probability": 0.955078125
+            },
+            {
+              "text": " Condition",
+              "start": 1.92,
+              "end": 2.42,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " Of",
+              "start": 2.42,
+              "end": 2.9,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " The",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Indian",
+              "start": 3.02,
+              "end": 3.44,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Tribes",
+              "start": 3.44,
+              "end": 4.3,
+              "probability": 0.957763671875
+            },
+            {
+              "text": " Which",
+              "start": 4.3,
+              "end": 4.64,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " Inhabit",
+              "start": 4.64,
+              "end": 5.1,
+              "probability": 0.896484375
+            },
+            {
+              "text": " The",
+              "start": 5.1,
+              "end": 5.84,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Territory",
+              "start": 5.84,
+              "end": 5.84,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Possessed",
+              "start": 5.84,
+              "end": 6.3,
+              "probability": 0.964111328125
+            },
+            {
+              "text": " By",
+              "start": 6.3,
+              "end": 6.6,
+              "probability": 0.990234375
+            },
+            {
+              "text": " The",
+              "start": 6.6,
+              "end": 6.76,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Union",
+              "start": 6.76,
+              "end": 7.08,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Present",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "raw": "And",
+          "start": 0.82,
+          "end": 1.12
+        },
+        {
+          "raw": "Probable",
+          "start": 1.12,
+          "end": 1.58
+        },
+        {
+          "raw": "Future",
+          "start": 1.58,
+          "end": 1.92
+        },
+        {
+          "raw": "Condition",
+          "start": 1.92,
+          "end": 2.42
+        },
+        {
+          "raw": "Of",
+          "start": 2.42,
+          "end": 2.9
+        },
+        {
+          "raw": "The",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "Indian",
+          "start": 3.02,
+          "end": 3.44
+        },
+        {
+          "raw": "Tribes",
+          "start": 3.44,
+          "end": 4.3
+        },
+        {
+          "raw": "Which",
+          "start": 4.3,
+          "end": 4.64
+        },
+        {
+          "raw": "Inhabit",
+          "start": 4.64,
+          "end": 5.1
+        },
+        {
+          "raw": "The",
+          "start": 5.1,
+          "end": 5.84
+        },
+        {
+          "raw": "Territory",
+          "start": 5.84,
+          "end": 5.84
+        },
+        {
+          "raw": "Possessed",
+          "start": 5.84,
+          "end": 6.3
+        },
+        {
+          "raw": "By",
+          "start": 6.3,
+          "end": 6.6
+        },
+        {
+          "raw": "The",
+          "start": 6.6,
+          "end": 6.76
+        },
+        {
+          "raw": "Union",
+          "start": 6.76,
+          "end": 7.08
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Present",
+        "And",
+        "Probable",
+        "Future",
+        "Condition",
+        "Of",
+        "The",
+        "Indian",
+        "Tribes",
+        "Which",
+        "Inhabit",
+        "The",
+        "Territory",
+        "Possessed",
+        "By",
+        "The",
+        "Union"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Present",
+          "start": 0.5,
+          "end": 0.82,
+          "key": "present",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 0.82,
+          "end": 1.12,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Probable",
+          "start": 1.12,
+          "end": 1.58,
+          "key": "probable",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Future",
+          "start": 1.58,
+          "end": 1.92,
+          "key": "future",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Condition",
+          "start": 1.92,
+          "end": 2.42,
+          "key": "condition",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 2.42,
+          "end": 2.9,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Indian",
+          "start": 3.02,
+          "end": 3.44,
+          "key": "indian",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Tribes",
+          "start": 3.44,
+          "end": 4.3,
+          "key": "tribes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 4.3,
+          "end": 4.64,
+          "key": "which",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Inhabit",
+          "start": 4.64,
+          "end": 5.1,
+          "key": "inhabit",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 5.1,
+          "end": 5.84,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Territory",
+          "start": 5.84,
+          "end": 5.84,
+          "key": "territory",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Possessed",
+          "start": 5.84,
+          "end": 6.3,
+          "key": "possessed",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 6.3,
+          "end": 6.6,
+          "key": "by",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 6.6,
+          "end": 6.76,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Union",
+          "start": 6.76,
+          "end": 7.08,
+          "key": "union",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Present",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "text": "And",
+          "start": 0.82,
+          "end": 1.12
+        },
+        {
+          "text": "Probable",
+          "start": 1.12,
+          "end": 1.58
+        },
+        {
+          "text": "Future",
+          "start": 1.58,
+          "end": 1.92
+        },
+        {
+          "text": "Condition",
+          "start": 1.92,
+          "end": 2.42
+        },
+        {
+          "text": "Of",
+          "start": 2.42,
+          "end": 2.9
+        },
+        {
+          "text": "The",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "Indian",
+          "start": 3.02,
+          "end": 3.44
+        },
+        {
+          "text": "Tribes",
+          "start": 3.44,
+          "end": 4.3
+        },
+        {
+          "text": "Which",
+          "start": 4.3,
+          "end": 4.64
+        },
+        {
+          "text": "Inhabit",
+          "start": 4.64,
+          "end": 5.1
+        },
+        {
+          "text": "The",
+          "start": 5.1,
+          "end": 5.84
+        },
+        {
+          "text": "Territory",
+          "start": 5.84,
+          "end": 5.84
+        },
+        {
+          "text": "Possessed",
+          "start": 5.84,
+          "end": 6.3
+        },
+        {
+          "text": "By",
+          "start": 6.3,
+          "end": 6.6
+        },
+        {
+          "text": "The",
+          "start": 6.6,
+          "end": 6.76
+        },
+        {
+          "text": "Union",
+          "start": 6.76,
+          "end": 7.08
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24118687212467194
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3651b273b263e36c117180598a2ee2876676a300fa1153ea5bd841634746ac5a",
+  "selected_reasons": []
+}

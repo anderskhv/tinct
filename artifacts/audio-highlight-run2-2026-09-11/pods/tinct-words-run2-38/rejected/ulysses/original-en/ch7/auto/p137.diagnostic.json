@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "e465e9b10c8d8197965cd2bb691a08467d92095bffa6000b622d04529ee76311",
+  "attempts": [
+    {
+      "asr_seconds": 0.08970613201381639,
+      "alignment_seconds": 0.00011610996443778276,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—How are you, Dedalus?",
+        "hotwords": "How, Dedalus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " How are you, Dedalus?",
+          "start": 0.05,
+          "end": 1.33,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " are",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you,",
+              "start": 0.65,
+              "end": 0.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Dedalus?",
+              "start": 1.05,
+              "end": 1.33,
+              "probability": 0.3650970458984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "are",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "you,",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "raw": "Dedalus?",
+          "start": 1.05,
+          "end": 1.33
+        }
+      ],
+      "expected_tokens": [
+        "—How",
+        "are",
+        "you,",
+        "Dedalus?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 0.65,
+          "end": 0.81,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dedalus?",
+          "start": 1.05,
+          "end": 1.33,
+          "key": "dedalus",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—How",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "are",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "you,",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "text": "Dedalus?",
+          "start": 1.05,
+          "end": 1.33
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08986513299169019
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "059e02a403a265b1cb0af5321f6ba91221d0302d64a917b89962f4d7d13bcb51",
+  "selected_reasons": []
+}

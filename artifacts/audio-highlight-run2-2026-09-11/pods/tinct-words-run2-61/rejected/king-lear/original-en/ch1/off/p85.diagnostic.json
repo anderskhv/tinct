@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "41867891af7393284bf0f41af0b6830a29fdbc63289d650ebf939832774d5fe8",
+  "attempts": [
+    {
+      "asr_seconds": 0.19602013938128948,
+      "alignment_seconds": 0.0003625359386205673,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " France, bid farewell to your sisters.",
+          "start": 0.08,
+          "end": 2.26,
+          "words": [
+            {
+              "text": " France,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " bid",
+              "start": 1.22,
+              "end": 1.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " farewell",
+              "start": 1.24,
+              "end": 1.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.6,
+              "end": 1.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 1.86,
+              "end": 1.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sisters.",
+              "start": 1.96,
+              "end": 2.26,
+              "probability": 0.97021484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "France,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "bid",
+          "start": 1.22,
+          "end": 1.24
+        },
+        {
+          "raw": "farewell",
+          "start": 1.24,
+          "end": 1.6
+        },
+        {
+          "raw": "to",
+          "start": 1.6,
+          "end": 1.86
+        },
+        {
+          "raw": "your",
+          "start": 1.86,
+          "end": 1.96
+        },
+        {
+          "raw": "sisters.",
+          "start": 1.96,
+          "end": 2.26
+        }
+      ],
+      "expected_tokens": [
+        "France.",
+        "Bid",
+        "farewell",
+        "to",
+        "your",
+        "sisters."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "France,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "france",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bid",
+          "start": 1.22,
+          "end": 1.24,
+          "key": "bid",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "farewell",
+          "start": 1.24,
+          "end": 1.6,
+          "key": "farewell",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.6,
+          "end": 1.86,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.86,
+          "end": 1.96,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sisters.",
+          "start": 1.96,
+          "end": 2.26,
+          "key": "sisters",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "France.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Bid",
+          "start": 1.22,
+          "end": 1.24
+        },
+        {
+          "text": "farewell",
+          "start": 1.24,
+          "end": 1.6
+        },
+        {
+          "text": "to",
+          "start": 1.6,
+          "end": 1.86
+        },
+        {
+          "text": "your",
+          "start": 1.86,
+          "end": 1.96
+        },
+        {
+          "text": "sisters.",
+          "start": 1.96,
+          "end": 2.26
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1965337861329317
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b724a3e2803c242f1e09385ede6727aa35f9de9884e6cc59fa6d746299f76ccc",
+  "selected_reasons": []
+}

@@ -1,0 +1,543 @@
+{
+  "complete": true,
+  "signature": "aed131211fb3d1802c58e22be86a3d7ddd845af4d28aea232005afc92265a3c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.19259885512292385,
+      "alignment_seconds": 0.0005179140716791153,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tip-top let me see I'll take a glass of burgundy and let me see",
+          "start": 0.05,
+          "end": 4.49,
+          "words": [
+            {
+              "text": " Tip",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.853515625
+            },
+            {
+              "text": "-top",
+              "start": 0.57,
+              "end": 0.87,
+              "probability": 0.707763671875
+            },
+            {
+              "text": " let",
+              "start": 0.87,
+              "end": 1.41,
+              "probability": 0.2064208984375
+            },
+            {
+              "text": " me",
+              "start": 1.41,
+              "end": 1.55,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " see",
+              "start": 1.55,
+              "end": 1.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I'll",
+              "start": 1.81,
+              "end": 2.07,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " take",
+              "start": 2.07,
+              "end": 2.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 2.19,
+              "end": 2.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " glass",
+              "start": 2.33,
+              "end": 2.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 2.59,
+              "end": 2.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " burgundy",
+              "start": 2.79,
+              "end": 3.23,
+              "probability": 0.840576171875
+            },
+            {
+              "text": " and",
+              "start": 3.23,
+              "end": 3.51,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " let",
+              "start": 3.51,
+              "end": 4.03,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " me",
+              "start": 4.03,
+              "end": 4.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " see",
+              "start": 4.19,
+              "end": 4.49,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tip",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "-top",
+          "start": 0.57,
+          "end": 0.87
+        },
+        {
+          "raw": "let",
+          "start": 0.87,
+          "end": 1.41
+        },
+        {
+          "raw": "me",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "raw": "see",
+          "start": 1.55,
+          "end": 1.81
+        },
+        {
+          "raw": "I'll",
+          "start": 1.81,
+          "end": 2.07
+        },
+        {
+          "raw": "take",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "raw": "a",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "raw": "glass",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "raw": "of",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "raw": "burgundy",
+          "start": 2.79,
+          "end": 3.23
+        },
+        {
+          "raw": "and",
+          "start": 3.23,
+          "end": 3.51
+        },
+        {
+          "raw": "let",
+          "start": 3.51,
+          "end": 4.03
+        },
+        {
+          "raw": "me",
+          "start": 4.03,
+          "end": 4.19
+        },
+        {
+          "raw": "see",
+          "start": 4.19,
+          "end": 4.49
+        }
+      ],
+      "expected_tokens": [
+        "—Tiptop...",
+        "Let",
+        "me",
+        "see.",
+        "I'll",
+        "take",
+        "a",
+        "glass",
+        "of",
+        "burgundy",
+        "and...",
+        "let",
+        "me",
+        "see."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          14,
+          2,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tip",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "tip",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "-top",
+          "start": 0.57,
+          "end": 0.87,
+          "key": "top",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 0.87,
+          "end": 1.41,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.41,
+          "end": 1.55,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.55,
+          "end": 1.81,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.81,
+          "end": 2.07,
+          "key": "ill",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 2.07,
+          "end": 2.19,
+          "key": "take",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.19,
+          "end": 2.33,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "glass",
+          "start": 2.33,
+          "end": 2.59,
+          "key": "glass",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.59,
+          "end": 2.79,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "burgundy",
+          "start": 2.79,
+          "end": 3.23,
+          "key": "burgundy",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.23,
+          "end": 3.51,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 3.51,
+          "end": 4.03,
+          "key": "let",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.03,
+          "end": 4.19,
+          "key": "me",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 4.19,
+          "end": 4.49,
+          "key": "see",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Tiptop...",
+          "start": 0.0,
+          "end": 0.435
+        },
+        {
+          "text": "Let",
+          "start": 0.87,
+          "end": 1.41
+        },
+        {
+          "text": "me",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "text": "see.",
+          "start": 1.55,
+          "end": 1.81
+        },
+        {
+          "text": "I'll",
+          "start": 1.81,
+          "end": 2.07
+        },
+        {
+          "text": "take",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "text": "a",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "text": "glass",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "text": "of",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "text": "burgundy",
+          "start": 2.79,
+          "end": 3.23
+        },
+        {
+          "text": "and...",
+          "start": 3.23,
+          "end": 3.51
+        },
+        {
+          "text": "let",
+          "start": 3.51,
+          "end": 4.03
+        },
+        {
+          "text": "me",
+          "start": 4.03,
+          "end": 4.19
+        },
+        {
+          "text": "see.",
+          "start": 4.19,
+          "end": 4.49
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.19332246016710997
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a180d8bd59b5514019506bdfd06cc617058aa635c47bcee06d8b23bd1c25b5ef",
+  "selected_reasons": []
+}

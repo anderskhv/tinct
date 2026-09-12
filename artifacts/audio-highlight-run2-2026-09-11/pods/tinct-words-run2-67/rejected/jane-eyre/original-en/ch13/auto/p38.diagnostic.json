@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "c01db6075cca52fd7c8b59dfdbbc8d93fe8a2a744b564b61b4691c6883bda93c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1465605366975069,
+      "alignment_seconds": 0.00020498735830187798,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Eight years.\"",
+        "hotwords": "Eight"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Eight years.",
+          "start": 0.08,
+          "end": 0.86,
+          "words": [
+            {
+              "text": " Eight",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.4375
+            },
+            {
+              "text": " years.",
+              "start": 0.54,
+              "end": 0.86,
+              "probability": 0.95458984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Eight",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "years.",
+          "start": 0.54,
+          "end": 0.86
+        }
+      ],
+      "expected_tokens": [
+        "\"Eight",
+        "years.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Eight",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "eight",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "years.",
+          "start": 0.54,
+          "end": 0.86,
+          "key": "years",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Eight",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "years.\"",
+          "start": 0.54,
+          "end": 0.86
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14683139976114035
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4b78e98d7dc9331f46635a80fbddf008a513d271259c3b483428ee0bb79927ec",
+  "selected_reasons": []
+}

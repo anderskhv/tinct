@@ -1,0 +1,505 @@
+{
+  "complete": true,
+  "signature": "24d688a8a0117a35731c7d18906267d36d608a9142099942efc5aedd0a51b96f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2282927590131294,
+      "alignment_seconds": 0.000271458993665874,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, it ripens towards it.",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.877197265625
+            },
+            {
+              "text": " it",
+              "start": 1.01,
+              "end": 1.09,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " ripens",
+              "start": 1.09,
+              "end": 1.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " towards",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.94140625
+            },
+            {
+              "text": " it.",
+              "start": 1.71,
+              "end": 2.01,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Strike the vessel's hoe, here is to Caesar.",
+          "start": 2.59,
+          "end": 4.53,
+          "words": [
+            {
+              "text": " Strike",
+              "start": 2.59,
+              "end": 2.63,
+              "probability": 0.96875
+            },
+            {
+              "text": " the",
+              "start": 2.63,
+              "end": 2.83,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " vessel's",
+              "start": 2.83,
+              "end": 3.33,
+              "probability": 0.705078125
+            },
+            {
+              "text": " hoe,",
+              "start": 3.33,
+              "end": 3.55,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " here",
+              "start": 3.85,
+              "end": 3.95,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " is",
+              "start": 3.95,
+              "end": 4.09,
+              "probability": 0.98828125
+            },
+            {
+              "text": " to",
+              "start": 4.09,
+              "end": 4.29,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Caesar.",
+              "start": 4.29,
+              "end": 4.53,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "it",
+          "start": 1.01,
+          "end": 1.09
+        },
+        {
+          "raw": "ripens",
+          "start": 1.09,
+          "end": 1.49
+        },
+        {
+          "raw": "towards",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "it.",
+          "start": 1.71,
+          "end": 2.01
+        },
+        {
+          "raw": "Strike",
+          "start": 2.59,
+          "end": 2.63
+        },
+        {
+          "raw": "the",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "raw": "vessel's",
+          "start": 2.83,
+          "end": 3.33
+        },
+        {
+          "raw": "hoe,",
+          "start": 3.33,
+          "end": 3.55
+        },
+        {
+          "raw": "here",
+          "start": 3.85,
+          "end": 3.95
+        },
+        {
+          "raw": "is",
+          "start": 3.95,
+          "end": 4.09
+        },
+        {
+          "raw": "to",
+          "start": 4.09,
+          "end": 4.29
+        },
+        {
+          "raw": "Caesar.",
+          "start": 4.29,
+          "end": 4.53
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "It",
+        "ripens",
+        "towards",
+        "it.",
+        "Strike",
+        "the",
+        "vessels,",
+        "ho!",
+        "Here",
+        "is",
+        "to",
+        "Caesar!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          13,
+          9,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.01,
+          "end": 1.09,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ripens",
+          "start": 1.09,
+          "end": 1.49,
+          "key": "ripens",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "towards",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.71,
+          "end": 2.01,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Strike",
+          "start": 2.59,
+          "end": 2.63,
+          "key": "strike",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.63,
+          "end": 2.83,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "vessel's",
+          "start": 2.83,
+          "end": 3.33,
+          "key": "vessels",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hoe,",
+          "start": 3.33,
+          "end": 3.55,
+          "key": "hoe",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 3.85,
+          "end": 3.95,
+          "key": "here",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.95,
+          "end": 4.09,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.09,
+          "end": 4.29,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Caesar.",
+          "start": 4.29,
+          "end": 4.53,
+          "key": "caesar",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "It",
+          "start": 1.01,
+          "end": 1.09
+        },
+        {
+          "text": "ripens",
+          "start": 1.09,
+          "end": 1.49
+        },
+        {
+          "text": "towards",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "it.",
+          "start": 1.71,
+          "end": 2.01
+        },
+        {
+          "text": "Strike",
+          "start": 2.59,
+          "end": 2.63
+        },
+        {
+          "text": "the",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "text": "vessels,",
+          "start": 2.83,
+          "end": 3.33
+        },
+        {
+          "text": "ho!",
+          "start": 3.33,
+          "end": 3.59
+        },
+        {
+          "text": "Here",
+          "start": 3.85,
+          "end": 3.95
+        },
+        {
+          "text": "is",
+          "start": 3.95,
+          "end": 4.09
+        },
+        {
+          "text": "to",
+          "start": 4.09,
+          "end": 4.29
+        },
+        {
+          "text": "Caesar!",
+          "start": 4.29,
+          "end": 4.53
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.22866614200756885
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "266ca6188500510f26e4fab75f34d5727d4de94c20106f7cd4c454a6c92efc04",
+  "selected_reasons": []
+}

@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "e9bfa9432012d166ac1f9c12e09b061d1b5d9ca6cb7c7b9c06e232d92be5eb1b",
+  "attempts": [
+    {
+      "asr_seconds": 0.22511564218439162,
+      "alignment_seconds": 0.0004652219358831644,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " When she returned I inquired what he had said",
+          "start": 0.05,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " When",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " she",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " returned",
+              "start": 0.71,
+              "end": 1.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 1.15,
+              "end": 1.71,
+              "probability": 0.408935546875
+            },
+            {
+              "text": " inquired",
+              "start": 1.71,
+              "end": 2.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " what",
+              "start": 2.09,
+              "end": 2.39,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " he",
+              "start": 2.39,
+              "end": 2.49,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " had",
+              "start": 2.49,
+              "end": 2.61,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " said",
+              "start": 2.61,
+              "end": 2.91,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "When",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "she",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "returned",
+          "start": 0.71,
+          "end": 1.15
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.71
+        },
+        {
+          "raw": "inquired",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "raw": "what",
+          "start": 2.09,
+          "end": 2.39
+        },
+        {
+          "raw": "he",
+          "start": 2.39,
+          "end": 2.49
+        },
+        {
+          "raw": "had",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "raw": "said",
+          "start": 2.61,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "When",
+        "she",
+        "returned,",
+        "I",
+        "inquired",
+        "what",
+        "he",
+        "had",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "When",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "when",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.53,
+          "end": 0.71,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "returned",
+          "start": 0.71,
+          "end": 1.15,
+          "key": "returned",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.71,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "inquired",
+          "start": 1.71,
+          "end": 2.09,
+          "key": "inquired",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.09,
+          "end": 2.39,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.39,
+          "end": 2.49,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.49,
+          "end": 2.61,
+          "key": "had",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.61,
+          "end": 2.91,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "When",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "she",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "returned,",
+          "start": 0.71,
+          "end": 1.15
+        },
+        {
+          "text": "I",
+          "start": 1.15,
+          "end": 1.71
+        },
+        {
+          "text": "inquired",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "text": "what",
+          "start": 2.09,
+          "end": 2.39
+        },
+        {
+          "text": "he",
+          "start": 2.39,
+          "end": 2.49
+        },
+        {
+          "text": "had",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "text": "said.",
+          "start": 2.61,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22576154302805662
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7297a7017d7c0921b6bb80dded43a2216cc0c1ea5c5d133fb056f95d78e74f30",
+  "selected_reasons": []
+}

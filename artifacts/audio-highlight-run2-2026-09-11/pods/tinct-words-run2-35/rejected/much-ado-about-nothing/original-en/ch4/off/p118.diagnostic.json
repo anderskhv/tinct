@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "8a203bb281c63d35bb8db9f1ad29b37e136791e91c9833d410db13ba2444d9aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.20189853571355343,
+      "alignment_seconds": 0.00033828429877758026,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Claudio, neither my lord.",
+          "start": 0.0,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Claudio,",
+              "start": 0.0,
+              "end": 0.82,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " neither",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " my",
+              "start": 1.36,
+              "end": 1.62,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " lord.",
+              "start": 1.62,
+              "end": 1.84,
+              "probability": 0.82763671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Claudio,",
+          "start": 0.0,
+          "end": 0.82
+        },
+        {
+          "raw": "neither",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "my",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "raw": "lord.",
+          "start": 1.62,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "Claudio.",
+        "Neither,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Claudio,",
+          "start": 0.0,
+          "end": 0.82,
+          "key": "claudio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "neither",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "neither",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.36,
+          "end": 1.62,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.62,
+          "end": 1.84,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Claudio.",
+          "start": 0.0,
+          "end": 0.82
+        },
+        {
+          "text": "Neither,",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "my",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "text": "lord.",
+          "start": 1.62,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20235993154346943
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a71da5a0e3ab91fa754651166ce5b7116eff46fab8ca3e95012ad35ee2ee8352",
+  "selected_reasons": []
+}

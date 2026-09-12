@@ -1,0 +1,773 @@
+{
+  "complete": true,
+  "signature": "f618fe8664298da9c47c60d7ac910e1930140140d5b4f0e286b28d1708672305",
+  "attempts": [
+    {
+      "asr_seconds": 0.35708413645625114,
+      "alignment_seconds": 0.0007078535854816437,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Jane, Jane,\" said he, stopping before me, \"you are quite pale with your vigils: don't you curse me for disturbing your rest?\"",
+        "hotwords": "Jane"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Jane, Jane, said he, stopping before me, you are quite pale with your vigils, don't you",
+          "start": 0.05,
+          "end": 5.55,
+          "words": [
+            {
+              "text": " Jane,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.1383056640625
+            },
+            {
+              "text": " Jane,",
+              "start": 0.97,
+              "end": 1.13,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " said",
+              "start": 1.47,
+              "end": 1.75,
+              "probability": 0.986328125
+            },
+            {
+              "text": " he,",
+              "start": 1.75,
+              "end": 1.97,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " stopping",
+              "start": 2.11,
+              "end": 2.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " before",
+              "start": 2.35,
+              "end": 2.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me,",
+              "start": 2.65,
+              "end": 2.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 3.35,
+              "end": 3.49,
+              "probability": 0.57421875
+            },
+            {
+              "text": " are",
+              "start": 3.49,
+              "end": 3.63,
+              "probability": 0.9921875
+            },
+            {
+              "text": " quite",
+              "start": 3.63,
+              "end": 3.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pale",
+              "start": 3.81,
+              "end": 4.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 4.17,
+              "end": 4.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " your",
+              "start": 4.35,
+              "end": 4.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " vigils,",
+              "start": 4.47,
+              "end": 4.83,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " don't",
+              "start": 5.33,
+              "end": 5.43,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " you",
+              "start": 5.43,
+              "end": 5.55,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " curse me for disturbing your rest?",
+          "start": 5.55,
+          "end": 6.93,
+          "words": [
+            {
+              "text": " curse",
+              "start": 5.55,
+              "end": 5.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 5.73,
+              "end": 5.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " for",
+              "start": 5.93,
+              "end": 6.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " disturbing",
+              "start": 6.05,
+              "end": 6.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 6.43,
+              "end": 6.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " rest?",
+              "start": 6.63,
+              "end": 6.93,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jane,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Jane,",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "raw": "said",
+          "start": 1.47,
+          "end": 1.75
+        },
+        {
+          "raw": "he,",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "raw": "stopping",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "raw": "before",
+          "start": 2.35,
+          "end": 2.65
+        },
+        {
+          "raw": "me,",
+          "start": 2.65,
+          "end": 2.95
+        },
+        {
+          "raw": "you",
+          "start": 3.35,
+          "end": 3.49
+        },
+        {
+          "raw": "are",
+          "start": 3.49,
+          "end": 3.63
+        },
+        {
+          "raw": "quite",
+          "start": 3.63,
+          "end": 3.81
+        },
+        {
+          "raw": "pale",
+          "start": 3.81,
+          "end": 4.17
+        },
+        {
+          "raw": "with",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "raw": "your",
+          "start": 4.35,
+          "end": 4.47
+        },
+        {
+          "raw": "vigils,",
+          "start": 4.47,
+          "end": 4.83
+        },
+        {
+          "raw": "don't",
+          "start": 5.33,
+          "end": 5.43
+        },
+        {
+          "raw": "you",
+          "start": 5.43,
+          "end": 5.55
+        },
+        {
+          "raw": "curse",
+          "start": 5.55,
+          "end": 5.73
+        },
+        {
+          "raw": "me",
+          "start": 5.73,
+          "end": 5.93
+        },
+        {
+          "raw": "for",
+          "start": 5.93,
+          "end": 6.05
+        },
+        {
+          "raw": "disturbing",
+          "start": 6.05,
+          "end": 6.43
+        },
+        {
+          "raw": "your",
+          "start": 6.43,
+          "end": 6.63
+        },
+        {
+          "raw": "rest?",
+          "start": 6.63,
+          "end": 6.93
+        }
+      ],
+      "expected_tokens": [
+        "\"Jane,",
+        "Jane,\"",
+        "said",
+        "he,",
+        "stopping",
+        "before",
+        "me,",
+        "\"you",
+        "are",
+        "quite",
+        "pale",
+        "with",
+        "your",
+        "vigils:",
+        "don't",
+        "you",
+        "curse",
+        "me",
+        "for",
+        "disturbing",
+        "your",
+        "rest?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jane,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "jane",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jane,",
+          "start": 0.97,
+          "end": 1.13,
+          "key": "jane",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.47,
+          "end": 1.75,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 1.75,
+          "end": 1.97,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stopping",
+          "start": 2.11,
+          "end": 2.35,
+          "key": "stopping",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 2.35,
+          "end": 2.65,
+          "key": "before",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.65,
+          "end": 2.95,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.35,
+          "end": 3.49,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.49,
+          "end": 3.63,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 3.63,
+          "end": 3.81,
+          "key": "quite",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pale",
+          "start": 3.81,
+          "end": 4.17,
+          "key": "pale",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.17,
+          "end": 4.35,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.35,
+          "end": 4.47,
+          "key": "your",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "vigils,",
+          "start": 4.47,
+          "end": 4.83,
+          "key": "vigils",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 5.33,
+          "end": 5.43,
+          "key": "dont",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.43,
+          "end": 5.55,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "curse",
+          "start": 5.55,
+          "end": 5.73,
+          "key": "curse",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.73,
+          "end": 5.93,
+          "key": "me",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.93,
+          "end": 6.05,
+          "key": "for",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "disturbing",
+          "start": 6.05,
+          "end": 6.43,
+          "key": "disturbing",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 6.43,
+          "end": 6.63,
+          "key": "your",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "rest?",
+          "start": 6.63,
+          "end": 6.93,
+          "key": "rest",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Jane,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Jane,\"",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "text": "said",
+          "start": 1.47,
+          "end": 1.75
+        },
+        {
+          "text": "he,",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "text": "stopping",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "text": "before",
+          "start": 2.35,
+          "end": 2.65
+        },
+        {
+          "text": "me,",
+          "start": 2.65,
+          "end": 2.95
+        },
+        {
+          "text": "\"you",
+          "start": 3.35,
+          "end": 3.49
+        },
+        {
+          "text": "are",
+          "start": 3.49,
+          "end": 3.63
+        },
+        {
+          "text": "quite",
+          "start": 3.63,
+          "end": 3.81
+        },
+        {
+          "text": "pale",
+          "start": 3.81,
+          "end": 4.17
+        },
+        {
+          "text": "with",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "text": "your",
+          "start": 4.35,
+          "end": 4.47
+        },
+        {
+          "text": "vigils:",
+          "start": 4.47,
+          "end": 4.83
+        },
+        {
+          "text": "don't",
+          "start": 5.33,
+          "end": 5.43
+        },
+        {
+          "text": "you",
+          "start": 5.43,
+          "end": 5.55
+        },
+        {
+          "text": "curse",
+          "start": 5.55,
+          "end": 5.73
+        },
+        {
+          "text": "me",
+          "start": 5.73,
+          "end": 5.93
+        },
+        {
+          "text": "for",
+          "start": 5.93,
+          "end": 6.05
+        },
+        {
+          "text": "disturbing",
+          "start": 6.05,
+          "end": 6.43
+        },
+        {
+          "text": "your",
+          "start": 6.43,
+          "end": 6.63
+        },
+        {
+          "text": "rest?\"",
+          "start": 6.63,
+          "end": 6.93
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35807831957936287
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f468cff5d523b3400d0cf245e2f5a6bdc2de733f14ea17ad12af38e247f769ac",
+  "selected_reasons": []
+}

@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "420654d7fdaaa3b40273de149f60ce02fbda1b360d3778a6e0d34b63afb1eba2",
+  "attempts": [
+    {
+      "asr_seconds": 0.1755731380544603,
+      "alignment_seconds": 0.000243297778069973,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Senator. Pray you, let's to him.",
+        "hotwords": "First, Senator, Pray"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Senator, Pray you, let's to him.",
+          "start": 0.05,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.875
+            },
+            {
+              "text": " Senator,",
+              "start": 0.61,
+              "end": 0.97,
+              "probability": 0.70361328125
+            },
+            {
+              "text": " Pray",
+              "start": 1.51,
+              "end": 1.63,
+              "probability": 0.540985107421875
+            },
+            {
+              "text": " you,",
+              "start": 1.63,
+              "end": 1.79,
+              "probability": 0.66357421875
+            },
+            {
+              "text": " let's",
+              "start": 1.93,
+              "end": 2.09,
+              "probability": 0.764892578125
+            },
+            {
+              "text": " to",
+              "start": 2.09,
+              "end": 2.19,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " him.",
+              "start": 2.19,
+              "end": 2.39,
+              "probability": 0.9501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Senator,",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "raw": "Pray",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "raw": "you,",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "raw": "let's",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "raw": "to",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "raw": "him.",
+          "start": 2.19,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Senator.",
+        "Pray",
+        "you,",
+        "let's",
+        "to",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Senator,",
+          "start": 0.61,
+          "end": 0.97,
+          "key": "senator",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pray",
+          "start": 1.51,
+          "end": 1.63,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.63,
+          "end": 1.79,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "let's",
+          "start": 1.93,
+          "end": 2.09,
+          "key": "lets",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.09,
+          "end": 2.19,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 2.19,
+          "end": 2.39,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Senator.",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "text": "Pray",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "you,",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "text": "let's",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "text": "to",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "text": "him.",
+          "start": 2.19,
+          "end": 2.39
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17590801836922765
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b1903e9922a4a33e97c2535d6060c32051db7734f49ca5a73d2baa9ca35b8430",
+  "selected_reasons": []
+}

@@ -1,0 +1,410 @@
+{
+  "complete": true,
+  "signature": "8e29414c071a3bdcbdb9cbe4edecddb08c70230fa2c9e9e03a30861c2547cc1e",
+  "attempts": [
+    {
+      "asr_seconds": 0.22019508387893438,
+      "alignment_seconds": 0.000404910184442997,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Romeo, T.H. exchange of thy love's faithful vow for mine.",
+          "start": 0.05,
+          "end": 3.91,
+          "words": [
+            {
+              "text": " Romeo,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.8515625
+            },
+            {
+              "text": " T",
+              "start": 1.35,
+              "end": 1.53,
+              "probability": 0.363037109375
+            },
+            {
+              "text": ".H.",
+              "start": 1.53,
+              "end": 1.71,
+              "probability": 0.755126953125
+            },
+            {
+              "text": " exchange",
+              "start": 1.71,
+              "end": 1.99,
+              "probability": 0.1806640625
+            },
+            {
+              "text": " of",
+              "start": 1.99,
+              "end": 2.21,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " thy",
+              "start": 2.21,
+              "end": 2.33,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " love's",
+              "start": 2.33,
+              "end": 2.79,
+              "probability": 0.930908203125
+            },
+            {
+              "text": " faithful",
+              "start": 2.79,
+              "end": 3.09,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " vow",
+              "start": 3.09,
+              "end": 3.43,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " for",
+              "start": 3.43,
+              "end": 3.65,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " mine.",
+              "start": 3.65,
+              "end": 3.91,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Romeo,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "T",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "raw": ".H.",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "raw": "exchange",
+          "start": 1.71,
+          "end": 1.99
+        },
+        {
+          "raw": "of",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "raw": "thy",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "raw": "love's",
+          "start": 2.33,
+          "end": 2.79
+        },
+        {
+          "raw": "faithful",
+          "start": 2.79,
+          "end": 3.09
+        },
+        {
+          "raw": "vow",
+          "start": 3.09,
+          "end": 3.43
+        },
+        {
+          "raw": "for",
+          "start": 3.43,
+          "end": 3.65
+        },
+        {
+          "raw": "mine.",
+          "start": 3.65,
+          "end": 3.91
+        }
+      ],
+      "expected_tokens": [
+        "Romeo.",
+        "Th'exchange",
+        "of",
+        "thy",
+        "love's",
+        "faithful",
+        "vow",
+        "for",
+        "mine."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          4
+        ],
+        [
+          "equal",
+          2,
+          9,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Romeo,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "romeo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 1.35,
+          "end": 1.53,
+          "key": "t",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": ".H.",
+          "start": 1.53,
+          "end": 1.71,
+          "key": "h",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "exchange",
+          "start": 1.71,
+          "end": 1.99,
+          "key": "exchange",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.99,
+          "end": 2.21,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 2.21,
+          "end": 2.33,
+          "key": "thy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "love's",
+          "start": 2.33,
+          "end": 2.79,
+          "key": "loves",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "faithful",
+          "start": 2.79,
+          "end": 3.09,
+          "key": "faithful",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "vow",
+          "start": 3.09,
+          "end": 3.43,
+          "key": "vow",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.43,
+          "end": 3.65,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mine.",
+          "start": 3.65,
+          "end": 3.91,
+          "key": "mine",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Romeo.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Th'exchange",
+          "start": 0.85,
+          "end": 1.42
+        },
+        {
+          "text": "of",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "text": "thy",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "text": "love's",
+          "start": 2.33,
+          "end": 2.79
+        },
+        {
+          "text": "faithful",
+          "start": 2.79,
+          "end": 3.09
+        },
+        {
+          "text": "vow",
+          "start": 3.09,
+          "end": 3.43
+        },
+        {
+          "text": "for",
+          "start": 3.43,
+          "end": 3.65
+        },
+        {
+          "text": "mine.",
+          "start": 3.65,
+          "end": 3.91
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 11,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2207537153735757
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6c6003c6d76471c503e50500b315fdfc1ccb6287768ed6384864c6e8b205d382",
+  "selected_reasons": []
+}

@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "1b0cd6bc14850fb56d4262585e021999ea1fd11f3b0394c4acd688250a6a4c1c",
+  "attempts": [
+    {
+      "asr_seconds": 0.12877226248383522,
+      "alignment_seconds": 0.00030739977955818176,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Radcliffe, my lord.",
+          "start": 0.02,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " Radcliffe,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.582275390625
+            },
+            {
+              "text": " my",
+              "start": 1.06,
+              "end": 1.14,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " lord.",
+              "start": 1.14,
+              "end": 1.38,
+              "probability": 0.8017578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Radcliffe,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "my",
+          "start": 1.06,
+          "end": 1.14
+        },
+        {
+          "raw": "lord.",
+          "start": 1.14,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "Ratcliffe.",
+        "My",
+        "lord!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Radcliffe,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "radcliffe",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.06,
+          "end": 1.14,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.14,
+          "end": 1.38,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ratcliffe.",
+          "start": 0.0,
+          "end": 0.53
+        },
+        {
+          "text": "My",
+          "start": 1.06,
+          "end": 1.14
+        },
+        {
+          "text": "lord!",
+          "start": 1.14,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1291849948465824
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4cc9530b981dec9c14c2bd950b3fd9cd48762996582c8d26a09b25749a81627b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

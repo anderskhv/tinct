@@ -1,0 +1,260 @@
+{
+  "complete": true,
+  "signature": "5e74f47d08ce5f549d5f9988584e6da95c314ba7d0d6847f236835bef9c889f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.22421067720279098,
+      "alignment_seconds": 0.00031602010130882263,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dear Ayuda replied Philia's fog",
+          "start": 0.05,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " Dear",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.288818359375
+            },
+            {
+              "text": " Ayuda",
+              "start": 0.61,
+              "end": 1.09,
+              "probability": 0.5068359375
+            },
+            {
+              "text": " replied",
+              "start": 1.09,
+              "end": 1.79,
+              "probability": 0.312255859375
+            },
+            {
+              "text": " Philia's",
+              "start": 1.79,
+              "end": 2.33,
+              "probability": 0.6317545572916666
+            },
+            {
+              "text": " fog",
+              "start": 2.33,
+              "end": 2.57,
+              "probability": 0.92578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dear",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Ayuda",
+          "start": 0.61,
+          "end": 1.09
+        },
+        {
+          "raw": "replied",
+          "start": 1.09,
+          "end": 1.79
+        },
+        {
+          "raw": "Philia's",
+          "start": 1.79,
+          "end": 2.33
+        },
+        {
+          "raw": "fog",
+          "start": 2.33,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "\"Dear",
+        "Aouda!\"",
+        "replied",
+        "Phileas",
+        "Fogg."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dear",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "dear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ayuda",
+          "start": 0.61,
+          "end": 1.09,
+          "key": "ayuda",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 1.09,
+          "end": 1.79,
+          "key": "replied",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Philia's",
+          "start": 1.79,
+          "end": 2.33,
+          "key": "philias",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fog",
+          "start": 2.33,
+          "end": 2.57,
+          "key": "fog",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Dear",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Aouda!\"",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "text": "replied",
+          "start": 1.09,
+          "end": 1.79
+        },
+        {
+          "text": "Phileas",
+          "start": 1.79,
+          "end": 2.18
+        },
+        {
+          "text": "Fogg.",
+          "start": 2.18,
+          "end": 2.375
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22462896024808288
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "786be501164028358ab27ea9ad6a5c20bc47b27b86089505bf751677c37709cc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

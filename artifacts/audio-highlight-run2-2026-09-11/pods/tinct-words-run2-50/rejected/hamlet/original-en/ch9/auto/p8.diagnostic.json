@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "2b1e3103fa1d01d73dc4b47b54c0145fb36edfd927ba6d70325f5ccd61b8fcdd",
+  "attempts": [
+    {
+      "asr_seconds": 0.22314063645899296,
+      "alignment_seconds": 0.00044002942740917206,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. How now, my lord? Will the King hear this piece of work?",
+        "hotwords": "Hamlet, How, Will, King"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, How now, my lord? Will the King hear this piece of work?",
+          "start": 0.08,
+          "end": 3.76,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " How",
+              "start": 1.08,
+              "end": 1.18,
+              "probability": 0.041168212890625
+            },
+            {
+              "text": " now,",
+              "start": 1.18,
+              "end": 1.38,
+              "probability": 0.5517578125
+            },
+            {
+              "text": " my",
+              "start": 1.44,
+              "end": 1.56,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " lord?",
+              "start": 1.56,
+              "end": 1.8,
+              "probability": 0.70849609375
+            },
+            {
+              "text": " Will",
+              "start": 2.4,
+              "end": 2.46,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " the",
+              "start": 2.46,
+              "end": 2.58,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " King",
+              "start": 2.58,
+              "end": 2.72,
+              "probability": 0.28662109375
+            },
+            {
+              "text": " hear",
+              "start": 2.72,
+              "end": 2.96,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " this",
+              "start": 2.96,
+              "end": 3.18,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " piece",
+              "start": 3.18,
+              "end": 3.38,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " of",
+              "start": 3.38,
+              "end": 3.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " work?",
+              "start": 3.56,
+              "end": 3.76,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "How",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "raw": "now,",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "raw": "my",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "raw": "lord?",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "raw": "Will",
+          "start": 2.4,
+          "end": 2.46
+        },
+        {
+          "raw": "the",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "raw": "King",
+          "start": 2.58,
+          "end": 2.72
+        },
+        {
+          "raw": "hear",
+          "start": 2.72,
+          "end": 2.96
+        },
+        {
+          "raw": "this",
+          "start": 2.96,
+          "end": 3.18
+        },
+        {
+          "raw": "piece",
+          "start": 3.18,
+          "end": 3.38
+        },
+        {
+          "raw": "of",
+          "start": 3.38,
+          "end": 3.56
+        },
+        {
+          "raw": "work?",
+          "start": 3.56,
+          "end": 3.76
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "How",
+        "now,",
+        "my",
+        "lord?",
+        "Will",
+        "the",
+        "King",
+        "hear",
+        "this",
+        "piece",
+        "of",
+        "work?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.08,
+          "end": 1.18,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.18,
+          "end": 1.38,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.44,
+          "end": 1.56,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord?",
+          "start": 1.56,
+          "end": 1.8,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 2.4,
+          "end": 2.46,
+          "key": "will",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.46,
+          "end": 2.58,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 2.58,
+          "end": 2.72,
+          "key": "king",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 2.72,
+          "end": 2.96,
+          "key": "hear",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.96,
+          "end": 3.18,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "piece",
+          "start": 3.18,
+          "end": 3.38,
+          "key": "piece",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.38,
+          "end": 3.56,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "work?",
+          "start": 3.56,
+          "end": 3.76,
+          "key": "work",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "How",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "text": "now,",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "text": "my",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "text": "lord?",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "text": "Will",
+          "start": 2.4,
+          "end": 2.46
+        },
+        {
+          "text": "the",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "text": "King",
+          "start": 2.58,
+          "end": 2.72
+        },
+        {
+          "text": "hear",
+          "start": 2.72,
+          "end": 2.96
+        },
+        {
+          "text": "this",
+          "start": 2.96,
+          "end": 3.18
+        },
+        {
+          "text": "piece",
+          "start": 3.18,
+          "end": 3.38
+        },
+        {
+          "text": "of",
+          "start": 3.38,
+          "end": 3.56
+        },
+        {
+          "text": "work?",
+          "start": 3.56,
+          "end": 3.76
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22378884255886078
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7db660974f716bd53e5183f8e341f65c52f2b904e5f43cb50c9c82b762970ce3",
+  "selected_reasons": []
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "2ca6379f0e4ed484df86a4b4733af461e8b7b3860f8c2a4d307a7426d7ef0f67",
+  "attempts": [
+    {
+      "asr_seconds": 0.15613903291523457,
+      "alignment_seconds": 0.000353105366230011,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Philario. Let us leave here, gentlemen.",
+        "hotwords": "Philario, Let"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Philario, Let us leave here, gentlemen.",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " Philario,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.3667106628417969
+            },
+            {
+              "text": " Let",
+              "start": 1.25,
+              "end": 1.41,
+              "probability": 0.007099151611328125
+            },
+            {
+              "text": " us",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " leave",
+              "start": 1.53,
+              "end": 1.71,
+              "probability": 0.990234375
+            },
+            {
+              "text": " here,",
+              "start": 1.71,
+              "end": 1.97,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " gentlemen.",
+              "start": 2.11,
+              "end": 2.35,
+              "probability": 0.77197265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Philario,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Let",
+          "start": 1.25,
+          "end": 1.41
+        },
+        {
+          "raw": "us",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "leave",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "raw": "here,",
+          "start": 1.71,
+          "end": 1.97
+        },
+        {
+          "raw": "gentlemen.",
+          "start": 2.11,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "Philario.",
+        "Let",
+        "us",
+        "leave",
+        "here,",
+        "gentlemen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Philario,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "philario",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 1.25,
+          "end": 1.41,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "us",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 1.53,
+          "end": 1.71,
+          "key": "leave",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 1.71,
+          "end": 1.97,
+          "key": "here",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gentlemen.",
+          "start": 2.11,
+          "end": 2.35,
+          "key": "gentlemen",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Philario.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Let",
+          "start": 1.25,
+          "end": 1.41
+        },
+        {
+          "text": "us",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "leave",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "text": "here,",
+          "start": 1.71,
+          "end": 1.97
+        },
+        {
+          "text": "gentlemen.",
+          "start": 2.11,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1566293779760599
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b6cec47e395307a6db6c53968aea75cdbb63b923de979fe7b3a51b3bd037f72f",
+  "selected_reasons": []
+}

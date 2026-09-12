@@ -1,0 +1,292 @@
+{
+  "complete": true,
+  "signature": "bbb1414ebdcd3f3f47915009b1999a3cda0c69e2d6d69396fffbfd02a25a6658",
+  "attempts": [
+    {
+      "asr_seconds": 0.17902528028935194,
+      "alignment_seconds": 0.00033536646515130997,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Belarious. He rings at some distress.",
+          "start": 0.08,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " Belarious.",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.41998291015625
+            },
+            {
+              "text": " He",
+              "start": 1.36,
+              "end": 1.44,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " rings",
+              "start": 1.44,
+              "end": 1.64,
+              "probability": 0.974609375
+            },
+            {
+              "text": " at",
+              "start": 1.64,
+              "end": 1.82,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " some",
+              "start": 1.82,
+              "end": 1.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " distress.",
+              "start": 1.98,
+              "end": 2.38,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Belarious.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "He",
+          "start": 1.36,
+          "end": 1.44
+        },
+        {
+          "raw": "rings",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "raw": "at",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "raw": "some",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "raw": "distress.",
+          "start": 1.98,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "Belarius.",
+        "He",
+        "wrings",
+        "at",
+        "some",
+        "distress."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Belarious.",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "belarious",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.36,
+          "end": 1.44,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rings",
+          "start": 1.44,
+          "end": 1.64,
+          "key": "rings",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.64,
+          "end": 1.82,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 1.82,
+          "end": 1.98,
+          "key": "some",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "distress.",
+          "start": 1.98,
+          "end": 2.38,
+          "key": "distress",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "text": "He",
+          "start": 1.36,
+          "end": 1.44
+        },
+        {
+          "text": "wrings",
+          "start": 1.44,
+          "end": 1.54
+        },
+        {
+          "text": "at",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "text": "some",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "text": "distress.",
+          "start": 1.98,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1794653795659542
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "30ec7db76504c2414640ab23f85c693ab7b96f21631be180ba5ca67db878b6b1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

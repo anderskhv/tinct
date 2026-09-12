@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "2750aef42a4f18fd0777e502a861545281e7f316cc67dc244d76d938ba80e14e",
+  "attempts": [
+    {
+      "asr_seconds": 0.4049668088555336,
+      "alignment_seconds": 0.0006477241404354572,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Into their bar strolled Mr Dedalus. Chips, picking chips off one of his rocky thumbnails. Chips. He strolled.",
+        "hotwords": "Into, Mr, Dedalus, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Into their bar strolled Mr. Dedalus. Chips, picking chips off one of his rocky thumbnails. Chips. He strolled.",
+          "start": 0.05,
+          "end": 7.17,
+          "words": [
+            {
+              "text": " Into",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.61767578125
+            },
+            {
+              "text": " their",
+              "start": 0.57,
+              "end": 0.75,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " bar",
+              "start": 0.75,
+              "end": 1.03,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " strolled",
+              "start": 1.03,
+              "end": 1.49,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " Mr.",
+              "start": 1.49,
+              "end": 1.81,
+              "probability": 0.91796875
+            },
+            {
+              "text": " Dedalus.",
+              "start": 1.99,
+              "end": 2.29,
+              "probability": 0.26656341552734375
+            },
+            {
+              "text": " Chips,",
+              "start": 3.05,
+              "end": 3.11,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " picking",
+              "start": 3.43,
+              "end": 3.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " chips",
+              "start": 3.61,
+              "end": 3.89,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " off",
+              "start": 3.89,
+              "end": 4.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " one",
+              "start": 4.11,
+              "end": 4.29,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " of",
+              "start": 4.29,
+              "end": 4.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 4.37,
+              "end": 4.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rocky",
+              "start": 4.49,
+              "end": 4.81,
+              "probability": 0.970703125
+            },
+            {
+              "text": " thumbnails.",
+              "start": 4.81,
+              "end": 5.41,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Chips.",
+              "start": 6.09,
+              "end": 6.19,
+              "probability": 0.90234375
+            },
+            {
+              "text": " He",
+              "start": 6.69,
+              "end": 6.77,
+              "probability": 0.927734375
+            },
+            {
+              "text": " strolled.",
+              "start": 6.77,
+              "end": 7.17,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Into",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "their",
+          "start": 0.57,
+          "end": 0.75
+        },
+        {
+          "raw": "bar",
+          "start": 0.75,
+          "end": 1.03
+        },
+        {
+          "raw": "strolled",
+          "start": 1.03,
+          "end": 1.49
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.49,
+          "end": 1.81
+        },
+        {
+          "raw": "Dedalus.",
+          "start": 1.99,
+          "end": 2.29
+        },
+        {
+          "raw": "Chips,",
+          "start": 3.05,
+          "end": 3.11
+        },
+        {
+          "raw": "picking",
+          "start": 3.43,
+          "end": 3.61
+        },
+        {
+          "raw": "chips",
+          "start": 3.61,
+          "end": 3.89
+        },
+        {
+          "raw": "off",
+          "start": 3.89,
+          "end": 4.11
+        },
+        {
+          "raw": "one",
+          "start": 4.11,
+          "end": 4.29
+        },
+        {
+          "raw": "of",
+          "start": 4.29,
+          "end": 4.37
+        },
+        {
+          "raw": "his",
+          "start": 4.37,
+          "end": 4.49
+        },
+        {
+          "raw": "rocky",
+          "start": 4.49,
+          "end": 4.81
+        },
+        {
+          "raw": "thumbnails.",
+          "start": 4.81,
+          "end": 5.41
+        },
+        {
+          "raw": "Chips.",
+          "start": 6.09,
+          "end": 6.19
+        },
+        {
+          "raw": "He",
+          "start": 6.69,
+          "end": 6.77
+        },
+        {
+          "raw": "strolled.",
+          "start": 6.77,
+          "end": 7.17
+        }
+      ],
+      "expected_tokens": [
+        "Into",
+        "their",
+        "bar",
+        "strolled",
+        "Mr",
+        "Dedalus.",
+        "Chips,",
+        "picking",
+        "chips",
+        "off",
+        "one",
+        "of",
+        "his",
+        "rocky",
+        "thumbnails.",
+        "Chips.",
+        "He",
+        "strolled."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Into",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "into",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 0.57,
+          "end": 0.75,
+          "key": "their",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bar",
+          "start": 0.75,
+          "end": 1.03,
+          "key": "bar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "strolled",
+          "start": 1.03,
+          "end": 1.49,
+          "key": "strolled",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.49,
+          "end": 1.81,
+          "key": "mr",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Dedalus.",
+          "start": 1.99,
+          "end": 2.29,
+          "key": "dedalus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Chips,",
+          "start": 3.05,
+          "end": 3.11,
+          "key": "chips",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "picking",
+          "start": 3.43,
+          "end": 3.61,
+          "key": "picking",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "chips",
+          "start": 3.61,
+          "end": 3.89,
+          "key": "chips",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 3.89,
+          "end": 4.11,
+          "key": "off",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 4.11,
+          "end": 4.29,
+          "key": "one",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.29,
+          "end": 4.37,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.37,
+          "end": 4.49,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "rocky",
+          "start": 4.49,
+          "end": 4.81,
+          "key": "rocky",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thumbnails.",
+          "start": 4.81,
+          "end": 5.41,
+          "key": "thumbnails",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Chips.",
+          "start": 6.09,
+          "end": 6.19,
+          "key": "chips",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 6.69,
+          "end": 6.77,
+          "key": "he",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "strolled.",
+          "start": 6.77,
+          "end": 7.17,
+          "key": "strolled",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Into",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "their",
+          "start": 0.57,
+          "end": 0.75
+        },
+        {
+          "text": "bar",
+          "start": 0.75,
+          "end": 1.03
+        },
+        {
+          "text": "strolled",
+          "start": 1.03,
+          "end": 1.49
+        },
+        {
+          "text": "Mr",
+          "start": 1.49,
+          "end": 1.81
+        },
+        {
+          "text": "Dedalus.",
+          "start": 1.99,
+          "end": 2.29
+        },
+        {
+          "text": "Chips,",
+          "start": 3.05,
+          "end": 3.11
+        },
+        {
+          "text": "picking",
+          "start": 3.43,
+          "end": 3.61
+        },
+        {
+          "text": "chips",
+          "start": 3.61,
+          "end": 3.89
+        },
+        {
+          "text": "off",
+          "start": 3.89,
+          "end": 4.11
+        },
+        {
+          "text": "one",
+          "start": 4.11,
+          "end": 4.29
+        },
+        {
+          "text": "of",
+          "start": 4.29,
+          "end": 4.37
+        },
+        {
+          "text": "his",
+          "start": 4.37,
+          "end": 4.49
+        },
+        {
+          "text": "rocky",
+          "start": 4.49,
+          "end": 4.81
+        },
+        {
+          "text": "thumbnails.",
+          "start": 4.81,
+          "end": 5.41
+        },
+        {
+          "text": "Chips.",
+          "start": 6.09,
+          "end": 6.19
+        },
+        {
+          "text": "He",
+          "start": 6.69,
+          "end": 6.77
+        },
+        {
+          "text": "strolled.",
+          "start": 6.77,
+          "end": 7.17
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.40592356491833925
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ae0cac5215579c4eb6acdd37724a4e114b80b13990db5a3162aab2b82e49ed3b",
+  "selected_reasons": []
+}

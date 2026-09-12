@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "6caea9aef24b2aa77de3dceafe9831f46f4349ce376a0dbf19487a00137adb5e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2177722950000316,
+      "alignment_seconds": 0.0004018140025436878,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, the Queen shall then have courtesy, so she will yield us up.",
+          "start": 0.05,
+          "end": 4.15,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.830078125
+            },
+            {
+              "text": " the",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Queen",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.66357421875
+            },
+            {
+              "text": " shall",
+              "start": 1.63,
+              "end": 1.87,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " then",
+              "start": 1.87,
+              "end": 2.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " have",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " courtesy,",
+              "start": 2.23,
+              "end": 2.63,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " so",
+              "start": 3.05,
+              "end": 3.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " she",
+              "start": 3.17,
+              "end": 3.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " will",
+              "start": 3.33,
+              "end": 3.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " yield",
+              "start": 3.49,
+              "end": 3.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " us",
+              "start": 3.71,
+              "end": 3.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " up.",
+              "start": 3.89,
+              "end": 4.15,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "the",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "Queen",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "shall",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "raw": "then",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "raw": "have",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "courtesy,",
+          "start": 2.23,
+          "end": 2.63
+        },
+        {
+          "raw": "so",
+          "start": 3.05,
+          "end": 3.17
+        },
+        {
+          "raw": "she",
+          "start": 3.17,
+          "end": 3.33
+        },
+        {
+          "raw": "will",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "raw": "yield",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "raw": "us",
+          "start": 3.71,
+          "end": 3.89
+        },
+        {
+          "raw": "up.",
+          "start": 3.89,
+          "end": 4.15
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "The",
+        "Queen",
+        "shall",
+        "then",
+        "have",
+        "courtesy,",
+        "so",
+        "she",
+        "Will",
+        "yield",
+        "us",
+        "up."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.31,
+          "end": 1.45,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Queen",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "queen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.63,
+          "end": 1.87,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.87,
+          "end": 2.03,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.03,
+          "end": 2.23,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "courtesy,",
+          "start": 2.23,
+          "end": 2.63,
+          "key": "courtesy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.05,
+          "end": 3.17,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.17,
+          "end": 3.33,
+          "key": "she",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.33,
+          "end": 3.49,
+          "key": "will",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "yield",
+          "start": 3.49,
+          "end": 3.71,
+          "key": "yield",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 3.71,
+          "end": 3.89,
+          "key": "us",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 3.89,
+          "end": 4.15,
+          "key": "up",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "The",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "text": "Queen",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "text": "shall",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "text": "then",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "text": "have",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "courtesy,",
+          "start": 2.23,
+          "end": 2.63
+        },
+        {
+          "text": "so",
+          "start": 3.05,
+          "end": 3.17
+        },
+        {
+          "text": "she",
+          "start": 3.17,
+          "end": 3.33
+        },
+        {
+          "text": "Will",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "text": "yield",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "text": "us",
+          "start": 3.71,
+          "end": 3.89
+        },
+        {
+          "text": "up.",
+          "start": 3.89,
+          "end": 4.15
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2183437950152438
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b02f9e680900ab87a21402993e48e4b6a6789e73909aef3531e8525e1b959cb9",
+  "selected_reasons": []
+}

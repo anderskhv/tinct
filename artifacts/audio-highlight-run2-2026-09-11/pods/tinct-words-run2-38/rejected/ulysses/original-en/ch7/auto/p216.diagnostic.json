@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "6b6f1e3906d857f4ddee69a8c6084abe9ef75a75c325e57358e7f95e124a9ae9",
+  "attempts": [
+    {
+      "asr_seconds": 0.10595318302512169,
+      "alignment_seconds": 0.00017462100367993116,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Sorry, Mr Bloom said.",
+        "hotwords": "Sorry, Mr, Bloom"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sorry, Mr Bloom said.",
+          "start": 0.11,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Sorry,",
+              "start": 0.11,
+              "end": 0.73,
+              "probability": 0.35888671875
+            },
+            {
+              "text": " Mr",
+              "start": 0.95,
+              "end": 1.03,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " Bloom",
+              "start": 1.03,
+              "end": 1.29,
+              "probability": 0.047119140625
+            },
+            {
+              "text": " said.",
+              "start": 1.29,
+              "end": 1.59,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sorry,",
+          "start": 0.11,
+          "end": 0.73
+        },
+        {
+          "raw": "Mr",
+          "start": 0.95,
+          "end": 1.03
+        },
+        {
+          "raw": "Bloom",
+          "start": 1.03,
+          "end": 1.29
+        },
+        {
+          "raw": "said.",
+          "start": 1.29,
+          "end": 1.59
+        }
+      ],
+      "expected_tokens": [
+        "—Sorry,",
+        "Mr",
+        "Bloom",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sorry,",
+          "start": 0.11,
+          "end": 0.73,
+          "key": "sorry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mr",
+          "start": 0.95,
+          "end": 1.03,
+          "key": "mr",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Bloom",
+          "start": 1.03,
+          "end": 1.29,
+          "key": "bloom",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.29,
+          "end": 1.59,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Sorry,",
+          "start": 0.11,
+          "end": 0.73
+        },
+        {
+          "text": "Mr",
+          "start": 0.95,
+          "end": 1.03
+        },
+        {
+          "text": "Bloom",
+          "start": 1.03,
+          "end": 1.29
+        },
+        {
+          "text": "said.",
+          "start": 1.29,
+          "end": 1.59
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10618368402356282
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c9a71d93a6559287ed9ada6c491470f8ff1751e762bd71436d694b93fd8b2d53",
+  "selected_reasons": []
+}

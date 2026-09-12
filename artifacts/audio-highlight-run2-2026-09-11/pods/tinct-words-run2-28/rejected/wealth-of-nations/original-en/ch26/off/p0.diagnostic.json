@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "65e56cd32fc2b04e4ae757623b6767abb3b75afe3416631dd11bd3c9d514b28a",
+  "attempts": [
+    {
+      "asr_seconds": 0.0929100620560348,
+      "alignment_seconds": 9.165285155177116e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " of treaties of commerce.",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " of",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.64501953125
+            },
+            {
+              "text": " treaties",
+              "start": 0.55,
+              "end": 0.83,
+              "probability": 0.6865234375
+            },
+            {
+              "text": " of",
+              "start": 0.83,
+              "end": 1.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " commerce.",
+              "start": 1.07,
+              "end": 1.43,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "of",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "treaties",
+          "start": 0.55,
+          "end": 0.83
+        },
+        {
+          "raw": "of",
+          "start": 0.83,
+          "end": 1.07
+        },
+        {
+          "raw": "commerce.",
+          "start": 1.07,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "Of",
+        "Treaties",
+        "Of",
+        "Commerce."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "of",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "of",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "treaties",
+          "start": 0.55,
+          "end": 0.83,
+          "key": "treaties",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.83,
+          "end": 1.07,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "commerce.",
+          "start": 1.07,
+          "end": 1.43,
+          "key": "commerce",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Of",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Treaties",
+          "start": 0.55,
+          "end": 0.83
+        },
+        {
+          "text": "Of",
+          "start": 0.83,
+          "end": 1.07
+        },
+        {
+          "text": "Commerce.",
+          "start": 1.07,
+          "end": 1.43
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09303218172863126
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "18388ca97c927fa8d65bdccc24d45ce44a0d65505b75ac62eb1333d490856719",
+  "selected_reasons": []
+}

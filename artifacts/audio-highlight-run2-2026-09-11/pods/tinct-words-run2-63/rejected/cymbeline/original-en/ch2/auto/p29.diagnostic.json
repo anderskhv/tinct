@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "cca240e8ace96b2751e8ec6e96abf2355d3ec463d4b575467e2477d7c9bf2b4c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2978796735405922,
+      "alignment_seconds": 0.000628005713224411,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cymbeline. Thou took'st a beggar, wouldst have made my throne A seat for baseness.",
+        "hotwords": "Cymbeline, Thou"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, Thou took'st a beggar, wouldst have made my throne A seat for baseness.",
+          "start": 0.08,
+          "end": 4.58,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.7405598958333334
+            },
+            {
+              "text": " Thou",
+              "start": 1.44,
+              "end": 1.64,
+              "probability": 0.0919189453125
+            },
+            {
+              "text": " took'st",
+              "start": 1.64,
+              "end": 2.06,
+              "probability": 0.5254923502604166
+            },
+            {
+              "text": " a",
+              "start": 2.06,
+              "end": 2.14,
+              "probability": 0.33154296875
+            },
+            {
+              "text": " beggar,",
+              "start": 2.14,
+              "end": 2.56,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " wouldst",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.7083740234375
+            },
+            {
+              "text": " have",
+              "start": 2.9,
+              "end": 2.98,
+              "probability": 0.9453125
+            },
+            {
+              "text": " made",
+              "start": 2.98,
+              "end": 3.1,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " my",
+              "start": 3.1,
+              "end": 3.3,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " throne",
+              "start": 3.3,
+              "end": 3.56,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " A",
+              "start": 3.56,
+              "end": 3.74,
+              "probability": 0.002197265625
+            },
+            {
+              "text": " seat",
+              "start": 3.74,
+              "end": 3.9,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " for",
+              "start": 3.9,
+              "end": 4.1,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " baseness.",
+              "start": 4.1,
+              "end": 4.58,
+              "probability": 0.964111328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "Thou",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "raw": "took'st",
+          "start": 1.64,
+          "end": 2.06
+        },
+        {
+          "raw": "a",
+          "start": 2.06,
+          "end": 2.14
+        },
+        {
+          "raw": "beggar,",
+          "start": 2.14,
+          "end": 2.56
+        },
+        {
+          "raw": "wouldst",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "have",
+          "start": 2.9,
+          "end": 2.98
+        },
+        {
+          "raw": "made",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "raw": "my",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "raw": "throne",
+          "start": 3.3,
+          "end": 3.56
+        },
+        {
+          "raw": "A",
+          "start": 3.56,
+          "end": 3.74
+        },
+        {
+          "raw": "seat",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "raw": "for",
+          "start": 3.9,
+          "end": 4.1
+        },
+        {
+          "raw": "baseness.",
+          "start": 4.1,
+          "end": 4.58
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "Thou",
+        "took'st",
+        "a",
+        "beggar,",
+        "wouldst",
+        "have",
+        "made",
+        "my",
+        "throne",
+        "A",
+        "seat",
+        "for",
+        "baseness."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 1.44,
+          "end": 1.64,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "took'st",
+          "start": 1.64,
+          "end": 2.06,
+          "key": "tookst",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.06,
+          "end": 2.14,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "beggar,",
+          "start": 2.14,
+          "end": 2.56,
+          "key": "beggar",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wouldst",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "wouldst",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.9,
+          "end": 2.98,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 2.98,
+          "end": 3.1,
+          "key": "made",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.1,
+          "end": 3.3,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "throne",
+          "start": 3.3,
+          "end": 3.56,
+          "key": "throne",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 3.56,
+          "end": 3.74,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "seat",
+          "start": 3.74,
+          "end": 3.9,
+          "key": "seat",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.9,
+          "end": 4.1,
+          "key": "for",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "baseness.",
+          "start": 4.1,
+          "end": 4.58,
+          "key": "baseness",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "Thou",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "text": "took'st",
+          "start": 1.64,
+          "end": 2.06
+        },
+        {
+          "text": "a",
+          "start": 2.06,
+          "end": 2.14
+        },
+        {
+          "text": "beggar,",
+          "start": 2.14,
+          "end": 2.56
+        },
+        {
+          "text": "wouldst",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "have",
+          "start": 2.9,
+          "end": 2.98
+        },
+        {
+          "text": "made",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "text": "my",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "text": "throne",
+          "start": 3.3,
+          "end": 3.56
+        },
+        {
+          "text": "A",
+          "start": 3.56,
+          "end": 3.74
+        },
+        {
+          "text": "seat",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "text": "for",
+          "start": 3.9,
+          "end": 4.1
+        },
+        {
+          "text": "baseness.",
+          "start": 4.1,
+          "end": 4.58
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2987580932676792
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "88705347732a80ec2040011949cac6f1b1fa4fe68683718f8fd4ec733649db62",
+  "selected_reasons": []
+}

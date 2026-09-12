@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "54679df2f4a86d0bcf78553b56f59988508715bc8edb16752862718e5636ed78",
+  "attempts": [
+    {
+      "asr_seconds": 0.19929122552275658,
+      "alignment_seconds": 0.0003734417259693146,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter the Ghosts of Rivers, Grey and Vaughan.",
+        "hotwords": "Enter, Ghosts, Rivers, Grey, Vaughan"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter the Ghosts of Rivers, Grey and Vaughan.",
+          "start": 0.11,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.59,
+              "probability": 0.875
+            },
+            {
+              "text": " the",
+              "start": 0.59,
+              "end": 0.75,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Ghosts",
+              "start": 0.75,
+              "end": 0.99,
+              "probability": 0.278076171875
+            },
+            {
+              "text": " of",
+              "start": 0.99,
+              "end": 1.17,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Rivers,",
+              "start": 1.17,
+              "end": 1.49,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Grey",
+              "start": 2.13,
+              "end": 2.15,
+              "probability": 0.436767578125
+            },
+            {
+              "text": " and",
+              "start": 2.15,
+              "end": 2.39,
+              "probability": 0.935546875
+            },
+            {
+              "text": " Vaughan.",
+              "start": 2.39,
+              "end": 2.61,
+              "probability": 0.28662109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.59
+        },
+        {
+          "raw": "the",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "raw": "Ghosts",
+          "start": 0.75,
+          "end": 0.99
+        },
+        {
+          "raw": "of",
+          "start": 0.99,
+          "end": 1.17
+        },
+        {
+          "raw": "Rivers,",
+          "start": 1.17,
+          "end": 1.49
+        },
+        {
+          "raw": "Grey",
+          "start": 2.13,
+          "end": 2.15
+        },
+        {
+          "raw": "and",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "raw": "Vaughan.",
+          "start": 2.39,
+          "end": 2.61
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "the",
+        "Ghosts",
+        "of",
+        "Rivers,",
+        "Grey",
+        "and",
+        "Vaughan."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.59,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.59,
+          "end": 0.75,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ghosts",
+          "start": 0.75,
+          "end": 0.99,
+          "key": "ghosts",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.99,
+          "end": 1.17,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Rivers,",
+          "start": 1.17,
+          "end": 1.49,
+          "key": "rivers",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Grey",
+          "start": 2.13,
+          "end": 2.15,
+          "key": "grey",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.15,
+          "end": 2.39,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Vaughan.",
+          "start": 2.39,
+          "end": 2.61,
+          "key": "vaughan",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.59
+        },
+        {
+          "text": "the",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "text": "Ghosts",
+          "start": 0.75,
+          "end": 0.99
+        },
+        {
+          "text": "of",
+          "start": 0.99,
+          "end": 1.17
+        },
+        {
+          "text": "Rivers,",
+          "start": 1.17,
+          "end": 1.49
+        },
+        {
+          "text": "Grey",
+          "start": 2.13,
+          "end": 2.15
+        },
+        {
+          "text": "and",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "text": "Vaughan.",
+          "start": 2.39,
+          "end": 2.61
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19981640204787254
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "59dbc941b9e7b0b27e7b8bae252164f9e6eddde759010e1d08f7b280d7dfb85c",
+  "selected_reasons": []
+}

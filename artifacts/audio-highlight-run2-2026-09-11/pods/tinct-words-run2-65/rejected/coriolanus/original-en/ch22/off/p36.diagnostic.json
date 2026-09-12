@@ -1,0 +1,739 @@
+{
+  "complete": true,
+  "signature": "ac3cd24255aacc539719ed331ede2d9c21d9573e747597c5afe64260111421e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.27755350479856133,
+      "alignment_seconds": 0.0005113249644637108,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Messenger, the nobles in great earnestness are going all to the Senate House.",
+          "start": 0.02,
+          "end": 4.74,
+          "words": [
+            {
+              "text": " Messenger,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " the",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " nobles",
+              "start": 1.6,
+              "end": 1.88,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " in",
+              "start": 1.88,
+              "end": 2.24,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " great",
+              "start": 2.24,
+              "end": 2.54,
+              "probability": 0.982421875
+            },
+            {
+              "text": " earnestness",
+              "start": 2.54,
+              "end": 3.22,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " are",
+              "start": 3.22,
+              "end": 3.36,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " going",
+              "start": 3.36,
+              "end": 3.58,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " all",
+              "start": 3.58,
+              "end": 3.88,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 3.88,
+              "end": 4.02,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 4.02,
+              "end": 4.14,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Senate",
+              "start": 4.14,
+              "end": 4.34,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " House.",
+              "start": 4.34,
+              "end": 4.74,
+              "probability": 0.95068359375
+            }
+          ]
+        },
+        {
+          "text": " Some news is coming that turns their countenances.",
+          "start": 5.44,
+          "end": 7.88,
+          "words": [
+            {
+              "text": " Some",
+              "start": 5.44,
+              "end": 5.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " news",
+              "start": 5.64,
+              "end": 5.94,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " is",
+              "start": 5.94,
+              "end": 6.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " coming",
+              "start": 6.2,
+              "end": 6.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 6.5,
+              "end": 6.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " turns",
+              "start": 6.78,
+              "end": 7.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " their",
+              "start": 7.08,
+              "end": 7.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " countenances.",
+              "start": 7.36,
+              "end": 7.88,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "the",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "nobles",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "raw": "in",
+          "start": 1.88,
+          "end": 2.24
+        },
+        {
+          "raw": "great",
+          "start": 2.24,
+          "end": 2.54
+        },
+        {
+          "raw": "earnestness",
+          "start": 2.54,
+          "end": 3.22
+        },
+        {
+          "raw": "are",
+          "start": 3.22,
+          "end": 3.36
+        },
+        {
+          "raw": "going",
+          "start": 3.36,
+          "end": 3.58
+        },
+        {
+          "raw": "all",
+          "start": 3.58,
+          "end": 3.88
+        },
+        {
+          "raw": "to",
+          "start": 3.88,
+          "end": 4.02
+        },
+        {
+          "raw": "the",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "raw": "Senate",
+          "start": 4.14,
+          "end": 4.34
+        },
+        {
+          "raw": "House.",
+          "start": 4.34,
+          "end": 4.74
+        },
+        {
+          "raw": "Some",
+          "start": 5.44,
+          "end": 5.64
+        },
+        {
+          "raw": "news",
+          "start": 5.64,
+          "end": 5.94
+        },
+        {
+          "raw": "is",
+          "start": 5.94,
+          "end": 6.2
+        },
+        {
+          "raw": "coming",
+          "start": 6.2,
+          "end": 6.5
+        },
+        {
+          "raw": "that",
+          "start": 6.5,
+          "end": 6.78
+        },
+        {
+          "raw": "turns",
+          "start": 6.78,
+          "end": 7.08
+        },
+        {
+          "raw": "their",
+          "start": 7.08,
+          "end": 7.36
+        },
+        {
+          "raw": "countenances.",
+          "start": 7.36,
+          "end": 7.88
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "The",
+        "nobles",
+        "in",
+        "great",
+        "earnestness",
+        "are",
+        "going",
+        "All",
+        "to",
+        "the",
+        "Senate",
+        "House.",
+        "Some",
+        "news",
+        "is",
+        "coming",
+        "That",
+        "turns",
+        "their",
+        "countenances."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nobles",
+          "start": 1.6,
+          "end": 1.88,
+          "key": "nobles",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.88,
+          "end": 2.24,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 2.24,
+          "end": 2.54,
+          "key": "great",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "earnestness",
+          "start": 2.54,
+          "end": 3.22,
+          "key": "earnestness",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.22,
+          "end": 3.36,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 3.36,
+          "end": 3.58,
+          "key": "going",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.58,
+          "end": 3.88,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.88,
+          "end": 4.02,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.02,
+          "end": 4.14,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Senate",
+          "start": 4.14,
+          "end": 4.34,
+          "key": "senate",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "House.",
+          "start": 4.34,
+          "end": 4.74,
+          "key": "house",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Some",
+          "start": 5.44,
+          "end": 5.64,
+          "key": "some",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "news",
+          "start": 5.64,
+          "end": 5.94,
+          "key": "news",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.94,
+          "end": 6.2,
+          "key": "is",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "coming",
+          "start": 6.2,
+          "end": 6.5,
+          "key": "coming",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.5,
+          "end": 6.78,
+          "key": "that",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "turns",
+          "start": 6.78,
+          "end": 7.08,
+          "key": "turns",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 7.08,
+          "end": 7.36,
+          "key": "their",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "countenances.",
+          "start": 7.36,
+          "end": 7.88,
+          "key": "countenances",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "The",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "nobles",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "text": "in",
+          "start": 1.88,
+          "end": 2.24
+        },
+        {
+          "text": "great",
+          "start": 2.24,
+          "end": 2.54
+        },
+        {
+          "text": "earnestness",
+          "start": 2.54,
+          "end": 3.22
+        },
+        {
+          "text": "are",
+          "start": 3.22,
+          "end": 3.36
+        },
+        {
+          "text": "going",
+          "start": 3.36,
+          "end": 3.58
+        },
+        {
+          "text": "All",
+          "start": 3.58,
+          "end": 3.88
+        },
+        {
+          "text": "to",
+          "start": 3.88,
+          "end": 4.02
+        },
+        {
+          "text": "the",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "text": "Senate",
+          "start": 4.14,
+          "end": 4.34
+        },
+        {
+          "text": "House.",
+          "start": 4.34,
+          "end": 4.74
+        },
+        {
+          "text": "Some",
+          "start": 5.44,
+          "end": 5.64
+        },
+        {
+          "text": "news",
+          "start": 5.64,
+          "end": 5.94
+        },
+        {
+          "text": "is",
+          "start": 5.94,
+          "end": 6.2
+        },
+        {
+          "text": "coming",
+          "start": 6.2,
+          "end": 6.5
+        },
+        {
+          "text": "That",
+          "start": 6.5,
+          "end": 6.78
+        },
+        {
+          "text": "turns",
+          "start": 6.78,
+          "end": 7.08
+        },
+        {
+          "text": "their",
+          "start": 7.08,
+          "end": 7.36
+        },
+        {
+          "text": "countenances.",
+          "start": 7.36,
+          "end": 7.88
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27826883597299457
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5ace3b3395cd49303fa7232ddd313dd33df0234c8157c6150fe67098c7c1aedf",
+  "selected_reasons": []
+}

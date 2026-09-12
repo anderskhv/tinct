@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "03af5b8c2d98cac14ea587329be707bceb925ab8520db7666e7184123bbdb076",
+  "attempts": [
+    {
+      "asr_seconds": 0.12397885322570801,
+      "alignment_seconds": 0.00031905993819236755,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter King attended",
+          "start": 0.11,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " King",
+              "start": 0.63,
+              "end": 0.91,
+              "probability": 0.744140625
+            },
+            {
+              "text": " attended",
+              "start": 0.91,
+              "end": 1.57,
+              "probability": 0.35498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "King",
+          "start": 0.63,
+          "end": 0.91
+        },
+        {
+          "raw": "attended",
+          "start": 0.91,
+          "end": 1.57
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "King,",
+        "attended]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 0.63,
+          "end": 0.91,
+          "key": "king",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "attended",
+          "start": 0.91,
+          "end": 1.57,
+          "key": "attended",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "King,",
+          "start": 0.63,
+          "end": 0.91
+        },
+        {
+          "text": "attended]",
+          "start": 0.91,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12440725974738598
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f0ab4d0877a045a2e276925ac19cda523f71645dd131adb422589073c0be62fa",
+  "selected_reasons": []
+}

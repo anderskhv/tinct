@@ -1,0 +1,424 @@
+{
+  "complete": true,
+  "signature": "befe8c69a8de1bf48316d857a18d8d145e8e5097fc4e020b534c703d4714f2ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.21123254299163818,
+      "alignment_seconds": 0.00035350024700164795,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Come, fly down, birds, fly down, sparrows!\" he muttered anxiously.",
+        "hotwords": "Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Come, fly down, birds, fly down, sparrows!\" he muttered anxiously.",
+          "start": 0.08,
+          "end": 4.26,
+          "words": [
+            {
+              "text": " Come,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.322509765625
+            },
+            {
+              "text": " fly",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " down,",
+              "start": 1.0,
+              "end": 1.3,
+              "probability": 0.9765625
+            },
+            {
+              "text": " birds,",
+              "start": 1.44,
+              "end": 1.62,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " fly",
+              "start": 1.94,
+              "end": 1.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " down,",
+              "start": 1.96,
+              "end": 2.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sparrows",
+              "start": 2.36,
+              "end": 3.24,
+              "probability": 0.9918619791666666
+            },
+            {
+              "text": "!\"",
+              "start": 3.24,
+              "end": 3.24,
+              "probability": 0.0225372314453125
+            },
+            {
+              "text": " he",
+              "start": 3.24,
+              "end": 3.46,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " muttered",
+              "start": 3.46,
+              "end": 3.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " anxiously.",
+              "start": 3.64,
+              "end": 4.26,
+              "probability": 0.997314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Come,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "fly",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "down,",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "raw": "birds,",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "raw": "fly",
+          "start": 1.94,
+          "end": 1.96
+        },
+        {
+          "raw": "down,",
+          "start": 1.96,
+          "end": 2.26
+        },
+        {
+          "raw": "sparrows",
+          "start": 2.36,
+          "end": 3.24
+        },
+        {
+          "raw": "!\"",
+          "start": 3.24,
+          "end": 3.24
+        },
+        {
+          "raw": "he",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "raw": "muttered",
+          "start": 3.46,
+          "end": 3.64
+        },
+        {
+          "raw": "anxiously.",
+          "start": 3.64,
+          "end": 4.26
+        }
+      ],
+      "expected_tokens": [
+        "\"Come,",
+        "fly",
+        "down,",
+        "birds,",
+        "fly",
+        "down,",
+        "sparrows!\"",
+        "he",
+        "muttered",
+        "anxiously."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "insert",
+          7,
+          7,
+          7,
+          8
+        ],
+        [
+          "equal",
+          7,
+          10,
+          8,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          7,
+          7,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Come,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "come",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fly",
+          "start": 0.86,
+          "end": 1.0,
+          "key": "fly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "down,",
+          "start": 1.0,
+          "end": 1.3,
+          "key": "down",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "birds,",
+          "start": 1.44,
+          "end": 1.62,
+          "key": "birds",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fly",
+          "start": 1.94,
+          "end": 1.96,
+          "key": "fly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "down,",
+          "start": 1.96,
+          "end": 2.26,
+          "key": "down",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sparrows",
+          "start": 2.36,
+          "end": 3.24,
+          "key": "sparrows",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 3.24,
+          "end": 3.24,
+          "key": "",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.24,
+          "end": 3.46,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "muttered",
+          "start": 3.46,
+          "end": 3.64,
+          "key": "muttered",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "anxiously.",
+          "start": 3.64,
+          "end": 4.26,
+          "key": "anxiously",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Come,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "fly",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "down,",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "text": "birds,",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "text": "fly",
+          "start": 1.94,
+          "end": 1.96
+        },
+        {
+          "text": "down,",
+          "start": 1.96,
+          "end": 2.26
+        },
+        {
+          "text": "sparrows!\"",
+          "start": 2.36,
+          "end": 3.24
+        },
+        {
+          "text": "he",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "text": "muttered",
+          "start": 3.46,
+          "end": 3.64
+        },
+        {
+          "text": "anxiously.",
+          "start": 3.64,
+          "end": 4.26
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21170737221837044
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "76793f093660018b4f4b44e95a94bdd9d0da7d01f27b929236dcc8ecada67e12",
+  "selected_reasons": []
+}

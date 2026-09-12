@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "cfc24fef96d171f9b57ea7caac2dfddd0595d0e542ff0b662fa3b50e205d02a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.12388992309570312,
+      "alignment_seconds": 0.00014393310993909836,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Banquo. Very gladly.",
+        "hotwords": "Banquo, Very"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Banquo, Very Gladly.",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Banquo,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.8557942708333334
+            },
+            {
+              "text": " Very",
+              "start": 1.11,
+              "end": 1.35,
+              "probability": 0.0926513671875
+            },
+            {
+              "text": " Gladly.",
+              "start": 1.35,
+              "end": 1.89,
+              "probability": 0.92041015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Banquo,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "Very",
+          "start": 1.11,
+          "end": 1.35
+        },
+        {
+          "raw": "Gladly.",
+          "start": 1.35,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "Banquo.",
+        "Very",
+        "gladly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Banquo,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "banquo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Very",
+          "start": 1.11,
+          "end": 1.35,
+          "key": "very",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Gladly.",
+          "start": 1.35,
+          "end": 1.89,
+          "key": "gladly",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Banquo.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "Very",
+          "start": 1.11,
+          "end": 1.35
+        },
+        {
+          "text": "gladly.",
+          "start": 1.35,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1240824842825532
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d770ba582c91620ef263e72cbd2a77eb4fe2041bada1e46c24409dfab9903723",
+  "selected_reasons": []
+}

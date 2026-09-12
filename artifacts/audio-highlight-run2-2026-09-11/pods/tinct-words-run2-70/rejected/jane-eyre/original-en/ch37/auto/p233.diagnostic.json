@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "8b307ea7692854bf756f1289e3f71d32f91b28479f0a8eec5481158e023366cb",
+  "attempts": [
+    {
+      "asr_seconds": 0.26353969401679933,
+      "alignment_seconds": 0.0004656140226870775,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And to bear with my infirmities, Jane: to overlook my deficiencies.\"",
+        "hotwords": "And, Jane"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And to bear with my infirmities, Jane, to overlook my deficiencies.",
+          "start": 0.11,
+          "end": 3.97,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.38525390625
+            },
+            {
+              "text": " to",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " bear",
+              "start": 0.65,
+              "end": 0.81,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " with",
+              "start": 0.81,
+              "end": 0.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 0.99,
+              "end": 1.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " infirmities,",
+              "start": 1.15,
+              "end": 1.83,
+              "probability": 0.9856770833333334
+            },
+            {
+              "text": " Jane,",
+              "start": 2.03,
+              "end": 2.17,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " to",
+              "start": 2.73,
+              "end": 2.81,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " overlook",
+              "start": 2.81,
+              "end": 3.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 3.21,
+              "end": 3.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " deficiencies.",
+              "start": 3.47,
+              "end": 3.97,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "to",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "bear",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "raw": "with",
+          "start": 0.81,
+          "end": 0.99
+        },
+        {
+          "raw": "my",
+          "start": 0.99,
+          "end": 1.15
+        },
+        {
+          "raw": "infirmities,",
+          "start": 1.15,
+          "end": 1.83
+        },
+        {
+          "raw": "Jane,",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "raw": "to",
+          "start": 2.73,
+          "end": 2.81
+        },
+        {
+          "raw": "overlook",
+          "start": 2.81,
+          "end": 3.21
+        },
+        {
+          "raw": "my",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "raw": "deficiencies.",
+          "start": 3.47,
+          "end": 3.97
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "to",
+        "bear",
+        "with",
+        "my",
+        "infirmities,",
+        "Jane:",
+        "to",
+        "overlook",
+        "my",
+        "deficiencies.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 0.65,
+          "end": 0.81,
+          "key": "bear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.81,
+          "end": 0.99,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.99,
+          "end": 1.15,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "infirmities,",
+          "start": 1.15,
+          "end": 1.83,
+          "key": "infirmities",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Jane,",
+          "start": 2.03,
+          "end": 2.17,
+          "key": "jane",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.73,
+          "end": 2.81,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "overlook",
+          "start": 2.81,
+          "end": 3.21,
+          "key": "overlook",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.21,
+          "end": 3.47,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "deficiencies.",
+          "start": 3.47,
+          "end": 3.97,
+          "key": "deficiencies",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "to",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "bear",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "text": "with",
+          "start": 0.81,
+          "end": 0.99
+        },
+        {
+          "text": "my",
+          "start": 0.99,
+          "end": 1.15
+        },
+        {
+          "text": "infirmities,",
+          "start": 1.15,
+          "end": 1.83
+        },
+        {
+          "text": "Jane:",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "text": "to",
+          "start": 2.73,
+          "end": 2.81
+        },
+        {
+          "text": "overlook",
+          "start": 2.81,
+          "end": 3.21
+        },
+        {
+          "text": "my",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "text": "deficiencies.\"",
+          "start": 3.47,
+          "end": 3.97
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2641963339410722
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eb1cfc003e0e5158ec9dda8a4665bd2fec26ac0fdfaea62c3424b8e667546b3d",
+  "selected_reasons": []
+}

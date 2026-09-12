@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "eec1f73e42d42e09e7f228fb6dc7ae4b816c7e0f4f4317ef7f4b17609c270f3e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1917525101453066,
+      "alignment_seconds": 0.0002281060442328453,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. Not stingless too.",
+        "hotwords": "Antony, Not"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, Not Stingless too.",
+          "start": 0.05,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " Not",
+              "start": 1.17,
+              "end": 1.31,
+              "probability": 0.0205078125
+            },
+            {
+              "text": " Stingless",
+              "start": 1.31,
+              "end": 1.69,
+              "probability": 0.869140625
+            },
+            {
+              "text": " too.",
+              "start": 1.69,
+              "end": 1.97,
+              "probability": 0.01363372802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Not",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "raw": "Stingless",
+          "start": 1.31,
+          "end": 1.69
+        },
+        {
+          "raw": "too.",
+          "start": 1.69,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Not",
+        "stingless",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 1.17,
+          "end": 1.31,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Stingless",
+          "start": 1.31,
+          "end": 1.69,
+          "key": "stingless",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 1.69,
+          "end": 1.97,
+          "key": "too",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Not",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "text": "stingless",
+          "start": 1.31,
+          "end": 1.69
+        },
+        {
+          "text": "too.",
+          "start": 1.69,
+          "end": 1.97
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19206823594868183
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "80d3d9ee19b2dbba59707eedd966ede9c1705ca2fec62fe0204fe219b2a714fc",
+  "selected_reasons": []
+}

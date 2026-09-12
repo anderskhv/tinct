@@ -1,0 +1,204 @@
+{
+  "complete": true,
+  "signature": "064f0aaa32ab47d4e3aab215f6adffac4ee88060b9002420e7740bc5a8788c1a",
+  "attempts": [
+    {
+      "asr_seconds": 0.14328168192878366,
+      "alignment_seconds": 0.00023935316130518913,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A-ra-ra-ra-ra-ra.",
+          "start": 0.11,
+          "end": 1.41,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.11,
+              "end": 0.55,
+              "probability": 0.039337158203125
+            },
+            {
+              "text": "-ra",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.57666015625
+            },
+            {
+              "text": "-ra",
+              "start": 0.67,
+              "end": 0.85,
+              "probability": 0.86328125
+            },
+            {
+              "text": "-ra",
+              "start": 0.85,
+              "end": 1.09,
+              "probability": 0.975341796875
+            },
+            {
+              "text": "-ra",
+              "start": 1.09,
+              "end": 1.21,
+              "probability": 0.953125
+            },
+            {
+              "text": "-ra.",
+              "start": 1.21,
+              "end": 1.41,
+              "probability": 0.85693359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "raw": "-ra",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "-ra",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "raw": "-ra",
+          "start": 0.85,
+          "end": 1.09
+        },
+        {
+          "raw": "-ra",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "raw": "-ra.",
+          "start": 1.21,
+          "end": 1.41
+        }
+      ],
+      "expected_tokens": [
+        "Rrrrrr."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.11,
+          "end": 0.55,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "-ra",
+          "start": 0.55,
+          "end": 0.67,
+          "key": "ra",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "-ra",
+          "start": 0.67,
+          "end": 0.85,
+          "key": "ra",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-ra",
+          "start": 0.85,
+          "end": 1.09,
+          "key": "ra",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "-ra",
+          "start": 1.09,
+          "end": 1.21,
+          "key": "ra",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "-ra.",
+          "start": 1.21,
+          "end": 1.41,
+          "key": "ra",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Rrrrrr.",
+          "start": 0.0,
+          "end": 0.705
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 6,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14366427017375827
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4337140da3c3bf3187e46be19b13436a7fb1e0d29e78ff09ba6dd8293172a5c4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

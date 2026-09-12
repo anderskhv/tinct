@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "c5809f0d1006e97b23e0c3097f2a67966edf781ab2dd4e4ecafaf25f158e4c0e",
+  "attempts": [
+    {
+      "asr_seconds": 0.15542688500136137,
+      "alignment_seconds": 0.0003738775849342346,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All. Listen, but speak not to't.",
+        "hotwords": "All, Listen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All, Listen, but speak not to't.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.72900390625
+            },
+            {
+              "text": " Listen,",
+              "start": 1.03,
+              "end": 1.15,
+              "probability": 0.036346435546875
+            },
+            {
+              "text": " but",
+              "start": 1.37,
+              "end": 1.41,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " speak",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.7529296875
+            },
+            {
+              "text": " not",
+              "start": 1.61,
+              "end": 1.85,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " to't.",
+              "start": 1.85,
+              "end": 2.25,
+              "probability": 0.00493621826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Listen,",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "raw": "but",
+          "start": 1.37,
+          "end": 1.41
+        },
+        {
+          "raw": "speak",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "raw": "not",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "raw": "to't.",
+          "start": 1.85,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "Listen,",
+        "but",
+        "speak",
+        "not",
+        "to't."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Listen,",
+          "start": 1.03,
+          "end": 1.15,
+          "key": "listen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.37,
+          "end": 1.41,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 1.41,
+          "end": 1.61,
+          "key": "speak",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.61,
+          "end": 1.85,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to't.",
+          "start": 1.85,
+          "end": 2.25,
+          "key": "tot",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Listen,",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "text": "but",
+          "start": 1.37,
+          "end": 1.41
+        },
+        {
+          "text": "speak",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "text": "not",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "text": "to't.",
+          "start": 1.85,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15593744162470102
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8c1c93ee6d15c40df6d9365d3101adf1a20e0da3cf276d828b2f61fa97d7a574",
+  "selected_reasons": []
+}

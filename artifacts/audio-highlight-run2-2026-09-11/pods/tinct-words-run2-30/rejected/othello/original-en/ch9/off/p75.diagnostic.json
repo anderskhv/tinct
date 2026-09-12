@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "4ef2fa7249addab53509a8073824bf95a8fc7ae5b90c853901aaa44dfa583301",
+  "attempts": [
+    {
+      "asr_seconds": 0.0938230506144464,
+      "alignment_seconds": 0.00010400917381048203,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, O Misery.",
+          "start": 0.21,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.21,
+              "end": 1.01,
+              "probability": 0.9264322916666666
+            },
+            {
+              "text": " O",
+              "start": 1.15,
+              "end": 1.21,
+              "probability": 0.50537109375
+            },
+            {
+              "text": " Misery.",
+              "start": 1.21,
+              "end": 1.59,
+              "probability": 0.66748046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 1.01
+        },
+        {
+          "raw": "O",
+          "start": 1.15,
+          "end": 1.21
+        },
+        {
+          "raw": "Misery.",
+          "start": 1.21,
+          "end": 1.59
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "O",
+        "misery!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 1.01,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.15,
+          "end": 1.21,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Misery.",
+          "start": 1.21,
+          "end": 1.59,
+          "key": "misery",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.21,
+          "end": 1.01
+        },
+        {
+          "text": "O",
+          "start": 1.15,
+          "end": 1.21
+        },
+        {
+          "text": "misery!",
+          "start": 1.21,
+          "end": 1.59
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.093961700797081
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2503cb8f5f0d4b366e90f32b761e3f910bdde282d92895ba6ad63b076f88c8e8",
+  "selected_reasons": []
+}

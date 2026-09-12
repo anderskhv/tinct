@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "2d999e196d789cf3e85be262ec621547c00c2e6d44e0c853d8a3e2bbc0b21254",
+  "attempts": [
+    {
+      "asr_seconds": 0.19546230137348175,
+      "alignment_seconds": 0.0001703798770904541,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cornwall. And what confederacy have you with the traitors, Late footed in the kingdom?",
+        "hotwords": "Cornwall, And, Late"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cornwall, And what confederacy have you with the traitors, Late footed in the kingdom?",
+          "start": 0.0,
+          "end": 4.7,
+          "words": [
+            {
+              "text": " Cornwall,",
+              "start": 0.0,
+              "end": 0.78,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " And",
+              "start": 1.2,
+              "end": 1.46,
+              "probability": 0.0079498291015625
+            },
+            {
+              "text": " what",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " confederacy",
+              "start": 1.64,
+              "end": 2.28,
+              "probability": 0.812744140625
+            },
+            {
+              "text": " have",
+              "start": 2.28,
+              "end": 2.5,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " you",
+              "start": 2.5,
+              "end": 2.68,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " with",
+              "start": 2.68,
+              "end": 2.82,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " the",
+              "start": 2.82,
+              "end": 2.94,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " traitors,",
+              "start": 2.94,
+              "end": 3.38,
+              "probability": 0.6978759765625
+            },
+            {
+              "text": " Late",
+              "start": 3.8,
+              "end": 3.9,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " footed",
+              "start": 3.9,
+              "end": 4.28,
+              "probability": 0.71533203125
+            },
+            {
+              "text": " in",
+              "start": 4.28,
+              "end": 4.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.38,
+              "end": 4.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " kingdom?",
+              "start": 4.48,
+              "end": 4.7,
+              "probability": 0.849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "raw": "And",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "raw": "what",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "confederacy",
+          "start": 1.64,
+          "end": 2.28
+        },
+        {
+          "raw": "have",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "raw": "you",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "raw": "with",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "raw": "the",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "raw": "traitors,",
+          "start": 2.94,
+          "end": 3.38
+        },
+        {
+          "raw": "Late",
+          "start": 3.8,
+          "end": 3.9
+        },
+        {
+          "raw": "footed",
+          "start": 3.9,
+          "end": 4.28
+        },
+        {
+          "raw": "in",
+          "start": 4.28,
+          "end": 4.38
+        },
+        {
+          "raw": "the",
+          "start": 4.38,
+          "end": 4.48
+        },
+        {
+          "raw": "kingdom?",
+          "start": 4.48,
+          "end": 4.7
+        }
+      ],
+      "expected_tokens": [
+        "Cornwall.",
+        "And",
+        "what",
+        "confederacy",
+        "have",
+        "you",
+        "with",
+        "the",
+        "traitors,",
+        "Late",
+        "footed",
+        "in",
+        "the",
+        "kingdom?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.0,
+          "end": 0.78,
+          "key": "cornwall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.2,
+          "end": 1.46,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "confederacy",
+          "start": 1.64,
+          "end": 2.28,
+          "key": "confederacy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.28,
+          "end": 2.5,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.5,
+          "end": 2.68,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.68,
+          "end": 2.82,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.82,
+          "end": 2.94,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "traitors,",
+          "start": 2.94,
+          "end": 3.38,
+          "key": "traitors",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Late",
+          "start": 3.8,
+          "end": 3.9,
+          "key": "late",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "footed",
+          "start": 3.9,
+          "end": 4.28,
+          "key": "footed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.28,
+          "end": 4.38,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.38,
+          "end": 4.48,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "kingdom?",
+          "start": 4.48,
+          "end": 4.7,
+          "key": "kingdom",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cornwall.",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "text": "And",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "text": "what",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "confederacy",
+          "start": 1.64,
+          "end": 2.28
+        },
+        {
+          "text": "have",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "text": "you",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "text": "with",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "text": "the",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "text": "traitors,",
+          "start": 2.94,
+          "end": 3.38
+        },
+        {
+          "text": "Late",
+          "start": 3.8,
+          "end": 3.9
+        },
+        {
+          "text": "footed",
+          "start": 3.9,
+          "end": 4.28
+        },
+        {
+          "text": "in",
+          "start": 4.28,
+          "end": 4.38
+        },
+        {
+          "text": "the",
+          "start": 4.38,
+          "end": 4.48
+        },
+        {
+          "text": "kingdom?",
+          "start": 4.48,
+          "end": 4.7
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19569583237171173
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d1f1066e6f4cbbc2c58e5f772470dd038e1db4713cc3e283b041667ae82c812b",
+  "selected_reasons": []
+}

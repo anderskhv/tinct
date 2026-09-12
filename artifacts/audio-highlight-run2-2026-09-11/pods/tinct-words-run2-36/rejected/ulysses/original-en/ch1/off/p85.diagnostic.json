@@ -1,0 +1,543 @@
+{
+  "complete": true,
+  "signature": "c240ca3284fed7bdf2f0d0399c800a9fa95c9c5c605199ba35e2314c86c04983",
+  "attempts": [
+    {
+      "asr_seconds": 0.2724136859178543,
+      "alignment_seconds": 0.0005044229328632355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You said Stephen answered. Oh, it's only dead Alice whose mother is beastly dead",
+          "start": 0.05,
+          "end": 5.23,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " said",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Stephen",
+              "start": 0.93,
+              "end": 1.53,
+              "probability": 0.47265625
+            },
+            {
+              "text": " answered.",
+              "start": 1.53,
+              "end": 2.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Oh,",
+              "start": 2.19,
+              "end": 2.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " it's",
+              "start": 2.71,
+              "end": 2.97,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " only",
+              "start": 2.97,
+              "end": 3.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dead",
+              "start": 3.19,
+              "end": 3.45,
+              "probability": 0.904296875
+            },
+            {
+              "text": " Alice",
+              "start": 3.45,
+              "end": 3.71,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " whose",
+              "start": 3.71,
+              "end": 3.89,
+              "probability": 0.9765625
+            },
+            {
+              "text": " mother",
+              "start": 3.89,
+              "end": 4.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 4.15,
+              "end": 4.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " beastly",
+              "start": 4.41,
+              "end": 4.93,
+              "probability": 0.946044921875
+            },
+            {
+              "text": " dead",
+              "start": 4.93,
+              "end": 5.23,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "said",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "Stephen",
+          "start": 0.93,
+          "end": 1.53
+        },
+        {
+          "raw": "answered.",
+          "start": 1.53,
+          "end": 2.09
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.19,
+          "end": 2.71
+        },
+        {
+          "raw": "it's",
+          "start": 2.71,
+          "end": 2.97
+        },
+        {
+          "raw": "only",
+          "start": 2.97,
+          "end": 3.19
+        },
+        {
+          "raw": "dead",
+          "start": 3.19,
+          "end": 3.45
+        },
+        {
+          "raw": "Alice",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "raw": "whose",
+          "start": 3.71,
+          "end": 3.89
+        },
+        {
+          "raw": "mother",
+          "start": 3.89,
+          "end": 4.15
+        },
+        {
+          "raw": "is",
+          "start": 4.15,
+          "end": 4.41
+        },
+        {
+          "raw": "beastly",
+          "start": 4.41,
+          "end": 4.93
+        },
+        {
+          "raw": "dead",
+          "start": 4.93,
+          "end": 5.23
+        }
+      ],
+      "expected_tokens": [
+        "—You",
+        "said,",
+        "Stephen",
+        "answered,",
+        "_O,",
+        "it's",
+        "only",
+        "Dedalus",
+        "whose",
+        "mother",
+        "is",
+        "beastly",
+        "dead._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          13,
+          9,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Stephen",
+          "start": 0.93,
+          "end": 1.53,
+          "key": "stephen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "answered.",
+          "start": 1.53,
+          "end": 2.09,
+          "key": "answered",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.19,
+          "end": 2.71,
+          "key": "oh",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 2.71,
+          "end": 2.97,
+          "key": "its",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.97,
+          "end": 3.19,
+          "key": "only",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 3.19,
+          "end": 3.45,
+          "key": "dead",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Alice",
+          "start": 3.45,
+          "end": 3.71,
+          "key": "alice",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "whose",
+          "start": 3.71,
+          "end": 3.89,
+          "key": "whose",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mother",
+          "start": 3.89,
+          "end": 4.15,
+          "key": "mother",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.15,
+          "end": 4.41,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "beastly",
+          "start": 4.41,
+          "end": 4.93,
+          "key": "beastly",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 4.93,
+          "end": 5.23,
+          "key": "dead",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "said,",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "Stephen",
+          "start": 0.93,
+          "end": 1.53
+        },
+        {
+          "text": "answered,",
+          "start": 1.53,
+          "end": 2.09
+        },
+        {
+          "text": "_O,",
+          "start": 2.09,
+          "end": 2.4
+        },
+        {
+          "text": "it's",
+          "start": 2.71,
+          "end": 2.97
+        },
+        {
+          "text": "only",
+          "start": 2.97,
+          "end": 3.19
+        },
+        {
+          "text": "Dedalus",
+          "start": 3.19,
+          "end": 3.45
+        },
+        {
+          "text": "whose",
+          "start": 3.71,
+          "end": 3.89
+        },
+        {
+          "text": "mother",
+          "start": 3.89,
+          "end": 4.15
+        },
+        {
+          "text": "is",
+          "start": 4.15,
+          "end": 4.41
+        },
+        {
+          "text": "beastly",
+          "start": 4.41,
+          "end": 4.93
+        },
+        {
+          "text": "dead._",
+          "start": 4.93,
+          "end": 5.23
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2731221206486225
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d4b2f4cc3f00462119ea6b7e65bbb60655e1f2e2962c5b468d5828e96b0841e3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

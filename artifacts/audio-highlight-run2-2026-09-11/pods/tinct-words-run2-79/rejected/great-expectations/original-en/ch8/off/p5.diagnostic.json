@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "b294b76ee17809e94ee8353c2865d6349610341601a321a06cafd0d284ba246e",
+  "attempts": [
+    {
+      "asr_seconds": 0.18741754116490483,
+      "alignment_seconds": 0.00033587170764803886,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " This, said Mr. Pumblechuck, is Pip.",
+          "start": 0.02,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " This,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.18701171875
+            },
+            {
+              "text": " said",
+              "start": 0.94,
+              "end": 1.16,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Mr.",
+              "start": 1.16,
+              "end": 1.44,
+              "probability": 0.943359375
+            },
+            {
+              "text": " Pumblechuck,",
+              "start": 1.58,
+              "end": 1.96,
+              "probability": 0.8883056640625
+            },
+            {
+              "text": " is",
+              "start": 2.2,
+              "end": 2.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Pip.",
+              "start": 2.38,
+              "end": 2.62,
+              "probability": 0.50830078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "said",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.16,
+          "end": 1.44
+        },
+        {
+          "raw": "Pumblechuck,",
+          "start": 1.58,
+          "end": 1.96
+        },
+        {
+          "raw": "is",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "raw": "Pip.",
+          "start": 2.38,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "\"This,\"",
+        "said",
+        "Mr.",
+        "Pumblechook,",
+        "\"is",
+        "Pip.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This,",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.94,
+          "end": 1.16,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.16,
+          "end": 1.44,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Pumblechuck,",
+          "start": 1.58,
+          "end": 1.96,
+          "key": "pumblechuck",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.2,
+          "end": 2.38,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Pip.",
+          "start": 2.38,
+          "end": 2.62,
+          "key": "pip",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"This,\"",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "said",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "text": "Mr.",
+          "start": 1.16,
+          "end": 1.44
+        },
+        {
+          "text": "Pumblechook,",
+          "start": 1.44,
+          "end": 1.82
+        },
+        {
+          "text": "\"is",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "text": "Pip.\"",
+          "start": 2.38,
+          "end": 2.62
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18787463521584868
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d351b22253309a913aedd8efbee29e11d7612390628da485e74f8ca0d55c8383",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

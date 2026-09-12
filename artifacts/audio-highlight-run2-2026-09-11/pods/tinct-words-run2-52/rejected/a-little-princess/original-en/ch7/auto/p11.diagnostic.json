@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "31220c5e5f91027b84a974278cdd8db80e0391812b25e900d9aa95f753e96adf",
+  "attempts": [
+    {
+      "asr_seconds": 0.15726317837834358,
+      "alignment_seconds": 0.00024132058024406433,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Becky!\" she exclaimed. \"My dearest Sara!\"",
+        "hotwords": "Becky, My, Sara"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Becky, she exclaimed. My dearest Sara!",
+          "start": 0.08,
+          "end": 2.96,
+          "words": [
+            {
+              "text": " Becky,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.343017578125
+            },
+            {
+              "text": " she",
+              "start": 1.02,
+              "end": 1.18,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " exclaimed.",
+              "start": 1.18,
+              "end": 1.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " My",
+              "start": 2.22,
+              "end": 2.32,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " dearest",
+              "start": 2.32,
+              "end": 2.66,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Sara!",
+              "start": 2.66,
+              "end": 2.96,
+              "probability": 0.059600830078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Becky,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "she",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "raw": "exclaimed.",
+          "start": 1.18,
+          "end": 1.6
+        },
+        {
+          "raw": "My",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "raw": "dearest",
+          "start": 2.32,
+          "end": 2.66
+        },
+        {
+          "raw": "Sara!",
+          "start": 2.66,
+          "end": 2.96
+        }
+      ],
+      "expected_tokens": [
+        "\"Becky!\"",
+        "she",
+        "exclaimed.",
+        "\"My",
+        "dearest",
+        "Sara!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Becky,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "becky",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.02,
+          "end": 1.18,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "exclaimed.",
+          "start": 1.18,
+          "end": 1.6,
+          "key": "exclaimed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 2.22,
+          "end": 2.32,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dearest",
+          "start": 2.32,
+          "end": 2.66,
+          "key": "dearest",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Sara!",
+          "start": 2.66,
+          "end": 2.96,
+          "key": "sara",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Becky!\"",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "she",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "text": "exclaimed.",
+          "start": 1.18,
+          "end": 1.6
+        },
+        {
+          "text": "\"My",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "text": "dearest",
+          "start": 2.32,
+          "end": 2.66
+        },
+        {
+          "text": "Sara!\"",
+          "start": 2.66,
+          "end": 2.96
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15759645774960518
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eaad31b1ae983bad3135a4a6981552852626d4b5f08be2de4715b68e0dee8fe1",
+  "selected_reasons": []
+}

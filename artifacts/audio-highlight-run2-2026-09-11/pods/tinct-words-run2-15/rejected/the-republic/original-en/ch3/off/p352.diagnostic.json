@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "8da7de1d32e02cb097eaec850c4d5197fbfd6d3c1a91229534b3087287108228",
+  "attempts": [
+    {
+      "asr_seconds": 0.15725043043494225,
+      "alignment_seconds": 0.0003343038260936737,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Quite true he said",
+          "start": 0.05,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " Quite",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.6064453125
+            },
+            {
+              "text": " true",
+              "start": 0.55,
+              "end": 0.85,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 0.85,
+              "end": 1.05,
+              "probability": 0.277587890625
+            },
+            {
+              "text": " said",
+              "start": 1.05,
+              "end": 1.37,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quite",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "true",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "raw": "he",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "raw": "said",
+          "start": 1.05,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "Quite",
+        "true,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Quite",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "quite",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 0.55,
+          "end": 0.85,
+          "key": "true",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.85,
+          "end": 1.05,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.05,
+          "end": 1.37,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Quite",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "true,",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "text": "he",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "text": "said.",
+          "start": 1.05,
+          "end": 1.37
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15770946443080902
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3a524a0d008287f930893e893eaf2880f6485abeb315909126321a95c3aeb3ae",
+  "selected_reasons": []
+}

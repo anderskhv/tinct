@@ -1,0 +1,768 @@
+{
+  "complete": true,
+  "signature": "c97b45549433c5bf90b2d663e5b4c0b6af84bb51bf919cef633fbc6367f8052b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3161193998530507,
+      "alignment_seconds": 0.0006505539640784264,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fryer Lawrence, I would I knew not why it should be slowed. Look sir, here comes the lady toward my cell",
+          "start": 0.05,
+          "end": 6.31,
+          "words": [
+            {
+              "text": " Fryer",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.636474609375
+            },
+            {
+              "text": " Lawrence,",
+              "start": 0.79,
+              "end": 1.09,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " I",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.974609375
+            },
+            {
+              "text": " would",
+              "start": 1.69,
+              "end": 1.77,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " I",
+              "start": 1.77,
+              "end": 1.89,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " knew",
+              "start": 1.89,
+              "end": 2.03,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " not",
+              "start": 2.03,
+              "end": 2.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " why",
+              "start": 2.17,
+              "end": 2.33,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " it",
+              "start": 2.33,
+              "end": 2.43,
+              "probability": 0.9921875
+            },
+            {
+              "text": " should",
+              "start": 2.43,
+              "end": 2.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 2.55,
+              "end": 2.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " slowed.",
+              "start": 2.71,
+              "end": 3.05,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Look",
+              "start": 3.91,
+              "end": 4.07,
+              "probability": 0.95703125
+            },
+            {
+              "text": " sir,",
+              "start": 4.07,
+              "end": 4.37,
+              "probability": 0.642578125
+            },
+            {
+              "text": " here",
+              "start": 4.65,
+              "end": 4.75,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " comes",
+              "start": 4.75,
+              "end": 4.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.99,
+              "end": 5.21,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " lady",
+              "start": 5.21,
+              "end": 5.43,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " toward",
+              "start": 5.43,
+              "end": 5.73,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " my",
+              "start": 5.73,
+              "end": 5.95,
+              "probability": 0.994140625
+            },
+            {
+              "text": " cell",
+              "start": 5.95,
+              "end": 6.31,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fryer",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Lawrence,",
+          "start": 0.79,
+          "end": 1.09
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "raw": "would",
+          "start": 1.69,
+          "end": 1.77
+        },
+        {
+          "raw": "I",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "raw": "knew",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "raw": "not",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "raw": "why",
+          "start": 2.17,
+          "end": 2.33
+        },
+        {
+          "raw": "it",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "raw": "should",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "raw": "be",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "raw": "slowed.",
+          "start": 2.71,
+          "end": 3.05
+        },
+        {
+          "raw": "Look",
+          "start": 3.91,
+          "end": 4.07
+        },
+        {
+          "raw": "sir,",
+          "start": 4.07,
+          "end": 4.37
+        },
+        {
+          "raw": "here",
+          "start": 4.65,
+          "end": 4.75
+        },
+        {
+          "raw": "comes",
+          "start": 4.75,
+          "end": 4.99
+        },
+        {
+          "raw": "the",
+          "start": 4.99,
+          "end": 5.21
+        },
+        {
+          "raw": "lady",
+          "start": 5.21,
+          "end": 5.43
+        },
+        {
+          "raw": "toward",
+          "start": 5.43,
+          "end": 5.73
+        },
+        {
+          "raw": "my",
+          "start": 5.73,
+          "end": 5.95
+        },
+        {
+          "raw": "cell",
+          "start": 5.95,
+          "end": 6.31
+        }
+      ],
+      "expected_tokens": [
+        "Friar",
+        "Lawrence.",
+        "I",
+        "would",
+        "I",
+        "knew",
+        "not",
+        "why",
+        "it",
+        "should",
+        "be",
+        "slow'd.—",
+        "Look,",
+        "sir,",
+        "here",
+        "comes",
+        "the",
+        "lady",
+        "toward",
+        "my",
+        "cell."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          11,
+          1,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          21,
+          12,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fryer",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "fryer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lawrence,",
+          "start": 0.79,
+          "end": 1.09,
+          "key": "lawrence",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.69,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.69,
+          "end": 1.77,
+          "key": "would",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.77,
+          "end": 1.89,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 1.89,
+          "end": 2.03,
+          "key": "knew",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.03,
+          "end": 2.17,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 2.17,
+          "end": 2.33,
+          "key": "why",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.33,
+          "end": 2.43,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 2.43,
+          "end": 2.55,
+          "key": "should",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.55,
+          "end": 2.71,
+          "key": "be",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "slowed.",
+          "start": 2.71,
+          "end": 3.05,
+          "key": "slowed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 3.91,
+          "end": 4.07,
+          "key": "look",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 4.07,
+          "end": 4.37,
+          "key": "sir",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 4.65,
+          "end": 4.75,
+          "key": "here",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 4.75,
+          "end": 4.99,
+          "key": "comes",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.99,
+          "end": 5.21,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 5.21,
+          "end": 5.43,
+          "key": "lady",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "toward",
+          "start": 5.43,
+          "end": 5.73,
+          "key": "toward",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.73,
+          "end": 5.95,
+          "key": "my",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "cell",
+          "start": 5.95,
+          "end": 6.31,
+          "key": "cell",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Friar",
+          "start": 0.0,
+          "end": 0.395
+        },
+        {
+          "text": "Lawrence.",
+          "start": 0.79,
+          "end": 1.09
+        },
+        {
+          "text": "I",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "text": "would",
+          "start": 1.69,
+          "end": 1.77
+        },
+        {
+          "text": "I",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "text": "knew",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "text": "not",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "text": "why",
+          "start": 2.17,
+          "end": 2.33
+        },
+        {
+          "text": "it",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "text": "should",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "text": "be",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "text": "slow'd.—",
+          "start": 2.71,
+          "end": 3.31
+        },
+        {
+          "text": "Look,",
+          "start": 3.91,
+          "end": 4.07
+        },
+        {
+          "text": "sir,",
+          "start": 4.07,
+          "end": 4.37
+        },
+        {
+          "text": "here",
+          "start": 4.65,
+          "end": 4.75
+        },
+        {
+          "text": "comes",
+          "start": 4.75,
+          "end": 4.99
+        },
+        {
+          "text": "the",
+          "start": 4.99,
+          "end": 5.21
+        },
+        {
+          "text": "lady",
+          "start": 5.21,
+          "end": 5.43
+        },
+        {
+          "text": "toward",
+          "start": 5.43,
+          "end": 5.73
+        },
+        {
+          "text": "my",
+          "start": 5.73,
+          "end": 5.95
+        },
+        {
+          "text": "cell.",
+          "start": 5.95,
+          "end": 6.31
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.9047619047619048,
+      "rejection_reasons": [],
+      "seconds": 0.317046026699245
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0ccd9e8463c83cdc0a3431de899f2954536910064423971ab2ceb56d9d6fbb3b",
+  "selected_reasons": []
+}

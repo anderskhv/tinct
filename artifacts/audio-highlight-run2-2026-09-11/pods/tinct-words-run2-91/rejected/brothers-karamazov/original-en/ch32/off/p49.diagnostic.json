@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "858ac53d9a8aa6db57cc315a447f7ece0a62e5b171bd724a39a3a731cb1e16d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1912380363792181,
+      "alignment_seconds": 0.00019547250121831894,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, I didn't believe it.",
+          "start": 0.02,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.916015625
+            },
+            {
+              "text": " I",
+              "start": 0.84,
+              "end": 0.96,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " didn't",
+              "start": 0.96,
+              "end": 1.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " believe",
+              "start": 1.2,
+              "end": 1.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it.",
+              "start": 1.42,
+              "end": 1.7,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "I",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "raw": "didn't",
+          "start": 0.96,
+          "end": 1.2
+        },
+        {
+          "raw": "believe",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "raw": "it.",
+          "start": 1.42,
+          "end": 1.7
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "I",
+        "didn't",
+        "believe",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.84,
+          "end": 0.96,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "didn't",
+          "start": 0.96,
+          "end": 1.2,
+          "key": "didnt",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "believe",
+          "start": 1.2,
+          "end": 1.42,
+          "key": "believe",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.42,
+          "end": 1.7,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "I",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "text": "didn't",
+          "start": 0.96,
+          "end": 1.2
+        },
+        {
+          "text": "believe",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "text": "it.\"",
+          "start": 1.42,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1914944602176547
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0e96d04ff18bfd2a8b5ea232fd92941c8e765eeb4cf58b6912fd9f534b8383ae",
+  "selected_reasons": []
+}

@@ -1,0 +1,390 @@
+{
+  "complete": true,
+  "signature": "f8d4d7f3a14c1971d7ae40bd0e24f0a214966984bf4e785c6ebd2c7463a0bdcb",
+  "attempts": [
+    {
+      "asr_seconds": 0.20787737518548965,
+      "alignment_seconds": 0.00033578998409211636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Are those two married over there, leaning on each other?",
+          "start": 0.08,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " Are",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.85546875
+            },
+            {
+              "text": " those",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " two",
+              "start": 0.68,
+              "end": 1.0,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " married",
+              "start": 1.0,
+              "end": 1.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " over",
+              "start": 1.26,
+              "end": 1.52,
+              "probability": 0.9921875
+            },
+            {
+              "text": " there,",
+              "start": 1.52,
+              "end": 1.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " leaning",
+              "start": 2.24,
+              "end": 2.34,
+              "probability": 0.994140625
+            },
+            {
+              "text": " on",
+              "start": 2.34,
+              "end": 2.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " each",
+              "start": 2.58,
+              "end": 2.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " other?",
+              "start": 2.74,
+              "end": 3.02,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Are",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "those",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "two",
+          "start": 0.68,
+          "end": 1.0
+        },
+        {
+          "raw": "married",
+          "start": 1.0,
+          "end": 1.26
+        },
+        {
+          "raw": "over",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "raw": "there,",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "raw": "leaning",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "raw": "on",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "raw": "each",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "raw": "other?",
+          "start": 2.74,
+          "end": 3.02
+        }
+      ],
+      "expected_tokens": [
+        "\"Are",
+        "those",
+        "two",
+        "married",
+        "over",
+        "there—leaning",
+        "on",
+        "each",
+        "other?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          9,
+          7,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Are",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "are",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "those",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 0.68,
+          "end": 1.0,
+          "key": "two",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "married",
+          "start": 1.0,
+          "end": 1.26,
+          "key": "married",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 1.26,
+          "end": 1.52,
+          "key": "over",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 1.52,
+          "end": 1.84,
+          "key": "there",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "leaning",
+          "start": 2.24,
+          "end": 2.34,
+          "key": "leaning",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.34,
+          "end": 2.58,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 2.58,
+          "end": 2.74,
+          "key": "each",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "other?",
+          "start": 2.74,
+          "end": 3.02,
+          "key": "other",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Are",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "those",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "two",
+          "start": 0.68,
+          "end": 1.0
+        },
+        {
+          "text": "married",
+          "start": 1.0,
+          "end": 1.26
+        },
+        {
+          "text": "over",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "text": "there—leaning",
+          "start": 1.52,
+          "end": 1.93
+        },
+        {
+          "text": "on",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "text": "each",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "text": "other?\"",
+          "start": 2.74,
+          "end": 3.02
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.20832727709785104
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "66a0f6db137f48611b84587c0604e6bb0f3056672f2596658dad1b8386cf42c0",
+  "selected_reasons": []
+}

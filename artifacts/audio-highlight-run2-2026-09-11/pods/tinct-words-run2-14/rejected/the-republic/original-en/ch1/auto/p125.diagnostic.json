@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "5fde06e4e65a752a2877f00fdfbba883d9e1edec47d66033c05abf805c4530aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.09835339710116386,
+      "alignment_seconds": 0.0002070292830467224,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clearly.",
+        "hotwords": "Clearly"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clearly.",
+          "start": 0.08,
+          "end": 0.68,
+          "words": [
+            {
+              "text": " Clearly.",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clearly.",
+          "start": 0.08,
+          "end": 0.68
+        }
+      ],
+      "expected_tokens": [
+        "Clearly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clearly.",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "clearly",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clearly.",
+          "start": 0.08,
+          "end": 0.68
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09862898290157318
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "21fe2bdb80c06c09da5ab9d37702db22da0619fa3d94dfd685629451cbc5ac60",
+  "selected_reasons": []
+}

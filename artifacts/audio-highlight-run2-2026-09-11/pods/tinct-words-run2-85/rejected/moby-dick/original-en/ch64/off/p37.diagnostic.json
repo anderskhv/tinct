@@ -1,0 +1,692 @@
+{
+  "complete": true,
+  "signature": "d8e0bad7e854182595b64241e7876aced53dc0000b8e9f72c39bd75e1588a474",
+  "attempts": [
+    {
+      "asr_seconds": 0.3006933620199561,
+      "alignment_seconds": 0.0008667269721627235,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Born in a ferry boat. That's queer too, but I want to know what country you were born in Cook",
+          "start": 0.05,
+          "end": 5.29,
+          "words": [
+            {
+              "text": " Born",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.724609375
+            },
+            {
+              "text": " in",
+              "start": 0.61,
+              "end": 0.79,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 0.79,
+              "end": 0.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ferry",
+              "start": 0.87,
+              "end": 1.09,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " boat.",
+              "start": 1.09,
+              "end": 1.47,
+              "probability": 0.63134765625
+            },
+            {
+              "text": " That's",
+              "start": 1.87,
+              "end": 2.11,
+              "probability": 0.986572265625
+            },
+            {
+              "text": " queer",
+              "start": 2.11,
+              "end": 2.33,
+              "probability": 0.98046875
+            },
+            {
+              "text": " too,",
+              "start": 2.33,
+              "end": 2.69,
+              "probability": 0.63525390625
+            },
+            {
+              "text": " but",
+              "start": 3.15,
+              "end": 3.33,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 3.33,
+              "end": 3.45,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " want",
+              "start": 3.45,
+              "end": 3.57,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " to",
+              "start": 3.57,
+              "end": 3.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " know",
+              "start": 3.67,
+              "end": 3.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " what",
+              "start": 3.79,
+              "end": 3.97,
+              "probability": 0.9921875
+            },
+            {
+              "text": " country",
+              "start": 3.97,
+              "end": 4.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 4.27,
+              "end": 4.45,
+              "probability": 0.994140625
+            },
+            {
+              "text": " were",
+              "start": 4.45,
+              "end": 4.57,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " born",
+              "start": 4.57,
+              "end": 4.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 4.79,
+              "end": 5.03,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Cook",
+              "start": 5.03,
+              "end": 5.29,
+              "probability": 0.317626953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Born",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "in",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "raw": "a",
+          "start": 0.79,
+          "end": 0.87
+        },
+        {
+          "raw": "ferry",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "raw": "boat.",
+          "start": 1.09,
+          "end": 1.47
+        },
+        {
+          "raw": "That's",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "raw": "queer",
+          "start": 2.11,
+          "end": 2.33
+        },
+        {
+          "raw": "too,",
+          "start": 2.33,
+          "end": 2.69
+        },
+        {
+          "raw": "but",
+          "start": 3.15,
+          "end": 3.33
+        },
+        {
+          "raw": "I",
+          "start": 3.33,
+          "end": 3.45
+        },
+        {
+          "raw": "want",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "raw": "to",
+          "start": 3.57,
+          "end": 3.67
+        },
+        {
+          "raw": "know",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "raw": "what",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "raw": "country",
+          "start": 3.97,
+          "end": 4.27
+        },
+        {
+          "raw": "you",
+          "start": 4.27,
+          "end": 4.45
+        },
+        {
+          "raw": "were",
+          "start": 4.45,
+          "end": 4.57
+        },
+        {
+          "raw": "born",
+          "start": 4.57,
+          "end": 4.79
+        },
+        {
+          "raw": "in",
+          "start": 4.79,
+          "end": 5.03
+        },
+        {
+          "raw": "Cook",
+          "start": 5.03,
+          "end": 5.29
+        }
+      ],
+      "expected_tokens": [
+        "\"Born",
+        "in",
+        "a",
+        "ferry-boat!",
+        "That's",
+        "queer,",
+        "too.",
+        "But",
+        "I",
+        "want",
+        "to",
+        "know",
+        "what",
+        "country",
+        "you",
+        "were",
+        "born",
+        "in,",
+        "cook!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Born",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "born",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.61,
+          "end": 0.79,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.79,
+          "end": 0.87,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ferry boat.",
+          "start": 0.87,
+          "end": 1.47,
+          "key": "ferryboat",
+          "pieces": [
+            3,
+            4
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 1.87,
+          "end": 2.11,
+          "key": "thats",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "queer",
+          "start": 2.11,
+          "end": 2.33,
+          "key": "queer",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 2.33,
+          "end": 2.69,
+          "key": "too",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.15,
+          "end": 3.33,
+          "key": "but",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.33,
+          "end": 3.45,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 3.45,
+          "end": 3.57,
+          "key": "want",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.57,
+          "end": 3.67,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 3.67,
+          "end": 3.79,
+          "key": "know",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.79,
+          "end": 3.97,
+          "key": "what",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "country",
+          "start": 3.97,
+          "end": 4.27,
+          "key": "country",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.27,
+          "end": 4.45,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 4.45,
+          "end": 4.57,
+          "key": "were",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "born",
+          "start": 4.57,
+          "end": 4.79,
+          "key": "born",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.79,
+          "end": 5.03,
+          "key": "in",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Cook",
+          "start": 5.03,
+          "end": 5.29,
+          "key": "cook",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 3,
+          "text": "ferry-boat!",
+          "heard": "ferry boat.",
+          "heard_indexes": [
+            3,
+            4
+          ],
+          "start": 0.87,
+          "end": 1.47
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Born",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "in",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "text": "a",
+          "start": 0.79,
+          "end": 0.87
+        },
+        {
+          "text": "ferry-boat!",
+          "start": 0.87,
+          "end": 1.47
+        },
+        {
+          "text": "That's",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "text": "queer,",
+          "start": 2.11,
+          "end": 2.33
+        },
+        {
+          "text": "too.",
+          "start": 2.33,
+          "end": 2.69
+        },
+        {
+          "text": "But",
+          "start": 3.15,
+          "end": 3.33
+        },
+        {
+          "text": "I",
+          "start": 3.33,
+          "end": 3.45
+        },
+        {
+          "text": "want",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "text": "to",
+          "start": 3.57,
+          "end": 3.67
+        },
+        {
+          "text": "know",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "text": "what",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "text": "country",
+          "start": 3.97,
+          "end": 4.27
+        },
+        {
+          "text": "you",
+          "start": 4.27,
+          "end": 4.45
+        },
+        {
+          "text": "were",
+          "start": 4.45,
+          "end": 4.57
+        },
+        {
+          "text": "born",
+          "start": 4.57,
+          "end": 4.79
+        },
+        {
+          "text": "in,",
+          "start": 4.79,
+          "end": 5.03
+        },
+        {
+          "text": "cook!\"",
+          "start": 5.03,
+          "end": 5.29
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30184710631147027
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1bc305153347c62c222131e087bde10c13c2be5e9b15608db064b66a24511718",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "633b8efc35e6bba0fd502b056f56c3bbd1426ae9fd016a88025919aab47dc507",
+  "attempts": [
+    {
+      "asr_seconds": 0.2167177014052868,
+      "alignment_seconds": 0.0003683716058731079,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Polixenes. Knows he of this?",
+        "hotwords": "Polixenes, Knows"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Polixenes, Knows he of this?",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Polixenes,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.1870091756184896
+            },
+            {
+              "text": " Knows",
+              "start": 1.29,
+              "end": 1.63,
+              "probability": 0.5022258758544922
+            },
+            {
+              "text": " he",
+              "start": 1.63,
+              "end": 1.79,
+              "probability": 0.46240234375
+            },
+            {
+              "text": " of",
+              "start": 1.79,
+              "end": 1.91,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " this?",
+              "start": 1.91,
+              "end": 2.11,
+              "probability": 0.97509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polixenes,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "Knows",
+          "start": 1.29,
+          "end": 1.63
+        },
+        {
+          "raw": "he",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "raw": "of",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "raw": "this?",
+          "start": 1.91,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "Polixenes.",
+        "Knows",
+        "he",
+        "of",
+        "this?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polixenes,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "polixenes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Knows",
+          "start": 1.29,
+          "end": 1.63,
+          "key": "knows",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.63,
+          "end": 1.79,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.79,
+          "end": 1.91,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this?",
+          "start": 1.91,
+          "end": 2.11,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polixenes.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "Knows",
+          "start": 1.29,
+          "end": 1.63
+        },
+        {
+          "text": "he",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "text": "of",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "text": "this?",
+          "start": 1.91,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21721033565700054
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9d071153f952d050743f3698dce87f71b67348cb21647c67d3240cf28264340f",
+  "selected_reasons": []
+}

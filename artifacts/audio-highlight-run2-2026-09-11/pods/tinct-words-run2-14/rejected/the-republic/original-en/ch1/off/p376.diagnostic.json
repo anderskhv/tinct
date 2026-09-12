@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "47d1ed1763717a5d3fea968566de8027483055c636c3920b86028bc9ff443230",
+  "attempts": [
+    {
+      "asr_seconds": 0.11962554603815079,
+      "alignment_seconds": 0.00028180330991744995,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He would not.",
+          "start": 0.05,
+          "end": 0.91,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " would",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " not.",
+              "start": 0.63,
+              "end": 0.91,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "would",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "not.",
+          "start": 0.63,
+          "end": 0.91
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "would",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "would",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 0.63,
+          "end": 0.91,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "would",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "not.",
+          "start": 0.63,
+          "end": 0.91
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12000760063529015
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "51767a3a129228df9009faade4e46b369f892c068f6f0c2452cbd117557bc6c2",
+  "selected_reasons": []
+}

@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "a77c9520fa85daa43766c8548700b2049a53f3b22deec4de85fbee67900c2bcc",
+  "attempts": [
+    {
+      "asr_seconds": 0.12959720520302653,
+      "alignment_seconds": 0.00020050816237926483,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Emilia. My husband?",
+        "hotwords": "Emilia, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia, My Husband.",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.548065185546875
+            },
+            {
+              "text": " My",
+              "start": 1.07,
+              "end": 1.17,
+              "probability": 0.0254974365234375
+            },
+            {
+              "text": " Husband.",
+              "start": 1.17,
+              "end": 1.65,
+              "probability": 0.76904296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "My",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "raw": "Husband.",
+          "start": 1.17,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "My",
+        "husband?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.07,
+          "end": 1.17,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Husband.",
+          "start": 1.17,
+          "end": 1.65,
+          "key": "husband",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "My",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "text": "husband?",
+          "start": 1.17,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1298602418974042
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b258e008c164712fdbf1658229108989402df02a2adc5623b0b21452373e4995",
+  "selected_reasons": []
+}

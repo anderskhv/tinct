@@ -1,0 +1,479 @@
+{
+  "complete": true,
+  "signature": "0697103cf0eabb42018111e514eb0f7de80f4ebe7c7275096178c7374cbc9a35",
+  "attempts": [
+    {
+      "asr_seconds": 0.27901438099797815,
+      "alignment_seconds": 0.0004117980133742094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Agist this, how thy word and act shall issue, thou shalt shortly understand.",
+          "start": 0.05,
+          "end": 4.45,
+          "words": [
+            {
+              "text": " Agist",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.5904541015625
+            },
+            {
+              "text": " this,",
+              "start": 0.71,
+              "end": 1.09,
+              "probability": 0.5615234375
+            },
+            {
+              "text": " how",
+              "start": 1.41,
+              "end": 1.59,
+              "probability": 0.94140625
+            },
+            {
+              "text": " thy",
+              "start": 1.59,
+              "end": 1.73,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " word",
+              "start": 1.73,
+              "end": 1.97,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " and",
+              "start": 1.97,
+              "end": 2.15,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " act",
+              "start": 2.15,
+              "end": 2.41,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " shall",
+              "start": 2.41,
+              "end": 2.57,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " issue,",
+              "start": 2.57,
+              "end": 2.97,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " thou",
+              "start": 3.35,
+              "end": 3.39,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " shalt",
+              "start": 3.39,
+              "end": 3.57,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " shortly",
+              "start": 3.57,
+              "end": 3.93,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " understand.",
+              "start": 3.93,
+              "end": 4.45,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agist",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "this,",
+          "start": 0.71,
+          "end": 1.09
+        },
+        {
+          "raw": "how",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "raw": "thy",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "raw": "word",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "raw": "and",
+          "start": 1.97,
+          "end": 2.15
+        },
+        {
+          "raw": "act",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "raw": "shall",
+          "start": 2.41,
+          "end": 2.57
+        },
+        {
+          "raw": "issue,",
+          "start": 2.57,
+          "end": 2.97
+        },
+        {
+          "raw": "thou",
+          "start": 3.35,
+          "end": 3.39
+        },
+        {
+          "raw": "shalt",
+          "start": 3.39,
+          "end": 3.57
+        },
+        {
+          "raw": "shortly",
+          "start": 3.57,
+          "end": 3.93
+        },
+        {
+          "raw": "understand.",
+          "start": 3.93,
+          "end": 4.45
+        }
+      ],
+      "expected_tokens": [
+        "Aegisthus.",
+        "How",
+        "thy",
+        "word",
+        "and",
+        "act",
+        "shall",
+        "issue,",
+        "thou",
+        "shalt",
+        "shortly",
+        "understand."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          12,
+          2,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agist",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "agist",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 0.71,
+          "end": 1.09,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.41,
+          "end": 1.59,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.59,
+          "end": 1.73,
+          "key": "thy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 1.73,
+          "end": 1.97,
+          "key": "word",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.97,
+          "end": 2.15,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "act",
+          "start": 2.15,
+          "end": 2.41,
+          "key": "act",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.41,
+          "end": 2.57,
+          "key": "shall",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "issue,",
+          "start": 2.57,
+          "end": 2.97,
+          "key": "issue",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.35,
+          "end": 3.39,
+          "key": "thou",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "shalt",
+          "start": 3.39,
+          "end": 3.57,
+          "key": "shalt",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "shortly",
+          "start": 3.57,
+          "end": 3.93,
+          "key": "shortly",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "understand.",
+          "start": 3.93,
+          "end": 4.45,
+          "key": "understand",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aegisthus.",
+          "start": 0.0,
+          "end": 0.705
+        },
+        {
+          "text": "How",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "text": "thy",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "text": "word",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "text": "and",
+          "start": 1.97,
+          "end": 2.15
+        },
+        {
+          "text": "act",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "text": "shall",
+          "start": 2.41,
+          "end": 2.57
+        },
+        {
+          "text": "issue,",
+          "start": 2.57,
+          "end": 2.97
+        },
+        {
+          "text": "thou",
+          "start": 3.35,
+          "end": 3.39
+        },
+        {
+          "text": "shalt",
+          "start": 3.39,
+          "end": 3.57
+        },
+        {
+          "text": "shortly",
+          "start": 3.57,
+          "end": 3.93
+        },
+        {
+          "text": "understand.",
+          "start": 3.93,
+          "end": 4.45
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.2795847289962694
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bc467798ba782ff44b7222b65935cda3d7fa890a26f745d2db0efa36f2716b7a",
+  "selected_reasons": []
+}

@@ -1,0 +1,697 @@
+{
+  "complete": true,
+  "signature": "716aa686df19b1ab6692aa540f5869b05a41858204ce1885b71f1e490d40cd6c",
+  "attempts": [
+    {
+      "asr_seconds": 0.34197061927989125,
+      "alignment_seconds": 0.000734162051230669,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A steak, a steak, ere I sleep.",
+          "start": 0.02,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.70458984375
+            },
+            {
+              "text": " steak,",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.6474609375
+            },
+            {
+              "text": " a",
+              "start": 0.96,
+              "end": 1.0,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " steak,",
+              "start": 1.0,
+              "end": 1.32,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " ere",
+              "start": 1.58,
+              "end": 1.68,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " I",
+              "start": 1.68,
+              "end": 1.84,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sleep.",
+              "start": 1.84,
+              "end": 2.16,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " You Dagu, overboard you go, and cut me one from his small.",
+          "start": 2.76,
+          "end": 5.56,
+          "words": [
+            {
+              "text": " You",
+              "start": 2.76,
+              "end": 2.84,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " Dagu,",
+              "start": 2.84,
+              "end": 3.2,
+              "probability": 0.2845458984375
+            },
+            {
+              "text": " overboard",
+              "start": 3.58,
+              "end": 3.84,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " you",
+              "start": 3.84,
+              "end": 4.12,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " go,",
+              "start": 4.12,
+              "end": 4.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 4.44,
+              "end": 4.54,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " cut",
+              "start": 4.54,
+              "end": 4.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 4.7,
+              "end": 4.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " one",
+              "start": 4.82,
+              "end": 4.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " from",
+              "start": 4.94,
+              "end": 5.08,
+              "probability": 0.9765625
+            },
+            {
+              "text": " his",
+              "start": 5.08,
+              "end": 5.22,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " small.",
+              "start": 5.22,
+              "end": 5.56,
+              "probability": 0.89306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "steak,",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "raw": "a",
+          "start": 0.96,
+          "end": 1.0
+        },
+        {
+          "raw": "steak,",
+          "start": 1.0,
+          "end": 1.32
+        },
+        {
+          "raw": "ere",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "raw": "I",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "raw": "sleep.",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "raw": "You",
+          "start": 2.76,
+          "end": 2.84
+        },
+        {
+          "raw": "Dagu,",
+          "start": 2.84,
+          "end": 3.2
+        },
+        {
+          "raw": "overboard",
+          "start": 3.58,
+          "end": 3.84
+        },
+        {
+          "raw": "you",
+          "start": 3.84,
+          "end": 4.12
+        },
+        {
+          "raw": "go,",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "raw": "and",
+          "start": 4.44,
+          "end": 4.54
+        },
+        {
+          "raw": "cut",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "raw": "me",
+          "start": 4.7,
+          "end": 4.82
+        },
+        {
+          "raw": "one",
+          "start": 4.82,
+          "end": 4.94
+        },
+        {
+          "raw": "from",
+          "start": 4.94,
+          "end": 5.08
+        },
+        {
+          "raw": "his",
+          "start": 5.08,
+          "end": 5.22
+        },
+        {
+          "raw": "small.",
+          "start": 5.22,
+          "end": 5.56
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "steak,",
+        "a",
+        "steak,",
+        "ere",
+        "I",
+        "sleep!",
+        "You,",
+        "Daggoo!",
+        "overboard",
+        "you",
+        "go,",
+        "and",
+        "cut",
+        "me",
+        "one",
+        "from",
+        "his",
+        "small!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          19,
+          9,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "steak,",
+          "start": 0.54,
+          "end": 0.8,
+          "key": "steak",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.96,
+          "end": 1.0,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "steak,",
+          "start": 1.0,
+          "end": 1.32,
+          "key": "steak",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ere",
+          "start": 1.58,
+          "end": 1.68,
+          "key": "ere",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.68,
+          "end": 1.84,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sleep.",
+          "start": 1.84,
+          "end": 2.16,
+          "key": "sleep",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.76,
+          "end": 2.84,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Dagu,",
+          "start": 2.84,
+          "end": 3.2,
+          "key": "dagu",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "overboard",
+          "start": 3.58,
+          "end": 3.84,
+          "key": "overboard",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.84,
+          "end": 4.12,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "go,",
+          "start": 4.12,
+          "end": 4.32,
+          "key": "go",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.44,
+          "end": 4.54,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "cut",
+          "start": 4.54,
+          "end": 4.7,
+          "key": "cut",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.7,
+          "end": 4.82,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 4.82,
+          "end": 4.94,
+          "key": "one",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 4.94,
+          "end": 5.08,
+          "key": "from",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.08,
+          "end": 5.22,
+          "key": "his",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "small.",
+          "start": 5.22,
+          "end": 5.56,
+          "key": "small",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "steak,",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "text": "a",
+          "start": 0.96,
+          "end": 1.0
+        },
+        {
+          "text": "steak,",
+          "start": 1.0,
+          "end": 1.32
+        },
+        {
+          "text": "ere",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "text": "I",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "text": "sleep!",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "text": "You,",
+          "start": 2.76,
+          "end": 2.84
+        },
+        {
+          "text": "Daggoo!",
+          "start": 2.84,
+          "end": 3.21
+        },
+        {
+          "text": "overboard",
+          "start": 3.58,
+          "end": 3.84
+        },
+        {
+          "text": "you",
+          "start": 3.84,
+          "end": 4.12
+        },
+        {
+          "text": "go,",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "text": "and",
+          "start": 4.44,
+          "end": 4.54
+        },
+        {
+          "text": "cut",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "text": "me",
+          "start": 4.7,
+          "end": 4.82
+        },
+        {
+          "text": "one",
+          "start": 4.82,
+          "end": 4.94
+        },
+        {
+          "text": "from",
+          "start": 4.94,
+          "end": 5.08
+        },
+        {
+          "text": "his",
+          "start": 5.08,
+          "end": 5.22
+        },
+        {
+          "text": "small!\"",
+          "start": 5.22,
+          "end": 5.56
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.3429882270283997
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7c91a6ed0b8c57ed41c4c55d59f7a2d7f1430e72399b416c25d104f5a2aee537",
+  "selected_reasons": []
+}

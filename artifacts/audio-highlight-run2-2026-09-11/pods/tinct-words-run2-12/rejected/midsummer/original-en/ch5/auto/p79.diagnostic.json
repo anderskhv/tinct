@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "f6919827d279de1ef399e0a488ddf3d19b57ee26224c4bbd66acb358ffe9d115",
+  "attempts": [
+    {
+      "asr_seconds": 0.1746083649341017,
+      "alignment_seconds": 0.0002524589654058218,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Peaseblossom. Peaseblossom.",
+        "hotwords": "Peaseblossom"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Peaseblossom. Peaseblossom.",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Peaseblossom.",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.3282724618911743
+            },
+            {
+              "text": " Peaseblossom.",
+              "start": 1.47,
+              "end": 2.01,
+              "probability": 0.81976318359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Peaseblossom.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "Peaseblossom.",
+          "start": 1.47,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "Peaseblossom.",
+        "Peaseblossom."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Peaseblossom.",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "peaseblossom",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Peaseblossom.",
+          "start": 1.47,
+          "end": 2.01,
+          "key": "peaseblossom",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Peaseblossom.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "Peaseblossom.",
+          "start": 1.47,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17493572691455483
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "699cc0f9ab6cb5e244e81bc07a2f6cc953ec28c25041a1849b0141e40f8157c1",
+  "selected_reasons": []
+}

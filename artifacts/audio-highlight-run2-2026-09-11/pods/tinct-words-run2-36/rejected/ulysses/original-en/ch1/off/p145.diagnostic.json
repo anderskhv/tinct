@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "e83a91e818a9a10dc9b4f6fc1998b66397b66a2c74fad9b3d3f2e671edac16f3",
+  "attempts": [
+    {
+      "asr_seconds": 0.31819573044776917,
+      "alignment_seconds": 0.0004958771169185638,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We can drink it black Stephen said thirstily. There's a lemon in the locker",
+          "start": 0.02,
+          "end": 4.4,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.56005859375
+            },
+            {
+              "text": " can",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " drink",
+              "start": 0.66,
+              "end": 0.86,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " it",
+              "start": 0.86,
+              "end": 1.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " black",
+              "start": 1.02,
+              "end": 1.4,
+              "probability": 0.833984375
+            },
+            {
+              "text": " Stephen",
+              "start": 1.4,
+              "end": 1.88,
+              "probability": 0.2237548828125
+            },
+            {
+              "text": " said",
+              "start": 1.88,
+              "end": 2.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thirstily.",
+              "start": 2.26,
+              "end": 2.86,
+              "probability": 0.935546875
+            },
+            {
+              "text": " There's",
+              "start": 3.02,
+              "end": 3.54,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " a",
+              "start": 3.54,
+              "end": 3.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lemon",
+              "start": 3.62,
+              "end": 3.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 3.88,
+              "end": 4.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.04,
+              "end": 4.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " locker",
+              "start": 4.14,
+              "end": 4.4,
+              "probability": 0.9736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "can",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "drink",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "raw": "it",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "raw": "black",
+          "start": 1.02,
+          "end": 1.4
+        },
+        {
+          "raw": "Stephen",
+          "start": 1.4,
+          "end": 1.88
+        },
+        {
+          "raw": "said",
+          "start": 1.88,
+          "end": 2.26
+        },
+        {
+          "raw": "thirstily.",
+          "start": 2.26,
+          "end": 2.86
+        },
+        {
+          "raw": "There's",
+          "start": 3.02,
+          "end": 3.54
+        },
+        {
+          "raw": "a",
+          "start": 3.54,
+          "end": 3.62
+        },
+        {
+          "raw": "lemon",
+          "start": 3.62,
+          "end": 3.88
+        },
+        {
+          "raw": "in",
+          "start": 3.88,
+          "end": 4.04
+        },
+        {
+          "raw": "the",
+          "start": 4.04,
+          "end": 4.14
+        },
+        {
+          "raw": "locker",
+          "start": 4.14,
+          "end": 4.4
+        }
+      ],
+      "expected_tokens": [
+        "—We",
+        "can",
+        "drink",
+        "it",
+        "black,",
+        "Stephen",
+        "said",
+        "thirstily.",
+        "There's",
+        "a",
+        "lemon",
+        "in",
+        "the",
+        "locker."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "can",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "drink",
+          "start": 0.66,
+          "end": 0.86,
+          "key": "drink",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.86,
+          "end": 1.02,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "black",
+          "start": 1.02,
+          "end": 1.4,
+          "key": "black",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Stephen",
+          "start": 1.4,
+          "end": 1.88,
+          "key": "stephen",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.88,
+          "end": 2.26,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thirstily.",
+          "start": 2.26,
+          "end": 2.86,
+          "key": "thirstily",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "There's",
+          "start": 3.02,
+          "end": 3.54,
+          "key": "theres",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.54,
+          "end": 3.62,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "lemon",
+          "start": 3.62,
+          "end": 3.88,
+          "key": "lemon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.88,
+          "end": 4.04,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.04,
+          "end": 4.14,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "locker",
+          "start": 4.14,
+          "end": 4.4,
+          "key": "locker",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—We",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "can",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "drink",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "text": "it",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "text": "black,",
+          "start": 1.02,
+          "end": 1.4
+        },
+        {
+          "text": "Stephen",
+          "start": 1.4,
+          "end": 1.88
+        },
+        {
+          "text": "said",
+          "start": 1.88,
+          "end": 2.26
+        },
+        {
+          "text": "thirstily.",
+          "start": 2.26,
+          "end": 2.86
+        },
+        {
+          "text": "There's",
+          "start": 3.02,
+          "end": 3.54
+        },
+        {
+          "text": "a",
+          "start": 3.54,
+          "end": 3.62
+        },
+        {
+          "text": "lemon",
+          "start": 3.62,
+          "end": 3.88
+        },
+        {
+          "text": "in",
+          "start": 3.88,
+          "end": 4.04
+        },
+        {
+          "text": "the",
+          "start": 4.04,
+          "end": 4.14
+        },
+        {
+          "text": "locker.",
+          "start": 4.14,
+          "end": 4.4
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31889287754893303
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c3082ce28a3710b5cff1058f5ed7739e68f8907379a238218f8cf8661a2962ad",
+  "selected_reasons": []
+}

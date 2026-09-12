@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "55dfe563bbe32708c089a3b8516b9352c0675a9497e6bccee509e97ac5c4256f",
+  "attempts": [
+    {
+      "asr_seconds": 0.08974117413163185,
+      "alignment_seconds": 0.00019496679306030273,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And ifs.",
+          "start": 0.18,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.18,
+              "end": 0.62,
+              "probability": 0.56689453125
+            },
+            {
+              "text": " ifs.",
+              "start": 0.62,
+              "end": 1.2,
+              "probability": 0.84765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.18,
+          "end": 0.62
+        },
+        {
+          "raw": "ifs.",
+          "start": 0.62,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "if—\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.18,
+          "end": 0.62,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ifs.",
+          "start": 0.62,
+          "end": 1.2,
+          "key": "ifs",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.18,
+          "end": 0.62
+        },
+        {
+          "text": "if—\"",
+          "start": 0.62,
+          "end": 0.91
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08998975157737732
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0465c817ec7e9b7575739eaf65c31992e9d196bf052b9fe2d08acaf3cb252a45",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

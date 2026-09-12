@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "b2d2e8092cd2896308118916ab0bbf460760fec2b4a0e40bfc49bcbc9d09b237",
+  "attempts": [
+    {
+      "asr_seconds": 0.35614246712066233,
+      "alignment_seconds": 0.0005190400406718254,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Richard. Know'st thou not any whom corrupting gold Will tempt unto a close exploit of death?",
+        "hotwords": "King, Richard, Know'st, Will"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Richard, Know'st thou not any whom corrupting gold Will tempt unto a close exploit of death?",
+          "start": 0.05,
+          "end": 5.87,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.837890625
+            },
+            {
+              "text": " Richard,",
+              "start": 0.57,
+              "end": 1.01,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Know'st",
+              "start": 1.57,
+              "end": 2.03,
+              "probability": 0.15268452962239584
+            },
+            {
+              "text": " thou",
+              "start": 2.03,
+              "end": 2.15,
+              "probability": 0.07928466796875
+            },
+            {
+              "text": " not",
+              "start": 2.15,
+              "end": 2.45,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " any",
+              "start": 2.45,
+              "end": 2.65,
+              "probability": 0.90234375
+            },
+            {
+              "text": " whom",
+              "start": 2.65,
+              "end": 2.89,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " corrupting",
+              "start": 2.89,
+              "end": 3.45,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " gold",
+              "start": 3.45,
+              "end": 3.73,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Will",
+              "start": 3.73,
+              "end": 4.01,
+              "probability": 0.039459228515625
+            },
+            {
+              "text": " tempt",
+              "start": 4.01,
+              "end": 4.31,
+              "probability": 0.978515625
+            },
+            {
+              "text": " unto",
+              "start": 4.31,
+              "end": 4.53,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " a",
+              "start": 4.53,
+              "end": 4.65,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " close",
+              "start": 4.65,
+              "end": 4.91,
+              "probability": 0.98828125
+            },
+            {
+              "text": " exploit",
+              "start": 4.91,
+              "end": 5.41,
+              "probability": 0.94140625
+            },
+            {
+              "text": " of",
+              "start": 5.41,
+              "end": 5.61,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " death?",
+              "start": 5.61,
+              "end": 5.87,
+              "probability": 0.94970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.57,
+          "end": 1.01
+        },
+        {
+          "raw": "Know'st",
+          "start": 1.57,
+          "end": 2.03
+        },
+        {
+          "raw": "thou",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "raw": "not",
+          "start": 2.15,
+          "end": 2.45
+        },
+        {
+          "raw": "any",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "raw": "whom",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "raw": "corrupting",
+          "start": 2.89,
+          "end": 3.45
+        },
+        {
+          "raw": "gold",
+          "start": 3.45,
+          "end": 3.73
+        },
+        {
+          "raw": "Will",
+          "start": 3.73,
+          "end": 4.01
+        },
+        {
+          "raw": "tempt",
+          "start": 4.01,
+          "end": 4.31
+        },
+        {
+          "raw": "unto",
+          "start": 4.31,
+          "end": 4.53
+        },
+        {
+          "raw": "a",
+          "start": 4.53,
+          "end": 4.65
+        },
+        {
+          "raw": "close",
+          "start": 4.65,
+          "end": 4.91
+        },
+        {
+          "raw": "exploit",
+          "start": 4.91,
+          "end": 5.41
+        },
+        {
+          "raw": "of",
+          "start": 5.41,
+          "end": 5.61
+        },
+        {
+          "raw": "death?",
+          "start": 5.61,
+          "end": 5.87
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Know'st",
+        "thou",
+        "not",
+        "any",
+        "whom",
+        "corrupting",
+        "gold",
+        "Will",
+        "tempt",
+        "unto",
+        "a",
+        "close",
+        "exploit",
+        "of",
+        "death?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.57,
+          "end": 1.01,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Know'st",
+          "start": 1.57,
+          "end": 2.03,
+          "key": "knowst",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.03,
+          "end": 2.15,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.15,
+          "end": 2.45,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 2.45,
+          "end": 2.65,
+          "key": "any",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 2.65,
+          "end": 2.89,
+          "key": "whom",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "corrupting",
+          "start": 2.89,
+          "end": 3.45,
+          "key": "corrupting",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "gold",
+          "start": 3.45,
+          "end": 3.73,
+          "key": "gold",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 3.73,
+          "end": 4.01,
+          "key": "will",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "tempt",
+          "start": 4.01,
+          "end": 4.31,
+          "key": "tempt",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "unto",
+          "start": 4.31,
+          "end": 4.53,
+          "key": "unto",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.53,
+          "end": 4.65,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "close",
+          "start": 4.65,
+          "end": 4.91,
+          "key": "close",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "exploit",
+          "start": 4.91,
+          "end": 5.41,
+          "key": "exploit",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.41,
+          "end": 5.61,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "death?",
+          "start": 5.61,
+          "end": 5.87,
+          "key": "death",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Richard.",
+          "start": 0.57,
+          "end": 1.01
+        },
+        {
+          "text": "Know'st",
+          "start": 1.57,
+          "end": 2.03
+        },
+        {
+          "text": "thou",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "text": "not",
+          "start": 2.15,
+          "end": 2.45
+        },
+        {
+          "text": "any",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "text": "whom",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "text": "corrupting",
+          "start": 2.89,
+          "end": 3.45
+        },
+        {
+          "text": "gold",
+          "start": 3.45,
+          "end": 3.73
+        },
+        {
+          "text": "Will",
+          "start": 3.73,
+          "end": 4.01
+        },
+        {
+          "text": "tempt",
+          "start": 4.01,
+          "end": 4.31
+        },
+        {
+          "text": "unto",
+          "start": 4.31,
+          "end": 4.53
+        },
+        {
+          "text": "a",
+          "start": 4.53,
+          "end": 4.65
+        },
+        {
+          "text": "close",
+          "start": 4.65,
+          "end": 4.91
+        },
+        {
+          "text": "exploit",
+          "start": 4.91,
+          "end": 5.41
+        },
+        {
+          "text": "of",
+          "start": 5.41,
+          "end": 5.61
+        },
+        {
+          "text": "death?",
+          "start": 5.61,
+          "end": 5.87
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3568854071199894
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ae899367a4e7f4a1d9b966c5510f007450c66d82535328c62c0d6b70bf7ba8e2",
+  "selected_reasons": []
+}

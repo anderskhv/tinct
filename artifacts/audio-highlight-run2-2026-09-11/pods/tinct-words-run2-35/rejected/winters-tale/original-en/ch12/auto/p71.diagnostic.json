@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "7afba407c9e97fb8295e5f8e7009fe4b69d15c9ea80e477cfcee2792fa4539a6",
+  "attempts": [
+    {
+      "asr_seconds": 0.23482269421219826,
+      "alignment_seconds": 0.00038387998938560486,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mopsa. Is it true, think you?",
+        "hotwords": "Mopsa, Is"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mopsa, Is it true, think you?",
+          "start": 0.54,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " Mopsa,",
+              "start": 0.54,
+              "end": 0.94,
+              "probability": 0.5782063802083334
+            },
+            {
+              "text": " Is",
+              "start": 1.24,
+              "end": 1.26,
+              "probability": 0.023834228515625
+            },
+            {
+              "text": " it",
+              "start": 1.26,
+              "end": 1.36,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " true,",
+              "start": 1.36,
+              "end": 1.54,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " think",
+              "start": 1.74,
+              "end": 1.78,
+              "probability": 0.001552581787109375
+            },
+            {
+              "text": " you?",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mopsa,",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "raw": "Is",
+          "start": 1.24,
+          "end": 1.26
+        },
+        {
+          "raw": "it",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "raw": "true,",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "raw": "think",
+          "start": 1.74,
+          "end": 1.78
+        },
+        {
+          "raw": "you?",
+          "start": 1.78,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "Mopsa.",
+        "Is",
+        "it",
+        "true,",
+        "think",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mopsa,",
+          "start": 0.54,
+          "end": 0.94,
+          "key": "mopsa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 1.24,
+          "end": 1.26,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.26,
+          "end": 1.36,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 1.36,
+          "end": 1.54,
+          "key": "true",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.74,
+          "end": 1.78,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mopsa.",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "text": "Is",
+          "start": 1.24,
+          "end": 1.26
+        },
+        {
+          "text": "it",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "text": "true,",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "text": "think",
+          "start": 1.74,
+          "end": 1.78
+        },
+        {
+          "text": "you?",
+          "start": 1.78,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23534139059484005
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9968723d60a053968b447f2548b4a3cc002f253c64309b64941a0cf7b2207afb",
+  "selected_reasons": []
+}

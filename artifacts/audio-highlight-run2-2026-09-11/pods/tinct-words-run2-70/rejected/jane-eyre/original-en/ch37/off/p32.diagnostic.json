@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "05a5de1e2e72211bb45839137738aa1eba4cf55bfbf7deadac60ae33054850f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.20618376601487398,
+      "alignment_seconds": 0.00035492703318595886,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Who is it? What is it? Who speaks?",
+          "start": 0.05,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " is",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " it?",
+              "start": 0.67,
+              "end": 0.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " What",
+              "start": 1.13,
+              "end": 1.21,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " is",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " it?",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Who",
+              "start": 1.63,
+              "end": 1.67,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " speaks?",
+              "start": 1.67,
+              "end": 1.97,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "it?",
+          "start": 0.67,
+          "end": 0.87
+        },
+        {
+          "raw": "What",
+          "start": 1.13,
+          "end": 1.21
+        },
+        {
+          "raw": "is",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "it?",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "Who",
+          "start": 1.63,
+          "end": 1.67
+        },
+        {
+          "raw": "speaks?",
+          "start": 1.67,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "\"_Who_",
+        "is",
+        "it?",
+        "_What_",
+        "is",
+        "it?",
+        "Who",
+        "speaks?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 0.67,
+          "end": 0.87,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.13,
+          "end": 1.21,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.21,
+          "end": 1.35,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 1.63,
+          "end": 1.67,
+          "key": "who",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "speaks?",
+          "start": 1.67,
+          "end": 1.97,
+          "key": "speaks",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_Who_",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "is",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "it?",
+          "start": 0.67,
+          "end": 0.87
+        },
+        {
+          "text": "_What_",
+          "start": 1.13,
+          "end": 1.21
+        },
+        {
+          "text": "is",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "text": "it?",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "Who",
+          "start": 1.63,
+          "end": 1.67
+        },
+        {
+          "text": "speaks?\"",
+          "start": 1.67,
+          "end": 1.97
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2066664369776845
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6a2c7aa9f5359108a3a3ef82476f8889736e59398b6d862c374a869ad0db710e",
+  "selected_reasons": []
+}

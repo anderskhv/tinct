@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "704894c63da128badc98d812281643f550e03b2a5c65b92ffcc9d979f2fdbca8",
+  "attempts": [
+    {
+      "asr_seconds": 0.13906350173056126,
+      "alignment_seconds": 0.00038906559348106384,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We never had any governess",
+          "start": 0.02,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.853515625
+            },
+            {
+              "text": " never",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " had",
+              "start": 0.74,
+              "end": 0.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " any",
+              "start": 0.98,
+              "end": 1.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " governess",
+              "start": 1.2,
+              "end": 1.72,
+              "probability": 0.949951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "never",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "had",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "raw": "any",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "raw": "governess",
+          "start": 1.2,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "\"We",
+        "never",
+        "had",
+        "any",
+        "governess.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 0.5,
+          "end": 0.74,
+          "key": "never",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.74,
+          "end": 0.98,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 0.98,
+          "end": 1.2,
+          "key": "any",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "governess",
+          "start": 1.2,
+          "end": 1.72,
+          "key": "governess",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"We",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "never",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "had",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "text": "any",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "text": "governess.\"",
+          "start": 1.2,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.139581561088562
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4cbb02ff2b321310708e2223ec1fba8eb519eea5596df6b73c624a520b6894ce",
+  "selected_reasons": []
+}

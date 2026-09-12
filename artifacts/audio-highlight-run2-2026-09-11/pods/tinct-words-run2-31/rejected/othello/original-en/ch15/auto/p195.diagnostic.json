@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "4519435b7712f867072649ba71d86957b2b3ed58d36135458608be06f2a0106a",
+  "attempts": [
+    {
+      "asr_seconds": 0.106965949293226,
+      "alignment_seconds": 0.00011471891775727272,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Falling upon Desdemona.]",
+        "hotwords": "Falling, Desdemona"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Falling upon Desdemona.",
+          "start": 0.08,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Falling",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.242919921875
+            },
+            {
+              "text": " upon",
+              "start": 0.68,
+              "end": 0.98,
+              "probability": 0.73388671875
+            },
+            {
+              "text": " Desdemona.",
+              "start": 0.98,
+              "end": 1.62,
+              "probability": 0.6682586669921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Falling",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "upon",
+          "start": 0.68,
+          "end": 0.98
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 0.98,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "[Falling",
+        "upon",
+        "Desdemona.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Falling",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "falling",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 0.68,
+          "end": 0.98,
+          "key": "upon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 0.98,
+          "end": 1.62,
+          "key": "desdemona",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Falling",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "upon",
+          "start": 0.68,
+          "end": 0.98
+        },
+        {
+          "text": "Desdemona.]",
+          "start": 0.98,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10711580701172352
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8299cbfe1873d34ea512af5ed3d27444a40f207e7dfeb2567dd06079b5253005",
+  "selected_reasons": []
+}

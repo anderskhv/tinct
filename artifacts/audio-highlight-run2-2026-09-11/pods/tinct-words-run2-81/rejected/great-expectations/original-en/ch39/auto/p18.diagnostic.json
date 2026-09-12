@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "d77e3f3d7505cc88c628dc02c23e7652fd77b7c820a14d3d3c78e5659677d89b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2394259376451373,
+      "alignment_seconds": 0.00042247865349054337,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes,\" he replied; \"I wish to come in, master.\"",
+        "hotwords": "Yes, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, he replied. I wish to come in, master.",
+          "start": 0.05,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.07745361328125
+            },
+            {
+              "text": " he",
+              "start": 1.07,
+              "end": 1.19,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " replied.",
+              "start": 1.19,
+              "end": 1.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 2.07,
+              "end": 2.21,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " wish",
+              "start": 2.21,
+              "end": 2.35,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 2.35,
+              "end": 2.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " come",
+              "start": 2.51,
+              "end": 2.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in,",
+              "start": 2.61,
+              "end": 2.75,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " master.",
+              "start": 3.09,
+              "end": 3.09,
+              "probability": 0.33349609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "he",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "raw": "replied.",
+          "start": 1.19,
+          "end": 1.57
+        },
+        {
+          "raw": "I",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "raw": "wish",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "raw": "to",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "raw": "come",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "raw": "in,",
+          "start": 2.61,
+          "end": 2.75
+        },
+        {
+          "raw": "master.",
+          "start": 3.09,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,\"",
+        "he",
+        "replied;",
+        "\"I",
+        "wish",
+        "to",
+        "come",
+        "in,",
+        "master.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.07,
+          "end": 1.19,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "replied.",
+          "start": 1.19,
+          "end": 1.57,
+          "key": "replied",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.07,
+          "end": 2.21,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 2.21,
+          "end": 2.35,
+          "key": "wish",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.35,
+          "end": 2.51,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.51,
+          "end": 2.61,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in,",
+          "start": 2.61,
+          "end": 2.75,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "master.",
+          "start": 3.09,
+          "end": 3.09,
+          "key": "master",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,\"",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "he",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "text": "replied;",
+          "start": 1.19,
+          "end": 1.57
+        },
+        {
+          "text": "\"I",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "text": "wish",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "text": "to",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "text": "come",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "text": "in,",
+          "start": 2.61,
+          "end": 2.75
+        },
+        {
+          "text": "master.\"",
+          "start": 3.09,
+          "end": 3.09
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24000478442758322
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8b8b37f73aa5d7d4f0d546dbbfd0214028a7ec03129f34e6aa635b28dbd1aca1",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "f40b82068bfb113862a5791b5fd055b061cd046ba699a496a37fbfccefb06bc8",
+  "attempts": [
+    {
+      "asr_seconds": 0.15204794704914093,
+      "alignment_seconds": 0.00033589452505111694,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hero. Good morrow, coz.",
+        "hotwords": "Hero, Good"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hero, Good morrow, coz.",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " Hero,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " Good",
+              "start": 1.11,
+              "end": 1.15,
+              "probability": 0.33642578125
+            },
+            {
+              "text": " morrow,",
+              "start": 1.15,
+              "end": 1.47,
+              "probability": 0.5838623046875
+            },
+            {
+              "text": " coz.",
+              "start": 1.63,
+              "end": 1.91,
+              "probability": 0.48983192443847656
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hero,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Good",
+          "start": 1.11,
+          "end": 1.15
+        },
+        {
+          "raw": "morrow,",
+          "start": 1.15,
+          "end": 1.47
+        },
+        {
+          "raw": "coz.",
+          "start": 1.63,
+          "end": 1.91
+        }
+      ],
+      "expected_tokens": [
+        "Hero.",
+        "Good",
+        "morrow,",
+        "coz."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hero,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "hero",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 1.11,
+          "end": 1.15,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "morrow,",
+          "start": 1.15,
+          "end": 1.47,
+          "key": "morrow",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "coz.",
+          "start": 1.63,
+          "end": 1.91,
+          "key": "coz",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hero.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Good",
+          "start": 1.11,
+          "end": 1.15
+        },
+        {
+          "text": "morrow,",
+          "start": 1.15,
+          "end": 1.47
+        },
+        {
+          "text": "coz.",
+          "start": 1.63,
+          "end": 1.91
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15251093357801437
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c9fcb95588c298d8f1d67524278de6470f1b8071b0b9754f11e31d842558a7ae",
+  "selected_reasons": []
+}

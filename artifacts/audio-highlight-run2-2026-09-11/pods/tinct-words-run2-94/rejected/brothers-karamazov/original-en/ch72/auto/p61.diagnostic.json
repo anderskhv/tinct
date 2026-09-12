@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "00833685c8ce54bbe2aa1242bb4e207f53fcf647817ec45abf11ff9a13d97ecb",
+  "attempts": [
+    {
+      "asr_seconds": 0.23184210434556007,
+      "alignment_seconds": 0.0005574561655521393,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I'll always come to see you, all my life,\" answered Alyosha firmly.",
+        "hotwords": "I'll, Alyosha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I'll always come to see you, all my life,\" answered Alyosha firmly.",
+          "start": 0.08,
+          "end": 3.9,
+          "words": [
+            {
+              "text": " I'll",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.5887451171875
+            },
+            {
+              "text": " always",
+              "start": 0.6,
+              "end": 0.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " come",
+              "start": 0.84,
+              "end": 1.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.06,
+              "end": 1.18,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " see",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you,",
+              "start": 1.36,
+              "end": 1.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " all",
+              "start": 1.6,
+              "end": 1.68,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " my",
+              "start": 1.68,
+              "end": 1.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " life,\"",
+              "start": 1.84,
+              "end": 2.66,
+              "probability": 0.878662109375
+            },
+            {
+              "text": " answered",
+              "start": 2.66,
+              "end": 2.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Alyosha",
+              "start": 2.98,
+              "end": 3.62,
+              "probability": 0.9435221354166666
+            },
+            {
+              "text": " firmly.",
+              "start": 3.62,
+              "end": 3.9,
+              "probability": 0.96533203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I'll",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "always",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "raw": "come",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "raw": "to",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "raw": "see",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "you,",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "raw": "all",
+          "start": 1.6,
+          "end": 1.68
+        },
+        {
+          "raw": "my",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "raw": "life,\"",
+          "start": 1.84,
+          "end": 2.66
+        },
+        {
+          "raw": "answered",
+          "start": 2.66,
+          "end": 2.98
+        },
+        {
+          "raw": "Alyosha",
+          "start": 2.98,
+          "end": 3.62
+        },
+        {
+          "raw": "firmly.",
+          "start": 3.62,
+          "end": 3.9
+        }
+      ],
+      "expected_tokens": [
+        "\"I'll",
+        "always",
+        "come",
+        "to",
+        "see",
+        "you,",
+        "all",
+        "my",
+        "life,\"",
+        "answered",
+        "Alyosha",
+        "firmly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I'll",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "ill",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 0.6,
+          "end": 0.84,
+          "key": "always",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 0.84,
+          "end": 1.06,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.06,
+          "end": 1.18,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.36,
+          "end": 1.56,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.6,
+          "end": 1.68,
+          "key": "all",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.68,
+          "end": 1.84,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "life,\"",
+          "start": 1.84,
+          "end": 2.66,
+          "key": "life",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 2.66,
+          "end": 2.98,
+          "key": "answered",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 2.98,
+          "end": 3.62,
+          "key": "alyosha",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "firmly.",
+          "start": 3.62,
+          "end": 3.9,
+          "key": "firmly",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I'll",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "always",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "text": "come",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "text": "to",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "text": "see",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "you,",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "text": "all",
+          "start": 1.6,
+          "end": 1.68
+        },
+        {
+          "text": "my",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "text": "life,\"",
+          "start": 1.84,
+          "end": 2.66
+        },
+        {
+          "text": "answered",
+          "start": 2.66,
+          "end": 2.98
+        },
+        {
+          "text": "Alyosha",
+          "start": 2.98,
+          "end": 3.62
+        },
+        {
+          "text": "firmly.",
+          "start": 3.62,
+          "end": 3.9
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2326205037534237
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "adf18c60c1d1e3d1a4184a7d6ecd28777f5a25f5458251427fb9587d84b92b23",
+  "selected_reasons": []
+}

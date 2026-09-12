@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "c65b3c8e42601a0aabdc624cf7028a9c5acbe2730ae9309b55050be80f3c7531",
+  "attempts": [
+    {
+      "asr_seconds": 0.11367033794522285,
+      "alignment_seconds": 0.00033185258507728577,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dolabella. Where's the Queen?",
+        "hotwords": "Dolabella, Where's, Queen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dolabella, Where's the Queen?",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Dolabella,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.0061187744140625
+            },
+            {
+              "text": " Where's",
+              "start": 1.25,
+              "end": 1.51,
+              "probability": 0.4916229248046875
+            },
+            {
+              "text": " the",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.89453125
+            },
+            {
+              "text": " Queen?",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.6943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dolabella,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Where's",
+          "start": 1.25,
+          "end": 1.51
+        },
+        {
+          "raw": "the",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "Queen?",
+          "start": 1.61,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Dolabella.",
+        "Where's",
+        "the",
+        "Queen?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dolabella,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "dolabella",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where's",
+          "start": 1.25,
+          "end": 1.51,
+          "key": "wheres",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Queen?",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "queen",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dolabella.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Where's",
+          "start": 1.25,
+          "end": 1.51
+        },
+        {
+          "text": "the",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "Queen?",
+          "start": 1.61,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11412143055349588
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a0e714c3deba4cd23c5c10b44b53088900bafbd99e49f1613f2b47528bc90eca",
+  "selected_reasons": []
+}

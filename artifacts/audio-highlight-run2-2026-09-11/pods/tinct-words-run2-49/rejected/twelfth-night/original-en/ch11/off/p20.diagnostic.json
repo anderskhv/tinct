@@ -1,0 +1,498 @@
+{
+  "complete": true,
+  "signature": "678d891ceaeea6dedac50b6789afbeef8551448181a37ccb12cc5bb6d5290301",
+  "attempts": [
+    {
+      "asr_seconds": 0.23020217567682266,
+      "alignment_seconds": 0.0006045103073120117,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown now Jove in his next commodity of hair send the a beard",
+          "start": 0.08,
+          "end": 4.08,
+          "words": [
+            {
+              "text": " Clown",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.546875
+            },
+            {
+              "text": " now",
+              "start": 0.68,
+              "end": 1.42,
+              "probability": 0.2344970703125
+            },
+            {
+              "text": " Jove",
+              "start": 1.42,
+              "end": 1.76,
+              "probability": 0.840576171875
+            },
+            {
+              "text": " in",
+              "start": 1.76,
+              "end": 1.86,
+              "probability": 0.55810546875
+            },
+            {
+              "text": " his",
+              "start": 1.86,
+              "end": 2.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " next",
+              "start": 2.0,
+              "end": 2.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " commodity",
+              "start": 2.24,
+              "end": 2.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 2.64,
+              "end": 2.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hair",
+              "start": 2.86,
+              "end": 3.12,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " send",
+              "start": 3.12,
+              "end": 3.56,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " the",
+              "start": 3.56,
+              "end": 3.7,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " a",
+              "start": 3.7,
+              "end": 3.8,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " beard",
+              "start": 3.8,
+              "end": 4.08,
+              "probability": 0.953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "now",
+          "start": 0.68,
+          "end": 1.42
+        },
+        {
+          "raw": "Jove",
+          "start": 1.42,
+          "end": 1.76
+        },
+        {
+          "raw": "in",
+          "start": 1.76,
+          "end": 1.86
+        },
+        {
+          "raw": "his",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "raw": "next",
+          "start": 2.0,
+          "end": 2.24
+        },
+        {
+          "raw": "commodity",
+          "start": 2.24,
+          "end": 2.64
+        },
+        {
+          "raw": "of",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "raw": "hair",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "raw": "send",
+          "start": 3.12,
+          "end": 3.56
+        },
+        {
+          "raw": "the",
+          "start": 3.56,
+          "end": 3.7
+        },
+        {
+          "raw": "a",
+          "start": 3.7,
+          "end": 3.8
+        },
+        {
+          "raw": "beard",
+          "start": 3.8,
+          "end": 4.08
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Now",
+        "Jove,",
+        "in",
+        "his",
+        "next",
+        "commodity",
+        "of",
+        "hair,",
+        "send",
+        "thee",
+        "a",
+        "beard!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          13,
+          11,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.68,
+          "end": 1.42,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Jove",
+          "start": 1.42,
+          "end": 1.76,
+          "key": "jove",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.76,
+          "end": 1.86,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.86,
+          "end": 2.0,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 2.0,
+          "end": 2.24,
+          "key": "next",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "commodity",
+          "start": 2.24,
+          "end": 2.64,
+          "key": "commodity",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.64,
+          "end": 2.86,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hair",
+          "start": 2.86,
+          "end": 3.12,
+          "key": "hair",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 3.12,
+          "end": 3.56,
+          "key": "send",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.56,
+          "end": 3.7,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.7,
+          "end": 3.8,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "beard",
+          "start": 3.8,
+          "end": 4.08,
+          "key": "beard",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Now",
+          "start": 0.68,
+          "end": 1.42
+        },
+        {
+          "text": "Jove,",
+          "start": 1.42,
+          "end": 1.76
+        },
+        {
+          "text": "in",
+          "start": 1.76,
+          "end": 1.86
+        },
+        {
+          "text": "his",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "text": "next",
+          "start": 2.0,
+          "end": 2.24
+        },
+        {
+          "text": "commodity",
+          "start": 2.24,
+          "end": 2.64
+        },
+        {
+          "text": "of",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "text": "hair,",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "text": "send",
+          "start": 3.12,
+          "end": 3.56
+        },
+        {
+          "text": "thee",
+          "start": 3.56,
+          "end": 3.63
+        },
+        {
+          "text": "a",
+          "start": 3.7,
+          "end": 3.8
+        },
+        {
+          "text": "beard!",
+          "start": 3.8,
+          "end": 4.08
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.23105565458536148
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8d49710d837b7fb73ef122ceec487abc623ec4d4512894ba6e048b4a92b654d3",
+  "selected_reasons": []
+}

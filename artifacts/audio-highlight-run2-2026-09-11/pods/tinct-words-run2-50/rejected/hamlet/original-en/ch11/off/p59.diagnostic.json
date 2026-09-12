@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "704aec7b931943441f29b84c0e7a82f1e85d86410298a2d0be75548589a6be56",
+  "attempts": [
+    {
+      "asr_seconds": 0.1307854149490595,
+      "alignment_seconds": 0.00024780817329883575,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pointing to Polonius.",
+          "start": 0.05,
+          "end": 1.47,
+          "words": [
+            {
+              "text": " Pointing",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.6414794921875
+            },
+            {
+              "text": " to",
+              "start": 0.77,
+              "end": 0.91,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Polonius.",
+              "start": 0.91,
+              "end": 1.47,
+              "probability": 0.8155110677083334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pointing",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "to",
+          "start": 0.77,
+          "end": 0.91
+        },
+        {
+          "raw": "Polonius.",
+          "start": 0.91,
+          "end": 1.47
+        }
+      ],
+      "expected_tokens": [
+        "[Pointing",
+        "to",
+        "Polonius.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pointing",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "pointing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.77,
+          "end": 0.91,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Polonius.",
+          "start": 0.91,
+          "end": 1.47,
+          "key": "polonius",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Pointing",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "to",
+          "start": 0.77,
+          "end": 0.91
+        },
+        {
+          "text": "Polonius.]",
+          "start": 0.91,
+          "end": 1.47
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13113143108785152
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8ab271a9854714e4d6a4aa0fc3c815ef995e7841a83753a954de9e99e3082e6b",
+  "selected_reasons": []
+}

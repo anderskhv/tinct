@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "70b9d178540389d2b57faf3a0640b1c8b8c50a8cac8c01d99c2f8d1fe0e498cf",
+  "attempts": [
+    {
+      "asr_seconds": 0.13174145598895848,
+      "alignment_seconds": 0.00022451201220974326,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lenihan came out of the inner office with sports tissues.",
+          "start": 0.05,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " Lenihan",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.6246337890625
+            },
+            {
+              "text": " came",
+              "start": 0.91,
+              "end": 1.29,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " out",
+              "start": 1.29,
+              "end": 1.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 1.55,
+              "end": 1.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " inner",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " office",
+              "start": 1.85,
+              "end": 2.19,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " with",
+              "start": 2.19,
+              "end": 2.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sports",
+              "start": 2.45,
+              "end": 2.77,
+              "probability": 0.982421875
+            },
+            {
+              "text": " tissues.",
+              "start": 2.77,
+              "end": 3.19,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lenihan",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "came",
+          "start": 0.91,
+          "end": 1.29
+        },
+        {
+          "raw": "out",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "raw": "of",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "the",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "raw": "inner",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "office",
+          "start": 1.85,
+          "end": 2.19
+        },
+        {
+          "raw": "with",
+          "start": 2.19,
+          "end": 2.45
+        },
+        {
+          "raw": "sports",
+          "start": 2.45,
+          "end": 2.77
+        },
+        {
+          "raw": "tissues.",
+          "start": 2.77,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "Lenehan",
+        "came",
+        "out",
+        "of",
+        "the",
+        "inner",
+        "office",
+        "with",
+        "_Sport_'s",
+        "tissues."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          10,
+          1,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lenihan",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "lenihan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 0.91,
+          "end": 1.29,
+          "key": "came",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.29,
+          "end": 1.45,
+          "key": "out",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.55,
+          "end": 1.65,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "inner",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "inner",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "office",
+          "start": 1.85,
+          "end": 2.19,
+          "key": "office",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.19,
+          "end": 2.45,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sports",
+          "start": 2.45,
+          "end": 2.77,
+          "key": "sports",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tissues.",
+          "start": 2.77,
+          "end": 3.19,
+          "key": "tissues",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lenehan",
+          "start": 0.0,
+          "end": 0.455
+        },
+        {
+          "text": "came",
+          "start": 0.91,
+          "end": 1.29
+        },
+        {
+          "text": "out",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "text": "of",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "the",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "text": "inner",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "office",
+          "start": 1.85,
+          "end": 2.19
+        },
+        {
+          "text": "with",
+          "start": 2.19,
+          "end": 2.45
+        },
+        {
+          "text": "_Sport_'s",
+          "start": 2.45,
+          "end": 2.77
+        },
+        {
+          "text": "tissues.",
+          "start": 2.77,
+          "end": 3.19
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.13205019797896966
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "438b4e02241801235e296d20be9bcb18ebe922ed9226274bcde3694dcb1e0a5d",
+  "selected_reasons": []
+}

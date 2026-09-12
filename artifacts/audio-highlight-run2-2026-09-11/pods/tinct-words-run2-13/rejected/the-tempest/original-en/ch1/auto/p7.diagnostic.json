@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "b61001c9394c4066e5ea21499a5b13b743148a0ced4c5825fbe287620d72d1d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.2558444058522582,
+      "alignment_seconds": 0.000403684563934803,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Alonso, Sebastian, Antonio, Ferdinand, Gonzalo, and others]",
+        "hotwords": "Enter, Alonso, Sebastian, Antonio, Ferdinand, Gonzalo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Alonso, Sebastian, Antonio, Ferdinand, Gonzalo, and others",
+          "start": 0.08,
+          "end": 4.56,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " Alonso,",
+              "start": 0.72,
+              "end": 1.14,
+              "probability": 0.388671875
+            },
+            {
+              "text": " Sebastian,",
+              "start": 1.84,
+              "end": 1.92,
+              "probability": 0.81201171875
+            },
+            {
+              "text": " Antonio,",
+              "start": 2.28,
+              "end": 2.76,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Ferdinand,",
+              "start": 3.02,
+              "end": 3.2,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Gonzalo,",
+              "start": 3.6,
+              "end": 4.02,
+              "probability": 0.966552734375
+            },
+            {
+              "text": " and",
+              "start": 4.24,
+              "end": 4.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " others",
+              "start": 4.32,
+              "end": 4.56,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Alonso,",
+          "start": 0.72,
+          "end": 1.14
+        },
+        {
+          "raw": "Sebastian,",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "raw": "Antonio,",
+          "start": 2.28,
+          "end": 2.76
+        },
+        {
+          "raw": "Ferdinand,",
+          "start": 3.02,
+          "end": 3.2
+        },
+        {
+          "raw": "Gonzalo,",
+          "start": 3.6,
+          "end": 4.02
+        },
+        {
+          "raw": "and",
+          "start": 4.24,
+          "end": 4.32
+        },
+        {
+          "raw": "others",
+          "start": 4.32,
+          "end": 4.56
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Alonso,",
+        "Sebastian,",
+        "Antonio,",
+        "Ferdinand,",
+        "Gonzalo,",
+        "and",
+        "others]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alonso,",
+          "start": 0.72,
+          "end": 1.14,
+          "key": "alonso",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sebastian,",
+          "start": 1.84,
+          "end": 1.92,
+          "key": "sebastian",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Antonio,",
+          "start": 2.28,
+          "end": 2.76,
+          "key": "antonio",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Ferdinand,",
+          "start": 3.02,
+          "end": 3.2,
+          "key": "ferdinand",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Gonzalo,",
+          "start": 3.6,
+          "end": 4.02,
+          "key": "gonzalo",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.24,
+          "end": 4.32,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 4.32,
+          "end": 4.56,
+          "key": "others",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Alonso,",
+          "start": 0.72,
+          "end": 1.14
+        },
+        {
+          "text": "Sebastian,",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "text": "Antonio,",
+          "start": 2.28,
+          "end": 2.76
+        },
+        {
+          "text": "Ferdinand,",
+          "start": 3.02,
+          "end": 3.2
+        },
+        {
+          "text": "Gonzalo,",
+          "start": 3.6,
+          "end": 4.02
+        },
+        {
+          "text": "and",
+          "start": 4.24,
+          "end": 4.32
+        },
+        {
+          "text": "others]",
+          "start": 4.32,
+          "end": 4.56
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.256384271197021
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2425ac40ee59c36f34db5c98dd5f043a6fd7cd234167a1f4e71d0573eb58ff1e",
+  "selected_reasons": []
+}

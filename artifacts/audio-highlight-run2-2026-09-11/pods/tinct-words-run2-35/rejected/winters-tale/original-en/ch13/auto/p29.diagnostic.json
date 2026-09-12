@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "16f0a6f9894d71edc39f319865baa591a812c458fafa9d0d947e89c690bb439d",
+  "attempts": [
+    {
+      "asr_seconds": 0.19617432542145252,
+      "alignment_seconds": 0.00038450397551059723,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leontes. His princess, say you, with him?",
+        "hotwords": "Leontes, His"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leontes, His Princess, say you, with him?",
+          "start": 0.62,
+          "end": 2.6,
+          "words": [
+            {
+              "text": " Leontes,",
+              "start": 0.62,
+              "end": 0.98,
+              "probability": 0.06505330403645833
+            },
+            {
+              "text": " His",
+              "start": 1.22,
+              "end": 1.32,
+              "probability": 0.028778076171875
+            },
+            {
+              "text": " Princess,",
+              "start": 1.32,
+              "end": 1.66,
+              "probability": 0.6875
+            },
+            {
+              "text": " say",
+              "start": 1.98,
+              "end": 2.1,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " you,",
+              "start": 2.1,
+              "end": 2.28,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " with",
+              "start": 2.36,
+              "end": 2.42,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " him?",
+              "start": 2.42,
+              "end": 2.6,
+              "probability": 0.6923828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leontes,",
+          "start": 0.62,
+          "end": 0.98
+        },
+        {
+          "raw": "His",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "raw": "Princess,",
+          "start": 1.32,
+          "end": 1.66
+        },
+        {
+          "raw": "say",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "raw": "you,",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "raw": "with",
+          "start": 2.36,
+          "end": 2.42
+        },
+        {
+          "raw": "him?",
+          "start": 2.42,
+          "end": 2.6
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "His",
+        "princess,",
+        "say",
+        "you,",
+        "with",
+        "him?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leontes,",
+          "start": 0.62,
+          "end": 0.98,
+          "key": "leontes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 1.22,
+          "end": 1.32,
+          "key": "his",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Princess,",
+          "start": 1.32,
+          "end": 1.66,
+          "key": "princess",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.98,
+          "end": 2.1,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 2.1,
+          "end": 2.28,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.36,
+          "end": 2.42,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him?",
+          "start": 2.42,
+          "end": 2.6,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.62,
+          "end": 0.98
+        },
+        {
+          "text": "His",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "text": "princess,",
+          "start": 1.32,
+          "end": 1.66
+        },
+        {
+          "text": "say",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "text": "you,",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "text": "with",
+          "start": 2.36,
+          "end": 2.42
+        },
+        {
+          "text": "him?",
+          "start": 2.42,
+          "end": 2.6
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19670619070529938
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "34faa826408dace3cc15d022b83ef58f8493be4d5d40cbdead237b996fa0d14c",
+  "selected_reasons": []
+}

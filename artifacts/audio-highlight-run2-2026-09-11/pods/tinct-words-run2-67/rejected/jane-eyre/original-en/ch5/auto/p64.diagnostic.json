@@ -1,0 +1,1695 @@
+{
+  "complete": true,
+  "signature": "53ff9fc9266b6dfe82e934226a08d28754798d9033a0de9b012aa28b0b8bfecc",
+  "attempts": [
+    {
+      "asr_seconds": 0.3669646130874753,
+      "alignment_seconds": 0.0006045699119567871,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "This portion was rebuilt A.D. ——, by Naomi Brocklehurst, of Brocklehurst Hall, in this county.",
+        "hotwords": "A.D, Naomi, Brocklehurst, Hall"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " This portion was rebuilt A.D., by Naomi Brocklehurst, of Brocklehurst Hall, in this county.",
+          "start": 0.02,
+          "end": 6.08,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " portion",
+              "start": 0.58,
+              "end": 0.98,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " was",
+              "start": 0.98,
+              "end": 1.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " rebuilt",
+              "start": 1.16,
+              "end": 1.54,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " A",
+              "start": 1.54,
+              "end": 1.86,
+              "probability": 0.085205078125
+            },
+            {
+              "text": ".D.,",
+              "start": 1.86,
+              "end": 2.64,
+              "probability": 0.6284688313802084
+            },
+            {
+              "text": " by",
+              "start": 2.64,
+              "end": 2.9,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Naomi",
+              "start": 2.9,
+              "end": 3.2,
+              "probability": 0.71142578125
+            },
+            {
+              "text": " Brocklehurst,",
+              "start": 3.2,
+              "end": 3.88,
+              "probability": 0.5701497395833334
+            },
+            {
+              "text": " of",
+              "start": 4.3,
+              "end": 4.42,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Brocklehurst",
+              "start": 4.42,
+              "end": 5.02,
+              "probability": 0.9879557291666666
+            },
+            {
+              "text": " Hall,",
+              "start": 5.02,
+              "end": 5.38,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " in",
+              "start": 5.52,
+              "end": 5.62,
+              "probability": 0.994140625
+            },
+            {
+              "text": " this",
+              "start": 5.62,
+              "end": 5.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " county.",
+              "start": 5.74,
+              "end": 6.08,
+              "probability": 0.96240234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "portion",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "raw": "was",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "raw": "rebuilt",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "raw": "A",
+          "start": 1.54,
+          "end": 1.86
+        },
+        {
+          "raw": ".D.,",
+          "start": 1.86,
+          "end": 2.64
+        },
+        {
+          "raw": "by",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "raw": "Naomi",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "raw": "Brocklehurst,",
+          "start": 3.2,
+          "end": 3.88
+        },
+        {
+          "raw": "of",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "raw": "Brocklehurst",
+          "start": 4.42,
+          "end": 5.02
+        },
+        {
+          "raw": "Hall,",
+          "start": 5.02,
+          "end": 5.38
+        },
+        {
+          "raw": "in",
+          "start": 5.52,
+          "end": 5.62
+        },
+        {
+          "raw": "this",
+          "start": 5.62,
+          "end": 5.74
+        },
+        {
+          "raw": "county.",
+          "start": 5.74,
+          "end": 6.08
+        }
+      ],
+      "expected_tokens": [
+        "This",
+        "portion",
+        "was",
+        "rebuilt",
+        "A.D.",
+        "——,",
+        "by",
+        "Naomi",
+        "Brocklehurst,",
+        "of",
+        "Brocklehurst",
+        "Hall,",
+        "in",
+        "this",
+        "county."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "equal",
+          6,
+          15,
+          6,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "portion",
+          "start": 0.58,
+          "end": 0.98,
+          "key": "portion",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.98,
+          "end": 1.16,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rebuilt",
+          "start": 1.16,
+          "end": 1.54,
+          "key": "rebuilt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.54,
+          "end": 1.86,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": ".D.,",
+          "start": 1.86,
+          "end": 2.64,
+          "key": "d",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.64,
+          "end": 2.9,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Naomi",
+          "start": 2.9,
+          "end": 3.2,
+          "key": "naomi",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Brocklehurst,",
+          "start": 3.2,
+          "end": 3.88,
+          "key": "brocklehurst",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.3,
+          "end": 4.42,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Brocklehurst",
+          "start": 4.42,
+          "end": 5.02,
+          "key": "brocklehurst",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Hall,",
+          "start": 5.02,
+          "end": 5.38,
+          "key": "hall",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.52,
+          "end": 5.62,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 5.62,
+          "end": 5.74,
+          "key": "this",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "county.",
+          "start": 5.74,
+          "end": 6.08,
+          "key": "county",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "This",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "portion",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "text": "was",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "text": "rebuilt",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "text": "A.D.",
+          "start": 1.54,
+          "end": 2.09
+        },
+        {
+          "text": "——,",
+          "start": 2.09,
+          "end": 2.365
+        },
+        {
+          "text": "by",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "text": "Naomi",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "text": "Brocklehurst,",
+          "start": 3.2,
+          "end": 3.88
+        },
+        {
+          "text": "of",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "text": "Brocklehurst",
+          "start": 4.42,
+          "end": 5.02
+        },
+        {
+          "text": "Hall,",
+          "start": 5.02,
+          "end": 5.38
+        },
+        {
+          "text": "in",
+          "start": 5.52,
+          "end": 5.62
+        },
+        {
+          "text": "this",
+          "start": 5.62,
+          "end": 5.74
+        },
+        {
+          "text": "county.",
+          "start": 5.74,
+          "end": 6.08
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.36780826235190034
+    },
+    {
+      "asr_seconds": 0.3399461400695145,
+      "alignment_seconds": 0.0006297756917774677,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "A.D, Naomi, Brocklehurst, Hall"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " This portion was rebuilt A.D. by Naomi Brocklehurst of Brocklehurst Hall in this county.",
+          "start": 0.02,
+          "end": 6.12,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " portion",
+              "start": 0.58,
+              "end": 0.98,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " was",
+              "start": 0.98,
+              "end": 1.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " rebuilt",
+              "start": 1.16,
+              "end": 1.54,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " A",
+              "start": 1.54,
+              "end": 1.86,
+              "probability": 0.085205078125
+            },
+            {
+              "text": ".D.",
+              "start": 1.86,
+              "end": 2.1,
+              "probability": 0.922607421875
+            },
+            {
+              "text": " by",
+              "start": 2.68,
+              "end": 2.88,
+              "probability": 0.8671875
+            },
+            {
+              "text": " Naomi",
+              "start": 2.88,
+              "end": 3.18,
+              "probability": 0.69287109375
+            },
+            {
+              "text": " Brocklehurst",
+              "start": 3.18,
+              "end": 3.88,
+              "probability": 0.5748697916666666
+            },
+            {
+              "text": " of",
+              "start": 3.88,
+              "end": 4.42,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " Brocklehurst",
+              "start": 4.42,
+              "end": 5.02,
+              "probability": 0.9847005208333334
+            },
+            {
+              "text": " Hall",
+              "start": 5.02,
+              "end": 5.38,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " in",
+              "start": 5.38,
+              "end": 5.6,
+              "probability": 0.986328125
+            },
+            {
+              "text": " this",
+              "start": 5.6,
+              "end": 5.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " county.",
+              "start": 5.76,
+              "end": 6.12,
+              "probability": 0.92626953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "portion",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "raw": "was",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "raw": "rebuilt",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "raw": "A",
+          "start": 1.54,
+          "end": 1.86
+        },
+        {
+          "raw": ".D.",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "raw": "by",
+          "start": 2.68,
+          "end": 2.88
+        },
+        {
+          "raw": "Naomi",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "raw": "Brocklehurst",
+          "start": 3.18,
+          "end": 3.88
+        },
+        {
+          "raw": "of",
+          "start": 3.88,
+          "end": 4.42
+        },
+        {
+          "raw": "Brocklehurst",
+          "start": 4.42,
+          "end": 5.02
+        },
+        {
+          "raw": "Hall",
+          "start": 5.02,
+          "end": 5.38
+        },
+        {
+          "raw": "in",
+          "start": 5.38,
+          "end": 5.6
+        },
+        {
+          "raw": "this",
+          "start": 5.6,
+          "end": 5.76
+        },
+        {
+          "raw": "county.",
+          "start": 5.76,
+          "end": 6.12
+        }
+      ],
+      "expected_tokens": [
+        "This",
+        "portion",
+        "was",
+        "rebuilt",
+        "A.D.",
+        "——,",
+        "by",
+        "Naomi",
+        "Brocklehurst,",
+        "of",
+        "Brocklehurst",
+        "Hall,",
+        "in",
+        "this",
+        "county."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "equal",
+          6,
+          15,
+          6,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "portion",
+          "start": 0.58,
+          "end": 0.98,
+          "key": "portion",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.98,
+          "end": 1.16,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rebuilt",
+          "start": 1.16,
+          "end": 1.54,
+          "key": "rebuilt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.54,
+          "end": 1.86,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": ".D.",
+          "start": 1.86,
+          "end": 2.1,
+          "key": "d",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.68,
+          "end": 2.88,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Naomi",
+          "start": 2.88,
+          "end": 3.18,
+          "key": "naomi",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Brocklehurst",
+          "start": 3.18,
+          "end": 3.88,
+          "key": "brocklehurst",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.88,
+          "end": 4.42,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Brocklehurst",
+          "start": 4.42,
+          "end": 5.02,
+          "key": "brocklehurst",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Hall",
+          "start": 5.02,
+          "end": 5.38,
+          "key": "hall",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.38,
+          "end": 5.6,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 5.6,
+          "end": 5.76,
+          "key": "this",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "county.",
+          "start": 5.76,
+          "end": 6.12,
+          "key": "county",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "This",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "portion",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "text": "was",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "text": "rebuilt",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "text": "A.D.",
+          "start": 1.54,
+          "end": 2.11
+        },
+        {
+          "text": "——,",
+          "start": 2.11,
+          "end": 2.395
+        },
+        {
+          "text": "by",
+          "start": 2.68,
+          "end": 2.88
+        },
+        {
+          "text": "Naomi",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "text": "Brocklehurst,",
+          "start": 3.18,
+          "end": 3.88
+        },
+        {
+          "text": "of",
+          "start": 3.88,
+          "end": 4.42
+        },
+        {
+          "text": "Brocklehurst",
+          "start": 4.42,
+          "end": 5.02
+        },
+        {
+          "text": "Hall,",
+          "start": 5.02,
+          "end": 5.38
+        },
+        {
+          "text": "in",
+          "start": 5.38,
+          "end": 5.6
+        },
+        {
+          "text": "this",
+          "start": 5.6,
+          "end": 5.76
+        },
+        {
+          "text": "county.",
+          "start": 5.76,
+          "end": 6.12
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.3408052599988878
+    },
+    {
+      "asr_seconds": 0.2722177137620747,
+      "alignment_seconds": 0.00035852380096912384,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " This portion was rebuilt AD by Naomi Broccolihurst of Broccolihurst Hall in this county",
+          "start": 0.02,
+          "end": 6.14,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " portion",
+              "start": 0.58,
+              "end": 0.98,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " was",
+              "start": 0.98,
+              "end": 1.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " rebuilt",
+              "start": 1.16,
+              "end": 1.54,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " AD",
+              "start": 1.54,
+              "end": 2.06,
+              "probability": 0.509765625
+            },
+            {
+              "text": " by",
+              "start": 2.06,
+              "end": 2.88,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " Naomi",
+              "start": 2.88,
+              "end": 3.18,
+              "probability": 0.58154296875
+            },
+            {
+              "text": " Broccolihurst",
+              "start": 3.18,
+              "end": 3.9,
+              "probability": 0.6671549479166666
+            },
+            {
+              "text": " of",
+              "start": 3.9,
+              "end": 4.42,
+              "probability": 0.958984375
+            },
+            {
+              "text": " Broccolihurst",
+              "start": 4.42,
+              "end": 5.06,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Hall",
+              "start": 5.06,
+              "end": 5.38,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " in",
+              "start": 5.38,
+              "end": 5.6,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " this",
+              "start": 5.6,
+              "end": 5.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " county",
+              "start": 5.76,
+              "end": 6.14,
+              "probability": 0.85888671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "portion",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "raw": "was",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "raw": "rebuilt",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "raw": "AD",
+          "start": 1.54,
+          "end": 2.06
+        },
+        {
+          "raw": "by",
+          "start": 2.06,
+          "end": 2.88
+        },
+        {
+          "raw": "Naomi",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "raw": "Broccolihurst",
+          "start": 3.18,
+          "end": 3.9
+        },
+        {
+          "raw": "of",
+          "start": 3.9,
+          "end": 4.42
+        },
+        {
+          "raw": "Broccolihurst",
+          "start": 4.42,
+          "end": 5.06
+        },
+        {
+          "raw": "Hall",
+          "start": 5.06,
+          "end": 5.38
+        },
+        {
+          "raw": "in",
+          "start": 5.38,
+          "end": 5.6
+        },
+        {
+          "raw": "this",
+          "start": 5.6,
+          "end": 5.76
+        },
+        {
+          "raw": "county",
+          "start": 5.76,
+          "end": 6.14
+        }
+      ],
+      "expected_tokens": [
+        "This",
+        "portion",
+        "was",
+        "rebuilt",
+        "A.D.",
+        "——,",
+        "by",
+        "Naomi",
+        "Brocklehurst,",
+        "of",
+        "Brocklehurst",
+        "Hall,",
+        "in",
+        "this",
+        "county."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "delete",
+          5,
+          6,
+          5,
+          5
+        ],
+        [
+          "equal",
+          6,
+          8,
+          5,
+          7
+        ],
+        [
+          "replace",
+          8,
+          9,
+          7,
+          8
+        ],
+        [
+          "equal",
+          9,
+          10,
+          8,
+          9
+        ],
+        [
+          "replace",
+          10,
+          11,
+          9,
+          10
+        ],
+        [
+          "equal",
+          11,
+          15,
+          10,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          5,
+          6,
+          5,
+          5
+        ],
+        [
+          "replace",
+          8,
+          9,
+          7,
+          8
+        ],
+        [
+          "replace",
+          10,
+          11,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "portion",
+          "start": 0.58,
+          "end": 0.98,
+          "key": "portion",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.98,
+          "end": 1.16,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rebuilt",
+          "start": 1.16,
+          "end": 1.54,
+          "key": "rebuilt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "AD",
+          "start": 1.54,
+          "end": 2.06,
+          "key": "ad",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.06,
+          "end": 2.88,
+          "key": "by",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Naomi",
+          "start": 2.88,
+          "end": 3.18,
+          "key": "naomi",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Broccolihurst",
+          "start": 3.18,
+          "end": 3.9,
+          "key": "broccolihurst",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.9,
+          "end": 4.42,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Broccolihurst",
+          "start": 4.42,
+          "end": 5.06,
+          "key": "broccolihurst",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Hall",
+          "start": 5.06,
+          "end": 5.38,
+          "key": "hall",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.38,
+          "end": 5.6,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 5.6,
+          "end": 5.76,
+          "key": "this",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "county",
+          "start": 5.76,
+          "end": 6.14,
+          "key": "county",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "This",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "portion",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "text": "was",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "text": "rebuilt",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "text": "A.D.",
+          "start": 1.54,
+          "end": 2.06
+        },
+        {
+          "text": "——,",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "text": "by",
+          "start": 2.06,
+          "end": 2.88
+        },
+        {
+          "text": "Naomi",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "text": "Brocklehurst,",
+          "start": 3.18,
+          "end": 3.54
+        },
+        {
+          "text": "of",
+          "start": 3.9,
+          "end": 4.42
+        },
+        {
+          "text": "Brocklehurst",
+          "start": 4.42,
+          "end": 4.74
+        },
+        {
+          "text": "Hall,",
+          "start": 5.06,
+          "end": 5.38
+        },
+        {
+          "text": "in",
+          "start": 5.38,
+          "end": 5.6
+        },
+        {
+          "text": "this",
+          "start": 5.6,
+          "end": 5.76
+        },
+        {
+          "text": "county.",
+          "start": 5.76,
+          "end": 6.14
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2727020210586488
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e0a7573b15bb6d1a7abb26aba41ec641c5393d476b6608d1a44c38da536fd552",
+  "selected_reasons": []
+}

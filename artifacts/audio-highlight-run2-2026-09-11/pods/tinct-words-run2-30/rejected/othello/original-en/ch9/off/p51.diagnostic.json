@@ -1,0 +1,564 @@
+{
+  "complete": true,
+  "signature": "25ff05763971a2ce18495bf7d296e8fb1b036bc633bb520365fd3d4a9ef0490a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1633794317021966,
+      "alignment_seconds": 0.0002806680276989937,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, indeed! I, indeed, discerns d'thou ought in that, is he not honest?",
+          "start": 0.08,
+          "end": 5.08,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.7890625
+            },
+            {
+              "text": " indeed!",
+              "start": 1.16,
+              "end": 1.42,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " I,",
+              "start": 2.06,
+              "end": 2.16,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " indeed,",
+              "start": 2.26,
+              "end": 2.54,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " discerns",
+              "start": 2.86,
+              "end": 3.28,
+              "probability": 0.862060546875
+            },
+            {
+              "text": " d",
+              "start": 3.28,
+              "end": 3.36,
+              "probability": 0.28955078125
+            },
+            {
+              "text": "'thou",
+              "start": 3.36,
+              "end": 3.58,
+              "probability": 0.7265625
+            },
+            {
+              "text": " ought",
+              "start": 3.58,
+              "end": 3.78,
+              "probability": 0.53955078125
+            },
+            {
+              "text": " in",
+              "start": 3.78,
+              "end": 3.9,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " that,",
+              "start": 3.9,
+              "end": 4.14,
+              "probability": 0.974609375
+            },
+            {
+              "text": " is",
+              "start": 4.42,
+              "end": 4.5,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " he",
+              "start": 4.5,
+              "end": 4.6,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " not",
+              "start": 4.6,
+              "end": 4.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " honest?",
+              "start": 4.76,
+              "end": 5.08,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "indeed!",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "raw": "I,",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "raw": "indeed,",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "raw": "discerns",
+          "start": 2.86,
+          "end": 3.28
+        },
+        {
+          "raw": "d",
+          "start": 3.28,
+          "end": 3.36
+        },
+        {
+          "raw": "'thou",
+          "start": 3.36,
+          "end": 3.58
+        },
+        {
+          "raw": "ought",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "raw": "in",
+          "start": 3.78,
+          "end": 3.9
+        },
+        {
+          "raw": "that,",
+          "start": 3.9,
+          "end": 4.14
+        },
+        {
+          "raw": "is",
+          "start": 4.42,
+          "end": 4.5
+        },
+        {
+          "raw": "he",
+          "start": 4.5,
+          "end": 4.6
+        },
+        {
+          "raw": "not",
+          "start": 4.6,
+          "end": 4.76
+        },
+        {
+          "raw": "honest?",
+          "start": 4.76,
+          "end": 5.08
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Indeed?",
+        "Ay,",
+        "indeed.",
+        "Discern'st",
+        "thou",
+        "aught",
+        "in",
+        "that?",
+        "Is",
+        "he",
+        "not",
+        "honest?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          6,
+          6,
+          7
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "equal",
+          7,
+          13,
+          8,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "indeed!",
+          "start": 1.16,
+          "end": 1.42,
+          "key": "indeed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 2.06,
+          "end": 2.16,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "indeed,",
+          "start": 2.26,
+          "end": 2.54,
+          "key": "indeed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "discerns",
+          "start": 2.86,
+          "end": 3.28,
+          "key": "discerns",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 3.28,
+          "end": 3.36,
+          "key": "d",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "'thou",
+          "start": 3.36,
+          "end": 3.58,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ought",
+          "start": 3.58,
+          "end": 3.78,
+          "key": "ought",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.78,
+          "end": 3.9,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 3.9,
+          "end": 4.14,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.42,
+          "end": 4.5,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.5,
+          "end": 4.6,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.6,
+          "end": 4.76,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "honest?",
+          "start": 4.76,
+          "end": 5.08,
+          "key": "honest",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "Indeed?",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "text": "Ay,",
+          "start": 1.42,
+          "end": 1.84
+        },
+        {
+          "text": "indeed.",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "text": "Discern'st",
+          "start": 2.54,
+          "end": 2.95
+        },
+        {
+          "text": "thou",
+          "start": 3.36,
+          "end": 3.58
+        },
+        {
+          "text": "aught",
+          "start": 3.58,
+          "end": 3.68
+        },
+        {
+          "text": "in",
+          "start": 3.78,
+          "end": 3.9
+        },
+        {
+          "text": "that?",
+          "start": 3.9,
+          "end": 4.14
+        },
+        {
+          "text": "Is",
+          "start": 4.42,
+          "end": 4.5
+        },
+        {
+          "text": "he",
+          "start": 4.5,
+          "end": 4.6
+        },
+        {
+          "text": "not",
+          "start": 4.6,
+          "end": 4.76
+        },
+        {
+          "text": "honest?",
+          "start": 4.76,
+          "end": 5.08
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1637488198466599
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "83f810b3ccd880798b099b4c8c9fae839d364e97ac73218480e60a23f78a2d3d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

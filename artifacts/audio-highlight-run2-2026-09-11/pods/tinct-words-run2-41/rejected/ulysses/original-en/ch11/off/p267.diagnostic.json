@@ -1,0 +1,280 @@
+{
+  "complete": true,
+  "signature": "08bd9f20fc846d47ddbecbe55f7d4b7fba59b074a84900f2008abb234ee8b1cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.17836879985406995,
+      "alignment_seconds": 0.0002966742031276226,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " After which Miss Deuce promised coyly.",
+          "start": 0.21,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " After",
+              "start": 0.21,
+              "end": 0.65,
+              "probability": 0.56640625
+            },
+            {
+              "text": " which",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.5302734375
+            },
+            {
+              "text": " Miss",
+              "start": 0.87,
+              "end": 1.09,
+              "probability": 0.369384765625
+            },
+            {
+              "text": " Deuce",
+              "start": 1.09,
+              "end": 1.37,
+              "probability": 0.771484375
+            },
+            {
+              "text": " promised",
+              "start": 1.37,
+              "end": 1.69,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " coyly.",
+              "start": 1.69,
+              "end": 2.19,
+              "probability": 0.687744140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "After",
+          "start": 0.21,
+          "end": 0.65
+        },
+        {
+          "raw": "which",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "Miss",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "raw": "Deuce",
+          "start": 1.09,
+          "end": 1.37
+        },
+        {
+          "raw": "promised",
+          "start": 1.37,
+          "end": 1.69
+        },
+        {
+          "raw": "coyly.",
+          "start": 1.69,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "—Afterwits,",
+        "miss",
+        "Douce",
+        "promised",
+        "coyly."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          4
+        ],
+        [
+          "equal",
+          3,
+          5,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "After",
+          "start": 0.21,
+          "end": 0.65,
+          "key": "after",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 0.65,
+          "end": 0.87,
+          "key": "which",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 0.87,
+          "end": 1.09,
+          "key": "miss",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Deuce",
+          "start": 1.09,
+          "end": 1.37,
+          "key": "deuce",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "promised",
+          "start": 1.37,
+          "end": 1.69,
+          "key": "promised",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "coyly.",
+          "start": 1.69,
+          "end": 2.19,
+          "key": "coyly",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Afterwits,",
+          "start": 0.0,
+          "end": 0.435
+        },
+        {
+          "text": "miss",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "text": "Douce",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "text": "promised",
+          "start": 1.37,
+          "end": 1.69
+        },
+        {
+          "text": "coyly.",
+          "start": 1.69,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17879308573901653
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "81cfa0b830342d75b11b92d59bdef821b14a3337f99b401299e2d346dddef80e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

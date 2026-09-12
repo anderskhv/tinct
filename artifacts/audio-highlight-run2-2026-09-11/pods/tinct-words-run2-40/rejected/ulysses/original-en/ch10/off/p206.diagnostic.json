@@ -1,0 +1,629 @@
+{
+  "complete": true,
+  "signature": "df43e5cd1f0bd9b71a2fe6c5d8d57fd759a4c289558314ba72c6743385628084",
+  "attempts": [
+    {
+      "asr_seconds": 0.3646088382229209,
+      "alignment_seconds": 0.0005187802016735077,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I was, Glassniven this morning.",
+          "start": 0.02,
+          "end": 2.32,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.67138671875
+            },
+            {
+              "text": " was,",
+              "start": 0.54,
+              "end": 0.86,
+              "probability": 0.96875
+            },
+            {
+              "text": " Glassniven",
+              "start": 1.46,
+              "end": 1.74,
+              "probability": 0.511474609375
+            },
+            {
+              "text": " this",
+              "start": 1.74,
+              "end": 1.96,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " morning.",
+              "start": 1.96,
+              "end": 2.32,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " Poor little, what do you call him?",
+          "start": 2.8,
+          "end": 4.16,
+          "words": [
+            {
+              "text": " Poor",
+              "start": 2.8,
+              "end": 2.88,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " little,",
+              "start": 2.88,
+              "end": 3.12,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " what",
+              "start": 3.42,
+              "end": 3.48,
+              "probability": 0.990234375
+            },
+            {
+              "text": " do",
+              "start": 3.48,
+              "end": 3.58,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " you",
+              "start": 3.58,
+              "end": 3.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " call",
+              "start": 3.68,
+              "end": 3.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him?",
+              "start": 3.9,
+              "end": 4.16,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " Ciao, mother of Moses.",
+          "start": 4.58,
+          "end": 5.72,
+          "words": [
+            {
+              "text": " Ciao,",
+              "start": 4.58,
+              "end": 4.84,
+              "probability": 0.6536865234375
+            },
+            {
+              "text": " mother",
+              "start": 5.14,
+              "end": 5.24,
+              "probability": 0.41748046875
+            },
+            {
+              "text": " of",
+              "start": 5.24,
+              "end": 5.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Moses.",
+              "start": 5.46,
+              "end": 5.72,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "was,",
+          "start": 0.54,
+          "end": 0.86
+        },
+        {
+          "raw": "Glassniven",
+          "start": 1.46,
+          "end": 1.74
+        },
+        {
+          "raw": "this",
+          "start": 1.74,
+          "end": 1.96
+        },
+        {
+          "raw": "morning.",
+          "start": 1.96,
+          "end": 2.32
+        },
+        {
+          "raw": "Poor",
+          "start": 2.8,
+          "end": 2.88
+        },
+        {
+          "raw": "little,",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "raw": "what",
+          "start": 3.42,
+          "end": 3.48
+        },
+        {
+          "raw": "do",
+          "start": 3.48,
+          "end": 3.58
+        },
+        {
+          "raw": "you",
+          "start": 3.58,
+          "end": 3.68
+        },
+        {
+          "raw": "call",
+          "start": 3.68,
+          "end": 3.9
+        },
+        {
+          "raw": "him?",
+          "start": 3.9,
+          "end": 4.16
+        },
+        {
+          "raw": "Ciao,",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "raw": "mother",
+          "start": 5.14,
+          "end": 5.24
+        },
+        {
+          "raw": "of",
+          "start": 5.24,
+          "end": 5.46
+        },
+        {
+          "raw": "Moses.",
+          "start": 5.46,
+          "end": 5.72
+        }
+      ],
+      "expected_tokens": [
+        "—I",
+        "was...",
+        "Glasnevin",
+        "this",
+        "morning...",
+        "poor",
+        "little...",
+        "what",
+        "do",
+        "you",
+        "call",
+        "him...",
+        "Chow!...",
+        "Mother",
+        "of",
+        "Moses!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          12,
+          3,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          16,
+          13,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was,",
+          "start": 0.54,
+          "end": 0.86,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Glassniven",
+          "start": 1.46,
+          "end": 1.74,
+          "key": "glassniven",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.74,
+          "end": 1.96,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "morning.",
+          "start": 1.96,
+          "end": 2.32,
+          "key": "morning",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Poor",
+          "start": 2.8,
+          "end": 2.88,
+          "key": "poor",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "little,",
+          "start": 2.88,
+          "end": 3.12,
+          "key": "little",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.42,
+          "end": 3.48,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.48,
+          "end": 3.58,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.58,
+          "end": 3.68,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 3.68,
+          "end": 3.9,
+          "key": "call",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "him?",
+          "start": 3.9,
+          "end": 4.16,
+          "key": "him",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Ciao,",
+          "start": 4.58,
+          "end": 4.84,
+          "key": "ciao",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "mother",
+          "start": 5.14,
+          "end": 5.24,
+          "key": "mother",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.24,
+          "end": 5.46,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Moses.",
+          "start": 5.46,
+          "end": 5.72,
+          "key": "moses",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "was...",
+          "start": 0.54,
+          "end": 0.86
+        },
+        {
+          "text": "Glasnevin",
+          "start": 0.86,
+          "end": 1.3
+        },
+        {
+          "text": "this",
+          "start": 1.74,
+          "end": 1.96
+        },
+        {
+          "text": "morning...",
+          "start": 1.96,
+          "end": 2.32
+        },
+        {
+          "text": "poor",
+          "start": 2.8,
+          "end": 2.88
+        },
+        {
+          "text": "little...",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "text": "what",
+          "start": 3.42,
+          "end": 3.48
+        },
+        {
+          "text": "do",
+          "start": 3.48,
+          "end": 3.58
+        },
+        {
+          "text": "you",
+          "start": 3.58,
+          "end": 3.68
+        },
+        {
+          "text": "call",
+          "start": 3.68,
+          "end": 3.9
+        },
+        {
+          "text": "him...",
+          "start": 3.9,
+          "end": 4.16
+        },
+        {
+          "text": "Chow!...",
+          "start": 4.16,
+          "end": 4.65
+        },
+        {
+          "text": "Mother",
+          "start": 5.14,
+          "end": 5.24
+        },
+        {
+          "text": "of",
+          "start": 5.24,
+          "end": 5.46
+        },
+        {
+          "text": "Moses!",
+          "start": 5.46,
+          "end": 5.72
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.36531298514455557
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "784d2754249abaccfaa4a9169153602c7ebc8f1beeb3b3e29dacd3d8d15296cd",
+  "selected_reasons": []
+}

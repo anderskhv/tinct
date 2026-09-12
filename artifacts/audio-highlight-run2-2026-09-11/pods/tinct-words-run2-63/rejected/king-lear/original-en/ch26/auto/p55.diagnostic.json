@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "5b43fcb2185df72902527ba23100a76a5660212dd35ec8f756e0c351f4ec19d6",
+  "attempts": [
+    {
+      "asr_seconds": 0.290941359475255,
+      "alignment_seconds": 0.0006273407489061356,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Herald. What are you? Your name, your quality? and why you answer This present summons?",
+        "hotwords": "Herald, What, This"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Herald, What are you? Your name, your quality? and why you answer This present summons?",
+          "start": 0.05,
+          "end": 4.83,
+          "words": [
+            {
+              "text": " Herald,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.0028972625732421875
+            },
+            {
+              "text": " What",
+              "start": 1.05,
+              "end": 1.17,
+              "probability": 0.01299285888671875
+            },
+            {
+              "text": " are",
+              "start": 1.17,
+              "end": 1.27,
+              "probability": 0.67333984375
+            },
+            {
+              "text": " you?",
+              "start": 1.27,
+              "end": 1.47,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " Your",
+              "start": 1.93,
+              "end": 2.13,
+              "probability": 0.8984375
+            },
+            {
+              "text": " name,",
+              "start": 2.13,
+              "end": 2.31,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " your",
+              "start": 2.47,
+              "end": 2.53,
+              "probability": 0.78125
+            },
+            {
+              "text": " quality?",
+              "start": 2.53,
+              "end": 2.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 3.31,
+              "end": 3.39,
+              "probability": 0.1839599609375
+            },
+            {
+              "text": " why",
+              "start": 3.39,
+              "end": 3.53,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " you",
+              "start": 3.53,
+              "end": 3.69,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " answer",
+              "start": 3.69,
+              "end": 3.95,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " This",
+              "start": 3.95,
+              "end": 4.19,
+              "probability": 0.0005908012390136719
+            },
+            {
+              "text": " present",
+              "start": 4.19,
+              "end": 4.49,
+              "probability": 0.78125
+            },
+            {
+              "text": " summons?",
+              "start": 4.49,
+              "end": 4.83,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Herald,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "What",
+          "start": 1.05,
+          "end": 1.17
+        },
+        {
+          "raw": "are",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "raw": "you?",
+          "start": 1.27,
+          "end": 1.47
+        },
+        {
+          "raw": "Your",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "raw": "name,",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "raw": "your",
+          "start": 2.47,
+          "end": 2.53
+        },
+        {
+          "raw": "quality?",
+          "start": 2.53,
+          "end": 2.89
+        },
+        {
+          "raw": "and",
+          "start": 3.31,
+          "end": 3.39
+        },
+        {
+          "raw": "why",
+          "start": 3.39,
+          "end": 3.53
+        },
+        {
+          "raw": "you",
+          "start": 3.53,
+          "end": 3.69
+        },
+        {
+          "raw": "answer",
+          "start": 3.69,
+          "end": 3.95
+        },
+        {
+          "raw": "This",
+          "start": 3.95,
+          "end": 4.19
+        },
+        {
+          "raw": "present",
+          "start": 4.19,
+          "end": 4.49
+        },
+        {
+          "raw": "summons?",
+          "start": 4.49,
+          "end": 4.83
+        }
+      ],
+      "expected_tokens": [
+        "Herald.",
+        "What",
+        "are",
+        "you?",
+        "Your",
+        "name,",
+        "your",
+        "quality?",
+        "and",
+        "why",
+        "you",
+        "answer",
+        "This",
+        "present",
+        "summons?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Herald,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "herald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.05,
+          "end": 1.17,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.17,
+          "end": 1.27,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 1.27,
+          "end": 1.47,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 1.93,
+          "end": 2.13,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "name,",
+          "start": 2.13,
+          "end": 2.31,
+          "key": "name",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.47,
+          "end": 2.53,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "quality?",
+          "start": 2.53,
+          "end": 2.89,
+          "key": "quality",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.31,
+          "end": 3.39,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 3.39,
+          "end": 3.53,
+          "key": "why",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.53,
+          "end": 3.69,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 3.69,
+          "end": 3.95,
+          "key": "answer",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 3.95,
+          "end": 4.19,
+          "key": "this",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 4.19,
+          "end": 4.49,
+          "key": "present",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "summons?",
+          "start": 4.49,
+          "end": 4.83,
+          "key": "summons",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Herald.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "What",
+          "start": 1.05,
+          "end": 1.17
+        },
+        {
+          "text": "are",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "text": "you?",
+          "start": 1.27,
+          "end": 1.47
+        },
+        {
+          "text": "Your",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "text": "name,",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "text": "your",
+          "start": 2.47,
+          "end": 2.53
+        },
+        {
+          "text": "quality?",
+          "start": 2.53,
+          "end": 2.89
+        },
+        {
+          "text": "and",
+          "start": 3.31,
+          "end": 3.39
+        },
+        {
+          "text": "why",
+          "start": 3.39,
+          "end": 3.53
+        },
+        {
+          "text": "you",
+          "start": 3.53,
+          "end": 3.69
+        },
+        {
+          "text": "answer",
+          "start": 3.69,
+          "end": 3.95
+        },
+        {
+          "text": "This",
+          "start": 3.95,
+          "end": 4.19
+        },
+        {
+          "text": "present",
+          "start": 4.19,
+          "end": 4.49
+        },
+        {
+          "text": "summons?",
+          "start": 4.49,
+          "end": 4.83
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2918322291225195
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "41b6ff98787a51fee482d0f9a8ed2aca7c9a8e88284b41c8ac8065ee92cae074",
+  "selected_reasons": []
+}

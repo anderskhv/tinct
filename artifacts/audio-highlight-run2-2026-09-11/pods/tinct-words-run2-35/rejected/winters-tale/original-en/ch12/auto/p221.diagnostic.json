@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "7741205546890aca28eed1df6dac92de80c934a0809575b96c30ce7be7d6fc42",
+  "attempts": [
+    {
+      "asr_seconds": 0.14699228666722775,
+      "alignment_seconds": 0.0002237074077129364,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Camillo.",
+        "hotwords": "Camillo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Camillo.",
+          "start": 0.08,
+          "end": 0.86,
+          "words": [
+            {
+              "text": " Camillo.",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.3994255065917969
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Camillo.",
+          "start": 0.08,
+          "end": 0.86
+        }
+      ],
+      "expected_tokens": [
+        "Camillo."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Camillo.",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "camillo",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Camillo.",
+          "start": 0.08,
+          "end": 0.86
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14728355966508389
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9a3b57066f3fb42ad63f4704ac3dc51dcb49c124028c69e58e9f5382e90956ba",
+  "selected_reasons": []
+}

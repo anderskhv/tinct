@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "c242ced78949cd27b7eff15fe837723011af0f59b5122c3033cacc44db6720b8",
+  "attempts": [
+    {
+      "asr_seconds": 0.1502894265577197,
+      "alignment_seconds": 0.0002764631062746048,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ross, wife, children, servants, all that could be found.",
+          "start": 0.05,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " Ross,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.7646484375
+            },
+            {
+              "text": " wife,",
+              "start": 1.29,
+              "end": 1.41,
+              "probability": 0.6552734375
+            },
+            {
+              "text": " children,",
+              "start": 1.65,
+              "end": 1.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " servants,",
+              "start": 2.07,
+              "end": 2.39,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " all",
+              "start": 2.63,
+              "end": 2.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " that",
+              "start": 2.77,
+              "end": 2.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " could",
+              "start": 2.89,
+              "end": 2.99,
+              "probability": 0.9921875
+            },
+            {
+              "text": " be",
+              "start": 2.99,
+              "end": 3.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " found.",
+              "start": 3.13,
+              "end": 3.47,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ross,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "wife,",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "raw": "children,",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "raw": "servants,",
+          "start": 2.07,
+          "end": 2.39
+        },
+        {
+          "raw": "all",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "raw": "that",
+          "start": 2.77,
+          "end": 2.89
+        },
+        {
+          "raw": "could",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "raw": "be",
+          "start": 2.99,
+          "end": 3.13
+        },
+        {
+          "raw": "found.",
+          "start": 3.13,
+          "end": 3.47
+        }
+      ],
+      "expected_tokens": [
+        "Ross.",
+        "Wife,",
+        "children,",
+        "servants,",
+        "all",
+        "That",
+        "could",
+        "be",
+        "found."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ross,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "ross",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wife,",
+          "start": 1.29,
+          "end": 1.41,
+          "key": "wife",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "children,",
+          "start": 1.65,
+          "end": 1.91,
+          "key": "children",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "servants,",
+          "start": 2.07,
+          "end": 2.39,
+          "key": "servants",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.63,
+          "end": 2.77,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.77,
+          "end": 2.89,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 2.89,
+          "end": 2.99,
+          "key": "could",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.99,
+          "end": 3.13,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "found.",
+          "start": 3.13,
+          "end": 3.47,
+          "key": "found",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ross.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Wife,",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "text": "children,",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "text": "servants,",
+          "start": 2.07,
+          "end": 2.39
+        },
+        {
+          "text": "all",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "text": "That",
+          "start": 2.77,
+          "end": 2.89
+        },
+        {
+          "text": "could",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "text": "be",
+          "start": 2.99,
+          "end": 3.13
+        },
+        {
+          "text": "found.",
+          "start": 3.13,
+          "end": 3.47
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.150672840885818
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "59b2c4358efe5ab1669acc9549cb00e18643d2395edbfadcd6fec98d4698d6ae",
+  "selected_reasons": []
+}

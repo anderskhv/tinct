@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "5869508a6777c53fa2a2f0681376e3d46a4f0f445dfa87a95f808dd6fba38a59",
+  "attempts": [
+    {
+      "asr_seconds": 0.17617451498517767,
+      "alignment_seconds": 0.00035519199445843697,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Oyster eyes. Never mind. Be sorry after perhaps when it dawns on him. Get the pull over him that way.",
+        "hotwords": "Oyster, Never, Be, Get"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oyster eyes. Never mind. Be sorry after perhaps when it dawns on him. Get the pull over him that way.",
+          "start": 0.05,
+          "end": 6.93,
+          "words": [
+            {
+              "text": " Oyster",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.825439453125
+            },
+            {
+              "text": " eyes.",
+              "start": 0.75,
+              "end": 1.09,
+              "probability": 0.904296875
+            },
+            {
+              "text": " Never",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " mind.",
+              "start": 1.81,
+              "end": 2.23,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " Be",
+              "start": 2.81,
+              "end": 2.89,
+              "probability": 0.98828125
+            },
+            {
+              "text": " sorry",
+              "start": 2.89,
+              "end": 3.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " after",
+              "start": 3.19,
+              "end": 3.53,
+              "probability": 0.98828125
+            },
+            {
+              "text": " perhaps",
+              "start": 3.53,
+              "end": 3.95,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " when",
+              "start": 3.95,
+              "end": 4.21,
+              "probability": 0.94140625
+            },
+            {
+              "text": " it",
+              "start": 4.21,
+              "end": 4.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dawns",
+              "start": 4.31,
+              "end": 4.69,
+              "probability": 0.834228515625
+            },
+            {
+              "text": " on",
+              "start": 4.69,
+              "end": 4.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him.",
+              "start": 4.81,
+              "end": 5.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Get",
+              "start": 5.61,
+              "end": 5.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 5.71,
+              "end": 5.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pull",
+              "start": 5.83,
+              "end": 6.01,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " over",
+              "start": 6.01,
+              "end": 6.21,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " him",
+              "start": 6.21,
+              "end": 6.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 6.43,
+              "end": 6.63,
+              "probability": 0.986328125
+            },
+            {
+              "text": " way.",
+              "start": 6.63,
+              "end": 6.93,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oyster",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "eyes.",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "raw": "Never",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "raw": "mind.",
+          "start": 1.81,
+          "end": 2.23
+        },
+        {
+          "raw": "Be",
+          "start": 2.81,
+          "end": 2.89
+        },
+        {
+          "raw": "sorry",
+          "start": 2.89,
+          "end": 3.19
+        },
+        {
+          "raw": "after",
+          "start": 3.19,
+          "end": 3.53
+        },
+        {
+          "raw": "perhaps",
+          "start": 3.53,
+          "end": 3.95
+        },
+        {
+          "raw": "when",
+          "start": 3.95,
+          "end": 4.21
+        },
+        {
+          "raw": "it",
+          "start": 4.21,
+          "end": 4.31
+        },
+        {
+          "raw": "dawns",
+          "start": 4.31,
+          "end": 4.69
+        },
+        {
+          "raw": "on",
+          "start": 4.69,
+          "end": 4.81
+        },
+        {
+          "raw": "him.",
+          "start": 4.81,
+          "end": 5.01
+        },
+        {
+          "raw": "Get",
+          "start": 5.61,
+          "end": 5.71
+        },
+        {
+          "raw": "the",
+          "start": 5.71,
+          "end": 5.83
+        },
+        {
+          "raw": "pull",
+          "start": 5.83,
+          "end": 6.01
+        },
+        {
+          "raw": "over",
+          "start": 6.01,
+          "end": 6.21
+        },
+        {
+          "raw": "him",
+          "start": 6.21,
+          "end": 6.43
+        },
+        {
+          "raw": "that",
+          "start": 6.43,
+          "end": 6.63
+        },
+        {
+          "raw": "way.",
+          "start": 6.63,
+          "end": 6.93
+        }
+      ],
+      "expected_tokens": [
+        "Oyster",
+        "eyes.",
+        "Never",
+        "mind.",
+        "Be",
+        "sorry",
+        "after",
+        "perhaps",
+        "when",
+        "it",
+        "dawns",
+        "on",
+        "him.",
+        "Get",
+        "the",
+        "pull",
+        "over",
+        "him",
+        "that",
+        "way."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oyster",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "oyster",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "eyes.",
+          "start": 0.75,
+          "end": 1.09,
+          "key": "eyes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Never",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "never",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mind.",
+          "start": 1.81,
+          "end": 2.23,
+          "key": "mind",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 2.81,
+          "end": 2.89,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sorry",
+          "start": 2.89,
+          "end": 3.19,
+          "key": "sorry",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 3.19,
+          "end": 3.53,
+          "key": "after",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "perhaps",
+          "start": 3.53,
+          "end": 3.95,
+          "key": "perhaps",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.95,
+          "end": 4.21,
+          "key": "when",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.21,
+          "end": 4.31,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dawns",
+          "start": 4.31,
+          "end": 4.69,
+          "key": "dawns",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.69,
+          "end": 4.81,
+          "key": "on",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 4.81,
+          "end": 5.01,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Get",
+          "start": 5.61,
+          "end": 5.71,
+          "key": "get",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.71,
+          "end": 5.83,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "pull",
+          "start": 5.83,
+          "end": 6.01,
+          "key": "pull",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 6.01,
+          "end": 6.21,
+          "key": "over",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 6.21,
+          "end": 6.43,
+          "key": "him",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.43,
+          "end": 6.63,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "way.",
+          "start": 6.63,
+          "end": 6.93,
+          "key": "way",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oyster",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "eyes.",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "text": "Never",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "text": "mind.",
+          "start": 1.81,
+          "end": 2.23
+        },
+        {
+          "text": "Be",
+          "start": 2.81,
+          "end": 2.89
+        },
+        {
+          "text": "sorry",
+          "start": 2.89,
+          "end": 3.19
+        },
+        {
+          "text": "after",
+          "start": 3.19,
+          "end": 3.53
+        },
+        {
+          "text": "perhaps",
+          "start": 3.53,
+          "end": 3.95
+        },
+        {
+          "text": "when",
+          "start": 3.95,
+          "end": 4.21
+        },
+        {
+          "text": "it",
+          "start": 4.21,
+          "end": 4.31
+        },
+        {
+          "text": "dawns",
+          "start": 4.31,
+          "end": 4.69
+        },
+        {
+          "text": "on",
+          "start": 4.69,
+          "end": 4.81
+        },
+        {
+          "text": "him.",
+          "start": 4.81,
+          "end": 5.01
+        },
+        {
+          "text": "Get",
+          "start": 5.61,
+          "end": 5.71
+        },
+        {
+          "text": "the",
+          "start": 5.71,
+          "end": 5.83
+        },
+        {
+          "text": "pull",
+          "start": 5.83,
+          "end": 6.01
+        },
+        {
+          "text": "over",
+          "start": 6.01,
+          "end": 6.21
+        },
+        {
+          "text": "him",
+          "start": 6.21,
+          "end": 6.43
+        },
+        {
+          "text": "that",
+          "start": 6.43,
+          "end": 6.63
+        },
+        {
+          "text": "way.",
+          "start": 6.63,
+          "end": 6.93
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1766721680178307
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "769ea3ac2c21cdafd470162bb34987c6d927166203011cf87ca522e182b8dd1c",
+  "selected_reasons": []
+}

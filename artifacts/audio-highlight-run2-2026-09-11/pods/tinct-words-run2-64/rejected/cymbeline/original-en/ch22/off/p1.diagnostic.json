@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "946f6e183bd2a716ff7876167b7994100ac1f0fdd21d373323ee3d4b421945f6",
+  "attempts": [
+    {
+      "asr_seconds": 0.11856033932417631,
+      "alignment_seconds": 0.0001998264342546463,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ballerius.",
+          "start": 0.08,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " Ballerius.",
+              "start": 0.08,
+              "end": 0.96,
+              "probability": 0.59783935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ballerius.",
+          "start": 0.08,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "Belarius."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ballerius.",
+          "start": 0.08,
+          "end": 0.96,
+          "key": "ballerius",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.0,
+          "end": 0.48
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11882808245718479
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8e8481d4b6d9eb149fb800760f65a9c4a1520c128a68b5eb22e175c6b760ccb9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

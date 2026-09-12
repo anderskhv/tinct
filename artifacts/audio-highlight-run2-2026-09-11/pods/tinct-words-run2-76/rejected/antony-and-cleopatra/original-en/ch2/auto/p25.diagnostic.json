@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "2db45c4e82b96f69382892b4097af20c6227be541291566e74934f45f2a3bbb2",
+  "attempts": [
+    {
+      "asr_seconds": 0.3217277047224343,
+      "alignment_seconds": 0.0007300786674022675,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Soothsayer. If every of your wishes had a womb, And fertile every wish, a million.",
+        "hotwords": "Soothsayer, If, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Soothsayer, If every of your wishes had a womb, And fertile every wish, a million.",
+          "start": 0.08,
+          "end": 4.92,
+          "words": [
+            {
+              "text": " Soothsayer,",
+              "start": 0.08,
+              "end": 0.96,
+              "probability": 0.810791015625
+            },
+            {
+              "text": " If",
+              "start": 1.36,
+              "end": 1.6,
+              "probability": 0.06024169921875
+            },
+            {
+              "text": " every",
+              "start": 1.6,
+              "end": 1.88,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " of",
+              "start": 1.88,
+              "end": 2.02,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " your",
+              "start": 2.02,
+              "end": 2.12,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " wishes",
+              "start": 2.12,
+              "end": 2.32,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " had",
+              "start": 2.32,
+              "end": 2.56,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " a",
+              "start": 2.56,
+              "end": 2.7,
+              "probability": 0.994140625
+            },
+            {
+              "text": " womb,",
+              "start": 2.7,
+              "end": 2.96,
+              "probability": 0.994140625
+            },
+            {
+              "text": " And",
+              "start": 3.3,
+              "end": 3.4,
+              "probability": 0.386962890625
+            },
+            {
+              "text": " fertile",
+              "start": 3.4,
+              "end": 3.74,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " every",
+              "start": 3.74,
+              "end": 4.12,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " wish,",
+              "start": 4.12,
+              "end": 4.44,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 4.6,
+              "end": 4.66,
+              "probability": 0.96875
+            },
+            {
+              "text": " million.",
+              "start": 4.66,
+              "end": 4.92,
+              "probability": 0.9580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soothsayer,",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "raw": "If",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "raw": "every",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "raw": "of",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "raw": "your",
+          "start": 2.02,
+          "end": 2.12
+        },
+        {
+          "raw": "wishes",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "raw": "had",
+          "start": 2.32,
+          "end": 2.56
+        },
+        {
+          "raw": "a",
+          "start": 2.56,
+          "end": 2.7
+        },
+        {
+          "raw": "womb,",
+          "start": 2.7,
+          "end": 2.96
+        },
+        {
+          "raw": "And",
+          "start": 3.3,
+          "end": 3.4
+        },
+        {
+          "raw": "fertile",
+          "start": 3.4,
+          "end": 3.74
+        },
+        {
+          "raw": "every",
+          "start": 3.74,
+          "end": 4.12
+        },
+        {
+          "raw": "wish,",
+          "start": 4.12,
+          "end": 4.44
+        },
+        {
+          "raw": "a",
+          "start": 4.6,
+          "end": 4.66
+        },
+        {
+          "raw": "million.",
+          "start": 4.66,
+          "end": 4.92
+        }
+      ],
+      "expected_tokens": [
+        "Soothsayer.",
+        "If",
+        "every",
+        "of",
+        "your",
+        "wishes",
+        "had",
+        "a",
+        "womb,",
+        "And",
+        "fertile",
+        "every",
+        "wish,",
+        "a",
+        "million."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soothsayer,",
+          "start": 0.08,
+          "end": 0.96,
+          "key": "soothsayer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.36,
+          "end": 1.6,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 1.6,
+          "end": 1.88,
+          "key": "every",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.88,
+          "end": 2.02,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.02,
+          "end": 2.12,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wishes",
+          "start": 2.12,
+          "end": 2.32,
+          "key": "wishes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.32,
+          "end": 2.56,
+          "key": "had",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.56,
+          "end": 2.7,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "womb,",
+          "start": 2.7,
+          "end": 2.96,
+          "key": "womb",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.3,
+          "end": 3.4,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fertile",
+          "start": 3.4,
+          "end": 3.74,
+          "key": "fertile",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 3.74,
+          "end": 4.12,
+          "key": "every",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "wish,",
+          "start": 4.12,
+          "end": 4.44,
+          "key": "wish",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.6,
+          "end": 4.66,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "million.",
+          "start": 4.66,
+          "end": 4.92,
+          "key": "million",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Soothsayer.",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "text": "If",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "text": "every",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "text": "of",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "text": "your",
+          "start": 2.02,
+          "end": 2.12
+        },
+        {
+          "text": "wishes",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "text": "had",
+          "start": 2.32,
+          "end": 2.56
+        },
+        {
+          "text": "a",
+          "start": 2.56,
+          "end": 2.7
+        },
+        {
+          "text": "womb,",
+          "start": 2.7,
+          "end": 2.96
+        },
+        {
+          "text": "And",
+          "start": 3.3,
+          "end": 3.4
+        },
+        {
+          "text": "fertile",
+          "start": 3.4,
+          "end": 3.74
+        },
+        {
+          "text": "every",
+          "start": 3.74,
+          "end": 4.12
+        },
+        {
+          "text": "wish,",
+          "start": 4.12,
+          "end": 4.44
+        },
+        {
+          "text": "a",
+          "start": 4.6,
+          "end": 4.66
+        },
+        {
+          "text": "million.",
+          "start": 4.66,
+          "end": 4.92
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32271993812173605
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8c9a3860d5f00d7e482e2e526c5a9e4d026b19c7047f062199aaf874fbbbc054",
+  "selected_reasons": []
+}

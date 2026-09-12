@@ -1,0 +1,277 @@
+{
+  "complete": true,
+  "signature": "caa05b801db71b81cf21745f39b483e5215c22db82759092e0afdf0b8692c778",
+  "attempts": [
+    {
+      "asr_seconds": 0.20885172206908464,
+      "alignment_seconds": 0.00037697888910770416,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Perry easy, kill-e; oh! perry easy!\""
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Perry easy, kill-e. Oh, perry easy.",
+          "start": 0.05,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " Perry",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.468994140625
+            },
+            {
+              "text": " easy,",
+              "start": 0.65,
+              "end": 0.91,
+              "probability": 0.50732421875
+            },
+            {
+              "text": " kill",
+              "start": 1.09,
+              "end": 1.11,
+              "probability": 0.2255859375
+            },
+            {
+              "text": "-e.",
+              "start": 1.11,
+              "end": 1.29,
+              "probability": 0.07818222045898438
+            },
+            {
+              "text": " Oh,",
+              "start": 1.43,
+              "end": 1.71,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " perry",
+              "start": 1.91,
+              "end": 2.11,
+              "probability": 0.46612548828125
+            },
+            {
+              "text": " easy.",
+              "start": 2.11,
+              "end": 2.31,
+              "probability": 0.97900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Perry",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "easy,",
+          "start": 0.65,
+          "end": 0.91
+        },
+        {
+          "raw": "kill",
+          "start": 1.09,
+          "end": 1.11
+        },
+        {
+          "raw": "-e.",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "raw": "perry",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "raw": "easy.",
+          "start": 2.11,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "\"Perry",
+        "easy,",
+        "kill-e;",
+        "oh!",
+        "perry",
+        "easy!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Perry",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "perry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "easy,",
+          "start": 0.65,
+          "end": 0.91,
+          "key": "easy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "kill -e.",
+          "start": 1.09,
+          "end": 1.29,
+          "key": "kille",
+          "pieces": [
+            2,
+            3
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.43,
+          "end": 1.71,
+          "key": "oh",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "perry",
+          "start": 1.91,
+          "end": 2.11,
+          "key": "perry",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "easy.",
+          "start": 2.11,
+          "end": 2.31,
+          "key": "easy",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 2,
+          "text": "kill-e;",
+          "heard": "kill -e.",
+          "heard_indexes": [
+            2,
+            3
+          ],
+          "start": 1.09,
+          "end": 1.29
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Perry",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "easy,",
+          "start": 0.65,
+          "end": 0.91
+        },
+        {
+          "text": "kill-e;",
+          "start": 1.09,
+          "end": 1.29
+        },
+        {
+          "text": "oh!",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "text": "perry",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "text": "easy!\"",
+          "start": 2.11,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20934301940724254
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5cea0ae03bdb60be60a2d91e64677a25fa923d2b4eb6bb3a88a82595e606161a",
+  "selected_reasons": []
+}

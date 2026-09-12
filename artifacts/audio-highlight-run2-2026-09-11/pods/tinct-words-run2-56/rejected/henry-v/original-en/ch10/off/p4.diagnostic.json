@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "a34ca1debf46195ba273ee86a0d966cde3092d731e9f72195a4806c85f2c1484",
+  "attempts": [
+    {
+      "asr_seconds": 0.1684014117345214,
+      "alignment_seconds": 0.0005028396844863892,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alice LaMaine, L.S. de Palais de Hand.",
+          "start": 0.21,
+          "end": 2.95,
+          "words": [
+            {
+              "text": " Alice",
+              "start": 0.21,
+              "end": 0.81,
+              "probability": 0.61572265625
+            },
+            {
+              "text": " LaMaine,",
+              "start": 0.81,
+              "end": 1.53,
+              "probability": 0.5399983723958334
+            },
+            {
+              "text": " L",
+              "start": 2.01,
+              "end": 2.03,
+              "probability": 0.11090087890625
+            },
+            {
+              "text": ".S.",
+              "start": 2.03,
+              "end": 2.17,
+              "probability": 0.68994140625
+            },
+            {
+              "text": " de",
+              "start": 2.17,
+              "end": 2.25,
+              "probability": 0.62548828125
+            },
+            {
+              "text": " Palais",
+              "start": 2.25,
+              "end": 2.51,
+              "probability": 0.737548828125
+            },
+            {
+              "text": " de",
+              "start": 2.51,
+              "end": 2.63,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " Hand.",
+              "start": 2.63,
+              "end": 2.95,
+              "probability": 0.875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alice",
+          "start": 0.21,
+          "end": 0.81
+        },
+        {
+          "raw": "LaMaine,",
+          "start": 0.81,
+          "end": 1.53
+        },
+        {
+          "raw": "L",
+          "start": 2.01,
+          "end": 2.03
+        },
+        {
+          "raw": ".S.",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "raw": "de",
+          "start": 2.17,
+          "end": 2.25
+        },
+        {
+          "raw": "Palais",
+          "start": 2.25,
+          "end": 2.51
+        },
+        {
+          "raw": "de",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "raw": "Hand.",
+          "start": 2.63,
+          "end": 2.95
+        }
+      ],
+      "expected_tokens": [
+        "Alice.",
+        "_La",
+        "main?",
+        "Elle",
+        "est",
+        "appelée_",
+        "de",
+        "hand."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          6,
+          1,
+          6
+        ],
+        [
+          "equal",
+          6,
+          8,
+          6,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alice",
+          "start": 0.21,
+          "end": 0.81,
+          "key": "alice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "LaMaine,",
+          "start": 0.81,
+          "end": 1.53,
+          "key": "lamaine",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "L",
+          "start": 2.01,
+          "end": 2.03,
+          "key": "l",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": ".S.",
+          "start": 2.03,
+          "end": 2.17,
+          "key": "s",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.17,
+          "end": 2.25,
+          "key": "de",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Palais",
+          "start": 2.25,
+          "end": 2.51,
+          "key": "palais",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.51,
+          "end": 2.63,
+          "key": "de",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Hand.",
+          "start": 2.63,
+          "end": 2.95,
+          "key": "hand",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alice.",
+          "start": 0.21,
+          "end": 0.81
+        },
+        {
+          "text": "_La",
+          "start": 0.81,
+          "end": 1.66
+        },
+        {
+          "text": "main?",
+          "start": 1.66,
+          "end": 2.085
+        },
+        {
+          "text": "Elle",
+          "start": 2.085,
+          "end": 2.297
+        },
+        {
+          "text": "est",
+          "start": 2.297,
+          "end": 2.404
+        },
+        {
+          "text": "appelée_",
+          "start": 2.404,
+          "end": 2.457
+        },
+        {
+          "text": "de",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "text": "hand.",
+          "start": 2.63,
+          "end": 2.95
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 3
+      },
+      "match_ratio": 0.375,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16906974278390408
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e770984de5a6f2aa8c73b95f204eb9b42855b76fc0b263ea25a074bece1704a7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

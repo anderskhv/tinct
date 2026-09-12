@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "e83596a9845bf8ca2a617cf2997d0315c0335ed0e4e5ba0118f5a81d8ab991c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.12335275299847126,
+      "alignment_seconds": 0.000101444311439991,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dardanius. O Clitus!",
+        "hotwords": "Dardanius, O, Clitus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dardanius, O, Clitus.",
+          "start": 0.05,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " Dardanius,",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.562347412109375
+            },
+            {
+              "text": " O,",
+              "start": 1.37,
+              "end": 1.43,
+              "probability": 0.1943359375
+            },
+            {
+              "text": " Clitus.",
+              "start": 1.47,
+              "end": 1.81,
+              "probability": 0.4359130859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dardanius,",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "raw": "O,",
+          "start": 1.37,
+          "end": 1.43
+        },
+        {
+          "raw": "Clitus.",
+          "start": 1.47,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "Dardanius.",
+        "O",
+        "Clitus!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dardanius,",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "dardanius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.37,
+          "end": 1.43,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Clitus.",
+          "start": 1.47,
+          "end": 1.81,
+          "key": "clitus",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dardanius.",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "text": "O",
+          "start": 1.37,
+          "end": 1.43
+        },
+        {
+          "text": "Clitus!",
+          "start": 1.47,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12348796986043453
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fb8685b775c40e7b2aed1fe44844e34151cd366e3bd5a00299c593e1ee169fee",
+  "selected_reasons": []
+}

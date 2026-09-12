@@ -1,0 +1,687 @@
+{
+  "complete": true,
+  "signature": "321f4c5c98e5e1cfd65a415ddeb150ea336c03a771a4459565f2a7abdd8b53f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.3386943149380386,
+      "alignment_seconds": 0.0006238319911062717,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Do you like the little black one, and the Madame ——?—I cannot pronounce her name as you do.\"",
+        "hotwords": "Madame, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Do you like the little black one, and the Madame ——?—I cannot pronounce her name",
+          "start": 0.05,
+          "end": 4.49,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " like",
+              "start": 0.63,
+              "end": 0.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 0.77,
+              "end": 0.95,
+              "probability": 0.96875
+            },
+            {
+              "text": " little",
+              "start": 0.95,
+              "end": 1.15,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " black",
+              "start": 1.15,
+              "end": 1.45,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " one,",
+              "start": 1.45,
+              "end": 1.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 2.11,
+              "end": 2.17,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 2.17,
+              "end": 2.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Madame",
+              "start": 2.27,
+              "end": 2.55,
+              "probability": 0.114013671875
+            },
+            {
+              "text": " ——",
+              "start": 2.55,
+              "end": 3.39,
+              "probability": 0.00036728382110595703
+            },
+            {
+              "text": "?—I",
+              "start": 3.39,
+              "end": 3.43,
+              "probability": 0.2557258605957031
+            },
+            {
+              "text": " cannot",
+              "start": 3.43,
+              "end": 3.69,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " pronounce",
+              "start": 3.69,
+              "end": 4.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 4.07,
+              "end": 4.31,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " name",
+              "start": 4.31,
+              "end": 4.49,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " as you do.",
+          "start": 4.49,
+          "end": 5.15,
+          "words": [
+            {
+              "text": " as",
+              "start": 4.49,
+              "end": 4.71,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " you",
+              "start": 4.71,
+              "end": 4.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " do.",
+              "start": 4.87,
+              "end": 5.15,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "like",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "raw": "the",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "raw": "little",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "raw": "black",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "raw": "one,",
+          "start": 1.45,
+          "end": 1.75
+        },
+        {
+          "raw": "and",
+          "start": 2.11,
+          "end": 2.17
+        },
+        {
+          "raw": "the",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "raw": "Madame",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "raw": "——",
+          "start": 2.55,
+          "end": 3.39
+        },
+        {
+          "raw": "?—I",
+          "start": 3.39,
+          "end": 3.43
+        },
+        {
+          "raw": "cannot",
+          "start": 3.43,
+          "end": 3.69
+        },
+        {
+          "raw": "pronounce",
+          "start": 3.69,
+          "end": 4.07
+        },
+        {
+          "raw": "her",
+          "start": 4.07,
+          "end": 4.31
+        },
+        {
+          "raw": "name",
+          "start": 4.31,
+          "end": 4.49
+        },
+        {
+          "raw": "as",
+          "start": 4.49,
+          "end": 4.71
+        },
+        {
+          "raw": "you",
+          "start": 4.71,
+          "end": 4.87
+        },
+        {
+          "raw": "do.",
+          "start": 4.87,
+          "end": 5.15
+        }
+      ],
+      "expected_tokens": [
+        "\"Do",
+        "you",
+        "like",
+        "the",
+        "little",
+        "black",
+        "one,",
+        "and",
+        "the",
+        "Madame",
+        "——?—I",
+        "cannot",
+        "pronounce",
+        "her",
+        "name",
+        "as",
+        "you",
+        "do.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "insert",
+          10,
+          10,
+          10,
+          11
+        ],
+        [
+          "equal",
+          10,
+          18,
+          11,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          10,
+          10,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 0.63,
+          "end": 0.77,
+          "key": "like",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.77,
+          "end": 0.95,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 0.95,
+          "end": 1.15,
+          "key": "little",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "black",
+          "start": 1.15,
+          "end": 1.45,
+          "key": "black",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "one,",
+          "start": 1.45,
+          "end": 1.75,
+          "key": "one",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.11,
+          "end": 2.17,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.17,
+          "end": 2.27,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Madame",
+          "start": 2.27,
+          "end": 2.55,
+          "key": "madame",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "——",
+          "start": 2.55,
+          "end": 3.39,
+          "key": "",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "?—I",
+          "start": 3.39,
+          "end": 3.43,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 3.43,
+          "end": 3.69,
+          "key": "cannot",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pronounce",
+          "start": 3.69,
+          "end": 4.07,
+          "key": "pronounce",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.07,
+          "end": 4.31,
+          "key": "her",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "name",
+          "start": 4.31,
+          "end": 4.49,
+          "key": "name",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.49,
+          "end": 4.71,
+          "key": "as",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.71,
+          "end": 4.87,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "do.",
+          "start": 4.87,
+          "end": 5.15,
+          "key": "do",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Do",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "like",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "text": "the",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "text": "little",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "text": "black",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "text": "one,",
+          "start": 1.45,
+          "end": 1.75
+        },
+        {
+          "text": "and",
+          "start": 2.11,
+          "end": 2.17
+        },
+        {
+          "text": "the",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "text": "Madame",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "text": "——?—I",
+          "start": 3.39,
+          "end": 3.43
+        },
+        {
+          "text": "cannot",
+          "start": 3.43,
+          "end": 3.69
+        },
+        {
+          "text": "pronounce",
+          "start": 3.69,
+          "end": 4.07
+        },
+        {
+          "text": "her",
+          "start": 4.07,
+          "end": 4.31
+        },
+        {
+          "text": "name",
+          "start": 4.31,
+          "end": 4.49
+        },
+        {
+          "text": "as",
+          "start": 4.49,
+          "end": 4.71
+        },
+        {
+          "text": "you",
+          "start": 4.71,
+          "end": 4.87
+        },
+        {
+          "text": "do.\"",
+          "start": 4.87,
+          "end": 5.15
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3395691988989711
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "96965c38fd8d90cd2f6d2e740878fde53611c9cd6a6793dd6ebc5ab2062f8536",
+  "selected_reasons": []
+}

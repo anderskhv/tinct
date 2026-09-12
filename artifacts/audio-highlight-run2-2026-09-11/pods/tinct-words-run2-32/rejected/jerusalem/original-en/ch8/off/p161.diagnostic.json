@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "f297fd2dd5d11ed260ea00a8c042db27a8192601356ea59b37873f2923fe4ae6",
+  "attempts": [
+    {
+      "asr_seconds": 0.06898896396160126,
+      "alignment_seconds": 0.00010840408504009247,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then think it over once more before you act.",
+          "start": 0.02,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " think",
+              "start": 0.58,
+              "end": 0.84,
+              "probability": 0.919921875
+            },
+            {
+              "text": " it",
+              "start": 0.84,
+              "end": 0.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " over",
+              "start": 0.96,
+              "end": 1.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " once",
+              "start": 1.14,
+              "end": 1.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " more",
+              "start": 1.38,
+              "end": 1.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " before",
+              "start": 1.66,
+              "end": 1.94,
+              "probability": 0.9765625
+            },
+            {
+              "text": " you",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " act.",
+              "start": 2.12,
+              "end": 2.44,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "think",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "raw": "it",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "raw": "over",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "raw": "once",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "raw": "more",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "raw": "before",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "raw": "you",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "raw": "act.",
+          "start": 2.12,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "\"Then",
+        "think",
+        "it",
+        "over",
+        "once",
+        "more",
+        "before",
+        "you",
+        "act.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 0.58,
+          "end": 0.84,
+          "key": "think",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.84,
+          "end": 0.96,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 0.96,
+          "end": 1.14,
+          "key": "over",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 1.14,
+          "end": 1.38,
+          "key": "once",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.38,
+          "end": 1.66,
+          "key": "more",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 1.66,
+          "end": 1.94,
+          "key": "before",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.94,
+          "end": 2.12,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "act.",
+          "start": 2.12,
+          "end": 2.44,
+          "key": "act",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Then",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "think",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "text": "it",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "text": "over",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "text": "once",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "text": "more",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "text": "before",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "text": "you",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "text": "act.\"",
+          "start": 2.12,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06914285197854042
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b79864b024719a291976f0e04104f0d80adf62dd2487be487d847df6b6c15d33",
+  "selected_reasons": []
+}

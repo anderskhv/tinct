@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "7904a3f8a9a4e3668b7d994484cf4554be5490fc9fd92eb1de9882bdf745306d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2906009405851364,
+      "alignment_seconds": 0.0006368793547153473,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I did not expect to see you tonight, Ermie,\" Sara said. Ermengarde hugged herself in the red shawl.",
+        "hotwords": "I, Ermie, Sara, Ermengarde"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I did not expect to see you tonight, Ermie,\" Sara said. Ermengarde hugged herself in the red shawl.",
+          "start": 0.08,
+          "end": 6.02,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.1871337890625
+            },
+            {
+              "text": " did",
+              "start": 0.52,
+              "end": 0.6,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " not",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " expect",
+              "start": 0.76,
+              "end": 1.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 1.04,
+              "end": 1.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " see",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 1.38,
+              "end": 1.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tonight,",
+              "start": 1.54,
+              "end": 1.9,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Ermie,\"",
+              "start": 2.22,
+              "end": 2.88,
+              "probability": 0.4541219075520833
+            },
+            {
+              "text": " Sara",
+              "start": 2.88,
+              "end": 2.98,
+              "probability": 0.1123046875
+            },
+            {
+              "text": " said.",
+              "start": 2.98,
+              "end": 3.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Ermengarde",
+              "start": 4.04,
+              "end": 4.42,
+              "probability": 0.4386730194091797
+            },
+            {
+              "text": " hugged",
+              "start": 4.42,
+              "end": 4.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " herself",
+              "start": 4.72,
+              "end": 5.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 5.02,
+              "end": 5.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.22,
+              "end": 5.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " red",
+              "start": 5.32,
+              "end": 5.48,
+              "probability": 0.958984375
+            },
+            {
+              "text": " shawl.",
+              "start": 5.48,
+              "end": 6.02,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "did",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "raw": "not",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "expect",
+          "start": 0.76,
+          "end": 1.04
+        },
+        {
+          "raw": "to",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "raw": "see",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "you",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "raw": "tonight,",
+          "start": 1.54,
+          "end": 1.9
+        },
+        {
+          "raw": "Ermie,\"",
+          "start": 2.22,
+          "end": 2.88
+        },
+        {
+          "raw": "Sara",
+          "start": 2.88,
+          "end": 2.98
+        },
+        {
+          "raw": "said.",
+          "start": 2.98,
+          "end": 3.4
+        },
+        {
+          "raw": "Ermengarde",
+          "start": 4.04,
+          "end": 4.42
+        },
+        {
+          "raw": "hugged",
+          "start": 4.42,
+          "end": 4.72
+        },
+        {
+          "raw": "herself",
+          "start": 4.72,
+          "end": 5.02
+        },
+        {
+          "raw": "in",
+          "start": 5.02,
+          "end": 5.22
+        },
+        {
+          "raw": "the",
+          "start": 5.22,
+          "end": 5.32
+        },
+        {
+          "raw": "red",
+          "start": 5.32,
+          "end": 5.48
+        },
+        {
+          "raw": "shawl.",
+          "start": 5.48,
+          "end": 6.02
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "did",
+        "not",
+        "expect",
+        "to",
+        "see",
+        "you",
+        "tonight,",
+        "Ermie,\"",
+        "Sara",
+        "said.",
+        "Ermengarde",
+        "hugged",
+        "herself",
+        "in",
+        "the",
+        "red",
+        "shawl."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.52,
+          "end": 0.6,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.6,
+          "end": 0.76,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "expect",
+          "start": 0.76,
+          "end": 1.04,
+          "key": "expect",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.04,
+          "end": 1.22,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.38,
+          "end": 1.54,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tonight,",
+          "start": 1.54,
+          "end": 1.9,
+          "key": "tonight",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Ermie,\"",
+          "start": 2.22,
+          "end": 2.88,
+          "key": "ermie",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Sara",
+          "start": 2.88,
+          "end": 2.98,
+          "key": "sara",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.98,
+          "end": 3.4,
+          "key": "said",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Ermengarde",
+          "start": 4.04,
+          "end": 4.42,
+          "key": "ermengarde",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hugged",
+          "start": 4.42,
+          "end": 4.72,
+          "key": "hugged",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "herself",
+          "start": 4.72,
+          "end": 5.02,
+          "key": "herself",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.02,
+          "end": 5.22,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.22,
+          "end": 5.32,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "red",
+          "start": 5.32,
+          "end": 5.48,
+          "key": "red",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "shawl.",
+          "start": 5.48,
+          "end": 6.02,
+          "key": "shawl",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "did",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "text": "not",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "expect",
+          "start": 0.76,
+          "end": 1.04
+        },
+        {
+          "text": "to",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "text": "see",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "text": "you",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "text": "tonight,",
+          "start": 1.54,
+          "end": 1.9
+        },
+        {
+          "text": "Ermie,\"",
+          "start": 2.22,
+          "end": 2.88
+        },
+        {
+          "text": "Sara",
+          "start": 2.88,
+          "end": 2.98
+        },
+        {
+          "text": "said.",
+          "start": 2.98,
+          "end": 3.4
+        },
+        {
+          "text": "Ermengarde",
+          "start": 4.04,
+          "end": 4.42
+        },
+        {
+          "text": "hugged",
+          "start": 4.42,
+          "end": 4.72
+        },
+        {
+          "text": "herself",
+          "start": 4.72,
+          "end": 5.02
+        },
+        {
+          "text": "in",
+          "start": 5.02,
+          "end": 5.22
+        },
+        {
+          "text": "the",
+          "start": 5.22,
+          "end": 5.32
+        },
+        {
+          "text": "red",
+          "start": 5.32,
+          "end": 5.48
+        },
+        {
+          "text": "shawl.",
+          "start": 5.48,
+          "end": 6.02
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2915055751800537
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2befd8dd89e521bd12b3fc699d071e96888bb115a35a55ce670884734fd85d23",
+  "selected_reasons": []
+}

@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "dfb3010899e30c420d4f13c8f9383c6aa5fa4df9885343158086a5565e17d947",
+  "attempts": [
+    {
+      "asr_seconds": 0.38803595397621393,
+      "alignment_seconds": 0.00030371733009815216,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Citizen. Clubs, bills and partisans! Strike! Beat them down! Down with the Capulets! Down with the Montagues!",
+        "hotwords": "First, Citizen, Clubs, Strike, Beat, Capulets, Montagues"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Citizen. Clubs, bills and partisans! Strike! Beat them down! Down with the Capulets! Down with the Montagues!",
+          "start": 0.05,
+          "end": 7.11,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " Citizen.",
+              "start": 0.67,
+              "end": 1.13,
+              "probability": 0.351318359375
+            },
+            {
+              "text": " Clubs,",
+              "start": 1.87,
+              "end": 1.87,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " bills",
+              "start": 2.23,
+              "end": 2.27,
+              "probability": 0.46142578125
+            },
+            {
+              "text": " and",
+              "start": 2.27,
+              "end": 2.57,
+              "probability": 0.57275390625
+            },
+            {
+              "text": " partisans!",
+              "start": 2.57,
+              "end": 2.99,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Strike!",
+              "start": 3.69,
+              "end": 3.69,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " Beat",
+              "start": 4.13,
+              "end": 4.17,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " them",
+              "start": 4.17,
+              "end": 4.35,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " down!",
+              "start": 4.35,
+              "end": 4.67,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Down",
+              "start": 4.95,
+              "end": 5.05,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " with",
+              "start": 5.05,
+              "end": 5.19,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 5.19,
+              "end": 5.33,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Capulets!",
+              "start": 5.33,
+              "end": 5.91,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " Down",
+              "start": 6.25,
+              "end": 6.43,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " with",
+              "start": 6.43,
+              "end": 6.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 6.57,
+              "end": 6.69,
+              "probability": 0.958984375
+            },
+            {
+              "text": " Montagues!",
+              "start": 6.69,
+              "end": 7.11,
+              "probability": 0.847900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Citizen.",
+          "start": 0.67,
+          "end": 1.13
+        },
+        {
+          "raw": "Clubs,",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "raw": "bills",
+          "start": 2.23,
+          "end": 2.27
+        },
+        {
+          "raw": "and",
+          "start": 2.27,
+          "end": 2.57
+        },
+        {
+          "raw": "partisans!",
+          "start": 2.57,
+          "end": 2.99
+        },
+        {
+          "raw": "Strike!",
+          "start": 3.69,
+          "end": 3.69
+        },
+        {
+          "raw": "Beat",
+          "start": 4.13,
+          "end": 4.17
+        },
+        {
+          "raw": "them",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "raw": "down!",
+          "start": 4.35,
+          "end": 4.67
+        },
+        {
+          "raw": "Down",
+          "start": 4.95,
+          "end": 5.05
+        },
+        {
+          "raw": "with",
+          "start": 5.05,
+          "end": 5.19
+        },
+        {
+          "raw": "the",
+          "start": 5.19,
+          "end": 5.33
+        },
+        {
+          "raw": "Capulets!",
+          "start": 5.33,
+          "end": 5.91
+        },
+        {
+          "raw": "Down",
+          "start": 6.25,
+          "end": 6.43
+        },
+        {
+          "raw": "with",
+          "start": 6.43,
+          "end": 6.57
+        },
+        {
+          "raw": "the",
+          "start": 6.57,
+          "end": 6.69
+        },
+        {
+          "raw": "Montagues!",
+          "start": 6.69,
+          "end": 7.11
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Citizen.",
+        "Clubs,",
+        "bills",
+        "and",
+        "partisans!",
+        "Strike!",
+        "Beat",
+        "them",
+        "down!",
+        "Down",
+        "with",
+        "the",
+        "Capulets!",
+        "Down",
+        "with",
+        "the",
+        "Montagues!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Citizen.",
+          "start": 0.67,
+          "end": 1.13,
+          "key": "citizen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Clubs,",
+          "start": 1.87,
+          "end": 1.87,
+          "key": "clubs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bills",
+          "start": 2.23,
+          "end": 2.27,
+          "key": "bills",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.27,
+          "end": 2.57,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "partisans!",
+          "start": 2.57,
+          "end": 2.99,
+          "key": "partisans",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Strike!",
+          "start": 3.69,
+          "end": 3.69,
+          "key": "strike",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Beat",
+          "start": 4.13,
+          "end": 4.17,
+          "key": "beat",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.17,
+          "end": 4.35,
+          "key": "them",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "down!",
+          "start": 4.35,
+          "end": 4.67,
+          "key": "down",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Down",
+          "start": 4.95,
+          "end": 5.05,
+          "key": "down",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.05,
+          "end": 5.19,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.19,
+          "end": 5.33,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Capulets!",
+          "start": 5.33,
+          "end": 5.91,
+          "key": "capulets",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Down",
+          "start": 6.25,
+          "end": 6.43,
+          "key": "down",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.43,
+          "end": 6.57,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.57,
+          "end": 6.69,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Montagues!",
+          "start": 6.69,
+          "end": 7.11,
+          "key": "montagues",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Citizen.",
+          "start": 0.67,
+          "end": 1.13
+        },
+        {
+          "text": "Clubs,",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "text": "bills",
+          "start": 2.23,
+          "end": 2.27
+        },
+        {
+          "text": "and",
+          "start": 2.27,
+          "end": 2.57
+        },
+        {
+          "text": "partisans!",
+          "start": 2.57,
+          "end": 2.99
+        },
+        {
+          "text": "Strike!",
+          "start": 3.69,
+          "end": 3.69
+        },
+        {
+          "text": "Beat",
+          "start": 4.13,
+          "end": 4.17
+        },
+        {
+          "text": "them",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "text": "down!",
+          "start": 4.35,
+          "end": 4.67
+        },
+        {
+          "text": "Down",
+          "start": 4.95,
+          "end": 5.05
+        },
+        {
+          "text": "with",
+          "start": 5.05,
+          "end": 5.19
+        },
+        {
+          "text": "the",
+          "start": 5.19,
+          "end": 5.33
+        },
+        {
+          "text": "Capulets!",
+          "start": 5.33,
+          "end": 5.91
+        },
+        {
+          "text": "Down",
+          "start": 6.25,
+          "end": 6.43
+        },
+        {
+          "text": "with",
+          "start": 6.43,
+          "end": 6.57
+        },
+        {
+          "text": "the",
+          "start": 6.57,
+          "end": 6.69
+        },
+        {
+          "text": "Montagues!",
+          "start": 6.69,
+          "end": 7.11
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.388453665189445
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aa75641ce04aabc5ad37be877dc075d832d9f79963f74cb1f63fcb1fdcb1037c",
+  "selected_reasons": []
+}

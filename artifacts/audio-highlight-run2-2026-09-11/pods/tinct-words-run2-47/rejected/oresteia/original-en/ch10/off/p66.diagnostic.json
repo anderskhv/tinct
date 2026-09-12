@@ -1,0 +1,498 @@
+{
+  "complete": true,
+  "signature": "f21cb9aea0f99f9d56f13adbc7d902eae456bfacab23f93b2bb872a33c38fd61",
+  "attempts": [
+    {
+      "asr_seconds": 0.20291117898887023,
+      "alignment_seconds": 0.0005897129885852337,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Chorus, fair and batten on pollution of the right, while tis thy turn.",
+          "start": 0.0,
+          "end": 3.98,
+          "words": [
+            {
+              "text": " Chorus,",
+              "start": 0.0,
+              "end": 0.8,
+              "probability": 0.80078125
+            },
+            {
+              "text": " fair",
+              "start": 1.24,
+              "end": 1.5,
+              "probability": 0.45458984375
+            },
+            {
+              "text": " and",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " batten",
+              "start": 1.7,
+              "end": 2.0,
+              "probability": 0.6412353515625
+            },
+            {
+              "text": " on",
+              "start": 2.0,
+              "end": 2.12,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " pollution",
+              "start": 2.12,
+              "end": 2.44,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " of",
+              "start": 2.44,
+              "end": 2.62,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 2.62,
+              "end": 2.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " right,",
+              "start": 2.72,
+              "end": 2.98,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " while",
+              "start": 3.18,
+              "end": 3.24,
+              "probability": 0.66650390625
+            },
+            {
+              "text": " tis",
+              "start": 3.24,
+              "end": 3.48,
+              "probability": 0.49700927734375
+            },
+            {
+              "text": " thy",
+              "start": 3.48,
+              "end": 3.66,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " turn.",
+              "start": 3.66,
+              "end": 3.98,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chorus,",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "raw": "fair",
+          "start": 1.24,
+          "end": 1.5
+        },
+        {
+          "raw": "and",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "batten",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "raw": "on",
+          "start": 2.0,
+          "end": 2.12
+        },
+        {
+          "raw": "pollution",
+          "start": 2.12,
+          "end": 2.44
+        },
+        {
+          "raw": "of",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "raw": "the",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "raw": "right,",
+          "start": 2.72,
+          "end": 2.98
+        },
+        {
+          "raw": "while",
+          "start": 3.18,
+          "end": 3.24
+        },
+        {
+          "raw": "tis",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "raw": "thy",
+          "start": 3.48,
+          "end": 3.66
+        },
+        {
+          "raw": "turn.",
+          "start": 3.66,
+          "end": 3.98
+        }
+      ],
+      "expected_tokens": [
+        "Chorus.",
+        "Fare",
+        "and",
+        "batten",
+        "on",
+        "pollution",
+        "of",
+        "the",
+        "right,",
+        "while",
+        "'tis",
+        "thy",
+        "turn."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          13,
+          2,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chorus,",
+          "start": 0.0,
+          "end": 0.8,
+          "key": "chorus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 1.24,
+          "end": 1.5,
+          "key": "fair",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.5,
+          "end": 1.7,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "batten",
+          "start": 1.7,
+          "end": 2.0,
+          "key": "batten",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.0,
+          "end": 2.12,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pollution",
+          "start": 2.12,
+          "end": 2.44,
+          "key": "pollution",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.44,
+          "end": 2.62,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.62,
+          "end": 2.72,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 2.72,
+          "end": 2.98,
+          "key": "right",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 3.18,
+          "end": 3.24,
+          "key": "while",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "tis",
+          "start": 3.24,
+          "end": 3.48,
+          "key": "tis",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 3.48,
+          "end": 3.66,
+          "key": "thy",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "turn.",
+          "start": 3.66,
+          "end": 3.98,
+          "key": "turn",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Chorus.",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "text": "Fare",
+          "start": 0.8,
+          "end": 1.15
+        },
+        {
+          "text": "and",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "text": "batten",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "text": "on",
+          "start": 2.0,
+          "end": 2.12
+        },
+        {
+          "text": "pollution",
+          "start": 2.12,
+          "end": 2.44
+        },
+        {
+          "text": "of",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "text": "the",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "text": "right,",
+          "start": 2.72,
+          "end": 2.98
+        },
+        {
+          "text": "while",
+          "start": 3.18,
+          "end": 3.24
+        },
+        {
+          "text": "'tis",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "text": "thy",
+          "start": 3.48,
+          "end": 3.66
+        },
+        {
+          "text": "turn.",
+          "start": 3.66,
+          "end": 3.98
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.20373515898245387
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ae1e66f0d5021c6595ea2a1edf4bb103e863b5e76daac927c1bf0153c323a91f",
+  "selected_reasons": []
+}

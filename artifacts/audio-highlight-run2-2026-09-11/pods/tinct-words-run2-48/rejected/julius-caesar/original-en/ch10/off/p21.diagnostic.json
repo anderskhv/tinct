@@ -1,0 +1,473 @@
+{
+  "complete": true,
+  "signature": "515692a8e807be0332d9abb160a463ccac2ea43d1d5b949dacf5b3b90638fa6d",
+  "attempts": [
+    {
+      "asr_seconds": 0.20282346848398447,
+      "alignment_seconds": 0.0004602773115038872,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Senna, I am Senna the poet. I am Senna the poet",
+          "start": 0.08,
+          "end": 2.76,
+          "words": [
+            {
+              "text": " Senna,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.468505859375
+            },
+            {
+              "text": " I",
+              "start": 0.92,
+              "end": 1.12,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " am",
+              "start": 1.12,
+              "end": 1.2,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " Senna",
+              "start": 1.2,
+              "end": 1.4,
+              "probability": 0.906494140625
+            },
+            {
+              "text": " the",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " poet.",
+              "start": 1.54,
+              "end": 1.78,
+              "probability": 0.53271484375
+            },
+            {
+              "text": " I",
+              "start": 1.96,
+              "end": 2.02,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " am",
+              "start": 2.02,
+              "end": 2.1,
+              "probability": 0.962890625
+            },
+            {
+              "text": " Senna",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.912353515625
+            },
+            {
+              "text": " the",
+              "start": 2.3,
+              "end": 2.44,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " poet",
+              "start": 2.44,
+              "end": 2.76,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Senna,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "I",
+          "start": 0.92,
+          "end": 1.12
+        },
+        {
+          "raw": "am",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "raw": "Senna",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "raw": "the",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "raw": "poet.",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "raw": "I",
+          "start": 1.96,
+          "end": 2.02
+        },
+        {
+          "raw": "am",
+          "start": 2.02,
+          "end": 2.1
+        },
+        {
+          "raw": "Senna",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "the",
+          "start": 2.3,
+          "end": 2.44
+        },
+        {
+          "raw": "poet",
+          "start": 2.44,
+          "end": 2.76
+        }
+      ],
+      "expected_tokens": [
+        "Cinna.",
+        "I",
+        "am",
+        "Cinna",
+        "the",
+        "poet,",
+        "I",
+        "am",
+        "Cinna",
+        "the",
+        "poet."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          11,
+          9,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Senna,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "senna",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.92,
+          "end": 1.12,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.12,
+          "end": 1.2,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Senna",
+          "start": 1.2,
+          "end": 1.4,
+          "key": "senna",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.4,
+          "end": 1.54,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "poet.",
+          "start": 1.54,
+          "end": 1.78,
+          "key": "poet",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.96,
+          "end": 2.02,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.02,
+          "end": 2.1,
+          "key": "am",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Senna",
+          "start": 2.1,
+          "end": 2.3,
+          "key": "senna",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.3,
+          "end": 2.44,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "poet",
+          "start": 2.44,
+          "end": 2.76,
+          "key": "poet",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cinna.",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "I",
+          "start": 0.92,
+          "end": 1.12
+        },
+        {
+          "text": "am",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "text": "Cinna",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "text": "the",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "text": "poet,",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "text": "I",
+          "start": 1.96,
+          "end": 2.02
+        },
+        {
+          "text": "am",
+          "start": 2.02,
+          "end": 2.1
+        },
+        {
+          "text": "Cinna",
+          "start": 2.1,
+          "end": 2.2
+        },
+        {
+          "text": "the",
+          "start": 2.3,
+          "end": 2.44
+        },
+        {
+          "text": "poet.",
+          "start": 2.44,
+          "end": 2.76
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 8
+      },
+      "match_ratio": 0.7272727272727273,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20343896187841892
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "553cb64cfffdb8192e47763456120941b0a600ce41a69fc4bed17ee655de524d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,407 @@
+{
+  "complete": true,
+  "signature": "e2a83a00774e72c768f6baac625be7014f6eddf04b84ea6b1a5acb6ec94a3bf6",
+  "attempts": [
+    {
+      "asr_seconds": 0.21493277698755264,
+      "alignment_seconds": 0.0005609653890132904,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Good God, broken an awful whale from her bosom.",
+          "start": 0.02,
+          "end": 3.26,
+          "words": [
+            {
+              "text": " Good",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.7607421875
+            },
+            {
+              "text": " God,",
+              "start": 0.56,
+              "end": 0.96,
+              "probability": 0.71533203125
+            },
+            {
+              "text": " broken",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " an",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.5419921875
+            },
+            {
+              "text": " awful",
+              "start": 1.9,
+              "end": 2.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " whale",
+              "start": 2.22,
+              "end": 2.5,
+              "probability": 0.80078125
+            },
+            {
+              "text": " from",
+              "start": 2.5,
+              "end": 2.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 2.76,
+              "end": 2.88,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " bosom.",
+              "start": 2.88,
+              "end": 3.26,
+              "probability": 0.998779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "God,",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "raw": "broken",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "an",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "awful",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "raw": "whale",
+          "start": 2.22,
+          "end": 2.5
+        },
+        {
+          "raw": "from",
+          "start": 2.5,
+          "end": 2.76
+        },
+        {
+          "raw": "her",
+          "start": 2.76,
+          "end": 2.88
+        },
+        {
+          "raw": "bosom.",
+          "start": 2.88,
+          "end": 3.26
+        }
+      ],
+      "expected_tokens": [
+        "\"Good",
+        "God!\"",
+        "broke",
+        "in",
+        "an",
+        "awful",
+        "wail",
+        "from",
+        "her",
+        "bosom."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "equal",
+          4,
+          6,
+          3,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          6
+        ],
+        [
+          "equal",
+          7,
+          10,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Good",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "good",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "God,",
+          "start": 0.56,
+          "end": 0.96,
+          "key": "god",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "broken",
+          "start": 1.5,
+          "end": 1.7,
+          "key": "broken",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "an",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "awful",
+          "start": 1.9,
+          "end": 2.22,
+          "key": "awful",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whale",
+          "start": 2.22,
+          "end": 2.5,
+          "key": "whale",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.5,
+          "end": 2.76,
+          "key": "from",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.76,
+          "end": 2.88,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bosom.",
+          "start": 2.88,
+          "end": 3.26,
+          "key": "bosom",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Good",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "God!\"",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "text": "broke",
+          "start": 0.96,
+          "end": 1.33
+        },
+        {
+          "text": "in",
+          "start": 1.33,
+          "end": 1.515
+        },
+        {
+          "text": "an",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "awful",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "text": "wail",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "text": "from",
+          "start": 2.5,
+          "end": 2.76
+        },
+        {
+          "text": "her",
+          "start": 2.76,
+          "end": 2.88
+        },
+        {
+          "text": "bosom.",
+          "start": 2.88,
+          "end": 3.26
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2156745083630085
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "64d1238ceed07c0218640e03ce2ceb377a9f43bc0ab479130b1817c78212c573",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

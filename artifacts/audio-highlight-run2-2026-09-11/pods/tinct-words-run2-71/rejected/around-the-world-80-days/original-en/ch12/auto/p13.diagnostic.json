@@ -1,0 +1,1797 @@
+{
+  "complete": true,
+  "signature": "f35ae081e7eae709f8a44629503600e879dc20a9eebda2065748b64180131d97",
+  "attempts": [
+    {
+      "asr_seconds": 0.6019587041810155,
+      "alignment_seconds": 0.0009205248206853867,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The murmur soon became more distinct; it now seemed like a distant concert of human voices accompanied by brass instruments. Passepartout was all eyes and ears. Mr. Fogg patiently waited without a word. The Parsee jumped to the ground, fastened the elephant to a tree, and plunged into the thicket. He soon returned, saying:",
+        "hotwords": "Passepartout, Mr, Fogg, Parsee, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The murmur soon became more distinct. It now seemed like a distant concert of human voices accompanied by brass instruments.",
+          "start": 0.02,
+          "end": 7.36,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.91796875
+            },
+            {
+              "text": " murmur",
+              "start": 0.52,
+              "end": 0.8,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " soon",
+              "start": 0.8,
+              "end": 1.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " became",
+              "start": 1.12,
+              "end": 1.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " more",
+              "start": 1.52,
+              "end": 1.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " distinct.",
+              "start": 1.82,
+              "end": 2.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " It",
+              "start": 2.8,
+              "end": 2.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " now",
+              "start": 2.9,
+              "end": 3.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " seemed",
+              "start": 3.1,
+              "end": 3.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " like",
+              "start": 3.4,
+              "end": 3.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 3.64,
+              "end": 3.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " distant",
+              "start": 3.76,
+              "end": 4.06,
+              "probability": 0.994140625
+            },
+            {
+              "text": " concert",
+              "start": 4.06,
+              "end": 4.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 4.6,
+              "end": 4.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " human",
+              "start": 4.78,
+              "end": 5.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " voices",
+              "start": 5.08,
+              "end": 5.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " accompanied",
+              "start": 5.58,
+              "end": 6.04,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " by",
+              "start": 6.04,
+              "end": 6.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " brass",
+              "start": 6.48,
+              "end": 6.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " instruments.",
+              "start": 6.8,
+              "end": 7.36,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Passepartout was all eyes and ears. Mr. Fogg patiently waited without a word. The Parsee jumped to the ground, fastened the elephant to a tree, and plunged into the thicket. He soon returned, saying.",
+          "start": 8.28,
+          "end": 20.78,
+          "words": [
+            {
+              "text": " Passepartout",
+              "start": 8.28,
+              "end": 8.8,
+              "probability": 0.4529104232788086
+            },
+            {
+              "text": " was",
+              "start": 8.8,
+              "end": 8.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " all",
+              "start": 8.98,
+              "end": 9.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " eyes",
+              "start": 9.28,
+              "end": 9.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 9.66,
+              "end": 9.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ears.",
+              "start": 9.9,
+              "end": 10.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Mr.",
+              "start": 11.18,
+              "end": 11.18,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Fogg",
+              "start": 11.44,
+              "end": 11.54,
+              "probability": 0.881591796875
+            },
+            {
+              "text": " patiently",
+              "start": 11.54,
+              "end": 12.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " waited",
+              "start": 12.0,
+              "end": 12.38,
+              "probability": 0.9921875
+            },
+            {
+              "text": " without",
+              "start": 12.38,
+              "end": 12.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 12.7,
+              "end": 12.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " word.",
+              "start": 12.88,
+              "end": 13.06,
+              "probability": 1.0
+            },
+            {
+              "text": " The",
+              "start": 13.72,
+              "end": 13.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Parsee",
+              "start": 13.86,
+              "end": 14.28,
+              "probability": 0.3748931884765625
+            },
+            {
+              "text": " jumped",
+              "start": 14.28,
+              "end": 14.56,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " to",
+              "start": 14.56,
+              "end": 14.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 14.78,
+              "end": 14.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ground,",
+              "start": 14.88,
+              "end": 15.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " fastened",
+              "start": 15.76,
+              "end": 16.06,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 16.06,
+              "end": 16.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " elephant",
+              "start": 16.2,
+              "end": 16.5,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " to",
+              "start": 16.5,
+              "end": 16.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 16.74,
+              "end": 16.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " tree,",
+              "start": 16.86,
+              "end": 17.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 17.38,
+              "end": 17.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " plunged",
+              "start": 17.52,
+              "end": 17.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " into",
+              "start": 17.82,
+              "end": 18.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 18.14,
+              "end": 18.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thicket.",
+              "start": 18.3,
+              "end": 18.64,
+              "probability": 0.990966796875
+            },
+            {
+              "text": " He",
+              "start": 19.18,
+              "end": 19.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " soon",
+              "start": 19.34,
+              "end": 19.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " returned,",
+              "start": 19.58,
+              "end": 20.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " saying.",
+              "start": 20.42,
+              "end": 20.78,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "murmur",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "raw": "soon",
+          "start": 0.8,
+          "end": 1.12
+        },
+        {
+          "raw": "became",
+          "start": 1.12,
+          "end": 1.52
+        },
+        {
+          "raw": "more",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "raw": "distinct.",
+          "start": 1.82,
+          "end": 2.26
+        },
+        {
+          "raw": "It",
+          "start": 2.8,
+          "end": 2.9
+        },
+        {
+          "raw": "now",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "raw": "seemed",
+          "start": 3.1,
+          "end": 3.4
+        },
+        {
+          "raw": "like",
+          "start": 3.4,
+          "end": 3.64
+        },
+        {
+          "raw": "a",
+          "start": 3.64,
+          "end": 3.76
+        },
+        {
+          "raw": "distant",
+          "start": 3.76,
+          "end": 4.06
+        },
+        {
+          "raw": "concert",
+          "start": 4.06,
+          "end": 4.6
+        },
+        {
+          "raw": "of",
+          "start": 4.6,
+          "end": 4.78
+        },
+        {
+          "raw": "human",
+          "start": 4.78,
+          "end": 5.08
+        },
+        {
+          "raw": "voices",
+          "start": 5.08,
+          "end": 5.58
+        },
+        {
+          "raw": "accompanied",
+          "start": 5.58,
+          "end": 6.04
+        },
+        {
+          "raw": "by",
+          "start": 6.04,
+          "end": 6.48
+        },
+        {
+          "raw": "brass",
+          "start": 6.48,
+          "end": 6.8
+        },
+        {
+          "raw": "instruments.",
+          "start": 6.8,
+          "end": 7.36
+        },
+        {
+          "raw": "Passepartout",
+          "start": 8.28,
+          "end": 8.8
+        },
+        {
+          "raw": "was",
+          "start": 8.8,
+          "end": 8.98
+        },
+        {
+          "raw": "all",
+          "start": 8.98,
+          "end": 9.28
+        },
+        {
+          "raw": "eyes",
+          "start": 9.28,
+          "end": 9.66
+        },
+        {
+          "raw": "and",
+          "start": 9.66,
+          "end": 9.9
+        },
+        {
+          "raw": "ears.",
+          "start": 9.9,
+          "end": 10.2
+        },
+        {
+          "raw": "Mr.",
+          "start": 11.18,
+          "end": 11.18
+        },
+        {
+          "raw": "Fogg",
+          "start": 11.44,
+          "end": 11.54
+        },
+        {
+          "raw": "patiently",
+          "start": 11.54,
+          "end": 12.0
+        },
+        {
+          "raw": "waited",
+          "start": 12.0,
+          "end": 12.38
+        },
+        {
+          "raw": "without",
+          "start": 12.38,
+          "end": 12.7
+        },
+        {
+          "raw": "a",
+          "start": 12.7,
+          "end": 12.88
+        },
+        {
+          "raw": "word.",
+          "start": 12.88,
+          "end": 13.06
+        },
+        {
+          "raw": "The",
+          "start": 13.72,
+          "end": 13.86
+        },
+        {
+          "raw": "Parsee",
+          "start": 13.86,
+          "end": 14.28
+        },
+        {
+          "raw": "jumped",
+          "start": 14.28,
+          "end": 14.56
+        },
+        {
+          "raw": "to",
+          "start": 14.56,
+          "end": 14.78
+        },
+        {
+          "raw": "the",
+          "start": 14.78,
+          "end": 14.88
+        },
+        {
+          "raw": "ground,",
+          "start": 14.88,
+          "end": 15.26
+        },
+        {
+          "raw": "fastened",
+          "start": 15.76,
+          "end": 16.06
+        },
+        {
+          "raw": "the",
+          "start": 16.06,
+          "end": 16.2
+        },
+        {
+          "raw": "elephant",
+          "start": 16.2,
+          "end": 16.5
+        },
+        {
+          "raw": "to",
+          "start": 16.5,
+          "end": 16.74
+        },
+        {
+          "raw": "a",
+          "start": 16.74,
+          "end": 16.86
+        },
+        {
+          "raw": "tree,",
+          "start": 16.86,
+          "end": 17.16
+        },
+        {
+          "raw": "and",
+          "start": 17.38,
+          "end": 17.52
+        },
+        {
+          "raw": "plunged",
+          "start": 17.52,
+          "end": 17.82
+        },
+        {
+          "raw": "into",
+          "start": 17.82,
+          "end": 18.14
+        },
+        {
+          "raw": "the",
+          "start": 18.14,
+          "end": 18.3
+        },
+        {
+          "raw": "thicket.",
+          "start": 18.3,
+          "end": 18.64
+        },
+        {
+          "raw": "He",
+          "start": 19.18,
+          "end": 19.34
+        },
+        {
+          "raw": "soon",
+          "start": 19.34,
+          "end": 19.58
+        },
+        {
+          "raw": "returned,",
+          "start": 19.58,
+          "end": 20.2
+        },
+        {
+          "raw": "saying.",
+          "start": 20.42,
+          "end": 20.78
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "murmur",
+        "soon",
+        "became",
+        "more",
+        "distinct;",
+        "it",
+        "now",
+        "seemed",
+        "like",
+        "a",
+        "distant",
+        "concert",
+        "of",
+        "human",
+        "voices",
+        "accompanied",
+        "by",
+        "brass",
+        "instruments.",
+        "Passepartout",
+        "was",
+        "all",
+        "eyes",
+        "and",
+        "ears.",
+        "Mr.",
+        "Fogg",
+        "patiently",
+        "waited",
+        "without",
+        "a",
+        "word.",
+        "The",
+        "Parsee",
+        "jumped",
+        "to",
+        "the",
+        "ground,",
+        "fastened",
+        "the",
+        "elephant",
+        "to",
+        "a",
+        "tree,",
+        "and",
+        "plunged",
+        "into",
+        "the",
+        "thicket.",
+        "He",
+        "soon",
+        "returned,",
+        "saying:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          54,
+          0,
+          54
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "murmur",
+          "start": 0.52,
+          "end": 0.8,
+          "key": "murmur",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "soon",
+          "start": 0.8,
+          "end": 1.12,
+          "key": "soon",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "became",
+          "start": 1.12,
+          "end": 1.52,
+          "key": "became",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.52,
+          "end": 1.82,
+          "key": "more",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "distinct.",
+          "start": 1.82,
+          "end": 2.26,
+          "key": "distinct",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 2.8,
+          "end": 2.9,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 2.9,
+          "end": 3.1,
+          "key": "now",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 3.1,
+          "end": 3.4,
+          "key": "seemed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.4,
+          "end": 3.64,
+          "key": "like",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.64,
+          "end": 3.76,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "distant",
+          "start": 3.76,
+          "end": 4.06,
+          "key": "distant",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "concert",
+          "start": 4.06,
+          "end": 4.6,
+          "key": "concert",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.6,
+          "end": 4.78,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "human",
+          "start": 4.78,
+          "end": 5.08,
+          "key": "human",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "voices",
+          "start": 5.08,
+          "end": 5.58,
+          "key": "voices",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "accompanied",
+          "start": 5.58,
+          "end": 6.04,
+          "key": "accompanied",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 6.04,
+          "end": 6.48,
+          "key": "by",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "brass",
+          "start": 6.48,
+          "end": 6.8,
+          "key": "brass",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "instruments.",
+          "start": 6.8,
+          "end": 7.36,
+          "key": "instruments",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Passepartout",
+          "start": 8.28,
+          "end": 8.8,
+          "key": "passepartout",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 8.8,
+          "end": 8.98,
+          "key": "was",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 8.98,
+          "end": 9.28,
+          "key": "all",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 9.28,
+          "end": 9.66,
+          "key": "eyes",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.66,
+          "end": 9.9,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "ears.",
+          "start": 9.9,
+          "end": 10.2,
+          "key": "ears",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 11.18,
+          "end": 11.18,
+          "key": "mr",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Fogg",
+          "start": 11.44,
+          "end": 11.54,
+          "key": "fogg",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "patiently",
+          "start": 11.54,
+          "end": 12.0,
+          "key": "patiently",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "waited",
+          "start": 12.0,
+          "end": 12.38,
+          "key": "waited",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 12.38,
+          "end": 12.7,
+          "key": "without",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.7,
+          "end": 12.88,
+          "key": "a",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "word.",
+          "start": 12.88,
+          "end": 13.06,
+          "key": "word",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 13.72,
+          "end": 13.86,
+          "key": "the",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Parsee",
+          "start": 13.86,
+          "end": 14.28,
+          "key": "parsee",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "jumped",
+          "start": 14.28,
+          "end": 14.56,
+          "key": "jumped",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.56,
+          "end": 14.78,
+          "key": "to",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.78,
+          "end": 14.88,
+          "key": "the",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "ground,",
+          "start": 14.88,
+          "end": 15.26,
+          "key": "ground",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "fastened",
+          "start": 15.76,
+          "end": 16.06,
+          "key": "fastened",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.06,
+          "end": 16.2,
+          "key": "the",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "elephant",
+          "start": 16.2,
+          "end": 16.5,
+          "key": "elephant",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.5,
+          "end": 16.74,
+          "key": "to",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.74,
+          "end": 16.86,
+          "key": "a",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "tree,",
+          "start": 16.86,
+          "end": 17.16,
+          "key": "tree",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.38,
+          "end": 17.52,
+          "key": "and",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "plunged",
+          "start": 17.52,
+          "end": 17.82,
+          "key": "plunged",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 17.82,
+          "end": 18.14,
+          "key": "into",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.14,
+          "end": 18.3,
+          "key": "the",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "thicket.",
+          "start": 18.3,
+          "end": 18.64,
+          "key": "thicket",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 19.18,
+          "end": 19.34,
+          "key": "he",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "soon",
+          "start": 19.34,
+          "end": 19.58,
+          "key": "soon",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "returned,",
+          "start": 19.58,
+          "end": 20.2,
+          "key": "returned",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "saying.",
+          "start": 20.42,
+          "end": 20.78,
+          "key": "saying",
+          "pieces": [
+            53
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "murmur",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "text": "soon",
+          "start": 0.8,
+          "end": 1.12
+        },
+        {
+          "text": "became",
+          "start": 1.12,
+          "end": 1.52
+        },
+        {
+          "text": "more",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "text": "distinct;",
+          "start": 1.82,
+          "end": 2.26
+        },
+        {
+          "text": "it",
+          "start": 2.8,
+          "end": 2.9
+        },
+        {
+          "text": "now",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "text": "seemed",
+          "start": 3.1,
+          "end": 3.4
+        },
+        {
+          "text": "like",
+          "start": 3.4,
+          "end": 3.64
+        },
+        {
+          "text": "a",
+          "start": 3.64,
+          "end": 3.76
+        },
+        {
+          "text": "distant",
+          "start": 3.76,
+          "end": 4.06
+        },
+        {
+          "text": "concert",
+          "start": 4.06,
+          "end": 4.6
+        },
+        {
+          "text": "of",
+          "start": 4.6,
+          "end": 4.78
+        },
+        {
+          "text": "human",
+          "start": 4.78,
+          "end": 5.08
+        },
+        {
+          "text": "voices",
+          "start": 5.08,
+          "end": 5.58
+        },
+        {
+          "text": "accompanied",
+          "start": 5.58,
+          "end": 6.04
+        },
+        {
+          "text": "by",
+          "start": 6.04,
+          "end": 6.48
+        },
+        {
+          "text": "brass",
+          "start": 6.48,
+          "end": 6.8
+        },
+        {
+          "text": "instruments.",
+          "start": 6.8,
+          "end": 7.36
+        },
+        {
+          "text": "Passepartout",
+          "start": 8.28,
+          "end": 8.8
+        },
+        {
+          "text": "was",
+          "start": 8.8,
+          "end": 8.98
+        },
+        {
+          "text": "all",
+          "start": 8.98,
+          "end": 9.28
+        },
+        {
+          "text": "eyes",
+          "start": 9.28,
+          "end": 9.66
+        },
+        {
+          "text": "and",
+          "start": 9.66,
+          "end": 9.9
+        },
+        {
+          "text": "ears.",
+          "start": 9.9,
+          "end": 10.2
+        },
+        {
+          "text": "Mr.",
+          "start": 11.18,
+          "end": 11.18
+        },
+        {
+          "text": "Fogg",
+          "start": 11.44,
+          "end": 11.54
+        },
+        {
+          "text": "patiently",
+          "start": 11.54,
+          "end": 12.0
+        },
+        {
+          "text": "waited",
+          "start": 12.0,
+          "end": 12.38
+        },
+        {
+          "text": "without",
+          "start": 12.38,
+          "end": 12.7
+        },
+        {
+          "text": "a",
+          "start": 12.7,
+          "end": 12.88
+        },
+        {
+          "text": "word.",
+          "start": 12.88,
+          "end": 13.06
+        },
+        {
+          "text": "The",
+          "start": 13.72,
+          "end": 13.86
+        },
+        {
+          "text": "Parsee",
+          "start": 13.86,
+          "end": 14.28
+        },
+        {
+          "text": "jumped",
+          "start": 14.28,
+          "end": 14.56
+        },
+        {
+          "text": "to",
+          "start": 14.56,
+          "end": 14.78
+        },
+        {
+          "text": "the",
+          "start": 14.78,
+          "end": 14.88
+        },
+        {
+          "text": "ground,",
+          "start": 14.88,
+          "end": 15.26
+        },
+        {
+          "text": "fastened",
+          "start": 15.76,
+          "end": 16.06
+        },
+        {
+          "text": "the",
+          "start": 16.06,
+          "end": 16.2
+        },
+        {
+          "text": "elephant",
+          "start": 16.2,
+          "end": 16.5
+        },
+        {
+          "text": "to",
+          "start": 16.5,
+          "end": 16.74
+        },
+        {
+          "text": "a",
+          "start": 16.74,
+          "end": 16.86
+        },
+        {
+          "text": "tree,",
+          "start": 16.86,
+          "end": 17.16
+        },
+        {
+          "text": "and",
+          "start": 17.38,
+          "end": 17.52
+        },
+        {
+          "text": "plunged",
+          "start": 17.52,
+          "end": 17.82
+        },
+        {
+          "text": "into",
+          "start": 17.82,
+          "end": 18.14
+        },
+        {
+          "text": "the",
+          "start": 18.14,
+          "end": 18.3
+        },
+        {
+          "text": "thicket.",
+          "start": 18.3,
+          "end": 18.64
+        },
+        {
+          "text": "He",
+          "start": 19.18,
+          "end": 19.34
+        },
+        {
+          "text": "soon",
+          "start": 19.34,
+          "end": 19.58
+        },
+        {
+          "text": "returned,",
+          "start": 19.58,
+          "end": 20.2
+        },
+        {
+          "text": "saying:",
+          "start": 20.42,
+          "end": 20.78
+        }
+      ],
+      "stats": {
+        "expected_words": 54,
+        "heard_words": 54,
+        "matched_words": 54
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6033064443618059
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8f3853718e68b46b766a478b3f75f3d6ca4487deb152ab189f943b85e3f80ad0",
+  "selected_reasons": []
+}

@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "a4538eb2d457b0c807047127866947bfce7b73d3aade802c020b251d17b61a55",
+  "attempts": [
+    {
+      "asr_seconds": 0.13485220400616527,
+      "alignment_seconds": 0.00016227096784859896,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "My kneecap is hurting me. Ow. That's better.",
+        "hotwords": "My, Ow, That's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " My kneecap is hurting me. Ow. That's better.",
+          "start": 0.05,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.92578125
+            },
+            {
+              "text": " kneecap",
+              "start": 0.57,
+              "end": 0.95,
+              "probability": 0.9453125
+            },
+            {
+              "text": " is",
+              "start": 0.95,
+              "end": 1.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hurting",
+              "start": 1.09,
+              "end": 1.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me.",
+              "start": 1.33,
+              "end": 1.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Ow.",
+              "start": 2.01,
+              "end": 2.11,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " That's",
+              "start": 2.25,
+              "end": 2.47,
+              "probability": 0.986572265625
+            },
+            {
+              "text": " better.",
+              "start": 2.47,
+              "end": 2.75,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "kneecap",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "raw": "is",
+          "start": 0.95,
+          "end": 1.09
+        },
+        {
+          "raw": "hurting",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "raw": "me.",
+          "start": 1.33,
+          "end": 1.73
+        },
+        {
+          "raw": "Ow.",
+          "start": 2.01,
+          "end": 2.11
+        },
+        {
+          "raw": "That's",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "raw": "better.",
+          "start": 2.47,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "My",
+        "kneecap",
+        "is",
+        "hurting",
+        "me.",
+        "Ow.",
+        "That's",
+        "better."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "kneecap",
+          "start": 0.57,
+          "end": 0.95,
+          "key": "kneecap",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.95,
+          "end": 1.09,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hurting",
+          "start": 1.09,
+          "end": 1.33,
+          "key": "hurting",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 1.33,
+          "end": 1.73,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Ow.",
+          "start": 2.01,
+          "end": 2.11,
+          "key": "ow",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 2.25,
+          "end": 2.47,
+          "key": "thats",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "better.",
+          "start": 2.47,
+          "end": 2.75,
+          "key": "better",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "My",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "kneecap",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "text": "is",
+          "start": 0.95,
+          "end": 1.09
+        },
+        {
+          "text": "hurting",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "text": "me.",
+          "start": 1.33,
+          "end": 1.73
+        },
+        {
+          "text": "Ow.",
+          "start": 2.01,
+          "end": 2.11
+        },
+        {
+          "text": "That's",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "text": "better.",
+          "start": 2.47,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13508319499669597
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "106300dbaf7dd36323369003f7621ebf388e824f1eb2a5d9c7febeed13b83715",
+  "selected_reasons": []
+}

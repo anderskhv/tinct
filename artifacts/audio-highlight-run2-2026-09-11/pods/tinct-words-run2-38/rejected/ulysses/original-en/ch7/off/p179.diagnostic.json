@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "278797884b2cfb9cb56190547730cc3ed31f3701d9d27be7f4c1eb567008cc7e",
+  "attempts": [
+    {
+      "asr_seconds": 0.13061614095931873,
+      "alignment_seconds": 0.00023806100944057107,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A perfect critic, the professor said, long, short and long.",
+          "start": 0.02,
+          "end": 3.84,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.6337890625
+            },
+            {
+              "text": " perfect",
+              "start": 0.5,
+              "end": 0.86,
+              "probability": 0.978515625
+            },
+            {
+              "text": " critic,",
+              "start": 0.86,
+              "end": 1.3,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " the",
+              "start": 1.58,
+              "end": 1.68,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " professor",
+              "start": 1.68,
+              "end": 1.96,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " said,",
+              "start": 1.96,
+              "end": 2.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " long,",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " short",
+              "start": 3.18,
+              "end": 3.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 3.36,
+              "end": 3.56,
+              "probability": 0.5302734375
+            },
+            {
+              "text": " long.",
+              "start": 3.56,
+              "end": 3.84,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "perfect",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "raw": "critic,",
+          "start": 0.86,
+          "end": 1.3
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "raw": "professor",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "raw": "said,",
+          "start": 1.96,
+          "end": 2.36
+        },
+        {
+          "raw": "long,",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "short",
+          "start": 3.18,
+          "end": 3.36
+        },
+        {
+          "raw": "and",
+          "start": 3.36,
+          "end": 3.56
+        },
+        {
+          "raw": "long.",
+          "start": 3.56,
+          "end": 3.84
+        }
+      ],
+      "expected_tokens": [
+        "—A",
+        "perfect",
+        "cretic!",
+        "the",
+        "professor",
+        "said.",
+        "Long,",
+        "short",
+        "and",
+        "long."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          10,
+          3,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "perfect",
+          "start": 0.5,
+          "end": 0.86,
+          "key": "perfect",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "critic,",
+          "start": 0.86,
+          "end": 1.3,
+          "key": "critic",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.68,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "professor",
+          "start": 1.68,
+          "end": 1.96,
+          "key": "professor",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.96,
+          "end": 2.36,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "long,",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "long",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "short",
+          "start": 3.18,
+          "end": 3.36,
+          "key": "short",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.36,
+          "end": 3.56,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "long.",
+          "start": 3.56,
+          "end": 3.84,
+          "key": "long",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "perfect",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "text": "cretic!",
+          "start": 0.86,
+          "end": 1.22
+        },
+        {
+          "text": "the",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "text": "professor",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "text": "said.",
+          "start": 1.96,
+          "end": 2.36
+        },
+        {
+          "text": "Long,",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "short",
+          "start": 3.18,
+          "end": 3.36
+        },
+        {
+          "text": "and",
+          "start": 3.36,
+          "end": 3.56
+        },
+        {
+          "text": "long.",
+          "start": 3.56,
+          "end": 3.84
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.13093906198628247
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d7d9235673be4e5526189df93553c2ce9eec6606b64ee9001302c5bf7bd6fd9b",
+  "selected_reasons": []
+}

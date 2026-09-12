@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "c2dde8255204818a78d3bbdde1cea59d47857acf7115f6addfb489dc59427493",
+  "attempts": [
+    {
+      "asr_seconds": 0.19453859515488148,
+      "alignment_seconds": 0.0006091687828302383,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second Lord, here comes the King.",
+          "start": 0.08,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " Lord,",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " here",
+              "start": 1.48,
+              "end": 1.54,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " comes",
+              "start": 1.54,
+              "end": 1.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.8,
+              "end": 1.98,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " King.",
+              "start": 1.98,
+              "end": 2.16,
+              "probability": 0.5458984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Lord,",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "here",
+          "start": 1.48,
+          "end": 1.54
+        },
+        {
+          "raw": "comes",
+          "start": 1.54,
+          "end": 1.8
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "raw": "King.",
+          "start": 1.98,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Lord.",
+        "Here",
+        "comes",
+        "the",
+        "King."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lord,",
+          "start": 0.7,
+          "end": 0.94,
+          "key": "lord",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.48,
+          "end": 1.54,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 1.54,
+          "end": 1.8,
+          "key": "comes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.98,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "King.",
+          "start": 1.98,
+          "end": 2.16,
+          "key": "king",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Lord.",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "text": "Here",
+          "start": 1.48,
+          "end": 1.54
+        },
+        {
+          "text": "comes",
+          "start": 1.54,
+          "end": 1.8
+        },
+        {
+          "text": "the",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "text": "King.",
+          "start": 1.98,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1953490637242794
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6ce585ab697c271c355a715555e75fbb9860943d8a1ad1972c58a8884f9bb97b",
+  "selected_reasons": []
+}

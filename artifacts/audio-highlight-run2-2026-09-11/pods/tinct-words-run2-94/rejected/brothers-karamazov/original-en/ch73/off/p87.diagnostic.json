@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "31764e804f022bcf5ccab6f3150513cf6ad1d82f6fa6a6f492d089a67efa6366",
+  "attempts": [
+    {
+      "asr_seconds": 0.3171795029193163,
+      "alignment_seconds": 0.0003385469317436218,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Once more they kissed hurriedly and Alyosha was just going out when Midia suddenly called him back",
+          "start": 0.05,
+          "end": 6.03,
+          "words": [
+            {
+              "text": " Once",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " more",
+              "start": 0.61,
+              "end": 0.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " they",
+              "start": 0.85,
+              "end": 1.07,
+              "probability": 0.483642578125
+            },
+            {
+              "text": " kissed",
+              "start": 1.07,
+              "end": 1.35,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hurriedly",
+              "start": 1.35,
+              "end": 2.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 2.07,
+              "end": 2.53,
+              "probability": 0.451904296875
+            },
+            {
+              "text": " Alyosha",
+              "start": 2.53,
+              "end": 3.11,
+              "probability": 0.8898111979166666
+            },
+            {
+              "text": " was",
+              "start": 3.11,
+              "end": 3.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " just",
+              "start": 3.27,
+              "end": 3.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " going",
+              "start": 3.45,
+              "end": 3.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " out",
+              "start": 3.71,
+              "end": 4.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " when",
+              "start": 4.05,
+              "end": 4.55,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " Midia",
+              "start": 4.55,
+              "end": 4.87,
+              "probability": 0.681640625
+            },
+            {
+              "text": " suddenly",
+              "start": 4.87,
+              "end": 5.21,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " called",
+              "start": 5.21,
+              "end": 5.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 5.53,
+              "end": 5.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " back",
+              "start": 5.73,
+              "end": 6.03,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Once",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "more",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "raw": "they",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "raw": "kissed",
+          "start": 1.07,
+          "end": 1.35
+        },
+        {
+          "raw": "hurriedly",
+          "start": 1.35,
+          "end": 2.07
+        },
+        {
+          "raw": "and",
+          "start": 2.07,
+          "end": 2.53
+        },
+        {
+          "raw": "Alyosha",
+          "start": 2.53,
+          "end": 3.11
+        },
+        {
+          "raw": "was",
+          "start": 3.11,
+          "end": 3.27
+        },
+        {
+          "raw": "just",
+          "start": 3.27,
+          "end": 3.45
+        },
+        {
+          "raw": "going",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "raw": "out",
+          "start": 3.71,
+          "end": 4.05
+        },
+        {
+          "raw": "when",
+          "start": 4.05,
+          "end": 4.55
+        },
+        {
+          "raw": "Midia",
+          "start": 4.55,
+          "end": 4.87
+        },
+        {
+          "raw": "suddenly",
+          "start": 4.87,
+          "end": 5.21
+        },
+        {
+          "raw": "called",
+          "start": 5.21,
+          "end": 5.53
+        },
+        {
+          "raw": "him",
+          "start": 5.53,
+          "end": 5.73
+        },
+        {
+          "raw": "back",
+          "start": 5.73,
+          "end": 6.03
+        }
+      ],
+      "expected_tokens": [
+        "Once",
+        "more",
+        "they",
+        "kissed",
+        "hurriedly,",
+        "and",
+        "Alyosha",
+        "was",
+        "just",
+        "going",
+        "out,",
+        "when",
+        "Mitya",
+        "suddenly",
+        "called",
+        "him",
+        "back."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          17,
+          13,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Once",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "once",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 0.61,
+          "end": 0.85,
+          "key": "more",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.85,
+          "end": 1.07,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "kissed",
+          "start": 1.07,
+          "end": 1.35,
+          "key": "kissed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hurriedly",
+          "start": 1.35,
+          "end": 2.07,
+          "key": "hurriedly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.07,
+          "end": 2.53,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 2.53,
+          "end": 3.11,
+          "key": "alyosha",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.11,
+          "end": 3.27,
+          "key": "was",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 3.27,
+          "end": 3.45,
+          "key": "just",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 3.45,
+          "end": 3.71,
+          "key": "going",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 3.71,
+          "end": 4.05,
+          "key": "out",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.05,
+          "end": 4.55,
+          "key": "when",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Midia",
+          "start": 4.55,
+          "end": 4.87,
+          "key": "midia",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 4.87,
+          "end": 5.21,
+          "key": "suddenly",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "called",
+          "start": 5.21,
+          "end": 5.53,
+          "key": "called",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.53,
+          "end": 5.73,
+          "key": "him",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 5.73,
+          "end": 6.03,
+          "key": "back",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Once",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "more",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "text": "they",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "text": "kissed",
+          "start": 1.07,
+          "end": 1.35
+        },
+        {
+          "text": "hurriedly,",
+          "start": 1.35,
+          "end": 2.07
+        },
+        {
+          "text": "and",
+          "start": 2.07,
+          "end": 2.53
+        },
+        {
+          "text": "Alyosha",
+          "start": 2.53,
+          "end": 3.11
+        },
+        {
+          "text": "was",
+          "start": 3.11,
+          "end": 3.27
+        },
+        {
+          "text": "just",
+          "start": 3.27,
+          "end": 3.45
+        },
+        {
+          "text": "going",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "text": "out,",
+          "start": 3.71,
+          "end": 4.05
+        },
+        {
+          "text": "when",
+          "start": 4.05,
+          "end": 4.55
+        },
+        {
+          "text": "Mitya",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "text": "suddenly",
+          "start": 4.87,
+          "end": 5.21
+        },
+        {
+          "text": "called",
+          "start": 5.21,
+          "end": 5.53
+        },
+        {
+          "text": "him",
+          "start": 5.53,
+          "end": 5.73
+        },
+        {
+          "text": "back.",
+          "start": 5.73,
+          "end": 6.03
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.3177740890532732
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "baa3391962cd87a9753f360be1991f6386f93c46adf804937dd2f969e27b0c94",
+  "selected_reasons": []
+}

@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "5f375d135a457591cb8e836d0db5c0a667ecb49f2c0d3b8e958aa3664d3cefaf",
+  "attempts": [
+    {
+      "asr_seconds": 0.23470918089151382,
+      "alignment_seconds": 0.00045927613973617554,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, I know his soul is in heaven, fool.",
+          "start": 0.05,
+          "end": 2.67,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.9375
+            },
+            {
+              "text": " I",
+              "start": 1.17,
+              "end": 1.33,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " know",
+              "start": 1.33,
+              "end": 1.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 1.45,
+              "end": 1.57,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " soul",
+              "start": 1.57,
+              "end": 1.81,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " is",
+              "start": 1.81,
+              "end": 1.97,
+              "probability": 0.9921875
+            },
+            {
+              "text": " in",
+              "start": 1.97,
+              "end": 2.09,
+              "probability": 0.9921875
+            },
+            {
+              "text": " heaven,",
+              "start": 2.09,
+              "end": 2.33,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " fool.",
+              "start": 2.67,
+              "end": 2.67,
+              "probability": 0.9326171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "I",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "raw": "know",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "raw": "his",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "raw": "soul",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "raw": "is",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "raw": "in",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "raw": "heaven,",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "raw": "fool.",
+          "start": 2.67,
+          "end": 2.67
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "I",
+        "know",
+        "his",
+        "soul",
+        "is",
+        "in",
+        "heaven,",
+        "fool."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.17,
+          "end": 1.33,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.33,
+          "end": 1.45,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.45,
+          "end": 1.57,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "soul",
+          "start": 1.57,
+          "end": 1.81,
+          "key": "soul",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.81,
+          "end": 1.97,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.97,
+          "end": 2.09,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "heaven,",
+          "start": 2.09,
+          "end": 2.33,
+          "key": "heaven",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fool.",
+          "start": 2.67,
+          "end": 2.67,
+          "key": "fool",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "I",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "text": "know",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "text": "his",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "text": "soul",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "text": "is",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "text": "in",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "text": "heaven,",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "text": "fool.",
+          "start": 2.67,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23534605279564857
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b1dee08194bee02aff6b690fcec6d928e30eea5338bae36a82d9bffde883749b",
+  "selected_reasons": []
+}

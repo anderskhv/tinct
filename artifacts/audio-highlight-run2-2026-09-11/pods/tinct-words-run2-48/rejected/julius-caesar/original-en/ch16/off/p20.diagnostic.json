@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "14ed3c43d0d589b557bfd38cd76bf0e609c12b0c3135c1526a3efc294210a7b1",
+  "attempts": [
+    {
+      "asr_seconds": 0.09962938074022532,
+      "alignment_seconds": 0.00010904297232627869,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And Hark! They shout for joy.",
+          "start": 0.11,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.11,
+              "end": 0.55,
+              "probability": 0.31787109375
+            },
+            {
+              "text": " Hark!",
+              "start": 0.55,
+              "end": 0.83,
+              "probability": 0.821044921875
+            },
+            {
+              "text": " They",
+              "start": 1.13,
+              "end": 1.25,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " shout",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.84765625
+            },
+            {
+              "text": " for",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " joy.",
+              "start": 1.67,
+              "end": 1.89,
+              "probability": 0.8154296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "raw": "Hark!",
+          "start": 0.55,
+          "end": 0.83
+        },
+        {
+          "raw": "They",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "raw": "shout",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "for",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "raw": "joy.",
+          "start": 1.67,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "And,",
+        "hark!",
+        "they",
+        "shout",
+        "for",
+        "joy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.55,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hark!",
+          "start": 0.55,
+          "end": 0.83,
+          "key": "hark",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 1.13,
+          "end": 1.25,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shout",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "shout",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.43,
+          "end": 1.67,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "joy.",
+          "start": 1.67,
+          "end": 1.89,
+          "key": "joy",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And,",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "text": "hark!",
+          "start": 0.55,
+          "end": 0.83
+        },
+        {
+          "text": "they",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "text": "shout",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "for",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "text": "joy.",
+          "start": 1.67,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09977940749377012
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9fce701a2881dc223ecd04bcfe3c06fe89a99952abd3d0f9026c51f875d89dc4",
+  "selected_reasons": []
+}

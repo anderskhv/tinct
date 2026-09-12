@@ -1,0 +1,601 @@
+{
+  "complete": true,
+  "signature": "28da5b7fcda4ff6167e5b1acf687a9e982ecf13531e7141962945dfd1732c43e",
+  "attempts": [
+    {
+      "asr_seconds": 0.21134752198122442,
+      "alignment_seconds": 0.00021639204351231456,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Daedalus, staring from the empty fireplace at Ned Lambert's quizzing face, asked of",
+          "start": 0.02,
+          "end": 5.88,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.7607421875
+            },
+            {
+              "text": " Daedalus,",
+              "start": 0.86,
+              "end": 1.2,
+              "probability": 0.6636149088541666
+            },
+            {
+              "text": " staring",
+              "start": 1.6,
+              "end": 1.98,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " from",
+              "start": 1.98,
+              "end": 2.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " empty",
+              "start": 2.38,
+              "end": 2.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " fireplace",
+              "start": 2.68,
+              "end": 3.26,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " at",
+              "start": 3.26,
+              "end": 3.52,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Ned",
+              "start": 3.52,
+              "end": 3.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Lambert's",
+              "start": 3.7,
+              "end": 4.26,
+              "probability": 0.9921875
+            },
+            {
+              "text": " quizzing",
+              "start": 4.26,
+              "end": 4.6,
+              "probability": 0.975830078125
+            },
+            {
+              "text": " face,",
+              "start": 4.6,
+              "end": 4.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " asked",
+              "start": 5.56,
+              "end": 5.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 5.7,
+              "end": 5.88,
+              "probability": 0.40478515625
+            }
+          ]
+        },
+        {
+          "text": " it sourly.",
+          "start": 5.88,
+          "end": 6.56,
+          "words": [
+            {
+              "text": " it",
+              "start": 5.88,
+              "end": 6.0,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " sourly.",
+              "start": 6.0,
+              "end": 6.56,
+              "probability": 0.984619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Daedalus,",
+          "start": 0.86,
+          "end": 1.2
+        },
+        {
+          "raw": "staring",
+          "start": 1.6,
+          "end": 1.98
+        },
+        {
+          "raw": "from",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "raw": "the",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "empty",
+          "start": 2.38,
+          "end": 2.68
+        },
+        {
+          "raw": "fireplace",
+          "start": 2.68,
+          "end": 3.26
+        },
+        {
+          "raw": "at",
+          "start": 3.26,
+          "end": 3.52
+        },
+        {
+          "raw": "Ned",
+          "start": 3.52,
+          "end": 3.7
+        },
+        {
+          "raw": "Lambert's",
+          "start": 3.7,
+          "end": 4.26
+        },
+        {
+          "raw": "quizzing",
+          "start": 4.26,
+          "end": 4.6
+        },
+        {
+          "raw": "face,",
+          "start": 4.6,
+          "end": 4.96
+        },
+        {
+          "raw": "asked",
+          "start": 5.56,
+          "end": 5.7
+        },
+        {
+          "raw": "of",
+          "start": 5.7,
+          "end": 5.88
+        },
+        {
+          "raw": "it",
+          "start": 5.88,
+          "end": 6.0
+        },
+        {
+          "raw": "sourly.",
+          "start": 6.0,
+          "end": 6.56
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "Dedalus,",
+        "staring",
+        "from",
+        "the",
+        "empty",
+        "fireplace",
+        "at",
+        "Ned",
+        "Lambert's",
+        "quizzing",
+        "face,",
+        "asked",
+        "of",
+        "it",
+        "sourly:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          16,
+          2,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Daedalus,",
+          "start": 0.86,
+          "end": 1.2,
+          "key": "daedalus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "staring",
+          "start": 1.6,
+          "end": 1.98,
+          "key": "staring",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.98,
+          "end": 2.26,
+          "key": "from",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "empty",
+          "start": 2.38,
+          "end": 2.68,
+          "key": "empty",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fireplace",
+          "start": 2.68,
+          "end": 3.26,
+          "key": "fireplace",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.26,
+          "end": 3.52,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Ned",
+          "start": 3.52,
+          "end": 3.7,
+          "key": "ned",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Lambert's",
+          "start": 3.7,
+          "end": 4.26,
+          "key": "lamberts",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "quizzing",
+          "start": 4.26,
+          "end": 4.6,
+          "key": "quizzing",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "face,",
+          "start": 4.6,
+          "end": 4.96,
+          "key": "face",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 5.56,
+          "end": 5.7,
+          "key": "asked",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.7,
+          "end": 5.88,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.88,
+          "end": 6.0,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "sourly.",
+          "start": 6.0,
+          "end": 6.56,
+          "key": "sourly",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Dedalus,",
+          "start": 0.68,
+          "end": 1.14
+        },
+        {
+          "text": "staring",
+          "start": 1.6,
+          "end": 1.98
+        },
+        {
+          "text": "from",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "text": "the",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "empty",
+          "start": 2.38,
+          "end": 2.68
+        },
+        {
+          "text": "fireplace",
+          "start": 2.68,
+          "end": 3.26
+        },
+        {
+          "text": "at",
+          "start": 3.26,
+          "end": 3.52
+        },
+        {
+          "text": "Ned",
+          "start": 3.52,
+          "end": 3.7
+        },
+        {
+          "text": "Lambert's",
+          "start": 3.7,
+          "end": 4.26
+        },
+        {
+          "text": "quizzing",
+          "start": 4.26,
+          "end": 4.6
+        },
+        {
+          "text": "face,",
+          "start": 4.6,
+          "end": 4.96
+        },
+        {
+          "text": "asked",
+          "start": 5.56,
+          "end": 5.7
+        },
+        {
+          "text": "of",
+          "start": 5.7,
+          "end": 5.88
+        },
+        {
+          "text": "it",
+          "start": 5.88,
+          "end": 6.0
+        },
+        {
+          "text": "sourly:",
+          "start": 6.0,
+          "end": 6.56
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.21165690396446735
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "54926594dd0c787645d1790e930b7a85aafcaeb1c4f586937f9d571bce6f69a4",
+  "selected_reasons": []
+}

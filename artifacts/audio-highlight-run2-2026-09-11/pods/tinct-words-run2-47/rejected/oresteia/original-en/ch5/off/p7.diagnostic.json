@@ -1,0 +1,427 @@
+{
+  "complete": true,
+  "signature": "437e1bf7e1ecf705dc6423eed5c6e490c5363e21ba0d76e9ae2f4f7812852c74",
+  "attempts": [
+    {
+      "asr_seconds": 0.2568249389878474,
+      "alignment_seconds": 0.000483729992993176,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Harold, so that this joy doth brim mine eyes with tears.",
+          "start": 0.05,
+          "end": 3.49,
+          "words": [
+            {
+              "text": " Harold,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.327392578125
+            },
+            {
+              "text": " so",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " that",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " joy",
+              "start": 1.69,
+              "end": 1.89,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " doth",
+              "start": 1.89,
+              "end": 2.15,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " brim",
+              "start": 2.15,
+              "end": 2.33,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " mine",
+              "start": 2.33,
+              "end": 2.67,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " eyes",
+              "start": 2.67,
+              "end": 2.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " with",
+              "start": 2.99,
+              "end": 3.21,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " tears.",
+              "start": 3.21,
+              "end": 3.49,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Harold,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "so",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "raw": "that",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "this",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "joy",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "raw": "doth",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "raw": "brim",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "raw": "mine",
+          "start": 2.33,
+          "end": 2.67
+        },
+        {
+          "raw": "eyes",
+          "start": 2.67,
+          "end": 2.99
+        },
+        {
+          "raw": "with",
+          "start": 2.99,
+          "end": 3.21
+        },
+        {
+          "raw": "tears.",
+          "start": 3.21,
+          "end": 3.49
+        }
+      ],
+      "expected_tokens": [
+        "Herald.",
+        "So",
+        "that",
+        "this",
+        "joy",
+        "doth",
+        "brim",
+        "mine",
+        "eyes",
+        "with",
+        "tears."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          11,
+          1,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Harold,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "harold",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.49,
+          "end": 1.69,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "joy",
+          "start": 1.69,
+          "end": 1.89,
+          "key": "joy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 1.89,
+          "end": 2.15,
+          "key": "doth",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "brim",
+          "start": 2.15,
+          "end": 2.33,
+          "key": "brim",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 2.33,
+          "end": 2.67,
+          "key": "mine",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 2.67,
+          "end": 2.99,
+          "key": "eyes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.99,
+          "end": 3.21,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "tears.",
+          "start": 3.21,
+          "end": 3.49,
+          "key": "tears",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Herald.",
+          "start": 0.0,
+          "end": 0.545
+        },
+        {
+          "text": "So",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "text": "that",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "this",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "joy",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "text": "doth",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "text": "brim",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "text": "mine",
+          "start": 2.33,
+          "end": 2.67
+        },
+        {
+          "text": "eyes",
+          "start": 2.67,
+          "end": 2.99
+        },
+        {
+          "text": "with",
+          "start": 2.99,
+          "end": 3.21
+        },
+        {
+          "text": "tears.",
+          "start": 3.21,
+          "end": 3.49
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.25747927199699916
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3595686dec67de6e7b5fc09aaf8dec494afa3815335a803ad75aa4a49b4fb603",
+  "selected_reasons": []
+}

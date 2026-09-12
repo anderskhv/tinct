@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "f24044bfc99ccf8285328f5ec0888d396c4aa8ed2c01fefd3e383c166243d411",
+  "attempts": [
+    {
+      "asr_seconds": 0.12745863758027554,
+      "alignment_seconds": 0.00033266935497522354,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sets down the basket",
+          "start": 0.08,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Sets",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.78076171875
+            },
+            {
+              "text": " down",
+              "start": 0.6,
+              "end": 0.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 0.84,
+              "end": 0.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " basket",
+              "start": 0.96,
+              "end": 1.32,
+              "probability": 0.9599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sets",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "down",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "raw": "the",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "raw": "basket",
+          "start": 0.96,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "[_Sets",
+        "down",
+        "the",
+        "basket._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sets",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "sets",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 0.6,
+          "end": 0.84,
+          "key": "down",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.84,
+          "end": 0.96,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "basket",
+          "start": 0.96,
+          "end": 1.32,
+          "key": "basket",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Sets",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "down",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "text": "the",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "text": "basket._]",
+          "start": 0.96,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12792706210166216
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "99ac907aee92f449c18a6c36f7b080915362e07fc258bbb3f6dc7f1f0e108f1f",
+  "selected_reasons": []
+}

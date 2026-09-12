@@ -1,0 +1,1297 @@
+{
+  "complete": true,
+  "signature": "bb28dff28ecc2a929fa60cee0c1528a04b3bd629b8001c4c4954886d4513e8a5",
+  "attempts": [
+    {
+      "asr_seconds": 0.2895644512027502,
+      "alignment_seconds": 0.0004853326827287674,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "French Soldier. _Est-il impossible d'échapper la force de ton bras?_",
+        "hotwords": "French, Soldier"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " French Soldier, Es-il impossible d'échapper la force de ton bras.",
+          "start": 0.08,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " French",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " Soldier,",
+              "start": 0.62,
+              "end": 1.14,
+              "probability": 0.107177734375
+            },
+            {
+              "text": " Es",
+              "start": 1.8,
+              "end": 1.9,
+              "probability": 0.002349853515625
+            },
+            {
+              "text": "-il",
+              "start": 1.9,
+              "end": 2.26,
+              "probability": 0.050383806228637695
+            },
+            {
+              "text": " impossible",
+              "start": 2.26,
+              "end": 2.8,
+              "probability": 0.467041015625
+            },
+            {
+              "text": " d",
+              "start": 2.8,
+              "end": 3.16,
+              "probability": 0.041473388671875
+            },
+            {
+              "text": "'échapper",
+              "start": 3.16,
+              "end": 3.5,
+              "probability": 0.4802152216434479
+            },
+            {
+              "text": " la",
+              "start": 3.5,
+              "end": 3.7,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " force",
+              "start": 3.7,
+              "end": 3.94,
+              "probability": 0.60498046875
+            },
+            {
+              "text": " de",
+              "start": 3.94,
+              "end": 4.12,
+              "probability": 0.70458984375
+            },
+            {
+              "text": " ton",
+              "start": 4.12,
+              "end": 4.34,
+              "probability": 0.5478515625
+            },
+            {
+              "text": " bras.",
+              "start": 4.34,
+              "end": 4.64,
+              "probability": 0.9091796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "French",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Soldier,",
+          "start": 0.62,
+          "end": 1.14
+        },
+        {
+          "raw": "Es",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "raw": "-il",
+          "start": 1.9,
+          "end": 2.26
+        },
+        {
+          "raw": "impossible",
+          "start": 2.26,
+          "end": 2.8
+        },
+        {
+          "raw": "d",
+          "start": 2.8,
+          "end": 3.16
+        },
+        {
+          "raw": "'échapper",
+          "start": 3.16,
+          "end": 3.5
+        },
+        {
+          "raw": "la",
+          "start": 3.5,
+          "end": 3.7
+        },
+        {
+          "raw": "force",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "raw": "de",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "raw": "ton",
+          "start": 4.12,
+          "end": 4.34
+        },
+        {
+          "raw": "bras.",
+          "start": 4.34,
+          "end": 4.64
+        }
+      ],
+      "expected_tokens": [
+        "French",
+        "Soldier.",
+        "_Est-il",
+        "impossible",
+        "d'échapper",
+        "la",
+        "force",
+        "de",
+        "ton",
+        "bras?_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          4,
+          4,
+          5
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          7
+        ],
+        [
+          "equal",
+          5,
+          10,
+          7,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "French",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "french",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Soldier,",
+          "start": 0.62,
+          "end": 1.14,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Es",
+          "start": 1.8,
+          "end": 1.9,
+          "key": "es",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-il",
+          "start": 1.9,
+          "end": 2.26,
+          "key": "il",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "impossible",
+          "start": 2.26,
+          "end": 2.8,
+          "key": "impossible",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 2.8,
+          "end": 3.16,
+          "key": "d",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "'échapper",
+          "start": 3.16,
+          "end": 3.5,
+          "key": "échapper",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 3.5,
+          "end": 3.7,
+          "key": "la",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "force",
+          "start": 3.7,
+          "end": 3.94,
+          "key": "force",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 3.94,
+          "end": 4.12,
+          "key": "de",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ton",
+          "start": 4.12,
+          "end": 4.34,
+          "key": "ton",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bras.",
+          "start": 4.34,
+          "end": 4.64,
+          "key": "bras",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "French",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.62,
+          "end": 1.14
+        },
+        {
+          "text": "_Est-il",
+          "start": 1.14,
+          "end": 1.7
+        },
+        {
+          "text": "impossible",
+          "start": 2.26,
+          "end": 2.8
+        },
+        {
+          "text": "d'échapper",
+          "start": 2.8,
+          "end": 3.15
+        },
+        {
+          "text": "la",
+          "start": 3.5,
+          "end": 3.7
+        },
+        {
+          "text": "force",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "text": "de",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "text": "ton",
+          "start": 4.12,
+          "end": 4.34
+        },
+        {
+          "text": "bras?_",
+          "start": 4.34,
+          "end": 4.64
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 12,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.29022933449596167
+    },
+    {
+      "asr_seconds": 0.31145370472222567,
+      "alignment_seconds": 0.0004254225641489029,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "French, Soldier"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " French, soldier, impossible de chapar la force de ton bras",
+          "start": 0.08,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " French,",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " soldier,",
+              "start": 0.88,
+              "end": 1.16,
+              "probability": 0.880859375
+            },
+            {
+              "text": " impossible",
+              "start": 1.8,
+              "end": 2.7,
+              "probability": 0.00035762786865234375
+            },
+            {
+              "text": " de",
+              "start": 2.7,
+              "end": 3.18,
+              "probability": 0.171875
+            },
+            {
+              "text": " chapar",
+              "start": 3.18,
+              "end": 3.56,
+              "probability": 0.655029296875
+            },
+            {
+              "text": " la",
+              "start": 3.56,
+              "end": 3.7,
+              "probability": 0.5859375
+            },
+            {
+              "text": " force",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 0.60595703125
+            },
+            {
+              "text": " de",
+              "start": 3.96,
+              "end": 4.12,
+              "probability": 0.9296875
+            },
+            {
+              "text": " ton",
+              "start": 4.12,
+              "end": 4.34,
+              "probability": 0.71875
+            },
+            {
+              "text": " bras",
+              "start": 4.34,
+              "end": 4.64,
+              "probability": 0.9228515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "French,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.88,
+          "end": 1.16
+        },
+        {
+          "raw": "impossible",
+          "start": 1.8,
+          "end": 2.7
+        },
+        {
+          "raw": "de",
+          "start": 2.7,
+          "end": 3.18
+        },
+        {
+          "raw": "chapar",
+          "start": 3.18,
+          "end": 3.56
+        },
+        {
+          "raw": "la",
+          "start": 3.56,
+          "end": 3.7
+        },
+        {
+          "raw": "force",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "raw": "de",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "raw": "ton",
+          "start": 4.12,
+          "end": 4.34
+        },
+        {
+          "raw": "bras",
+          "start": 4.34,
+          "end": 4.64
+        }
+      ],
+      "expected_tokens": [
+        "French",
+        "Soldier.",
+        "_Est-il",
+        "impossible",
+        "d'échapper",
+        "la",
+        "force",
+        "de",
+        "ton",
+        "bras?_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "delete",
+          2,
+          3,
+          2,
+          2
+        ],
+        [
+          "equal",
+          3,
+          4,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          10,
+          5,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          2,
+          3,
+          2,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "French,",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "french",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.88,
+          "end": 1.16,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "impossible",
+          "start": 1.8,
+          "end": 2.7,
+          "key": "impossible",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.7,
+          "end": 3.18,
+          "key": "de",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "chapar",
+          "start": 3.18,
+          "end": 3.56,
+          "key": "chapar",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 3.56,
+          "end": 3.7,
+          "key": "la",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "force",
+          "start": 3.7,
+          "end": 3.96,
+          "key": "force",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 3.96,
+          "end": 4.12,
+          "key": "de",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ton",
+          "start": 4.12,
+          "end": 4.34,
+          "key": "ton",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "bras",
+          "start": 4.34,
+          "end": 4.64,
+          "key": "bras",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "French",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.88,
+          "end": 1.16
+        },
+        {
+          "text": "_Est-il",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "text": "impossible",
+          "start": 1.8,
+          "end": 2.7
+        },
+        {
+          "text": "d'échapper",
+          "start": 2.7,
+          "end": 3.13
+        },
+        {
+          "text": "la",
+          "start": 3.56,
+          "end": 3.7
+        },
+        {
+          "text": "force",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "text": "de",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "text": "ton",
+          "start": 4.12,
+          "end": 4.34
+        },
+        {
+          "text": "bras?_",
+          "start": 4.34,
+          "end": 4.64
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3120203670114279
+    },
+    {
+      "asr_seconds": 0.26744248252362013,
+      "alignment_seconds": 0.0003556683659553528,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " French soldier, estil impossible de chapar la force de ton bras",
+          "start": 0.08,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " French",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " soldier,",
+              "start": 0.62,
+              "end": 1.14,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " estil",
+              "start": 1.8,
+              "end": 2.3,
+              "probability": 0.2642822265625
+            },
+            {
+              "text": " impossible",
+              "start": 2.3,
+              "end": 2.9,
+              "probability": 0.56103515625
+            },
+            {
+              "text": " de",
+              "start": 2.9,
+              "end": 3.18,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " chapar",
+              "start": 3.18,
+              "end": 3.56,
+              "probability": 0.730712890625
+            },
+            {
+              "text": " la",
+              "start": 3.56,
+              "end": 3.7,
+              "probability": 0.6865234375
+            },
+            {
+              "text": " force",
+              "start": 3.7,
+              "end": 3.94,
+              "probability": 0.60302734375
+            },
+            {
+              "text": " de",
+              "start": 3.94,
+              "end": 4.12,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " ton",
+              "start": 4.12,
+              "end": 4.34,
+              "probability": 0.6796875
+            },
+            {
+              "text": " bras",
+              "start": 4.34,
+              "end": 4.64,
+              "probability": 0.91259765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "French",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.62,
+          "end": 1.14
+        },
+        {
+          "raw": "estil",
+          "start": 1.8,
+          "end": 2.3
+        },
+        {
+          "raw": "impossible",
+          "start": 2.3,
+          "end": 2.9
+        },
+        {
+          "raw": "de",
+          "start": 2.9,
+          "end": 3.18
+        },
+        {
+          "raw": "chapar",
+          "start": 3.18,
+          "end": 3.56
+        },
+        {
+          "raw": "la",
+          "start": 3.56,
+          "end": 3.7
+        },
+        {
+          "raw": "force",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "raw": "de",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "raw": "ton",
+          "start": 4.12,
+          "end": 4.34
+        },
+        {
+          "raw": "bras",
+          "start": 4.34,
+          "end": 4.64
+        }
+      ],
+      "expected_tokens": [
+        "French",
+        "Soldier.",
+        "_Est-il",
+        "impossible",
+        "d'échapper",
+        "la",
+        "force",
+        "de",
+        "ton",
+        "bras?_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          10,
+          6,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "French",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "french",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.62,
+          "end": 1.14,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "estil",
+          "start": 1.8,
+          "end": 2.3,
+          "key": "estil",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "impossible",
+          "start": 2.3,
+          "end": 2.9,
+          "key": "impossible",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.9,
+          "end": 3.18,
+          "key": "de",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "chapar",
+          "start": 3.18,
+          "end": 3.56,
+          "key": "chapar",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 3.56,
+          "end": 3.7,
+          "key": "la",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "force",
+          "start": 3.7,
+          "end": 3.94,
+          "key": "force",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 3.94,
+          "end": 4.12,
+          "key": "de",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ton",
+          "start": 4.12,
+          "end": 4.34,
+          "key": "ton",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bras",
+          "start": 4.34,
+          "end": 4.64,
+          "key": "bras",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "French",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.62,
+          "end": 1.14
+        },
+        {
+          "text": "_Est-il",
+          "start": 1.8,
+          "end": 2.3
+        },
+        {
+          "text": "impossible",
+          "start": 2.3,
+          "end": 2.9
+        },
+        {
+          "text": "d'échapper",
+          "start": 2.9,
+          "end": 3.23
+        },
+        {
+          "text": "la",
+          "start": 3.56,
+          "end": 3.7
+        },
+        {
+          "text": "force",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "text": "de",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "text": "ton",
+          "start": 4.12,
+          "end": 4.34
+        },
+        {
+          "text": "bras?_",
+          "start": 4.34,
+          "end": 4.64
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.2679386641830206
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "568ec6e0367a7313c88008b503a2cd04c1f860806af91947ab1d8173d08bbb34",
+  "selected_reasons": []
+}

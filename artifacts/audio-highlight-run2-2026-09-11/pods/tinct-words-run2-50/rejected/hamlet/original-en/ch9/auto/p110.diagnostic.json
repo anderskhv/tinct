@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "4f9d2a1bb7f141fc0623aef33f96acaa36b6b845a0824f3fc545f1bac118b224",
+  "attempts": [
+    {
+      "asr_seconds": 0.2310222163796425,
+      "alignment_seconds": 0.0003720726817846298,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Horatio. Very well, my lord.",
+        "hotwords": "Horatio, Very"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Horatio, Very well, my lord.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Horatio,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Very",
+              "start": 1.17,
+              "end": 1.47,
+              "probability": 0.0179595947265625
+            },
+            {
+              "text": " well,",
+              "start": 1.47,
+              "end": 1.69,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " my",
+              "start": 1.77,
+              "end": 1.87,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " lord.",
+              "start": 1.87,
+              "end": 2.07,
+              "probability": 0.7724609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Horatio,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Very",
+          "start": 1.17,
+          "end": 1.47
+        },
+        {
+          "raw": "well,",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "raw": "my",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "raw": "lord.",
+          "start": 1.87,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Horatio.",
+        "Very",
+        "well,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Horatio,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "horatio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Very",
+          "start": 1.17,
+          "end": 1.47,
+          "key": "very",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 1.47,
+          "end": 1.69,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.77,
+          "end": 1.87,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.87,
+          "end": 2.07,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Horatio.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Very",
+          "start": 1.17,
+          "end": 1.47
+        },
+        {
+          "text": "well,",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "text": "my",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "text": "lord.",
+          "start": 1.87,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23152471520006657
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6180353799f221bef7ef7d0791683e22cfe7c19011993652b9af03fa35aba928",
+  "selected_reasons": []
+}

@@ -1,0 +1,400 @@
+{
+  "complete": true,
+  "signature": "5d966465d11e18768e43920f7b3bc5eb7e596d92b97084fcb64f0c4f2fc11975",
+  "attempts": [
+    {
+      "asr_seconds": 0.18561834190040827,
+      "alignment_seconds": 0.00041753798723220825,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " My ardent soul, I care not for the morrow.",
+          "start": 0.11,
+          "end": 3.51,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.11,
+              "end": 1.03,
+              "probability": 0.2978515625
+            },
+            {
+              "text": " ardent",
+              "start": 1.03,
+              "end": 1.75,
+              "probability": 0.939453125
+            },
+            {
+              "text": " soul,",
+              "start": 1.75,
+              "end": 2.01,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " I",
+              "start": 2.03,
+              "end": 2.21,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " care",
+              "start": 2.21,
+              "end": 2.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 2.41,
+              "end": 2.63,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " for",
+              "start": 2.63,
+              "end": 2.89,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 2.89,
+              "end": 3.07,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " morrow.",
+              "start": 3.07,
+              "end": 3.51,
+              "probability": 0.938720703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.11,
+          "end": 1.03
+        },
+        {
+          "raw": "ardent",
+          "start": 1.03,
+          "end": 1.75
+        },
+        {
+          "raw": "soul,",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "raw": "I",
+          "start": 2.03,
+          "end": 2.21
+        },
+        {
+          "raw": "care",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "raw": "not",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "raw": "for",
+          "start": 2.63,
+          "end": 2.89
+        },
+        {
+          "raw": "the",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "raw": "morrow.",
+          "start": 3.07,
+          "end": 3.51
+        }
+      ],
+      "expected_tokens": [
+        "—............",
+        "_my",
+        "ardent",
+        "soul",
+        "I",
+        "care",
+        "not",
+        "foror",
+        "the",
+        "morrow._"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          7,
+          0,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          7
+        ],
+        [
+          "equal",
+          8,
+          10,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.11,
+          "end": 1.03,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ardent",
+          "start": 1.03,
+          "end": 1.75,
+          "key": "ardent",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "soul,",
+          "start": 1.75,
+          "end": 2.01,
+          "key": "soul",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.03,
+          "end": 2.21,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 2.21,
+          "end": 2.41,
+          "key": "care",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.41,
+          "end": 2.63,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.63,
+          "end": 2.89,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.89,
+          "end": 3.07,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "morrow.",
+          "start": 3.07,
+          "end": 3.51,
+          "key": "morrow",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—............",
+          "start": 0.0,
+          "end": 0.055
+        },
+        {
+          "text": "_my",
+          "start": 0.11,
+          "end": 1.03
+        },
+        {
+          "text": "ardent",
+          "start": 1.03,
+          "end": 1.75
+        },
+        {
+          "text": "soul",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "text": "I",
+          "start": 2.03,
+          "end": 2.21
+        },
+        {
+          "text": "care",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "text": "not",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "text": "foror",
+          "start": 2.63,
+          "end": 2.76
+        },
+        {
+          "text": "the",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "text": "morrow._",
+          "start": 3.07,
+          "end": 3.51
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18615874787792563
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b2e27f17f84a49b88c460fdda4406da041bd99f8e76cdbf17d849428ce3adc7d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

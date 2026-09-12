@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "e3ed4f3472630ed2986ac887c1704ec8cf9f39b075c36a53c8c3c9c95647287c",
+  "attempts": [
+    {
+      "asr_seconds": 0.20132621005177498,
+      "alignment_seconds": 0.0003104396164417267,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Alonso sleeps. Exit Ariel]",
+        "hotwords": "Alonso, Exit, Ariel"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alonso sleeps. Exit Ariel.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Alonso",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.27001953125
+            },
+            {
+              "text": " sleeps.",
+              "start": 0.71,
+              "end": 1.21,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " Exit",
+              "start": 1.89,
+              "end": 1.89,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Ariel.",
+              "start": 1.89,
+              "end": 2.25,
+              "probability": 0.3642578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alonso",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "sleeps.",
+          "start": 0.71,
+          "end": 1.21
+        },
+        {
+          "raw": "Exit",
+          "start": 1.89,
+          "end": 1.89
+        },
+        {
+          "raw": "Ariel.",
+          "start": 1.89,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "[Alonso",
+        "sleeps.",
+        "Exit",
+        "Ariel]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alonso",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "alonso",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sleeps.",
+          "start": 0.71,
+          "end": 1.21,
+          "key": "sleeps",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Exit",
+          "start": 1.89,
+          "end": 1.89,
+          "key": "exit",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ariel.",
+          "start": 1.89,
+          "end": 2.25,
+          "key": "ariel",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Alonso",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "sleeps.",
+          "start": 0.71,
+          "end": 1.21
+        },
+        {
+          "text": "Exit",
+          "start": 1.89,
+          "end": 1.89
+        },
+        {
+          "text": "Ariel]",
+          "start": 1.89,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20175214111804962
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8e91c12ae2441147a6cb89c284331e5327e707197c23a73dee482e7c9ab463bf",
+  "selected_reasons": []
+}

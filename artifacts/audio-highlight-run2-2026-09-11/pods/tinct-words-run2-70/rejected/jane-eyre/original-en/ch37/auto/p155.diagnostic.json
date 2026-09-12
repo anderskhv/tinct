@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "cfe10e3d05dc90719592d7e172d63c30993feda09bc04772342c3be318c8389a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1379585089161992,
+      "alignment_seconds": 0.0003952227998524904,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I don't know about that.\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I don't know about that.",
+          "start": 0.08,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " don't",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " know",
+              "start": 0.68,
+              "end": 0.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " about",
+              "start": 0.78,
+              "end": 1.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that.",
+              "start": 1.0,
+              "end": 1.28,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "don't",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "know",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "raw": "about",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "raw": "that.",
+          "start": 1.0,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "don't",
+        "know",
+        "about",
+        "that.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "dont",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 0.68,
+          "end": 0.78,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 0.78,
+          "end": 1.0,
+          "key": "about",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 1.0,
+          "end": 1.28,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "don't",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "know",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "text": "about",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "text": "that.\"",
+          "start": 1.0,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13847993593662977
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3e1fddd12afa8cda7f9c6d48641247ea2c23ed9b2ec2fc030d010edcf88772ff",
+  "selected_reasons": []
+}

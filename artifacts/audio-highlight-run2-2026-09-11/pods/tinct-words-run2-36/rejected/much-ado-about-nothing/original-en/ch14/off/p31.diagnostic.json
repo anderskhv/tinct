@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "ba7428bd81090e84272f01717c3c31e8a6d8f546c7df4790ef2909ac16d6cac0",
+  "attempts": [
+    {
+      "asr_seconds": 0.1538657508790493,
+      "alignment_seconds": 0.00015775859355926514,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leonardo, but Brother Anthony.",
+          "start": 0.08,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Leonardo,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.77734375
+            },
+            {
+              "text": " but",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Brother",
+              "start": 1.38,
+              "end": 1.62,
+              "probability": 0.751953125
+            },
+            {
+              "text": " Anthony.",
+              "start": 1.62,
+              "end": 1.98,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "but",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "Brother",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "raw": "Anthony.",
+          "start": 1.62,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "Leonato.",
+        "But,",
+        "brother",
+        "Anthony,—"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "leonardo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Brother",
+          "start": 1.38,
+          "end": 1.62,
+          "key": "brother",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Anthony.",
+          "start": 1.62,
+          "end": 1.98,
+          "key": "anthony",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.63
+        },
+        {
+          "text": "But,",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "brother",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "text": "Anthony,—",
+          "start": 1.62,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15407561138272285
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "67ccec7f3484b52a588de8b9d9c650627a08aa8116ef11c6ad08692a2a804659",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

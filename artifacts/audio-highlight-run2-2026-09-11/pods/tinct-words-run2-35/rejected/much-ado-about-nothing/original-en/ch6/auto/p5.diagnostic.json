@@ -1,0 +1,755 @@
+{
+  "complete": true,
+  "signature": "cee6ded1619289089f04fa8f4d38cd22ed0e4976ab2a187e44e6885b6541dfea",
+  "attempts": [
+    {
+      "asr_seconds": 0.1545861829072237,
+      "alignment_seconds": 0.0005816947668790817,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Boy. I am here already, sir.",
+        "hotwords": "Boy, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Boy, I'm here already, sir.",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Boy,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " I'm",
+              "start": 0.83,
+              "end": 1.13,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " here",
+              "start": 1.13,
+              "end": 1.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " already,",
+              "start": 1.27,
+              "end": 1.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sir.",
+              "start": 1.71,
+              "end": 1.83,
+              "probability": 0.912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boy,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "I'm",
+          "start": 0.83,
+          "end": 1.13
+        },
+        {
+          "raw": "here",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "raw": "already,",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "raw": "sir.",
+          "start": 1.71,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Boy.",
+        "I",
+        "am",
+        "here",
+        "already,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          6,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boy,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "boy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 0.83,
+          "end": 1.13,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.13,
+          "end": 1.27,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "already,",
+          "start": 1.27,
+          "end": 1.57,
+          "key": "already",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.71,
+          "end": 1.83,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Boy.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "I",
+          "start": 0.63,
+          "end": 0.88
+        },
+        {
+          "text": "am",
+          "start": 0.88,
+          "end": 1.005
+        },
+        {
+          "text": "here",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "text": "already,",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "text": "sir.",
+          "start": 1.71,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1553528793156147
+    },
+    {
+      "asr_seconds": 0.14834564924240112,
+      "alignment_seconds": 0.00028173066675662994,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Boy, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Boy, I'm here already, sir",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Boy,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " I'm",
+              "start": 0.83,
+              "end": 1.13,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " here",
+              "start": 1.13,
+              "end": 1.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " already,",
+              "start": 1.27,
+              "end": 1.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sir",
+              "start": 1.71,
+              "end": 1.83,
+              "probability": 0.912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boy,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "I'm",
+          "start": 0.83,
+          "end": 1.13
+        },
+        {
+          "raw": "here",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "raw": "already,",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "raw": "sir",
+          "start": 1.71,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Boy.",
+        "I",
+        "am",
+        "here",
+        "already,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          6,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boy,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "boy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 0.83,
+          "end": 1.13,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.13,
+          "end": 1.27,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "already,",
+          "start": 1.27,
+          "end": 1.57,
+          "key": "already",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir",
+          "start": 1.71,
+          "end": 1.83,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Boy.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "I",
+          "start": 0.63,
+          "end": 0.88
+        },
+        {
+          "text": "am",
+          "start": 0.88,
+          "end": 1.005
+        },
+        {
+          "text": "here",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "text": "already,",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "text": "sir.",
+          "start": 1.71,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14867579191923141
+    },
+    {
+      "asr_seconds": 0.15908267721533775,
+      "alignment_seconds": 0.00042658671736717224,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Boy I'm here already, sir",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Boy",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " I'm",
+              "start": 0.63,
+              "end": 1.13,
+              "probability": 0.59832763671875
+            },
+            {
+              "text": " here",
+              "start": 1.13,
+              "end": 1.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " already,",
+              "start": 1.27,
+              "end": 1.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sir",
+              "start": 1.59,
+              "end": 1.83,
+              "probability": 0.95654296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boy",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "I'm",
+          "start": 0.63,
+          "end": 1.13
+        },
+        {
+          "raw": "here",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "raw": "already,",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "raw": "sir",
+          "start": 1.59,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Boy.",
+        "I",
+        "am",
+        "here",
+        "already,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          6,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boy",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "boy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 0.63,
+          "end": 1.13,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.13,
+          "end": 1.27,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "already,",
+          "start": 1.27,
+          "end": 1.57,
+          "key": "already",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir",
+          "start": 1.59,
+          "end": 1.83,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Boy.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "I",
+          "start": 0.63,
+          "end": 0.88
+        },
+        {
+          "text": "am",
+          "start": 0.88,
+          "end": 1.005
+        },
+        {
+          "text": "here",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "text": "already,",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "text": "sir.",
+          "start": 1.59,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15963772498071194
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a1cf904ab06cc54b56824a21d045f9cccf062d6ba577efc768c6d8c4f701f3a4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

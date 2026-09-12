@@ -1,0 +1,125 @@
+{
+  "complete": true,
+  "signature": "06ee8efeb0cf7c4feeef0d27e311a663b6be8961d78d8f1984193237cf76d2cf",
+  "attempts": [
+    {
+      "asr_seconds": 0.08012168295681477,
+      "alignment_seconds": 0.00014338688924908638,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_They draw._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They draw.",
+          "start": 0.05,
+          "end": 0.73,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.7568359375
+            },
+            {
+              "text": " draw.",
+              "start": 0.49,
+              "end": 0.73,
+              "probability": 0.85498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "draw.",
+          "start": 0.49,
+          "end": 0.73
+        }
+      ],
+      "expected_tokens": [
+        "[_They",
+        "draw._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "draw.",
+          "start": 0.49,
+          "end": 0.73,
+          "key": "draw",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_They",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "draw._]",
+          "start": 0.49,
+          "end": 0.73
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08030993770807981
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e66b158a983ebf95e2bec9d9f898a97bc149180ea2ef0c1d38ec5951e6ebbeaf",
+  "selected_reasons": []
+}

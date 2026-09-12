@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "4b5fc4c3b65bfddc819ebc9d5fe1420e754cbd0fedbb9a642e48210f9af27246",
+  "attempts": [
+    {
+      "asr_seconds": 0.28253448382019997,
+      "alignment_seconds": 0.0003570178523659706,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ringebella and Crosshaven, a voice replied groping for foothold.",
+          "start": 0.05,
+          "end": 4.27,
+          "words": [
+            {
+              "text": " Ringebella",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.564453125
+            },
+            {
+              "text": " and",
+              "start": 0.99,
+              "end": 1.31,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " Crosshaven,",
+              "start": 1.31,
+              "end": 1.87,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " a",
+              "start": 2.37,
+              "end": 2.51,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " voice",
+              "start": 2.51,
+              "end": 2.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " replied",
+              "start": 2.77,
+              "end": 3.21,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " groping",
+              "start": 3.21,
+              "end": 3.75,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " for",
+              "start": 3.75,
+              "end": 3.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " foothold.",
+              "start": 3.91,
+              "end": 4.27,
+              "probability": 0.9716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ringebella",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "and",
+          "start": 0.99,
+          "end": 1.31
+        },
+        {
+          "raw": "Crosshaven,",
+          "start": 1.31,
+          "end": 1.87
+        },
+        {
+          "raw": "a",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "raw": "voice",
+          "start": 2.51,
+          "end": 2.77
+        },
+        {
+          "raw": "replied",
+          "start": 2.77,
+          "end": 3.21
+        },
+        {
+          "raw": "groping",
+          "start": 3.21,
+          "end": 3.75
+        },
+        {
+          "raw": "for",
+          "start": 3.75,
+          "end": 3.91
+        },
+        {
+          "raw": "foothold.",
+          "start": 3.91,
+          "end": 4.27
+        }
+      ],
+      "expected_tokens": [
+        "—Ringabella",
+        "and",
+        "Crosshaven,",
+        "a",
+        "voice",
+        "replied",
+        "groping",
+        "for",
+        "foothold."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          9,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ringebella",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "ringebella",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.99,
+          "end": 1.31,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Crosshaven,",
+          "start": 1.31,
+          "end": 1.87,
+          "key": "crosshaven",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.37,
+          "end": 2.51,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 2.51,
+          "end": 2.77,
+          "key": "voice",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 2.77,
+          "end": 3.21,
+          "key": "replied",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "groping",
+          "start": 3.21,
+          "end": 3.75,
+          "key": "groping",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.75,
+          "end": 3.91,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "foothold.",
+          "start": 3.91,
+          "end": 4.27,
+          "key": "foothold",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Ringabella",
+          "start": 0.0,
+          "end": 0.495
+        },
+        {
+          "text": "and",
+          "start": 0.99,
+          "end": 1.31
+        },
+        {
+          "text": "Crosshaven,",
+          "start": 1.31,
+          "end": 1.87
+        },
+        {
+          "text": "a",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "text": "voice",
+          "start": 2.51,
+          "end": 2.77
+        },
+        {
+          "text": "replied",
+          "start": 2.77,
+          "end": 3.21
+        },
+        {
+          "text": "groping",
+          "start": 3.21,
+          "end": 3.75
+        },
+        {
+          "text": "for",
+          "start": 3.75,
+          "end": 3.91
+        },
+        {
+          "text": "foothold.",
+          "start": 3.91,
+          "end": 4.27
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.28303629206493497
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4b9f9ad54abbc15624895cfd19ee08ff97a2b5ce9c3f6f5c86f634cf5bf76fab",
+  "selected_reasons": []
+}

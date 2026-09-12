@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "f6df04f09c9202c9e427b09929f581eb26c806f3057c33cfa0d8ed10734b0280",
+  "attempts": [
+    {
+      "asr_seconds": 0.2236538976430893,
+      "alignment_seconds": 0.00048212334513664246,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ha! that's the porter's voice.... What does he want?\"",
+        "hotwords": "Ha, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ha, that's the porter's voice. What does he want?",
+          "start": 0.05,
+          "end": 2.95,
+          "words": [
+            {
+              "text": " Ha,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.216552734375
+            },
+            {
+              "text": " that's",
+              "start": 0.75,
+              "end": 1.09,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 1.09,
+              "end": 1.19,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " porter's",
+              "start": 1.19,
+              "end": 1.61,
+              "probability": 0.9361979166666666
+            },
+            {
+              "text": " voice.",
+              "start": 1.61,
+              "end": 1.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " What",
+              "start": 2.39,
+              "end": 2.47,
+              "probability": 0.990234375
+            },
+            {
+              "text": " does",
+              "start": 2.47,
+              "end": 2.59,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " he",
+              "start": 2.59,
+              "end": 2.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " want?",
+              "start": 2.71,
+              "end": 2.95,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ha,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "that's",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "raw": "the",
+          "start": 1.09,
+          "end": 1.19
+        },
+        {
+          "raw": "porter's",
+          "start": 1.19,
+          "end": 1.61
+        },
+        {
+          "raw": "voice.",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "raw": "What",
+          "start": 2.39,
+          "end": 2.47
+        },
+        {
+          "raw": "does",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "raw": "he",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "raw": "want?",
+          "start": 2.71,
+          "end": 2.95
+        }
+      ],
+      "expected_tokens": [
+        "\"Ha!",
+        "that's",
+        "the",
+        "porter's",
+        "voice....",
+        "What",
+        "does",
+        "he",
+        "want?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ha,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "ha",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 0.75,
+          "end": 1.09,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.09,
+          "end": 1.19,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "porter's",
+          "start": 1.19,
+          "end": 1.61,
+          "key": "porters",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "voice.",
+          "start": 1.61,
+          "end": 1.87,
+          "key": "voice",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.39,
+          "end": 2.47,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 2.47,
+          "end": 2.59,
+          "key": "does",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.59,
+          "end": 2.71,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "want?",
+          "start": 2.71,
+          "end": 2.95,
+          "key": "want",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ha!",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "that's",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "text": "the",
+          "start": 1.09,
+          "end": 1.19
+        },
+        {
+          "text": "porter's",
+          "start": 1.19,
+          "end": 1.61
+        },
+        {
+          "text": "voice....",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "text": "What",
+          "start": 2.39,
+          "end": 2.47
+        },
+        {
+          "text": "does",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "text": "he",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "text": "want?\"",
+          "start": 2.71,
+          "end": 2.95
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22431503515690565
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8d6b64d7346c5ee44ca381a73e085f9e7e4d6cd7c99211ef585db2bf0d35eef7",
+  "selected_reasons": []
+}

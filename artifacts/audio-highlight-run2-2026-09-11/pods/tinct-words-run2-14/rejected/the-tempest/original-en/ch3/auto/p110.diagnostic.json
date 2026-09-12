@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "53df1da607318220a0b6ceeb42f3ce856ed82ae9240b23c0be7a6e224349b219",
+  "attempts": [
+    {
+      "asr_seconds": 0.17706507816910744,
+      "alignment_seconds": 0.0002740621566772461,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio. Go sleep, and hear us.",
+        "hotwords": "Antonio, Go"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio, Go sleep, and hear us.",
+          "start": 0.11,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " Go",
+              "start": 1.43,
+              "end": 1.49,
+              "probability": 0.0193634033203125
+            },
+            {
+              "text": " sleep,",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.76708984375
+            },
+            {
+              "text": " and",
+              "start": 1.89,
+              "end": 1.89,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " hear",
+              "start": 1.89,
+              "end": 2.05,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " us.",
+              "start": 2.05,
+              "end": 2.33,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "Go",
+          "start": 1.43,
+          "end": 1.49
+        },
+        {
+          "raw": "sleep,",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "and",
+          "start": 1.89,
+          "end": 1.89
+        },
+        {
+          "raw": "hear",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "raw": "us.",
+          "start": 2.05,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "Go",
+        "sleep,",
+        "and",
+        "hear",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 1.43,
+          "end": 1.49,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sleep,",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "sleep",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.89,
+          "end": 1.89,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 1.89,
+          "end": 2.05,
+          "key": "hear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 2.05,
+          "end": 2.33,
+          "key": "us",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "Go",
+          "start": 1.43,
+          "end": 1.49
+        },
+        {
+          "text": "sleep,",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "and",
+          "start": 1.89,
+          "end": 1.89
+        },
+        {
+          "text": "hear",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "text": "us.",
+          "start": 2.05,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17744823172688484
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a3bc38e5f3db69b47cc17a8a57318b9eec340c036a2f93e0625b4f200b98d7b7",
+  "selected_reasons": []
+}

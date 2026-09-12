@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "44086181eccdf80acd0336aa42d456ed5512a693e2bb5c02c67451ac86114d71",
+  "attempts": [
+    {
+      "asr_seconds": 0.20560722425580025,
+      "alignment_seconds": 0.00041319988667964935,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Balthasar. The best I can, my lord.",
+        "hotwords": "Balthasar, The, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Balthasar, The best I can, my lord.",
+          "start": 0.52,
+          "end": 2.4,
+          "words": [
+            {
+              "text": " Balthasar,",
+              "start": 0.52,
+              "end": 0.9,
+              "probability": 0.5808919270833334
+            },
+            {
+              "text": " The",
+              "start": 1.3,
+              "end": 1.46,
+              "probability": 0.0592041015625
+            },
+            {
+              "text": " best",
+              "start": 1.46,
+              "end": 1.6,
+              "probability": 0.3408203125
+            },
+            {
+              "text": " I",
+              "start": 1.6,
+              "end": 1.78,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " can,",
+              "start": 1.78,
+              "end": 1.98,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " my",
+              "start": 2.08,
+              "end": 2.18,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " lord.",
+              "start": 2.18,
+              "end": 2.4,
+              "probability": 0.6767578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Balthasar,",
+          "start": 0.52,
+          "end": 0.9
+        },
+        {
+          "raw": "The",
+          "start": 1.3,
+          "end": 1.46
+        },
+        {
+          "raw": "best",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "raw": "I",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "raw": "can,",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "raw": "my",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "raw": "lord.",
+          "start": 2.18,
+          "end": 2.4
+        }
+      ],
+      "expected_tokens": [
+        "Balthasar.",
+        "The",
+        "best",
+        "I",
+        "can,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Balthasar,",
+          "start": 0.52,
+          "end": 0.9,
+          "key": "balthasar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.3,
+          "end": 1.46,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 1.46,
+          "end": 1.6,
+          "key": "best",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.6,
+          "end": 1.78,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "can,",
+          "start": 1.78,
+          "end": 1.98,
+          "key": "can",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.08,
+          "end": 2.18,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 2.18,
+          "end": 2.4,
+          "key": "lord",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Balthasar.",
+          "start": 0.52,
+          "end": 0.9
+        },
+        {
+          "text": "The",
+          "start": 1.3,
+          "end": 1.46
+        },
+        {
+          "text": "best",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "text": "I",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "text": "can,",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "text": "my",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "text": "lord.",
+          "start": 2.18,
+          "end": 2.4
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20618481189012527
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ab1cb64220f34f3023891eb80474cdabfc1553840fcac58670fedc790f9b1b19",
+  "selected_reasons": []
+}

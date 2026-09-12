@@ -1,0 +1,438 @@
+{
+  "complete": true,
+  "signature": "1e0423c10d5cd242e2f0635b78497eda86619b1ad5cf1a30af3fd36e4cc52ab6",
+  "attempts": [
+    {
+      "asr_seconds": 0.31619821675121784,
+      "alignment_seconds": 0.00032469071447849274,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Huh, Razimihin cleared his throat loudly.",
+          "start": 0.08,
+          "end": 2.72,
+          "words": [
+            {
+              "text": " Huh,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.043609619140625
+            },
+            {
+              "text": " Razimihin",
+              "start": 1.06,
+              "end": 1.52,
+              "probability": 0.5689697265625
+            },
+            {
+              "text": " cleared",
+              "start": 1.52,
+              "end": 1.76,
+              "probability": 0.986328125
+            },
+            {
+              "text": " his",
+              "start": 1.76,
+              "end": 1.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " throat",
+              "start": 1.96,
+              "end": 2.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " loudly.",
+              "start": 2.22,
+              "end": 2.72,
+              "probability": 0.92236328125
+            }
+          ]
+        },
+        {
+          "text": " Luzhin looked at him inquiringly.",
+          "start": 3.42,
+          "end": 4.94,
+          "words": [
+            {
+              "text": " Luzhin",
+              "start": 3.42,
+              "end": 3.62,
+              "probability": 0.7376302083333334
+            },
+            {
+              "text": " looked",
+              "start": 3.62,
+              "end": 3.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " at",
+              "start": 3.82,
+              "end": 3.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " him",
+              "start": 3.98,
+              "end": 4.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " inquiringly.",
+              "start": 4.14,
+              "end": 4.94,
+              "probability": 0.953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Huh,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Razimihin",
+          "start": 1.06,
+          "end": 1.52
+        },
+        {
+          "raw": "cleared",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "raw": "his",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "raw": "throat",
+          "start": 1.96,
+          "end": 2.22
+        },
+        {
+          "raw": "loudly.",
+          "start": 2.22,
+          "end": 2.72
+        },
+        {
+          "raw": "Luzhin",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "raw": "looked",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "raw": "at",
+          "start": 3.82,
+          "end": 3.98
+        },
+        {
+          "raw": "him",
+          "start": 3.98,
+          "end": 4.14
+        },
+        {
+          "raw": "inquiringly.",
+          "start": 4.14,
+          "end": 4.94
+        }
+      ],
+      "expected_tokens": [
+        "\"Hm!\"",
+        "Razumihin",
+        "cleared",
+        "his",
+        "throat",
+        "loudly.",
+        "Luzhin",
+        "looked",
+        "at",
+        "him",
+        "inquiringly."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          11,
+          2,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Huh,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "huh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Razimihin",
+          "start": 1.06,
+          "end": 1.52,
+          "key": "razimihin",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cleared",
+          "start": 1.52,
+          "end": 1.76,
+          "key": "cleared",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.76,
+          "end": 1.96,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "throat",
+          "start": 1.96,
+          "end": 2.22,
+          "key": "throat",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "loudly.",
+          "start": 2.22,
+          "end": 2.72,
+          "key": "loudly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Luzhin",
+          "start": 3.42,
+          "end": 3.62,
+          "key": "luzhin",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 3.62,
+          "end": 3.82,
+          "key": "looked",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.82,
+          "end": 3.98,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.98,
+          "end": 4.14,
+          "key": "him",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "inquiringly.",
+          "start": 4.14,
+          "end": 4.94,
+          "key": "inquiringly",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Hm!\"",
+          "start": 0.0,
+          "end": 0.76
+        },
+        {
+          "text": "Razumihin",
+          "start": 0.76,
+          "end": 1.14
+        },
+        {
+          "text": "cleared",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "text": "his",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "text": "throat",
+          "start": 1.96,
+          "end": 2.22
+        },
+        {
+          "text": "loudly.",
+          "start": 2.22,
+          "end": 2.72
+        },
+        {
+          "text": "Luzhin",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "text": "looked",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "text": "at",
+          "start": 3.82,
+          "end": 3.98
+        },
+        {
+          "text": "him",
+          "start": 3.98,
+          "end": 4.14
+        },
+        {
+          "text": "inquiringly.",
+          "start": 4.14,
+          "end": 4.94
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3166390573605895
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "51cbbbcaa2613155056e13d2429901d911f106006f60babb170ea2a93597bc5b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

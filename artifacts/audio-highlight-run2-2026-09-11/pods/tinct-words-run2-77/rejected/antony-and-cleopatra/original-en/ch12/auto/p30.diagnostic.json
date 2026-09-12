@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "1ba903a48c912c751747a9736dec04c6757d6d1b1599bb895db6a38ec06683e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.16422169998986647,
+      "alignment_seconds": 0.00015170499682426453,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lepidus. What manner o' thing is your crocodile?",
+        "hotwords": "Lepidus, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lepidus, What manner o' thing is your crocodile?",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " Lepidus,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.9215494791666666
+            },
+            {
+              "text": " What",
+              "start": 1.35,
+              "end": 1.47,
+              "probability": 0.0396728515625
+            },
+            {
+              "text": " manner",
+              "start": 1.47,
+              "end": 1.73,
+              "probability": 0.152099609375
+            },
+            {
+              "text": " o'",
+              "start": 1.73,
+              "end": 2.05,
+              "probability": 0.031890869140625
+            },
+            {
+              "text": " thing",
+              "start": 2.21,
+              "end": 2.35,
+              "probability": 0.68798828125
+            },
+            {
+              "text": " is",
+              "start": 2.35,
+              "end": 2.49,
+              "probability": 0.96875
+            },
+            {
+              "text": " your",
+              "start": 2.49,
+              "end": 2.61,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " crocodile?",
+              "start": 2.61,
+              "end": 3.17,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lepidus,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "What",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "raw": "manner",
+          "start": 1.47,
+          "end": 1.73
+        },
+        {
+          "raw": "o'",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "raw": "thing",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "raw": "is",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "raw": "your",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "raw": "crocodile?",
+          "start": 2.61,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "Lepidus.",
+        "What",
+        "manner",
+        "o'",
+        "thing",
+        "is",
+        "your",
+        "crocodile?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lepidus,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "lepidus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.35,
+          "end": 1.47,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "manner",
+          "start": 1.47,
+          "end": 1.73,
+          "key": "manner",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "o'",
+          "start": 1.73,
+          "end": 2.05,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 2.21,
+          "end": 2.35,
+          "key": "thing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.35,
+          "end": 2.49,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.49,
+          "end": 2.61,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "crocodile?",
+          "start": 2.61,
+          "end": 3.17,
+          "key": "crocodile",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lepidus.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "What",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "text": "manner",
+          "start": 1.47,
+          "end": 1.73
+        },
+        {
+          "text": "o'",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "text": "thing",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "text": "is",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "text": "your",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "text": "crocodile?",
+          "start": 2.61,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1644261069886852
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0a11e673ea4e8a5a7a057cf3e36da14591028068a07c504fa9d2b516becdda6f",
+  "selected_reasons": []
+}

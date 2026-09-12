@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "cabfc27626fb8191441ba4728189a6aac14a17708e8f69e74d16c1c3334fae2e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2165973987430334,
+      "alignment_seconds": 0.00028958171606063843,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But I do love you!\" answered Alyosha warmly.",
+        "hotwords": "But, I, Alyosha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But I do love you! answered Alyosha warmly.",
+          "start": 0.08,
+          "end": 2.98,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.1451416015625
+            },
+            {
+              "text": " I",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.9453125
+            },
+            {
+              "text": " do",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " love",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you!",
+              "start": 1.04,
+              "end": 1.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " answered",
+              "start": 1.94,
+              "end": 1.94,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Alyosha",
+              "start": 1.94,
+              "end": 2.52,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " warmly.",
+              "start": 2.52,
+              "end": 2.98,
+              "probability": 0.931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "I",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "do",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "love",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "you!",
+          "start": 1.04,
+          "end": 1.38
+        },
+        {
+          "raw": "answered",
+          "start": 1.94,
+          "end": 1.94
+        },
+        {
+          "raw": "Alyosha",
+          "start": 1.94,
+          "end": 2.52
+        },
+        {
+          "raw": "warmly.",
+          "start": 2.52,
+          "end": 2.98
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "I",
+        "do",
+        "love",
+        "you!\"",
+        "answered",
+        "Alyosha",
+        "warmly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "love",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you!",
+          "start": 1.04,
+          "end": 1.38,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 1.94,
+          "end": 1.94,
+          "key": "answered",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 1.94,
+          "end": 2.52,
+          "key": "alyosha",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "warmly.",
+          "start": 2.52,
+          "end": 2.98,
+          "key": "warmly",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "I",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "do",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "text": "love",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "you!\"",
+          "start": 1.04,
+          "end": 1.38
+        },
+        {
+          "text": "answered",
+          "start": 1.94,
+          "end": 1.94
+        },
+        {
+          "text": "Alyosha",
+          "start": 1.94,
+          "end": 2.52
+        },
+        {
+          "text": "warmly.",
+          "start": 2.52,
+          "end": 2.98
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21699338406324387
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "168bfe26479444832a9f43ca4e67679933cab7ae52e6352051309f813767c181",
+  "selected_reasons": []
+}

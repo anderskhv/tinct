@@ -1,0 +1,739 @@
+{
+  "complete": true,
+  "signature": "ef40ff7be420fbe4cd57f3219989d29dacce9bfcbdbf8ff96925d3f076710312",
+  "attempts": [
+    {
+      "asr_seconds": 0.34895041584968567,
+      "alignment_seconds": 0.0007405523210763931,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 100. We all feign to ourselves that we are simpler than we are. We thus relax ourselves",
+          "start": 0.02,
+          "end": 6.12,
+          "words": [
+            {
+              "text": " 100.",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.445556640625
+            },
+            {
+              "text": " We",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 0.953125
+            },
+            {
+              "text": " all",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " feign",
+              "start": 1.88,
+              "end": 2.2,
+              "probability": 0.911865234375
+            },
+            {
+              "text": " to",
+              "start": 2.2,
+              "end": 2.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ourselves",
+              "start": 2.32,
+              "end": 2.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " that",
+              "start": 2.72,
+              "end": 3.04,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " we",
+              "start": 3.04,
+              "end": 3.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " are",
+              "start": 3.22,
+              "end": 3.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " simpler",
+              "start": 3.36,
+              "end": 3.7,
+              "probability": 0.978515625
+            },
+            {
+              "text": " than",
+              "start": 3.7,
+              "end": 4.0,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " we",
+              "start": 4.0,
+              "end": 4.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " are.",
+              "start": 4.2,
+              "end": 4.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " We",
+              "start": 4.98,
+              "end": 5.04,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " thus",
+              "start": 5.04,
+              "end": 5.26,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " relax",
+              "start": 5.26,
+              "end": 5.68,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " ourselves",
+              "start": 5.68,
+              "end": 6.12,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " away from our fellows.",
+          "start": 6.12,
+          "end": 7.08,
+          "words": [
+            {
+              "text": " away",
+              "start": 6.12,
+              "end": 6.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " from",
+              "start": 6.44,
+              "end": 6.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " our",
+              "start": 6.68,
+              "end": 6.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fellows.",
+              "start": 6.84,
+              "end": 7.08,
+              "probability": 0.958984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "100.",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "We",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "all",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "feign",
+          "start": 1.88,
+          "end": 2.2
+        },
+        {
+          "raw": "to",
+          "start": 2.2,
+          "end": 2.32
+        },
+        {
+          "raw": "ourselves",
+          "start": 2.32,
+          "end": 2.72
+        },
+        {
+          "raw": "that",
+          "start": 2.72,
+          "end": 3.04
+        },
+        {
+          "raw": "we",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "raw": "are",
+          "start": 3.22,
+          "end": 3.36
+        },
+        {
+          "raw": "simpler",
+          "start": 3.36,
+          "end": 3.7
+        },
+        {
+          "raw": "than",
+          "start": 3.7,
+          "end": 4.0
+        },
+        {
+          "raw": "we",
+          "start": 4.0,
+          "end": 4.2
+        },
+        {
+          "raw": "are.",
+          "start": 4.2,
+          "end": 4.52
+        },
+        {
+          "raw": "We",
+          "start": 4.98,
+          "end": 5.04
+        },
+        {
+          "raw": "thus",
+          "start": 5.04,
+          "end": 5.26
+        },
+        {
+          "raw": "relax",
+          "start": 5.26,
+          "end": 5.68
+        },
+        {
+          "raw": "ourselves",
+          "start": 5.68,
+          "end": 6.12
+        },
+        {
+          "raw": "away",
+          "start": 6.12,
+          "end": 6.44
+        },
+        {
+          "raw": "from",
+          "start": 6.44,
+          "end": 6.68
+        },
+        {
+          "raw": "our",
+          "start": 6.68,
+          "end": 6.84
+        },
+        {
+          "raw": "fellows.",
+          "start": 6.84,
+          "end": 7.08
+        }
+      ],
+      "expected_tokens": [
+        "100.",
+        "We",
+        "all",
+        "feign",
+        "to",
+        "ourselves",
+        "that",
+        "we",
+        "are",
+        "simpler",
+        "than",
+        "we",
+        "are,",
+        "we",
+        "thus",
+        "relax",
+        "ourselves",
+        "away",
+        "from",
+        "our",
+        "fellows."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "100.",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "onehundred",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.62,
+          "end": 1.72,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "feign",
+          "start": 1.88,
+          "end": 2.2,
+          "key": "feign",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.2,
+          "end": 2.32,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ourselves",
+          "start": 2.32,
+          "end": 2.72,
+          "key": "ourselves",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.72,
+          "end": 3.04,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.04,
+          "end": 3.22,
+          "key": "we",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.22,
+          "end": 3.36,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "simpler",
+          "start": 3.36,
+          "end": 3.7,
+          "key": "simpler",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 3.7,
+          "end": 4.0,
+          "key": "than",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 4.0,
+          "end": 4.2,
+          "key": "we",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "are.",
+          "start": 4.2,
+          "end": 4.52,
+          "key": "are",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 4.98,
+          "end": 5.04,
+          "key": "we",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 5.04,
+          "end": 5.26,
+          "key": "thus",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "relax",
+          "start": 5.26,
+          "end": 5.68,
+          "key": "relax",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ourselves",
+          "start": 5.68,
+          "end": 6.12,
+          "key": "ourselves",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 6.12,
+          "end": 6.44,
+          "key": "away",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 6.44,
+          "end": 6.68,
+          "key": "from",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 6.68,
+          "end": 6.84,
+          "key": "our",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "fellows.",
+          "start": 6.84,
+          "end": 7.08,
+          "key": "fellows",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "100.",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "text": "We",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "text": "all",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "feign",
+          "start": 1.88,
+          "end": 2.2
+        },
+        {
+          "text": "to",
+          "start": 2.2,
+          "end": 2.32
+        },
+        {
+          "text": "ourselves",
+          "start": 2.32,
+          "end": 2.72
+        },
+        {
+          "text": "that",
+          "start": 2.72,
+          "end": 3.04
+        },
+        {
+          "text": "we",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "text": "are",
+          "start": 3.22,
+          "end": 3.36
+        },
+        {
+          "text": "simpler",
+          "start": 3.36,
+          "end": 3.7
+        },
+        {
+          "text": "than",
+          "start": 3.7,
+          "end": 4.0
+        },
+        {
+          "text": "we",
+          "start": 4.0,
+          "end": 4.2
+        },
+        {
+          "text": "are,",
+          "start": 4.2,
+          "end": 4.52
+        },
+        {
+          "text": "we",
+          "start": 4.98,
+          "end": 5.04
+        },
+        {
+          "text": "thus",
+          "start": 5.04,
+          "end": 5.26
+        },
+        {
+          "text": "relax",
+          "start": 5.26,
+          "end": 5.68
+        },
+        {
+          "text": "ourselves",
+          "start": 5.68,
+          "end": 6.12
+        },
+        {
+          "text": "away",
+          "start": 6.12,
+          "end": 6.44
+        },
+        {
+          "text": "from",
+          "start": 6.44,
+          "end": 6.68
+        },
+        {
+          "text": "our",
+          "start": 6.68,
+          "end": 6.84
+        },
+        {
+          "text": "fellows.",
+          "start": 6.84,
+          "end": 7.08
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3500048201531172
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "98f91d9bd7a1a46a88c0fd0cb9aa546def7c6d77a3b112555724a10fb815fe6f",
+  "selected_reasons": []
+}

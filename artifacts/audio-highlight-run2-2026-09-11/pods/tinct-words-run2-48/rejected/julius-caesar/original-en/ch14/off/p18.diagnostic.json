@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "f7ec4c16e4a4c1f9610f2b3bcabf649a8e6e22b13a93a6486594107f945da19f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1841872213408351,
+      "alignment_seconds": 0.0004061637446284294,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, good words are better than bad strokes, Octavius.",
+          "start": 0.05,
+          "end": 3.71,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " good",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " words",
+              "start": 1.45,
+              "end": 1.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " are",
+              "start": 1.73,
+              "end": 1.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " better",
+              "start": 1.89,
+              "end": 2.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " than",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " bad",
+              "start": 2.23,
+              "end": 2.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " strokes,",
+              "start": 2.47,
+              "end": 2.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Octavius.",
+              "start": 3.13,
+              "end": 3.71,
+              "probability": 0.953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "good",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "words",
+          "start": 1.45,
+          "end": 1.73
+        },
+        {
+          "raw": "are",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "raw": "better",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "raw": "than",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "bad",
+          "start": 2.23,
+          "end": 2.47
+        },
+        {
+          "raw": "strokes,",
+          "start": 2.47,
+          "end": 2.97
+        },
+        {
+          "raw": "Octavius.",
+          "start": 3.13,
+          "end": 3.71
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Good",
+        "words",
+        "are",
+        "better",
+        "than",
+        "bad",
+        "strokes,",
+        "Octavius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.19,
+          "end": 1.45,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 1.45,
+          "end": 1.73,
+          "key": "words",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.73,
+          "end": 1.89,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 1.89,
+          "end": 2.03,
+          "key": "better",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.03,
+          "end": 2.23,
+          "key": "than",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bad",
+          "start": 2.23,
+          "end": 2.47,
+          "key": "bad",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "strokes,",
+          "start": 2.47,
+          "end": 2.97,
+          "key": "strokes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Octavius.",
+          "start": 3.13,
+          "end": 3.71,
+          "key": "octavius",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Good",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "words",
+          "start": 1.45,
+          "end": 1.73
+        },
+        {
+          "text": "are",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "text": "better",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "text": "than",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "bad",
+          "start": 2.23,
+          "end": 2.47
+        },
+        {
+          "text": "strokes,",
+          "start": 2.47,
+          "end": 2.97
+        },
+        {
+          "text": "Octavius.",
+          "start": 3.13,
+          "end": 3.71
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18474306724965572
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4b30a8c81f1a76775845b1255a1305ed788249689dd3a94ed823ffe8de9a6812",
+  "selected_reasons": []
+}

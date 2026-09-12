@@ -1,0 +1,464 @@
+{
+  "complete": true,
+  "signature": "e06495c68bca76cd48a28eb4b00e4f543f14df177d0cc3f2f2d022e963073489",
+  "attempts": [
+    {
+      "asr_seconds": 0.39825958097935654,
+      "alignment_seconds": 0.00021432200446724892,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Totals 2,180, 6,550,940, 3,378,347, 165,463, 14 zero pounds.",
+          "start": 0.05,
+          "end": 15.01,
+          "words": [
+            {
+              "text": " Totals",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.65380859375
+            },
+            {
+              "text": " 2",
+              "start": 0.85,
+              "end": 1.13,
+              "probability": 0.71484375
+            },
+            {
+              "text": ",180,",
+              "start": 1.13,
+              "end": 2.27,
+              "probability": 0.850341796875
+            },
+            {
+              "text": " 6",
+              "start": 2.93,
+              "end": 3.05,
+              "probability": 0.8095703125
+            },
+            {
+              "text": ",550",
+              "start": 3.05,
+              "end": 4.07,
+              "probability": 0.915771484375
+            },
+            {
+              "text": ",940,",
+              "start": 4.07,
+              "end": 5.57,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " 3",
+              "start": 6.25,
+              "end": 6.37,
+              "probability": 0.88232421875
+            },
+            {
+              "text": ",378",
+              "start": 6.37,
+              "end": 7.35,
+              "probability": 0.95654296875
+            },
+            {
+              "text": ",347,",
+              "start": 7.35,
+              "end": 9.45,
+              "probability": 0.985107421875
+            },
+            {
+              "text": " 165",
+              "start": 10.07,
+              "end": 10.93,
+              "probability": 0.9658203125
+            },
+            {
+              "text": ",463,",
+              "start": 10.93,
+              "end": 12.69,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " 14",
+              "start": 13.61,
+              "end": 14.09,
+              "probability": 0.83203125
+            },
+            {
+              "text": " zero",
+              "start": 14.09,
+              "end": 14.57,
+              "probability": 0.56298828125
+            },
+            {
+              "text": " pounds.",
+              "start": 14.57,
+              "end": 15.01,
+              "probability": 0.93359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Totals",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "2",
+          "start": 0.85,
+          "end": 1.13
+        },
+        {
+          "raw": ",180,",
+          "start": 1.13,
+          "end": 2.27
+        },
+        {
+          "raw": "6",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "raw": ",550",
+          "start": 3.05,
+          "end": 4.07
+        },
+        {
+          "raw": ",940,",
+          "start": 4.07,
+          "end": 5.57
+        },
+        {
+          "raw": "3",
+          "start": 6.25,
+          "end": 6.37
+        },
+        {
+          "raw": ",378",
+          "start": 6.37,
+          "end": 7.35
+        },
+        {
+          "raw": ",347,",
+          "start": 7.35,
+          "end": 9.45
+        },
+        {
+          "raw": "165",
+          "start": 10.07,
+          "end": 10.93
+        },
+        {
+          "raw": ",463,",
+          "start": 10.93,
+          "end": 12.69
+        },
+        {
+          "raw": "14",
+          "start": 13.61,
+          "end": 14.09
+        },
+        {
+          "raw": "zero",
+          "start": 14.09,
+          "end": 14.57
+        },
+        {
+          "raw": "pounds.",
+          "start": 14.57,
+          "end": 15.01
+        }
+      ],
+      "expected_tokens": [
+        "Totals",
+        "2,186",
+        "550,943",
+        "378,347",
+        "£165,463",
+        "14",
+        "0"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          5,
+          1,
+          11
+        ],
+        [
+          "equal",
+          5,
+          7,
+          11,
+          13
+        ],
+        [
+          "insert",
+          7,
+          7,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          5,
+          1,
+          11
+        ],
+        [
+          "insert",
+          7,
+          7,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Totals",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "totals",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "2",
+          "start": 0.85,
+          "end": 1.13,
+          "key": "two",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": ",180,",
+          "start": 1.13,
+          "end": 2.27,
+          "key": "180",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "6",
+          "start": 2.93,
+          "end": 3.05,
+          "key": "six",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": ",550",
+          "start": 3.05,
+          "end": 4.07,
+          "key": "550",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": ",940,",
+          "start": 4.07,
+          "end": 5.57,
+          "key": "940",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "3",
+          "start": 6.25,
+          "end": 6.37,
+          "key": "three",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": ",378",
+          "start": 6.37,
+          "end": 7.35,
+          "key": "378",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": ",347,",
+          "start": 7.35,
+          "end": 9.45,
+          "key": "347",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "165",
+          "start": 10.07,
+          "end": 10.93,
+          "key": "165",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": ",463,",
+          "start": 10.93,
+          "end": 12.69,
+          "key": "463",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "14",
+          "start": 13.61,
+          "end": 14.09,
+          "key": "fourteen",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "zero",
+          "start": 14.09,
+          "end": 14.57,
+          "key": "zero",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pounds.",
+          "start": 14.57,
+          "end": 15.01,
+          "key": "pounds",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Totals",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "2,186",
+          "start": 0.85,
+          "end": 7.23
+        },
+        {
+          "text": "550,943",
+          "start": 7.23,
+          "end": 10.42
+        },
+        {
+          "text": "378,347",
+          "start": 10.42,
+          "end": 12.015
+        },
+        {
+          "text": "£165,463",
+          "start": 12.015,
+          "end": 12.812
+        },
+        {
+          "text": "14",
+          "start": 13.61,
+          "end": 14.09
+        },
+        {
+          "text": "0",
+          "start": 14.09,
+          "end": 14.57
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 14,
+        "matched_words": 3
+      },
+      "match_ratio": 0.42857142857142855,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3985801420058124
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "454ce1d357c91e6327edd02abed95bf8bbf7c135cfa80c36df8607d792b7029b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

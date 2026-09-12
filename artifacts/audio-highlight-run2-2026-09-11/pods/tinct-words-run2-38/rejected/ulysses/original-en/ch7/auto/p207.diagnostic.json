@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "643626fead57e17e2a8d01fffdf3c3db45c14591a79f5cecae19388cd1c56e24",
+  "attempts": [
+    {
+      "asr_seconds": 0.1438294149702415,
+      "alignment_seconds": 0.0001530720037408173,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Continued on page six, column four.",
+        "hotwords": "Continued"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Continued on page six, column four.",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Continued",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.5625
+            },
+            {
+              "text": " on",
+              "start": 0.75,
+              "end": 0.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " page",
+              "start": 0.97,
+              "end": 1.13,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " six,",
+              "start": 1.13,
+              "end": 1.59,
+              "probability": 0.38134765625
+            },
+            {
+              "text": " column",
+              "start": 1.89,
+              "end": 1.93,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " four.",
+              "start": 1.93,
+              "end": 2.37,
+              "probability": 0.94189453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Continued",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "on",
+          "start": 0.75,
+          "end": 0.97
+        },
+        {
+          "raw": "page",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "raw": "six,",
+          "start": 1.13,
+          "end": 1.59
+        },
+        {
+          "raw": "column",
+          "start": 1.89,
+          "end": 1.93
+        },
+        {
+          "raw": "four.",
+          "start": 1.93,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "—Continued",
+        "on",
+        "page",
+        "six,",
+        "column",
+        "four."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Continued",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "continued",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 0.75,
+          "end": 0.97,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "page",
+          "start": 0.97,
+          "end": 1.13,
+          "key": "page",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "six,",
+          "start": 1.13,
+          "end": 1.59,
+          "key": "six",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "column",
+          "start": 1.89,
+          "end": 1.93,
+          "key": "column",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "four.",
+          "start": 1.93,
+          "end": 2.37,
+          "key": "four",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Continued",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "on",
+          "start": 0.75,
+          "end": 0.97
+        },
+        {
+          "text": "page",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "text": "six,",
+          "start": 1.13,
+          "end": 1.59
+        },
+        {
+          "text": "column",
+          "start": 1.89,
+          "end": 1.93
+        },
+        {
+          "text": "four.",
+          "start": 1.93,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14402986597269773
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bdcdea2241e824f5a5f69f431a971ce6066232f6bcc54d7e25511bc41f905934",
+  "selected_reasons": []
+}

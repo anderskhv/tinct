@@ -1,0 +1,291 @@
+{
+  "complete": true,
+  "signature": "7c8e8b86a4e3f0e2888a5b15aadb2bfbe0c4d00670dbf3a00bc7050678161451",
+  "attempts": [
+    {
+      "asr_seconds": 0.22224024217575788,
+      "alignment_seconds": 0.0004344489425420761,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, and thou shalt die for it.",
+          "start": 0.08,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.680419921875
+            },
+            {
+              "text": " and",
+              "start": 1.22,
+              "end": 1.4,
+              "probability": 0.958984375
+            },
+            {
+              "text": " thou",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " shalt",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " die",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.966796875
+            },
+            {
+              "text": " for",
+              "start": 1.92,
+              "end": 2.2,
+              "probability": 0.5361328125
+            },
+            {
+              "text": " it.",
+              "start": 2.2,
+              "end": 2.42,
+              "probability": 0.74365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "and",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "raw": "thou",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "shalt",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "die",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "for",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "raw": "it.",
+          "start": 2.2,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "And",
+        "thou",
+        "shalt",
+        "die",
+        "for't."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.22,
+          "end": 1.4,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shalt",
+          "start": 1.52,
+          "end": 1.7,
+          "key": "shalt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "die",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "die",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.92,
+          "end": 2.2,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.2,
+          "end": 2.42,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "And",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "text": "thou",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "shalt",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "die",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "for't.",
+          "start": 1.92,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22282912954688072
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a55d257c1bb6765009f80d8e6cc51039dbb38cbcf804bf4986a98c9db1f4c774",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

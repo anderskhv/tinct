@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "0e865f39158863099f3c8298eac9edd4116e670ca9fcda1fbc8bb8ac968c22ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.3451692508533597,
+      "alignment_seconds": 0.0006701871752738953,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Richard. Let him thank me that holp to send him thither, For he was fitter for that place than earth.",
+        "hotwords": "Richard, Let"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Richard, Let him thank me that holp to send him thither, For he was fitter for that place than earth.",
+          "start": 0.05,
+          "end": 5.63,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.453369140625
+            },
+            {
+              "text": " Let",
+              "start": 1.37,
+              "end": 1.49,
+              "probability": 0.0235748291015625
+            },
+            {
+              "text": " him",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " thank",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " me",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " that",
+              "start": 2.03,
+              "end": 2.21,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " holp",
+              "start": 2.21,
+              "end": 2.49,
+              "probability": 0.32282567024230957
+            },
+            {
+              "text": " to",
+              "start": 2.49,
+              "end": 2.63,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " send",
+              "start": 2.63,
+              "end": 2.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " him",
+              "start": 2.83,
+              "end": 3.01,
+              "probability": 0.990234375
+            },
+            {
+              "text": " thither,",
+              "start": 3.01,
+              "end": 3.35,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " For",
+              "start": 3.67,
+              "end": 3.81,
+              "probability": 0.369873046875
+            },
+            {
+              "text": " he",
+              "start": 3.81,
+              "end": 3.97,
+              "probability": 0.990234375
+            },
+            {
+              "text": " was",
+              "start": 3.97,
+              "end": 4.13,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " fitter",
+              "start": 4.13,
+              "end": 4.43,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " for",
+              "start": 4.43,
+              "end": 4.61,
+              "probability": 0.986328125
+            },
+            {
+              "text": " that",
+              "start": 4.61,
+              "end": 4.83,
+              "probability": 0.98828125
+            },
+            {
+              "text": " place",
+              "start": 4.83,
+              "end": 5.09,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " than",
+              "start": 5.09,
+              "end": 5.35,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " earth.",
+              "start": 5.35,
+              "end": 5.63,
+              "probability": 0.74560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Let",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "raw": "him",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "thank",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "me",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "that",
+          "start": 2.03,
+          "end": 2.21
+        },
+        {
+          "raw": "holp",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "raw": "to",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "raw": "send",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "raw": "him",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "raw": "thither,",
+          "start": 3.01,
+          "end": 3.35
+        },
+        {
+          "raw": "For",
+          "start": 3.67,
+          "end": 3.81
+        },
+        {
+          "raw": "he",
+          "start": 3.81,
+          "end": 3.97
+        },
+        {
+          "raw": "was",
+          "start": 3.97,
+          "end": 4.13
+        },
+        {
+          "raw": "fitter",
+          "start": 4.13,
+          "end": 4.43
+        },
+        {
+          "raw": "for",
+          "start": 4.43,
+          "end": 4.61
+        },
+        {
+          "raw": "that",
+          "start": 4.61,
+          "end": 4.83
+        },
+        {
+          "raw": "place",
+          "start": 4.83,
+          "end": 5.09
+        },
+        {
+          "raw": "than",
+          "start": 5.09,
+          "end": 5.35
+        },
+        {
+          "raw": "earth.",
+          "start": 5.35,
+          "end": 5.63
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Let",
+        "him",
+        "thank",
+        "me",
+        "that",
+        "holp",
+        "to",
+        "send",
+        "him",
+        "thither,",
+        "For",
+        "he",
+        "was",
+        "fitter",
+        "for",
+        "that",
+        "place",
+        "than",
+        "earth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 1.37,
+          "end": 1.49,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "thank",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.85,
+          "end": 2.03,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.03,
+          "end": 2.21,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "holp",
+          "start": 2.21,
+          "end": 2.49,
+          "key": "holp",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.49,
+          "end": 2.63,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 2.63,
+          "end": 2.83,
+          "key": "send",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.83,
+          "end": 3.01,
+          "key": "him",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thither,",
+          "start": 3.01,
+          "end": 3.35,
+          "key": "thither",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 3.67,
+          "end": 3.81,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.81,
+          "end": 3.97,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.97,
+          "end": 4.13,
+          "key": "was",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fitter",
+          "start": 4.13,
+          "end": 4.43,
+          "key": "fitter",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.43,
+          "end": 4.61,
+          "key": "for",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.61,
+          "end": 4.83,
+          "key": "that",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "place",
+          "start": 4.83,
+          "end": 5.09,
+          "key": "place",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 5.09,
+          "end": 5.35,
+          "key": "than",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "earth.",
+          "start": 5.35,
+          "end": 5.63,
+          "key": "earth",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Let",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "text": "him",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "thank",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "me",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "that",
+          "start": 2.03,
+          "end": 2.21
+        },
+        {
+          "text": "holp",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "text": "to",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "text": "send",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "text": "him",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "text": "thither,",
+          "start": 3.01,
+          "end": 3.35
+        },
+        {
+          "text": "For",
+          "start": 3.67,
+          "end": 3.81
+        },
+        {
+          "text": "he",
+          "start": 3.81,
+          "end": 3.97
+        },
+        {
+          "text": "was",
+          "start": 3.97,
+          "end": 4.13
+        },
+        {
+          "text": "fitter",
+          "start": 4.13,
+          "end": 4.43
+        },
+        {
+          "text": "for",
+          "start": 4.43,
+          "end": 4.61
+        },
+        {
+          "text": "that",
+          "start": 4.61,
+          "end": 4.83
+        },
+        {
+          "text": "place",
+          "start": 4.83,
+          "end": 5.09
+        },
+        {
+          "text": "than",
+          "start": 5.09,
+          "end": 5.35
+        },
+        {
+          "text": "earth.",
+          "start": 5.35,
+          "end": 5.63
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3461289154365659
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7564b75ae3eb6b04630ff7f0a63f9eabd24f2db77a6bc5f12c9127ca67f80307",
+  "selected_reasons": []
+}

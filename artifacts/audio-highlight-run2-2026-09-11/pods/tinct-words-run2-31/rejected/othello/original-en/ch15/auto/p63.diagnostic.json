@@ -1,0 +1,741 @@
+{
+  "complete": true,
+  "signature": "0404004c2e688d826de46bdbc3ec4dfe9e1b9b9d160f8e36b7d338c73f2cfaee",
+  "attempts": [
+    {
+      "asr_seconds": 0.3166675721295178,
+      "alignment_seconds": 0.0003183060325682163,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. I had forgot thee: O, come in, Emilia. Soft, by and by; let me the curtains draw. Where art thou?",
+        "hotwords": "Othello, I, O, Emilia, Soft, Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, I had forgot thee. O, come in, Emilia. Soft, by and by, let me the curtains draw.",
+          "start": 0.24,
+          "end": 6.12,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.24,
+              "end": 0.88,
+              "probability": 0.6609700520833334
+            },
+            {
+              "text": " I",
+              "start": 1.24,
+              "end": 1.38,
+              "probability": 0.990234375
+            },
+            {
+              "text": " had",
+              "start": 1.38,
+              "end": 1.48,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " forgot",
+              "start": 1.48,
+              "end": 1.76,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " thee.",
+              "start": 1.76,
+              "end": 2.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " O,",
+              "start": 2.54,
+              "end": 2.62,
+              "probability": 0.841796875
+            },
+            {
+              "text": " come",
+              "start": 2.74,
+              "end": 2.84,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " in,",
+              "start": 2.84,
+              "end": 3.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Emilia.",
+              "start": 3.12,
+              "end": 3.4,
+              "probability": 0.59564208984375
+            },
+            {
+              "text": " Soft,",
+              "start": 4.12,
+              "end": 4.3,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " by",
+              "start": 4.52,
+              "end": 4.54,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " and",
+              "start": 4.54,
+              "end": 4.7,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " by,",
+              "start": 4.7,
+              "end": 4.96,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " let",
+              "start": 5.16,
+              "end": 5.2,
+              "probability": 0.91796875
+            },
+            {
+              "text": " me",
+              "start": 5.2,
+              "end": 5.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.3,
+              "end": 5.44,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " curtains",
+              "start": 5.44,
+              "end": 5.74,
+              "probability": 0.9609375
+            },
+            {
+              "text": " draw.",
+              "start": 5.74,
+              "end": 6.12,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " Where art thou?",
+          "start": 6.52,
+          "end": 7.16,
+          "words": [
+            {
+              "text": " Where",
+              "start": 6.52,
+              "end": 6.64,
+              "probability": 0.7412109375
+            },
+            {
+              "text": " art",
+              "start": 6.64,
+              "end": 6.88,
+              "probability": 0.92578125
+            },
+            {
+              "text": " thou?",
+              "start": 6.88,
+              "end": 7.16,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.88
+        },
+        {
+          "raw": "I",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "raw": "had",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "raw": "forgot",
+          "start": 1.48,
+          "end": 1.76
+        },
+        {
+          "raw": "thee.",
+          "start": 1.76,
+          "end": 2.06
+        },
+        {
+          "raw": "O,",
+          "start": 2.54,
+          "end": 2.62
+        },
+        {
+          "raw": "come",
+          "start": 2.74,
+          "end": 2.84
+        },
+        {
+          "raw": "in,",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "raw": "Emilia.",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "raw": "Soft,",
+          "start": 4.12,
+          "end": 4.3
+        },
+        {
+          "raw": "by",
+          "start": 4.52,
+          "end": 4.54
+        },
+        {
+          "raw": "and",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "raw": "by,",
+          "start": 4.7,
+          "end": 4.96
+        },
+        {
+          "raw": "let",
+          "start": 5.16,
+          "end": 5.2
+        },
+        {
+          "raw": "me",
+          "start": 5.2,
+          "end": 5.3
+        },
+        {
+          "raw": "the",
+          "start": 5.3,
+          "end": 5.44
+        },
+        {
+          "raw": "curtains",
+          "start": 5.44,
+          "end": 5.74
+        },
+        {
+          "raw": "draw.",
+          "start": 5.74,
+          "end": 6.12
+        },
+        {
+          "raw": "Where",
+          "start": 6.52,
+          "end": 6.64
+        },
+        {
+          "raw": "art",
+          "start": 6.64,
+          "end": 6.88
+        },
+        {
+          "raw": "thou?",
+          "start": 6.88,
+          "end": 7.16
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "I",
+        "had",
+        "forgot",
+        "thee:",
+        "O,",
+        "come",
+        "in,",
+        "Emilia.",
+        "Soft,",
+        "by",
+        "and",
+        "by;",
+        "let",
+        "me",
+        "the",
+        "curtains",
+        "draw.",
+        "Where",
+        "art",
+        "thou?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.88,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.24,
+          "end": 1.38,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.38,
+          "end": 1.48,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "forgot",
+          "start": 1.48,
+          "end": 1.76,
+          "key": "forgot",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 1.76,
+          "end": 2.06,
+          "key": "thee",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 2.54,
+          "end": 2.62,
+          "key": "o",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.74,
+          "end": 2.84,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in,",
+          "start": 2.84,
+          "end": 3.02,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Emilia.",
+          "start": 3.12,
+          "end": 3.4,
+          "key": "emilia",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Soft,",
+          "start": 4.12,
+          "end": 4.3,
+          "key": "soft",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.52,
+          "end": 4.54,
+          "key": "by",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.54,
+          "end": 4.7,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "by,",
+          "start": 4.7,
+          "end": 4.96,
+          "key": "by",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 5.16,
+          "end": 5.2,
+          "key": "let",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.2,
+          "end": 5.3,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.3,
+          "end": 5.44,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "curtains",
+          "start": 5.44,
+          "end": 5.74,
+          "key": "curtains",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "draw.",
+          "start": 5.74,
+          "end": 6.12,
+          "key": "draw",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 6.52,
+          "end": 6.64,
+          "key": "where",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 6.64,
+          "end": 6.88,
+          "key": "art",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "thou?",
+          "start": 6.88,
+          "end": 7.16,
+          "key": "thou",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.24,
+          "end": 0.88
+        },
+        {
+          "text": "I",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "text": "had",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "text": "forgot",
+          "start": 1.48,
+          "end": 1.76
+        },
+        {
+          "text": "thee:",
+          "start": 1.76,
+          "end": 2.06
+        },
+        {
+          "text": "O,",
+          "start": 2.54,
+          "end": 2.62
+        },
+        {
+          "text": "come",
+          "start": 2.74,
+          "end": 2.84
+        },
+        {
+          "text": "in,",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "text": "Emilia.",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "text": "Soft,",
+          "start": 4.12,
+          "end": 4.3
+        },
+        {
+          "text": "by",
+          "start": 4.52,
+          "end": 4.54
+        },
+        {
+          "text": "and",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "text": "by;",
+          "start": 4.7,
+          "end": 4.96
+        },
+        {
+          "text": "let",
+          "start": 5.16,
+          "end": 5.2
+        },
+        {
+          "text": "me",
+          "start": 5.2,
+          "end": 5.3
+        },
+        {
+          "text": "the",
+          "start": 5.3,
+          "end": 5.44
+        },
+        {
+          "text": "curtains",
+          "start": 5.44,
+          "end": 5.74
+        },
+        {
+          "text": "draw.",
+          "start": 5.74,
+          "end": 6.12
+        },
+        {
+          "text": "Where",
+          "start": 6.52,
+          "end": 6.64
+        },
+        {
+          "text": "art",
+          "start": 6.64,
+          "end": 6.88
+        },
+        {
+          "text": "thou?",
+          "start": 6.88,
+          "end": 7.16
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31708818720653653
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "00be7553dc4c64e571cd4df76736cea9181216ed5e6d447e231b6497171a4c2a",
+  "selected_reasons": []
+}

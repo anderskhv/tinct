@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "6796793862c74d9e5b6b3af9ed7ef4bb10d2a6d6efbbe2441501d54f722a9da1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1908959038555622,
+      "alignment_seconds": 0.0005079731345176697,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The pilot now returned, shuffling his hat in his hands.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The pilot now returned, shuffling his hat in his hands.",
+          "start": 0.02,
+          "end": 3.38,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " pilot",
+              "start": 0.48,
+              "end": 0.72,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " now",
+              "start": 0.72,
+              "end": 1.0,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " returned,",
+              "start": 1.0,
+              "end": 1.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shuffling",
+              "start": 1.94,
+              "end": 2.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 2.32,
+              "end": 2.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hat",
+              "start": 2.48,
+              "end": 2.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 2.72,
+              "end": 2.86,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " his",
+              "start": 2.86,
+              "end": 2.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hands.",
+              "start": 2.98,
+              "end": 3.38,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "pilot",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "raw": "now",
+          "start": 0.72,
+          "end": 1.0
+        },
+        {
+          "raw": "returned,",
+          "start": 1.0,
+          "end": 1.46
+        },
+        {
+          "raw": "shuffling",
+          "start": 1.94,
+          "end": 2.32
+        },
+        {
+          "raw": "his",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "raw": "hat",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "raw": "in",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "raw": "his",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "raw": "hands.",
+          "start": 2.98,
+          "end": 3.38
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "pilot",
+        "now",
+        "returned,",
+        "shuffling",
+        "his",
+        "hat",
+        "in",
+        "his",
+        "hands."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pilot",
+          "start": 0.48,
+          "end": 0.72,
+          "key": "pilot",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.72,
+          "end": 1.0,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "returned,",
+          "start": 1.0,
+          "end": 1.46,
+          "key": "returned",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shuffling",
+          "start": 1.94,
+          "end": 2.32,
+          "key": "shuffling",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.32,
+          "end": 2.48,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hat",
+          "start": 2.48,
+          "end": 2.72,
+          "key": "hat",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.72,
+          "end": 2.86,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.86,
+          "end": 2.98,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hands.",
+          "start": 2.98,
+          "end": 3.38,
+          "key": "hands",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "pilot",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "text": "now",
+          "start": 0.72,
+          "end": 1.0
+        },
+        {
+          "text": "returned,",
+          "start": 1.0,
+          "end": 1.46
+        },
+        {
+          "text": "shuffling",
+          "start": 1.94,
+          "end": 2.32
+        },
+        {
+          "text": "his",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "text": "hat",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "text": "in",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "text": "his",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "text": "hands.",
+          "start": 2.98,
+          "end": 3.38
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19159658253192902
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "946091322fd1cb49d3ed4f19ffcc7d4f15d7330ebb08e31368ab48bd13bfb88c",
+  "selected_reasons": []
+}

@@ -1,0 +1,292 @@
+{
+  "complete": true,
+  "signature": "d76936073b415219dd1e9f9f8ced4b23c28158cded566949f6c827416d6ad116",
+  "attempts": [
+    {
+      "asr_seconds": 0.10128980502486229,
+      "alignment_seconds": 0.0001269318163394928,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kent, by Jeno, I swear I.",
+          "start": 0.05,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.921875
+            },
+            {
+              "text": " by",
+              "start": 0.93,
+              "end": 1.09,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Jeno,",
+              "start": 1.09,
+              "end": 1.41,
+              "probability": 0.34942626953125
+            },
+            {
+              "text": " I",
+              "start": 1.49,
+              "end": 1.55,
+              "probability": 0.96875
+            },
+            {
+              "text": " swear",
+              "start": 1.55,
+              "end": 1.75,
+              "probability": 0.57861328125
+            },
+            {
+              "text": " I.",
+              "start": 1.75,
+              "end": 2.05,
+              "probability": 0.95849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "by",
+          "start": 0.93,
+          "end": 1.09
+        },
+        {
+          "raw": "Jeno,",
+          "start": 1.09,
+          "end": 1.41
+        },
+        {
+          "raw": "I",
+          "start": 1.49,
+          "end": 1.55
+        },
+        {
+          "raw": "swear",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "raw": "I.",
+          "start": 1.75,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "By",
+        "Juno,",
+        "I",
+        "swear",
+        "ay."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 0.93,
+          "end": 1.09,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Jeno,",
+          "start": 1.09,
+          "end": 1.41,
+          "key": "jeno",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.49,
+          "end": 1.55,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "swear",
+          "start": 1.55,
+          "end": 1.75,
+          "key": "swear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 1.75,
+          "end": 2.05,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "By",
+          "start": 0.93,
+          "end": 1.09
+        },
+        {
+          "text": "Juno,",
+          "start": 1.09,
+          "end": 1.29
+        },
+        {
+          "text": "I",
+          "start": 1.49,
+          "end": 1.55
+        },
+        {
+          "text": "swear",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "text": "ay.",
+          "start": 1.75,
+          "end": 1.9
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10145647451281548
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "00c8667dc2c563833c5480c9db4b982b674b05e3a0168275365ea4521ccb3a9e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

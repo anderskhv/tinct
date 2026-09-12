@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "83e0353e844c3301f7ee30b5751685f3b1c644de9d1c606000c1d47c76252398",
+  "attempts": [
+    {
+      "asr_seconds": 0.08081660297466442,
+      "alignment_seconds": 0.0001064100069925189,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Return of Bloom",
+          "start": 0.05,
+          "end": 1.17,
+          "words": [
+            {
+              "text": " Return",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.82373046875
+            },
+            {
+              "text": " of",
+              "start": 0.73,
+              "end": 0.93,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Bloom",
+              "start": 0.93,
+              "end": 1.17,
+              "probability": 0.78369140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Return",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "of",
+          "start": 0.73,
+          "end": 0.93
+        },
+        {
+          "raw": "Bloom",
+          "start": 0.93,
+          "end": 1.17
+        }
+      ],
+      "expected_tokens": [
+        "Return",
+        "Of",
+        "Bloom"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Return",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "return",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.73,
+          "end": 0.93,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Bloom",
+          "start": 0.93,
+          "end": 1.17,
+          "key": "bloom",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Return",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Of",
+          "start": 0.73,
+          "end": 0.93
+        },
+        {
+          "text": "Bloom",
+          "start": 0.93,
+          "end": 1.17
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0809645929839462
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4cd05eb97d60cf144391a77e0abe32265904e391e1cf3d21ef0ea20f406f081e",
+  "selected_reasons": []
+}

@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "41b7424c110c322cca0dfef5af82df1fd6d13ae4164bf0a3ae5d94f2611a72ed",
+  "attempts": [
+    {
+      "asr_seconds": 0.18494844064116478,
+      "alignment_seconds": 0.0001680748537182808,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gloucester, I hope they will not come upon us now.",
+          "start": 0.5,
+          "end": 2.82,
+          "words": [
+            {
+              "text": " Gloucester,",
+              "start": 0.5,
+              "end": 0.86,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " I",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " hope",
+              "start": 1.38,
+              "end": 1.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " they",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " will",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " not",
+              "start": 1.8,
+              "end": 1.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " come",
+              "start": 1.94,
+              "end": 2.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " upon",
+              "start": 2.1,
+              "end": 2.34,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " us",
+              "start": 2.34,
+              "end": 2.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " now.",
+              "start": 2.54,
+              "end": 2.82,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "raw": "I",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "hope",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "raw": "they",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "raw": "will",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "not",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "raw": "come",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "raw": "upon",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "raw": "us",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "raw": "now.",
+          "start": 2.54,
+          "end": 2.82
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "I",
+        "hope",
+        "they",
+        "will",
+        "not",
+        "come",
+        "upon",
+        "us",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.5,
+          "end": 0.86,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 1.38,
+          "end": 1.52,
+          "key": "hope",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.52,
+          "end": 1.68,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.8,
+          "end": 1.94,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.94,
+          "end": 2.1,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.1,
+          "end": 2.34,
+          "key": "upon",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 2.34,
+          "end": 2.54,
+          "key": "us",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 2.54,
+          "end": 2.82,
+          "key": "now",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "text": "I",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "hope",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "text": "they",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "text": "will",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "not",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "text": "come",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "text": "upon",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "text": "us",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "text": "now.",
+          "start": 2.54,
+          "end": 2.82
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18517769500613213
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "550459a99194670ac74704bb6dffcd7070db91aec83947c524d6a664e4ffb816",
+  "selected_reasons": []
+}

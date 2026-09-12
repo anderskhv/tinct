@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "5409804efa5726d14ab49f15311f3f8256606296c1f9cd16db7f91873f80e4c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2101281564682722,
+      "alignment_seconds": 0.00047933775931596756,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " If he is as shrewd as I think he is, Consul, he will come.",
+          "start": 0.05,
+          "end": 3.73,
+          "words": [
+            {
+              "text": " If",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " he",
+              "start": 0.55,
+              "end": 0.69,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " is",
+              "start": 0.69,
+              "end": 0.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " as",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " shrewd",
+              "start": 0.97,
+              "end": 1.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " as",
+              "start": 1.33,
+              "end": 1.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.9921875
+            },
+            {
+              "text": " think",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is,",
+              "start": 1.87,
+              "end": 2.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Consul,",
+              "start": 2.69,
+              "end": 2.99,
+              "probability": 0.75390625
+            },
+            {
+              "text": " he",
+              "start": 3.17,
+              "end": 3.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " will",
+              "start": 3.25,
+              "end": 3.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " come.",
+              "start": 3.41,
+              "end": 3.73,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "If",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "he",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "raw": "is",
+          "start": 0.69,
+          "end": 0.83
+        },
+        {
+          "raw": "as",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "shrewd",
+          "start": 0.97,
+          "end": 1.33
+        },
+        {
+          "raw": "as",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "raw": "I",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "think",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "he",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "is,",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "raw": "Consul,",
+          "start": 2.69,
+          "end": 2.99
+        },
+        {
+          "raw": "he",
+          "start": 3.17,
+          "end": 3.25
+        },
+        {
+          "raw": "will",
+          "start": 3.25,
+          "end": 3.41
+        },
+        {
+          "raw": "come.",
+          "start": 3.41,
+          "end": 3.73
+        }
+      ],
+      "expected_tokens": [
+        "\"If",
+        "he",
+        "is",
+        "as",
+        "shrewd",
+        "as",
+        "I",
+        "think",
+        "he",
+        "is,",
+        "consul,",
+        "he",
+        "will",
+        "come.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "If",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "if",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.55,
+          "end": 0.69,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.69,
+          "end": 0.83,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 0.83,
+          "end": 0.97,
+          "key": "as",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shrewd",
+          "start": 0.97,
+          "end": 1.33,
+          "key": "shrewd",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.33,
+          "end": 1.41,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "think",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 1.87,
+          "end": 2.21,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Consul,",
+          "start": 2.69,
+          "end": 2.99,
+          "key": "consul",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.17,
+          "end": 3.25,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.25,
+          "end": 3.41,
+          "key": "will",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 3.41,
+          "end": 3.73,
+          "key": "come",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"If",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "he",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "text": "is",
+          "start": 0.69,
+          "end": 0.83
+        },
+        {
+          "text": "as",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "shrewd",
+          "start": 0.97,
+          "end": 1.33
+        },
+        {
+          "text": "as",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "text": "I",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "think",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "he",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "is,",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "text": "consul,",
+          "start": 2.69,
+          "end": 2.99
+        },
+        {
+          "text": "he",
+          "start": 3.17,
+          "end": 3.25
+        },
+        {
+          "text": "will",
+          "start": 3.25,
+          "end": 3.41
+        },
+        {
+          "text": "come.\"",
+          "start": 3.41,
+          "end": 3.73
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2108043720945716
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "90f6b867ce2d58e25cb6a68bfe9b32138d111ac4d426518a4e9f5058b02d457c",
+  "selected_reasons": []
+}

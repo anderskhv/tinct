@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "2b07facafbe53893bb8f50b9823b5b05906800764ada13d98a9ce7620d486677",
+  "attempts": [
+    {
+      "asr_seconds": 0.18694883957505226,
+      "alignment_seconds": 0.00019147992134094238,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Macbeth. Till then, enough.—Come, friends.",
+        "hotwords": "Macbeth, Till"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Macbeth, Till then, enough.—Come, friends.",
+          "start": 0.64,
+          "end": 2.54,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.64,
+              "end": 0.96,
+              "probability": 0.8494466145833334
+            },
+            {
+              "text": " Till",
+              "start": 1.26,
+              "end": 1.28,
+              "probability": 0.0167999267578125
+            },
+            {
+              "text": " then,",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " enough.—Come,",
+              "start": 1.54,
+              "end": 2.22,
+              "probability": 0.5174154043197632
+            },
+            {
+              "text": " friends.",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "raw": "Till",
+          "start": 1.26,
+          "end": 1.28
+        },
+        {
+          "raw": "then,",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "enough.—Come,",
+          "start": 1.54,
+          "end": 2.22
+        },
+        {
+          "raw": "friends.",
+          "start": 2.38,
+          "end": 2.54
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "Till",
+        "then,",
+        "enough.—Come,",
+        "friends."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.64,
+          "end": 0.96,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Till",
+          "start": 1.26,
+          "end": 1.28,
+          "key": "till",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "enough.—Come,",
+          "start": 1.54,
+          "end": 2.22,
+          "key": "enoughcome",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "friends.",
+          "start": 2.38,
+          "end": 2.54,
+          "key": "friends",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "text": "Till",
+          "start": 1.26,
+          "end": 1.28
+        },
+        {
+          "text": "then,",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "enough.—Come,",
+          "start": 1.54,
+          "end": 2.22
+        },
+        {
+          "text": "friends.",
+          "start": 2.38,
+          "end": 2.54
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1872076177969575
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f02d9a279696bdf77c75725cef5868c2641139ee00a34aaed4279b6748dfa54e",
+  "selected_reasons": []
+}

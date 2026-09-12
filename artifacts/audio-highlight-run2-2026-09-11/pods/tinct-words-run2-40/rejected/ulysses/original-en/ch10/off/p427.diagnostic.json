@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "900cf9bc5d55d1fb4cdefcfea069ae5964b666efa4ee0ce997d2e98cfdf8f8a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.23359627835452557,
+      "alignment_seconds": 0.00041767721995711327,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And how is that Basso Profondo Benjamin, Father Kelly asked.",
+          "start": 0.08,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.59375
+            },
+            {
+              "text": " how",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " is",
+              "start": 0.7,
+              "end": 0.86,
+              "probability": 0.978515625
+            },
+            {
+              "text": " that",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Basso",
+              "start": 1.04,
+              "end": 1.44,
+              "probability": 0.705078125
+            },
+            {
+              "text": " Profondo",
+              "start": 1.44,
+              "end": 1.92,
+              "probability": 0.76953125
+            },
+            {
+              "text": " Benjamin,",
+              "start": 1.92,
+              "end": 2.32,
+              "probability": 0.865234375
+            },
+            {
+              "text": " Father",
+              "start": 2.98,
+              "end": 3.14,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " Kelly",
+              "start": 3.14,
+              "end": 3.48,
+              "probability": 0.66650390625
+            },
+            {
+              "text": " asked.",
+              "start": 3.48,
+              "end": 3.92,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "how",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "is",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "raw": "that",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "raw": "Basso",
+          "start": 1.04,
+          "end": 1.44
+        },
+        {
+          "raw": "Profondo",
+          "start": 1.44,
+          "end": 1.92
+        },
+        {
+          "raw": "Benjamin,",
+          "start": 1.92,
+          "end": 2.32
+        },
+        {
+          "raw": "Father",
+          "start": 2.98,
+          "end": 3.14
+        },
+        {
+          "raw": "Kelly",
+          "start": 3.14,
+          "end": 3.48
+        },
+        {
+          "raw": "asked.",
+          "start": 3.48,
+          "end": 3.92
+        }
+      ],
+      "expected_tokens": [
+        "—And",
+        "how",
+        "is",
+        "that",
+        "_basso",
+        "profondo_,",
+        "Benjamin?",
+        "Father",
+        "Cowley",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.7,
+          "end": 0.86,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.86,
+          "end": 1.04,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Basso",
+          "start": 1.04,
+          "end": 1.44,
+          "key": "basso",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Profondo",
+          "start": 1.44,
+          "end": 1.92,
+          "key": "profondo",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Benjamin,",
+          "start": 1.92,
+          "end": 2.32,
+          "key": "benjamin",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Father",
+          "start": 2.98,
+          "end": 3.14,
+          "key": "father",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Kelly",
+          "start": 3.14,
+          "end": 3.48,
+          "key": "kelly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 3.48,
+          "end": 3.92,
+          "key": "asked",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "how",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "is",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "text": "that",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "text": "_basso",
+          "start": 1.04,
+          "end": 1.44
+        },
+        {
+          "text": "profondo_,",
+          "start": 1.44,
+          "end": 1.92
+        },
+        {
+          "text": "Benjamin?",
+          "start": 1.92,
+          "end": 2.32
+        },
+        {
+          "text": "Father",
+          "start": 2.98,
+          "end": 3.14
+        },
+        {
+          "text": "Cowley",
+          "start": 3.14,
+          "end": 3.31
+        },
+        {
+          "text": "asked.",
+          "start": 3.48,
+          "end": 3.92
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.23415491916239262
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7e13a4a5dfb1b28b330da223af95d86bb8972080f137f4ca3b78ee6f05817c7f",
+  "selected_reasons": []
+}

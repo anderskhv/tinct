@@ -1,0 +1,388 @@
+{
+  "complete": true,
+  "signature": "3f17dd1bbd6f45a51740e1a0e20f4605e41a49f64896f751f80b8bc6816ac9ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.27980711683630943,
+      "alignment_seconds": 0.0005231872200965881,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir Toby the nave counterfeits. Well a good nave",
+          "start": 0.05,
+          "end": 3.51,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " Toby",
+              "start": 0.55,
+              "end": 0.87,
+              "probability": 0.7734375
+            },
+            {
+              "text": " the",
+              "start": 0.87,
+              "end": 1.39,
+              "probability": 0.189697265625
+            },
+            {
+              "text": " nave",
+              "start": 1.39,
+              "end": 1.69,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " counterfeits.",
+              "start": 1.69,
+              "end": 2.21,
+              "probability": 0.965576171875
+            },
+            {
+              "text": " Well",
+              "start": 2.21,
+              "end": 2.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 2.49,
+              "end": 2.81,
+              "probability": 0.9296875
+            },
+            {
+              "text": " good",
+              "start": 2.81,
+              "end": 2.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nave",
+              "start": 2.97,
+              "end": 3.51,
+              "probability": 0.934814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Toby",
+          "start": 0.55,
+          "end": 0.87
+        },
+        {
+          "raw": "the",
+          "start": 0.87,
+          "end": 1.39
+        },
+        {
+          "raw": "nave",
+          "start": 1.39,
+          "end": 1.69
+        },
+        {
+          "raw": "counterfeits.",
+          "start": 1.69,
+          "end": 2.21
+        },
+        {
+          "raw": "Well",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "raw": "a",
+          "start": 2.49,
+          "end": 2.81
+        },
+        {
+          "raw": "good",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "raw": "nave",
+          "start": 2.97,
+          "end": 3.51
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "The",
+        "knave",
+        "counterfeits",
+        "well.",
+        "A",
+        "good",
+        "knave."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby",
+          "start": 0.55,
+          "end": 0.87,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.87,
+          "end": 1.39,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "nave",
+          "start": 1.39,
+          "end": 1.69,
+          "key": "nave",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "counterfeits.",
+          "start": 1.69,
+          "end": 2.21,
+          "key": "counterfeits",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Well",
+          "start": 2.21,
+          "end": 2.49,
+          "key": "well",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.49,
+          "end": 2.81,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.81,
+          "end": 2.97,
+          "key": "good",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "nave",
+          "start": 2.97,
+          "end": 3.51,
+          "key": "nave",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Toby.",
+          "start": 0.55,
+          "end": 0.87
+        },
+        {
+          "text": "The",
+          "start": 0.87,
+          "end": 1.39
+        },
+        {
+          "text": "knave",
+          "start": 1.39,
+          "end": 1.54
+        },
+        {
+          "text": "counterfeits",
+          "start": 1.69,
+          "end": 2.21
+        },
+        {
+          "text": "well.",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "text": "A",
+          "start": 2.49,
+          "end": 2.81
+        },
+        {
+          "text": "good",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "text": "knave.",
+          "start": 2.97,
+          "end": 3.24
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2805115729570389
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5f7b2ef9362ebf23feecd5e4d88dd381e3574c21568b4a93544a10e269931417",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

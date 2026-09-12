@@ -1,0 +1,409 @@
+{
+  "complete": true,
+  "signature": "64a6221e3c76efdb02e6e2c3b5bcd4787ca013891a07c5f7a266cda20c271b43",
+  "attempts": [
+    {
+      "asr_seconds": 0.26564769074320793,
+      "alignment_seconds": 0.0005405060946941376,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " by Graham Lemon's Pineapple Rock,",
+          "start": 0.08,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " by",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " Graham",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.52294921875
+            },
+            {
+              "text": " Lemon's",
+              "start": 0.8,
+              "end": 1.24,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " Pineapple",
+              "start": 1.24,
+              "end": 1.68,
+              "probability": 0.885009765625
+            },
+            {
+              "text": " Rock,",
+              "start": 1.68,
+              "end": 1.98,
+              "probability": 0.9853515625
+            }
+          ]
+        },
+        {
+          "text": " by Elvory's Elephant Jingly Jogged.",
+          "start": 2.5,
+          "end": 4.5,
+          "words": [
+            {
+              "text": " by",
+              "start": 2.5,
+              "end": 2.6,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Elvory's",
+              "start": 2.6,
+              "end": 3.16,
+              "probability": 0.7764892578125
+            },
+            {
+              "text": " Elephant",
+              "start": 3.16,
+              "end": 3.5,
+              "probability": 0.393798828125
+            },
+            {
+              "text": " Jingly",
+              "start": 3.5,
+              "end": 4.0,
+              "probability": 0.6812744140625
+            },
+            {
+              "text": " Jogged.",
+              "start": 4.0,
+              "end": 4.5,
+              "probability": 0.9541015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "by",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "Graham",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "raw": "Lemon's",
+          "start": 0.8,
+          "end": 1.24
+        },
+        {
+          "raw": "Pineapple",
+          "start": 1.24,
+          "end": 1.68
+        },
+        {
+          "raw": "Rock,",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "raw": "by",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "raw": "Elvory's",
+          "start": 2.6,
+          "end": 3.16
+        },
+        {
+          "raw": "Elephant",
+          "start": 3.16,
+          "end": 3.5
+        },
+        {
+          "raw": "Jingly",
+          "start": 3.5,
+          "end": 4.0
+        },
+        {
+          "raw": "Jogged.",
+          "start": 4.0,
+          "end": 4.5
+        }
+      ],
+      "expected_tokens": [
+        "By",
+        "Graham",
+        "Lemon's",
+        "pineapple",
+        "rock,",
+        "by",
+        "Elvery's",
+        "elephant",
+        "jingly",
+        "jogged."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          10,
+          7,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "by",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "by",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Graham",
+          "start": 0.54,
+          "end": 0.8,
+          "key": "graham",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lemon's",
+          "start": 0.8,
+          "end": 1.24,
+          "key": "lemons",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Pineapple",
+          "start": 1.24,
+          "end": 1.68,
+          "key": "pineapple",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Rock,",
+          "start": 1.68,
+          "end": 1.98,
+          "key": "rock",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.5,
+          "end": 2.6,
+          "key": "by",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Elvory's",
+          "start": 2.6,
+          "end": 3.16,
+          "key": "elvorys",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Elephant",
+          "start": 3.16,
+          "end": 3.5,
+          "key": "elephant",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Jingly",
+          "start": 3.5,
+          "end": 4.0,
+          "key": "jingly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Jogged.",
+          "start": 4.0,
+          "end": 4.5,
+          "key": "jogged",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "By",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "Graham",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "text": "Lemon's",
+          "start": 0.8,
+          "end": 1.24
+        },
+        {
+          "text": "pineapple",
+          "start": 1.24,
+          "end": 1.68
+        },
+        {
+          "text": "rock,",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "text": "by",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "text": "Elvery's",
+          "start": 2.6,
+          "end": 2.88
+        },
+        {
+          "text": "elephant",
+          "start": 3.16,
+          "end": 3.5
+        },
+        {
+          "text": "jingly",
+          "start": 3.5,
+          "end": 4.0
+        },
+        {
+          "text": "jogged.",
+          "start": 4.0,
+          "end": 4.5
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.26638008281588554
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7a4af2a13082a7429f5e7554911219728b04f18d73e410227db8c59e92c110b7",
+  "selected_reasons": []
+}

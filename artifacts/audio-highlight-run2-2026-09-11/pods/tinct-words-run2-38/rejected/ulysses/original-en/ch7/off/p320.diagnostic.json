@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "fe3cd090eb7b5766f9259052c6c6621cd985a20f2a0923c538c8988e1b228111",
+  "attempts": [
+    {
+      "asr_seconds": 0.15256888401927426,
+      "alignment_seconds": 0.00023992103524506092,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " See it in your face. See it in your eye. Lazy, idle, little schemer.",
+          "start": 0.08,
+          "end": 4.2,
+          "words": [
+            {
+              "text": " See",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " it",
+              "start": 0.56,
+              "end": 0.66,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 0.66,
+              "end": 0.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 0.76,
+              "end": 0.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " face.",
+              "start": 0.88,
+              "end": 1.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " See",
+              "start": 1.72,
+              "end": 1.82,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " it",
+              "start": 1.82,
+              "end": 1.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 1.92,
+              "end": 2.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " your",
+              "start": 2.0,
+              "end": 2.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " eye.",
+              "start": 2.12,
+              "end": 2.42,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Lazy,",
+              "start": 2.84,
+              "end": 3.04,
+              "probability": 0.970703125
+            },
+            {
+              "text": " idle,",
+              "start": 3.06,
+              "end": 3.38,
+              "probability": 0.974609375
+            },
+            {
+              "text": " little",
+              "start": 3.46,
+              "end": 3.66,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " schemer.",
+              "start": 3.66,
+              "end": 4.2,
+              "probability": 0.871337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "See",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "it",
+          "start": 0.56,
+          "end": 0.66
+        },
+        {
+          "raw": "in",
+          "start": 0.66,
+          "end": 0.76
+        },
+        {
+          "raw": "your",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "raw": "face.",
+          "start": 0.88,
+          "end": 1.22
+        },
+        {
+          "raw": "See",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "raw": "it",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "raw": "in",
+          "start": 1.92,
+          "end": 2.0
+        },
+        {
+          "raw": "your",
+          "start": 2.0,
+          "end": 2.12
+        },
+        {
+          "raw": "eye.",
+          "start": 2.12,
+          "end": 2.42
+        },
+        {
+          "raw": "Lazy,",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "raw": "idle,",
+          "start": 3.06,
+          "end": 3.38
+        },
+        {
+          "raw": "little",
+          "start": 3.46,
+          "end": 3.66
+        },
+        {
+          "raw": "schemer.",
+          "start": 3.66,
+          "end": 4.2
+        }
+      ],
+      "expected_tokens": [
+        "See",
+        "it",
+        "in",
+        "your",
+        "face.",
+        "See",
+        "it",
+        "in",
+        "your",
+        "eye.",
+        "Lazy",
+        "idle",
+        "little",
+        "schemer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "See",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "see",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.56,
+          "end": 0.66,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.66,
+          "end": 0.76,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.76,
+          "end": 0.88,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "face.",
+          "start": 0.88,
+          "end": 1.22,
+          "key": "face",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 1.72,
+          "end": 1.82,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.82,
+          "end": 1.92,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.92,
+          "end": 2.0,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.0,
+          "end": 2.12,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "eye.",
+          "start": 2.12,
+          "end": 2.42,
+          "key": "eye",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Lazy,",
+          "start": 2.84,
+          "end": 3.04,
+          "key": "lazy",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "idle,",
+          "start": 3.06,
+          "end": 3.38,
+          "key": "idle",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 3.46,
+          "end": 3.66,
+          "key": "little",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "schemer.",
+          "start": 3.66,
+          "end": 4.2,
+          "key": "schemer",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "See",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "it",
+          "start": 0.56,
+          "end": 0.66
+        },
+        {
+          "text": "in",
+          "start": 0.66,
+          "end": 0.76
+        },
+        {
+          "text": "your",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "text": "face.",
+          "start": 0.88,
+          "end": 1.22
+        },
+        {
+          "text": "See",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "text": "it",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "text": "in",
+          "start": 1.92,
+          "end": 2.0
+        },
+        {
+          "text": "your",
+          "start": 2.0,
+          "end": 2.12
+        },
+        {
+          "text": "eye.",
+          "start": 2.12,
+          "end": 2.42
+        },
+        {
+          "text": "Lazy",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "text": "idle",
+          "start": 3.06,
+          "end": 3.38
+        },
+        {
+          "text": "little",
+          "start": 3.46,
+          "end": 3.66
+        },
+        {
+          "text": "schemer.",
+          "start": 3.66,
+          "end": 4.2
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15289725502952933
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ac9fe0c73546f595522b996fae8a20f7ea904775f425ad7f8fa8c41e34b32ad2",
+  "selected_reasons": []
+}

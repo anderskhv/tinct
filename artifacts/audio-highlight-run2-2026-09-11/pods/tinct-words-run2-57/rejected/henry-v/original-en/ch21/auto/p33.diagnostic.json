@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "ade8005c84cc0075eff8cf9b25e736cbca45d8c6ac8c64f498ab13c3d1037a98",
+  "attempts": [
+    {
+      "asr_seconds": 0.19000809895806015,
+      "alignment_seconds": 0.00034936494193971157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Henry. Now, herald, are the dead numb'red?",
+        "hotwords": "King, Henry, Now"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Henry, Now, herald, are the dead numb'red?",
+          "start": 0.0,
+          "end": 2.98,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.0,
+              "end": 0.56,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " Henry,",
+              "start": 0.56,
+              "end": 0.92,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Now,",
+              "start": 1.44,
+              "end": 1.64,
+              "probability": 0.00710296630859375
+            },
+            {
+              "text": " herald,",
+              "start": 1.84,
+              "end": 1.96,
+              "probability": 0.357177734375
+            },
+            {
+              "text": " are",
+              "start": 2.12,
+              "end": 2.16,
+              "probability": 0.6982421875
+            },
+            {
+              "text": " the",
+              "start": 2.16,
+              "end": 2.26,
+              "probability": 0.982421875
+            },
+            {
+              "text": " dead",
+              "start": 2.26,
+              "end": 2.42,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " numb'red?",
+              "start": 2.42,
+              "end": 2.98,
+              "probability": 0.3002755840619405
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "raw": "Now,",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "raw": "herald,",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "raw": "are",
+          "start": 2.12,
+          "end": 2.16
+        },
+        {
+          "raw": "the",
+          "start": 2.16,
+          "end": 2.26
+        },
+        {
+          "raw": "dead",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "raw": "numb'red?",
+          "start": 2.42,
+          "end": 2.98
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "Now,",
+        "herald,",
+        "are",
+        "the",
+        "dead",
+        "numb'red?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.56,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.56,
+          "end": 0.92,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Now,",
+          "start": 1.44,
+          "end": 1.64,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "herald,",
+          "start": 1.84,
+          "end": 1.96,
+          "key": "herald",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.12,
+          "end": 2.16,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.16,
+          "end": 2.26,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 2.26,
+          "end": 2.42,
+          "key": "dead",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "numb'red?",
+          "start": 2.42,
+          "end": 2.98,
+          "key": "numbred",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "Henry.",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "text": "Now,",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "text": "herald,",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "text": "are",
+          "start": 2.12,
+          "end": 2.16
+        },
+        {
+          "text": "the",
+          "start": 2.16,
+          "end": 2.26
+        },
+        {
+          "text": "dead",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "text": "numb'red?",
+          "start": 2.42,
+          "end": 2.98
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.190502414945513
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8fe8775b13794252e953f18880a5f6a5e973d449bb34e99faad895491571626c",
+  "selected_reasons": []
+}

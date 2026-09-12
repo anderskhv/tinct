@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "b862177915d5c7fa344bd922ee4e0738847b32113227f87b645658f3e76055e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.10253086220473051,
+      "alignment_seconds": 0.00017883582040667534,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter an Aedile.",
+        "hotwords": "Enter, Aedile"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter an Aedile.",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.92578125
+            },
+            {
+              "text": " an",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Aedile.",
+              "start": 0.8,
+              "end": 1.22,
+              "probability": 0.2358539899190267
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "an",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "Aedile.",
+          "start": 0.8,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "an",
+        "Aedile."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 0.66,
+          "end": 0.8,
+          "key": "an",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Aedile.",
+          "start": 0.8,
+          "end": 1.22,
+          "key": "aedile",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "an",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "text": "Aedile.",
+          "start": 0.8,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10276771895587444
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7ea9446ce3465ec16e2ae718d9234d867ef06909846889aca519bdeb419b86b5",
+  "selected_reasons": []
+}

@@ -1,0 +1,793 @@
+{
+  "complete": true,
+  "signature": "b789418b2219967ea2f1a9f8d52ffbe2f630c2f893da6a7f4dcbb34b3463c84a",
+  "attempts": [
+    {
+      "asr_seconds": 0.27562430687248707,
+      "alignment_seconds": 0.0003016609698534012,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, you are my true and honorable wife, as dear to me as are the ruddy drops that",
+          "start": 0.05,
+          "end": 5.83,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " you",
+              "start": 1.21,
+              "end": 1.49,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " are",
+              "start": 1.49,
+              "end": 1.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " my",
+              "start": 1.63,
+              "end": 1.81,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " true",
+              "start": 1.81,
+              "end": 2.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 2.15,
+              "end": 2.43,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " honorable",
+              "start": 2.43,
+              "end": 2.87,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " wife,",
+              "start": 2.87,
+              "end": 3.25,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " as",
+              "start": 3.83,
+              "end": 3.93,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " dear",
+              "start": 3.93,
+              "end": 4.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 4.13,
+              "end": 4.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me",
+              "start": 4.31,
+              "end": 4.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 4.45,
+              "end": 4.71,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " are",
+              "start": 4.71,
+              "end": 4.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 4.85,
+              "end": 4.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ruddy",
+              "start": 4.97,
+              "end": 5.23,
+              "probability": 0.984130859375
+            },
+            {
+              "text": " drops",
+              "start": 5.23,
+              "end": 5.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 5.57,
+              "end": 5.83,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " visit my sad heart.",
+          "start": 5.83,
+          "end": 6.91,
+          "words": [
+            {
+              "text": " visit",
+              "start": 5.83,
+              "end": 6.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 6.05,
+              "end": 6.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sad",
+              "start": 6.33,
+              "end": 6.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " heart.",
+              "start": 6.57,
+              "end": 6.91,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "you",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "raw": "are",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "raw": "my",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "raw": "true",
+          "start": 1.81,
+          "end": 2.15
+        },
+        {
+          "raw": "and",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "raw": "honorable",
+          "start": 2.43,
+          "end": 2.87
+        },
+        {
+          "raw": "wife,",
+          "start": 2.87,
+          "end": 3.25
+        },
+        {
+          "raw": "as",
+          "start": 3.83,
+          "end": 3.93
+        },
+        {
+          "raw": "dear",
+          "start": 3.93,
+          "end": 4.13
+        },
+        {
+          "raw": "to",
+          "start": 4.13,
+          "end": 4.31
+        },
+        {
+          "raw": "me",
+          "start": 4.31,
+          "end": 4.45
+        },
+        {
+          "raw": "as",
+          "start": 4.45,
+          "end": 4.71
+        },
+        {
+          "raw": "are",
+          "start": 4.71,
+          "end": 4.85
+        },
+        {
+          "raw": "the",
+          "start": 4.85,
+          "end": 4.97
+        },
+        {
+          "raw": "ruddy",
+          "start": 4.97,
+          "end": 5.23
+        },
+        {
+          "raw": "drops",
+          "start": 5.23,
+          "end": 5.57
+        },
+        {
+          "raw": "that",
+          "start": 5.57,
+          "end": 5.83
+        },
+        {
+          "raw": "visit",
+          "start": 5.83,
+          "end": 6.05
+        },
+        {
+          "raw": "my",
+          "start": 6.05,
+          "end": 6.33
+        },
+        {
+          "raw": "sad",
+          "start": 6.33,
+          "end": 6.57
+        },
+        {
+          "raw": "heart.",
+          "start": 6.57,
+          "end": 6.91
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "You",
+        "are",
+        "my",
+        "true",
+        "and",
+        "honourable",
+        "wife,",
+        "As",
+        "dear",
+        "to",
+        "me",
+        "as",
+        "are",
+        "the",
+        "ruddy",
+        "drops",
+        "That",
+        "visit",
+        "my",
+        "sad",
+        "heart."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          22,
+          7,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.21,
+          "end": 1.49,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.49,
+          "end": 1.63,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.63,
+          "end": 1.81,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 1.81,
+          "end": 2.15,
+          "key": "true",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.15,
+          "end": 2.43,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "honorable",
+          "start": 2.43,
+          "end": 2.87,
+          "key": "honorable",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wife,",
+          "start": 2.87,
+          "end": 3.25,
+          "key": "wife",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.83,
+          "end": 3.93,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 3.93,
+          "end": 4.13,
+          "key": "dear",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.13,
+          "end": 4.31,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.31,
+          "end": 4.45,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.45,
+          "end": 4.71,
+          "key": "as",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.71,
+          "end": 4.85,
+          "key": "are",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.85,
+          "end": 4.97,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ruddy",
+          "start": 4.97,
+          "end": 5.23,
+          "key": "ruddy",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "drops",
+          "start": 5.23,
+          "end": 5.57,
+          "key": "drops",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.57,
+          "end": 5.83,
+          "key": "that",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "visit",
+          "start": 5.83,
+          "end": 6.05,
+          "key": "visit",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 6.05,
+          "end": 6.33,
+          "key": "my",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "sad",
+          "start": 6.33,
+          "end": 6.57,
+          "key": "sad",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "heart.",
+          "start": 6.57,
+          "end": 6.91,
+          "key": "heart",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "You",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "text": "are",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "text": "my",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "text": "true",
+          "start": 1.81,
+          "end": 2.15
+        },
+        {
+          "text": "and",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "text": "honourable",
+          "start": 2.43,
+          "end": 2.65
+        },
+        {
+          "text": "wife,",
+          "start": 2.87,
+          "end": 3.25
+        },
+        {
+          "text": "As",
+          "start": 3.83,
+          "end": 3.93
+        },
+        {
+          "text": "dear",
+          "start": 3.93,
+          "end": 4.13
+        },
+        {
+          "text": "to",
+          "start": 4.13,
+          "end": 4.31
+        },
+        {
+          "text": "me",
+          "start": 4.31,
+          "end": 4.45
+        },
+        {
+          "text": "as",
+          "start": 4.45,
+          "end": 4.71
+        },
+        {
+          "text": "are",
+          "start": 4.71,
+          "end": 4.85
+        },
+        {
+          "text": "the",
+          "start": 4.85,
+          "end": 4.97
+        },
+        {
+          "text": "ruddy",
+          "start": 4.97,
+          "end": 5.23
+        },
+        {
+          "text": "drops",
+          "start": 5.23,
+          "end": 5.57
+        },
+        {
+          "text": "That",
+          "start": 5.57,
+          "end": 5.83
+        },
+        {
+          "text": "visit",
+          "start": 5.83,
+          "end": 6.05
+        },
+        {
+          "text": "my",
+          "start": 6.05,
+          "end": 6.33
+        },
+        {
+          "text": "sad",
+          "start": 6.33,
+          "end": 6.57
+        },
+        {
+          "text": "heart.",
+          "start": 6.57,
+          "end": 6.91
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 21
+      },
+      "match_ratio": 0.9545454545454546,
+      "rejection_reasons": [],
+      "seconds": 0.27604454196989536
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5d204e39a8b681dc19722dfd94a764b5a262e8d3022ac92c5a2eb4e166295dbc",
+  "selected_reasons": []
+}

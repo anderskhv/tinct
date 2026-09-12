@@ -1,0 +1,677 @@
+{
+  "complete": true,
+  "signature": "d2b1c1c3c288aa4157f4943ece5da25e855ff45a9e2b4c3522717f1b621e6d7d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3729730462655425,
+      "alignment_seconds": 0.0005571311339735985,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pistol. Master Fer! I'll fer him, and firk him, and ferret him. Discuss the same in French unto him.",
+        "hotwords": "Pistol, Master, I'll, Discuss, French"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pistol, Master Fer! I'll fer him, and firk him, and ferret him. Discuss the same in French",
+          "start": 0.02,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " Pistol,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.27001953125
+            },
+            {
+              "text": " Master",
+              "start": 1.02,
+              "end": 1.3,
+              "probability": 0.2431640625
+            },
+            {
+              "text": " Fer!",
+              "start": 1.3,
+              "end": 1.62,
+              "probability": 0.041168212890625
+            },
+            {
+              "text": " I'll",
+              "start": 2.1,
+              "end": 2.4,
+              "probability": 0.869140625
+            },
+            {
+              "text": " fer",
+              "start": 2.4,
+              "end": 2.52,
+              "probability": 0.04766845703125
+            },
+            {
+              "text": " him,",
+              "start": 2.52,
+              "end": 2.76,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " and",
+              "start": 2.88,
+              "end": 3.0,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " firk",
+              "start": 3.0,
+              "end": 3.22,
+              "probability": 0.2408447265625
+            },
+            {
+              "text": " him,",
+              "start": 3.22,
+              "end": 3.44,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 3.56,
+              "end": 3.62,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " ferret",
+              "start": 3.62,
+              "end": 3.96,
+              "probability": 0.7158203125
+            },
+            {
+              "text": " him.",
+              "start": 3.96,
+              "end": 4.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Discuss",
+              "start": 4.96,
+              "end": 5.0,
+              "probability": 0.8173828125
+            },
+            {
+              "text": " the",
+              "start": 5.0,
+              "end": 5.24,
+              "probability": 0.994140625
+            },
+            {
+              "text": " same",
+              "start": 5.24,
+              "end": 5.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 5.44,
+              "end": 5.64,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " French",
+              "start": 5.64,
+              "end": 5.92,
+              "probability": 0.98681640625
+            }
+          ]
+        },
+        {
+          "text": " unto him.",
+          "start": 5.92,
+          "end": 6.6,
+          "words": [
+            {
+              "text": " unto",
+              "start": 5.92,
+              "end": 6.24,
+              "probability": 0.9140625
+            },
+            {
+              "text": " him.",
+              "start": 6.24,
+              "end": 6.6,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pistol,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Master",
+          "start": 1.02,
+          "end": 1.3
+        },
+        {
+          "raw": "Fer!",
+          "start": 1.3,
+          "end": 1.62
+        },
+        {
+          "raw": "I'll",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "raw": "fer",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "raw": "him,",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "raw": "and",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "raw": "firk",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "raw": "him,",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "raw": "and",
+          "start": 3.56,
+          "end": 3.62
+        },
+        {
+          "raw": "ferret",
+          "start": 3.62,
+          "end": 3.96
+        },
+        {
+          "raw": "him.",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "raw": "Discuss",
+          "start": 4.96,
+          "end": 5.0
+        },
+        {
+          "raw": "the",
+          "start": 5.0,
+          "end": 5.24
+        },
+        {
+          "raw": "same",
+          "start": 5.24,
+          "end": 5.44
+        },
+        {
+          "raw": "in",
+          "start": 5.44,
+          "end": 5.64
+        },
+        {
+          "raw": "French",
+          "start": 5.64,
+          "end": 5.92
+        },
+        {
+          "raw": "unto",
+          "start": 5.92,
+          "end": 6.24
+        },
+        {
+          "raw": "him.",
+          "start": 6.24,
+          "end": 6.6
+        }
+      ],
+      "expected_tokens": [
+        "Pistol.",
+        "Master",
+        "Fer!",
+        "I'll",
+        "fer",
+        "him,",
+        "and",
+        "firk",
+        "him,",
+        "and",
+        "ferret",
+        "him.",
+        "Discuss",
+        "the",
+        "same",
+        "in",
+        "French",
+        "unto",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pistol,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "pistol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 1.02,
+          "end": 1.3,
+          "key": "master",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Fer!",
+          "start": 1.3,
+          "end": 1.62,
+          "key": "fer",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.1,
+          "end": 2.4,
+          "key": "ill",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fer",
+          "start": 2.4,
+          "end": 2.52,
+          "key": "fer",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 2.52,
+          "end": 2.76,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.88,
+          "end": 3.0,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "firk",
+          "start": 3.0,
+          "end": 3.22,
+          "key": "firk",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 3.22,
+          "end": 3.44,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.56,
+          "end": 3.62,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ferret",
+          "start": 3.62,
+          "end": 3.96,
+          "key": "ferret",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 3.96,
+          "end": 4.2,
+          "key": "him",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Discuss",
+          "start": 4.96,
+          "end": 5.0,
+          "key": "discuss",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.0,
+          "end": 5.24,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 5.24,
+          "end": 5.44,
+          "key": "same",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.44,
+          "end": 5.64,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 5.64,
+          "end": 5.92,
+          "key": "french",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "unto",
+          "start": 5.92,
+          "end": 6.24,
+          "key": "unto",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 6.24,
+          "end": 6.6,
+          "key": "him",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pistol.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Master",
+          "start": 1.02,
+          "end": 1.3
+        },
+        {
+          "text": "Fer!",
+          "start": 1.3,
+          "end": 1.62
+        },
+        {
+          "text": "I'll",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "text": "fer",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "text": "him,",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "text": "and",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "text": "firk",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "text": "him,",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "text": "and",
+          "start": 3.56,
+          "end": 3.62
+        },
+        {
+          "text": "ferret",
+          "start": 3.62,
+          "end": 3.96
+        },
+        {
+          "text": "him.",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "text": "Discuss",
+          "start": 4.96,
+          "end": 5.0
+        },
+        {
+          "text": "the",
+          "start": 5.0,
+          "end": 5.24
+        },
+        {
+          "text": "same",
+          "start": 5.24,
+          "end": 5.44
+        },
+        {
+          "text": "in",
+          "start": 5.44,
+          "end": 5.64
+        },
+        {
+          "text": "French",
+          "start": 5.64,
+          "end": 5.92
+        },
+        {
+          "text": "unto",
+          "start": 5.92,
+          "end": 6.24
+        },
+        {
+          "text": "him.",
+          "start": 6.24,
+          "end": 6.6
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37380196060985327
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8dde344cfb0dac88433d383a5aa4082bf7948bdf1878007678e712e4ff6de3b5",
+  "selected_reasons": []
+}

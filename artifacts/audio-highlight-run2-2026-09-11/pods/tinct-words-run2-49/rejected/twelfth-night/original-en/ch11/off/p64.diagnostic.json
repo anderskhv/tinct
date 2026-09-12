@@ -1,0 +1,495 @@
+{
+  "complete": true,
+  "signature": "03113b1443851709b3b31c231c344e83ce432f850276f11ca0adfa8a444125c5",
+  "attempts": [
+    {
+      "asr_seconds": 0.23183394595980644,
+      "alignment_seconds": 0.0005926750600337982,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, stay. I pray thee tell me what thou thinkst thee of me.",
+          "start": 0.87,
+          "end": 3.81,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.87,
+              "end": 1.21,
+              "probability": 0.609375
+            },
+            {
+              "text": " stay.",
+              "start": 1.21,
+              "end": 1.55,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " I",
+              "start": 2.03,
+              "end": 2.09,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " pray",
+              "start": 2.09,
+              "end": 2.21,
+              "probability": 0.472900390625
+            },
+            {
+              "text": " thee",
+              "start": 2.21,
+              "end": 2.33,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " tell",
+              "start": 2.33,
+              "end": 2.49,
+              "probability": 0.822265625
+            },
+            {
+              "text": " me",
+              "start": 2.49,
+              "end": 2.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " what",
+              "start": 2.63,
+              "end": 2.77,
+              "probability": 0.974609375
+            },
+            {
+              "text": " thou",
+              "start": 2.77,
+              "end": 2.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thinkst",
+              "start": 2.95,
+              "end": 3.37,
+              "probability": 0.593017578125
+            },
+            {
+              "text": " thee",
+              "start": 3.37,
+              "end": 3.49,
+              "probability": 0.826171875
+            },
+            {
+              "text": " of",
+              "start": 3.49,
+              "end": 3.61,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " me.",
+              "start": 3.61,
+              "end": 3.81,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.87,
+          "end": 1.21
+        },
+        {
+          "raw": "stay.",
+          "start": 1.21,
+          "end": 1.55
+        },
+        {
+          "raw": "I",
+          "start": 2.03,
+          "end": 2.09
+        },
+        {
+          "raw": "pray",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "raw": "thee",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "raw": "tell",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "raw": "me",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "raw": "what",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "raw": "thou",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "raw": "thinkst",
+          "start": 2.95,
+          "end": 3.37
+        },
+        {
+          "raw": "thee",
+          "start": 3.37,
+          "end": 3.49
+        },
+        {
+          "raw": "of",
+          "start": 3.49,
+          "end": 3.61
+        },
+        {
+          "raw": "me.",
+          "start": 3.61,
+          "end": 3.81
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Stay:",
+        "I",
+        "prithee",
+        "tell",
+        "me",
+        "what",
+        "thou",
+        "think'st",
+        "of",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          9,
+          5,
+          10
+        ],
+        [
+          "insert",
+          9,
+          9,
+          10,
+          11
+        ],
+        [
+          "equal",
+          9,
+          11,
+          11,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "insert",
+          9,
+          9,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.87,
+          "end": 1.21,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "stay.",
+          "start": 1.21,
+          "end": 1.55,
+          "key": "stay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.03,
+          "end": 2.09,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 2.09,
+          "end": 2.21,
+          "key": "pray",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.21,
+          "end": 2.33,
+          "key": "thee",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.33,
+          "end": 2.49,
+          "key": "tell",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.49,
+          "end": 2.63,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.63,
+          "end": 2.77,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.77,
+          "end": 2.95,
+          "key": "thou",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thinkst",
+          "start": 2.95,
+          "end": 3.37,
+          "key": "thinkst",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 3.37,
+          "end": 3.49,
+          "key": "thee",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.49,
+          "end": 3.61,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 3.61,
+          "end": 3.81,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.87,
+          "end": 1.21
+        },
+        {
+          "text": "Stay:",
+          "start": 1.21,
+          "end": 1.55
+        },
+        {
+          "text": "I",
+          "start": 2.03,
+          "end": 2.09
+        },
+        {
+          "text": "prithee",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "text": "tell",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "text": "me",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "text": "what",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "text": "thou",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "text": "think'st",
+          "start": 2.95,
+          "end": 3.37
+        },
+        {
+          "text": "of",
+          "start": 3.49,
+          "end": 3.61
+        },
+        {
+          "text": "me.",
+          "start": 3.61,
+          "end": 3.81
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.2326643243432045
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "95439f8695a112cebc491357d71206d20f331a7cbac9671c634beea6307279ca",
+  "selected_reasons": []
+}

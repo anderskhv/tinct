@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "dadd36f5e66f251200f334624c4f5ed8afe89c9813463e0f92af7ba5e5c07838",
+  "attempts": [
+    {
+      "asr_seconds": 0.18992186710238457,
+      "alignment_seconds": 0.0001228339970111847,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Andrew. Good, i' faith! Come, begin.",
+        "hotwords": "Sir, Andrew, Good, Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Andrew, Good, i' faith! Come, begin.",
+          "start": 0.08,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " Andrew,",
+              "start": 0.58,
+              "end": 0.96,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " Good,",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.1534423828125
+            },
+            {
+              "text": " i'",
+              "start": 1.52,
+              "end": 1.64,
+              "probability": 0.005126953125
+            },
+            {
+              "text": " faith!",
+              "start": 1.84,
+              "end": 1.92,
+              "probability": 0.26953125
+            },
+            {
+              "text": " Come,",
+              "start": 2.2,
+              "end": 2.32,
+              "probability": 0.828125
+            },
+            {
+              "text": " begin.",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.79638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "Andrew,",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "raw": "Good,",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "raw": "i'",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "raw": "faith!",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "raw": "Come,",
+          "start": 2.2,
+          "end": 2.32
+        },
+        {
+          "raw": "begin.",
+          "start": 2.62,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Andrew.",
+        "Good,",
+        "i'",
+        "faith!",
+        "Come,",
+        "begin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Andrew,",
+          "start": 0.58,
+          "end": 0.96,
+          "key": "andrew",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Good,",
+          "start": 1.26,
+          "end": 1.48,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "i'",
+          "start": 1.52,
+          "end": 1.64,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "faith!",
+          "start": 1.84,
+          "end": 1.92,
+          "key": "faith",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 2.2,
+          "end": 2.32,
+          "key": "come",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "begin.",
+          "start": 2.62,
+          "end": 2.62,
+          "key": "begin",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "Andrew.",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "text": "Good,",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "text": "i'",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "text": "faith!",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "text": "Come,",
+          "start": 2.2,
+          "end": 2.32
+        },
+        {
+          "text": "begin.",
+          "start": 2.62,
+          "end": 2.62
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19008871540427208
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aa9f447e08ec5586b4cfff09f7f957a68d09da9caa7dde528b00c83da301161c",
+  "selected_reasons": []
+}

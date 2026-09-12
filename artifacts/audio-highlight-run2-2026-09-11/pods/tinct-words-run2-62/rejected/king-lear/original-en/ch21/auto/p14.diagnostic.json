@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "02bff7ec018b1d2136db0e20cb0cb6750e0eeac92d6c0786f3301204f4745237",
+  "attempts": [
+    {
+      "asr_seconds": 0.08266617357730865,
+      "alignment_seconds": 0.00010342150926589966,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Oswald. Madam, I had rather—",
+        "hotwords": "Oswald, Madam, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oswald, Madam, I had rather—",
+          "start": 0.05,
+          "end": 2.21,
+          "words": [
+            {
+              "text": " Oswald,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.5634765625
+            },
+            {
+              "text": " Madam,",
+              "start": 1.25,
+              "end": 1.61,
+              "probability": 0.5950927734375
+            },
+            {
+              "text": " I",
+              "start": 1.71,
+              "end": 1.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " had",
+              "start": 1.73,
+              "end": 1.85,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " rather—",
+              "start": 1.85,
+              "end": 2.21,
+              "probability": 0.5174560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.25,
+          "end": 1.61
+        },
+        {
+          "raw": "I",
+          "start": 1.71,
+          "end": 1.73
+        },
+        {
+          "raw": "had",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "raw": "rather—",
+          "start": 1.85,
+          "end": 2.21
+        }
+      ],
+      "expected_tokens": [
+        "Oswald.",
+        "Madam,",
+        "I",
+        "had",
+        "rather—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "oswald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.25,
+          "end": 1.61,
+          "key": "madam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.71,
+          "end": 1.73,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.73,
+          "end": 1.85,
+          "key": "had",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rather—",
+          "start": 1.85,
+          "end": 2.21,
+          "key": "rather",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oswald.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Madam,",
+          "start": 1.25,
+          "end": 1.61
+        },
+        {
+          "text": "I",
+          "start": 1.71,
+          "end": 1.73
+        },
+        {
+          "text": "had",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "text": "rather—",
+          "start": 1.85,
+          "end": 2.21
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.082805085927248
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aac93ec258a80d6e453b5bd2d40eb1aae5812caf79116c449c226e5840a8bff5",
+  "selected_reasons": []
+}

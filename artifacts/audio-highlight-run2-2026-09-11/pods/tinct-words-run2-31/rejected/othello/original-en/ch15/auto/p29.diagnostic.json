@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "197962446bb507b00f9b94f7c92ddc2930836bf9630fdee0812c4449a77c6dc1",
+  "attempts": [
+    {
+      "asr_seconds": 0.4226663112640381,
+      "alignment_seconds": 0.00036341603845357895,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. Ay, but not yet to die.",
+        "hotwords": "Desdemona, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, Ay, but not yet to die.",
+          "start": 0.61,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.61,
+              "end": 1.03,
+              "probability": 0.6555322011311849
+            },
+            {
+              "text": " Ay,",
+              "start": 1.35,
+              "end": 1.57,
+              "probability": 0.0014390945434570312
+            },
+            {
+              "text": " but",
+              "start": 1.71,
+              "end": 1.75,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " not",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " yet",
+              "start": 1.95,
+              "end": 2.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 2.11,
+              "end": 2.31,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " die.",
+              "start": 2.31,
+              "end": 2.55,
+              "probability": 0.90966796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.61,
+          "end": 1.03
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "raw": "but",
+          "start": 1.71,
+          "end": 1.75
+        },
+        {
+          "raw": "not",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "yet",
+          "start": 1.95,
+          "end": 2.11
+        },
+        {
+          "raw": "to",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "raw": "die.",
+          "start": 2.31,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Ay,",
+        "but",
+        "not",
+        "yet",
+        "to",
+        "die."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.61,
+          "end": 1.03,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.35,
+          "end": 1.57,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.71,
+          "end": 1.75,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 1.95,
+          "end": 2.11,
+          "key": "yet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.11,
+          "end": 2.31,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "die.",
+          "start": 2.31,
+          "end": 2.55,
+          "key": "die",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.61,
+          "end": 1.03
+        },
+        {
+          "text": "Ay,",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "text": "but",
+          "start": 1.71,
+          "end": 1.75
+        },
+        {
+          "text": "not",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "yet",
+          "start": 1.95,
+          "end": 2.11
+        },
+        {
+          "text": "to",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "text": "die.",
+          "start": 2.31,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.42317994590848684
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6c075d13877a6527d1afc0a2379aaa42fea58a7f96ca2b559e4ddcf7b3c43618",
+  "selected_reasons": []
+}

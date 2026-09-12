@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "7c4680c076bb0d091e4bb84317988f81d24e5ffdbd1f1bed2f7444a062ff19f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.19215522427111864,
+      "alignment_seconds": 0.00028136931359767914,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " reads, when as a lion's whelp shall to himself unknown without.",
+          "start": 0.05,
+          "end": 4.09,
+          "words": [
+            {
+              "text": " reads,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.6025390625
+            },
+            {
+              "text": " when",
+              "start": 1.23,
+              "end": 1.47,
+              "probability": 0.07464599609375
+            },
+            {
+              "text": " as",
+              "start": 1.47,
+              "end": 1.61,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " a",
+              "start": 1.61,
+              "end": 1.67,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " lion's",
+              "start": 1.67,
+              "end": 2.09,
+              "probability": 0.970703125
+            },
+            {
+              "text": " whelp",
+              "start": 2.09,
+              "end": 2.33,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " shall",
+              "start": 2.33,
+              "end": 2.55,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " to",
+              "start": 2.55,
+              "end": 2.77,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " himself",
+              "start": 2.77,
+              "end": 3.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " unknown",
+              "start": 3.13,
+              "end": 3.61,
+              "probability": 0.984375
+            },
+            {
+              "text": " without.",
+              "start": 3.61,
+              "end": 4.09,
+              "probability": 0.875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "reads,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "when",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "raw": "as",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "raw": "a",
+          "start": 1.61,
+          "end": 1.67
+        },
+        {
+          "raw": "lion's",
+          "start": 1.67,
+          "end": 2.09
+        },
+        {
+          "raw": "whelp",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "raw": "shall",
+          "start": 2.33,
+          "end": 2.55
+        },
+        {
+          "raw": "to",
+          "start": 2.55,
+          "end": 2.77
+        },
+        {
+          "raw": "himself",
+          "start": 2.77,
+          "end": 3.13
+        },
+        {
+          "raw": "unknown",
+          "start": 3.13,
+          "end": 3.61
+        },
+        {
+          "raw": "without.",
+          "start": 3.61,
+          "end": 4.09
+        }
+      ],
+      "expected_tokens": [
+        "[_Reads._]",
+        "_When",
+        "as",
+        "a",
+        "lion's",
+        "whelp",
+        "shall,",
+        "to",
+        "himself",
+        "unknown,",
+        "without"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "reads,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "reads",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.23,
+          "end": 1.47,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.47,
+          "end": 1.61,
+          "key": "as",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.61,
+          "end": 1.67,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lion's",
+          "start": 1.67,
+          "end": 2.09,
+          "key": "lions",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whelp",
+          "start": 2.09,
+          "end": 2.33,
+          "key": "whelp",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.33,
+          "end": 2.55,
+          "key": "shall",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.55,
+          "end": 2.77,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 2.77,
+          "end": 3.13,
+          "key": "himself",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "unknown",
+          "start": 3.13,
+          "end": 3.61,
+          "key": "unknown",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "without.",
+          "start": 3.61,
+          "end": 4.09,
+          "key": "without",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Reads._]",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "_When",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "text": "as",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "text": "a",
+          "start": 1.61,
+          "end": 1.67
+        },
+        {
+          "text": "lion's",
+          "start": 1.67,
+          "end": 2.09
+        },
+        {
+          "text": "whelp",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "text": "shall,",
+          "start": 2.33,
+          "end": 2.55
+        },
+        {
+          "text": "to",
+          "start": 2.55,
+          "end": 2.77
+        },
+        {
+          "text": "himself",
+          "start": 2.77,
+          "end": 3.13
+        },
+        {
+          "text": "unknown,",
+          "start": 3.13,
+          "end": 3.61
+        },
+        {
+          "text": "without",
+          "start": 3.61,
+          "end": 4.09
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19254104513674974
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "275cf5438deb0b09d3a9daf9e2ff6bb8b1990399719e692b242efe014cecb832",
+  "selected_reasons": []
+}

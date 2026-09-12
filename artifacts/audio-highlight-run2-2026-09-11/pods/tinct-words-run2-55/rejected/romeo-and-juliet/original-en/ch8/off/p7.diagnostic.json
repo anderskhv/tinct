@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "3fbb5d9017fe34ceb3f96198a943c4819e07bd689c40251da1e39303264dceaa",
+  "attempts": [
+    {
+      "asr_seconds": 0.09346355590969324,
+      "alignment_seconds": 0.00019393675029277802,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " aside.",
+          "start": 0.05,
+          "end": 0.77,
+          "words": [
+            {
+              "text": " aside.",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.430419921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "aside.",
+          "start": 0.05,
+          "end": 0.77
+        }
+      ],
+      "expected_tokens": [
+        "[Aside.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "aside.",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Aside.]",
+          "start": 0.05,
+          "end": 0.77
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09370588790625334
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "09757526bdf9094e0fcb238c5e6dccd1ce5a58a524af26e6ccfe304ccf751f00",
+  "selected_reasons": []
+}

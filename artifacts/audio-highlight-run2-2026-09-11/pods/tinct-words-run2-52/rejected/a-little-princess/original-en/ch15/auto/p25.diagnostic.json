@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "3a3740a29c6048b1357e95d72af44a915be3ddc1a3ee3c95c0d2c6d43fc3dd92",
+  "attempts": [
+    {
+      "asr_seconds": 0.20156481489539146,
+      "alignment_seconds": 0.0004423186182975769,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You Do look tired, Sara,\" she said; \"you are quite pale.\"",
+        "hotwords": "You, Do, Sara"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You do look tired, Sara, she said. You are quite pale.",
+          "start": 0.02,
+          "end": 3.38,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.1234130859375
+            },
+            {
+              "text": " do",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.990234375
+            },
+            {
+              "text": " look",
+              "start": 0.64,
+              "end": 0.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tired,",
+              "start": 0.82,
+              "end": 1.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Sara,",
+              "start": 1.36,
+              "end": 1.52,
+              "probability": 0.11083984375
+            },
+            {
+              "text": " she",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " said.",
+              "start": 1.88,
+              "end": 2.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " You",
+              "start": 2.64,
+              "end": 2.72,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " are",
+              "start": 2.72,
+              "end": 2.82,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " quite",
+              "start": 2.82,
+              "end": 3.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pale.",
+              "start": 3.0,
+              "end": 3.38,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "look",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "raw": "tired,",
+          "start": 0.82,
+          "end": 1.14
+        },
+        {
+          "raw": "Sara,",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "raw": "she",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": "said.",
+          "start": 1.88,
+          "end": 2.18
+        },
+        {
+          "raw": "You",
+          "start": 2.64,
+          "end": 2.72
+        },
+        {
+          "raw": "are",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "raw": "quite",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "raw": "pale.",
+          "start": 3.0,
+          "end": 3.38
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "Do",
+        "look",
+        "tired,",
+        "Sara,\"",
+        "she",
+        "said;",
+        "\"you",
+        "are",
+        "quite",
+        "pale.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 0.64,
+          "end": 0.82,
+          "key": "look",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tired,",
+          "start": 0.82,
+          "end": 1.14,
+          "key": "tired",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Sara,",
+          "start": 1.36,
+          "end": 1.52,
+          "key": "sara",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "she",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.88,
+          "end": 2.18,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.64,
+          "end": 2.72,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.72,
+          "end": 2.82,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 2.82,
+          "end": 3.0,
+          "key": "quite",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pale.",
+          "start": 3.0,
+          "end": 3.38,
+          "key": "pale",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "Do",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "look",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "text": "tired,",
+          "start": 0.82,
+          "end": 1.14
+        },
+        {
+          "text": "Sara,\"",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "text": "she",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "text": "said;",
+          "start": 1.88,
+          "end": 2.18
+        },
+        {
+          "text": "\"you",
+          "start": 2.64,
+          "end": 2.72
+        },
+        {
+          "text": "are",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "text": "quite",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "text": "pale.\"",
+          "start": 3.0,
+          "end": 3.38
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20215459167957306
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b14c67cd5bf4a658c47120f12062cf63e37c6bc633a4c8194bb346ab1c345981",
+  "selected_reasons": []
+}

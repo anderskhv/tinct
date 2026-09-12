@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "b287dc2caec7da607141fdf27ee9931d6de5917527aa7292d971902def147a5d",
+  "attempts": [
+    {
+      "asr_seconds": 0.18564048781991005,
+      "alignment_seconds": 0.00038016587495803833,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exhume posthumous and messenger.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Exhume",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.4775390625
+            },
+            {
+              "text": " posthumous",
+              "start": 0.77,
+              "end": 1.43,
+              "probability": 0.8468424479166666
+            },
+            {
+              "text": " and",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " messenger.",
+              "start": 1.57,
+              "end": 1.95,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exhume",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "posthumous",
+          "start": 0.77,
+          "end": 1.43
+        },
+        {
+          "raw": "and",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "messenger.",
+          "start": 1.57,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Posthumus",
+        "and",
+        "Messenger._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exhume",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "exhume",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "posthumous",
+          "start": 0.77,
+          "end": 1.43,
+          "key": "posthumous",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "messenger.",
+          "start": 1.57,
+          "end": 1.95,
+          "key": "messenger",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.715
+        },
+        {
+          "text": "Posthumus",
+          "start": 0.715,
+          "end": 1.073
+        },
+        {
+          "text": "and",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "Messenger._]",
+          "start": 1.57,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18615101743489504
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "70c957fd1c63861ed20f92f6b630e82cb9620d58906835026dc62a66d50d675b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

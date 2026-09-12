@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "983c8aa122e47908e1c48f2d164a427dcf987b3fe369b83ba76f5e966a5e4176",
+  "attempts": [
+    {
+      "asr_seconds": 0.13046874501742423,
+      "alignment_seconds": 0.00028048199601471424,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Moth. And I.",
+        "hotwords": "Moth, And, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Moth. And I.",
+          "start": 0.05,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " Moth.",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " And",
+              "start": 1.05,
+              "end": 1.11,
+              "probability": 0.59619140625
+            },
+            {
+              "text": " I.",
+              "start": 1.11,
+              "end": 1.35,
+              "probability": 0.92822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Moth.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "And",
+          "start": 1.05,
+          "end": 1.11
+        },
+        {
+          "raw": "I.",
+          "start": 1.11,
+          "end": 1.35
+        }
+      ],
+      "expected_tokens": [
+        "Moth.",
+        "And",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Moth.",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "moth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.05,
+          "end": 1.11,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 1.11,
+          "end": 1.35,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Moth.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "And",
+          "start": 1.05,
+          "end": 1.11
+        },
+        {
+          "text": "I.",
+          "start": 1.11,
+          "end": 1.35
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13084610807709396
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fb62ff70c39c0f37d37de087e939a114de269864d69074dabef726cdb2e7e2ce",
+  "selected_reasons": []
+}

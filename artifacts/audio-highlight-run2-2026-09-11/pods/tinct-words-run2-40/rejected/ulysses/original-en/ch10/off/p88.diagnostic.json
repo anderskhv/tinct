@@ -1,0 +1,532 @@
+{
+  "complete": true,
+  "signature": "09dcb4df7331b0aff9bf8626e425bbd18846ad8daf8b3f9c747ca3d4743e95c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.3411235581152141,
+      "alignment_seconds": 0.000634877011179924,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Father Conme walked through Klangau's fields, his thin-socked ankles tickled by stubble.",
+          "start": 0.05,
+          "end": 5.31,
+          "words": [
+            {
+              "text": " Father",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " Conme",
+              "start": 0.67,
+              "end": 1.03,
+              "probability": 0.4334716796875
+            },
+            {
+              "text": " walked",
+              "start": 1.03,
+              "end": 1.33,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " through",
+              "start": 1.33,
+              "end": 1.61,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Klangau's",
+              "start": 1.61,
+              "end": 2.17,
+              "probability": 0.645751953125
+            },
+            {
+              "text": " fields,",
+              "start": 2.17,
+              "end": 2.47,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " his",
+              "start": 3.11,
+              "end": 3.19,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " thin",
+              "start": 3.19,
+              "end": 3.45,
+              "probability": 0.83544921875
+            },
+            {
+              "text": "-socked",
+              "start": 3.45,
+              "end": 3.71,
+              "probability": 0.9114583333333334
+            },
+            {
+              "text": " ankles",
+              "start": 3.71,
+              "end": 4.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tickled",
+              "start": 4.19,
+              "end": 4.63,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " by",
+              "start": 4.63,
+              "end": 4.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stubble.",
+              "start": 4.81,
+              "end": 5.31,
+              "probability": 0.996337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Father",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Conme",
+          "start": 0.67,
+          "end": 1.03
+        },
+        {
+          "raw": "walked",
+          "start": 1.03,
+          "end": 1.33
+        },
+        {
+          "raw": "through",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "raw": "Klangau's",
+          "start": 1.61,
+          "end": 2.17
+        },
+        {
+          "raw": "fields,",
+          "start": 2.17,
+          "end": 2.47
+        },
+        {
+          "raw": "his",
+          "start": 3.11,
+          "end": 3.19
+        },
+        {
+          "raw": "thin",
+          "start": 3.19,
+          "end": 3.45
+        },
+        {
+          "raw": "-socked",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "raw": "ankles",
+          "start": 3.71,
+          "end": 4.19
+        },
+        {
+          "raw": "tickled",
+          "start": 4.19,
+          "end": 4.63
+        },
+        {
+          "raw": "by",
+          "start": 4.63,
+          "end": 4.81
+        },
+        {
+          "raw": "stubble.",
+          "start": 4.81,
+          "end": 5.31
+        }
+      ],
+      "expected_tokens": [
+        "Father",
+        "Conmee",
+        "walked",
+        "through",
+        "Clongowes",
+        "fields,",
+        "his",
+        "thinsocked",
+        "ankles",
+        "tickled",
+        "by",
+        "stubble."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          12,
+          9,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Father",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "father",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Conme",
+          "start": 0.67,
+          "end": 1.03,
+          "key": "conme",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "walked",
+          "start": 1.03,
+          "end": 1.33,
+          "key": "walked",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 1.33,
+          "end": 1.61,
+          "key": "through",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Klangau's",
+          "start": 1.61,
+          "end": 2.17,
+          "key": "klangaus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fields,",
+          "start": 2.17,
+          "end": 2.47,
+          "key": "fields",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.11,
+          "end": 3.19,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thin",
+          "start": 3.19,
+          "end": 3.45,
+          "key": "thin",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "-socked",
+          "start": 3.45,
+          "end": 3.71,
+          "key": "socked",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ankles",
+          "start": 3.71,
+          "end": 4.19,
+          "key": "ankles",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "tickled",
+          "start": 4.19,
+          "end": 4.63,
+          "key": "tickled",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.63,
+          "end": 4.81,
+          "key": "by",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "stubble.",
+          "start": 4.81,
+          "end": 5.31,
+          "key": "stubble",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Father",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Conmee",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "text": "walked",
+          "start": 1.03,
+          "end": 1.33
+        },
+        {
+          "text": "through",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "text": "Clongowes",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "text": "fields,",
+          "start": 2.17,
+          "end": 2.47
+        },
+        {
+          "text": "his",
+          "start": 3.11,
+          "end": 3.19
+        },
+        {
+          "text": "thinsocked",
+          "start": 3.19,
+          "end": 3.45
+        },
+        {
+          "text": "ankles",
+          "start": 3.71,
+          "end": 4.19
+        },
+        {
+          "text": "tickled",
+          "start": 4.19,
+          "end": 4.63
+        },
+        {
+          "text": "by",
+          "start": 4.63,
+          "end": 4.81
+        },
+        {
+          "text": "stubble.",
+          "start": 4.81,
+          "end": 5.31
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 9
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3419930920936167
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1c9e1b68811de15c542eb0dd40a3bd7c51a06a8a268aaf74ab5b6bb209ccb2fd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

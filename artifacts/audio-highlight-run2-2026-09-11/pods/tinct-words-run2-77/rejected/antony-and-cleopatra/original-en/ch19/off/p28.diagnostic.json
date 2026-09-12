@@ -1,0 +1,551 @@
+{
+  "complete": true,
+  "signature": "680fac3e6932daf43f1880ffe72c7bc5bf21a76794e199154c4f3eab4f205d9c",
+  "attempts": [
+    {
+      "asr_seconds": 0.27812993500265293,
+      "alignment_seconds": 0.00034791199141182005,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Messenger, the news is true, my lord, he is disgrayed.",
+          "start": 0.05,
+          "end": 3.83,
+          "words": [
+            {
+              "text": " Messenger,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.67041015625
+            },
+            {
+              "text": " the",
+              "start": 1.21,
+              "end": 1.45,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " news",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " is",
+              "start": 1.69,
+              "end": 1.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " true,",
+              "start": 1.91,
+              "end": 2.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 2.43,
+              "end": 2.53,
+              "probability": 0.951171875
+            },
+            {
+              "text": " lord,",
+              "start": 2.53,
+              "end": 2.77,
+              "probability": 0.8154296875
+            },
+            {
+              "text": " he",
+              "start": 2.99,
+              "end": 3.07,
+              "probability": 0.98828125
+            },
+            {
+              "text": " is",
+              "start": 3.07,
+              "end": 3.23,
+              "probability": 0.9453125
+            },
+            {
+              "text": " disgrayed.",
+              "start": 3.23,
+              "end": 3.83,
+              "probability": 0.439697265625
+            }
+          ]
+        },
+        {
+          "text": " Caesar has taken Taurine.",
+          "start": 4.53,
+          "end": 5.59,
+          "words": [
+            {
+              "text": " Caesar",
+              "start": 4.53,
+              "end": 4.53,
+              "probability": 0.96875
+            },
+            {
+              "text": " has",
+              "start": 4.53,
+              "end": 4.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " taken",
+              "start": 4.79,
+              "end": 5.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Taurine.",
+              "start": 5.13,
+              "end": 5.59,
+              "probability": 0.691650390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "the",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "raw": "news",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "raw": "is",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "raw": "true,",
+          "start": 1.91,
+          "end": 2.23
+        },
+        {
+          "raw": "my",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "raw": "lord,",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "raw": "he",
+          "start": 2.99,
+          "end": 3.07
+        },
+        {
+          "raw": "is",
+          "start": 3.07,
+          "end": 3.23
+        },
+        {
+          "raw": "disgrayed.",
+          "start": 3.23,
+          "end": 3.83
+        },
+        {
+          "raw": "Caesar",
+          "start": 4.53,
+          "end": 4.53
+        },
+        {
+          "raw": "has",
+          "start": 4.53,
+          "end": 4.79
+        },
+        {
+          "raw": "taken",
+          "start": 4.79,
+          "end": 5.13
+        },
+        {
+          "raw": "Taurine.",
+          "start": 5.13,
+          "end": 5.59
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "The",
+        "news",
+        "is",
+        "true,",
+        "my",
+        "lord;",
+        "he",
+        "is",
+        "descried.",
+        "Caesar",
+        "has",
+        "taken",
+        "Toryne."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          13,
+          10,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.21,
+          "end": 1.45,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "news",
+          "start": 1.45,
+          "end": 1.69,
+          "key": "news",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.69,
+          "end": 1.91,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 1.91,
+          "end": 2.23,
+          "key": "true",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.43,
+          "end": 2.53,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 2.53,
+          "end": 2.77,
+          "key": "lord",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.99,
+          "end": 3.07,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.07,
+          "end": 3.23,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "disgrayed.",
+          "start": 3.23,
+          "end": 3.83,
+          "key": "disgrayed",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 4.53,
+          "end": 4.53,
+          "key": "caesar",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 4.53,
+          "end": 4.79,
+          "key": "has",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "taken",
+          "start": 4.79,
+          "end": 5.13,
+          "key": "taken",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Taurine.",
+          "start": 5.13,
+          "end": 5.59,
+          "key": "taurine",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "The",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "text": "news",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "text": "is",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "text": "true,",
+          "start": 1.91,
+          "end": 2.23
+        },
+        {
+          "text": "my",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "text": "lord;",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "text": "he",
+          "start": 2.99,
+          "end": 3.07
+        },
+        {
+          "text": "is",
+          "start": 3.07,
+          "end": 3.23
+        },
+        {
+          "text": "descried.",
+          "start": 3.23,
+          "end": 3.88
+        },
+        {
+          "text": "Caesar",
+          "start": 4.53,
+          "end": 4.53
+        },
+        {
+          "text": "has",
+          "start": 4.53,
+          "end": 4.79
+        },
+        {
+          "text": "taken",
+          "start": 4.79,
+          "end": 5.13
+        },
+        {
+          "text": "Toryne.",
+          "start": 5.13,
+          "end": 5.36
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.2786033419833984
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "52351dcc980097427d9e15c0c707e531e106cd395170fc156242e57f2bd2049b",
+  "selected_reasons": []
+}

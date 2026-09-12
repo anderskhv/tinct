@@ -1,0 +1,793 @@
+{
+  "complete": true,
+  "signature": "a0aeb61fd95dd0d5c6ac95ac7eb187f51aadb40b9bb8baba65ba5395358e1dbe",
+  "attempts": [
+    {
+      "asr_seconds": 0.3517105639912188,
+      "alignment_seconds": 0.0006147688254714012,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " jingling on supple rubbers it jaunted from the bridge to Ormond Key. Follow,",
+          "start": 0.02,
+          "end": 4.72,
+          "words": [
+            {
+              "text": " jingling",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.768310546875
+            },
+            {
+              "text": " on",
+              "start": 0.86,
+              "end": 1.06,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " supple",
+              "start": 1.06,
+              "end": 1.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " rubbers",
+              "start": 1.48,
+              "end": 1.84,
+              "probability": 0.976318359375
+            },
+            {
+              "text": " it",
+              "start": 1.84,
+              "end": 1.96,
+              "probability": 0.72265625
+            },
+            {
+              "text": " jaunted",
+              "start": 1.96,
+              "end": 2.26,
+              "probability": 0.888916015625
+            },
+            {
+              "text": " from",
+              "start": 2.26,
+              "end": 2.5,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 2.5,
+              "end": 2.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " bridge",
+              "start": 2.64,
+              "end": 2.86,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Ormond",
+              "start": 3.08,
+              "end": 3.4,
+              "probability": 0.932861328125
+            },
+            {
+              "text": " Key.",
+              "start": 3.4,
+              "end": 3.72,
+              "probability": 0.71484375
+            },
+            {
+              "text": " Follow,",
+              "start": 4.72,
+              "end": 4.72,
+              "probability": 0.9189453125
+            }
+          ]
+        },
+        {
+          "text": " risk it, go quick. At four, near now, out.",
+          "start": 5.14,
+          "end": 8.14,
+          "words": [
+            {
+              "text": " risk",
+              "start": 5.14,
+              "end": 5.36,
+              "probability": 0.951171875
+            },
+            {
+              "text": " it,",
+              "start": 5.36,
+              "end": 5.6,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " go",
+              "start": 5.8,
+              "end": 5.92,
+              "probability": 0.994140625
+            },
+            {
+              "text": " quick.",
+              "start": 5.92,
+              "end": 6.22,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " At",
+              "start": 6.7,
+              "end": 6.76,
+              "probability": 0.865234375
+            },
+            {
+              "text": " four,",
+              "start": 6.76,
+              "end": 7.1,
+              "probability": 0.515625
+            },
+            {
+              "text": " near",
+              "start": 7.24,
+              "end": 7.4,
+              "probability": 0.953125
+            },
+            {
+              "text": " now,",
+              "start": 7.4,
+              "end": 7.74,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " out.",
+              "start": 7.9,
+              "end": 8.14,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "jingling",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "on",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "raw": "supple",
+          "start": 1.06,
+          "end": 1.48
+        },
+        {
+          "raw": "rubbers",
+          "start": 1.48,
+          "end": 1.84
+        },
+        {
+          "raw": "it",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "raw": "jaunted",
+          "start": 1.96,
+          "end": 2.26
+        },
+        {
+          "raw": "from",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "raw": "the",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "raw": "bridge",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "raw": "to",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "Ormond",
+          "start": 3.08,
+          "end": 3.4
+        },
+        {
+          "raw": "Key.",
+          "start": 3.4,
+          "end": 3.72
+        },
+        {
+          "raw": "Follow,",
+          "start": 4.72,
+          "end": 4.72
+        },
+        {
+          "raw": "risk",
+          "start": 5.14,
+          "end": 5.36
+        },
+        {
+          "raw": "it,",
+          "start": 5.36,
+          "end": 5.6
+        },
+        {
+          "raw": "go",
+          "start": 5.8,
+          "end": 5.92
+        },
+        {
+          "raw": "quick.",
+          "start": 5.92,
+          "end": 6.22
+        },
+        {
+          "raw": "At",
+          "start": 6.7,
+          "end": 6.76
+        },
+        {
+          "raw": "four,",
+          "start": 6.76,
+          "end": 7.1
+        },
+        {
+          "raw": "near",
+          "start": 7.24,
+          "end": 7.4
+        },
+        {
+          "raw": "now,",
+          "start": 7.4,
+          "end": 7.74
+        },
+        {
+          "raw": "out.",
+          "start": 7.9,
+          "end": 8.14
+        }
+      ],
+      "expected_tokens": [
+        "Jingling",
+        "on",
+        "supple",
+        "rubbers",
+        "it",
+        "jaunted",
+        "from",
+        "the",
+        "bridge",
+        "to",
+        "Ormond",
+        "quay.",
+        "Follow.",
+        "Risk",
+        "it.",
+        "Go",
+        "quick.",
+        "At",
+        "four.",
+        "Near",
+        "now.",
+        "Out."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          22,
+          12,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "jingling",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "jingling",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 0.86,
+          "end": 1.06,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "supple",
+          "start": 1.06,
+          "end": 1.48,
+          "key": "supple",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rubbers",
+          "start": 1.48,
+          "end": 1.84,
+          "key": "rubbers",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.84,
+          "end": 1.96,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "jaunted",
+          "start": 1.96,
+          "end": 2.26,
+          "key": "jaunted",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.26,
+          "end": 2.5,
+          "key": "from",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.5,
+          "end": 2.64,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bridge",
+          "start": 2.64,
+          "end": 2.86,
+          "key": "bridge",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.86,
+          "end": 3.08,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Ormond",
+          "start": 3.08,
+          "end": 3.4,
+          "key": "ormond",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Key.",
+          "start": 3.4,
+          "end": 3.72,
+          "key": "key",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Follow,",
+          "start": 4.72,
+          "end": 4.72,
+          "key": "follow",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "risk",
+          "start": 5.14,
+          "end": 5.36,
+          "key": "risk",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 5.36,
+          "end": 5.6,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 5.8,
+          "end": 5.92,
+          "key": "go",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "quick.",
+          "start": 5.92,
+          "end": 6.22,
+          "key": "quick",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 6.7,
+          "end": 6.76,
+          "key": "at",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "four,",
+          "start": 6.76,
+          "end": 7.1,
+          "key": "four",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 7.24,
+          "end": 7.4,
+          "key": "near",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 7.4,
+          "end": 7.74,
+          "key": "now",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 7.9,
+          "end": 8.14,
+          "key": "out",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Jingling",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "on",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "text": "supple",
+          "start": 1.06,
+          "end": 1.48
+        },
+        {
+          "text": "rubbers",
+          "start": 1.48,
+          "end": 1.84
+        },
+        {
+          "text": "it",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "text": "jaunted",
+          "start": 1.96,
+          "end": 2.26
+        },
+        {
+          "text": "from",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "text": "the",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "text": "bridge",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "text": "to",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "text": "Ormond",
+          "start": 3.08,
+          "end": 3.4
+        },
+        {
+          "text": "quay.",
+          "start": 3.4,
+          "end": 4.06
+        },
+        {
+          "text": "Follow.",
+          "start": 4.72,
+          "end": 4.72
+        },
+        {
+          "text": "Risk",
+          "start": 5.14,
+          "end": 5.36
+        },
+        {
+          "text": "it.",
+          "start": 5.36,
+          "end": 5.6
+        },
+        {
+          "text": "Go",
+          "start": 5.8,
+          "end": 5.92
+        },
+        {
+          "text": "quick.",
+          "start": 5.92,
+          "end": 6.22
+        },
+        {
+          "text": "At",
+          "start": 6.7,
+          "end": 6.76
+        },
+        {
+          "text": "four.",
+          "start": 6.76,
+          "end": 7.1
+        },
+        {
+          "text": "Near",
+          "start": 7.24,
+          "end": 7.4
+        },
+        {
+          "text": "now.",
+          "start": 7.4,
+          "end": 7.74
+        },
+        {
+          "text": "Out.",
+          "start": 7.9,
+          "end": 8.14
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 21
+      },
+      "match_ratio": 0.9545454545454546,
+      "rejection_reasons": [],
+      "seconds": 0.3525703032501042
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0c800b0c0d27c1bc05f59c1234b0e99f8d490df390e2649c9ddd45130c2e09c3",
+  "selected_reasons": []
+}

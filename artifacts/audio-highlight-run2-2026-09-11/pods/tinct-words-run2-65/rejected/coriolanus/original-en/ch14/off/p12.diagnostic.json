@@ -1,0 +1,189 @@
+{
+  "complete": true,
+  "signature": "0bef5ebd8adbacb21d4bf7e1339b519fb8005719b694e3300da1d6be9a278bcb",
+  "attempts": [
+    {
+      "asr_seconds": 0.10421707201749086,
+      "alignment_seconds": 0.0001877262257039547,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lardius at NTM.",
+          "start": 0.05,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Lardius",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.6160481770833334
+            },
+            {
+              "text": " at",
+              "start": 0.99,
+              "end": 1.29,
+              "probability": 0.5458984375
+            },
+            {
+              "text": " NTM.",
+              "start": 1.29,
+              "end": 1.59,
+              "probability": 0.849365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lardius",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "at",
+          "start": 0.99,
+          "end": 1.29
+        },
+        {
+          "raw": "NTM.",
+          "start": 1.29,
+          "end": 1.59
+        }
+      ],
+      "expected_tokens": [
+        "Lartius.",
+        "At",
+        "Antium."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lardius",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "lardius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.99,
+          "end": 1.29,
+          "key": "at",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "NTM.",
+          "start": 1.29,
+          "end": 1.59,
+          "key": "ntm",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lartius.",
+          "start": 0.0,
+          "end": 0.495
+        },
+        {
+          "text": "At",
+          "start": 0.99,
+          "end": 1.29
+        },
+        {
+          "text": "Antium.",
+          "start": 1.29,
+          "end": 1.44
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10446344967931509
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6f44a4bc260ca3e621b16cb7df49eebfdef104ad7738ddeb5538d38198c3f60f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

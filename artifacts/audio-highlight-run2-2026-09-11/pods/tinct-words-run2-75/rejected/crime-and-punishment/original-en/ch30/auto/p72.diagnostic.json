@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "921836cd6e365312007adbe62a2850c21c728a38f8e3504d2775ead77cc0c08f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2180175893008709,
+      "alignment_seconds": 0.0005170777440071106,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Raskolnikov drew back and looked at her with a mournful smile.",
+        "hotwords": "Raskolnikov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Raskolnikov drew back and looked at her with a mournful smile.",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " Raskolnikov",
+              "start": 0.05,
+              "end": 1.15,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " drew",
+              "start": 1.15,
+              "end": 1.43,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " back",
+              "start": 1.43,
+              "end": 1.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 1.75,
+              "end": 2.19,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " looked",
+              "start": 2.19,
+              "end": 2.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 2.35,
+              "end": 2.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her",
+              "start": 2.51,
+              "end": 2.61,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 2.61,
+              "end": 2.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 2.75,
+              "end": 2.85,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " mournful",
+              "start": 2.85,
+              "end": 3.23,
+              "probability": 0.999755859375
+            },
+            {
+              "text": " smile.",
+              "start": 3.23,
+              "end": 3.63,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Raskolnikov",
+          "start": 0.05,
+          "end": 1.15
+        },
+        {
+          "raw": "drew",
+          "start": 1.15,
+          "end": 1.43
+        },
+        {
+          "raw": "back",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "raw": "and",
+          "start": 1.75,
+          "end": 2.19
+        },
+        {
+          "raw": "looked",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "raw": "at",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "raw": "her",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "raw": "with",
+          "start": 2.61,
+          "end": 2.75
+        },
+        {
+          "raw": "a",
+          "start": 2.75,
+          "end": 2.85
+        },
+        {
+          "raw": "mournful",
+          "start": 2.85,
+          "end": 3.23
+        },
+        {
+          "raw": "smile.",
+          "start": 3.23,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "Raskolnikov",
+        "drew",
+        "back",
+        "and",
+        "looked",
+        "at",
+        "her",
+        "with",
+        "a",
+        "mournful",
+        "smile."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Raskolnikov",
+          "start": 0.05,
+          "end": 1.15,
+          "key": "raskolnikov",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "drew",
+          "start": 1.15,
+          "end": 1.43,
+          "key": "drew",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 1.43,
+          "end": 1.75,
+          "key": "back",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.75,
+          "end": 2.19,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 2.19,
+          "end": 2.35,
+          "key": "looked",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.35,
+          "end": 2.51,
+          "key": "at",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.51,
+          "end": 2.61,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.61,
+          "end": 2.75,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.75,
+          "end": 2.85,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mournful",
+          "start": 2.85,
+          "end": 3.23,
+          "key": "mournful",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "smile.",
+          "start": 3.23,
+          "end": 3.63,
+          "key": "smile",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Raskolnikov",
+          "start": 0.05,
+          "end": 1.15
+        },
+        {
+          "text": "drew",
+          "start": 1.15,
+          "end": 1.43
+        },
+        {
+          "text": "back",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "text": "and",
+          "start": 1.75,
+          "end": 2.19
+        },
+        {
+          "text": "looked",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "text": "at",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "text": "her",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "text": "with",
+          "start": 2.61,
+          "end": 2.75
+        },
+        {
+          "text": "a",
+          "start": 2.75,
+          "end": 2.85
+        },
+        {
+          "text": "mournful",
+          "start": 2.85,
+          "end": 3.23
+        },
+        {
+          "text": "smile.",
+          "start": 3.23,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2187451794743538
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ebdabdd52da60bd9f79a16933844a5684d8262f8020bdcb779d82263d86b65a7",
+  "selected_reasons": []
+}

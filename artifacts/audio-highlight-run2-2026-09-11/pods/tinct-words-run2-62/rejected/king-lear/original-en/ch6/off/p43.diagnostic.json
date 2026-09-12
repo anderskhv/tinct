@@ -1,0 +1,636 @@
+{
+  "complete": true,
+  "signature": "acf87086af785c16b1b6ac7760ffdfd7e3108ed443e3c9d448dda104dcf8da06",
+  "attempts": [
+    {
+      "asr_seconds": 0.17482411116361618,
+      "alignment_seconds": 0.000264238566160202,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cornwall, nor I assure thee, Regan. Edmund, I hear that you have shown your father a childlike office.",
+          "start": 0.0,
+          "end": 6.36,
+          "words": [
+            {
+              "text": " Cornwall,",
+              "start": 0.0,
+              "end": 0.74,
+              "probability": 0.6240234375
+            },
+            {
+              "text": " nor",
+              "start": 1.42,
+              "end": 1.44,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " I",
+              "start": 1.44,
+              "end": 1.66,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " assure",
+              "start": 1.66,
+              "end": 1.98,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " thee,",
+              "start": 1.98,
+              "end": 2.2,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Regan.",
+              "start": 2.36,
+              "end": 2.64,
+              "probability": 0.730712890625
+            },
+            {
+              "text": " Edmund,",
+              "start": 3.32,
+              "end": 3.62,
+              "probability": 0.75390625
+            },
+            {
+              "text": " I",
+              "start": 3.94,
+              "end": 4.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " hear",
+              "start": 4.02,
+              "end": 4.2,
+              "probability": 0.984375
+            },
+            {
+              "text": " that",
+              "start": 4.2,
+              "end": 4.36,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " you",
+              "start": 4.36,
+              "end": 4.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " have",
+              "start": 4.48,
+              "end": 4.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " shown",
+              "start": 4.6,
+              "end": 4.8,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " your",
+              "start": 4.8,
+              "end": 5.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " father",
+              "start": 5.0,
+              "end": 5.24,
+              "probability": 0.982421875
+            },
+            {
+              "text": " a",
+              "start": 5.24,
+              "end": 5.46,
+              "probability": 0.994140625
+            },
+            {
+              "text": " childlike",
+              "start": 5.46,
+              "end": 5.98,
+              "probability": 0.89453125
+            },
+            {
+              "text": " office.",
+              "start": 5.98,
+              "end": 6.36,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.0,
+          "end": 0.74
+        },
+        {
+          "raw": "nor",
+          "start": 1.42,
+          "end": 1.44
+        },
+        {
+          "raw": "I",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "raw": "assure",
+          "start": 1.66,
+          "end": 1.98
+        },
+        {
+          "raw": "thee,",
+          "start": 1.98,
+          "end": 2.2
+        },
+        {
+          "raw": "Regan.",
+          "start": 2.36,
+          "end": 2.64
+        },
+        {
+          "raw": "Edmund,",
+          "start": 3.32,
+          "end": 3.62
+        },
+        {
+          "raw": "I",
+          "start": 3.94,
+          "end": 4.02
+        },
+        {
+          "raw": "hear",
+          "start": 4.02,
+          "end": 4.2
+        },
+        {
+          "raw": "that",
+          "start": 4.2,
+          "end": 4.36
+        },
+        {
+          "raw": "you",
+          "start": 4.36,
+          "end": 4.48
+        },
+        {
+          "raw": "have",
+          "start": 4.48,
+          "end": 4.6
+        },
+        {
+          "raw": "shown",
+          "start": 4.6,
+          "end": 4.8
+        },
+        {
+          "raw": "your",
+          "start": 4.8,
+          "end": 5.0
+        },
+        {
+          "raw": "father",
+          "start": 5.0,
+          "end": 5.24
+        },
+        {
+          "raw": "a",
+          "start": 5.24,
+          "end": 5.46
+        },
+        {
+          "raw": "childlike",
+          "start": 5.46,
+          "end": 5.98
+        },
+        {
+          "raw": "office.",
+          "start": 5.98,
+          "end": 6.36
+        }
+      ],
+      "expected_tokens": [
+        "Cornwall.",
+        "Nor",
+        "I,",
+        "assure",
+        "thee,",
+        "Regan.",
+        "Edmund,",
+        "I",
+        "hear",
+        "that",
+        "you",
+        "have",
+        "shown",
+        "your",
+        "father",
+        "A",
+        "childlike",
+        "office."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.0,
+          "end": 0.74,
+          "key": "cornwall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 1.42,
+          "end": 1.44,
+          "key": "nor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.44,
+          "end": 1.66,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "assure",
+          "start": 1.66,
+          "end": 1.98,
+          "key": "assure",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 1.98,
+          "end": 2.2,
+          "key": "thee",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Regan.",
+          "start": 2.36,
+          "end": 2.64,
+          "key": "regan",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Edmund,",
+          "start": 3.32,
+          "end": 3.62,
+          "key": "edmund",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.94,
+          "end": 4.02,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 4.02,
+          "end": 4.2,
+          "key": "hear",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.2,
+          "end": 4.36,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.36,
+          "end": 4.48,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.48,
+          "end": 4.6,
+          "key": "have",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "shown",
+          "start": 4.6,
+          "end": 4.8,
+          "key": "shown",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.8,
+          "end": 5.0,
+          "key": "your",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 5.0,
+          "end": 5.24,
+          "key": "father",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.24,
+          "end": 5.46,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "childlike",
+          "start": 5.46,
+          "end": 5.98,
+          "key": "childlike",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "office.",
+          "start": 5.98,
+          "end": 6.36,
+          "key": "office",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cornwall.",
+          "start": 0.0,
+          "end": 0.74
+        },
+        {
+          "text": "Nor",
+          "start": 1.42,
+          "end": 1.44
+        },
+        {
+          "text": "I,",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "text": "assure",
+          "start": 1.66,
+          "end": 1.98
+        },
+        {
+          "text": "thee,",
+          "start": 1.98,
+          "end": 2.2
+        },
+        {
+          "text": "Regan.",
+          "start": 2.36,
+          "end": 2.64
+        },
+        {
+          "text": "Edmund,",
+          "start": 3.32,
+          "end": 3.62
+        },
+        {
+          "text": "I",
+          "start": 3.94,
+          "end": 4.02
+        },
+        {
+          "text": "hear",
+          "start": 4.02,
+          "end": 4.2
+        },
+        {
+          "text": "that",
+          "start": 4.2,
+          "end": 4.36
+        },
+        {
+          "text": "you",
+          "start": 4.36,
+          "end": 4.48
+        },
+        {
+          "text": "have",
+          "start": 4.48,
+          "end": 4.6
+        },
+        {
+          "text": "shown",
+          "start": 4.6,
+          "end": 4.8
+        },
+        {
+          "text": "your",
+          "start": 4.8,
+          "end": 5.0
+        },
+        {
+          "text": "father",
+          "start": 5.0,
+          "end": 5.24
+        },
+        {
+          "text": "A",
+          "start": 5.24,
+          "end": 5.46
+        },
+        {
+          "text": "childlike",
+          "start": 5.46,
+          "end": 5.98
+        },
+        {
+          "text": "office.",
+          "start": 5.98,
+          "end": 6.36
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17519262433052063
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "549e7c45c4bd1fbd8de4bc091f08f6daf7783fb8d89364ce994f6077f4b61f36",
+  "selected_reasons": []
+}

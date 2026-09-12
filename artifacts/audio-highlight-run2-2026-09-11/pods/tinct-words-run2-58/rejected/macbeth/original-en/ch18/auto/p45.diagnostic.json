@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "fe018b7b01db5476a29542f5a4afa0a260c8ba0d31ca067aadf9a9d98869a50b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1100306911394,
+      "alignment_seconds": 0.0001819869503378868,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All. Seek to know no more.",
+        "hotwords": "All, Seek"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All, Seek to know no more.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " Seek",
+              "start": 0.95,
+              "end": 1.09,
+              "probability": 0.0079193115234375
+            },
+            {
+              "text": " to",
+              "start": 1.09,
+              "end": 1.25,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " know",
+              "start": 1.25,
+              "end": 1.35,
+              "probability": 0.34375
+            },
+            {
+              "text": " no",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " more.",
+              "start": 1.49,
+              "end": 1.75,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Seek",
+          "start": 0.95,
+          "end": 1.09
+        },
+        {
+          "raw": "to",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "raw": "know",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "raw": "no",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "more.",
+          "start": 1.49,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "Seek",
+        "to",
+        "know",
+        "no",
+        "more."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Seek",
+          "start": 0.95,
+          "end": 1.09,
+          "key": "seek",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.09,
+          "end": 1.25,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.25,
+          "end": 1.35,
+          "key": "know",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 1.49,
+          "end": 1.75,
+          "key": "more",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Seek",
+          "start": 0.95,
+          "end": 1.09
+        },
+        {
+          "text": "to",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "text": "know",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "text": "no",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "more.",
+          "start": 1.49,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11027895845472813
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6526a38a0c2825530ce9854e08a3d8b8cd0b6d1ee0e3907fdf2abc3da3907af7",
+  "selected_reasons": []
+}

@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "432d23e55ebc70a69abea5fbec4bd93dabea39bed46cc547e32924800986f8b9",
+  "attempts": [
+    {
+      "asr_seconds": 0.14345142524689436,
+      "alignment_seconds": 0.00028842780739068985,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You admit it.",
+          "start": 0.02,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " admit",
+              "start": 0.56,
+              "end": 0.86,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " it.",
+              "start": 0.86,
+              "end": 1.14,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "admit",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "raw": "it.",
+          "start": 0.86,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "admit",
+        "it?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "admit",
+          "start": 0.56,
+          "end": 0.86,
+          "key": "admit",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 0.86,
+          "end": 1.14,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "admit",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "text": "it?\"",
+          "start": 0.86,
+          "end": 1.14
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14383887592703104
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c228667e9dbbcf2f808a2e474e3711897489138524089be8c4cbde4980eb5d56",
+  "selected_reasons": []
+}

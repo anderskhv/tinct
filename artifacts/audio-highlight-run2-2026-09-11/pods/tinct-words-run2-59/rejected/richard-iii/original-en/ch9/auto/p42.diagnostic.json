@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "1d9031b00ca47bdaa053bc23081fb99a9116c613aeab91515af0ce2d3e6b409d",
+  "attempts": [
+    {
+      "asr_seconds": 0.24866772000677884,
+      "alignment_seconds": 0.0005097731482237577,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "York. Well, my dread lord—so must I call you now.",
+        "hotwords": "York, Well, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " York, Well, my dread lord—so must I call you now.",
+          "start": 0.05,
+          "end": 3.27,
+          "words": [
+            {
+              "text": " York,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " Well,",
+              "start": 0.99,
+              "end": 1.15,
+              "probability": 0.0166015625
+            },
+            {
+              "text": " my",
+              "start": 1.25,
+              "end": 1.35,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " dread",
+              "start": 1.35,
+              "end": 1.57,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " lord—so",
+              "start": 1.57,
+              "end": 2.39,
+              "probability": 0.42299779256184894
+            },
+            {
+              "text": " must",
+              "start": 2.39,
+              "end": 2.53,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " I",
+              "start": 2.53,
+              "end": 2.69,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " call",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " you",
+              "start": 2.85,
+              "end": 3.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " now.",
+              "start": 3.03,
+              "end": 3.27,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "York,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Well,",
+          "start": 0.99,
+          "end": 1.15
+        },
+        {
+          "raw": "my",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "raw": "dread",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "raw": "lord—so",
+          "start": 1.57,
+          "end": 2.39
+        },
+        {
+          "raw": "must",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "raw": "I",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "raw": "call",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "you",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "raw": "now.",
+          "start": 3.03,
+          "end": 3.27
+        }
+      ],
+      "expected_tokens": [
+        "York.",
+        "Well,",
+        "my",
+        "dread",
+        "lord—so",
+        "must",
+        "I",
+        "call",
+        "you",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "York,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "york",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 0.99,
+          "end": 1.15,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.25,
+          "end": 1.35,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dread",
+          "start": 1.35,
+          "end": 1.57,
+          "key": "dread",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord—so",
+          "start": 1.57,
+          "end": 2.39,
+          "key": "lordso",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.39,
+          "end": 2.53,
+          "key": "must",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.53,
+          "end": 2.69,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 2.69,
+          "end": 2.85,
+          "key": "call",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.85,
+          "end": 3.03,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 3.03,
+          "end": 3.27,
+          "key": "now",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "York.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Well,",
+          "start": 0.99,
+          "end": 1.15
+        },
+        {
+          "text": "my",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "text": "dread",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "text": "lord—so",
+          "start": 1.57,
+          "end": 2.39
+        },
+        {
+          "text": "must",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "text": "I",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "text": "call",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "you",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "text": "now.",
+          "start": 3.03,
+          "end": 3.27
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2493839180096984
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "69fcab095cbe8ce0ab53dc965af8e4d770feef8d0dfcd5fd53edc656b4e8826b",
+  "selected_reasons": []
+}

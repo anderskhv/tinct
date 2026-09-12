@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "8a10b10814d55506a0523bebe5c8bb2cf2fb02de33872979be5acfa56fd5f1e4",
+  "attempts": [
+    {
+      "asr_seconds": 0.09852898679673672,
+      "alignment_seconds": 0.00011645862832665443,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Roderigo. Beat me?",
+        "hotwords": "Roderigo, Beat"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Roderigo, beat me.",
+          "start": 0.02,
+          "end": 1.46,
+          "words": [
+            {
+              "text": " Roderigo,",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.2137451171875
+            },
+            {
+              "text": " beat",
+              "start": 1.12,
+              "end": 1.22,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " me.",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Roderigo,",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "beat",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "raw": "me.",
+          "start": 1.22,
+          "end": 1.46
+        }
+      ],
+      "expected_tokens": [
+        "Roderigo.",
+        "Beat",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Roderigo,",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "roderigo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "beat",
+          "start": 1.12,
+          "end": 1.22,
+          "key": "beat",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Roderigo.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "Beat",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "text": "me?",
+          "start": 1.22,
+          "end": 1.46
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09868428576737642
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "730155f15c6d4f34d427f80930cacb143f2428533de91747e528bd28735fa762",
+  "selected_reasons": []
+}

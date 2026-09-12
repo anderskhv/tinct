@@ -1,0 +1,326 @@
+{
+  "complete": true,
+  "signature": "750ad8c4f173db7048826f4ded06499596f72f78ad679d9a55770bee850575c7",
+  "attempts": [
+    {
+      "asr_seconds": 0.19653843622654676,
+      "alignment_seconds": 0.0004137069918215275,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But Miss Temple is the best, isn't she?",
+          "start": 0.08,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " Miss",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.63037109375
+            },
+            {
+              "text": " Temple",
+              "start": 0.68,
+              "end": 0.94,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " is",
+              "start": 0.94,
+              "end": 1.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 1.14,
+              "end": 1.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " best,",
+              "start": 1.26,
+              "end": 1.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " isn't",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " she?",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "Miss",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "Temple",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "raw": "is",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "raw": "the",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "raw": "best,",
+          "start": 1.26,
+          "end": 1.56
+        },
+        {
+          "raw": "isn't",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "raw": "she?",
+          "start": 2.0,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "Miss",
+        "Temple",
+        "is",
+        "the",
+        "best—isn't",
+        "she?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          7,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "miss",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Temple",
+          "start": 0.68,
+          "end": 0.94,
+          "key": "temple",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.94,
+          "end": 1.14,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.14,
+          "end": 1.26,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "best,",
+          "start": 1.26,
+          "end": 1.56,
+          "key": "best",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "isn't",
+          "start": 1.72,
+          "end": 2.0,
+          "key": "isnt",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "she?",
+          "start": 2.0,
+          "end": 2.16,
+          "key": "she",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "Miss",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "Temple",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "text": "is",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "text": "the",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "text": "best—isn't",
+          "start": 1.26,
+          "end": 1.63
+        },
+        {
+          "text": "she?\"",
+          "start": 2.0,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.19711749209091067
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "db9838252def5004e4f9db5396e3818cca364aa6d088d65859726dd45a519fd9",
+  "selected_reasons": []
+}

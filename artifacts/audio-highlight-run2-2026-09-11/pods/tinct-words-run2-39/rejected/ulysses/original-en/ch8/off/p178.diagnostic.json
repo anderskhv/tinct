@@ -1,0 +1,168 @@
+{
+  "complete": true,
+  "signature": "36b2d9aabcc2a4bbbca74156dfba7f8864d46f79ee112d956929f2e4f69ef130",
+  "attempts": [
+    {
+      "asr_seconds": 0.11912131402641535,
+      "alignment_seconds": 0.00019980990327894688,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Man, man, man.",
+          "start": 0.02,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Man,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.2047119140625
+            },
+            {
+              "text": " man,",
+              "start": 0.82,
+              "end": 0.98,
+              "probability": 0.744140625
+            },
+            {
+              "text": " man.",
+              "start": 1.1,
+              "end": 1.32,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Man,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "man,",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "raw": "man.",
+          "start": 1.1,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "Men,",
+        "men,",
+        "men."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Man,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "man",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 0.82,
+          "end": 0.98,
+          "key": "man",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 1.1,
+          "end": 1.32,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Men,",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "men,",
+          "start": 0.66,
+          "end": 0.99
+        },
+        {
+          "text": "men.",
+          "start": 0.99,
+          "end": 1.155
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11938461801037192
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "026da9b5864e61dc0dd1d74d74211eedb28bd17fcf4114287226401accdabde2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

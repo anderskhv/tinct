@@ -1,0 +1,1803 @@
+{
+  "complete": true,
+  "signature": "e08fa05315d03fbb373510478d8d7d3cee3534622dad4b099c1fe270036072c4",
+  "attempts": [
+    {
+      "asr_seconds": 0.23061239160597324,
+      "alignment_seconds": 0.0003570578992366791,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hermione. If you would seek us, We are yours i' the garden. Shall 's attend you there?",
+        "hotwords": "Hermione, If, We, Shall"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hermione, If you would seek us, We are yours i' the garden. Shall's attend you there?",
+          "start": 0.05,
+          "end": 5.01,
+          "words": [
+            {
+              "text": " Hermione,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.62890625
+            },
+            {
+              "text": " If",
+              "start": 1.23,
+              "end": 1.53,
+              "probability": 0.0144500732421875
+            },
+            {
+              "text": " you",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.986328125
+            },
+            {
+              "text": " would",
+              "start": 1.65,
+              "end": 1.77,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " seek",
+              "start": 1.77,
+              "end": 1.99,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " us,",
+              "start": 1.99,
+              "end": 2.25,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " We",
+              "start": 2.41,
+              "end": 2.49,
+              "probability": 0.02587890625
+            },
+            {
+              "text": " are",
+              "start": 2.49,
+              "end": 2.67,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " yours",
+              "start": 2.67,
+              "end": 2.93,
+              "probability": 0.912109375
+            },
+            {
+              "text": " i'",
+              "start": 2.93,
+              "end": 3.17,
+              "probability": 0.0231170654296875
+            },
+            {
+              "text": " the",
+              "start": 3.19,
+              "end": 3.31,
+              "probability": 0.875
+            },
+            {
+              "text": " garden.",
+              "start": 3.31,
+              "end": 3.59,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " Shall's",
+              "start": 4.15,
+              "end": 4.33,
+              "probability": 0.3767547607421875
+            },
+            {
+              "text": " attend",
+              "start": 4.33,
+              "end": 4.51,
+              "probability": 0.9296875
+            },
+            {
+              "text": " you",
+              "start": 4.51,
+              "end": 4.75,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " there?",
+              "start": 4.75,
+              "end": 5.01,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hermione,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "If",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "raw": "you",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "would",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "raw": "seek",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "raw": "us,",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "raw": "We",
+          "start": 2.41,
+          "end": 2.49
+        },
+        {
+          "raw": "are",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "raw": "yours",
+          "start": 2.67,
+          "end": 2.93
+        },
+        {
+          "raw": "i'",
+          "start": 2.93,
+          "end": 3.17
+        },
+        {
+          "raw": "the",
+          "start": 3.19,
+          "end": 3.31
+        },
+        {
+          "raw": "garden.",
+          "start": 3.31,
+          "end": 3.59
+        },
+        {
+          "raw": "Shall's",
+          "start": 4.15,
+          "end": 4.33
+        },
+        {
+          "raw": "attend",
+          "start": 4.33,
+          "end": 4.51
+        },
+        {
+          "raw": "you",
+          "start": 4.51,
+          "end": 4.75
+        },
+        {
+          "raw": "there?",
+          "start": 4.75,
+          "end": 5.01
+        }
+      ],
+      "expected_tokens": [
+        "Hermione.",
+        "If",
+        "you",
+        "would",
+        "seek",
+        "us,",
+        "We",
+        "are",
+        "yours",
+        "i'",
+        "the",
+        "garden.",
+        "Shall",
+        "'s",
+        "attend",
+        "you",
+        "there?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          14,
+          12,
+          13
+        ],
+        [
+          "equal",
+          14,
+          17,
+          13,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          14,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hermione,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "hermione",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.23,
+          "end": 1.53,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.65,
+          "end": 1.77,
+          "key": "would",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "seek",
+          "start": 1.77,
+          "end": 1.99,
+          "key": "seek",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "us,",
+          "start": 1.99,
+          "end": 2.25,
+          "key": "us",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 2.41,
+          "end": 2.49,
+          "key": "we",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.49,
+          "end": 2.67,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "yours",
+          "start": 2.67,
+          "end": 2.93,
+          "key": "yours",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "i'",
+          "start": 2.93,
+          "end": 3.17,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.19,
+          "end": 3.31,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "garden.",
+          "start": 3.31,
+          "end": 3.59,
+          "key": "garden",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Shall's",
+          "start": 4.15,
+          "end": 4.33,
+          "key": "shalls",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "attend",
+          "start": 4.33,
+          "end": 4.51,
+          "key": "attend",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.51,
+          "end": 4.75,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "there?",
+          "start": 4.75,
+          "end": 5.01,
+          "key": "there",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hermione.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "If",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "text": "you",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "would",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "text": "seek",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "text": "us,",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "text": "We",
+          "start": 2.41,
+          "end": 2.49
+        },
+        {
+          "text": "are",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "text": "yours",
+          "start": 2.67,
+          "end": 2.93
+        },
+        {
+          "text": "i'",
+          "start": 2.93,
+          "end": 3.17
+        },
+        {
+          "text": "the",
+          "start": 3.19,
+          "end": 3.31
+        },
+        {
+          "text": "garden.",
+          "start": 3.31,
+          "end": 3.59
+        },
+        {
+          "text": "Shall",
+          "start": 3.59,
+          "end": 3.96
+        },
+        {
+          "text": "'s",
+          "start": 3.96,
+          "end": 4.145
+        },
+        {
+          "text": "attend",
+          "start": 4.33,
+          "end": 4.51
+        },
+        {
+          "text": "you",
+          "start": 4.51,
+          "end": 4.75
+        },
+        {
+          "text": "there?",
+          "start": 4.75,
+          "end": 5.01
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.231092544272542
+    },
+    {
+      "asr_seconds": 0.267266808077693,
+      "alignment_seconds": 0.0003509689122438431,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Hermione, If, We, Shall"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Hermione, If You Would Seek Us, We Are Yours I The Garden, Shall Attend You There",
+          "start": 0.05,
+          "end": 4.99,
+          "words": [
+            {
+              "text": " Hermione,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.62890625
+            },
+            {
+              "text": " If",
+              "start": 1.23,
+              "end": 1.53,
+              "probability": 0.0144500732421875
+            },
+            {
+              "text": " You",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.00937652587890625
+            },
+            {
+              "text": " Would",
+              "start": 1.65,
+              "end": 1.77,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " Seek",
+              "start": 1.77,
+              "end": 1.99,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " Us,",
+              "start": 1.99,
+              "end": 2.25,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " We",
+              "start": 2.41,
+              "end": 2.51,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " Are",
+              "start": 2.51,
+              "end": 2.67,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " Yours",
+              "start": 2.67,
+              "end": 3.09,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " I",
+              "start": 3.09,
+              "end": 3.17,
+              "probability": 0.61572265625
+            },
+            {
+              "text": " The",
+              "start": 3.17,
+              "end": 3.29,
+              "probability": 0.580078125
+            },
+            {
+              "text": " Garden,",
+              "start": 3.29,
+              "end": 3.61,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Shall",
+              "start": 4.21,
+              "end": 4.23,
+              "probability": 0.0635986328125
+            },
+            {
+              "text": " Attend",
+              "start": 4.23,
+              "end": 4.45,
+              "probability": 0.20849609375
+            },
+            {
+              "text": " You",
+              "start": 4.45,
+              "end": 4.77,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " There",
+              "start": 4.77,
+              "end": 4.99,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hermione,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "If",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "raw": "You",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "Would",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "raw": "Seek",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "raw": "Us,",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "raw": "We",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "raw": "Are",
+          "start": 2.51,
+          "end": 2.67
+        },
+        {
+          "raw": "Yours",
+          "start": 2.67,
+          "end": 3.09
+        },
+        {
+          "raw": "I",
+          "start": 3.09,
+          "end": 3.17
+        },
+        {
+          "raw": "The",
+          "start": 3.17,
+          "end": 3.29
+        },
+        {
+          "raw": "Garden,",
+          "start": 3.29,
+          "end": 3.61
+        },
+        {
+          "raw": "Shall",
+          "start": 4.21,
+          "end": 4.23
+        },
+        {
+          "raw": "Attend",
+          "start": 4.23,
+          "end": 4.45
+        },
+        {
+          "raw": "You",
+          "start": 4.45,
+          "end": 4.77
+        },
+        {
+          "raw": "There",
+          "start": 4.77,
+          "end": 4.99
+        }
+      ],
+      "expected_tokens": [
+        "Hermione.",
+        "If",
+        "you",
+        "would",
+        "seek",
+        "us,",
+        "We",
+        "are",
+        "yours",
+        "i'",
+        "the",
+        "garden.",
+        "Shall",
+        "'s",
+        "attend",
+        "you",
+        "there?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "delete",
+          13,
+          14,
+          13,
+          13
+        ],
+        [
+          "equal",
+          14,
+          17,
+          13,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          13,
+          14,
+          13,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hermione,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "hermione",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.23,
+          "end": 1.53,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Would",
+          "start": 1.65,
+          "end": 1.77,
+          "key": "would",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Seek",
+          "start": 1.77,
+          "end": 1.99,
+          "key": "seek",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Us,",
+          "start": 1.99,
+          "end": 2.25,
+          "key": "us",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 2.41,
+          "end": 2.51,
+          "key": "we",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 2.51,
+          "end": 2.67,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Yours",
+          "start": 2.67,
+          "end": 3.09,
+          "key": "yours",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.09,
+          "end": 3.17,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.17,
+          "end": 3.29,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Garden,",
+          "start": 3.29,
+          "end": 3.61,
+          "key": "garden",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 4.21,
+          "end": 4.23,
+          "key": "shall",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Attend",
+          "start": 4.23,
+          "end": 4.45,
+          "key": "attend",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 4.45,
+          "end": 4.77,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 4.77,
+          "end": 4.99,
+          "key": "there",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hermione.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "If",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "text": "you",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "would",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "text": "seek",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "text": "us,",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "text": "We",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "text": "are",
+          "start": 2.51,
+          "end": 2.67
+        },
+        {
+          "text": "yours",
+          "start": 2.67,
+          "end": 3.09
+        },
+        {
+          "text": "i'",
+          "start": 3.09,
+          "end": 3.17
+        },
+        {
+          "text": "the",
+          "start": 3.17,
+          "end": 3.29
+        },
+        {
+          "text": "garden.",
+          "start": 3.29,
+          "end": 3.61
+        },
+        {
+          "text": "Shall",
+          "start": 4.21,
+          "end": 4.23
+        },
+        {
+          "text": "'s",
+          "start": 4.23,
+          "end": 4.23
+        },
+        {
+          "text": "attend",
+          "start": 4.23,
+          "end": 4.45
+        },
+        {
+          "text": "you",
+          "start": 4.45,
+          "end": 4.77
+        },
+        {
+          "text": "there?",
+          "start": 4.77,
+          "end": 4.99
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.2677381597459316
+    },
+    {
+      "asr_seconds": 0.23468604683876038,
+      "alignment_seconds": 0.0003593228757381439,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hermione, if you would seek us, we are yours I the garden. She'lls attend you there",
+          "start": 0.05,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " Hermione,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.62890625
+            },
+            {
+              "text": " if",
+              "start": 1.23,
+              "end": 1.53,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " you",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " would",
+              "start": 1.65,
+              "end": 1.77,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " seek",
+              "start": 1.77,
+              "end": 1.99,
+              "probability": 0.990234375
+            },
+            {
+              "text": " us,",
+              "start": 1.99,
+              "end": 2.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " we",
+              "start": 2.43,
+              "end": 2.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " are",
+              "start": 2.49,
+              "end": 2.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " yours",
+              "start": 2.67,
+              "end": 2.95,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " I",
+              "start": 2.95,
+              "end": 3.17,
+              "probability": 0.29736328125
+            },
+            {
+              "text": " the",
+              "start": 3.17,
+              "end": 3.31,
+              "probability": 0.912109375
+            },
+            {
+              "text": " garden.",
+              "start": 3.31,
+              "end": 3.61,
+              "probability": 0.68408203125
+            },
+            {
+              "text": " She'lls",
+              "start": 4.13,
+              "end": 4.35,
+              "probability": 0.73779296875
+            },
+            {
+              "text": " attend",
+              "start": 4.35,
+              "end": 4.51,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " you",
+              "start": 4.51,
+              "end": 4.75,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " there",
+              "start": 4.75,
+              "end": 5.05,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hermione,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "if",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "raw": "you",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "would",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "raw": "seek",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "raw": "us,",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "raw": "we",
+          "start": 2.43,
+          "end": 2.49
+        },
+        {
+          "raw": "are",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "raw": "yours",
+          "start": 2.67,
+          "end": 2.95
+        },
+        {
+          "raw": "I",
+          "start": 2.95,
+          "end": 3.17
+        },
+        {
+          "raw": "the",
+          "start": 3.17,
+          "end": 3.31
+        },
+        {
+          "raw": "garden.",
+          "start": 3.31,
+          "end": 3.61
+        },
+        {
+          "raw": "She'lls",
+          "start": 4.13,
+          "end": 4.35
+        },
+        {
+          "raw": "attend",
+          "start": 4.35,
+          "end": 4.51
+        },
+        {
+          "raw": "you",
+          "start": 4.51,
+          "end": 4.75
+        },
+        {
+          "raw": "there",
+          "start": 4.75,
+          "end": 5.05
+        }
+      ],
+      "expected_tokens": [
+        "Hermione.",
+        "If",
+        "you",
+        "would",
+        "seek",
+        "us,",
+        "We",
+        "are",
+        "yours",
+        "i'",
+        "the",
+        "garden.",
+        "Shall",
+        "'s",
+        "attend",
+        "you",
+        "there?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          14,
+          12,
+          13
+        ],
+        [
+          "equal",
+          14,
+          17,
+          13,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          14,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hermione,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "hermione",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.23,
+          "end": 1.53,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.65,
+          "end": 1.77,
+          "key": "would",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "seek",
+          "start": 1.77,
+          "end": 1.99,
+          "key": "seek",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "us,",
+          "start": 1.99,
+          "end": 2.25,
+          "key": "us",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.43,
+          "end": 2.49,
+          "key": "we",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.49,
+          "end": 2.67,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "yours",
+          "start": 2.67,
+          "end": 2.95,
+          "key": "yours",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.95,
+          "end": 3.17,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.17,
+          "end": 3.31,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "garden.",
+          "start": 3.31,
+          "end": 3.61,
+          "key": "garden",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "She'lls",
+          "start": 4.13,
+          "end": 4.35,
+          "key": "shells",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "attend",
+          "start": 4.35,
+          "end": 4.51,
+          "key": "attend",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.51,
+          "end": 4.75,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 4.75,
+          "end": 5.05,
+          "key": "there",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hermione.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "If",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "text": "you",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "would",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "text": "seek",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "text": "us,",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "text": "We",
+          "start": 2.43,
+          "end": 2.49
+        },
+        {
+          "text": "are",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "text": "yours",
+          "start": 2.67,
+          "end": 2.95
+        },
+        {
+          "text": "i'",
+          "start": 2.95,
+          "end": 3.17
+        },
+        {
+          "text": "the",
+          "start": 3.17,
+          "end": 3.31
+        },
+        {
+          "text": "garden.",
+          "start": 3.31,
+          "end": 3.61
+        },
+        {
+          "text": "Shall",
+          "start": 3.61,
+          "end": 3.98
+        },
+        {
+          "text": "'s",
+          "start": 3.98,
+          "end": 4.165
+        },
+        {
+          "text": "attend",
+          "start": 4.35,
+          "end": 4.51
+        },
+        {
+          "text": "you",
+          "start": 4.51,
+          "end": 4.75
+        },
+        {
+          "text": "there?",
+          "start": 4.75,
+          "end": 5.05
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.23516651056706905
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "b76e29c6a473cf54ab3645cf584a28db9fa582c2644a0a27868a63fc24f86e6b",
+  "selected_reasons": []
+}

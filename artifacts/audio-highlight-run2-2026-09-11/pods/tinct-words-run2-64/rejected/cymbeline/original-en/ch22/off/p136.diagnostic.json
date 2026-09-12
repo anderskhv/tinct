@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "4b25a5c44feec024c5c44797cfb4937dad53eab0524ea5524af941276215b840",
+  "attempts": [
+    {
+      "asr_seconds": 0.2394218724220991,
+      "alignment_seconds": 0.000338786281645298,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " seeing the body.",
+          "start": 0.08,
+          "end": 1.06,
+          "words": [
+            {
+              "text": " seeing",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.6328125
+            },
+            {
+              "text": " the",
+              "start": 0.62,
+              "end": 0.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " body.",
+              "start": 0.8,
+              "end": 1.06,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "seeing",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "the",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "raw": "body.",
+          "start": 0.8,
+          "end": 1.06
+        }
+      ],
+      "expected_tokens": [
+        "[_Seeing",
+        "the",
+        "body._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "seeing",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "seeing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.62,
+          "end": 0.8,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "body.",
+          "start": 0.8,
+          "end": 1.06,
+          "key": "body",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Seeing",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "the",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "text": "body._]",
+          "start": 0.8,
+          "end": 1.06
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23987781442701817
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aa271fb1f0f0f74fc32ac4b7177ef580ae8e2cf03abebfd3bfef4509cc26c4ce",
+  "selected_reasons": []
+}

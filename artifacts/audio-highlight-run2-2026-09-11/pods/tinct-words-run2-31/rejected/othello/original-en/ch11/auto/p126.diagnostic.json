@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "f08dfab293ca0697047d4a4a58220d7e755b0b5f8c7005393523f868f570bfa1",
+  "attempts": [
+    {
+      "asr_seconds": 0.14537154510617256,
+      "alignment_seconds": 0.00017433799803256989,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. Lives, sir.",
+        "hotwords": "Iago, Lives"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, Lives, sir.",
+          "start": 0.05,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.1456146240234375
+            },
+            {
+              "text": " Lives,",
+              "start": 1.19,
+              "end": 1.27,
+              "probability": 0.0013713836669921875
+            },
+            {
+              "text": " sir.",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.11798095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Lives,",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "raw": "sir.",
+          "start": 1.43,
+          "end": 1.61
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Lives,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lives,",
+          "start": 1.19,
+          "end": 1.27,
+          "key": "lives",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Lives,",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "text": "sir.",
+          "start": 1.43,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14560679206624627
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "13a1d82d241628e8f90991104708d4112c97951183e6b9676a140d814eb82979",
+  "selected_reasons": []
+}

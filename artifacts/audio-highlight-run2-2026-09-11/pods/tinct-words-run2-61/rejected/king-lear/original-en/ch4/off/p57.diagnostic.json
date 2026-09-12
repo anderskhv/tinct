@@ -1,0 +1,486 @@
+{
+  "complete": true,
+  "signature": "083c04aecd8a7bb2c6dc8c83aba67120cd14b5234a595b2b4e7cc22805d45dd0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2149817757308483,
+      "alignment_seconds": 0.0004380159080028534,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, I thank thee, fellow. Thou serve'st thee me, and I'll love thee.",
+          "start": 0.05,
+          "end": 3.79,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.45556640625
+            },
+            {
+              "text": " I",
+              "start": 0.89,
+              "end": 0.97,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " thank",
+              "start": 0.97,
+              "end": 1.19,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thee,",
+              "start": 1.19,
+              "end": 1.35,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " fellow.",
+              "start": 1.67,
+              "end": 1.67,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Thou",
+              "start": 2.19,
+              "end": 2.23,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " serve'st",
+              "start": 2.23,
+              "end": 2.71,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " thee",
+              "start": 2.71,
+              "end": 2.83,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " me,",
+              "start": 2.83,
+              "end": 3.01,
+              "probability": 0.75244140625
+            },
+            {
+              "text": " and",
+              "start": 3.13,
+              "end": 3.17,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " I'll",
+              "start": 3.17,
+              "end": 3.35,
+              "probability": 0.920166015625
+            },
+            {
+              "text": " love",
+              "start": 3.35,
+              "end": 3.53,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " thee.",
+              "start": 3.53,
+              "end": 3.79,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "I",
+          "start": 0.89,
+          "end": 0.97
+        },
+        {
+          "raw": "thank",
+          "start": 0.97,
+          "end": 1.19
+        },
+        {
+          "raw": "thee,",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "raw": "fellow.",
+          "start": 1.67,
+          "end": 1.67
+        },
+        {
+          "raw": "Thou",
+          "start": 2.19,
+          "end": 2.23
+        },
+        {
+          "raw": "serve'st",
+          "start": 2.23,
+          "end": 2.71
+        },
+        {
+          "raw": "thee",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "raw": "me,",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "raw": "and",
+          "start": 3.13,
+          "end": 3.17
+        },
+        {
+          "raw": "I'll",
+          "start": 3.17,
+          "end": 3.35
+        },
+        {
+          "raw": "love",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "raw": "thee.",
+          "start": 3.53,
+          "end": 3.79
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "I",
+        "thank",
+        "thee,",
+        "fellow.",
+        "Thou",
+        "serv'st",
+        "me,",
+        "and",
+        "I'll",
+        "love",
+        "thee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          12,
+          8,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.89,
+          "end": 0.97,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 0.97,
+          "end": 1.19,
+          "key": "thank",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 1.19,
+          "end": 1.35,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fellow.",
+          "start": 1.67,
+          "end": 1.67,
+          "key": "fellow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 2.19,
+          "end": 2.23,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "serve'st",
+          "start": 2.23,
+          "end": 2.71,
+          "key": "servest",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.71,
+          "end": 2.83,
+          "key": "thee",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.83,
+          "end": 3.01,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.13,
+          "end": 3.17,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 3.17,
+          "end": 3.35,
+          "key": "ill",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 3.35,
+          "end": 3.53,
+          "key": "love",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 3.53,
+          "end": 3.79,
+          "key": "thee",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "I",
+          "start": 0.89,
+          "end": 0.97
+        },
+        {
+          "text": "thank",
+          "start": 0.97,
+          "end": 1.19
+        },
+        {
+          "text": "thee,",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "text": "fellow.",
+          "start": 1.67,
+          "end": 1.67
+        },
+        {
+          "text": "Thou",
+          "start": 2.19,
+          "end": 2.23
+        },
+        {
+          "text": "serv'st",
+          "start": 2.23,
+          "end": 2.53
+        },
+        {
+          "text": "me,",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "text": "and",
+          "start": 3.13,
+          "end": 3.17
+        },
+        {
+          "text": "I'll",
+          "start": 3.17,
+          "end": 3.35
+        },
+        {
+          "text": "love",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "text": "thee.",
+          "start": 3.53,
+          "end": 3.79
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.21558585949242115
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fc53ba1c0f4d1d6138d48cf0d8f8fb9ba1dd04285e6f30f349fe32ef94f4dc41",
+  "selected_reasons": []
+}

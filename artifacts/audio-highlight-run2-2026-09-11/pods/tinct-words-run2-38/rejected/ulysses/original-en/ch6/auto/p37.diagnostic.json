@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "3dc1daf313a9bb7a5208e235509cf7e5e727ab6c77acb98af43804bb95c6af40",
+  "attempts": [
+    {
+      "asr_seconds": 0.1295106079778634,
+      "alignment_seconds": 0.00023212097585201263,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—What is this, he said, in the name of God? Crumbs?",
+        "hotwords": "What, God, Crumbs"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What is this, he said, in the name of God? Crumbs?",
+          "start": 0.02,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " is",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " this,",
+              "start": 0.64,
+              "end": 0.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 0.96,
+              "end": 0.98,
+              "probability": 0.70166015625
+            },
+            {
+              "text": " said,",
+              "start": 0.98,
+              "end": 1.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 1.3,
+              "end": 1.32,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " the",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " name",
+              "start": 1.42,
+              "end": 1.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 1.52,
+              "end": 1.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " God?",
+              "start": 1.66,
+              "end": 1.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Crumbs?",
+              "start": 2.5,
+              "end": 2.78,
+              "probability": 0.857177734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "is",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "this,",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "raw": "he",
+          "start": 0.96,
+          "end": 0.98
+        },
+        {
+          "raw": "said,",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "raw": "in",
+          "start": 1.3,
+          "end": 1.32
+        },
+        {
+          "raw": "the",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "name",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "raw": "of",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "raw": "God?",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "raw": "Crumbs?",
+          "start": 2.5,
+          "end": 2.78
+        }
+      ],
+      "expected_tokens": [
+        "—What",
+        "is",
+        "this,",
+        "he",
+        "said,",
+        "in",
+        "the",
+        "name",
+        "of",
+        "God?",
+        "Crumbs?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 0.64,
+          "end": 0.86,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.96,
+          "end": 0.98,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 0.98,
+          "end": 1.18,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.3,
+          "end": 1.32,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "name",
+          "start": 1.42,
+          "end": 1.52,
+          "key": "name",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.52,
+          "end": 1.66,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "God?",
+          "start": 1.66,
+          "end": 1.94,
+          "key": "god",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Crumbs?",
+          "start": 2.5,
+          "end": 2.78,
+          "key": "crumbs",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "is",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "this,",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "text": "he",
+          "start": 0.96,
+          "end": 0.98
+        },
+        {
+          "text": "said,",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "text": "in",
+          "start": 1.3,
+          "end": 1.32
+        },
+        {
+          "text": "the",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "text": "name",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "text": "of",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "text": "God?",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "text": "Crumbs?",
+          "start": 2.5,
+          "end": 2.78
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12983021896798164
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2911c4e0738f34ac2fe9b645c3012802a3873c6ef520f3f6ac253608454e57bf",
+  "selected_reasons": []
+}

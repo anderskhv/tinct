@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "ab494a63b49da28894447d995a7bcd840f766d5d99b1407387877bc527d79412",
+  "attempts": [
+    {
+      "asr_seconds": 0.200234348885715,
+      "alignment_seconds": 0.00021179206669330597,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Portia. You press me far, and therefore I will yield.",
+        "hotwords": "Portia, You, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Portia, You press me far, and therefore I will yield.",
+          "start": 0.05,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.6251220703125
+            },
+            {
+              "text": " You",
+              "start": 1.15,
+              "end": 1.37,
+              "probability": 0.01220703125
+            },
+            {
+              "text": " press",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.908203125
+            },
+            {
+              "text": " me",
+              "start": 1.55,
+              "end": 1.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " far,",
+              "start": 1.75,
+              "end": 2.03,
+              "probability": 0.978515625
+            },
+            {
+              "text": " and",
+              "start": 2.23,
+              "end": 2.29,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " therefore",
+              "start": 2.29,
+              "end": 2.55,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " I",
+              "start": 2.55,
+              "end": 2.77,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " will",
+              "start": 2.77,
+              "end": 2.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " yield.",
+              "start": 2.95,
+              "end": 3.23,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "You",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "raw": "press",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "me",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "raw": "far,",
+          "start": 1.75,
+          "end": 2.03
+        },
+        {
+          "raw": "and",
+          "start": 2.23,
+          "end": 2.29
+        },
+        {
+          "raw": "therefore",
+          "start": 2.29,
+          "end": 2.55
+        },
+        {
+          "raw": "I",
+          "start": 2.55,
+          "end": 2.77
+        },
+        {
+          "raw": "will",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "raw": "yield.",
+          "start": 2.95,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "You",
+        "press",
+        "me",
+        "far,",
+        "and",
+        "therefore",
+        "I",
+        "will",
+        "yield."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.15,
+          "end": 1.37,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "press",
+          "start": 1.37,
+          "end": 1.55,
+          "key": "press",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.55,
+          "end": 1.75,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "far,",
+          "start": 1.75,
+          "end": 2.03,
+          "key": "far",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.23,
+          "end": 2.29,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "therefore",
+          "start": 2.29,
+          "end": 2.55,
+          "key": "therefore",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.55,
+          "end": 2.77,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.77,
+          "end": 2.95,
+          "key": "will",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "yield.",
+          "start": 2.95,
+          "end": 3.23,
+          "key": "yield",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "You",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "text": "press",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "me",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "text": "far,",
+          "start": 1.75,
+          "end": 2.03
+        },
+        {
+          "text": "and",
+          "start": 2.23,
+          "end": 2.29
+        },
+        {
+          "text": "therefore",
+          "start": 2.29,
+          "end": 2.55
+        },
+        {
+          "text": "I",
+          "start": 2.55,
+          "end": 2.77
+        },
+        {
+          "text": "will",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "text": "yield.",
+          "start": 2.95,
+          "end": 3.23
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20068401843309402
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fb6be8c17978ac49fdc8dac09fe20fbe246c7b4a3470a1f7733ba3e02bf12fef",
+  "selected_reasons": []
+}

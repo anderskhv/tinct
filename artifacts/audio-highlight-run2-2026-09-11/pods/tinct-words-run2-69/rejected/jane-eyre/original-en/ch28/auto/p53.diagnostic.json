@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "4cd3de5f7235b22e91f8e931b1f0dfca9a47b7d05ae17e6360d2eee5c5a8e63c",
+  "attempts": [
+    {
+      "asr_seconds": 0.33812672831118107,
+      "alignment_seconds": 0.0005116304382681847,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well lass,\" replied a voice within, \"give it her if she's a beggar. T' pig doesn't want it.\"",
+        "hotwords": "Well, T"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well lass,\" replied a voice within, \"'give it her if she's a beggar. T' pig doesn't want it.\"",
+          "start": 0.02,
+          "end": 5.82,
+          "words": [
+            {
+              "text": " Well",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.06939697265625
+            },
+            {
+              "text": " lass,\"",
+              "start": 0.6,
+              "end": 1.38,
+              "probability": 0.4901224772135417
+            },
+            {
+              "text": " replied",
+              "start": 1.38,
+              "end": 1.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.9765625
+            },
+            {
+              "text": " voice",
+              "start": 1.84,
+              "end": 2.02,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " within,",
+              "start": 2.02,
+              "end": 2.36,
+              "probability": 0.96484375
+            },
+            {
+              "text": " \"'give",
+              "start": 2.86,
+              "end": 3.0,
+              "probability": 0.048558712005615234
+            },
+            {
+              "text": " it",
+              "start": 3.0,
+              "end": 3.1,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " her",
+              "start": 3.1,
+              "end": 3.24,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " if",
+              "start": 3.24,
+              "end": 3.38,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " she's",
+              "start": 3.38,
+              "end": 3.58,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " a",
+              "start": 3.58,
+              "end": 3.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " beggar.",
+              "start": 3.68,
+              "end": 4.0,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " T'",
+              "start": 4.38,
+              "end": 4.52,
+              "probability": 0.334716796875
+            },
+            {
+              "text": " pig",
+              "start": 4.7,
+              "end": 4.74,
+              "probability": 0.04327392578125
+            },
+            {
+              "text": " doesn't",
+              "start": 4.74,
+              "end": 5.14,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " want",
+              "start": 5.14,
+              "end": 5.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " it.\"",
+              "start": 5.26,
+              "end": 5.82,
+              "probability": 0.542205810546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "lass,\"",
+          "start": 0.6,
+          "end": 1.38
+        },
+        {
+          "raw": "replied",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "raw": "a",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "voice",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "raw": "within,",
+          "start": 2.02,
+          "end": 2.36
+        },
+        {
+          "raw": "\"'give",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "raw": "it",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "raw": "her",
+          "start": 3.1,
+          "end": 3.24
+        },
+        {
+          "raw": "if",
+          "start": 3.24,
+          "end": 3.38
+        },
+        {
+          "raw": "she's",
+          "start": 3.38,
+          "end": 3.58
+        },
+        {
+          "raw": "a",
+          "start": 3.58,
+          "end": 3.68
+        },
+        {
+          "raw": "beggar.",
+          "start": 3.68,
+          "end": 4.0
+        },
+        {
+          "raw": "T'",
+          "start": 4.38,
+          "end": 4.52
+        },
+        {
+          "raw": "pig",
+          "start": 4.7,
+          "end": 4.74
+        },
+        {
+          "raw": "doesn't",
+          "start": 4.74,
+          "end": 5.14
+        },
+        {
+          "raw": "want",
+          "start": 5.14,
+          "end": 5.26
+        },
+        {
+          "raw": "it.\"",
+          "start": 5.26,
+          "end": 5.82
+        }
+      ],
+      "expected_tokens": [
+        "\"Well",
+        "lass,\"",
+        "replied",
+        "a",
+        "voice",
+        "within,",
+        "\"give",
+        "it",
+        "her",
+        "if",
+        "she's",
+        "a",
+        "beggar.",
+        "T'",
+        "pig",
+        "doesn't",
+        "want",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lass,\"",
+          "start": 0.6,
+          "end": 1.38,
+          "key": "lass",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 1.38,
+          "end": 1.66,
+          "key": "replied",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 1.84,
+          "end": 2.02,
+          "key": "voice",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "within,",
+          "start": 2.02,
+          "end": 2.36,
+          "key": "within",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "\"'give",
+          "start": 2.86,
+          "end": 3.0,
+          "key": "give",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.0,
+          "end": 3.1,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.1,
+          "end": 3.24,
+          "key": "her",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.24,
+          "end": 3.38,
+          "key": "if",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 3.38,
+          "end": 3.58,
+          "key": "shes",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.58,
+          "end": 3.68,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "beggar.",
+          "start": 3.68,
+          "end": 4.0,
+          "key": "beggar",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "T'",
+          "start": 4.38,
+          "end": 4.52,
+          "key": "t",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "pig",
+          "start": 4.7,
+          "end": 4.74,
+          "key": "pig",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "doesn't",
+          "start": 4.74,
+          "end": 5.14,
+          "key": "doesnt",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 5.14,
+          "end": 5.26,
+          "key": "want",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "it.\"",
+          "start": 5.26,
+          "end": 5.82,
+          "key": "it",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Well",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "lass,\"",
+          "start": 0.6,
+          "end": 1.38
+        },
+        {
+          "text": "replied",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "text": "a",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "voice",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "text": "within,",
+          "start": 2.02,
+          "end": 2.36
+        },
+        {
+          "text": "\"give",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "text": "it",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "text": "her",
+          "start": 3.1,
+          "end": 3.24
+        },
+        {
+          "text": "if",
+          "start": 3.24,
+          "end": 3.38
+        },
+        {
+          "text": "she's",
+          "start": 3.38,
+          "end": 3.58
+        },
+        {
+          "text": "a",
+          "start": 3.58,
+          "end": 3.68
+        },
+        {
+          "text": "beggar.",
+          "start": 3.68,
+          "end": 4.0
+        },
+        {
+          "text": "T'",
+          "start": 4.38,
+          "end": 4.52
+        },
+        {
+          "text": "pig",
+          "start": 4.7,
+          "end": 4.74
+        },
+        {
+          "text": "doesn't",
+          "start": 4.74,
+          "end": 5.14
+        },
+        {
+          "text": "want",
+          "start": 5.14,
+          "end": 5.26
+        },
+        {
+          "text": "it.\"",
+          "start": 5.26,
+          "end": 5.82
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33885054010897875
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b17bf164bacb876681428ba4efcb53b391919977d32ff220308b7079b729974f",
+  "selected_reasons": []
+}

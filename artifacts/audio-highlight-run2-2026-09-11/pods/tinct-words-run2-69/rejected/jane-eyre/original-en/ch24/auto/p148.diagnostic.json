@@ -1,0 +1,8002 @@
+{
+  "complete": true,
+  "signature": "4c1c8993d40b9810c310a699e4e05293fcc0c850c10550ae778da46ecc44dc72",
+  "attempts": [
+    {
+      "asr_seconds": 0.4558062758296728,
+      "alignment_seconds": 0.0025710612535476685,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I want a smoke, Jane, or a pinch of snuff, to comfort me under all this, 'pour me donner une contenance,' as Adèle would say; and unfortunately I have neither my cigar-case, nor my snuff-box. But listen—whisper. It is your time now, little tyrant, but it will be mine presently; and when once I have fairly seized you, to have and to hold, I'll just—figuratively speaking—attach you to a chain like this\" (touching his watch-guard). \"Yes, bonny wee thing, I'll wear you in my bosom, lest my jewel I should tyne.\"",
+        "hotwords": "I, Jane, Adèle, I'll, Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, bonny wee thing, I'll wear you in my bosom, lest my jewel I should",
+          "start": 22.78,
+          "end": 29.22,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 22.78,
+              "end": 23.2,
+              "probability": 0.0007448196411132812
+            },
+            {
+              "text": " bonny",
+              "start": 25.88,
+              "end": 26.06,
+              "probability": 0.21185302734375
+            },
+            {
+              "text": " wee",
+              "start": 26.06,
+              "end": 26.2,
+              "probability": 0.68115234375
+            },
+            {
+              "text": " thing,",
+              "start": 26.2,
+              "end": 26.46,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " I'll",
+              "start": 26.84,
+              "end": 27.08,
+              "probability": 0.98046875
+            },
+            {
+              "text": " wear",
+              "start": 27.08,
+              "end": 27.2,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " you",
+              "start": 27.2,
+              "end": 27.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 27.36,
+              "end": 27.44,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " my",
+              "start": 27.44,
+              "end": 27.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bosom,",
+              "start": 27.6,
+              "end": 28.02,
+              "probability": 0.984375
+            },
+            {
+              "text": " lest",
+              "start": 28.24,
+              "end": 28.38,
+              "probability": 0.966796875
+            },
+            {
+              "text": " my",
+              "start": 28.38,
+              "end": 28.62,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " jewel",
+              "start": 28.62,
+              "end": 28.84,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " I",
+              "start": 28.84,
+              "end": 29.04,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " should",
+              "start": 29.04,
+              "end": 29.22,
+              "probability": 0.97998046875
+            }
+          ]
+        },
+        {
+          "text": " tyne.",
+          "start": 29.22,
+          "end": 29.7,
+          "words": [
+            {
+              "text": " tyne.",
+              "start": 29.22,
+              "end": 29.7,
+              "probability": 0.4699721038341522
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 22.78,
+          "end": 23.2
+        },
+        {
+          "raw": "bonny",
+          "start": 25.88,
+          "end": 26.06
+        },
+        {
+          "raw": "wee",
+          "start": 26.06,
+          "end": 26.2
+        },
+        {
+          "raw": "thing,",
+          "start": 26.2,
+          "end": 26.46
+        },
+        {
+          "raw": "I'll",
+          "start": 26.84,
+          "end": 27.08
+        },
+        {
+          "raw": "wear",
+          "start": 27.08,
+          "end": 27.2
+        },
+        {
+          "raw": "you",
+          "start": 27.2,
+          "end": 27.36
+        },
+        {
+          "raw": "in",
+          "start": 27.36,
+          "end": 27.44
+        },
+        {
+          "raw": "my",
+          "start": 27.44,
+          "end": 27.6
+        },
+        {
+          "raw": "bosom,",
+          "start": 27.6,
+          "end": 28.02
+        },
+        {
+          "raw": "lest",
+          "start": 28.24,
+          "end": 28.38
+        },
+        {
+          "raw": "my",
+          "start": 28.38,
+          "end": 28.62
+        },
+        {
+          "raw": "jewel",
+          "start": 28.62,
+          "end": 28.84
+        },
+        {
+          "raw": "I",
+          "start": 28.84,
+          "end": 29.04
+        },
+        {
+          "raw": "should",
+          "start": 29.04,
+          "end": 29.22
+        },
+        {
+          "raw": "tyne.",
+          "start": 29.22,
+          "end": 29.7
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "want",
+        "a",
+        "smoke,",
+        "Jane,",
+        "or",
+        "a",
+        "pinch",
+        "of",
+        "snuff,",
+        "to",
+        "comfort",
+        "me",
+        "under",
+        "all",
+        "this,",
+        "'pour",
+        "me",
+        "donner",
+        "une",
+        "contenance,'",
+        "as",
+        "Adèle",
+        "would",
+        "say;",
+        "and",
+        "unfortunately",
+        "I",
+        "have",
+        "neither",
+        "my",
+        "cigar-case,",
+        "nor",
+        "my",
+        "snuff-box.",
+        "But",
+        "listen—whisper.",
+        "It",
+        "is",
+        "your",
+        "time",
+        "now,",
+        "little",
+        "tyrant,",
+        "but",
+        "it",
+        "will",
+        "be",
+        "mine",
+        "presently;",
+        "and",
+        "when",
+        "once",
+        "I",
+        "have",
+        "fairly",
+        "seized",
+        "you,",
+        "to",
+        "have",
+        "and",
+        "to",
+        "hold,",
+        "I'll",
+        "just—figuratively",
+        "speaking—attach",
+        "you",
+        "to",
+        "a",
+        "chain",
+        "like",
+        "this\"",
+        "(touching",
+        "his",
+        "watch-guard).",
+        "\"Yes,",
+        "bonny",
+        "wee",
+        "thing,",
+        "I'll",
+        "wear",
+        "you",
+        "in",
+        "my",
+        "bosom,",
+        "lest",
+        "my",
+        "jewel",
+        "I",
+        "should",
+        "tyne.\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          75,
+          0,
+          0
+        ],
+        [
+          "equal",
+          75,
+          91,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          75,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 22.78,
+          "end": 23.2,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bonny",
+          "start": 25.88,
+          "end": 26.06,
+          "key": "bonny",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wee",
+          "start": 26.06,
+          "end": 26.2,
+          "key": "wee",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thing,",
+          "start": 26.2,
+          "end": 26.46,
+          "key": "thing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 26.84,
+          "end": 27.08,
+          "key": "ill",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 27.08,
+          "end": 27.2,
+          "key": "wear",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 27.2,
+          "end": 27.36,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 27.36,
+          "end": 27.44,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 27.44,
+          "end": 27.6,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "bosom,",
+          "start": 27.6,
+          "end": 28.02,
+          "key": "bosom",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "lest",
+          "start": 28.24,
+          "end": 28.38,
+          "key": "lest",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 28.38,
+          "end": 28.62,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "jewel",
+          "start": 28.62,
+          "end": 28.84,
+          "key": "jewel",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 28.84,
+          "end": 29.04,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 29.04,
+          "end": 29.22,
+          "key": "should",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "tyne.",
+          "start": 29.22,
+          "end": 29.7,
+          "key": "tyne",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.0,
+          "end": 11.39
+        },
+        {
+          "text": "want",
+          "start": 11.39,
+          "end": 17.085
+        },
+        {
+          "text": "a",
+          "start": 17.085,
+          "end": 19.933
+        },
+        {
+          "text": "smoke,",
+          "start": 19.933,
+          "end": 21.357
+        },
+        {
+          "text": "Jane,",
+          "start": 21.357,
+          "end": 22.069
+        },
+        {
+          "text": "or",
+          "start": 22.069,
+          "end": 22.425
+        },
+        {
+          "text": "a",
+          "start": 22.425,
+          "end": 22.602
+        },
+        {
+          "text": "pinch",
+          "start": 22.602,
+          "end": 22.691
+        },
+        {
+          "text": "of",
+          "start": 22.691,
+          "end": 22.736
+        },
+        {
+          "text": "snuff,",
+          "start": 22.736,
+          "end": 22.758
+        },
+        {
+          "text": "to",
+          "start": 22.758,
+          "end": 22.769
+        },
+        {
+          "text": "comfort",
+          "start": 22.769,
+          "end": 22.774
+        },
+        {
+          "text": "me",
+          "start": 22.774,
+          "end": 22.777
+        },
+        {
+          "text": "under",
+          "start": 22.777,
+          "end": 22.779
+        },
+        {
+          "text": "all",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "this,",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "'pour",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "me",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "donner",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "une",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "contenance,'",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "as",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "Adèle",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "would",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "say;",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "and",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "unfortunately",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "I",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "have",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "neither",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "my",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "cigar-case,",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "nor",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "my",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "snuff-box.",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "But",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "listen—whisper.",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "It",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "is",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "your",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "time",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "now,",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "little",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "tyrant,",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "but",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "it",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "will",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "be",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "mine",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "presently;",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "and",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "when",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "once",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "I",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "have",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "fairly",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "seized",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "you,",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "to",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "have",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "and",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "to",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "hold,",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "I'll",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "just—figuratively",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "speaking—attach",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "you",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "to",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "a",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "chain",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "like",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "this\"",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "(touching",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "his",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "watch-guard).",
+          "start": 22.779,
+          "end": 22.779
+        },
+        {
+          "text": "\"Yes,",
+          "start": 22.78,
+          "end": 23.2
+        },
+        {
+          "text": "bonny",
+          "start": 25.88,
+          "end": 26.06
+        },
+        {
+          "text": "wee",
+          "start": 26.06,
+          "end": 26.2
+        },
+        {
+          "text": "thing,",
+          "start": 26.2,
+          "end": 26.46
+        },
+        {
+          "text": "I'll",
+          "start": 26.84,
+          "end": 27.08
+        },
+        {
+          "text": "wear",
+          "start": 27.08,
+          "end": 27.2
+        },
+        {
+          "text": "you",
+          "start": 27.2,
+          "end": 27.36
+        },
+        {
+          "text": "in",
+          "start": 27.36,
+          "end": 27.44
+        },
+        {
+          "text": "my",
+          "start": 27.44,
+          "end": 27.6
+        },
+        {
+          "text": "bosom,",
+          "start": 27.6,
+          "end": 28.02
+        },
+        {
+          "text": "lest",
+          "start": 28.24,
+          "end": 28.38
+        },
+        {
+          "text": "my",
+          "start": 28.38,
+          "end": 28.62
+        },
+        {
+          "text": "jewel",
+          "start": 28.62,
+          "end": 28.84
+        },
+        {
+          "text": "I",
+          "start": 28.84,
+          "end": 29.04
+        },
+        {
+          "text": "should",
+          "start": 29.04,
+          "end": 29.22
+        },
+        {
+          "text": "tyne.\"",
+          "start": 29.22,
+          "end": 29.7
+        }
+      ],
+      "stats": {
+        "expected_words": 91,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 0.17582417582417584,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.45866716373711824
+    },
+    {
+      "asr_seconds": 0.9944821279495955,
+      "alignment_seconds": 0.003755725920200348,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, Jane, Adèle, I'll, Yes"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " I want a smoke, Jane, or a pinch of snuff to comfort me under all this, pour me Donner",
+          "start": 0.08,
+          "end": 5.06,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " want",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " a",
+              "start": 0.68,
+              "end": 0.84,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " smoke,",
+              "start": 0.84,
+              "end": 1.18,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " Jane,",
+              "start": 1.52,
+              "end": 1.6,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " or",
+              "start": 1.76,
+              "end": 1.88,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 1.88,
+              "end": 2.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " pinch",
+              "start": 2.0,
+              "end": 2.14,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 2.14,
+              "end": 2.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " snuff",
+              "start": 2.32,
+              "end": 2.6,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " to",
+              "start": 2.6,
+              "end": 2.82,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " comfort",
+              "start": 2.82,
+              "end": 3.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 3.08,
+              "end": 3.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " under",
+              "start": 3.28,
+              "end": 3.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " all",
+              "start": 3.42,
+              "end": 3.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this,",
+              "start": 3.62,
+              "end": 3.9,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " pour",
+              "start": 4.42,
+              "end": 4.54,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " me",
+              "start": 4.54,
+              "end": 4.7,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Donner",
+              "start": 4.7,
+              "end": 5.06,
+              "probability": 0.828125
+            }
+          ]
+        },
+        {
+          "text": " yoon contentence, as Adèle would say, and unfortunately I have neither my cigar case",
+          "start": 5.06,
+          "end": 9.92,
+          "words": [
+            {
+              "text": " yoon",
+              "start": 5.06,
+              "end": 5.24,
+              "probability": 0.3426513671875
+            },
+            {
+              "text": " contentence,",
+              "start": 5.24,
+              "end": 5.96,
+              "probability": 0.5439453125
+            },
+            {
+              "text": " as",
+              "start": 6.16,
+              "end": 6.44,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Adèle",
+              "start": 6.44,
+              "end": 6.7,
+              "probability": 0.660003662109375
+            },
+            {
+              "text": " would",
+              "start": 6.7,
+              "end": 6.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " say,",
+              "start": 6.84,
+              "end": 7.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 7.6,
+              "end": 7.78,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " unfortunately",
+              "start": 7.78,
+              "end": 8.34,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " I",
+              "start": 8.34,
+              "end": 8.66,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " have",
+              "start": 8.66,
+              "end": 8.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " neither",
+              "start": 8.8,
+              "end": 9.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 9.02,
+              "end": 9.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " cigar",
+              "start": 9.3,
+              "end": 9.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " case",
+              "start": 9.54,
+              "end": 9.92,
+              "probability": 0.9833984375
+            }
+          ]
+        },
+        {
+          "text": " nor my snuff box. But listen, whisper, it is your time now, little tyrant, but it will",
+          "start": 9.92,
+          "end": 15.34,
+          "words": [
+            {
+              "text": " nor",
+              "start": 9.92,
+              "end": 10.16,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " my",
+              "start": 10.16,
+              "end": 10.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " snuff",
+              "start": 10.42,
+              "end": 10.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " box.",
+              "start": 10.66,
+              "end": 10.94,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " But",
+              "start": 11.64,
+              "end": 11.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " listen,",
+              "start": 11.8,
+              "end": 12.14,
+              "probability": 0.974609375
+            },
+            {
+              "text": " whisper,",
+              "start": 12.54,
+              "end": 12.76,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " it",
+              "start": 13.38,
+              "end": 13.56,
+              "probability": 0.986328125
+            },
+            {
+              "text": " is",
+              "start": 13.56,
+              "end": 13.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " your",
+              "start": 13.66,
+              "end": 13.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " time",
+              "start": 13.8,
+              "end": 14.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " now,",
+              "start": 14.02,
+              "end": 14.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " little",
+              "start": 14.38,
+              "end": 14.52,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " tyrant,",
+              "start": 14.52,
+              "end": 14.88,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " but",
+              "start": 15.02,
+              "end": 15.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 15.16,
+              "end": 15.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " will",
+              "start": 15.24,
+              "end": 15.34,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " be mine presently, and when once I have fairly seized you to have and to hold I'll just,",
+          "start": 15.34,
+          "end": 19.78,
+          "words": [
+            {
+              "text": " be",
+              "start": 15.34,
+              "end": 15.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mine",
+              "start": 15.48,
+              "end": 15.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " presently,",
+              "start": 15.7,
+              "end": 16.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 16.7,
+              "end": 16.84,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " when",
+              "start": 16.84,
+              "end": 16.96,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " once",
+              "start": 16.96,
+              "end": 17.18,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " I",
+              "start": 17.18,
+              "end": 17.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " have",
+              "start": 17.3,
+              "end": 17.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " fairly",
+              "start": 17.44,
+              "end": 17.76,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " seized",
+              "start": 17.76,
+              "end": 18.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you",
+              "start": 18.08,
+              "end": 18.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 18.36,
+              "end": 18.54,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " have",
+              "start": 18.54,
+              "end": 18.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 18.76,
+              "end": 18.94,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " to",
+              "start": 18.94,
+              "end": 19.06,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " hold",
+              "start": 19.06,
+              "end": 19.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I'll",
+              "start": 19.34,
+              "end": 19.58,
+              "probability": 0.64208984375
+            },
+            {
+              "text": " just,",
+              "start": 19.58,
+              "end": 19.78,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " figuratively speaking, attach you to a chain like this, touching his watch guard.",
+          "start": 20.02,
+          "end": 24.06,
+          "words": [
+            {
+              "text": " figuratively",
+              "start": 20.02,
+              "end": 20.36,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " speaking,",
+              "start": 20.36,
+              "end": 20.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " attach",
+              "start": 21.16,
+              "end": 21.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 21.36,
+              "end": 21.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 21.64,
+              "end": 21.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 21.78,
+              "end": 21.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " chain",
+              "start": 21.86,
+              "end": 22.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " like",
+              "start": 22.08,
+              "end": 22.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this,",
+              "start": 22.32,
+              "end": 22.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " touching",
+              "start": 23.06,
+              "end": 23.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 23.28,
+              "end": 23.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " watch",
+              "start": 23.52,
+              "end": 23.78,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " guard.",
+              "start": 23.78,
+              "end": 24.06,
+              "probability": 0.65380859375
+            }
+          ]
+        },
+        {
+          "text": " Yes, Bonnie, wee thing, I'll wear you in my bosom, lest my jewel I should tine.",
+          "start": 25.1,
+          "end": 29.54,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 25.1,
+              "end": 25.5,
+              "probability": 0.751953125
+            },
+            {
+              "text": " Bonnie,",
+              "start": 25.9,
+              "end": 26.0,
+              "probability": 0.939453125
+            },
+            {
+              "text": " wee",
+              "start": 26.0,
+              "end": 26.18,
+              "probability": 0.251220703125
+            },
+            {
+              "text": " thing,",
+              "start": 26.18,
+              "end": 26.46,
+              "probability": 0.94921875
+            },
+            {
+              "text": " I'll",
+              "start": 26.94,
+              "end": 27.08,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " wear",
+              "start": 27.08,
+              "end": 27.2,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " you",
+              "start": 27.2,
+              "end": 27.36,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " in",
+              "start": 27.36,
+              "end": 27.44,
+              "probability": 0.95703125
+            },
+            {
+              "text": " my",
+              "start": 27.44,
+              "end": 27.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bosom,",
+              "start": 27.58,
+              "end": 28.02,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " lest",
+              "start": 28.34,
+              "end": 28.4,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " my",
+              "start": 28.4,
+              "end": 28.62,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " jewel",
+              "start": 28.62,
+              "end": 28.86,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " I",
+              "start": 28.86,
+              "end": 29.04,
+              "probability": 0.95703125
+            },
+            {
+              "text": " should",
+              "start": 29.04,
+              "end": 29.2,
+              "probability": 0.958984375
+            },
+            {
+              "text": " tine.",
+              "start": 29.2,
+              "end": 29.54,
+              "probability": 0.9111328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "want",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "a",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "raw": "smoke,",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "raw": "Jane,",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "raw": "or",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "raw": "a",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "raw": "pinch",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "raw": "snuff",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "raw": "to",
+          "start": 2.6,
+          "end": 2.82
+        },
+        {
+          "raw": "comfort",
+          "start": 2.82,
+          "end": 3.08
+        },
+        {
+          "raw": "me",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "raw": "under",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "raw": "all",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "raw": "this,",
+          "start": 3.62,
+          "end": 3.9
+        },
+        {
+          "raw": "pour",
+          "start": 4.42,
+          "end": 4.54
+        },
+        {
+          "raw": "me",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "raw": "Donner",
+          "start": 4.7,
+          "end": 5.06
+        },
+        {
+          "raw": "yoon",
+          "start": 5.06,
+          "end": 5.24
+        },
+        {
+          "raw": "contentence,",
+          "start": 5.24,
+          "end": 5.96
+        },
+        {
+          "raw": "as",
+          "start": 6.16,
+          "end": 6.44
+        },
+        {
+          "raw": "Adèle",
+          "start": 6.44,
+          "end": 6.7
+        },
+        {
+          "raw": "would",
+          "start": 6.7,
+          "end": 6.84
+        },
+        {
+          "raw": "say,",
+          "start": 6.84,
+          "end": 7.18
+        },
+        {
+          "raw": "and",
+          "start": 7.6,
+          "end": 7.78
+        },
+        {
+          "raw": "unfortunately",
+          "start": 7.78,
+          "end": 8.34
+        },
+        {
+          "raw": "I",
+          "start": 8.34,
+          "end": 8.66
+        },
+        {
+          "raw": "have",
+          "start": 8.66,
+          "end": 8.8
+        },
+        {
+          "raw": "neither",
+          "start": 8.8,
+          "end": 9.02
+        },
+        {
+          "raw": "my",
+          "start": 9.02,
+          "end": 9.3
+        },
+        {
+          "raw": "cigar",
+          "start": 9.3,
+          "end": 9.54
+        },
+        {
+          "raw": "case",
+          "start": 9.54,
+          "end": 9.92
+        },
+        {
+          "raw": "nor",
+          "start": 9.92,
+          "end": 10.16
+        },
+        {
+          "raw": "my",
+          "start": 10.16,
+          "end": 10.42
+        },
+        {
+          "raw": "snuff",
+          "start": 10.42,
+          "end": 10.66
+        },
+        {
+          "raw": "box.",
+          "start": 10.66,
+          "end": 10.94
+        },
+        {
+          "raw": "But",
+          "start": 11.64,
+          "end": 11.8
+        },
+        {
+          "raw": "listen,",
+          "start": 11.8,
+          "end": 12.14
+        },
+        {
+          "raw": "whisper,",
+          "start": 12.54,
+          "end": 12.76
+        },
+        {
+          "raw": "it",
+          "start": 13.38,
+          "end": 13.56
+        },
+        {
+          "raw": "is",
+          "start": 13.56,
+          "end": 13.66
+        },
+        {
+          "raw": "your",
+          "start": 13.66,
+          "end": 13.8
+        },
+        {
+          "raw": "time",
+          "start": 13.8,
+          "end": 14.02
+        },
+        {
+          "raw": "now,",
+          "start": 14.02,
+          "end": 14.32
+        },
+        {
+          "raw": "little",
+          "start": 14.38,
+          "end": 14.52
+        },
+        {
+          "raw": "tyrant,",
+          "start": 14.52,
+          "end": 14.88
+        },
+        {
+          "raw": "but",
+          "start": 15.02,
+          "end": 15.16
+        },
+        {
+          "raw": "it",
+          "start": 15.16,
+          "end": 15.24
+        },
+        {
+          "raw": "will",
+          "start": 15.24,
+          "end": 15.34
+        },
+        {
+          "raw": "be",
+          "start": 15.34,
+          "end": 15.48
+        },
+        {
+          "raw": "mine",
+          "start": 15.48,
+          "end": 15.7
+        },
+        {
+          "raw": "presently,",
+          "start": 15.7,
+          "end": 16.16
+        },
+        {
+          "raw": "and",
+          "start": 16.7,
+          "end": 16.84
+        },
+        {
+          "raw": "when",
+          "start": 16.84,
+          "end": 16.96
+        },
+        {
+          "raw": "once",
+          "start": 16.96,
+          "end": 17.18
+        },
+        {
+          "raw": "I",
+          "start": 17.18,
+          "end": 17.3
+        },
+        {
+          "raw": "have",
+          "start": 17.3,
+          "end": 17.44
+        },
+        {
+          "raw": "fairly",
+          "start": 17.44,
+          "end": 17.76
+        },
+        {
+          "raw": "seized",
+          "start": 17.76,
+          "end": 18.08
+        },
+        {
+          "raw": "you",
+          "start": 18.08,
+          "end": 18.36
+        },
+        {
+          "raw": "to",
+          "start": 18.36,
+          "end": 18.54
+        },
+        {
+          "raw": "have",
+          "start": 18.54,
+          "end": 18.76
+        },
+        {
+          "raw": "and",
+          "start": 18.76,
+          "end": 18.94
+        },
+        {
+          "raw": "to",
+          "start": 18.94,
+          "end": 19.06
+        },
+        {
+          "raw": "hold",
+          "start": 19.06,
+          "end": 19.34
+        },
+        {
+          "raw": "I'll",
+          "start": 19.34,
+          "end": 19.58
+        },
+        {
+          "raw": "just,",
+          "start": 19.58,
+          "end": 19.78
+        },
+        {
+          "raw": "figuratively",
+          "start": 20.02,
+          "end": 20.36
+        },
+        {
+          "raw": "speaking,",
+          "start": 20.36,
+          "end": 20.88
+        },
+        {
+          "raw": "attach",
+          "start": 21.16,
+          "end": 21.36
+        },
+        {
+          "raw": "you",
+          "start": 21.36,
+          "end": 21.64
+        },
+        {
+          "raw": "to",
+          "start": 21.64,
+          "end": 21.78
+        },
+        {
+          "raw": "a",
+          "start": 21.78,
+          "end": 21.86
+        },
+        {
+          "raw": "chain",
+          "start": 21.86,
+          "end": 22.08
+        },
+        {
+          "raw": "like",
+          "start": 22.08,
+          "end": 22.32
+        },
+        {
+          "raw": "this,",
+          "start": 22.32,
+          "end": 22.68
+        },
+        {
+          "raw": "touching",
+          "start": 23.06,
+          "end": 23.28
+        },
+        {
+          "raw": "his",
+          "start": 23.28,
+          "end": 23.52
+        },
+        {
+          "raw": "watch",
+          "start": 23.52,
+          "end": 23.78
+        },
+        {
+          "raw": "guard.",
+          "start": 23.78,
+          "end": 24.06
+        },
+        {
+          "raw": "Yes,",
+          "start": 25.1,
+          "end": 25.5
+        },
+        {
+          "raw": "Bonnie,",
+          "start": 25.9,
+          "end": 26.0
+        },
+        {
+          "raw": "wee",
+          "start": 26.0,
+          "end": 26.18
+        },
+        {
+          "raw": "thing,",
+          "start": 26.18,
+          "end": 26.46
+        },
+        {
+          "raw": "I'll",
+          "start": 26.94,
+          "end": 27.08
+        },
+        {
+          "raw": "wear",
+          "start": 27.08,
+          "end": 27.2
+        },
+        {
+          "raw": "you",
+          "start": 27.2,
+          "end": 27.36
+        },
+        {
+          "raw": "in",
+          "start": 27.36,
+          "end": 27.44
+        },
+        {
+          "raw": "my",
+          "start": 27.44,
+          "end": 27.58
+        },
+        {
+          "raw": "bosom,",
+          "start": 27.58,
+          "end": 28.02
+        },
+        {
+          "raw": "lest",
+          "start": 28.34,
+          "end": 28.4
+        },
+        {
+          "raw": "my",
+          "start": 28.4,
+          "end": 28.62
+        },
+        {
+          "raw": "jewel",
+          "start": 28.62,
+          "end": 28.86
+        },
+        {
+          "raw": "I",
+          "start": 28.86,
+          "end": 29.04
+        },
+        {
+          "raw": "should",
+          "start": 29.04,
+          "end": 29.2
+        },
+        {
+          "raw": "tine.",
+          "start": 29.2,
+          "end": 29.54
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "want",
+        "a",
+        "smoke,",
+        "Jane,",
+        "or",
+        "a",
+        "pinch",
+        "of",
+        "snuff,",
+        "to",
+        "comfort",
+        "me",
+        "under",
+        "all",
+        "this,",
+        "'pour",
+        "me",
+        "donner",
+        "une",
+        "contenance,'",
+        "as",
+        "Adèle",
+        "would",
+        "say;",
+        "and",
+        "unfortunately",
+        "I",
+        "have",
+        "neither",
+        "my",
+        "cigar-case,",
+        "nor",
+        "my",
+        "snuff-box.",
+        "But",
+        "listen—whisper.",
+        "It",
+        "is",
+        "your",
+        "time",
+        "now,",
+        "little",
+        "tyrant,",
+        "but",
+        "it",
+        "will",
+        "be",
+        "mine",
+        "presently;",
+        "and",
+        "when",
+        "once",
+        "I",
+        "have",
+        "fairly",
+        "seized",
+        "you,",
+        "to",
+        "have",
+        "and",
+        "to",
+        "hold,",
+        "I'll",
+        "just—figuratively",
+        "speaking—attach",
+        "you",
+        "to",
+        "a",
+        "chain",
+        "like",
+        "this\"",
+        "(touching",
+        "his",
+        "watch-guard).",
+        "\"Yes,",
+        "bonny",
+        "wee",
+        "thing,",
+        "I'll",
+        "wear",
+        "you",
+        "in",
+        "my",
+        "bosom,",
+        "lest",
+        "my",
+        "jewel",
+        "I",
+        "should",
+        "tyne.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          21,
+          19,
+          21
+        ],
+        [
+          "equal",
+          21,
+          36,
+          21,
+          36
+        ],
+        [
+          "replace",
+          36,
+          37,
+          36,
+          38
+        ],
+        [
+          "equal",
+          37,
+          64,
+          38,
+          65
+        ],
+        [
+          "replace",
+          64,
+          66,
+          65,
+          69
+        ],
+        [
+          "equal",
+          66,
+          76,
+          69,
+          79
+        ],
+        [
+          "replace",
+          76,
+          77,
+          79,
+          80
+        ],
+        [
+          "equal",
+          77,
+          90,
+          80,
+          93
+        ],
+        [
+          "replace",
+          90,
+          91,
+          93,
+          94
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 76,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 90,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          21,
+          19,
+          21
+        ],
+        [
+          "replace",
+          36,
+          37,
+          36,
+          38
+        ],
+        [
+          "replace",
+          64,
+          66,
+          65,
+          69
+        ],
+        [
+          "replace",
+          76,
+          77,
+          79,
+          80
+        ],
+        [
+          "replace",
+          90,
+          91,
+          93,
+          94
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "want",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.68,
+          "end": 0.84,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "smoke,",
+          "start": 0.84,
+          "end": 1.18,
+          "key": "smoke",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Jane,",
+          "start": 1.52,
+          "end": 1.6,
+          "key": "jane",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 1.76,
+          "end": 1.88,
+          "key": "or",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.88,
+          "end": 2.0,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pinch",
+          "start": 2.0,
+          "end": 2.14,
+          "key": "pinch",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.32,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "snuff",
+          "start": 2.32,
+          "end": 2.6,
+          "key": "snuff",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.6,
+          "end": 2.82,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "comfort",
+          "start": 2.82,
+          "end": 3.08,
+          "key": "comfort",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.08,
+          "end": 3.28,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 3.28,
+          "end": 3.42,
+          "key": "under",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.42,
+          "end": 3.62,
+          "key": "all",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 3.62,
+          "end": 3.9,
+          "key": "this",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "pour",
+          "start": 4.42,
+          "end": 4.54,
+          "key": "pour",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.54,
+          "end": 4.7,
+          "key": "me",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Donner",
+          "start": 4.7,
+          "end": 5.06,
+          "key": "donner",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "yoon",
+          "start": 5.06,
+          "end": 5.24,
+          "key": "yoon",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "contentence,",
+          "start": 5.24,
+          "end": 5.96,
+          "key": "contentence",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.16,
+          "end": 6.44,
+          "key": "as",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Adèle",
+          "start": 6.44,
+          "end": 6.7,
+          "key": "adèle",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 6.7,
+          "end": 6.84,
+          "key": "would",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 6.84,
+          "end": 7.18,
+          "key": "say",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.6,
+          "end": 7.78,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "unfortunately",
+          "start": 7.78,
+          "end": 8.34,
+          "key": "unfortunately",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.34,
+          "end": 8.66,
+          "key": "i",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 8.66,
+          "end": 8.8,
+          "key": "have",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "neither",
+          "start": 8.8,
+          "end": 9.02,
+          "key": "neither",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 9.02,
+          "end": 9.3,
+          "key": "my",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "cigar case",
+          "start": 9.3,
+          "end": 9.92,
+          "key": "cigarcase",
+          "pieces": [
+            31,
+            32
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 9.92,
+          "end": 10.16,
+          "key": "nor",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 10.16,
+          "end": 10.42,
+          "key": "my",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "snuff box.",
+          "start": 10.42,
+          "end": 10.94,
+          "key": "snuffbox",
+          "pieces": [
+            35,
+            36
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 11.64,
+          "end": 11.8,
+          "key": "but",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "listen,",
+          "start": 11.8,
+          "end": 12.14,
+          "key": "listen",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "whisper,",
+          "start": 12.54,
+          "end": 12.76,
+          "key": "whisper",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 13.38,
+          "end": 13.56,
+          "key": "it",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 13.56,
+          "end": 13.66,
+          "key": "is",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 13.66,
+          "end": 13.8,
+          "key": "your",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 13.8,
+          "end": 14.02,
+          "key": "time",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 14.02,
+          "end": 14.32,
+          "key": "now",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 14.38,
+          "end": 14.52,
+          "key": "little",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "tyrant,",
+          "start": 14.52,
+          "end": 14.88,
+          "key": "tyrant",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 15.02,
+          "end": 15.16,
+          "key": "but",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 15.16,
+          "end": 15.24,
+          "key": "it",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 15.24,
+          "end": 15.34,
+          "key": "will",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 15.34,
+          "end": 15.48,
+          "key": "be",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 15.48,
+          "end": 15.7,
+          "key": "mine",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "presently,",
+          "start": 15.7,
+          "end": 16.16,
+          "key": "presently",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.7,
+          "end": 16.84,
+          "key": "and",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 16.84,
+          "end": 16.96,
+          "key": "when",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 16.96,
+          "end": 17.18,
+          "key": "once",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 17.18,
+          "end": 17.3,
+          "key": "i",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 17.3,
+          "end": 17.44,
+          "key": "have",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "fairly",
+          "start": 17.44,
+          "end": 17.76,
+          "key": "fairly",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "seized",
+          "start": 17.76,
+          "end": 18.08,
+          "key": "seized",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 18.08,
+          "end": 18.36,
+          "key": "you",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 18.36,
+          "end": 18.54,
+          "key": "to",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 18.54,
+          "end": 18.76,
+          "key": "have",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.76,
+          "end": 18.94,
+          "key": "and",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 18.94,
+          "end": 19.06,
+          "key": "to",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 19.06,
+          "end": 19.34,
+          "key": "hold",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 19.34,
+          "end": 19.58,
+          "key": "ill",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "just,",
+          "start": 19.58,
+          "end": 19.78,
+          "key": "just",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "figuratively",
+          "start": 20.02,
+          "end": 20.36,
+          "key": "figuratively",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "speaking,",
+          "start": 20.36,
+          "end": 20.88,
+          "key": "speaking",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "attach",
+          "start": 21.16,
+          "end": 21.36,
+          "key": "attach",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 21.36,
+          "end": 21.64,
+          "key": "you",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 21.64,
+          "end": 21.78,
+          "key": "to",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 21.78,
+          "end": 21.86,
+          "key": "a",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "chain",
+          "start": 21.86,
+          "end": 22.08,
+          "key": "chain",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 22.08,
+          "end": 22.32,
+          "key": "like",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 22.32,
+          "end": 22.68,
+          "key": "this",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "touching",
+          "start": 23.06,
+          "end": 23.28,
+          "key": "touching",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 23.28,
+          "end": 23.52,
+          "key": "his",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "watch guard.",
+          "start": 23.52,
+          "end": 24.06,
+          "key": "watchguard",
+          "pieces": [
+            79,
+            80
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 25.1,
+          "end": 25.5,
+          "key": "yes",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "Bonnie,",
+          "start": 25.9,
+          "end": 26.0,
+          "key": "bonnie",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "wee",
+          "start": 26.0,
+          "end": 26.18,
+          "key": "wee",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "thing,",
+          "start": 26.18,
+          "end": 26.46,
+          "key": "thing",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 26.94,
+          "end": 27.08,
+          "key": "ill",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 27.08,
+          "end": 27.2,
+          "key": "wear",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 27.2,
+          "end": 27.36,
+          "key": "you",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 27.36,
+          "end": 27.44,
+          "key": "in",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 27.44,
+          "end": 27.58,
+          "key": "my",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "bosom,",
+          "start": 27.58,
+          "end": 28.02,
+          "key": "bosom",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "lest",
+          "start": 28.34,
+          "end": 28.4,
+          "key": "lest",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 28.4,
+          "end": 28.62,
+          "key": "my",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "jewel",
+          "start": 28.62,
+          "end": 28.86,
+          "key": "jewel",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 28.86,
+          "end": 29.04,
+          "key": "i",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 29.04,
+          "end": 29.2,
+          "key": "should",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "tine.",
+          "start": 29.2,
+          "end": 29.54,
+          "key": "tine",
+          "pieces": [
+            96
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 31,
+          "text": "cigar-case,",
+          "heard": "cigar case",
+          "heard_indexes": [
+            31,
+            32
+          ],
+          "start": 9.3,
+          "end": 9.92
+        },
+        {
+          "expected_index": 34,
+          "text": "snuff-box.",
+          "heard": "snuff box.",
+          "heard_indexes": [
+            35,
+            36
+          ],
+          "start": 10.42,
+          "end": 10.94
+        },
+        {
+          "expected_index": 74,
+          "text": "watch-guard).",
+          "heard": "watch guard.",
+          "heard_indexes": [
+            79,
+            80
+          ],
+          "start": 23.52,
+          "end": 24.06
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "want",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "a",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "text": "smoke,",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "text": "Jane,",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "text": "or",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "text": "a",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "text": "pinch",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "text": "of",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "text": "snuff,",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "text": "to",
+          "start": 2.6,
+          "end": 2.82
+        },
+        {
+          "text": "comfort",
+          "start": 2.82,
+          "end": 3.08
+        },
+        {
+          "text": "me",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "text": "under",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "text": "all",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "text": "this,",
+          "start": 3.62,
+          "end": 3.9
+        },
+        {
+          "text": "'pour",
+          "start": 4.42,
+          "end": 4.54
+        },
+        {
+          "text": "me",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "text": "donner",
+          "start": 4.7,
+          "end": 5.06
+        },
+        {
+          "text": "une",
+          "start": 5.06,
+          "end": 5.61
+        },
+        {
+          "text": "contenance,'",
+          "start": 5.61,
+          "end": 5.885
+        },
+        {
+          "text": "as",
+          "start": 6.16,
+          "end": 6.44
+        },
+        {
+          "text": "Adèle",
+          "start": 6.44,
+          "end": 6.7
+        },
+        {
+          "text": "would",
+          "start": 6.7,
+          "end": 6.84
+        },
+        {
+          "text": "say;",
+          "start": 6.84,
+          "end": 7.18
+        },
+        {
+          "text": "and",
+          "start": 7.6,
+          "end": 7.78
+        },
+        {
+          "text": "unfortunately",
+          "start": 7.78,
+          "end": 8.34
+        },
+        {
+          "text": "I",
+          "start": 8.34,
+          "end": 8.66
+        },
+        {
+          "text": "have",
+          "start": 8.66,
+          "end": 8.8
+        },
+        {
+          "text": "neither",
+          "start": 8.8,
+          "end": 9.02
+        },
+        {
+          "text": "my",
+          "start": 9.02,
+          "end": 9.3
+        },
+        {
+          "text": "cigar-case,",
+          "start": 9.3,
+          "end": 9.92
+        },
+        {
+          "text": "nor",
+          "start": 9.92,
+          "end": 10.16
+        },
+        {
+          "text": "my",
+          "start": 10.16,
+          "end": 10.42
+        },
+        {
+          "text": "snuff-box.",
+          "start": 10.42,
+          "end": 10.94
+        },
+        {
+          "text": "But",
+          "start": 11.64,
+          "end": 11.8
+        },
+        {
+          "text": "listen—whisper.",
+          "start": 11.8,
+          "end": 12.59
+        },
+        {
+          "text": "It",
+          "start": 13.38,
+          "end": 13.56
+        },
+        {
+          "text": "is",
+          "start": 13.56,
+          "end": 13.66
+        },
+        {
+          "text": "your",
+          "start": 13.66,
+          "end": 13.8
+        },
+        {
+          "text": "time",
+          "start": 13.8,
+          "end": 14.02
+        },
+        {
+          "text": "now,",
+          "start": 14.02,
+          "end": 14.32
+        },
+        {
+          "text": "little",
+          "start": 14.38,
+          "end": 14.52
+        },
+        {
+          "text": "tyrant,",
+          "start": 14.52,
+          "end": 14.88
+        },
+        {
+          "text": "but",
+          "start": 15.02,
+          "end": 15.16
+        },
+        {
+          "text": "it",
+          "start": 15.16,
+          "end": 15.24
+        },
+        {
+          "text": "will",
+          "start": 15.24,
+          "end": 15.34
+        },
+        {
+          "text": "be",
+          "start": 15.34,
+          "end": 15.48
+        },
+        {
+          "text": "mine",
+          "start": 15.48,
+          "end": 15.7
+        },
+        {
+          "text": "presently;",
+          "start": 15.7,
+          "end": 16.16
+        },
+        {
+          "text": "and",
+          "start": 16.7,
+          "end": 16.84
+        },
+        {
+          "text": "when",
+          "start": 16.84,
+          "end": 16.96
+        },
+        {
+          "text": "once",
+          "start": 16.96,
+          "end": 17.18
+        },
+        {
+          "text": "I",
+          "start": 17.18,
+          "end": 17.3
+        },
+        {
+          "text": "have",
+          "start": 17.3,
+          "end": 17.44
+        },
+        {
+          "text": "fairly",
+          "start": 17.44,
+          "end": 17.76
+        },
+        {
+          "text": "seized",
+          "start": 17.76,
+          "end": 18.08
+        },
+        {
+          "text": "you,",
+          "start": 18.08,
+          "end": 18.36
+        },
+        {
+          "text": "to",
+          "start": 18.36,
+          "end": 18.54
+        },
+        {
+          "text": "have",
+          "start": 18.54,
+          "end": 18.76
+        },
+        {
+          "text": "and",
+          "start": 18.76,
+          "end": 18.94
+        },
+        {
+          "text": "to",
+          "start": 18.94,
+          "end": 19.06
+        },
+        {
+          "text": "hold,",
+          "start": 19.06,
+          "end": 19.34
+        },
+        {
+          "text": "I'll",
+          "start": 19.34,
+          "end": 19.58
+        },
+        {
+          "text": "just—figuratively",
+          "start": 19.58,
+          "end": 20.47
+        },
+        {
+          "text": "speaking—attach",
+          "start": 20.47,
+          "end": 20.915
+        },
+        {
+          "text": "you",
+          "start": 21.36,
+          "end": 21.64
+        },
+        {
+          "text": "to",
+          "start": 21.64,
+          "end": 21.78
+        },
+        {
+          "text": "a",
+          "start": 21.78,
+          "end": 21.86
+        },
+        {
+          "text": "chain",
+          "start": 21.86,
+          "end": 22.08
+        },
+        {
+          "text": "like",
+          "start": 22.08,
+          "end": 22.32
+        },
+        {
+          "text": "this\"",
+          "start": 22.32,
+          "end": 22.68
+        },
+        {
+          "text": "(touching",
+          "start": 23.06,
+          "end": 23.28
+        },
+        {
+          "text": "his",
+          "start": 23.28,
+          "end": 23.52
+        },
+        {
+          "text": "watch-guard).",
+          "start": 23.52,
+          "end": 24.06
+        },
+        {
+          "text": "\"Yes,",
+          "start": 25.1,
+          "end": 25.5
+        },
+        {
+          "text": "bonny",
+          "start": 25.5,
+          "end": 25.75
+        },
+        {
+          "text": "wee",
+          "start": 26.0,
+          "end": 26.18
+        },
+        {
+          "text": "thing,",
+          "start": 26.18,
+          "end": 26.46
+        },
+        {
+          "text": "I'll",
+          "start": 26.94,
+          "end": 27.08
+        },
+        {
+          "text": "wear",
+          "start": 27.08,
+          "end": 27.2
+        },
+        {
+          "text": "you",
+          "start": 27.2,
+          "end": 27.36
+        },
+        {
+          "text": "in",
+          "start": 27.36,
+          "end": 27.44
+        },
+        {
+          "text": "my",
+          "start": 27.44,
+          "end": 27.58
+        },
+        {
+          "text": "bosom,",
+          "start": 27.58,
+          "end": 28.02
+        },
+        {
+          "text": "lest",
+          "start": 28.34,
+          "end": 28.4
+        },
+        {
+          "text": "my",
+          "start": 28.4,
+          "end": 28.62
+        },
+        {
+          "text": "jewel",
+          "start": 28.62,
+          "end": 28.86
+        },
+        {
+          "text": "I",
+          "start": 28.86,
+          "end": 29.04
+        },
+        {
+          "text": "should",
+          "start": 29.04,
+          "end": 29.2
+        },
+        {
+          "text": "tyne.\"",
+          "start": 29.2,
+          "end": 29.37
+        }
+      ],
+      "stats": {
+        "expected_words": 91,
+        "heard_words": 94,
+        "matched_words": 84
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.9996145330369473
+    },
+    {
+      "asr_seconds": 1.0014929343014956,
+      "alignment_seconds": 0.0029484033584594727,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I want a smoke, Jane, or a pinch of snuff to comfort me under all this.",
+          "start": 0.08,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " want",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " a",
+              "start": 0.68,
+              "end": 0.84,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " smoke,",
+              "start": 0.84,
+              "end": 1.18,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " Jane,",
+              "start": 1.52,
+              "end": 1.6,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " or",
+              "start": 1.76,
+              "end": 1.88,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 1.88,
+              "end": 2.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " pinch",
+              "start": 2.0,
+              "end": 2.14,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 2.14,
+              "end": 2.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " snuff",
+              "start": 2.32,
+              "end": 2.6,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " to",
+              "start": 2.6,
+              "end": 2.82,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " comfort",
+              "start": 2.82,
+              "end": 3.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 3.08,
+              "end": 3.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " under",
+              "start": 3.28,
+              "end": 3.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " all",
+              "start": 3.42,
+              "end": 3.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this.",
+              "start": 3.62,
+              "end": 3.92,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " Pour me Donner Yoon contentence, as Adele would say.",
+          "start": 4.44,
+          "end": 7.18,
+          "words": [
+            {
+              "text": " Pour",
+              "start": 4.44,
+              "end": 4.54,
+              "probability": 0.70654296875
+            },
+            {
+              "text": " me",
+              "start": 4.54,
+              "end": 4.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Donner",
+              "start": 4.7,
+              "end": 5.06,
+              "probability": 0.856689453125
+            },
+            {
+              "text": " Yoon",
+              "start": 5.06,
+              "end": 5.26,
+              "probability": 0.55926513671875
+            },
+            {
+              "text": " contentence,",
+              "start": 5.26,
+              "end": 5.96,
+              "probability": 0.5142822265625
+            },
+            {
+              "text": " as",
+              "start": 6.16,
+              "end": 6.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Adele",
+              "start": 6.44,
+              "end": 6.68,
+              "probability": 0.967041015625
+            },
+            {
+              "text": " would",
+              "start": 6.68,
+              "end": 6.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " say.",
+              "start": 6.86,
+              "end": 7.18,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " And unfortunately, I have neither my cigar case nor my snuff box.",
+          "start": 7.6,
+          "end": 10.94,
+          "words": [
+            {
+              "text": " And",
+              "start": 7.6,
+              "end": 7.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " unfortunately,",
+              "start": 7.78,
+              "end": 8.32,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " I",
+              "start": 8.32,
+              "end": 8.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 8.68,
+              "end": 8.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " neither",
+              "start": 8.8,
+              "end": 9.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 9.02,
+              "end": 9.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cigar",
+              "start": 9.3,
+              "end": 9.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " case",
+              "start": 9.54,
+              "end": 9.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " nor",
+              "start": 9.92,
+              "end": 10.16,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " my",
+              "start": 10.16,
+              "end": 10.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " snuff",
+              "start": 10.42,
+              "end": 10.66,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " box.",
+              "start": 10.66,
+              "end": 10.94,
+              "probability": 0.90478515625
+            }
+          ]
+        },
+        {
+          "text": " But listen, whisper.",
+          "start": 11.64,
+          "end": 12.76,
+          "words": [
+            {
+              "text": " But",
+              "start": 11.64,
+              "end": 11.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " listen,",
+              "start": 11.8,
+              "end": 12.14,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " whisper.",
+              "start": 12.56,
+              "end": 12.76,
+              "probability": 0.8955078125
+            }
+          ]
+        },
+        {
+          "text": " It is your time now, little tyrant, but it will be mine presently.",
+          "start": 13.42,
+          "end": 16.16,
+          "words": [
+            {
+              "text": " It",
+              "start": 13.42,
+              "end": 13.56,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " is",
+              "start": 13.56,
+              "end": 13.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 13.66,
+              "end": 13.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " time",
+              "start": 13.8,
+              "end": 14.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " now,",
+              "start": 14.02,
+              "end": 14.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " little",
+              "start": 14.38,
+              "end": 14.52,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " tyrant,",
+              "start": 14.52,
+              "end": 14.88,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " but",
+              "start": 15.02,
+              "end": 15.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 15.16,
+              "end": 15.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " will",
+              "start": 15.24,
+              "end": 15.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 15.34,
+              "end": 15.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " mine",
+              "start": 15.46,
+              "end": 15.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " presently.",
+              "start": 15.7,
+              "end": 16.16,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " And when once I have fairly seized you to have and to hold,",
+          "start": 16.74,
+          "end": 19.32,
+          "words": [
+            {
+              "text": " And",
+              "start": 16.74,
+              "end": 16.84,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " when",
+              "start": 16.84,
+              "end": 16.96,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " once",
+              "start": 16.96,
+              "end": 17.18,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " I",
+              "start": 17.18,
+              "end": 17.3,
+              "probability": 0.98828125
+            },
+            {
+              "text": " have",
+              "start": 17.3,
+              "end": 17.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " fairly",
+              "start": 17.46,
+              "end": 17.76,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " seized",
+              "start": 17.76,
+              "end": 18.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you",
+              "start": 18.1,
+              "end": 18.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 18.36,
+              "end": 18.54,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " have",
+              "start": 18.54,
+              "end": 18.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 18.76,
+              "end": 18.94,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " to",
+              "start": 18.94,
+              "end": 19.06,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " hold,",
+              "start": 19.06,
+              "end": 19.32,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " I'll just, figuratively speaking, attach you to a chain like this,",
+          "start": 19.46,
+          "end": 22.68,
+          "words": [
+            {
+              "text": " I'll",
+              "start": 19.46,
+              "end": 19.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " just,",
+              "start": 19.56,
+              "end": 19.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " figuratively",
+              "start": 20.02,
+              "end": 20.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " speaking,",
+              "start": 20.36,
+              "end": 20.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " attach",
+              "start": 21.16,
+              "end": 21.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 21.36,
+              "end": 21.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 21.64,
+              "end": 21.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 21.78,
+              "end": 21.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " chain",
+              "start": 21.86,
+              "end": 22.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " like",
+              "start": 22.08,
+              "end": 22.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this,",
+              "start": 22.32,
+              "end": 22.68,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " touching his watch guard.",
+          "start": 23.08,
+          "end": 24.06,
+          "words": [
+            {
+              "text": " touching",
+              "start": 23.08,
+              "end": 23.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 23.28,
+              "end": 23.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " watch",
+              "start": 23.52,
+              "end": 23.78,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " guard.",
+              "start": 23.78,
+              "end": 24.06,
+              "probability": 0.78564453125
+            }
+          ]
+        },
+        {
+          "text": " Yes, Bonnie, we thing.",
+          "start": 25.24,
+          "end": 26.44,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 25.24,
+              "end": 25.52,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Bonnie,",
+              "start": 25.88,
+              "end": 25.98,
+              "probability": 0.787109375
+            },
+            {
+              "text": " we",
+              "start": 25.98,
+              "end": 26.2,
+              "probability": 0.609375
+            },
+            {
+              "text": " thing.",
+              "start": 26.2,
+              "end": 26.44,
+              "probability": 0.60693359375
+            }
+          ]
+        },
+        {
+          "text": " I'll wear you in my bosom, lest my jewel I should tine.",
+          "start": 26.44,
+          "end": 29.6,
+          "words": [
+            {
+              "text": " I'll",
+              "start": 26.44,
+              "end": 27.06,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " wear",
+              "start": 27.06,
+              "end": 27.2,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " you",
+              "start": 27.2,
+              "end": 27.34,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " in",
+              "start": 27.34,
+              "end": 27.44,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " my",
+              "start": 27.44,
+              "end": 27.6,
+              "probability": 0.99609375
+            },
+            {
+              "text": " bosom,",
+              "start": 27.6,
+              "end": 28.06,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " lest",
+              "start": 28.34,
+              "end": 28.38,
+              "probability": 0.931640625
+            },
+            {
+              "text": " my",
+              "start": 28.38,
+              "end": 28.64,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " jewel",
+              "start": 28.64,
+              "end": 28.84,
+              "probability": 0.95703125
+            },
+            {
+              "text": " I",
+              "start": 28.84,
+              "end": 29.04,
+              "probability": 0.96875
+            },
+            {
+              "text": " should",
+              "start": 29.04,
+              "end": 29.2,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " tine.",
+              "start": 29.2,
+              "end": 29.6,
+              "probability": 0.927978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "want",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "a",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "raw": "smoke,",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "raw": "Jane,",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "raw": "or",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "raw": "a",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "raw": "pinch",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "raw": "snuff",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "raw": "to",
+          "start": 2.6,
+          "end": 2.82
+        },
+        {
+          "raw": "comfort",
+          "start": 2.82,
+          "end": 3.08
+        },
+        {
+          "raw": "me",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "raw": "under",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "raw": "all",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "raw": "this.",
+          "start": 3.62,
+          "end": 3.92
+        },
+        {
+          "raw": "Pour",
+          "start": 4.44,
+          "end": 4.54
+        },
+        {
+          "raw": "me",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "raw": "Donner",
+          "start": 4.7,
+          "end": 5.06
+        },
+        {
+          "raw": "Yoon",
+          "start": 5.06,
+          "end": 5.26
+        },
+        {
+          "raw": "contentence,",
+          "start": 5.26,
+          "end": 5.96
+        },
+        {
+          "raw": "as",
+          "start": 6.16,
+          "end": 6.44
+        },
+        {
+          "raw": "Adele",
+          "start": 6.44,
+          "end": 6.68
+        },
+        {
+          "raw": "would",
+          "start": 6.68,
+          "end": 6.86
+        },
+        {
+          "raw": "say.",
+          "start": 6.86,
+          "end": 7.18
+        },
+        {
+          "raw": "And",
+          "start": 7.6,
+          "end": 7.78
+        },
+        {
+          "raw": "unfortunately,",
+          "start": 7.78,
+          "end": 8.32
+        },
+        {
+          "raw": "I",
+          "start": 8.32,
+          "end": 8.68
+        },
+        {
+          "raw": "have",
+          "start": 8.68,
+          "end": 8.8
+        },
+        {
+          "raw": "neither",
+          "start": 8.8,
+          "end": 9.02
+        },
+        {
+          "raw": "my",
+          "start": 9.02,
+          "end": 9.3
+        },
+        {
+          "raw": "cigar",
+          "start": 9.3,
+          "end": 9.54
+        },
+        {
+          "raw": "case",
+          "start": 9.54,
+          "end": 9.92
+        },
+        {
+          "raw": "nor",
+          "start": 9.92,
+          "end": 10.16
+        },
+        {
+          "raw": "my",
+          "start": 10.16,
+          "end": 10.42
+        },
+        {
+          "raw": "snuff",
+          "start": 10.42,
+          "end": 10.66
+        },
+        {
+          "raw": "box.",
+          "start": 10.66,
+          "end": 10.94
+        },
+        {
+          "raw": "But",
+          "start": 11.64,
+          "end": 11.8
+        },
+        {
+          "raw": "listen,",
+          "start": 11.8,
+          "end": 12.14
+        },
+        {
+          "raw": "whisper.",
+          "start": 12.56,
+          "end": 12.76
+        },
+        {
+          "raw": "It",
+          "start": 13.42,
+          "end": 13.56
+        },
+        {
+          "raw": "is",
+          "start": 13.56,
+          "end": 13.66
+        },
+        {
+          "raw": "your",
+          "start": 13.66,
+          "end": 13.8
+        },
+        {
+          "raw": "time",
+          "start": 13.8,
+          "end": 14.02
+        },
+        {
+          "raw": "now,",
+          "start": 14.02,
+          "end": 14.32
+        },
+        {
+          "raw": "little",
+          "start": 14.38,
+          "end": 14.52
+        },
+        {
+          "raw": "tyrant,",
+          "start": 14.52,
+          "end": 14.88
+        },
+        {
+          "raw": "but",
+          "start": 15.02,
+          "end": 15.16
+        },
+        {
+          "raw": "it",
+          "start": 15.16,
+          "end": 15.24
+        },
+        {
+          "raw": "will",
+          "start": 15.24,
+          "end": 15.34
+        },
+        {
+          "raw": "be",
+          "start": 15.34,
+          "end": 15.46
+        },
+        {
+          "raw": "mine",
+          "start": 15.46,
+          "end": 15.7
+        },
+        {
+          "raw": "presently.",
+          "start": 15.7,
+          "end": 16.16
+        },
+        {
+          "raw": "And",
+          "start": 16.74,
+          "end": 16.84
+        },
+        {
+          "raw": "when",
+          "start": 16.84,
+          "end": 16.96
+        },
+        {
+          "raw": "once",
+          "start": 16.96,
+          "end": 17.18
+        },
+        {
+          "raw": "I",
+          "start": 17.18,
+          "end": 17.3
+        },
+        {
+          "raw": "have",
+          "start": 17.3,
+          "end": 17.46
+        },
+        {
+          "raw": "fairly",
+          "start": 17.46,
+          "end": 17.76
+        },
+        {
+          "raw": "seized",
+          "start": 17.76,
+          "end": 18.1
+        },
+        {
+          "raw": "you",
+          "start": 18.1,
+          "end": 18.36
+        },
+        {
+          "raw": "to",
+          "start": 18.36,
+          "end": 18.54
+        },
+        {
+          "raw": "have",
+          "start": 18.54,
+          "end": 18.76
+        },
+        {
+          "raw": "and",
+          "start": 18.76,
+          "end": 18.94
+        },
+        {
+          "raw": "to",
+          "start": 18.94,
+          "end": 19.06
+        },
+        {
+          "raw": "hold,",
+          "start": 19.06,
+          "end": 19.32
+        },
+        {
+          "raw": "I'll",
+          "start": 19.46,
+          "end": 19.56
+        },
+        {
+          "raw": "just,",
+          "start": 19.56,
+          "end": 19.78
+        },
+        {
+          "raw": "figuratively",
+          "start": 20.02,
+          "end": 20.36
+        },
+        {
+          "raw": "speaking,",
+          "start": 20.36,
+          "end": 20.88
+        },
+        {
+          "raw": "attach",
+          "start": 21.16,
+          "end": 21.36
+        },
+        {
+          "raw": "you",
+          "start": 21.36,
+          "end": 21.64
+        },
+        {
+          "raw": "to",
+          "start": 21.64,
+          "end": 21.78
+        },
+        {
+          "raw": "a",
+          "start": 21.78,
+          "end": 21.86
+        },
+        {
+          "raw": "chain",
+          "start": 21.86,
+          "end": 22.08
+        },
+        {
+          "raw": "like",
+          "start": 22.08,
+          "end": 22.32
+        },
+        {
+          "raw": "this,",
+          "start": 22.32,
+          "end": 22.68
+        },
+        {
+          "raw": "touching",
+          "start": 23.08,
+          "end": 23.28
+        },
+        {
+          "raw": "his",
+          "start": 23.28,
+          "end": 23.52
+        },
+        {
+          "raw": "watch",
+          "start": 23.52,
+          "end": 23.78
+        },
+        {
+          "raw": "guard.",
+          "start": 23.78,
+          "end": 24.06
+        },
+        {
+          "raw": "Yes,",
+          "start": 25.24,
+          "end": 25.52
+        },
+        {
+          "raw": "Bonnie,",
+          "start": 25.88,
+          "end": 25.98
+        },
+        {
+          "raw": "we",
+          "start": 25.98,
+          "end": 26.2
+        },
+        {
+          "raw": "thing.",
+          "start": 26.2,
+          "end": 26.44
+        },
+        {
+          "raw": "I'll",
+          "start": 26.44,
+          "end": 27.06
+        },
+        {
+          "raw": "wear",
+          "start": 27.06,
+          "end": 27.2
+        },
+        {
+          "raw": "you",
+          "start": 27.2,
+          "end": 27.34
+        },
+        {
+          "raw": "in",
+          "start": 27.34,
+          "end": 27.44
+        },
+        {
+          "raw": "my",
+          "start": 27.44,
+          "end": 27.6
+        },
+        {
+          "raw": "bosom,",
+          "start": 27.6,
+          "end": 28.06
+        },
+        {
+          "raw": "lest",
+          "start": 28.34,
+          "end": 28.38
+        },
+        {
+          "raw": "my",
+          "start": 28.38,
+          "end": 28.64
+        },
+        {
+          "raw": "jewel",
+          "start": 28.64,
+          "end": 28.84
+        },
+        {
+          "raw": "I",
+          "start": 28.84,
+          "end": 29.04
+        },
+        {
+          "raw": "should",
+          "start": 29.04,
+          "end": 29.2
+        },
+        {
+          "raw": "tine.",
+          "start": 29.2,
+          "end": 29.6
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "want",
+        "a",
+        "smoke,",
+        "Jane,",
+        "or",
+        "a",
+        "pinch",
+        "of",
+        "snuff,",
+        "to",
+        "comfort",
+        "me",
+        "under",
+        "all",
+        "this,",
+        "'pour",
+        "me",
+        "donner",
+        "une",
+        "contenance,'",
+        "as",
+        "Adèle",
+        "would",
+        "say;",
+        "and",
+        "unfortunately",
+        "I",
+        "have",
+        "neither",
+        "my",
+        "cigar-case,",
+        "nor",
+        "my",
+        "snuff-box.",
+        "But",
+        "listen—whisper.",
+        "It",
+        "is",
+        "your",
+        "time",
+        "now,",
+        "little",
+        "tyrant,",
+        "but",
+        "it",
+        "will",
+        "be",
+        "mine",
+        "presently;",
+        "and",
+        "when",
+        "once",
+        "I",
+        "have",
+        "fairly",
+        "seized",
+        "you,",
+        "to",
+        "have",
+        "and",
+        "to",
+        "hold,",
+        "I'll",
+        "just—figuratively",
+        "speaking—attach",
+        "you",
+        "to",
+        "a",
+        "chain",
+        "like",
+        "this\"",
+        "(touching",
+        "his",
+        "watch-guard).",
+        "\"Yes,",
+        "bonny",
+        "wee",
+        "thing,",
+        "I'll",
+        "wear",
+        "you",
+        "in",
+        "my",
+        "bosom,",
+        "lest",
+        "my",
+        "jewel",
+        "I",
+        "should",
+        "tyne.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          21,
+          19,
+          21
+        ],
+        [
+          "equal",
+          21,
+          22,
+          21,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "equal",
+          23,
+          36,
+          23,
+          36
+        ],
+        [
+          "replace",
+          36,
+          37,
+          36,
+          38
+        ],
+        [
+          "equal",
+          37,
+          64,
+          38,
+          65
+        ],
+        [
+          "replace",
+          64,
+          66,
+          65,
+          69
+        ],
+        [
+          "equal",
+          66,
+          76,
+          69,
+          79
+        ],
+        [
+          "replace",
+          76,
+          78,
+          79,
+          81
+        ],
+        [
+          "equal",
+          78,
+          90,
+          81,
+          93
+        ],
+        [
+          "replace",
+          90,
+          91,
+          93,
+          94
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 76,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 90,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          21,
+          19,
+          21
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          23
+        ],
+        [
+          "replace",
+          36,
+          37,
+          36,
+          38
+        ],
+        [
+          "replace",
+          64,
+          66,
+          65,
+          69
+        ],
+        [
+          "replace",
+          76,
+          78,
+          79,
+          81
+        ],
+        [
+          "replace",
+          90,
+          91,
+          93,
+          94
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "want",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.68,
+          "end": 0.84,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "smoke,",
+          "start": 0.84,
+          "end": 1.18,
+          "key": "smoke",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Jane,",
+          "start": 1.52,
+          "end": 1.6,
+          "key": "jane",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 1.76,
+          "end": 1.88,
+          "key": "or",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.88,
+          "end": 2.0,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pinch",
+          "start": 2.0,
+          "end": 2.14,
+          "key": "pinch",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.32,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "snuff",
+          "start": 2.32,
+          "end": 2.6,
+          "key": "snuff",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.6,
+          "end": 2.82,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "comfort",
+          "start": 2.82,
+          "end": 3.08,
+          "key": "comfort",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.08,
+          "end": 3.28,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 3.28,
+          "end": 3.42,
+          "key": "under",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.42,
+          "end": 3.62,
+          "key": "all",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "this.",
+          "start": 3.62,
+          "end": 3.92,
+          "key": "this",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Pour",
+          "start": 4.44,
+          "end": 4.54,
+          "key": "pour",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.54,
+          "end": 4.7,
+          "key": "me",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Donner",
+          "start": 4.7,
+          "end": 5.06,
+          "key": "donner",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Yoon",
+          "start": 5.06,
+          "end": 5.26,
+          "key": "yoon",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "contentence,",
+          "start": 5.26,
+          "end": 5.96,
+          "key": "contentence",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.16,
+          "end": 6.44,
+          "key": "as",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Adele",
+          "start": 6.44,
+          "end": 6.68,
+          "key": "adele",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 6.68,
+          "end": 6.86,
+          "key": "would",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "say.",
+          "start": 6.86,
+          "end": 7.18,
+          "key": "say",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 7.6,
+          "end": 7.78,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "unfortunately,",
+          "start": 7.78,
+          "end": 8.32,
+          "key": "unfortunately",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.32,
+          "end": 8.68,
+          "key": "i",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 8.68,
+          "end": 8.8,
+          "key": "have",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "neither",
+          "start": 8.8,
+          "end": 9.02,
+          "key": "neither",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 9.02,
+          "end": 9.3,
+          "key": "my",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "cigar case",
+          "start": 9.3,
+          "end": 9.92,
+          "key": "cigarcase",
+          "pieces": [
+            31,
+            32
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 9.92,
+          "end": 10.16,
+          "key": "nor",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 10.16,
+          "end": 10.42,
+          "key": "my",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "snuff box.",
+          "start": 10.42,
+          "end": 10.94,
+          "key": "snuffbox",
+          "pieces": [
+            35,
+            36
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 11.64,
+          "end": 11.8,
+          "key": "but",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "listen,",
+          "start": 11.8,
+          "end": 12.14,
+          "key": "listen",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "whisper.",
+          "start": 12.56,
+          "end": 12.76,
+          "key": "whisper",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 13.42,
+          "end": 13.56,
+          "key": "it",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 13.56,
+          "end": 13.66,
+          "key": "is",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 13.66,
+          "end": 13.8,
+          "key": "your",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 13.8,
+          "end": 14.02,
+          "key": "time",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 14.02,
+          "end": 14.32,
+          "key": "now",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 14.38,
+          "end": 14.52,
+          "key": "little",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "tyrant,",
+          "start": 14.52,
+          "end": 14.88,
+          "key": "tyrant",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 15.02,
+          "end": 15.16,
+          "key": "but",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 15.16,
+          "end": 15.24,
+          "key": "it",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 15.24,
+          "end": 15.34,
+          "key": "will",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 15.34,
+          "end": 15.46,
+          "key": "be",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 15.46,
+          "end": 15.7,
+          "key": "mine",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "presently.",
+          "start": 15.7,
+          "end": 16.16,
+          "key": "presently",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 16.74,
+          "end": 16.84,
+          "key": "and",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 16.84,
+          "end": 16.96,
+          "key": "when",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 16.96,
+          "end": 17.18,
+          "key": "once",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 17.18,
+          "end": 17.3,
+          "key": "i",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 17.3,
+          "end": 17.46,
+          "key": "have",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "fairly",
+          "start": 17.46,
+          "end": 17.76,
+          "key": "fairly",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "seized",
+          "start": 17.76,
+          "end": 18.1,
+          "key": "seized",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 18.1,
+          "end": 18.36,
+          "key": "you",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 18.36,
+          "end": 18.54,
+          "key": "to",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 18.54,
+          "end": 18.76,
+          "key": "have",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.76,
+          "end": 18.94,
+          "key": "and",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 18.94,
+          "end": 19.06,
+          "key": "to",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "hold,",
+          "start": 19.06,
+          "end": 19.32,
+          "key": "hold",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 19.46,
+          "end": 19.56,
+          "key": "ill",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "just,",
+          "start": 19.56,
+          "end": 19.78,
+          "key": "just",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "figuratively",
+          "start": 20.02,
+          "end": 20.36,
+          "key": "figuratively",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "speaking,",
+          "start": 20.36,
+          "end": 20.88,
+          "key": "speaking",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "attach",
+          "start": 21.16,
+          "end": 21.36,
+          "key": "attach",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 21.36,
+          "end": 21.64,
+          "key": "you",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 21.64,
+          "end": 21.78,
+          "key": "to",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 21.78,
+          "end": 21.86,
+          "key": "a",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "chain",
+          "start": 21.86,
+          "end": 22.08,
+          "key": "chain",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 22.08,
+          "end": 22.32,
+          "key": "like",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 22.32,
+          "end": 22.68,
+          "key": "this",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "touching",
+          "start": 23.08,
+          "end": 23.28,
+          "key": "touching",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 23.28,
+          "end": 23.52,
+          "key": "his",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "watch guard.",
+          "start": 23.52,
+          "end": 24.06,
+          "key": "watchguard",
+          "pieces": [
+            79,
+            80
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 25.24,
+          "end": 25.52,
+          "key": "yes",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "Bonnie,",
+          "start": 25.88,
+          "end": 25.98,
+          "key": "bonnie",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 25.98,
+          "end": 26.2,
+          "key": "we",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "thing.",
+          "start": 26.2,
+          "end": 26.44,
+          "key": "thing",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 26.44,
+          "end": 27.06,
+          "key": "ill",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 27.06,
+          "end": 27.2,
+          "key": "wear",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 27.2,
+          "end": 27.34,
+          "key": "you",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 27.34,
+          "end": 27.44,
+          "key": "in",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 27.44,
+          "end": 27.6,
+          "key": "my",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "bosom,",
+          "start": 27.6,
+          "end": 28.06,
+          "key": "bosom",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "lest",
+          "start": 28.34,
+          "end": 28.38,
+          "key": "lest",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 28.38,
+          "end": 28.64,
+          "key": "my",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "jewel",
+          "start": 28.64,
+          "end": 28.84,
+          "key": "jewel",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 28.84,
+          "end": 29.04,
+          "key": "i",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 29.04,
+          "end": 29.2,
+          "key": "should",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "tine.",
+          "start": 29.2,
+          "end": 29.6,
+          "key": "tine",
+          "pieces": [
+            96
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 31,
+          "text": "cigar-case,",
+          "heard": "cigar case",
+          "heard_indexes": [
+            31,
+            32
+          ],
+          "start": 9.3,
+          "end": 9.92
+        },
+        {
+          "expected_index": 34,
+          "text": "snuff-box.",
+          "heard": "snuff box.",
+          "heard_indexes": [
+            35,
+            36
+          ],
+          "start": 10.42,
+          "end": 10.94
+        },
+        {
+          "expected_index": 74,
+          "text": "watch-guard).",
+          "heard": "watch guard.",
+          "heard_indexes": [
+            79,
+            80
+          ],
+          "start": 23.52,
+          "end": 24.06
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "want",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "a",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "text": "smoke,",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "text": "Jane,",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "text": "or",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "text": "a",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "text": "pinch",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "text": "of",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "text": "snuff,",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "text": "to",
+          "start": 2.6,
+          "end": 2.82
+        },
+        {
+          "text": "comfort",
+          "start": 2.82,
+          "end": 3.08
+        },
+        {
+          "text": "me",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "text": "under",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "text": "all",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "text": "this,",
+          "start": 3.62,
+          "end": 3.92
+        },
+        {
+          "text": "'pour",
+          "start": 4.44,
+          "end": 4.54
+        },
+        {
+          "text": "me",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "text": "donner",
+          "start": 4.7,
+          "end": 5.06
+        },
+        {
+          "text": "une",
+          "start": 5.06,
+          "end": 5.61
+        },
+        {
+          "text": "contenance,'",
+          "start": 5.61,
+          "end": 5.885
+        },
+        {
+          "text": "as",
+          "start": 6.16,
+          "end": 6.44
+        },
+        {
+          "text": "Adèle",
+          "start": 6.44,
+          "end": 6.56
+        },
+        {
+          "text": "would",
+          "start": 6.68,
+          "end": 6.86
+        },
+        {
+          "text": "say;",
+          "start": 6.86,
+          "end": 7.18
+        },
+        {
+          "text": "and",
+          "start": 7.6,
+          "end": 7.78
+        },
+        {
+          "text": "unfortunately",
+          "start": 7.78,
+          "end": 8.32
+        },
+        {
+          "text": "I",
+          "start": 8.32,
+          "end": 8.68
+        },
+        {
+          "text": "have",
+          "start": 8.68,
+          "end": 8.8
+        },
+        {
+          "text": "neither",
+          "start": 8.8,
+          "end": 9.02
+        },
+        {
+          "text": "my",
+          "start": 9.02,
+          "end": 9.3
+        },
+        {
+          "text": "cigar-case,",
+          "start": 9.3,
+          "end": 9.92
+        },
+        {
+          "text": "nor",
+          "start": 9.92,
+          "end": 10.16
+        },
+        {
+          "text": "my",
+          "start": 10.16,
+          "end": 10.42
+        },
+        {
+          "text": "snuff-box.",
+          "start": 10.42,
+          "end": 10.94
+        },
+        {
+          "text": "But",
+          "start": 11.64,
+          "end": 11.8
+        },
+        {
+          "text": "listen—whisper.",
+          "start": 11.8,
+          "end": 12.61
+        },
+        {
+          "text": "It",
+          "start": 13.42,
+          "end": 13.56
+        },
+        {
+          "text": "is",
+          "start": 13.56,
+          "end": 13.66
+        },
+        {
+          "text": "your",
+          "start": 13.66,
+          "end": 13.8
+        },
+        {
+          "text": "time",
+          "start": 13.8,
+          "end": 14.02
+        },
+        {
+          "text": "now,",
+          "start": 14.02,
+          "end": 14.32
+        },
+        {
+          "text": "little",
+          "start": 14.38,
+          "end": 14.52
+        },
+        {
+          "text": "tyrant,",
+          "start": 14.52,
+          "end": 14.88
+        },
+        {
+          "text": "but",
+          "start": 15.02,
+          "end": 15.16
+        },
+        {
+          "text": "it",
+          "start": 15.16,
+          "end": 15.24
+        },
+        {
+          "text": "will",
+          "start": 15.24,
+          "end": 15.34
+        },
+        {
+          "text": "be",
+          "start": 15.34,
+          "end": 15.46
+        },
+        {
+          "text": "mine",
+          "start": 15.46,
+          "end": 15.7
+        },
+        {
+          "text": "presently;",
+          "start": 15.7,
+          "end": 16.16
+        },
+        {
+          "text": "and",
+          "start": 16.74,
+          "end": 16.84
+        },
+        {
+          "text": "when",
+          "start": 16.84,
+          "end": 16.96
+        },
+        {
+          "text": "once",
+          "start": 16.96,
+          "end": 17.18
+        },
+        {
+          "text": "I",
+          "start": 17.18,
+          "end": 17.3
+        },
+        {
+          "text": "have",
+          "start": 17.3,
+          "end": 17.46
+        },
+        {
+          "text": "fairly",
+          "start": 17.46,
+          "end": 17.76
+        },
+        {
+          "text": "seized",
+          "start": 17.76,
+          "end": 18.1
+        },
+        {
+          "text": "you,",
+          "start": 18.1,
+          "end": 18.36
+        },
+        {
+          "text": "to",
+          "start": 18.36,
+          "end": 18.54
+        },
+        {
+          "text": "have",
+          "start": 18.54,
+          "end": 18.76
+        },
+        {
+          "text": "and",
+          "start": 18.76,
+          "end": 18.94
+        },
+        {
+          "text": "to",
+          "start": 18.94,
+          "end": 19.06
+        },
+        {
+          "text": "hold,",
+          "start": 19.06,
+          "end": 19.32
+        },
+        {
+          "text": "I'll",
+          "start": 19.46,
+          "end": 19.56
+        },
+        {
+          "text": "just—figuratively",
+          "start": 19.56,
+          "end": 20.46
+        },
+        {
+          "text": "speaking—attach",
+          "start": 20.46,
+          "end": 20.91
+        },
+        {
+          "text": "you",
+          "start": 21.36,
+          "end": 21.64
+        },
+        {
+          "text": "to",
+          "start": 21.64,
+          "end": 21.78
+        },
+        {
+          "text": "a",
+          "start": 21.78,
+          "end": 21.86
+        },
+        {
+          "text": "chain",
+          "start": 21.86,
+          "end": 22.08
+        },
+        {
+          "text": "like",
+          "start": 22.08,
+          "end": 22.32
+        },
+        {
+          "text": "this\"",
+          "start": 22.32,
+          "end": 22.68
+        },
+        {
+          "text": "(touching",
+          "start": 23.08,
+          "end": 23.28
+        },
+        {
+          "text": "his",
+          "start": 23.28,
+          "end": 23.52
+        },
+        {
+          "text": "watch-guard).",
+          "start": 23.52,
+          "end": 24.06
+        },
+        {
+          "text": "\"Yes,",
+          "start": 25.24,
+          "end": 25.52
+        },
+        {
+          "text": "bonny",
+          "start": 25.52,
+          "end": 25.86
+        },
+        {
+          "text": "wee",
+          "start": 25.86,
+          "end": 26.03
+        },
+        {
+          "text": "thing,",
+          "start": 26.2,
+          "end": 26.44
+        },
+        {
+          "text": "I'll",
+          "start": 26.44,
+          "end": 27.06
+        },
+        {
+          "text": "wear",
+          "start": 27.06,
+          "end": 27.2
+        },
+        {
+          "text": "you",
+          "start": 27.2,
+          "end": 27.34
+        },
+        {
+          "text": "in",
+          "start": 27.34,
+          "end": 27.44
+        },
+        {
+          "text": "my",
+          "start": 27.44,
+          "end": 27.6
+        },
+        {
+          "text": "bosom,",
+          "start": 27.6,
+          "end": 28.06
+        },
+        {
+          "text": "lest",
+          "start": 28.34,
+          "end": 28.38
+        },
+        {
+          "text": "my",
+          "start": 28.38,
+          "end": 28.64
+        },
+        {
+          "text": "jewel",
+          "start": 28.64,
+          "end": 28.84
+        },
+        {
+          "text": "I",
+          "start": 28.84,
+          "end": 29.04
+        },
+        {
+          "text": "should",
+          "start": 29.04,
+          "end": 29.2
+        },
+        {
+          "text": "tyne.\"",
+          "start": 29.2,
+          "end": 29.4
+        }
+      ],
+      "stats": {
+        "expected_words": 91,
+        "heard_words": 94,
+        "matched_words": 82
+      },
+      "match_ratio": 0.9010989010989011,
+      "rejection_reasons": [],
+      "seconds": 1.005627335049212
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "5173fc9eeee8a678f3c657ebb7f0e0a5a076cfb9993b72ea4c0c82842730691b",
+  "selected_reasons": []
+}

@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "9a7b0f039b492d06ad5cd3dfc0e50370726bfd7b9e91069385eb0702f5ebbeb4",
+  "attempts": [
+    {
+      "asr_seconds": 0.1843369770795107,
+      "alignment_seconds": 0.00015790574252605438,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. Why do you cross me in this exigent?",
+        "hotwords": "Antony, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, Why do you cross me in this exigent?",
+          "start": 0.05,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " Why",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.0118408203125
+            },
+            {
+              "text": " do",
+              "start": 1.37,
+              "end": 1.47,
+              "probability": 0.951171875
+            },
+            {
+              "text": " you",
+              "start": 1.47,
+              "end": 1.57,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " cross",
+              "start": 1.57,
+              "end": 1.79,
+              "probability": 0.986328125
+            },
+            {
+              "text": " me",
+              "start": 1.79,
+              "end": 1.99,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 1.99,
+              "end": 2.09,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " this",
+              "start": 2.09,
+              "end": 2.21,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " exigent?",
+              "start": 2.21,
+              "end": 2.61,
+              "probability": 0.84423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Why",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "do",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "raw": "you",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "raw": "cross",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "raw": "me",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "raw": "in",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "raw": "this",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "raw": "exigent?",
+          "start": 2.21,
+          "end": 2.61
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Why",
+        "do",
+        "you",
+        "cross",
+        "me",
+        "in",
+        "this",
+        "exigent?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.37,
+          "end": 1.47,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.47,
+          "end": 1.57,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cross",
+          "start": 1.57,
+          "end": 1.79,
+          "key": "cross",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.79,
+          "end": 1.99,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.99,
+          "end": 2.09,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.09,
+          "end": 2.21,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "exigent?",
+          "start": 2.21,
+          "end": 2.61,
+          "key": "exigent",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Why",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "do",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "text": "you",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "text": "cross",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "text": "me",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "text": "in",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "text": "this",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "text": "exigent?",
+          "start": 2.21,
+          "end": 2.61
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18455761391669512
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ecac0be20965116feebe84c23fcb4ce8443015a721e12ff6e376005b344e4d49",
+  "selected_reasons": []
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "4869b12de5fc580f592d2a75c8368fc508adaaa6231859d16ecb046df49e9e05",
+  "attempts": [
+    {
+      "asr_seconds": 0.1551592769101262,
+      "alignment_seconds": 0.00024027377367019653,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Mrs. Fairfax, I suppose?\" said I.",
+        "hotwords": "Mrs, Fairfax, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mrs. Fairfax, I suppose, said I.",
+          "start": 0.02,
+          "end": 2.56,
+          "words": [
+            {
+              "text": " Mrs.",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.70556640625
+            },
+            {
+              "text": " Fairfax,",
+              "start": 0.84,
+              "end": 1.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 1.26,
+              "end": 1.3,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " suppose,",
+              "start": 1.3,
+              "end": 1.64,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " said",
+              "start": 2.12,
+              "end": 2.32,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I.",
+              "start": 2.32,
+              "end": 2.56,
+              "probability": 0.70703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mrs.",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Fairfax,",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "raw": "I",
+          "start": 1.26,
+          "end": 1.3
+        },
+        {
+          "raw": "suppose,",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "raw": "said",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "raw": "I.",
+          "start": 2.32,
+          "end": 2.56
+        }
+      ],
+      "expected_tokens": [
+        "\"Mrs.",
+        "Fairfax,",
+        "I",
+        "suppose?\"",
+        "said",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mrs.",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "mrs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fairfax,",
+          "start": 0.84,
+          "end": 1.06,
+          "key": "fairfax",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.26,
+          "end": 1.3,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "suppose,",
+          "start": 1.3,
+          "end": 1.64,
+          "key": "suppose",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.12,
+          "end": 2.32,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 2.32,
+          "end": 2.56,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Mrs.",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Fairfax,",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "text": "I",
+          "start": 1.26,
+          "end": 1.3
+        },
+        {
+          "text": "suppose?\"",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "text": "said",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "text": "I.",
+          "start": 2.32,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15548183023929596
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "47e6ba5210fc79f2f6732ddec77a8492b1030addd895a4cb49bb1fedab4f5bae",
+  "selected_reasons": []
+}

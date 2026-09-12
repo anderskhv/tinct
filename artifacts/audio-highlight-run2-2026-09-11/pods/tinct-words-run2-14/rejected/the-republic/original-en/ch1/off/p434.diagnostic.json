@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "84dce6d0001bc643ed2660acaf6dda36afcb84c15a4fd7d46f51ecb155fce10b",
+  "attempts": [
+    {
+      "asr_seconds": 0.09336652234196663,
+      "alignment_seconds": 0.00020325928926467896,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Proceed.",
+          "start": 0.05,
+          "end": 0.73,
+          "words": [
+            {
+              "text": " Proceed.",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.84326171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Proceed.",
+          "start": 0.05,
+          "end": 0.73
+        }
+      ],
+      "expected_tokens": [
+        "Proceed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Proceed.",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "proceed",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Proceed.",
+          "start": 0.05,
+          "end": 0.73
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09363850951194763
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d3f46b196f573fc11bac74d741fb6671431582b880cce040a3768903001a7ca1",
+  "selected_reasons": []
+}

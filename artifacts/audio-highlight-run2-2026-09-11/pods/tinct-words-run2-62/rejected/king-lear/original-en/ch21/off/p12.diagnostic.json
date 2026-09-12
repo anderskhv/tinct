@@ -1,0 +1,498 @@
+{
+  "complete": true,
+  "signature": "861c4e7650a06c15a1da52362f3c223b8e05bed131f1e4bb8aa2df332afa375d",
+  "attempts": [
+    {
+      "asr_seconds": 0.19482090696692467,
+      "alignment_seconds": 0.0001713186502456665,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oswald, I may not madam. My lady charged my duty in this business.",
+          "start": 0.08,
+          "end": 4.58,
+          "words": [
+            {
+              "text": " Oswald,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.5400390625
+            },
+            {
+              "text": " I",
+              "start": 1.3,
+              "end": 1.44,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " may",
+              "start": 1.44,
+              "end": 1.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 1.6,
+              "end": 1.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " madam.",
+              "start": 1.82,
+              "end": 2.3,
+              "probability": 0.810546875
+            },
+            {
+              "text": " My",
+              "start": 2.76,
+              "end": 2.86,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " lady",
+              "start": 2.86,
+              "end": 3.06,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " charged",
+              "start": 3.06,
+              "end": 3.44,
+              "probability": 0.277587890625
+            },
+            {
+              "text": " my",
+              "start": 3.44,
+              "end": 3.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " duty",
+              "start": 3.66,
+              "end": 3.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 3.9,
+              "end": 4.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this",
+              "start": 4.08,
+              "end": 4.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " business.",
+              "start": 4.22,
+              "end": 4.58,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oswald,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "I",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "raw": "may",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "raw": "not",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "raw": "madam.",
+          "start": 1.82,
+          "end": 2.3
+        },
+        {
+          "raw": "My",
+          "start": 2.76,
+          "end": 2.86
+        },
+        {
+          "raw": "lady",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "raw": "charged",
+          "start": 3.06,
+          "end": 3.44
+        },
+        {
+          "raw": "my",
+          "start": 3.44,
+          "end": 3.66
+        },
+        {
+          "raw": "duty",
+          "start": 3.66,
+          "end": 3.9
+        },
+        {
+          "raw": "in",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "raw": "this",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "raw": "business.",
+          "start": 4.22,
+          "end": 4.58
+        }
+      ],
+      "expected_tokens": [
+        "Oswald.",
+        "I",
+        "may",
+        "not,",
+        "madam:",
+        "My",
+        "lady",
+        "charg'd",
+        "my",
+        "duty",
+        "in",
+        "this",
+        "business."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          13,
+          8,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oswald,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "oswald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.3,
+          "end": 1.44,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.44,
+          "end": 1.6,
+          "key": "may",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.6,
+          "end": 1.82,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "madam.",
+          "start": 1.82,
+          "end": 2.3,
+          "key": "madam",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 2.76,
+          "end": 2.86,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 2.86,
+          "end": 3.06,
+          "key": "lady",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "charged",
+          "start": 3.06,
+          "end": 3.44,
+          "key": "charged",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.44,
+          "end": 3.66,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "duty",
+          "start": 3.66,
+          "end": 3.9,
+          "key": "duty",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.9,
+          "end": 4.08,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.08,
+          "end": 4.22,
+          "key": "this",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "business.",
+          "start": 4.22,
+          "end": 4.58,
+          "key": "business",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oswald.",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "I",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "text": "may",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "text": "not,",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "text": "madam:",
+          "start": 1.82,
+          "end": 2.3
+        },
+        {
+          "text": "My",
+          "start": 2.76,
+          "end": 2.86
+        },
+        {
+          "text": "lady",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "text": "charg'd",
+          "start": 3.06,
+          "end": 3.25
+        },
+        {
+          "text": "my",
+          "start": 3.44,
+          "end": 3.66
+        },
+        {
+          "text": "duty",
+          "start": 3.66,
+          "end": 3.9
+        },
+        {
+          "text": "in",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "text": "this",
+          "start": 4.08,
+          "end": 4.22
+        },
+        {
+          "text": "business.",
+          "start": 4.22,
+          "end": 4.58
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.1950477994978428
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "35e1bed1a50b7f8d130b5ff0e60c8f04065401b73f3a034ebcd2b42469290724",
+  "selected_reasons": []
+}

@@ -1,0 +1,660 @@
+{
+  "complete": true,
+  "signature": "c5a9a416d194162192b188d6654a97373d0cdd931391eef3526a9dff87ffed31",
+  "attempts": [
+    {
+      "asr_seconds": 0.16774136014282703,
+      "alignment_seconds": 0.0003602588549256325,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Horatio. E'en so.",
+        "hotwords": "Horatio, E'en"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Horatio, E'en so.",
+          "start": 0.05,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " Horatio,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " E",
+              "start": 1.25,
+              "end": 1.27,
+              "probability": 0.0186920166015625
+            },
+            {
+              "text": "'en",
+              "start": 1.27,
+              "end": 1.33,
+              "probability": 0.3715038299560547
+            },
+            {
+              "text": " so.",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.0762939453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Horatio,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "E",
+          "start": 1.25,
+          "end": 1.27
+        },
+        {
+          "raw": "'en",
+          "start": 1.27,
+          "end": 1.33
+        },
+        {
+          "raw": "so.",
+          "start": 1.33,
+          "end": 1.55
+        }
+      ],
+      "expected_tokens": [
+        "Horatio.",
+        "E'en",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Horatio,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "horatio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "E",
+          "start": 1.25,
+          "end": 1.27,
+          "key": "e",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'en",
+          "start": 1.27,
+          "end": 1.33,
+          "key": "en",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 1.33,
+          "end": 1.55,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Horatio.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "E'en",
+          "start": 0.89,
+          "end": 1.11
+        },
+        {
+          "text": "so.",
+          "start": 1.33,
+          "end": 1.55
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16821630205959082
+    },
+    {
+      "asr_seconds": 0.3190130442380905,
+      "alignment_seconds": 0.0003969436511397362,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Horatio, E'en"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Horatio, E'enso",
+          "start": 0.05,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " Horatio,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " E",
+              "start": 1.25,
+              "end": 1.27,
+              "probability": 0.0186920166015625
+            },
+            {
+              "text": "'enso",
+              "start": 1.27,
+              "end": 1.55,
+              "probability": 0.5409634908040365
+            }
+          ]
+        },
+        {
+          "text": " Horatio, E'en Horatio, E'en Horatio.",
+          "start": 1.55,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Horatio,",
+              "start": 1.55,
+              "end": 1.63,
+              "probability": 0.011375516653060913
+            },
+            {
+              "text": " E",
+              "start": 1.75,
+              "end": 1.93,
+              "probability": 0.00011944770812988281
+            },
+            {
+              "text": "'en",
+              "start": 1.93,
+              "end": 1.93,
+              "probability": 0.001202702522277832
+            },
+            {
+              "text": " Horatio,",
+              "start": 1.93,
+              "end": 1.93,
+              "probability": 0.4843903183937073
+            },
+            {
+              "text": " E",
+              "start": 1.93,
+              "end": 1.93,
+              "probability": 0.10015869140625
+            },
+            {
+              "text": "'en",
+              "start": 1.93,
+              "end": 1.93,
+              "probability": 0.940185546875
+            },
+            {
+              "text": " Horatio.",
+              "start": 1.93,
+              "end": 1.93,
+              "probability": 0.9296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Horatio,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "E",
+          "start": 1.25,
+          "end": 1.27
+        },
+        {
+          "raw": "'enso",
+          "start": 1.27,
+          "end": 1.55
+        },
+        {
+          "raw": "Horatio,",
+          "start": 1.55,
+          "end": 1.63
+        },
+        {
+          "raw": "E",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "raw": "'en",
+          "start": 1.93,
+          "end": 1.93
+        },
+        {
+          "raw": "Horatio,",
+          "start": 1.93,
+          "end": 1.93
+        },
+        {
+          "raw": "E",
+          "start": 1.93,
+          "end": 1.93
+        },
+        {
+          "raw": "'en",
+          "start": 1.93,
+          "end": 1.93
+        },
+        {
+          "raw": "Horatio.",
+          "start": 1.93,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "Horatio.",
+        "E'en",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Horatio,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "horatio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "E",
+          "start": 1.25,
+          "end": 1.27,
+          "key": "e",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'enso",
+          "start": 1.27,
+          "end": 1.55,
+          "key": "enso",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Horatio,",
+          "start": 1.55,
+          "end": 1.63,
+          "key": "horatio",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "E",
+          "start": 1.75,
+          "end": 1.93,
+          "key": "e",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "'en",
+          "start": 1.93,
+          "end": 1.93,
+          "key": "en",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Horatio,",
+          "start": 1.93,
+          "end": 1.93,
+          "key": "horatio",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "E",
+          "start": 1.93,
+          "end": 1.93,
+          "key": "e",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "'en",
+          "start": 1.93,
+          "end": 1.93,
+          "key": "en",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Horatio.",
+          "start": 1.93,
+          "end": 1.93,
+          "key": "horatio",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Horatio.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "E'en",
+          "start": 0.89,
+          "end": 1.41
+        },
+        {
+          "text": "so.",
+          "start": 1.41,
+          "end": 1.67
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 10,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.319604754447937
+    },
+    {
+      "asr_seconds": 0.15128612332046032,
+      "alignment_seconds": 0.00031572766602039337,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Horatio, inso.",
+          "start": 0.05,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " Horatio,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " inso.",
+              "start": 1.21,
+              "end": 1.55,
+              "probability": 0.711669921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Horatio,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "inso.",
+          "start": 1.21,
+          "end": 1.55
+        }
+      ],
+      "expected_tokens": [
+        "Horatio.",
+        "E'en",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Horatio,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "horatio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "inso.",
+          "start": 1.21,
+          "end": 1.55,
+          "key": "inso",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Horatio.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "E'en",
+          "start": 0.91,
+          "end": 1.23
+        },
+        {
+          "text": "so.",
+          "start": 1.23,
+          "end": 1.39
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15169676207005978
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "06377999bf338a4c2dd3535b4078db445c7cb6137a6c8bd70d465b777857fd19",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "967b8eb51a5fbccfe2f49ed725cc66564f78a35699dffe34d8b48bf00b9d2e49",
+  "attempts": [
+    {
+      "asr_seconds": 0.15600200276821852,
+      "alignment_seconds": 0.00035899505019187927,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Montjoy. My master's mind.",
+        "hotwords": "Montjoy, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Montjoy, My master's mind.",
+          "start": 0.05,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Montjoy,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.08118236064910889
+            },
+            {
+              "text": " My",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.061187744140625
+            },
+            {
+              "text": " master's",
+              "start": 1.35,
+              "end": 1.83,
+              "probability": 0.53631591796875
+            },
+            {
+              "text": " mind.",
+              "start": 1.83,
+              "end": 2.05,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Montjoy,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "My",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "master's",
+          "start": 1.35,
+          "end": 1.83
+        },
+        {
+          "raw": "mind.",
+          "start": 1.83,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "Montjoy.",
+        "My",
+        "master's",
+        "mind."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Montjoy,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "montjoy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.21,
+          "end": 1.35,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "master's",
+          "start": 1.35,
+          "end": 1.83,
+          "key": "masters",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mind.",
+          "start": 1.83,
+          "end": 2.05,
+          "key": "mind",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Montjoy.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "My",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "text": "master's",
+          "start": 1.35,
+          "end": 1.83
+        },
+        {
+          "text": "mind.",
+          "start": 1.83,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15648075193166733
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8dc14faaf9e117c557e9678a4bdca4c465394d849463f93dfce95356b1fa2242",
+  "selected_reasons": []
+}

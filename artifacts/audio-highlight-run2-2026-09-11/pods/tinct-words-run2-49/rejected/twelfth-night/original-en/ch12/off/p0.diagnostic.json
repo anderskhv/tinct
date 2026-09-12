@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "35483a40783614f38df75d869d826529ff0c61d6c84da1f82a76c62937d75f60",
+  "attempts": [
+    {
+      "asr_seconds": 0.1690419465303421,
+      "alignment_seconds": 0.0002959631383419037,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Sir Toby, Sir Andrew and Fabian.",
+          "start": 0.14,
+          "end": 2.66,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.64,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " Sir",
+              "start": 0.64,
+              "end": 0.84,
+              "probability": 0.833984375
+            },
+            {
+              "text": " Toby,",
+              "start": 0.84,
+              "end": 1.18,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " Sir",
+              "start": 1.64,
+              "end": 1.7,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Andrew",
+              "start": 1.7,
+              "end": 2.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 2.02,
+              "end": 2.2,
+              "probability": 0.6064453125
+            },
+            {
+              "text": " Fabian.",
+              "start": 2.2,
+              "end": 2.66,
+              "probability": 0.974365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "raw": "Sir",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "raw": "Sir",
+          "start": 1.64,
+          "end": 1.7
+        },
+        {
+          "raw": "Andrew",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "raw": "and",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "raw": "Fabian.",
+          "start": 2.2,
+          "end": 2.66
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Sir",
+        "Toby,",
+        "Sir",
+        "Andrew",
+        "and",
+        "Fabian."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 0.64,
+          "end": 0.84,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.84,
+          "end": 1.18,
+          "key": "toby",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 1.64,
+          "end": 1.7,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Andrew",
+          "start": 1.7,
+          "end": 2.02,
+          "key": "andrew",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.02,
+          "end": 2.2,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Fabian.",
+          "start": 2.2,
+          "end": 2.66,
+          "key": "fabian",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "text": "Sir",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "text": "Toby,",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "text": "Sir",
+          "start": 1.64,
+          "end": 1.7
+        },
+        {
+          "text": "Andrew",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "text": "and",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "text": "Fabian.",
+          "start": 2.2,
+          "end": 2.66
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16944989189505577
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0463553714887eb5b08f2fca2ad3073e100d784f5dd77f02578c770e7e5a20fd",
+  "selected_reasons": []
+}

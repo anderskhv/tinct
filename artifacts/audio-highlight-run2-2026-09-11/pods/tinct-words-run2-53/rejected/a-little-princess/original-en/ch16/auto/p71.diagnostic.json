@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "e860dfc84abb6690bc2ed80b1ff975398e3e84e2186dea8234bf9d9b5950a2b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.16520431404933333,
+      "alignment_seconds": 0.00042288913391530514,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What is in them?\" she demanded.",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What is in them? she demanded.",
+          "start": 0.02,
+          "end": 1.82,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.2003173828125
+            },
+            {
+              "text": " is",
+              "start": 0.56,
+              "end": 0.7,
+              "probability": 0.990234375
+            },
+            {
+              "text": " in",
+              "start": 0.7,
+              "end": 0.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " them?",
+              "start": 0.86,
+              "end": 1.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " she",
+              "start": 1.44,
+              "end": 1.48,
+              "probability": 0.432373046875
+            },
+            {
+              "text": " demanded.",
+              "start": 1.48,
+              "end": 1.82,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "raw": "in",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "raw": "them?",
+          "start": 0.86,
+          "end": 1.12
+        },
+        {
+          "raw": "she",
+          "start": 1.44,
+          "end": 1.48
+        },
+        {
+          "raw": "demanded.",
+          "start": 1.48,
+          "end": 1.82
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "is",
+        "in",
+        "them?\"",
+        "she",
+        "demanded."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.7,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.7,
+          "end": 0.86,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "them?",
+          "start": 0.86,
+          "end": 1.12,
+          "key": "them",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.44,
+          "end": 1.48,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "demanded.",
+          "start": 1.48,
+          "end": 1.82,
+          "key": "demanded",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "is",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "text": "in",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "text": "them?\"",
+          "start": 0.86,
+          "end": 1.12
+        },
+        {
+          "text": "she",
+          "start": 1.44,
+          "end": 1.48
+        },
+        {
+          "text": "demanded.",
+          "start": 1.48,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16576568502932787
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6c80d3152d1bc8ccf82de4dc9993a292765fb0dcadb5958289d07e47a14b9f11",
+  "selected_reasons": []
+}

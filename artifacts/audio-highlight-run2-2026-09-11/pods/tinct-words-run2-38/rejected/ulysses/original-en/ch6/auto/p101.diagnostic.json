@@ -1,0 +1,541 @@
+{
+  "complete": true,
+  "signature": "2036b122ff66e2511eab9306af120b6f697f7e19c3832fa7df4da5cf9388b42a",
+  "attempts": [
+    {
+      "asr_seconds": 0.18328144296538085,
+      "alignment_seconds": 0.0002426909632049501,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Oot: a dullgarbed old man from the curbstone tendered his wares, his mouth opening: oot."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oot, a dullgarbed old man from the curbstone tendered his wares, his mouth opening, oot.",
+          "start": 0.27,
+          "end": 6.11,
+          "words": [
+            {
+              "text": " Oot,",
+              "start": 0.27,
+              "end": 0.67,
+              "probability": 0.6290283203125
+            },
+            {
+              "text": " a",
+              "start": 0.87,
+              "end": 0.99,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " dullgarbed",
+              "start": 0.99,
+              "end": 1.57,
+              "probability": 0.6277058919270834
+            },
+            {
+              "text": " old",
+              "start": 1.57,
+              "end": 1.71,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " man",
+              "start": 1.71,
+              "end": 2.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " from",
+              "start": 2.03,
+              "end": 2.25,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 2.25,
+              "end": 2.39,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " curbstone",
+              "start": 2.39,
+              "end": 2.89,
+              "probability": 0.7646484375
+            },
+            {
+              "text": " tendered",
+              "start": 2.89,
+              "end": 3.31,
+              "probability": 0.596435546875
+            },
+            {
+              "text": " his",
+              "start": 3.31,
+              "end": 3.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wares,",
+              "start": 3.45,
+              "end": 3.95,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " his",
+              "start": 4.35,
+              "end": 4.45,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " mouth",
+              "start": 4.45,
+              "end": 4.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " opening,",
+              "start": 4.71,
+              "end": 5.23,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " oot.",
+              "start": 5.71,
+              "end": 6.11,
+              "probability": 0.633544921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oot,",
+          "start": 0.27,
+          "end": 0.67
+        },
+        {
+          "raw": "a",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "raw": "dullgarbed",
+          "start": 0.99,
+          "end": 1.57
+        },
+        {
+          "raw": "old",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "raw": "man",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "raw": "from",
+          "start": 2.03,
+          "end": 2.25
+        },
+        {
+          "raw": "the",
+          "start": 2.25,
+          "end": 2.39
+        },
+        {
+          "raw": "curbstone",
+          "start": 2.39,
+          "end": 2.89
+        },
+        {
+          "raw": "tendered",
+          "start": 2.89,
+          "end": 3.31
+        },
+        {
+          "raw": "his",
+          "start": 3.31,
+          "end": 3.45
+        },
+        {
+          "raw": "wares,",
+          "start": 3.45,
+          "end": 3.95
+        },
+        {
+          "raw": "his",
+          "start": 4.35,
+          "end": 4.45
+        },
+        {
+          "raw": "mouth",
+          "start": 4.45,
+          "end": 4.71
+        },
+        {
+          "raw": "opening,",
+          "start": 4.71,
+          "end": 5.23
+        },
+        {
+          "raw": "oot.",
+          "start": 5.71,
+          "end": 6.11
+        }
+      ],
+      "expected_tokens": [
+        "Oot:",
+        "a",
+        "dullgarbed",
+        "old",
+        "man",
+        "from",
+        "the",
+        "curbstone",
+        "tendered",
+        "his",
+        "wares,",
+        "his",
+        "mouth",
+        "opening:",
+        "oot."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oot,",
+          "start": 0.27,
+          "end": 0.67,
+          "key": "oot",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.87,
+          "end": 0.99,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dullgarbed",
+          "start": 0.99,
+          "end": 1.57,
+          "key": "dullgarbed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 1.57,
+          "end": 1.71,
+          "key": "old",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.71,
+          "end": 2.03,
+          "key": "man",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.03,
+          "end": 2.25,
+          "key": "from",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.25,
+          "end": 2.39,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "curbstone",
+          "start": 2.39,
+          "end": 2.89,
+          "key": "curbstone",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tendered",
+          "start": 2.89,
+          "end": 3.31,
+          "key": "tendered",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.31,
+          "end": 3.45,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "wares,",
+          "start": 3.45,
+          "end": 3.95,
+          "key": "wares",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.35,
+          "end": 4.45,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "mouth",
+          "start": 4.45,
+          "end": 4.71,
+          "key": "mouth",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "opening,",
+          "start": 4.71,
+          "end": 5.23,
+          "key": "opening",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "oot.",
+          "start": 5.71,
+          "end": 6.11,
+          "key": "oot",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oot:",
+          "start": 0.27,
+          "end": 0.67
+        },
+        {
+          "text": "a",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "text": "dullgarbed",
+          "start": 0.99,
+          "end": 1.57
+        },
+        {
+          "text": "old",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "text": "man",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "text": "from",
+          "start": 2.03,
+          "end": 2.25
+        },
+        {
+          "text": "the",
+          "start": 2.25,
+          "end": 2.39
+        },
+        {
+          "text": "curbstone",
+          "start": 2.39,
+          "end": 2.89
+        },
+        {
+          "text": "tendered",
+          "start": 2.89,
+          "end": 3.31
+        },
+        {
+          "text": "his",
+          "start": 3.31,
+          "end": 3.45
+        },
+        {
+          "text": "wares,",
+          "start": 3.45,
+          "end": 3.95
+        },
+        {
+          "text": "his",
+          "start": 4.35,
+          "end": 4.45
+        },
+        {
+          "text": "mouth",
+          "start": 4.45,
+          "end": 4.71
+        },
+        {
+          "text": "opening:",
+          "start": 4.71,
+          "end": 5.23
+        },
+        {
+          "text": "oot.",
+          "start": 5.71,
+          "end": 6.11
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18361586501123384
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "619dcdbc16af5b7c59fcb2aa0112afc4250a542e3dbef37c060bb309d68306ae",
+  "selected_reasons": []
+}

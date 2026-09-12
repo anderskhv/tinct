@@ -1,0 +1,1420 @@
+{
+  "complete": true,
+  "signature": "502a2625e470c9b9fb570cc5640a0e1afc5ffa525ae74aeade398a2473e64d80",
+  "attempts": [
+    {
+      "asr_seconds": 0.5122993681579828,
+      "alignment_seconds": 0.0007565077394247055,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cloten. So, get you gone. If this penetrate, I will consider your music the better; if it do not, it is a vice in her ears which horsehairs and calves' guts, nor the voice of unpaved eunuch to boot, can never amend.",
+        "hotwords": "Cloten, So, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cloten, So, get you gone. If this penetrate, I will consider your music the better. If it",
+          "start": 0.05,
+          "end": 5.99,
+          "words": [
+            {
+              "text": " Cloten,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.4424641927083333
+            },
+            {
+              "text": " So,",
+              "start": 0.97,
+              "end": 1.17,
+              "probability": 0.00699615478515625
+            },
+            {
+              "text": " get",
+              "start": 1.35,
+              "end": 1.43,
+              "probability": 0.642578125
+            },
+            {
+              "text": " you",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.9609375
+            },
+            {
+              "text": " gone.",
+              "start": 1.61,
+              "end": 1.91,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " If",
+              "start": 2.59,
+              "end": 2.73,
+              "probability": 0.955078125
+            },
+            {
+              "text": " this",
+              "start": 2.73,
+              "end": 2.93,
+              "probability": 0.982421875
+            },
+            {
+              "text": " penetrate,",
+              "start": 2.93,
+              "end": 3.41,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " I",
+              "start": 3.73,
+              "end": 3.75,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " will",
+              "start": 3.75,
+              "end": 3.89,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " consider",
+              "start": 3.89,
+              "end": 4.21,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " your",
+              "start": 4.21,
+              "end": 4.49,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " music",
+              "start": 4.49,
+              "end": 4.83,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " the",
+              "start": 4.83,
+              "end": 5.03,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " better.",
+              "start": 5.03,
+              "end": 5.27,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " If",
+              "start": 5.77,
+              "end": 5.89,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " it",
+              "start": 5.89,
+              "end": 5.99,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " do not, it is a vice in her ears which horsehairs and calves' guts, nor the voice of unpaved",
+          "start": 5.99,
+          "end": 11.81,
+          "words": [
+            {
+              "text": " do",
+              "start": 5.99,
+              "end": 6.15,
+              "probability": 0.9921875
+            },
+            {
+              "text": " not,",
+              "start": 6.15,
+              "end": 6.45,
+              "probability": 0.994140625
+            },
+            {
+              "text": " it",
+              "start": 6.89,
+              "end": 6.97,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " is",
+              "start": 6.97,
+              "end": 7.09,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " a",
+              "start": 7.09,
+              "end": 7.21,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " vice",
+              "start": 7.21,
+              "end": 7.43,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " in",
+              "start": 7.43,
+              "end": 7.69,
+              "probability": 0.96875
+            },
+            {
+              "text": " her",
+              "start": 7.69,
+              "end": 7.81,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " ears",
+              "start": 7.81,
+              "end": 8.13,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " which",
+              "start": 8.13,
+              "end": 8.43,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " horsehairs",
+              "start": 8.43,
+              "end": 9.01,
+              "probability": 0.6241048177083334
+            },
+            {
+              "text": " and",
+              "start": 9.01,
+              "end": 9.25,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " calves'",
+              "start": 9.25,
+              "end": 9.65,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " guts,",
+              "start": 9.81,
+              "end": 10.07,
+              "probability": 0.994140625
+            },
+            {
+              "text": " nor",
+              "start": 10.61,
+              "end": 10.67,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " the",
+              "start": 10.67,
+              "end": 10.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " voice",
+              "start": 10.85,
+              "end": 11.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 11.03,
+              "end": 11.21,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " unpaved",
+              "start": 11.21,
+              "end": 11.81,
+              "probability": 0.974853515625
+            }
+          ]
+        },
+        {
+          "text": " eunuch to boot, can never amend.",
+          "start": 11.81,
+          "end": 13.69,
+          "words": [
+            {
+              "text": " eunuch",
+              "start": 11.81,
+              "end": 12.19,
+              "probability": 0.9558919270833334
+            },
+            {
+              "text": " to",
+              "start": 12.19,
+              "end": 12.33,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " boot,",
+              "start": 12.33,
+              "end": 12.61,
+              "probability": 0.994140625
+            },
+            {
+              "text": " can",
+              "start": 12.91,
+              "end": 13.03,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " never",
+              "start": 13.03,
+              "end": 13.35,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " amend.",
+              "start": 13.35,
+              "end": 13.69,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cloten,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "So,",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "raw": "get",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "raw": "you",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "gone.",
+          "start": 1.61,
+          "end": 1.91
+        },
+        {
+          "raw": "If",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "raw": "this",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "raw": "penetrate,",
+          "start": 2.93,
+          "end": 3.41
+        },
+        {
+          "raw": "I",
+          "start": 3.73,
+          "end": 3.75
+        },
+        {
+          "raw": "will",
+          "start": 3.75,
+          "end": 3.89
+        },
+        {
+          "raw": "consider",
+          "start": 3.89,
+          "end": 4.21
+        },
+        {
+          "raw": "your",
+          "start": 4.21,
+          "end": 4.49
+        },
+        {
+          "raw": "music",
+          "start": 4.49,
+          "end": 4.83
+        },
+        {
+          "raw": "the",
+          "start": 4.83,
+          "end": 5.03
+        },
+        {
+          "raw": "better.",
+          "start": 5.03,
+          "end": 5.27
+        },
+        {
+          "raw": "If",
+          "start": 5.77,
+          "end": 5.89
+        },
+        {
+          "raw": "it",
+          "start": 5.89,
+          "end": 5.99
+        },
+        {
+          "raw": "do",
+          "start": 5.99,
+          "end": 6.15
+        },
+        {
+          "raw": "not,",
+          "start": 6.15,
+          "end": 6.45
+        },
+        {
+          "raw": "it",
+          "start": 6.89,
+          "end": 6.97
+        },
+        {
+          "raw": "is",
+          "start": 6.97,
+          "end": 7.09
+        },
+        {
+          "raw": "a",
+          "start": 7.09,
+          "end": 7.21
+        },
+        {
+          "raw": "vice",
+          "start": 7.21,
+          "end": 7.43
+        },
+        {
+          "raw": "in",
+          "start": 7.43,
+          "end": 7.69
+        },
+        {
+          "raw": "her",
+          "start": 7.69,
+          "end": 7.81
+        },
+        {
+          "raw": "ears",
+          "start": 7.81,
+          "end": 8.13
+        },
+        {
+          "raw": "which",
+          "start": 8.13,
+          "end": 8.43
+        },
+        {
+          "raw": "horsehairs",
+          "start": 8.43,
+          "end": 9.01
+        },
+        {
+          "raw": "and",
+          "start": 9.01,
+          "end": 9.25
+        },
+        {
+          "raw": "calves'",
+          "start": 9.25,
+          "end": 9.65
+        },
+        {
+          "raw": "guts,",
+          "start": 9.81,
+          "end": 10.07
+        },
+        {
+          "raw": "nor",
+          "start": 10.61,
+          "end": 10.67
+        },
+        {
+          "raw": "the",
+          "start": 10.67,
+          "end": 10.85
+        },
+        {
+          "raw": "voice",
+          "start": 10.85,
+          "end": 11.03
+        },
+        {
+          "raw": "of",
+          "start": 11.03,
+          "end": 11.21
+        },
+        {
+          "raw": "unpaved",
+          "start": 11.21,
+          "end": 11.81
+        },
+        {
+          "raw": "eunuch",
+          "start": 11.81,
+          "end": 12.19
+        },
+        {
+          "raw": "to",
+          "start": 12.19,
+          "end": 12.33
+        },
+        {
+          "raw": "boot,",
+          "start": 12.33,
+          "end": 12.61
+        },
+        {
+          "raw": "can",
+          "start": 12.91,
+          "end": 13.03
+        },
+        {
+          "raw": "never",
+          "start": 13.03,
+          "end": 13.35
+        },
+        {
+          "raw": "amend.",
+          "start": 13.35,
+          "end": 13.69
+        }
+      ],
+      "expected_tokens": [
+        "Cloten.",
+        "So,",
+        "get",
+        "you",
+        "gone.",
+        "If",
+        "this",
+        "penetrate,",
+        "I",
+        "will",
+        "consider",
+        "your",
+        "music",
+        "the",
+        "better;",
+        "if",
+        "it",
+        "do",
+        "not,",
+        "it",
+        "is",
+        "a",
+        "vice",
+        "in",
+        "her",
+        "ears",
+        "which",
+        "horsehairs",
+        "and",
+        "calves'",
+        "guts,",
+        "nor",
+        "the",
+        "voice",
+        "of",
+        "unpaved",
+        "eunuch",
+        "to",
+        "boot,",
+        "can",
+        "never",
+        "amend."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          42,
+          0,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cloten,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "cloten",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "So,",
+          "start": 0.97,
+          "end": 1.17,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 1.35,
+          "end": 1.43,
+          "key": "get",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gone.",
+          "start": 1.61,
+          "end": 1.91,
+          "key": "gone",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 2.59,
+          "end": 2.73,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.73,
+          "end": 2.93,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "penetrate,",
+          "start": 2.93,
+          "end": 3.41,
+          "key": "penetrate",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.73,
+          "end": 3.75,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.75,
+          "end": 3.89,
+          "key": "will",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "consider",
+          "start": 3.89,
+          "end": 4.21,
+          "key": "consider",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.21,
+          "end": 4.49,
+          "key": "your",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "music",
+          "start": 4.49,
+          "end": 4.83,
+          "key": "music",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.83,
+          "end": 5.03,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "better.",
+          "start": 5.03,
+          "end": 5.27,
+          "key": "better",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 5.77,
+          "end": 5.89,
+          "key": "if",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.89,
+          "end": 5.99,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 5.99,
+          "end": 6.15,
+          "key": "do",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 6.15,
+          "end": 6.45,
+          "key": "not",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.89,
+          "end": 6.97,
+          "key": "it",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.97,
+          "end": 7.09,
+          "key": "is",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.09,
+          "end": 7.21,
+          "key": "a",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "vice",
+          "start": 7.21,
+          "end": 7.43,
+          "key": "vice",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.43,
+          "end": 7.69,
+          "key": "in",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 7.69,
+          "end": 7.81,
+          "key": "her",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "ears",
+          "start": 7.81,
+          "end": 8.13,
+          "key": "ears",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 8.13,
+          "end": 8.43,
+          "key": "which",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "horsehairs",
+          "start": 8.43,
+          "end": 9.01,
+          "key": "horsehairs",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.01,
+          "end": 9.25,
+          "key": "and",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "calves'",
+          "start": 9.25,
+          "end": 9.65,
+          "key": "calves",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "guts,",
+          "start": 9.81,
+          "end": 10.07,
+          "key": "guts",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 10.61,
+          "end": 10.67,
+          "key": "nor",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.67,
+          "end": 10.85,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 10.85,
+          "end": 11.03,
+          "key": "voice",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.03,
+          "end": 11.21,
+          "key": "of",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "unpaved",
+          "start": 11.21,
+          "end": 11.81,
+          "key": "unpaved",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "eunuch",
+          "start": 11.81,
+          "end": 12.19,
+          "key": "eunuch",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.19,
+          "end": 12.33,
+          "key": "to",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "boot,",
+          "start": 12.33,
+          "end": 12.61,
+          "key": "boot",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 12.91,
+          "end": 13.03,
+          "key": "can",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 13.03,
+          "end": 13.35,
+          "key": "never",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "amend.",
+          "start": 13.35,
+          "end": 13.69,
+          "key": "amend",
+          "pieces": [
+            41
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cloten.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "So,",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "text": "get",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "text": "you",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "gone.",
+          "start": 1.61,
+          "end": 1.91
+        },
+        {
+          "text": "If",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "text": "this",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "text": "penetrate,",
+          "start": 2.93,
+          "end": 3.41
+        },
+        {
+          "text": "I",
+          "start": 3.73,
+          "end": 3.75
+        },
+        {
+          "text": "will",
+          "start": 3.75,
+          "end": 3.89
+        },
+        {
+          "text": "consider",
+          "start": 3.89,
+          "end": 4.21
+        },
+        {
+          "text": "your",
+          "start": 4.21,
+          "end": 4.49
+        },
+        {
+          "text": "music",
+          "start": 4.49,
+          "end": 4.83
+        },
+        {
+          "text": "the",
+          "start": 4.83,
+          "end": 5.03
+        },
+        {
+          "text": "better;",
+          "start": 5.03,
+          "end": 5.27
+        },
+        {
+          "text": "if",
+          "start": 5.77,
+          "end": 5.89
+        },
+        {
+          "text": "it",
+          "start": 5.89,
+          "end": 5.99
+        },
+        {
+          "text": "do",
+          "start": 5.99,
+          "end": 6.15
+        },
+        {
+          "text": "not,",
+          "start": 6.15,
+          "end": 6.45
+        },
+        {
+          "text": "it",
+          "start": 6.89,
+          "end": 6.97
+        },
+        {
+          "text": "is",
+          "start": 6.97,
+          "end": 7.09
+        },
+        {
+          "text": "a",
+          "start": 7.09,
+          "end": 7.21
+        },
+        {
+          "text": "vice",
+          "start": 7.21,
+          "end": 7.43
+        },
+        {
+          "text": "in",
+          "start": 7.43,
+          "end": 7.69
+        },
+        {
+          "text": "her",
+          "start": 7.69,
+          "end": 7.81
+        },
+        {
+          "text": "ears",
+          "start": 7.81,
+          "end": 8.13
+        },
+        {
+          "text": "which",
+          "start": 8.13,
+          "end": 8.43
+        },
+        {
+          "text": "horsehairs",
+          "start": 8.43,
+          "end": 9.01
+        },
+        {
+          "text": "and",
+          "start": 9.01,
+          "end": 9.25
+        },
+        {
+          "text": "calves'",
+          "start": 9.25,
+          "end": 9.65
+        },
+        {
+          "text": "guts,",
+          "start": 9.81,
+          "end": 10.07
+        },
+        {
+          "text": "nor",
+          "start": 10.61,
+          "end": 10.67
+        },
+        {
+          "text": "the",
+          "start": 10.67,
+          "end": 10.85
+        },
+        {
+          "text": "voice",
+          "start": 10.85,
+          "end": 11.03
+        },
+        {
+          "text": "of",
+          "start": 11.03,
+          "end": 11.21
+        },
+        {
+          "text": "unpaved",
+          "start": 11.21,
+          "end": 11.81
+        },
+        {
+          "text": "eunuch",
+          "start": 11.81,
+          "end": 12.19
+        },
+        {
+          "text": "to",
+          "start": 12.19,
+          "end": 12.33
+        },
+        {
+          "text": "boot,",
+          "start": 12.33,
+          "end": 12.61
+        },
+        {
+          "text": "can",
+          "start": 12.91,
+          "end": 13.03
+        },
+        {
+          "text": "never",
+          "start": 13.03,
+          "end": 13.35
+        },
+        {
+          "text": "amend.",
+          "start": 13.35,
+          "end": 13.69
+        }
+      ],
+      "stats": {
+        "expected_words": 42,
+        "heard_words": 42,
+        "matched_words": 42
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5133899934589863
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ae95e50a3ef31ba6055fdf3f907af6f984bfc8de5beaa5a3e3c4aa921ada7d69",
+  "selected_reasons": []
+}

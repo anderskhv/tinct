@@ -1,0 +1,23 @@
+[2026-09-12T05:27:31Z] adopted zhrf869z78rkgd tinct-words-run2-16 gpu=None $0.49/hr batch=1
+[2026-09-12T05:27:32Z] phase aligning at 3.1 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T05:27:32Z] 3.1 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 149}
+[2026-09-12T05:28:03Z] 3.6 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 231}
+[2026-09-12T05:28:34Z] 4.1 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 313}
+[2026-09-12T05:29:04Z] 4.6 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 401}
+[2026-09-12T05:29:35Z] 5.2 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 485}
+[2026-09-12T05:30:06Z] 5.7 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 577}
+[2026-09-12T05:30:37Z] 6.2 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 634}
+[2026-09-12T05:31:07Z] 6.7 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 712}
+[2026-09-12T05:31:41Z] snapshot 1583950 bytes
+[2026-09-12T05:31:41Z] 7.2 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 765}
+[2026-09-12T05:32:12Z] 7.8 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 844}
+[2026-09-12T05:32:43Z] 8.3 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 892}
+[2026-09-12T05:33:14Z] 8.8 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 959}
+[2026-09-12T05:33:44Z] 9.3 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 1006}
+[2026-09-12T05:34:16Z] 9.8 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 1105}
+[2026-09-12T05:34:47Z] phase done at 10.4 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T05:34:47Z] 10.4 min: done {"arm_chapters_passed": 1, "arm_chapters_rejected": 1, "arm_chapters_running": 0, "paragraph_diagnostics": 1126}
+[2026-09-12T05:34:55Z] fetched out.tar.gz (2466837 bytes)
+[2026-09-12T05:34:57Z] stop zhrf869z78rkgd: HTTP 200
+[2026-09-12T05:34:59Z] terminate zhrf869z78rkgd: HTTP 204
+[2026-09-12T05:34:59Z] pod zhrf869z78rkgd done: outcome=done uptime=10.5m est $0.09

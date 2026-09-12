@@ -1,0 +1,504 @@
+{
+  "complete": true,
+  "signature": "98758a823c71995adb2c3fa1a154a205ed80fe27dbd6b169e215a0cac8446947",
+  "attempts": [
+    {
+      "asr_seconds": 0.25072624534368515,
+      "alignment_seconds": 0.00037464872002601624,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prokuleus, so Dalle Bella it shall content me best be gentle to her",
+          "start": 0.02,
+          "end": 4.7,
+          "words": [
+            {
+              "text": " Prokuleus,",
+              "start": 0.02,
+              "end": 1.14,
+              "probability": 0.542144775390625
+            },
+            {
+              "text": " so",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " Dalle",
+              "start": 1.7,
+              "end": 1.94,
+              "probability": 0.4525146484375
+            },
+            {
+              "text": " Bella",
+              "start": 1.94,
+              "end": 2.22,
+              "probability": 0.5654296875
+            },
+            {
+              "text": " it",
+              "start": 2.22,
+              "end": 2.42,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " shall",
+              "start": 2.42,
+              "end": 2.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " content",
+              "start": 2.58,
+              "end": 2.88,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " me",
+              "start": 2.88,
+              "end": 3.08,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " best",
+              "start": 3.08,
+              "end": 3.42,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 3.42,
+              "end": 3.88,
+              "probability": 0.41015625
+            },
+            {
+              "text": " gentle",
+              "start": 3.88,
+              "end": 4.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 4.16,
+              "end": 4.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 4.44,
+              "end": 4.7,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prokuleus,",
+          "start": 0.02,
+          "end": 1.14
+        },
+        {
+          "raw": "so",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "raw": "Dalle",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "raw": "Bella",
+          "start": 1.94,
+          "end": 2.22
+        },
+        {
+          "raw": "it",
+          "start": 2.22,
+          "end": 2.42
+        },
+        {
+          "raw": "shall",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "raw": "content",
+          "start": 2.58,
+          "end": 2.88
+        },
+        {
+          "raw": "me",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "raw": "best",
+          "start": 3.08,
+          "end": 3.42
+        },
+        {
+          "raw": "be",
+          "start": 3.42,
+          "end": 3.88
+        },
+        {
+          "raw": "gentle",
+          "start": 3.88,
+          "end": 4.16
+        },
+        {
+          "raw": "to",
+          "start": 4.16,
+          "end": 4.44
+        },
+        {
+          "raw": "her",
+          "start": 4.44,
+          "end": 4.7
+        }
+      ],
+      "expected_tokens": [
+        "Proculeius.",
+        "So,",
+        "Dolabella,",
+        "It",
+        "shall",
+        "content",
+        "me",
+        "best.",
+        "Be",
+        "gentle",
+        "to",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          12,
+          4,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Prokuleus,",
+          "start": 0.02,
+          "end": 1.14,
+          "key": "prokuleus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.48,
+          "end": 1.7,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dalle",
+          "start": 1.7,
+          "end": 1.94,
+          "key": "dalle",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Bella",
+          "start": 1.94,
+          "end": 2.22,
+          "key": "bella",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.22,
+          "end": 2.42,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.42,
+          "end": 2.58,
+          "key": "shall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "content",
+          "start": 2.58,
+          "end": 2.88,
+          "key": "content",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.88,
+          "end": 3.08,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 3.08,
+          "end": 3.42,
+          "key": "best",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.42,
+          "end": 3.88,
+          "key": "be",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "gentle",
+          "start": 3.88,
+          "end": 4.16,
+          "key": "gentle",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.16,
+          "end": 4.44,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.44,
+          "end": 4.7,
+          "key": "her",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Proculeius.",
+          "start": 0.0,
+          "end": 0.74
+        },
+        {
+          "text": "So,",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "text": "Dolabella,",
+          "start": 1.7,
+          "end": 1.96
+        },
+        {
+          "text": "It",
+          "start": 2.22,
+          "end": 2.42
+        },
+        {
+          "text": "shall",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "text": "content",
+          "start": 2.58,
+          "end": 2.88
+        },
+        {
+          "text": "me",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "text": "best.",
+          "start": 3.08,
+          "end": 3.42
+        },
+        {
+          "text": "Be",
+          "start": 3.42,
+          "end": 3.88
+        },
+        {
+          "text": "gentle",
+          "start": 3.88,
+          "end": 4.16
+        },
+        {
+          "text": "to",
+          "start": 4.16,
+          "end": 4.44
+        },
+        {
+          "text": "her.",
+          "start": 4.44,
+          "end": 4.7
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2512307809665799
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1ccacbacbef915477791c3fc2f39b89f0a2a5a410b901374b7889c5b5e40bf41",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

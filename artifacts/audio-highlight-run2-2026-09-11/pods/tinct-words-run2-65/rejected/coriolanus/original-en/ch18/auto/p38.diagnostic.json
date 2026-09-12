@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "a9681682ea6afca5adf4d8126972ca785ef06108b86212cb96241511a91f9f3b",
+  "attempts": [
+    {
+      "asr_seconds": 0.13875928614288568,
+      "alignment_seconds": 0.00018774578347802162,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menenius. Fie, fie, fie!",
+        "hotwords": "Menenius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menenius. Fie, fie, fie!",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Menenius.",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.5382486979166666
+            },
+            {
+              "text": " Fie,",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.0617828369140625
+            },
+            {
+              "text": " fie,",
+              "start": 1.67,
+              "end": 1.81,
+              "probability": 0.6309814453125
+            },
+            {
+              "text": " fie!",
+              "start": 1.81,
+              "end": 2.07,
+              "probability": 0.907470703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "Fie,",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "fie,",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "raw": "fie!",
+          "start": 1.81,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "Fie,",
+        "fie,",
+        "fie!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius.",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fie,",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "fie",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fie,",
+          "start": 1.67,
+          "end": 1.81,
+          "key": "fie",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fie!",
+          "start": 1.81,
+          "end": 2.07,
+          "key": "fie",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "Fie,",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "fie,",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "text": "fie!",
+          "start": 1.81,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1390138939023018
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c29a39a31988e27650ad57d33598740a334ed7be668e1c88a0453eea9c79fb4b",
+  "selected_reasons": []
+}

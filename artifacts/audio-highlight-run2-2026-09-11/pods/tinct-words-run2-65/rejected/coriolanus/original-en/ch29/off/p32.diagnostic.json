@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "f2c5d1c4d87188b212c043d20edd508bb6efaee5b3249b15923a8d8bb42ecc37",
+  "attempts": [
+    {
+      "asr_seconds": 0.14824877167120576,
+      "alignment_seconds": 0.0001888158731162548,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Coriolanus. Traitor. How now.",
+          "start": 0.05,
+          "end": 2.45,
+          "words": [
+            {
+              "text": " Coriolanus.",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.72265625
+            },
+            {
+              "text": " Traitor.",
+              "start": 1.43,
+              "end": 1.87,
+              "probability": 0.62109375
+            },
+            {
+              "text": " How",
+              "start": 2.11,
+              "end": 2.19,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " now.",
+              "start": 2.19,
+              "end": 2.45,
+              "probability": 0.896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus.",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "raw": "Traitor.",
+          "start": 1.43,
+          "end": 1.87
+        },
+        {
+          "raw": "How",
+          "start": 2.11,
+          "end": 2.19
+        },
+        {
+          "raw": "now.",
+          "start": 2.19,
+          "end": 2.45
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "\"Traitor?\"",
+        "How",
+        "now?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus.",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Traitor.",
+          "start": 1.43,
+          "end": 1.87,
+          "key": "traitor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.11,
+          "end": 2.19,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 2.19,
+          "end": 2.45,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "text": "\"Traitor?\"",
+          "start": 1.43,
+          "end": 1.87
+        },
+        {
+          "text": "How",
+          "start": 2.11,
+          "end": 2.19
+        },
+        {
+          "text": "now?",
+          "start": 2.19,
+          "end": 2.45
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1485177199356258
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "51fda0cc71236c3c8c1a8f732d14aefdd16fba7cce0d44c92b8b5703c5d1bc50",
+  "selected_reasons": []
+}

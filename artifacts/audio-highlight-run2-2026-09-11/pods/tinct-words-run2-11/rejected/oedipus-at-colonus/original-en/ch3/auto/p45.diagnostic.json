@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "efad2b8c15cadd7cf84a2fdf922f0e908ab96058704d0cbb24affd713d7a164e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1870907498523593,
+      "alignment_seconds": 0.0004893569275736809,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ismene. So say the envoys who returned to Thebes.",
+        "hotwords": "Ismene, So, Thebes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ismene, So say the envoys who returned to Thebes.",
+          "start": 0.08,
+          "end": 3.2,
+          "words": [
+            {
+              "text": " Ismene,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.5222981770833334
+            },
+            {
+              "text": " So",
+              "start": 1.2,
+              "end": 1.36,
+              "probability": 0.00811004638671875
+            },
+            {
+              "text": " say",
+              "start": 1.36,
+              "end": 1.54,
+              "probability": 0.90234375
+            },
+            {
+              "text": " the",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.974609375
+            },
+            {
+              "text": " envoys",
+              "start": 1.68,
+              "end": 2.1,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " who",
+              "start": 2.1,
+              "end": 2.26,
+              "probability": 0.93359375
+            },
+            {
+              "text": " returned",
+              "start": 2.26,
+              "end": 2.56,
+              "probability": 0.391357421875
+            },
+            {
+              "text": " to",
+              "start": 2.56,
+              "end": 2.8,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Thebes.",
+              "start": 2.8,
+              "end": 3.2,
+              "probability": 0.969482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ismene,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "So",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "raw": "say",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "raw": "the",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "envoys",
+          "start": 1.68,
+          "end": 2.1
+        },
+        {
+          "raw": "who",
+          "start": 2.1,
+          "end": 2.26
+        },
+        {
+          "raw": "returned",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "raw": "to",
+          "start": 2.56,
+          "end": 2.8
+        },
+        {
+          "raw": "Thebes.",
+          "start": 2.8,
+          "end": 3.2
+        }
+      ],
+      "expected_tokens": [
+        "Ismene.",
+        "So",
+        "say",
+        "the",
+        "envoys",
+        "who",
+        "returned",
+        "to",
+        "Thebes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ismene,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "ismene",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 1.2,
+          "end": 1.36,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.36,
+          "end": 1.54,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "envoys",
+          "start": 1.68,
+          "end": 2.1,
+          "key": "envoys",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 2.1,
+          "end": 2.26,
+          "key": "who",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "returned",
+          "start": 2.26,
+          "end": 2.56,
+          "key": "returned",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.56,
+          "end": 2.8,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Thebes.",
+          "start": 2.8,
+          "end": 3.2,
+          "key": "thebes",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ismene.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "So",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "text": "say",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "text": "the",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "envoys",
+          "start": 1.68,
+          "end": 2.1
+        },
+        {
+          "text": "who",
+          "start": 2.1,
+          "end": 2.26
+        },
+        {
+          "text": "returned",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "text": "to",
+          "start": 2.56,
+          "end": 2.8
+        },
+        {
+          "text": "Thebes.",
+          "start": 2.8,
+          "end": 3.2
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18778245337307453
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b33bf26ed4b37c0bd1e0931d673bf9c6d5193a1d0383029f40a490a6b1fbaf42",
+  "selected_reasons": []
+}

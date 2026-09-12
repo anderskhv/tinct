@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "f02926aa4820d613259ef4fdbab5359559eb4a4fa501bc4749a5d5075bbf5e75",
+  "attempts": [
+    {
+      "asr_seconds": 0.19950204412452877,
+      "alignment_seconds": 0.0004695388488471508,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Read that, she said. He got it this morning.",
+          "start": 0.05,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " Read",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.1123046875
+            },
+            {
+              "text": " that,",
+              "start": 0.63,
+              "end": 0.93,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " she",
+              "start": 0.99,
+              "end": 1.13,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " said.",
+              "start": 1.13,
+              "end": 1.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He",
+              "start": 1.75,
+              "end": 1.91,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " got",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 2.05,
+              "end": 2.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this",
+              "start": 2.15,
+              "end": 2.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " morning.",
+              "start": 2.27,
+              "end": 2.55,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Read",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "that,",
+          "start": 0.63,
+          "end": 0.93
+        },
+        {
+          "raw": "she",
+          "start": 0.99,
+          "end": 1.13
+        },
+        {
+          "raw": "said.",
+          "start": 1.13,
+          "end": 1.41
+        },
+        {
+          "raw": "He",
+          "start": 1.75,
+          "end": 1.91
+        },
+        {
+          "raw": "got",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "it",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "raw": "this",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "raw": "morning.",
+          "start": 2.27,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "—Read",
+        "that,",
+        "she",
+        "said.",
+        "He",
+        "got",
+        "it",
+        "this",
+        "morning."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Read",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "read",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 0.63,
+          "end": 0.93,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.99,
+          "end": 1.13,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.13,
+          "end": 1.41,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.75,
+          "end": 1.91,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "got",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.05,
+          "end": 2.15,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.15,
+          "end": 2.27,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "morning.",
+          "start": 2.27,
+          "end": 2.55,
+          "key": "morning",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Read",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "that,",
+          "start": 0.63,
+          "end": 0.93
+        },
+        {
+          "text": "she",
+          "start": 0.99,
+          "end": 1.13
+        },
+        {
+          "text": "said.",
+          "start": 1.13,
+          "end": 1.41
+        },
+        {
+          "text": "He",
+          "start": 1.75,
+          "end": 1.91
+        },
+        {
+          "text": "got",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "text": "it",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "text": "this",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "text": "morning.",
+          "start": 2.27,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20014577102847397
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b52496eba5dbcae475a566a64d8095fc996dac76e503a655e9a08041c317fa4e",
+  "selected_reasons": []
+}

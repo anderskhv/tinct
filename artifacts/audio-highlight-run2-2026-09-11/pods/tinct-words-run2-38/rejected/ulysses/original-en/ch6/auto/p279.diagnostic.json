@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "743aad88715379f07190d2f654f0f7154375514133d2401e8dd02e678f150301",
+  "attempts": [
+    {
+      "asr_seconds": 0.20959830295760185,
+      "alignment_seconds": 0.00031236099312081933,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Her grave is over there, Jack, Mr Dedalus said. I'll soon be stretched beside her. Let Him take me whenever He likes.",
+        "hotwords": "Jack, Mr, Dedalus, I'll, Let, Him, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Her grave is over there, Jack, Mr, Dedalus said. I'll soon be stretched beside her. Let Him take me whenever He likes.",
+          "start": 0.05,
+          "end": 6.91,
+          "words": [
+            {
+              "text": " Her",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.1356201171875
+            },
+            {
+              "text": " grave",
+              "start": 0.55,
+              "end": 0.85,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " is",
+              "start": 0.85,
+              "end": 1.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " over",
+              "start": 1.01,
+              "end": 1.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " there,",
+              "start": 1.29,
+              "end": 1.59,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Jack,",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Mr,",
+              "start": 2.15,
+              "end": 2.35,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " Dedalus",
+              "start": 2.55,
+              "end": 2.73,
+              "probability": 0.282562255859375
+            },
+            {
+              "text": " said.",
+              "start": 2.73,
+              "end": 3.09,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " I'll",
+              "start": 3.63,
+              "end": 3.71,
+              "probability": 0.98046875
+            },
+            {
+              "text": " soon",
+              "start": 3.71,
+              "end": 3.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 3.89,
+              "end": 4.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " stretched",
+              "start": 4.09,
+              "end": 4.41,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " beside",
+              "start": 4.41,
+              "end": 4.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " her.",
+              "start": 4.79,
+              "end": 5.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Let",
+              "start": 5.55,
+              "end": 5.65,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Him",
+              "start": 5.65,
+              "end": 5.77,
+              "probability": 0.0012407302856445312
+            },
+            {
+              "text": " take",
+              "start": 5.77,
+              "end": 5.95,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " me",
+              "start": 5.95,
+              "end": 6.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " whenever",
+              "start": 6.15,
+              "end": 6.35,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " He",
+              "start": 6.35,
+              "end": 6.63,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " likes.",
+              "start": 6.63,
+              "end": 6.91,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Her",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "grave",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "raw": "is",
+          "start": 0.85,
+          "end": 1.01
+        },
+        {
+          "raw": "over",
+          "start": 1.01,
+          "end": 1.29
+        },
+        {
+          "raw": "there,",
+          "start": 1.29,
+          "end": 1.59
+        },
+        {
+          "raw": "Jack,",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "Mr,",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "raw": "Dedalus",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "raw": "said.",
+          "start": 2.73,
+          "end": 3.09
+        },
+        {
+          "raw": "I'll",
+          "start": 3.63,
+          "end": 3.71
+        },
+        {
+          "raw": "soon",
+          "start": 3.71,
+          "end": 3.89
+        },
+        {
+          "raw": "be",
+          "start": 3.89,
+          "end": 4.09
+        },
+        {
+          "raw": "stretched",
+          "start": 4.09,
+          "end": 4.41
+        },
+        {
+          "raw": "beside",
+          "start": 4.41,
+          "end": 4.79
+        },
+        {
+          "raw": "her.",
+          "start": 4.79,
+          "end": 5.09
+        },
+        {
+          "raw": "Let",
+          "start": 5.55,
+          "end": 5.65
+        },
+        {
+          "raw": "Him",
+          "start": 5.65,
+          "end": 5.77
+        },
+        {
+          "raw": "take",
+          "start": 5.77,
+          "end": 5.95
+        },
+        {
+          "raw": "me",
+          "start": 5.95,
+          "end": 6.15
+        },
+        {
+          "raw": "whenever",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "raw": "He",
+          "start": 6.35,
+          "end": 6.63
+        },
+        {
+          "raw": "likes.",
+          "start": 6.63,
+          "end": 6.91
+        }
+      ],
+      "expected_tokens": [
+        "—Her",
+        "grave",
+        "is",
+        "over",
+        "there,",
+        "Jack,",
+        "Mr",
+        "Dedalus",
+        "said.",
+        "I'll",
+        "soon",
+        "be",
+        "stretched",
+        "beside",
+        "her.",
+        "Let",
+        "Him",
+        "take",
+        "me",
+        "whenever",
+        "He",
+        "likes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Her",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "her",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "grave",
+          "start": 0.55,
+          "end": 0.85,
+          "key": "grave",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.85,
+          "end": 1.01,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 1.01,
+          "end": 1.29,
+          "key": "over",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 1.29,
+          "end": 1.59,
+          "key": "there",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Jack,",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "jack",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Mr,",
+          "start": 2.15,
+          "end": 2.35,
+          "key": "mr",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Dedalus",
+          "start": 2.55,
+          "end": 2.73,
+          "key": "dedalus",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.73,
+          "end": 3.09,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 3.63,
+          "end": 3.71,
+          "key": "ill",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "soon",
+          "start": 3.71,
+          "end": 3.89,
+          "key": "soon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.89,
+          "end": 4.09,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "stretched",
+          "start": 4.09,
+          "end": 4.41,
+          "key": "stretched",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "beside",
+          "start": 4.41,
+          "end": 4.79,
+          "key": "beside",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 4.79,
+          "end": 5.09,
+          "key": "her",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 5.55,
+          "end": 5.65,
+          "key": "let",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Him",
+          "start": 5.65,
+          "end": 5.77,
+          "key": "him",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 5.77,
+          "end": 5.95,
+          "key": "take",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.95,
+          "end": 6.15,
+          "key": "me",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "whenever",
+          "start": 6.15,
+          "end": 6.35,
+          "key": "whenever",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 6.35,
+          "end": 6.63,
+          "key": "he",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "likes.",
+          "start": 6.63,
+          "end": 6.91,
+          "key": "likes",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Her",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "grave",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "text": "is",
+          "start": 0.85,
+          "end": 1.01
+        },
+        {
+          "text": "over",
+          "start": 1.01,
+          "end": 1.29
+        },
+        {
+          "text": "there,",
+          "start": 1.29,
+          "end": 1.59
+        },
+        {
+          "text": "Jack,",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "Mr",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "text": "Dedalus",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "text": "said.",
+          "start": 2.73,
+          "end": 3.09
+        },
+        {
+          "text": "I'll",
+          "start": 3.63,
+          "end": 3.71
+        },
+        {
+          "text": "soon",
+          "start": 3.71,
+          "end": 3.89
+        },
+        {
+          "text": "be",
+          "start": 3.89,
+          "end": 4.09
+        },
+        {
+          "text": "stretched",
+          "start": 4.09,
+          "end": 4.41
+        },
+        {
+          "text": "beside",
+          "start": 4.41,
+          "end": 4.79
+        },
+        {
+          "text": "her.",
+          "start": 4.79,
+          "end": 5.09
+        },
+        {
+          "text": "Let",
+          "start": 5.55,
+          "end": 5.65
+        },
+        {
+          "text": "Him",
+          "start": 5.65,
+          "end": 5.77
+        },
+        {
+          "text": "take",
+          "start": 5.77,
+          "end": 5.95
+        },
+        {
+          "text": "me",
+          "start": 5.95,
+          "end": 6.15
+        },
+        {
+          "text": "whenever",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "text": "He",
+          "start": 6.35,
+          "end": 6.63
+        },
+        {
+          "text": "likes.",
+          "start": 6.63,
+          "end": 6.91
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2100315149873495
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8c757977d44c2d0360d6b36d98b7670d42c60bf29043a3ce2cacb1e193127770",
+  "selected_reasons": []
+}

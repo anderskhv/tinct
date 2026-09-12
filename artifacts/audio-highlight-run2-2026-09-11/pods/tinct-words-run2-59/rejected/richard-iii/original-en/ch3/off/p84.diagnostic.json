@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "2f12a6d4a6c346ad02282cc3c70ebf6104cd74aaf5fac3db063cd3667a6181b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.2178485079202801,
+      "alignment_seconds": 0.00038656312972307205,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Queen Margaret, I call thee not.",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " Margaret,",
+              "start": 0.57,
+              "end": 0.99,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " I",
+              "start": 1.35,
+              "end": 1.43,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " call",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.9921875
+            },
+            {
+              "text": " thee",
+              "start": 1.61,
+              "end": 1.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not.",
+              "start": 1.75,
+              "end": 2.01,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Margaret,",
+          "start": 0.57,
+          "end": 0.99
+        },
+        {
+          "raw": "I",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "raw": "call",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "thee",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "raw": "not.",
+          "start": 1.75,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Margaret.",
+        "I",
+        "call",
+        "thee",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Margaret,",
+          "start": 0.57,
+          "end": 0.99,
+          "key": "margaret",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.35,
+          "end": 1.43,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "call",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.61,
+          "end": 1.75,
+          "key": "thee",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 1.75,
+          "end": 2.01,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Margaret.",
+          "start": 0.57,
+          "end": 0.99
+        },
+        {
+          "text": "I",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "text": "call",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "thee",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "text": "not.",
+          "start": 1.75,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2183906480204314
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0eff6eb6145c66b65e5dcc7caf4c00a3820c513e148c41f2d81ea6a02f9f229b",
+  "selected_reasons": []
+}

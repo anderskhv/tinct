@@ -1,0 +1,2011 @@
+{
+  "complete": true,
+  "signature": "3aa124ffd8b1cb40a7ec655b5df83579f79fa953b5ed3f276b89ebe503ef4c3e",
+  "attempts": [
+    {
+      "asr_seconds": 0.3518809098750353,
+      "alignment_seconds": 0.0006849393248558044,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Lord. Your lordship is the most patient man in loss, the most coldest that ever turn'd up ace.",
+        "hotwords": "First, Lord, Your"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First, Lord, Your lordship is the most patient man in loss, the most coldest that ever turned up ace.",
+          "start": 0.05,
+          "end": 6.39,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.8828125
+            },
+            {
+              "text": " Lord,",
+              "start": 0.83,
+              "end": 0.95,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " Your",
+              "start": 1.59,
+              "end": 1.77,
+              "probability": 0.0360107421875
+            },
+            {
+              "text": " lordship",
+              "start": 1.77,
+              "end": 2.21,
+              "probability": 0.784912109375
+            },
+            {
+              "text": " is",
+              "start": 2.21,
+              "end": 2.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 2.37,
+              "end": 2.49,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " most",
+              "start": 2.49,
+              "end": 2.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " patient",
+              "start": 2.67,
+              "end": 3.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " man",
+              "start": 3.13,
+              "end": 3.43,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " in",
+              "start": 3.43,
+              "end": 3.63,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " loss,",
+              "start": 3.63,
+              "end": 3.89,
+              "probability": 0.921875
+            },
+            {
+              "text": " the",
+              "start": 4.41,
+              "end": 4.49,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " most",
+              "start": 4.49,
+              "end": 4.69,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " coldest",
+              "start": 4.69,
+              "end": 5.25,
+              "probability": 0.9921875
+            },
+            {
+              "text": " that",
+              "start": 5.25,
+              "end": 5.41,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " ever",
+              "start": 5.41,
+              "end": 5.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " turned",
+              "start": 5.61,
+              "end": 5.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " up",
+              "start": 5.95,
+              "end": 6.13,
+              "probability": 0.970703125
+            },
+            {
+              "text": " ace.",
+              "start": 6.13,
+              "end": 6.39,
+              "probability": 0.1702880859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Lord,",
+          "start": 0.83,
+          "end": 0.95
+        },
+        {
+          "raw": "Your",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "raw": "lordship",
+          "start": 1.77,
+          "end": 2.21
+        },
+        {
+          "raw": "is",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "raw": "the",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "raw": "most",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "raw": "patient",
+          "start": 2.67,
+          "end": 3.13
+        },
+        {
+          "raw": "man",
+          "start": 3.13,
+          "end": 3.43
+        },
+        {
+          "raw": "in",
+          "start": 3.43,
+          "end": 3.63
+        },
+        {
+          "raw": "loss,",
+          "start": 3.63,
+          "end": 3.89
+        },
+        {
+          "raw": "the",
+          "start": 4.41,
+          "end": 4.49
+        },
+        {
+          "raw": "most",
+          "start": 4.49,
+          "end": 4.69
+        },
+        {
+          "raw": "coldest",
+          "start": 4.69,
+          "end": 5.25
+        },
+        {
+          "raw": "that",
+          "start": 5.25,
+          "end": 5.41
+        },
+        {
+          "raw": "ever",
+          "start": 5.41,
+          "end": 5.61
+        },
+        {
+          "raw": "turned",
+          "start": 5.61,
+          "end": 5.95
+        },
+        {
+          "raw": "up",
+          "start": 5.95,
+          "end": 6.13
+        },
+        {
+          "raw": "ace.",
+          "start": 6.13,
+          "end": 6.39
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Lord.",
+        "Your",
+        "lordship",
+        "is",
+        "the",
+        "most",
+        "patient",
+        "man",
+        "in",
+        "loss,",
+        "the",
+        "most",
+        "coldest",
+        "that",
+        "ever",
+        "turn'd",
+        "up",
+        "ace."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ],
+        [
+          "equal",
+          17,
+          19,
+          17,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lord,",
+          "start": 0.83,
+          "end": 0.95,
+          "key": "lord",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 1.59,
+          "end": 1.77,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lordship",
+          "start": 1.77,
+          "end": 2.21,
+          "key": "lordship",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.21,
+          "end": 2.37,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.37,
+          "end": 2.49,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.49,
+          "end": 2.67,
+          "key": "most",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "patient",
+          "start": 2.67,
+          "end": 3.13,
+          "key": "patient",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 3.13,
+          "end": 3.43,
+          "key": "man",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.43,
+          "end": 3.63,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "loss,",
+          "start": 3.63,
+          "end": 3.89,
+          "key": "loss",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.41,
+          "end": 4.49,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 4.49,
+          "end": 4.69,
+          "key": "most",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "coldest",
+          "start": 4.69,
+          "end": 5.25,
+          "key": "coldest",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.25,
+          "end": 5.41,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 5.41,
+          "end": 5.61,
+          "key": "ever",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 5.61,
+          "end": 5.95,
+          "key": "turned",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 5.95,
+          "end": 6.13,
+          "key": "up",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "ace.",
+          "start": 6.13,
+          "end": 6.39,
+          "key": "ace",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Lord.",
+          "start": 0.83,
+          "end": 0.95
+        },
+        {
+          "text": "Your",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "text": "lordship",
+          "start": 1.77,
+          "end": 2.21
+        },
+        {
+          "text": "is",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "text": "the",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "text": "most",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "text": "patient",
+          "start": 2.67,
+          "end": 3.13
+        },
+        {
+          "text": "man",
+          "start": 3.13,
+          "end": 3.43
+        },
+        {
+          "text": "in",
+          "start": 3.43,
+          "end": 3.63
+        },
+        {
+          "text": "loss,",
+          "start": 3.63,
+          "end": 3.89
+        },
+        {
+          "text": "the",
+          "start": 4.41,
+          "end": 4.49
+        },
+        {
+          "text": "most",
+          "start": 4.49,
+          "end": 4.69
+        },
+        {
+          "text": "coldest",
+          "start": 4.69,
+          "end": 5.25
+        },
+        {
+          "text": "that",
+          "start": 5.25,
+          "end": 5.41
+        },
+        {
+          "text": "ever",
+          "start": 5.41,
+          "end": 5.61
+        },
+        {
+          "text": "turn'd",
+          "start": 5.61,
+          "end": 5.78
+        },
+        {
+          "text": "up",
+          "start": 5.95,
+          "end": 6.13
+        },
+        {
+          "text": "ace.",
+          "start": 6.13,
+          "end": 6.39
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.35288839414715767
+    },
+    {
+      "asr_seconds": 0.32262505777180195,
+      "alignment_seconds": 0.0007626060396432877,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "First, Lord, Your"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Lordship is the most patient man in loss, the most coldest that ever turned up Ace.",
+          "start": 1.77,
+          "end": 6.39,
+          "words": [
+            {
+              "text": " Lordship",
+              "start": 1.77,
+              "end": 2.23,
+              "probability": 0.4978027641773224
+            },
+            {
+              "text": " is",
+              "start": 2.23,
+              "end": 2.33,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " the",
+              "start": 2.33,
+              "end": 2.49,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " most",
+              "start": 2.49,
+              "end": 2.67,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " patient",
+              "start": 2.67,
+              "end": 3.09,
+              "probability": 0.978515625
+            },
+            {
+              "text": " man",
+              "start": 3.09,
+              "end": 3.43,
+              "probability": 0.990234375
+            },
+            {
+              "text": " in",
+              "start": 3.43,
+              "end": 3.61,
+              "probability": 0.953125
+            },
+            {
+              "text": " loss,",
+              "start": 3.61,
+              "end": 3.89,
+              "probability": 0.861328125
+            },
+            {
+              "text": " the",
+              "start": 4.47,
+              "end": 4.49,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " most",
+              "start": 4.49,
+              "end": 4.69,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " coldest",
+              "start": 4.69,
+              "end": 5.27,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " that",
+              "start": 5.27,
+              "end": 5.41,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " ever",
+              "start": 5.41,
+              "end": 5.61,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " turned",
+              "start": 5.61,
+              "end": 5.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " up",
+              "start": 5.95,
+              "end": 6.13,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Ace.",
+              "start": 6.13,
+              "end": 6.39,
+              "probability": 0.7451171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lordship",
+          "start": 1.77,
+          "end": 2.23
+        },
+        {
+          "raw": "is",
+          "start": 2.23,
+          "end": 2.33
+        },
+        {
+          "raw": "the",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "raw": "most",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "raw": "patient",
+          "start": 2.67,
+          "end": 3.09
+        },
+        {
+          "raw": "man",
+          "start": 3.09,
+          "end": 3.43
+        },
+        {
+          "raw": "in",
+          "start": 3.43,
+          "end": 3.61
+        },
+        {
+          "raw": "loss,",
+          "start": 3.61,
+          "end": 3.89
+        },
+        {
+          "raw": "the",
+          "start": 4.47,
+          "end": 4.49
+        },
+        {
+          "raw": "most",
+          "start": 4.49,
+          "end": 4.69
+        },
+        {
+          "raw": "coldest",
+          "start": 4.69,
+          "end": 5.27
+        },
+        {
+          "raw": "that",
+          "start": 5.27,
+          "end": 5.41
+        },
+        {
+          "raw": "ever",
+          "start": 5.41,
+          "end": 5.61
+        },
+        {
+          "raw": "turned",
+          "start": 5.61,
+          "end": 5.95
+        },
+        {
+          "raw": "up",
+          "start": 5.95,
+          "end": 6.13
+        },
+        {
+          "raw": "Ace.",
+          "start": 6.13,
+          "end": 6.39
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Lord.",
+        "Your",
+        "lordship",
+        "is",
+        "the",
+        "most",
+        "patient",
+        "man",
+        "in",
+        "loss,",
+        "the",
+        "most",
+        "coldest",
+        "that",
+        "ever",
+        "turn'd",
+        "up",
+        "ace."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          "equal",
+          3,
+          16,
+          0,
+          13
+        ],
+        [
+          "replace",
+          16,
+          17,
+          13,
+          14
+        ],
+        [
+          "equal",
+          17,
+          19,
+          14,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          "replace",
+          16,
+          17,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lordship",
+          "start": 1.77,
+          "end": 2.23,
+          "key": "lordship",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.23,
+          "end": 2.33,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.33,
+          "end": 2.49,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.49,
+          "end": 2.67,
+          "key": "most",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "patient",
+          "start": 2.67,
+          "end": 3.09,
+          "key": "patient",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 3.09,
+          "end": 3.43,
+          "key": "man",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.43,
+          "end": 3.61,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "loss,",
+          "start": 3.61,
+          "end": 3.89,
+          "key": "loss",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.47,
+          "end": 4.49,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 4.49,
+          "end": 4.69,
+          "key": "most",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "coldest",
+          "start": 4.69,
+          "end": 5.27,
+          "key": "coldest",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.27,
+          "end": 5.41,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 5.41,
+          "end": 5.61,
+          "key": "ever",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 5.61,
+          "end": 5.95,
+          "key": "turned",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 5.95,
+          "end": 6.13,
+          "key": "up",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Ace.",
+          "start": 6.13,
+          "end": 6.39,
+          "key": "ace",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.0,
+          "end": 0.885
+        },
+        {
+          "text": "Lord.",
+          "start": 0.885,
+          "end": 1.328
+        },
+        {
+          "text": "Your",
+          "start": 1.328,
+          "end": 1.549
+        },
+        {
+          "text": "lordship",
+          "start": 1.77,
+          "end": 2.23
+        },
+        {
+          "text": "is",
+          "start": 2.23,
+          "end": 2.33
+        },
+        {
+          "text": "the",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "text": "most",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "text": "patient",
+          "start": 2.67,
+          "end": 3.09
+        },
+        {
+          "text": "man",
+          "start": 3.09,
+          "end": 3.43
+        },
+        {
+          "text": "in",
+          "start": 3.43,
+          "end": 3.61
+        },
+        {
+          "text": "loss,",
+          "start": 3.61,
+          "end": 3.89
+        },
+        {
+          "text": "the",
+          "start": 4.47,
+          "end": 4.49
+        },
+        {
+          "text": "most",
+          "start": 4.49,
+          "end": 4.69
+        },
+        {
+          "text": "coldest",
+          "start": 4.69,
+          "end": 5.27
+        },
+        {
+          "text": "that",
+          "start": 5.27,
+          "end": 5.41
+        },
+        {
+          "text": "ever",
+          "start": 5.41,
+          "end": 5.61
+        },
+        {
+          "text": "turn'd",
+          "start": 5.61,
+          "end": 5.78
+        },
+        {
+          "text": "up",
+          "start": 5.95,
+          "end": 6.13
+        },
+        {
+          "text": "ace.",
+          "start": 6.13,
+          "end": 6.39
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.7894736842105263,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.32363626547157764
+    },
+    {
+      "asr_seconds": 0.2742666266858578,
+      "alignment_seconds": 0.0006782431155443192,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First Lord your lordship is the most patient man in loss the most coldest that ever turned up ace",
+          "start": 0.05,
+          "end": 6.39,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " Lord",
+              "start": 0.67,
+              "end": 0.97,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " your",
+              "start": 0.97,
+              "end": 1.75,
+              "probability": 0.231689453125
+            },
+            {
+              "text": " lordship",
+              "start": 1.75,
+              "end": 2.21,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " is",
+              "start": 2.21,
+              "end": 2.35,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 2.35,
+              "end": 2.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " most",
+              "start": 2.49,
+              "end": 2.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " patient",
+              "start": 2.69,
+              "end": 3.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " man",
+              "start": 3.15,
+              "end": 3.43,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in",
+              "start": 3.43,
+              "end": 3.61,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " loss",
+              "start": 3.61,
+              "end": 3.91,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " the",
+              "start": 3.91,
+              "end": 4.47,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " most",
+              "start": 4.47,
+              "end": 4.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " coldest",
+              "start": 4.71,
+              "end": 5.25,
+              "probability": 0.971923828125
+            },
+            {
+              "text": " that",
+              "start": 5.25,
+              "end": 5.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " ever",
+              "start": 5.41,
+              "end": 5.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " turned",
+              "start": 5.61,
+              "end": 5.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " up",
+              "start": 5.95,
+              "end": 6.13,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " ace",
+              "start": 6.13,
+              "end": 6.39,
+              "probability": 0.658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Lord",
+          "start": 0.67,
+          "end": 0.97
+        },
+        {
+          "raw": "your",
+          "start": 0.97,
+          "end": 1.75
+        },
+        {
+          "raw": "lordship",
+          "start": 1.75,
+          "end": 2.21
+        },
+        {
+          "raw": "is",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "raw": "the",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "raw": "most",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "raw": "patient",
+          "start": 2.69,
+          "end": 3.15
+        },
+        {
+          "raw": "man",
+          "start": 3.15,
+          "end": 3.43
+        },
+        {
+          "raw": "in",
+          "start": 3.43,
+          "end": 3.61
+        },
+        {
+          "raw": "loss",
+          "start": 3.61,
+          "end": 3.91
+        },
+        {
+          "raw": "the",
+          "start": 3.91,
+          "end": 4.47
+        },
+        {
+          "raw": "most",
+          "start": 4.47,
+          "end": 4.71
+        },
+        {
+          "raw": "coldest",
+          "start": 4.71,
+          "end": 5.25
+        },
+        {
+          "raw": "that",
+          "start": 5.25,
+          "end": 5.41
+        },
+        {
+          "raw": "ever",
+          "start": 5.41,
+          "end": 5.61
+        },
+        {
+          "raw": "turned",
+          "start": 5.61,
+          "end": 5.95
+        },
+        {
+          "raw": "up",
+          "start": 5.95,
+          "end": 6.13
+        },
+        {
+          "raw": "ace",
+          "start": 6.13,
+          "end": 6.39
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Lord.",
+        "Your",
+        "lordship",
+        "is",
+        "the",
+        "most",
+        "patient",
+        "man",
+        "in",
+        "loss,",
+        "the",
+        "most",
+        "coldest",
+        "that",
+        "ever",
+        "turn'd",
+        "up",
+        "ace."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ],
+        [
+          "equal",
+          17,
+          19,
+          17,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 0.67,
+          "end": 0.97,
+          "key": "lord",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.97,
+          "end": 1.75,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lordship",
+          "start": 1.75,
+          "end": 2.21,
+          "key": "lordship",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.21,
+          "end": 2.35,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.35,
+          "end": 2.49,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.49,
+          "end": 2.69,
+          "key": "most",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "patient",
+          "start": 2.69,
+          "end": 3.15,
+          "key": "patient",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 3.15,
+          "end": 3.43,
+          "key": "man",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.43,
+          "end": 3.61,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "loss",
+          "start": 3.61,
+          "end": 3.91,
+          "key": "loss",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.91,
+          "end": 4.47,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 4.47,
+          "end": 4.71,
+          "key": "most",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "coldest",
+          "start": 4.71,
+          "end": 5.25,
+          "key": "coldest",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.25,
+          "end": 5.41,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 5.41,
+          "end": 5.61,
+          "key": "ever",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 5.61,
+          "end": 5.95,
+          "key": "turned",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 5.95,
+          "end": 6.13,
+          "key": "up",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "ace",
+          "start": 6.13,
+          "end": 6.39,
+          "key": "ace",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Lord.",
+          "start": 0.67,
+          "end": 0.97
+        },
+        {
+          "text": "Your",
+          "start": 0.97,
+          "end": 1.75
+        },
+        {
+          "text": "lordship",
+          "start": 1.75,
+          "end": 2.21
+        },
+        {
+          "text": "is",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "text": "the",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "text": "most",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "text": "patient",
+          "start": 2.69,
+          "end": 3.15
+        },
+        {
+          "text": "man",
+          "start": 3.15,
+          "end": 3.43
+        },
+        {
+          "text": "in",
+          "start": 3.43,
+          "end": 3.61
+        },
+        {
+          "text": "loss,",
+          "start": 3.61,
+          "end": 3.91
+        },
+        {
+          "text": "the",
+          "start": 3.91,
+          "end": 4.47
+        },
+        {
+          "text": "most",
+          "start": 4.47,
+          "end": 4.71
+        },
+        {
+          "text": "coldest",
+          "start": 4.71,
+          "end": 5.25
+        },
+        {
+          "text": "that",
+          "start": 5.25,
+          "end": 5.41
+        },
+        {
+          "text": "ever",
+          "start": 5.41,
+          "end": 5.61
+        },
+        {
+          "text": "turn'd",
+          "start": 5.61,
+          "end": 5.78
+        },
+        {
+          "text": "up",
+          "start": 5.95,
+          "end": 6.13
+        },
+        {
+          "text": "ace.",
+          "start": 6.13,
+          "end": 6.39
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.2752376161515713
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "634e0cef2baf668750e64d87e8e4c4c6f0b44cf920309c506a4a840f0b8572b0",
+  "selected_reasons": []
+}

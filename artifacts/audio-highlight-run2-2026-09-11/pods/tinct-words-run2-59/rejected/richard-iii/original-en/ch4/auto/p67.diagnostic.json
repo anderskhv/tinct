@@ -1,0 +1,901 @@
+{
+  "complete": true,
+  "signature": "48d0734e466142864fae59382a7be59cb1a5419f85d17924d7505fe0f7952aa6",
+  "attempts": [
+    {
+      "asr_seconds": 0.4277358220424503,
+      "alignment_seconds": 0.000757827889174223,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clarence. You scarcely have the hearts to tell me so, And therefore cannot have the hearts to do it. Wherein, my friends, have I offended you?",
+        "hotwords": "Clarence, And, Wherein, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clarence, You scarcely have the hearts to tell me so, And therefore cannot have the hearts",
+          "start": 0.05,
+          "end": 5.11,
+          "words": [
+            {
+              "text": " Clarence,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.58544921875
+            },
+            {
+              "text": " You",
+              "start": 1.23,
+              "end": 1.39,
+              "probability": 0.03338623046875
+            },
+            {
+              "text": " scarcely",
+              "start": 1.39,
+              "end": 1.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " have",
+              "start": 1.69,
+              "end": 2.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 2.05,
+              "end": 2.21,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " hearts",
+              "start": 2.21,
+              "end": 2.37,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " to",
+              "start": 2.37,
+              "end": 2.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " tell",
+              "start": 2.61,
+              "end": 2.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 2.79,
+              "end": 2.97,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " so,",
+              "start": 2.97,
+              "end": 3.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " And",
+              "start": 3.63,
+              "end": 3.73,
+              "probability": 0.294921875
+            },
+            {
+              "text": " therefore",
+              "start": 3.73,
+              "end": 4.11,
+              "probability": 0.98828125
+            },
+            {
+              "text": " cannot",
+              "start": 4.11,
+              "end": 4.39,
+              "probability": 0.9453125
+            },
+            {
+              "text": " have",
+              "start": 4.39,
+              "end": 4.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.73,
+              "end": 4.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " hearts",
+              "start": 4.89,
+              "end": 5.11,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " to do it. Wherein, my friends, have I offended you?",
+          "start": 5.11,
+          "end": 8.79,
+          "words": [
+            {
+              "text": " to",
+              "start": 5.11,
+              "end": 5.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " do",
+              "start": 5.33,
+              "end": 5.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it.",
+              "start": 5.47,
+              "end": 5.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Wherein,",
+              "start": 6.33,
+              "end": 6.75,
+              "probability": 0.914306640625
+            },
+            {
+              "text": " my",
+              "start": 6.97,
+              "end": 7.09,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " friends,",
+              "start": 7.09,
+              "end": 7.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " have",
+              "start": 7.85,
+              "end": 7.91,
+              "probability": 0.7294921875
+            },
+            {
+              "text": " I",
+              "start": 7.91,
+              "end": 8.07,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " offended",
+              "start": 8.07,
+              "end": 8.41,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " you?",
+              "start": 8.41,
+              "end": 8.79,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clarence,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "You",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "raw": "scarcely",
+          "start": 1.39,
+          "end": 1.69
+        },
+        {
+          "raw": "have",
+          "start": 1.69,
+          "end": 2.05
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.21
+        },
+        {
+          "raw": "hearts",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "raw": "to",
+          "start": 2.37,
+          "end": 2.61
+        },
+        {
+          "raw": "tell",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "raw": "me",
+          "start": 2.79,
+          "end": 2.97
+        },
+        {
+          "raw": "so,",
+          "start": 2.97,
+          "end": 3.27
+        },
+        {
+          "raw": "And",
+          "start": 3.63,
+          "end": 3.73
+        },
+        {
+          "raw": "therefore",
+          "start": 3.73,
+          "end": 4.11
+        },
+        {
+          "raw": "cannot",
+          "start": 4.11,
+          "end": 4.39
+        },
+        {
+          "raw": "have",
+          "start": 4.39,
+          "end": 4.73
+        },
+        {
+          "raw": "the",
+          "start": 4.73,
+          "end": 4.89
+        },
+        {
+          "raw": "hearts",
+          "start": 4.89,
+          "end": 5.11
+        },
+        {
+          "raw": "to",
+          "start": 5.11,
+          "end": 5.33
+        },
+        {
+          "raw": "do",
+          "start": 5.33,
+          "end": 5.47
+        },
+        {
+          "raw": "it.",
+          "start": 5.47,
+          "end": 5.79
+        },
+        {
+          "raw": "Wherein,",
+          "start": 6.33,
+          "end": 6.75
+        },
+        {
+          "raw": "my",
+          "start": 6.97,
+          "end": 7.09
+        },
+        {
+          "raw": "friends,",
+          "start": 7.09,
+          "end": 7.45
+        },
+        {
+          "raw": "have",
+          "start": 7.85,
+          "end": 7.91
+        },
+        {
+          "raw": "I",
+          "start": 7.91,
+          "end": 8.07
+        },
+        {
+          "raw": "offended",
+          "start": 8.07,
+          "end": 8.41
+        },
+        {
+          "raw": "you?",
+          "start": 8.41,
+          "end": 8.79
+        }
+      ],
+      "expected_tokens": [
+        "Clarence.",
+        "You",
+        "scarcely",
+        "have",
+        "the",
+        "hearts",
+        "to",
+        "tell",
+        "me",
+        "so,",
+        "And",
+        "therefore",
+        "cannot",
+        "have",
+        "the",
+        "hearts",
+        "to",
+        "do",
+        "it.",
+        "Wherein,",
+        "my",
+        "friends,",
+        "have",
+        "I",
+        "offended",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clarence,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "clarence",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.23,
+          "end": 1.39,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "scarcely",
+          "start": 1.39,
+          "end": 1.69,
+          "key": "scarcely",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.69,
+          "end": 2.05,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.21,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hearts",
+          "start": 2.21,
+          "end": 2.37,
+          "key": "hearts",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.37,
+          "end": 2.61,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.61,
+          "end": 2.79,
+          "key": "tell",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.79,
+          "end": 2.97,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 2.97,
+          "end": 3.27,
+          "key": "so",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.63,
+          "end": 3.73,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "therefore",
+          "start": 3.73,
+          "end": 4.11,
+          "key": "therefore",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 4.11,
+          "end": 4.39,
+          "key": "cannot",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.39,
+          "end": 4.73,
+          "key": "have",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.73,
+          "end": 4.89,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hearts",
+          "start": 4.89,
+          "end": 5.11,
+          "key": "hearts",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.11,
+          "end": 5.33,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 5.33,
+          "end": 5.47,
+          "key": "do",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 5.47,
+          "end": 5.79,
+          "key": "it",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Wherein,",
+          "start": 6.33,
+          "end": 6.75,
+          "key": "wherein",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 6.97,
+          "end": 7.09,
+          "key": "my",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "friends,",
+          "start": 7.09,
+          "end": 7.45,
+          "key": "friends",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 7.85,
+          "end": 7.91,
+          "key": "have",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.91,
+          "end": 8.07,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "offended",
+          "start": 8.07,
+          "end": 8.41,
+          "key": "offended",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 8.41,
+          "end": 8.79,
+          "key": "you",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clarence.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "You",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "text": "scarcely",
+          "start": 1.39,
+          "end": 1.69
+        },
+        {
+          "text": "have",
+          "start": 1.69,
+          "end": 2.05
+        },
+        {
+          "text": "the",
+          "start": 2.05,
+          "end": 2.21
+        },
+        {
+          "text": "hearts",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "text": "to",
+          "start": 2.37,
+          "end": 2.61
+        },
+        {
+          "text": "tell",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "text": "me",
+          "start": 2.79,
+          "end": 2.97
+        },
+        {
+          "text": "so,",
+          "start": 2.97,
+          "end": 3.27
+        },
+        {
+          "text": "And",
+          "start": 3.63,
+          "end": 3.73
+        },
+        {
+          "text": "therefore",
+          "start": 3.73,
+          "end": 4.11
+        },
+        {
+          "text": "cannot",
+          "start": 4.11,
+          "end": 4.39
+        },
+        {
+          "text": "have",
+          "start": 4.39,
+          "end": 4.73
+        },
+        {
+          "text": "the",
+          "start": 4.73,
+          "end": 4.89
+        },
+        {
+          "text": "hearts",
+          "start": 4.89,
+          "end": 5.11
+        },
+        {
+          "text": "to",
+          "start": 5.11,
+          "end": 5.33
+        },
+        {
+          "text": "do",
+          "start": 5.33,
+          "end": 5.47
+        },
+        {
+          "text": "it.",
+          "start": 5.47,
+          "end": 5.79
+        },
+        {
+          "text": "Wherein,",
+          "start": 6.33,
+          "end": 6.75
+        },
+        {
+          "text": "my",
+          "start": 6.97,
+          "end": 7.09
+        },
+        {
+          "text": "friends,",
+          "start": 7.09,
+          "end": 7.45
+        },
+        {
+          "text": "have",
+          "start": 7.85,
+          "end": 7.91
+        },
+        {
+          "text": "I",
+          "start": 7.91,
+          "end": 8.07
+        },
+        {
+          "text": "offended",
+          "start": 8.07,
+          "end": 8.41
+        },
+        {
+          "text": "you?",
+          "start": 8.41,
+          "end": 8.79
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.42882795189507306
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4992fddb3e6cf25c805b1762485885f60472db6905f15a3bfbfb0125ef220590",
+  "selected_reasons": []
+}

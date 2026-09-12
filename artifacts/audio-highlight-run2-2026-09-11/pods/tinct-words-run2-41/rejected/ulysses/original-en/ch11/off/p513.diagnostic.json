@@ -1,0 +1,756 @@
+{
+  "complete": true,
+  "signature": "329ee2715479ab37128711c17eaa2c1b8b61c34f3a0dc24bf6868168b5dce05e",
+  "attempts": [
+    {
+      "asr_seconds": 0.3979366677813232,
+      "alignment_seconds": 0.00033583585172891617,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But wait, but here, cords dark, lugigagubrious, low, in a cave of the dark middle earth, embedded",
+          "start": 0.02,
+          "end": 6.12,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " wait,",
+              "start": 0.52,
+              "end": 0.82,
+              "probability": 0.96484375
+            },
+            {
+              "text": " but",
+              "start": 1.08,
+              "end": 1.18,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " here,",
+              "start": 1.18,
+              "end": 1.5,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " cords",
+              "start": 2.06,
+              "end": 2.06,
+              "probability": 0.262451171875
+            },
+            {
+              "text": " dark,",
+              "start": 2.06,
+              "end": 2.44,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " lugigagubrious,",
+              "start": 2.74,
+              "end": 3.38,
+              "probability": 0.693896484375
+            },
+            {
+              "text": " low,",
+              "start": 3.94,
+              "end": 3.96,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " in",
+              "start": 4.24,
+              "end": 4.26,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " a",
+              "start": 4.26,
+              "end": 4.38,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " cave",
+              "start": 4.38,
+              "end": 4.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 4.56,
+              "end": 4.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 4.76,
+              "end": 4.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " dark",
+              "start": 4.86,
+              "end": 5.1,
+              "probability": 0.9453125
+            },
+            {
+              "text": " middle",
+              "start": 5.1,
+              "end": 5.3,
+              "probability": 0.62255859375
+            },
+            {
+              "text": " earth,",
+              "start": 5.3,
+              "end": 5.66,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " embedded",
+              "start": 5.84,
+              "end": 6.12,
+              "probability": 0.97705078125
+            }
+          ]
+        },
+        {
+          "text": " oar, lump music.",
+          "start": 6.12,
+          "end": 7.3,
+          "words": [
+            {
+              "text": " oar,",
+              "start": 6.12,
+              "end": 6.58,
+              "probability": 0.689208984375
+            },
+            {
+              "text": " lump",
+              "start": 6.8,
+              "end": 6.88,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " music.",
+              "start": 6.88,
+              "end": 7.3,
+              "probability": 0.9248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "wait,",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "raw": "but",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "raw": "here,",
+          "start": 1.18,
+          "end": 1.5
+        },
+        {
+          "raw": "cords",
+          "start": 2.06,
+          "end": 2.06
+        },
+        {
+          "raw": "dark,",
+          "start": 2.06,
+          "end": 2.44
+        },
+        {
+          "raw": "lugigagubrious,",
+          "start": 2.74,
+          "end": 3.38
+        },
+        {
+          "raw": "low,",
+          "start": 3.94,
+          "end": 3.96
+        },
+        {
+          "raw": "in",
+          "start": 4.24,
+          "end": 4.26
+        },
+        {
+          "raw": "a",
+          "start": 4.26,
+          "end": 4.38
+        },
+        {
+          "raw": "cave",
+          "start": 4.38,
+          "end": 4.56
+        },
+        {
+          "raw": "of",
+          "start": 4.56,
+          "end": 4.76
+        },
+        {
+          "raw": "the",
+          "start": 4.76,
+          "end": 4.86
+        },
+        {
+          "raw": "dark",
+          "start": 4.86,
+          "end": 5.1
+        },
+        {
+          "raw": "middle",
+          "start": 5.1,
+          "end": 5.3
+        },
+        {
+          "raw": "earth,",
+          "start": 5.3,
+          "end": 5.66
+        },
+        {
+          "raw": "embedded",
+          "start": 5.84,
+          "end": 6.12
+        },
+        {
+          "raw": "oar,",
+          "start": 6.12,
+          "end": 6.58
+        },
+        {
+          "raw": "lump",
+          "start": 6.8,
+          "end": 6.88
+        },
+        {
+          "raw": "music.",
+          "start": 6.88,
+          "end": 7.3
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "wait.",
+        "But",
+        "hear.",
+        "Chords",
+        "dark.",
+        "Lugugugubrious.",
+        "Low.",
+        "In",
+        "a",
+        "cave",
+        "of",
+        "the",
+        "dark",
+        "middle",
+        "earth.",
+        "Embedded",
+        "ore.",
+        "Lumpmusic."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          17,
+          7,
+          17
+        ],
+        [
+          "replace",
+          17,
+          19,
+          17,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          17,
+          19,
+          17,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wait,",
+          "start": 0.52,
+          "end": 0.82,
+          "key": "wait",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.08,
+          "end": 1.18,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 1.18,
+          "end": 1.5,
+          "key": "here",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cords",
+          "start": 2.06,
+          "end": 2.06,
+          "key": "cords",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dark,",
+          "start": 2.06,
+          "end": 2.44,
+          "key": "dark",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lugigagubrious,",
+          "start": 2.74,
+          "end": 3.38,
+          "key": "lugigagubrious",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "low,",
+          "start": 3.94,
+          "end": 3.96,
+          "key": "low",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.24,
+          "end": 4.26,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.26,
+          "end": 4.38,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "cave",
+          "start": 4.38,
+          "end": 4.56,
+          "key": "cave",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.56,
+          "end": 4.76,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.76,
+          "end": 4.86,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "dark",
+          "start": 4.86,
+          "end": 5.1,
+          "key": "dark",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "middle",
+          "start": 5.1,
+          "end": 5.3,
+          "key": "middle",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "earth,",
+          "start": 5.3,
+          "end": 5.66,
+          "key": "earth",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "embedded",
+          "start": 5.84,
+          "end": 6.12,
+          "key": "embedded",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "oar,",
+          "start": 6.12,
+          "end": 6.58,
+          "key": "oar",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "lump",
+          "start": 6.8,
+          "end": 6.88,
+          "key": "lump",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "music.",
+          "start": 6.88,
+          "end": 7.3,
+          "key": "music",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "wait.",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "text": "But",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "text": "hear.",
+          "start": 1.18,
+          "end": 1.62
+        },
+        {
+          "text": "Chords",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "text": "dark.",
+          "start": 2.06,
+          "end": 2.44
+        },
+        {
+          "text": "Lugugugubrious.",
+          "start": 2.44,
+          "end": 3.19
+        },
+        {
+          "text": "Low.",
+          "start": 3.94,
+          "end": 3.96
+        },
+        {
+          "text": "In",
+          "start": 4.24,
+          "end": 4.26
+        },
+        {
+          "text": "a",
+          "start": 4.26,
+          "end": 4.38
+        },
+        {
+          "text": "cave",
+          "start": 4.38,
+          "end": 4.56
+        },
+        {
+          "text": "of",
+          "start": 4.56,
+          "end": 4.76
+        },
+        {
+          "text": "the",
+          "start": 4.76,
+          "end": 4.86
+        },
+        {
+          "text": "dark",
+          "start": 4.86,
+          "end": 5.1
+        },
+        {
+          "text": "middle",
+          "start": 5.1,
+          "end": 5.3
+        },
+        {
+          "text": "earth.",
+          "start": 5.3,
+          "end": 5.66
+        },
+        {
+          "text": "Embedded",
+          "start": 5.84,
+          "end": 6.12
+        },
+        {
+          "text": "ore.",
+          "start": 6.12,
+          "end": 6.71
+        },
+        {
+          "text": "Lumpmusic.",
+          "start": 6.71,
+          "end": 7.005
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 14
+      },
+      "match_ratio": 0.7368421052631579,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3983811722137034
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "48f91eb3fdd7a17ec805eb387abc9cc422ccfc963ca4daef3d5825f5d975f8e7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

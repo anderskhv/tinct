@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "34fcc7c94869898980bd27795226d4319d887fc1be61576b5633d76de6a30b5f",
+  "attempts": [
+    {
+      "asr_seconds": 0.17767567606642842,
+      "alignment_seconds": 0.00029022805392742157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. If she be black, and thereto have a wit, She'll find a white that shall her blackness fit.",
+        "hotwords": "Iago, If, She'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, If she be black, and thereto have a wit, She'll find a white that shall her blackness fit.",
+          "start": 0.05,
+          "end": 5.51,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.25304412841796875
+            },
+            {
+              "text": " If",
+              "start": 1.25,
+              "end": 1.45,
+              "probability": 0.027374267578125
+            },
+            {
+              "text": " she",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.98828125
+            },
+            {
+              "text": " be",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " black,",
+              "start": 1.77,
+              "end": 2.07,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " and",
+              "start": 2.23,
+              "end": 2.33,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " thereto",
+              "start": 2.33,
+              "end": 2.55,
+              "probability": 0.6015625
+            },
+            {
+              "text": " have",
+              "start": 2.55,
+              "end": 2.83,
+              "probability": 0.978515625
+            },
+            {
+              "text": " a",
+              "start": 2.83,
+              "end": 2.95,
+              "probability": 0.978515625
+            },
+            {
+              "text": " wit,",
+              "start": 2.95,
+              "end": 3.17,
+              "probability": 0.919921875
+            },
+            {
+              "text": " She'll",
+              "start": 3.59,
+              "end": 3.69,
+              "probability": 0.741455078125
+            },
+            {
+              "text": " find",
+              "start": 3.69,
+              "end": 3.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 3.87,
+              "end": 4.03,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " white",
+              "start": 4.03,
+              "end": 4.23,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " that",
+              "start": 4.23,
+              "end": 4.47,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " shall",
+              "start": 4.47,
+              "end": 4.61,
+              "probability": 0.892578125
+            },
+            {
+              "text": " her",
+              "start": 4.61,
+              "end": 4.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " blackness",
+              "start": 4.75,
+              "end": 5.21,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " fit.",
+              "start": 5.21,
+              "end": 5.51,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "If",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "raw": "she",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "be",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "black,",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "raw": "and",
+          "start": 2.23,
+          "end": 2.33
+        },
+        {
+          "raw": "thereto",
+          "start": 2.33,
+          "end": 2.55
+        },
+        {
+          "raw": "have",
+          "start": 2.55,
+          "end": 2.83
+        },
+        {
+          "raw": "a",
+          "start": 2.83,
+          "end": 2.95
+        },
+        {
+          "raw": "wit,",
+          "start": 2.95,
+          "end": 3.17
+        },
+        {
+          "raw": "She'll",
+          "start": 3.59,
+          "end": 3.69
+        },
+        {
+          "raw": "find",
+          "start": 3.69,
+          "end": 3.87
+        },
+        {
+          "raw": "a",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "raw": "white",
+          "start": 4.03,
+          "end": 4.23
+        },
+        {
+          "raw": "that",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "raw": "shall",
+          "start": 4.47,
+          "end": 4.61
+        },
+        {
+          "raw": "her",
+          "start": 4.61,
+          "end": 4.75
+        },
+        {
+          "raw": "blackness",
+          "start": 4.75,
+          "end": 5.21
+        },
+        {
+          "raw": "fit.",
+          "start": 5.21,
+          "end": 5.51
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "If",
+        "she",
+        "be",
+        "black,",
+        "and",
+        "thereto",
+        "have",
+        "a",
+        "wit,",
+        "She'll",
+        "find",
+        "a",
+        "white",
+        "that",
+        "shall",
+        "her",
+        "blackness",
+        "fit."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.25,
+          "end": 1.45,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "black,",
+          "start": 1.77,
+          "end": 2.07,
+          "key": "black",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.23,
+          "end": 2.33,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thereto",
+          "start": 2.33,
+          "end": 2.55,
+          "key": "thereto",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.55,
+          "end": 2.83,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.83,
+          "end": 2.95,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wit,",
+          "start": 2.95,
+          "end": 3.17,
+          "key": "wit",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "She'll",
+          "start": 3.59,
+          "end": 3.69,
+          "key": "shell",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 3.69,
+          "end": 3.87,
+          "key": "find",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.87,
+          "end": 4.03,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "white",
+          "start": 4.03,
+          "end": 4.23,
+          "key": "white",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.23,
+          "end": 4.47,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 4.47,
+          "end": 4.61,
+          "key": "shall",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.61,
+          "end": 4.75,
+          "key": "her",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "blackness",
+          "start": 4.75,
+          "end": 5.21,
+          "key": "blackness",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "fit.",
+          "start": 5.21,
+          "end": 5.51,
+          "key": "fit",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "If",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "she",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "be",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "black,",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "text": "and",
+          "start": 2.23,
+          "end": 2.33
+        },
+        {
+          "text": "thereto",
+          "start": 2.33,
+          "end": 2.55
+        },
+        {
+          "text": "have",
+          "start": 2.55,
+          "end": 2.83
+        },
+        {
+          "text": "a",
+          "start": 2.83,
+          "end": 2.95
+        },
+        {
+          "text": "wit,",
+          "start": 2.95,
+          "end": 3.17
+        },
+        {
+          "text": "She'll",
+          "start": 3.59,
+          "end": 3.69
+        },
+        {
+          "text": "find",
+          "start": 3.69,
+          "end": 3.87
+        },
+        {
+          "text": "a",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "text": "white",
+          "start": 4.03,
+          "end": 4.23
+        },
+        {
+          "text": "that",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "text": "shall",
+          "start": 4.47,
+          "end": 4.61
+        },
+        {
+          "text": "her",
+          "start": 4.61,
+          "end": 4.75
+        },
+        {
+          "text": "blackness",
+          "start": 4.75,
+          "end": 5.21
+        },
+        {
+          "text": "fit.",
+          "start": 5.21,
+          "end": 5.51
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17807812429964542
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eff974313e41152924fa8fdd6028b06a9931afe42572ae6ce45eedd350f40d30",
+  "selected_reasons": []
+}

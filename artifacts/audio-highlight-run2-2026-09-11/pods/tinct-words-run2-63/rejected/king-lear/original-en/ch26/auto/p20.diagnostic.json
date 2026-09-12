@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "44c68d4b092e32fcdb67283b781152e91ae6fcddafd013fbb0dabb2956f85c8f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2170715220272541,
+      "alignment_seconds": 0.0004069693386554718,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Regan. Jesters do oft prove prophets.",
+        "hotwords": "Regan, Jesters"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Regan, Jesters do oft prove prophets.",
+          "start": 0.05,
+          "end": 2.85,
+          "words": [
+            {
+              "text": " Regan,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.699462890625
+            },
+            {
+              "text": " Jesters",
+              "start": 1.25,
+              "end": 1.67,
+              "probability": 0.4573822021484375
+            },
+            {
+              "text": " do",
+              "start": 1.67,
+              "end": 1.85,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " oft",
+              "start": 1.85,
+              "end": 2.13,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " prove",
+              "start": 2.13,
+              "end": 2.35,
+              "probability": 0.401611328125
+            },
+            {
+              "text": " prophets.",
+              "start": 2.35,
+              "end": 2.85,
+              "probability": 0.372802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Jesters",
+          "start": 1.25,
+          "end": 1.67
+        },
+        {
+          "raw": "do",
+          "start": 1.67,
+          "end": 1.85
+        },
+        {
+          "raw": "oft",
+          "start": 1.85,
+          "end": 2.13
+        },
+        {
+          "raw": "prove",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "raw": "prophets.",
+          "start": 2.35,
+          "end": 2.85
+        }
+      ],
+      "expected_tokens": [
+        "Regan.",
+        "Jesters",
+        "do",
+        "oft",
+        "prove",
+        "prophets."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "regan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jesters",
+          "start": 1.25,
+          "end": 1.67,
+          "key": "jesters",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.67,
+          "end": 1.85,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "oft",
+          "start": 1.85,
+          "end": 2.13,
+          "key": "oft",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "prove",
+          "start": 2.13,
+          "end": 2.35,
+          "key": "prove",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "prophets.",
+          "start": 2.35,
+          "end": 2.85,
+          "key": "prophets",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Regan.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Jesters",
+          "start": 1.25,
+          "end": 1.67
+        },
+        {
+          "text": "do",
+          "start": 1.67,
+          "end": 1.85
+        },
+        {
+          "text": "oft",
+          "start": 1.85,
+          "end": 2.13
+        },
+        {
+          "text": "prove",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "text": "prophets.",
+          "start": 2.35,
+          "end": 2.85
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2176180835813284
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7c5f346515f370fd370eeda5890a3b7d77ceb8ea7baa8a307a436baa5f6c0b70",
+  "selected_reasons": []
+}

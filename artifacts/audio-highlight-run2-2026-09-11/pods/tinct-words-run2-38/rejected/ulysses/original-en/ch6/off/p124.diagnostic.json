@@ -1,0 +1,636 @@
+{
+  "complete": true,
+  "signature": "2a46df8902aa84baaada5d3db0c56b931ba6d94368572cf602fd86050d91b95f",
+  "attempts": [
+    {
+      "asr_seconds": 0.189515273028519,
+      "alignment_seconds": 0.00028348196065053344,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, Mr. Bloom said. They were both on the way to the boat and he tried to drown.",
+          "start": 0.05,
+          "end": 4.63,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.136962890625
+            },
+            {
+              "text": " Mr.",
+              "start": 1.11,
+              "end": 1.29,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Bloom",
+              "start": 1.57,
+              "end": 1.57,
+              "probability": 0.87890625
+            },
+            {
+              "text": " said.",
+              "start": 1.57,
+              "end": 1.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " They",
+              "start": 2.39,
+              "end": 2.47,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " were",
+              "start": 2.47,
+              "end": 2.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " both",
+              "start": 2.59,
+              "end": 2.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " on",
+              "start": 2.77,
+              "end": 2.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.95,
+              "end": 3.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " way",
+              "start": 3.05,
+              "end": 3.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 3.19,
+              "end": 3.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 3.35,
+              "end": 3.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " boat",
+              "start": 3.45,
+              "end": 3.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 3.67,
+              "end": 3.87,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " he",
+              "start": 3.87,
+              "end": 3.99,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " tried",
+              "start": 3.99,
+              "end": 4.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 4.21,
+              "end": 4.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " drown.",
+              "start": 4.35,
+              "end": 4.63,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "raw": "Bloom",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "raw": "said.",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "raw": "They",
+          "start": 2.39,
+          "end": 2.47
+        },
+        {
+          "raw": "were",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "raw": "both",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "raw": "on",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "raw": "the",
+          "start": 2.95,
+          "end": 3.05
+        },
+        {
+          "raw": "way",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "raw": "to",
+          "start": 3.19,
+          "end": 3.35
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 3.45
+        },
+        {
+          "raw": "boat",
+          "start": 3.45,
+          "end": 3.67
+        },
+        {
+          "raw": "and",
+          "start": 3.67,
+          "end": 3.87
+        },
+        {
+          "raw": "he",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "raw": "tried",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "raw": "to",
+          "start": 4.21,
+          "end": 4.35
+        },
+        {
+          "raw": "drown.",
+          "start": 4.35,
+          "end": 4.63
+        }
+      ],
+      "expected_tokens": [
+        "—Yes,",
+        "Mr",
+        "Bloom",
+        "said.",
+        "They",
+        "were",
+        "both",
+        "on",
+        "the",
+        "way",
+        "to",
+        "the",
+        "boat",
+        "and",
+        "he",
+        "tried",
+        "to",
+        "drown....."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.11,
+          "end": 1.29,
+          "key": "mr",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Bloom",
+          "start": 1.57,
+          "end": 1.57,
+          "key": "bloom",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.57,
+          "end": 1.93,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 2.39,
+          "end": 2.47,
+          "key": "they",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.47,
+          "end": 2.59,
+          "key": "were",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 2.59,
+          "end": 2.77,
+          "key": "both",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.77,
+          "end": 2.95,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.95,
+          "end": 3.05,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 3.05,
+          "end": 3.19,
+          "key": "way",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.19,
+          "end": 3.35,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 3.45,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "boat",
+          "start": 3.45,
+          "end": 3.67,
+          "key": "boat",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.67,
+          "end": 3.87,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.87,
+          "end": 3.99,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "tried",
+          "start": 3.99,
+          "end": 4.21,
+          "key": "tried",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.21,
+          "end": 4.35,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "drown.",
+          "start": 4.35,
+          "end": 4.63,
+          "key": "drown",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Yes,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Mr",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "text": "Bloom",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "text": "said.",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "text": "They",
+          "start": 2.39,
+          "end": 2.47
+        },
+        {
+          "text": "were",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "text": "both",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "text": "on",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "text": "the",
+          "start": 2.95,
+          "end": 3.05
+        },
+        {
+          "text": "way",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "text": "to",
+          "start": 3.19,
+          "end": 3.35
+        },
+        {
+          "text": "the",
+          "start": 3.35,
+          "end": 3.45
+        },
+        {
+          "text": "boat",
+          "start": 3.45,
+          "end": 3.67
+        },
+        {
+          "text": "and",
+          "start": 3.67,
+          "end": 3.87
+        },
+        {
+          "text": "he",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "text": "tried",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "text": "to",
+          "start": 4.21,
+          "end": 4.35
+        },
+        {
+          "text": "drown.....",
+          "start": 4.35,
+          "end": 4.63
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18990470503922552
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "522cd31c07767989d24f21c3703fed112299e842bfb7a89c1b54f48f44c98bac",
+  "selected_reasons": []
+}

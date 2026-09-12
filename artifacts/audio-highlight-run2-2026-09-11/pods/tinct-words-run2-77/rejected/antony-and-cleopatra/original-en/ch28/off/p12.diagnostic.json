@@ -1,0 +1,326 @@
+{
+  "complete": true,
+  "signature": "b3770b9974516f0cda87431570bb1f66e83d80455a7fbe4386d13d08f147a94e",
+  "attempts": [
+    {
+      "asr_seconds": 0.12258842700975947,
+      "alignment_seconds": 0.00028062000637874007,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Music of the Hot Boys under the stage.",
+          "start": 0.05,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Music",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.6611328125
+            },
+            {
+              "text": " of",
+              "start": 0.65,
+              "end": 0.85,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 0.85,
+              "end": 0.95,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " Hot",
+              "start": 0.95,
+              "end": 1.17,
+              "probability": 0.56201171875
+            },
+            {
+              "text": " Boys",
+              "start": 1.17,
+              "end": 1.37,
+              "probability": 0.666015625
+            },
+            {
+              "text": " under",
+              "start": 1.37,
+              "end": 1.59,
+              "probability": 0.859375
+            },
+            {
+              "text": " the",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " stage.",
+              "start": 1.75,
+              "end": 2.05,
+              "probability": 0.9267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Music",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "of",
+          "start": 0.65,
+          "end": 0.85
+        },
+        {
+          "raw": "the",
+          "start": 0.85,
+          "end": 0.95
+        },
+        {
+          "raw": "Hot",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "raw": "Boys",
+          "start": 1.17,
+          "end": 1.37
+        },
+        {
+          "raw": "under",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "raw": "the",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "stage.",
+          "start": 1.75,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "[_Music",
+        "of",
+        "the",
+        "hautboys",
+        "under",
+        "the",
+        "stage._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          7,
+          5,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Music",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "music",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.65,
+          "end": 0.85,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.85,
+          "end": 0.95,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Hot",
+          "start": 0.95,
+          "end": 1.17,
+          "key": "hot",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Boys",
+          "start": 1.17,
+          "end": 1.37,
+          "key": "boys",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 1.37,
+          "end": 1.59,
+          "key": "under",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "stage.",
+          "start": 1.75,
+          "end": 2.05,
+          "key": "stage",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Music",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "of",
+          "start": 0.65,
+          "end": 0.85
+        },
+        {
+          "text": "the",
+          "start": 0.85,
+          "end": 0.95
+        },
+        {
+          "text": "hautboys",
+          "start": 0.95,
+          "end": 1.16
+        },
+        {
+          "text": "under",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "text": "the",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "stage._]",
+          "start": 1.75,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.12297023000428453
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c6bbdb8e0ede7364576ed8e58cb8c407a2e12f66cf3056ff2e3aea10190fe293",
+  "selected_reasons": []
+}

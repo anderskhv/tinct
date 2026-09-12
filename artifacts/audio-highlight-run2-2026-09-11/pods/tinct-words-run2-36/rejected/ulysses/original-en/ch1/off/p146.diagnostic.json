@@ -1,0 +1,551 @@
+{
+  "complete": true,
+  "signature": "3dd979f3f1a3ad8afff894fbd80fba828cb8d54ecd49a22c250078d6dc81deba",
+  "attempts": [
+    {
+      "asr_seconds": 0.3133355714380741,
+      "alignment_seconds": 0.0005668178200721741,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, damn you and your Paris fads,\" Buck Mulligan said.",
+          "start": 0.02,
+          "end": 3.38,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.1673583984375
+            },
+            {
+              "text": " damn",
+              "start": 0.68,
+              "end": 0.82,
+              "probability": 0.95703125
+            },
+            {
+              "text": " you",
+              "start": 0.82,
+              "end": 1.0,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " and",
+              "start": 1.0,
+              "end": 1.1,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " your",
+              "start": 1.1,
+              "end": 1.24,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Paris",
+              "start": 1.24,
+              "end": 1.58,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " fads,\"",
+              "start": 1.58,
+              "end": 2.62,
+              "probability": 0.7332356770833334
+            },
+            {
+              "text": " Buck",
+              "start": 2.62,
+              "end": 2.68,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Mulligan",
+              "start": 2.68,
+              "end": 3.04,
+              "probability": 0.971435546875
+            },
+            {
+              "text": " said.",
+              "start": 3.04,
+              "end": 3.38,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " I want Sandicove milk.",
+          "start": 3.82,
+          "end": 4.98,
+          "words": [
+            {
+              "text": " I",
+              "start": 3.82,
+              "end": 3.92,
+              "probability": 0.10589599609375
+            },
+            {
+              "text": " want",
+              "start": 3.92,
+              "end": 4.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Sandicove",
+              "start": 4.1,
+              "end": 4.7,
+              "probability": 0.6092122395833334
+            },
+            {
+              "text": " milk.",
+              "start": 4.7,
+              "end": 4.98,
+              "probability": 0.8896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "damn",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "raw": "you",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "raw": "and",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "raw": "your",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "raw": "Paris",
+          "start": 1.24,
+          "end": 1.58
+        },
+        {
+          "raw": "fads,\"",
+          "start": 1.58,
+          "end": 2.62
+        },
+        {
+          "raw": "Buck",
+          "start": 2.62,
+          "end": 2.68
+        },
+        {
+          "raw": "Mulligan",
+          "start": 2.68,
+          "end": 3.04
+        },
+        {
+          "raw": "said.",
+          "start": 3.04,
+          "end": 3.38
+        },
+        {
+          "raw": "I",
+          "start": 3.82,
+          "end": 3.92
+        },
+        {
+          "raw": "want",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "raw": "Sandicove",
+          "start": 4.1,
+          "end": 4.7
+        },
+        {
+          "raw": "milk.",
+          "start": 4.7,
+          "end": 4.98
+        }
+      ],
+      "expected_tokens": [
+        "—O,",
+        "damn",
+        "you",
+        "and",
+        "your",
+        "Paris",
+        "fads!",
+        "Buck",
+        "Mulligan",
+        "said.",
+        "I",
+        "want",
+        "Sandycove",
+        "milk."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          12,
+          1,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "damn",
+          "start": 0.68,
+          "end": 0.82,
+          "key": "damn",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.82,
+          "end": 1.0,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.0,
+          "end": 1.1,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.1,
+          "end": 1.24,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Paris",
+          "start": 1.24,
+          "end": 1.58,
+          "key": "paris",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fads,\"",
+          "start": 1.58,
+          "end": 2.62,
+          "key": "fads",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Buck",
+          "start": 2.62,
+          "end": 2.68,
+          "key": "buck",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Mulligan",
+          "start": 2.68,
+          "end": 3.04,
+          "key": "mulligan",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 3.04,
+          "end": 3.38,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.82,
+          "end": 3.92,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 3.92,
+          "end": 4.1,
+          "key": "want",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Sandicove",
+          "start": 4.1,
+          "end": 4.7,
+          "key": "sandicove",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "milk.",
+          "start": 4.7,
+          "end": 4.98,
+          "key": "milk",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—O,",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "damn",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "text": "you",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "text": "and",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "text": "your",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "text": "Paris",
+          "start": 1.24,
+          "end": 1.58
+        },
+        {
+          "text": "fads!",
+          "start": 1.58,
+          "end": 2.62
+        },
+        {
+          "text": "Buck",
+          "start": 2.62,
+          "end": 2.68
+        },
+        {
+          "text": "Mulligan",
+          "start": 2.68,
+          "end": 3.04
+        },
+        {
+          "text": "said.",
+          "start": 3.04,
+          "end": 3.38
+        },
+        {
+          "text": "I",
+          "start": 3.82,
+          "end": 3.92
+        },
+        {
+          "text": "want",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "text": "Sandycove",
+          "start": 4.1,
+          "end": 4.4
+        },
+        {
+          "text": "milk.",
+          "start": 4.7,
+          "end": 4.98
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.3141136020421982
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ad47b8bfc20114d2308d3da3b9b53e0d41e006bfc6d75e254a3fa62c1284a422",
+  "selected_reasons": []
+}

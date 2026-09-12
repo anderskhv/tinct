@@ -1,0 +1,2117 @@
+{
+  "complete": true,
+  "signature": "fb119718b8552f13487af61d9f170574f972588df9ea100d4255bb6d386b3019",
+  "attempts": [
+    {
+      "asr_seconds": 0.639706838876009,
+      "alignment_seconds": 0.000850427895784378,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In great towns, corn is always dearer than in remote parts of the country. This, however, is the effect, not of the real cheapness of silver, but of the real dearness of corn. It does not cost less labour to bring silver to the great town than to the remote parts of the country; but it costs a great deal more to bring corn.",
+        "hotwords": "This"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In great towns, corn is always dearer than in remote parts of the country. This, however, is the effect, not of the real cheapness of silver, but of the real dearness of corn.",
+          "start": 0.05,
+          "end": 11.35,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.95703125
+            },
+            {
+              "text": " great",
+              "start": 0.55,
+              "end": 0.77,
+              "probability": 0.90625
+            },
+            {
+              "text": " towns,",
+              "start": 0.77,
+              "end": 1.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " corn",
+              "start": 1.91,
+              "end": 1.97,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is",
+              "start": 1.97,
+              "end": 2.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " always",
+              "start": 2.19,
+              "end": 2.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " dearer",
+              "start": 2.59,
+              "end": 2.99,
+              "probability": 0.985107421875
+            },
+            {
+              "text": " than",
+              "start": 2.99,
+              "end": 3.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 3.19,
+              "end": 3.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " remote",
+              "start": 3.31,
+              "end": 3.67,
+              "probability": 0.990234375
+            },
+            {
+              "text": " parts",
+              "start": 3.67,
+              "end": 3.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 3.97,
+              "end": 4.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.17,
+              "end": 4.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " country.",
+              "start": 4.25,
+              "end": 4.67,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " This,",
+              "start": 5.39,
+              "end": 5.67,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " however,",
+              "start": 5.77,
+              "end": 6.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " is",
+              "start": 6.33,
+              "end": 6.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.55,
+              "end": 6.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " effect,",
+              "start": 6.71,
+              "end": 7.09,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 7.53,
+              "end": 7.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 7.71,
+              "end": 7.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 7.87,
+              "end": 7.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " real",
+              "start": 7.97,
+              "end": 8.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cheapness",
+              "start": 8.23,
+              "end": 8.73,
+              "probability": 0.98828125
+            },
+            {
+              "text": " of",
+              "start": 8.73,
+              "end": 8.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " silver,",
+              "start": 8.89,
+              "end": 9.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " but",
+              "start": 9.67,
+              "end": 9.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 9.87,
+              "end": 10.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 10.01,
+              "end": 10.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " real",
+              "start": 10.13,
+              "end": 10.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dearness",
+              "start": 10.45,
+              "end": 10.87,
+              "probability": 0.5287628173828125
+            },
+            {
+              "text": " of",
+              "start": 10.87,
+              "end": 11.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " corn.",
+              "start": 11.05,
+              "end": 11.35,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " It does not cost less labour to bring silver to the great town than to the remote parts of the country, but it costs a great deal more to bring corn.",
+          "start": 12.07,
+          "end": 19.79,
+          "words": [
+            {
+              "text": " It",
+              "start": 12.07,
+              "end": 12.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " does",
+              "start": 12.21,
+              "end": 12.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 12.33,
+              "end": 12.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " cost",
+              "start": 12.53,
+              "end": 12.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " less",
+              "start": 12.77,
+              "end": 13.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " labour",
+              "start": 13.11,
+              "end": 13.47,
+              "probability": 0.11419677734375
+            },
+            {
+              "text": " to",
+              "start": 13.47,
+              "end": 13.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bring",
+              "start": 13.69,
+              "end": 13.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " silver",
+              "start": 13.87,
+              "end": 14.19,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " to",
+              "start": 14.19,
+              "end": 14.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 14.49,
+              "end": 14.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " great",
+              "start": 14.61,
+              "end": 14.83,
+              "probability": 0.93359375
+            },
+            {
+              "text": " town",
+              "start": 14.83,
+              "end": 15.17,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " than",
+              "start": 15.17,
+              "end": 15.57,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " to",
+              "start": 15.57,
+              "end": 15.67,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 15.67,
+              "end": 15.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " remote",
+              "start": 15.77,
+              "end": 16.09,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " parts",
+              "start": 16.09,
+              "end": 16.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 16.35,
+              "end": 16.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 16.53,
+              "end": 16.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " country,",
+              "start": 16.63,
+              "end": 17.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " but",
+              "start": 17.37,
+              "end": 17.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it",
+              "start": 17.67,
+              "end": 17.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " costs",
+              "start": 17.77,
+              "end": 18.01,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 18.01,
+              "end": 18.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " great",
+              "start": 18.25,
+              "end": 18.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " deal",
+              "start": 18.49,
+              "end": 18.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " more",
+              "start": 18.79,
+              "end": 19.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 19.03,
+              "end": 19.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bring",
+              "start": 19.23,
+              "end": 19.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " corn.",
+              "start": 19.41,
+              "end": 19.79,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "great",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "raw": "towns,",
+          "start": 0.77,
+          "end": 1.33
+        },
+        {
+          "raw": "corn",
+          "start": 1.91,
+          "end": 1.97
+        },
+        {
+          "raw": "is",
+          "start": 1.97,
+          "end": 2.19
+        },
+        {
+          "raw": "always",
+          "start": 2.19,
+          "end": 2.59
+        },
+        {
+          "raw": "dearer",
+          "start": 2.59,
+          "end": 2.99
+        },
+        {
+          "raw": "than",
+          "start": 2.99,
+          "end": 3.19
+        },
+        {
+          "raw": "in",
+          "start": 3.19,
+          "end": 3.31
+        },
+        {
+          "raw": "remote",
+          "start": 3.31,
+          "end": 3.67
+        },
+        {
+          "raw": "parts",
+          "start": 3.67,
+          "end": 3.97
+        },
+        {
+          "raw": "of",
+          "start": 3.97,
+          "end": 4.17
+        },
+        {
+          "raw": "the",
+          "start": 4.17,
+          "end": 4.25
+        },
+        {
+          "raw": "country.",
+          "start": 4.25,
+          "end": 4.67
+        },
+        {
+          "raw": "This,",
+          "start": 5.39,
+          "end": 5.67
+        },
+        {
+          "raw": "however,",
+          "start": 5.77,
+          "end": 6.01
+        },
+        {
+          "raw": "is",
+          "start": 6.33,
+          "end": 6.55
+        },
+        {
+          "raw": "the",
+          "start": 6.55,
+          "end": 6.71
+        },
+        {
+          "raw": "effect,",
+          "start": 6.71,
+          "end": 7.09
+        },
+        {
+          "raw": "not",
+          "start": 7.53,
+          "end": 7.71
+        },
+        {
+          "raw": "of",
+          "start": 7.71,
+          "end": 7.87
+        },
+        {
+          "raw": "the",
+          "start": 7.87,
+          "end": 7.97
+        },
+        {
+          "raw": "real",
+          "start": 7.97,
+          "end": 8.23
+        },
+        {
+          "raw": "cheapness",
+          "start": 8.23,
+          "end": 8.73
+        },
+        {
+          "raw": "of",
+          "start": 8.73,
+          "end": 8.89
+        },
+        {
+          "raw": "silver,",
+          "start": 8.89,
+          "end": 9.21
+        },
+        {
+          "raw": "but",
+          "start": 9.67,
+          "end": 9.87
+        },
+        {
+          "raw": "of",
+          "start": 9.87,
+          "end": 10.01
+        },
+        {
+          "raw": "the",
+          "start": 10.01,
+          "end": 10.13
+        },
+        {
+          "raw": "real",
+          "start": 10.13,
+          "end": 10.45
+        },
+        {
+          "raw": "dearness",
+          "start": 10.45,
+          "end": 10.87
+        },
+        {
+          "raw": "of",
+          "start": 10.87,
+          "end": 11.05
+        },
+        {
+          "raw": "corn.",
+          "start": 11.05,
+          "end": 11.35
+        },
+        {
+          "raw": "It",
+          "start": 12.07,
+          "end": 12.21
+        },
+        {
+          "raw": "does",
+          "start": 12.21,
+          "end": 12.33
+        },
+        {
+          "raw": "not",
+          "start": 12.33,
+          "end": 12.53
+        },
+        {
+          "raw": "cost",
+          "start": 12.53,
+          "end": 12.77
+        },
+        {
+          "raw": "less",
+          "start": 12.77,
+          "end": 13.11
+        },
+        {
+          "raw": "labour",
+          "start": 13.11,
+          "end": 13.47
+        },
+        {
+          "raw": "to",
+          "start": 13.47,
+          "end": 13.69
+        },
+        {
+          "raw": "bring",
+          "start": 13.69,
+          "end": 13.87
+        },
+        {
+          "raw": "silver",
+          "start": 13.87,
+          "end": 14.19
+        },
+        {
+          "raw": "to",
+          "start": 14.19,
+          "end": 14.49
+        },
+        {
+          "raw": "the",
+          "start": 14.49,
+          "end": 14.61
+        },
+        {
+          "raw": "great",
+          "start": 14.61,
+          "end": 14.83
+        },
+        {
+          "raw": "town",
+          "start": 14.83,
+          "end": 15.17
+        },
+        {
+          "raw": "than",
+          "start": 15.17,
+          "end": 15.57
+        },
+        {
+          "raw": "to",
+          "start": 15.57,
+          "end": 15.67
+        },
+        {
+          "raw": "the",
+          "start": 15.67,
+          "end": 15.77
+        },
+        {
+          "raw": "remote",
+          "start": 15.77,
+          "end": 16.09
+        },
+        {
+          "raw": "parts",
+          "start": 16.09,
+          "end": 16.35
+        },
+        {
+          "raw": "of",
+          "start": 16.35,
+          "end": 16.53
+        },
+        {
+          "raw": "the",
+          "start": 16.53,
+          "end": 16.63
+        },
+        {
+          "raw": "country,",
+          "start": 16.63,
+          "end": 17.03
+        },
+        {
+          "raw": "but",
+          "start": 17.37,
+          "end": 17.67
+        },
+        {
+          "raw": "it",
+          "start": 17.67,
+          "end": 17.77
+        },
+        {
+          "raw": "costs",
+          "start": 17.77,
+          "end": 18.01
+        },
+        {
+          "raw": "a",
+          "start": 18.01,
+          "end": 18.25
+        },
+        {
+          "raw": "great",
+          "start": 18.25,
+          "end": 18.49
+        },
+        {
+          "raw": "deal",
+          "start": 18.49,
+          "end": 18.79
+        },
+        {
+          "raw": "more",
+          "start": 18.79,
+          "end": 19.03
+        },
+        {
+          "raw": "to",
+          "start": 19.03,
+          "end": 19.23
+        },
+        {
+          "raw": "bring",
+          "start": 19.23,
+          "end": 19.41
+        },
+        {
+          "raw": "corn.",
+          "start": 19.41,
+          "end": 19.79
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "great",
+        "towns,",
+        "corn",
+        "is",
+        "always",
+        "dearer",
+        "than",
+        "in",
+        "remote",
+        "parts",
+        "of",
+        "the",
+        "country.",
+        "This,",
+        "however,",
+        "is",
+        "the",
+        "effect,",
+        "not",
+        "of",
+        "the",
+        "real",
+        "cheapness",
+        "of",
+        "silver,",
+        "but",
+        "of",
+        "the",
+        "real",
+        "dearness",
+        "of",
+        "corn.",
+        "It",
+        "does",
+        "not",
+        "cost",
+        "less",
+        "labour",
+        "to",
+        "bring",
+        "silver",
+        "to",
+        "the",
+        "great",
+        "town",
+        "than",
+        "to",
+        "the",
+        "remote",
+        "parts",
+        "of",
+        "the",
+        "country;",
+        "but",
+        "it",
+        "costs",
+        "a",
+        "great",
+        "deal",
+        "more",
+        "to",
+        "bring",
+        "corn."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          64,
+          0,
+          64
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 0.55,
+          "end": 0.77,
+          "key": "great",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "towns,",
+          "start": 0.77,
+          "end": 1.33,
+          "key": "towns",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "corn",
+          "start": 1.91,
+          "end": 1.97,
+          "key": "corn",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.97,
+          "end": 2.19,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 2.19,
+          "end": 2.59,
+          "key": "always",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dearer",
+          "start": 2.59,
+          "end": 2.99,
+          "key": "dearer",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.99,
+          "end": 3.19,
+          "key": "than",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.19,
+          "end": 3.31,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "remote",
+          "start": 3.31,
+          "end": 3.67,
+          "key": "remote",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "parts",
+          "start": 3.67,
+          "end": 3.97,
+          "key": "parts",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.97,
+          "end": 4.17,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.17,
+          "end": 4.25,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "country.",
+          "start": 4.25,
+          "end": 4.67,
+          "key": "country",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "This,",
+          "start": 5.39,
+          "end": 5.67,
+          "key": "this",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "however,",
+          "start": 5.77,
+          "end": 6.01,
+          "key": "however",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.33,
+          "end": 6.55,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.55,
+          "end": 6.71,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "effect,",
+          "start": 6.71,
+          "end": 7.09,
+          "key": "effect",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.53,
+          "end": 7.71,
+          "key": "not",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.71,
+          "end": 7.87,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.87,
+          "end": 7.97,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "real",
+          "start": 7.97,
+          "end": 8.23,
+          "key": "real",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "cheapness",
+          "start": 8.23,
+          "end": 8.73,
+          "key": "cheapness",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.73,
+          "end": 8.89,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "silver,",
+          "start": 8.89,
+          "end": 9.21,
+          "key": "silver",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 9.67,
+          "end": 9.87,
+          "key": "but",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.87,
+          "end": 10.01,
+          "key": "of",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.01,
+          "end": 10.13,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "real",
+          "start": 10.13,
+          "end": 10.45,
+          "key": "real",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "dearness",
+          "start": 10.45,
+          "end": 10.87,
+          "key": "dearness",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.87,
+          "end": 11.05,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "corn.",
+          "start": 11.05,
+          "end": 11.35,
+          "key": "corn",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 12.07,
+          "end": 12.21,
+          "key": "it",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 12.21,
+          "end": 12.33,
+          "key": "does",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 12.33,
+          "end": 12.53,
+          "key": "not",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "cost",
+          "start": 12.53,
+          "end": 12.77,
+          "key": "cost",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "less",
+          "start": 12.77,
+          "end": 13.11,
+          "key": "less",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "labour",
+          "start": 13.11,
+          "end": 13.47,
+          "key": "labour",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.47,
+          "end": 13.69,
+          "key": "to",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 13.69,
+          "end": 13.87,
+          "key": "bring",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "silver",
+          "start": 13.87,
+          "end": 14.19,
+          "key": "silver",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.19,
+          "end": 14.49,
+          "key": "to",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.49,
+          "end": 14.61,
+          "key": "the",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 14.61,
+          "end": 14.83,
+          "key": "great",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "town",
+          "start": 14.83,
+          "end": 15.17,
+          "key": "town",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 15.17,
+          "end": 15.57,
+          "key": "than",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.57,
+          "end": 15.67,
+          "key": "to",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.67,
+          "end": 15.77,
+          "key": "the",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "remote",
+          "start": 15.77,
+          "end": 16.09,
+          "key": "remote",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "parts",
+          "start": 16.09,
+          "end": 16.35,
+          "key": "parts",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.35,
+          "end": 16.53,
+          "key": "of",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.53,
+          "end": 16.63,
+          "key": "the",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "country,",
+          "start": 16.63,
+          "end": 17.03,
+          "key": "country",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 17.37,
+          "end": 17.67,
+          "key": "but",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 17.67,
+          "end": 17.77,
+          "key": "it",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "costs",
+          "start": 17.77,
+          "end": 18.01,
+          "key": "costs",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 18.01,
+          "end": 18.25,
+          "key": "a",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 18.25,
+          "end": 18.49,
+          "key": "great",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "deal",
+          "start": 18.49,
+          "end": 18.79,
+          "key": "deal",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 18.79,
+          "end": 19.03,
+          "key": "more",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 19.03,
+          "end": 19.23,
+          "key": "to",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 19.23,
+          "end": 19.41,
+          "key": "bring",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "corn.",
+          "start": 19.41,
+          "end": 19.79,
+          "key": "corn",
+          "pieces": [
+            63
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "great",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "text": "towns,",
+          "start": 0.77,
+          "end": 1.33
+        },
+        {
+          "text": "corn",
+          "start": 1.91,
+          "end": 1.97
+        },
+        {
+          "text": "is",
+          "start": 1.97,
+          "end": 2.19
+        },
+        {
+          "text": "always",
+          "start": 2.19,
+          "end": 2.59
+        },
+        {
+          "text": "dearer",
+          "start": 2.59,
+          "end": 2.99
+        },
+        {
+          "text": "than",
+          "start": 2.99,
+          "end": 3.19
+        },
+        {
+          "text": "in",
+          "start": 3.19,
+          "end": 3.31
+        },
+        {
+          "text": "remote",
+          "start": 3.31,
+          "end": 3.67
+        },
+        {
+          "text": "parts",
+          "start": 3.67,
+          "end": 3.97
+        },
+        {
+          "text": "of",
+          "start": 3.97,
+          "end": 4.17
+        },
+        {
+          "text": "the",
+          "start": 4.17,
+          "end": 4.25
+        },
+        {
+          "text": "country.",
+          "start": 4.25,
+          "end": 4.67
+        },
+        {
+          "text": "This,",
+          "start": 5.39,
+          "end": 5.67
+        },
+        {
+          "text": "however,",
+          "start": 5.77,
+          "end": 6.01
+        },
+        {
+          "text": "is",
+          "start": 6.33,
+          "end": 6.55
+        },
+        {
+          "text": "the",
+          "start": 6.55,
+          "end": 6.71
+        },
+        {
+          "text": "effect,",
+          "start": 6.71,
+          "end": 7.09
+        },
+        {
+          "text": "not",
+          "start": 7.53,
+          "end": 7.71
+        },
+        {
+          "text": "of",
+          "start": 7.71,
+          "end": 7.87
+        },
+        {
+          "text": "the",
+          "start": 7.87,
+          "end": 7.97
+        },
+        {
+          "text": "real",
+          "start": 7.97,
+          "end": 8.23
+        },
+        {
+          "text": "cheapness",
+          "start": 8.23,
+          "end": 8.73
+        },
+        {
+          "text": "of",
+          "start": 8.73,
+          "end": 8.89
+        },
+        {
+          "text": "silver,",
+          "start": 8.89,
+          "end": 9.21
+        },
+        {
+          "text": "but",
+          "start": 9.67,
+          "end": 9.87
+        },
+        {
+          "text": "of",
+          "start": 9.87,
+          "end": 10.01
+        },
+        {
+          "text": "the",
+          "start": 10.01,
+          "end": 10.13
+        },
+        {
+          "text": "real",
+          "start": 10.13,
+          "end": 10.45
+        },
+        {
+          "text": "dearness",
+          "start": 10.45,
+          "end": 10.87
+        },
+        {
+          "text": "of",
+          "start": 10.87,
+          "end": 11.05
+        },
+        {
+          "text": "corn.",
+          "start": 11.05,
+          "end": 11.35
+        },
+        {
+          "text": "It",
+          "start": 12.07,
+          "end": 12.21
+        },
+        {
+          "text": "does",
+          "start": 12.21,
+          "end": 12.33
+        },
+        {
+          "text": "not",
+          "start": 12.33,
+          "end": 12.53
+        },
+        {
+          "text": "cost",
+          "start": 12.53,
+          "end": 12.77
+        },
+        {
+          "text": "less",
+          "start": 12.77,
+          "end": 13.11
+        },
+        {
+          "text": "labour",
+          "start": 13.11,
+          "end": 13.47
+        },
+        {
+          "text": "to",
+          "start": 13.47,
+          "end": 13.69
+        },
+        {
+          "text": "bring",
+          "start": 13.69,
+          "end": 13.87
+        },
+        {
+          "text": "silver",
+          "start": 13.87,
+          "end": 14.19
+        },
+        {
+          "text": "to",
+          "start": 14.19,
+          "end": 14.49
+        },
+        {
+          "text": "the",
+          "start": 14.49,
+          "end": 14.61
+        },
+        {
+          "text": "great",
+          "start": 14.61,
+          "end": 14.83
+        },
+        {
+          "text": "town",
+          "start": 14.83,
+          "end": 15.17
+        },
+        {
+          "text": "than",
+          "start": 15.17,
+          "end": 15.57
+        },
+        {
+          "text": "to",
+          "start": 15.57,
+          "end": 15.67
+        },
+        {
+          "text": "the",
+          "start": 15.67,
+          "end": 15.77
+        },
+        {
+          "text": "remote",
+          "start": 15.77,
+          "end": 16.09
+        },
+        {
+          "text": "parts",
+          "start": 16.09,
+          "end": 16.35
+        },
+        {
+          "text": "of",
+          "start": 16.35,
+          "end": 16.53
+        },
+        {
+          "text": "the",
+          "start": 16.53,
+          "end": 16.63
+        },
+        {
+          "text": "country;",
+          "start": 16.63,
+          "end": 17.03
+        },
+        {
+          "text": "but",
+          "start": 17.37,
+          "end": 17.67
+        },
+        {
+          "text": "it",
+          "start": 17.67,
+          "end": 17.77
+        },
+        {
+          "text": "costs",
+          "start": 17.77,
+          "end": 18.01
+        },
+        {
+          "text": "a",
+          "start": 18.01,
+          "end": 18.25
+        },
+        {
+          "text": "great",
+          "start": 18.25,
+          "end": 18.49
+        },
+        {
+          "text": "deal",
+          "start": 18.49,
+          "end": 18.79
+        },
+        {
+          "text": "more",
+          "start": 18.79,
+          "end": 19.03
+        },
+        {
+          "text": "to",
+          "start": 19.03,
+          "end": 19.23
+        },
+        {
+          "text": "bring",
+          "start": 19.23,
+          "end": 19.41
+        },
+        {
+          "text": "corn.",
+          "start": 19.41,
+          "end": 19.79
+        }
+      ],
+      "stats": {
+        "expected_words": 64,
+        "heard_words": 64,
+        "matched_words": 64
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6409458220005035
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "df5562a3b5035a4e4aa8470cfa3e34155373a7d456c7efdbd74fcc8a30c2a308",
+  "selected_reasons": []
+}

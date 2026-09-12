@@ -1,0 +1,266 @@
+{
+  "complete": true,
+  "signature": "0ffe2ced19e8dd3f868b95fc3a71dac0017edaa6c8c7e1d709ecbde608b17256",
+  "attempts": [
+    {
+      "asr_seconds": 0.2151396842673421,
+      "alignment_seconds": 0.000506887212395668,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " French soldier, quite a till monsieur.",
+          "start": 0.05,
+          "end": 2.41,
+          "words": [
+            {
+              "text": " French",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.81005859375
+            },
+            {
+              "text": " soldier,",
+              "start": 0.61,
+              "end": 1.09,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " quite",
+              "start": 1.53,
+              "end": 1.59,
+              "probability": 0.130859375
+            },
+            {
+              "text": " a",
+              "start": 1.59,
+              "end": 1.71,
+              "probability": 0.55859375
+            },
+            {
+              "text": " till",
+              "start": 1.71,
+              "end": 1.85,
+              "probability": 0.30517578125
+            },
+            {
+              "text": " monsieur.",
+              "start": 1.85,
+              "end": 2.41,
+              "probability": 0.79632568359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "French",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.61,
+          "end": 1.09
+        },
+        {
+          "raw": "quite",
+          "start": 1.53,
+          "end": 1.59
+        },
+        {
+          "raw": "a",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "raw": "till",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "raw": "monsieur.",
+          "start": 1.85,
+          "end": 2.41
+        }
+      ],
+      "expected_tokens": [
+        "French",
+        "Soldier.",
+        "_Que",
+        "dit-il,",
+        "monsieur?_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "French",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "french",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.61,
+          "end": 1.09,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 1.53,
+          "end": 1.59,
+          "key": "quite",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.59,
+          "end": 1.71,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 1.71,
+          "end": 1.85,
+          "key": "till",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "monsieur.",
+          "start": 1.85,
+          "end": 2.41,
+          "key": "monsieur",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "French",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.61,
+          "end": 1.09
+        },
+        {
+          "text": "_Que",
+          "start": 1.09,
+          "end": 1.47
+        },
+        {
+          "text": "dit-il,",
+          "start": 1.47,
+          "end": 1.66
+        },
+        {
+          "text": "monsieur?_",
+          "start": 1.85,
+          "end": 2.41
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21584936697036028
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b4f245a577be24144e58a04b241190b40f5cd72f070890974b70db938d968c37",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

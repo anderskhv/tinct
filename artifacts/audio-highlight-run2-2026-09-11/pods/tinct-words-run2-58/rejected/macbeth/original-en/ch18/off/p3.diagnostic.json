@@ -1,0 +1,364 @@
+{
+  "complete": true,
+  "signature": "8be01440d503369e8e13d3df8bfa73d4706482847fa0aceb7b4f25a6fd1ec106",
+  "attempts": [
+    {
+      "asr_seconds": 0.21022169571369886,
+      "alignment_seconds": 0.00048052985221147537,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Third witch, harp your cries. Tis time, tease time.",
+          "start": 0.05,
+          "end": 3.45,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " witch,",
+              "start": 0.59,
+              "end": 0.87,
+              "probability": 0.315185546875
+            },
+            {
+              "text": " harp",
+              "start": 1.13,
+              "end": 1.25,
+              "probability": 0.952392578125
+            },
+            {
+              "text": " your",
+              "start": 1.25,
+              "end": 1.35,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " cries.",
+              "start": 1.35,
+              "end": 1.77,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Tis",
+              "start": 2.29,
+              "end": 2.39,
+              "probability": 0.552947998046875
+            },
+            {
+              "text": " time,",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " tease",
+              "start": 2.95,
+              "end": 3.03,
+              "probability": 0.7880859375
+            },
+            {
+              "text": " time.",
+              "start": 3.03,
+              "end": 3.45,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "witch,",
+          "start": 0.59,
+          "end": 0.87
+        },
+        {
+          "raw": "harp",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "raw": "your",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "raw": "cries.",
+          "start": 1.35,
+          "end": 1.77
+        },
+        {
+          "raw": "Tis",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "raw": "time,",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "raw": "tease",
+          "start": 2.95,
+          "end": 3.03
+        },
+        {
+          "raw": "time.",
+          "start": 3.03,
+          "end": 3.45
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Witch.",
+        "Harpier",
+        "cries:—'Tis",
+        "time,",
+        "'tis",
+        "time."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          5,
+          2,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "insert",
+          7,
+          7,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          5,
+          2,
+          5
+        ],
+        [
+          "insert",
+          7,
+          7,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "witch,",
+          "start": 0.59,
+          "end": 0.87,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "harp",
+          "start": 1.13,
+          "end": 1.25,
+          "key": "harp",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.25,
+          "end": 1.35,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cries.",
+          "start": 1.35,
+          "end": 1.77,
+          "key": "cries",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 2.29,
+          "end": 2.39,
+          "key": "tis",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "time,",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "time",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 2.95,
+          "end": 3.03,
+          "key": "tease",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 3.03,
+          "end": 3.45,
+          "key": "time",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Witch.",
+          "start": 0.59,
+          "end": 0.87
+        },
+        {
+          "text": "Harpier",
+          "start": 0.87,
+          "end": 1.58
+        },
+        {
+          "text": "cries:—'Tis",
+          "start": 1.58,
+          "end": 1.935
+        },
+        {
+          "text": "time,",
+          "start": 1.935,
+          "end": 2.112
+        },
+        {
+          "text": "'tis",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "text": "time.",
+          "start": 2.39,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 9,
+        "matched_words": 4
+      },
+      "match_ratio": 0.5714285714285714,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21089125331491232
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "98da72a08fcaa8983d1678e11d0e65cc19146495b603bc0e30a9c5155ab22dce",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

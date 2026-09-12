@@ -1,0 +1,619 @@
+{
+  "complete": true,
+  "signature": "c22de1fe7bfcabb4f3950ceba5e72d237edb7eb3c2dea338b33ec75bb602100a",
+  "attempts": [
+    {
+      "asr_seconds": 0.28357101790606976,
+      "alignment_seconds": 0.0005191154778003693,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leonardo, oh lord. My lord, if they were but a week married, they would talk themselves mad.",
+          "start": 0.08,
+          "end": 5.74,
+          "words": [
+            {
+              "text": " Leonardo,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.489013671875
+            },
+            {
+              "text": " oh",
+              "start": 1.34,
+              "end": 1.48,
+              "probability": 0.62890625
+            },
+            {
+              "text": " lord.",
+              "start": 1.48,
+              "end": 1.8,
+              "probability": 0.5546875
+            },
+            {
+              "text": " My",
+              "start": 2.46,
+              "end": 2.58,
+              "probability": 0.9765625
+            },
+            {
+              "text": " lord,",
+              "start": 2.58,
+              "end": 2.84,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " if",
+              "start": 3.08,
+              "end": 3.18,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " they",
+              "start": 3.18,
+              "end": 3.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " were",
+              "start": 3.34,
+              "end": 3.44,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " but",
+              "start": 3.44,
+              "end": 3.56,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " a",
+              "start": 3.56,
+              "end": 3.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " week",
+              "start": 3.68,
+              "end": 3.86,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " married,",
+              "start": 3.86,
+              "end": 4.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " they",
+              "start": 4.52,
+              "end": 4.56,
+              "probability": 0.994140625
+            },
+            {
+              "text": " would",
+              "start": 4.56,
+              "end": 4.68,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " talk",
+              "start": 4.68,
+              "end": 4.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " themselves",
+              "start": 4.9,
+              "end": 5.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " mad.",
+              "start": 5.32,
+              "end": 5.74,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "oh",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "raw": "lord.",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "raw": "My",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "raw": "lord,",
+          "start": 2.58,
+          "end": 2.84
+        },
+        {
+          "raw": "if",
+          "start": 3.08,
+          "end": 3.18
+        },
+        {
+          "raw": "they",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "raw": "were",
+          "start": 3.34,
+          "end": 3.44
+        },
+        {
+          "raw": "but",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "raw": "a",
+          "start": 3.56,
+          "end": 3.68
+        },
+        {
+          "raw": "week",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "raw": "married,",
+          "start": 3.86,
+          "end": 4.28
+        },
+        {
+          "raw": "they",
+          "start": 4.52,
+          "end": 4.56
+        },
+        {
+          "raw": "would",
+          "start": 4.56,
+          "end": 4.68
+        },
+        {
+          "raw": "talk",
+          "start": 4.68,
+          "end": 4.9
+        },
+        {
+          "raw": "themselves",
+          "start": 4.9,
+          "end": 5.32
+        },
+        {
+          "raw": "mad.",
+          "start": 5.32,
+          "end": 5.74
+        }
+      ],
+      "expected_tokens": [
+        "Leonato.",
+        "O",
+        "Lord!",
+        "my",
+        "lord,",
+        "if",
+        "they",
+        "were",
+        "but",
+        "a",
+        "week",
+        "married,",
+        "they",
+        "would",
+        "talk",
+        "themselves",
+        "mad."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          17,
+          2,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "leonardo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.34,
+          "end": 1.48,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.48,
+          "end": 1.8,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 2.46,
+          "end": 2.58,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 2.58,
+          "end": 2.84,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.08,
+          "end": 3.18,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.18,
+          "end": 3.34,
+          "key": "they",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 3.34,
+          "end": 3.44,
+          "key": "were",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.44,
+          "end": 3.56,
+          "key": "but",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.56,
+          "end": 3.68,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "week",
+          "start": 3.68,
+          "end": 3.86,
+          "key": "week",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "married,",
+          "start": 3.86,
+          "end": 4.28,
+          "key": "married",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.52,
+          "end": 4.56,
+          "key": "they",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.56,
+          "end": 4.68,
+          "key": "would",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 4.68,
+          "end": 4.9,
+          "key": "talk",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "themselves",
+          "start": 4.9,
+          "end": 5.32,
+          "key": "themselves",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "mad.",
+          "start": 5.32,
+          "end": 5.74,
+          "key": "mad",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.74
+        },
+        {
+          "text": "O",
+          "start": 0.74,
+          "end": 1.11
+        },
+        {
+          "text": "Lord!",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "text": "my",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "text": "lord,",
+          "start": 2.58,
+          "end": 2.84
+        },
+        {
+          "text": "if",
+          "start": 3.08,
+          "end": 3.18
+        },
+        {
+          "text": "they",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "text": "were",
+          "start": 3.34,
+          "end": 3.44
+        },
+        {
+          "text": "but",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "text": "a",
+          "start": 3.56,
+          "end": 3.68
+        },
+        {
+          "text": "week",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "text": "married,",
+          "start": 3.86,
+          "end": 4.28
+        },
+        {
+          "text": "they",
+          "start": 4.52,
+          "end": 4.56
+        },
+        {
+          "text": "would",
+          "start": 4.56,
+          "end": 4.68
+        },
+        {
+          "text": "talk",
+          "start": 4.68,
+          "end": 4.9
+        },
+        {
+          "text": "themselves",
+          "start": 4.9,
+          "end": 5.32
+        },
+        {
+          "text": "mad.",
+          "start": 5.32,
+          "end": 5.74
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.2843043114989996
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c4c3e4e3376515c073e51411998a5863184c18e98f0e0dfb6a8f7748e337b9ef",
+  "selected_reasons": []
+}

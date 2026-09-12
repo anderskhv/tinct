@@ -1,0 +1,285 @@
+{
+  "complete": true,
+  "signature": "1822cf189650a6f10a68758dc1b9cf46ca7ae9930263b810d4d282e506777217",
+  "attempts": [
+    {
+      "asr_seconds": 0.1772194802761078,
+      "alignment_seconds": 0.0004263147711753845,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"As short a time as possible, sir.\""
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " As short a time as possible, sir.",
+          "start": 0.08,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " As",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " short",
+              "start": 0.54,
+              "end": 0.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 0.74,
+              "end": 0.86,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " time",
+              "start": 0.86,
+              "end": 1.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 1.02,
+              "end": 1.2,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " possible,",
+              "start": 1.2,
+              "end": 1.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sir.",
+              "start": 1.84,
+              "end": 1.92,
+              "probability": 0.8759765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "As",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "short",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "raw": "a",
+          "start": 0.74,
+          "end": 0.86
+        },
+        {
+          "raw": "time",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "raw": "as",
+          "start": 1.02,
+          "end": 1.2
+        },
+        {
+          "raw": "possible,",
+          "start": 1.2,
+          "end": 1.6
+        },
+        {
+          "raw": "sir.",
+          "start": 1.84,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "\"As",
+        "short",
+        "a",
+        "time",
+        "as",
+        "possible,",
+        "sir.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "As",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "as",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "short",
+          "start": 0.54,
+          "end": 0.74,
+          "key": "short",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.74,
+          "end": 0.86,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 0.86,
+          "end": 1.02,
+          "key": "time",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.02,
+          "end": 1.2,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "possible,",
+          "start": 1.2,
+          "end": 1.6,
+          "key": "possible",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.84,
+          "end": 1.92,
+          "key": "sir",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"As",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "short",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "text": "a",
+          "start": 0.74,
+          "end": 0.86
+        },
+        {
+          "text": "time",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "text": "as",
+          "start": 1.02,
+          "end": 1.2
+        },
+        {
+          "text": "possible,",
+          "start": 1.2,
+          "end": 1.6
+        },
+        {
+          "text": "sir.\"",
+          "start": 1.84,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1777988336980343
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5c23685d40e8be3e97407ad5e8d8851fd8e9f159ab8bc03df2f8ecb0d09e8942",
+  "selected_reasons": []
+}

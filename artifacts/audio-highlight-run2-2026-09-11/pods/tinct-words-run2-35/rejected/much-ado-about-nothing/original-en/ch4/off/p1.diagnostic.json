@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "3d1daf7f2be7fe36ed481f7f7581074f62c99aa95e50010e98acd7688fa14b9f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1931567881256342,
+      "alignment_seconds": 0.00047144293785095215,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leonardo was not Count John here at supper.",
+          "start": 0.05,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " Leonardo",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " was",
+              "start": 0.77,
+              "end": 1.39,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " not",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Count",
+              "start": 1.55,
+              "end": 1.77,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " John",
+              "start": 1.77,
+              "end": 2.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " here",
+              "start": 2.01,
+              "end": 2.23,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " at",
+              "start": 2.23,
+              "end": 2.37,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " supper.",
+              "start": 2.37,
+              "end": 2.57,
+              "probability": 0.9697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonardo",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "was",
+          "start": 0.77,
+          "end": 1.39
+        },
+        {
+          "raw": "not",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "Count",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "raw": "John",
+          "start": 1.77,
+          "end": 2.01
+        },
+        {
+          "raw": "here",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "raw": "at",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "raw": "supper.",
+          "start": 2.37,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "Leonato.",
+        "Was",
+        "not",
+        "Count",
+        "John",
+        "here",
+        "at",
+        "supper?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonardo",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "leonardo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.77,
+          "end": 1.39,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Count",
+          "start": 1.55,
+          "end": 1.77,
+          "key": "count",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 1.77,
+          "end": 2.01,
+          "key": "john",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.01,
+          "end": 2.23,
+          "key": "here",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.23,
+          "end": 2.37,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "supper.",
+          "start": 2.37,
+          "end": 2.57,
+          "key": "supper",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.385
+        },
+        {
+          "text": "Was",
+          "start": 0.77,
+          "end": 1.39
+        },
+        {
+          "text": "not",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "Count",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "text": "John",
+          "start": 1.77,
+          "end": 2.01
+        },
+        {
+          "text": "here",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "text": "at",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "text": "supper?",
+          "start": 2.37,
+          "end": 2.57
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.19379338063299656
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a76ce33fb3eafcae31c79686721580b473c4e50443bd3dba69531da752c5eb56",
+  "selected_reasons": []
+}

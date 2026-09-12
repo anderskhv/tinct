@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "18fd5acc37f4e1a1bc674046e5a781e48df3068d6570805da573fcea78288b81",
+  "attempts": [
+    {
+      "asr_seconds": 0.14520077779889107,
+      "alignment_seconds": 0.00034299492835998535,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"She is dead,\" he said.",
+        "hotwords": "She"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She is dead, he said.",
+          "start": 0.08,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.34521484375
+            },
+            {
+              "text": " is",
+              "start": 0.56,
+              "end": 0.7,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " dead,",
+              "start": 0.7,
+              "end": 1.04,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " he",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " said.",
+              "start": 1.44,
+              "end": 1.7,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "raw": "dead,",
+          "start": 0.7,
+          "end": 1.04
+        },
+        {
+          "raw": "he",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "said.",
+          "start": 1.44,
+          "end": 1.7
+        }
+      ],
+      "expected_tokens": [
+        "\"She",
+        "is",
+        "dead,\"",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.7,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 0.7,
+          "end": 1.04,
+          "key": "dead",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.44,
+          "end": 1.7,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"She",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "is",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "text": "dead,\"",
+          "start": 0.7,
+          "end": 1.04
+        },
+        {
+          "text": "he",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "said.",
+          "start": 1.44,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1456739418208599
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8d692ccb74051671a25a77d8055c1c64ceb3e2c0a168fbd024aa79d80cfe0d36",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "059502c2c06eac3505c90b50a62ae165c520d335c04c0913ec7aab0d795e15ff",
+  "attempts": [
+    {
+      "asr_seconds": 0.15118709299713373,
+      "alignment_seconds": 0.00038205552846193314,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Guiderius with Cloten's head.",
+        "hotwords": "Enter, Guiderius, Cloten's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Guiderius with Cloten's head.",
+          "start": 0.11,
+          "end": 1.99,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " Guiderius",
+              "start": 0.75,
+              "end": 1.17,
+              "probability": 0.3189067840576172
+            },
+            {
+              "text": " with",
+              "start": 1.17,
+              "end": 1.35,
+              "probability": 0.6845703125
+            },
+            {
+              "text": " Cloten's",
+              "start": 1.35,
+              "end": 1.75,
+              "probability": 0.64276123046875
+            },
+            {
+              "text": " head.",
+              "start": 1.75,
+              "end": 1.99,
+              "probability": 0.9345703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Guiderius",
+          "start": 0.75,
+          "end": 1.17
+        },
+        {
+          "raw": "with",
+          "start": 1.17,
+          "end": 1.35
+        },
+        {
+          "raw": "Cloten's",
+          "start": 1.35,
+          "end": 1.75
+        },
+        {
+          "raw": "head.",
+          "start": 1.75,
+          "end": 1.99
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Guiderius",
+        "with",
+        "Cloten's",
+        "head."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Guiderius",
+          "start": 0.75,
+          "end": 1.17,
+          "key": "guiderius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.17,
+          "end": 1.35,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cloten's",
+          "start": 1.35,
+          "end": 1.75,
+          "key": "clotens",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "head.",
+          "start": 1.75,
+          "end": 1.99,
+          "key": "head",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Guiderius",
+          "start": 0.75,
+          "end": 1.17
+        },
+        {
+          "text": "with",
+          "start": 1.17,
+          "end": 1.35
+        },
+        {
+          "text": "Cloten's",
+          "start": 1.35,
+          "end": 1.75
+        },
+        {
+          "text": "head.",
+          "start": 1.75,
+          "end": 1.99
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1516979532316327
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dcc73dc6c863171044ab789f1562842d2f0824019e92b16b7728e7d2ecb5381a",
+  "selected_reasons": []
+}

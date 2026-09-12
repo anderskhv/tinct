@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "7ad12a2f4f41240b6fb2302ca911da336c85f0906e1956f73b2f5cce25f96e5f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1535621820949018,
+      "alignment_seconds": 0.0003910968080163002,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I don't know, replied Sarah.",
+          "start": 0.08,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.0775146484375
+            },
+            {
+              "text": " don't",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " know,",
+              "start": 0.68,
+              "end": 0.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " replied",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Sarah.",
+              "start": 1.44,
+              "end": 1.78,
+              "probability": 0.80322265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "don't",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "know,",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "raw": "replied",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "Sarah.",
+          "start": 1.44,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "don't",
+        "know,\"",
+        "replied",
+        "Sara."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "dont",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 0.68,
+          "end": 0.94,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "replied",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Sarah.",
+          "start": 1.44,
+          "end": 1.78,
+          "key": "sarah",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "don't",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "know,\"",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "text": "replied",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "Sara.",
+          "start": 1.44,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15407418995164335
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9d9cc3cc5ab99913381538611b9e61b62cb0b874c94ad3c34098ea340568d3db",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

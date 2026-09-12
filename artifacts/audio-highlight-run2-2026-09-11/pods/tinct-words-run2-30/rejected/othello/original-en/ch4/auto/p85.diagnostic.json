@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "1bc7705db54f2246e5587c03d3528054d7732a54ca8b127a0defaf9c21828ea3",
+  "attempts": [
+    {
+      "asr_seconds": 0.10739075904712081,
+      "alignment_seconds": 0.00011691870167851448,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. My dear Othello!",
+        "hotwords": "Desdemona, My, Othello"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, My dear Othello!",
+          "start": 0.05,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.6486180623372396
+            },
+            {
+              "text": " My",
+              "start": 1.35,
+              "end": 1.45,
+              "probability": 0.03057861328125
+            },
+            {
+              "text": " dear",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.452880859375
+            },
+            {
+              "text": " Othello!",
+              "start": 1.59,
+              "end": 2.13,
+              "probability": 0.9451497395833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "My",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "raw": "dear",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "Othello!",
+          "start": 1.59,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "My",
+        "dear",
+        "Othello!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.35,
+          "end": 1.45,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "dear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Othello!",
+          "start": 1.59,
+          "end": 2.13,
+          "key": "othello",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "My",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "text": "dear",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "Othello!",
+          "start": 1.59,
+          "end": 2.13
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10754748806357384
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "89b3eb8ce975f347ffb4176d8bb9a2efe9c7b2b61a3585dea61f386a9e80f027",
+  "selected_reasons": []
+}

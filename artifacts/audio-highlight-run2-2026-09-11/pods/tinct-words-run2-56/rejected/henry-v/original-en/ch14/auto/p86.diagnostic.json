@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "a2ea9075d4445ef1acc1b239f28b8934dffbb3f0489d430fa01366a1d9011887",
+  "attempts": [
+    {
+      "asr_seconds": 0.1374904252588749,
+      "alignment_seconds": 0.0001357467845082283,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Erpingham.",
+        "hotwords": "Enter, Erpingham"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Erpingham.",
+          "start": 0.05,
+          "end": 1.23,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " Erpingham.",
+              "start": 0.67,
+              "end": 1.23,
+              "probability": 0.6852213541666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Erpingham.",
+          "start": 0.67,
+          "end": 1.23
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Erpingham."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Erpingham.",
+          "start": 0.67,
+          "end": 1.23,
+          "key": "erpingham",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Erpingham.",
+          "start": 0.67,
+          "end": 1.23
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1376684159040451
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a200757b085ae6a134cdff0b3e246698bd3f7e54ac8d6fd9651adf0d595c9264",
+  "selected_reasons": []
+}

@@ -26,6 +26,7 @@ Environment:
   TINCT_ARMS            space-separated arms (default "off auto")
   TINCT_COMPUTE_TYPE    float16 (default) or int8
   TINCT_DEVICE          cuda (default) or cpu
+  TINCT_HELPER          pinned helper revision, v1 or v2 (default v2; PINS.md)
   PORT                  HTTP port (default 8000)
 """
 from __future__ import annotations
@@ -51,7 +52,11 @@ MODEL_SHA = os.environ.get("TINCT_MODEL_SHA256", "")
 MODEL_REV = os.environ.get("TINCT_MODEL_REVISION", "d1d751a5f8271d482d14ca55d9e2deeebbae577f")
 DEVICE = os.environ.get("TINCT_DEVICE", "cuda")
 RAW = f"https://raw.githubusercontent.com/anderskhv/tinct/{COMMIT}"
-ALIGNER_FILES = ["trial.py", "pinned_words_sidecar_lib.py", "spoken_policy.py", "cloud_cohort.py"]
+HELPER = os.environ.get("TINCT_HELPER", "v2")
+# Both pins travel to the pod: trial.py imports v2 at module scope and selects the
+# requested pin at startup, so a missing file is an immediate ImportError on the pod.
+ALIGNER_FILES = ["trial.py", "pinned_words_sidecar_lib.py", "pinned_words_sidecar_lib_v2.py",
+                 "spoken_policy.py", "cloud_cohort.py"]
 
 STATE: dict = {"phase": "booting", "started": time.time(), "setup": {}, "job": {}, "log": []}
 LOCK = threading.Lock()
@@ -180,7 +185,8 @@ def job() -> None:
                    "--model-sha256", STATE["setup"]["model_tree_sha256"], "--device", DEVICE,
                    "--compute-type", os.environ.get("TINCT_COMPUTE_TYPE", "float16"),
                    "--arms", *os.environ.get("TINCT_ARMS", "off auto").split(),
-                   "--max-seconds", os.environ.get("TINCT_MAX_SECONDS", "2400"), "--run"]
+                   "--max-seconds", os.environ.get("TINCT_MAX_SECONDS", "2400"),
+                   "--helper", HELPER, "--run"]
         record["command"] = command
         log("$ " + " ".join(command))
         with (ROOT / "trial.log").open("w") as handle:

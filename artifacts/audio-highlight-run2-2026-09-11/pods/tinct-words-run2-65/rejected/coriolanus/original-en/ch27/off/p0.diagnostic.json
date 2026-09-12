@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "fdea36c1ee26635060f94be925c20519031a7d05c01f71f98a344cd2f8a2a764",
+  "attempts": [
+    {
+      "asr_seconds": 0.10040439013391733,
+      "alignment_seconds": 0.00015821540728211403,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Menenius and Sosineus.",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.71142578125
+            },
+            {
+              "text": " Menenius",
+              "start": 0.62,
+              "end": 1.16,
+              "probability": 0.638671875
+            },
+            {
+              "text": " and",
+              "start": 1.16,
+              "end": 1.38,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " Sosineus.",
+              "start": 1.38,
+              "end": 2.0,
+              "probability": 0.57080078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Menenius",
+          "start": 0.62,
+          "end": 1.16
+        },
+        {
+          "raw": "and",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "raw": "Sosineus.",
+          "start": 1.38,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Menenius",
+        "and",
+        "Sicinius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Menenius",
+          "start": 0.62,
+          "end": 1.16,
+          "key": "menenius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.16,
+          "end": 1.38,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sosineus.",
+          "start": 1.38,
+          "end": 2.0,
+          "key": "sosineus",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Menenius",
+          "start": 0.62,
+          "end": 1.16
+        },
+        {
+          "text": "and",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "text": "Sicinius.",
+          "start": 1.38,
+          "end": 1.69
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10061702597886324
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5eff7af652026b84aed5e0a089a3e75ea654c6625290f21836ea200c9390a4d2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

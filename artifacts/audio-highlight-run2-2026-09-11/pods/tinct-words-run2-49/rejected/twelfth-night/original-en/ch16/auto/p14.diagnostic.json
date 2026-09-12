@@ -1,0 +1,1658 @@
+{
+  "complete": true,
+  "signature": "12e47e3dfd46a093e015e3e2b4f17edb1929e8997981d0437fd14629942a3fd1",
+  "attempts": [
+    {
+      "asr_seconds": 0.6525661572813988,
+      "alignment_seconds": 0.0006457976996898651,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. Out, hyperbolical fiend! how vexest thou this man? Talkest thou nothing but of ladies?",
+        "hotwords": "Clown, Out, Talkest"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, Out, hyperbolical fiend! how vexest thou this man? Talkest thou nothing but of",
+          "start": 0.02,
+          "end": 7.0,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.31982421875
+            },
+            {
+              "text": " Out,",
+              "start": 1.3,
+              "end": 1.3,
+              "probability": 0.26318359375
+            },
+            {
+              "text": " hyperbolical",
+              "start": 1.56,
+              "end": 2.06,
+              "probability": 0.3888142903645833
+            },
+            {
+              "text": " fiend!",
+              "start": 2.06,
+              "end": 2.56,
+              "probability": 0.907958984375
+            },
+            {
+              "text": " how",
+              "start": 3.02,
+              "end": 3.12,
+              "probability": 0.048187255859375
+            },
+            {
+              "text": " vexest",
+              "start": 3.12,
+              "end": 3.58,
+              "probability": 0.738037109375
+            },
+            {
+              "text": " thou",
+              "start": 3.58,
+              "end": 3.76,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " this",
+              "start": 3.76,
+              "end": 3.94,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " man?",
+              "start": 3.94,
+              "end": 4.24,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " Talkest",
+              "start": 4.86,
+              "end": 5.14,
+              "probability": 0.7529296875
+            },
+            {
+              "text": " thou",
+              "start": 5.14,
+              "end": 5.34,
+              "probability": 0.96875
+            },
+            {
+              "text": " nothing",
+              "start": 5.34,
+              "end": 5.58,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " but",
+              "start": 5.58,
+              "end": 5.86,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " of",
+              "start": 5.86,
+              "end": 7.0,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Out,",
+          "start": 1.3,
+          "end": 1.3
+        },
+        {
+          "raw": "hyperbolical",
+          "start": 1.56,
+          "end": 2.06
+        },
+        {
+          "raw": "fiend!",
+          "start": 2.06,
+          "end": 2.56
+        },
+        {
+          "raw": "how",
+          "start": 3.02,
+          "end": 3.12
+        },
+        {
+          "raw": "vexest",
+          "start": 3.12,
+          "end": 3.58
+        },
+        {
+          "raw": "thou",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "raw": "this",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "raw": "man?",
+          "start": 3.94,
+          "end": 4.24
+        },
+        {
+          "raw": "Talkest",
+          "start": 4.86,
+          "end": 5.14
+        },
+        {
+          "raw": "thou",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "raw": "nothing",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "raw": "but",
+          "start": 5.58,
+          "end": 5.86
+        },
+        {
+          "raw": "of",
+          "start": 5.86,
+          "end": 7.0
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Out,",
+        "hyperbolical",
+        "fiend!",
+        "how",
+        "vexest",
+        "thou",
+        "this",
+        "man?",
+        "Talkest",
+        "thou",
+        "nothing",
+        "but",
+        "of",
+        "ladies?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "delete",
+          14,
+          15,
+          14,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          14,
+          15,
+          14,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Out,",
+          "start": 1.3,
+          "end": 1.3,
+          "key": "out",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hyperbolical",
+          "start": 1.56,
+          "end": 2.06,
+          "key": "hyperbolical",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fiend!",
+          "start": 2.06,
+          "end": 2.56,
+          "key": "fiend",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 3.02,
+          "end": 3.12,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "vexest",
+          "start": 3.12,
+          "end": 3.58,
+          "key": "vexest",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.58,
+          "end": 3.76,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.76,
+          "end": 3.94,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "man?",
+          "start": 3.94,
+          "end": 4.24,
+          "key": "man",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Talkest",
+          "start": 4.86,
+          "end": 5.14,
+          "key": "talkest",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 5.14,
+          "end": 5.34,
+          "key": "thou",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 5.34,
+          "end": 5.58,
+          "key": "nothing",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.58,
+          "end": 5.86,
+          "key": "but",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.86,
+          "end": 7.0,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Out,",
+          "start": 1.3,
+          "end": 1.3
+        },
+        {
+          "text": "hyperbolical",
+          "start": 1.56,
+          "end": 2.06
+        },
+        {
+          "text": "fiend!",
+          "start": 2.06,
+          "end": 2.56
+        },
+        {
+          "text": "how",
+          "start": 3.02,
+          "end": 3.12
+        },
+        {
+          "text": "vexest",
+          "start": 3.12,
+          "end": 3.58
+        },
+        {
+          "text": "thou",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "text": "this",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "text": "man?",
+          "start": 3.94,
+          "end": 4.24
+        },
+        {
+          "text": "Talkest",
+          "start": 4.86,
+          "end": 5.14
+        },
+        {
+          "text": "thou",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "text": "nothing",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "text": "but",
+          "start": 5.58,
+          "end": 5.86
+        },
+        {
+          "text": "of",
+          "start": 5.86,
+          "end": 7.0
+        },
+        {
+          "text": "ladies?",
+          "start": 7.0,
+          "end": 7.0
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.6534623391926289
+    },
+    {
+      "asr_seconds": 0.36985891684889793,
+      "alignment_seconds": 0.0005953386425971985,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Clown, Out, Talkest"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Clown, Out, Hyperbollicle Fiend, How vexest thou this man, Talkest thou nothing but of",
+          "start": 0.02,
+          "end": 5.98,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.31982421875
+            },
+            {
+              "text": " Out,",
+              "start": 1.3,
+              "end": 1.3,
+              "probability": 0.26318359375
+            },
+            {
+              "text": " Hyperbollicle",
+              "start": 1.56,
+              "end": 2.06,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " Fiend,",
+              "start": 2.06,
+              "end": 2.58,
+              "probability": 0.727294921875
+            },
+            {
+              "text": " How",
+              "start": 3.02,
+              "end": 3.1,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " vexest",
+              "start": 3.1,
+              "end": 3.58,
+              "probability": 0.73583984375
+            },
+            {
+              "text": " thou",
+              "start": 3.58,
+              "end": 3.76,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " this",
+              "start": 3.76,
+              "end": 3.94,
+              "probability": 0.958984375
+            },
+            {
+              "text": " man,",
+              "start": 3.94,
+              "end": 4.22,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " Talkest",
+              "start": 4.88,
+              "end": 5.16,
+              "probability": 0.9609375
+            },
+            {
+              "text": " thou",
+              "start": 5.16,
+              "end": 5.34,
+              "probability": 0.96875
+            },
+            {
+              "text": " nothing",
+              "start": 5.34,
+              "end": 5.58,
+              "probability": 0.912109375
+            },
+            {
+              "text": " but",
+              "start": 5.58,
+              "end": 5.86,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 5.86,
+              "end": 5.98,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " ladies.",
+          "start": 5.98,
+          "end": 6.24,
+          "words": [
+            {
+              "text": " ladies.",
+              "start": 5.98,
+              "end": 6.24,
+              "probability": 0.81982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Out,",
+          "start": 1.3,
+          "end": 1.3
+        },
+        {
+          "raw": "Hyperbollicle",
+          "start": 1.56,
+          "end": 2.06
+        },
+        {
+          "raw": "Fiend,",
+          "start": 2.06,
+          "end": 2.58
+        },
+        {
+          "raw": "How",
+          "start": 3.02,
+          "end": 3.1
+        },
+        {
+          "raw": "vexest",
+          "start": 3.1,
+          "end": 3.58
+        },
+        {
+          "raw": "thou",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "raw": "this",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "raw": "man,",
+          "start": 3.94,
+          "end": 4.22
+        },
+        {
+          "raw": "Talkest",
+          "start": 4.88,
+          "end": 5.16
+        },
+        {
+          "raw": "thou",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "raw": "nothing",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "raw": "but",
+          "start": 5.58,
+          "end": 5.86
+        },
+        {
+          "raw": "of",
+          "start": 5.86,
+          "end": 5.98
+        },
+        {
+          "raw": "ladies.",
+          "start": 5.98,
+          "end": 6.24
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Out,",
+        "hyperbolical",
+        "fiend!",
+        "how",
+        "vexest",
+        "thou",
+        "this",
+        "man?",
+        "Talkest",
+        "thou",
+        "nothing",
+        "but",
+        "of",
+        "ladies?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          15,
+          3,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Out,",
+          "start": 1.3,
+          "end": 1.3,
+          "key": "out",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Hyperbollicle",
+          "start": 1.56,
+          "end": 2.06,
+          "key": "hyperbollicle",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Fiend,",
+          "start": 2.06,
+          "end": 2.58,
+          "key": "fiend",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 3.02,
+          "end": 3.1,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "vexest",
+          "start": 3.1,
+          "end": 3.58,
+          "key": "vexest",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.58,
+          "end": 3.76,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.76,
+          "end": 3.94,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 3.94,
+          "end": 4.22,
+          "key": "man",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Talkest",
+          "start": 4.88,
+          "end": 5.16,
+          "key": "talkest",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 5.16,
+          "end": 5.34,
+          "key": "thou",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 5.34,
+          "end": 5.58,
+          "key": "nothing",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.58,
+          "end": 5.86,
+          "key": "but",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.86,
+          "end": 5.98,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "ladies.",
+          "start": 5.98,
+          "end": 6.24,
+          "key": "ladies",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Out,",
+          "start": 1.3,
+          "end": 1.3
+        },
+        {
+          "text": "hyperbolical",
+          "start": 1.3,
+          "end": 1.68
+        },
+        {
+          "text": "fiend!",
+          "start": 2.06,
+          "end": 2.58
+        },
+        {
+          "text": "how",
+          "start": 3.02,
+          "end": 3.1
+        },
+        {
+          "text": "vexest",
+          "start": 3.1,
+          "end": 3.58
+        },
+        {
+          "text": "thou",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "text": "this",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "text": "man?",
+          "start": 3.94,
+          "end": 4.22
+        },
+        {
+          "text": "Talkest",
+          "start": 4.88,
+          "end": 5.16
+        },
+        {
+          "text": "thou",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "text": "nothing",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "text": "but",
+          "start": 5.58,
+          "end": 5.86
+        },
+        {
+          "text": "of",
+          "start": 5.86,
+          "end": 5.98
+        },
+        {
+          "text": "ladies?",
+          "start": 5.98,
+          "end": 6.24
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.3706880435347557
+    },
+    {
+      "asr_seconds": 0.3193507567048073,
+      "alignment_seconds": 0.0006026998162269592,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown, out, hyperbollicle fiend, How vexest thou this man!",
+          "start": 0.02,
+          "end": 4.22,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.31982421875
+            },
+            {
+              "text": " out,",
+              "start": 1.32,
+              "end": 1.32,
+              "probability": 0.66650390625
+            },
+            {
+              "text": " hyperbollicle",
+              "start": 1.54,
+              "end": 2.06,
+              "probability": 0.65509033203125
+            },
+            {
+              "text": " fiend,",
+              "start": 2.06,
+              "end": 2.58,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " How",
+              "start": 3.02,
+              "end": 3.1,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " vexest",
+              "start": 3.1,
+              "end": 3.56,
+              "probability": 0.791015625
+            },
+            {
+              "text": " thou",
+              "start": 3.56,
+              "end": 3.76,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " this",
+              "start": 3.76,
+              "end": 3.94,
+              "probability": 0.966796875
+            },
+            {
+              "text": " man!",
+              "start": 3.94,
+              "end": 4.22,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " Talkest thou nothing but of ladies!",
+          "start": 4.82,
+          "end": 6.22,
+          "words": [
+            {
+              "text": " Talkest",
+              "start": 4.82,
+              "end": 5.14,
+              "probability": 0.9140625
+            },
+            {
+              "text": " thou",
+              "start": 5.14,
+              "end": 5.34,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " nothing",
+              "start": 5.34,
+              "end": 5.58,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " but",
+              "start": 5.58,
+              "end": 5.86,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 5.86,
+              "end": 5.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ladies!",
+              "start": 5.98,
+              "end": 6.22,
+              "probability": 0.92529296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "out,",
+          "start": 1.32,
+          "end": 1.32
+        },
+        {
+          "raw": "hyperbollicle",
+          "start": 1.54,
+          "end": 2.06
+        },
+        {
+          "raw": "fiend,",
+          "start": 2.06,
+          "end": 2.58
+        },
+        {
+          "raw": "How",
+          "start": 3.02,
+          "end": 3.1
+        },
+        {
+          "raw": "vexest",
+          "start": 3.1,
+          "end": 3.56
+        },
+        {
+          "raw": "thou",
+          "start": 3.56,
+          "end": 3.76
+        },
+        {
+          "raw": "this",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "raw": "man!",
+          "start": 3.94,
+          "end": 4.22
+        },
+        {
+          "raw": "Talkest",
+          "start": 4.82,
+          "end": 5.14
+        },
+        {
+          "raw": "thou",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "raw": "nothing",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "raw": "but",
+          "start": 5.58,
+          "end": 5.86
+        },
+        {
+          "raw": "of",
+          "start": 5.86,
+          "end": 5.98
+        },
+        {
+          "raw": "ladies!",
+          "start": 5.98,
+          "end": 6.22
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Out,",
+        "hyperbolical",
+        "fiend!",
+        "how",
+        "vexest",
+        "thou",
+        "this",
+        "man?",
+        "Talkest",
+        "thou",
+        "nothing",
+        "but",
+        "of",
+        "ladies?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          15,
+          3,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "out,",
+          "start": 1.32,
+          "end": 1.32,
+          "key": "out",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hyperbollicle",
+          "start": 1.54,
+          "end": 2.06,
+          "key": "hyperbollicle",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fiend,",
+          "start": 2.06,
+          "end": 2.58,
+          "key": "fiend",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 3.02,
+          "end": 3.1,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "vexest",
+          "start": 3.1,
+          "end": 3.56,
+          "key": "vexest",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.56,
+          "end": 3.76,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.76,
+          "end": 3.94,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "man!",
+          "start": 3.94,
+          "end": 4.22,
+          "key": "man",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Talkest",
+          "start": 4.82,
+          "end": 5.14,
+          "key": "talkest",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 5.14,
+          "end": 5.34,
+          "key": "thou",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 5.34,
+          "end": 5.58,
+          "key": "nothing",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.58,
+          "end": 5.86,
+          "key": "but",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.86,
+          "end": 5.98,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "ladies!",
+          "start": 5.98,
+          "end": 6.22,
+          "key": "ladies",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Out,",
+          "start": 1.32,
+          "end": 1.32
+        },
+        {
+          "text": "hyperbolical",
+          "start": 1.32,
+          "end": 1.69
+        },
+        {
+          "text": "fiend!",
+          "start": 2.06,
+          "end": 2.58
+        },
+        {
+          "text": "how",
+          "start": 3.02,
+          "end": 3.1
+        },
+        {
+          "text": "vexest",
+          "start": 3.1,
+          "end": 3.56
+        },
+        {
+          "text": "thou",
+          "start": 3.56,
+          "end": 3.76
+        },
+        {
+          "text": "this",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "text": "man?",
+          "start": 3.94,
+          "end": 4.22
+        },
+        {
+          "text": "Talkest",
+          "start": 4.82,
+          "end": 5.14
+        },
+        {
+          "text": "thou",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "text": "nothing",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "text": "but",
+          "start": 5.58,
+          "end": 5.86
+        },
+        {
+          "text": "of",
+          "start": 5.86,
+          "end": 5.98
+        },
+        {
+          "text": "ladies?",
+          "start": 5.98,
+          "end": 6.22
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.3201870322227478
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7b2e922be5603929d71a4af2fe3417237bf1dcf1c4562d46ddbd6a3df682435d",
+  "selected_reasons": []
+}

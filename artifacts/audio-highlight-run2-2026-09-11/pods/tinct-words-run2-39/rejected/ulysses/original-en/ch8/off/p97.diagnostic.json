@@ -1,0 +1,358 @@
+{
+  "complete": true,
+  "signature": "1b2ba23b834956beb57a0ebb6fa9bc7c54364866f67ce51233d4f389920bdf65",
+  "attempts": [
+    {
+      "asr_seconds": 0.2113942550495267,
+      "alignment_seconds": 0.0003841537982225418,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Bloom touched her funny bone gently, warning her.",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.919921875
+            },
+            {
+              "text": " Bloom",
+              "start": 0.91,
+              "end": 0.93,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " touched",
+              "start": 0.93,
+              "end": 1.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " her",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " funny",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.9609375
+            },
+            {
+              "text": " bone",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " gently,",
+              "start": 1.81,
+              "end": 2.25,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " warning",
+              "start": 2.67,
+              "end": 2.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her.",
+              "start": 2.87,
+              "end": 3.21,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Bloom",
+          "start": 0.91,
+          "end": 0.93
+        },
+        {
+          "raw": "touched",
+          "start": 0.93,
+          "end": 1.23
+        },
+        {
+          "raw": "her",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "funny",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "bone",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "raw": "gently,",
+          "start": 1.81,
+          "end": 2.25
+        },
+        {
+          "raw": "warning",
+          "start": 2.67,
+          "end": 2.87
+        },
+        {
+          "raw": "her.",
+          "start": 2.87,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "Bloom",
+        "touched",
+        "her",
+        "funnybone",
+        "gently,",
+        "warning",
+        "her:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          8,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bloom",
+          "start": 0.91,
+          "end": 0.93,
+          "key": "bloom",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "touched",
+          "start": 0.93,
+          "end": 1.23,
+          "key": "touched",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "funny",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "funny",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bone",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "bone",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gently,",
+          "start": 1.81,
+          "end": 2.25,
+          "key": "gently",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "warning",
+          "start": 2.67,
+          "end": 2.87,
+          "key": "warning",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 2.87,
+          "end": 3.21,
+          "key": "her",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Bloom",
+          "start": 0.91,
+          "end": 0.93
+        },
+        {
+          "text": "touched",
+          "start": 0.93,
+          "end": 1.23
+        },
+        {
+          "text": "her",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "funnybone",
+          "start": 1.43,
+          "end": 1.62
+        },
+        {
+          "text": "gently,",
+          "start": 1.81,
+          "end": 2.25
+        },
+        {
+          "text": "warning",
+          "start": 2.67,
+          "end": 2.87
+        },
+        {
+          "text": "her:",
+          "start": 2.87,
+          "end": 3.21
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2119290588889271
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9c002c5758b18f2a0ec7e4a04a46f7cb9caf5a7bf7fa80bfc1e130d454339395",
+  "selected_reasons": []
+}

@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "16cd3339c30081950e3db45c7ed3f08e578f4567dbc115ce4f9dfcc4584372a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.1246053478680551,
+      "alignment_seconds": 0.0002223830670118332,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"A little.\"",
+        "hotwords": "A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A little.",
+          "start": 0.08,
+          "end": 0.74,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.541015625
+            },
+            {
+              "text": " little.",
+              "start": 0.52,
+              "end": 0.74,
+              "probability": 0.76171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "little.",
+          "start": 0.52,
+          "end": 0.74
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "little.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "little.",
+          "start": 0.52,
+          "end": 0.74,
+          "key": "little",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "little.\"",
+          "start": 0.52,
+          "end": 0.74
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12491250783205032
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c1e47d8ff1168b208de6b50f3e7d2d942a336eecd35c051f75dd8620bda2ad94",
+  "selected_reasons": []
+}

@@ -1,0 +1,4430 @@
+{
+  "complete": true,
+  "signature": "e2a09685216716f2f16acf6087cb5835e6c5125cb5ee0212df4dfd71463609b1",
+  "attempts": [
+    {
+      "asr_seconds": 0.5066151171922684,
+      "alignment_seconds": 0.0010097026824951172,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No, no, you really must see him ... it will amuse you. I brought him on purpose.... He's the same sort of shaggy dog.... You allow me to call in my dog, madam?\" He suddenly addressed Madame Snegiryov, with inexplicable excitement in his manner.",
+        "hotwords": "I, He's, He, Madame, Snegiryov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, no, you really must see him. It will amuse you. I brought him on purpose.... He's the same sort of shaggy dog.... You allow me to call in my dog, madam?\" He suddenly addressed Madame Snegiryov, with inexplicable excitement in his manner.",
+          "start": 0.02,
+          "end": 14.94,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.1485595703125
+            },
+            {
+              "text": " no,",
+              "start": 0.8,
+              "end": 0.9,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " you",
+              "start": 1.02,
+              "end": 1.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " really",
+              "start": 1.12,
+              "end": 1.34,
+              "probability": 0.994140625
+            },
+            {
+              "text": " must",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " see",
+              "start": 1.54,
+              "end": 1.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him.",
+              "start": 1.76,
+              "end": 1.98,
+              "probability": 0.990234375
+            },
+            {
+              "text": " It",
+              "start": 2.38,
+              "end": 2.48,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " will",
+              "start": 2.48,
+              "end": 2.6,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " amuse",
+              "start": 2.6,
+              "end": 2.9,
+              "probability": 0.9375
+            },
+            {
+              "text": " you.",
+              "start": 2.9,
+              "end": 3.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 3.6,
+              "end": 3.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " brought",
+              "start": 3.68,
+              "end": 3.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " him",
+              "start": 3.88,
+              "end": 4.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 4.04,
+              "end": 4.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " purpose....",
+              "start": 4.22,
+              "end": 5.42,
+              "probability": 0.49915504455566406
+            },
+            {
+              "text": " He's",
+              "start": 5.42,
+              "end": 5.58,
+              "probability": 0.828369140625
+            },
+            {
+              "text": " the",
+              "start": 5.58,
+              "end": 5.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " same",
+              "start": 5.76,
+              "end": 6.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sort",
+              "start": 6.02,
+              "end": 6.28,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 6.28,
+              "end": 6.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shaggy",
+              "start": 6.46,
+              "end": 6.82,
+              "probability": 0.9749348958333334
+            },
+            {
+              "text": " dog....",
+              "start": 6.82,
+              "end": 7.66,
+              "probability": 0.533172607421875
+            },
+            {
+              "text": " You",
+              "start": 7.66,
+              "end": 7.8,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " allow",
+              "start": 7.8,
+              "end": 8.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me",
+              "start": 8.04,
+              "end": 8.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 8.2,
+              "end": 8.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " call",
+              "start": 8.34,
+              "end": 8.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 8.52,
+              "end": 8.68,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " my",
+              "start": 8.68,
+              "end": 8.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dog,",
+              "start": 8.82,
+              "end": 9.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " madam?\"",
+              "start": 9.34,
+              "end": 10.1,
+              "probability": 0.5696207682291666
+            },
+            {
+              "text": " He",
+              "start": 10.1,
+              "end": 10.36,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " suddenly",
+              "start": 10.36,
+              "end": 10.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " addressed",
+              "start": 10.64,
+              "end": 11.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Madame",
+              "start": 11.2,
+              "end": 11.66,
+              "probability": 0.5498046875
+            },
+            {
+              "text": " Snegiryov,",
+              "start": 11.66,
+              "end": 12.6,
+              "probability": 0.2456905096769333
+            },
+            {
+              "text": " with",
+              "start": 12.82,
+              "end": 12.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " inexplicable",
+              "start": 12.94,
+              "end": 13.54,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " excitement",
+              "start": 13.54,
+              "end": 14.18,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 14.18,
+              "end": 14.5,
+              "probability": 0.9921875
+            },
+            {
+              "text": " his",
+              "start": 14.5,
+              "end": 14.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " manner.",
+              "start": 14.62,
+              "end": 14.94,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "no,",
+          "start": 0.8,
+          "end": 0.9
+        },
+        {
+          "raw": "you",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "raw": "really",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "raw": "must",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "see",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "raw": "him.",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "raw": "It",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "raw": "will",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "raw": "amuse",
+          "start": 2.6,
+          "end": 2.9
+        },
+        {
+          "raw": "you.",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "raw": "I",
+          "start": 3.6,
+          "end": 3.68
+        },
+        {
+          "raw": "brought",
+          "start": 3.68,
+          "end": 3.88
+        },
+        {
+          "raw": "him",
+          "start": 3.88,
+          "end": 4.04
+        },
+        {
+          "raw": "on",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "raw": "purpose....",
+          "start": 4.22,
+          "end": 5.42
+        },
+        {
+          "raw": "He's",
+          "start": 5.42,
+          "end": 5.58
+        },
+        {
+          "raw": "the",
+          "start": 5.58,
+          "end": 5.76
+        },
+        {
+          "raw": "same",
+          "start": 5.76,
+          "end": 6.02
+        },
+        {
+          "raw": "sort",
+          "start": 6.02,
+          "end": 6.28
+        },
+        {
+          "raw": "of",
+          "start": 6.28,
+          "end": 6.46
+        },
+        {
+          "raw": "shaggy",
+          "start": 6.46,
+          "end": 6.82
+        },
+        {
+          "raw": "dog....",
+          "start": 6.82,
+          "end": 7.66
+        },
+        {
+          "raw": "You",
+          "start": 7.66,
+          "end": 7.8
+        },
+        {
+          "raw": "allow",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "raw": "me",
+          "start": 8.04,
+          "end": 8.2
+        },
+        {
+          "raw": "to",
+          "start": 8.2,
+          "end": 8.34
+        },
+        {
+          "raw": "call",
+          "start": 8.34,
+          "end": 8.52
+        },
+        {
+          "raw": "in",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "raw": "my",
+          "start": 8.68,
+          "end": 8.82
+        },
+        {
+          "raw": "dog,",
+          "start": 8.82,
+          "end": 9.12
+        },
+        {
+          "raw": "madam?\"",
+          "start": 9.34,
+          "end": 10.1
+        },
+        {
+          "raw": "He",
+          "start": 10.1,
+          "end": 10.36
+        },
+        {
+          "raw": "suddenly",
+          "start": 10.36,
+          "end": 10.64
+        },
+        {
+          "raw": "addressed",
+          "start": 10.64,
+          "end": 11.2
+        },
+        {
+          "raw": "Madame",
+          "start": 11.2,
+          "end": 11.66
+        },
+        {
+          "raw": "Snegiryov,",
+          "start": 11.66,
+          "end": 12.6
+        },
+        {
+          "raw": "with",
+          "start": 12.82,
+          "end": 12.94
+        },
+        {
+          "raw": "inexplicable",
+          "start": 12.94,
+          "end": 13.54
+        },
+        {
+          "raw": "excitement",
+          "start": 13.54,
+          "end": 14.18
+        },
+        {
+          "raw": "in",
+          "start": 14.18,
+          "end": 14.5
+        },
+        {
+          "raw": "his",
+          "start": 14.5,
+          "end": 14.62
+        },
+        {
+          "raw": "manner.",
+          "start": 14.62,
+          "end": 14.94
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "no,",
+        "you",
+        "really",
+        "must",
+        "see",
+        "him",
+        "...",
+        "it",
+        "will",
+        "amuse",
+        "you.",
+        "I",
+        "brought",
+        "him",
+        "on",
+        "purpose....",
+        "He's",
+        "the",
+        "same",
+        "sort",
+        "of",
+        "shaggy",
+        "dog....",
+        "You",
+        "allow",
+        "me",
+        "to",
+        "call",
+        "in",
+        "my",
+        "dog,",
+        "madam?\"",
+        "He",
+        "suddenly",
+        "addressed",
+        "Madame",
+        "Snegiryov,",
+        "with",
+        "inexplicable",
+        "excitement",
+        "in",
+        "his",
+        "manner."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "delete",
+          7,
+          8,
+          7,
+          7
+        ],
+        [
+          "equal",
+          8,
+          44,
+          7,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          7,
+          8,
+          7,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 0.8,
+          "end": 0.9,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.02,
+          "end": 1.12,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "really",
+          "start": 1.12,
+          "end": 1.34,
+          "key": "really",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.34,
+          "end": 1.54,
+          "key": "must",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.54,
+          "end": 1.76,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.76,
+          "end": 1.98,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 2.38,
+          "end": 2.48,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.48,
+          "end": 2.6,
+          "key": "will",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "amuse",
+          "start": 2.6,
+          "end": 2.9,
+          "key": "amuse",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.9,
+          "end": 3.2,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.6,
+          "end": 3.68,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "brought",
+          "start": 3.68,
+          "end": 3.88,
+          "key": "brought",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.88,
+          "end": 4.04,
+          "key": "him",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.04,
+          "end": 4.22,
+          "key": "on",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "purpose....",
+          "start": 4.22,
+          "end": 5.42,
+          "key": "purpose",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 5.42,
+          "end": 5.58,
+          "key": "hes",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.58,
+          "end": 5.76,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 5.76,
+          "end": 6.02,
+          "key": "same",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 6.02,
+          "end": 6.28,
+          "key": "sort",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.28,
+          "end": 6.46,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "shaggy",
+          "start": 6.46,
+          "end": 6.82,
+          "key": "shaggy",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "dog....",
+          "start": 6.82,
+          "end": 7.66,
+          "key": "dog",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 7.66,
+          "end": 7.8,
+          "key": "you",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "allow",
+          "start": 7.8,
+          "end": 8.04,
+          "key": "allow",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 8.04,
+          "end": 8.2,
+          "key": "me",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.2,
+          "end": 8.34,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 8.34,
+          "end": 8.52,
+          "key": "call",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.52,
+          "end": 8.68,
+          "key": "in",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.68,
+          "end": 8.82,
+          "key": "my",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "dog,",
+          "start": 8.82,
+          "end": 9.12,
+          "key": "dog",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "madam?\"",
+          "start": 9.34,
+          "end": 10.1,
+          "key": "madam",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 10.1,
+          "end": 10.36,
+          "key": "he",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 10.36,
+          "end": 10.64,
+          "key": "suddenly",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "addressed",
+          "start": 10.64,
+          "end": 11.2,
+          "key": "addressed",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Madame",
+          "start": 11.2,
+          "end": 11.66,
+          "key": "madame",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Snegiryov,",
+          "start": 11.66,
+          "end": 12.6,
+          "key": "snegiryov",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 12.82,
+          "end": 12.94,
+          "key": "with",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "inexplicable",
+          "start": 12.94,
+          "end": 13.54,
+          "key": "inexplicable",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "excitement",
+          "start": 13.54,
+          "end": 14.18,
+          "key": "excitement",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 14.18,
+          "end": 14.5,
+          "key": "in",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 14.5,
+          "end": 14.62,
+          "key": "his",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "manner.",
+          "start": 14.62,
+          "end": 14.94,
+          "key": "manner",
+          "pieces": [
+            42
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "no,",
+          "start": 0.8,
+          "end": 0.9
+        },
+        {
+          "text": "you",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "text": "really",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "text": "must",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "see",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "text": "him",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "text": "...",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "text": "it",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "text": "will",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "text": "amuse",
+          "start": 2.6,
+          "end": 2.9
+        },
+        {
+          "text": "you.",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "text": "I",
+          "start": 3.6,
+          "end": 3.68
+        },
+        {
+          "text": "brought",
+          "start": 3.68,
+          "end": 3.88
+        },
+        {
+          "text": "him",
+          "start": 3.88,
+          "end": 4.04
+        },
+        {
+          "text": "on",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "text": "purpose....",
+          "start": 4.22,
+          "end": 5.42
+        },
+        {
+          "text": "He's",
+          "start": 5.42,
+          "end": 5.58
+        },
+        {
+          "text": "the",
+          "start": 5.58,
+          "end": 5.76
+        },
+        {
+          "text": "same",
+          "start": 5.76,
+          "end": 6.02
+        },
+        {
+          "text": "sort",
+          "start": 6.02,
+          "end": 6.28
+        },
+        {
+          "text": "of",
+          "start": 6.28,
+          "end": 6.46
+        },
+        {
+          "text": "shaggy",
+          "start": 6.46,
+          "end": 6.82
+        },
+        {
+          "text": "dog....",
+          "start": 6.82,
+          "end": 7.66
+        },
+        {
+          "text": "You",
+          "start": 7.66,
+          "end": 7.8
+        },
+        {
+          "text": "allow",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "text": "me",
+          "start": 8.04,
+          "end": 8.2
+        },
+        {
+          "text": "to",
+          "start": 8.2,
+          "end": 8.34
+        },
+        {
+          "text": "call",
+          "start": 8.34,
+          "end": 8.52
+        },
+        {
+          "text": "in",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "text": "my",
+          "start": 8.68,
+          "end": 8.82
+        },
+        {
+          "text": "dog,",
+          "start": 8.82,
+          "end": 9.12
+        },
+        {
+          "text": "madam?\"",
+          "start": 9.34,
+          "end": 10.1
+        },
+        {
+          "text": "He",
+          "start": 10.1,
+          "end": 10.36
+        },
+        {
+          "text": "suddenly",
+          "start": 10.36,
+          "end": 10.64
+        },
+        {
+          "text": "addressed",
+          "start": 10.64,
+          "end": 11.2
+        },
+        {
+          "text": "Madame",
+          "start": 11.2,
+          "end": 11.66
+        },
+        {
+          "text": "Snegiryov,",
+          "start": 11.66,
+          "end": 12.6
+        },
+        {
+          "text": "with",
+          "start": 12.82,
+          "end": 12.94
+        },
+        {
+          "text": "inexplicable",
+          "start": 12.94,
+          "end": 13.54
+        },
+        {
+          "text": "excitement",
+          "start": 13.54,
+          "end": 14.18
+        },
+        {
+          "text": "in",
+          "start": 14.18,
+          "end": 14.5
+        },
+        {
+          "text": "his",
+          "start": 14.5,
+          "end": 14.62
+        },
+        {
+          "text": "manner.",
+          "start": 14.62,
+          "end": 14.94
+        }
+      ],
+      "stats": {
+        "expected_words": 44,
+        "heard_words": 43,
+        "matched_words": 43
+      },
+      "match_ratio": 0.9772727272727273,
+      "rejection_reasons": [],
+      "seconds": 0.5080958977341652
+    },
+    {
+      "asr_seconds": 0.5342784989625216,
+      "alignment_seconds": 0.0009237118065357208,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, He's, He, Madame, Snegiryov"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " No, no, you really must see him. It will amuse you. I brought him on purpose. He's the same sort of shaggy dog.",
+          "start": 0.02,
+          "end": 7.08,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.1485595703125
+            },
+            {
+              "text": " no,",
+              "start": 0.8,
+              "end": 0.9,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " you",
+              "start": 1.02,
+              "end": 1.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " really",
+              "start": 1.12,
+              "end": 1.34,
+              "probability": 0.994140625
+            },
+            {
+              "text": " must",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " see",
+              "start": 1.54,
+              "end": 1.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him.",
+              "start": 1.76,
+              "end": 1.98,
+              "probability": 0.990234375
+            },
+            {
+              "text": " It",
+              "start": 2.38,
+              "end": 2.48,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " will",
+              "start": 2.48,
+              "end": 2.6,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " amuse",
+              "start": 2.6,
+              "end": 2.9,
+              "probability": 0.9375
+            },
+            {
+              "text": " you.",
+              "start": 2.9,
+              "end": 3.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 3.6,
+              "end": 3.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " brought",
+              "start": 3.68,
+              "end": 3.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " him",
+              "start": 3.88,
+              "end": 4.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 4.04,
+              "end": 4.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " purpose.",
+              "start": 4.22,
+              "end": 4.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " He's",
+              "start": 5.36,
+              "end": 5.58,
+              "probability": 0.966552734375
+            },
+            {
+              "text": " the",
+              "start": 5.58,
+              "end": 5.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " same",
+              "start": 5.76,
+              "end": 6.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sort",
+              "start": 6.02,
+              "end": 6.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 6.28,
+              "end": 6.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shaggy",
+              "start": 6.46,
+              "end": 6.82,
+              "probability": 0.9762369791666666
+            },
+            {
+              "text": " dog.",
+              "start": 6.82,
+              "end": 7.08,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " You allow me to call in my dog, madam. He suddenly addressed Madame Snegiryov with inexplicable excitement in his manner.",
+          "start": 7.64,
+          "end": 14.96,
+          "words": [
+            {
+              "text": " You",
+              "start": 7.64,
+              "end": 7.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " allow",
+              "start": 7.8,
+              "end": 8.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 8.04,
+              "end": 8.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 8.2,
+              "end": 8.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " call",
+              "start": 8.34,
+              "end": 8.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 8.52,
+              "end": 8.68,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " my",
+              "start": 8.68,
+              "end": 8.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dog,",
+              "start": 8.82,
+              "end": 9.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " madam.",
+              "start": 9.34,
+              "end": 9.64,
+              "probability": 0.747802734375
+            },
+            {
+              "text": " He",
+              "start": 10.12,
+              "end": 10.34,
+              "probability": 0.97265625
+            },
+            {
+              "text": " suddenly",
+              "start": 10.34,
+              "end": 10.62,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " addressed",
+              "start": 10.62,
+              "end": 11.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Madame",
+              "start": 11.2,
+              "end": 11.66,
+              "probability": 0.544921875
+            },
+            {
+              "text": " Snegiryov",
+              "start": 11.66,
+              "end": 12.6,
+              "probability": 0.24396580457687378
+            },
+            {
+              "text": " with",
+              "start": 12.6,
+              "end": 12.94,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " inexplicable",
+              "start": 12.94,
+              "end": 13.54,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " excitement",
+              "start": 13.54,
+              "end": 14.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 14.2,
+              "end": 14.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 14.5,
+              "end": 14.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " manner.",
+              "start": 14.62,
+              "end": 14.96,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "no,",
+          "start": 0.8,
+          "end": 0.9
+        },
+        {
+          "raw": "you",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "raw": "really",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "raw": "must",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "see",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "raw": "him.",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "raw": "It",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "raw": "will",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "raw": "amuse",
+          "start": 2.6,
+          "end": 2.9
+        },
+        {
+          "raw": "you.",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "raw": "I",
+          "start": 3.6,
+          "end": 3.68
+        },
+        {
+          "raw": "brought",
+          "start": 3.68,
+          "end": 3.88
+        },
+        {
+          "raw": "him",
+          "start": 3.88,
+          "end": 4.04
+        },
+        {
+          "raw": "on",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "raw": "purpose.",
+          "start": 4.22,
+          "end": 4.6
+        },
+        {
+          "raw": "He's",
+          "start": 5.36,
+          "end": 5.58
+        },
+        {
+          "raw": "the",
+          "start": 5.58,
+          "end": 5.76
+        },
+        {
+          "raw": "same",
+          "start": 5.76,
+          "end": 6.02
+        },
+        {
+          "raw": "sort",
+          "start": 6.02,
+          "end": 6.28
+        },
+        {
+          "raw": "of",
+          "start": 6.28,
+          "end": 6.46
+        },
+        {
+          "raw": "shaggy",
+          "start": 6.46,
+          "end": 6.82
+        },
+        {
+          "raw": "dog.",
+          "start": 6.82,
+          "end": 7.08
+        },
+        {
+          "raw": "You",
+          "start": 7.64,
+          "end": 7.8
+        },
+        {
+          "raw": "allow",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "raw": "me",
+          "start": 8.04,
+          "end": 8.2
+        },
+        {
+          "raw": "to",
+          "start": 8.2,
+          "end": 8.34
+        },
+        {
+          "raw": "call",
+          "start": 8.34,
+          "end": 8.52
+        },
+        {
+          "raw": "in",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "raw": "my",
+          "start": 8.68,
+          "end": 8.82
+        },
+        {
+          "raw": "dog,",
+          "start": 8.82,
+          "end": 9.12
+        },
+        {
+          "raw": "madam.",
+          "start": 9.34,
+          "end": 9.64
+        },
+        {
+          "raw": "He",
+          "start": 10.12,
+          "end": 10.34
+        },
+        {
+          "raw": "suddenly",
+          "start": 10.34,
+          "end": 10.62
+        },
+        {
+          "raw": "addressed",
+          "start": 10.62,
+          "end": 11.2
+        },
+        {
+          "raw": "Madame",
+          "start": 11.2,
+          "end": 11.66
+        },
+        {
+          "raw": "Snegiryov",
+          "start": 11.66,
+          "end": 12.6
+        },
+        {
+          "raw": "with",
+          "start": 12.6,
+          "end": 12.94
+        },
+        {
+          "raw": "inexplicable",
+          "start": 12.94,
+          "end": 13.54
+        },
+        {
+          "raw": "excitement",
+          "start": 13.54,
+          "end": 14.2
+        },
+        {
+          "raw": "in",
+          "start": 14.2,
+          "end": 14.5
+        },
+        {
+          "raw": "his",
+          "start": 14.5,
+          "end": 14.62
+        },
+        {
+          "raw": "manner.",
+          "start": 14.62,
+          "end": 14.96
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "no,",
+        "you",
+        "really",
+        "must",
+        "see",
+        "him",
+        "...",
+        "it",
+        "will",
+        "amuse",
+        "you.",
+        "I",
+        "brought",
+        "him",
+        "on",
+        "purpose....",
+        "He's",
+        "the",
+        "same",
+        "sort",
+        "of",
+        "shaggy",
+        "dog....",
+        "You",
+        "allow",
+        "me",
+        "to",
+        "call",
+        "in",
+        "my",
+        "dog,",
+        "madam?\"",
+        "He",
+        "suddenly",
+        "addressed",
+        "Madame",
+        "Snegiryov,",
+        "with",
+        "inexplicable",
+        "excitement",
+        "in",
+        "his",
+        "manner."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "delete",
+          7,
+          8,
+          7,
+          7
+        ],
+        [
+          "equal",
+          8,
+          44,
+          7,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          7,
+          8,
+          7,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 0.8,
+          "end": 0.9,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.02,
+          "end": 1.12,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "really",
+          "start": 1.12,
+          "end": 1.34,
+          "key": "really",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.34,
+          "end": 1.54,
+          "key": "must",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.54,
+          "end": 1.76,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.76,
+          "end": 1.98,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 2.38,
+          "end": 2.48,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.48,
+          "end": 2.6,
+          "key": "will",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "amuse",
+          "start": 2.6,
+          "end": 2.9,
+          "key": "amuse",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.9,
+          "end": 3.2,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.6,
+          "end": 3.68,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "brought",
+          "start": 3.68,
+          "end": 3.88,
+          "key": "brought",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.88,
+          "end": 4.04,
+          "key": "him",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.04,
+          "end": 4.22,
+          "key": "on",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "purpose.",
+          "start": 4.22,
+          "end": 4.6,
+          "key": "purpose",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 5.36,
+          "end": 5.58,
+          "key": "hes",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.58,
+          "end": 5.76,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 5.76,
+          "end": 6.02,
+          "key": "same",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 6.02,
+          "end": 6.28,
+          "key": "sort",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.28,
+          "end": 6.46,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "shaggy",
+          "start": 6.46,
+          "end": 6.82,
+          "key": "shaggy",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "dog.",
+          "start": 6.82,
+          "end": 7.08,
+          "key": "dog",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 7.64,
+          "end": 7.8,
+          "key": "you",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "allow",
+          "start": 7.8,
+          "end": 8.04,
+          "key": "allow",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 8.04,
+          "end": 8.2,
+          "key": "me",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.2,
+          "end": 8.34,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 8.34,
+          "end": 8.52,
+          "key": "call",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.52,
+          "end": 8.68,
+          "key": "in",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.68,
+          "end": 8.82,
+          "key": "my",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "dog,",
+          "start": 8.82,
+          "end": 9.12,
+          "key": "dog",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "madam.",
+          "start": 9.34,
+          "end": 9.64,
+          "key": "madam",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 10.12,
+          "end": 10.34,
+          "key": "he",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 10.34,
+          "end": 10.62,
+          "key": "suddenly",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "addressed",
+          "start": 10.62,
+          "end": 11.2,
+          "key": "addressed",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Madame",
+          "start": 11.2,
+          "end": 11.66,
+          "key": "madame",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Snegiryov",
+          "start": 11.66,
+          "end": 12.6,
+          "key": "snegiryov",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 12.6,
+          "end": 12.94,
+          "key": "with",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "inexplicable",
+          "start": 12.94,
+          "end": 13.54,
+          "key": "inexplicable",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "excitement",
+          "start": 13.54,
+          "end": 14.2,
+          "key": "excitement",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 14.2,
+          "end": 14.5,
+          "key": "in",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 14.5,
+          "end": 14.62,
+          "key": "his",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "manner.",
+          "start": 14.62,
+          "end": 14.96,
+          "key": "manner",
+          "pieces": [
+            42
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "no,",
+          "start": 0.8,
+          "end": 0.9
+        },
+        {
+          "text": "you",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "text": "really",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "text": "must",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "see",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "text": "him",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "text": "...",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "text": "it",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "text": "will",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "text": "amuse",
+          "start": 2.6,
+          "end": 2.9
+        },
+        {
+          "text": "you.",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "text": "I",
+          "start": 3.6,
+          "end": 3.68
+        },
+        {
+          "text": "brought",
+          "start": 3.68,
+          "end": 3.88
+        },
+        {
+          "text": "him",
+          "start": 3.88,
+          "end": 4.04
+        },
+        {
+          "text": "on",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "text": "purpose....",
+          "start": 4.22,
+          "end": 4.6
+        },
+        {
+          "text": "He's",
+          "start": 5.36,
+          "end": 5.58
+        },
+        {
+          "text": "the",
+          "start": 5.58,
+          "end": 5.76
+        },
+        {
+          "text": "same",
+          "start": 5.76,
+          "end": 6.02
+        },
+        {
+          "text": "sort",
+          "start": 6.02,
+          "end": 6.28
+        },
+        {
+          "text": "of",
+          "start": 6.28,
+          "end": 6.46
+        },
+        {
+          "text": "shaggy",
+          "start": 6.46,
+          "end": 6.82
+        },
+        {
+          "text": "dog....",
+          "start": 6.82,
+          "end": 7.08
+        },
+        {
+          "text": "You",
+          "start": 7.64,
+          "end": 7.8
+        },
+        {
+          "text": "allow",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "text": "me",
+          "start": 8.04,
+          "end": 8.2
+        },
+        {
+          "text": "to",
+          "start": 8.2,
+          "end": 8.34
+        },
+        {
+          "text": "call",
+          "start": 8.34,
+          "end": 8.52
+        },
+        {
+          "text": "in",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "text": "my",
+          "start": 8.68,
+          "end": 8.82
+        },
+        {
+          "text": "dog,",
+          "start": 8.82,
+          "end": 9.12
+        },
+        {
+          "text": "madam?\"",
+          "start": 9.34,
+          "end": 9.64
+        },
+        {
+          "text": "He",
+          "start": 10.12,
+          "end": 10.34
+        },
+        {
+          "text": "suddenly",
+          "start": 10.34,
+          "end": 10.62
+        },
+        {
+          "text": "addressed",
+          "start": 10.62,
+          "end": 11.2
+        },
+        {
+          "text": "Madame",
+          "start": 11.2,
+          "end": 11.66
+        },
+        {
+          "text": "Snegiryov,",
+          "start": 11.66,
+          "end": 12.6
+        },
+        {
+          "text": "with",
+          "start": 12.6,
+          "end": 12.94
+        },
+        {
+          "text": "inexplicable",
+          "start": 12.94,
+          "end": 13.54
+        },
+        {
+          "text": "excitement",
+          "start": 13.54,
+          "end": 14.2
+        },
+        {
+          "text": "in",
+          "start": 14.2,
+          "end": 14.5
+        },
+        {
+          "text": "his",
+          "start": 14.5,
+          "end": 14.62
+        },
+        {
+          "text": "manner.",
+          "start": 14.62,
+          "end": 14.96
+        }
+      ],
+      "stats": {
+        "expected_words": 44,
+        "heard_words": 43,
+        "matched_words": 43
+      },
+      "match_ratio": 0.9772727272727273,
+      "rejection_reasons": [],
+      "seconds": 0.5356365013867617
+    },
+    {
+      "asr_seconds": 0.6510465890169144,
+      "alignment_seconds": 0.0009461920708417892,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, no, you really must see him. It will amuse you. I brought him on purpose. He's the same sort of shaggy dog.",
+          "start": 0.02,
+          "end": 7.08,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.1485595703125
+            },
+            {
+              "text": " no,",
+              "start": 0.8,
+              "end": 0.9,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " you",
+              "start": 1.02,
+              "end": 1.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " really",
+              "start": 1.12,
+              "end": 1.34,
+              "probability": 0.994140625
+            },
+            {
+              "text": " must",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " see",
+              "start": 1.54,
+              "end": 1.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him.",
+              "start": 1.76,
+              "end": 1.98,
+              "probability": 0.990234375
+            },
+            {
+              "text": " It",
+              "start": 2.38,
+              "end": 2.48,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " will",
+              "start": 2.48,
+              "end": 2.6,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " amuse",
+              "start": 2.6,
+              "end": 2.9,
+              "probability": 0.9375
+            },
+            {
+              "text": " you.",
+              "start": 2.9,
+              "end": 3.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 3.6,
+              "end": 3.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " brought",
+              "start": 3.68,
+              "end": 3.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " him",
+              "start": 3.88,
+              "end": 4.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 4.04,
+              "end": 4.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " purpose.",
+              "start": 4.22,
+              "end": 4.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " He's",
+              "start": 5.36,
+              "end": 5.58,
+              "probability": 0.966552734375
+            },
+            {
+              "text": " the",
+              "start": 5.58,
+              "end": 5.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " same",
+              "start": 5.76,
+              "end": 6.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sort",
+              "start": 6.02,
+              "end": 6.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 6.28,
+              "end": 6.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shaggy",
+              "start": 6.46,
+              "end": 6.82,
+              "probability": 0.9762369791666666
+            },
+            {
+              "text": " dog.",
+              "start": 6.82,
+              "end": 7.08,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " You allow me to call in my dog, madam. He suddenly addressed Madam Snegeriyav with inexplicable excitement in his manner.",
+          "start": 7.64,
+          "end": 14.96,
+          "words": [
+            {
+              "text": " You",
+              "start": 7.64,
+              "end": 7.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " allow",
+              "start": 7.8,
+              "end": 8.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 8.04,
+              "end": 8.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 8.2,
+              "end": 8.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " call",
+              "start": 8.34,
+              "end": 8.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 8.52,
+              "end": 8.68,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " my",
+              "start": 8.68,
+              "end": 8.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dog,",
+              "start": 8.82,
+              "end": 9.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " madam.",
+              "start": 9.34,
+              "end": 9.64,
+              "probability": 0.747802734375
+            },
+            {
+              "text": " He",
+              "start": 10.12,
+              "end": 10.34,
+              "probability": 0.97265625
+            },
+            {
+              "text": " suddenly",
+              "start": 10.34,
+              "end": 10.62,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " addressed",
+              "start": 10.62,
+              "end": 11.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Madam",
+              "start": 11.2,
+              "end": 11.7,
+              "probability": 0.655029296875
+            },
+            {
+              "text": " Snegeriyav",
+              "start": 11.7,
+              "end": 12.58,
+              "probability": 0.391632080078125
+            },
+            {
+              "text": " with",
+              "start": 12.58,
+              "end": 12.94,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " inexplicable",
+              "start": 12.94,
+              "end": 13.54,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " excitement",
+              "start": 13.54,
+              "end": 14.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 14.2,
+              "end": 14.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 14.5,
+              "end": 14.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " manner.",
+              "start": 14.62,
+              "end": 14.96,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "no,",
+          "start": 0.8,
+          "end": 0.9
+        },
+        {
+          "raw": "you",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "raw": "really",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "raw": "must",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "see",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "raw": "him.",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "raw": "It",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "raw": "will",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "raw": "amuse",
+          "start": 2.6,
+          "end": 2.9
+        },
+        {
+          "raw": "you.",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "raw": "I",
+          "start": 3.6,
+          "end": 3.68
+        },
+        {
+          "raw": "brought",
+          "start": 3.68,
+          "end": 3.88
+        },
+        {
+          "raw": "him",
+          "start": 3.88,
+          "end": 4.04
+        },
+        {
+          "raw": "on",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "raw": "purpose.",
+          "start": 4.22,
+          "end": 4.6
+        },
+        {
+          "raw": "He's",
+          "start": 5.36,
+          "end": 5.58
+        },
+        {
+          "raw": "the",
+          "start": 5.58,
+          "end": 5.76
+        },
+        {
+          "raw": "same",
+          "start": 5.76,
+          "end": 6.02
+        },
+        {
+          "raw": "sort",
+          "start": 6.02,
+          "end": 6.28
+        },
+        {
+          "raw": "of",
+          "start": 6.28,
+          "end": 6.46
+        },
+        {
+          "raw": "shaggy",
+          "start": 6.46,
+          "end": 6.82
+        },
+        {
+          "raw": "dog.",
+          "start": 6.82,
+          "end": 7.08
+        },
+        {
+          "raw": "You",
+          "start": 7.64,
+          "end": 7.8
+        },
+        {
+          "raw": "allow",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "raw": "me",
+          "start": 8.04,
+          "end": 8.2
+        },
+        {
+          "raw": "to",
+          "start": 8.2,
+          "end": 8.34
+        },
+        {
+          "raw": "call",
+          "start": 8.34,
+          "end": 8.52
+        },
+        {
+          "raw": "in",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "raw": "my",
+          "start": 8.68,
+          "end": 8.82
+        },
+        {
+          "raw": "dog,",
+          "start": 8.82,
+          "end": 9.12
+        },
+        {
+          "raw": "madam.",
+          "start": 9.34,
+          "end": 9.64
+        },
+        {
+          "raw": "He",
+          "start": 10.12,
+          "end": 10.34
+        },
+        {
+          "raw": "suddenly",
+          "start": 10.34,
+          "end": 10.62
+        },
+        {
+          "raw": "addressed",
+          "start": 10.62,
+          "end": 11.2
+        },
+        {
+          "raw": "Madam",
+          "start": 11.2,
+          "end": 11.7
+        },
+        {
+          "raw": "Snegeriyav",
+          "start": 11.7,
+          "end": 12.58
+        },
+        {
+          "raw": "with",
+          "start": 12.58,
+          "end": 12.94
+        },
+        {
+          "raw": "inexplicable",
+          "start": 12.94,
+          "end": 13.54
+        },
+        {
+          "raw": "excitement",
+          "start": 13.54,
+          "end": 14.2
+        },
+        {
+          "raw": "in",
+          "start": 14.2,
+          "end": 14.5
+        },
+        {
+          "raw": "his",
+          "start": 14.5,
+          "end": 14.62
+        },
+        {
+          "raw": "manner.",
+          "start": 14.62,
+          "end": 14.96
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "no,",
+        "you",
+        "really",
+        "must",
+        "see",
+        "him",
+        "...",
+        "it",
+        "will",
+        "amuse",
+        "you.",
+        "I",
+        "brought",
+        "him",
+        "on",
+        "purpose....",
+        "He's",
+        "the",
+        "same",
+        "sort",
+        "of",
+        "shaggy",
+        "dog....",
+        "You",
+        "allow",
+        "me",
+        "to",
+        "call",
+        "in",
+        "my",
+        "dog,",
+        "madam?\"",
+        "He",
+        "suddenly",
+        "addressed",
+        "Madame",
+        "Snegiryov,",
+        "with",
+        "inexplicable",
+        "excitement",
+        "in",
+        "his",
+        "manner."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "delete",
+          7,
+          8,
+          7,
+          7
+        ],
+        [
+          "equal",
+          8,
+          36,
+          7,
+          35
+        ],
+        [
+          "replace",
+          36,
+          38,
+          35,
+          37
+        ],
+        [
+          "equal",
+          38,
+          44,
+          37,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          7,
+          8,
+          7,
+          7
+        ],
+        [
+          "replace",
+          36,
+          38,
+          35,
+          37
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 0.8,
+          "end": 0.9,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.02,
+          "end": 1.12,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "really",
+          "start": 1.12,
+          "end": 1.34,
+          "key": "really",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.34,
+          "end": 1.54,
+          "key": "must",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.54,
+          "end": 1.76,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.76,
+          "end": 1.98,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 2.38,
+          "end": 2.48,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.48,
+          "end": 2.6,
+          "key": "will",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "amuse",
+          "start": 2.6,
+          "end": 2.9,
+          "key": "amuse",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.9,
+          "end": 3.2,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.6,
+          "end": 3.68,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "brought",
+          "start": 3.68,
+          "end": 3.88,
+          "key": "brought",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.88,
+          "end": 4.04,
+          "key": "him",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.04,
+          "end": 4.22,
+          "key": "on",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "purpose.",
+          "start": 4.22,
+          "end": 4.6,
+          "key": "purpose",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 5.36,
+          "end": 5.58,
+          "key": "hes",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.58,
+          "end": 5.76,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 5.76,
+          "end": 6.02,
+          "key": "same",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 6.02,
+          "end": 6.28,
+          "key": "sort",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.28,
+          "end": 6.46,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "shaggy",
+          "start": 6.46,
+          "end": 6.82,
+          "key": "shaggy",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "dog.",
+          "start": 6.82,
+          "end": 7.08,
+          "key": "dog",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 7.64,
+          "end": 7.8,
+          "key": "you",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "allow",
+          "start": 7.8,
+          "end": 8.04,
+          "key": "allow",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 8.04,
+          "end": 8.2,
+          "key": "me",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.2,
+          "end": 8.34,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 8.34,
+          "end": 8.52,
+          "key": "call",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.52,
+          "end": 8.68,
+          "key": "in",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.68,
+          "end": 8.82,
+          "key": "my",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "dog,",
+          "start": 8.82,
+          "end": 9.12,
+          "key": "dog",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "madam.",
+          "start": 9.34,
+          "end": 9.64,
+          "key": "madam",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 10.12,
+          "end": 10.34,
+          "key": "he",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 10.34,
+          "end": 10.62,
+          "key": "suddenly",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "addressed",
+          "start": 10.62,
+          "end": 11.2,
+          "key": "addressed",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Madam",
+          "start": 11.2,
+          "end": 11.7,
+          "key": "madam",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Snegeriyav",
+          "start": 11.7,
+          "end": 12.58,
+          "key": "snegeriyav",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 12.58,
+          "end": 12.94,
+          "key": "with",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "inexplicable",
+          "start": 12.94,
+          "end": 13.54,
+          "key": "inexplicable",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "excitement",
+          "start": 13.54,
+          "end": 14.2,
+          "key": "excitement",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 14.2,
+          "end": 14.5,
+          "key": "in",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 14.5,
+          "end": 14.62,
+          "key": "his",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "manner.",
+          "start": 14.62,
+          "end": 14.96,
+          "key": "manner",
+          "pieces": [
+            42
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "no,",
+          "start": 0.8,
+          "end": 0.9
+        },
+        {
+          "text": "you",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "text": "really",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "text": "must",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "see",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "text": "him",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "text": "...",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "text": "it",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "text": "will",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "text": "amuse",
+          "start": 2.6,
+          "end": 2.9
+        },
+        {
+          "text": "you.",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "text": "I",
+          "start": 3.6,
+          "end": 3.68
+        },
+        {
+          "text": "brought",
+          "start": 3.68,
+          "end": 3.88
+        },
+        {
+          "text": "him",
+          "start": 3.88,
+          "end": 4.04
+        },
+        {
+          "text": "on",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "text": "purpose....",
+          "start": 4.22,
+          "end": 4.6
+        },
+        {
+          "text": "He's",
+          "start": 5.36,
+          "end": 5.58
+        },
+        {
+          "text": "the",
+          "start": 5.58,
+          "end": 5.76
+        },
+        {
+          "text": "same",
+          "start": 5.76,
+          "end": 6.02
+        },
+        {
+          "text": "sort",
+          "start": 6.02,
+          "end": 6.28
+        },
+        {
+          "text": "of",
+          "start": 6.28,
+          "end": 6.46
+        },
+        {
+          "text": "shaggy",
+          "start": 6.46,
+          "end": 6.82
+        },
+        {
+          "text": "dog....",
+          "start": 6.82,
+          "end": 7.08
+        },
+        {
+          "text": "You",
+          "start": 7.64,
+          "end": 7.8
+        },
+        {
+          "text": "allow",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "text": "me",
+          "start": 8.04,
+          "end": 8.2
+        },
+        {
+          "text": "to",
+          "start": 8.2,
+          "end": 8.34
+        },
+        {
+          "text": "call",
+          "start": 8.34,
+          "end": 8.52
+        },
+        {
+          "text": "in",
+          "start": 8.52,
+          "end": 8.68
+        },
+        {
+          "text": "my",
+          "start": 8.68,
+          "end": 8.82
+        },
+        {
+          "text": "dog,",
+          "start": 8.82,
+          "end": 9.12
+        },
+        {
+          "text": "madam?\"",
+          "start": 9.34,
+          "end": 9.64
+        },
+        {
+          "text": "He",
+          "start": 10.12,
+          "end": 10.34
+        },
+        {
+          "text": "suddenly",
+          "start": 10.34,
+          "end": 10.62
+        },
+        {
+          "text": "addressed",
+          "start": 10.62,
+          "end": 11.2
+        },
+        {
+          "text": "Madame",
+          "start": 11.2,
+          "end": 11.89
+        },
+        {
+          "text": "Snegiryov,",
+          "start": 11.89,
+          "end": 12.235
+        },
+        {
+          "text": "with",
+          "start": 12.58,
+          "end": 12.94
+        },
+        {
+          "text": "inexplicable",
+          "start": 12.94,
+          "end": 13.54
+        },
+        {
+          "text": "excitement",
+          "start": 13.54,
+          "end": 14.2
+        },
+        {
+          "text": "in",
+          "start": 14.2,
+          "end": 14.5
+        },
+        {
+          "text": "his",
+          "start": 14.5,
+          "end": 14.62
+        },
+        {
+          "text": "manner.",
+          "start": 14.62,
+          "end": 14.96
+        }
+      ],
+      "stats": {
+        "expected_words": 44,
+        "heard_words": 43,
+        "matched_words": 41
+      },
+      "match_ratio": 0.9318181818181818,
+      "rejection_reasons": [],
+      "seconds": 0.6524415723979473
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "58f644e6c8fe868b060425cc9d0d2fec54dbeef37f5949c19c8c1b2e14e246b9",
+  "selected_reasons": []
+}

@@ -1,0 +1,208 @@
+{
+  "complete": true,
+  "signature": "99a1a66a6fe7fdefea982c23739cecaceda4abd05148bee64aa0ddb4f493a4a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.14726512879133224,
+      "alignment_seconds": 0.0003481600433588028,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Regan, sicko sick.",
+          "start": 0.02,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " Regan,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.6744384765625
+            },
+            {
+              "text": " sicko",
+              "start": 1.16,
+              "end": 1.44,
+              "probability": 0.613525390625
+            },
+            {
+              "text": " sick.",
+              "start": 1.44,
+              "end": 1.74,
+              "probability": 0.6123046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Regan,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "sicko",
+          "start": 1.16,
+          "end": 1.44
+        },
+        {
+          "raw": "sick.",
+          "start": 1.44,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "Regan.",
+        "Sick,",
+        "O,",
+        "sick!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          "delete",
+          2,
+          4,
+          3,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ],
+        [
+          "delete",
+          2,
+          4,
+          3,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Regan,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "regan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sicko",
+          "start": 1.16,
+          "end": 1.44,
+          "key": "sicko",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sick.",
+          "start": 1.44,
+          "end": 1.74,
+          "key": "sick",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Regan.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Sick,",
+          "start": 1.44,
+          "end": 1.74
+        },
+        {
+          "text": "O,",
+          "start": 1.74,
+          "end": 1.74
+        },
+        {
+          "text": "sick!",
+          "start": 1.74,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14771886356174946
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d1544786dfe02854674fdd1e21c862e0d7c2ea9528b7b68392a298fb852e7755",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

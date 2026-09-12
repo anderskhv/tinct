@@ -1,0 +1,136 @@
+{
+  "complete": true,
+  "signature": "d29068ec755644fe66c3187acfa7552f22af3f9801cfee3ff5f15f37aa9e0281",
+  "attempts": [
+    {
+      "asr_seconds": 0.12756330193951726,
+      "alignment_seconds": 8.959881961345673e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Exit.]",
+        "hotwords": "Exit"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit",
+          "start": 0.08,
+          "end": 0.74,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.77880859375
+            }
+          ]
+        },
+        {
+          "text": " Exit",
+          "start": 0.74,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.74,
+              "end": 1.42,
+              "probability": 2.2292137145996094e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "Exit",
+          "start": 0.74,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "[Exit.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Exit",
+          "start": 0.74,
+          "end": 1.42,
+          "key": "exit",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exit.]",
+          "start": 0.08,
+          "end": 0.74
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12768612196668983
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3549c49d0cc7f25c035da3ac6e934439311132c3e02e600582058ad0992be5e2",
+  "selected_reasons": []
+}

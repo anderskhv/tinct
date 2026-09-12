@@ -1,0 +1,3756 @@
+{
+  "complete": true,
+  "signature": "8bb095d3ff7a49b95e5eefdee443992f8fdef8ff6eea054cec9c2650975e3307",
+  "attempts": [
+    {
+      "asr_seconds": 0.4714152398519218,
+      "alignment_seconds": 0.0008684517815709114,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Now,\" he continued, again addressing me, \"I have received the pilgrim—a disguised deity, as I verily believe. Already it has done me good: my heart was a sort of charnel; it will now be a shrine.\"",
+        "hotwords": "I, Already"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Now, he continued, again addressing me, I have received the pilgrim—a disguised deity, as I verily believe. Already it has done me good. My heart was a sort of charnel—it will now be a shrine.",
+          "start": 0.02,
+          "end": 12.22,
+          "words": [
+            {
+              "text": " Now,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.1483154296875
+            },
+            {
+              "text": " he",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.97265625
+            },
+            {
+              "text": " continued,",
+              "start": 1.16,
+              "end": 1.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " again",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " addressing",
+              "start": 2.2,
+              "end": 2.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " me,",
+              "start": 2.58,
+              "end": 2.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 3.28,
+              "end": 3.52,
+              "probability": 0.6630859375
+            },
+            {
+              "text": " have",
+              "start": 3.52,
+              "end": 3.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " received",
+              "start": 3.66,
+              "end": 3.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.96,
+              "end": 4.2,
+              "probability": 0.958984375
+            },
+            {
+              "text": " pilgrim—a",
+              "start": 4.2,
+              "end": 4.92,
+              "probability": 0.6599292755126953
+            },
+            {
+              "text": " disguised",
+              "start": 4.92,
+              "end": 5.38,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " deity,",
+              "start": 5.38,
+              "end": 5.82,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " as",
+              "start": 6.02,
+              "end": 6.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 6.14,
+              "end": 6.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " verily",
+              "start": 6.3,
+              "end": 6.7,
+              "probability": 0.906005859375
+            },
+            {
+              "text": " believe.",
+              "start": 6.7,
+              "end": 7.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Already",
+              "start": 7.8,
+              "end": 8.04,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " it",
+              "start": 8.04,
+              "end": 8.24,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " has",
+              "start": 8.24,
+              "end": 8.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " done",
+              "start": 8.4,
+              "end": 8.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me",
+              "start": 8.56,
+              "end": 8.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " good.",
+              "start": 8.74,
+              "end": 8.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " My",
+              "start": 9.56,
+              "end": 9.68,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " heart",
+              "start": 9.68,
+              "end": 9.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " was",
+              "start": 9.9,
+              "end": 10.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 10.06,
+              "end": 10.18,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sort",
+              "start": 10.18,
+              "end": 10.28,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " of",
+              "start": 10.28,
+              "end": 10.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " charnel—it",
+              "start": 10.44,
+              "end": 11.26,
+              "probability": 0.7779541015625
+            },
+            {
+              "text": " will",
+              "start": 11.26,
+              "end": 11.36,
+              "probability": 0.99609375
+            },
+            {
+              "text": " now",
+              "start": 11.36,
+              "end": 11.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 11.56,
+              "end": 11.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 11.74,
+              "end": 11.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shrine.",
+              "start": 11.9,
+              "end": 12.22,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "he",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "raw": "continued,",
+          "start": 1.16,
+          "end": 1.68
+        },
+        {
+          "raw": "again",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "addressing",
+          "start": 2.2,
+          "end": 2.58
+        },
+        {
+          "raw": "me,",
+          "start": 2.58,
+          "end": 2.92
+        },
+        {
+          "raw": "I",
+          "start": 3.28,
+          "end": 3.52
+        },
+        {
+          "raw": "have",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "raw": "received",
+          "start": 3.66,
+          "end": 3.96
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "raw": "pilgrim—a",
+          "start": 4.2,
+          "end": 4.92
+        },
+        {
+          "raw": "disguised",
+          "start": 4.92,
+          "end": 5.38
+        },
+        {
+          "raw": "deity,",
+          "start": 5.38,
+          "end": 5.82
+        },
+        {
+          "raw": "as",
+          "start": 6.02,
+          "end": 6.14
+        },
+        {
+          "raw": "I",
+          "start": 6.14,
+          "end": 6.3
+        },
+        {
+          "raw": "verily",
+          "start": 6.3,
+          "end": 6.7
+        },
+        {
+          "raw": "believe.",
+          "start": 6.7,
+          "end": 7.06
+        },
+        {
+          "raw": "Already",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "raw": "it",
+          "start": 8.04,
+          "end": 8.24
+        },
+        {
+          "raw": "has",
+          "start": 8.24,
+          "end": 8.4
+        },
+        {
+          "raw": "done",
+          "start": 8.4,
+          "end": 8.56
+        },
+        {
+          "raw": "me",
+          "start": 8.56,
+          "end": 8.74
+        },
+        {
+          "raw": "good.",
+          "start": 8.74,
+          "end": 8.96
+        },
+        {
+          "raw": "My",
+          "start": 9.56,
+          "end": 9.68
+        },
+        {
+          "raw": "heart",
+          "start": 9.68,
+          "end": 9.9
+        },
+        {
+          "raw": "was",
+          "start": 9.9,
+          "end": 10.06
+        },
+        {
+          "raw": "a",
+          "start": 10.06,
+          "end": 10.18
+        },
+        {
+          "raw": "sort",
+          "start": 10.18,
+          "end": 10.28
+        },
+        {
+          "raw": "of",
+          "start": 10.28,
+          "end": 10.44
+        },
+        {
+          "raw": "charnel—it",
+          "start": 10.44,
+          "end": 11.26
+        },
+        {
+          "raw": "will",
+          "start": 11.26,
+          "end": 11.36
+        },
+        {
+          "raw": "now",
+          "start": 11.36,
+          "end": 11.56
+        },
+        {
+          "raw": "be",
+          "start": 11.56,
+          "end": 11.74
+        },
+        {
+          "raw": "a",
+          "start": 11.74,
+          "end": 11.9
+        },
+        {
+          "raw": "shrine.",
+          "start": 11.9,
+          "end": 12.22
+        }
+      ],
+      "expected_tokens": [
+        "\"Now,\"",
+        "he",
+        "continued,",
+        "again",
+        "addressing",
+        "me,",
+        "\"I",
+        "have",
+        "received",
+        "the",
+        "pilgrim—a",
+        "disguised",
+        "deity,",
+        "as",
+        "I",
+        "verily",
+        "believe.",
+        "Already",
+        "it",
+        "has",
+        "done",
+        "me",
+        "good:",
+        "my",
+        "heart",
+        "was",
+        "a",
+        "sort",
+        "of",
+        "charnel;",
+        "it",
+        "will",
+        "now",
+        "be",
+        "a",
+        "shrine.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          29,
+          0,
+          29
+        ],
+        [
+          "replace",
+          29,
+          31,
+          29,
+          30
+        ],
+        [
+          "equal",
+          31,
+          36,
+          30,
+          35
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          29,
+          31,
+          29,
+          30
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Now,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "now",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.96,
+          "end": 1.16,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "continued,",
+          "start": 1.16,
+          "end": 1.68,
+          "key": "continued",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "again",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "addressing",
+          "start": 2.2,
+          "end": 2.58,
+          "key": "addressing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.58,
+          "end": 2.92,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.28,
+          "end": 3.52,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.52,
+          "end": 3.66,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "received",
+          "start": 3.66,
+          "end": 3.96,
+          "key": "received",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.2,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pilgrim—a",
+          "start": 4.2,
+          "end": 4.92,
+          "key": "pilgrima",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "disguised",
+          "start": 4.92,
+          "end": 5.38,
+          "key": "disguised",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "deity,",
+          "start": 5.38,
+          "end": 5.82,
+          "key": "deity",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.02,
+          "end": 6.14,
+          "key": "as",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.14,
+          "end": 6.3,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "verily",
+          "start": 6.3,
+          "end": 6.7,
+          "key": "verily",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "believe.",
+          "start": 6.7,
+          "end": 7.06,
+          "key": "believe",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Already",
+          "start": 7.8,
+          "end": 8.04,
+          "key": "already",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 8.04,
+          "end": 8.24,
+          "key": "it",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 8.24,
+          "end": 8.4,
+          "key": "has",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 8.4,
+          "end": 8.56,
+          "key": "done",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 8.56,
+          "end": 8.74,
+          "key": "me",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "good.",
+          "start": 8.74,
+          "end": 8.96,
+          "key": "good",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 9.56,
+          "end": 9.68,
+          "key": "my",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 9.68,
+          "end": 9.9,
+          "key": "heart",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 9.9,
+          "end": 10.06,
+          "key": "was",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 10.06,
+          "end": 10.18,
+          "key": "a",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 10.18,
+          "end": 10.28,
+          "key": "sort",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.28,
+          "end": 10.44,
+          "key": "of",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "charnel—it",
+          "start": 10.44,
+          "end": 11.26,
+          "key": "charnelit",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 11.26,
+          "end": 11.36,
+          "key": "will",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 11.36,
+          "end": 11.56,
+          "key": "now",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 11.56,
+          "end": 11.74,
+          "key": "be",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.74,
+          "end": 11.9,
+          "key": "a",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "shrine.",
+          "start": 11.9,
+          "end": 12.22,
+          "key": "shrine",
+          "pieces": [
+            34
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Now,\"",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "he",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "text": "continued,",
+          "start": 1.16,
+          "end": 1.68
+        },
+        {
+          "text": "again",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "addressing",
+          "start": 2.2,
+          "end": 2.58
+        },
+        {
+          "text": "me,",
+          "start": 2.58,
+          "end": 2.92
+        },
+        {
+          "text": "\"I",
+          "start": 3.28,
+          "end": 3.52
+        },
+        {
+          "text": "have",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "text": "received",
+          "start": 3.66,
+          "end": 3.96
+        },
+        {
+          "text": "the",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "text": "pilgrim—a",
+          "start": 4.2,
+          "end": 4.92
+        },
+        {
+          "text": "disguised",
+          "start": 4.92,
+          "end": 5.38
+        },
+        {
+          "text": "deity,",
+          "start": 5.38,
+          "end": 5.82
+        },
+        {
+          "text": "as",
+          "start": 6.02,
+          "end": 6.14
+        },
+        {
+          "text": "I",
+          "start": 6.14,
+          "end": 6.3
+        },
+        {
+          "text": "verily",
+          "start": 6.3,
+          "end": 6.7
+        },
+        {
+          "text": "believe.",
+          "start": 6.7,
+          "end": 7.06
+        },
+        {
+          "text": "Already",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "text": "it",
+          "start": 8.04,
+          "end": 8.24
+        },
+        {
+          "text": "has",
+          "start": 8.24,
+          "end": 8.4
+        },
+        {
+          "text": "done",
+          "start": 8.4,
+          "end": 8.56
+        },
+        {
+          "text": "me",
+          "start": 8.56,
+          "end": 8.74
+        },
+        {
+          "text": "good:",
+          "start": 8.74,
+          "end": 8.96
+        },
+        {
+          "text": "my",
+          "start": 9.56,
+          "end": 9.68
+        },
+        {
+          "text": "heart",
+          "start": 9.68,
+          "end": 9.9
+        },
+        {
+          "text": "was",
+          "start": 9.9,
+          "end": 10.06
+        },
+        {
+          "text": "a",
+          "start": 10.06,
+          "end": 10.18
+        },
+        {
+          "text": "sort",
+          "start": 10.18,
+          "end": 10.28
+        },
+        {
+          "text": "of",
+          "start": 10.28,
+          "end": 10.44
+        },
+        {
+          "text": "charnel;",
+          "start": 10.44,
+          "end": 10.85
+        },
+        {
+          "text": "it",
+          "start": 10.85,
+          "end": 11.055
+        },
+        {
+          "text": "will",
+          "start": 11.26,
+          "end": 11.36
+        },
+        {
+          "text": "now",
+          "start": 11.36,
+          "end": 11.56
+        },
+        {
+          "text": "be",
+          "start": 11.56,
+          "end": 11.74
+        },
+        {
+          "text": "a",
+          "start": 11.74,
+          "end": 11.9
+        },
+        {
+          "text": "shrine.\"",
+          "start": 11.9,
+          "end": 12.22
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 35,
+        "matched_words": 34
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.4726597317494452
+    },
+    {
+      "asr_seconds": 0.5477511901408434,
+      "alignment_seconds": 0.0006753560155630112,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, Already"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Now, he continued, again addressing me, I have received the pilgrim a disguised deity",
+          "start": 0.02,
+          "end": 5.84,
+          "words": [
+            {
+              "text": " Now,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.1483154296875
+            },
+            {
+              "text": " he",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.97265625
+            },
+            {
+              "text": " continued,",
+              "start": 1.16,
+              "end": 1.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " again",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " addressing",
+              "start": 2.2,
+              "end": 2.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " me,",
+              "start": 2.58,
+              "end": 2.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 3.28,
+              "end": 3.52,
+              "probability": 0.6630859375
+            },
+            {
+              "text": " have",
+              "start": 3.52,
+              "end": 3.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " received",
+              "start": 3.66,
+              "end": 3.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.96,
+              "end": 4.2,
+              "probability": 0.958984375
+            },
+            {
+              "text": " pilgrim",
+              "start": 4.2,
+              "end": 4.7,
+              "probability": 0.83203125
+            },
+            {
+              "text": " a",
+              "start": 4.7,
+              "end": 4.92,
+              "probability": 0.481201171875
+            },
+            {
+              "text": " disguised",
+              "start": 4.92,
+              "end": 5.38,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " deity",
+              "start": 5.38,
+              "end": 5.84,
+              "probability": 0.9765625
+            }
+          ]
+        },
+        {
+          "text": " as I verily believe.",
+          "start": 5.84,
+          "end": 7.04,
+          "words": [
+            {
+              "text": " as",
+              "start": 5.84,
+              "end": 6.14,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " I",
+              "start": 6.14,
+              "end": 6.3,
+              "probability": 0.994140625
+            },
+            {
+              "text": " verily",
+              "start": 6.3,
+              "end": 6.7,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " believe.",
+              "start": 6.7,
+              "end": 7.04,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " Already it has done me good.",
+          "start": 7.82,
+          "end": 8.96,
+          "words": [
+            {
+              "text": " Already",
+              "start": 7.82,
+              "end": 8.04,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " it",
+              "start": 8.04,
+              "end": 8.26,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " has",
+              "start": 8.26,
+              "end": 8.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " done",
+              "start": 8.4,
+              "end": 8.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me",
+              "start": 8.56,
+              "end": 8.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " good.",
+              "start": 8.74,
+              "end": 8.96,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " My heart was a sort of charnel, it will now be a shrine.",
+          "start": 9.58,
+          "end": 12.24,
+          "words": [
+            {
+              "text": " My",
+              "start": 9.58,
+              "end": 9.68,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " heart",
+              "start": 9.68,
+              "end": 9.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " was",
+              "start": 9.9,
+              "end": 10.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 10.06,
+              "end": 10.18,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " sort",
+              "start": 10.18,
+              "end": 10.28,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " of",
+              "start": 10.28,
+              "end": 10.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " charnel,",
+              "start": 10.44,
+              "end": 10.84,
+              "probability": 0.962890625
+            },
+            {
+              "text": " it",
+              "start": 11.18,
+              "end": 11.26,
+              "probability": 0.984375
+            },
+            {
+              "text": " will",
+              "start": 11.26,
+              "end": 11.36,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " now",
+              "start": 11.36,
+              "end": 11.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 11.56,
+              "end": 11.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 11.76,
+              "end": 11.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shrine.",
+              "start": 11.88,
+              "end": 12.24,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "he",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "raw": "continued,",
+          "start": 1.16,
+          "end": 1.68
+        },
+        {
+          "raw": "again",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "addressing",
+          "start": 2.2,
+          "end": 2.58
+        },
+        {
+          "raw": "me,",
+          "start": 2.58,
+          "end": 2.92
+        },
+        {
+          "raw": "I",
+          "start": 3.28,
+          "end": 3.52
+        },
+        {
+          "raw": "have",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "raw": "received",
+          "start": 3.66,
+          "end": 3.96
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "raw": "pilgrim",
+          "start": 4.2,
+          "end": 4.7
+        },
+        {
+          "raw": "a",
+          "start": 4.7,
+          "end": 4.92
+        },
+        {
+          "raw": "disguised",
+          "start": 4.92,
+          "end": 5.38
+        },
+        {
+          "raw": "deity",
+          "start": 5.38,
+          "end": 5.84
+        },
+        {
+          "raw": "as",
+          "start": 5.84,
+          "end": 6.14
+        },
+        {
+          "raw": "I",
+          "start": 6.14,
+          "end": 6.3
+        },
+        {
+          "raw": "verily",
+          "start": 6.3,
+          "end": 6.7
+        },
+        {
+          "raw": "believe.",
+          "start": 6.7,
+          "end": 7.04
+        },
+        {
+          "raw": "Already",
+          "start": 7.82,
+          "end": 8.04
+        },
+        {
+          "raw": "it",
+          "start": 8.04,
+          "end": 8.26
+        },
+        {
+          "raw": "has",
+          "start": 8.26,
+          "end": 8.4
+        },
+        {
+          "raw": "done",
+          "start": 8.4,
+          "end": 8.56
+        },
+        {
+          "raw": "me",
+          "start": 8.56,
+          "end": 8.74
+        },
+        {
+          "raw": "good.",
+          "start": 8.74,
+          "end": 8.96
+        },
+        {
+          "raw": "My",
+          "start": 9.58,
+          "end": 9.68
+        },
+        {
+          "raw": "heart",
+          "start": 9.68,
+          "end": 9.9
+        },
+        {
+          "raw": "was",
+          "start": 9.9,
+          "end": 10.06
+        },
+        {
+          "raw": "a",
+          "start": 10.06,
+          "end": 10.18
+        },
+        {
+          "raw": "sort",
+          "start": 10.18,
+          "end": 10.28
+        },
+        {
+          "raw": "of",
+          "start": 10.28,
+          "end": 10.44
+        },
+        {
+          "raw": "charnel,",
+          "start": 10.44,
+          "end": 10.84
+        },
+        {
+          "raw": "it",
+          "start": 11.18,
+          "end": 11.26
+        },
+        {
+          "raw": "will",
+          "start": 11.26,
+          "end": 11.36
+        },
+        {
+          "raw": "now",
+          "start": 11.36,
+          "end": 11.56
+        },
+        {
+          "raw": "be",
+          "start": 11.56,
+          "end": 11.76
+        },
+        {
+          "raw": "a",
+          "start": 11.76,
+          "end": 11.88
+        },
+        {
+          "raw": "shrine.",
+          "start": 11.88,
+          "end": 12.24
+        }
+      ],
+      "expected_tokens": [
+        "\"Now,\"",
+        "he",
+        "continued,",
+        "again",
+        "addressing",
+        "me,",
+        "\"I",
+        "have",
+        "received",
+        "the",
+        "pilgrim—a",
+        "disguised",
+        "deity,",
+        "as",
+        "I",
+        "verily",
+        "believe.",
+        "Already",
+        "it",
+        "has",
+        "done",
+        "me",
+        "good:",
+        "my",
+        "heart",
+        "was",
+        "a",
+        "sort",
+        "of",
+        "charnel;",
+        "it",
+        "will",
+        "now",
+        "be",
+        "a",
+        "shrine.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          36,
+          12,
+          37
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Now,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "now",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.96,
+          "end": 1.16,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "continued,",
+          "start": 1.16,
+          "end": 1.68,
+          "key": "continued",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "again",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "addressing",
+          "start": 2.2,
+          "end": 2.58,
+          "key": "addressing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.58,
+          "end": 2.92,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.28,
+          "end": 3.52,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.52,
+          "end": 3.66,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "received",
+          "start": 3.66,
+          "end": 3.96,
+          "key": "received",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.2,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pilgrim",
+          "start": 4.2,
+          "end": 4.7,
+          "key": "pilgrim",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.7,
+          "end": 4.92,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "disguised",
+          "start": 4.92,
+          "end": 5.38,
+          "key": "disguised",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "deity",
+          "start": 5.38,
+          "end": 5.84,
+          "key": "deity",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.84,
+          "end": 6.14,
+          "key": "as",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.14,
+          "end": 6.3,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "verily",
+          "start": 6.3,
+          "end": 6.7,
+          "key": "verily",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "believe.",
+          "start": 6.7,
+          "end": 7.04,
+          "key": "believe",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Already",
+          "start": 7.82,
+          "end": 8.04,
+          "key": "already",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 8.04,
+          "end": 8.26,
+          "key": "it",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 8.26,
+          "end": 8.4,
+          "key": "has",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 8.4,
+          "end": 8.56,
+          "key": "done",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 8.56,
+          "end": 8.74,
+          "key": "me",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "good.",
+          "start": 8.74,
+          "end": 8.96,
+          "key": "good",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 9.58,
+          "end": 9.68,
+          "key": "my",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 9.68,
+          "end": 9.9,
+          "key": "heart",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 9.9,
+          "end": 10.06,
+          "key": "was",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 10.06,
+          "end": 10.18,
+          "key": "a",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 10.18,
+          "end": 10.28,
+          "key": "sort",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.28,
+          "end": 10.44,
+          "key": "of",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "charnel,",
+          "start": 10.44,
+          "end": 10.84,
+          "key": "charnel",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 11.18,
+          "end": 11.26,
+          "key": "it",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 11.26,
+          "end": 11.36,
+          "key": "will",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 11.36,
+          "end": 11.56,
+          "key": "now",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 11.56,
+          "end": 11.76,
+          "key": "be",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.76,
+          "end": 11.88,
+          "key": "a",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "shrine.",
+          "start": 11.88,
+          "end": 12.24,
+          "key": "shrine",
+          "pieces": [
+            36
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Now,\"",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "he",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "text": "continued,",
+          "start": 1.16,
+          "end": 1.68
+        },
+        {
+          "text": "again",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "addressing",
+          "start": 2.2,
+          "end": 2.58
+        },
+        {
+          "text": "me,",
+          "start": 2.58,
+          "end": 2.92
+        },
+        {
+          "text": "\"I",
+          "start": 3.28,
+          "end": 3.52
+        },
+        {
+          "text": "have",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "text": "received",
+          "start": 3.66,
+          "end": 3.96
+        },
+        {
+          "text": "the",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "text": "pilgrim—a",
+          "start": 4.2,
+          "end": 4.56
+        },
+        {
+          "text": "disguised",
+          "start": 4.92,
+          "end": 5.38
+        },
+        {
+          "text": "deity,",
+          "start": 5.38,
+          "end": 5.84
+        },
+        {
+          "text": "as",
+          "start": 5.84,
+          "end": 6.14
+        },
+        {
+          "text": "I",
+          "start": 6.14,
+          "end": 6.3
+        },
+        {
+          "text": "verily",
+          "start": 6.3,
+          "end": 6.7
+        },
+        {
+          "text": "believe.",
+          "start": 6.7,
+          "end": 7.04
+        },
+        {
+          "text": "Already",
+          "start": 7.82,
+          "end": 8.04
+        },
+        {
+          "text": "it",
+          "start": 8.04,
+          "end": 8.26
+        },
+        {
+          "text": "has",
+          "start": 8.26,
+          "end": 8.4
+        },
+        {
+          "text": "done",
+          "start": 8.4,
+          "end": 8.56
+        },
+        {
+          "text": "me",
+          "start": 8.56,
+          "end": 8.74
+        },
+        {
+          "text": "good:",
+          "start": 8.74,
+          "end": 8.96
+        },
+        {
+          "text": "my",
+          "start": 9.58,
+          "end": 9.68
+        },
+        {
+          "text": "heart",
+          "start": 9.68,
+          "end": 9.9
+        },
+        {
+          "text": "was",
+          "start": 9.9,
+          "end": 10.06
+        },
+        {
+          "text": "a",
+          "start": 10.06,
+          "end": 10.18
+        },
+        {
+          "text": "sort",
+          "start": 10.18,
+          "end": 10.28
+        },
+        {
+          "text": "of",
+          "start": 10.28,
+          "end": 10.44
+        },
+        {
+          "text": "charnel;",
+          "start": 10.44,
+          "end": 10.84
+        },
+        {
+          "text": "it",
+          "start": 11.18,
+          "end": 11.26
+        },
+        {
+          "text": "will",
+          "start": 11.26,
+          "end": 11.36
+        },
+        {
+          "text": "now",
+          "start": 11.36,
+          "end": 11.56
+        },
+        {
+          "text": "be",
+          "start": 11.56,
+          "end": 11.76
+        },
+        {
+          "text": "a",
+          "start": 11.76,
+          "end": 11.88
+        },
+        {
+          "text": "shrine.\"",
+          "start": 11.88,
+          "end": 12.24
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 37,
+        "matched_words": 35
+      },
+      "match_ratio": 0.9722222222222222,
+      "rejection_reasons": [],
+      "seconds": 0.5487130340188742
+    },
+    {
+      "asr_seconds": 0.5515606738626957,
+      "alignment_seconds": 0.0008082110434770584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Now, he continued, again addressing me, I have received the pilgrim a disguised deity",
+          "start": 0.02,
+          "end": 5.84,
+          "words": [
+            {
+              "text": " Now,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.1483154296875
+            },
+            {
+              "text": " he",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.97265625
+            },
+            {
+              "text": " continued,",
+              "start": 1.16,
+              "end": 1.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " again",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " addressing",
+              "start": 2.2,
+              "end": 2.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " me,",
+              "start": 2.58,
+              "end": 2.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 3.28,
+              "end": 3.52,
+              "probability": 0.6630859375
+            },
+            {
+              "text": " have",
+              "start": 3.52,
+              "end": 3.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " received",
+              "start": 3.66,
+              "end": 3.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.96,
+              "end": 4.2,
+              "probability": 0.958984375
+            },
+            {
+              "text": " pilgrim",
+              "start": 4.2,
+              "end": 4.7,
+              "probability": 0.83203125
+            },
+            {
+              "text": " a",
+              "start": 4.7,
+              "end": 4.92,
+              "probability": 0.481201171875
+            },
+            {
+              "text": " disguised",
+              "start": 4.92,
+              "end": 5.38,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " deity",
+              "start": 5.38,
+              "end": 5.84,
+              "probability": 0.9765625
+            }
+          ]
+        },
+        {
+          "text": " as I verily believe.",
+          "start": 5.84,
+          "end": 7.04,
+          "words": [
+            {
+              "text": " as",
+              "start": 5.84,
+              "end": 6.14,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " I",
+              "start": 6.14,
+              "end": 6.3,
+              "probability": 0.994140625
+            },
+            {
+              "text": " verily",
+              "start": 6.3,
+              "end": 6.7,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " believe.",
+              "start": 6.7,
+              "end": 7.04,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " Already it has done me good.",
+          "start": 7.82,
+          "end": 8.96,
+          "words": [
+            {
+              "text": " Already",
+              "start": 7.82,
+              "end": 8.04,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " it",
+              "start": 8.04,
+              "end": 8.26,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " has",
+              "start": 8.26,
+              "end": 8.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " done",
+              "start": 8.4,
+              "end": 8.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me",
+              "start": 8.56,
+              "end": 8.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " good.",
+              "start": 8.74,
+              "end": 8.96,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " My heart was a sort of charnel.",
+          "start": 9.58,
+          "end": 10.84,
+          "words": [
+            {
+              "text": " My",
+              "start": 9.58,
+              "end": 9.68,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " heart",
+              "start": 9.68,
+              "end": 9.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " was",
+              "start": 9.9,
+              "end": 10.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 10.06,
+              "end": 10.18,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " sort",
+              "start": 10.18,
+              "end": 10.28,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " of",
+              "start": 10.28,
+              "end": 10.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " charnel.",
+              "start": 10.44,
+              "end": 10.84,
+              "probability": 0.962890625
+            }
+          ]
+        },
+        {
+          "text": " It will now be a shrine.",
+          "start": 11.18,
+          "end": 12.24,
+          "words": [
+            {
+              "text": " It",
+              "start": 11.18,
+              "end": 11.26,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " will",
+              "start": 11.26,
+              "end": 11.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " now",
+              "start": 11.36,
+              "end": 11.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 11.56,
+              "end": 11.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 11.74,
+              "end": 11.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shrine.",
+              "start": 11.88,
+              "end": 12.24,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "he",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "raw": "continued,",
+          "start": 1.16,
+          "end": 1.68
+        },
+        {
+          "raw": "again",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "addressing",
+          "start": 2.2,
+          "end": 2.58
+        },
+        {
+          "raw": "me,",
+          "start": 2.58,
+          "end": 2.92
+        },
+        {
+          "raw": "I",
+          "start": 3.28,
+          "end": 3.52
+        },
+        {
+          "raw": "have",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "raw": "received",
+          "start": 3.66,
+          "end": 3.96
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "raw": "pilgrim",
+          "start": 4.2,
+          "end": 4.7
+        },
+        {
+          "raw": "a",
+          "start": 4.7,
+          "end": 4.92
+        },
+        {
+          "raw": "disguised",
+          "start": 4.92,
+          "end": 5.38
+        },
+        {
+          "raw": "deity",
+          "start": 5.38,
+          "end": 5.84
+        },
+        {
+          "raw": "as",
+          "start": 5.84,
+          "end": 6.14
+        },
+        {
+          "raw": "I",
+          "start": 6.14,
+          "end": 6.3
+        },
+        {
+          "raw": "verily",
+          "start": 6.3,
+          "end": 6.7
+        },
+        {
+          "raw": "believe.",
+          "start": 6.7,
+          "end": 7.04
+        },
+        {
+          "raw": "Already",
+          "start": 7.82,
+          "end": 8.04
+        },
+        {
+          "raw": "it",
+          "start": 8.04,
+          "end": 8.26
+        },
+        {
+          "raw": "has",
+          "start": 8.26,
+          "end": 8.4
+        },
+        {
+          "raw": "done",
+          "start": 8.4,
+          "end": 8.56
+        },
+        {
+          "raw": "me",
+          "start": 8.56,
+          "end": 8.74
+        },
+        {
+          "raw": "good.",
+          "start": 8.74,
+          "end": 8.96
+        },
+        {
+          "raw": "My",
+          "start": 9.58,
+          "end": 9.68
+        },
+        {
+          "raw": "heart",
+          "start": 9.68,
+          "end": 9.9
+        },
+        {
+          "raw": "was",
+          "start": 9.9,
+          "end": 10.06
+        },
+        {
+          "raw": "a",
+          "start": 10.06,
+          "end": 10.18
+        },
+        {
+          "raw": "sort",
+          "start": 10.18,
+          "end": 10.28
+        },
+        {
+          "raw": "of",
+          "start": 10.28,
+          "end": 10.44
+        },
+        {
+          "raw": "charnel.",
+          "start": 10.44,
+          "end": 10.84
+        },
+        {
+          "raw": "It",
+          "start": 11.18,
+          "end": 11.26
+        },
+        {
+          "raw": "will",
+          "start": 11.26,
+          "end": 11.36
+        },
+        {
+          "raw": "now",
+          "start": 11.36,
+          "end": 11.56
+        },
+        {
+          "raw": "be",
+          "start": 11.56,
+          "end": 11.74
+        },
+        {
+          "raw": "a",
+          "start": 11.74,
+          "end": 11.88
+        },
+        {
+          "raw": "shrine.",
+          "start": 11.88,
+          "end": 12.24
+        }
+      ],
+      "expected_tokens": [
+        "\"Now,\"",
+        "he",
+        "continued,",
+        "again",
+        "addressing",
+        "me,",
+        "\"I",
+        "have",
+        "received",
+        "the",
+        "pilgrim—a",
+        "disguised",
+        "deity,",
+        "as",
+        "I",
+        "verily",
+        "believe.",
+        "Already",
+        "it",
+        "has",
+        "done",
+        "me",
+        "good:",
+        "my",
+        "heart",
+        "was",
+        "a",
+        "sort",
+        "of",
+        "charnel;",
+        "it",
+        "will",
+        "now",
+        "be",
+        "a",
+        "shrine.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          36,
+          12,
+          37
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Now,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "now",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.96,
+          "end": 1.16,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "continued,",
+          "start": 1.16,
+          "end": 1.68,
+          "key": "continued",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "again",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "addressing",
+          "start": 2.2,
+          "end": 2.58,
+          "key": "addressing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.58,
+          "end": 2.92,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.28,
+          "end": 3.52,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.52,
+          "end": 3.66,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "received",
+          "start": 3.66,
+          "end": 3.96,
+          "key": "received",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.2,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pilgrim",
+          "start": 4.2,
+          "end": 4.7,
+          "key": "pilgrim",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.7,
+          "end": 4.92,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "disguised",
+          "start": 4.92,
+          "end": 5.38,
+          "key": "disguised",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "deity",
+          "start": 5.38,
+          "end": 5.84,
+          "key": "deity",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.84,
+          "end": 6.14,
+          "key": "as",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.14,
+          "end": 6.3,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "verily",
+          "start": 6.3,
+          "end": 6.7,
+          "key": "verily",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "believe.",
+          "start": 6.7,
+          "end": 7.04,
+          "key": "believe",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Already",
+          "start": 7.82,
+          "end": 8.04,
+          "key": "already",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 8.04,
+          "end": 8.26,
+          "key": "it",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 8.26,
+          "end": 8.4,
+          "key": "has",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 8.4,
+          "end": 8.56,
+          "key": "done",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 8.56,
+          "end": 8.74,
+          "key": "me",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "good.",
+          "start": 8.74,
+          "end": 8.96,
+          "key": "good",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 9.58,
+          "end": 9.68,
+          "key": "my",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 9.68,
+          "end": 9.9,
+          "key": "heart",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 9.9,
+          "end": 10.06,
+          "key": "was",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 10.06,
+          "end": 10.18,
+          "key": "a",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 10.18,
+          "end": 10.28,
+          "key": "sort",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.28,
+          "end": 10.44,
+          "key": "of",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "charnel.",
+          "start": 10.44,
+          "end": 10.84,
+          "key": "charnel",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 11.18,
+          "end": 11.26,
+          "key": "it",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 11.26,
+          "end": 11.36,
+          "key": "will",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 11.36,
+          "end": 11.56,
+          "key": "now",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 11.56,
+          "end": 11.74,
+          "key": "be",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.74,
+          "end": 11.88,
+          "key": "a",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "shrine.",
+          "start": 11.88,
+          "end": 12.24,
+          "key": "shrine",
+          "pieces": [
+            36
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Now,\"",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "he",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "text": "continued,",
+          "start": 1.16,
+          "end": 1.68
+        },
+        {
+          "text": "again",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "addressing",
+          "start": 2.2,
+          "end": 2.58
+        },
+        {
+          "text": "me,",
+          "start": 2.58,
+          "end": 2.92
+        },
+        {
+          "text": "\"I",
+          "start": 3.28,
+          "end": 3.52
+        },
+        {
+          "text": "have",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "text": "received",
+          "start": 3.66,
+          "end": 3.96
+        },
+        {
+          "text": "the",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "text": "pilgrim—a",
+          "start": 4.2,
+          "end": 4.56
+        },
+        {
+          "text": "disguised",
+          "start": 4.92,
+          "end": 5.38
+        },
+        {
+          "text": "deity,",
+          "start": 5.38,
+          "end": 5.84
+        },
+        {
+          "text": "as",
+          "start": 5.84,
+          "end": 6.14
+        },
+        {
+          "text": "I",
+          "start": 6.14,
+          "end": 6.3
+        },
+        {
+          "text": "verily",
+          "start": 6.3,
+          "end": 6.7
+        },
+        {
+          "text": "believe.",
+          "start": 6.7,
+          "end": 7.04
+        },
+        {
+          "text": "Already",
+          "start": 7.82,
+          "end": 8.04
+        },
+        {
+          "text": "it",
+          "start": 8.04,
+          "end": 8.26
+        },
+        {
+          "text": "has",
+          "start": 8.26,
+          "end": 8.4
+        },
+        {
+          "text": "done",
+          "start": 8.4,
+          "end": 8.56
+        },
+        {
+          "text": "me",
+          "start": 8.56,
+          "end": 8.74
+        },
+        {
+          "text": "good:",
+          "start": 8.74,
+          "end": 8.96
+        },
+        {
+          "text": "my",
+          "start": 9.58,
+          "end": 9.68
+        },
+        {
+          "text": "heart",
+          "start": 9.68,
+          "end": 9.9
+        },
+        {
+          "text": "was",
+          "start": 9.9,
+          "end": 10.06
+        },
+        {
+          "text": "a",
+          "start": 10.06,
+          "end": 10.18
+        },
+        {
+          "text": "sort",
+          "start": 10.18,
+          "end": 10.28
+        },
+        {
+          "text": "of",
+          "start": 10.28,
+          "end": 10.44
+        },
+        {
+          "text": "charnel;",
+          "start": 10.44,
+          "end": 10.84
+        },
+        {
+          "text": "it",
+          "start": 11.18,
+          "end": 11.26
+        },
+        {
+          "text": "will",
+          "start": 11.26,
+          "end": 11.36
+        },
+        {
+          "text": "now",
+          "start": 11.36,
+          "end": 11.56
+        },
+        {
+          "text": "be",
+          "start": 11.56,
+          "end": 11.74
+        },
+        {
+          "text": "a",
+          "start": 11.74,
+          "end": 11.88
+        },
+        {
+          "text": "shrine.\"",
+          "start": 11.88,
+          "end": 12.24
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 37,
+        "matched_words": 35
+      },
+      "match_ratio": 0.9722222222222222,
+      "rejection_reasons": [],
+      "seconds": 0.5527145760133862
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "c12a3837024e5f9fcf7969a496e9a99bf4948c16ed03b15609a4b12c26a7286f",
+  "selected_reasons": []
+}

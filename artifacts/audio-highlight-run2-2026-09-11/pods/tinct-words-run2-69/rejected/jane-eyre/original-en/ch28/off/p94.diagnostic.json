@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "9ac834c8380755439a2f5ffc2d1396d0f34500f6402052bb36b1335f8c1152a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.11652807425707579,
+      "alignment_seconds": 0.00031290575861930847,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I am a stranger.",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.87109375
+            },
+            {
+              "text": " am",
+              "start": 0.53,
+              "end": 0.61,
+              "probability": 0.5615234375
+            },
+            {
+              "text": " a",
+              "start": 0.61,
+              "end": 0.73,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " stranger.",
+              "start": 0.73,
+              "end": 0.99,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "am",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "raw": "a",
+          "start": 0.61,
+          "end": 0.73
+        },
+        {
+          "raw": "stranger.",
+          "start": 0.73,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "am",
+        "a",
+        "stranger.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.53,
+          "end": 0.61,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.61,
+          "end": 0.73,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stranger.",
+          "start": 0.73,
+          "end": 0.99,
+          "key": "stranger",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "am",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "text": "a",
+          "start": 0.61,
+          "end": 0.73
+        },
+        {
+          "text": "stranger.\"",
+          "start": 0.73,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11697281617671251
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0240ce95d3f74399b5479c7b996ea7be5927fa8f23c604bd559d2d43f6257d87",
+  "selected_reasons": []
+}

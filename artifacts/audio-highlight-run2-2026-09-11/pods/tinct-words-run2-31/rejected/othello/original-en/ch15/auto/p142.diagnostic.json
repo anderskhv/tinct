@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "82cec0b1c71648646482f9063f580945c2e6a95197799edab603ed23705376ff",
+  "attempts": [
+    {
+      "asr_seconds": 0.12442896096035838,
+      "alignment_seconds": 0.00015373900532722473,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. Villanous whore!",
+        "hotwords": "Iago, Villanous"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, Villanous whore!",
+          "start": 0.05,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.2355022430419922
+            },
+            {
+              "text": " Villanous",
+              "start": 1.09,
+              "end": 1.41,
+              "probability": 0.14806111653645834
+            },
+            {
+              "text": " whore!",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.06549072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Villanous",
+          "start": 1.09,
+          "end": 1.41
+        },
+        {
+          "raw": "whore!",
+          "start": 1.41,
+          "end": 1.61
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Villanous",
+        "whore!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Villanous",
+          "start": 1.09,
+          "end": 1.41,
+          "key": "villanous",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "whore!",
+          "start": 1.41,
+          "end": 1.61,
+          "key": "whore",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Villanous",
+          "start": 1.09,
+          "end": 1.41
+        },
+        {
+          "text": "whore!",
+          "start": 1.41,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.124630908947438
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "48a48ba7212f81c589d2f007393b0889105770f13adcb89668a4db8aee26e459",
+  "selected_reasons": []
+}

@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "d1174989cdf3b144d84cb7f9d796ba387f0a2a42e5857ec3b593494446509629",
+  "attempts": [
+    {
+      "asr_seconds": 0.11796052800491452,
+      "alignment_seconds": 0.00024225609377026558,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richie turned",
+          "start": 0.05,
+          "end": 0.93,
+          "words": [
+            {
+              "text": " Richie",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.7451171875
+            },
+            {
+              "text": " turned",
+              "start": 0.61,
+              "end": 0.93,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richie",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "turned",
+          "start": 0.61,
+          "end": 0.93
+        }
+      ],
+      "expected_tokens": [
+        "Richie",
+        "turned."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richie",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "richie",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 0.61,
+          "end": 0.93,
+          "key": "turned",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richie",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "turned.",
+          "start": 0.61,
+          "end": 0.93
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11827635299414396
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "547e09123e65a9b2b9d095054bc6e9a03482803ef5a9d649c34742766873cd7e",
+  "selected_reasons": []
+}

@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "f07d6b04cb71ea33700c79978466d86e42af901aa3017190bc8b2bc93fed3625",
+  "attempts": [
+    {
+      "asr_seconds": 0.12019898369908333,
+      "alignment_seconds": 9.32617112994194e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassius. Messala.",
+        "hotwords": "Cassius, Messala"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassius, Messala.",
+          "start": 0.05,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.914306640625
+            },
+            {
+              "text": " Messala.",
+              "start": 1.21,
+              "end": 1.55,
+              "probability": 0.4607353210449219
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "Messala.",
+          "start": 1.21,
+          "end": 1.55
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Messala."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Messala.",
+          "start": 1.21,
+          "end": 1.55,
+          "key": "messala",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "Messala.",
+          "start": 1.21,
+          "end": 1.55
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12032024096697569
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "00de4dc6bd59102c83afbefcfb957eb540fd152f8dc22b5c31988a68dff319e3",
+  "selected_reasons": []
+}

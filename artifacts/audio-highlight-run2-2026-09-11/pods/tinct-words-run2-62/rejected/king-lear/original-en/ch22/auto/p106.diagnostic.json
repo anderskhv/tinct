@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "daf04c260549e92c83d23e3daeb923f68f48e629bcde2b9cad97a7fd0b94af6b",
+  "attempts": [
+    {
+      "asr_seconds": 0.10926735028624535,
+      "alignment_seconds": 0.00016558170318603516,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Reads._] 'Let our reciprocal vows be remembered. You have many",
+        "hotwords": "Let, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Reads. Let our reciprocal vows be remembered. You have many'",
+          "start": 0.7,
+          "end": 3.94,
+          "words": [
+            {
+              "text": " Reads.",
+              "start": 0.7,
+              "end": 1.18,
+              "probability": 0.795654296875
+            },
+            {
+              "text": " Let",
+              "start": 1.38,
+              "end": 1.46,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " our",
+              "start": 1.46,
+              "end": 1.58,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " reciprocal",
+              "start": 1.58,
+              "end": 1.98,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " vows",
+              "start": 1.98,
+              "end": 2.38,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " be",
+              "start": 2.38,
+              "end": 2.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " remembered.",
+              "start": 2.64,
+              "end": 3.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " You",
+              "start": 3.5,
+              "end": 3.56,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " have",
+              "start": 3.56,
+              "end": 3.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " many'",
+              "start": 3.72,
+              "end": 3.94,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Reads.",
+          "start": 0.7,
+          "end": 1.18
+        },
+        {
+          "raw": "Let",
+          "start": 1.38,
+          "end": 1.46
+        },
+        {
+          "raw": "our",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "raw": "reciprocal",
+          "start": 1.58,
+          "end": 1.98
+        },
+        {
+          "raw": "vows",
+          "start": 1.98,
+          "end": 2.38
+        },
+        {
+          "raw": "be",
+          "start": 2.38,
+          "end": 2.64
+        },
+        {
+          "raw": "remembered.",
+          "start": 2.64,
+          "end": 3.06
+        },
+        {
+          "raw": "You",
+          "start": 3.5,
+          "end": 3.56
+        },
+        {
+          "raw": "have",
+          "start": 3.56,
+          "end": 3.72
+        },
+        {
+          "raw": "many'",
+          "start": 3.72,
+          "end": 3.94
+        }
+      ],
+      "expected_tokens": [
+        "[_Reads._]",
+        "'Let",
+        "our",
+        "reciprocal",
+        "vows",
+        "be",
+        "remembered.",
+        "You",
+        "have",
+        "many"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Reads.",
+          "start": 0.7,
+          "end": 1.18,
+          "key": "reads",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 1.38,
+          "end": 1.46,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.46,
+          "end": 1.58,
+          "key": "our",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "reciprocal",
+          "start": 1.58,
+          "end": 1.98,
+          "key": "reciprocal",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "vows",
+          "start": 1.98,
+          "end": 2.38,
+          "key": "vows",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.38,
+          "end": 2.64,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "remembered.",
+          "start": 2.64,
+          "end": 3.06,
+          "key": "remembered",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 3.5,
+          "end": 3.56,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.56,
+          "end": 3.72,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "many'",
+          "start": 3.72,
+          "end": 3.94,
+          "key": "many",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Reads._]",
+          "start": 0.7,
+          "end": 1.18
+        },
+        {
+          "text": "'Let",
+          "start": 1.38,
+          "end": 1.46
+        },
+        {
+          "text": "our",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "text": "reciprocal",
+          "start": 1.58,
+          "end": 1.98
+        },
+        {
+          "text": "vows",
+          "start": 1.98,
+          "end": 2.38
+        },
+        {
+          "text": "be",
+          "start": 2.38,
+          "end": 2.64
+        },
+        {
+          "text": "remembered.",
+          "start": 2.64,
+          "end": 3.06
+        },
+        {
+          "text": "You",
+          "start": 3.5,
+          "end": 3.56
+        },
+        {
+          "text": "have",
+          "start": 3.56,
+          "end": 3.72
+        },
+        {
+          "text": "many",
+          "start": 3.72,
+          "end": 3.94
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10949625074863434
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "77896fc7c53f5592006e8a2e61b3e1f60d20032744c2afa3070f85fe614e0615",
+  "selected_reasons": []
+}

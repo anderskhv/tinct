@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "620d97ce972223a3b846384121532ea4150d1516beb21857fdc079900957728d",
+  "attempts": [
+    {
+      "asr_seconds": 0.33661356195807457,
+      "alignment_seconds": 0.0006579551845788956,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Jupiter descends in thunder and lightning, sitting upon an eagle. He throws a thunderbolt. The Ghosts fall on their knees.",
+        "hotwords": "Jupiter, He, The, Ghosts"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Jupiter descends in thunder and lightning, sitting upon an eagle. He throws a thunderbolt. The Ghosts fall on their knees.",
+          "start": 0.02,
+          "end": 7.34,
+          "words": [
+            {
+              "text": " Jupiter",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " descends",
+              "start": 0.74,
+              "end": 1.3,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " in",
+              "start": 1.3,
+              "end": 1.52,
+              "probability": 0.9921875
+            },
+            {
+              "text": " thunder",
+              "start": 1.52,
+              "end": 1.8,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " and",
+              "start": 1.8,
+              "end": 2.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " lightning,",
+              "start": 2.08,
+              "end": 2.42,
+              "probability": 0.96875
+            },
+            {
+              "text": " sitting",
+              "start": 2.82,
+              "end": 2.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " upon",
+              "start": 2.96,
+              "end": 3.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " an",
+              "start": 3.3,
+              "end": 3.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " eagle.",
+              "start": 3.46,
+              "end": 3.72,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " He",
+              "start": 4.3,
+              "end": 4.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " throws",
+              "start": 4.4,
+              "end": 4.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 4.66,
+              "end": 4.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thunderbolt.",
+              "start": 4.88,
+              "end": 5.38,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " The",
+              "start": 5.96,
+              "end": 6.08,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Ghosts",
+              "start": 6.08,
+              "end": 6.4,
+              "probability": 0.002727508544921875
+            },
+            {
+              "text": " fall",
+              "start": 6.4,
+              "end": 6.76,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " on",
+              "start": 6.76,
+              "end": 6.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 6.96,
+              "end": 7.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " knees.",
+              "start": 7.08,
+              "end": 7.34,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jupiter",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "descends",
+          "start": 0.74,
+          "end": 1.3
+        },
+        {
+          "raw": "in",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "raw": "thunder",
+          "start": 1.52,
+          "end": 1.8
+        },
+        {
+          "raw": "and",
+          "start": 1.8,
+          "end": 2.08
+        },
+        {
+          "raw": "lightning,",
+          "start": 2.08,
+          "end": 2.42
+        },
+        {
+          "raw": "sitting",
+          "start": 2.82,
+          "end": 2.96
+        },
+        {
+          "raw": "upon",
+          "start": 2.96,
+          "end": 3.3
+        },
+        {
+          "raw": "an",
+          "start": 3.3,
+          "end": 3.46
+        },
+        {
+          "raw": "eagle.",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "raw": "He",
+          "start": 4.3,
+          "end": 4.4
+        },
+        {
+          "raw": "throws",
+          "start": 4.4,
+          "end": 4.66
+        },
+        {
+          "raw": "a",
+          "start": 4.66,
+          "end": 4.88
+        },
+        {
+          "raw": "thunderbolt.",
+          "start": 4.88,
+          "end": 5.38
+        },
+        {
+          "raw": "The",
+          "start": 5.96,
+          "end": 6.08
+        },
+        {
+          "raw": "Ghosts",
+          "start": 6.08,
+          "end": 6.4
+        },
+        {
+          "raw": "fall",
+          "start": 6.4,
+          "end": 6.76
+        },
+        {
+          "raw": "on",
+          "start": 6.76,
+          "end": 6.96
+        },
+        {
+          "raw": "their",
+          "start": 6.96,
+          "end": 7.08
+        },
+        {
+          "raw": "knees.",
+          "start": 7.08,
+          "end": 7.34
+        }
+      ],
+      "expected_tokens": [
+        "Jupiter",
+        "descends",
+        "in",
+        "thunder",
+        "and",
+        "lightning,",
+        "sitting",
+        "upon",
+        "an",
+        "eagle.",
+        "He",
+        "throws",
+        "a",
+        "thunderbolt.",
+        "The",
+        "Ghosts",
+        "fall",
+        "on",
+        "their",
+        "knees."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jupiter",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "jupiter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "descends",
+          "start": 0.74,
+          "end": 1.3,
+          "key": "descends",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.3,
+          "end": 1.52,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thunder",
+          "start": 1.52,
+          "end": 1.8,
+          "key": "thunder",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.8,
+          "end": 2.08,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lightning,",
+          "start": 2.08,
+          "end": 2.42,
+          "key": "lightning",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sitting",
+          "start": 2.82,
+          "end": 2.96,
+          "key": "sitting",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.96,
+          "end": 3.3,
+          "key": "upon",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.3,
+          "end": 3.46,
+          "key": "an",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "eagle.",
+          "start": 3.46,
+          "end": 3.72,
+          "key": "eagle",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.3,
+          "end": 4.4,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "throws",
+          "start": 4.4,
+          "end": 4.66,
+          "key": "throws",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.66,
+          "end": 4.88,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thunderbolt.",
+          "start": 4.88,
+          "end": 5.38,
+          "key": "thunderbolt",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 5.96,
+          "end": 6.08,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Ghosts",
+          "start": 6.08,
+          "end": 6.4,
+          "key": "ghosts",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "fall",
+          "start": 6.4,
+          "end": 6.76,
+          "key": "fall",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 6.76,
+          "end": 6.96,
+          "key": "on",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 6.96,
+          "end": 7.08,
+          "key": "their",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "knees.",
+          "start": 7.08,
+          "end": 7.34,
+          "key": "knees",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Jupiter",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "descends",
+          "start": 0.74,
+          "end": 1.3
+        },
+        {
+          "text": "in",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "text": "thunder",
+          "start": 1.52,
+          "end": 1.8
+        },
+        {
+          "text": "and",
+          "start": 1.8,
+          "end": 2.08
+        },
+        {
+          "text": "lightning,",
+          "start": 2.08,
+          "end": 2.42
+        },
+        {
+          "text": "sitting",
+          "start": 2.82,
+          "end": 2.96
+        },
+        {
+          "text": "upon",
+          "start": 2.96,
+          "end": 3.3
+        },
+        {
+          "text": "an",
+          "start": 3.3,
+          "end": 3.46
+        },
+        {
+          "text": "eagle.",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "text": "He",
+          "start": 4.3,
+          "end": 4.4
+        },
+        {
+          "text": "throws",
+          "start": 4.4,
+          "end": 4.66
+        },
+        {
+          "text": "a",
+          "start": 4.66,
+          "end": 4.88
+        },
+        {
+          "text": "thunderbolt.",
+          "start": 4.88,
+          "end": 5.38
+        },
+        {
+          "text": "The",
+          "start": 5.96,
+          "end": 6.08
+        },
+        {
+          "text": "Ghosts",
+          "start": 6.08,
+          "end": 6.4
+        },
+        {
+          "text": "fall",
+          "start": 6.4,
+          "end": 6.76
+        },
+        {
+          "text": "on",
+          "start": 6.76,
+          "end": 6.96
+        },
+        {
+          "text": "their",
+          "start": 6.96,
+          "end": 7.08
+        },
+        {
+          "text": "knees.",
+          "start": 7.08,
+          "end": 7.34
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3375400621443987
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "510eb9934d44d40d53aec0045ed51bb5ff907d9cfd485982f90b02abe32c3722",
+  "selected_reasons": []
+}

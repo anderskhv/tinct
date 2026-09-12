@@ -1,0 +1,167 @@
+{
+  "complete": true,
+  "signature": "b7a31e3535903bc3593877bccf4cfc1e148a1d4d0a9c4c2ade05abd702c8ca02",
+  "attempts": [
+    {
+      "asr_seconds": 0.10947570390999317,
+      "alignment_seconds": 0.00018594413995742798,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Re-enter LIR.",
+          "start": 0.05,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " Re",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.90576171875
+            },
+            {
+              "text": "-enter",
+              "start": 0.57,
+              "end": 0.75,
+              "probability": 0.828125
+            },
+            {
+              "text": " LIR.",
+              "start": 0.75,
+              "end": 1.05,
+              "probability": 0.38006591796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Re",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "-enter",
+          "start": 0.57,
+          "end": 0.75
+        },
+        {
+          "raw": "LIR.",
+          "start": 0.75,
+          "end": 1.05
+        }
+      ],
+      "expected_tokens": [
+        "Re-enter",
+        "Lear."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Re -enter",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "reenter",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "LIR.",
+          "start": 0.75,
+          "end": 1.05,
+          "key": "lir",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "Re-enter",
+          "heard": "Re -enter",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.05,
+          "end": 0.75
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Re-enter",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Lear.",
+          "start": 0.75,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10971484892070293
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "60a8e74de91cf90024dc8df1e00bddae39a03f512d34a5fe520900c1d3d998e3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

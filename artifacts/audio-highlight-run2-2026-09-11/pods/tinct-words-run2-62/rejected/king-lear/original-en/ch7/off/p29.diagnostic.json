@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "b8eb49bcb0b31af53c26f273539fc61e36bd24c20ee5bd21c36b1466c43512e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.0931459479033947,
+      "alignment_seconds": 0.0001201927661895752,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oswald, I am scarce in breath, my lord.",
+          "start": 0.05,
+          "end": 2.67,
+          "words": [
+            {
+              "text": " Oswald,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.56005859375
+            },
+            {
+              "text": " I",
+              "start": 1.27,
+              "end": 1.35,
+              "probability": 0.990234375
+            },
+            {
+              "text": " am",
+              "start": 1.35,
+              "end": 1.45,
+              "probability": 0.74072265625
+            },
+            {
+              "text": " scarce",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.96875
+            },
+            {
+              "text": " in",
+              "start": 1.69,
+              "end": 1.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " breath,",
+              "start": 1.93,
+              "end": 2.17,
+              "probability": 0.97265625
+            },
+            {
+              "text": " my",
+              "start": 2.37,
+              "end": 2.45,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " lord.",
+              "start": 2.45,
+              "end": 2.67,
+              "probability": 0.8447265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "raw": "am",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "raw": "scarce",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "raw": "in",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "raw": "breath,",
+          "start": 1.93,
+          "end": 2.17
+        },
+        {
+          "raw": "my",
+          "start": 2.37,
+          "end": 2.45
+        },
+        {
+          "raw": "lord.",
+          "start": 2.45,
+          "end": 2.67
+        }
+      ],
+      "expected_tokens": [
+        "Oswald.",
+        "I",
+        "am",
+        "scarce",
+        "in",
+        "breath,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "oswald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.35,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.35,
+          "end": 1.45,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "scarce",
+          "start": 1.45,
+          "end": 1.69,
+          "key": "scarce",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.69,
+          "end": 1.93,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "breath,",
+          "start": 1.93,
+          "end": 2.17,
+          "key": "breath",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.37,
+          "end": 2.45,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 2.45,
+          "end": 2.67,
+          "key": "lord",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oswald.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "I",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "text": "am",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "text": "scarce",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "text": "in",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "text": "breath,",
+          "start": 1.93,
+          "end": 2.17
+        },
+        {
+          "text": "my",
+          "start": 2.37,
+          "end": 2.45
+        },
+        {
+          "text": "lord.",
+          "start": 2.45,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0933133102953434
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6125dd2084a42282f022c9160dc3b1fd08448eff1c27c964916063030cd37047",
+  "selected_reasons": []
+}

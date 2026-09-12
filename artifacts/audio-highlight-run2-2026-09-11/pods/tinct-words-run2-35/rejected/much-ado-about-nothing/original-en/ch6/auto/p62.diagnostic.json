@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "34f5b80f4c25a593bbbacffa122325264cfd6882f7be131aef6a566bfe446c04",
+  "attempts": [
+    {
+      "asr_seconds": 0.265641488134861,
+      "alignment_seconds": 0.0006556585431098938,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Claudio. Now you talk of a sheet of paper, I remember a pretty jest your daughter told us of.",
+        "hotwords": "Claudio, Now, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Claudio, Now you talk of a sheet of paper, I remember a pretty jest your daughter told us of.",
+          "start": 0.02,
+          "end": 5.5,
+          "words": [
+            {
+              "text": " Claudio,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.864990234375
+            },
+            {
+              "text": " Now",
+              "start": 1.26,
+              "end": 1.56,
+              "probability": 0.019256591796875
+            },
+            {
+              "text": " you",
+              "start": 1.56,
+              "end": 1.72,
+              "probability": 0.9609375
+            },
+            {
+              "text": " talk",
+              "start": 1.72,
+              "end": 1.92,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 1.92,
+              "end": 2.06,
+              "probability": 0.990234375
+            },
+            {
+              "text": " a",
+              "start": 2.06,
+              "end": 2.18,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " sheet",
+              "start": 2.18,
+              "end": 2.34,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 2.34,
+              "end": 2.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " paper,",
+              "start": 2.5,
+              "end": 2.82,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 3.22,
+              "end": 3.32,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " remember",
+              "start": 3.32,
+              "end": 3.6,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 3.6,
+              "end": 3.8,
+              "probability": 0.986328125
+            },
+            {
+              "text": " pretty",
+              "start": 3.8,
+              "end": 3.96,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " jest",
+              "start": 3.96,
+              "end": 4.28,
+              "probability": 0.63134765625
+            },
+            {
+              "text": " your",
+              "start": 4.28,
+              "end": 4.44,
+              "probability": 0.96875
+            },
+            {
+              "text": " daughter",
+              "start": 4.44,
+              "end": 4.7,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " told",
+              "start": 4.7,
+              "end": 5.02,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " us",
+              "start": 5.02,
+              "end": 5.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of.",
+              "start": 5.22,
+              "end": 5.5,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Claudio,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "Now",
+          "start": 1.26,
+          "end": 1.56
+        },
+        {
+          "raw": "you",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "raw": "talk",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "raw": "of",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "raw": "a",
+          "start": 2.06,
+          "end": 2.18
+        },
+        {
+          "raw": "sheet",
+          "start": 2.18,
+          "end": 2.34
+        },
+        {
+          "raw": "of",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "raw": "paper,",
+          "start": 2.5,
+          "end": 2.82
+        },
+        {
+          "raw": "I",
+          "start": 3.22,
+          "end": 3.32
+        },
+        {
+          "raw": "remember",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "raw": "a",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "raw": "pretty",
+          "start": 3.8,
+          "end": 3.96
+        },
+        {
+          "raw": "jest",
+          "start": 3.96,
+          "end": 4.28
+        },
+        {
+          "raw": "your",
+          "start": 4.28,
+          "end": 4.44
+        },
+        {
+          "raw": "daughter",
+          "start": 4.44,
+          "end": 4.7
+        },
+        {
+          "raw": "told",
+          "start": 4.7,
+          "end": 5.02
+        },
+        {
+          "raw": "us",
+          "start": 5.02,
+          "end": 5.22
+        },
+        {
+          "raw": "of.",
+          "start": 5.22,
+          "end": 5.5
+        }
+      ],
+      "expected_tokens": [
+        "Claudio.",
+        "Now",
+        "you",
+        "talk",
+        "of",
+        "a",
+        "sheet",
+        "of",
+        "paper,",
+        "I",
+        "remember",
+        "a",
+        "pretty",
+        "jest",
+        "your",
+        "daughter",
+        "told",
+        "us",
+        "of."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Claudio,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "claudio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Now",
+          "start": 1.26,
+          "end": 1.56,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.56,
+          "end": 1.72,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 1.72,
+          "end": 1.92,
+          "key": "talk",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.92,
+          "end": 2.06,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.06,
+          "end": 2.18,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sheet",
+          "start": 2.18,
+          "end": 2.34,
+          "key": "sheet",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.34,
+          "end": 2.5,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "paper,",
+          "start": 2.5,
+          "end": 2.82,
+          "key": "paper",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.22,
+          "end": 3.32,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "remember",
+          "start": 3.32,
+          "end": 3.6,
+          "key": "remember",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.6,
+          "end": 3.8,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "pretty",
+          "start": 3.8,
+          "end": 3.96,
+          "key": "pretty",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "jest",
+          "start": 3.96,
+          "end": 4.28,
+          "key": "jest",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.28,
+          "end": 4.44,
+          "key": "your",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "daughter",
+          "start": 4.44,
+          "end": 4.7,
+          "key": "daughter",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 4.7,
+          "end": 5.02,
+          "key": "told",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 5.02,
+          "end": 5.22,
+          "key": "us",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of.",
+          "start": 5.22,
+          "end": 5.5,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Claudio.",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "Now",
+          "start": 1.26,
+          "end": 1.56
+        },
+        {
+          "text": "you",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "text": "talk",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "text": "of",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "text": "a",
+          "start": 2.06,
+          "end": 2.18
+        },
+        {
+          "text": "sheet",
+          "start": 2.18,
+          "end": 2.34
+        },
+        {
+          "text": "of",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "text": "paper,",
+          "start": 2.5,
+          "end": 2.82
+        },
+        {
+          "text": "I",
+          "start": 3.22,
+          "end": 3.32
+        },
+        {
+          "text": "remember",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "text": "a",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "text": "pretty",
+          "start": 3.8,
+          "end": 3.96
+        },
+        {
+          "text": "jest",
+          "start": 3.96,
+          "end": 4.28
+        },
+        {
+          "text": "your",
+          "start": 4.28,
+          "end": 4.44
+        },
+        {
+          "text": "daughter",
+          "start": 4.44,
+          "end": 4.7
+        },
+        {
+          "text": "told",
+          "start": 4.7,
+          "end": 5.02
+        },
+        {
+          "text": "us",
+          "start": 5.02,
+          "end": 5.22
+        },
+        {
+          "text": "of.",
+          "start": 5.22,
+          "end": 5.5
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26657976023852825
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "049477a67162dfc81c085db65cc8e681855b07342eb5aec60c82abaf15906bf1",
+  "selected_reasons": []
+}

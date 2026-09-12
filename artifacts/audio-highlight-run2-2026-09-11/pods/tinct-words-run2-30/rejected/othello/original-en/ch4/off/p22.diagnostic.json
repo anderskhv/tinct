@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "081d5364bd77959ee245fa749134c594f4e6541d773d2e9ef04e76255ebe268e",
+  "attempts": [
+    {
+      "asr_seconds": 0.13863404421135783,
+      "alignment_seconds": 0.00016757892444729805,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassio, my hopes do shape him for the governor.",
+          "start": 0.05,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.721923828125
+            },
+            {
+              "text": " my",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.986328125
+            },
+            {
+              "text": " hopes",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " do",
+              "start": 1.71,
+              "end": 1.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " shape",
+              "start": 1.95,
+              "end": 2.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him",
+              "start": 2.21,
+              "end": 2.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 2.37,
+              "end": 2.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.51,
+              "end": 2.65,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " governor.",
+              "start": 2.65,
+              "end": 2.91,
+              "probability": 0.67333984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "my",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "hopes",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "do",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "raw": "shape",
+          "start": 1.95,
+          "end": 2.21
+        },
+        {
+          "raw": "him",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "raw": "for",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "raw": "the",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "raw": "governor.",
+          "start": 2.65,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "My",
+        "hopes",
+        "do",
+        "shape",
+        "him",
+        "for",
+        "the",
+        "governor."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hopes",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "hopes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.71,
+          "end": 1.95,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shape",
+          "start": 1.95,
+          "end": 2.21,
+          "key": "shape",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.21,
+          "end": 2.37,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.37,
+          "end": 2.51,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.51,
+          "end": 2.65,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "governor.",
+          "start": 2.65,
+          "end": 2.91,
+          "key": "governor",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "My",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "hopes",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "do",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "text": "shape",
+          "start": 1.95,
+          "end": 2.21
+        },
+        {
+          "text": "him",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "text": "for",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "text": "the",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "text": "governor.",
+          "start": 2.65,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13886811304837465
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "499130f9650a5b708016685ee1622a0fe6dc987ca7cc08a923ac9e914e37c27f",
+  "selected_reasons": []
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "4aecd514ff6f01b8f3b40e792dbdc055ca3d735c895c311defbbcdb39cbd6488",
+  "attempts": [
+    {
+      "asr_seconds": 0.23590539954602718,
+      "alignment_seconds": 0.0005209725350141525,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Aside] And he had been a dog that should have howled",
+        "hotwords": "Aside, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aside, And he had been a dog that should have howled",
+          "start": 0.5,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " Aside,",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.0528564453125
+            },
+            {
+              "text": " And",
+              "start": 1.28,
+              "end": 1.38,
+              "probability": 0.0014963150024414062
+            },
+            {
+              "text": " he",
+              "start": 1.38,
+              "end": 1.48,
+              "probability": 0.982421875
+            },
+            {
+              "text": " had",
+              "start": 1.48,
+              "end": 1.54,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " been",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " dog",
+              "start": 1.78,
+              "end": 2.04,
+              "probability": 0.982421875
+            },
+            {
+              "text": " that",
+              "start": 2.04,
+              "end": 2.26,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " should",
+              "start": 2.26,
+              "end": 2.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " have",
+              "start": 2.4,
+              "end": 2.52,
+              "probability": 0.865234375
+            },
+            {
+              "text": " howled",
+              "start": 2.52,
+              "end": 2.9,
+              "probability": 0.956787109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside,",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "And",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "raw": "he",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "raw": "had",
+          "start": 1.48,
+          "end": 1.54
+        },
+        {
+          "raw": "been",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "a",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "dog",
+          "start": 1.78,
+          "end": 2.04
+        },
+        {
+          "raw": "that",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "raw": "should",
+          "start": 2.26,
+          "end": 2.4
+        },
+        {
+          "raw": "have",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "raw": "howled",
+          "start": 2.52,
+          "end": 2.9
+        }
+      ],
+      "expected_tokens": [
+        "[Aside]",
+        "And",
+        "he",
+        "had",
+        "been",
+        "a",
+        "dog",
+        "that",
+        "should",
+        "have",
+        "howled"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside,",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.28,
+          "end": 1.38,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.38,
+          "end": 1.48,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.48,
+          "end": 1.54,
+          "key": "had",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.54,
+          "end": 1.64,
+          "key": "been",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dog",
+          "start": 1.78,
+          "end": 2.04,
+          "key": "dog",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.04,
+          "end": 2.26,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 2.26,
+          "end": 2.4,
+          "key": "should",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.4,
+          "end": 2.52,
+          "key": "have",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "howled",
+          "start": 2.52,
+          "end": 2.9,
+          "key": "howled",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Aside]",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "And",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "text": "he",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "text": "had",
+          "start": 1.48,
+          "end": 1.54
+        },
+        {
+          "text": "been",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "a",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "dog",
+          "start": 1.78,
+          "end": 2.04
+        },
+        {
+          "text": "that",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "text": "should",
+          "start": 2.26,
+          "end": 2.4
+        },
+        {
+          "text": "have",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "text": "howled",
+          "start": 2.52,
+          "end": 2.9
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23663215711712837
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "16bdef9ba14e380c2d5efa76c779e1e1655b271b39cd361c9a2ff29af1ce70d8",
+  "selected_reasons": []
+}

@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "1e9c8f3d894b3848ea584d343d1e0de14258512fed03d2816abc4db217cf4125",
+  "attempts": [
+    {
+      "asr_seconds": 0.12451179884374142,
+      "alignment_seconds": 0.00028073228895664215,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It's true.\"",
+        "hotwords": "It's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It's true.",
+          "start": 0.02,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " It's",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.936279296875
+            },
+            {
+              "text": " true.",
+              "start": 0.64,
+              "end": 0.9,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It's",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "true.",
+          "start": 0.64,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "\"It's",
+        "true.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It's",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "its",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 0.64,
+          "end": 0.9,
+          "key": "true",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It's",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "true.\"",
+          "start": 0.64,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12490126304328442
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "136ca7f03503591c4f1b085b0a3f5c99cd0e64cde66ac16d9c2647a556f95185",
+  "selected_reasons": []
+}

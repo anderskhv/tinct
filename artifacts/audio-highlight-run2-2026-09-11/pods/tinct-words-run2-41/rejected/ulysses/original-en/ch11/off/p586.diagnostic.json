@@ -1,0 +1,569 @@
+{
+  "complete": true,
+  "signature": "da3d263dad07e5974e56913570487cff14b7f632ba3e7033bf3ef3d5805a15a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.2723731938749552,
+      "alignment_seconds": 0.0005135359242558479,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tease the last rows of summer-dollared left bloom felt wind wound round inside",
+          "start": 0.05,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.552734375
+            },
+            {
+              "text": " the",
+              "start": 0.67,
+              "end": 0.79,
+              "probability": 0.990234375
+            },
+            {
+              "text": " last",
+              "start": 0.79,
+              "end": 1.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " rows",
+              "start": 1.13,
+              "end": 1.45,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " of",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " summer",
+              "start": 1.69,
+              "end": 1.99,
+              "probability": 0.92431640625
+            },
+            {
+              "text": "-dollared",
+              "start": 1.99,
+              "end": 2.49,
+              "probability": 0.77947998046875
+            },
+            {
+              "text": " left",
+              "start": 2.49,
+              "end": 2.69,
+              "probability": 0.939453125
+            },
+            {
+              "text": " bloom",
+              "start": 2.69,
+              "end": 3.15,
+              "probability": 0.966796875
+            },
+            {
+              "text": " felt",
+              "start": 3.15,
+              "end": 3.53,
+              "probability": 0.267822265625
+            },
+            {
+              "text": " wind",
+              "start": 3.53,
+              "end": 3.87,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " wound",
+              "start": 3.87,
+              "end": 4.21,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " round",
+              "start": 4.21,
+              "end": 4.55,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " inside",
+              "start": 4.55,
+              "end": 5.05,
+              "probability": 0.94921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tease",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "the",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "raw": "last",
+          "start": 0.79,
+          "end": 1.13
+        },
+        {
+          "raw": "rows",
+          "start": 1.13,
+          "end": 1.45
+        },
+        {
+          "raw": "of",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "raw": "summer",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "raw": "-dollared",
+          "start": 1.99,
+          "end": 2.49
+        },
+        {
+          "raw": "left",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "raw": "bloom",
+          "start": 2.69,
+          "end": 3.15
+        },
+        {
+          "raw": "felt",
+          "start": 3.15,
+          "end": 3.53
+        },
+        {
+          "raw": "wind",
+          "start": 3.53,
+          "end": 3.87
+        },
+        {
+          "raw": "wound",
+          "start": 3.87,
+          "end": 4.21
+        },
+        {
+          "raw": "round",
+          "start": 4.21,
+          "end": 4.55
+        },
+        {
+          "raw": "inside",
+          "start": 4.55,
+          "end": 5.05
+        }
+      ],
+      "expected_tokens": [
+        "'Tis",
+        "the",
+        "last",
+        "rose",
+        "of",
+        "summer",
+        "dollard",
+        "left",
+        "bloom",
+        "felt",
+        "wind",
+        "wound",
+        "round",
+        "inside."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          14,
+          7,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tease",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "tease",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.67,
+          "end": 0.79,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 0.79,
+          "end": 1.13,
+          "key": "last",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rows",
+          "start": 1.13,
+          "end": 1.45,
+          "key": "rows",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.45,
+          "end": 1.69,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "summer",
+          "start": 1.69,
+          "end": 1.99,
+          "key": "summer",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "-dollared",
+          "start": 1.99,
+          "end": 2.49,
+          "key": "dollared",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "left",
+          "start": 2.49,
+          "end": 2.69,
+          "key": "left",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bloom",
+          "start": 2.69,
+          "end": 3.15,
+          "key": "bloom",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 3.15,
+          "end": 3.53,
+          "key": "felt",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "wind",
+          "start": 3.53,
+          "end": 3.87,
+          "key": "wind",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "wound",
+          "start": 3.87,
+          "end": 4.21,
+          "key": "wound",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 4.21,
+          "end": 4.55,
+          "key": "round",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "inside",
+          "start": 4.55,
+          "end": 5.05,
+          "key": "inside",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "'Tis",
+          "start": 0.0,
+          "end": 0.335
+        },
+        {
+          "text": "the",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "text": "last",
+          "start": 0.79,
+          "end": 1.13
+        },
+        {
+          "text": "rose",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "text": "of",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "text": "summer",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "text": "dollard",
+          "start": 1.99,
+          "end": 2.24
+        },
+        {
+          "text": "left",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "text": "bloom",
+          "start": 2.69,
+          "end": 3.15
+        },
+        {
+          "text": "felt",
+          "start": 3.15,
+          "end": 3.53
+        },
+        {
+          "text": "wind",
+          "start": 3.53,
+          "end": 3.87
+        },
+        {
+          "text": "wound",
+          "start": 3.87,
+          "end": 4.21
+        },
+        {
+          "text": "round",
+          "start": 4.21,
+          "end": 4.55
+        },
+        {
+          "text": "inside.",
+          "start": 4.55,
+          "end": 5.05
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 11
+      },
+      "match_ratio": 0.7857142857142857,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.27307394286617637
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8dfb8ebacf03d9ec104eabba147e71105caef644d1f73359dca0afb3bd2dbd76",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

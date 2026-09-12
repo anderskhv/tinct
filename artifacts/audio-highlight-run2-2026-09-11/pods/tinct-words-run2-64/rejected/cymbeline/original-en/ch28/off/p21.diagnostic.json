@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "b077465a170eaac86b1c3f420b33d6f4e1b4015041167ba6b92b5229955bdbbf",
+  "attempts": [
+    {
+      "asr_seconds": 0.0948862936347723,
+      "alignment_seconds": 0.00019759032875299454,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Asans.",
+          "start": 0.05,
+          "end": 0.93,
+          "words": [
+            {
+              "text": " Asans.",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.46478271484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asans.",
+          "start": 0.05,
+          "end": 0.93
+        }
+      ],
+      "expected_tokens": [
+        "[_Ascends._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asans.",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "asans",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Ascends._]",
+          "start": 0.0,
+          "end": 0.465
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09514562878757715
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2b61b56e855868caf63763f8286a4a2707bd705c1912c012d9dec027fa68ee28",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

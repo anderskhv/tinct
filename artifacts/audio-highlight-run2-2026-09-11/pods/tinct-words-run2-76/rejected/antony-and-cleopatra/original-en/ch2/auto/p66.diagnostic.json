@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "622c25520db3188e5ad51660a007c7705a73bb45573bbdb7d18ffd6b21df5381",
+  "attempts": [
+    {
+      "asr_seconds": 0.17547569796442986,
+      "alignment_seconds": 0.00021408265456557274,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. \"Antony\", thou wouldst say—",
+        "hotwords": "Antony"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, Antony, thou wouldst say—",
+          "start": 0.21,
+          "end": 3.05,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.21,
+              "end": 0.91,
+              "probability": 0.757080078125
+            },
+            {
+              "text": " Antony,",
+              "start": 1.35,
+              "end": 1.73,
+              "probability": 0.949951171875
+            },
+            {
+              "text": " thou",
+              "start": 1.87,
+              "end": 1.91,
+              "probability": 0.91796875
+            },
+            {
+              "text": " wouldst",
+              "start": 1.91,
+              "end": 2.23,
+              "probability": 0.89453125
+            },
+            {
+              "text": " say—",
+              "start": 2.23,
+              "end": 3.05,
+              "probability": 0.49693965911865234
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "raw": "Antony,",
+          "start": 1.35,
+          "end": 1.73
+        },
+        {
+          "raw": "thou",
+          "start": 1.87,
+          "end": 1.91
+        },
+        {
+          "raw": "wouldst",
+          "start": 1.91,
+          "end": 2.23
+        },
+        {
+          "raw": "say—",
+          "start": 2.23,
+          "end": 3.05
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "\"Antony\",",
+        "thou",
+        "wouldst",
+        "say—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.21,
+          "end": 0.91,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Antony,",
+          "start": 1.35,
+          "end": 1.73,
+          "key": "antony",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.87,
+          "end": 1.91,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wouldst",
+          "start": 1.91,
+          "end": 2.23,
+          "key": "wouldst",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say—",
+          "start": 2.23,
+          "end": 3.05,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "text": "\"Antony\",",
+          "start": 1.35,
+          "end": 1.73
+        },
+        {
+          "text": "thou",
+          "start": 1.87,
+          "end": 1.91
+        },
+        {
+          "text": "wouldst",
+          "start": 1.91,
+          "end": 2.23
+        },
+        {
+          "text": "say—",
+          "start": 2.23,
+          "end": 3.05
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17577101290225983
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7d562449066072bd446ea261f101b9145664d6f2d7852332d394a5e68e645518",
+  "selected_reasons": []
+}

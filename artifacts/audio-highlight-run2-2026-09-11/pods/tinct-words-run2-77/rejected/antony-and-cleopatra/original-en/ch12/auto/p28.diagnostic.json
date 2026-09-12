@@ -1,0 +1,919 @@
+{
+  "complete": true,
+  "signature": "acb663f09f5467a6e02f7a5676191b06fb4abcad9723cfa8753670fdba1fdb7a",
+  "attempts": [
+    {
+      "asr_seconds": 3.0228844539960846,
+      "alignment_seconds": 0.0003441019798628986,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Aside to Menas._] Forbear me till anon.—",
+        "hotwords": "Menas._, Forbear"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aside to Menas._, Forbear me till anon._",
+          "start": 0.05,
+          "end": 2.89,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.51953125
+            },
+            {
+              "text": " to",
+              "start": 0.69,
+              "end": 0.91,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " Menas._,",
+              "start": 0.91,
+              "end": 1.67,
+              "probability": 0.3241984049479167
+            },
+            {
+              "text": " Forbear",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.04177212715148926
+            },
+            {
+              "text": " me",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.2301025390625
+            },
+            {
+              "text": " till",
+              "start": 2.05,
+              "end": 2.23,
+              "probability": 0.60205078125
+            },
+            {
+              "text": " anon._",
+              "start": 2.23,
+              "end": 2.89,
+              "probability": 0.5163472493489584
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "to",
+          "start": 0.69,
+          "end": 0.91
+        },
+        {
+          "raw": "Menas._,",
+          "start": 0.91,
+          "end": 1.67
+        },
+        {
+          "raw": "Forbear",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "raw": "me",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "till",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "raw": "anon._",
+          "start": 2.23,
+          "end": 2.89
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside",
+        "to",
+        "Menas._]",
+        "Forbear",
+        "me",
+        "till",
+        "anon.—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.69,
+          "end": 0.91,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Menas._,",
+          "start": 0.91,
+          "end": 1.67,
+          "key": "menas_",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Forbear",
+          "start": 1.67,
+          "end": 1.91,
+          "key": "forbear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 2.05,
+          "end": 2.23,
+          "key": "till",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "anon._",
+          "start": 2.23,
+          "end": 2.89,
+          "key": "anon_",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "to",
+          "start": 0.69,
+          "end": 0.91
+        },
+        {
+          "text": "Menas._]",
+          "start": 0.91,
+          "end": 1.29
+        },
+        {
+          "text": "Forbear",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "text": "me",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "text": "till",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "text": "anon.—",
+          "start": 2.23,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 3.023325999994995
+    },
+    {
+      "asr_seconds": 2.79387409100309,
+      "alignment_seconds": 0.0002830900193657726,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Menas._, Forbear"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " me till anon._",
+          "start": 0.05,
+          "end": 3.15,
+          "words": [
+            {
+              "text": " me",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 1.1265277862548828e-05
+            },
+            {
+              "text": " till",
+              "start": 0.85,
+              "end": 2.21,
+              "probability": 0.3115234375
+            },
+            {
+              "text": " anon._",
+              "start": 2.21,
+              "end": 3.15,
+              "probability": 0.4930013219515483
+            }
+          ]
+        },
+        {
+          "text": " EDITED-DQ",
+          "start": 3.15,
+          "end": 3.27,
+          "words": [
+            {
+              "text": " EDITED",
+              "start": 3.15,
+              "end": 3.27,
+              "probability": 0.2800464630126953
+            },
+            {
+              "text": "-DQ",
+              "start": 3.27,
+              "end": 3.27,
+              "probability": 0.50390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "me",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "till",
+          "start": 0.85,
+          "end": 2.21
+        },
+        {
+          "raw": "anon._",
+          "start": 2.21,
+          "end": 3.15
+        },
+        {
+          "raw": "EDITED",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "raw": "-DQ",
+          "start": 3.27,
+          "end": 3.27
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside",
+        "to",
+        "Menas._]",
+        "Forbear",
+        "me",
+        "till",
+        "anon.—"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "equal",
+          4,
+          6,
+          0,
+          2
+        ],
+        [
+          "replace",
+          6,
+          7,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "replace",
+          6,
+          7,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "me",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "me",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 0.85,
+          "end": 2.21,
+          "key": "till",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "anon._",
+          "start": 2.21,
+          "end": 3.15,
+          "key": "anon_",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "EDITED",
+          "start": 3.15,
+          "end": 3.27,
+          "key": "edited",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "-DQ",
+          "start": 3.27,
+          "end": 3.27,
+          "key": "dq",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "to",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "Menas._]",
+          "start": 0.038,
+          "end": 0.044
+        },
+        {
+          "text": "Forbear",
+          "start": 0.044,
+          "end": 0.047
+        },
+        {
+          "text": "me",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "till",
+          "start": 0.85,
+          "end": 2.21
+        },
+        {
+          "text": "anon.—",
+          "start": 2.21,
+          "end": 2.74
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.2857142857142857,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 2.794237013993552
+    },
+    {
+      "asr_seconds": 0.1415181729826145,
+      "alignment_seconds": 0.00020311700063757598,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aside to Mina's, for bear me till anon.",
+          "start": 0.05,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.51953125
+            },
+            {
+              "text": " to",
+              "start": 0.71,
+              "end": 0.91,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " Mina's,",
+              "start": 0.91,
+              "end": 1.37,
+              "probability": 0.8758138020833334
+            },
+            {
+              "text": " for",
+              "start": 1.65,
+              "end": 1.77,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " bear",
+              "start": 1.77,
+              "end": 1.91,
+              "probability": 0.311767578125
+            },
+            {
+              "text": " me",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " till",
+              "start": 2.05,
+              "end": 2.23,
+              "probability": 0.66064453125
+            },
+            {
+              "text": " anon.",
+              "start": 2.23,
+              "end": 2.59,
+              "probability": 0.730224609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "to",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "raw": "Mina's,",
+          "start": 0.91,
+          "end": 1.37
+        },
+        {
+          "raw": "for",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "raw": "bear",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "raw": "me",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "till",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "raw": "anon.",
+          "start": 2.23,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside",
+        "to",
+        "Menas._]",
+        "Forbear",
+        "me",
+        "till",
+        "anon.—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ],
+        [
+          "equal",
+          4,
+          7,
+          5,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.71,
+          "end": 0.91,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mina's,",
+          "start": 0.91,
+          "end": 1.37,
+          "key": "minas",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.65,
+          "end": 1.77,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 1.77,
+          "end": 1.91,
+          "key": "bear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 2.05,
+          "end": 2.23,
+          "key": "till",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "anon.",
+          "start": 2.23,
+          "end": 2.59,
+          "key": "anon",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "to",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "text": "Menas._]",
+          "start": 0.91,
+          "end": 1.41
+        },
+        {
+          "text": "Forbear",
+          "start": 1.41,
+          "end": 1.66
+        },
+        {
+          "text": "me",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "text": "till",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "text": "anon.—",
+          "start": 2.23,
+          "end": 2.59
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14178882198757492
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f0e6f8bb68382345ad5309a65ac2241679413341770c22ed1fb78ce7541b68c8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

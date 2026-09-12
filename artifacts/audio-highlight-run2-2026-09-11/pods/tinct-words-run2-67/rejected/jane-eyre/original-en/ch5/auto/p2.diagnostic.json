@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "394db7f1e77d3f3aba4c4655cc1aa155ec0976c5b0eddee9936d3ca7213e7e1f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1054139481857419,
+      "alignment_seconds": 0.0002753008157014847,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What did you say, Miss?\"",
+        "hotwords": "What, Miss"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What did you say, Miss?",
+          "start": 0.02,
+          "end": 1.24,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " did",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " say,",
+              "start": 0.76,
+              "end": 1.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Miss?",
+              "start": 1.1,
+              "end": 1.24,
+              "probability": 0.38916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "did",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "say,",
+          "start": 0.76,
+          "end": 1.0
+        },
+        {
+          "raw": "Miss?",
+          "start": 1.1,
+          "end": 1.24
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "did",
+        "you",
+        "say,",
+        "Miss?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.76,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 0.76,
+          "end": 1.0,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Miss?",
+          "start": 1.1,
+          "end": 1.24,
+          "key": "miss",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "did",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "you",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "text": "say,",
+          "start": 0.76,
+          "end": 1.0
+        },
+        {
+          "text": "Miss?\"",
+          "start": 1.1,
+          "end": 1.24
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10580143798142672
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c92f412f99f9ce10fca2d5ac24755880148afd3b6d491468faf40719f95ef402",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "a767926ea305ac6421a65dc08235b69bb9683d7a188dc7243587383e20f0ff60",
+  "attempts": [
+    {
+      "asr_seconds": 0.4764938182197511,
+      "alignment_seconds": 0.00022080913186073303,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. To do what?",
+        "hotwords": "Desdemona, To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, To do what?",
+          "start": 0.55,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.55,
+              "end": 1.03,
+              "probability": 0.6491355895996094
+            },
+            {
+              "text": " To",
+              "start": 1.27,
+              "end": 1.39,
+              "probability": 0.029022216796875
+            },
+            {
+              "text": " do",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.388671875
+            },
+            {
+              "text": " what?",
+              "start": 1.53,
+              "end": 1.77,
+              "probability": 0.935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "raw": "To",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "raw": "do",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "what?",
+          "start": 1.53,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "To",
+        "do",
+        "what?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.55,
+          "end": 1.03,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 1.27,
+          "end": 1.39,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.39,
+          "end": 1.53,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what?",
+          "start": 1.53,
+          "end": 1.77,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "text": "To",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "text": "do",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "what?",
+          "start": 1.53,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4767897161655128
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "15eef63de328bdd5681a3391e6a99bca2d4fe282671099d96be7e9071fecdd47",
+  "selected_reasons": []
+}

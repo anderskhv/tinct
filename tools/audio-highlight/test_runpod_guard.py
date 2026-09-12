@@ -205,6 +205,28 @@ class GuardTest(unittest.TestCase):
         self.run_guard("enforce", "--apply")
         self.assertEqual(self.stopped, [], "an exited pod bills nothing")
 
+    def test_a_retained_exited_pod_does_not_count_against_the_envelope(self):
+        # The nine old volume-holding pods keep a days-old start timestamp. Dating
+        # them made the envelope read $242.63 of $25.00 on 2026-09-11 and every
+        # live pod was stopped mid-batch as "over envelope" (run 34612790906).
+        import datetime
+        old = (datetime.datetime.now(datetime.timezone.utc)
+               - datetime.timedelta(days=3)).isoformat().replace("+00:00", "Z")
+        self.pods = [pod("tinct-words-old", runtime_uptime=False, status="EXITED",
+                         rate=0.74, started_at=old),
+                     pod("tinct-words-run2-1", minutes=10, rate=0.19)]
+        _, report, _ = self.run_guard("enforce", "--budget", "20", "--apply")
+        exited = next(p for p in report["ownedPods"] if p["name"] == "tinct-words-old")
+        self.assertEqual(exited["uptimeSeconds"], 0)
+        self.assertEqual(exited["uptimeSource"], "not-running")
+        self.assertAlmostEqual(report["estimatedTotalSpend"], 0.19 / 6, places=3)
+        self.assertEqual(self.stopped, [], "a healthy live pod must survive a retained exited one")
+
+    def test_an_exited_pod_with_runtime_uptime_is_not_counted_as_spend(self):
+        self.pods = [pod("tinct-words-old", minutes=600, rate=0.74, status="EXITED")]
+        _, report, _ = self.run_guard("enforce", "--budget", "20")
+        self.assertEqual(report["estimatedRunningCost"], 0.0)
+
     def test_missing_credential_fails_closed(self):
         os.environ.pop("RUNPOD_API_KEY")
         sys.argv = ["runpod_guard.py", "enforce", "--apply"]

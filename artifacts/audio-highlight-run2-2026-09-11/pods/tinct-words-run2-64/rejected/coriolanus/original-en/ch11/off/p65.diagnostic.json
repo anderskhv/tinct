@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "8b56ae4a83a4d058b219dd091b4ff5ce46828255eabb269f73f81943e5884db2",
+  "attempts": [
+    {
+      "asr_seconds": 0.10229645017534494,
+      "alignment_seconds": 0.0001181894913315773,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sound flourish.",
+          "start": 0.08,
+          "end": 1.02,
+          "words": [
+            {
+              "text": " Sound",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.798828125
+            },
+            {
+              "text": " flourish.",
+              "start": 0.64,
+              "end": 1.02,
+              "probability": 0.658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sound",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "flourish.",
+          "start": 0.64,
+          "end": 1.02
+        }
+      ],
+      "expected_tokens": [
+        "[_Sound",
+        "flourish._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sound",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "sound",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "flourish.",
+          "start": 0.64,
+          "end": 1.02,
+          "key": "flourish",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Sound",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "flourish._]",
+          "start": 0.64,
+          "end": 1.02
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10245167091488838
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "728a47acddaf3bc448981fffa6aaa1cdd2a171c5909b20d91a968eee33786731",
+  "selected_reasons": []
+}

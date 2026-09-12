@@ -1,0 +1,771 @@
+{
+  "complete": true,
+  "signature": "da63a3b40af4d8bfec0cb1262bfac1fd1a73e4c45e8537c1ea436f4ed6f5c437",
+  "attempts": [
+    {
+      "asr_seconds": 0.42690528099774383,
+      "alignment_seconds": 0.0005739990156143904,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A strip of torn envelope peeped from under the dimpled pillow.",
+          "start": 0.02,
+          "end": 3.62,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " strip",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 0.74,
+              "end": 0.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " torn",
+              "start": 0.96,
+              "end": 1.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " envelope",
+              "start": 1.26,
+              "end": 1.84,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " peeped",
+              "start": 1.84,
+              "end": 2.38,
+              "probability": 0.9474283854166666
+            },
+            {
+              "text": " from",
+              "start": 2.38,
+              "end": 2.48,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " under",
+              "start": 2.48,
+              "end": 2.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.72,
+              "end": 2.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dimpled",
+              "start": 2.88,
+              "end": 3.24,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " pillow.",
+              "start": 3.24,
+              "end": 3.62,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " In the act of going, he stayed to straighten the bedspread.",
+          "start": 4.4,
+          "end": 6.9,
+          "words": [
+            {
+              "text": " In",
+              "start": 4.4,
+              "end": 4.5,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 4.5,
+              "end": 4.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " act",
+              "start": 4.6,
+              "end": 4.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 4.84,
+              "end": 4.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " going,",
+              "start": 4.98,
+              "end": 5.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he",
+              "start": 5.44,
+              "end": 5.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " stayed",
+              "start": 5.48,
+              "end": 5.68,
+              "probability": 0.990234375
+            },
+            {
+              "text": " to",
+              "start": 5.68,
+              "end": 5.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " straighten",
+              "start": 5.9,
+              "end": 6.3,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " the",
+              "start": 6.3,
+              "end": 6.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bedspread.",
+              "start": 6.4,
+              "end": 6.9,
+              "probability": 0.990478515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "strip",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "of",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "raw": "torn",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "raw": "envelope",
+          "start": 1.26,
+          "end": 1.84
+        },
+        {
+          "raw": "peeped",
+          "start": 1.84,
+          "end": 2.38
+        },
+        {
+          "raw": "from",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "raw": "under",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "raw": "the",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "raw": "dimpled",
+          "start": 2.88,
+          "end": 3.24
+        },
+        {
+          "raw": "pillow.",
+          "start": 3.24,
+          "end": 3.62
+        },
+        {
+          "raw": "In",
+          "start": 4.4,
+          "end": 4.5
+        },
+        {
+          "raw": "the",
+          "start": 4.5,
+          "end": 4.6
+        },
+        {
+          "raw": "act",
+          "start": 4.6,
+          "end": 4.84
+        },
+        {
+          "raw": "of",
+          "start": 4.84,
+          "end": 4.98
+        },
+        {
+          "raw": "going,",
+          "start": 4.98,
+          "end": 5.26
+        },
+        {
+          "raw": "he",
+          "start": 5.44,
+          "end": 5.48
+        },
+        {
+          "raw": "stayed",
+          "start": 5.48,
+          "end": 5.68
+        },
+        {
+          "raw": "to",
+          "start": 5.68,
+          "end": 5.9
+        },
+        {
+          "raw": "straighten",
+          "start": 5.9,
+          "end": 6.3
+        },
+        {
+          "raw": "the",
+          "start": 6.3,
+          "end": 6.4
+        },
+        {
+          "raw": "bedspread.",
+          "start": 6.4,
+          "end": 6.9
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "strip",
+        "of",
+        "torn",
+        "envelope",
+        "peeped",
+        "from",
+        "under",
+        "the",
+        "dimpled",
+        "pillow.",
+        "In",
+        "the",
+        "act",
+        "of",
+        "going",
+        "he",
+        "stayed",
+        "to",
+        "straighten",
+        "the",
+        "bedspread."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "strip",
+          "start": 0.5,
+          "end": 0.74,
+          "key": "strip",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.74,
+          "end": 0.96,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "torn",
+          "start": 0.96,
+          "end": 1.26,
+          "key": "torn",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "envelope",
+          "start": 1.26,
+          "end": 1.84,
+          "key": "envelope",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "peeped",
+          "start": 1.84,
+          "end": 2.38,
+          "key": "peeped",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.38,
+          "end": 2.48,
+          "key": "from",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 2.48,
+          "end": 2.72,
+          "key": "under",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.72,
+          "end": 2.88,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "dimpled",
+          "start": 2.88,
+          "end": 3.24,
+          "key": "dimpled",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pillow.",
+          "start": 3.24,
+          "end": 3.62,
+          "key": "pillow",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 4.4,
+          "end": 4.5,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.5,
+          "end": 4.6,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "act",
+          "start": 4.6,
+          "end": 4.84,
+          "key": "act",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.84,
+          "end": 4.98,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "going,",
+          "start": 4.98,
+          "end": 5.26,
+          "key": "going",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.44,
+          "end": 5.48,
+          "key": "he",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "stayed",
+          "start": 5.48,
+          "end": 5.68,
+          "key": "stayed",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.68,
+          "end": 5.9,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "straighten",
+          "start": 5.9,
+          "end": 6.3,
+          "key": "straighten",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.3,
+          "end": 6.4,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "bedspread.",
+          "start": 6.4,
+          "end": 6.9,
+          "key": "bedspread",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "strip",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "of",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "text": "torn",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "text": "envelope",
+          "start": 1.26,
+          "end": 1.84
+        },
+        {
+          "text": "peeped",
+          "start": 1.84,
+          "end": 2.38
+        },
+        {
+          "text": "from",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "text": "under",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "text": "the",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "text": "dimpled",
+          "start": 2.88,
+          "end": 3.24
+        },
+        {
+          "text": "pillow.",
+          "start": 3.24,
+          "end": 3.62
+        },
+        {
+          "text": "In",
+          "start": 4.4,
+          "end": 4.5
+        },
+        {
+          "text": "the",
+          "start": 4.5,
+          "end": 4.6
+        },
+        {
+          "text": "act",
+          "start": 4.6,
+          "end": 4.84
+        },
+        {
+          "text": "of",
+          "start": 4.84,
+          "end": 4.98
+        },
+        {
+          "text": "going",
+          "start": 4.98,
+          "end": 5.26
+        },
+        {
+          "text": "he",
+          "start": 5.44,
+          "end": 5.48
+        },
+        {
+          "text": "stayed",
+          "start": 5.48,
+          "end": 5.68
+        },
+        {
+          "text": "to",
+          "start": 5.68,
+          "end": 5.9
+        },
+        {
+          "text": "straighten",
+          "start": 5.9,
+          "end": 6.3
+        },
+        {
+          "text": "the",
+          "start": 6.3,
+          "end": 6.4
+        },
+        {
+          "text": "bedspread.",
+          "start": 6.4,
+          "end": 6.9
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.427714970021043
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ca35c65a0d29c149e83e50ec15c7bb109dc0a9901b28e3a975b18f372a710aef",
+  "selected_reasons": []
+}

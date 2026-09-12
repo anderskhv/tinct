@@ -1,0 +1,647 @@
+{
+  "complete": true,
+  "signature": "0fa610764d354f9f48a593bd7b9f3e30432e813392193cc32837ecfe114ccddf",
+  "attempts": [
+    {
+      "asr_seconds": 0.30761860217899084,
+      "alignment_seconds": 0.0006062649190425873,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Deadellis, tugging a long mustache, came round from Williams' row.",
+          "start": 0.05,
+          "end": 4.85,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " Deadellis,",
+              "start": 0.89,
+              "end": 1.39,
+              "probability": 0.5425618489583334
+            },
+            {
+              "text": " tugging",
+              "start": 1.55,
+              "end": 1.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 1.95,
+              "end": 2.11,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " long",
+              "start": 2.11,
+              "end": 2.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mustache,",
+              "start": 2.35,
+              "end": 2.89,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " came",
+              "start": 3.25,
+              "end": 3.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " round",
+              "start": 3.39,
+              "end": 3.71,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " from",
+              "start": 3.71,
+              "end": 3.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Williams'",
+              "start": 3.99,
+              "end": 4.39,
+              "probability": 0.78076171875
+            },
+            {
+              "text": " row.",
+              "start": 4.57,
+              "end": 4.85,
+              "probability": 0.96240234375
+            }
+          ]
+        },
+        {
+          "text": " He halted near his daughter.",
+          "start": 5.51,
+          "end": 6.65,
+          "words": [
+            {
+              "text": " He",
+              "start": 5.51,
+              "end": 5.61,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " halted",
+              "start": 5.61,
+              "end": 5.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " near",
+              "start": 5.85,
+              "end": 6.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 6.15,
+              "end": 6.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " daughter.",
+              "start": 6.37,
+              "end": 6.65,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Deadellis,",
+          "start": 0.89,
+          "end": 1.39
+        },
+        {
+          "raw": "tugging",
+          "start": 1.55,
+          "end": 1.95
+        },
+        {
+          "raw": "a",
+          "start": 1.95,
+          "end": 2.11
+        },
+        {
+          "raw": "long",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "raw": "mustache,",
+          "start": 2.35,
+          "end": 2.89
+        },
+        {
+          "raw": "came",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "raw": "round",
+          "start": 3.39,
+          "end": 3.71
+        },
+        {
+          "raw": "from",
+          "start": 3.71,
+          "end": 3.99
+        },
+        {
+          "raw": "Williams'",
+          "start": 3.99,
+          "end": 4.39
+        },
+        {
+          "raw": "row.",
+          "start": 4.57,
+          "end": 4.85
+        },
+        {
+          "raw": "He",
+          "start": 5.51,
+          "end": 5.61
+        },
+        {
+          "raw": "halted",
+          "start": 5.61,
+          "end": 5.85
+        },
+        {
+          "raw": "near",
+          "start": 5.85,
+          "end": 6.15
+        },
+        {
+          "raw": "his",
+          "start": 6.15,
+          "end": 6.37
+        },
+        {
+          "raw": "daughter.",
+          "start": 6.37,
+          "end": 6.65
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "Dedalus,",
+        "tugging",
+        "a",
+        "long",
+        "moustache,",
+        "came",
+        "round",
+        "from",
+        "Williams's",
+        "row.",
+        "He",
+        "halted",
+        "near",
+        "his",
+        "daughter."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          9,
+          6,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          16,
+          10,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Deadellis,",
+          "start": 0.89,
+          "end": 1.39,
+          "key": "deadellis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tugging",
+          "start": 1.55,
+          "end": 1.95,
+          "key": "tugging",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.95,
+          "end": 2.11,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 2.11,
+          "end": 2.35,
+          "key": "long",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mustache,",
+          "start": 2.35,
+          "end": 2.89,
+          "key": "mustache",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 3.25,
+          "end": 3.39,
+          "key": "came",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 3.39,
+          "end": 3.71,
+          "key": "round",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.71,
+          "end": 3.99,
+          "key": "from",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Williams'",
+          "start": 3.99,
+          "end": 4.39,
+          "key": "williams",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "row.",
+          "start": 4.57,
+          "end": 4.85,
+          "key": "row",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 5.51,
+          "end": 5.61,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "halted",
+          "start": 5.61,
+          "end": 5.85,
+          "key": "halted",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 5.85,
+          "end": 6.15,
+          "key": "near",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.15,
+          "end": 6.37,
+          "key": "his",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "daughter.",
+          "start": 6.37,
+          "end": 6.65,
+          "key": "daughter",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Dedalus,",
+          "start": 0.71,
+          "end": 1.13
+        },
+        {
+          "text": "tugging",
+          "start": 1.55,
+          "end": 1.95
+        },
+        {
+          "text": "a",
+          "start": 1.95,
+          "end": 2.11
+        },
+        {
+          "text": "long",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "text": "moustache,",
+          "start": 2.35,
+          "end": 2.8
+        },
+        {
+          "text": "came",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "text": "round",
+          "start": 3.39,
+          "end": 3.71
+        },
+        {
+          "text": "from",
+          "start": 3.71,
+          "end": 3.99
+        },
+        {
+          "text": "Williams's",
+          "start": 3.99,
+          "end": 4.28
+        },
+        {
+          "text": "row.",
+          "start": 4.57,
+          "end": 4.85
+        },
+        {
+          "text": "He",
+          "start": 5.51,
+          "end": 5.61
+        },
+        {
+          "text": "halted",
+          "start": 5.61,
+          "end": 5.85
+        },
+        {
+          "text": "near",
+          "start": 5.85,
+          "end": 6.15
+        },
+        {
+          "text": "his",
+          "start": 6.15,
+          "end": 6.37
+        },
+        {
+          "text": "daughter.",
+          "start": 6.37,
+          "end": 6.65
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8125,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3084482979029417
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "766a7486210939d091cd0edde751669e92364f4dc11b543d34dcca47575d1196",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

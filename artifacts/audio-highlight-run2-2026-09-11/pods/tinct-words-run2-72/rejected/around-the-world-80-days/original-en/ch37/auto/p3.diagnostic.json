@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "f9d00be0800ed598ff090cf43c7fd458f45d0925467c5799138781c752a50445",
+  "attempts": [
+    {
+      "asr_seconds": 0.3006779602728784,
+      "alignment_seconds": 0.0002657119184732437,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In three minutes he was in Saville Row again, and staggered back into Mr. Fogg's room.",
+        "hotwords": "Saville, Row, Mr, Fogg's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In three minutes he was in Saville Row again, and staggered back into Mr. Fogg's room.",
+          "start": 0.05,
+          "end": 5.31,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " three",
+              "start": 0.55,
+              "end": 0.79,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " minutes",
+              "start": 0.79,
+              "end": 1.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 1.13,
+              "end": 1.57,
+              "probability": 0.24169921875
+            },
+            {
+              "text": " was",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Saville",
+              "start": 1.87,
+              "end": 2.29,
+              "probability": 0.4251708984375
+            },
+            {
+              "text": " Row",
+              "start": 2.29,
+              "end": 2.47,
+              "probability": 0.75390625
+            },
+            {
+              "text": " again,",
+              "start": 2.47,
+              "end": 2.83,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " and",
+              "start": 3.21,
+              "end": 3.39,
+              "probability": 0.986328125
+            },
+            {
+              "text": " staggered",
+              "start": 3.39,
+              "end": 3.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " back",
+              "start": 3.73,
+              "end": 4.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " into",
+              "start": 4.11,
+              "end": 4.37,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Mr.",
+              "start": 4.37,
+              "end": 4.65,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Fogg's",
+              "start": 4.83,
+              "end": 5.07,
+              "probability": 0.815673828125
+            },
+            {
+              "text": " room.",
+              "start": 5.07,
+              "end": 5.31,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "three",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "raw": "minutes",
+          "start": 0.79,
+          "end": 1.13
+        },
+        {
+          "raw": "he",
+          "start": 1.13,
+          "end": 1.57
+        },
+        {
+          "raw": "was",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "in",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "Saville",
+          "start": 1.87,
+          "end": 2.29
+        },
+        {
+          "raw": "Row",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "raw": "again,",
+          "start": 2.47,
+          "end": 2.83
+        },
+        {
+          "raw": "and",
+          "start": 3.21,
+          "end": 3.39
+        },
+        {
+          "raw": "staggered",
+          "start": 3.39,
+          "end": 3.73
+        },
+        {
+          "raw": "back",
+          "start": 3.73,
+          "end": 4.11
+        },
+        {
+          "raw": "into",
+          "start": 4.11,
+          "end": 4.37
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.37,
+          "end": 4.65
+        },
+        {
+          "raw": "Fogg's",
+          "start": 4.83,
+          "end": 5.07
+        },
+        {
+          "raw": "room.",
+          "start": 5.07,
+          "end": 5.31
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "three",
+        "minutes",
+        "he",
+        "was",
+        "in",
+        "Saville",
+        "Row",
+        "again,",
+        "and",
+        "staggered",
+        "back",
+        "into",
+        "Mr.",
+        "Fogg's",
+        "room."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 0.55,
+          "end": 0.79,
+          "key": "three",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "minutes",
+          "start": 0.79,
+          "end": 1.13,
+          "key": "minutes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.13,
+          "end": 1.57,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Saville",
+          "start": 1.87,
+          "end": 2.29,
+          "key": "saville",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Row",
+          "start": 2.29,
+          "end": 2.47,
+          "key": "row",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 2.47,
+          "end": 2.83,
+          "key": "again",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.21,
+          "end": 3.39,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "staggered",
+          "start": 3.39,
+          "end": 3.73,
+          "key": "staggered",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 3.73,
+          "end": 4.11,
+          "key": "back",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 4.11,
+          "end": 4.37,
+          "key": "into",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.37,
+          "end": 4.65,
+          "key": "mr",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Fogg's",
+          "start": 4.83,
+          "end": 5.07,
+          "key": "foggs",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "room.",
+          "start": 5.07,
+          "end": 5.31,
+          "key": "room",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "three",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "text": "minutes",
+          "start": 0.79,
+          "end": 1.13
+        },
+        {
+          "text": "he",
+          "start": 1.13,
+          "end": 1.57
+        },
+        {
+          "text": "was",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "in",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "Saville",
+          "start": 1.87,
+          "end": 2.29
+        },
+        {
+          "text": "Row",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "text": "again,",
+          "start": 2.47,
+          "end": 2.83
+        },
+        {
+          "text": "and",
+          "start": 3.21,
+          "end": 3.39
+        },
+        {
+          "text": "staggered",
+          "start": 3.39,
+          "end": 3.73
+        },
+        {
+          "text": "back",
+          "start": 3.73,
+          "end": 4.11
+        },
+        {
+          "text": "into",
+          "start": 4.11,
+          "end": 4.37
+        },
+        {
+          "text": "Mr.",
+          "start": 4.37,
+          "end": 4.65
+        },
+        {
+          "text": "Fogg's",
+          "start": 4.83,
+          "end": 5.07
+        },
+        {
+          "text": "room.",
+          "start": 5.07,
+          "end": 5.31
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3010500310920179
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f3d722b8dd909e5ab71200a1c0e292b0e9a869e218a5a44c79319db0adfc736e",
+  "selected_reasons": []
+}

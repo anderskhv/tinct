@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "c6d6f88767a7d5d8c25b560d57281d799fc787262379abd5a77ca417dc32e5db",
+  "attempts": [
+    {
+      "asr_seconds": 0.29402631195262074,
+      "alignment_seconds": 0.0002565458416938782,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Over their voices, dolored, bassooned attack, booming over bombarding chords.",
+          "start": 0.08,
+          "end": 4.54,
+          "words": [
+            {
+              "text": " Over",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.70849609375
+            },
+            {
+              "text": " their",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " voices,",
+              "start": 0.76,
+              "end": 1.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dolored,",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.4383544921875
+            },
+            {
+              "text": " bassooned",
+              "start": 1.9,
+              "end": 2.26,
+              "probability": 0.9305013020833334
+            },
+            {
+              "text": " attack,",
+              "start": 2.26,
+              "end": 2.54,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " booming",
+              "start": 3.2,
+              "end": 3.32,
+              "probability": 0.994140625
+            },
+            {
+              "text": " over",
+              "start": 3.32,
+              "end": 3.64,
+              "probability": 0.9609375
+            },
+            {
+              "text": " bombarding",
+              "start": 3.64,
+              "end": 4.22,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " chords.",
+              "start": 4.22,
+              "end": 4.54,
+              "probability": 0.7021484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Over",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "their",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "voices,",
+          "start": 0.76,
+          "end": 1.16
+        },
+        {
+          "raw": "dolored,",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "raw": "bassooned",
+          "start": 1.9,
+          "end": 2.26
+        },
+        {
+          "raw": "attack,",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "raw": "booming",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "raw": "over",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "raw": "bombarding",
+          "start": 3.64,
+          "end": 4.22
+        },
+        {
+          "raw": "chords.",
+          "start": 4.22,
+          "end": 4.54
+        }
+      ],
+      "expected_tokens": [
+        "Over",
+        "their",
+        "voices",
+        "Dollard",
+        "bassooned",
+        "attack,",
+        "booming",
+        "over",
+        "bombarding",
+        "chords:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          10,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Over",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "over",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 0.6,
+          "end": 0.76,
+          "key": "their",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "voices,",
+          "start": 0.76,
+          "end": 1.16,
+          "key": "voices",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dolored,",
+          "start": 1.6,
+          "end": 1.8,
+          "key": "dolored",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bassooned",
+          "start": 1.9,
+          "end": 2.26,
+          "key": "bassooned",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "attack,",
+          "start": 2.26,
+          "end": 2.54,
+          "key": "attack",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "booming",
+          "start": 3.2,
+          "end": 3.32,
+          "key": "booming",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 3.32,
+          "end": 3.64,
+          "key": "over",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bombarding",
+          "start": 3.64,
+          "end": 4.22,
+          "key": "bombarding",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "chords.",
+          "start": 4.22,
+          "end": 4.54,
+          "key": "chords",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Over",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "their",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "voices",
+          "start": 0.76,
+          "end": 1.16
+        },
+        {
+          "text": "Dollard",
+          "start": 1.16,
+          "end": 1.53
+        },
+        {
+          "text": "bassooned",
+          "start": 1.9,
+          "end": 2.26
+        },
+        {
+          "text": "attack,",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "text": "booming",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "text": "over",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "text": "bombarding",
+          "start": 3.64,
+          "end": 4.22
+        },
+        {
+          "text": "chords:",
+          "start": 4.22,
+          "end": 4.54
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.2943879491649568
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "60bcf4f2ff600e0f02dd5fb0639b788e7817899c52406a3b9d669c4752e22156",
+  "selected_reasons": []
+}

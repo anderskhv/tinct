@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "5b84fbf8b819cdfd06e03fdd22638c14ef3a02d141297e0e450d52dd206c60d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.20905804121866822,
+      "alignment_seconds": 0.0003332560881972313,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " because he is treasurer and manager of the establishment.",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " because",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.5869140625
+            },
+            {
+              "text": " he",
+              "start": 0.63,
+              "end": 0.85,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " is",
+              "start": 0.85,
+              "end": 1.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " treasurer",
+              "start": 1.01,
+              "end": 1.43,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " and",
+              "start": 1.43,
+              "end": 1.95,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " manager",
+              "start": 1.95,
+              "end": 2.29,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " of",
+              "start": 2.29,
+              "end": 2.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.53,
+              "end": 2.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " establishment.",
+              "start": 2.65,
+              "end": 3.21,
+              "probability": 0.91064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "because",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "he",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "raw": "is",
+          "start": 0.85,
+          "end": 1.01
+        },
+        {
+          "raw": "treasurer",
+          "start": 1.01,
+          "end": 1.43
+        },
+        {
+          "raw": "and",
+          "start": 1.43,
+          "end": 1.95
+        },
+        {
+          "raw": "manager",
+          "start": 1.95,
+          "end": 2.29
+        },
+        {
+          "raw": "of",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "raw": "the",
+          "start": 2.53,
+          "end": 2.65
+        },
+        {
+          "raw": "establishment.",
+          "start": 2.65,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "\"Because",
+        "he",
+        "is",
+        "treasurer",
+        "and",
+        "manager",
+        "of",
+        "the",
+        "establishment.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "because",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "because",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.63,
+          "end": 0.85,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.85,
+          "end": 1.01,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "treasurer",
+          "start": 1.01,
+          "end": 1.43,
+          "key": "treasurer",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.43,
+          "end": 1.95,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "manager",
+          "start": 1.95,
+          "end": 2.29,
+          "key": "manager",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.29,
+          "end": 2.53,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.53,
+          "end": 2.65,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "establishment.",
+          "start": 2.65,
+          "end": 3.21,
+          "key": "establishment",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Because",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "he",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "text": "is",
+          "start": 0.85,
+          "end": 1.01
+        },
+        {
+          "text": "treasurer",
+          "start": 1.01,
+          "end": 1.43
+        },
+        {
+          "text": "and",
+          "start": 1.43,
+          "end": 1.95
+        },
+        {
+          "text": "manager",
+          "start": 1.95,
+          "end": 2.29
+        },
+        {
+          "text": "of",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "text": "the",
+          "start": 2.53,
+          "end": 2.65
+        },
+        {
+          "text": "establishment.\"",
+          "start": 2.65,
+          "end": 3.21
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2095559029839933
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "715dabf460529069f80e508a0c1016d8beee00f4d6b529ef489cb827631f7e50",
+  "selected_reasons": []
+}

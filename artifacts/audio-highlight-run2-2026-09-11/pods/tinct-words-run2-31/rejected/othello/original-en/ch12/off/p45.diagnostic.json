@@ -1,0 +1,756 @@
+{
+  "complete": true,
+  "signature": "276fe66bbb243fe367178150e1246c48dc33cda2bb3d11518ea1523db60166fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.3063372620381415,
+      "alignment_seconds": 0.0005418839864432812,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, I cry you mercy then.",
+          "start": 0.08,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.8610026041666666
+            },
+            {
+              "text": " I",
+              "start": 1.14,
+              "end": 1.28,
+              "probability": 0.986328125
+            },
+            {
+              "text": " cry",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.990234375
+            },
+            {
+              "text": " you",
+              "start": 1.44,
+              "end": 1.62,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " mercy",
+              "start": 1.62,
+              "end": 1.84,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " then.",
+              "start": 1.84,
+              "end": 2.2,
+              "probability": 0.71923828125
+            }
+          ]
+        },
+        {
+          "text": " I took you for that cunning whore of Venice that married with Othello.",
+          "start": 2.72,
+          "end": 5.6,
+          "words": [
+            {
+              "text": " I",
+              "start": 2.72,
+              "end": 2.78,
+              "probability": 0.994140625
+            },
+            {
+              "text": " took",
+              "start": 2.78,
+              "end": 2.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 2.9,
+              "end": 3.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " for",
+              "start": 3.06,
+              "end": 3.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 3.18,
+              "end": 3.34,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " cunning",
+              "start": 3.34,
+              "end": 3.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " whore",
+              "start": 3.68,
+              "end": 3.96,
+              "probability": 0.464111328125
+            },
+            {
+              "text": " of",
+              "start": 3.96,
+              "end": 4.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Venice",
+              "start": 4.12,
+              "end": 4.32,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " that",
+              "start": 4.32,
+              "end": 4.58,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " married",
+              "start": 4.58,
+              "end": 4.92,
+              "probability": 0.98828125
+            },
+            {
+              "text": " with",
+              "start": 4.92,
+              "end": 5.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Othello.",
+              "start": 5.14,
+              "end": 5.6,
+              "probability": 0.9944661458333334
+            }
+          ]
+        },
+        {
+          "text": " You mistress.",
+          "start": 6.24,
+          "end": 6.88,
+          "words": [
+            {
+              "text": " You",
+              "start": 6.24,
+              "end": 6.46,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " mistress.",
+              "start": 6.46,
+              "end": 6.88,
+              "probability": 0.78857421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "raw": "cry",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "you",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "raw": "mercy",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "raw": "then.",
+          "start": 1.84,
+          "end": 2.2
+        },
+        {
+          "raw": "I",
+          "start": 2.72,
+          "end": 2.78
+        },
+        {
+          "raw": "took",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "raw": "you",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "raw": "for",
+          "start": 3.06,
+          "end": 3.18
+        },
+        {
+          "raw": "that",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "raw": "cunning",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "raw": "whore",
+          "start": 3.68,
+          "end": 3.96
+        },
+        {
+          "raw": "of",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "raw": "Venice",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "raw": "that",
+          "start": 4.32,
+          "end": 4.58
+        },
+        {
+          "raw": "married",
+          "start": 4.58,
+          "end": 4.92
+        },
+        {
+          "raw": "with",
+          "start": 4.92,
+          "end": 5.14
+        },
+        {
+          "raw": "Othello.",
+          "start": 5.14,
+          "end": 5.6
+        },
+        {
+          "raw": "You",
+          "start": 6.24,
+          "end": 6.46
+        },
+        {
+          "raw": "mistress.",
+          "start": 6.46,
+          "end": 6.88
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "I",
+        "cry",
+        "you",
+        "mercy",
+        "then.",
+        "I",
+        "took",
+        "you",
+        "for",
+        "that",
+        "cunning",
+        "whore",
+        "of",
+        "Venice",
+        "That",
+        "married",
+        "with",
+        "Othello.—You,",
+        "mistress,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          20
+        ],
+        [
+          "equal",
+          19,
+          20,
+          20,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          18,
+          19,
+          18,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.28,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "cry",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.44,
+          "end": 1.62,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mercy",
+          "start": 1.62,
+          "end": 1.84,
+          "key": "mercy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "then.",
+          "start": 1.84,
+          "end": 2.2,
+          "key": "then",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.72,
+          "end": 2.78,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 2.78,
+          "end": 2.9,
+          "key": "took",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.9,
+          "end": 3.06,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.06,
+          "end": 3.18,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.18,
+          "end": 3.34,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "cunning",
+          "start": 3.34,
+          "end": 3.68,
+          "key": "cunning",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "whore",
+          "start": 3.68,
+          "end": 3.96,
+          "key": "whore",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.96,
+          "end": 4.12,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Venice",
+          "start": 4.12,
+          "end": 4.32,
+          "key": "venice",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.32,
+          "end": 4.58,
+          "key": "that",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "married",
+          "start": 4.58,
+          "end": 4.92,
+          "key": "married",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.92,
+          "end": 5.14,
+          "key": "with",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Othello.",
+          "start": 5.14,
+          "end": 5.6,
+          "key": "othello",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 6.24,
+          "end": 6.46,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "mistress.",
+          "start": 6.46,
+          "end": 6.88,
+          "key": "mistress",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "I",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "text": "cry",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "you",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "text": "mercy",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "text": "then.",
+          "start": 1.84,
+          "end": 2.2
+        },
+        {
+          "text": "I",
+          "start": 2.72,
+          "end": 2.78
+        },
+        {
+          "text": "took",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "text": "you",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "text": "for",
+          "start": 3.06,
+          "end": 3.18
+        },
+        {
+          "text": "that",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "text": "cunning",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "text": "whore",
+          "start": 3.68,
+          "end": 3.96
+        },
+        {
+          "text": "of",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "text": "Venice",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "text": "That",
+          "start": 4.32,
+          "end": 4.58
+        },
+        {
+          "text": "married",
+          "start": 4.58,
+          "end": 4.92
+        },
+        {
+          "text": "with",
+          "start": 4.92,
+          "end": 5.14
+        },
+        {
+          "text": "Othello.—You,",
+          "start": 5.14,
+          "end": 5.8
+        },
+        {
+          "text": "mistress,",
+          "start": 6.46,
+          "end": 6.88
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.30709107406437397
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3bde12acf9c41b80cdfc29854a9a7e95380072dee80c578d7ccf6eafdfc2333d",
+  "selected_reasons": []
+}

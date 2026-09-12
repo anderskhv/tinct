@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "bf12f78fcaae20e884accb04f5ac172ce960b99509f1068dc8fe14cbd0ff295c",
+  "attempts": [
+    {
+      "asr_seconds": 0.19183196499943733,
+      "alignment_seconds": 0.00042333081364631653,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Olivia. Prithee, read i' thy right wits.",
+        "hotwords": "Olivia, Prithee"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Olivia, Prithee, read i' thy right wits.",
+          "start": 0.05,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.9375
+            },
+            {
+              "text": " Prithee,",
+              "start": 1.19,
+              "end": 1.53,
+              "probability": 0.6271158854166666
+            },
+            {
+              "text": " read",
+              "start": 1.69,
+              "end": 1.79,
+              "probability": 0.0095367431640625
+            },
+            {
+              "text": " i'",
+              "start": 1.79,
+              "end": 1.91,
+              "probability": 0.013580322265625
+            },
+            {
+              "text": " thy",
+              "start": 1.95,
+              "end": 2.03,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " right",
+              "start": 2.03,
+              "end": 2.25,
+              "probability": 0.65380859375
+            },
+            {
+              "text": " wits.",
+              "start": 2.25,
+              "end": 2.63,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Prithee,",
+          "start": 1.19,
+          "end": 1.53
+        },
+        {
+          "raw": "read",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "raw": "i'",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "raw": "thy",
+          "start": 1.95,
+          "end": 2.03
+        },
+        {
+          "raw": "right",
+          "start": 2.03,
+          "end": 2.25
+        },
+        {
+          "raw": "wits.",
+          "start": 2.25,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Prithee,",
+        "read",
+        "i'",
+        "thy",
+        "right",
+        "wits."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Prithee,",
+          "start": 1.19,
+          "end": 1.53,
+          "key": "prithee",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 1.69,
+          "end": 1.79,
+          "key": "read",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "i'",
+          "start": 1.79,
+          "end": 1.91,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.95,
+          "end": 2.03,
+          "key": "thy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "right",
+          "start": 2.03,
+          "end": 2.25,
+          "key": "right",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wits.",
+          "start": 2.25,
+          "end": 2.63,
+          "key": "wits",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Prithee,",
+          "start": 1.19,
+          "end": 1.53
+        },
+        {
+          "text": "read",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "text": "i'",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "text": "thy",
+          "start": 1.95,
+          "end": 2.03
+        },
+        {
+          "text": "right",
+          "start": 2.03,
+          "end": 2.25
+        },
+        {
+          "text": "wits.",
+          "start": 2.25,
+          "end": 2.63
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19240351021289825
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ca4f6a9f65d371a23cf1e2475e82adea4cf90010bae48b331f4b37b5e1e3aac4",
+  "selected_reasons": []
+}

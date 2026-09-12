@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "c8f1bb648c880f7f875c0c7b46b0fe09949a6f91c72c8269b0fb08c33ff2b47a",
+  "attempts": [
+    {
+      "asr_seconds": 0.20430425181984901,
+      "alignment_seconds": 0.0004142001271247864,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen Elizabeth. To save her life I'll say she is not so.",
+        "hotwords": "Queen, Elizabeth, To, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen Elizabeth, To save her life I'll say she is not so.",
+          "start": 0.08,
+          "end": 3.52,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " Elizabeth,",
+              "start": 0.58,
+              "end": 1.06,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " To",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.0330810546875
+            },
+            {
+              "text": " save",
+              "start": 1.64,
+              "end": 1.84,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " her",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " life",
+              "start": 2.0,
+              "end": 2.24,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I'll",
+              "start": 2.24,
+              "end": 2.48,
+              "probability": 0.864501953125
+            },
+            {
+              "text": " say",
+              "start": 2.48,
+              "end": 2.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " she",
+              "start": 2.68,
+              "end": 2.86,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " is",
+              "start": 2.86,
+              "end": 3.0,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " not",
+              "start": 3.0,
+              "end": 3.2,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " so.",
+              "start": 3.2,
+              "end": 3.52,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "Elizabeth,",
+          "start": 0.58,
+          "end": 1.06
+        },
+        {
+          "raw": "To",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "save",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "raw": "her",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "life",
+          "start": 2.0,
+          "end": 2.24
+        },
+        {
+          "raw": "I'll",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "raw": "say",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "raw": "she",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "raw": "is",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "raw": "not",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "raw": "so.",
+          "start": 3.2,
+          "end": 3.52
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "To",
+        "save",
+        "her",
+        "life",
+        "I'll",
+        "say",
+        "she",
+        "is",
+        "not",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Elizabeth,",
+          "start": 0.58,
+          "end": 1.06,
+          "key": "elizabeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "save",
+          "start": 1.64,
+          "end": 1.84,
+          "key": "save",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.84,
+          "end": 2.0,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 2.0,
+          "end": 2.24,
+          "key": "life",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.24,
+          "end": 2.48,
+          "key": "ill",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 2.48,
+          "end": 2.68,
+          "key": "say",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.68,
+          "end": 2.86,
+          "key": "she",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.86,
+          "end": 3.0,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.0,
+          "end": 3.2,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 3.2,
+          "end": 3.52,
+          "key": "so",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.58,
+          "end": 1.06
+        },
+        {
+          "text": "To",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "save",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "text": "her",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "life",
+          "start": 2.0,
+          "end": 2.24
+        },
+        {
+          "text": "I'll",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "text": "say",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "text": "she",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "text": "is",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "text": "not",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "text": "so.",
+          "start": 3.2,
+          "end": 3.52
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2048795260488987
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1029ffb54e49a833532e33e1dcb049b154bb873dcc096a49702302e3ecf365c0",
+  "selected_reasons": []
+}

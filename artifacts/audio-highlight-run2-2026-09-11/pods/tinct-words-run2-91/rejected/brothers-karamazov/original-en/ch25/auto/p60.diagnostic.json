@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "88bc0a106b60a8556c5f4f0fb798a53956931e4f5febb9bd06a2b65727d667a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.10118705127388239,
+      "alignment_seconds": 0.00024613644927740097,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Alyosha hesitated.",
+        "hotwords": "Alyosha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alyosha hesitated.",
+          "start": 0.08,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Alyosha",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " hesitated.",
+              "start": 0.92,
+              "end": 1.32,
+              "probability": 0.7685546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alyosha",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "hesitated.",
+          "start": 0.92,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "Alyosha",
+        "hesitated."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alyosha",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "alyosha",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hesitated.",
+          "start": 0.92,
+          "end": 1.32,
+          "key": "hesitated",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alyosha",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "hesitated.",
+          "start": 0.92,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1015366604551673
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8f95e9cd248f03df9e86097515e737fbb182f36078b23f7bbc60ac34fbc6ebef",
+  "selected_reasons": []
+}

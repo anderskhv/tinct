@@ -1,0 +1,900 @@
+{
+  "complete": true,
+  "signature": "d24c3b50ab41eaa67d5cc31c5e7a7f79029cb3379e91dedb3ff5c91c6f44c0b1",
+  "attempts": [
+    {
+      "asr_seconds": 0.39524606708437204,
+      "alignment_seconds": 0.0008967602625489235,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Again he took all the notes out of his pocket and picked out one for ten roubles. \"And if you lose that, come again, come again.\""
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Again he took all the notes out of his pocket and picked out one for ten roubles.",
+          "start": 0.02,
+          "end": 4.2,
+          "words": [
+            {
+              "text": " Again",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " he",
+              "start": 0.66,
+              "end": 0.96,
+              "probability": 0.1436767578125
+            },
+            {
+              "text": " took",
+              "start": 0.96,
+              "end": 1.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " all",
+              "start": 1.12,
+              "end": 1.36,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " notes",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " out",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 1.9,
+              "end": 1.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 1.98,
+              "end": 2.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pocket",
+              "start": 2.12,
+              "end": 2.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.46,
+              "end": 2.7,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " picked",
+              "start": 2.7,
+              "end": 2.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " out",
+              "start": 2.86,
+              "end": 3.06,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " one",
+              "start": 3.06,
+              "end": 3.3,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " for",
+              "start": 3.3,
+              "end": 3.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ten",
+              "start": 3.52,
+              "end": 3.78,
+              "probability": 0.75244140625
+            },
+            {
+              "text": " roubles.",
+              "start": 3.78,
+              "end": 4.2,
+              "probability": 0.6729736328125
+            }
+          ]
+        },
+        {
+          "text": " And if you lose that, come again, come again.",
+          "start": 4.94,
+          "end": 7.52,
+          "words": [
+            {
+              "text": " And",
+              "start": 4.94,
+              "end": 5.04,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " if",
+              "start": 5.04,
+              "end": 5.14,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " you",
+              "start": 5.14,
+              "end": 5.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lose",
+              "start": 5.3,
+              "end": 5.5,
+              "probability": 0.9921875
+            },
+            {
+              "text": " that,",
+              "start": 5.5,
+              "end": 5.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " come",
+              "start": 6.28,
+              "end": 6.38,
+              "probability": 0.931640625
+            },
+            {
+              "text": " again,",
+              "start": 6.38,
+              "end": 6.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " come",
+              "start": 7.08,
+              "end": 7.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " again.",
+              "start": 7.2,
+              "end": 7.52,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Again",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "he",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "raw": "took",
+          "start": 0.96,
+          "end": 1.12
+        },
+        {
+          "raw": "all",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "notes",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "out",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "of",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "raw": "his",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "raw": "pocket",
+          "start": 2.12,
+          "end": 2.46
+        },
+        {
+          "raw": "and",
+          "start": 2.46,
+          "end": 2.7
+        },
+        {
+          "raw": "picked",
+          "start": 2.7,
+          "end": 2.86
+        },
+        {
+          "raw": "out",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "raw": "one",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "raw": "for",
+          "start": 3.3,
+          "end": 3.52
+        },
+        {
+          "raw": "ten",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "raw": "roubles.",
+          "start": 3.78,
+          "end": 4.2
+        },
+        {
+          "raw": "And",
+          "start": 4.94,
+          "end": 5.04
+        },
+        {
+          "raw": "if",
+          "start": 5.04,
+          "end": 5.14
+        },
+        {
+          "raw": "you",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "raw": "lose",
+          "start": 5.3,
+          "end": 5.5
+        },
+        {
+          "raw": "that,",
+          "start": 5.5,
+          "end": 5.86
+        },
+        {
+          "raw": "come",
+          "start": 6.28,
+          "end": 6.38
+        },
+        {
+          "raw": "again,",
+          "start": 6.38,
+          "end": 6.68
+        },
+        {
+          "raw": "come",
+          "start": 7.08,
+          "end": 7.2
+        },
+        {
+          "raw": "again.",
+          "start": 7.2,
+          "end": 7.52
+        }
+      ],
+      "expected_tokens": [
+        "Again",
+        "he",
+        "took",
+        "all",
+        "the",
+        "notes",
+        "out",
+        "of",
+        "his",
+        "pocket",
+        "and",
+        "picked",
+        "out",
+        "one",
+        "for",
+        "ten",
+        "roubles.",
+        "\"And",
+        "if",
+        "you",
+        "lose",
+        "that,",
+        "come",
+        "again,",
+        "come",
+        "again.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Again",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "again",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.66,
+          "end": 0.96,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 0.96,
+          "end": 1.12,
+          "key": "took",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.12,
+          "end": 1.36,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "notes",
+          "start": 1.5,
+          "end": 1.7,
+          "key": "notes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "out",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.9,
+          "end": 1.98,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.98,
+          "end": 2.12,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "pocket",
+          "start": 2.12,
+          "end": 2.46,
+          "key": "pocket",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.46,
+          "end": 2.7,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "picked",
+          "start": 2.7,
+          "end": 2.86,
+          "key": "picked",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.86,
+          "end": 3.06,
+          "key": "out",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 3.06,
+          "end": 3.3,
+          "key": "one",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.3,
+          "end": 3.52,
+          "key": "for",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ten",
+          "start": 3.52,
+          "end": 3.78,
+          "key": "ten",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "roubles.",
+          "start": 3.78,
+          "end": 4.2,
+          "key": "roubles",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 4.94,
+          "end": 5.04,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 5.04,
+          "end": 5.14,
+          "key": "if",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.14,
+          "end": 5.3,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "lose",
+          "start": 5.3,
+          "end": 5.5,
+          "key": "lose",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 5.5,
+          "end": 5.86,
+          "key": "that",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 6.28,
+          "end": 6.38,
+          "key": "come",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 6.38,
+          "end": 6.68,
+          "key": "again",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 7.08,
+          "end": 7.2,
+          "key": "come",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 7.2,
+          "end": 7.52,
+          "key": "again",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Again",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "he",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "text": "took",
+          "start": 0.96,
+          "end": 1.12
+        },
+        {
+          "text": "all",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "text": "the",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "notes",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "text": "out",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "of",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "text": "his",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "text": "pocket",
+          "start": 2.12,
+          "end": 2.46
+        },
+        {
+          "text": "and",
+          "start": 2.46,
+          "end": 2.7
+        },
+        {
+          "text": "picked",
+          "start": 2.7,
+          "end": 2.86
+        },
+        {
+          "text": "out",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "text": "one",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "text": "for",
+          "start": 3.3,
+          "end": 3.52
+        },
+        {
+          "text": "ten",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "text": "roubles.",
+          "start": 3.78,
+          "end": 4.2
+        },
+        {
+          "text": "\"And",
+          "start": 4.94,
+          "end": 5.04
+        },
+        {
+          "text": "if",
+          "start": 5.04,
+          "end": 5.14
+        },
+        {
+          "text": "you",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "text": "lose",
+          "start": 5.3,
+          "end": 5.5
+        },
+        {
+          "text": "that,",
+          "start": 5.5,
+          "end": 5.86
+        },
+        {
+          "text": "come",
+          "start": 6.28,
+          "end": 6.38
+        },
+        {
+          "text": "again,",
+          "start": 6.38,
+          "end": 6.68
+        },
+        {
+          "text": "come",
+          "start": 7.08,
+          "end": 7.2
+        },
+        {
+          "text": "again.\"",
+          "start": 7.2,
+          "end": 7.52
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.39651068206876516
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cc66c0c26cb4a6fa62f8905ffa9e0fe20448f44681265cb2dc71e1a6a2fa51d1",
+  "selected_reasons": []
+}

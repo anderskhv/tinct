@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "06eb8785f222f74d987175e5637c747affa9c2839579d4902c102c38391fe499",
+  "attempts": [
+    {
+      "asr_seconds": 0.2382613578811288,
+      "alignment_seconds": 0.00042673107236623764,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lorenzo. Fair ladies, you drop manna in the way Of starved people.",
+        "hotwords": "Lorenzo, Fair, Of"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lorenzo, Fair ladies, you drop manna in the way Of starved people.",
+          "start": 0.05,
+          "end": 4.13,
+          "words": [
+            {
+              "text": " Lorenzo,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.4267578125
+            },
+            {
+              "text": " Fair",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.1319580078125
+            },
+            {
+              "text": " ladies,",
+              "start": 1.65,
+              "end": 1.89,
+              "probability": 0.04779052734375
+            },
+            {
+              "text": " you",
+              "start": 2.21,
+              "end": 2.29,
+              "probability": 0.9296875
+            },
+            {
+              "text": " drop",
+              "start": 2.29,
+              "end": 2.55,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " manna",
+              "start": 2.55,
+              "end": 2.93,
+              "probability": 0.6124267578125
+            },
+            {
+              "text": " in",
+              "start": 2.93,
+              "end": 3.03,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 3.03,
+              "end": 3.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " way",
+              "start": 3.13,
+              "end": 3.29,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Of",
+              "start": 3.29,
+              "end": 3.43,
+              "probability": 0.0010633468627929688
+            },
+            {
+              "text": " starved",
+              "start": 3.43,
+              "end": 3.71,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " people.",
+              "start": 3.71,
+              "end": 4.13,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lorenzo,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Fair",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "ladies,",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "raw": "you",
+          "start": 2.21,
+          "end": 2.29
+        },
+        {
+          "raw": "drop",
+          "start": 2.29,
+          "end": 2.55
+        },
+        {
+          "raw": "manna",
+          "start": 2.55,
+          "end": 2.93
+        },
+        {
+          "raw": "in",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "raw": "the",
+          "start": 3.03,
+          "end": 3.13
+        },
+        {
+          "raw": "way",
+          "start": 3.13,
+          "end": 3.29
+        },
+        {
+          "raw": "Of",
+          "start": 3.29,
+          "end": 3.43
+        },
+        {
+          "raw": "starved",
+          "start": 3.43,
+          "end": 3.71
+        },
+        {
+          "raw": "people.",
+          "start": 3.71,
+          "end": 4.13
+        }
+      ],
+      "expected_tokens": [
+        "Lorenzo.",
+        "Fair",
+        "ladies,",
+        "you",
+        "drop",
+        "manna",
+        "in",
+        "the",
+        "way",
+        "Of",
+        "starved",
+        "people."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lorenzo,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "lorenzo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fair",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "fair",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ladies,",
+          "start": 1.65,
+          "end": 1.89,
+          "key": "ladies",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.21,
+          "end": 2.29,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "drop",
+          "start": 2.29,
+          "end": 2.55,
+          "key": "drop",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "manna",
+          "start": 2.55,
+          "end": 2.93,
+          "key": "manna",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.93,
+          "end": 3.03,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.03,
+          "end": 3.13,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 3.13,
+          "end": 3.29,
+          "key": "way",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 3.29,
+          "end": 3.43,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "starved",
+          "start": 3.43,
+          "end": 3.71,
+          "key": "starved",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "people.",
+          "start": 3.71,
+          "end": 4.13,
+          "key": "people",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lorenzo.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Fair",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "ladies,",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "text": "you",
+          "start": 2.21,
+          "end": 2.29
+        },
+        {
+          "text": "drop",
+          "start": 2.29,
+          "end": 2.55
+        },
+        {
+          "text": "manna",
+          "start": 2.55,
+          "end": 2.93
+        },
+        {
+          "text": "in",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "text": "the",
+          "start": 3.03,
+          "end": 3.13
+        },
+        {
+          "text": "way",
+          "start": 3.13,
+          "end": 3.29
+        },
+        {
+          "text": "Of",
+          "start": 3.29,
+          "end": 3.43
+        },
+        {
+          "text": "starved",
+          "start": 3.43,
+          "end": 3.71
+        },
+        {
+          "text": "people.",
+          "start": 3.71,
+          "end": 4.13
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23882934916764498
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5bd161d665c40b3f93769b78822147b734bc10111bdb788dc8474cc6266ebf27",
+  "selected_reasons": []
+}

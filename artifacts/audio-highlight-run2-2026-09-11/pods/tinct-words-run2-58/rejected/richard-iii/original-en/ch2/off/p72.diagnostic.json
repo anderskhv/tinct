@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "1b782a643039c1055d594cc33fd121fdd2f95fee83d59717ca4d085713126e04",
+  "attempts": [
+    {
+      "asr_seconds": 0.1955206524580717,
+      "alignment_seconds": 0.000411459244787693,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He kneels and lays his breast open. She offers at it with his sword",
+          "start": 0.05,
+          "end": 3.97,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " kneels",
+              "start": 0.53,
+              "end": 0.97,
+              "probability": 0.990966796875
+            },
+            {
+              "text": " and",
+              "start": 0.97,
+              "end": 1.13,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " lays",
+              "start": 1.13,
+              "end": 1.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 1.35,
+              "end": 1.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " breast",
+              "start": 1.57,
+              "end": 1.81,
+              "probability": 0.98046875
+            },
+            {
+              "text": " open.",
+              "start": 1.81,
+              "end": 2.21,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " She",
+              "start": 2.69,
+              "end": 2.79,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " offers",
+              "start": 2.79,
+              "end": 3.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 3.11,
+              "end": 3.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it",
+              "start": 3.33,
+              "end": 3.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 3.43,
+              "end": 3.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 3.55,
+              "end": 3.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sword",
+              "start": 3.71,
+              "end": 3.97,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "kneels",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "raw": "and",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "raw": "lays",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "raw": "his",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "raw": "breast",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "raw": "open.",
+          "start": 1.81,
+          "end": 2.21
+        },
+        {
+          "raw": "She",
+          "start": 2.69,
+          "end": 2.79
+        },
+        {
+          "raw": "offers",
+          "start": 2.79,
+          "end": 3.11
+        },
+        {
+          "raw": "at",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "raw": "it",
+          "start": 3.33,
+          "end": 3.43
+        },
+        {
+          "raw": "with",
+          "start": 3.43,
+          "end": 3.55
+        },
+        {
+          "raw": "his",
+          "start": 3.55,
+          "end": 3.71
+        },
+        {
+          "raw": "sword",
+          "start": 3.71,
+          "end": 3.97
+        }
+      ],
+      "expected_tokens": [
+        "[_He",
+        "kneels",
+        "and",
+        "lays",
+        "his",
+        "breast",
+        "open;",
+        "she",
+        "offers",
+        "at",
+        "it",
+        "with",
+        "his",
+        "sword._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "kneels",
+          "start": 0.53,
+          "end": 0.97,
+          "key": "kneels",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.97,
+          "end": 1.13,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lays",
+          "start": 1.13,
+          "end": 1.35,
+          "key": "lays",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.35,
+          "end": 1.57,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "breast",
+          "start": 1.57,
+          "end": 1.81,
+          "key": "breast",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "open.",
+          "start": 1.81,
+          "end": 2.21,
+          "key": "open",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 2.69,
+          "end": 2.79,
+          "key": "she",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "offers",
+          "start": 2.79,
+          "end": 3.11,
+          "key": "offers",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.11,
+          "end": 3.33,
+          "key": "at",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.33,
+          "end": 3.43,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.43,
+          "end": 3.55,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.55,
+          "end": 3.71,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sword",
+          "start": 3.71,
+          "end": 3.97,
+          "key": "sword",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "kneels",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "text": "and",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "text": "lays",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "text": "his",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "text": "breast",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "text": "open;",
+          "start": 1.81,
+          "end": 2.21
+        },
+        {
+          "text": "she",
+          "start": 2.69,
+          "end": 2.79
+        },
+        {
+          "text": "offers",
+          "start": 2.79,
+          "end": 3.11
+        },
+        {
+          "text": "at",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "text": "it",
+          "start": 3.33,
+          "end": 3.43
+        },
+        {
+          "text": "with",
+          "start": 3.43,
+          "end": 3.55
+        },
+        {
+          "text": "his",
+          "start": 3.55,
+          "end": 3.71
+        },
+        {
+          "text": "sword._]",
+          "start": 3.71,
+          "end": 3.97
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19610112626105547
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5f542cc3871a51aa6081f0f099beecdd9d34d4c16fc5c416024bc9f21e9cfcce",
+  "selected_reasons": []
+}

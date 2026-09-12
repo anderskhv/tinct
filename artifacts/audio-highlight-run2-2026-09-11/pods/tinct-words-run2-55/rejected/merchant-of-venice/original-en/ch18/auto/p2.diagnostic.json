@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "b13a7f8258f72a4aedafb246e8123031852795ee7053a87db31a06d12ab51631",
+  "attempts": [
+    {
+      "asr_seconds": 0.19714755937457085,
+      "alignment_seconds": 0.00023174472153186798,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio. Ready, so please your Grace.",
+        "hotwords": "Antonio, Ready, Grace"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio, Ready, so please your Grace.",
+          "start": 0.11,
+          "end": 2.41,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " Ready,",
+              "start": 1.27,
+              "end": 1.51,
+              "probability": 0.05206298828125
+            },
+            {
+              "text": " so",
+              "start": 1.71,
+              "end": 1.75,
+              "probability": 0.435546875
+            },
+            {
+              "text": " please",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " your",
+              "start": 1.95,
+              "end": 2.13,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " Grace.",
+              "start": 2.13,
+              "end": 2.41,
+              "probability": 0.06719970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "Ready,",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "raw": "so",
+          "start": 1.71,
+          "end": 1.75
+        },
+        {
+          "raw": "please",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "your",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "raw": "Grace.",
+          "start": 2.13,
+          "end": 2.41
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "Ready,",
+        "so",
+        "please",
+        "your",
+        "Grace."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ready,",
+          "start": 1.27,
+          "end": 1.51,
+          "key": "ready",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.71,
+          "end": 1.75,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "please",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.95,
+          "end": 2.13,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Grace.",
+          "start": 2.13,
+          "end": 2.41,
+          "key": "grace",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "Ready,",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "text": "so",
+          "start": 1.71,
+          "end": 1.75
+        },
+        {
+          "text": "please",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "your",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "text": "Grace.",
+          "start": 2.13,
+          "end": 2.41
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19745795149356127
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b525478953420a5ed7bf0e2873fdb1e9e58fb420fd407629f90b8fbf04ad157b",
+  "selected_reasons": []
+}

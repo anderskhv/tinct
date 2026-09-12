@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "0d7b9f4c11f34e48c39877d0652868c9d4d568f9b0bad12fb6f254b9c7fe021f",
+  "attempts": [
+    {
+      "asr_seconds": 0.11986355343833566,
+      "alignment_seconds": 0.00017289910465478897,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Emilia. Do not you chide. I have a thing for you.",
+        "hotwords": "Emilia, Do, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia, Do not you chide. I have a thing for you.",
+          "start": 0.43,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.43,
+              "end": 0.79,
+              "probability": 0.56549072265625
+            },
+            {
+              "text": " Do",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.01140594482421875
+            },
+            {
+              "text": " not",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " you",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " chide.",
+              "start": 1.61,
+              "end": 2.01,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " I",
+              "start": 2.25,
+              "end": 2.33,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " have",
+              "start": 2.33,
+              "end": 2.43,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 2.43,
+              "end": 2.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thing",
+              "start": 2.53,
+              "end": 2.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " for",
+              "start": 2.63,
+              "end": 2.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you.",
+              "start": 2.81,
+              "end": 3.09,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.43,
+          "end": 0.79
+        },
+        {
+          "raw": "Do",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "not",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "you",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "chide.",
+          "start": 1.61,
+          "end": 2.01
+        },
+        {
+          "raw": "I",
+          "start": 2.25,
+          "end": 2.33
+        },
+        {
+          "raw": "have",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "raw": "a",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "raw": "thing",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "raw": "for",
+          "start": 2.63,
+          "end": 2.81
+        },
+        {
+          "raw": "you.",
+          "start": 2.81,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "Do",
+        "not",
+        "you",
+        "chide.",
+        "I",
+        "have",
+        "a",
+        "thing",
+        "for",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.43,
+          "end": 0.79,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 1.15,
+          "end": 1.31,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.31,
+          "end": 1.43,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "chide.",
+          "start": 1.61,
+          "end": 2.01,
+          "key": "chide",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.25,
+          "end": 2.33,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.33,
+          "end": 2.43,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.43,
+          "end": 2.53,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 2.53,
+          "end": 2.63,
+          "key": "thing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.63,
+          "end": 2.81,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.81,
+          "end": 3.09,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.43,
+          "end": 0.79
+        },
+        {
+          "text": "Do",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "not",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "you",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "chide.",
+          "start": 1.61,
+          "end": 2.01
+        },
+        {
+          "text": "I",
+          "start": 2.25,
+          "end": 2.33
+        },
+        {
+          "text": "have",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "text": "a",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "text": "thing",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "text": "for",
+          "start": 2.63,
+          "end": 2.81
+        },
+        {
+          "text": "you.",
+          "start": 2.81,
+          "end": 3.09
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12010643212124705
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ebe38c00b91fd41bd22269d4c4707d1621508e48a8b10dc8cc404d6b1af7708e",
+  "selected_reasons": []
+}

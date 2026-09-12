@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "f6fc5baa5caa59cc83ae53ece019a02e0f3f9768324d79a0611d8c630ae6b255",
+  "attempts": [
+    {
+      "asr_seconds": 0.11823946601361968,
+      "alignment_seconds": 0.00016897599562071264,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caesar. Farewell, farewell.",
+          "start": 0.11,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Caesar.",
+              "start": 0.11,
+              "end": 0.81,
+              "probability": 0.61328125
+            },
+            {
+              "text": " Farewell,",
+              "start": 1.29,
+              "end": 1.57,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " farewell.",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.80078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar.",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "raw": "Farewell,",
+          "start": 1.29,
+          "end": 1.57
+        },
+        {
+          "raw": "farewell.",
+          "start": 1.71,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "Farewell,",
+        "farewell!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar.",
+          "start": 0.11,
+          "end": 0.81,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Farewell,",
+          "start": 1.29,
+          "end": 1.57,
+          "key": "farewell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "farewell.",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "farewell",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "text": "Farewell,",
+          "start": 1.29,
+          "end": 1.57
+        },
+        {
+          "text": "farewell!",
+          "start": 1.71,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11845963401719928
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "82ffaaa2bf63e8b07222677ba268d215fa60aa0ea7fedf296d8b4f8d17822399",
+  "selected_reasons": []
+}

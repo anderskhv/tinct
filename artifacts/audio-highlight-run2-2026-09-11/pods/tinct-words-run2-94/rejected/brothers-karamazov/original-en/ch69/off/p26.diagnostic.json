@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "17d11557579dac9100cd9e699c5dc87cffa55303221f23d3889ea11ad088693f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2599746324121952,
+      "alignment_seconds": 0.0005812887102365494,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Father, Father, how sorry I am for you,\" Elisha moaned bitterly.",
+          "start": 0.08,
+          "end": 3.96,
+          "words": [
+            {
+              "text": " Father,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.21484375
+            },
+            {
+              "text": " Father,",
+              "start": 1.06,
+              "end": 1.06,
+              "probability": 0.640625
+            },
+            {
+              "text": " how",
+              "start": 1.4,
+              "end": 1.48,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " sorry",
+              "start": 1.48,
+              "end": 1.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 1.78,
+              "end": 1.98,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " am",
+              "start": 1.98,
+              "end": 2.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 2.12,
+              "end": 2.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you,\"",
+              "start": 2.26,
+              "end": 3.04,
+              "probability": 0.55572509765625
+            },
+            {
+              "text": " Elisha",
+              "start": 3.04,
+              "end": 3.42,
+              "probability": 0.8670247395833334
+            },
+            {
+              "text": " moaned",
+              "start": 3.42,
+              "end": 3.72,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " bitterly.",
+              "start": 3.72,
+              "end": 3.96,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Father,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Father,",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "raw": "how",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "raw": "sorry",
+          "start": 1.48,
+          "end": 1.78
+        },
+        {
+          "raw": "I",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "raw": "am",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "raw": "for",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "raw": "you,\"",
+          "start": 2.26,
+          "end": 3.04
+        },
+        {
+          "raw": "Elisha",
+          "start": 3.04,
+          "end": 3.42
+        },
+        {
+          "raw": "moaned",
+          "start": 3.42,
+          "end": 3.72
+        },
+        {
+          "raw": "bitterly.",
+          "start": 3.72,
+          "end": 3.96
+        }
+      ],
+      "expected_tokens": [
+        "\"Father,",
+        "father!",
+        "How",
+        "sorry",
+        "I",
+        "am",
+        "for",
+        "you!\"",
+        "Ilusha",
+        "moaned",
+        "bitterly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          11,
+          9,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Father,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "father",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Father,",
+          "start": 1.06,
+          "end": 1.06,
+          "key": "father",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.4,
+          "end": 1.48,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sorry",
+          "start": 1.48,
+          "end": 1.78,
+          "key": "sorry",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.78,
+          "end": 1.98,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.98,
+          "end": 2.12,
+          "key": "am",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.12,
+          "end": 2.26,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you,\"",
+          "start": 2.26,
+          "end": 3.04,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Elisha",
+          "start": 3.04,
+          "end": 3.42,
+          "key": "elisha",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "moaned",
+          "start": 3.42,
+          "end": 3.72,
+          "key": "moaned",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bitterly.",
+          "start": 3.72,
+          "end": 3.96,
+          "key": "bitterly",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Father,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "father!",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "text": "How",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "text": "sorry",
+          "start": 1.48,
+          "end": 1.78
+        },
+        {
+          "text": "I",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "text": "am",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "text": "for",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "text": "you!\"",
+          "start": 2.26,
+          "end": 3.04
+        },
+        {
+          "text": "Ilusha",
+          "start": 3.04,
+          "end": 3.23
+        },
+        {
+          "text": "moaned",
+          "start": 3.42,
+          "end": 3.72
+        },
+        {
+          "text": "bitterly.",
+          "start": 3.72,
+          "end": 3.96
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.2607686463743448
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c1ca0cac77f152afc0709d16df27bdecbb20d1d6a3c5ff599596d21444286c3e",
+  "selected_reasons": []
+}

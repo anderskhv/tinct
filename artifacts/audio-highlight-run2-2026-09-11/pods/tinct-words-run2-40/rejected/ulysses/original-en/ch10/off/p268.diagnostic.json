@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "6550416eafa92c8133c26e907e261790a8c31bc77407f92baf382fa403e81c73",
+  "attempts": [
+    {
+      "asr_seconds": 0.18379919091239572,
+      "alignment_seconds": 0.00043410109356045723,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The Shopman let two volumes fall on the counter.",
+          "start": 0.02,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.908203125
+            },
+            {
+              "text": " Shopman",
+              "start": 0.48,
+              "end": 0.94,
+              "probability": 0.64208984375
+            },
+            {
+              "text": " let",
+              "start": 0.94,
+              "end": 1.16,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " two",
+              "start": 1.16,
+              "end": 1.4,
+              "probability": 0.88671875
+            },
+            {
+              "text": " volumes",
+              "start": 1.4,
+              "end": 1.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " fall",
+              "start": 1.8,
+              "end": 2.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " on",
+              "start": 2.1,
+              "end": 2.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.24,
+              "end": 2.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " counter.",
+              "start": 2.34,
+              "end": 2.64,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "Shopman",
+          "start": 0.48,
+          "end": 0.94
+        },
+        {
+          "raw": "let",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "raw": "two",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "raw": "volumes",
+          "start": 1.4,
+          "end": 1.8
+        },
+        {
+          "raw": "fall",
+          "start": 1.8,
+          "end": 2.1
+        },
+        {
+          "raw": "on",
+          "start": 2.1,
+          "end": 2.24
+        },
+        {
+          "raw": "the",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "raw": "counter.",
+          "start": 2.34,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "shopman",
+        "let",
+        "two",
+        "volumes",
+        "fall",
+        "on",
+        "the",
+        "counter."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Shopman",
+          "start": 0.48,
+          "end": 0.94,
+          "key": "shopman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 0.94,
+          "end": 1.16,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 1.16,
+          "end": 1.4,
+          "key": "two",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "volumes",
+          "start": 1.4,
+          "end": 1.8,
+          "key": "volumes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fall",
+          "start": 1.8,
+          "end": 2.1,
+          "key": "fall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.1,
+          "end": 2.24,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.24,
+          "end": 2.34,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "counter.",
+          "start": 2.34,
+          "end": 2.64,
+          "key": "counter",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "shopman",
+          "start": 0.48,
+          "end": 0.94
+        },
+        {
+          "text": "let",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "text": "two",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "text": "volumes",
+          "start": 1.4,
+          "end": 1.8
+        },
+        {
+          "text": "fall",
+          "start": 1.8,
+          "end": 2.1
+        },
+        {
+          "text": "on",
+          "start": 2.1,
+          "end": 2.24
+        },
+        {
+          "text": "the",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "text": "counter.",
+          "start": 2.34,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18441819492727518
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0253c6561ff8b6723f0b3b0ef01f860355753e8c59242e4f3370486b4a70b24b",
+  "selected_reasons": []
+}

@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "401a3be5ce5cc5d010bac28fef76eacdd0b629f2b154504159d9eeecf716092f",
+  "attempts": [
+    {
+      "asr_seconds": 0.14285852806642652,
+      "alignment_seconds": 0.0001235557720065117,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He held her hand, enjoyed her holidays.",
+          "start": 0.05,
+          "end": 2.45,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.900390625
+            },
+            {
+              "text": " held",
+              "start": 0.51,
+              "end": 0.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 0.69,
+              "end": 0.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " hand,",
+              "start": 0.87,
+              "end": 1.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " enjoyed",
+              "start": 1.61,
+              "end": 1.85,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " her",
+              "start": 1.85,
+              "end": 2.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " holidays.",
+              "start": 2.09,
+              "end": 2.45,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "held",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "raw": "her",
+          "start": 0.69,
+          "end": 0.87
+        },
+        {
+          "raw": "hand,",
+          "start": 0.87,
+          "end": 1.27
+        },
+        {
+          "raw": "enjoyed",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "raw": "her",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "raw": "holidays.",
+          "start": 2.09,
+          "end": 2.45
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "held",
+        "her",
+        "hand.",
+        "Enjoyed",
+        "her",
+        "holidays?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "held",
+          "start": 0.51,
+          "end": 0.69,
+          "key": "held",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.69,
+          "end": 0.87,
+          "key": "her",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hand,",
+          "start": 0.87,
+          "end": 1.27,
+          "key": "hand",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "enjoyed",
+          "start": 1.61,
+          "end": 1.85,
+          "key": "enjoyed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.85,
+          "end": 2.09,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "holidays.",
+          "start": 2.09,
+          "end": 2.45,
+          "key": "holidays",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "held",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "text": "her",
+          "start": 0.69,
+          "end": 0.87
+        },
+        {
+          "text": "hand.",
+          "start": 0.87,
+          "end": 1.27
+        },
+        {
+          "text": "Enjoyed",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "text": "her",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "text": "holidays?",
+          "start": 2.09,
+          "end": 2.45
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14303682139143348
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ffb126b917f3e62a2047f09fd8944a0c90e2471f120aeeff29ecc67f8437bcf6",
+  "selected_reasons": []
+}

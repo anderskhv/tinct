@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "04c6f7e1f95224cd70643d2be4b772c1cc8f3c5032bdb3bdf847de5ea3f4a4b6",
+  "attempts": [
+    {
+      "asr_seconds": 0.09632941614836454,
+      "alignment_seconds": 0.0003566276282072067,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " in accordance with my theory.",
+          "start": 0.05,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " in",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.59814453125
+            },
+            {
+              "text": " accordance",
+              "start": 0.51,
+              "end": 0.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 0.77,
+              "end": 1.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 1.11,
+              "end": 1.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " theory.",
+              "start": 1.27,
+              "end": 1.59,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "in",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "accordance",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "raw": "with",
+          "start": 0.77,
+          "end": 1.11
+        },
+        {
+          "raw": "my",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "raw": "theory.",
+          "start": 1.27,
+          "end": 1.59
+        }
+      ],
+      "expected_tokens": [
+        "\"In",
+        "accordance",
+        "with",
+        "my",
+        "theory?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "in",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "accordance",
+          "start": 0.51,
+          "end": 0.77,
+          "key": "accordance",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.77,
+          "end": 1.11,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.11,
+          "end": 1.27,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "theory.",
+          "start": 1.27,
+          "end": 1.59,
+          "key": "theory",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"In",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "accordance",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "text": "with",
+          "start": 0.77,
+          "end": 1.11
+        },
+        {
+          "text": "my",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "text": "theory?\"",
+          "start": 1.27,
+          "end": 1.59
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09680131450295448
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d5c2606d9e781e335fec664b32ae01f503c11cb2c76ce42764bcefcfc781de6a",
+  "selected_reasons": []
+}

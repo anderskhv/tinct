@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "6b0dd71e83f3b47aa665ee601f5b4ad1c4467012f5a57d0f85eabb4345a73e7f",
+  "attempts": [
+    {
+      "asr_seconds": 0.33906558621674776,
+      "alignment_seconds": 0.00038470420986413956,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And depart from them to leave them forever. It's forever, you know forever",
+          "start": 0.02,
+          "end": 4.34,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.33447265625
+            },
+            {
+              "text": " depart",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.32080078125
+            },
+            {
+              "text": " from",
+              "start": 0.8,
+              "end": 1.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " them",
+              "start": 1.02,
+              "end": 1.26,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 1.26,
+              "end": 1.62,
+              "probability": 0.6796875
+            },
+            {
+              "text": " leave",
+              "start": 1.62,
+              "end": 1.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " them",
+              "start": 1.82,
+              "end": 2.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " forever.",
+              "start": 2.06,
+              "end": 2.44,
+              "probability": 0.98828125
+            },
+            {
+              "text": " It's",
+              "start": 2.98,
+              "end": 3.22,
+              "probability": 0.976318359375
+            },
+            {
+              "text": " forever,",
+              "start": 3.22,
+              "end": 3.52,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you",
+              "start": 3.8,
+              "end": 3.82,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " know",
+              "start": 3.82,
+              "end": 3.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " forever",
+              "start": 3.98,
+              "end": 4.34,
+              "probability": 0.296630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "depart",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "raw": "from",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "raw": "them",
+          "start": 1.02,
+          "end": 1.26
+        },
+        {
+          "raw": "to",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "raw": "leave",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "raw": "them",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "raw": "forever.",
+          "start": 2.06,
+          "end": 2.44
+        },
+        {
+          "raw": "It's",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "raw": "forever,",
+          "start": 3.22,
+          "end": 3.52
+        },
+        {
+          "raw": "you",
+          "start": 3.8,
+          "end": 3.82
+        },
+        {
+          "raw": "know",
+          "start": 3.82,
+          "end": 3.98
+        },
+        {
+          "raw": "forever",
+          "start": 3.98,
+          "end": 4.34
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "to",
+        "part",
+        "from",
+        "them,",
+        "to",
+        "leave",
+        "them",
+        "for",
+        "ever?",
+        "It's",
+        "for",
+        "ever,",
+        "you",
+        "know,",
+        "for",
+        "ever!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          8,
+          2,
+          7
+        ],
+        [
+          "replace",
+          8,
+          10,
+          7,
+          8
+        ],
+        [
+          "equal",
+          10,
+          11,
+          8,
+          9
+        ],
+        [
+          "replace",
+          11,
+          13,
+          9,
+          10
+        ],
+        [
+          "equal",
+          13,
+          15,
+          10,
+          12
+        ],
+        [
+          "replace",
+          15,
+          17,
+          12,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "replace",
+          8,
+          10,
+          7,
+          8
+        ],
+        [
+          "replace",
+          11,
+          13,
+          9,
+          10
+        ],
+        [
+          "replace",
+          15,
+          17,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "depart",
+          "start": 0.54,
+          "end": 0.8,
+          "key": "depart",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 0.8,
+          "end": 1.02,
+          "key": "from",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 1.02,
+          "end": 1.26,
+          "key": "them",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.26,
+          "end": 1.62,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 1.62,
+          "end": 1.82,
+          "key": "leave",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 1.82,
+          "end": 2.06,
+          "key": "them",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "forever.",
+          "start": 2.06,
+          "end": 2.44,
+          "key": "forever",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 2.98,
+          "end": 3.22,
+          "key": "its",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "forever,",
+          "start": 3.22,
+          "end": 3.52,
+          "key": "forever",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.8,
+          "end": 3.82,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 3.82,
+          "end": 3.98,
+          "key": "know",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "forever",
+          "start": 3.98,
+          "end": 4.34,
+          "key": "forever",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "to",
+          "start": 0.54,
+          "end": 0.67
+        },
+        {
+          "text": "part",
+          "start": 0.67,
+          "end": 0.735
+        },
+        {
+          "text": "from",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "text": "them,",
+          "start": 1.02,
+          "end": 1.26
+        },
+        {
+          "text": "to",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "text": "leave",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "text": "them",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "text": "for",
+          "start": 2.06,
+          "end": 2.52
+        },
+        {
+          "text": "ever?",
+          "start": 2.52,
+          "end": 2.75
+        },
+        {
+          "text": "It's",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "text": "for",
+          "start": 3.22,
+          "end": 3.51
+        },
+        {
+          "text": "ever,",
+          "start": 3.51,
+          "end": 3.655
+        },
+        {
+          "text": "you",
+          "start": 3.8,
+          "end": 3.82
+        },
+        {
+          "text": "know,",
+          "start": 3.82,
+          "end": 3.98
+        },
+        {
+          "text": "for",
+          "start": 3.98,
+          "end": 4.16
+        },
+        {
+          "text": "ever!\"",
+          "start": 4.16,
+          "end": 4.25
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 13,
+        "matched_words": 9
+      },
+      "match_ratio": 0.5294117647058824,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3395628957077861
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a59de37260dc6699b003bc5bcf4d3ce666902218bad1de202c5f3b7747b2d334",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

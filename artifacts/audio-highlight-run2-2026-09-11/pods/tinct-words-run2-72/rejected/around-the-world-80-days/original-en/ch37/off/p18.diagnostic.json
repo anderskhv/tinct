@@ -1,0 +1,484 @@
+{
+  "complete": true,
+  "signature": "b400eabc47ea896098168b34e3682b7b4b73a7603b341df0908eebd286844abd",
+  "attempts": [
+    {
+      "asr_seconds": 0.1927441479638219,
+      "alignment_seconds": 0.0006821099668741226,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Filia's fog had accomplished the journey around the world in 80 days.",
+          "start": 0.05,
+          "end": 3.93,
+          "words": [
+            {
+              "text": " Filia's",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.7706705729166666
+            },
+            {
+              "text": " fog",
+              "start": 0.85,
+              "end": 1.13,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " had",
+              "start": 1.13,
+              "end": 1.37,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " accomplished",
+              "start": 1.37,
+              "end": 1.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.83,
+              "end": 2.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " journey",
+              "start": 2.09,
+              "end": 2.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " around",
+              "start": 2.39,
+              "end": 2.73,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " the",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " world",
+              "start": 2.85,
+              "end": 3.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 3.11,
+              "end": 3.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " 80",
+              "start": 3.31,
+              "end": 3.53,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " days.",
+              "start": 3.53,
+              "end": 3.93,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Filia's",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "fog",
+          "start": 0.85,
+          "end": 1.13
+        },
+        {
+          "raw": "had",
+          "start": 1.13,
+          "end": 1.37
+        },
+        {
+          "raw": "accomplished",
+          "start": 1.37,
+          "end": 1.83
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "raw": "journey",
+          "start": 2.09,
+          "end": 2.39
+        },
+        {
+          "raw": "around",
+          "start": 2.39,
+          "end": 2.73
+        },
+        {
+          "raw": "the",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "world",
+          "start": 2.85,
+          "end": 3.11
+        },
+        {
+          "raw": "in",
+          "start": 3.11,
+          "end": 3.31
+        },
+        {
+          "raw": "80",
+          "start": 3.31,
+          "end": 3.53
+        },
+        {
+          "raw": "days.",
+          "start": 3.53,
+          "end": 3.93
+        }
+      ],
+      "expected_tokens": [
+        "Phileas",
+        "Fogg",
+        "had",
+        "accomplished",
+        "the",
+        "journey",
+        "round",
+        "the",
+        "world",
+        "in",
+        "eighty",
+        "days!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          12,
+          7,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Filia's",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "filias",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fog",
+          "start": 0.85,
+          "end": 1.13,
+          "key": "fog",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.13,
+          "end": 1.37,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "accomplished",
+          "start": 1.37,
+          "end": 1.83,
+          "key": "accomplished",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 2.09,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "journey",
+          "start": 2.09,
+          "end": 2.39,
+          "key": "journey",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "around",
+          "start": 2.39,
+          "end": 2.73,
+          "key": "around",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.73,
+          "end": 2.85,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "world",
+          "start": 2.85,
+          "end": 3.11,
+          "key": "world",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.11,
+          "end": 3.31,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "80",
+          "start": 3.31,
+          "end": 3.53,
+          "key": "eighty",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "days.",
+          "start": 3.53,
+          "end": 3.93,
+          "key": "days",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Phileas",
+          "start": 0.0,
+          "end": 0.565
+        },
+        {
+          "text": "Fogg",
+          "start": 0.565,
+          "end": 0.847
+        },
+        {
+          "text": "had",
+          "start": 1.13,
+          "end": 1.37
+        },
+        {
+          "text": "accomplished",
+          "start": 1.37,
+          "end": 1.83
+        },
+        {
+          "text": "the",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "text": "journey",
+          "start": 2.09,
+          "end": 2.39
+        },
+        {
+          "text": "round",
+          "start": 2.39,
+          "end": 2.56
+        },
+        {
+          "text": "the",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "world",
+          "start": 2.85,
+          "end": 3.11
+        },
+        {
+          "text": "in",
+          "start": 3.11,
+          "end": 3.31
+        },
+        {
+          "text": "eighty",
+          "start": 3.31,
+          "end": 3.53
+        },
+        {
+          "text": "days!",
+          "start": 3.53,
+          "end": 3.93
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19370182696729898
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3000e544aa6badc0f554086cc48be332d7323f972b0aa0eff85c4561c64de720",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

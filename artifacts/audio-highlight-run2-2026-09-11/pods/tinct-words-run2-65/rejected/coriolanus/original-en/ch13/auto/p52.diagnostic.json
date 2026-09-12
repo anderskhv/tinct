@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "ef973146fffe23e62b4915468e7d79d678474d08e9a5d0614b271127a8948c40",
+  "attempts": [
+    {
+      "asr_seconds": 0.1038460717536509,
+      "alignment_seconds": 0.00017744489014148712,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter three Citizens more.",
+        "hotwords": "Enter, Citizens"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter three Citizens more.",
+          "start": 0.08,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " three",
+              "start": 0.62,
+              "end": 1.0,
+              "probability": 0.343505859375
+            },
+            {
+              "text": " Citizens",
+              "start": 1.0,
+              "end": 1.5,
+              "probability": 0.09515380859375
+            },
+            {
+              "text": " more.",
+              "start": 1.5,
+              "end": 1.94,
+              "probability": 0.09991455078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "three",
+          "start": 0.62,
+          "end": 1.0
+        },
+        {
+          "raw": "Citizens",
+          "start": 1.0,
+          "end": 1.5
+        },
+        {
+          "raw": "more.",
+          "start": 1.5,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "three",
+        "Citizens",
+        "more."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 0.62,
+          "end": 1.0,
+          "key": "three",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Citizens",
+          "start": 1.0,
+          "end": 1.5,
+          "key": "citizens",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 1.5,
+          "end": 1.94,
+          "key": "more",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "three",
+          "start": 0.62,
+          "end": 1.0
+        },
+        {
+          "text": "Citizens",
+          "start": 1.0,
+          "end": 1.5
+        },
+        {
+          "text": "more.",
+          "start": 1.5,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10409003915265203
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e063b49c8f6f6420d5ecd1ad841c1213d12de7acdc3c921183c7b8e6104d5e1a",
+  "selected_reasons": []
+}

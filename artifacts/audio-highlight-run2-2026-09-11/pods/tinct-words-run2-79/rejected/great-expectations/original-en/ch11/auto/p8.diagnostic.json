@@ -1,0 +1,613 @@
+{
+  "complete": true,
+  "signature": "6ebd7a35f132b7c1bab9e3c0384003740d2ff79e44772c68f9042e9fa6e6e479",
+  "attempts": [
+    {
+      "asr_seconds": 0.2864161101169884,
+      "alignment_seconds": 0.00040611205622553825,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It would be much more commendable to be somebody else's enemy,\" said the gentleman; \"far more natural.\"",
+        "hotwords": "It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It would be much more commendable to be somebody else's enemy,\" said the gentleman,",
+          "start": 0.05,
+          "end": 4.33,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.390869140625
+            },
+            {
+              "text": " would",
+              "start": 0.53,
+              "end": 0.61,
+              "probability": 0.994140625
+            },
+            {
+              "text": " be",
+              "start": 0.61,
+              "end": 0.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " much",
+              "start": 0.75,
+              "end": 0.95,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " more",
+              "start": 0.95,
+              "end": 1.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " commendable",
+              "start": 1.19,
+              "end": 1.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.77,
+              "end": 1.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 1.91,
+              "end": 2.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " somebody",
+              "start": 2.07,
+              "end": 2.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " else's",
+              "start": 2.39,
+              "end": 2.83,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " enemy,\"",
+              "start": 2.83,
+              "end": 3.55,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " said",
+              "start": 3.55,
+              "end": 3.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 3.79,
+              "end": 3.93,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " gentleman,",
+              "start": 3.93,
+              "end": 4.33,
+              "probability": 0.69384765625
+            }
+          ]
+        },
+        {
+          "text": " far more natural.",
+          "start": 4.79,
+          "end": 5.77,
+          "words": [
+            {
+              "text": " far",
+              "start": 4.79,
+              "end": 5.13,
+              "probability": 0.054718017578125
+            },
+            {
+              "text": " more",
+              "start": 5.13,
+              "end": 5.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " natural.",
+              "start": 5.37,
+              "end": 5.77,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "would",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "raw": "be",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "raw": "much",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "raw": "more",
+          "start": 0.95,
+          "end": 1.19
+        },
+        {
+          "raw": "commendable",
+          "start": 1.19,
+          "end": 1.77
+        },
+        {
+          "raw": "to",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "raw": "be",
+          "start": 1.91,
+          "end": 2.07
+        },
+        {
+          "raw": "somebody",
+          "start": 2.07,
+          "end": 2.39
+        },
+        {
+          "raw": "else's",
+          "start": 2.39,
+          "end": 2.83
+        },
+        {
+          "raw": "enemy,\"",
+          "start": 2.83,
+          "end": 3.55
+        },
+        {
+          "raw": "said",
+          "start": 3.55,
+          "end": 3.79
+        },
+        {
+          "raw": "the",
+          "start": 3.79,
+          "end": 3.93
+        },
+        {
+          "raw": "gentleman,",
+          "start": 3.93,
+          "end": 4.33
+        },
+        {
+          "raw": "far",
+          "start": 4.79,
+          "end": 5.13
+        },
+        {
+          "raw": "more",
+          "start": 5.13,
+          "end": 5.37
+        },
+        {
+          "raw": "natural.",
+          "start": 5.37,
+          "end": 5.77
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "would",
+        "be",
+        "much",
+        "more",
+        "commendable",
+        "to",
+        "be",
+        "somebody",
+        "else's",
+        "enemy,\"",
+        "said",
+        "the",
+        "gentleman;",
+        "\"far",
+        "more",
+        "natural.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 0.53,
+          "end": 0.61,
+          "key": "would",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.61,
+          "end": 0.75,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 0.75,
+          "end": 0.95,
+          "key": "much",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 0.95,
+          "end": 1.19,
+          "key": "more",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "commendable",
+          "start": 1.19,
+          "end": 1.77,
+          "key": "commendable",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.77,
+          "end": 1.91,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.91,
+          "end": 2.07,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "somebody",
+          "start": 2.07,
+          "end": 2.39,
+          "key": "somebody",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "else's",
+          "start": 2.39,
+          "end": 2.83,
+          "key": "elses",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "enemy,\"",
+          "start": 2.83,
+          "end": 3.55,
+          "key": "enemy",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.55,
+          "end": 3.79,
+          "key": "said",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.79,
+          "end": 3.93,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "gentleman,",
+          "start": 3.93,
+          "end": 4.33,
+          "key": "gentleman",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 4.79,
+          "end": 5.13,
+          "key": "far",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 5.13,
+          "end": 5.37,
+          "key": "more",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "natural.",
+          "start": 5.37,
+          "end": 5.77,
+          "key": "natural",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "would",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "text": "be",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "text": "much",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "text": "more",
+          "start": 0.95,
+          "end": 1.19
+        },
+        {
+          "text": "commendable",
+          "start": 1.19,
+          "end": 1.77
+        },
+        {
+          "text": "to",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "text": "be",
+          "start": 1.91,
+          "end": 2.07
+        },
+        {
+          "text": "somebody",
+          "start": 2.07,
+          "end": 2.39
+        },
+        {
+          "text": "else's",
+          "start": 2.39,
+          "end": 2.83
+        },
+        {
+          "text": "enemy,\"",
+          "start": 2.83,
+          "end": 3.55
+        },
+        {
+          "text": "said",
+          "start": 3.55,
+          "end": 3.79
+        },
+        {
+          "text": "the",
+          "start": 3.79,
+          "end": 3.93
+        },
+        {
+          "text": "gentleman;",
+          "start": 3.93,
+          "end": 4.33
+        },
+        {
+          "text": "\"far",
+          "start": 4.79,
+          "end": 5.13
+        },
+        {
+          "text": "more",
+          "start": 5.13,
+          "end": 5.37
+        },
+        {
+          "text": "natural.\"",
+          "start": 5.37,
+          "end": 5.77
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28698215540498495
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "71faef7c1985257d9114f2adc152e780bc67f3424ea1f93b120dce360f37c33c",
+  "selected_reasons": []
+}

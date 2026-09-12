@@ -1,0 +1,125 @@
+{
+  "complete": true,
+  "signature": "c498fdf4c5d2fa9b052b6a22729b65217d1968e622a7524a8966935cceb65848",
+  "attempts": [
+    {
+      "asr_seconds": 0.10121321026235819,
+      "alignment_seconds": 9.060557931661606e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Offering money_]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Offering money.",
+          "start": 0.05,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " Offering",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.796142578125
+            },
+            {
+              "text": " money.",
+              "start": 0.77,
+              "end": 1.05,
+              "probability": 0.759765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Offering",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "money.",
+          "start": 0.77,
+          "end": 1.05
+        }
+      ],
+      "expected_tokens": [
+        "[_Offering",
+        "money_]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Offering",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "offering",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "money.",
+          "start": 0.77,
+          "end": 1.05,
+          "key": "money",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Offering",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "money_]",
+          "start": 0.77,
+          "end": 1.05
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10132979601621628
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b62ff0aa7e43bdab0bc8bfbb0b8edcf47516198763316c1a121aa419e6c9464c",
+  "selected_reasons": []
+}

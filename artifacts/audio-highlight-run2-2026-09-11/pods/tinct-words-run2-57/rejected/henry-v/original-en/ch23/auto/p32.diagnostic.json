@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "da81f917dfae7abfd6fb19072e95269a098e36cae8f28877ab4a20fdf8ac8477",
+  "attempts": [
+    {
+      "asr_seconds": 0.17764782113954425,
+      "alignment_seconds": 0.00044286902993917465,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Katharine. I cannot tell wat is dat.",
+        "hotwords": "Katharine, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Katharine, I cannot tell wat is dat.",
+          "start": 0.05,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " Katharine,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.5101165771484375
+            },
+            {
+              "text": " I",
+              "start": 1.25,
+              "end": 1.45,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " cannot",
+              "start": 1.45,
+              "end": 1.57,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " tell",
+              "start": 1.57,
+              "end": 1.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " wat",
+              "start": 1.93,
+              "end": 2.13,
+              "probability": 0.0012865066528320312
+            },
+            {
+              "text": " is",
+              "start": 2.13,
+              "end": 2.31,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " dat.",
+              "start": 2.31,
+              "end": 2.61,
+              "probability": 0.8134765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katharine,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "raw": "cannot",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "raw": "tell",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "raw": "wat",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "raw": "is",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "raw": "dat.",
+          "start": 2.31,
+          "end": 2.61
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "I",
+        "cannot",
+        "tell",
+        "wat",
+        "is",
+        "dat."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katharine,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "katharine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.45,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 1.45,
+          "end": 1.57,
+          "key": "cannot",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 1.57,
+          "end": 1.93,
+          "key": "tell",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wat",
+          "start": 1.93,
+          "end": 2.13,
+          "key": "wat",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.13,
+          "end": 2.31,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dat.",
+          "start": 2.31,
+          "end": 2.61,
+          "key": "dat",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "I",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "cannot",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "text": "tell",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "text": "wat",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "text": "is",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "text": "dat.",
+          "start": 2.31,
+          "end": 2.61
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1782934709917754
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b475ffa853d0b0dea7badc38c2e9bcdc9a62ff2af3967541b122cdb371a1bcc8",
+  "selected_reasons": []
+}

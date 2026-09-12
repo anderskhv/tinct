@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "b30c42493a6c7cd27331673991d01dfe7b46ed01a42e7be199fceb1bd3048152",
+  "attempts": [
+    {
+      "asr_seconds": 0.18900356628000736,
+      "alignment_seconds": 0.0003840383142232895,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Gentleman. You speak him far.",
+        "hotwords": "Second, Gentleman, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second, Gentleman, You Speak Him Far.",
+          "start": 0.08,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Second,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " Gentleman,",
+              "start": 0.9,
+              "end": 1.1,
+              "probability": 0.0162200927734375
+            },
+            {
+              "text": " You",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.16552734375
+            },
+            {
+              "text": " Speak",
+              "start": 1.74,
+              "end": 1.92,
+              "probability": 0.1683349609375
+            },
+            {
+              "text": " Him",
+              "start": 1.92,
+              "end": 2.12,
+              "probability": 0.865234375
+            },
+            {
+              "text": " Far.",
+              "start": 2.12,
+              "end": 2.44,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Gentleman,",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "raw": "You",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "Speak",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "raw": "Him",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "raw": "Far.",
+          "start": 2.12,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Gentleman.",
+        "You",
+        "speak",
+        "him",
+        "far."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gentleman,",
+          "start": 0.9,
+          "end": 1.1,
+          "key": "gentleman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Speak",
+          "start": 1.74,
+          "end": 1.92,
+          "key": "speak",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Him",
+          "start": 1.92,
+          "end": 2.12,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Far.",
+          "start": 2.12,
+          "end": 2.44,
+          "key": "far",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Gentleman.",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "text": "You",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "speak",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "text": "him",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "text": "far.",
+          "start": 2.12,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1895502172410488
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fc5e15d3950553445c7da45428689b67a76707f579d66de5258d8ba807588609",
+  "selected_reasons": []
+}

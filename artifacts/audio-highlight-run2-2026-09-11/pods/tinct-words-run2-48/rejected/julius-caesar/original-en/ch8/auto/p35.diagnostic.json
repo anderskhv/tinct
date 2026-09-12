@@ -1,0 +1,240 @@
+{
+  "complete": true,
+  "signature": "10e507db5a612d1e3a27e200bed5b29c9508b6270a6b409bb20990ab87981015",
+  "attempts": [
+    {
+      "asr_seconds": 0.1897793523967266,
+      "alignment_seconds": 0.00036891084164381027,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cinna. O Caesar,—",
+        "hotwords": "Cinna, O, Caesar"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cinna, O Caesar",
+          "start": 0.11,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " Cinna,",
+              "start": 0.11,
+              "end": 0.81,
+              "probability": 0.5257161458333334
+            },
+            {
+              "text": " O",
+              "start": 0.99,
+              "end": 1.07,
+              "probability": 0.7138671875
+            },
+            {
+              "text": " Caesar",
+              "start": 1.07,
+              "end": 1.35,
+              "probability": 0.71044921875
+            }
+          ]
+        },
+        {
+          "text": " Cinna, O Caesar",
+          "start": 1.35,
+          "end": 1.51,
+          "words": [
+            {
+              "text": " Cinna,",
+              "start": 1.35,
+              "end": 1.35,
+              "probability": 0.0007726351420084635
+            },
+            {
+              "text": " O",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.0009198188781738281
+            },
+            {
+              "text": " Caesar",
+              "start": 1.49,
+              "end": 1.51,
+              "probability": 5.8591365814208984e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cinna,",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "raw": "O",
+          "start": 0.99,
+          "end": 1.07
+        },
+        {
+          "raw": "Caesar",
+          "start": 1.07,
+          "end": 1.35
+        },
+        {
+          "raw": "Cinna,",
+          "start": 1.35,
+          "end": 1.35
+        },
+        {
+          "raw": "O",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "Caesar",
+          "start": 1.49,
+          "end": 1.51
+        }
+      ],
+      "expected_tokens": [
+        "Cinna.",
+        "O",
+        "Caesar,—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cinna,",
+          "start": 0.11,
+          "end": 0.81,
+          "key": "cinna",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 0.99,
+          "end": 1.07,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 1.07,
+          "end": 1.35,
+          "key": "caesar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cinna,",
+          "start": 1.35,
+          "end": 1.35,
+          "key": "cinna",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "o",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 1.49,
+          "end": 1.51,
+          "key": "caesar",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cinna.",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "text": "O",
+          "start": 0.99,
+          "end": 1.07
+        },
+        {
+          "text": "Caesar,—",
+          "start": 1.07,
+          "end": 1.35
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19030846655368805
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6c4c0fea2ecc4c504c8ea5e8c68136137872d505b8e3a0e0298ce14d2a5ce0b9",
+  "selected_reasons": []
+}

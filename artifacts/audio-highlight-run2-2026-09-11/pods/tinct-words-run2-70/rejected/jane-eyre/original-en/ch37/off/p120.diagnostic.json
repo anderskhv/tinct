@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "31d4f123d582295059435be82e82e1a81fcf7fbd3b9d480a603c4ad34b20bb78",
+  "attempts": [
+    {
+      "asr_seconds": 0.19735538214445114,
+      "alignment_seconds": 0.0004657341632992029,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " This scent, John then, is your cousin.",
+          "start": 0.02,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " scent,",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 0.28662109375
+            },
+            {
+              "text": " John",
+              "start": 1.3,
+              "end": 1.38,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " then,",
+              "start": 1.38,
+              "end": 1.56,
+              "probability": 0.64306640625
+            },
+            {
+              "text": " is",
+              "start": 1.66,
+              "end": 1.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 1.74,
+              "end": 1.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " cousin.",
+              "start": 1.88,
+              "end": 2.1,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "scent,",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "raw": "John",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "raw": "then,",
+          "start": 1.38,
+          "end": 1.56
+        },
+        {
+          "raw": "is",
+          "start": 1.66,
+          "end": 1.74
+        },
+        {
+          "raw": "your",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "raw": "cousin.",
+          "start": 1.88,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "\"This",
+        "St.",
+        "John,",
+        "then,",
+        "is",
+        "your",
+        "cousin?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          7,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "scent,",
+          "start": 0.6,
+          "end": 0.88,
+          "key": "scent",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 1.3,
+          "end": 1.38,
+          "key": "john",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 1.38,
+          "end": 1.56,
+          "key": "then",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.66,
+          "end": 1.74,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.74,
+          "end": 1.88,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cousin.",
+          "start": 1.88,
+          "end": 2.1,
+          "key": "cousin",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"This",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "St.",
+          "start": 0.6,
+          "end": 0.95
+        },
+        {
+          "text": "John,",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "text": "then,",
+          "start": 1.38,
+          "end": 1.56
+        },
+        {
+          "text": "is",
+          "start": 1.66,
+          "end": 1.74
+        },
+        {
+          "text": "your",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "text": "cousin?\"",
+          "start": 1.88,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.197977360105142
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "80c3cea88007c800f920d54e4484877f30658724595251674726ee4478abe685",
+  "selected_reasons": []
+}

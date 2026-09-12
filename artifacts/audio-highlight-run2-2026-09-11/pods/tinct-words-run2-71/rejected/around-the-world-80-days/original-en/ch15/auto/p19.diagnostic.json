@@ -1,0 +1,1811 @@
+{
+  "complete": true,
+  "signature": "a2d27b122ade54b6e2fde93e5916da459df482ff7f13605d29b1fc9ac24347b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.59088627807796,
+      "alignment_seconds": 0.0009907269850373268,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mr. Fogg and his two companions took their places on a bench opposite the desks of the magistrate and his clerk. Immediately after, Judge Obadiah, a fat, round man, followed by the clerk, entered. He proceeded to take down a wig which was hanging on a nail, and put it hurriedly on his head.",
+        "hotwords": "Mr, Fogg, Immediately, Judge, Obadiah, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mr. Fogg and his two companions took their places on a bench opposite the desks of the",
+          "start": 0.05,
+          "end": 4.99,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " Fogg",
+              "start": 0.95,
+              "end": 1.03,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " and",
+              "start": 1.03,
+              "end": 1.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " his",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " two",
+              "start": 1.37,
+              "end": 1.61,
+              "probability": 0.984375
+            },
+            {
+              "text": " companions",
+              "start": 1.61,
+              "end": 2.15,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " took",
+              "start": 2.15,
+              "end": 2.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " their",
+              "start": 2.49,
+              "end": 2.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " places",
+              "start": 2.69,
+              "end": 3.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " on",
+              "start": 3.05,
+              "end": 3.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 3.27,
+              "end": 3.39,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " bench",
+              "start": 3.39,
+              "end": 3.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " opposite",
+              "start": 3.67,
+              "end": 3.99,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 3.99,
+              "end": 4.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " desks",
+              "start": 4.31,
+              "end": 4.65,
+              "probability": 0.990234375
+            },
+            {
+              "text": " of",
+              "start": 4.65,
+              "end": 4.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 4.87,
+              "end": 4.99,
+              "probability": 0.9833984375
+            }
+          ]
+        },
+        {
+          "text": " magistrate and his clerk. Immediately after, Judge Obadiah, a fat, round man, followed by",
+          "start": 4.99,
+          "end": 11.73,
+          "words": [
+            {
+              "text": " magistrate",
+              "start": 4.99,
+              "end": 5.43,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " and",
+              "start": 5.43,
+              "end": 5.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " his",
+              "start": 5.79,
+              "end": 5.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " clerk.",
+              "start": 5.95,
+              "end": 6.29,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Immediately",
+              "start": 7.11,
+              "end": 7.31,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " after,",
+              "start": 7.31,
+              "end": 7.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Judge",
+              "start": 8.41,
+              "end": 8.49,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Obadiah,",
+              "start": 8.49,
+              "end": 9.05,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " a",
+              "start": 9.53,
+              "end": 9.63,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " fat,",
+              "start": 9.63,
+              "end": 9.97,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " round",
+              "start": 10.39,
+              "end": 10.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " man,",
+              "start": 10.47,
+              "end": 10.91,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " followed",
+              "start": 11.33,
+              "end": 11.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " by",
+              "start": 11.49,
+              "end": 11.73,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " the clerk, entered. He proceeded to take down a wig which was hanging on a nail, and put",
+          "start": 11.73,
+          "end": 17.17,
+          "words": [
+            {
+              "text": " the",
+              "start": 11.73,
+              "end": 11.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " clerk,",
+              "start": 11.87,
+              "end": 12.17,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " entered.",
+              "start": 12.59,
+              "end": 12.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He",
+              "start": 13.61,
+              "end": 13.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " proceeded",
+              "start": 13.73,
+              "end": 14.03,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " to",
+              "start": 14.03,
+              "end": 14.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " take",
+              "start": 14.31,
+              "end": 14.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " down",
+              "start": 14.47,
+              "end": 14.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 14.75,
+              "end": 14.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wig",
+              "start": 14.89,
+              "end": 15.11,
+              "probability": 0.9921875
+            },
+            {
+              "text": " which",
+              "start": 15.11,
+              "end": 15.35,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " was",
+              "start": 15.35,
+              "end": 15.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hanging",
+              "start": 15.51,
+              "end": 15.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on",
+              "start": 15.83,
+              "end": 16.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 16.05,
+              "end": 16.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " nail,",
+              "start": 16.15,
+              "end": 16.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 16.89,
+              "end": 17.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " put",
+              "start": 17.07,
+              "end": 17.17,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " it hurriedly on his head.",
+          "start": 17.17,
+          "end": 18.43,
+          "words": [
+            {
+              "text": " it",
+              "start": 17.17,
+              "end": 17.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hurriedly",
+              "start": 17.33,
+              "end": 17.85,
+              "probability": 0.999755859375
+            },
+            {
+              "text": " on",
+              "start": 17.85,
+              "end": 18.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 18.01,
+              "end": 18.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " head.",
+              "start": 18.15,
+              "end": 18.43,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Fogg",
+          "start": 0.95,
+          "end": 1.03
+        },
+        {
+          "raw": "and",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "raw": "his",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "two",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "raw": "companions",
+          "start": 1.61,
+          "end": 2.15
+        },
+        {
+          "raw": "took",
+          "start": 2.15,
+          "end": 2.49
+        },
+        {
+          "raw": "their",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "raw": "places",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "raw": "on",
+          "start": 3.05,
+          "end": 3.27
+        },
+        {
+          "raw": "a",
+          "start": 3.27,
+          "end": 3.39
+        },
+        {
+          "raw": "bench",
+          "start": 3.39,
+          "end": 3.67
+        },
+        {
+          "raw": "opposite",
+          "start": 3.67,
+          "end": 3.99
+        },
+        {
+          "raw": "the",
+          "start": 3.99,
+          "end": 4.31
+        },
+        {
+          "raw": "desks",
+          "start": 4.31,
+          "end": 4.65
+        },
+        {
+          "raw": "of",
+          "start": 4.65,
+          "end": 4.87
+        },
+        {
+          "raw": "the",
+          "start": 4.87,
+          "end": 4.99
+        },
+        {
+          "raw": "magistrate",
+          "start": 4.99,
+          "end": 5.43
+        },
+        {
+          "raw": "and",
+          "start": 5.43,
+          "end": 5.79
+        },
+        {
+          "raw": "his",
+          "start": 5.79,
+          "end": 5.95
+        },
+        {
+          "raw": "clerk.",
+          "start": 5.95,
+          "end": 6.29
+        },
+        {
+          "raw": "Immediately",
+          "start": 7.11,
+          "end": 7.31
+        },
+        {
+          "raw": "after,",
+          "start": 7.31,
+          "end": 7.99
+        },
+        {
+          "raw": "Judge",
+          "start": 8.41,
+          "end": 8.49
+        },
+        {
+          "raw": "Obadiah,",
+          "start": 8.49,
+          "end": 9.05
+        },
+        {
+          "raw": "a",
+          "start": 9.53,
+          "end": 9.63
+        },
+        {
+          "raw": "fat,",
+          "start": 9.63,
+          "end": 9.97
+        },
+        {
+          "raw": "round",
+          "start": 10.39,
+          "end": 10.47
+        },
+        {
+          "raw": "man,",
+          "start": 10.47,
+          "end": 10.91
+        },
+        {
+          "raw": "followed",
+          "start": 11.33,
+          "end": 11.49
+        },
+        {
+          "raw": "by",
+          "start": 11.49,
+          "end": 11.73
+        },
+        {
+          "raw": "the",
+          "start": 11.73,
+          "end": 11.87
+        },
+        {
+          "raw": "clerk,",
+          "start": 11.87,
+          "end": 12.17
+        },
+        {
+          "raw": "entered.",
+          "start": 12.59,
+          "end": 12.85
+        },
+        {
+          "raw": "He",
+          "start": 13.61,
+          "end": 13.73
+        },
+        {
+          "raw": "proceeded",
+          "start": 13.73,
+          "end": 14.03
+        },
+        {
+          "raw": "to",
+          "start": 14.03,
+          "end": 14.31
+        },
+        {
+          "raw": "take",
+          "start": 14.31,
+          "end": 14.47
+        },
+        {
+          "raw": "down",
+          "start": 14.47,
+          "end": 14.75
+        },
+        {
+          "raw": "a",
+          "start": 14.75,
+          "end": 14.89
+        },
+        {
+          "raw": "wig",
+          "start": 14.89,
+          "end": 15.11
+        },
+        {
+          "raw": "which",
+          "start": 15.11,
+          "end": 15.35
+        },
+        {
+          "raw": "was",
+          "start": 15.35,
+          "end": 15.51
+        },
+        {
+          "raw": "hanging",
+          "start": 15.51,
+          "end": 15.83
+        },
+        {
+          "raw": "on",
+          "start": 15.83,
+          "end": 16.05
+        },
+        {
+          "raw": "a",
+          "start": 16.05,
+          "end": 16.15
+        },
+        {
+          "raw": "nail,",
+          "start": 16.15,
+          "end": 16.47
+        },
+        {
+          "raw": "and",
+          "start": 16.89,
+          "end": 17.07
+        },
+        {
+          "raw": "put",
+          "start": 17.07,
+          "end": 17.17
+        },
+        {
+          "raw": "it",
+          "start": 17.17,
+          "end": 17.33
+        },
+        {
+          "raw": "hurriedly",
+          "start": 17.33,
+          "end": 17.85
+        },
+        {
+          "raw": "on",
+          "start": 17.85,
+          "end": 18.01
+        },
+        {
+          "raw": "his",
+          "start": 18.01,
+          "end": 18.15
+        },
+        {
+          "raw": "head.",
+          "start": 18.15,
+          "end": 18.43
+        }
+      ],
+      "expected_tokens": [
+        "Mr.",
+        "Fogg",
+        "and",
+        "his",
+        "two",
+        "companions",
+        "took",
+        "their",
+        "places",
+        "on",
+        "a",
+        "bench",
+        "opposite",
+        "the",
+        "desks",
+        "of",
+        "the",
+        "magistrate",
+        "and",
+        "his",
+        "clerk.",
+        "Immediately",
+        "after,",
+        "Judge",
+        "Obadiah,",
+        "a",
+        "fat,",
+        "round",
+        "man,",
+        "followed",
+        "by",
+        "the",
+        "clerk,",
+        "entered.",
+        "He",
+        "proceeded",
+        "to",
+        "take",
+        "down",
+        "a",
+        "wig",
+        "which",
+        "was",
+        "hanging",
+        "on",
+        "a",
+        "nail,",
+        "and",
+        "put",
+        "it",
+        "hurriedly",
+        "on",
+        "his",
+        "head."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          54,
+          0,
+          54
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fogg",
+          "start": 0.95,
+          "end": 1.03,
+          "key": "fogg",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.03,
+          "end": 1.23,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.23,
+          "end": 1.37,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 1.37,
+          "end": 1.61,
+          "key": "two",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "companions",
+          "start": 1.61,
+          "end": 2.15,
+          "key": "companions",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 2.15,
+          "end": 2.49,
+          "key": "took",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.49,
+          "end": 2.69,
+          "key": "their",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "places",
+          "start": 2.69,
+          "end": 3.05,
+          "key": "places",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.05,
+          "end": 3.27,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.27,
+          "end": 3.39,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bench",
+          "start": 3.39,
+          "end": 3.67,
+          "key": "bench",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "opposite",
+          "start": 3.67,
+          "end": 3.99,
+          "key": "opposite",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.99,
+          "end": 4.31,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "desks",
+          "start": 4.31,
+          "end": 4.65,
+          "key": "desks",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.65,
+          "end": 4.87,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.87,
+          "end": 4.99,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "magistrate",
+          "start": 4.99,
+          "end": 5.43,
+          "key": "magistrate",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.43,
+          "end": 5.79,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.79,
+          "end": 5.95,
+          "key": "his",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "clerk.",
+          "start": 5.95,
+          "end": 6.29,
+          "key": "clerk",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Immediately",
+          "start": 7.11,
+          "end": 7.31,
+          "key": "immediately",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "after,",
+          "start": 7.31,
+          "end": 7.99,
+          "key": "after",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Judge",
+          "start": 8.41,
+          "end": 8.49,
+          "key": "judge",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Obadiah,",
+          "start": 8.49,
+          "end": 9.05,
+          "key": "obadiah",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.53,
+          "end": 9.63,
+          "key": "a",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "fat,",
+          "start": 9.63,
+          "end": 9.97,
+          "key": "fat",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 10.39,
+          "end": 10.47,
+          "key": "round",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 10.47,
+          "end": 10.91,
+          "key": "man",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "followed",
+          "start": 11.33,
+          "end": 11.49,
+          "key": "followed",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 11.49,
+          "end": 11.73,
+          "key": "by",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.73,
+          "end": 11.87,
+          "key": "the",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "clerk,",
+          "start": 11.87,
+          "end": 12.17,
+          "key": "clerk",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "entered.",
+          "start": 12.59,
+          "end": 12.85,
+          "key": "entered",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 13.61,
+          "end": 13.73,
+          "key": "he",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "proceeded",
+          "start": 13.73,
+          "end": 14.03,
+          "key": "proceeded",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.03,
+          "end": 14.31,
+          "key": "to",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 14.31,
+          "end": 14.47,
+          "key": "take",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 14.47,
+          "end": 14.75,
+          "key": "down",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 14.75,
+          "end": 14.89,
+          "key": "a",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "wig",
+          "start": 14.89,
+          "end": 15.11,
+          "key": "wig",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 15.11,
+          "end": 15.35,
+          "key": "which",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 15.35,
+          "end": 15.51,
+          "key": "was",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "hanging",
+          "start": 15.51,
+          "end": 15.83,
+          "key": "hanging",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 15.83,
+          "end": 16.05,
+          "key": "on",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.05,
+          "end": 16.15,
+          "key": "a",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "nail,",
+          "start": 16.15,
+          "end": 16.47,
+          "key": "nail",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.89,
+          "end": 17.07,
+          "key": "and",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 17.07,
+          "end": 17.17,
+          "key": "put",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 17.17,
+          "end": 17.33,
+          "key": "it",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "hurriedly",
+          "start": 17.33,
+          "end": 17.85,
+          "key": "hurriedly",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 17.85,
+          "end": 18.01,
+          "key": "on",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 18.01,
+          "end": 18.15,
+          "key": "his",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "head.",
+          "start": 18.15,
+          "end": 18.43,
+          "key": "head",
+          "pieces": [
+            53
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Fogg",
+          "start": 0.95,
+          "end": 1.03
+        },
+        {
+          "text": "and",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "text": "his",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "text": "two",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "text": "companions",
+          "start": 1.61,
+          "end": 2.15
+        },
+        {
+          "text": "took",
+          "start": 2.15,
+          "end": 2.49
+        },
+        {
+          "text": "their",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "text": "places",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "text": "on",
+          "start": 3.05,
+          "end": 3.27
+        },
+        {
+          "text": "a",
+          "start": 3.27,
+          "end": 3.39
+        },
+        {
+          "text": "bench",
+          "start": 3.39,
+          "end": 3.67
+        },
+        {
+          "text": "opposite",
+          "start": 3.67,
+          "end": 3.99
+        },
+        {
+          "text": "the",
+          "start": 3.99,
+          "end": 4.31
+        },
+        {
+          "text": "desks",
+          "start": 4.31,
+          "end": 4.65
+        },
+        {
+          "text": "of",
+          "start": 4.65,
+          "end": 4.87
+        },
+        {
+          "text": "the",
+          "start": 4.87,
+          "end": 4.99
+        },
+        {
+          "text": "magistrate",
+          "start": 4.99,
+          "end": 5.43
+        },
+        {
+          "text": "and",
+          "start": 5.43,
+          "end": 5.79
+        },
+        {
+          "text": "his",
+          "start": 5.79,
+          "end": 5.95
+        },
+        {
+          "text": "clerk.",
+          "start": 5.95,
+          "end": 6.29
+        },
+        {
+          "text": "Immediately",
+          "start": 7.11,
+          "end": 7.31
+        },
+        {
+          "text": "after,",
+          "start": 7.31,
+          "end": 7.99
+        },
+        {
+          "text": "Judge",
+          "start": 8.41,
+          "end": 8.49
+        },
+        {
+          "text": "Obadiah,",
+          "start": 8.49,
+          "end": 9.05
+        },
+        {
+          "text": "a",
+          "start": 9.53,
+          "end": 9.63
+        },
+        {
+          "text": "fat,",
+          "start": 9.63,
+          "end": 9.97
+        },
+        {
+          "text": "round",
+          "start": 10.39,
+          "end": 10.47
+        },
+        {
+          "text": "man,",
+          "start": 10.47,
+          "end": 10.91
+        },
+        {
+          "text": "followed",
+          "start": 11.33,
+          "end": 11.49
+        },
+        {
+          "text": "by",
+          "start": 11.49,
+          "end": 11.73
+        },
+        {
+          "text": "the",
+          "start": 11.73,
+          "end": 11.87
+        },
+        {
+          "text": "clerk,",
+          "start": 11.87,
+          "end": 12.17
+        },
+        {
+          "text": "entered.",
+          "start": 12.59,
+          "end": 12.85
+        },
+        {
+          "text": "He",
+          "start": 13.61,
+          "end": 13.73
+        },
+        {
+          "text": "proceeded",
+          "start": 13.73,
+          "end": 14.03
+        },
+        {
+          "text": "to",
+          "start": 14.03,
+          "end": 14.31
+        },
+        {
+          "text": "take",
+          "start": 14.31,
+          "end": 14.47
+        },
+        {
+          "text": "down",
+          "start": 14.47,
+          "end": 14.75
+        },
+        {
+          "text": "a",
+          "start": 14.75,
+          "end": 14.89
+        },
+        {
+          "text": "wig",
+          "start": 14.89,
+          "end": 15.11
+        },
+        {
+          "text": "which",
+          "start": 15.11,
+          "end": 15.35
+        },
+        {
+          "text": "was",
+          "start": 15.35,
+          "end": 15.51
+        },
+        {
+          "text": "hanging",
+          "start": 15.51,
+          "end": 15.83
+        },
+        {
+          "text": "on",
+          "start": 15.83,
+          "end": 16.05
+        },
+        {
+          "text": "a",
+          "start": 16.05,
+          "end": 16.15
+        },
+        {
+          "text": "nail,",
+          "start": 16.15,
+          "end": 16.47
+        },
+        {
+          "text": "and",
+          "start": 16.89,
+          "end": 17.07
+        },
+        {
+          "text": "put",
+          "start": 17.07,
+          "end": 17.17
+        },
+        {
+          "text": "it",
+          "start": 17.17,
+          "end": 17.33
+        },
+        {
+          "text": "hurriedly",
+          "start": 17.33,
+          "end": 17.85
+        },
+        {
+          "text": "on",
+          "start": 17.85,
+          "end": 18.01
+        },
+        {
+          "text": "his",
+          "start": 18.01,
+          "end": 18.15
+        },
+        {
+          "text": "head.",
+          "start": 18.15,
+          "end": 18.43
+        }
+      ],
+      "stats": {
+        "expected_words": 54,
+        "heard_words": 54,
+        "matched_words": 54
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5923216193914413
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2354085533128bbcdc8f20c4f471758424c140cfbe76e5f75195933cca02ee72",
+  "selected_reasons": []
+}

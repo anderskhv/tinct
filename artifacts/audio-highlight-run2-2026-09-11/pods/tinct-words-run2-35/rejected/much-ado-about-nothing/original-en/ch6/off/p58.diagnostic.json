@@ -1,0 +1,420 @@
+{
+  "complete": true,
+  "signature": "45098fc4fbdd7e5841510d08bee02874a2a6f0b55c784a8edcede249f4f5e7e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.27861079573631287,
+      "alignment_seconds": 0.0004084967076778412,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don Pedro has she made her affection known to Benedict",
+          "start": 0.05,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.60791015625
+            },
+            {
+              "text": " Pedro",
+              "start": 0.65,
+              "end": 1.05,
+              "probability": 0.96484375
+            },
+            {
+              "text": " has",
+              "start": 1.05,
+              "end": 1.69,
+              "probability": 0.3505859375
+            },
+            {
+              "text": " she",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " made",
+              "start": 1.87,
+              "end": 2.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 2.01,
+              "end": 2.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " affection",
+              "start": 2.15,
+              "end": 2.49,
+              "probability": 0.9921875
+            },
+            {
+              "text": " known",
+              "start": 2.49,
+              "end": 2.81,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 2.81,
+              "end": 3.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Benedict",
+              "start": 3.01,
+              "end": 3.33,
+              "probability": 0.8125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Pedro",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "raw": "has",
+          "start": 1.05,
+          "end": 1.69
+        },
+        {
+          "raw": "she",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "made",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "raw": "her",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "raw": "affection",
+          "start": 2.15,
+          "end": 2.49
+        },
+        {
+          "raw": "known",
+          "start": 2.49,
+          "end": 2.81
+        },
+        {
+          "raw": "to",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "raw": "Benedict",
+          "start": 3.01,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "Hath",
+        "she",
+        "made",
+        "her",
+        "affection",
+        "known",
+        "to",
+        "Benedick?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          9,
+          3,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro",
+          "start": 0.65,
+          "end": 1.05,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.05,
+          "end": 1.69,
+          "key": "has",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 1.87,
+          "end": 2.01,
+          "key": "made",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.01,
+          "end": 2.15,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "affection",
+          "start": 2.15,
+          "end": 2.49,
+          "key": "affection",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 2.49,
+          "end": 2.81,
+          "key": "known",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.81,
+          "end": 3.01,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Benedict",
+          "start": 3.01,
+          "end": 3.33,
+          "key": "benedict",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "text": "Hath",
+          "start": 1.05,
+          "end": 1.37
+        },
+        {
+          "text": "she",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "made",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "text": "her",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "text": "affection",
+          "start": 2.15,
+          "end": 2.49
+        },
+        {
+          "text": "known",
+          "start": 2.49,
+          "end": 2.81
+        },
+        {
+          "text": "to",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "text": "Benedick?",
+          "start": 3.01,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.27919952385127544
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9c659504ada362e520e0d8925c5ea9085b62975921a3fa4a9583cf9eaff48a81",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,547 @@
+{
+  "complete": true,
+  "signature": "1a27fc00d7ee7e728287dc1796e8d3f69910b864c6741317b2f7416fdf4718e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.2742721661925316,
+      "alignment_seconds": 0.0006065517663955688,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, a comfortable doctrine and much may be said of it.",
+          "start": 0.05,
+          "end": 3.65,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.88671875
+            },
+            {
+              "text": " a",
+              "start": 1.23,
+              "end": 1.35,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " comfortable",
+              "start": 1.35,
+              "end": 1.71,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " doctrine",
+              "start": 1.71,
+              "end": 2.25,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " and",
+              "start": 2.25,
+              "end": 2.47,
+              "probability": 0.80078125
+            },
+            {
+              "text": " much",
+              "start": 2.47,
+              "end": 2.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " may",
+              "start": 2.67,
+              "end": 2.87,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " be",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " said",
+              "start": 3.03,
+              "end": 3.21,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " of",
+              "start": 3.21,
+              "end": 3.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it.",
+              "start": 3.33,
+              "end": 3.65,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Where lies your text?",
+          "start": 3.87,
+          "end": 4.79,
+          "words": [
+            {
+              "text": " Where",
+              "start": 3.87,
+              "end": 4.05,
+              "probability": 0.984375
+            },
+            {
+              "text": " lies",
+              "start": 4.05,
+              "end": 4.27,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " your",
+              "start": 4.27,
+              "end": 4.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " text?",
+              "start": 4.45,
+              "end": 4.79,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "a",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "raw": "comfortable",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "raw": "doctrine",
+          "start": 1.71,
+          "end": 2.25
+        },
+        {
+          "raw": "and",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "raw": "much",
+          "start": 2.47,
+          "end": 2.67
+        },
+        {
+          "raw": "may",
+          "start": 2.67,
+          "end": 2.87
+        },
+        {
+          "raw": "be",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "said",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "raw": "of",
+          "start": 3.21,
+          "end": 3.33
+        },
+        {
+          "raw": "it.",
+          "start": 3.33,
+          "end": 3.65
+        },
+        {
+          "raw": "Where",
+          "start": 3.87,
+          "end": 4.05
+        },
+        {
+          "raw": "lies",
+          "start": 4.05,
+          "end": 4.27
+        },
+        {
+          "raw": "your",
+          "start": 4.27,
+          "end": 4.45
+        },
+        {
+          "raw": "text?",
+          "start": 4.45,
+          "end": 4.79
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "A",
+        "comfortable",
+        "doctrine,",
+        "and",
+        "much",
+        "may",
+        "be",
+        "said",
+        "of",
+        "it.",
+        "Where",
+        "lies",
+        "your",
+        "text?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.23,
+          "end": 1.35,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "comfortable",
+          "start": 1.35,
+          "end": 1.71,
+          "key": "comfortable",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "doctrine",
+          "start": 1.71,
+          "end": 2.25,
+          "key": "doctrine",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.25,
+          "end": 2.47,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.47,
+          "end": 2.67,
+          "key": "much",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 2.67,
+          "end": 2.87,
+          "key": "may",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.03,
+          "end": 3.21,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.21,
+          "end": 3.33,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 3.33,
+          "end": 3.65,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 3.87,
+          "end": 4.05,
+          "key": "where",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "lies",
+          "start": 4.05,
+          "end": 4.27,
+          "key": "lies",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.27,
+          "end": 4.45,
+          "key": "your",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "text?",
+          "start": 4.45,
+          "end": 4.79,
+          "key": "text",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "A",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "text": "comfortable",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "text": "doctrine,",
+          "start": 1.71,
+          "end": 2.25
+        },
+        {
+          "text": "and",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "text": "much",
+          "start": 2.47,
+          "end": 2.67
+        },
+        {
+          "text": "may",
+          "start": 2.67,
+          "end": 2.87
+        },
+        {
+          "text": "be",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "text": "said",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "text": "of",
+          "start": 3.21,
+          "end": 3.33
+        },
+        {
+          "text": "it.",
+          "start": 3.33,
+          "end": 3.65
+        },
+        {
+          "text": "Where",
+          "start": 3.87,
+          "end": 4.05
+        },
+        {
+          "text": "lies",
+          "start": 4.05,
+          "end": 4.27
+        },
+        {
+          "text": "your",
+          "start": 4.27,
+          "end": 4.45
+        },
+        {
+          "text": "text?",
+          "start": 4.45,
+          "end": 4.79
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27514827623963356
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8cde2cb7c864eed28cc66c8c72d512f0ce5ae2a03eb8d41e93dda86ba8416337",
+  "selected_reasons": []
+}

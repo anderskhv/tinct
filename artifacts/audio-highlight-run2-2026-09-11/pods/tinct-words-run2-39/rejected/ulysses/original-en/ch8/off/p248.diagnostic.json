@@ -1,0 +1,260 @@
+{
+  "complete": true,
+  "signature": "95847bba3ca13ba3c7ffb203dbfbe14d8c3c294b679b511dba45f6b210989ba3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1162187629379332,
+      "alignment_seconds": 0.00024720304645597935,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That's so, Davey Byan said.",
+          "start": 0.24,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.24,
+              "end": 0.74,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " so,",
+              "start": 0.74,
+              "end": 0.94,
+              "probability": 0.9609375
+            },
+            {
+              "text": " Davey",
+              "start": 1.24,
+              "end": 1.48,
+              "probability": 0.70166015625
+            },
+            {
+              "text": " Byan",
+              "start": 1.48,
+              "end": 1.8,
+              "probability": 0.483642578125
+            },
+            {
+              "text": " said.",
+              "start": 1.8,
+              "end": 2.04,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.24,
+          "end": 0.74
+        },
+        {
+          "raw": "so,",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "raw": "Davey",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "raw": "Byan",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "raw": "said.",
+          "start": 1.8,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "—That",
+        "so?",
+        "Davy",
+        "Byrne",
+        "said..."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.24,
+          "end": 0.74,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 0.74,
+          "end": 0.94,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Davey",
+          "start": 1.24,
+          "end": 1.48,
+          "key": "davey",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Byan",
+          "start": 1.48,
+          "end": 1.8,
+          "key": "byan",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.8,
+          "end": 2.04,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—That",
+          "start": 0.0,
+          "end": 0.37
+        },
+        {
+          "text": "so?",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "text": "Davy",
+          "start": 0.94,
+          "end": 1.37
+        },
+        {
+          "text": "Byrne",
+          "start": 1.37,
+          "end": 1.585
+        },
+        {
+          "text": "said...",
+          "start": 1.8,
+          "end": 2.04
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11654051905497909
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0af0568bb5747803bf894685bcae4bec6f83629fd2cde9e5923de7cfaf9eb066",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

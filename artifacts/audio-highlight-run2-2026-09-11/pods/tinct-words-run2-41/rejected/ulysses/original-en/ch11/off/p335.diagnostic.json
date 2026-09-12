@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "4ab179baa91dc1773d3bd98ddce2fb41589740da8a8f96ebae1cb79a3bc80bb4",
+  "attempts": [
+    {
+      "asr_seconds": 0.2405793578363955,
+      "alignment_seconds": 0.00048042694106698036,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bloom with Gooding, Married in Silence, 8.",
+          "start": 0.05,
+          "end": 2.71,
+          "words": [
+            {
+              "text": " Bloom",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.958984375
+            },
+            {
+              "text": " with",
+              "start": 0.63,
+              "end": 0.85,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " Gooding,",
+              "start": 0.85,
+              "end": 1.25,
+              "probability": 0.843017578125
+            },
+            {
+              "text": " Married",
+              "start": 1.61,
+              "end": 1.67,
+              "probability": 0.5771484375
+            },
+            {
+              "text": " in",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Silence,",
+              "start": 1.91,
+              "end": 2.21,
+              "probability": 0.97265625
+            },
+            {
+              "text": " 8.",
+              "start": 2.21,
+              "end": 2.71,
+              "probability": 0.81640625
+            }
+          ]
+        },
+        {
+          "text": " Dinners Fit for Princes.",
+          "start": 3.27,
+          "end": 4.23,
+          "words": [
+            {
+              "text": " Dinners",
+              "start": 3.27,
+              "end": 3.47,
+              "probability": 0.800048828125
+            },
+            {
+              "text": " Fit",
+              "start": 3.47,
+              "end": 3.63,
+              "probability": 0.751953125
+            },
+            {
+              "text": " for",
+              "start": 3.63,
+              "end": 3.81,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Princes.",
+              "start": 3.81,
+              "end": 4.23,
+              "probability": 0.977783203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bloom",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "with",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "raw": "Gooding,",
+          "start": 0.85,
+          "end": 1.25
+        },
+        {
+          "raw": "Married",
+          "start": 1.61,
+          "end": 1.67
+        },
+        {
+          "raw": "in",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "raw": "Silence,",
+          "start": 1.91,
+          "end": 2.21
+        },
+        {
+          "raw": "8.",
+          "start": 2.21,
+          "end": 2.71
+        },
+        {
+          "raw": "Dinners",
+          "start": 3.27,
+          "end": 3.47
+        },
+        {
+          "raw": "Fit",
+          "start": 3.47,
+          "end": 3.63
+        },
+        {
+          "raw": "for",
+          "start": 3.63,
+          "end": 3.81
+        },
+        {
+          "raw": "Princes.",
+          "start": 3.81,
+          "end": 4.23
+        }
+      ],
+      "expected_tokens": [
+        "Bloom",
+        "with",
+        "Goulding,",
+        "married",
+        "in",
+        "silence,",
+        "ate.",
+        "Dinners",
+        "fit",
+        "for",
+        "princes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          11,
+          7,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bloom",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "bloom",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.63,
+          "end": 0.85,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Gooding,",
+          "start": 0.85,
+          "end": 1.25,
+          "key": "gooding",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Married",
+          "start": 1.61,
+          "end": 1.67,
+          "key": "married",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.67,
+          "end": 1.91,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Silence,",
+          "start": 1.91,
+          "end": 2.21,
+          "key": "silence",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "8.",
+          "start": 2.21,
+          "end": 2.71,
+          "key": "eight",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Dinners",
+          "start": 3.27,
+          "end": 3.47,
+          "key": "dinners",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Fit",
+          "start": 3.47,
+          "end": 3.63,
+          "key": "fit",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.63,
+          "end": 3.81,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Princes.",
+          "start": 3.81,
+          "end": 4.23,
+          "key": "princes",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bloom",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "with",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "text": "Goulding,",
+          "start": 0.85,
+          "end": 1.23
+        },
+        {
+          "text": "married",
+          "start": 1.61,
+          "end": 1.67
+        },
+        {
+          "text": "in",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "text": "silence,",
+          "start": 1.91,
+          "end": 2.21
+        },
+        {
+          "text": "ate.",
+          "start": 2.21,
+          "end": 2.74
+        },
+        {
+          "text": "Dinners",
+          "start": 3.27,
+          "end": 3.47
+        },
+        {
+          "text": "fit",
+          "start": 3.47,
+          "end": 3.63
+        },
+        {
+          "text": "for",
+          "start": 3.63,
+          "end": 3.81
+        },
+        {
+          "text": "princes.",
+          "start": 3.81,
+          "end": 4.23
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24122984614223242
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cf3567b731a2ed8b4e72e87eef998630682b4a3f5f3590c111e214757d16da58",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

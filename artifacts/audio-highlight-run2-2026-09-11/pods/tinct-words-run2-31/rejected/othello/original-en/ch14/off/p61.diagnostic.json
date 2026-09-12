@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "7b85a593f94b25b2cd2d1ab4060fe162b0d73e85562adbdb0c7b038513ddefce",
+  "attempts": [
+    {
+      "asr_seconds": 0.11276017595082521,
+      "alignment_seconds": 0.0001677977852523327,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Bianca.",
+          "start": 0.05,
+          "end": 1.23,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " Bianca.",
+              "start": 0.69,
+              "end": 1.23,
+              "probability": 0.974365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Bianca.",
+          "start": 0.69,
+          "end": 1.23
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Bianca.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bianca.",
+          "start": 0.69,
+          "end": 1.23,
+          "key": "bianca",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Bianca.]",
+          "start": 0.69,
+          "end": 1.23
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11298220418393612
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e087fa861147ff95368630296e45b063a5306f242500a2bba7ef43a4d00c8759",
+  "selected_reasons": []
+}

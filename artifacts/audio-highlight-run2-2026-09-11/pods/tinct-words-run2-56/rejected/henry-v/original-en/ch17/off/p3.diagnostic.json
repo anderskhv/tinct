@@ -1,0 +1,514 @@
+{
+  "complete": true,
+  "signature": "0fcfad140c0211dfd2514dc6a8a0709ac5455ce1b9a201bccca76a1dd19249eb",
+  "attempts": [
+    {
+      "asr_seconds": 0.2934249611571431,
+      "alignment_seconds": 0.0006646858528256416,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pistol, qualite, callino custormi, art thou a gentleman, what is thy name, discuss.",
+          "start": 0.02,
+          "end": 5.42,
+          "words": [
+            {
+              "text": " Pistol,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.20947265625
+            },
+            {
+              "text": " qualite,",
+              "start": 1.06,
+              "end": 1.36,
+              "probability": 0.414306640625
+            },
+            {
+              "text": " callino",
+              "start": 1.86,
+              "end": 2.14,
+              "probability": 0.39678955078125
+            },
+            {
+              "text": " custormi,",
+              "start": 2.14,
+              "end": 2.82,
+              "probability": 0.6216227213541666
+            },
+            {
+              "text": " art",
+              "start": 3.1,
+              "end": 3.2,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " thou",
+              "start": 3.2,
+              "end": 3.38,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " a",
+              "start": 3.38,
+              "end": 3.5,
+              "probability": 0.990234375
+            },
+            {
+              "text": " gentleman,",
+              "start": 3.5,
+              "end": 3.84,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " what",
+              "start": 4.22,
+              "end": 4.32,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " is",
+              "start": 4.32,
+              "end": 4.44,
+              "probability": 0.986328125
+            },
+            {
+              "text": " thy",
+              "start": 4.44,
+              "end": 4.6,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " name,",
+              "start": 4.6,
+              "end": 4.94,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " discuss.",
+              "start": 5.14,
+              "end": 5.42,
+              "probability": 0.96484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pistol,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "qualite,",
+          "start": 1.06,
+          "end": 1.36
+        },
+        {
+          "raw": "callino",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "raw": "custormi,",
+          "start": 2.14,
+          "end": 2.82
+        },
+        {
+          "raw": "art",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "raw": "thou",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "raw": "a",
+          "start": 3.38,
+          "end": 3.5
+        },
+        {
+          "raw": "gentleman,",
+          "start": 3.5,
+          "end": 3.84
+        },
+        {
+          "raw": "what",
+          "start": 4.22,
+          "end": 4.32
+        },
+        {
+          "raw": "is",
+          "start": 4.32,
+          "end": 4.44
+        },
+        {
+          "raw": "thy",
+          "start": 4.44,
+          "end": 4.6
+        },
+        {
+          "raw": "name,",
+          "start": 4.6,
+          "end": 4.94
+        },
+        {
+          "raw": "discuss.",
+          "start": 5.14,
+          "end": 5.42
+        }
+      ],
+      "expected_tokens": [
+        "Pistol.",
+        "_Qualité?",
+        "Caleno",
+        "custore",
+        "me!_",
+        "Art",
+        "thou",
+        "a",
+        "gentleman?",
+        "What",
+        "is",
+        "thy",
+        "name?",
+        "Discuss."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          5,
+          1,
+          4
+        ],
+        [
+          "equal",
+          5,
+          14,
+          4,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          5,
+          1,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pistol,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "pistol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "qualite,",
+          "start": 1.06,
+          "end": 1.36,
+          "key": "qualite",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "callino",
+          "start": 1.86,
+          "end": 2.14,
+          "key": "callino",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "custormi,",
+          "start": 2.14,
+          "end": 2.82,
+          "key": "custormi",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 3.1,
+          "end": 3.2,
+          "key": "art",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.2,
+          "end": 3.38,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.38,
+          "end": 3.5,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gentleman,",
+          "start": 3.5,
+          "end": 3.84,
+          "key": "gentleman",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 4.22,
+          "end": 4.32,
+          "key": "what",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.32,
+          "end": 4.44,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 4.44,
+          "end": 4.6,
+          "key": "thy",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "name,",
+          "start": 4.6,
+          "end": 4.94,
+          "key": "name",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "discuss.",
+          "start": 5.14,
+          "end": 5.42,
+          "key": "discuss",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pistol.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "_Qualité?",
+          "start": 0.72,
+          "end": 1.91
+        },
+        {
+          "text": "Caleno",
+          "start": 1.91,
+          "end": 2.505
+        },
+        {
+          "text": "custore",
+          "start": 2.505,
+          "end": 2.803
+        },
+        {
+          "text": "me!_",
+          "start": 2.803,
+          "end": 2.952
+        },
+        {
+          "text": "Art",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "text": "thou",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "text": "a",
+          "start": 3.38,
+          "end": 3.5
+        },
+        {
+          "text": "gentleman?",
+          "start": 3.5,
+          "end": 3.84
+        },
+        {
+          "text": "What",
+          "start": 4.22,
+          "end": 4.32
+        },
+        {
+          "text": "is",
+          "start": 4.32,
+          "end": 4.44
+        },
+        {
+          "text": "thy",
+          "start": 4.44,
+          "end": 4.6
+        },
+        {
+          "text": "name?",
+          "start": 4.6,
+          "end": 4.94
+        },
+        {
+          "text": "Discuss.",
+          "start": 5.14,
+          "end": 5.42
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.29432327952235937
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "71fd35563ec7a488b8a1ba121636e6ef87e24d7831d290488454cf6297259ecf",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

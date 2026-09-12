@@ -1,0 +1,232 @@
+{
+  "complete": true,
+  "signature": "666d1220826d046e1e284023e10b81cea1818168ee02ea4b2202c5492705a592",
+  "attempts": [
+    {
+      "asr_seconds": 0.20188555167987943,
+      "alignment_seconds": 0.0003230096772313118,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"My master!\" gasped Passepartout—\"marriage—impossible—\"",
+        "hotwords": "My, Passepartout—\"marriage—impossible"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " My master!\" gasped Passepartout—\"marriage—impossible.\"",
+          "start": 0.05,
+          "end": 4.25,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.52587890625
+            },
+            {
+              "text": " master",
+              "start": 0.55,
+              "end": 1.03,
+              "probability": 0.94189453125
+            },
+            {
+              "text": "!\"",
+              "start": 1.03,
+              "end": 1.67,
+              "probability": 0.0023174285888671875
+            },
+            {
+              "text": " gasped",
+              "start": 1.67,
+              "end": 1.67,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " Passepartout—\"marriage—impossible.\"",
+              "start": 1.67,
+              "end": 4.25,
+              "probability": 0.4626991391181946
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "master",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "raw": "!\"",
+          "start": 1.03,
+          "end": 1.67
+        },
+        {
+          "raw": "gasped",
+          "start": 1.67,
+          "end": 1.67
+        },
+        {
+          "raw": "Passepartout—\"marriage—impossible.\"",
+          "start": 1.67,
+          "end": 4.25
+        }
+      ],
+      "expected_tokens": [
+        "\"My",
+        "master!\"",
+        "gasped",
+        "Passepartout—\"marriage—impossible—\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          "equal",
+          2,
+          4,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 0.55,
+          "end": 1.03,
+          "key": "master",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.03,
+          "end": 1.67,
+          "key": "",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gasped",
+          "start": 1.67,
+          "end": 1.67,
+          "key": "gasped",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Passepartout—\"marriage—impossible.\"",
+          "start": 1.67,
+          "end": 4.25,
+          "key": "passepartoutmarriageimpossible",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"My",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "master!\"",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "text": "gasped",
+          "start": 1.67,
+          "end": 1.67
+        },
+        {
+          "text": "Passepartout—\"marriage—impossible—\"",
+          "start": 1.67,
+          "end": 4.25
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2023485559038818
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "de54446ff0a1b1d177c4efdb67d59e37ac4b126e449cfbb37fcdac4f3e9beef0",
+  "selected_reasons": []
+}

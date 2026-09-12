@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "aef1c41ce58454db651c10ca24c7176de49561b82b1ed39697c7dbb90a8e99ea",
+  "attempts": [
+    {
+      "asr_seconds": 0.12583294697105885,
+      "alignment_seconds": 0.00011798366904258728,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Why, Hellgum and Anna Lisa. They marched themselves down to Clementsson's in the night and kidnapped Gunhild.\"",
+        "hotwords": "Why, Hellgum, Anna, Lisa, They, Clementsson's, Gunhild"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why, Hellgum and Anna Lisa. They marched themselves down to Clementsson's in the night and kidnapped Gunhild.",
+          "start": 0.02,
+          "end": 6.44,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.75732421875
+            },
+            {
+              "text": " Hellgum",
+              "start": 1.18,
+              "end": 1.38,
+              "probability": 0.5487518310546875
+            },
+            {
+              "text": " and",
+              "start": 1.38,
+              "end": 1.6,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " Anna",
+              "start": 1.6,
+              "end": 1.9,
+              "probability": 0.408447265625
+            },
+            {
+              "text": " Lisa.",
+              "start": 1.9,
+              "end": 2.14,
+              "probability": 0.53173828125
+            },
+            {
+              "text": " They",
+              "start": 2.8,
+              "end": 2.96,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " marched",
+              "start": 2.96,
+              "end": 3.22,
+              "probability": 0.927734375
+            },
+            {
+              "text": " themselves",
+              "start": 3.22,
+              "end": 3.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " down",
+              "start": 3.62,
+              "end": 3.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 3.98,
+              "end": 4.16,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Clementsson's",
+              "start": 4.16,
+              "end": 4.76,
+              "probability": 0.3340269724527995
+            },
+            {
+              "text": " in",
+              "start": 4.76,
+              "end": 4.84,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 4.84,
+              "end": 4.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " night",
+              "start": 4.92,
+              "end": 5.16,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 5.16,
+              "end": 5.46,
+              "probability": 0.828125
+            },
+            {
+              "text": " kidnapped",
+              "start": 5.46,
+              "end": 5.84,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Gunhild.",
+              "start": 5.84,
+              "end": 6.44,
+              "probability": 0.6039225260416666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Hellgum",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "raw": "and",
+          "start": 1.38,
+          "end": 1.6
+        },
+        {
+          "raw": "Anna",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "raw": "Lisa.",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "raw": "They",
+          "start": 2.8,
+          "end": 2.96
+        },
+        {
+          "raw": "marched",
+          "start": 2.96,
+          "end": 3.22
+        },
+        {
+          "raw": "themselves",
+          "start": 3.22,
+          "end": 3.62
+        },
+        {
+          "raw": "down",
+          "start": 3.62,
+          "end": 3.98
+        },
+        {
+          "raw": "to",
+          "start": 3.98,
+          "end": 4.16
+        },
+        {
+          "raw": "Clementsson's",
+          "start": 4.16,
+          "end": 4.76
+        },
+        {
+          "raw": "in",
+          "start": 4.76,
+          "end": 4.84
+        },
+        {
+          "raw": "the",
+          "start": 4.84,
+          "end": 4.92
+        },
+        {
+          "raw": "night",
+          "start": 4.92,
+          "end": 5.16
+        },
+        {
+          "raw": "and",
+          "start": 5.16,
+          "end": 5.46
+        },
+        {
+          "raw": "kidnapped",
+          "start": 5.46,
+          "end": 5.84
+        },
+        {
+          "raw": "Gunhild.",
+          "start": 5.84,
+          "end": 6.44
+        }
+      ],
+      "expected_tokens": [
+        "\"Why,",
+        "Hellgum",
+        "and",
+        "Anna",
+        "Lisa.",
+        "They",
+        "marched",
+        "themselves",
+        "down",
+        "to",
+        "Clementsson's",
+        "in",
+        "the",
+        "night",
+        "and",
+        "kidnapped",
+        "Gunhild.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hellgum",
+          "start": 1.18,
+          "end": 1.38,
+          "key": "hellgum",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.38,
+          "end": 1.6,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Anna",
+          "start": 1.6,
+          "end": 1.9,
+          "key": "anna",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lisa.",
+          "start": 1.9,
+          "end": 2.14,
+          "key": "lisa",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 2.8,
+          "end": 2.96,
+          "key": "they",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "marched",
+          "start": 2.96,
+          "end": 3.22,
+          "key": "marched",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "themselves",
+          "start": 3.22,
+          "end": 3.62,
+          "key": "themselves",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 3.62,
+          "end": 3.98,
+          "key": "down",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.98,
+          "end": 4.16,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Clementsson's",
+          "start": 4.16,
+          "end": 4.76,
+          "key": "clementssons",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.76,
+          "end": 4.84,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.84,
+          "end": 4.92,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 4.92,
+          "end": 5.16,
+          "key": "night",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.16,
+          "end": 5.46,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "kidnapped",
+          "start": 5.46,
+          "end": 5.84,
+          "key": "kidnapped",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Gunhild.",
+          "start": 5.84,
+          "end": 6.44,
+          "key": "gunhild",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Hellgum",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "text": "and",
+          "start": 1.38,
+          "end": 1.6
+        },
+        {
+          "text": "Anna",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "text": "Lisa.",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "text": "They",
+          "start": 2.8,
+          "end": 2.96
+        },
+        {
+          "text": "marched",
+          "start": 2.96,
+          "end": 3.22
+        },
+        {
+          "text": "themselves",
+          "start": 3.22,
+          "end": 3.62
+        },
+        {
+          "text": "down",
+          "start": 3.62,
+          "end": 3.98
+        },
+        {
+          "text": "to",
+          "start": 3.98,
+          "end": 4.16
+        },
+        {
+          "text": "Clementsson's",
+          "start": 4.16,
+          "end": 4.76
+        },
+        {
+          "text": "in",
+          "start": 4.76,
+          "end": 4.84
+        },
+        {
+          "text": "the",
+          "start": 4.84,
+          "end": 4.92
+        },
+        {
+          "text": "night",
+          "start": 4.92,
+          "end": 5.16
+        },
+        {
+          "text": "and",
+          "start": 5.16,
+          "end": 5.46
+        },
+        {
+          "text": "kidnapped",
+          "start": 5.46,
+          "end": 5.84
+        },
+        {
+          "text": "Gunhild.\"",
+          "start": 5.84,
+          "end": 6.44
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12599769607186317
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3e4e94b13ea6a08a77ddc8333e33e3a8bb8b9c139a965ec2afe7d0bc39cb63d8",
+  "selected_reasons": []
+}

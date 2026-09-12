@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "a74f908cd348e960ef2350a8a040a648e19cb5105c00a70d629fa7906a9edbea",
+  "attempts": [
+    {
+      "asr_seconds": 0.08449728199047968,
+      "alignment_seconds": 0.00012571999104693532,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Imprompto.",
+          "start": 0.02,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " Imprompto.",
+              "start": 0.02,
+              "end": 1.08,
+              "probability": 0.69708251953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imprompto.",
+          "start": 0.02,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "Impromptu"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imprompto.",
+          "start": 0.02,
+          "end": 1.08,
+          "key": "imprompto",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Impromptu",
+          "start": 0.0,
+          "end": 0.54
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08465459296712652
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "523fbfe20d0cda79ed9e7ceb3e2f8ccdbcbf9ebf82b69da27e3146ece8d12161",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,358 @@
+{
+  "complete": true,
+  "signature": "81bc84941ea5368c2e6d0fbd3616b06a13e2748c109e61587c6ff462646d9bf5",
+  "attempts": [
+    {
+      "asr_seconds": 0.2028749929741025,
+      "alignment_seconds": 0.0005181848537176847,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, I am glad, I am glad, I exclaimed.",
+          "start": 0.02,
+          "end": 2.84,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.19970703125
+            },
+            {
+              "text": " I",
+              "start": 0.6,
+              "end": 0.68,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " am",
+              "start": 0.68,
+              "end": 0.8,
+              "probability": 0.96875
+            },
+            {
+              "text": " glad,",
+              "start": 0.8,
+              "end": 1.12,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 1.52,
+              "end": 1.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " am",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " glad,",
+              "start": 1.64,
+              "end": 2.0,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 2.3,
+              "end": 2.4,
+              "probability": 0.994140625
+            },
+            {
+              "text": " exclaimed.",
+              "start": 2.4,
+              "end": 2.84,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "I",
+          "start": 0.6,
+          "end": 0.68
+        },
+        {
+          "raw": "am",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "raw": "glad,",
+          "start": 0.8,
+          "end": 1.12
+        },
+        {
+          "raw": "I",
+          "start": 1.52,
+          "end": 1.54
+        },
+        {
+          "raw": "am",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "glad,",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "raw": "I",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "raw": "exclaimed.",
+          "start": 2.4,
+          "end": 2.84
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "I",
+        "am",
+        "glad!—I",
+        "am",
+        "glad!\"",
+        "I",
+        "exclaimed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          8,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.6,
+          "end": 0.68,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.68,
+          "end": 0.8,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "glad,",
+          "start": 0.8,
+          "end": 1.12,
+          "key": "glad",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.52,
+          "end": 1.54,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.54,
+          "end": 1.64,
+          "key": "am",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "glad,",
+          "start": 1.64,
+          "end": 2.0,
+          "key": "glad",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.3,
+          "end": 2.4,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "exclaimed.",
+          "start": 2.4,
+          "end": 2.84,
+          "key": "exclaimed",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "I",
+          "start": 0.6,
+          "end": 0.68
+        },
+        {
+          "text": "am",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "text": "glad!—I",
+          "start": 0.8,
+          "end": 1.17
+        },
+        {
+          "text": "am",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "glad!\"",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "text": "I",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "text": "exclaimed.",
+          "start": 2.4,
+          "end": 2.84
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.20359056279994547
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8f0d656b86a78840cda89af7fd1e3e570dd75ed36e80bb8d1fe50ab63f78b698",
+  "selected_reasons": []
+}

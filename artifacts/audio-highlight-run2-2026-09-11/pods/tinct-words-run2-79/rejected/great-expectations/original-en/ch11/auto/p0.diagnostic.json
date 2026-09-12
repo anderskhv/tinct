@@ -1,0 +1,2780 @@
+{
+  "complete": true,
+  "signature": "b974a8791028bb74824ce619af26465b50ca6141f6604962461ab68b0bafbd71",
+  "attempts": [
+    {
+      "asr_seconds": 0.7482050652615726,
+      "alignment_seconds": 0.002326443325728178,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "At the appointed time I returned to Miss Havisham's, and my hesitating ring at the gate brought out Estella. She locked it after admitting me, as she had done before, and again preceded me into the dark passage where her candle stood. She took no notice of me until she had the candle in her hand, when she looked over her shoulder, superciliously saying, \"You are to come this way to-day,\" and took me to quite another part of the house.",
+        "hotwords": "I, Miss, Havisham's, Estella, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I, Miss, Havisham's, You At the appointed time I returned to Miss Havisham's, and my hesitating ring at the gate brought out Estella. She locked it after admitting me, as she had done before, and again preceded me into the dark passage where her candle stood. She took no notice of me until she had the candle in her hand, when she looked over her shoulder, superciliously saying,",
+          "start": 0.11,
+          "end": 20.13,
+          "words": [
+            {
+              "text": " I,",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.001247406005859375
+            },
+            {
+              "text": " Miss,",
+              "start": 0.53,
+              "end": 0.53,
+              "probability": 0.0026264190673828125
+            },
+            {
+              "text": " Havisham's,",
+              "start": 0.53,
+              "end": 0.53,
+              "probability": 0.48903287947177887
+            },
+            {
+              "text": " You",
+              "start": 0.53,
+              "end": 0.53,
+              "probability": 3.170967102050781e-05
+            },
+            {
+              "text": " At",
+              "start": 0.53,
+              "end": 0.53,
+              "probability": 7.68899917602539e-06
+            },
+            {
+              "text": " the",
+              "start": 0.53,
+              "end": 0.59,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " appointed",
+              "start": 0.59,
+              "end": 0.93,
+              "probability": 0.58447265625
+            },
+            {
+              "text": " time",
+              "start": 0.93,
+              "end": 1.37,
+              "probability": 0.986328125
+            },
+            {
+              "text": " I",
+              "start": 1.37,
+              "end": 1.61,
+              "probability": 0.3994140625
+            },
+            {
+              "text": " returned",
+              "start": 1.61,
+              "end": 1.95,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " to",
+              "start": 1.95,
+              "end": 2.13,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " Miss",
+              "start": 2.13,
+              "end": 2.31,
+              "probability": 0.943359375
+            },
+            {
+              "text": " Havisham's,",
+              "start": 2.31,
+              "end": 3.33,
+              "probability": 0.8546142578125
+            },
+            {
+              "text": " and",
+              "start": 3.33,
+              "end": 3.49,
+              "probability": 0.42236328125
+            },
+            {
+              "text": " my",
+              "start": 3.49,
+              "end": 4.15,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " hesitating",
+              "start": 4.15,
+              "end": 4.65,
+              "probability": 0.946533203125
+            },
+            {
+              "text": " ring",
+              "start": 4.65,
+              "end": 4.95,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " at",
+              "start": 4.95,
+              "end": 5.09,
+              "probability": 0.974609375
+            },
+            {
+              "text": " the",
+              "start": 5.09,
+              "end": 5.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " gate",
+              "start": 5.19,
+              "end": 5.41,
+              "probability": 0.98828125
+            },
+            {
+              "text": " brought",
+              "start": 5.41,
+              "end": 5.65,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " out",
+              "start": 5.65,
+              "end": 5.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Estella.",
+              "start": 5.83,
+              "end": 6.21,
+              "probability": 0.773681640625
+            },
+            {
+              "text": " She",
+              "start": 7.09,
+              "end": 7.15,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " locked",
+              "start": 7.15,
+              "end": 7.39,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " it",
+              "start": 7.39,
+              "end": 7.61,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " after",
+              "start": 7.61,
+              "end": 7.85,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " admitting",
+              "start": 7.85,
+              "end": 8.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " me,",
+              "start": 8.15,
+              "end": 8.51,
+              "probability": 0.9921875
+            },
+            {
+              "text": " as",
+              "start": 8.75,
+              "end": 8.85,
+              "probability": 0.98828125
+            },
+            {
+              "text": " she",
+              "start": 8.85,
+              "end": 8.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " had",
+              "start": 8.99,
+              "end": 9.09,
+              "probability": 0.982421875
+            },
+            {
+              "text": " done",
+              "start": 9.09,
+              "end": 9.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " before,",
+              "start": 9.25,
+              "end": 9.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 10.15,
+              "end": 10.23,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " again",
+              "start": 10.23,
+              "end": 10.53,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " preceded",
+              "start": 10.53,
+              "end": 10.93,
+              "probability": 0.5810546875
+            },
+            {
+              "text": " me",
+              "start": 10.93,
+              "end": 11.25,
+              "probability": 0.994140625
+            },
+            {
+              "text": " into",
+              "start": 11.25,
+              "end": 11.41,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 11.41,
+              "end": 11.57,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " dark",
+              "start": 11.57,
+              "end": 11.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " passage",
+              "start": 11.83,
+              "end": 12.29,
+              "probability": 0.99609375
+            },
+            {
+              "text": " where",
+              "start": 12.29,
+              "end": 12.53,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " her",
+              "start": 12.53,
+              "end": 12.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " candle",
+              "start": 12.69,
+              "end": 12.99,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " stood.",
+              "start": 12.99,
+              "end": 13.37,
+              "probability": 0.9921875
+            },
+            {
+              "text": " She",
+              "start": 14.13,
+              "end": 14.33,
+              "probability": 0.994140625
+            },
+            {
+              "text": " took",
+              "start": 14.33,
+              "end": 14.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " no",
+              "start": 14.47,
+              "end": 14.67,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " notice",
+              "start": 14.67,
+              "end": 14.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 14.97,
+              "end": 15.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me",
+              "start": 15.13,
+              "end": 15.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " until",
+              "start": 15.27,
+              "end": 15.47,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " she",
+              "start": 15.47,
+              "end": 15.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " had",
+              "start": 15.67,
+              "end": 15.81,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 15.81,
+              "end": 15.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " candle",
+              "start": 15.97,
+              "end": 16.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 16.27,
+              "end": 16.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " her",
+              "start": 16.43,
+              "end": 16.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hand,",
+              "start": 16.55,
+              "end": 16.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " when",
+              "start": 17.31,
+              "end": 17.41,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " she",
+              "start": 17.41,
+              "end": 17.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " looked",
+              "start": 17.59,
+              "end": 17.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " over",
+              "start": 17.75,
+              "end": 17.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her",
+              "start": 17.99,
+              "end": 18.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " shoulder,",
+              "start": 18.19,
+              "end": 18.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " superciliously",
+              "start": 19.03,
+              "end": 19.69,
+              "probability": 0.8186848958333334
+            },
+            {
+              "text": " saying,",
+              "start": 19.69,
+              "end": 20.13,
+              "probability": 0.97705078125
+            }
+          ]
+        },
+        {
+          "text": " you are to come this way to-day,\" and took me to quite another part of the house.",
+          "start": 20.55,
+          "end": 24.41,
+          "words": [
+            {
+              "text": " you",
+              "start": 20.55,
+              "end": 20.87,
+              "probability": 0.1966552734375
+            },
+            {
+              "text": " are",
+              "start": 20.87,
+              "end": 21.03,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " to",
+              "start": 21.03,
+              "end": 21.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " come",
+              "start": 21.15,
+              "end": 21.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this",
+              "start": 21.31,
+              "end": 21.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " way",
+              "start": 21.49,
+              "end": 21.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 21.73,
+              "end": 21.85,
+              "probability": 0.0034694671630859375
+            },
+            {
+              "text": "-day,\"",
+              "start": 21.85,
+              "end": 22.53,
+              "probability": 0.49951171875
+            },
+            {
+              "text": " and",
+              "start": 22.53,
+              "end": 22.75,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " took",
+              "start": 22.75,
+              "end": 22.89,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " me",
+              "start": 22.89,
+              "end": 23.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 23.05,
+              "end": 23.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " quite",
+              "start": 23.17,
+              "end": 23.31,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " another",
+              "start": 23.31,
+              "end": 23.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " part",
+              "start": 23.61,
+              "end": 23.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 23.93,
+              "end": 24.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 24.07,
+              "end": 24.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " house.",
+              "start": 24.15,
+              "end": 24.41,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "Miss,",
+          "start": 0.53,
+          "end": 0.53
+        },
+        {
+          "raw": "Havisham's,",
+          "start": 0.53,
+          "end": 0.53
+        },
+        {
+          "raw": "You",
+          "start": 0.53,
+          "end": 0.53
+        },
+        {
+          "raw": "At",
+          "start": 0.53,
+          "end": 0.53
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.59
+        },
+        {
+          "raw": "appointed",
+          "start": 0.59,
+          "end": 0.93
+        },
+        {
+          "raw": "time",
+          "start": 0.93,
+          "end": 1.37
+        },
+        {
+          "raw": "I",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "raw": "returned",
+          "start": 1.61,
+          "end": 1.95
+        },
+        {
+          "raw": "to",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "raw": "Miss",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "raw": "Havisham's,",
+          "start": 2.31,
+          "end": 3.33
+        },
+        {
+          "raw": "and",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "raw": "my",
+          "start": 3.49,
+          "end": 4.15
+        },
+        {
+          "raw": "hesitating",
+          "start": 4.15,
+          "end": 4.65
+        },
+        {
+          "raw": "ring",
+          "start": 4.65,
+          "end": 4.95
+        },
+        {
+          "raw": "at",
+          "start": 4.95,
+          "end": 5.09
+        },
+        {
+          "raw": "the",
+          "start": 5.09,
+          "end": 5.19
+        },
+        {
+          "raw": "gate",
+          "start": 5.19,
+          "end": 5.41
+        },
+        {
+          "raw": "brought",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "raw": "out",
+          "start": 5.65,
+          "end": 5.83
+        },
+        {
+          "raw": "Estella.",
+          "start": 5.83,
+          "end": 6.21
+        },
+        {
+          "raw": "She",
+          "start": 7.09,
+          "end": 7.15
+        },
+        {
+          "raw": "locked",
+          "start": 7.15,
+          "end": 7.39
+        },
+        {
+          "raw": "it",
+          "start": 7.39,
+          "end": 7.61
+        },
+        {
+          "raw": "after",
+          "start": 7.61,
+          "end": 7.85
+        },
+        {
+          "raw": "admitting",
+          "start": 7.85,
+          "end": 8.15
+        },
+        {
+          "raw": "me,",
+          "start": 8.15,
+          "end": 8.51
+        },
+        {
+          "raw": "as",
+          "start": 8.75,
+          "end": 8.85
+        },
+        {
+          "raw": "she",
+          "start": 8.85,
+          "end": 8.99
+        },
+        {
+          "raw": "had",
+          "start": 8.99,
+          "end": 9.09
+        },
+        {
+          "raw": "done",
+          "start": 9.09,
+          "end": 9.25
+        },
+        {
+          "raw": "before,",
+          "start": 9.25,
+          "end": 9.63
+        },
+        {
+          "raw": "and",
+          "start": 10.15,
+          "end": 10.23
+        },
+        {
+          "raw": "again",
+          "start": 10.23,
+          "end": 10.53
+        },
+        {
+          "raw": "preceded",
+          "start": 10.53,
+          "end": 10.93
+        },
+        {
+          "raw": "me",
+          "start": 10.93,
+          "end": 11.25
+        },
+        {
+          "raw": "into",
+          "start": 11.25,
+          "end": 11.41
+        },
+        {
+          "raw": "the",
+          "start": 11.41,
+          "end": 11.57
+        },
+        {
+          "raw": "dark",
+          "start": 11.57,
+          "end": 11.83
+        },
+        {
+          "raw": "passage",
+          "start": 11.83,
+          "end": 12.29
+        },
+        {
+          "raw": "where",
+          "start": 12.29,
+          "end": 12.53
+        },
+        {
+          "raw": "her",
+          "start": 12.53,
+          "end": 12.69
+        },
+        {
+          "raw": "candle",
+          "start": 12.69,
+          "end": 12.99
+        },
+        {
+          "raw": "stood.",
+          "start": 12.99,
+          "end": 13.37
+        },
+        {
+          "raw": "She",
+          "start": 14.13,
+          "end": 14.33
+        },
+        {
+          "raw": "took",
+          "start": 14.33,
+          "end": 14.47
+        },
+        {
+          "raw": "no",
+          "start": 14.47,
+          "end": 14.67
+        },
+        {
+          "raw": "notice",
+          "start": 14.67,
+          "end": 14.97
+        },
+        {
+          "raw": "of",
+          "start": 14.97,
+          "end": 15.13
+        },
+        {
+          "raw": "me",
+          "start": 15.13,
+          "end": 15.27
+        },
+        {
+          "raw": "until",
+          "start": 15.27,
+          "end": 15.47
+        },
+        {
+          "raw": "she",
+          "start": 15.47,
+          "end": 15.67
+        },
+        {
+          "raw": "had",
+          "start": 15.67,
+          "end": 15.81
+        },
+        {
+          "raw": "the",
+          "start": 15.81,
+          "end": 15.97
+        },
+        {
+          "raw": "candle",
+          "start": 15.97,
+          "end": 16.27
+        },
+        {
+          "raw": "in",
+          "start": 16.27,
+          "end": 16.43
+        },
+        {
+          "raw": "her",
+          "start": 16.43,
+          "end": 16.55
+        },
+        {
+          "raw": "hand,",
+          "start": 16.55,
+          "end": 16.93
+        },
+        {
+          "raw": "when",
+          "start": 17.31,
+          "end": 17.41
+        },
+        {
+          "raw": "she",
+          "start": 17.41,
+          "end": 17.59
+        },
+        {
+          "raw": "looked",
+          "start": 17.59,
+          "end": 17.75
+        },
+        {
+          "raw": "over",
+          "start": 17.75,
+          "end": 17.99
+        },
+        {
+          "raw": "her",
+          "start": 17.99,
+          "end": 18.19
+        },
+        {
+          "raw": "shoulder,",
+          "start": 18.19,
+          "end": 18.57
+        },
+        {
+          "raw": "superciliously",
+          "start": 19.03,
+          "end": 19.69
+        },
+        {
+          "raw": "saying,",
+          "start": 19.69,
+          "end": 20.13
+        },
+        {
+          "raw": "you",
+          "start": 20.55,
+          "end": 20.87
+        },
+        {
+          "raw": "are",
+          "start": 20.87,
+          "end": 21.03
+        },
+        {
+          "raw": "to",
+          "start": 21.03,
+          "end": 21.15
+        },
+        {
+          "raw": "come",
+          "start": 21.15,
+          "end": 21.31
+        },
+        {
+          "raw": "this",
+          "start": 21.31,
+          "end": 21.49
+        },
+        {
+          "raw": "way",
+          "start": 21.49,
+          "end": 21.73
+        },
+        {
+          "raw": "to",
+          "start": 21.73,
+          "end": 21.85
+        },
+        {
+          "raw": "-day,\"",
+          "start": 21.85,
+          "end": 22.53
+        },
+        {
+          "raw": "and",
+          "start": 22.53,
+          "end": 22.75
+        },
+        {
+          "raw": "took",
+          "start": 22.75,
+          "end": 22.89
+        },
+        {
+          "raw": "me",
+          "start": 22.89,
+          "end": 23.05
+        },
+        {
+          "raw": "to",
+          "start": 23.05,
+          "end": 23.17
+        },
+        {
+          "raw": "quite",
+          "start": 23.17,
+          "end": 23.31
+        },
+        {
+          "raw": "another",
+          "start": 23.31,
+          "end": 23.61
+        },
+        {
+          "raw": "part",
+          "start": 23.61,
+          "end": 23.93
+        },
+        {
+          "raw": "of",
+          "start": 23.93,
+          "end": 24.07
+        },
+        {
+          "raw": "the",
+          "start": 24.07,
+          "end": 24.15
+        },
+        {
+          "raw": "house.",
+          "start": 24.15,
+          "end": 24.41
+        }
+      ],
+      "expected_tokens": [
+        "At",
+        "the",
+        "appointed",
+        "time",
+        "I",
+        "returned",
+        "to",
+        "Miss",
+        "Havisham's,",
+        "and",
+        "my",
+        "hesitating",
+        "ring",
+        "at",
+        "the",
+        "gate",
+        "brought",
+        "out",
+        "Estella.",
+        "She",
+        "locked",
+        "it",
+        "after",
+        "admitting",
+        "me,",
+        "as",
+        "she",
+        "had",
+        "done",
+        "before,",
+        "and",
+        "again",
+        "preceded",
+        "me",
+        "into",
+        "the",
+        "dark",
+        "passage",
+        "where",
+        "her",
+        "candle",
+        "stood.",
+        "She",
+        "took",
+        "no",
+        "notice",
+        "of",
+        "me",
+        "until",
+        "she",
+        "had",
+        "the",
+        "candle",
+        "in",
+        "her",
+        "hand,",
+        "when",
+        "she",
+        "looked",
+        "over",
+        "her",
+        "shoulder,",
+        "superciliously",
+        "saying,",
+        "\"You",
+        "are",
+        "to",
+        "come",
+        "this",
+        "way",
+        "to-day,\"",
+        "and",
+        "took",
+        "me",
+        "to",
+        "quite",
+        "another",
+        "part",
+        "of",
+        "the",
+        "house."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          4
+        ],
+        [
+          "equal",
+          0,
+          81,
+          4,
+          85
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 84
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I,",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Miss,",
+          "start": 0.53,
+          "end": 0.53,
+          "key": "miss",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Havisham's,",
+          "start": 0.53,
+          "end": 0.53,
+          "key": "havishams",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 0.53,
+          "end": 0.53,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 0.53,
+          "end": 0.53,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.59,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "appointed",
+          "start": 0.59,
+          "end": 0.93,
+          "key": "appointed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 0.93,
+          "end": 1.37,
+          "key": "time",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.37,
+          "end": 1.61,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "returned",
+          "start": 1.61,
+          "end": 1.95,
+          "key": "returned",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.95,
+          "end": 2.13,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 2.13,
+          "end": 2.31,
+          "key": "miss",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Havisham's,",
+          "start": 2.31,
+          "end": 3.33,
+          "key": "havishams",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.33,
+          "end": 3.49,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.49,
+          "end": 4.15,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hesitating",
+          "start": 4.15,
+          "end": 4.65,
+          "key": "hesitating",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ring",
+          "start": 4.65,
+          "end": 4.95,
+          "key": "ring",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.95,
+          "end": 5.09,
+          "key": "at",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.09,
+          "end": 5.19,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "gate",
+          "start": 5.19,
+          "end": 5.41,
+          "key": "gate",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "brought",
+          "start": 5.41,
+          "end": 5.65,
+          "key": "brought",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 5.65,
+          "end": 5.83,
+          "key": "out",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Estella.",
+          "start": 5.83,
+          "end": 6.21,
+          "key": "estella",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 7.09,
+          "end": 7.15,
+          "key": "she",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "locked",
+          "start": 7.15,
+          "end": 7.39,
+          "key": "locked",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 7.39,
+          "end": 7.61,
+          "key": "it",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 7.61,
+          "end": 7.85,
+          "key": "after",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "admitting",
+          "start": 7.85,
+          "end": 8.15,
+          "key": "admitting",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 8.15,
+          "end": 8.51,
+          "key": "me",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 8.75,
+          "end": 8.85,
+          "key": "as",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 8.85,
+          "end": 8.99,
+          "key": "she",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 8.99,
+          "end": 9.09,
+          "key": "had",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 9.09,
+          "end": 9.25,
+          "key": "done",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "before,",
+          "start": 9.25,
+          "end": 9.63,
+          "key": "before",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.15,
+          "end": 10.23,
+          "key": "and",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 10.23,
+          "end": 10.53,
+          "key": "again",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "preceded",
+          "start": 10.53,
+          "end": 10.93,
+          "key": "preceded",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 10.93,
+          "end": 11.25,
+          "key": "me",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 11.25,
+          "end": 11.41,
+          "key": "into",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.41,
+          "end": 11.57,
+          "key": "the",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "dark",
+          "start": 11.57,
+          "end": 11.83,
+          "key": "dark",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "passage",
+          "start": 11.83,
+          "end": 12.29,
+          "key": "passage",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 12.29,
+          "end": 12.53,
+          "key": "where",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 12.53,
+          "end": 12.69,
+          "key": "her",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "candle",
+          "start": 12.69,
+          "end": 12.99,
+          "key": "candle",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "stood.",
+          "start": 12.99,
+          "end": 13.37,
+          "key": "stood",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 14.13,
+          "end": 14.33,
+          "key": "she",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 14.33,
+          "end": 14.47,
+          "key": "took",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 14.47,
+          "end": 14.67,
+          "key": "no",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "notice",
+          "start": 14.67,
+          "end": 14.97,
+          "key": "notice",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.97,
+          "end": 15.13,
+          "key": "of",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 15.13,
+          "end": 15.27,
+          "key": "me",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "until",
+          "start": 15.27,
+          "end": 15.47,
+          "key": "until",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 15.47,
+          "end": 15.67,
+          "key": "she",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 15.67,
+          "end": 15.81,
+          "key": "had",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.81,
+          "end": 15.97,
+          "key": "the",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "candle",
+          "start": 15.97,
+          "end": 16.27,
+          "key": "candle",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 16.27,
+          "end": 16.43,
+          "key": "in",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 16.43,
+          "end": 16.55,
+          "key": "her",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "hand,",
+          "start": 16.55,
+          "end": 16.93,
+          "key": "hand",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 17.31,
+          "end": 17.41,
+          "key": "when",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 17.41,
+          "end": 17.59,
+          "key": "she",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 17.59,
+          "end": 17.75,
+          "key": "looked",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 17.75,
+          "end": 17.99,
+          "key": "over",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 17.99,
+          "end": 18.19,
+          "key": "her",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "shoulder,",
+          "start": 18.19,
+          "end": 18.57,
+          "key": "shoulder",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "superciliously",
+          "start": 19.03,
+          "end": 19.69,
+          "key": "superciliously",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "saying,",
+          "start": 19.69,
+          "end": 20.13,
+          "key": "saying",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 20.55,
+          "end": 20.87,
+          "key": "you",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 20.87,
+          "end": 21.03,
+          "key": "are",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 21.03,
+          "end": 21.15,
+          "key": "to",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 21.15,
+          "end": 21.31,
+          "key": "come",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 21.31,
+          "end": 21.49,
+          "key": "this",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 21.49,
+          "end": 21.73,
+          "key": "way",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "to -day,\"",
+          "start": 21.73,
+          "end": 22.53,
+          "key": "today",
+          "pieces": [
+            74,
+            75
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.53,
+          "end": 22.75,
+          "key": "and",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 22.75,
+          "end": 22.89,
+          "key": "took",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 22.89,
+          "end": 23.05,
+          "key": "me",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 23.05,
+          "end": 23.17,
+          "key": "to",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 23.17,
+          "end": 23.31,
+          "key": "quite",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 23.31,
+          "end": 23.61,
+          "key": "another",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 23.61,
+          "end": 23.93,
+          "key": "part",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 23.93,
+          "end": 24.07,
+          "key": "of",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.07,
+          "end": 24.15,
+          "key": "the",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "house.",
+          "start": 24.15,
+          "end": 24.41,
+          "key": "house",
+          "pieces": [
+            85
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 70,
+          "text": "to-day,\"",
+          "heard": "to -day,\"",
+          "heard_indexes": [
+            74,
+            75
+          ],
+          "start": 21.73,
+          "end": 22.53
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "At",
+          "start": 0.53,
+          "end": 0.53
+        },
+        {
+          "text": "the",
+          "start": 0.53,
+          "end": 0.59
+        },
+        {
+          "text": "appointed",
+          "start": 0.59,
+          "end": 0.93
+        },
+        {
+          "text": "time",
+          "start": 0.93,
+          "end": 1.37
+        },
+        {
+          "text": "I",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "text": "returned",
+          "start": 1.61,
+          "end": 1.95
+        },
+        {
+          "text": "to",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "text": "Miss",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "text": "Havisham's,",
+          "start": 2.31,
+          "end": 3.33
+        },
+        {
+          "text": "and",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "text": "my",
+          "start": 3.49,
+          "end": 4.15
+        },
+        {
+          "text": "hesitating",
+          "start": 4.15,
+          "end": 4.65
+        },
+        {
+          "text": "ring",
+          "start": 4.65,
+          "end": 4.95
+        },
+        {
+          "text": "at",
+          "start": 4.95,
+          "end": 5.09
+        },
+        {
+          "text": "the",
+          "start": 5.09,
+          "end": 5.19
+        },
+        {
+          "text": "gate",
+          "start": 5.19,
+          "end": 5.41
+        },
+        {
+          "text": "brought",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "text": "out",
+          "start": 5.65,
+          "end": 5.83
+        },
+        {
+          "text": "Estella.",
+          "start": 5.83,
+          "end": 6.21
+        },
+        {
+          "text": "She",
+          "start": 7.09,
+          "end": 7.15
+        },
+        {
+          "text": "locked",
+          "start": 7.15,
+          "end": 7.39
+        },
+        {
+          "text": "it",
+          "start": 7.39,
+          "end": 7.61
+        },
+        {
+          "text": "after",
+          "start": 7.61,
+          "end": 7.85
+        },
+        {
+          "text": "admitting",
+          "start": 7.85,
+          "end": 8.15
+        },
+        {
+          "text": "me,",
+          "start": 8.15,
+          "end": 8.51
+        },
+        {
+          "text": "as",
+          "start": 8.75,
+          "end": 8.85
+        },
+        {
+          "text": "she",
+          "start": 8.85,
+          "end": 8.99
+        },
+        {
+          "text": "had",
+          "start": 8.99,
+          "end": 9.09
+        },
+        {
+          "text": "done",
+          "start": 9.09,
+          "end": 9.25
+        },
+        {
+          "text": "before,",
+          "start": 9.25,
+          "end": 9.63
+        },
+        {
+          "text": "and",
+          "start": 10.15,
+          "end": 10.23
+        },
+        {
+          "text": "again",
+          "start": 10.23,
+          "end": 10.53
+        },
+        {
+          "text": "preceded",
+          "start": 10.53,
+          "end": 10.93
+        },
+        {
+          "text": "me",
+          "start": 10.93,
+          "end": 11.25
+        },
+        {
+          "text": "into",
+          "start": 11.25,
+          "end": 11.41
+        },
+        {
+          "text": "the",
+          "start": 11.41,
+          "end": 11.57
+        },
+        {
+          "text": "dark",
+          "start": 11.57,
+          "end": 11.83
+        },
+        {
+          "text": "passage",
+          "start": 11.83,
+          "end": 12.29
+        },
+        {
+          "text": "where",
+          "start": 12.29,
+          "end": 12.53
+        },
+        {
+          "text": "her",
+          "start": 12.53,
+          "end": 12.69
+        },
+        {
+          "text": "candle",
+          "start": 12.69,
+          "end": 12.99
+        },
+        {
+          "text": "stood.",
+          "start": 12.99,
+          "end": 13.37
+        },
+        {
+          "text": "She",
+          "start": 14.13,
+          "end": 14.33
+        },
+        {
+          "text": "took",
+          "start": 14.33,
+          "end": 14.47
+        },
+        {
+          "text": "no",
+          "start": 14.47,
+          "end": 14.67
+        },
+        {
+          "text": "notice",
+          "start": 14.67,
+          "end": 14.97
+        },
+        {
+          "text": "of",
+          "start": 14.97,
+          "end": 15.13
+        },
+        {
+          "text": "me",
+          "start": 15.13,
+          "end": 15.27
+        },
+        {
+          "text": "until",
+          "start": 15.27,
+          "end": 15.47
+        },
+        {
+          "text": "she",
+          "start": 15.47,
+          "end": 15.67
+        },
+        {
+          "text": "had",
+          "start": 15.67,
+          "end": 15.81
+        },
+        {
+          "text": "the",
+          "start": 15.81,
+          "end": 15.97
+        },
+        {
+          "text": "candle",
+          "start": 15.97,
+          "end": 16.27
+        },
+        {
+          "text": "in",
+          "start": 16.27,
+          "end": 16.43
+        },
+        {
+          "text": "her",
+          "start": 16.43,
+          "end": 16.55
+        },
+        {
+          "text": "hand,",
+          "start": 16.55,
+          "end": 16.93
+        },
+        {
+          "text": "when",
+          "start": 17.31,
+          "end": 17.41
+        },
+        {
+          "text": "she",
+          "start": 17.41,
+          "end": 17.59
+        },
+        {
+          "text": "looked",
+          "start": 17.59,
+          "end": 17.75
+        },
+        {
+          "text": "over",
+          "start": 17.75,
+          "end": 17.99
+        },
+        {
+          "text": "her",
+          "start": 17.99,
+          "end": 18.19
+        },
+        {
+          "text": "shoulder,",
+          "start": 18.19,
+          "end": 18.57
+        },
+        {
+          "text": "superciliously",
+          "start": 19.03,
+          "end": 19.69
+        },
+        {
+          "text": "saying,",
+          "start": 19.69,
+          "end": 20.13
+        },
+        {
+          "text": "\"You",
+          "start": 20.55,
+          "end": 20.87
+        },
+        {
+          "text": "are",
+          "start": 20.87,
+          "end": 21.03
+        },
+        {
+          "text": "to",
+          "start": 21.03,
+          "end": 21.15
+        },
+        {
+          "text": "come",
+          "start": 21.15,
+          "end": 21.31
+        },
+        {
+          "text": "this",
+          "start": 21.31,
+          "end": 21.49
+        },
+        {
+          "text": "way",
+          "start": 21.49,
+          "end": 21.73
+        },
+        {
+          "text": "to-day,\"",
+          "start": 21.73,
+          "end": 22.53
+        },
+        {
+          "text": "and",
+          "start": 22.53,
+          "end": 22.75
+        },
+        {
+          "text": "took",
+          "start": 22.75,
+          "end": 22.89
+        },
+        {
+          "text": "me",
+          "start": 22.89,
+          "end": 23.05
+        },
+        {
+          "text": "to",
+          "start": 23.05,
+          "end": 23.17
+        },
+        {
+          "text": "quite",
+          "start": 23.17,
+          "end": 23.31
+        },
+        {
+          "text": "another",
+          "start": 23.31,
+          "end": 23.61
+        },
+        {
+          "text": "part",
+          "start": 23.61,
+          "end": 23.93
+        },
+        {
+          "text": "of",
+          "start": 23.93,
+          "end": 24.07
+        },
+        {
+          "text": "the",
+          "start": 24.07,
+          "end": 24.15
+        },
+        {
+          "text": "house.",
+          "start": 24.15,
+          "end": 24.41
+        }
+      ],
+      "stats": {
+        "expected_words": 81,
+        "heard_words": 85,
+        "matched_words": 81
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.751502953004092
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8f0cf12362b9ead1ddbbd2d65464e47bef75aa38ece4045b2c00d3d930e422a2",
+  "selected_reasons": []
+}

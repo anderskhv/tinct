@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "dfc6071c3915d3676ad2911220e05a35bc86a1d10adfb6615959a86c31fc5e5d",
+  "attempts": [
+    {
+      "asr_seconds": 0.14241241198033094,
+      "alignment_seconds": 0.0003125285729765892,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Flourish. Enter Chorus.",
+        "hotwords": "Flourish, Enter, Chorus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Flourish, Enter Chorus.",
+          "start": 0.08,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " Flourish,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.9453125
+            },
+            {
+              "text": " Enter",
+              "start": 1.18,
+              "end": 1.38,
+              "probability": 0.09912109375
+            },
+            {
+              "text": " Chorus.",
+              "start": 1.38,
+              "end": 1.78,
+              "probability": 0.799072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Flourish,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "Enter",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "raw": "Chorus.",
+          "start": 1.38,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "Flourish.",
+        "Enter",
+        "Chorus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Flourish,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "flourish",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 1.18,
+          "end": 1.38,
+          "key": "enter",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Chorus.",
+          "start": 1.38,
+          "end": 1.78,
+          "key": "chorus",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Flourish.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "Enter",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "text": "Chorus.",
+          "start": 1.38,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14283419866114855
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fd27269d838f39873c3d8a278d5deea74c820208a39075af470a82e39705d2f2",
+  "selected_reasons": []
+}

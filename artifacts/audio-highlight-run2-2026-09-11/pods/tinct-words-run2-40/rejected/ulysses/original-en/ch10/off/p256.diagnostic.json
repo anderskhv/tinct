@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "95accc9388b17c053b00be205abadef1b3169cb1c77b8fba1c89526082b44f6d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2281286809593439,
+      "alignment_seconds": 0.00039172032848000526,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He held his caved hands a cubit from him, frowning.",
+          "start": 0.02,
+          "end": 3.18,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " held",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 0.68,
+              "end": 0.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " caved",
+              "start": 0.86,
+              "end": 1.2,
+              "probability": 0.976806640625
+            },
+            {
+              "text": " hands",
+              "start": 1.2,
+              "end": 1.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 1.44,
+              "end": 1.62,
+              "probability": 0.85546875
+            },
+            {
+              "text": " cubit",
+              "start": 1.62,
+              "end": 1.92,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " from",
+              "start": 1.92,
+              "end": 2.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him,",
+              "start": 2.06,
+              "end": 2.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " frowning.",
+              "start": 2.84,
+              "end": 3.18,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "held",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "his",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "raw": "caved",
+          "start": 0.86,
+          "end": 1.2
+        },
+        {
+          "raw": "hands",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "raw": "a",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "raw": "cubit",
+          "start": 1.62,
+          "end": 1.92
+        },
+        {
+          "raw": "from",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "raw": "him,",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "raw": "frowning.",
+          "start": 2.84,
+          "end": 3.18
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "held",
+        "his",
+        "caved",
+        "hands",
+        "a",
+        "cubit",
+        "from",
+        "him,",
+        "frowning:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "held",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "held",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.68,
+          "end": 0.86,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "caved",
+          "start": 0.86,
+          "end": 1.2,
+          "key": "caved",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 1.2,
+          "end": 1.44,
+          "key": "hands",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.44,
+          "end": 1.62,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cubit",
+          "start": 1.62,
+          "end": 1.92,
+          "key": "cubit",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.92,
+          "end": 2.06,
+          "key": "from",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 2.06,
+          "end": 2.36,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "frowning.",
+          "start": 2.84,
+          "end": 3.18,
+          "key": "frowning",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "held",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "his",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "text": "caved",
+          "start": 0.86,
+          "end": 1.2
+        },
+        {
+          "text": "hands",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "text": "a",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "text": "cubit",
+          "start": 1.62,
+          "end": 1.92
+        },
+        {
+          "text": "from",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "text": "him,",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "text": "frowning:",
+          "start": 2.84,
+          "end": 3.18
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22867863904684782
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fffb6aec6592e739a4fcb185b6f628a64ab2ae5c67bfe878b2a2b2d95190b640",
+  "selected_reasons": []
+}

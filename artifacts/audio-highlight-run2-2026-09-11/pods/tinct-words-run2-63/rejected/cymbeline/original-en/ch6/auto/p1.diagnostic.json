@@ -1,0 +1,645 @@
+{
+  "complete": true,
+  "signature": "5d20468ed5b0722ad32116823f260854e46bb725b57a354102441e720e0f25b2",
+  "attempts": [
+    {
+      "asr_seconds": 0.3361971713602543,
+      "alignment_seconds": 0.0004402976483106613,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen. Whiles yet the dew's on ground, gather those flowers; Make haste; who has the note of them?",
+        "hotwords": "Queen, Whiles, Make"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen, Whiles yet the dew's on ground, gather those flowers, Make haste, who has the note",
+          "start": 0.08,
+          "end": 5.54,
+          "words": [
+            {
+              "text": " Queen,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.912109375
+            },
+            {
+              "text": " Whiles",
+              "start": 1.24,
+              "end": 1.6,
+              "probability": 0.03839874267578125
+            },
+            {
+              "text": " yet",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 0.958984375
+            },
+            {
+              "text": " the",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " dew's",
+              "start": 1.86,
+              "end": 2.08,
+              "probability": 0.5762532552083334
+            },
+            {
+              "text": " on",
+              "start": 2.08,
+              "end": 2.22,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " ground,",
+              "start": 2.22,
+              "end": 2.6,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " gather",
+              "start": 3.02,
+              "end": 3.04,
+              "probability": 0.21240234375
+            },
+            {
+              "text": " those",
+              "start": 3.04,
+              "end": 3.36,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " flowers,",
+              "start": 3.36,
+              "end": 3.8,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " Make",
+              "start": 4.02,
+              "end": 4.12,
+              "probability": 0.3623046875
+            },
+            {
+              "text": " haste,",
+              "start": 4.12,
+              "end": 4.48,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " who",
+              "start": 4.92,
+              "end": 5.04,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " has",
+              "start": 5.04,
+              "end": 5.22,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " the",
+              "start": 5.22,
+              "end": 5.4,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " note",
+              "start": 5.4,
+              "end": 5.54,
+              "probability": 0.9794921875
+            }
+          ]
+        },
+        {
+          "text": " of them?",
+          "start": 5.54,
+          "end": 5.9,
+          "words": [
+            {
+              "text": " of",
+              "start": 5.54,
+              "end": 5.68,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " them?",
+              "start": 5.68,
+              "end": 5.9,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Whiles",
+          "start": 1.24,
+          "end": 1.6
+        },
+        {
+          "raw": "yet",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "dew's",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "raw": "on",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "raw": "ground,",
+          "start": 2.22,
+          "end": 2.6
+        },
+        {
+          "raw": "gather",
+          "start": 3.02,
+          "end": 3.04
+        },
+        {
+          "raw": "those",
+          "start": 3.04,
+          "end": 3.36
+        },
+        {
+          "raw": "flowers,",
+          "start": 3.36,
+          "end": 3.8
+        },
+        {
+          "raw": "Make",
+          "start": 4.02,
+          "end": 4.12
+        },
+        {
+          "raw": "haste,",
+          "start": 4.12,
+          "end": 4.48
+        },
+        {
+          "raw": "who",
+          "start": 4.92,
+          "end": 5.04
+        },
+        {
+          "raw": "has",
+          "start": 5.04,
+          "end": 5.22
+        },
+        {
+          "raw": "the",
+          "start": 5.22,
+          "end": 5.4
+        },
+        {
+          "raw": "note",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "raw": "of",
+          "start": 5.54,
+          "end": 5.68
+        },
+        {
+          "raw": "them?",
+          "start": 5.68,
+          "end": 5.9
+        }
+      ],
+      "expected_tokens": [
+        "Queen.",
+        "Whiles",
+        "yet",
+        "the",
+        "dew's",
+        "on",
+        "ground,",
+        "gather",
+        "those",
+        "flowers;",
+        "Make",
+        "haste;",
+        "who",
+        "has",
+        "the",
+        "note",
+        "of",
+        "them?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Whiles",
+          "start": 1.24,
+          "end": 1.6,
+          "key": "whiles",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 1.6,
+          "end": 1.72,
+          "key": "yet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.86,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dew's",
+          "start": 1.86,
+          "end": 2.08,
+          "key": "dews",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.08,
+          "end": 2.22,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ground,",
+          "start": 2.22,
+          "end": 2.6,
+          "key": "ground",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gather",
+          "start": 3.02,
+          "end": 3.04,
+          "key": "gather",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 3.04,
+          "end": 3.36,
+          "key": "those",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "flowers,",
+          "start": 3.36,
+          "end": 3.8,
+          "key": "flowers",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Make",
+          "start": 4.02,
+          "end": 4.12,
+          "key": "make",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "haste,",
+          "start": 4.12,
+          "end": 4.48,
+          "key": "haste",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 4.92,
+          "end": 5.04,
+          "key": "who",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 5.04,
+          "end": 5.22,
+          "key": "has",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.22,
+          "end": 5.4,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "note",
+          "start": 5.4,
+          "end": 5.54,
+          "key": "note",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.54,
+          "end": 5.68,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "them?",
+          "start": 5.68,
+          "end": 5.9,
+          "key": "them",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Whiles",
+          "start": 1.24,
+          "end": 1.6
+        },
+        {
+          "text": "yet",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "text": "the",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "dew's",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "text": "on",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "text": "ground,",
+          "start": 2.22,
+          "end": 2.6
+        },
+        {
+          "text": "gather",
+          "start": 3.02,
+          "end": 3.04
+        },
+        {
+          "text": "those",
+          "start": 3.04,
+          "end": 3.36
+        },
+        {
+          "text": "flowers;",
+          "start": 3.36,
+          "end": 3.8
+        },
+        {
+          "text": "Make",
+          "start": 4.02,
+          "end": 4.12
+        },
+        {
+          "text": "haste;",
+          "start": 4.12,
+          "end": 4.48
+        },
+        {
+          "text": "who",
+          "start": 4.92,
+          "end": 5.04
+        },
+        {
+          "text": "has",
+          "start": 5.04,
+          "end": 5.22
+        },
+        {
+          "text": "the",
+          "start": 5.22,
+          "end": 5.4
+        },
+        {
+          "text": "note",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "text": "of",
+          "start": 5.54,
+          "end": 5.68
+        },
+        {
+          "text": "them?",
+          "start": 5.68,
+          "end": 5.9
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33681168779730797
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "456c06ea003251f2d7ed74102e41bee28731c8baf22a25278e735e6cd1d84f95",
+  "selected_reasons": []
+}

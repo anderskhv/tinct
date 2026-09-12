@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "1bfcb4514e74b6ee1e9764297836b05d15ba12f05257ba9ff21454043c2d6c05",
+  "attempts": [
+    {
+      "asr_seconds": 0.22160940058529377,
+      "alignment_seconds": 0.0002927705645561218,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kostya stared at Nastya and listened, pondering profoundly.",
+        "hotwords": "Kostya, Nastya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kostya stared at Nastya and listened, pondering profoundly.",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " Kostya",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.5391438802083334
+            },
+            {
+              "text": " stared",
+              "start": 0.81,
+              "end": 1.09,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " at",
+              "start": 1.09,
+              "end": 1.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Nastya",
+              "start": 1.23,
+              "end": 1.75,
+              "probability": 0.9236653645833334
+            },
+            {
+              "text": " and",
+              "start": 1.75,
+              "end": 1.91,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " listened,",
+              "start": 1.91,
+              "end": 2.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pondering",
+              "start": 2.83,
+              "end": 3.21,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " profoundly.",
+              "start": 3.21,
+              "end": 3.63,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kostya",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "stared",
+          "start": 0.81,
+          "end": 1.09
+        },
+        {
+          "raw": "at",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "raw": "Nastya",
+          "start": 1.23,
+          "end": 1.75
+        },
+        {
+          "raw": "and",
+          "start": 1.75,
+          "end": 1.91
+        },
+        {
+          "raw": "listened,",
+          "start": 1.91,
+          "end": 2.25
+        },
+        {
+          "raw": "pondering",
+          "start": 2.83,
+          "end": 3.21
+        },
+        {
+          "raw": "profoundly.",
+          "start": 3.21,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "Kostya",
+        "stared",
+        "at",
+        "Nastya",
+        "and",
+        "listened,",
+        "pondering",
+        "profoundly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kostya",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "kostya",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "stared",
+          "start": 0.81,
+          "end": 1.09,
+          "key": "stared",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.09,
+          "end": 1.23,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Nastya",
+          "start": 1.23,
+          "end": 1.75,
+          "key": "nastya",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.75,
+          "end": 1.91,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "listened,",
+          "start": 1.91,
+          "end": 2.25,
+          "key": "listened",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pondering",
+          "start": 2.83,
+          "end": 3.21,
+          "key": "pondering",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "profoundly.",
+          "start": 3.21,
+          "end": 3.63,
+          "key": "profoundly",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kostya",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "stared",
+          "start": 0.81,
+          "end": 1.09
+        },
+        {
+          "text": "at",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "text": "Nastya",
+          "start": 1.23,
+          "end": 1.75
+        },
+        {
+          "text": "and",
+          "start": 1.75,
+          "end": 1.91
+        },
+        {
+          "text": "listened,",
+          "start": 1.91,
+          "end": 2.25
+        },
+        {
+          "text": "pondering",
+          "start": 2.83,
+          "end": 3.21
+        },
+        {
+          "text": "profoundly.",
+          "start": 3.21,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22202849760651588
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f8aa97d4782db52dcfb6c69571d0a4c018b1aa7fe42e5768c69200ec2187777d",
+  "selected_reasons": []
+}

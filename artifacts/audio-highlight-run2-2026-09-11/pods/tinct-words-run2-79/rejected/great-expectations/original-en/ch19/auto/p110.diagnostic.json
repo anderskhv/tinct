@@ -1,0 +1,1327 @@
+{
+  "complete": true,
+  "signature": "8a1539928dcbb863d8b3a708ffbd984d38b847b5e71fd8f44d37e7d33b2e0a47",
+  "attempts": [
+    {
+      "asr_seconds": 0.206198759842664,
+      "alignment_seconds": 0.00041478872299194336,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "This Is The End Of The First Stage Of Pip'S Expectations.",
+        "hotwords": "This, Is, The, End, Of, First, Stage, Pip'S, Expectations"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " This Is The End Of The First Stage Of Pip'S Expectations.",
+          "start": 0.02,
+          "end": 3.74,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Is",
+              "start": 0.56,
+              "end": 0.76,
+              "probability": 0.00028634071350097656
+            },
+            {
+              "text": " The",
+              "start": 0.76,
+              "end": 0.96,
+              "probability": 0.352294921875
+            },
+            {
+              "text": " End",
+              "start": 0.96,
+              "end": 1.26,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Of",
+              "start": 1.26,
+              "end": 1.58,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " The",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.984375
+            },
+            {
+              "text": " First",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " Stage",
+              "start": 1.9,
+              "end": 2.22,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Of",
+              "start": 2.22,
+              "end": 2.58,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Pip",
+              "start": 2.58,
+              "end": 2.74,
+              "probability": 0.10784912109375
+            },
+            {
+              "text": "'S",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.14770889282226562
+            },
+            {
+              "text": " Expectations.",
+              "start": 2.92,
+              "end": 3.74,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "Is",
+          "start": 0.56,
+          "end": 0.76
+        },
+        {
+          "raw": "The",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "raw": "End",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "raw": "Of",
+          "start": 1.26,
+          "end": 1.58
+        },
+        {
+          "raw": "The",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "First",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "Stage",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "raw": "Of",
+          "start": 2.22,
+          "end": 2.58
+        },
+        {
+          "raw": "Pip",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "raw": "'S",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "Expectations.",
+          "start": 2.92,
+          "end": 3.74
+        }
+      ],
+      "expected_tokens": [
+        "This",
+        "Is",
+        "The",
+        "End",
+        "Of",
+        "The",
+        "First",
+        "Stage",
+        "Of",
+        "Pip'S",
+        "Expectations."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          11,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 0.56,
+          "end": 0.76,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 0.76,
+          "end": 0.96,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "End",
+          "start": 0.96,
+          "end": 1.26,
+          "key": "end",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 1.26,
+          "end": 1.58,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "First",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "first",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Stage",
+          "start": 1.9,
+          "end": 2.22,
+          "key": "stage",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 2.22,
+          "end": 2.58,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Pip",
+          "start": 2.58,
+          "end": 2.74,
+          "key": "pip",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "'S",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "s",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Expectations.",
+          "start": 2.92,
+          "end": 3.74,
+          "key": "expectations",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "This",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "Is",
+          "start": 0.56,
+          "end": 0.76
+        },
+        {
+          "text": "The",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "text": "End",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "text": "Of",
+          "start": 1.26,
+          "end": 1.58
+        },
+        {
+          "text": "The",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "First",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "Stage",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "text": "Of",
+          "start": 2.22,
+          "end": 2.58
+        },
+        {
+          "text": "Pip'S",
+          "start": 2.58,
+          "end": 2.75
+        },
+        {
+          "text": "Expectations.",
+          "start": 2.92,
+          "end": 3.74
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.20677748369053006
+    },
+    {
+      "asr_seconds": 0.1924722958356142,
+      "alignment_seconds": 0.0004111579619348049,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "This, Is, The, End, Of, First, Stage, Pip'S, Expectations"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " This is the end of the first stage of Pip'S expectations.",
+          "start": 0.02,
+          "end": 3.44,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " is",
+              "start": 0.56,
+              "end": 0.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 0.76,
+              "end": 0.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " end",
+              "start": 0.94,
+              "end": 1.26,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 1.26,
+              "end": 1.58,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " the",
+              "start": 1.58,
+              "end": 1.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " first",
+              "start": 1.68,
+              "end": 1.88,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " stage",
+              "start": 1.88,
+              "end": 2.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 2.34,
+              "end": 2.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Pip",
+              "start": 2.58,
+              "end": 2.74,
+              "probability": 0.07696533203125
+            },
+            {
+              "text": "'S",
+              "start": 2.74,
+              "end": 2.9,
+              "probability": 0.018047809600830078
+            },
+            {
+              "text": " expectations.",
+              "start": 2.9,
+              "end": 3.44,
+              "probability": 0.75537109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.76
+        },
+        {
+          "raw": "the",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "raw": "end",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "raw": "of",
+          "start": 1.26,
+          "end": 1.58
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "raw": "first",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "raw": "stage",
+          "start": 1.88,
+          "end": 2.34
+        },
+        {
+          "raw": "of",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "raw": "Pip",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "raw": "'S",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "raw": "expectations.",
+          "start": 2.9,
+          "end": 3.44
+        }
+      ],
+      "expected_tokens": [
+        "This",
+        "Is",
+        "The",
+        "End",
+        "Of",
+        "The",
+        "First",
+        "Stage",
+        "Of",
+        "Pip'S",
+        "Expectations."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          11,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.76,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.76,
+          "end": 0.94,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "end",
+          "start": 0.94,
+          "end": 1.26,
+          "key": "end",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.26,
+          "end": 1.58,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.68,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 1.68,
+          "end": 1.88,
+          "key": "first",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "stage",
+          "start": 1.88,
+          "end": 2.34,
+          "key": "stage",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.34,
+          "end": 2.58,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Pip",
+          "start": 2.58,
+          "end": 2.74,
+          "key": "pip",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "'S",
+          "start": 2.74,
+          "end": 2.9,
+          "key": "s",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "expectations.",
+          "start": 2.9,
+          "end": 3.44,
+          "key": "expectations",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "This",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "Is",
+          "start": 0.56,
+          "end": 0.76
+        },
+        {
+          "text": "The",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "text": "End",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "text": "Of",
+          "start": 1.26,
+          "end": 1.58
+        },
+        {
+          "text": "The",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "text": "First",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "text": "Stage",
+          "start": 1.88,
+          "end": 2.34
+        },
+        {
+          "text": "Of",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "text": "Pip'S",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "text": "Expectations.",
+          "start": 2.9,
+          "end": 3.44
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.19304720871150494
+    },
+    {
+      "asr_seconds": 0.18155441712588072,
+      "alignment_seconds": 0.00026703113690018654,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " This is the end of the first stage of PIPAS expectations.",
+          "start": 0.02,
+          "end": 3.44,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " is",
+              "start": 0.56,
+              "end": 0.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 0.76,
+              "end": 0.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " end",
+              "start": 0.94,
+              "end": 1.26,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 1.26,
+              "end": 1.58,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " the",
+              "start": 1.58,
+              "end": 1.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " first",
+              "start": 1.68,
+              "end": 1.88,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " stage",
+              "start": 1.88,
+              "end": 2.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 2.34,
+              "end": 2.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " PIPAS",
+              "start": 2.58,
+              "end": 2.94,
+              "probability": 0.5846354166666666
+            },
+            {
+              "text": " expectations.",
+              "start": 2.94,
+              "end": 3.44,
+              "probability": 0.89697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.76
+        },
+        {
+          "raw": "the",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "raw": "end",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "raw": "of",
+          "start": 1.26,
+          "end": 1.58
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "raw": "first",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "raw": "stage",
+          "start": 1.88,
+          "end": 2.34
+        },
+        {
+          "raw": "of",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "raw": "PIPAS",
+          "start": 2.58,
+          "end": 2.94
+        },
+        {
+          "raw": "expectations.",
+          "start": 2.94,
+          "end": 3.44
+        }
+      ],
+      "expected_tokens": [
+        "This",
+        "Is",
+        "The",
+        "End",
+        "Of",
+        "The",
+        "First",
+        "Stage",
+        "Of",
+        "Pip'S",
+        "Expectations."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.76,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.76,
+          "end": 0.94,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "end",
+          "start": 0.94,
+          "end": 1.26,
+          "key": "end",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.26,
+          "end": 1.58,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.68,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 1.68,
+          "end": 1.88,
+          "key": "first",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "stage",
+          "start": 1.88,
+          "end": 2.34,
+          "key": "stage",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.34,
+          "end": 2.58,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "PIPAS",
+          "start": 2.58,
+          "end": 2.94,
+          "key": "pipas",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "expectations.",
+          "start": 2.94,
+          "end": 3.44,
+          "key": "expectations",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "This",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "Is",
+          "start": 0.56,
+          "end": 0.76
+        },
+        {
+          "text": "The",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "text": "End",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "text": "Of",
+          "start": 1.26,
+          "end": 1.58
+        },
+        {
+          "text": "The",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "text": "First",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "text": "Stage",
+          "start": 1.88,
+          "end": 2.34
+        },
+        {
+          "text": "Of",
+          "start": 2.34,
+          "end": 2.58
+        },
+        {
+          "text": "Pip'S",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "text": "Expectations.",
+          "start": 2.94,
+          "end": 3.44
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.18192884232848883
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c2ca384f8be542fc491207c680b70b4dffd78971a0003cbe14fea27dc36e1920",
+  "selected_reasons": []
+}

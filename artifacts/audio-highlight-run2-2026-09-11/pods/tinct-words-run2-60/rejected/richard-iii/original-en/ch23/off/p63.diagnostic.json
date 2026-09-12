@@ -1,0 +1,572 @@
+{
+  "complete": true,
+  "signature": "9b4d5a6d1888406f5601c22ee53fcc59cb74bda93f4388eb6fc9def8d7f1919a",
+  "attempts": [
+    {
+      "asr_seconds": 0.33706824481487274,
+      "alignment_seconds": 0.0003788582980632782,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Harry that prophesied thou shouldst be king doth comfort thee in thy sleep live and flourish",
+          "start": 0.05,
+          "end": 5.59,
+          "words": [
+            {
+              "text": " Harry",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.60986328125
+            },
+            {
+              "text": " that",
+              "start": 0.63,
+              "end": 0.95,
+              "probability": 0.3720703125
+            },
+            {
+              "text": " prophesied",
+              "start": 0.95,
+              "end": 1.47,
+              "probability": 0.831298828125
+            },
+            {
+              "text": " thou",
+              "start": 1.47,
+              "end": 1.59,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " shouldst",
+              "start": 1.59,
+              "end": 1.95,
+              "probability": 0.978759765625
+            },
+            {
+              "text": " be",
+              "start": 1.95,
+              "end": 2.05,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " king",
+              "start": 2.05,
+              "end": 2.41,
+              "probability": 0.744140625
+            },
+            {
+              "text": " doth",
+              "start": 2.41,
+              "end": 2.83,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " comfort",
+              "start": 2.83,
+              "end": 3.19,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " thee",
+              "start": 3.19,
+              "end": 3.39,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " in",
+              "start": 3.39,
+              "end": 3.49,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " thy",
+              "start": 3.49,
+              "end": 3.61,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " sleep",
+              "start": 3.61,
+              "end": 3.99,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " live",
+              "start": 3.99,
+              "end": 4.87,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " and",
+              "start": 4.87,
+              "end": 5.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " flourish",
+              "start": 5.19,
+              "end": 5.59,
+              "probability": 0.97509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Harry",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "that",
+          "start": 0.63,
+          "end": 0.95
+        },
+        {
+          "raw": "prophesied",
+          "start": 0.95,
+          "end": 1.47
+        },
+        {
+          "raw": "thou",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "raw": "shouldst",
+          "start": 1.59,
+          "end": 1.95
+        },
+        {
+          "raw": "be",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "raw": "king",
+          "start": 2.05,
+          "end": 2.41
+        },
+        {
+          "raw": "doth",
+          "start": 2.41,
+          "end": 2.83
+        },
+        {
+          "raw": "comfort",
+          "start": 2.83,
+          "end": 3.19
+        },
+        {
+          "raw": "thee",
+          "start": 3.19,
+          "end": 3.39
+        },
+        {
+          "raw": "in",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "raw": "thy",
+          "start": 3.49,
+          "end": 3.61
+        },
+        {
+          "raw": "sleep",
+          "start": 3.61,
+          "end": 3.99
+        },
+        {
+          "raw": "live",
+          "start": 3.99,
+          "end": 4.87
+        },
+        {
+          "raw": "and",
+          "start": 4.87,
+          "end": 5.19
+        },
+        {
+          "raw": "flourish",
+          "start": 5.19,
+          "end": 5.59
+        }
+      ],
+      "expected_tokens": [
+        "Harry,",
+        "that",
+        "prophesied",
+        "thou",
+        "shouldst",
+        "be",
+        "King,",
+        "Doth",
+        "comfort",
+        "thee",
+        "in",
+        "thy",
+        "sleep.",
+        "Live,",
+        "and",
+        "flourish!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Harry",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "harry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.63,
+          "end": 0.95,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "prophesied",
+          "start": 0.95,
+          "end": 1.47,
+          "key": "prophesied",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.47,
+          "end": 1.59,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shouldst",
+          "start": 1.59,
+          "end": 1.95,
+          "key": "shouldst",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.95,
+          "end": 2.05,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "king",
+          "start": 2.05,
+          "end": 2.41,
+          "key": "king",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 2.41,
+          "end": 2.83,
+          "key": "doth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "comfort",
+          "start": 2.83,
+          "end": 3.19,
+          "key": "comfort",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 3.19,
+          "end": 3.39,
+          "key": "thee",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.39,
+          "end": 3.49,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 3.49,
+          "end": 3.61,
+          "key": "thy",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sleep",
+          "start": 3.61,
+          "end": 3.99,
+          "key": "sleep",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 3.99,
+          "end": 4.87,
+          "key": "live",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.87,
+          "end": 5.19,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "flourish",
+          "start": 5.19,
+          "end": 5.59,
+          "key": "flourish",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Harry,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "that",
+          "start": 0.63,
+          "end": 0.95
+        },
+        {
+          "text": "prophesied",
+          "start": 0.95,
+          "end": 1.47
+        },
+        {
+          "text": "thou",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "text": "shouldst",
+          "start": 1.59,
+          "end": 1.95
+        },
+        {
+          "text": "be",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "text": "King,",
+          "start": 2.05,
+          "end": 2.41
+        },
+        {
+          "text": "Doth",
+          "start": 2.41,
+          "end": 2.83
+        },
+        {
+          "text": "comfort",
+          "start": 2.83,
+          "end": 3.19
+        },
+        {
+          "text": "thee",
+          "start": 3.19,
+          "end": 3.39
+        },
+        {
+          "text": "in",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "text": "thy",
+          "start": 3.49,
+          "end": 3.61
+        },
+        {
+          "text": "sleep.",
+          "start": 3.61,
+          "end": 3.99
+        },
+        {
+          "text": "Live,",
+          "start": 3.99,
+          "end": 4.87
+        },
+        {
+          "text": "and",
+          "start": 4.87,
+          "end": 5.19
+        },
+        {
+          "text": "flourish!",
+          "start": 5.19,
+          "end": 5.59
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33759402856230736
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "987842e2499f863654d7c40c9d6be1316262bd438ea6aa7cc2d187203c463200",
+  "selected_reasons": []
+}

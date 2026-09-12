@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "69b9e79fd936ec8a1696db29c7f92b085bb52b64e7144be136350b6a31f149a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.34691301360726357,
+      "alignment_seconds": 0.0007199719548225403,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, go to Yera Dry Fool, I'll know more of you.",
+          "start": 0.08,
+          "end": 3.56,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " go",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.98828125
+            },
+            {
+              "text": " to",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Yera",
+              "start": 1.64,
+              "end": 1.98,
+              "probability": 0.4439697265625
+            },
+            {
+              "text": " Dry",
+              "start": 1.98,
+              "end": 2.22,
+              "probability": 0.74755859375
+            },
+            {
+              "text": " Fool,",
+              "start": 2.22,
+              "end": 2.54,
+              "probability": 0.7880859375
+            },
+            {
+              "text": " I'll",
+              "start": 2.74,
+              "end": 2.8,
+              "probability": 0.983154296875
+            },
+            {
+              "text": " know",
+              "start": 2.8,
+              "end": 2.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " more",
+              "start": 2.94,
+              "end": 3.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 3.14,
+              "end": 3.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you.",
+              "start": 3.26,
+              "end": 3.56,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Besides, you grow dishonest.",
+          "start": 4.26,
+          "end": 5.22,
+          "words": [
+            {
+              "text": " Besides,",
+              "start": 4.26,
+              "end": 4.28,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " you",
+              "start": 4.52,
+              "end": 4.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " grow",
+              "start": 4.6,
+              "end": 4.76,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " dishonest.",
+              "start": 4.76,
+              "end": 5.22,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "go",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "raw": "to",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "Yera",
+          "start": 1.64,
+          "end": 1.98
+        },
+        {
+          "raw": "Dry",
+          "start": 1.98,
+          "end": 2.22
+        },
+        {
+          "raw": "Fool,",
+          "start": 2.22,
+          "end": 2.54
+        },
+        {
+          "raw": "I'll",
+          "start": 2.74,
+          "end": 2.8
+        },
+        {
+          "raw": "know",
+          "start": 2.8,
+          "end": 2.94
+        },
+        {
+          "raw": "more",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "raw": "of",
+          "start": 3.14,
+          "end": 3.26
+        },
+        {
+          "raw": "you.",
+          "start": 3.26,
+          "end": 3.56
+        },
+        {
+          "raw": "Besides,",
+          "start": 4.26,
+          "end": 4.28
+        },
+        {
+          "raw": "you",
+          "start": 4.52,
+          "end": 4.6
+        },
+        {
+          "raw": "grow",
+          "start": 4.6,
+          "end": 4.76
+        },
+        {
+          "raw": "dishonest.",
+          "start": 4.76,
+          "end": 5.22
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Go",
+        "to,",
+        "y'are",
+        "a",
+        "dry",
+        "fool;",
+        "I'll",
+        "no",
+        "more",
+        "of",
+        "you.",
+        "Besides,",
+        "you",
+        "grow",
+        "dishonest."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ],
+        [
+          "equal",
+          5,
+          8,
+          4,
+          7
+        ],
+        [
+          "replace",
+          8,
+          9,
+          7,
+          8
+        ],
+        [
+          "equal",
+          9,
+          16,
+          8,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ],
+        [
+          "replace",
+          8,
+          9,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Yera",
+          "start": 1.64,
+          "end": 1.98,
+          "key": "yera",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Dry",
+          "start": 1.98,
+          "end": 2.22,
+          "key": "dry",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Fool,",
+          "start": 2.22,
+          "end": 2.54,
+          "key": "fool",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.74,
+          "end": 2.8,
+          "key": "ill",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 2.8,
+          "end": 2.94,
+          "key": "know",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.94,
+          "end": 3.14,
+          "key": "more",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.14,
+          "end": 3.26,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 3.26,
+          "end": 3.56,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Besides,",
+          "start": 4.26,
+          "end": 4.28,
+          "key": "besides",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.52,
+          "end": 4.6,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "grow",
+          "start": 4.6,
+          "end": 4.76,
+          "key": "grow",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "dishonest.",
+          "start": 4.76,
+          "end": 5.22,
+          "key": "dishonest",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "Go",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "text": "to,",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "y'are",
+          "start": 1.64,
+          "end": 1.81
+        },
+        {
+          "text": "a",
+          "start": 1.81,
+          "end": 1.895
+        },
+        {
+          "text": "dry",
+          "start": 1.98,
+          "end": 2.22
+        },
+        {
+          "text": "fool;",
+          "start": 2.22,
+          "end": 2.54
+        },
+        {
+          "text": "I'll",
+          "start": 2.74,
+          "end": 2.8
+        },
+        {
+          "text": "no",
+          "start": 2.8,
+          "end": 2.87
+        },
+        {
+          "text": "more",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "text": "of",
+          "start": 3.14,
+          "end": 3.26
+        },
+        {
+          "text": "you.",
+          "start": 3.26,
+          "end": 3.56
+        },
+        {
+          "text": "Besides,",
+          "start": 4.26,
+          "end": 4.28
+        },
+        {
+          "text": "you",
+          "start": 4.52,
+          "end": 4.6
+        },
+        {
+          "text": "grow",
+          "start": 4.6,
+          "end": 4.76
+        },
+        {
+          "text": "dishonest.",
+          "start": 4.76,
+          "end": 5.22
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8125,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.34790803864598274
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "578288c50facbad74a5f2a237ca92f3af4fd905309c62c7434a68a0ba4458233",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

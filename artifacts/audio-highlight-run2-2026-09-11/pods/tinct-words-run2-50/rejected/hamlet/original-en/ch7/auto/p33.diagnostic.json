@@ -1,0 +1,136 @@
+{
+  "complete": true,
+  "signature": "0c13e49e963ee8acb97ac94a1cedec0ec5335f1ebe2ca59a52cb5c20aa4b4cf3",
+  "attempts": [
+    {
+      "asr_seconds": 0.18910156562924385,
+      "alignment_seconds": 0.00010459683835506439,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Reads.]",
+        "hotwords": "Reads"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Reads",
+          "start": 0.05,
+          "end": 1.17,
+          "words": [
+            {
+              "text": " Reads",
+              "start": 0.05,
+              "end": 1.17,
+              "probability": 0.7344970703125
+            }
+          ]
+        },
+        {
+          "text": " Reads",
+          "start": 1.17,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " Reads",
+              "start": 1.17,
+              "end": 1.43,
+              "probability": 0.006646990776062012
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Reads",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "raw": "Reads",
+          "start": 1.17,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "[Reads.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Reads",
+          "start": 0.05,
+          "end": 1.17,
+          "key": "reads",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Reads",
+          "start": 1.17,
+          "end": 1.43,
+          "key": "reads",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Reads.]",
+          "start": 0.05,
+          "end": 1.17
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18924033269286156
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0ee1650c6809f5d6d169687c8ff7998641ecabc6a45ab0b82d783c6c227bbc04",
+  "selected_reasons": []
+}

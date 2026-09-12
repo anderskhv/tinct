@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "9e486a5fafba546845846962c58abb6a212b275c53cf6c754ae288d4644ca683",
+  "attempts": [
+    {
+      "asr_seconds": 0.10925959702581167,
+      "alignment_seconds": 0.00025516003370285034,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Lucius with Legarius.",
+          "start": 0.11,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " Lucius",
+              "start": 0.65,
+              "end": 0.99,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " with",
+              "start": 0.99,
+              "end": 1.25,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Legarius.",
+              "start": 1.25,
+              "end": 1.73,
+              "probability": 0.468994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Lucius",
+          "start": 0.65,
+          "end": 0.99
+        },
+        {
+          "raw": "with",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "raw": "Legarius.",
+          "start": 1.25,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Lucius",
+        "with",
+        "Ligarius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lucius",
+          "start": 0.65,
+          "end": 0.99,
+          "key": "lucius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.99,
+          "end": 1.25,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Legarius.",
+          "start": 1.25,
+          "end": 1.73,
+          "key": "legarius",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Lucius",
+          "start": 0.65,
+          "end": 0.99
+        },
+        {
+          "text": "with",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "text": "Ligarius.",
+          "start": 1.25,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10961008816957474
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b0a95f810bfb8fc4486903c0f31a0da26e5ef2afebbd684bfdd7c9e2e60122f1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

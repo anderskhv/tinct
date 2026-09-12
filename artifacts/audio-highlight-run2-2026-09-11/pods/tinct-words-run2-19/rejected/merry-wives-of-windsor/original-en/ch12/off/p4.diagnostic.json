@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "08c6187af2900440aee34180444ea10ab6834774500af95b5ed2abe2fbc0f81b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2184954322874546,
+      "alignment_seconds": 0.0003070635721087456,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rug. Tease past the hour, sir, that Sir Hugh promised to meet. Five.",
+          "start": 0.02,
+          "end": 4.34,
+          "words": [
+            {
+              "text": " Rug.",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.4375
+            },
+            {
+              "text": " Tease",
+              "start": 1.04,
+              "end": 1.4,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " past",
+              "start": 1.4,
+              "end": 1.58,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " the",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hour,",
+              "start": 1.78,
+              "end": 2.04,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " sir,",
+              "start": 2.24,
+              "end": 2.24,
+              "probability": 0.62548828125
+            },
+            {
+              "text": " that",
+              "start": 2.38,
+              "end": 2.42,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Sir",
+              "start": 2.42,
+              "end": 2.64,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Hugh",
+              "start": 2.64,
+              "end": 2.82,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " promised",
+              "start": 2.82,
+              "end": 3.12,
+              "probability": 0.89453125
+            },
+            {
+              "text": " to",
+              "start": 3.12,
+              "end": 3.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " meet.",
+              "start": 3.36,
+              "end": 3.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Five.",
+              "start": 4.0,
+              "end": 4.34,
+              "probability": 0.83349609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rug.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Tease",
+          "start": 1.04,
+          "end": 1.4
+        },
+        {
+          "raw": "past",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "hour,",
+          "start": 1.78,
+          "end": 2.04
+        },
+        {
+          "raw": "sir,",
+          "start": 2.24,
+          "end": 2.24
+        },
+        {
+          "raw": "that",
+          "start": 2.38,
+          "end": 2.42
+        },
+        {
+          "raw": "Sir",
+          "start": 2.42,
+          "end": 2.64
+        },
+        {
+          "raw": "Hugh",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "raw": "promised",
+          "start": 2.82,
+          "end": 3.12
+        },
+        {
+          "raw": "to",
+          "start": 3.12,
+          "end": 3.36
+        },
+        {
+          "raw": "meet.",
+          "start": 3.36,
+          "end": 3.56
+        },
+        {
+          "raw": "Five.",
+          "start": 4.0,
+          "end": 4.34
+        }
+      ],
+      "expected_tokens": [
+        "_Re-enter",
+        "Bardolph",
+        "with",
+        "sack._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rug.",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "rug",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 1.04,
+          "end": 1.4,
+          "key": "tease",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "past",
+          "start": 1.4,
+          "end": 1.58,
+          "key": "past",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hour,",
+          "start": 1.78,
+          "end": 2.04,
+          "key": "hour",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.24,
+          "end": 2.24,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.38,
+          "end": 2.42,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 2.42,
+          "end": 2.64,
+          "key": "sir",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Hugh",
+          "start": 2.64,
+          "end": 2.82,
+          "key": "hugh",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "promised",
+          "start": 2.82,
+          "end": 3.12,
+          "key": "promised",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.12,
+          "end": 3.36,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "meet.",
+          "start": 3.36,
+          "end": 3.56,
+          "key": "meet",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Five.",
+          "start": 4.0,
+          "end": 4.34,
+          "key": "five",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Re-enter",
+          "start": 0.0,
+          "end": 2.17
+        },
+        {
+          "text": "Bardolph",
+          "start": 2.17,
+          "end": 3.255
+        },
+        {
+          "text": "with",
+          "start": 3.255,
+          "end": 3.797
+        },
+        {
+          "text": "sack._",
+          "start": 3.797,
+          "end": 4.069
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 13,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21894634794443846
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1102279c22372d10747f1947e57a00020c77b39795721b5c8d273541c26d5ea5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

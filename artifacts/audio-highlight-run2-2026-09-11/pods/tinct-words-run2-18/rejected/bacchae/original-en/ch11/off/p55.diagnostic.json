@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "576a1a8fb9ebc665d0a1a0ce9e7fe9d8e86ce396e8fbc7531641e53e48273bf7",
+  "attempts": [
+    {
+      "asr_seconds": 0.16086486005224288,
+      "alignment_seconds": 0.00037109991535544395,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Agave, more shining than before, more heavenly bright.",
+          "start": 0.05,
+          "end": 3.15,
+          "words": [
+            {
+              "text": " Agave,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.6253662109375
+            },
+            {
+              "text": " more",
+              "start": 1.13,
+              "end": 1.37,
+              "probability": 0.98828125
+            },
+            {
+              "text": " shining",
+              "start": 1.37,
+              "end": 1.67,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " than",
+              "start": 1.67,
+              "end": 1.89,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " before,",
+              "start": 1.89,
+              "end": 2.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " more",
+              "start": 2.47,
+              "end": 2.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " heavenly",
+              "start": 2.51,
+              "end": 2.81,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " bright.",
+              "start": 2.81,
+              "end": 3.15,
+              "probability": 0.89892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agave,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "more",
+          "start": 1.13,
+          "end": 1.37
+        },
+        {
+          "raw": "shining",
+          "start": 1.37,
+          "end": 1.67
+        },
+        {
+          "raw": "than",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "raw": "before,",
+          "start": 1.89,
+          "end": 2.25
+        },
+        {
+          "raw": "more",
+          "start": 2.47,
+          "end": 2.51
+        },
+        {
+          "raw": "heavenly",
+          "start": 2.51,
+          "end": 2.81
+        },
+        {
+          "raw": "bright.",
+          "start": 2.81,
+          "end": 3.15
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "More",
+        "shining",
+        "than",
+        "before,",
+        "more",
+        "heavenly",
+        "bright!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agave,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "agave",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.13,
+          "end": 1.37,
+          "key": "more",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shining",
+          "start": 1.37,
+          "end": 1.67,
+          "key": "shining",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 1.67,
+          "end": 1.89,
+          "key": "than",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "before,",
+          "start": 1.89,
+          "end": 2.25,
+          "key": "before",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.47,
+          "end": 2.51,
+          "key": "more",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heavenly",
+          "start": 2.51,
+          "end": 2.81,
+          "key": "heavenly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bright.",
+          "start": 2.81,
+          "end": 3.15,
+          "key": "bright",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "More",
+          "start": 1.13,
+          "end": 1.37
+        },
+        {
+          "text": "shining",
+          "start": 1.37,
+          "end": 1.67
+        },
+        {
+          "text": "than",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "text": "before,",
+          "start": 1.89,
+          "end": 2.25
+        },
+        {
+          "text": "more",
+          "start": 2.47,
+          "end": 2.51
+        },
+        {
+          "text": "heavenly",
+          "start": 2.51,
+          "end": 2.81
+        },
+        {
+          "text": "bright!",
+          "start": 2.81,
+          "end": 3.15
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16137937002349645
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "84409f879e210b93c586b1b82966c2f7b586d05f3667f93f3de6022fb2849222",
+  "selected_reasons": []
+}

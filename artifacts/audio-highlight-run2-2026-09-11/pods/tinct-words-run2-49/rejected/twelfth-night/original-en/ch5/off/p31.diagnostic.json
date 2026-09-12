@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "f7406d8e22b9489a7af45be5a59f35d03218ca0731d3e95afe4943e849a27450",
+  "attempts": [
+    {
+      "asr_seconds": 0.15953848510980606,
+      "alignment_seconds": 0.00040182098746299744,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, good fool for my brother's death.",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " good",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " fool",
+              "start": 1.43,
+              "end": 1.75,
+              "probability": 0.994140625
+            },
+            {
+              "text": " for",
+              "start": 1.75,
+              "end": 2.01,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " my",
+              "start": 2.01,
+              "end": 2.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " brother's",
+              "start": 2.15,
+              "end": 2.53,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " death.",
+              "start": 2.53,
+              "end": 2.73,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "good",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "fool",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "raw": "for",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "raw": "my",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "raw": "brother's",
+          "start": 2.15,
+          "end": 2.53
+        },
+        {
+          "raw": "death.",
+          "start": 2.53,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Good",
+        "fool,",
+        "for",
+        "my",
+        "brother's",
+        "death."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fool",
+          "start": 1.43,
+          "end": 1.75,
+          "key": "fool",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.75,
+          "end": 2.01,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.01,
+          "end": 2.15,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "brother's",
+          "start": 2.15,
+          "end": 2.53,
+          "key": "brothers",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "death.",
+          "start": 2.53,
+          "end": 2.73,
+          "key": "death",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Good",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "fool,",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "text": "for",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "text": "my",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "text": "brother's",
+          "start": 2.15,
+          "end": 2.53
+        },
+        {
+          "text": "death.",
+          "start": 2.53,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1601037196815014
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "610547c40de86f82b0aec02b9cb5add7289f780e51187acbdea61a416624ccc2",
+  "selected_reasons": []
+}

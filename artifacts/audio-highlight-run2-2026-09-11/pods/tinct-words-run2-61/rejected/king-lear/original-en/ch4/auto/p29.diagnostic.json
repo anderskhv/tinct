@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "480ae26e2c0b012f758029ca14e027964cbf3fc3846c9df93c978692a9c77bed",
+  "attempts": [
+    {
+      "asr_seconds": 0.21160148084163666,
+      "alignment_seconds": 0.0005094371736049652,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. What says the fellow there? Call the clotpoll back.",
+        "hotwords": "Lear, What, Call"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, What says the fellow there? Call the clotpoll back.",
+          "start": 0.05,
+          "end": 3.15,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.71875
+            },
+            {
+              "text": " What",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.005863189697265625
+            },
+            {
+              "text": " says",
+              "start": 0.97,
+              "end": 1.13,
+              "probability": 0.4677734375
+            },
+            {
+              "text": " the",
+              "start": 1.13,
+              "end": 1.33,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " fellow",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " there?",
+              "start": 1.49,
+              "end": 1.81,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Call",
+              "start": 2.17,
+              "end": 2.31,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " the",
+              "start": 2.31,
+              "end": 2.45,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " clotpoll",
+              "start": 2.45,
+              "end": 2.85,
+              "probability": 0.239823579788208
+            },
+            {
+              "text": " back.",
+              "start": 2.85,
+              "end": 3.15,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "What",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "says",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "raw": "the",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "raw": "fellow",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "raw": "there?",
+          "start": 1.49,
+          "end": 1.81
+        },
+        {
+          "raw": "Call",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.45
+        },
+        {
+          "raw": "clotpoll",
+          "start": 2.45,
+          "end": 2.85
+        },
+        {
+          "raw": "back.",
+          "start": 2.85,
+          "end": 3.15
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "What",
+        "says",
+        "the",
+        "fellow",
+        "there?",
+        "Call",
+        "the",
+        "clotpoll",
+        "back."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 0.83,
+          "end": 0.97,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 0.97,
+          "end": 1.13,
+          "key": "says",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.13,
+          "end": 1.33,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fellow",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "fellow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "there?",
+          "start": 1.49,
+          "end": 1.81,
+          "key": "there",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Call",
+          "start": 2.17,
+          "end": 2.31,
+          "key": "call",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.45,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "clotpoll",
+          "start": 2.45,
+          "end": 2.85,
+          "key": "clotpoll",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "back.",
+          "start": 2.85,
+          "end": 3.15,
+          "key": "back",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "What",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "says",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "text": "the",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "text": "fellow",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "text": "there?",
+          "start": 1.49,
+          "end": 1.81
+        },
+        {
+          "text": "Call",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "text": "the",
+          "start": 2.31,
+          "end": 2.45
+        },
+        {
+          "text": "clotpoll",
+          "start": 2.45,
+          "end": 2.85
+        },
+        {
+          "text": "back.",
+          "start": 2.85,
+          "end": 3.15
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21230868995189667
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8c97f4295353183afc9ed3cda76845ee561af413bf705e66ba30a01ebe11f1ba",
+  "selected_reasons": []
+}

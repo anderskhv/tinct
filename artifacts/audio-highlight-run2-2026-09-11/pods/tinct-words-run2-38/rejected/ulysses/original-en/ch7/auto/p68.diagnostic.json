@@ -1,0 +1,586 @@
+{
+  "complete": true,
+  "signature": "8d92474e0398bc5570b44d2847171d47ca592236fb5200404a6a6fb97885e3f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.08665438398020342,
+      "alignment_seconds": 0.00011853099567815661,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "House Of Key(E)S",
+        "hotwords": "House, Of, Key(E)S"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " House Of Key Es",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " House",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.73291015625
+            },
+            {
+              "text": " Of",
+              "start": 0.63,
+              "end": 0.79,
+              "probability": 0.022430419921875
+            },
+            {
+              "text": " Key",
+              "start": 0.79,
+              "end": 1.05,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Es",
+              "start": 1.05,
+              "end": 1.67,
+              "probability": 0.011444091796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "House",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Of",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "raw": "Key",
+          "start": 0.79,
+          "end": 1.05
+        },
+        {
+          "raw": "Es",
+          "start": 1.05,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "House",
+        "Of",
+        "Key(E)S"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "House",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "house",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 0.63,
+          "end": 0.79,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Key",
+          "start": 0.79,
+          "end": 1.05,
+          "key": "key",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Es",
+          "start": 1.05,
+          "end": 1.67,
+          "key": "es",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "House",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Of",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "Key(E)S",
+          "start": 0.79,
+          "end": 1.23
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08681757497834042
+    },
+    {
+      "asr_seconds": 0.10039453097851947,
+      "alignment_seconds": 0.00015196099411696196,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "House, Of, Key(E)S"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " House of Key, E.S.",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " House",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.73291015625
+            },
+            {
+              "text": " of",
+              "start": 0.63,
+              "end": 0.79,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " Key,",
+              "start": 0.79,
+              "end": 1.05,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " E",
+              "start": 1.43,
+              "end": 1.45,
+              "probability": 0.1767578125
+            },
+            {
+              "text": ".S.",
+              "start": 1.45,
+              "end": 1.77,
+              "probability": 0.805419921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "House",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "of",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "raw": "Key,",
+          "start": 0.79,
+          "end": 1.05
+        },
+        {
+          "raw": "E",
+          "start": 1.43,
+          "end": 1.45
+        },
+        {
+          "raw": ".S.",
+          "start": 1.45,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "House",
+        "Of",
+        "Key(E)S"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "House",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "house",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.63,
+          "end": 0.79,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Key,",
+          "start": 0.79,
+          "end": 1.05,
+          "key": "key",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "E",
+          "start": 1.43,
+          "end": 1.45,
+          "key": "e",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": ".S.",
+          "start": 1.45,
+          "end": 1.77,
+          "key": "s",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "House",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Of",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "Key(E)S",
+          "start": 0.79,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10060395195614547
+    },
+    {
+      "asr_seconds": 0.10093810502439737,
+      "alignment_seconds": 0.0001411809935234487,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " House of Key ES",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " House",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.73291015625
+            },
+            {
+              "text": " of",
+              "start": 0.63,
+              "end": 0.79,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " Key",
+              "start": 0.79,
+              "end": 1.05,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " ES",
+              "start": 1.05,
+              "end": 1.67,
+              "probability": 0.34326171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "House",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "of",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "raw": "Key",
+          "start": 0.79,
+          "end": 1.05
+        },
+        {
+          "raw": "ES",
+          "start": 1.05,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "House",
+        "Of",
+        "Key(E)S"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "House",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "house",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.63,
+          "end": 0.79,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Key",
+          "start": 0.79,
+          "end": 1.05,
+          "key": "key",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ES",
+          "start": 1.05,
+          "end": 1.67,
+          "key": "es",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "House",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Of",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "Key(E)S",
+          "start": 0.79,
+          "end": 1.23
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1011271959869191
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e2ec9fbdf2292dc89f33f8251fd1315898219236ba408d24612609214afd768e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "cddd26c3363434f1689dc995678ddb525f77c09fde9936ebab54674c2419817b",
+  "attempts": [
+    {
+      "asr_seconds": 0.0740693137049675,
+      "alignment_seconds": 0.0001069195568561554,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cornwall, get horses for your mistress.",
+          "start": 0.05,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " Cornwall,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.935546875
+            },
+            {
+              "text": " get",
+              "start": 1.25,
+              "end": 1.33,
+              "probability": 0.96875
+            },
+            {
+              "text": " horses",
+              "start": 1.33,
+              "end": 1.61,
+              "probability": 0.9921875
+            },
+            {
+              "text": " for",
+              "start": 1.61,
+              "end": 1.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 1.89,
+              "end": 1.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mistress.",
+              "start": 1.99,
+              "end": 2.31,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "get",
+          "start": 1.25,
+          "end": 1.33
+        },
+        {
+          "raw": "horses",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "raw": "for",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "raw": "your",
+          "start": 1.89,
+          "end": 1.99
+        },
+        {
+          "raw": "mistress.",
+          "start": 1.99,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "Cornwall.",
+        "Get",
+        "horses",
+        "for",
+        "your",
+        "mistress."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "cornwall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 1.25,
+          "end": 1.33,
+          "key": "get",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "horses",
+          "start": 1.33,
+          "end": 1.61,
+          "key": "horses",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.61,
+          "end": 1.89,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.89,
+          "end": 1.99,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mistress.",
+          "start": 1.99,
+          "end": 2.31,
+          "key": "mistress",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cornwall.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Get",
+          "start": 1.25,
+          "end": 1.33
+        },
+        {
+          "text": "horses",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "text": "for",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "text": "your",
+          "start": 1.89,
+          "end": 1.99
+        },
+        {
+          "text": "mistress.",
+          "start": 1.99,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07421602681279182
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "628d809d9b46e9dc4e327028f701c7e796e17f5f17b64d02b396c3b8577d5799",
+  "selected_reasons": []
+}

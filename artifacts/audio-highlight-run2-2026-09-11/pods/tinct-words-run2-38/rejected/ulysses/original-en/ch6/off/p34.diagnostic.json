@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "16787f59bf613f31b2688e794b6221fbaa08756a6d19acd3c2b53d02efce7911",
+  "attempts": [
+    {
+      "asr_seconds": 0.1359675899730064,
+      "alignment_seconds": 0.00027392100309953094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Corny might have given us a more commodious yoke, Mr. Power said.",
+          "start": 0.11,
+          "end": 3.99,
+          "words": [
+            {
+              "text": " Corny",
+              "start": 0.11,
+              "end": 0.79,
+              "probability": 0.48687744140625
+            },
+            {
+              "text": " might",
+              "start": 0.79,
+              "end": 0.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " have",
+              "start": 0.97,
+              "end": 1.09,
+              "probability": 0.818359375
+            },
+            {
+              "text": " given",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " us",
+              "start": 1.27,
+              "end": 1.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 1.47,
+              "end": 1.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " more",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " commodious",
+              "start": 1.75,
+              "end": 2.37,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " yoke,",
+              "start": 2.37,
+              "end": 2.81,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " Mr.",
+              "start": 3.17,
+              "end": 3.33,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Power",
+              "start": 3.57,
+              "end": 3.59,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " said.",
+              "start": 3.59,
+              "end": 3.99,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Corny",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "raw": "might",
+          "start": 0.79,
+          "end": 0.97
+        },
+        {
+          "raw": "have",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "raw": "given",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "us",
+          "start": 1.27,
+          "end": 1.47
+        },
+        {
+          "raw": "a",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "raw": "more",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "commodious",
+          "start": 1.75,
+          "end": 2.37
+        },
+        {
+          "raw": "yoke,",
+          "start": 2.37,
+          "end": 2.81
+        },
+        {
+          "raw": "Mr.",
+          "start": 3.17,
+          "end": 3.33
+        },
+        {
+          "raw": "Power",
+          "start": 3.57,
+          "end": 3.59
+        },
+        {
+          "raw": "said.",
+          "start": 3.59,
+          "end": 3.99
+        }
+      ],
+      "expected_tokens": [
+        "—Corny",
+        "might",
+        "have",
+        "given",
+        "us",
+        "a",
+        "more",
+        "commodious",
+        "yoke,",
+        "Mr",
+        "Power",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Corny",
+          "start": 0.11,
+          "end": 0.79,
+          "key": "corny",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 0.79,
+          "end": 0.97,
+          "key": "might",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.97,
+          "end": 1.09,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "given",
+          "start": 1.09,
+          "end": 1.27,
+          "key": "given",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.27,
+          "end": 1.47,
+          "key": "us",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.47,
+          "end": 1.57,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.57,
+          "end": 1.75,
+          "key": "more",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "commodious",
+          "start": 1.75,
+          "end": 2.37,
+          "key": "commodious",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "yoke,",
+          "start": 2.37,
+          "end": 2.81,
+          "key": "yoke",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 3.17,
+          "end": 3.33,
+          "key": "mr",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Power",
+          "start": 3.57,
+          "end": 3.59,
+          "key": "power",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 3.59,
+          "end": 3.99,
+          "key": "said",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Corny",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "text": "might",
+          "start": 0.79,
+          "end": 0.97
+        },
+        {
+          "text": "have",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "text": "given",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "text": "us",
+          "start": 1.27,
+          "end": 1.47
+        },
+        {
+          "text": "a",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "text": "more",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "commodious",
+          "start": 1.75,
+          "end": 2.37
+        },
+        {
+          "text": "yoke,",
+          "start": 2.37,
+          "end": 2.81
+        },
+        {
+          "text": "Mr",
+          "start": 3.17,
+          "end": 3.33
+        },
+        {
+          "text": "Power",
+          "start": 3.57,
+          "end": 3.59
+        },
+        {
+          "text": "said.",
+          "start": 3.59,
+          "end": 3.99
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13633789197774604
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a4fccdbab28b05b094210033ebe834d71608804a535bde612e7ed6d61e407bd5",
+  "selected_reasons": []
+}

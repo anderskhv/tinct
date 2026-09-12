@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "2457fcb57da728ad7bc2fbbbf631f380af84be5c96fe74a07e9d1746f80086c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.20462805405259132,
+      "alignment_seconds": 0.0006000883877277374,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fabian, we shall have a rare letter from him, but you'll not deliver it.",
+          "start": 0.08,
+          "end": 4.14,
+          "words": [
+            {
+              "text": " Fabian,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.938720703125
+            },
+            {
+              "text": " we",
+              "start": 1.24,
+              "end": 1.46,
+              "probability": 0.974609375
+            },
+            {
+              "text": " shall",
+              "start": 1.46,
+              "end": 1.58,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " have",
+              "start": 1.58,
+              "end": 1.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " rare",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " letter",
+              "start": 2.06,
+              "end": 2.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " from",
+              "start": 2.36,
+              "end": 2.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him,",
+              "start": 2.58,
+              "end": 2.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 3.02,
+              "end": 3.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you'll",
+              "start": 3.08,
+              "end": 3.24,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " not",
+              "start": 3.24,
+              "end": 3.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " deliver",
+              "start": 3.42,
+              "end": 3.74,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " it.",
+              "start": 3.74,
+              "end": 4.14,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fabian,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "we",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "raw": "shall",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "raw": "have",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "raw": "a",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "rare",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "letter",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "raw": "from",
+          "start": 2.36,
+          "end": 2.58
+        },
+        {
+          "raw": "him,",
+          "start": 2.58,
+          "end": 2.82
+        },
+        {
+          "raw": "but",
+          "start": 3.02,
+          "end": 3.08
+        },
+        {
+          "raw": "you'll",
+          "start": 3.08,
+          "end": 3.24
+        },
+        {
+          "raw": "not",
+          "start": 3.24,
+          "end": 3.42
+        },
+        {
+          "raw": "deliver",
+          "start": 3.42,
+          "end": 3.74
+        },
+        {
+          "raw": "it.",
+          "start": 3.74,
+          "end": 4.14
+        }
+      ],
+      "expected_tokens": [
+        "Fabian.",
+        "We",
+        "shall",
+        "have",
+        "a",
+        "rare",
+        "letter",
+        "from",
+        "him;",
+        "but",
+        "you'll",
+        "not",
+        "deliver",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fabian,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "fabian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.24,
+          "end": 1.46,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.46,
+          "end": 1.58,
+          "key": "shall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.58,
+          "end": 1.74,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "rare",
+          "start": 1.9,
+          "end": 2.06,
+          "key": "rare",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 2.06,
+          "end": 2.36,
+          "key": "letter",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.36,
+          "end": 2.58,
+          "key": "from",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 2.58,
+          "end": 2.82,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.02,
+          "end": 3.08,
+          "key": "but",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you'll",
+          "start": 3.08,
+          "end": 3.24,
+          "key": "youll",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.24,
+          "end": 3.42,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "deliver",
+          "start": 3.42,
+          "end": 3.74,
+          "key": "deliver",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 3.74,
+          "end": 4.14,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fabian.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "We",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "text": "shall",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "text": "have",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "text": "a",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "rare",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "text": "letter",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "text": "from",
+          "start": 2.36,
+          "end": 2.58
+        },
+        {
+          "text": "him;",
+          "start": 2.58,
+          "end": 2.82
+        },
+        {
+          "text": "but",
+          "start": 3.02,
+          "end": 3.08
+        },
+        {
+          "text": "you'll",
+          "start": 3.08,
+          "end": 3.24
+        },
+        {
+          "text": "not",
+          "start": 3.24,
+          "end": 3.42
+        },
+        {
+          "text": "deliver",
+          "start": 3.42,
+          "end": 3.74
+        },
+        {
+          "text": "it.",
+          "start": 3.74,
+          "end": 4.14
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20547554269433022
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e6dd881e732b66cc644ebf12162cf4479ee5be6e5dca04a6d2dce3e44b929943",
+  "selected_reasons": []
+}

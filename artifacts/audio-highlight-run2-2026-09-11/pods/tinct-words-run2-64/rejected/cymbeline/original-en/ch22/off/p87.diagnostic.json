@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "339913b9c51c5ab73fb6655dde9f701243de4addad1fe38787b1ce6d0420583b",
+  "attempts": [
+    {
+      "asr_seconds": 0.10338528454303741,
+      "alignment_seconds": 0.00017122086137533188,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " solemn music",
+          "start": 0.11,
+          "end": 1.07,
+          "words": [
+            {
+              "text": " solemn",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.12158203125
+            },
+            {
+              "text": " music",
+              "start": 0.65,
+              "end": 1.07,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "solemn",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "music",
+          "start": 0.65,
+          "end": 1.07
+        }
+      ],
+      "expected_tokens": [
+        "[_Solemn",
+        "music._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "solemn",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "solemn",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "music",
+          "start": 0.65,
+          "end": 1.07,
+          "key": "music",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Solemn",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "music._]",
+          "start": 0.65,
+          "end": 1.07
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10360932722687721
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "674e5ea1fe04c637cc8e39721d9cb829c76bf240978a9f8a45c048a25c8fdbd1",
+  "selected_reasons": []
+}

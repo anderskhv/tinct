@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "838a0c080dba01ad49ecda59edc60bfd8a796a237a2d0afc7d832a140bf28ad1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1120731933042407,
+      "alignment_seconds": 0.0002501169219613075,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Macbeth, when?",
+          "start": 0.02,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.8025716145833334
+            },
+            {
+              "text": " when?",
+              "start": 0.94,
+              "end": 1.18,
+              "probability": 0.884765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "when?",
+          "start": 0.94,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "When?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "when?",
+          "start": 0.94,
+          "end": 1.18,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "When?",
+          "start": 0.94,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11241611000150442
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "46e1ed00485b079c69f4905484733f319e70b45ebbcf23dd75c39bc4cb9f4d60",
+  "selected_reasons": []
+}

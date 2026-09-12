@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "101ea8afed436aeb5fb467e983ac594bc17839857701123aa750c79cc35fb659",
+  "attempts": [
+    {
+      "asr_seconds": 0.16220019944012165,
+      "alignment_seconds": 0.0003332514315843582,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. With drink, sir?",
+        "hotwords": "Hamlet, With"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, With Drink, sir?",
+          "start": 0.57,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.57,
+              "end": 0.85,
+              "probability": 0.931396484375
+            },
+            {
+              "text": " With",
+              "start": 0.97,
+              "end": 1.11,
+              "probability": 0.005123138427734375
+            },
+            {
+              "text": " Drink,",
+              "start": 1.11,
+              "end": 1.35,
+              "probability": 0.18017578125
+            },
+            {
+              "text": " sir?",
+              "start": 1.49,
+              "end": 1.63,
+              "probability": 0.09906005859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.57,
+          "end": 0.85
+        },
+        {
+          "raw": "With",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "raw": "Drink,",
+          "start": 1.11,
+          "end": 1.35
+        },
+        {
+          "raw": "sir?",
+          "start": 1.49,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "With",
+        "drink,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.57,
+          "end": 0.85,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 0.97,
+          "end": 1.11,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Drink,",
+          "start": 1.11,
+          "end": 1.35,
+          "key": "drink",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 1.49,
+          "end": 1.63,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.57,
+          "end": 0.85
+        },
+        {
+          "text": "With",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "text": "drink,",
+          "start": 1.11,
+          "end": 1.35
+        },
+        {
+          "text": "sir?",
+          "start": 1.49,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16265003010630608
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "103c946a0e013ad20150a140cb6be501e570472f3b555614cb313ef4d54b5261",
+  "selected_reasons": []
+}

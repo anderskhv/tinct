@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "16386b4a1fc70cb88ccbb9edbfff7a8ab84b41b066cec9944a2829aaacab057c",
+  "attempts": [
+    {
+      "asr_seconds": 0.21850670501589775,
+      "alignment_seconds": 0.0004239417612552643,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Olivia. Hast thou forgot thyself? Is it so long? Call forth the holy father.",
+        "hotwords": "Olivia, Hast, Is, Call"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Olivia, Hast thou forgot thyself? Is it so long? Call forth the holy father.",
+          "start": 0.05,
+          "end": 4.99,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " Hast",
+              "start": 1.19,
+              "end": 1.23,
+              "probability": 0.039703369140625
+            },
+            {
+              "text": " thou",
+              "start": 1.23,
+              "end": 1.49,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " forgot",
+              "start": 1.49,
+              "end": 1.75,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " thyself?",
+              "start": 1.75,
+              "end": 2.23,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " Is",
+              "start": 2.77,
+              "end": 2.87,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " it",
+              "start": 2.87,
+              "end": 2.97,
+              "probability": 0.994140625
+            },
+            {
+              "text": " so",
+              "start": 2.97,
+              "end": 3.15,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " long?",
+              "start": 3.15,
+              "end": 3.49,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Call",
+              "start": 3.85,
+              "end": 3.93,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " forth",
+              "start": 3.93,
+              "end": 4.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 4.23,
+              "end": 4.43,
+              "probability": 0.96875
+            },
+            {
+              "text": " holy",
+              "start": 4.43,
+              "end": 4.65,
+              "probability": 0.1357421875
+            },
+            {
+              "text": " father.",
+              "start": 4.65,
+              "end": 4.99,
+              "probability": 0.27734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Hast",
+          "start": 1.19,
+          "end": 1.23
+        },
+        {
+          "raw": "thou",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "raw": "forgot",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "raw": "thyself?",
+          "start": 1.75,
+          "end": 2.23
+        },
+        {
+          "raw": "Is",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "raw": "it",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "raw": "so",
+          "start": 2.97,
+          "end": 3.15
+        },
+        {
+          "raw": "long?",
+          "start": 3.15,
+          "end": 3.49
+        },
+        {
+          "raw": "Call",
+          "start": 3.85,
+          "end": 3.93
+        },
+        {
+          "raw": "forth",
+          "start": 3.93,
+          "end": 4.23
+        },
+        {
+          "raw": "the",
+          "start": 4.23,
+          "end": 4.43
+        },
+        {
+          "raw": "holy",
+          "start": 4.43,
+          "end": 4.65
+        },
+        {
+          "raw": "father.",
+          "start": 4.65,
+          "end": 4.99
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Hast",
+        "thou",
+        "forgot",
+        "thyself?",
+        "Is",
+        "it",
+        "so",
+        "long?",
+        "Call",
+        "forth",
+        "the",
+        "holy",
+        "father."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hast",
+          "start": 1.19,
+          "end": 1.23,
+          "key": "hast",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.23,
+          "end": 1.49,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "forgot",
+          "start": 1.49,
+          "end": 1.75,
+          "key": "forgot",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thyself?",
+          "start": 1.75,
+          "end": 2.23,
+          "key": "thyself",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 2.77,
+          "end": 2.87,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.87,
+          "end": 2.97,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.97,
+          "end": 3.15,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "long?",
+          "start": 3.15,
+          "end": 3.49,
+          "key": "long",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Call",
+          "start": 3.85,
+          "end": 3.93,
+          "key": "call",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "forth",
+          "start": 3.93,
+          "end": 4.23,
+          "key": "forth",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.23,
+          "end": 4.43,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "holy",
+          "start": 4.43,
+          "end": 4.65,
+          "key": "holy",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "father.",
+          "start": 4.65,
+          "end": 4.99,
+          "key": "father",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Hast",
+          "start": 1.19,
+          "end": 1.23
+        },
+        {
+          "text": "thou",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "text": "forgot",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "text": "thyself?",
+          "start": 1.75,
+          "end": 2.23
+        },
+        {
+          "text": "Is",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "text": "it",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "text": "so",
+          "start": 2.97,
+          "end": 3.15
+        },
+        {
+          "text": "long?",
+          "start": 3.15,
+          "end": 3.49
+        },
+        {
+          "text": "Call",
+          "start": 3.85,
+          "end": 3.93
+        },
+        {
+          "text": "forth",
+          "start": 3.93,
+          "end": 4.23
+        },
+        {
+          "text": "the",
+          "start": 4.23,
+          "end": 4.43
+        },
+        {
+          "text": "holy",
+          "start": 4.43,
+          "end": 4.65
+        },
+        {
+          "text": "father.",
+          "start": 4.65,
+          "end": 4.99
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21910028904676437
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9f10b6c2945471f817431e98eb869b70c6b755803fd52ffbcf7d03ed2fb2992e",
+  "selected_reasons": []
+}

@@ -1,0 +1,233 @@
+{
+  "complete": true,
+  "signature": "7bb09ecf7f886b3a2404bedb8174c01168903d08c6b37b08475fa24c519d0107",
+  "attempts": [
+    {
+      "asr_seconds": 0.15244518034160137,
+      "alignment_seconds": 0.00019586505368351936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Coriolanus. How? What?",
+        "hotwords": "Coriolanus, How, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, How, What Coriolanus, How, What",
+          "start": 0.08,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.08,
+              "end": 1.06,
+              "probability": 0.7586263020833334
+            },
+            {
+              "text": " How,",
+              "start": 1.42,
+              "end": 1.48,
+              "probability": 0.046661376953125
+            },
+            {
+              "text": " What",
+              "start": 1.9,
+              "end": 1.9,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " Coriolanus,",
+              "start": 1.9,
+              "end": 2.52,
+              "probability": 0.652995765209198
+            },
+            {
+              "text": " How,",
+              "start": 2.52,
+              "end": 2.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " What",
+              "start": 2.52,
+              "end": 2.52,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.08,
+          "end": 1.06
+        },
+        {
+          "raw": "How,",
+          "start": 1.42,
+          "end": 1.48
+        },
+        {
+          "raw": "What",
+          "start": 1.9,
+          "end": 1.9
+        },
+        {
+          "raw": "Coriolanus,",
+          "start": 1.9,
+          "end": 2.52
+        },
+        {
+          "raw": "How,",
+          "start": 2.52,
+          "end": 2.52
+        },
+        {
+          "raw": "What",
+          "start": 2.52,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "How?",
+        "What?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.08,
+          "end": 1.06,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How,",
+          "start": 1.42,
+          "end": 1.48,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.9,
+          "end": 1.9,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Coriolanus,",
+          "start": 1.9,
+          "end": 2.52,
+          "key": "coriolanus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "How,",
+          "start": 2.52,
+          "end": 2.52,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.52,
+          "end": 2.52,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.08,
+          "end": 1.06
+        },
+        {
+          "text": "How?",
+          "start": 1.42,
+          "end": 1.48
+        },
+        {
+          "text": "What?",
+          "start": 1.9,
+          "end": 1.9
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15272272797301412
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c49af2e984fc565ac5c893e7c03f2cf32168a76fb8c0541d7f24f5e8972085a2",
+  "selected_reasons": []
+}

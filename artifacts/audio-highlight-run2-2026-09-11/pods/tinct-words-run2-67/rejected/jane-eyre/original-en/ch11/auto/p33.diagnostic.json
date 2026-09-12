@@ -1,0 +1,758 @@
+{
+  "complete": true,
+  "signature": "eb45bcdae7179c2aa3d8a2c0322ed9bcd93d36c97e35fc1fe880223093730592",
+  "attempts": [
+    {
+      "asr_seconds": 0.3084232499822974,
+      "alignment_seconds": 0.0007172874175012112,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Shall I have the pleasure of seeing Miss Fairfax to-night?\" I asked, when I had partaken of what she offered me.",
+        "hotwords": "Shall, I, Miss, Fairfax"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shall I have the pleasure of seeing Miss Fairfax to-night? I asked, when I had partaken of what she offered me.",
+          "start": 0.02,
+          "end": 6.26,
+          "words": [
+            {
+              "text": " Shall",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.334716796875
+            },
+            {
+              "text": " I",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " have",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 0.8,
+              "end": 0.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " pleasure",
+              "start": 0.94,
+              "end": 1.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 1.16,
+              "end": 1.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " seeing",
+              "start": 1.4,
+              "end": 1.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Miss",
+              "start": 1.64,
+              "end": 1.9,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " Fairfax",
+              "start": 1.9,
+              "end": 2.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 2.3,
+              "end": 2.56,
+              "probability": 0.004364013671875
+            },
+            {
+              "text": "-night?",
+              "start": 2.56,
+              "end": 2.88,
+              "probability": 0.949951171875
+            },
+            {
+              "text": " I",
+              "start": 3.22,
+              "end": 3.5,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " asked,",
+              "start": 3.5,
+              "end": 3.9,
+              "probability": 0.990234375
+            },
+            {
+              "text": " when",
+              "start": 4.24,
+              "end": 4.42,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " I",
+              "start": 4.42,
+              "end": 4.54,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " had",
+              "start": 4.54,
+              "end": 4.66,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " partaken",
+              "start": 4.66,
+              "end": 5.16,
+              "probability": 0.935302734375
+            },
+            {
+              "text": " of",
+              "start": 5.16,
+              "end": 5.32,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " what",
+              "start": 5.32,
+              "end": 5.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " she",
+              "start": 5.46,
+              "end": 5.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " offered",
+              "start": 5.62,
+              "end": 5.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me.",
+              "start": 5.94,
+              "end": 6.26,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "I",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "have",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "the",
+          "start": 0.8,
+          "end": 0.94
+        },
+        {
+          "raw": "pleasure",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "raw": "of",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "raw": "seeing",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "raw": "Miss",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "raw": "Fairfax",
+          "start": 1.9,
+          "end": 2.3
+        },
+        {
+          "raw": "to",
+          "start": 2.3,
+          "end": 2.56
+        },
+        {
+          "raw": "-night?",
+          "start": 2.56,
+          "end": 2.88
+        },
+        {
+          "raw": "I",
+          "start": 3.22,
+          "end": 3.5
+        },
+        {
+          "raw": "asked,",
+          "start": 3.5,
+          "end": 3.9
+        },
+        {
+          "raw": "when",
+          "start": 4.24,
+          "end": 4.42
+        },
+        {
+          "raw": "I",
+          "start": 4.42,
+          "end": 4.54
+        },
+        {
+          "raw": "had",
+          "start": 4.54,
+          "end": 4.66
+        },
+        {
+          "raw": "partaken",
+          "start": 4.66,
+          "end": 5.16
+        },
+        {
+          "raw": "of",
+          "start": 5.16,
+          "end": 5.32
+        },
+        {
+          "raw": "what",
+          "start": 5.32,
+          "end": 5.46
+        },
+        {
+          "raw": "she",
+          "start": 5.46,
+          "end": 5.62
+        },
+        {
+          "raw": "offered",
+          "start": 5.62,
+          "end": 5.94
+        },
+        {
+          "raw": "me.",
+          "start": 5.94,
+          "end": 6.26
+        }
+      ],
+      "expected_tokens": [
+        "\"Shall",
+        "I",
+        "have",
+        "the",
+        "pleasure",
+        "of",
+        "seeing",
+        "Miss",
+        "Fairfax",
+        "to-night?\"",
+        "I",
+        "asked,",
+        "when",
+        "I",
+        "had",
+        "partaken",
+        "of",
+        "what",
+        "she",
+        "offered",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.66,
+          "end": 0.8,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.8,
+          "end": 0.94,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pleasure",
+          "start": 0.94,
+          "end": 1.16,
+          "key": "pleasure",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.16,
+          "end": 1.4,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "seeing",
+          "start": 1.4,
+          "end": 1.64,
+          "key": "seeing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.64,
+          "end": 1.9,
+          "key": "miss",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Fairfax",
+          "start": 1.9,
+          "end": 2.3,
+          "key": "fairfax",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to -night?",
+          "start": 2.3,
+          "end": 2.88,
+          "key": "tonight",
+          "pieces": [
+            9,
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.22,
+          "end": 3.5,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "asked,",
+          "start": 3.5,
+          "end": 3.9,
+          "key": "asked",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.24,
+          "end": 4.42,
+          "key": "when",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.42,
+          "end": 4.54,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.54,
+          "end": 4.66,
+          "key": "had",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "partaken",
+          "start": 4.66,
+          "end": 5.16,
+          "key": "partaken",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.16,
+          "end": 5.32,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 5.32,
+          "end": 5.46,
+          "key": "what",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 5.46,
+          "end": 5.62,
+          "key": "she",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "offered",
+          "start": 5.62,
+          "end": 5.94,
+          "key": "offered",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 5.94,
+          "end": 6.26,
+          "key": "me",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 9,
+          "text": "to-night?\"",
+          "heard": "to -night?",
+          "heard_indexes": [
+            9,
+            10
+          ],
+          "start": 2.3,
+          "end": 2.88
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Shall",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "I",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "have",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "text": "the",
+          "start": 0.8,
+          "end": 0.94
+        },
+        {
+          "text": "pleasure",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "text": "of",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "text": "seeing",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "text": "Miss",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "text": "Fairfax",
+          "start": 1.9,
+          "end": 2.3
+        },
+        {
+          "text": "to-night?\"",
+          "start": 2.3,
+          "end": 2.88
+        },
+        {
+          "text": "I",
+          "start": 3.22,
+          "end": 3.5
+        },
+        {
+          "text": "asked,",
+          "start": 3.5,
+          "end": 3.9
+        },
+        {
+          "text": "when",
+          "start": 4.24,
+          "end": 4.42
+        },
+        {
+          "text": "I",
+          "start": 4.42,
+          "end": 4.54
+        },
+        {
+          "text": "had",
+          "start": 4.54,
+          "end": 4.66
+        },
+        {
+          "text": "partaken",
+          "start": 4.66,
+          "end": 5.16
+        },
+        {
+          "text": "of",
+          "start": 5.16,
+          "end": 5.32
+        },
+        {
+          "text": "what",
+          "start": 5.32,
+          "end": 5.46
+        },
+        {
+          "text": "she",
+          "start": 5.46,
+          "end": 5.62
+        },
+        {
+          "text": "offered",
+          "start": 5.62,
+          "end": 5.94
+        },
+        {
+          "text": "me.",
+          "start": 5.94,
+          "end": 6.26
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30943973595276475
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bfa93ddb3b51bb026cbc01ba6bfef1ac6f311c72fbeedf79efe1a80aa6c3bf4d",
+  "selected_reasons": []
+}

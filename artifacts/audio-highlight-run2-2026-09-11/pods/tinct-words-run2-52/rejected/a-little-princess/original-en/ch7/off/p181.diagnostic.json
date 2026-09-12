@@ -1,0 +1,768 @@
+{
+  "complete": true,
+  "signature": "4f3c232626ebcce801e712454e3c2875eec7d21578dd78592871406eb2c8a705",
+  "attempts": [
+    {
+      "asr_seconds": 0.3773450069129467,
+      "alignment_seconds": 0.0004908256232738495,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " May I? exclaimed Sarah.",
+          "start": 0.02,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " May",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.01513671875
+            },
+            {
+              "text": " I?",
+              "start": 0.62,
+              "end": 1.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " exclaimed",
+              "start": 1.2,
+              "end": 1.54,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " Sarah.",
+              "start": 1.54,
+              "end": 2.02,
+              "probability": 0.8046875
+            }
+          ]
+        },
+        {
+          "text": " Oh, please let me, I know I can teach them.",
+          "start": 2.72,
+          "end": 4.52,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 2.72,
+              "end": 2.84,
+              "probability": 0.5546875
+            },
+            {
+              "text": " please",
+              "start": 2.88,
+              "end": 3.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " let",
+              "start": 3.1,
+              "end": 3.34,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " me,",
+              "start": 3.34,
+              "end": 3.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 3.6,
+              "end": 3.68,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " know",
+              "start": 3.68,
+              "end": 3.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 3.8,
+              "end": 3.94,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " can",
+              "start": 3.94,
+              "end": 4.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " teach",
+              "start": 4.06,
+              "end": 4.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them.",
+              "start": 4.24,
+              "end": 4.52,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " I like them and they like me.",
+          "start": 4.82,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " I",
+              "start": 4.82,
+              "end": 4.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " like",
+              "start": 4.92,
+              "end": 5.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them",
+              "start": 5.08,
+              "end": 5.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 5.28,
+              "end": 5.42,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " they",
+              "start": 5.42,
+              "end": 5.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " like",
+              "start": 5.56,
+              "end": 5.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me.",
+              "start": 5.74,
+              "end": 6.0,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "May",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "I?",
+          "start": 0.62,
+          "end": 1.1
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.2,
+          "end": 1.54
+        },
+        {
+          "raw": "Sarah.",
+          "start": 1.54,
+          "end": 2.02
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "raw": "please",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "raw": "let",
+          "start": 3.1,
+          "end": 3.34
+        },
+        {
+          "raw": "me,",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "raw": "I",
+          "start": 3.6,
+          "end": 3.68
+        },
+        {
+          "raw": "know",
+          "start": 3.68,
+          "end": 3.8
+        },
+        {
+          "raw": "I",
+          "start": 3.8,
+          "end": 3.94
+        },
+        {
+          "raw": "can",
+          "start": 3.94,
+          "end": 4.06
+        },
+        {
+          "raw": "teach",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "raw": "them.",
+          "start": 4.24,
+          "end": 4.52
+        },
+        {
+          "raw": "I",
+          "start": 4.82,
+          "end": 4.92
+        },
+        {
+          "raw": "like",
+          "start": 4.92,
+          "end": 5.08
+        },
+        {
+          "raw": "them",
+          "start": 5.08,
+          "end": 5.28
+        },
+        {
+          "raw": "and",
+          "start": 5.28,
+          "end": 5.42
+        },
+        {
+          "raw": "they",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "raw": "like",
+          "start": 5.56,
+          "end": 5.74
+        },
+        {
+          "raw": "me.",
+          "start": 5.74,
+          "end": 6.0
+        }
+      ],
+      "expected_tokens": [
+        "\"May",
+        "I?\"",
+        "exclaimed",
+        "Sara.",
+        "\"Oh,",
+        "please",
+        "let",
+        "me!",
+        "I",
+        "know",
+        "I",
+        "can",
+        "teach",
+        "them.",
+        "I",
+        "like",
+        "them,",
+        "and",
+        "they",
+        "like",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          21,
+          4,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "May",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "may",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I?",
+          "start": 0.62,
+          "end": 1.1,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.2,
+          "end": 1.54,
+          "key": "exclaimed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sarah.",
+          "start": 1.54,
+          "end": 2.02,
+          "key": "sarah",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.72,
+          "end": 2.84,
+          "key": "oh",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 2.88,
+          "end": 3.1,
+          "key": "please",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 3.1,
+          "end": 3.34,
+          "key": "let",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 3.34,
+          "end": 3.48,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.6,
+          "end": 3.68,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 3.68,
+          "end": 3.8,
+          "key": "know",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.8,
+          "end": 3.94,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 3.94,
+          "end": 4.06,
+          "key": "can",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "teach",
+          "start": 4.06,
+          "end": 4.24,
+          "key": "teach",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 4.24,
+          "end": 4.52,
+          "key": "them",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.82,
+          "end": 4.92,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 4.92,
+          "end": 5.08,
+          "key": "like",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 5.08,
+          "end": 5.28,
+          "key": "them",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.28,
+          "end": 5.42,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 5.42,
+          "end": 5.56,
+          "key": "they",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 5.56,
+          "end": 5.74,
+          "key": "like",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 5.74,
+          "end": 6.0,
+          "key": "me",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"May",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "I?\"",
+          "start": 0.62,
+          "end": 1.1
+        },
+        {
+          "text": "exclaimed",
+          "start": 1.2,
+          "end": 1.54
+        },
+        {
+          "text": "Sara.",
+          "start": 1.54,
+          "end": 2.13
+        },
+        {
+          "text": "\"Oh,",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "text": "please",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "text": "let",
+          "start": 3.1,
+          "end": 3.34
+        },
+        {
+          "text": "me!",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "text": "I",
+          "start": 3.6,
+          "end": 3.68
+        },
+        {
+          "text": "know",
+          "start": 3.68,
+          "end": 3.8
+        },
+        {
+          "text": "I",
+          "start": 3.8,
+          "end": 3.94
+        },
+        {
+          "text": "can",
+          "start": 3.94,
+          "end": 4.06
+        },
+        {
+          "text": "teach",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "text": "them.",
+          "start": 4.24,
+          "end": 4.52
+        },
+        {
+          "text": "I",
+          "start": 4.82,
+          "end": 4.92
+        },
+        {
+          "text": "like",
+          "start": 4.92,
+          "end": 5.08
+        },
+        {
+          "text": "them,",
+          "start": 5.08,
+          "end": 5.28
+        },
+        {
+          "text": "and",
+          "start": 5.28,
+          "end": 5.42
+        },
+        {
+          "text": "they",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "text": "like",
+          "start": 5.56,
+          "end": 5.74
+        },
+        {
+          "text": "me.\"",
+          "start": 5.74,
+          "end": 6.0
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.37807997316122055
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c8aa1c7d3b7e8ea87eac04ed92799f60fc1afbb0322925cbb9cf621241372524",
+  "selected_reasons": []
+}

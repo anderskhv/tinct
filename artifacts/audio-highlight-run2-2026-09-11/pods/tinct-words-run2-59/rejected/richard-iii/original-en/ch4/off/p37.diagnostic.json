@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "1c599be3739b9172c061584c78bb14599028c20181b86f454398bd6207c5d10a",
+  "attempts": [
+    {
+      "asr_seconds": 0.28450880805030465,
+      "alignment_seconds": 0.00047601480036973953,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second murderer faith some certain drags of conscience are yet within me",
+          "start": 0.08,
+          "end": 4.78,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " murderer",
+              "start": 0.7,
+              "end": 1.16,
+              "probability": 0.43017578125
+            },
+            {
+              "text": " faith",
+              "start": 1.16,
+              "end": 2.04,
+              "probability": 0.080078125
+            },
+            {
+              "text": " some",
+              "start": 2.04,
+              "end": 2.54,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " certain",
+              "start": 2.54,
+              "end": 2.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " drags",
+              "start": 2.9,
+              "end": 3.24,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " of",
+              "start": 3.24,
+              "end": 3.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " conscience",
+              "start": 3.36,
+              "end": 3.76,
+              "probability": 0.9921875
+            },
+            {
+              "text": " are",
+              "start": 3.76,
+              "end": 4.02,
+              "probability": 0.986328125
+            },
+            {
+              "text": " yet",
+              "start": 4.02,
+              "end": 4.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " within",
+              "start": 4.24,
+              "end": 4.5,
+              "probability": 0.98828125
+            },
+            {
+              "text": " me",
+              "start": 4.5,
+              "end": 4.78,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "murderer",
+          "start": 0.7,
+          "end": 1.16
+        },
+        {
+          "raw": "faith",
+          "start": 1.16,
+          "end": 2.04
+        },
+        {
+          "raw": "some",
+          "start": 2.04,
+          "end": 2.54
+        },
+        {
+          "raw": "certain",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "raw": "drags",
+          "start": 2.9,
+          "end": 3.24
+        },
+        {
+          "raw": "of",
+          "start": 3.24,
+          "end": 3.36
+        },
+        {
+          "raw": "conscience",
+          "start": 3.36,
+          "end": 3.76
+        },
+        {
+          "raw": "are",
+          "start": 3.76,
+          "end": 4.02
+        },
+        {
+          "raw": "yet",
+          "start": 4.02,
+          "end": 4.24
+        },
+        {
+          "raw": "within",
+          "start": 4.24,
+          "end": 4.5
+        },
+        {
+          "raw": "me",
+          "start": 4.5,
+          "end": 4.78
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Murderer.",
+        "Faith,",
+        "some",
+        "certain",
+        "dregs",
+        "of",
+        "conscience",
+        "are",
+        "yet",
+        "within",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          12,
+          6,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "murderer",
+          "start": 0.7,
+          "end": 1.16,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "faith",
+          "start": 1.16,
+          "end": 2.04,
+          "key": "faith",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 2.04,
+          "end": 2.54,
+          "key": "some",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "certain",
+          "start": 2.54,
+          "end": 2.9,
+          "key": "certain",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "drags",
+          "start": 2.9,
+          "end": 3.24,
+          "key": "drags",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.24,
+          "end": 3.36,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "conscience",
+          "start": 3.36,
+          "end": 3.76,
+          "key": "conscience",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.76,
+          "end": 4.02,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 4.02,
+          "end": 4.24,
+          "key": "yet",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 4.24,
+          "end": 4.5,
+          "key": "within",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.5,
+          "end": 4.78,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.7,
+          "end": 1.16
+        },
+        {
+          "text": "Faith,",
+          "start": 1.16,
+          "end": 2.04
+        },
+        {
+          "text": "some",
+          "start": 2.04,
+          "end": 2.54
+        },
+        {
+          "text": "certain",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "text": "dregs",
+          "start": 2.9,
+          "end": 3.07
+        },
+        {
+          "text": "of",
+          "start": 3.24,
+          "end": 3.36
+        },
+        {
+          "text": "conscience",
+          "start": 3.36,
+          "end": 3.76
+        },
+        {
+          "text": "are",
+          "start": 3.76,
+          "end": 4.02
+        },
+        {
+          "text": "yet",
+          "start": 4.02,
+          "end": 4.24
+        },
+        {
+          "text": "within",
+          "start": 4.24,
+          "end": 4.5
+        },
+        {
+          "text": "me.",
+          "start": 4.5,
+          "end": 4.78
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.28516772808507085
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "16f994885ccbf96a32ac07373da8eb4260df90a847146f2078ed12447f650021",
+  "selected_reasons": []
+}

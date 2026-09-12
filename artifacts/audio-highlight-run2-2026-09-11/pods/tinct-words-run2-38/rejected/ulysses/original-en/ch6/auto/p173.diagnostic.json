@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "2662fd91f91271689ffba3468a135b860944da1a8c85f4c1ea76429cf3f3de29",
+  "attempts": [
+    {
+      "asr_seconds": 0.13087965501472354,
+      "alignment_seconds": 0.000229311001021415,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The carriage rattled swiftly along Blessington street. Over the stones.",
+        "hotwords": "Blessington, Over"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The carriage rattled swiftly along Blessington street. Over the stones.",
+          "start": 0.02,
+          "end": 4.12,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " carriage",
+              "start": 0.48,
+              "end": 0.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " rattled",
+              "start": 0.8,
+              "end": 1.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " swiftly",
+              "start": 1.16,
+              "end": 1.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " along",
+              "start": 1.64,
+              "end": 2.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Blessington",
+              "start": 2.02,
+              "end": 2.54,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " street.",
+              "start": 2.54,
+              "end": 2.92,
+              "probability": 0.07080078125
+            },
+            {
+              "text": " Over",
+              "start": 3.46,
+              "end": 3.66,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " the",
+              "start": 3.66,
+              "end": 3.8,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " stones.",
+              "start": 3.8,
+              "end": 4.12,
+              "probability": 0.96337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "carriage",
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "raw": "rattled",
+          "start": 0.8,
+          "end": 1.16
+        },
+        {
+          "raw": "swiftly",
+          "start": 1.16,
+          "end": 1.64
+        },
+        {
+          "raw": "along",
+          "start": 1.64,
+          "end": 2.02
+        },
+        {
+          "raw": "Blessington",
+          "start": 2.02,
+          "end": 2.54
+        },
+        {
+          "raw": "street.",
+          "start": 2.54,
+          "end": 2.92
+        },
+        {
+          "raw": "Over",
+          "start": 3.46,
+          "end": 3.66
+        },
+        {
+          "raw": "the",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "raw": "stones.",
+          "start": 3.8,
+          "end": 4.12
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "carriage",
+        "rattled",
+        "swiftly",
+        "along",
+        "Blessington",
+        "street.",
+        "Over",
+        "the",
+        "stones."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "carriage",
+          "start": 0.48,
+          "end": 0.8,
+          "key": "carriage",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rattled",
+          "start": 0.8,
+          "end": 1.16,
+          "key": "rattled",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "swiftly",
+          "start": 1.16,
+          "end": 1.64,
+          "key": "swiftly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "along",
+          "start": 1.64,
+          "end": 2.02,
+          "key": "along",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Blessington",
+          "start": 2.02,
+          "end": 2.54,
+          "key": "blessington",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "street.",
+          "start": 2.54,
+          "end": 2.92,
+          "key": "street",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Over",
+          "start": 3.46,
+          "end": 3.66,
+          "key": "over",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.66,
+          "end": 3.8,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "stones.",
+          "start": 3.8,
+          "end": 4.12,
+          "key": "stones",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "carriage",
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "text": "rattled",
+          "start": 0.8,
+          "end": 1.16
+        },
+        {
+          "text": "swiftly",
+          "start": 1.16,
+          "end": 1.64
+        },
+        {
+          "text": "along",
+          "start": 1.64,
+          "end": 2.02
+        },
+        {
+          "text": "Blessington",
+          "start": 2.02,
+          "end": 2.54
+        },
+        {
+          "text": "street.",
+          "start": 2.54,
+          "end": 2.92
+        },
+        {
+          "text": "Over",
+          "start": 3.46,
+          "end": 3.66
+        },
+        {
+          "text": "the",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "text": "stones.",
+          "start": 3.8,
+          "end": 4.12
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13119198702042922
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b078d1865f297df98ad1c57bc51607f890818f7e499b694e0b8e9dfc0f1addfa",
+  "selected_reasons": []
+}

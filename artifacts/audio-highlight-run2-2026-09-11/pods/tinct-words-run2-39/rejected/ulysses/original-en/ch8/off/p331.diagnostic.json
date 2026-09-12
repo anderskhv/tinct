@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "5f0d20244e68562765bbd05fd4a976fcf522ac1fa5198a28f7b95a404f34799c",
+  "attempts": [
+    {
+      "asr_seconds": 0.12719506095163524,
+      "alignment_seconds": 0.00021904497407376766,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " doesn't go properly.",
+          "start": 0.02,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " doesn't",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " go",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " properly.",
+              "start": 0.78,
+              "end": 1.18,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "doesn't",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "go",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "properly.",
+          "start": 0.78,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "Doesn't",
+        "go",
+        "properly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "doesn't",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "doesnt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.66,
+          "end": 0.78,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "properly.",
+          "start": 0.78,
+          "end": 1.18,
+          "key": "properly",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Doesn't",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "go",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "properly.",
+          "start": 0.78,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12749400595203042
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7c3674e7cf649230d02ca03012fd6ffedf566b34c4aee09c7b6181181abd0814",
+  "selected_reasons": []
+}

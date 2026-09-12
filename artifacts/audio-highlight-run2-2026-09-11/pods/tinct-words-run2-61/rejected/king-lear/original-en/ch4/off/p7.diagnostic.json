@@ -1,0 +1,387 @@
+{
+  "complete": true,
+  "signature": "ee6eca029eb698b55c24f47f0adfcd996c7cf4662149c7c44bcaf5919a09356d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2727617360651493,
+      "alignment_seconds": 0.0004916898906230927,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, what dost thou profess?",
+          "start": 0.02,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.5283203125
+            },
+            {
+              "text": " what",
+              "start": 0.94,
+              "end": 0.96,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " dost",
+              "start": 0.96,
+              "end": 1.14,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " thou",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " profess?",
+              "start": 1.32,
+              "end": 1.68,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " What wouldst thou with us?",
+          "start": 2.16,
+          "end": 3.04,
+          "words": [
+            {
+              "text": " What",
+              "start": 2.16,
+              "end": 2.26,
+              "probability": 0.916015625
+            },
+            {
+              "text": " wouldst",
+              "start": 2.26,
+              "end": 2.48,
+              "probability": 0.937744140625
+            },
+            {
+              "text": " thou",
+              "start": 2.48,
+              "end": 2.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 2.64,
+              "end": 2.8,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " us?",
+              "start": 2.8,
+              "end": 3.04,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "what",
+          "start": 0.94,
+          "end": 0.96
+        },
+        {
+          "raw": "dost",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "raw": "thou",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "raw": "profess?",
+          "start": 1.32,
+          "end": 1.68
+        },
+        {
+          "raw": "What",
+          "start": 2.16,
+          "end": 2.26
+        },
+        {
+          "raw": "wouldst",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "raw": "thou",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "raw": "with",
+          "start": 2.64,
+          "end": 2.8
+        },
+        {
+          "raw": "us?",
+          "start": 2.8,
+          "end": 3.04
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "What",
+        "dost",
+        "thou",
+        "profess?",
+        "What",
+        "wouldst",
+        "thou",
+        "with",
+        "us?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.94,
+          "end": 0.96,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 0.96,
+          "end": 1.14,
+          "key": "dost",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.14,
+          "end": 1.32,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "profess?",
+          "start": 1.32,
+          "end": 1.68,
+          "key": "profess",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.16,
+          "end": 2.26,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wouldst",
+          "start": 2.26,
+          "end": 2.48,
+          "key": "wouldst",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.48,
+          "end": 2.64,
+          "key": "thou",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.64,
+          "end": 2.8,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "us?",
+          "start": 2.8,
+          "end": 3.04,
+          "key": "us",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "What",
+          "start": 0.94,
+          "end": 0.96
+        },
+        {
+          "text": "dost",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "text": "thou",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "text": "profess?",
+          "start": 1.32,
+          "end": 1.68
+        },
+        {
+          "text": "What",
+          "start": 2.16,
+          "end": 2.26
+        },
+        {
+          "text": "wouldst",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "text": "thou",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "text": "with",
+          "start": 2.64,
+          "end": 2.8
+        },
+        {
+          "text": "us?",
+          "start": 2.8,
+          "end": 3.04
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2734455894678831
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8dd5efc8165101d1014a43378ca90d968748da5f5a2dcb2ceb26ff1ef23cd31b",
+  "selected_reasons": []
+}

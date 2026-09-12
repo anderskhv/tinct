@@ -1,0 +1,1701 @@
+{
+  "complete": true,
+  "signature": "2e49d2be2045b0602b6590a2ef101654866e1bea5515de9b1c1b939645854243",
+  "attempts": [
+    {
+      "asr_seconds": 0.4778754240833223,
+      "alignment_seconds": 0.0006597070023417473,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "With grace of alacrity towards the mirror gilt Cantrell and Cochrane's she turned herself. With grace she tapped a measure of gold whisky from her crystal keg. Forth from the skirt of his coat Mr Dedalus brought pouch and pipe. Alacrity she served. He blew through the flue two husky fifenotes.",
+        "hotwords": "With, Cantrell, Cochrane's, Forth, Mr, Dedalus, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " With grace of alacrity towards the mirror gilt Cantrell and Cochrane's she turned herself. With grace she tapped a measure of gold whisky from her crystal keg.",
+          "start": 0.02,
+          "end": 9.38,
+          "words": [
+            {
+              "text": " With",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " grace",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " of",
+              "start": 0.8,
+              "end": 1.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " alacrity",
+              "start": 1.0,
+              "end": 1.44,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " towards",
+              "start": 1.44,
+              "end": 1.8,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " the",
+              "start": 1.8,
+              "end": 2.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " mirror",
+              "start": 2.06,
+              "end": 2.3,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " gilt",
+              "start": 2.3,
+              "end": 2.74,
+              "probability": 0.59820556640625
+            },
+            {
+              "text": " Cantrell",
+              "start": 2.74,
+              "end": 3.24,
+              "probability": 0.27276611328125
+            },
+            {
+              "text": " and",
+              "start": 3.24,
+              "end": 3.46,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " Cochrane's",
+              "start": 3.46,
+              "end": 4.1,
+              "probability": 0.4969075520833333
+            },
+            {
+              "text": " she",
+              "start": 4.1,
+              "end": 4.22,
+              "probability": 0.5537109375
+            },
+            {
+              "text": " turned",
+              "start": 4.22,
+              "end": 4.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " herself.",
+              "start": 4.44,
+              "end": 4.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " With",
+              "start": 5.44,
+              "end": 5.66,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " grace",
+              "start": 5.66,
+              "end": 6.04,
+              "probability": 0.943359375
+            },
+            {
+              "text": " she",
+              "start": 6.04,
+              "end": 6.44,
+              "probability": 0.46826171875
+            },
+            {
+              "text": " tapped",
+              "start": 6.44,
+              "end": 6.68,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 6.68,
+              "end": 6.88,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " measure",
+              "start": 6.88,
+              "end": 7.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 7.16,
+              "end": 7.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gold",
+              "start": 7.4,
+              "end": 7.68,
+              "probability": 0.98046875
+            },
+            {
+              "text": " whisky",
+              "start": 7.68,
+              "end": 8.12,
+              "probability": 0.1595458984375
+            },
+            {
+              "text": " from",
+              "start": 8.12,
+              "end": 8.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " her",
+              "start": 8.38,
+              "end": 8.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " crystal",
+              "start": 8.54,
+              "end": 8.9,
+              "probability": 0.962890625
+            },
+            {
+              "text": " keg.",
+              "start": 8.9,
+              "end": 9.38,
+              "probability": 0.980712890625
+            }
+          ]
+        },
+        {
+          "text": " Forth from the skirt of his coat Mr Dedalus brought pouch and pipe. Alacrity she served. He blew through the flue two husky fifenotes.",
+          "start": 10.2,
+          "end": 18.18,
+          "words": [
+            {
+              "text": " Forth",
+              "start": 10.2,
+              "end": 10.24,
+              "probability": 0.281982421875
+            },
+            {
+              "text": " from",
+              "start": 10.24,
+              "end": 10.48,
+              "probability": 0.8056640625
+            },
+            {
+              "text": " the",
+              "start": 10.48,
+              "end": 10.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " skirt",
+              "start": 10.62,
+              "end": 10.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 10.84,
+              "end": 11.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 11.0,
+              "end": 11.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " coat",
+              "start": 11.14,
+              "end": 11.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Mr",
+              "start": 11.4,
+              "end": 11.76,
+              "probability": 0.418212890625
+            },
+            {
+              "text": " Dedalus",
+              "start": 11.76,
+              "end": 12.3,
+              "probability": 0.1313800811767578
+            },
+            {
+              "text": " brought",
+              "start": 12.3,
+              "end": 12.6,
+              "probability": 0.990234375
+            },
+            {
+              "text": " pouch",
+              "start": 12.6,
+              "end": 13.02,
+              "probability": 0.98828125
+            },
+            {
+              "text": " and",
+              "start": 13.02,
+              "end": 13.3,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " pipe.",
+              "start": 13.3,
+              "end": 13.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Alacrity",
+              "start": 14.26,
+              "end": 14.66,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " she",
+              "start": 14.66,
+              "end": 14.94,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " served.",
+              "start": 14.94,
+              "end": 15.38,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " He",
+              "start": 15.88,
+              "end": 16.0,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " blew",
+              "start": 16.0,
+              "end": 16.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " through",
+              "start": 16.24,
+              "end": 16.5,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 16.5,
+              "end": 16.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " flue",
+              "start": 16.66,
+              "end": 16.92,
+              "probability": 0.4967041015625
+            },
+            {
+              "text": " two",
+              "start": 16.92,
+              "end": 17.16,
+              "probability": 0.50341796875
+            },
+            {
+              "text": " husky",
+              "start": 17.16,
+              "end": 17.64,
+              "probability": 0.931884765625
+            },
+            {
+              "text": " fifenotes.",
+              "start": 17.64,
+              "end": 18.18,
+              "probability": 0.6520589192708334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "With",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "grace",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "raw": "of",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "raw": "alacrity",
+          "start": 1.0,
+          "end": 1.44
+        },
+        {
+          "raw": "towards",
+          "start": 1.44,
+          "end": 1.8
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 2.06
+        },
+        {
+          "raw": "mirror",
+          "start": 2.06,
+          "end": 2.3
+        },
+        {
+          "raw": "gilt",
+          "start": 2.3,
+          "end": 2.74
+        },
+        {
+          "raw": "Cantrell",
+          "start": 2.74,
+          "end": 3.24
+        },
+        {
+          "raw": "and",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "raw": "Cochrane's",
+          "start": 3.46,
+          "end": 4.1
+        },
+        {
+          "raw": "she",
+          "start": 4.1,
+          "end": 4.22
+        },
+        {
+          "raw": "turned",
+          "start": 4.22,
+          "end": 4.44
+        },
+        {
+          "raw": "herself.",
+          "start": 4.44,
+          "end": 4.88
+        },
+        {
+          "raw": "With",
+          "start": 5.44,
+          "end": 5.66
+        },
+        {
+          "raw": "grace",
+          "start": 5.66,
+          "end": 6.04
+        },
+        {
+          "raw": "she",
+          "start": 6.04,
+          "end": 6.44
+        },
+        {
+          "raw": "tapped",
+          "start": 6.44,
+          "end": 6.68
+        },
+        {
+          "raw": "a",
+          "start": 6.68,
+          "end": 6.88
+        },
+        {
+          "raw": "measure",
+          "start": 6.88,
+          "end": 7.16
+        },
+        {
+          "raw": "of",
+          "start": 7.16,
+          "end": 7.4
+        },
+        {
+          "raw": "gold",
+          "start": 7.4,
+          "end": 7.68
+        },
+        {
+          "raw": "whisky",
+          "start": 7.68,
+          "end": 8.12
+        },
+        {
+          "raw": "from",
+          "start": 8.12,
+          "end": 8.38
+        },
+        {
+          "raw": "her",
+          "start": 8.38,
+          "end": 8.54
+        },
+        {
+          "raw": "crystal",
+          "start": 8.54,
+          "end": 8.9
+        },
+        {
+          "raw": "keg.",
+          "start": 8.9,
+          "end": 9.38
+        },
+        {
+          "raw": "Forth",
+          "start": 10.2,
+          "end": 10.24
+        },
+        {
+          "raw": "from",
+          "start": 10.24,
+          "end": 10.48
+        },
+        {
+          "raw": "the",
+          "start": 10.48,
+          "end": 10.62
+        },
+        {
+          "raw": "skirt",
+          "start": 10.62,
+          "end": 10.84
+        },
+        {
+          "raw": "of",
+          "start": 10.84,
+          "end": 11.0
+        },
+        {
+          "raw": "his",
+          "start": 11.0,
+          "end": 11.14
+        },
+        {
+          "raw": "coat",
+          "start": 11.14,
+          "end": 11.4
+        },
+        {
+          "raw": "Mr",
+          "start": 11.4,
+          "end": 11.76
+        },
+        {
+          "raw": "Dedalus",
+          "start": 11.76,
+          "end": 12.3
+        },
+        {
+          "raw": "brought",
+          "start": 12.3,
+          "end": 12.6
+        },
+        {
+          "raw": "pouch",
+          "start": 12.6,
+          "end": 13.02
+        },
+        {
+          "raw": "and",
+          "start": 13.02,
+          "end": 13.3
+        },
+        {
+          "raw": "pipe.",
+          "start": 13.3,
+          "end": 13.56
+        },
+        {
+          "raw": "Alacrity",
+          "start": 14.26,
+          "end": 14.66
+        },
+        {
+          "raw": "she",
+          "start": 14.66,
+          "end": 14.94
+        },
+        {
+          "raw": "served.",
+          "start": 14.94,
+          "end": 15.38
+        },
+        {
+          "raw": "He",
+          "start": 15.88,
+          "end": 16.0
+        },
+        {
+          "raw": "blew",
+          "start": 16.0,
+          "end": 16.24
+        },
+        {
+          "raw": "through",
+          "start": 16.24,
+          "end": 16.5
+        },
+        {
+          "raw": "the",
+          "start": 16.5,
+          "end": 16.66
+        },
+        {
+          "raw": "flue",
+          "start": 16.66,
+          "end": 16.92
+        },
+        {
+          "raw": "two",
+          "start": 16.92,
+          "end": 17.16
+        },
+        {
+          "raw": "husky",
+          "start": 17.16,
+          "end": 17.64
+        },
+        {
+          "raw": "fifenotes.",
+          "start": 17.64,
+          "end": 18.18
+        }
+      ],
+      "expected_tokens": [
+        "With",
+        "grace",
+        "of",
+        "alacrity",
+        "towards",
+        "the",
+        "mirror",
+        "gilt",
+        "Cantrell",
+        "and",
+        "Cochrane's",
+        "she",
+        "turned",
+        "herself.",
+        "With",
+        "grace",
+        "she",
+        "tapped",
+        "a",
+        "measure",
+        "of",
+        "gold",
+        "whisky",
+        "from",
+        "her",
+        "crystal",
+        "keg.",
+        "Forth",
+        "from",
+        "the",
+        "skirt",
+        "of",
+        "his",
+        "coat",
+        "Mr",
+        "Dedalus",
+        "brought",
+        "pouch",
+        "and",
+        "pipe.",
+        "Alacrity",
+        "she",
+        "served.",
+        "He",
+        "blew",
+        "through",
+        "the",
+        "flue",
+        "two",
+        "husky",
+        "fifenotes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          51,
+          0,
+          51
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "With",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "with",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "grace",
+          "start": 0.54,
+          "end": 0.8,
+          "key": "grace",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.8,
+          "end": 1.0,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "alacrity",
+          "start": 1.0,
+          "end": 1.44,
+          "key": "alacrity",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 1.44,
+          "end": 1.8,
+          "key": "towards",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 2.06,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mirror",
+          "start": 2.06,
+          "end": 2.3,
+          "key": "mirror",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gilt",
+          "start": 2.3,
+          "end": 2.74,
+          "key": "gilt",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Cantrell",
+          "start": 2.74,
+          "end": 3.24,
+          "key": "cantrell",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.24,
+          "end": 3.46,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Cochrane's",
+          "start": 3.46,
+          "end": 4.1,
+          "key": "cochranes",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 4.1,
+          "end": 4.22,
+          "key": "she",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 4.22,
+          "end": 4.44,
+          "key": "turned",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "herself.",
+          "start": 4.44,
+          "end": 4.88,
+          "key": "herself",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 5.44,
+          "end": 5.66,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "grace",
+          "start": 5.66,
+          "end": 6.04,
+          "key": "grace",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 6.04,
+          "end": 6.44,
+          "key": "she",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "tapped",
+          "start": 6.44,
+          "end": 6.68,
+          "key": "tapped",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.68,
+          "end": 6.88,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "measure",
+          "start": 6.88,
+          "end": 7.16,
+          "key": "measure",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.16,
+          "end": 7.4,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "gold",
+          "start": 7.4,
+          "end": 7.68,
+          "key": "gold",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "whisky",
+          "start": 7.68,
+          "end": 8.12,
+          "key": "whisky",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 8.12,
+          "end": 8.38,
+          "key": "from",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 8.38,
+          "end": 8.54,
+          "key": "her",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "crystal",
+          "start": 8.54,
+          "end": 8.9,
+          "key": "crystal",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "keg.",
+          "start": 8.9,
+          "end": 9.38,
+          "key": "keg",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Forth",
+          "start": 10.2,
+          "end": 10.24,
+          "key": "forth",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 10.24,
+          "end": 10.48,
+          "key": "from",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.48,
+          "end": 10.62,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "skirt",
+          "start": 10.62,
+          "end": 10.84,
+          "key": "skirt",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.84,
+          "end": 11.0,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 11.0,
+          "end": 11.14,
+          "key": "his",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "coat",
+          "start": 11.14,
+          "end": 11.4,
+          "key": "coat",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Mr",
+          "start": 11.4,
+          "end": 11.76,
+          "key": "mr",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Dedalus",
+          "start": 11.76,
+          "end": 12.3,
+          "key": "dedalus",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "brought",
+          "start": 12.3,
+          "end": 12.6,
+          "key": "brought",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "pouch",
+          "start": 12.6,
+          "end": 13.02,
+          "key": "pouch",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.02,
+          "end": 13.3,
+          "key": "and",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "pipe.",
+          "start": 13.3,
+          "end": 13.56,
+          "key": "pipe",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Alacrity",
+          "start": 14.26,
+          "end": 14.66,
+          "key": "alacrity",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 14.66,
+          "end": 14.94,
+          "key": "she",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "served.",
+          "start": 14.94,
+          "end": 15.38,
+          "key": "served",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 15.88,
+          "end": 16.0,
+          "key": "he",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "blew",
+          "start": 16.0,
+          "end": 16.24,
+          "key": "blew",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 16.24,
+          "end": 16.5,
+          "key": "through",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.5,
+          "end": 16.66,
+          "key": "the",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "flue",
+          "start": 16.66,
+          "end": 16.92,
+          "key": "flue",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 16.92,
+          "end": 17.16,
+          "key": "two",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "husky",
+          "start": 17.16,
+          "end": 17.64,
+          "key": "husky",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "fifenotes.",
+          "start": 17.64,
+          "end": 18.18,
+          "key": "fifenotes",
+          "pieces": [
+            50
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "With",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "grace",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "text": "of",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "text": "alacrity",
+          "start": 1.0,
+          "end": 1.44
+        },
+        {
+          "text": "towards",
+          "start": 1.44,
+          "end": 1.8
+        },
+        {
+          "text": "the",
+          "start": 1.8,
+          "end": 2.06
+        },
+        {
+          "text": "mirror",
+          "start": 2.06,
+          "end": 2.3
+        },
+        {
+          "text": "gilt",
+          "start": 2.3,
+          "end": 2.74
+        },
+        {
+          "text": "Cantrell",
+          "start": 2.74,
+          "end": 3.24
+        },
+        {
+          "text": "and",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "text": "Cochrane's",
+          "start": 3.46,
+          "end": 4.1
+        },
+        {
+          "text": "she",
+          "start": 4.1,
+          "end": 4.22
+        },
+        {
+          "text": "turned",
+          "start": 4.22,
+          "end": 4.44
+        },
+        {
+          "text": "herself.",
+          "start": 4.44,
+          "end": 4.88
+        },
+        {
+          "text": "With",
+          "start": 5.44,
+          "end": 5.66
+        },
+        {
+          "text": "grace",
+          "start": 5.66,
+          "end": 6.04
+        },
+        {
+          "text": "she",
+          "start": 6.04,
+          "end": 6.44
+        },
+        {
+          "text": "tapped",
+          "start": 6.44,
+          "end": 6.68
+        },
+        {
+          "text": "a",
+          "start": 6.68,
+          "end": 6.88
+        },
+        {
+          "text": "measure",
+          "start": 6.88,
+          "end": 7.16
+        },
+        {
+          "text": "of",
+          "start": 7.16,
+          "end": 7.4
+        },
+        {
+          "text": "gold",
+          "start": 7.4,
+          "end": 7.68
+        },
+        {
+          "text": "whisky",
+          "start": 7.68,
+          "end": 8.12
+        },
+        {
+          "text": "from",
+          "start": 8.12,
+          "end": 8.38
+        },
+        {
+          "text": "her",
+          "start": 8.38,
+          "end": 8.54
+        },
+        {
+          "text": "crystal",
+          "start": 8.54,
+          "end": 8.9
+        },
+        {
+          "text": "keg.",
+          "start": 8.9,
+          "end": 9.38
+        },
+        {
+          "text": "Forth",
+          "start": 10.2,
+          "end": 10.24
+        },
+        {
+          "text": "from",
+          "start": 10.24,
+          "end": 10.48
+        },
+        {
+          "text": "the",
+          "start": 10.48,
+          "end": 10.62
+        },
+        {
+          "text": "skirt",
+          "start": 10.62,
+          "end": 10.84
+        },
+        {
+          "text": "of",
+          "start": 10.84,
+          "end": 11.0
+        },
+        {
+          "text": "his",
+          "start": 11.0,
+          "end": 11.14
+        },
+        {
+          "text": "coat",
+          "start": 11.14,
+          "end": 11.4
+        },
+        {
+          "text": "Mr",
+          "start": 11.4,
+          "end": 11.76
+        },
+        {
+          "text": "Dedalus",
+          "start": 11.76,
+          "end": 12.3
+        },
+        {
+          "text": "brought",
+          "start": 12.3,
+          "end": 12.6
+        },
+        {
+          "text": "pouch",
+          "start": 12.6,
+          "end": 13.02
+        },
+        {
+          "text": "and",
+          "start": 13.02,
+          "end": 13.3
+        },
+        {
+          "text": "pipe.",
+          "start": 13.3,
+          "end": 13.56
+        },
+        {
+          "text": "Alacrity",
+          "start": 14.26,
+          "end": 14.66
+        },
+        {
+          "text": "she",
+          "start": 14.66,
+          "end": 14.94
+        },
+        {
+          "text": "served.",
+          "start": 14.94,
+          "end": 15.38
+        },
+        {
+          "text": "He",
+          "start": 15.88,
+          "end": 16.0
+        },
+        {
+          "text": "blew",
+          "start": 16.0,
+          "end": 16.24
+        },
+        {
+          "text": "through",
+          "start": 16.24,
+          "end": 16.5
+        },
+        {
+          "text": "the",
+          "start": 16.5,
+          "end": 16.66
+        },
+        {
+          "text": "flue",
+          "start": 16.66,
+          "end": 16.92
+        },
+        {
+          "text": "two",
+          "start": 16.92,
+          "end": 17.16
+        },
+        {
+          "text": "husky",
+          "start": 17.16,
+          "end": 17.64
+        },
+        {
+          "text": "fifenotes.",
+          "start": 17.64,
+          "end": 18.18
+        }
+      ],
+      "stats": {
+        "expected_words": 51,
+        "heard_words": 51,
+        "matched_words": 51
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.47881851019337773
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "48bb52af57be33e30bf04c5a47ca8667261beec4391f510fb0dd20fdb0361198",
+  "selected_reasons": []
+}

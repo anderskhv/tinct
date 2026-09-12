@@ -1,0 +1,4917 @@
+{
+  "complete": true,
+  "signature": "de1805d341fbebf00cb1828f2ead4fcb264f514dfd09eb4b4ae62687adc32937",
+  "attempts": [
+    {
+      "asr_seconds": 0.5751941911876202,
+      "alignment_seconds": 0.0030041923746466637,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Note.--I avail myself of the opportunity offered by this treatise to express, openly and formally, a wish which up to the present has only been expressed in occasional conversations with scholars, namely, that some Faculty of philosophy should, by means of a series of prize essays, gain the glory of having promoted the further study of the history of morals--perhaps this book may serve to give forcible impetus in such a direction. With regard to a possibility of this character, the following question deserves consideration. It merits quite as much the attention of philologists and historians as of actual professional philosophers.",
+        "hotwords": "Note.--I, Faculty, It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Note.--I, Faculty,",
+          "start": 11.27,
+          "end": 12.67,
+          "words": [
+            {
+              "text": " Note.--I,",
+              "start": 11.27,
+              "end": 12.67,
+              "probability": 0.14129638671875
+            },
+            {
+              "text": " Faculty,",
+              "start": 12.67,
+              "end": 12.67,
+              "probability": 2.384185791015625e-07
+            }
+          ]
+        },
+        {
+          "text": " Faculty, It Note.--I, Faculty,",
+          "start": 12.67,
+          "end": 38.55,
+          "words": [
+            {
+              "text": " Faculty,",
+              "start": 12.67,
+              "end": 13.65,
+              "probability": 2.7894973754882812e-05
+            },
+            {
+              "text": " It",
+              "start": 17.47,
+              "end": 17.49,
+              "probability": 7.95125961303711e-05
+            },
+            {
+              "text": " Note.--I,",
+              "start": 17.49,
+              "end": 38.25,
+              "probability": 0.00031671921412150067
+            },
+            {
+              "text": " Faculty,",
+              "start": 38.25,
+              "end": 38.55,
+              "probability": 0.0002493858337402344
+            }
+          ]
+        },
+        {
+          "text": " Faculty, It Note.--I, Faculty, Faculty,",
+          "start": 38.55,
+          "end": 40.59,
+          "words": [
+            {
+              "text": " Faculty,",
+              "start": 38.55,
+              "end": 39.39,
+              "probability": 1.8477439880371094e-06
+            },
+            {
+              "text": " It",
+              "start": 39.55,
+              "end": 39.55,
+              "probability": 0.0002956390380859375
+            },
+            {
+              "text": " Note.--I,",
+              "start": 39.55,
+              "end": 40.59,
+              "probability": 0.0007727146148681641
+            },
+            {
+              "text": " Faculty,",
+              "start": 40.59,
+              "end": 40.59,
+              "probability": 0.0006122589111328125
+            },
+            {
+              "text": " Faculty,",
+              "start": 40.59,
+              "end": 40.59,
+              "probability": 0.0033416748046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Note.--I,",
+          "start": 11.27,
+          "end": 12.67
+        },
+        {
+          "raw": "Faculty,",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "raw": "Faculty,",
+          "start": 12.67,
+          "end": 13.65
+        },
+        {
+          "raw": "It",
+          "start": 17.47,
+          "end": 17.49
+        },
+        {
+          "raw": "Note.--I,",
+          "start": 17.49,
+          "end": 38.25
+        },
+        {
+          "raw": "Faculty,",
+          "start": 38.25,
+          "end": 38.55
+        },
+        {
+          "raw": "Faculty,",
+          "start": 38.55,
+          "end": 39.39
+        },
+        {
+          "raw": "It",
+          "start": 39.55,
+          "end": 39.55
+        },
+        {
+          "raw": "Note.--I,",
+          "start": 39.55,
+          "end": 40.59
+        },
+        {
+          "raw": "Faculty,",
+          "start": 40.59,
+          "end": 40.59
+        },
+        {
+          "raw": "Faculty,",
+          "start": 40.59,
+          "end": 40.59
+        }
+      ],
+      "expected_tokens": [
+        "Note.--I",
+        "avail",
+        "myself",
+        "of",
+        "the",
+        "opportunity",
+        "offered",
+        "by",
+        "this",
+        "treatise",
+        "to",
+        "express,",
+        "openly",
+        "and",
+        "formally,",
+        "a",
+        "wish",
+        "which",
+        "up",
+        "to",
+        "the",
+        "present",
+        "has",
+        "only",
+        "been",
+        "expressed",
+        "in",
+        "occasional",
+        "conversations",
+        "with",
+        "scholars,",
+        "namely,",
+        "that",
+        "some",
+        "Faculty",
+        "of",
+        "philosophy",
+        "should,",
+        "by",
+        "means",
+        "of",
+        "a",
+        "series",
+        "of",
+        "prize",
+        "essays,",
+        "gain",
+        "the",
+        "glory",
+        "of",
+        "having",
+        "promoted",
+        "the",
+        "further",
+        "study",
+        "of",
+        "the",
+        "history",
+        "of",
+        "morals--perhaps",
+        "this",
+        "book",
+        "may",
+        "serve",
+        "to",
+        "give",
+        "forcible",
+        "impetus",
+        "in",
+        "such",
+        "a",
+        "direction.",
+        "With",
+        "regard",
+        "to",
+        "a",
+        "possibility",
+        "of",
+        "this",
+        "character,",
+        "the",
+        "following",
+        "question",
+        "deserves",
+        "consideration.",
+        "It",
+        "merits",
+        "quite",
+        "as",
+        "much",
+        "the",
+        "attention",
+        "of",
+        "philologists",
+        "and",
+        "historians",
+        "as",
+        "of",
+        "actual",
+        "professional",
+        "philosophers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          34,
+          1,
+          1
+        ],
+        [
+          "equal",
+          34,
+          35,
+          1,
+          2
+        ],
+        [
+          "replace",
+          35,
+          85,
+          2,
+          3
+        ],
+        [
+          "equal",
+          85,
+          86,
+          3,
+          4
+        ],
+        [
+          "replace",
+          86,
+          101,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 78,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 79,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 80,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 81,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 82,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 83,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 84,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 86,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 87,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 88,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 89,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 90,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 91,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 92,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 93,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 94,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 95,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 96,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 97,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 98,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 99,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 100,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          34,
+          1,
+          1
+        ],
+        [
+          "replace",
+          35,
+          85,
+          2,
+          3
+        ],
+        [
+          "replace",
+          86,
+          101,
+          4,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Note.--I,",
+          "start": 11.27,
+          "end": 12.67,
+          "key": "notei",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Faculty,",
+          "start": 12.67,
+          "end": 12.67,
+          "key": "faculty",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Faculty,",
+          "start": 12.67,
+          "end": 13.65,
+          "key": "faculty",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 17.47,
+          "end": 17.49,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Note.--I,",
+          "start": 17.49,
+          "end": 38.25,
+          "key": "notei",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Faculty,",
+          "start": 38.25,
+          "end": 38.55,
+          "key": "faculty",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Faculty,",
+          "start": 38.55,
+          "end": 39.39,
+          "key": "faculty",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 39.55,
+          "end": 39.55,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Note.--I,",
+          "start": 39.55,
+          "end": 40.59,
+          "key": "notei",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Faculty,",
+          "start": 40.59,
+          "end": 40.59,
+          "key": "faculty",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Faculty,",
+          "start": 40.59,
+          "end": 40.59,
+          "key": "faculty",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Note.--I",
+          "start": 11.27,
+          "end": 12.67
+        },
+        {
+          "text": "avail",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "myself",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "of",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "the",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "opportunity",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "offered",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "by",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "this",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "treatise",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "to",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "express,",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "openly",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "and",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "formally,",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "a",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "wish",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "which",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "up",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "to",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "the",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "present",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "has",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "only",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "been",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "expressed",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "in",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "occasional",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "conversations",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "with",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "scholars,",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "namely,",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "that",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "some",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "Faculty",
+          "start": 12.67,
+          "end": 12.67
+        },
+        {
+          "text": "of",
+          "start": 12.67,
+          "end": 15.07
+        },
+        {
+          "text": "philosophy",
+          "start": 15.07,
+          "end": 16.27
+        },
+        {
+          "text": "should,",
+          "start": 16.27,
+          "end": 16.87
+        },
+        {
+          "text": "by",
+          "start": 16.87,
+          "end": 17.17
+        },
+        {
+          "text": "means",
+          "start": 17.17,
+          "end": 17.32
+        },
+        {
+          "text": "of",
+          "start": 17.32,
+          "end": 17.395
+        },
+        {
+          "text": "a",
+          "start": 17.395,
+          "end": 17.432
+        },
+        {
+          "text": "series",
+          "start": 17.432,
+          "end": 17.451
+        },
+        {
+          "text": "of",
+          "start": 17.451,
+          "end": 17.46
+        },
+        {
+          "text": "prize",
+          "start": 17.46,
+          "end": 17.465
+        },
+        {
+          "text": "essays,",
+          "start": 17.465,
+          "end": 17.468
+        },
+        {
+          "text": "gain",
+          "start": 17.468,
+          "end": 17.469
+        },
+        {
+          "text": "the",
+          "start": 17.469,
+          "end": 17.47
+        },
+        {
+          "text": "glory",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "of",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "having",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "promoted",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "the",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "further",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "study",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "of",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "the",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "history",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "of",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "morals--perhaps",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "this",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "book",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "may",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "serve",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "to",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "give",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "forcible",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "impetus",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "in",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "such",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "a",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "direction.",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "With",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "regard",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "to",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "a",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "possibility",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "of",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "this",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "character,",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "the",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "following",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "question",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "deserves",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "consideration.",
+          "start": 17.47,
+          "end": 17.47
+        },
+        {
+          "text": "It",
+          "start": 17.47,
+          "end": 17.49
+        },
+        {
+          "text": "merits",
+          "start": 17.49,
+          "end": 29.04
+        },
+        {
+          "text": "quite",
+          "start": 29.04,
+          "end": 34.815
+        },
+        {
+          "text": "as",
+          "start": 34.815,
+          "end": 37.703
+        },
+        {
+          "text": "much",
+          "start": 37.703,
+          "end": 39.147
+        },
+        {
+          "text": "the",
+          "start": 39.147,
+          "end": 39.868
+        },
+        {
+          "text": "attention",
+          "start": 39.868,
+          "end": 40.229
+        },
+        {
+          "text": "of",
+          "start": 40.229,
+          "end": 40.41
+        },
+        {
+          "text": "philologists",
+          "start": 40.41,
+          "end": 40.5
+        },
+        {
+          "text": "and",
+          "start": 40.5,
+          "end": 40.545
+        },
+        {
+          "text": "historians",
+          "start": 40.545,
+          "end": 40.568
+        },
+        {
+          "text": "as",
+          "start": 40.568,
+          "end": 40.579
+        },
+        {
+          "text": "of",
+          "start": 40.579,
+          "end": 40.585
+        },
+        {
+          "text": "actual",
+          "start": 40.585,
+          "end": 40.588
+        },
+        {
+          "text": "professional",
+          "start": 40.588,
+          "end": 40.589
+        },
+        {
+          "text": "philosophers.",
+          "start": 40.589,
+          "end": 40.59
+        }
+      ],
+      "stats": {
+        "expected_words": 101,
+        "heard_words": 11,
+        "matched_words": 3
+      },
+      "match_ratio": 0.0297029702970297,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.5784429693594575
+    },
+    {
+      "asr_seconds": 1.0228644022718072,
+      "alignment_seconds": 0.0032200198620557785,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Note.--I, Faculty, It"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Note.--I avail myself of the opportunity offered by this treatise to express, openly",
+          "start": 0.05,
+          "end": 5.37,
+          "words": [
+            {
+              "text": " Note.--I",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.14165242513020834
+            },
+            {
+              "text": " avail",
+              "start": 0.93,
+              "end": 1.19,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " myself",
+              "start": 1.19,
+              "end": 1.69,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " of",
+              "start": 1.69,
+              "end": 1.85,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 1.85,
+              "end": 1.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " opportunity",
+              "start": 1.97,
+              "end": 2.47,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " offered",
+              "start": 2.47,
+              "end": 2.93,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " by",
+              "start": 2.93,
+              "end": 3.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " this",
+              "start": 3.19,
+              "end": 3.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " treatise",
+              "start": 3.39,
+              "end": 3.79,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " to",
+              "start": 3.79,
+              "end": 3.95,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " express,",
+              "start": 3.95,
+              "end": 4.43,
+              "probability": 0.953125
+            },
+            {
+              "text": " openly",
+              "start": 5.07,
+              "end": 5.37,
+              "probability": 0.96044921875
+            }
+          ]
+        },
+        {
+          "text": " and formally, a wish which up to the present has only been expressed in occasional conversations",
+          "start": 5.37,
+          "end": 10.51,
+          "words": [
+            {
+              "text": " and",
+              "start": 5.37,
+              "end": 5.69,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " formally,",
+              "start": 5.69,
+              "end": 6.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 6.69,
+              "end": 6.85,
+              "probability": 0.978515625
+            },
+            {
+              "text": " wish",
+              "start": 6.85,
+              "end": 7.07,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " which",
+              "start": 7.07,
+              "end": 7.29,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " up",
+              "start": 7.29,
+              "end": 7.49,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " to",
+              "start": 7.49,
+              "end": 7.63,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " the",
+              "start": 7.63,
+              "end": 7.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " present",
+              "start": 7.75,
+              "end": 7.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " has",
+              "start": 7.99,
+              "end": 8.25,
+              "probability": 0.982421875
+            },
+            {
+              "text": " only",
+              "start": 8.25,
+              "end": 8.55,
+              "probability": 0.9921875
+            },
+            {
+              "text": " been",
+              "start": 8.55,
+              "end": 8.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " expressed",
+              "start": 8.73,
+              "end": 9.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 9.19,
+              "end": 9.45,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " occasional",
+              "start": 9.45,
+              "end": 9.89,
+              "probability": 0.99609375
+            },
+            {
+              "text": " conversations",
+              "start": 9.89,
+              "end": 10.51,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " with scholars. Namely, that some faculty of philosophy should, by means of a series of",
+          "start": 10.51,
+          "end": 16.95,
+          "words": [
+            {
+              "text": " with",
+              "start": 10.51,
+              "end": 11.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " scholars.",
+              "start": 11.01,
+              "end": 11.51,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Namely,",
+              "start": 12.27,
+              "end": 12.77,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " that",
+              "start": 13.21,
+              "end": 13.35,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " some",
+              "start": 13.35,
+              "end": 13.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " faculty",
+              "start": 13.67,
+              "end": 14.07,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " of",
+              "start": 14.07,
+              "end": 14.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " philosophy",
+              "start": 14.33,
+              "end": 14.77,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " should,",
+              "start": 14.77,
+              "end": 15.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " by",
+              "start": 15.69,
+              "end": 15.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " means",
+              "start": 15.87,
+              "end": 16.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 16.13,
+              "end": 16.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 16.25,
+              "end": 16.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " series",
+              "start": 16.37,
+              "end": 16.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 16.67,
+              "end": 16.95,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " prize essays, gain the glory of having promoted the further study of the history of morals",
+          "start": 16.95,
+          "end": 21.95,
+          "words": [
+            {
+              "text": " prize",
+              "start": 16.95,
+              "end": 17.23,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " essays,",
+              "start": 17.23,
+              "end": 17.69,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " gain",
+              "start": 18.35,
+              "end": 18.51,
+              "probability": 0.97265625
+            },
+            {
+              "text": " the",
+              "start": 18.51,
+              "end": 18.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " glory",
+              "start": 18.71,
+              "end": 19.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 19.01,
+              "end": 19.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " having",
+              "start": 19.23,
+              "end": 19.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " promoted",
+              "start": 19.51,
+              "end": 19.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 19.93,
+              "end": 20.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " further",
+              "start": 20.13,
+              "end": 20.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " study",
+              "start": 20.41,
+              "end": 20.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 20.77,
+              "end": 20.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 20.97,
+              "end": 21.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " history",
+              "start": 21.07,
+              "end": 21.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 21.39,
+              "end": 21.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " morals",
+              "start": 21.65,
+              "end": 21.95,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " perhaps, this book may serve to give forcible impetus in such a direction. With regard",
+          "start": 21.95,
+          "end": 28.15,
+          "words": [
+            {
+              "text": " perhaps,",
+              "start": 21.95,
+              "end": 22.41,
+              "probability": 0.70703125
+            },
+            {
+              "text": " this",
+              "start": 23.11,
+              "end": 23.29,
+              "probability": 0.98828125
+            },
+            {
+              "text": " book",
+              "start": 23.29,
+              "end": 23.53,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " may",
+              "start": 23.53,
+              "end": 23.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " serve",
+              "start": 23.79,
+              "end": 24.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 24.09,
+              "end": 24.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " give",
+              "start": 24.31,
+              "end": 24.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " forcible",
+              "start": 24.49,
+              "end": 25.03,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " impetus",
+              "start": 25.03,
+              "end": 25.45,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 25.45,
+              "end": 25.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " such",
+              "start": 25.77,
+              "end": 25.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 25.97,
+              "end": 26.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " direction.",
+              "start": 26.13,
+              "end": 26.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " With",
+              "start": 27.37,
+              "end": 27.79,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " regard",
+              "start": 27.79,
+              "end": 28.15,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " to a possibility of this character, the following question deserves consideration. It merits",
+          "start": 28.15,
+          "end": 34.05,
+          "words": [
+            {
+              "text": " to",
+              "start": 28.15,
+              "end": 28.41,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " a",
+              "start": 28.41,
+              "end": 28.53,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " possibility",
+              "start": 28.53,
+              "end": 29.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 29.03,
+              "end": 29.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this",
+              "start": 29.39,
+              "end": 29.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " character,",
+              "start": 29.55,
+              "end": 30.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 30.45,
+              "end": 30.63,
+              "probability": 0.9921875
+            },
+            {
+              "text": " following",
+              "start": 30.63,
+              "end": 30.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " question",
+              "start": 30.97,
+              "end": 31.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " deserves",
+              "start": 31.39,
+              "end": 32.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " consideration.",
+              "start": 32.01,
+              "end": 32.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " It",
+              "start": 33.51,
+              "end": 33.75,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " merits",
+              "start": 33.75,
+              "end": 34.05,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " quite as much the attention of philologists and historians as of actual professional philosophers.",
+          "start": 34.05,
+          "end": 39.75,
+          "words": [
+            {
+              "text": " quite",
+              "start": 34.05,
+              "end": 34.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 34.39,
+              "end": 34.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " much",
+              "start": 34.59,
+              "end": 34.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 34.77,
+              "end": 34.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " attention",
+              "start": 34.99,
+              "end": 35.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 35.39,
+              "end": 35.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " philologists",
+              "start": 35.69,
+              "end": 36.19,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " and",
+              "start": 36.19,
+              "end": 36.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " historians",
+              "start": 36.67,
+              "end": 37.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 37.25,
+              "end": 37.87,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " of",
+              "start": 37.87,
+              "end": 38.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " actual",
+              "start": 38.03,
+              "end": 38.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " professional",
+              "start": 38.53,
+              "end": 39.17,
+              "probability": 0.95703125
+            },
+            {
+              "text": " philosophers.",
+              "start": 39.17,
+              "end": 39.75,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Note.--I",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "avail",
+          "start": 0.93,
+          "end": 1.19
+        },
+        {
+          "raw": "myself",
+          "start": 1.19,
+          "end": 1.69
+        },
+        {
+          "raw": "of",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "raw": "opportunity",
+          "start": 1.97,
+          "end": 2.47
+        },
+        {
+          "raw": "offered",
+          "start": 2.47,
+          "end": 2.93
+        },
+        {
+          "raw": "by",
+          "start": 2.93,
+          "end": 3.19
+        },
+        {
+          "raw": "this",
+          "start": 3.19,
+          "end": 3.39
+        },
+        {
+          "raw": "treatise",
+          "start": 3.39,
+          "end": 3.79
+        },
+        {
+          "raw": "to",
+          "start": 3.79,
+          "end": 3.95
+        },
+        {
+          "raw": "express,",
+          "start": 3.95,
+          "end": 4.43
+        },
+        {
+          "raw": "openly",
+          "start": 5.07,
+          "end": 5.37
+        },
+        {
+          "raw": "and",
+          "start": 5.37,
+          "end": 5.69
+        },
+        {
+          "raw": "formally,",
+          "start": 5.69,
+          "end": 6.07
+        },
+        {
+          "raw": "a",
+          "start": 6.69,
+          "end": 6.85
+        },
+        {
+          "raw": "wish",
+          "start": 6.85,
+          "end": 7.07
+        },
+        {
+          "raw": "which",
+          "start": 7.07,
+          "end": 7.29
+        },
+        {
+          "raw": "up",
+          "start": 7.29,
+          "end": 7.49
+        },
+        {
+          "raw": "to",
+          "start": 7.49,
+          "end": 7.63
+        },
+        {
+          "raw": "the",
+          "start": 7.63,
+          "end": 7.75
+        },
+        {
+          "raw": "present",
+          "start": 7.75,
+          "end": 7.99
+        },
+        {
+          "raw": "has",
+          "start": 7.99,
+          "end": 8.25
+        },
+        {
+          "raw": "only",
+          "start": 8.25,
+          "end": 8.55
+        },
+        {
+          "raw": "been",
+          "start": 8.55,
+          "end": 8.73
+        },
+        {
+          "raw": "expressed",
+          "start": 8.73,
+          "end": 9.19
+        },
+        {
+          "raw": "in",
+          "start": 9.19,
+          "end": 9.45
+        },
+        {
+          "raw": "occasional",
+          "start": 9.45,
+          "end": 9.89
+        },
+        {
+          "raw": "conversations",
+          "start": 9.89,
+          "end": 10.51
+        },
+        {
+          "raw": "with",
+          "start": 10.51,
+          "end": 11.01
+        },
+        {
+          "raw": "scholars.",
+          "start": 11.01,
+          "end": 11.51
+        },
+        {
+          "raw": "Namely,",
+          "start": 12.27,
+          "end": 12.77
+        },
+        {
+          "raw": "that",
+          "start": 13.21,
+          "end": 13.35
+        },
+        {
+          "raw": "some",
+          "start": 13.35,
+          "end": 13.67
+        },
+        {
+          "raw": "faculty",
+          "start": 13.67,
+          "end": 14.07
+        },
+        {
+          "raw": "of",
+          "start": 14.07,
+          "end": 14.33
+        },
+        {
+          "raw": "philosophy",
+          "start": 14.33,
+          "end": 14.77
+        },
+        {
+          "raw": "should,",
+          "start": 14.77,
+          "end": 15.25
+        },
+        {
+          "raw": "by",
+          "start": 15.69,
+          "end": 15.87
+        },
+        {
+          "raw": "means",
+          "start": 15.87,
+          "end": 16.13
+        },
+        {
+          "raw": "of",
+          "start": 16.13,
+          "end": 16.25
+        },
+        {
+          "raw": "a",
+          "start": 16.25,
+          "end": 16.37
+        },
+        {
+          "raw": "series",
+          "start": 16.37,
+          "end": 16.67
+        },
+        {
+          "raw": "of",
+          "start": 16.67,
+          "end": 16.95
+        },
+        {
+          "raw": "prize",
+          "start": 16.95,
+          "end": 17.23
+        },
+        {
+          "raw": "essays,",
+          "start": 17.23,
+          "end": 17.69
+        },
+        {
+          "raw": "gain",
+          "start": 18.35,
+          "end": 18.51
+        },
+        {
+          "raw": "the",
+          "start": 18.51,
+          "end": 18.71
+        },
+        {
+          "raw": "glory",
+          "start": 18.71,
+          "end": 19.01
+        },
+        {
+          "raw": "of",
+          "start": 19.01,
+          "end": 19.23
+        },
+        {
+          "raw": "having",
+          "start": 19.23,
+          "end": 19.51
+        },
+        {
+          "raw": "promoted",
+          "start": 19.51,
+          "end": 19.93
+        },
+        {
+          "raw": "the",
+          "start": 19.93,
+          "end": 20.13
+        },
+        {
+          "raw": "further",
+          "start": 20.13,
+          "end": 20.41
+        },
+        {
+          "raw": "study",
+          "start": 20.41,
+          "end": 20.77
+        },
+        {
+          "raw": "of",
+          "start": 20.77,
+          "end": 20.97
+        },
+        {
+          "raw": "the",
+          "start": 20.97,
+          "end": 21.07
+        },
+        {
+          "raw": "history",
+          "start": 21.07,
+          "end": 21.39
+        },
+        {
+          "raw": "of",
+          "start": 21.39,
+          "end": 21.65
+        },
+        {
+          "raw": "morals",
+          "start": 21.65,
+          "end": 21.95
+        },
+        {
+          "raw": "perhaps,",
+          "start": 21.95,
+          "end": 22.41
+        },
+        {
+          "raw": "this",
+          "start": 23.11,
+          "end": 23.29
+        },
+        {
+          "raw": "book",
+          "start": 23.29,
+          "end": 23.53
+        },
+        {
+          "raw": "may",
+          "start": 23.53,
+          "end": 23.79
+        },
+        {
+          "raw": "serve",
+          "start": 23.79,
+          "end": 24.09
+        },
+        {
+          "raw": "to",
+          "start": 24.09,
+          "end": 24.31
+        },
+        {
+          "raw": "give",
+          "start": 24.31,
+          "end": 24.49
+        },
+        {
+          "raw": "forcible",
+          "start": 24.49,
+          "end": 25.03
+        },
+        {
+          "raw": "impetus",
+          "start": 25.03,
+          "end": 25.45
+        },
+        {
+          "raw": "in",
+          "start": 25.45,
+          "end": 25.77
+        },
+        {
+          "raw": "such",
+          "start": 25.77,
+          "end": 25.97
+        },
+        {
+          "raw": "a",
+          "start": 25.97,
+          "end": 26.13
+        },
+        {
+          "raw": "direction.",
+          "start": 26.13,
+          "end": 26.55
+        },
+        {
+          "raw": "With",
+          "start": 27.37,
+          "end": 27.79
+        },
+        {
+          "raw": "regard",
+          "start": 27.79,
+          "end": 28.15
+        },
+        {
+          "raw": "to",
+          "start": 28.15,
+          "end": 28.41
+        },
+        {
+          "raw": "a",
+          "start": 28.41,
+          "end": 28.53
+        },
+        {
+          "raw": "possibility",
+          "start": 28.53,
+          "end": 29.03
+        },
+        {
+          "raw": "of",
+          "start": 29.03,
+          "end": 29.39
+        },
+        {
+          "raw": "this",
+          "start": 29.39,
+          "end": 29.55
+        },
+        {
+          "raw": "character,",
+          "start": 29.55,
+          "end": 30.01
+        },
+        {
+          "raw": "the",
+          "start": 30.45,
+          "end": 30.63
+        },
+        {
+          "raw": "following",
+          "start": 30.63,
+          "end": 30.97
+        },
+        {
+          "raw": "question",
+          "start": 30.97,
+          "end": 31.39
+        },
+        {
+          "raw": "deserves",
+          "start": 31.39,
+          "end": 32.01
+        },
+        {
+          "raw": "consideration.",
+          "start": 32.01,
+          "end": 32.69
+        },
+        {
+          "raw": "It",
+          "start": 33.51,
+          "end": 33.75
+        },
+        {
+          "raw": "merits",
+          "start": 33.75,
+          "end": 34.05
+        },
+        {
+          "raw": "quite",
+          "start": 34.05,
+          "end": 34.39
+        },
+        {
+          "raw": "as",
+          "start": 34.39,
+          "end": 34.59
+        },
+        {
+          "raw": "much",
+          "start": 34.59,
+          "end": 34.77
+        },
+        {
+          "raw": "the",
+          "start": 34.77,
+          "end": 34.99
+        },
+        {
+          "raw": "attention",
+          "start": 34.99,
+          "end": 35.39
+        },
+        {
+          "raw": "of",
+          "start": 35.39,
+          "end": 35.69
+        },
+        {
+          "raw": "philologists",
+          "start": 35.69,
+          "end": 36.19
+        },
+        {
+          "raw": "and",
+          "start": 36.19,
+          "end": 36.67
+        },
+        {
+          "raw": "historians",
+          "start": 36.67,
+          "end": 37.25
+        },
+        {
+          "raw": "as",
+          "start": 37.25,
+          "end": 37.87
+        },
+        {
+          "raw": "of",
+          "start": 37.87,
+          "end": 38.03
+        },
+        {
+          "raw": "actual",
+          "start": 38.03,
+          "end": 38.53
+        },
+        {
+          "raw": "professional",
+          "start": 38.53,
+          "end": 39.17
+        },
+        {
+          "raw": "philosophers.",
+          "start": 39.17,
+          "end": 39.75
+        }
+      ],
+      "expected_tokens": [
+        "Note.--I",
+        "avail",
+        "myself",
+        "of",
+        "the",
+        "opportunity",
+        "offered",
+        "by",
+        "this",
+        "treatise",
+        "to",
+        "express,",
+        "openly",
+        "and",
+        "formally,",
+        "a",
+        "wish",
+        "which",
+        "up",
+        "to",
+        "the",
+        "present",
+        "has",
+        "only",
+        "been",
+        "expressed",
+        "in",
+        "occasional",
+        "conversations",
+        "with",
+        "scholars,",
+        "namely,",
+        "that",
+        "some",
+        "Faculty",
+        "of",
+        "philosophy",
+        "should,",
+        "by",
+        "means",
+        "of",
+        "a",
+        "series",
+        "of",
+        "prize",
+        "essays,",
+        "gain",
+        "the",
+        "glory",
+        "of",
+        "having",
+        "promoted",
+        "the",
+        "further",
+        "study",
+        "of",
+        "the",
+        "history",
+        "of",
+        "morals--perhaps",
+        "this",
+        "book",
+        "may",
+        "serve",
+        "to",
+        "give",
+        "forcible",
+        "impetus",
+        "in",
+        "such",
+        "a",
+        "direction.",
+        "With",
+        "regard",
+        "to",
+        "a",
+        "possibility",
+        "of",
+        "this",
+        "character,",
+        "the",
+        "following",
+        "question",
+        "deserves",
+        "consideration.",
+        "It",
+        "merits",
+        "quite",
+        "as",
+        "much",
+        "the",
+        "attention",
+        "of",
+        "philologists",
+        "and",
+        "historians",
+        "as",
+        "of",
+        "actual",
+        "professional",
+        "philosophers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          101,
+          0,
+          101
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Note.--I",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "notei",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "avail",
+          "start": 0.93,
+          "end": 1.19,
+          "key": "avail",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 1.19,
+          "end": 1.69,
+          "key": "myself",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.69,
+          "end": 1.85,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 1.97,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "opportunity",
+          "start": 1.97,
+          "end": 2.47,
+          "key": "opportunity",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "offered",
+          "start": 2.47,
+          "end": 2.93,
+          "key": "offered",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.93,
+          "end": 3.19,
+          "key": "by",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.19,
+          "end": 3.39,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "treatise",
+          "start": 3.39,
+          "end": 3.79,
+          "key": "treatise",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.79,
+          "end": 3.95,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "express,",
+          "start": 3.95,
+          "end": 4.43,
+          "key": "express",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "openly",
+          "start": 5.07,
+          "end": 5.37,
+          "key": "openly",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.37,
+          "end": 5.69,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "formally,",
+          "start": 5.69,
+          "end": 6.07,
+          "key": "formally",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.69,
+          "end": 6.85,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 6.85,
+          "end": 7.07,
+          "key": "wish",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 7.07,
+          "end": 7.29,
+          "key": "which",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 7.29,
+          "end": 7.49,
+          "key": "up",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.49,
+          "end": 7.63,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.63,
+          "end": 7.75,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 7.75,
+          "end": 7.99,
+          "key": "present",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 7.99,
+          "end": 8.25,
+          "key": "has",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 8.25,
+          "end": 8.55,
+          "key": "only",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 8.55,
+          "end": 8.73,
+          "key": "been",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "expressed",
+          "start": 8.73,
+          "end": 9.19,
+          "key": "expressed",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.19,
+          "end": 9.45,
+          "key": "in",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "occasional",
+          "start": 9.45,
+          "end": 9.89,
+          "key": "occasional",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "conversations",
+          "start": 9.89,
+          "end": 10.51,
+          "key": "conversations",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 10.51,
+          "end": 11.01,
+          "key": "with",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "scholars.",
+          "start": 11.01,
+          "end": 11.51,
+          "key": "scholars",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Namely,",
+          "start": 12.27,
+          "end": 12.77,
+          "key": "namely",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 13.21,
+          "end": 13.35,
+          "key": "that",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 13.35,
+          "end": 13.67,
+          "key": "some",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "faculty",
+          "start": 13.67,
+          "end": 14.07,
+          "key": "faculty",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.07,
+          "end": 14.33,
+          "key": "of",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "philosophy",
+          "start": 14.33,
+          "end": 14.77,
+          "key": "philosophy",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "should,",
+          "start": 14.77,
+          "end": 15.25,
+          "key": "should",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 15.69,
+          "end": 15.87,
+          "key": "by",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 15.87,
+          "end": 16.13,
+          "key": "means",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.13,
+          "end": 16.25,
+          "key": "of",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.25,
+          "end": 16.37,
+          "key": "a",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "series",
+          "start": 16.37,
+          "end": 16.67,
+          "key": "series",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.67,
+          "end": 16.95,
+          "key": "of",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "prize",
+          "start": 16.95,
+          "end": 17.23,
+          "key": "prize",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "essays,",
+          "start": 17.23,
+          "end": 17.69,
+          "key": "essays",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "gain",
+          "start": 18.35,
+          "end": 18.51,
+          "key": "gain",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.51,
+          "end": 18.71,
+          "key": "the",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "glory",
+          "start": 18.71,
+          "end": 19.01,
+          "key": "glory",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 19.01,
+          "end": 19.23,
+          "key": "of",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "having",
+          "start": 19.23,
+          "end": 19.51,
+          "key": "having",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "promoted",
+          "start": 19.51,
+          "end": 19.93,
+          "key": "promoted",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.93,
+          "end": 20.13,
+          "key": "the",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "further",
+          "start": 20.13,
+          "end": 20.41,
+          "key": "further",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "study",
+          "start": 20.41,
+          "end": 20.77,
+          "key": "study",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 20.77,
+          "end": 20.97,
+          "key": "of",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.97,
+          "end": 21.07,
+          "key": "the",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "history",
+          "start": 21.07,
+          "end": 21.39,
+          "key": "history",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 21.39,
+          "end": 21.65,
+          "key": "of",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "morals perhaps,",
+          "start": 21.65,
+          "end": 22.41,
+          "key": "moralsperhaps",
+          "pieces": [
+            59,
+            60
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 23.11,
+          "end": 23.29,
+          "key": "this",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "book",
+          "start": 23.29,
+          "end": 23.53,
+          "key": "book",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 23.53,
+          "end": 23.79,
+          "key": "may",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "serve",
+          "start": 23.79,
+          "end": 24.09,
+          "key": "serve",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 24.09,
+          "end": 24.31,
+          "key": "to",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 24.31,
+          "end": 24.49,
+          "key": "give",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "forcible",
+          "start": 24.49,
+          "end": 25.03,
+          "key": "forcible",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "impetus",
+          "start": 25.03,
+          "end": 25.45,
+          "key": "impetus",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 25.45,
+          "end": 25.77,
+          "key": "in",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 25.77,
+          "end": 25.97,
+          "key": "such",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 25.97,
+          "end": 26.13,
+          "key": "a",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "direction.",
+          "start": 26.13,
+          "end": 26.55,
+          "key": "direction",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 27.37,
+          "end": 27.79,
+          "key": "with",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "regard",
+          "start": 27.79,
+          "end": 28.15,
+          "key": "regard",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 28.15,
+          "end": 28.41,
+          "key": "to",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 28.41,
+          "end": 28.53,
+          "key": "a",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "possibility",
+          "start": 28.53,
+          "end": 29.03,
+          "key": "possibility",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 29.03,
+          "end": 29.39,
+          "key": "of",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 29.39,
+          "end": 29.55,
+          "key": "this",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "character,",
+          "start": 29.55,
+          "end": 30.01,
+          "key": "character",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.45,
+          "end": 30.63,
+          "key": "the",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "following",
+          "start": 30.63,
+          "end": 30.97,
+          "key": "following",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "question",
+          "start": 30.97,
+          "end": 31.39,
+          "key": "question",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "deserves",
+          "start": 31.39,
+          "end": 32.01,
+          "key": "deserves",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "consideration.",
+          "start": 32.01,
+          "end": 32.69,
+          "key": "consideration",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 33.51,
+          "end": 33.75,
+          "key": "it",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "merits",
+          "start": 33.75,
+          "end": 34.05,
+          "key": "merits",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 34.05,
+          "end": 34.39,
+          "key": "quite",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 34.39,
+          "end": 34.59,
+          "key": "as",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 34.59,
+          "end": 34.77,
+          "key": "much",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 34.77,
+          "end": 34.99,
+          "key": "the",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "attention",
+          "start": 34.99,
+          "end": 35.39,
+          "key": "attention",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 35.39,
+          "end": 35.69,
+          "key": "of",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "philologists",
+          "start": 35.69,
+          "end": 36.19,
+          "key": "philologists",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 36.19,
+          "end": 36.67,
+          "key": "and",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "historians",
+          "start": 36.67,
+          "end": 37.25,
+          "key": "historians",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 37.25,
+          "end": 37.87,
+          "key": "as",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 37.87,
+          "end": 38.03,
+          "key": "of",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "actual",
+          "start": 38.03,
+          "end": 38.53,
+          "key": "actual",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "professional",
+          "start": 38.53,
+          "end": 39.17,
+          "key": "professional",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "philosophers.",
+          "start": 39.17,
+          "end": 39.75,
+          "key": "philosophers",
+          "pieces": [
+            101
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 59,
+          "text": "morals--perhaps",
+          "heard": "morals perhaps,",
+          "heard_indexes": [
+            59,
+            60
+          ],
+          "start": 21.65,
+          "end": 22.41
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Note.--I",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "avail",
+          "start": 0.93,
+          "end": 1.19
+        },
+        {
+          "text": "myself",
+          "start": 1.19,
+          "end": 1.69
+        },
+        {
+          "text": "of",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "text": "the",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "text": "opportunity",
+          "start": 1.97,
+          "end": 2.47
+        },
+        {
+          "text": "offered",
+          "start": 2.47,
+          "end": 2.93
+        },
+        {
+          "text": "by",
+          "start": 2.93,
+          "end": 3.19
+        },
+        {
+          "text": "this",
+          "start": 3.19,
+          "end": 3.39
+        },
+        {
+          "text": "treatise",
+          "start": 3.39,
+          "end": 3.79
+        },
+        {
+          "text": "to",
+          "start": 3.79,
+          "end": 3.95
+        },
+        {
+          "text": "express,",
+          "start": 3.95,
+          "end": 4.43
+        },
+        {
+          "text": "openly",
+          "start": 5.07,
+          "end": 5.37
+        },
+        {
+          "text": "and",
+          "start": 5.37,
+          "end": 5.69
+        },
+        {
+          "text": "formally,",
+          "start": 5.69,
+          "end": 6.07
+        },
+        {
+          "text": "a",
+          "start": 6.69,
+          "end": 6.85
+        },
+        {
+          "text": "wish",
+          "start": 6.85,
+          "end": 7.07
+        },
+        {
+          "text": "which",
+          "start": 7.07,
+          "end": 7.29
+        },
+        {
+          "text": "up",
+          "start": 7.29,
+          "end": 7.49
+        },
+        {
+          "text": "to",
+          "start": 7.49,
+          "end": 7.63
+        },
+        {
+          "text": "the",
+          "start": 7.63,
+          "end": 7.75
+        },
+        {
+          "text": "present",
+          "start": 7.75,
+          "end": 7.99
+        },
+        {
+          "text": "has",
+          "start": 7.99,
+          "end": 8.25
+        },
+        {
+          "text": "only",
+          "start": 8.25,
+          "end": 8.55
+        },
+        {
+          "text": "been",
+          "start": 8.55,
+          "end": 8.73
+        },
+        {
+          "text": "expressed",
+          "start": 8.73,
+          "end": 9.19
+        },
+        {
+          "text": "in",
+          "start": 9.19,
+          "end": 9.45
+        },
+        {
+          "text": "occasional",
+          "start": 9.45,
+          "end": 9.89
+        },
+        {
+          "text": "conversations",
+          "start": 9.89,
+          "end": 10.51
+        },
+        {
+          "text": "with",
+          "start": 10.51,
+          "end": 11.01
+        },
+        {
+          "text": "scholars,",
+          "start": 11.01,
+          "end": 11.51
+        },
+        {
+          "text": "namely,",
+          "start": 12.27,
+          "end": 12.77
+        },
+        {
+          "text": "that",
+          "start": 13.21,
+          "end": 13.35
+        },
+        {
+          "text": "some",
+          "start": 13.35,
+          "end": 13.67
+        },
+        {
+          "text": "Faculty",
+          "start": 13.67,
+          "end": 14.07
+        },
+        {
+          "text": "of",
+          "start": 14.07,
+          "end": 14.33
+        },
+        {
+          "text": "philosophy",
+          "start": 14.33,
+          "end": 14.77
+        },
+        {
+          "text": "should,",
+          "start": 14.77,
+          "end": 15.25
+        },
+        {
+          "text": "by",
+          "start": 15.69,
+          "end": 15.87
+        },
+        {
+          "text": "means",
+          "start": 15.87,
+          "end": 16.13
+        },
+        {
+          "text": "of",
+          "start": 16.13,
+          "end": 16.25
+        },
+        {
+          "text": "a",
+          "start": 16.25,
+          "end": 16.37
+        },
+        {
+          "text": "series",
+          "start": 16.37,
+          "end": 16.67
+        },
+        {
+          "text": "of",
+          "start": 16.67,
+          "end": 16.95
+        },
+        {
+          "text": "prize",
+          "start": 16.95,
+          "end": 17.23
+        },
+        {
+          "text": "essays,",
+          "start": 17.23,
+          "end": 17.69
+        },
+        {
+          "text": "gain",
+          "start": 18.35,
+          "end": 18.51
+        },
+        {
+          "text": "the",
+          "start": 18.51,
+          "end": 18.71
+        },
+        {
+          "text": "glory",
+          "start": 18.71,
+          "end": 19.01
+        },
+        {
+          "text": "of",
+          "start": 19.01,
+          "end": 19.23
+        },
+        {
+          "text": "having",
+          "start": 19.23,
+          "end": 19.51
+        },
+        {
+          "text": "promoted",
+          "start": 19.51,
+          "end": 19.93
+        },
+        {
+          "text": "the",
+          "start": 19.93,
+          "end": 20.13
+        },
+        {
+          "text": "further",
+          "start": 20.13,
+          "end": 20.41
+        },
+        {
+          "text": "study",
+          "start": 20.41,
+          "end": 20.77
+        },
+        {
+          "text": "of",
+          "start": 20.77,
+          "end": 20.97
+        },
+        {
+          "text": "the",
+          "start": 20.97,
+          "end": 21.07
+        },
+        {
+          "text": "history",
+          "start": 21.07,
+          "end": 21.39
+        },
+        {
+          "text": "of",
+          "start": 21.39,
+          "end": 21.65
+        },
+        {
+          "text": "morals--perhaps",
+          "start": 21.65,
+          "end": 22.41
+        },
+        {
+          "text": "this",
+          "start": 23.11,
+          "end": 23.29
+        },
+        {
+          "text": "book",
+          "start": 23.29,
+          "end": 23.53
+        },
+        {
+          "text": "may",
+          "start": 23.53,
+          "end": 23.79
+        },
+        {
+          "text": "serve",
+          "start": 23.79,
+          "end": 24.09
+        },
+        {
+          "text": "to",
+          "start": 24.09,
+          "end": 24.31
+        },
+        {
+          "text": "give",
+          "start": 24.31,
+          "end": 24.49
+        },
+        {
+          "text": "forcible",
+          "start": 24.49,
+          "end": 25.03
+        },
+        {
+          "text": "impetus",
+          "start": 25.03,
+          "end": 25.45
+        },
+        {
+          "text": "in",
+          "start": 25.45,
+          "end": 25.77
+        },
+        {
+          "text": "such",
+          "start": 25.77,
+          "end": 25.97
+        },
+        {
+          "text": "a",
+          "start": 25.97,
+          "end": 26.13
+        },
+        {
+          "text": "direction.",
+          "start": 26.13,
+          "end": 26.55
+        },
+        {
+          "text": "With",
+          "start": 27.37,
+          "end": 27.79
+        },
+        {
+          "text": "regard",
+          "start": 27.79,
+          "end": 28.15
+        },
+        {
+          "text": "to",
+          "start": 28.15,
+          "end": 28.41
+        },
+        {
+          "text": "a",
+          "start": 28.41,
+          "end": 28.53
+        },
+        {
+          "text": "possibility",
+          "start": 28.53,
+          "end": 29.03
+        },
+        {
+          "text": "of",
+          "start": 29.03,
+          "end": 29.39
+        },
+        {
+          "text": "this",
+          "start": 29.39,
+          "end": 29.55
+        },
+        {
+          "text": "character,",
+          "start": 29.55,
+          "end": 30.01
+        },
+        {
+          "text": "the",
+          "start": 30.45,
+          "end": 30.63
+        },
+        {
+          "text": "following",
+          "start": 30.63,
+          "end": 30.97
+        },
+        {
+          "text": "question",
+          "start": 30.97,
+          "end": 31.39
+        },
+        {
+          "text": "deserves",
+          "start": 31.39,
+          "end": 32.01
+        },
+        {
+          "text": "consideration.",
+          "start": 32.01,
+          "end": 32.69
+        },
+        {
+          "text": "It",
+          "start": 33.51,
+          "end": 33.75
+        },
+        {
+          "text": "merits",
+          "start": 33.75,
+          "end": 34.05
+        },
+        {
+          "text": "quite",
+          "start": 34.05,
+          "end": 34.39
+        },
+        {
+          "text": "as",
+          "start": 34.39,
+          "end": 34.59
+        },
+        {
+          "text": "much",
+          "start": 34.59,
+          "end": 34.77
+        },
+        {
+          "text": "the",
+          "start": 34.77,
+          "end": 34.99
+        },
+        {
+          "text": "attention",
+          "start": 34.99,
+          "end": 35.39
+        },
+        {
+          "text": "of",
+          "start": 35.39,
+          "end": 35.69
+        },
+        {
+          "text": "philologists",
+          "start": 35.69,
+          "end": 36.19
+        },
+        {
+          "text": "and",
+          "start": 36.19,
+          "end": 36.67
+        },
+        {
+          "text": "historians",
+          "start": 36.67,
+          "end": 37.25
+        },
+        {
+          "text": "as",
+          "start": 37.25,
+          "end": 37.87
+        },
+        {
+          "text": "of",
+          "start": 37.87,
+          "end": 38.03
+        },
+        {
+          "text": "actual",
+          "start": 38.03,
+          "end": 38.53
+        },
+        {
+          "text": "professional",
+          "start": 38.53,
+          "end": 39.17
+        },
+        {
+          "text": "philosophers.",
+          "start": 39.17,
+          "end": 39.75
+        }
+      ],
+      "stats": {
+        "expected_words": 101,
+        "heard_words": 101,
+        "matched_words": 101
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.0273760249838233
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "c1221b7b34c8d615aca0d816dd4579a8b989c79af812b4a5a489c36fa8b5b9f7",
+  "selected_reasons": []
+}

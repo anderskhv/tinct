@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "cdd7cad7a14ff81cfdd6cca08329f08da9ff47b075a150a18347301b4ed5d4d2",
+  "attempts": [
+    {
+      "asr_seconds": 0.10994081501848996,
+      "alignment_seconds": 0.0001751609961502254,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And in the porches of mine ear did pour.",
+          "start": 0.08,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.455810546875
+            },
+            {
+              "text": " in",
+              "start": 0.5,
+              "end": 0.58,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " the",
+              "start": 0.58,
+              "end": 0.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " porches",
+              "start": 0.68,
+              "end": 1.02,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " of",
+              "start": 1.02,
+              "end": 1.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " mine",
+              "start": 1.16,
+              "end": 1.42,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " ear",
+              "start": 1.42,
+              "end": 1.68,
+              "probability": 0.45361328125
+            },
+            {
+              "text": " did",
+              "start": 1.68,
+              "end": 1.84,
+              "probability": 0.98828125
+            },
+            {
+              "text": " pour.",
+              "start": 1.84,
+              "end": 2.14,
+              "probability": 0.91455078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "in",
+          "start": 0.5,
+          "end": 0.58
+        },
+        {
+          "raw": "the",
+          "start": 0.58,
+          "end": 0.68
+        },
+        {
+          "raw": "porches",
+          "start": 0.68,
+          "end": 1.02
+        },
+        {
+          "raw": "of",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "raw": "mine",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "raw": "ear",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "raw": "did",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "raw": "pour.",
+          "start": 1.84,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "_And",
+        "in",
+        "the",
+        "porches",
+        "of",
+        "mine",
+        "ear",
+        "did",
+        "pour._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.5,
+          "end": 0.58,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.58,
+          "end": 0.68,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "porches",
+          "start": 0.68,
+          "end": 1.02,
+          "key": "porches",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.02,
+          "end": 1.16,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 1.16,
+          "end": 1.42,
+          "key": "mine",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ear",
+          "start": 1.42,
+          "end": 1.68,
+          "key": "ear",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.68,
+          "end": 1.84,
+          "key": "did",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pour.",
+          "start": 1.84,
+          "end": 2.14,
+          "key": "pour",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_And",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "in",
+          "start": 0.5,
+          "end": 0.58
+        },
+        {
+          "text": "the",
+          "start": 0.58,
+          "end": 0.68
+        },
+        {
+          "text": "porches",
+          "start": 0.68,
+          "end": 1.02
+        },
+        {
+          "text": "of",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "text": "mine",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "text": "ear",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "text": "did",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "text": "pour._",
+          "start": 1.84,
+          "end": 2.14
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11018839600728825
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cbad8f2db14b1ae86289ebadc33fd60704ebeed833cefd78b32d1239d2a41470",
+  "selected_reasons": []
+}

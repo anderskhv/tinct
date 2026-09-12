@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "0fdb877d63bcab9b2ad4a812d848f2cc569514adcb25f0c6334b95d78a73f1ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.15883946418762207,
+      "alignment_seconds": 0.0002641230821609497,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet words words words",
+          "start": 0.08,
+          "end": 2.3,
+          "words": [
+            {
+              "text": " Hamlet",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.934814453125
+            },
+            {
+              "text": " words",
+              "start": 0.84,
+              "end": 1.44,
+              "probability": 0.26171875
+            },
+            {
+              "text": " words",
+              "start": 1.44,
+              "end": 1.78,
+              "probability": 0.9375
+            },
+            {
+              "text": " words",
+              "start": 1.78,
+              "end": 2.3,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "words",
+          "start": 0.84,
+          "end": 1.44
+        },
+        {
+          "raw": "words",
+          "start": 1.44,
+          "end": 1.78
+        },
+        {
+          "raw": "words",
+          "start": 1.78,
+          "end": 2.3
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Words,",
+        "words,",
+        "words."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 0.84,
+          "end": 1.44,
+          "key": "words",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 1.44,
+          "end": 1.78,
+          "key": "words",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 1.78,
+          "end": 2.3,
+          "key": "words",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "Words,",
+          "start": 0.84,
+          "end": 1.44
+        },
+        {
+          "text": "words,",
+          "start": 1.44,
+          "end": 1.78
+        },
+        {
+          "text": "words.",
+          "start": 1.78,
+          "end": 2.3
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15920750610530376
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "167048b9ef0dd1d0c0066eee0694d88ff101e00d872af107026197c7ba5d6e31",
+  "selected_reasons": []
+}

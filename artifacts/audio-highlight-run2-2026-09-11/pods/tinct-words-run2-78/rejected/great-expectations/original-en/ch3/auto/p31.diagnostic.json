@@ -1,0 +1,541 @@
+{
+  "complete": true,
+  "signature": "10fbbac5a312c0c3f3df7b764bf30be99aa036d66dcb61b0875d6bf119eb2130",
+  "attempts": [
+    {
+      "asr_seconds": 0.3029185337945819,
+      "alignment_seconds": 0.0006526792421936989,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The man stopped eating, and regarded me with the keenest scrutiny and the greatest surprise."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The man stopped eating, and regarded me with the keenest scrutiny and the greatest surprise.",
+          "start": 0.02,
+          "end": 5.08,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " man",
+              "start": 0.48,
+              "end": 0.68,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " stopped",
+              "start": 0.68,
+              "end": 1.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " eating,",
+              "start": 1.04,
+              "end": 1.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 1.86,
+              "end": 2.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " regarded",
+              "start": 2.02,
+              "end": 2.38,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " me",
+              "start": 2.38,
+              "end": 2.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 2.64,
+              "end": 2.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.82,
+              "end": 2.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " keenest",
+              "start": 2.96,
+              "end": 3.38,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " scrutiny",
+              "start": 3.38,
+              "end": 3.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 3.76,
+              "end": 4.16,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " the",
+              "start": 4.16,
+              "end": 4.28,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " greatest",
+              "start": 4.28,
+              "end": 4.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " surprise.",
+              "start": 4.58,
+              "end": 5.08,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "man",
+          "start": 0.48,
+          "end": 0.68
+        },
+        {
+          "raw": "stopped",
+          "start": 0.68,
+          "end": 1.04
+        },
+        {
+          "raw": "eating,",
+          "start": 1.04,
+          "end": 1.4
+        },
+        {
+          "raw": "and",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "raw": "regarded",
+          "start": 2.02,
+          "end": 2.38
+        },
+        {
+          "raw": "me",
+          "start": 2.38,
+          "end": 2.64
+        },
+        {
+          "raw": "with",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "raw": "the",
+          "start": 2.82,
+          "end": 2.96
+        },
+        {
+          "raw": "keenest",
+          "start": 2.96,
+          "end": 3.38
+        },
+        {
+          "raw": "scrutiny",
+          "start": 3.38,
+          "end": 3.76
+        },
+        {
+          "raw": "and",
+          "start": 3.76,
+          "end": 4.16
+        },
+        {
+          "raw": "the",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "raw": "greatest",
+          "start": 4.28,
+          "end": 4.58
+        },
+        {
+          "raw": "surprise.",
+          "start": 4.58,
+          "end": 5.08
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "man",
+        "stopped",
+        "eating,",
+        "and",
+        "regarded",
+        "me",
+        "with",
+        "the",
+        "keenest",
+        "scrutiny",
+        "and",
+        "the",
+        "greatest",
+        "surprise."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 0.48,
+          "end": 0.68,
+          "key": "man",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stopped",
+          "start": 0.68,
+          "end": 1.04,
+          "key": "stopped",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "eating,",
+          "start": 1.04,
+          "end": 1.4,
+          "key": "eating",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.86,
+          "end": 2.02,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "regarded",
+          "start": 2.02,
+          "end": 2.38,
+          "key": "regarded",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.38,
+          "end": 2.64,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.64,
+          "end": 2.82,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.82,
+          "end": 2.96,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "keenest",
+          "start": 2.96,
+          "end": 3.38,
+          "key": "keenest",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "scrutiny",
+          "start": 3.38,
+          "end": 3.76,
+          "key": "scrutiny",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.76,
+          "end": 4.16,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.16,
+          "end": 4.28,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "greatest",
+          "start": 4.28,
+          "end": 4.58,
+          "key": "greatest",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "surprise.",
+          "start": 4.58,
+          "end": 5.08,
+          "key": "surprise",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "man",
+          "start": 0.48,
+          "end": 0.68
+        },
+        {
+          "text": "stopped",
+          "start": 0.68,
+          "end": 1.04
+        },
+        {
+          "text": "eating,",
+          "start": 1.04,
+          "end": 1.4
+        },
+        {
+          "text": "and",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "text": "regarded",
+          "start": 2.02,
+          "end": 2.38
+        },
+        {
+          "text": "me",
+          "start": 2.38,
+          "end": 2.64
+        },
+        {
+          "text": "with",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "text": "the",
+          "start": 2.82,
+          "end": 2.96
+        },
+        {
+          "text": "keenest",
+          "start": 2.96,
+          "end": 3.38
+        },
+        {
+          "text": "scrutiny",
+          "start": 3.38,
+          "end": 3.76
+        },
+        {
+          "text": "and",
+          "start": 3.76,
+          "end": 4.16
+        },
+        {
+          "text": "the",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "text": "greatest",
+          "start": 4.28,
+          "end": 4.58
+        },
+        {
+          "text": "surprise.",
+          "start": 4.58,
+          "end": 5.08
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3038319041952491
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0c43bb507d10e6e89f7aba9dd8179b051d5c691b6182032912cee101590e3b7d",
+  "selected_reasons": []
+}

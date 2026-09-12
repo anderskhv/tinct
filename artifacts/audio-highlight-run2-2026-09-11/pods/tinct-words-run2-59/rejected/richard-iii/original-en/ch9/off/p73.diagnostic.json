@@ -1,0 +1,590 @@
+{
+  "complete": true,
+  "signature": "d5556733fb9b09034ae918b1f61c0465d300356ead2c8c1981f5518588b98735",
+  "attempts": [
+    {
+      "asr_seconds": 0.39045443711802363,
+      "alignment_seconds": 0.000527914147824049,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " York, Mary, my Uncle Clarence's angry ghost.",
+          "start": 0.02,
+          "end": 3.28,
+          "words": [
+            {
+              "text": " York,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.83203125
+            },
+            {
+              "text": " Mary,",
+              "start": 1.18,
+              "end": 1.24,
+              "probability": 0.953125
+            },
+            {
+              "text": " my",
+              "start": 1.72,
+              "end": 1.82,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Uncle",
+              "start": 1.82,
+              "end": 2.08,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " Clarence's",
+              "start": 2.08,
+              "end": 2.66,
+              "probability": 0.63671875
+            },
+            {
+              "text": " angry",
+              "start": 2.66,
+              "end": 2.82,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " ghost.",
+              "start": 2.82,
+              "end": 3.28,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " My grandam told me he was murdered there.",
+          "start": 3.88,
+          "end": 5.82,
+          "words": [
+            {
+              "text": " My",
+              "start": 3.88,
+              "end": 4.02,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " grandam",
+              "start": 4.02,
+              "end": 4.52,
+              "probability": 0.59912109375
+            },
+            {
+              "text": " told",
+              "start": 4.52,
+              "end": 4.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 4.74,
+              "end": 4.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 4.92,
+              "end": 5.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 5.04,
+              "end": 5.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " murdered",
+              "start": 5.18,
+              "end": 5.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " there.",
+              "start": 5.44,
+              "end": 5.82,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "York,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "Mary,",
+          "start": 1.18,
+          "end": 1.24
+        },
+        {
+          "raw": "my",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "raw": "Uncle",
+          "start": 1.82,
+          "end": 2.08
+        },
+        {
+          "raw": "Clarence's",
+          "start": 2.08,
+          "end": 2.66
+        },
+        {
+          "raw": "angry",
+          "start": 2.66,
+          "end": 2.82
+        },
+        {
+          "raw": "ghost.",
+          "start": 2.82,
+          "end": 3.28
+        },
+        {
+          "raw": "My",
+          "start": 3.88,
+          "end": 4.02
+        },
+        {
+          "raw": "grandam",
+          "start": 4.02,
+          "end": 4.52
+        },
+        {
+          "raw": "told",
+          "start": 4.52,
+          "end": 4.74
+        },
+        {
+          "raw": "me",
+          "start": 4.74,
+          "end": 4.92
+        },
+        {
+          "raw": "he",
+          "start": 4.92,
+          "end": 5.04
+        },
+        {
+          "raw": "was",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "raw": "murdered",
+          "start": 5.18,
+          "end": 5.44
+        },
+        {
+          "raw": "there.",
+          "start": 5.44,
+          "end": 5.82
+        }
+      ],
+      "expected_tokens": [
+        "York.",
+        "Marry,",
+        "my",
+        "uncle",
+        "Clarence'",
+        "angry",
+        "ghost.",
+        "My",
+        "grandam",
+        "told",
+        "me",
+        "he",
+        "was",
+        "murdered",
+        "there."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          15,
+          5,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "York,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "york",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mary,",
+          "start": 1.18,
+          "end": 1.24,
+          "key": "mary",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.72,
+          "end": 1.82,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Uncle",
+          "start": 1.82,
+          "end": 2.08,
+          "key": "uncle",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Clarence's",
+          "start": 2.08,
+          "end": 2.66,
+          "key": "clarences",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "angry",
+          "start": 2.66,
+          "end": 2.82,
+          "key": "angry",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ghost.",
+          "start": 2.82,
+          "end": 3.28,
+          "key": "ghost",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 3.88,
+          "end": 4.02,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "grandam",
+          "start": 4.02,
+          "end": 4.52,
+          "key": "grandam",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 4.52,
+          "end": 4.74,
+          "key": "told",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.74,
+          "end": 4.92,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.92,
+          "end": 5.04,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.04,
+          "end": 5.18,
+          "key": "was",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "murdered",
+          "start": 5.18,
+          "end": 5.44,
+          "key": "murdered",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 5.44,
+          "end": 5.82,
+          "key": "there",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "York.",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "Marry,",
+          "start": 0.74,
+          "end": 1.23
+        },
+        {
+          "text": "my",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "text": "uncle",
+          "start": 1.82,
+          "end": 2.08
+        },
+        {
+          "text": "Clarence'",
+          "start": 2.08,
+          "end": 2.37
+        },
+        {
+          "text": "angry",
+          "start": 2.66,
+          "end": 2.82
+        },
+        {
+          "text": "ghost.",
+          "start": 2.82,
+          "end": 3.28
+        },
+        {
+          "text": "My",
+          "start": 3.88,
+          "end": 4.02
+        },
+        {
+          "text": "grandam",
+          "start": 4.02,
+          "end": 4.52
+        },
+        {
+          "text": "told",
+          "start": 4.52,
+          "end": 4.74
+        },
+        {
+          "text": "me",
+          "start": 4.74,
+          "end": 4.92
+        },
+        {
+          "text": "he",
+          "start": 4.92,
+          "end": 5.04
+        },
+        {
+          "text": "was",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "text": "murdered",
+          "start": 5.18,
+          "end": 5.44
+        },
+        {
+          "text": "there.",
+          "start": 5.44,
+          "end": 5.82
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.3911763171199709
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "12209ab2bacee02499a34805b77a4df3be5a8593c3ad0ea1561bfc04d5637edc",
+  "selected_reasons": []
+}

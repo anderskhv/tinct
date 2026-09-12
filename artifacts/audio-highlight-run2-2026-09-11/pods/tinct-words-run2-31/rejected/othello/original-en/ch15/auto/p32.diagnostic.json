@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "137bbdce767cfb8e725710124e9d8f7320bd030829322db0c6eb8cbde73f6645",
+  "attempts": [
+    {
+      "asr_seconds": 0.13804985489696264,
+      "alignment_seconds": 0.0002437969669699669,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. I say, amen.",
+        "hotwords": "Othello, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, I say, amen.",
+          "start": 0.24,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.24,
+              "end": 0.92,
+              "probability": 0.8634440104166666
+            },
+            {
+              "text": " I",
+              "start": 1.28,
+              "end": 1.3,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " say,",
+              "start": 1.3,
+              "end": 1.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " amen.",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 0.25390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.92
+        },
+        {
+          "raw": "I",
+          "start": 1.28,
+          "end": 1.3
+        },
+        {
+          "raw": "say,",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "raw": "amen.",
+          "start": 1.6,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "I",
+        "say,",
+        "amen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.92,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.28,
+          "end": 1.3,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 1.3,
+          "end": 1.52,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "amen.",
+          "start": 1.6,
+          "end": 1.72,
+          "key": "amen",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.24,
+          "end": 0.92
+        },
+        {
+          "text": "I",
+          "start": 1.28,
+          "end": 1.3
+        },
+        {
+          "text": "say,",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "text": "amen.",
+          "start": 1.6,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13837016094475985
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3258b44a82a7ab6719e488fe8559028edd6dd34f7837f64c8ddecd62132cbc76",
+  "selected_reasons": []
+}

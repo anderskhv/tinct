@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "e65dd90a1963150e3b02a6cb078574d44e29e7c74b6ebd20c7bcbfdfb60e6e00",
+  "attempts": [
+    {
+      "asr_seconds": 0.10803018393926322,
+      "alignment_seconds": 0.00020242296159267426,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Love",
+          "start": 0.02,
+          "end": 0.68,
+          "words": [
+            {
+              "text": " Love",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.491943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Love",
+          "start": 0.02,
+          "end": 0.68
+        }
+      ],
+      "expected_tokens": [
+        "—Love!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Love",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "love",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Love!",
+          "start": 0.02,
+          "end": 0.68
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10829749098047614
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b68b874a41332c61527924dd042bdc5fcfcb6faf0459d79e354c10e59a245d50",
+  "selected_reasons": []
+}

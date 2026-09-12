@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "897ec5585f46919fb0992162a64315ad8f2c04636da4883be8fa02d5dc686aca",
+  "attempts": [
+    {
+      "asr_seconds": 0.2085322206839919,
+      "alignment_seconds": 0.00036308541893959045,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fourth Citizen. Ay, and wisely.",
+        "hotwords": "Fourth, Citizen, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fourth, Citizen, Ay, and wisely.",
+          "start": 0.08,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Fourth,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.71240234375
+            },
+            {
+              "text": " Citizen,",
+              "start": 0.8,
+              "end": 1.06,
+              "probability": 0.07489013671875
+            },
+            {
+              "text": " Ay,",
+              "start": 1.64,
+              "end": 1.66,
+              "probability": 0.006195068359375
+            },
+            {
+              "text": " and",
+              "start": 1.74,
+              "end": 1.84,
+              "probability": 0.861328125
+            },
+            {
+              "text": " wisely.",
+              "start": 1.84,
+              "end": 2.1,
+              "probability": 0.0916748046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fourth,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Citizen,",
+          "start": 0.8,
+          "end": 1.06
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.64,
+          "end": 1.66
+        },
+        {
+          "raw": "and",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "raw": "wisely.",
+          "start": 1.84,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "Fourth",
+        "Citizen.",
+        "Ay,",
+        "and",
+        "wisely."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fourth,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "fourth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Citizen,",
+          "start": 0.8,
+          "end": 1.06,
+          "key": "citizen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.64,
+          "end": 1.66,
+          "key": "ay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.74,
+          "end": 1.84,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wisely.",
+          "start": 1.84,
+          "end": 2.1,
+          "key": "wisely",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fourth",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Citizen.",
+          "start": 0.8,
+          "end": 1.06
+        },
+        {
+          "text": "Ay,",
+          "start": 1.64,
+          "end": 1.66
+        },
+        {
+          "text": "and",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "text": "wisely.",
+          "start": 1.84,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20902617927640676
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c6244590e0535084ff7efb1fa5bd05939a8eb9cf7987d249bcd9a3a7023cb04f",
+  "selected_reasons": []
+}

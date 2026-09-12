@@ -1,0 +1,324 @@
+{
+  "complete": true,
+  "signature": "fa02ec48cdb299157fd1bba26cb511d3d41898180ce1e74d77845ca321891f4b",
+  "attempts": [
+    {
+      "asr_seconds": 0.24299379298463464,
+      "alignment_seconds": 0.00046582799404859543,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh yes, Blaze's Boilin said. Ten minutes.",
+          "start": 0.08,
+          "end": 2.7,
+          "words": [
+            {
+              "text": " Oh",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.4033203125
+            },
+            {
+              "text": " yes,",
+              "start": 0.56,
+              "end": 0.84,
+              "probability": 0.671875
+            },
+            {
+              "text": " Blaze's",
+              "start": 1.02,
+              "end": 1.38,
+              "probability": 0.748779296875
+            },
+            {
+              "text": " Boilin",
+              "start": 1.38,
+              "end": 1.78,
+              "probability": 0.4239908854166667
+            },
+            {
+              "text": " said.",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Ten",
+              "start": 2.26,
+              "end": 2.42,
+              "probability": 0.64990234375
+            },
+            {
+              "text": " minutes.",
+              "start": 2.42,
+              "end": 2.7,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "yes,",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "raw": "Blaze's",
+          "start": 1.02,
+          "end": 1.38
+        },
+        {
+          "raw": "Boilin",
+          "start": 1.38,
+          "end": 1.78
+        },
+        {
+          "raw": "said.",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "raw": "Ten",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "raw": "minutes.",
+          "start": 2.42,
+          "end": 2.7
+        }
+      ],
+      "expected_tokens": [
+        "—O,",
+        "yes,",
+        "Blazes",
+        "Boylan",
+        "said.",
+        "Ten",
+        "minutes."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "yes,",
+          "start": 0.56,
+          "end": 0.84,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Blaze's",
+          "start": 1.02,
+          "end": 1.38,
+          "key": "blazes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Boilin",
+          "start": 1.38,
+          "end": 1.78,
+          "key": "boilin",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Ten",
+          "start": 2.26,
+          "end": 2.42,
+          "key": "ten",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "minutes.",
+          "start": 2.42,
+          "end": 2.7,
+          "key": "minutes",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—O,",
+          "start": 0.0,
+          "end": 0.28
+        },
+        {
+          "text": "yes,",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "text": "Blazes",
+          "start": 1.02,
+          "end": 1.38
+        },
+        {
+          "text": "Boylan",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "text": "said.",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "text": "Ten",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "text": "minutes.",
+          "start": 2.42,
+          "end": 2.7
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24361964128911495
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "79f55df2c9232b79a85e59a49789ff459e8c8ed9a604d06248f52629e0cad35c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "3ec0c2fbf5c4f2641468e14c840b8bd70edd1a2ef7888a4b9fe6b687f62f2e5d",
+  "attempts": [
+    {
+      "asr_seconds": 0.19769821874797344,
+      "alignment_seconds": 0.0005063805729150772,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Might a mere warmant ask what property? said he.",
+          "start": 0.11,
+          "end": 2.85,
+          "words": [
+            {
+              "text": " Might",
+              "start": 0.11,
+              "end": 0.55,
+              "probability": 0.58251953125
+            },
+            {
+              "text": " a",
+              "start": 0.55,
+              "end": 0.65,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " mere",
+              "start": 0.65,
+              "end": 0.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " warmant",
+              "start": 0.81,
+              "end": 1.17,
+              "probability": 0.6962890625
+            },
+            {
+              "text": " ask",
+              "start": 1.17,
+              "end": 1.37,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " what",
+              "start": 1.37,
+              "end": 1.59,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " property?",
+              "start": 1.59,
+              "end": 2.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " said",
+              "start": 2.53,
+              "end": 2.61,
+              "probability": 0.716796875
+            },
+            {
+              "text": " he.",
+              "start": 2.61,
+              "end": 2.85,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Might",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "raw": "a",
+          "start": 0.55,
+          "end": 0.65
+        },
+        {
+          "raw": "mere",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "raw": "warmant",
+          "start": 0.81,
+          "end": 1.17
+        },
+        {
+          "raw": "ask",
+          "start": 1.17,
+          "end": 1.37
+        },
+        {
+          "raw": "what",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "raw": "property?",
+          "start": 1.59,
+          "end": 2.05
+        },
+        {
+          "raw": "said",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "raw": "he.",
+          "start": 2.61,
+          "end": 2.85
+        }
+      ],
+      "expected_tokens": [
+        "\"Might",
+        "a",
+        "mere",
+        "warmint",
+        "ask",
+        "what",
+        "property?\"",
+        "said",
+        "he."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Might",
+          "start": 0.11,
+          "end": 0.55,
+          "key": "might",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.55,
+          "end": 0.65,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mere",
+          "start": 0.65,
+          "end": 0.81,
+          "key": "mere",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "warmant",
+          "start": 0.81,
+          "end": 1.17,
+          "key": "warmant",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 1.17,
+          "end": 1.37,
+          "key": "ask",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.37,
+          "end": 1.59,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "property?",
+          "start": 1.59,
+          "end": 2.05,
+          "key": "property",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.53,
+          "end": 2.61,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 2.61,
+          "end": 2.85,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Might",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "text": "a",
+          "start": 0.55,
+          "end": 0.65
+        },
+        {
+          "text": "mere",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "text": "warmint",
+          "start": 0.81,
+          "end": 0.99
+        },
+        {
+          "text": "ask",
+          "start": 1.17,
+          "end": 1.37
+        },
+        {
+          "text": "what",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "text": "property?\"",
+          "start": 1.59,
+          "end": 2.05
+        },
+        {
+          "text": "said",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "text": "he.",
+          "start": 2.61,
+          "end": 2.85
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.19838275015354156
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ab2715beeadbf139916a696147397ec0e535e65f99565c6848d8fc336f061592",
+  "selected_reasons": []
+}

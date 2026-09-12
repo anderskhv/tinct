@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "3c68d28b82b01632ef6efee7efc90af58e4ffd3dde408b8453566b4092b020ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.17475726176053286,
+      "alignment_seconds": 0.0004121847450733185,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You hear the charge?\" asked the judge.",
+        "hotwords": "You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You hear the charge?\" asked the judge.",
+          "start": 0.02,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.71728515625
+            },
+            {
+              "text": " hear",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " charge?\"",
+              "start": 0.82,
+              "end": 1.62,
+              "probability": 0.5016937255859375
+            },
+            {
+              "text": " asked",
+              "start": 1.62,
+              "end": 1.68,
+              "probability": 0.8984375
+            },
+            {
+              "text": " the",
+              "start": 1.68,
+              "end": 1.88,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " judge.",
+              "start": 1.88,
+              "end": 2.1,
+              "probability": 0.88134765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "hear",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "the",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "charge?\"",
+          "start": 0.82,
+          "end": 1.62
+        },
+        {
+          "raw": "asked",
+          "start": 1.62,
+          "end": 1.68
+        },
+        {
+          "raw": "the",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "raw": "judge.",
+          "start": 1.88,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "hear",
+        "the",
+        "charge?\"",
+        "asked",
+        "the",
+        "judge."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "hear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.66,
+          "end": 0.82,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "charge?\"",
+          "start": 0.82,
+          "end": 1.62,
+          "key": "charge",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.62,
+          "end": 1.68,
+          "key": "asked",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.68,
+          "end": 1.88,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "judge.",
+          "start": 1.88,
+          "end": 2.1,
+          "key": "judge",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "hear",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "the",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "charge?\"",
+          "start": 0.82,
+          "end": 1.62
+        },
+        {
+          "text": "asked",
+          "start": 1.62,
+          "end": 1.68
+        },
+        {
+          "text": "the",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "text": "judge.",
+          "start": 1.88,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1753193186596036
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "91b145f907fecbc80817548e39d7fd5213ec6a5b3aa89b6df2d27270b5fb15ac",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "53517e7cdd8abd7a04feea49dbc883017a589b062b00b71be82494d741d76ddf",
+  "attempts": [
+    {
+      "asr_seconds": 0.13321571610867977,
+      "alignment_seconds": 0.00021088821813464165,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Roderigo. O wretched villain!",
+        "hotwords": "Roderigo, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Roderigo, O wretched villain!",
+          "start": 0.08,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Roderigo,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.141204833984375
+            },
+            {
+              "text": " O",
+              "start": 1.3,
+              "end": 1.38,
+              "probability": 0.53173828125
+            },
+            {
+              "text": " wretched",
+              "start": 1.38,
+              "end": 1.64,
+              "probability": 0.2359619140625
+            },
+            {
+              "text": " villain!",
+              "start": 1.64,
+              "end": 1.98,
+              "probability": 0.958984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Roderigo,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "O",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "raw": "wretched",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "raw": "villain!",
+          "start": 1.64,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "Roderigo.",
+        "O",
+        "wretched",
+        "villain!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Roderigo,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "roderigo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.3,
+          "end": 1.38,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wretched",
+          "start": 1.38,
+          "end": 1.64,
+          "key": "wretched",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "villain!",
+          "start": 1.64,
+          "end": 1.98,
+          "key": "villain",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Roderigo.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "O",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "text": "wretched",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "text": "villain!",
+          "start": 1.64,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1335150832310319
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8fd85cb282ba81d663d974b56dfde693292497611ffa4784fd72a8416af23f36",
+  "selected_reasons": []
+}

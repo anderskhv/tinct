@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "e1d2dafa75edb4fe6076d2a432f2103588404fc1c148445aea449e003d6c9e71",
+  "attempts": [
+    {
+      "asr_seconds": 0.3449700642377138,
+      "alignment_seconds": 0.0005244528874754906,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Is it possible?\" said Mitya, turning quickly to Maximov with an expression of the utmost astonishment.",
+        "hotwords": "Is, Mitya, Maximov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Is it possible? said Mitya, turning quickly to Maximov with an expression of the utmost astonishment.",
+          "start": 0.02,
+          "end": 6.6,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.037322998046875
+            },
+            {
+              "text": " it",
+              "start": 0.56,
+              "end": 0.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " possible?",
+              "start": 0.7,
+              "end": 1.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " said",
+              "start": 1.8,
+              "end": 1.92,
+              "probability": 0.69873046875
+            },
+            {
+              "text": " Mitya,",
+              "start": 1.92,
+              "end": 2.5,
+              "probability": 0.4344889322916667
+            },
+            {
+              "text": " turning",
+              "start": 2.7,
+              "end": 3.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " quickly",
+              "start": 3.02,
+              "end": 3.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 3.4,
+              "end": 3.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Maximov",
+              "start": 3.66,
+              "end": 4.26,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " with",
+              "start": 4.26,
+              "end": 4.48,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " an",
+              "start": 4.48,
+              "end": 4.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " expression",
+              "start": 4.6,
+              "end": 5.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 5.02,
+              "end": 5.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.28,
+              "end": 5.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " utmost",
+              "start": 5.4,
+              "end": 5.78,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " astonishment.",
+              "start": 5.78,
+              "end": 6.6,
+              "probability": 0.997802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "it",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "raw": "possible?",
+          "start": 0.7,
+          "end": 1.2
+        },
+        {
+          "raw": "said",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "raw": "Mitya,",
+          "start": 1.92,
+          "end": 2.5
+        },
+        {
+          "raw": "turning",
+          "start": 2.7,
+          "end": 3.02
+        },
+        {
+          "raw": "quickly",
+          "start": 3.02,
+          "end": 3.4
+        },
+        {
+          "raw": "to",
+          "start": 3.4,
+          "end": 3.66
+        },
+        {
+          "raw": "Maximov",
+          "start": 3.66,
+          "end": 4.26
+        },
+        {
+          "raw": "with",
+          "start": 4.26,
+          "end": 4.48
+        },
+        {
+          "raw": "an",
+          "start": 4.48,
+          "end": 4.6
+        },
+        {
+          "raw": "expression",
+          "start": 4.6,
+          "end": 5.02
+        },
+        {
+          "raw": "of",
+          "start": 5.02,
+          "end": 5.28
+        },
+        {
+          "raw": "the",
+          "start": 5.28,
+          "end": 5.4
+        },
+        {
+          "raw": "utmost",
+          "start": 5.4,
+          "end": 5.78
+        },
+        {
+          "raw": "astonishment.",
+          "start": 5.78,
+          "end": 6.6
+        }
+      ],
+      "expected_tokens": [
+        "\"Is",
+        "it",
+        "possible?\"",
+        "said",
+        "Mitya,",
+        "turning",
+        "quickly",
+        "to",
+        "Maximov",
+        "with",
+        "an",
+        "expression",
+        "of",
+        "the",
+        "utmost",
+        "astonishment."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Is",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "is",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.56,
+          "end": 0.7,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "possible?",
+          "start": 0.7,
+          "end": 1.2,
+          "key": "possible",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.8,
+          "end": 1.92,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mitya,",
+          "start": 1.92,
+          "end": 2.5,
+          "key": "mitya",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "turning",
+          "start": 2.7,
+          "end": 3.02,
+          "key": "turning",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "quickly",
+          "start": 3.02,
+          "end": 3.4,
+          "key": "quickly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.4,
+          "end": 3.66,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Maximov",
+          "start": 3.66,
+          "end": 4.26,
+          "key": "maximov",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.26,
+          "end": 4.48,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 4.48,
+          "end": 4.6,
+          "key": "an",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "expression",
+          "start": 4.6,
+          "end": 5.02,
+          "key": "expression",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.02,
+          "end": 5.28,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.28,
+          "end": 5.4,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "utmost",
+          "start": 5.4,
+          "end": 5.78,
+          "key": "utmost",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "astonishment.",
+          "start": 5.78,
+          "end": 6.6,
+          "key": "astonishment",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Is",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "it",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "text": "possible?\"",
+          "start": 0.7,
+          "end": 1.2
+        },
+        {
+          "text": "said",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "text": "Mitya,",
+          "start": 1.92,
+          "end": 2.5
+        },
+        {
+          "text": "turning",
+          "start": 2.7,
+          "end": 3.02
+        },
+        {
+          "text": "quickly",
+          "start": 3.02,
+          "end": 3.4
+        },
+        {
+          "text": "to",
+          "start": 3.4,
+          "end": 3.66
+        },
+        {
+          "text": "Maximov",
+          "start": 3.66,
+          "end": 4.26
+        },
+        {
+          "text": "with",
+          "start": 4.26,
+          "end": 4.48
+        },
+        {
+          "text": "an",
+          "start": 4.48,
+          "end": 4.6
+        },
+        {
+          "text": "expression",
+          "start": 4.6,
+          "end": 5.02
+        },
+        {
+          "text": "of",
+          "start": 5.02,
+          "end": 5.28
+        },
+        {
+          "text": "the",
+          "start": 5.28,
+          "end": 5.4
+        },
+        {
+          "text": "utmost",
+          "start": 5.4,
+          "end": 5.78
+        },
+        {
+          "text": "astonishment.",
+          "start": 5.78,
+          "end": 6.6
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3457016460597515
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9801bb02f220a0a670b20038dc364206291763cb26925ef30519c34d4c790b92",
+  "selected_reasons": []
+}

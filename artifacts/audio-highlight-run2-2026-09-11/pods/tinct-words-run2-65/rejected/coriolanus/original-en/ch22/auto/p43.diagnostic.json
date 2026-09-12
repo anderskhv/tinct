@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "d488ffc558723f304491be1ee7a66fcd1802fb2bd36b678b2fb2f34bedf5b942",
+  "attempts": [
+    {
+      "asr_seconds": 0.12800750089809299,
+      "alignment_seconds": 0.00017758505418896675,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sicinius. The very trick on 't.",
+        "hotwords": "Sicinius, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sicinius, The very trick on t.",
+          "start": 0.08,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " Sicinius,",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.5072682698567709
+            },
+            {
+              "text": " The",
+              "start": 1.38,
+              "end": 1.44,
+              "probability": 0.1094970703125
+            },
+            {
+              "text": " very",
+              "start": 1.44,
+              "end": 1.66,
+              "probability": 0.2347412109375
+            },
+            {
+              "text": " trick",
+              "start": 1.66,
+              "end": 1.88,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " on",
+              "start": 1.88,
+              "end": 2.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " t.",
+              "start": 2.08,
+              "end": 2.38,
+              "probability": 0.00858306884765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "The",
+          "start": 1.38,
+          "end": 1.44
+        },
+        {
+          "raw": "very",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "raw": "trick",
+          "start": 1.66,
+          "end": 1.88
+        },
+        {
+          "raw": "on",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "raw": "t.",
+          "start": 2.08,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "The",
+        "very",
+        "trick",
+        "on",
+        "'t."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "sicinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.38,
+          "end": 1.44,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.44,
+          "end": 1.66,
+          "key": "very",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "trick",
+          "start": 1.66,
+          "end": 1.88,
+          "key": "trick",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.88,
+          "end": 2.08,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "t.",
+          "start": 2.08,
+          "end": 2.38,
+          "key": "t",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "text": "The",
+          "start": 1.38,
+          "end": 1.44
+        },
+        {
+          "text": "very",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "text": "trick",
+          "start": 1.66,
+          "end": 1.88
+        },
+        {
+          "text": "on",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "text": "'t.",
+          "start": 2.08,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12824946781620383
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3989c83faf5f9e2da8cbb0e881a36d001d0e57d7a1a7f195bd024214176fd837",
+  "selected_reasons": []
+}

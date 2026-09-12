@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "a795fc9c193ac6896e60e4dfb33bbb9829beec4c7e7abad5664dc0040d3630af",
+  "attempts": [
+    {
+      "asr_seconds": 0.09822000097483397,
+      "alignment_seconds": 0.0001749340444803238,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " How discreditable.",
+          "start": 0.05,
+          "end": 1.17,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " discreditable.",
+              "start": 0.55,
+              "end": 1.17,
+              "probability": 0.7298177083333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "discreditable.",
+          "start": 0.55,
+          "end": 1.17
+        }
+      ],
+      "expected_tokens": [
+        "How",
+        "discreditable!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "discreditable.",
+          "start": 0.55,
+          "end": 1.17,
+          "key": "discreditable",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "How",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "discreditable!",
+          "start": 0.55,
+          "end": 1.17
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0984516916796565
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e46fdfd82d3bb43fadbd9bf4bb8f555cede190cef7b4408edb1b83b5f034e49d",
+  "selected_reasons": []
+}

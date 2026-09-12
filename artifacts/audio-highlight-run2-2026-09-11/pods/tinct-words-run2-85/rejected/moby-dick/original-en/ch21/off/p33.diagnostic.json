@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "1b5c94092cac4b00fb00a2605b36205f051a8ea4ef543efcf11a65cdb6871e27",
+  "attempts": [
+    {
+      "asr_seconds": 0.12049571890383959,
+      "alignment_seconds": 0.00029705697670578957,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What captain ahab",
+          "start": 0.02,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " captain",
+              "start": 0.52,
+              "end": 0.96,
+              "probability": 0.68115234375
+            },
+            {
+              "text": " ahab",
+              "start": 0.96,
+              "end": 1.62,
+              "probability": 0.487060546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "captain",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "raw": "ahab",
+          "start": 0.96,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "Captain?—Ahab?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "captain",
+          "start": 0.52,
+          "end": 0.96,
+          "key": "captain",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ahab",
+          "start": 0.96,
+          "end": 1.62,
+          "key": "ahab",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "Captain?—Ahab?\"",
+          "start": 0.52,
+          "end": 1.07
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12090076180174947
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a84ca906857bb8f4ae6967fa8c308f4aaed511094e02f2c981dff1ce43d01215",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "b4f9e97fb1655cf136d534196695b7d8cd05cd7bc79f21eadee802dfbd6185c8",
+  "attempts": [
+    {
+      "asr_seconds": 0.29824792221188545,
+      "alignment_seconds": 0.0006504394114017487,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Maria. Peace, you rogue, no more o' that. Here comes my lady: make your excuse wisely, you were best.",
+        "hotwords": "Maria, Peace, Here"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Maria, Peace, you rogue, no more o' that. Here comes my lady. Make your excuse wisely, you were best.",
+          "start": 0.02,
+          "end": 6.22,
+          "words": [
+            {
+              "text": " Maria,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.0797119140625
+            },
+            {
+              "text": " Peace,",
+              "start": 1.1,
+              "end": 1.22,
+              "probability": 0.11944580078125
+            },
+            {
+              "text": " you",
+              "start": 1.54,
+              "end": 1.58,
+              "probability": 0.85546875
+            },
+            {
+              "text": " rogue,",
+              "start": 1.58,
+              "end": 1.8,
+              "probability": 0.62841796875
+            },
+            {
+              "text": " no",
+              "start": 1.98,
+              "end": 2.06,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " more",
+              "start": 2.06,
+              "end": 2.26,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " o'",
+              "start": 2.26,
+              "end": 2.42,
+              "probability": 0.166015625
+            },
+            {
+              "text": " that.",
+              "start": 2.48,
+              "end": 2.66,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " Here",
+              "start": 3.36,
+              "end": 3.48,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " comes",
+              "start": 3.48,
+              "end": 3.68,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " my",
+              "start": 3.68,
+              "end": 3.9,
+              "probability": 0.951171875
+            },
+            {
+              "text": " lady.",
+              "start": 3.9,
+              "end": 4.14,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " Make",
+              "start": 4.54,
+              "end": 4.62,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " your",
+              "start": 4.62,
+              "end": 4.74,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " excuse",
+              "start": 4.74,
+              "end": 5.12,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " wisely,",
+              "start": 5.12,
+              "end": 5.6,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " you",
+              "start": 5.86,
+              "end": 5.86,
+              "probability": 0.958984375
+            },
+            {
+              "text": " were",
+              "start": 5.86,
+              "end": 5.96,
+              "probability": 0.3935546875
+            },
+            {
+              "text": " best.",
+              "start": 5.96,
+              "end": 6.22,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Maria,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "Peace,",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "raw": "you",
+          "start": 1.54,
+          "end": 1.58
+        },
+        {
+          "raw": "rogue,",
+          "start": 1.58,
+          "end": 1.8
+        },
+        {
+          "raw": "no",
+          "start": 1.98,
+          "end": 2.06
+        },
+        {
+          "raw": "more",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "raw": "o'",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "raw": "that.",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "raw": "Here",
+          "start": 3.36,
+          "end": 3.48
+        },
+        {
+          "raw": "comes",
+          "start": 3.48,
+          "end": 3.68
+        },
+        {
+          "raw": "my",
+          "start": 3.68,
+          "end": 3.9
+        },
+        {
+          "raw": "lady.",
+          "start": 3.9,
+          "end": 4.14
+        },
+        {
+          "raw": "Make",
+          "start": 4.54,
+          "end": 4.62
+        },
+        {
+          "raw": "your",
+          "start": 4.62,
+          "end": 4.74
+        },
+        {
+          "raw": "excuse",
+          "start": 4.74,
+          "end": 5.12
+        },
+        {
+          "raw": "wisely,",
+          "start": 5.12,
+          "end": 5.6
+        },
+        {
+          "raw": "you",
+          "start": 5.86,
+          "end": 5.86
+        },
+        {
+          "raw": "were",
+          "start": 5.86,
+          "end": 5.96
+        },
+        {
+          "raw": "best.",
+          "start": 5.96,
+          "end": 6.22
+        }
+      ],
+      "expected_tokens": [
+        "Maria.",
+        "Peace,",
+        "you",
+        "rogue,",
+        "no",
+        "more",
+        "o'",
+        "that.",
+        "Here",
+        "comes",
+        "my",
+        "lady:",
+        "make",
+        "your",
+        "excuse",
+        "wisely,",
+        "you",
+        "were",
+        "best."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Maria,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "maria",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Peace,",
+          "start": 1.1,
+          "end": 1.22,
+          "key": "peace",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.54,
+          "end": 1.58,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rogue,",
+          "start": 1.58,
+          "end": 1.8,
+          "key": "rogue",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.98,
+          "end": 2.06,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.06,
+          "end": 2.26,
+          "key": "more",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "o'",
+          "start": 2.26,
+          "end": 2.42,
+          "key": "o",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 2.48,
+          "end": 2.66,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 3.36,
+          "end": 3.48,
+          "key": "here",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 3.48,
+          "end": 3.68,
+          "key": "comes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.68,
+          "end": 3.9,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lady.",
+          "start": 3.9,
+          "end": 4.14,
+          "key": "lady",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Make",
+          "start": 4.54,
+          "end": 4.62,
+          "key": "make",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.62,
+          "end": 4.74,
+          "key": "your",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "excuse",
+          "start": 4.74,
+          "end": 5.12,
+          "key": "excuse",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "wisely,",
+          "start": 5.12,
+          "end": 5.6,
+          "key": "wisely",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.86,
+          "end": 5.86,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 5.86,
+          "end": 5.96,
+          "key": "were",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "best.",
+          "start": 5.96,
+          "end": 6.22,
+          "key": "best",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Maria.",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "Peace,",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "text": "you",
+          "start": 1.54,
+          "end": 1.58
+        },
+        {
+          "text": "rogue,",
+          "start": 1.58,
+          "end": 1.8
+        },
+        {
+          "text": "no",
+          "start": 1.98,
+          "end": 2.06
+        },
+        {
+          "text": "more",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "text": "o'",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "text": "that.",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "text": "Here",
+          "start": 3.36,
+          "end": 3.48
+        },
+        {
+          "text": "comes",
+          "start": 3.48,
+          "end": 3.68
+        },
+        {
+          "text": "my",
+          "start": 3.68,
+          "end": 3.9
+        },
+        {
+          "text": "lady:",
+          "start": 3.9,
+          "end": 4.14
+        },
+        {
+          "text": "make",
+          "start": 4.54,
+          "end": 4.62
+        },
+        {
+          "text": "your",
+          "start": 4.62,
+          "end": 4.74
+        },
+        {
+          "text": "excuse",
+          "start": 4.74,
+          "end": 5.12
+        },
+        {
+          "text": "wisely,",
+          "start": 5.12,
+          "end": 5.6
+        },
+        {
+          "text": "you",
+          "start": 5.86,
+          "end": 5.86
+        },
+        {
+          "text": "were",
+          "start": 5.86,
+          "end": 5.96
+        },
+        {
+          "text": "best.",
+          "start": 5.96,
+          "end": 6.22
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29923686012625694
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ebbcc7cbc8e680161ed3608f00b05cb25ef182e3bc95f700259939722dc1d674",
+  "selected_reasons": []
+}

@@ -1,0 +1,761 @@
+{
+  "complete": true,
+  "signature": "4eb1ef6d79f2ef80046514525628274aab7aad159680aa88f1f9e5ae09df518d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2255356810055673,
+      "alignment_seconds": 0.00033751101000234485,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The carriage climbed more slowly the hill of Rutland Square.",
+          "start": 0.02,
+          "end": 3.18,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.8671875
+            },
+            {
+              "text": " carriage",
+              "start": 0.48,
+              "end": 0.78,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " climbed",
+              "start": 0.78,
+              "end": 1.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " more",
+              "start": 1.12,
+              "end": 1.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " slowly",
+              "start": 1.4,
+              "end": 1.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.86,
+              "end": 2.08,
+              "probability": 0.982421875
+            },
+            {
+              "text": " hill",
+              "start": 2.08,
+              "end": 2.24,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " of",
+              "start": 2.24,
+              "end": 2.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Rutland",
+              "start": 2.44,
+              "end": 2.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Square.",
+              "start": 2.76,
+              "end": 3.18,
+              "probability": 0.984375
+            }
+          ]
+        },
+        {
+          "text": " Rattle his bones, over the stones, only a popper nobody owns.",
+          "start": 3.96,
+          "end": 8.12,
+          "words": [
+            {
+              "text": " Rattle",
+              "start": 3.96,
+              "end": 4.12,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " his",
+              "start": 4.12,
+              "end": 4.3,
+              "probability": 0.994140625
+            },
+            {
+              "text": " bones,",
+              "start": 4.3,
+              "end": 4.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " over",
+              "start": 5.2,
+              "end": 5.34,
+              "probability": 0.962890625
+            },
+            {
+              "text": " the",
+              "start": 5.34,
+              "end": 5.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " stones,",
+              "start": 5.5,
+              "end": 5.88,
+              "probability": 0.99609375
+            },
+            {
+              "text": " only",
+              "start": 6.5,
+              "end": 6.7,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " a",
+              "start": 6.7,
+              "end": 6.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " popper",
+              "start": 6.86,
+              "end": 7.28,
+              "probability": 0.770751953125
+            },
+            {
+              "text": " nobody",
+              "start": 7.28,
+              "end": 7.64,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " owns.",
+              "start": 7.64,
+              "end": 8.12,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "carriage",
+          "start": 0.48,
+          "end": 0.78
+        },
+        {
+          "raw": "climbed",
+          "start": 0.78,
+          "end": 1.12
+        },
+        {
+          "raw": "more",
+          "start": 1.12,
+          "end": 1.4
+        },
+        {
+          "raw": "slowly",
+          "start": 1.4,
+          "end": 1.86
+        },
+        {
+          "raw": "the",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "raw": "hill",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "raw": "of",
+          "start": 2.24,
+          "end": 2.44
+        },
+        {
+          "raw": "Rutland",
+          "start": 2.44,
+          "end": 2.76
+        },
+        {
+          "raw": "Square.",
+          "start": 2.76,
+          "end": 3.18
+        },
+        {
+          "raw": "Rattle",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "raw": "his",
+          "start": 4.12,
+          "end": 4.3
+        },
+        {
+          "raw": "bones,",
+          "start": 4.3,
+          "end": 4.7
+        },
+        {
+          "raw": "over",
+          "start": 5.2,
+          "end": 5.34
+        },
+        {
+          "raw": "the",
+          "start": 5.34,
+          "end": 5.5
+        },
+        {
+          "raw": "stones,",
+          "start": 5.5,
+          "end": 5.88
+        },
+        {
+          "raw": "only",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "raw": "a",
+          "start": 6.7,
+          "end": 6.86
+        },
+        {
+          "raw": "popper",
+          "start": 6.86,
+          "end": 7.28
+        },
+        {
+          "raw": "nobody",
+          "start": 7.28,
+          "end": 7.64
+        },
+        {
+          "raw": "owns.",
+          "start": 7.64,
+          "end": 8.12
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "carriage",
+        "climbed",
+        "more",
+        "slowly",
+        "the",
+        "hill",
+        "of",
+        "Rutland",
+        "square.",
+        "Rattle",
+        "his",
+        "bones.",
+        "Over",
+        "the",
+        "stones.",
+        "Only",
+        "a",
+        "pauper.",
+        "Nobody",
+        "owns."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "equal",
+          19,
+          21,
+          19,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "carriage",
+          "start": 0.48,
+          "end": 0.78,
+          "key": "carriage",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "climbed",
+          "start": 0.78,
+          "end": 1.12,
+          "key": "climbed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.12,
+          "end": 1.4,
+          "key": "more",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "slowly",
+          "start": 1.4,
+          "end": 1.86,
+          "key": "slowly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.86,
+          "end": 2.08,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hill",
+          "start": 2.08,
+          "end": 2.24,
+          "key": "hill",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.24,
+          "end": 2.44,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Rutland",
+          "start": 2.44,
+          "end": 2.76,
+          "key": "rutland",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Square.",
+          "start": 2.76,
+          "end": 3.18,
+          "key": "square",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Rattle",
+          "start": 3.96,
+          "end": 4.12,
+          "key": "rattle",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.12,
+          "end": 4.3,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "bones,",
+          "start": 4.3,
+          "end": 4.7,
+          "key": "bones",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 5.2,
+          "end": 5.34,
+          "key": "over",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.34,
+          "end": 5.5,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "stones,",
+          "start": 5.5,
+          "end": 5.88,
+          "key": "stones",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 6.5,
+          "end": 6.7,
+          "key": "only",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.7,
+          "end": 6.86,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "popper",
+          "start": 6.86,
+          "end": 7.28,
+          "key": "popper",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "nobody",
+          "start": 7.28,
+          "end": 7.64,
+          "key": "nobody",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "owns.",
+          "start": 7.64,
+          "end": 8.12,
+          "key": "owns",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "carriage",
+          "start": 0.48,
+          "end": 0.78
+        },
+        {
+          "text": "climbed",
+          "start": 0.78,
+          "end": 1.12
+        },
+        {
+          "text": "more",
+          "start": 1.12,
+          "end": 1.4
+        },
+        {
+          "text": "slowly",
+          "start": 1.4,
+          "end": 1.86
+        },
+        {
+          "text": "the",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "text": "hill",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "text": "of",
+          "start": 2.24,
+          "end": 2.44
+        },
+        {
+          "text": "Rutland",
+          "start": 2.44,
+          "end": 2.76
+        },
+        {
+          "text": "square.",
+          "start": 2.76,
+          "end": 3.18
+        },
+        {
+          "text": "Rattle",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "text": "his",
+          "start": 4.12,
+          "end": 4.3
+        },
+        {
+          "text": "bones.",
+          "start": 4.3,
+          "end": 4.7
+        },
+        {
+          "text": "Over",
+          "start": 5.2,
+          "end": 5.34
+        },
+        {
+          "text": "the",
+          "start": 5.34,
+          "end": 5.5
+        },
+        {
+          "text": "stones.",
+          "start": 5.5,
+          "end": 5.88
+        },
+        {
+          "text": "Only",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "text": "a",
+          "start": 6.7,
+          "end": 6.86
+        },
+        {
+          "text": "pauper.",
+          "start": 6.86,
+          "end": 7.07
+        },
+        {
+          "text": "Nobody",
+          "start": 7.28,
+          "end": 7.64
+        },
+        {
+          "text": "owns.",
+          "start": 7.64,
+          "end": 8.12
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.22598925296915695
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "156ee3e813a7d91ca0ca51074dd9289bf649c1530abfed1ab664b65b0c5bf280",
+  "selected_reasons": []
+}

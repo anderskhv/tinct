@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "b6224e36b75f123214eb0f8867f372395cc6154b521f91d710ee4ca937491453",
+  "attempts": [
+    {
+      "asr_seconds": 0.8520991951227188,
+      "alignment_seconds": 0.00048109516501426697,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fabian. Very brief, and to exceeding good sense—less.",
+        "hotwords": "Fabian, Very"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fabian, Very brief, and to exceeding good sense—less.",
+          "start": 0.08,
+          "end": 3.46,
+          "words": [
+            {
+              "text": " Fabian,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Very",
+              "start": 1.22,
+              "end": 1.5,
+              "probability": 0.031494140625
+            },
+            {
+              "text": " brief,",
+              "start": 1.5,
+              "end": 1.82,
+              "probability": 0.8203125
+            },
+            {
+              "text": " and",
+              "start": 2.0,
+              "end": 2.04,
+              "probability": 0.80078125
+            },
+            {
+              "text": " to",
+              "start": 2.04,
+              "end": 2.14,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " exceeding",
+              "start": 2.14,
+              "end": 2.4,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " good",
+              "start": 2.4,
+              "end": 2.66,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " sense—less.",
+              "start": 2.66,
+              "end": 3.46,
+              "probability": 0.5495732625325521
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fabian,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "Very",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "raw": "brief,",
+          "start": 1.5,
+          "end": 1.82
+        },
+        {
+          "raw": "and",
+          "start": 2.0,
+          "end": 2.04
+        },
+        {
+          "raw": "to",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "raw": "exceeding",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "raw": "good",
+          "start": 2.4,
+          "end": 2.66
+        },
+        {
+          "raw": "sense—less.",
+          "start": 2.66,
+          "end": 3.46
+        }
+      ],
+      "expected_tokens": [
+        "Fabian.",
+        "Very",
+        "brief,",
+        "and",
+        "to",
+        "exceeding",
+        "good",
+        "sense—less."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fabian,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "fabian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Very",
+          "start": 1.22,
+          "end": 1.5,
+          "key": "very",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "brief,",
+          "start": 1.5,
+          "end": 1.82,
+          "key": "brief",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.0,
+          "end": 2.04,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.04,
+          "end": 2.14,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "exceeding",
+          "start": 2.14,
+          "end": 2.4,
+          "key": "exceeding",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.4,
+          "end": 2.66,
+          "key": "good",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sense—less.",
+          "start": 2.66,
+          "end": 3.46,
+          "key": "senseless",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fabian.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "Very",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "text": "brief,",
+          "start": 1.5,
+          "end": 1.82
+        },
+        {
+          "text": "and",
+          "start": 2.0,
+          "end": 2.04
+        },
+        {
+          "text": "to",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "text": "exceeding",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "text": "good",
+          "start": 2.4,
+          "end": 2.66
+        },
+        {
+          "text": "sense—less.",
+          "start": 2.66,
+          "end": 3.46
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8527511321008205
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ade323c1f42f023d7396a9f0e98cc9d82bbe3d4fefabaa5b0a60d0be2644ea1f",
+  "selected_reasons": []
+}

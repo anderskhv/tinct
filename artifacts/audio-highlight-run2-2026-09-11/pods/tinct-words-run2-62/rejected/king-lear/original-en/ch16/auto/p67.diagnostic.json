@@ -1,0 +1,897 @@
+{
+  "complete": true,
+  "signature": "99b7ad0b92429d6ea324db787285771ca9d14626e313f00af049e3087a4fdf7e",
+  "attempts": [
+    {
+      "asr_seconds": 0.17521148920059204,
+      "alignment_seconds": 0.0002530142664909363,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Cornwall, led by Regan; Servants unbind Gloucester and lead him out._]",
+        "hotwords": "Cornwall, Regan, Servants, Gloucester"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Cornwall, led by Regan, Servants unbind Gloucester and lead him out._",
+          "start": 0.05,
+          "end": 5.67,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " Cornwall,",
+              "start": 0.65,
+              "end": 1.11,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " led",
+              "start": 1.63,
+              "end": 1.73,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " by",
+              "start": 1.73,
+              "end": 1.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Regan,",
+              "start": 1.93,
+              "end": 2.29,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " Servants",
+              "start": 2.95,
+              "end": 3.23,
+              "probability": 0.5018310546875
+            },
+            {
+              "text": " unbind",
+              "start": 3.23,
+              "end": 3.77,
+              "probability": 0.792724609375
+            },
+            {
+              "text": " Gloucester",
+              "start": 3.77,
+              "end": 4.29,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " and",
+              "start": 4.29,
+              "end": 4.47,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " lead",
+              "start": 4.47,
+              "end": 4.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him",
+              "start": 4.63,
+              "end": 4.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out._",
+              "start": 4.77,
+              "end": 5.67,
+              "probability": 0.499267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Cornwall,",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "raw": "led",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "raw": "by",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "raw": "Regan,",
+          "start": 1.93,
+          "end": 2.29
+        },
+        {
+          "raw": "Servants",
+          "start": 2.95,
+          "end": 3.23
+        },
+        {
+          "raw": "unbind",
+          "start": 3.23,
+          "end": 3.77
+        },
+        {
+          "raw": "Gloucester",
+          "start": 3.77,
+          "end": 4.29
+        },
+        {
+          "raw": "and",
+          "start": 4.29,
+          "end": 4.47
+        },
+        {
+          "raw": "lead",
+          "start": 4.47,
+          "end": 4.63
+        },
+        {
+          "raw": "him",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "raw": "out._",
+          "start": 4.77,
+          "end": 5.67
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Cornwall,",
+        "led",
+        "by",
+        "Regan;",
+        "Servants",
+        "unbind",
+        "Gloucester",
+        "and",
+        "lead",
+        "him",
+        "out._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cornwall,",
+          "start": 0.65,
+          "end": 1.11,
+          "key": "cornwall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "led",
+          "start": 1.63,
+          "end": 1.73,
+          "key": "led",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.73,
+          "end": 1.93,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Regan,",
+          "start": 1.93,
+          "end": 2.29,
+          "key": "regan",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Servants",
+          "start": 2.95,
+          "end": 3.23,
+          "key": "servants",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "unbind",
+          "start": 3.23,
+          "end": 3.77,
+          "key": "unbind",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Gloucester",
+          "start": 3.77,
+          "end": 4.29,
+          "key": "gloucester",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.29,
+          "end": 4.47,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lead",
+          "start": 4.47,
+          "end": 4.63,
+          "key": "lead",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.63,
+          "end": 4.77,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "out._",
+          "start": 4.77,
+          "end": 5.67,
+          "key": "out_",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Cornwall,",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "text": "led",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "text": "by",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "text": "Regan;",
+          "start": 1.93,
+          "end": 2.29
+        },
+        {
+          "text": "Servants",
+          "start": 2.95,
+          "end": 3.23
+        },
+        {
+          "text": "unbind",
+          "start": 3.23,
+          "end": 3.77
+        },
+        {
+          "text": "Gloucester",
+          "start": 3.77,
+          "end": 4.29
+        },
+        {
+          "text": "and",
+          "start": 4.29,
+          "end": 4.47
+        },
+        {
+          "text": "lead",
+          "start": 4.47,
+          "end": 4.63
+        },
+        {
+          "text": "him",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "text": "out._]",
+          "start": 4.77,
+          "end": 5.22
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.17556139081716537
+    },
+    {
+      "asr_seconds": 0.11456383019685745,
+      "alignment_seconds": 0.00016210973262786865,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Cornwall, Regan, Servants, Gloucester"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Cornwall, led by Regan, Servants unbind Gloucester and lead him out.",
+          "start": 0.05,
+          "end": 5.03,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " Cornwall,",
+              "start": 0.65,
+              "end": 1.11,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " led",
+              "start": 1.63,
+              "end": 1.73,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " by",
+              "start": 1.73,
+              "end": 1.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Regan,",
+              "start": 1.93,
+              "end": 2.29,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " Servants",
+              "start": 2.95,
+              "end": 3.23,
+              "probability": 0.5018310546875
+            },
+            {
+              "text": " unbind",
+              "start": 3.23,
+              "end": 3.77,
+              "probability": 0.792724609375
+            },
+            {
+              "text": " Gloucester",
+              "start": 3.77,
+              "end": 4.29,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " and",
+              "start": 4.29,
+              "end": 4.47,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " lead",
+              "start": 4.47,
+              "end": 4.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him",
+              "start": 4.63,
+              "end": 4.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out.",
+              "start": 4.77,
+              "end": 5.03,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Cornwall,",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "raw": "led",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "raw": "by",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "raw": "Regan,",
+          "start": 1.93,
+          "end": 2.29
+        },
+        {
+          "raw": "Servants",
+          "start": 2.95,
+          "end": 3.23
+        },
+        {
+          "raw": "unbind",
+          "start": 3.23,
+          "end": 3.77
+        },
+        {
+          "raw": "Gloucester",
+          "start": 3.77,
+          "end": 4.29
+        },
+        {
+          "raw": "and",
+          "start": 4.29,
+          "end": 4.47
+        },
+        {
+          "raw": "lead",
+          "start": 4.47,
+          "end": 4.63
+        },
+        {
+          "raw": "him",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "raw": "out.",
+          "start": 4.77,
+          "end": 5.03
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Cornwall,",
+        "led",
+        "by",
+        "Regan;",
+        "Servants",
+        "unbind",
+        "Gloucester",
+        "and",
+        "lead",
+        "him",
+        "out._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cornwall,",
+          "start": 0.65,
+          "end": 1.11,
+          "key": "cornwall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "led",
+          "start": 1.63,
+          "end": 1.73,
+          "key": "led",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.73,
+          "end": 1.93,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Regan,",
+          "start": 1.93,
+          "end": 2.29,
+          "key": "regan",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Servants",
+          "start": 2.95,
+          "end": 3.23,
+          "key": "servants",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "unbind",
+          "start": 3.23,
+          "end": 3.77,
+          "key": "unbind",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Gloucester",
+          "start": 3.77,
+          "end": 4.29,
+          "key": "gloucester",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.29,
+          "end": 4.47,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lead",
+          "start": 4.47,
+          "end": 4.63,
+          "key": "lead",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.63,
+          "end": 4.77,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 4.77,
+          "end": 5.03,
+          "key": "out",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Cornwall,",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "text": "led",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "text": "by",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "text": "Regan;",
+          "start": 1.93,
+          "end": 2.29
+        },
+        {
+          "text": "Servants",
+          "start": 2.95,
+          "end": 3.23
+        },
+        {
+          "text": "unbind",
+          "start": 3.23,
+          "end": 3.77
+        },
+        {
+          "text": "Gloucester",
+          "start": 3.77,
+          "end": 4.29
+        },
+        {
+          "text": "and",
+          "start": 4.29,
+          "end": 4.47
+        },
+        {
+          "text": "lead",
+          "start": 4.47,
+          "end": 4.63
+        },
+        {
+          "text": "him",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "text": "out._]",
+          "start": 4.77,
+          "end": 5.03
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11478954181075096
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "251ca4b4fb60f5244ef40ed045196004e6f63561baa93bb2c8748a8a8db90f62",
+  "selected_reasons": []
+}

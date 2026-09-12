@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "86c67857d30f75034e72ddfb6757576c2954e7b7e63f3a60f07b34460e2a1d7e",
+  "attempts": [
+    {
+      "asr_seconds": 0.17864953901153058,
+      "alignment_seconds": 0.00027203100034967065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Ohio! the editor crowed in high treble from his uplifted scarlet face. My Ohio!",
+        "hotwords": "Ohio, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ohio, the editor crowed in high treble from his uplifted scarlet face. My Ohio!",
+          "start": 0.02,
+          "end": 5.56,
+          "words": [
+            {
+              "text": " Ohio,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.28173828125
+            },
+            {
+              "text": " the",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " editor",
+              "start": 1.34,
+              "end": 1.66,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " crowed",
+              "start": 1.66,
+              "end": 2.02,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " in",
+              "start": 2.02,
+              "end": 2.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " high",
+              "start": 2.1,
+              "end": 2.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " treble",
+              "start": 2.34,
+              "end": 2.74,
+              "probability": 0.974609375
+            },
+            {
+              "text": " from",
+              "start": 2.74,
+              "end": 2.9,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " his",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " uplifted",
+              "start": 3.04,
+              "end": 3.56,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " scarlet",
+              "start": 3.56,
+              "end": 4.04,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " face.",
+              "start": 4.04,
+              "end": 4.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " My",
+              "start": 4.98,
+              "end": 5.18,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " Ohio!",
+              "start": 5.18,
+              "end": 5.56,
+              "probability": 0.79638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ohio,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "the",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "editor",
+          "start": 1.34,
+          "end": 1.66
+        },
+        {
+          "raw": "crowed",
+          "start": 1.66,
+          "end": 2.02
+        },
+        {
+          "raw": "in",
+          "start": 2.02,
+          "end": 2.1
+        },
+        {
+          "raw": "high",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "raw": "treble",
+          "start": 2.34,
+          "end": 2.74
+        },
+        {
+          "raw": "from",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "raw": "his",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "uplifted",
+          "start": 3.04,
+          "end": 3.56
+        },
+        {
+          "raw": "scarlet",
+          "start": 3.56,
+          "end": 4.04
+        },
+        {
+          "raw": "face.",
+          "start": 4.04,
+          "end": 4.38
+        },
+        {
+          "raw": "My",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "raw": "Ohio!",
+          "start": 5.18,
+          "end": 5.56
+        }
+      ],
+      "expected_tokens": [
+        "—Ohio!",
+        "the",
+        "editor",
+        "crowed",
+        "in",
+        "high",
+        "treble",
+        "from",
+        "his",
+        "uplifted",
+        "scarlet",
+        "face.",
+        "My",
+        "Ohio!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ohio,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "ohio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.24,
+          "end": 1.34,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "editor",
+          "start": 1.34,
+          "end": 1.66,
+          "key": "editor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "crowed",
+          "start": 1.66,
+          "end": 2.02,
+          "key": "crowed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.02,
+          "end": 2.1,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "high",
+          "start": 2.1,
+          "end": 2.34,
+          "key": "high",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "treble",
+          "start": 2.34,
+          "end": 2.74,
+          "key": "treble",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.74,
+          "end": 2.9,
+          "key": "from",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.9,
+          "end": 3.04,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "uplifted",
+          "start": 3.04,
+          "end": 3.56,
+          "key": "uplifted",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "scarlet",
+          "start": 3.56,
+          "end": 4.04,
+          "key": "scarlet",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "face.",
+          "start": 4.04,
+          "end": 4.38,
+          "key": "face",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 4.98,
+          "end": 5.18,
+          "key": "my",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Ohio!",
+          "start": 5.18,
+          "end": 5.56,
+          "key": "ohio",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Ohio!",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "the",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "text": "editor",
+          "start": 1.34,
+          "end": 1.66
+        },
+        {
+          "text": "crowed",
+          "start": 1.66,
+          "end": 2.02
+        },
+        {
+          "text": "in",
+          "start": 2.02,
+          "end": 2.1
+        },
+        {
+          "text": "high",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "text": "treble",
+          "start": 2.34,
+          "end": 2.74
+        },
+        {
+          "text": "from",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "text": "his",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "uplifted",
+          "start": 3.04,
+          "end": 3.56
+        },
+        {
+          "text": "scarlet",
+          "start": 3.56,
+          "end": 4.04
+        },
+        {
+          "text": "face.",
+          "start": 4.04,
+          "end": 4.38
+        },
+        {
+          "text": "My",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "text": "Ohio!",
+          "start": 5.18,
+          "end": 5.56
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17902031197445467
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "08042c9c8bfee0bc76d78e0a318093a00885f89010c5f6d32ce78a744b5057d2",
+  "selected_reasons": []
+}

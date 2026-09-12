@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "6af8e6b48adccfdea9acb2cc0deb413f1e0c3c3694d63f4018dff31f45cd967d",
+  "attempts": [
+    {
+      "asr_seconds": 0.12256494350731373,
+      "alignment_seconds": 0.00024606380611658096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gower. I will speak lower.",
+        "hotwords": "Gower, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gower, I will speak lower.",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Gower,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.915771484375
+            },
+            {
+              "text": " I",
+              "start": 0.95,
+              "end": 1.13,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " will",
+              "start": 1.13,
+              "end": 1.23,
+              "probability": 0.994140625
+            },
+            {
+              "text": " speak",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lower.",
+              "start": 1.43,
+              "end": 1.77,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gower,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "I",
+          "start": 0.95,
+          "end": 1.13
+        },
+        {
+          "raw": "will",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "raw": "speak",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "lower.",
+          "start": 1.43,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "Gower.",
+        "I",
+        "will",
+        "speak",
+        "lower."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gower,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "gower",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.95,
+          "end": 1.13,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.13,
+          "end": 1.23,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "speak",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lower.",
+          "start": 1.43,
+          "end": 1.77,
+          "key": "lower",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gower.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "I",
+          "start": 0.95,
+          "end": 1.13
+        },
+        {
+          "text": "will",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "text": "speak",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "lower.",
+          "start": 1.43,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12290834728628397
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b3977c90183a3320cf73b67919dadf3dab79276bc24047d5a0c7c245092f3874",
+  "selected_reasons": []
+}

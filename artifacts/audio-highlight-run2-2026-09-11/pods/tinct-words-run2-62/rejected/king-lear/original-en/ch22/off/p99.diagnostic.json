@@ -1,0 +1,491 @@
+{
+  "complete": true,
+  "signature": "8d3a90ac0328d5332ed5d3ff5356bb617d069ac743df61f55653c216783a0f6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1152372770011425,
+      "alignment_seconds": 0.0001718662679195404,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Edgar, chill pick your teeth, seer. Come, no matter vore your foins.",
+          "start": 0.05,
+          "end": 4.33,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " chill",
+              "start": 1.03,
+              "end": 1.13,
+              "probability": 0.953125
+            },
+            {
+              "text": " pick",
+              "start": 1.13,
+              "end": 1.31,
+              "probability": 0.5380859375
+            },
+            {
+              "text": " your",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " teeth,",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " seer.",
+              "start": 1.97,
+              "end": 2.15,
+              "probability": 0.677978515625
+            },
+            {
+              "text": " Come,",
+              "start": 2.57,
+              "end": 2.75,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " no",
+              "start": 3.17,
+              "end": 3.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " matter",
+              "start": 3.35,
+              "end": 3.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " vore",
+              "start": 3.59,
+              "end": 3.81,
+              "probability": 0.622802734375
+            },
+            {
+              "text": " your",
+              "start": 3.81,
+              "end": 3.95,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " foins.",
+              "start": 3.95,
+              "end": 4.33,
+              "probability": 0.96484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "chill",
+          "start": 1.03,
+          "end": 1.13
+        },
+        {
+          "raw": "pick",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "raw": "your",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "teeth,",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "seer.",
+          "start": 1.97,
+          "end": 2.15
+        },
+        {
+          "raw": "Come,",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "raw": "no",
+          "start": 3.17,
+          "end": 3.35
+        },
+        {
+          "raw": "matter",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "raw": "vore",
+          "start": 3.59,
+          "end": 3.81
+        },
+        {
+          "raw": "your",
+          "start": 3.81,
+          "end": 3.95
+        },
+        {
+          "raw": "foins.",
+          "start": 3.95,
+          "end": 4.33
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "Chill",
+        "pick",
+        "your",
+        "teeth,",
+        "zir.",
+        "Come!",
+        "No",
+        "matter",
+        "vor",
+        "your",
+        "foins."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          9,
+          6,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          12,
+          10,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "chill",
+          "start": 1.03,
+          "end": 1.13,
+          "key": "chill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pick",
+          "start": 1.13,
+          "end": 1.31,
+          "key": "pick",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "teeth,",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "teeth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "seer.",
+          "start": 1.97,
+          "end": 2.15,
+          "key": "seer",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 2.57,
+          "end": 2.75,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.17,
+          "end": 3.35,
+          "key": "no",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 3.35,
+          "end": 3.59,
+          "key": "matter",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "vore",
+          "start": 3.59,
+          "end": 3.81,
+          "key": "vore",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.81,
+          "end": 3.95,
+          "key": "your",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "foins.",
+          "start": 3.95,
+          "end": 4.33,
+          "key": "foins",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Chill",
+          "start": 1.03,
+          "end": 1.13
+        },
+        {
+          "text": "pick",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "text": "your",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "teeth,",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "zir.",
+          "start": 1.71,
+          "end": 2.14
+        },
+        {
+          "text": "Come!",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "text": "No",
+          "start": 3.17,
+          "end": 3.35
+        },
+        {
+          "text": "matter",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "text": "vor",
+          "start": 3.59,
+          "end": 3.7
+        },
+        {
+          "text": "your",
+          "start": 3.81,
+          "end": 3.95
+        },
+        {
+          "text": "foins.",
+          "start": 3.95,
+          "end": 4.33
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11546951159834862
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a866dd60c6c5f5509894bb9eba4fb4981ebad412e4b41ee5b70481557121225e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

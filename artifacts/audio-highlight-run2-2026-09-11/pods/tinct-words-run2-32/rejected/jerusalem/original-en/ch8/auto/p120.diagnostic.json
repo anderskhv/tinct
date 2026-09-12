@@ -1,0 +1,1022 @@
+{
+  "complete": true,
+  "signature": "d12a072370c6bd68e88effd6afe6f4e68d6b01bf9a3aa4561407b5badba4566e",
+  "attempts": [
+    {
+      "asr_seconds": 0.06267796270549297,
+      "alignment_seconds": 0.00011105835437774658,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You seem to be at odds with every one.\"",
+        "hotwords": "You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You seem to be at odds with everyone.",
+          "start": 0.02,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " seem",
+              "start": 0.52,
+              "end": 0.76,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " to",
+              "start": 0.76,
+              "end": 0.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 0.88,
+              "end": 1.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 1.0,
+              "end": 1.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " odds",
+              "start": 1.1,
+              "end": 1.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " everyone.",
+              "start": 1.6,
+              "end": 1.98,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "seem",
+          "start": 0.52,
+          "end": 0.76
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "raw": "be",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "raw": "at",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "raw": "odds",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "raw": "with",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "everyone.",
+          "start": 1.6,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "seem",
+        "to",
+        "be",
+        "at",
+        "odds",
+        "with",
+        "every",
+        "one.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 0.52,
+          "end": 0.76,
+          "key": "seem",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.88,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.88,
+          "end": 1.0,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.0,
+          "end": 1.1,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "odds",
+          "start": 1.1,
+          "end": 1.4,
+          "key": "odds",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "everyone.",
+          "start": 1.6,
+          "end": 1.98,
+          "key": "everyone",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "seem",
+          "start": 0.52,
+          "end": 0.76
+        },
+        {
+          "text": "to",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "text": "be",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "text": "at",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "text": "odds",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "text": "with",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "every",
+          "start": 1.6,
+          "end": 1.79
+        },
+        {
+          "text": "one.\"",
+          "start": 1.79,
+          "end": 1.885
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.06282752379775047
+    },
+    {
+      "asr_seconds": 0.0569516085088253,
+      "alignment_seconds": 0.00010439567267894745,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "You"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " You seem to be at odds with everyone",
+          "start": 0.02,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " seem",
+              "start": 0.52,
+              "end": 0.76,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " to",
+              "start": 0.76,
+              "end": 0.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 0.88,
+              "end": 1.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 1.0,
+              "end": 1.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " odds",
+              "start": 1.1,
+              "end": 1.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " everyone",
+              "start": 1.6,
+              "end": 1.98,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "seem",
+          "start": 0.52,
+          "end": 0.76
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "raw": "be",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "raw": "at",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "raw": "odds",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "raw": "with",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "everyone",
+          "start": 1.6,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "seem",
+        "to",
+        "be",
+        "at",
+        "odds",
+        "with",
+        "every",
+        "one.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 0.52,
+          "end": 0.76,
+          "key": "seem",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.88,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.88,
+          "end": 1.0,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.0,
+          "end": 1.1,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "odds",
+          "start": 1.1,
+          "end": 1.4,
+          "key": "odds",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "everyone",
+          "start": 1.6,
+          "end": 1.98,
+          "key": "everyone",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "seem",
+          "start": 0.52,
+          "end": 0.76
+        },
+        {
+          "text": "to",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "text": "be",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "text": "at",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "text": "odds",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "text": "with",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "every",
+          "start": 1.6,
+          "end": 1.79
+        },
+        {
+          "text": "one.\"",
+          "start": 1.79,
+          "end": 1.885
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.05709237977862358
+    },
+    {
+      "asr_seconds": 0.07017046958208084,
+      "alignment_seconds": 0.00013948045670986176,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You seem to be at odds with everyone.",
+          "start": 0.02,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " seem",
+              "start": 0.52,
+              "end": 0.76,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " to",
+              "start": 0.76,
+              "end": 0.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 0.88,
+              "end": 1.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 1.0,
+              "end": 1.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " odds",
+              "start": 1.1,
+              "end": 1.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " everyone.",
+              "start": 1.6,
+              "end": 1.98,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "seem",
+          "start": 0.52,
+          "end": 0.76
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "raw": "be",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "raw": "at",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "raw": "odds",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "raw": "with",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "everyone.",
+          "start": 1.6,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "seem",
+        "to",
+        "be",
+        "at",
+        "odds",
+        "with",
+        "every",
+        "one.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 0.52,
+          "end": 0.76,
+          "key": "seem",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.88,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.88,
+          "end": 1.0,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.0,
+          "end": 1.1,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "odds",
+          "start": 1.1,
+          "end": 1.4,
+          "key": "odds",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "everyone.",
+          "start": 1.6,
+          "end": 1.98,
+          "key": "everyone",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "seem",
+          "start": 0.52,
+          "end": 0.76
+        },
+        {
+          "text": "to",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "text": "be",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "text": "at",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "text": "odds",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "text": "with",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "every",
+          "start": 1.6,
+          "end": 1.79
+        },
+        {
+          "text": "one.\"",
+          "start": 1.79,
+          "end": 1.885
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0703560970723629
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7f5b8090a60cfdcaff660667f5dfed9c6c26d0b7f1dbac29c509a3cc57230ba3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

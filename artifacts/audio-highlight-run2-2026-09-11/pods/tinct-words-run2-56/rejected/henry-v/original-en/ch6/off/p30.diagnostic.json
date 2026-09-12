@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "b9d7a0425eab590e1216338f9dea4a0d103d308edf6e04a5b372ea800cf5ce20",
+  "attempts": [
+    {
+      "asr_seconds": 0.28014764841645956,
+      "alignment_seconds": 0.0008226195350289345,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " down goes all before them. Still be kind and eke out our performance with your",
+          "start": 0.05,
+          "end": 5.11,
+          "words": [
+            {
+              "text": " down",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.094482421875
+            },
+            {
+              "text": " goes",
+              "start": 0.75,
+              "end": 1.09,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " all",
+              "start": 1.09,
+              "end": 1.39,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " before",
+              "start": 1.39,
+              "end": 1.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " them.",
+              "start": 1.73,
+              "end": 2.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Still",
+              "start": 2.53,
+              "end": 2.75,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " be",
+              "start": 2.75,
+              "end": 2.95,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " kind",
+              "start": 2.95,
+              "end": 3.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 3.33,
+              "end": 3.85,
+              "probability": 0.89453125
+            },
+            {
+              "text": " eke",
+              "start": 3.85,
+              "end": 4.07,
+              "probability": 0.785888671875
+            },
+            {
+              "text": " out",
+              "start": 4.07,
+              "end": 4.19,
+              "probability": 0.986328125
+            },
+            {
+              "text": " our",
+              "start": 4.19,
+              "end": 4.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " performance",
+              "start": 4.33,
+              "end": 4.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 4.69,
+              "end": 4.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 4.97,
+              "end": 5.11,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " mind.",
+          "start": 5.11,
+          "end": 5.41,
+          "words": [
+            {
+              "text": " mind.",
+              "start": 5.11,
+              "end": 5.41,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "down",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "goes",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "raw": "all",
+          "start": 1.09,
+          "end": 1.39
+        },
+        {
+          "raw": "before",
+          "start": 1.39,
+          "end": 1.73
+        },
+        {
+          "raw": "them.",
+          "start": 1.73,
+          "end": 2.09
+        },
+        {
+          "raw": "Still",
+          "start": 2.53,
+          "end": 2.75
+        },
+        {
+          "raw": "be",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "raw": "kind",
+          "start": 2.95,
+          "end": 3.33
+        },
+        {
+          "raw": "and",
+          "start": 3.33,
+          "end": 3.85
+        },
+        {
+          "raw": "eke",
+          "start": 3.85,
+          "end": 4.07
+        },
+        {
+          "raw": "out",
+          "start": 4.07,
+          "end": 4.19
+        },
+        {
+          "raw": "our",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "raw": "performance",
+          "start": 4.33,
+          "end": 4.69
+        },
+        {
+          "raw": "with",
+          "start": 4.69,
+          "end": 4.97
+        },
+        {
+          "raw": "your",
+          "start": 4.97,
+          "end": 5.11
+        },
+        {
+          "raw": "mind.",
+          "start": 5.11,
+          "end": 5.41
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "down",
+        "goes",
+        "all",
+        "before",
+        "them.",
+        "Still",
+        "be",
+        "kind,",
+        "And",
+        "eke",
+        "out",
+        "our",
+        "performance",
+        "with",
+        "your",
+        "mind."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          17,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "down",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "down",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "goes",
+          "start": 0.75,
+          "end": 1.09,
+          "key": "goes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.09,
+          "end": 1.39,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 1.39,
+          "end": 1.73,
+          "key": "before",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 1.73,
+          "end": 2.09,
+          "key": "them",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Still",
+          "start": 2.53,
+          "end": 2.75,
+          "key": "still",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.75,
+          "end": 2.95,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 2.95,
+          "end": 3.33,
+          "key": "kind",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.33,
+          "end": 3.85,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "eke",
+          "start": 3.85,
+          "end": 4.07,
+          "key": "eke",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 4.07,
+          "end": 4.19,
+          "key": "out",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.19,
+          "end": 4.33,
+          "key": "our",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "performance",
+          "start": 4.33,
+          "end": 4.69,
+          "key": "performance",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.69,
+          "end": 4.97,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.97,
+          "end": 5.11,
+          "key": "your",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "mind.",
+          "start": 5.11,
+          "end": 5.41,
+          "key": "mind",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "down",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "goes",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "text": "all",
+          "start": 1.09,
+          "end": 1.39
+        },
+        {
+          "text": "before",
+          "start": 1.39,
+          "end": 1.73
+        },
+        {
+          "text": "them.",
+          "start": 1.73,
+          "end": 2.09
+        },
+        {
+          "text": "Still",
+          "start": 2.53,
+          "end": 2.75
+        },
+        {
+          "text": "be",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "text": "kind,",
+          "start": 2.95,
+          "end": 3.33
+        },
+        {
+          "text": "And",
+          "start": 3.33,
+          "end": 3.85
+        },
+        {
+          "text": "eke",
+          "start": 3.85,
+          "end": 4.07
+        },
+        {
+          "text": "out",
+          "start": 4.07,
+          "end": 4.19
+        },
+        {
+          "text": "our",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "text": "performance",
+          "start": 4.33,
+          "end": 4.69
+        },
+        {
+          "text": "with",
+          "start": 4.69,
+          "end": 4.97
+        },
+        {
+          "text": "your",
+          "start": 4.97,
+          "end": 5.11
+        },
+        {
+          "text": "mind.",
+          "start": 5.11,
+          "end": 5.41
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.2812475571408868
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ee50177b729bf7c9f7307241d9b919c5d8444a9e8aedd17a72e0ac455ecebcd1",
+  "selected_reasons": []
+}

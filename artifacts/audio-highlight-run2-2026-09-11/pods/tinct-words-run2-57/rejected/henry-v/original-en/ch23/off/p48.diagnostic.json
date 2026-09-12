@@ -1,0 +1,765 @@
+{
+  "complete": true,
+  "signature": "72ad51857591daf220114a59c3b6ff293d011c1f2324a19d921c55b23a66ef37",
+  "attempts": [
+    {
+      "asr_seconds": 0.4242880279198289,
+      "alignment_seconds": 0.0005693288985639811,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Catherine, les dames et demoiselles pour airter basés de vant lures noces, il n'est pas la",
+          "start": 0.05,
+          "end": 6.79,
+          "words": [
+            {
+              "text": " Catherine,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.418212890625
+            },
+            {
+              "text": " les",
+              "start": 1.43,
+              "end": 1.75,
+              "probability": 0.30615234375
+            },
+            {
+              "text": " dames",
+              "start": 1.75,
+              "end": 2.07,
+              "probability": 0.902099609375
+            },
+            {
+              "text": " et",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " demoiselles",
+              "start": 2.23,
+              "end": 2.91,
+              "probability": 0.907958984375
+            },
+            {
+              "text": " pour",
+              "start": 2.91,
+              "end": 3.07,
+              "probability": 0.92578125
+            },
+            {
+              "text": " airter",
+              "start": 3.07,
+              "end": 3.39,
+              "probability": 0.3587443033854167
+            },
+            {
+              "text": " basés",
+              "start": 3.39,
+              "end": 3.89,
+              "probability": 0.27032470703125
+            },
+            {
+              "text": " de",
+              "start": 3.89,
+              "end": 4.17,
+              "probability": 0.235595703125
+            },
+            {
+              "text": " vant",
+              "start": 4.17,
+              "end": 4.45,
+              "probability": 0.4449462890625
+            },
+            {
+              "text": " lures",
+              "start": 4.45,
+              "end": 4.73,
+              "probability": 0.749755859375
+            },
+            {
+              "text": " noces,",
+              "start": 4.73,
+              "end": 5.39,
+              "probability": 0.5891927083333334
+            },
+            {
+              "text": " il",
+              "start": 5.81,
+              "end": 5.95,
+              "probability": 0.64794921875
+            },
+            {
+              "text": " n",
+              "start": 5.95,
+              "end": 6.15,
+              "probability": 0.09173583984375
+            },
+            {
+              "text": "'est",
+              "start": 6.15,
+              "end": 6.41,
+              "probability": 0.68408203125
+            },
+            {
+              "text": " pas",
+              "start": 6.41,
+              "end": 6.65,
+              "probability": 0.424560546875
+            },
+            {
+              "text": " la",
+              "start": 6.65,
+              "end": 6.79,
+              "probability": 0.9033203125
+            }
+          ]
+        },
+        {
+          "text": " cowdom de France.",
+          "start": 6.79,
+          "end": 7.59,
+          "words": [
+            {
+              "text": " cowdom",
+              "start": 6.79,
+              "end": 7.13,
+              "probability": 0.35906982421875
+            },
+            {
+              "text": " de",
+              "start": 7.13,
+              "end": 7.27,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " France.",
+              "start": 7.27,
+              "end": 7.59,
+              "probability": 0.8125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Catherine,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "les",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "raw": "dames",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "raw": "et",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "demoiselles",
+          "start": 2.23,
+          "end": 2.91
+        },
+        {
+          "raw": "pour",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "raw": "airter",
+          "start": 3.07,
+          "end": 3.39
+        },
+        {
+          "raw": "basés",
+          "start": 3.39,
+          "end": 3.89
+        },
+        {
+          "raw": "de",
+          "start": 3.89,
+          "end": 4.17
+        },
+        {
+          "raw": "vant",
+          "start": 4.17,
+          "end": 4.45
+        },
+        {
+          "raw": "lures",
+          "start": 4.45,
+          "end": 4.73
+        },
+        {
+          "raw": "noces,",
+          "start": 4.73,
+          "end": 5.39
+        },
+        {
+          "raw": "il",
+          "start": 5.81,
+          "end": 5.95
+        },
+        {
+          "raw": "n",
+          "start": 5.95,
+          "end": 6.15
+        },
+        {
+          "raw": "'est",
+          "start": 6.15,
+          "end": 6.41
+        },
+        {
+          "raw": "pas",
+          "start": 6.41,
+          "end": 6.65
+        },
+        {
+          "raw": "la",
+          "start": 6.65,
+          "end": 6.79
+        },
+        {
+          "raw": "cowdom",
+          "start": 6.79,
+          "end": 7.13
+        },
+        {
+          "raw": "de",
+          "start": 7.13,
+          "end": 7.27
+        },
+        {
+          "raw": "France.",
+          "start": 7.27,
+          "end": 7.59
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "_Les",
+        "dames",
+        "et",
+        "demoiselles",
+        "pour",
+        "être",
+        "baisées",
+        "devant",
+        "leurs",
+        "noces,",
+        "il",
+        "n'est",
+        "pas",
+        "la",
+        "coutume",
+        "de",
+        "France._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ],
+        [
+          "replace",
+          6,
+          10,
+          6,
+          11
+        ],
+        [
+          "equal",
+          10,
+          12,
+          11,
+          13
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          15
+        ],
+        [
+          "equal",
+          13,
+          15,
+          15,
+          17
+        ],
+        [
+          "replace",
+          15,
+          16,
+          17,
+          18
+        ],
+        [
+          "equal",
+          16,
+          18,
+          18,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          10,
+          6,
+          11
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          17,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Catherine,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "catherine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "les",
+          "start": 1.43,
+          "end": 1.75,
+          "key": "les",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dames",
+          "start": 1.75,
+          "end": 2.07,
+          "key": "dames",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "et",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "demoiselles",
+          "start": 2.23,
+          "end": 2.91,
+          "key": "demoiselles",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pour",
+          "start": 2.91,
+          "end": 3.07,
+          "key": "pour",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "airter",
+          "start": 3.07,
+          "end": 3.39,
+          "key": "airter",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "basés",
+          "start": 3.39,
+          "end": 3.89,
+          "key": "basés",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 3.89,
+          "end": 4.17,
+          "key": "de",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "vant",
+          "start": 4.17,
+          "end": 4.45,
+          "key": "vant",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "lures",
+          "start": 4.45,
+          "end": 4.73,
+          "key": "lures",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "noces,",
+          "start": 4.73,
+          "end": 5.39,
+          "key": "noces",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "il",
+          "start": 5.81,
+          "end": 5.95,
+          "key": "il",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "n",
+          "start": 5.95,
+          "end": 6.15,
+          "key": "n",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 6.15,
+          "end": 6.41,
+          "key": "est",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "pas",
+          "start": 6.41,
+          "end": 6.65,
+          "key": "pas",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 6.65,
+          "end": 6.79,
+          "key": "la",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "cowdom",
+          "start": 6.79,
+          "end": 7.13,
+          "key": "cowdom",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 7.13,
+          "end": 7.27,
+          "key": "de",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "France.",
+          "start": 7.27,
+          "end": 7.59,
+          "key": "france",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.0,
+          "end": 0.715
+        },
+        {
+          "text": "_Les",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "text": "dames",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "text": "et",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "demoiselles",
+          "start": 2.23,
+          "end": 2.91
+        },
+        {
+          "text": "pour",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "text": "être",
+          "start": 3.07,
+          "end": 3.9
+        },
+        {
+          "text": "baisées",
+          "start": 3.9,
+          "end": 4.315
+        },
+        {
+          "text": "devant",
+          "start": 4.315,
+          "end": 4.523
+        },
+        {
+          "text": "leurs",
+          "start": 4.523,
+          "end": 4.627
+        },
+        {
+          "text": "noces,",
+          "start": 4.73,
+          "end": 5.39
+        },
+        {
+          "text": "il",
+          "start": 5.81,
+          "end": 5.95
+        },
+        {
+          "text": "n'est",
+          "start": 5.95,
+          "end": 6.18
+        },
+        {
+          "text": "pas",
+          "start": 6.41,
+          "end": 6.65
+        },
+        {
+          "text": "la",
+          "start": 6.65,
+          "end": 6.79
+        },
+        {
+          "text": "coutume",
+          "start": 6.79,
+          "end": 6.96
+        },
+        {
+          "text": "de",
+          "start": 7.13,
+          "end": 7.27
+        },
+        {
+          "text": "France._",
+          "start": 7.27,
+          "end": 7.59
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 20,
+        "matched_words": 11
+      },
+      "match_ratio": 0.6111111111111112,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.42506685899570584
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c31c21398173ebbc756313c7bb6772566ad4f6c3a5c04553e6b36c18a16c8428",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

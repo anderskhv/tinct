@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "3643c17147292c45333bf65630de6b6e7aab98f6bb962fa444a5a543f911a356",
+  "attempts": [
+    {
+      "asr_seconds": 0.25513282301835716,
+      "alignment_seconds": 0.00031304103322327137,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Very dimly each is a luminous cloud",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.87890625
+            },
+            {
+              "text": " dimly",
+              "start": 0.65,
+              "end": 1.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " each",
+              "start": 1.09,
+              "end": 1.51,
+              "probability": 0.248046875
+            },
+            {
+              "text": " is",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " a",
+              "start": 1.67,
+              "end": 1.77,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " luminous",
+              "start": 1.77,
+              "end": 2.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " cloud",
+              "start": 2.13,
+              "end": 2.43,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "dimly",
+          "start": 0.65,
+          "end": 1.09
+        },
+        {
+          "raw": "each",
+          "start": 1.09,
+          "end": 1.51
+        },
+        {
+          "raw": "is",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "a",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "raw": "luminous",
+          "start": 1.77,
+          "end": 2.13
+        },
+        {
+          "raw": "cloud",
+          "start": 2.13,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "\"Very",
+        "dimly—each",
+        "is",
+        "a",
+        "luminous",
+        "cloud.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          6,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Very",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "very",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dimly",
+          "start": 0.65,
+          "end": 1.09,
+          "key": "dimly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 1.09,
+          "end": 1.51,
+          "key": "each",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.67,
+          "end": 1.77,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "luminous",
+          "start": 1.77,
+          "end": 2.13,
+          "key": "luminous",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cloud",
+          "start": 2.13,
+          "end": 2.43,
+          "key": "cloud",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Very",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "dimly—each",
+          "start": 0.65,
+          "end": 1.08
+        },
+        {
+          "text": "is",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "text": "a",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "text": "luminous",
+          "start": 1.77,
+          "end": 2.13
+        },
+        {
+          "text": "cloud.\"",
+          "start": 2.13,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2555590090341866
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "17207fb83ea8bea0242dbcec0f45801701ed0a20b849dc4ae1abf87a41edfc09",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

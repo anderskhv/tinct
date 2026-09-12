@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "25e3c7fd47e3ff3de429f65896808c927b9c675596dc0943a5082a0fcf0561dd",
+  "attempts": [
+    {
+      "asr_seconds": 0.11365817859768867,
+      "alignment_seconds": 0.0001346990466117859,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Physician. Please you draw near. Louder the music there!",
+        "hotwords": "Physician, Please, Louder"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Physician, Please you draw near. Louder the music there!",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " Physician,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " Please",
+              "start": 1.21,
+              "end": 1.43,
+              "probability": 0.003757476806640625
+            },
+            {
+              "text": " you",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.65234375
+            },
+            {
+              "text": " draw",
+              "start": 1.63,
+              "end": 1.85,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " near.",
+              "start": 1.85,
+              "end": 2.09,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Louder",
+              "start": 2.37,
+              "end": 2.49,
+              "probability": 0.935302734375
+            },
+            {
+              "text": " the",
+              "start": 2.49,
+              "end": 2.59,
+              "probability": 0.955078125
+            },
+            {
+              "text": " music",
+              "start": 2.59,
+              "end": 2.83,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " there!",
+              "start": 2.83,
+              "end": 3.21,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Physician,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Please",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "raw": "you",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "draw",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "raw": "near.",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "raw": "Louder",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "raw": "the",
+          "start": 2.49,
+          "end": 2.59
+        },
+        {
+          "raw": "music",
+          "start": 2.59,
+          "end": 2.83
+        },
+        {
+          "raw": "there!",
+          "start": 2.83,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "Physician.",
+        "Please",
+        "you",
+        "draw",
+        "near.",
+        "Louder",
+        "the",
+        "music",
+        "there!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Physician,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "physician",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Please",
+          "start": 1.21,
+          "end": 1.43,
+          "key": "please",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "draw",
+          "start": 1.63,
+          "end": 1.85,
+          "key": "draw",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "near.",
+          "start": 1.85,
+          "end": 2.09,
+          "key": "near",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Louder",
+          "start": 2.37,
+          "end": 2.49,
+          "key": "louder",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.49,
+          "end": 2.59,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "music",
+          "start": 2.59,
+          "end": 2.83,
+          "key": "music",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "there!",
+          "start": 2.83,
+          "end": 3.21,
+          "key": "there",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Physician.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Please",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "text": "you",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "draw",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "text": "near.",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "text": "Louder",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "text": "the",
+          "start": 2.49,
+          "end": 2.59
+        },
+        {
+          "text": "music",
+          "start": 2.59,
+          "end": 2.83
+        },
+        {
+          "text": "there!",
+          "start": 2.83,
+          "end": 3.21
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11384253203868866
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a196e43ac2398db26b914d7c63477158ed7d3fb6a0985efe1b6ba8cd16c6a221",
+  "selected_reasons": []
+}

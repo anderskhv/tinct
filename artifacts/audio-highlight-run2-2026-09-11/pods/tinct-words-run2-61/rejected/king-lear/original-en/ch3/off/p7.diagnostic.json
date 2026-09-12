@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "4d770108ba657697207648263638d5f2f7797b81844a1742b70562c3017999a1",
+  "attempts": [
+    {
+      "asr_seconds": 0.19542595744132996,
+      "alignment_seconds": 0.0003450028598308563,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oswald, very well, madam.",
+          "start": 0.05,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " Oswald,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " very",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " well,",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " madam.",
+              "start": 1.85,
+              "end": 2.13,
+              "probability": 0.804931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "very",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "well,",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "raw": "madam.",
+          "start": 1.85,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "Oswald.",
+        "Very",
+        "well,",
+        "madam."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "oswald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.19,
+          "end": 1.45,
+          "key": "very",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 1.45,
+          "end": 1.69,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "madam.",
+          "start": 1.85,
+          "end": 2.13,
+          "key": "madam",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oswald.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Very",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "well,",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "text": "madam.",
+          "start": 1.85,
+          "end": 2.13
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19591412879526615
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ead51a68ea14c06ebea5475dbee869c9ffa9fcf1f30c15f0e4d865a9ad2952a9",
+  "selected_reasons": []
+}

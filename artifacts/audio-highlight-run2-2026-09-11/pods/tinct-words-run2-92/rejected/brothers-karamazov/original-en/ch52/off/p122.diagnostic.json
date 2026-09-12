@@ -1,0 +1,640 @@
+{
+  "complete": true,
+  "signature": "b11a229e3e3f0f8a0a4b96a167bd1aa81b729e1c6378afa887c4dc15232be2d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.40334403328597546,
+      "alignment_seconds": 0.0007294043898582458,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Give me five rubles, he whispered to Midia. I'll stake something at Pharaoh, too. He he",
+          "start": 0.02,
+          "end": 5.38,
+          "words": [
+            {
+              "text": " Give",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.0302734375
+            },
+            {
+              "text": " me",
+              "start": 0.54,
+              "end": 0.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " five",
+              "start": 0.72,
+              "end": 1.06,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " rubles,",
+              "start": 1.06,
+              "end": 1.66,
+              "probability": 0.7252197265625
+            },
+            {
+              "text": " he",
+              "start": 1.84,
+              "end": 2.08,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " whispered",
+              "start": 2.08,
+              "end": 2.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 2.38,
+              "end": 2.6,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Midia.",
+              "start": 2.6,
+              "end": 2.94,
+              "probability": 0.656982421875
+            },
+            {
+              "text": " I'll",
+              "start": 3.44,
+              "end": 3.62,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " stake",
+              "start": 3.62,
+              "end": 3.82,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " something",
+              "start": 3.82,
+              "end": 4.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " at",
+              "start": 4.1,
+              "end": 4.28,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Pharaoh,",
+              "start": 4.28,
+              "end": 4.56,
+              "probability": 0.478271484375
+            },
+            {
+              "text": " too.",
+              "start": 4.86,
+              "end": 4.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " He",
+              "start": 5.12,
+              "end": 5.16,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " he",
+              "start": 5.16,
+              "end": 5.38,
+              "probability": 0.288818359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Give",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "me",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "raw": "five",
+          "start": 0.72,
+          "end": 1.06
+        },
+        {
+          "raw": "rubles,",
+          "start": 1.06,
+          "end": 1.66
+        },
+        {
+          "raw": "he",
+          "start": 1.84,
+          "end": 2.08
+        },
+        {
+          "raw": "whispered",
+          "start": 2.08,
+          "end": 2.38
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "raw": "Midia.",
+          "start": 2.6,
+          "end": 2.94
+        },
+        {
+          "raw": "I'll",
+          "start": 3.44,
+          "end": 3.62
+        },
+        {
+          "raw": "stake",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "raw": "something",
+          "start": 3.82,
+          "end": 4.1
+        },
+        {
+          "raw": "at",
+          "start": 4.1,
+          "end": 4.28
+        },
+        {
+          "raw": "Pharaoh,",
+          "start": 4.28,
+          "end": 4.56
+        },
+        {
+          "raw": "too.",
+          "start": 4.86,
+          "end": 4.94
+        },
+        {
+          "raw": "He",
+          "start": 5.12,
+          "end": 5.16
+        },
+        {
+          "raw": "he",
+          "start": 5.16,
+          "end": 5.38
+        }
+      ],
+      "expected_tokens": [
+        "\"Give",
+        "me",
+        "five",
+        "roubles,\"",
+        "he",
+        "whispered",
+        "to",
+        "Mitya.",
+        "\"I'll",
+        "stake",
+        "something",
+        "at",
+        "faro,",
+        "too,",
+        "he",
+        "he!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          12,
+          8,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          16,
+          13,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Give",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "give",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.54,
+          "end": 0.72,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "five",
+          "start": 0.72,
+          "end": 1.06,
+          "key": "five",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rubles,",
+          "start": 1.06,
+          "end": 1.66,
+          "key": "rubles",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.84,
+          "end": 2.08,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whispered",
+          "start": 2.08,
+          "end": 2.38,
+          "key": "whispered",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.6,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Midia.",
+          "start": 2.6,
+          "end": 2.94,
+          "key": "midia",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 3.44,
+          "end": 3.62,
+          "key": "ill",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "stake",
+          "start": 3.62,
+          "end": 3.82,
+          "key": "stake",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 3.82,
+          "end": 4.1,
+          "key": "something",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.1,
+          "end": 4.28,
+          "key": "at",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Pharaoh,",
+          "start": 4.28,
+          "end": 4.56,
+          "key": "pharaoh",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 4.86,
+          "end": 4.94,
+          "key": "too",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 5.12,
+          "end": 5.16,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.16,
+          "end": 5.38,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Give",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "me",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "text": "five",
+          "start": 0.72,
+          "end": 1.06
+        },
+        {
+          "text": "roubles,\"",
+          "start": 1.06,
+          "end": 1.45
+        },
+        {
+          "text": "he",
+          "start": 1.84,
+          "end": 2.08
+        },
+        {
+          "text": "whispered",
+          "start": 2.08,
+          "end": 2.38
+        },
+        {
+          "text": "to",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "text": "Mitya.",
+          "start": 2.6,
+          "end": 3.02
+        },
+        {
+          "text": "\"I'll",
+          "start": 3.44,
+          "end": 3.62
+        },
+        {
+          "text": "stake",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "text": "something",
+          "start": 3.82,
+          "end": 4.1
+        },
+        {
+          "text": "at",
+          "start": 4.1,
+          "end": 4.28
+        },
+        {
+          "text": "faro,",
+          "start": 4.28,
+          "end": 4.57
+        },
+        {
+          "text": "too,",
+          "start": 4.86,
+          "end": 4.94
+        },
+        {
+          "text": "he",
+          "start": 5.12,
+          "end": 5.16
+        },
+        {
+          "text": "he!\"",
+          "start": 5.16,
+          "end": 5.38
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8125,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4043248351663351
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "096cb07ab9ec594a91e1386826024f005f052c19c07fafbcfdfd08b319cb1578",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "4e74f145854f7a1b9390354d6423f9e7d58ed92f2906eea1bf8c59535b6105e5",
+  "attempts": [
+    {
+      "asr_seconds": 0.13573737628757954,
+      "alignment_seconds": 0.0003375224769115448,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ophelia. No, my lord.",
+        "hotwords": "Ophelia, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ophelia, No, my lord.",
+          "start": 0.53,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " Ophelia,",
+              "start": 0.53,
+              "end": 0.93,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " No,",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.0030994415283203125
+            },
+            {
+              "text": " my",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.60791015625
+            },
+            {
+              "text": " lord.",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.5126953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ophelia,",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "raw": "No,",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "my",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "lord.",
+          "start": 1.61,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "Ophelia.",
+        "No,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ophelia,",
+          "start": 0.53,
+          "end": 0.93,
+          "key": "ophelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ophelia.",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "text": "No,",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "my",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "lord.",
+          "start": 1.61,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13621218129992485
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f3f67151733e5ac8c862a319f1cc5d8212b1e16620ec85b6c6fcac72fa40ea8c",
+  "selected_reasons": []
+}

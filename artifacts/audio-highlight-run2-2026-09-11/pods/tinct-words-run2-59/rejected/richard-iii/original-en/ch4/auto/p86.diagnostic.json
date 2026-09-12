@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "1ca0f5c808c0a15a2f5fa02636a302fee4f7988be22a9c5bc857bd8bbb693847",
+  "attempts": [
+    {
+      "asr_seconds": 0.25779501418583095,
+      "alignment_seconds": 0.0003950628452003002,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Murderer. Ay, so we will.",
+        "hotwords": "First, Murderer, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First, Murderer, Ay, so we will.",
+          "start": 0.05,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " Murderer,",
+              "start": 0.85,
+              "end": 1.17,
+              "probability": 0.61077880859375
+            },
+            {
+              "text": " Ay,",
+              "start": 1.53,
+              "end": 1.59,
+              "probability": 0.0050048828125
+            },
+            {
+              "text": " so",
+              "start": 1.67,
+              "end": 1.75,
+              "probability": 0.90234375
+            },
+            {
+              "text": " we",
+              "start": 1.75,
+              "end": 1.91,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " will.",
+              "start": 1.91,
+              "end": 2.13,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.85,
+          "end": 1.17
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.53,
+          "end": 1.59
+        },
+        {
+          "raw": "so",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "raw": "we",
+          "start": 1.75,
+          "end": 1.91
+        },
+        {
+          "raw": "will.",
+          "start": 1.91,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Murderer.",
+        "Ay,",
+        "so",
+        "we",
+        "will."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.85,
+          "end": 1.17,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.53,
+          "end": 1.59,
+          "key": "ay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.67,
+          "end": 1.75,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.75,
+          "end": 1.91,
+          "key": "we",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "will.",
+          "start": 1.91,
+          "end": 2.13,
+          "key": "will",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.85,
+          "end": 1.17
+        },
+        {
+          "text": "Ay,",
+          "start": 1.53,
+          "end": 1.59
+        },
+        {
+          "text": "so",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "text": "we",
+          "start": 1.75,
+          "end": 1.91
+        },
+        {
+          "text": "will.",
+          "start": 1.91,
+          "end": 2.13
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25834200996905565
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8d2228ece744736ca49c6028254542e49bb1b783ea1435f9c1b94eefe6baf6c0",
+  "selected_reasons": []
+}

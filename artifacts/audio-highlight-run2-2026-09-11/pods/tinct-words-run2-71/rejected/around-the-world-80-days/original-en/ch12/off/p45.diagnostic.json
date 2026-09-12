@@ -1,0 +1,290 @@
+{
+  "complete": true,
+  "signature": "9f1753f7b4300cb7a266d16ee7650b179ed6239c7cade2c24b77ffca97d3b8ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.16569582000374794,
+      "alignment_seconds": 0.0004222355782985687,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why you're a man of heart",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " you're",
+              "start": 0.67,
+              "end": 1.09,
+              "probability": 0.779052734375
+            },
+            {
+              "text": " a",
+              "start": 1.09,
+              "end": 1.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " man",
+              "start": 1.15,
+              "end": 1.27,
+              "probability": 0.955078125
+            },
+            {
+              "text": " of",
+              "start": 1.27,
+              "end": 1.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " heart",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.9423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "you're",
+          "start": 0.67,
+          "end": 1.09
+        },
+        {
+          "raw": "a",
+          "start": 1.09,
+          "end": 1.15
+        },
+        {
+          "raw": "man",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "raw": "of",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "raw": "heart",
+          "start": 1.43,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "\"Why,",
+        "you",
+        "are",
+        "a",
+        "man",
+        "of",
+        "heart!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          7,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you're",
+          "start": 0.67,
+          "end": 1.09,
+          "key": "youre",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.09,
+          "end": 1.15,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.15,
+          "end": 1.27,
+          "key": "man",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.27,
+          "end": 1.43,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "heart",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "you",
+          "start": 0.67,
+          "end": 0.88
+        },
+        {
+          "text": "are",
+          "start": 0.88,
+          "end": 0.985
+        },
+        {
+          "text": "a",
+          "start": 1.09,
+          "end": 1.15
+        },
+        {
+          "text": "man",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "text": "of",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "text": "heart!\"",
+          "start": 1.43,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16625857539474964
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bc5f5999974fa8027f51c5989f840696de61b16c7b0394d008b9d5d26618e0d5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

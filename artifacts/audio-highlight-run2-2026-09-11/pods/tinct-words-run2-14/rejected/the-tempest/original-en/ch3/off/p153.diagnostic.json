@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "822f4103e78864847edcfe042e60ab3c526930535fe13f5f3a0c36728a385bfd",
+  "attempts": [
+    {
+      "asr_seconds": 0.13289281353354454,
+      "alignment_seconds": 0.0003299005329608917,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " sings in Gonzalo's ear.",
+          "start": 0.11,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " sings",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.63818359375
+            },
+            {
+              "text": " in",
+              "start": 0.63,
+              "end": 0.81,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Gonzalo's",
+              "start": 0.81,
+              "end": 1.33,
+              "probability": 0.9342447916666666
+            },
+            {
+              "text": " ear.",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "sings",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "in",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "raw": "Gonzalo's",
+          "start": 0.81,
+          "end": 1.33
+        },
+        {
+          "raw": "ear.",
+          "start": 1.33,
+          "end": 1.49
+        }
+      ],
+      "expected_tokens": [
+        "[Sings",
+        "in",
+        "Gonzalo's",
+        "ear]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "sings",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "sings",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.63,
+          "end": 0.81,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Gonzalo's",
+          "start": 0.81,
+          "end": 1.33,
+          "key": "gonzalos",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ear.",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "ear",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Sings",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "in",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "text": "Gonzalo's",
+          "start": 0.81,
+          "end": 1.33
+        },
+        {
+          "text": "ear]",
+          "start": 1.33,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1333369016647339
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d699611ba51e4836fcfe639c685c2586d03bf0a4d7e273f036875d43522c84bc",
+  "selected_reasons": []
+}

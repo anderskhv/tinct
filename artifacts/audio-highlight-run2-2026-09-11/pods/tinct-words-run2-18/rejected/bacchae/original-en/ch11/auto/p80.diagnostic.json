@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "173cb2164b4721649a12faf472e649d28b303c26291bc180f3691a12d65fd6e5",
+  "attempts": [
+    {
+      "asr_seconds": 0.25810305506456643,
+      "alignment_seconds": 0.0006813009968027472,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cadmus. Being mad! A spirit drove all the land that way.",
+        "hotwords": "Cadmus, Being, A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cadmus, Being mad! A spirit drove all the land that way.",
+          "start": 0.05,
+          "end": 4.03,
+          "words": [
+            {
+              "text": " Cadmus,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.901611328125
+            },
+            {
+              "text": " Being",
+              "start": 1.17,
+              "end": 1.33,
+              "probability": 0.025054931640625
+            },
+            {
+              "text": " mad!",
+              "start": 1.33,
+              "end": 1.71,
+              "probability": 0.4599609375
+            },
+            {
+              "text": " A",
+              "start": 2.29,
+              "end": 2.37,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " spirit",
+              "start": 2.37,
+              "end": 2.67,
+              "probability": 0.759765625
+            },
+            {
+              "text": " drove",
+              "start": 2.67,
+              "end": 3.01,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " all",
+              "start": 3.01,
+              "end": 3.23,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " the",
+              "start": 3.23,
+              "end": 3.35,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " land",
+              "start": 3.35,
+              "end": 3.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " that",
+              "start": 3.55,
+              "end": 3.75,
+              "probability": 0.990234375
+            },
+            {
+              "text": " way.",
+              "start": 3.75,
+              "end": 4.03,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Being",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "raw": "mad!",
+          "start": 1.33,
+          "end": 1.71
+        },
+        {
+          "raw": "A",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "raw": "spirit",
+          "start": 2.37,
+          "end": 2.67
+        },
+        {
+          "raw": "drove",
+          "start": 2.67,
+          "end": 3.01
+        },
+        {
+          "raw": "all",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "raw": "the",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "raw": "land",
+          "start": 3.35,
+          "end": 3.55
+        },
+        {
+          "raw": "that",
+          "start": 3.55,
+          "end": 3.75
+        },
+        {
+          "raw": "way.",
+          "start": 3.75,
+          "end": 4.03
+        }
+      ],
+      "expected_tokens": [
+        "Cadmus.",
+        "Being",
+        "mad!",
+        "A",
+        "spirit",
+        "drove",
+        "all",
+        "the",
+        "land",
+        "that",
+        "way."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "cadmus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Being",
+          "start": 1.17,
+          "end": 1.33,
+          "key": "being",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mad!",
+          "start": 1.33,
+          "end": 1.71,
+          "key": "mad",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 2.29,
+          "end": 2.37,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "spirit",
+          "start": 2.37,
+          "end": 2.67,
+          "key": "spirit",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "drove",
+          "start": 2.67,
+          "end": 3.01,
+          "key": "drove",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.01,
+          "end": 3.23,
+          "key": "all",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.23,
+          "end": 3.35,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "land",
+          "start": 3.35,
+          "end": 3.55,
+          "key": "land",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.55,
+          "end": 3.75,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "way.",
+          "start": 3.75,
+          "end": 4.03,
+          "key": "way",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cadmus.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Being",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "text": "mad!",
+          "start": 1.33,
+          "end": 1.71
+        },
+        {
+          "text": "A",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "text": "spirit",
+          "start": 2.37,
+          "end": 2.67
+        },
+        {
+          "text": "drove",
+          "start": 2.67,
+          "end": 3.01
+        },
+        {
+          "text": "all",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "text": "the",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "text": "land",
+          "start": 3.35,
+          "end": 3.55
+        },
+        {
+          "text": "that",
+          "start": 3.55,
+          "end": 3.75
+        },
+        {
+          "text": "way.",
+          "start": 3.75,
+          "end": 4.03
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2590833220165223
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "71b15b095149d15b1db118b11503c4db627d56af130223443a8a7dd326805696",
+  "selected_reasons": []
+}

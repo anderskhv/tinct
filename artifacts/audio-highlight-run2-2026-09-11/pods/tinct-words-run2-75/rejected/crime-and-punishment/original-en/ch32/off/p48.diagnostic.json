@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "599dd8efed3871c54830db9f12b73fc1f6f56a1082119a5a1ba5171e1aa46852",
+  "attempts": [
+    {
+      "asr_seconds": 0.1432848796248436,
+      "alignment_seconds": 0.00029679015278816223,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " From Poor Fairy",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " From",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.560546875
+            },
+            {
+              "text": " Poor",
+              "start": 0.55,
+              "end": 0.77,
+              "probability": 0.414306640625
+            },
+            {
+              "text": " Fairy",
+              "start": 0.77,
+              "end": 0.99,
+              "probability": 0.89892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "From",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Poor",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "raw": "Fairy",
+          "start": 0.77,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "\"From",
+        "Porfiry?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "From",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "from",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Poor",
+          "start": 0.55,
+          "end": 0.77,
+          "key": "poor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Fairy",
+          "start": 0.77,
+          "end": 0.99,
+          "key": "fairy",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"From",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Porfiry?\"",
+          "start": 0.55,
+          "end": 0.77
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14369186386466026
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a1a325594c51551bf8fb70dca66151f43148630c449fbc6b363c41e4db773f4c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

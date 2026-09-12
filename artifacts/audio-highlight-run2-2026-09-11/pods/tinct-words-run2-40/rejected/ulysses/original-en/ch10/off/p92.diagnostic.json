@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "cfd7ef1c4785a2d77e443dad48430732bc06dcb06cb8c89c309f5f05f2801b69",
+  "attempts": [
+    {
+      "asr_seconds": 0.17493766779080033,
+      "alignment_seconds": 0.00047483528032898903,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bad sess to her big face, she cried.",
+          "start": 0.18,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Bad",
+              "start": 0.18,
+              "end": 0.6,
+              "probability": 0.67333984375
+            },
+            {
+              "text": " sess",
+              "start": 0.6,
+              "end": 0.84,
+              "probability": 0.502685546875
+            },
+            {
+              "text": " to",
+              "start": 0.84,
+              "end": 1.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her",
+              "start": 1.02,
+              "end": 1.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " big",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " face,",
+              "start": 1.26,
+              "end": 1.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " she",
+              "start": 1.94,
+              "end": 2.1,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " cried.",
+              "start": 2.1,
+              "end": 2.42,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bad",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "raw": "sess",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "raw": "to",
+          "start": 0.84,
+          "end": 1.02
+        },
+        {
+          "raw": "her",
+          "start": 1.02,
+          "end": 1.1
+        },
+        {
+          "raw": "big",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "face,",
+          "start": 1.26,
+          "end": 1.66
+        },
+        {
+          "raw": "she",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "raw": "cried.",
+          "start": 2.1,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "—Bad",
+        "cess",
+        "to",
+        "her",
+        "big",
+        "face!",
+        "she",
+        "cried."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          8,
+          2,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bad",
+          "start": 0.18,
+          "end": 0.6,
+          "key": "bad",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sess",
+          "start": 0.6,
+          "end": 0.84,
+          "key": "sess",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.84,
+          "end": 1.02,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.02,
+          "end": 1.1,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "big",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "big",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "face,",
+          "start": 1.26,
+          "end": 1.66,
+          "key": "face",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.94,
+          "end": 2.1,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cried.",
+          "start": 2.1,
+          "end": 2.42,
+          "key": "cried",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Bad",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "text": "cess",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "text": "to",
+          "start": 0.84,
+          "end": 1.02
+        },
+        {
+          "text": "her",
+          "start": 1.02,
+          "end": 1.1
+        },
+        {
+          "text": "big",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "face!",
+          "start": 1.26,
+          "end": 1.66
+        },
+        {
+          "text": "she",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "text": "cried.",
+          "start": 2.1,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.17558413883671165
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3e58adfe9a836560a5c879e13d4fb466cd550c5cf2dc9384b2cc0f9f49ce17bc",
+  "selected_reasons": []
+}

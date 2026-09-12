@@ -1,0 +1,907 @@
+{
+  "complete": true,
+  "signature": "25eca28225a254fba6000c77856768fc26d7c50ff68a8fe19e0d664a53a1dfed",
+  "attempts": [
+    {
+      "asr_seconds": 0.18623777804896235,
+      "alignment_seconds": 0.00020912103354930878,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_—Et ne nos inducas in tentationem._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Et ne nos inducas in tentationem._",
+          "start": 0.18,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " Et",
+              "start": 0.18,
+              "end": 0.6,
+              "probability": 0.1807708740234375
+            },
+            {
+              "text": " ne",
+              "start": 0.6,
+              "end": 0.72,
+              "probability": 2.7298927307128906e-05
+            },
+            {
+              "text": " nos",
+              "start": 0.72,
+              "end": 1.02,
+              "probability": 0.0011043548583984375
+            },
+            {
+              "text": " inducas",
+              "start": 1.02,
+              "end": 1.6,
+              "probability": 0.47877703110376996
+            },
+            {
+              "text": " in",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.456298828125
+            },
+            {
+              "text": " tentationem._",
+              "start": 1.76,
+              "end": 2.8,
+              "probability": 0.2688141018152237
+            }
+          ]
+        },
+        {
+          "text": " Et ne nos inducas in tentationem._",
+          "start": 2.8,
+          "end": 3.04,
+          "words": [
+            {
+              "text": " Et",
+              "start": 2.8,
+              "end": 2.92,
+              "probability": 8.514523506164551e-05
+            },
+            {
+              "text": " ne",
+              "start": 2.92,
+              "end": 2.96,
+              "probability": 4.3511390686035156e-05
+            },
+            {
+              "text": " nos",
+              "start": 2.96,
+              "end": 3.04,
+              "probability": 1.2814998626708984e-05
+            },
+            {
+              "text": " inducas",
+              "start": 3.04,
+              "end": 3.04,
+              "probability": 0.0023946364720662436
+            },
+            {
+              "text": " in",
+              "start": 3.04,
+              "end": 3.04,
+              "probability": 0.0019350051879882812
+            },
+            {
+              "text": " tentationem._",
+              "start": 3.04,
+              "end": 3.04,
+              "probability": 0.0005478262901306152
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Et",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "raw": "ne",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "raw": "nos",
+          "start": 0.72,
+          "end": 1.02
+        },
+        {
+          "raw": "inducas",
+          "start": 1.02,
+          "end": 1.6
+        },
+        {
+          "raw": "in",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "tentationem._",
+          "start": 1.76,
+          "end": 2.8
+        },
+        {
+          "raw": "Et",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "raw": "ne",
+          "start": 2.92,
+          "end": 2.96
+        },
+        {
+          "raw": "nos",
+          "start": 2.96,
+          "end": 3.04
+        },
+        {
+          "raw": "inducas",
+          "start": 3.04,
+          "end": 3.04
+        },
+        {
+          "raw": "in",
+          "start": 3.04,
+          "end": 3.04
+        },
+        {
+          "raw": "tentationem._",
+          "start": 3.04,
+          "end": 3.04
+        }
+      ],
+      "expected_tokens": [
+        "_—Et",
+        "ne",
+        "nos",
+        "inducas",
+        "in",
+        "tentationem._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Et",
+          "start": 0.18,
+          "end": 0.6,
+          "key": "et",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ne",
+          "start": 0.6,
+          "end": 0.72,
+          "key": "ne",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nos",
+          "start": 0.72,
+          "end": 1.02,
+          "key": "nos",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "inducas",
+          "start": 1.02,
+          "end": 1.6,
+          "key": "inducas",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tentationem._",
+          "start": 1.76,
+          "end": 2.8,
+          "key": "tentationem_",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Et",
+          "start": 2.8,
+          "end": 2.92,
+          "key": "et",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ne",
+          "start": 2.92,
+          "end": 2.96,
+          "key": "ne",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "nos",
+          "start": 2.96,
+          "end": 3.04,
+          "key": "nos",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "inducas",
+          "start": 3.04,
+          "end": 3.04,
+          "key": "inducas",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.04,
+          "end": 3.04,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "tentationem._",
+          "start": 3.04,
+          "end": 3.04,
+          "key": "tentationem_",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—Et",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "text": "ne",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "text": "nos",
+          "start": 0.72,
+          "end": 1.02
+        },
+        {
+          "text": "inducas",
+          "start": 1.02,
+          "end": 1.6
+        },
+        {
+          "text": "in",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "tentationem._",
+          "start": 1.76,
+          "end": 2.4
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 12,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18654178903670982
+    },
+    {
+      "asr_seconds": 0.11998833098914474,
+      "alignment_seconds": 0.00017467100406065583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Ettney knows in Dooka's Intentationum.",
+          "start": 0.18,
+          "end": 2.46,
+          "words": [
+            {
+              "text": " Ettney",
+              "start": 0.18,
+              "end": 0.72,
+              "probability": 0.4352213541666667
+            },
+            {
+              "text": " knows",
+              "start": 0.72,
+              "end": 1.0,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " in",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.5478515625
+            },
+            {
+              "text": " Dooka's",
+              "start": 1.2,
+              "end": 1.7,
+              "probability": 0.6746826171875
+            },
+            {
+              "text": " Intentationum.",
+              "start": 1.7,
+              "end": 2.46,
+              "probability": 0.70806884765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ettney",
+          "start": 0.18,
+          "end": 0.72
+        },
+        {
+          "raw": "knows",
+          "start": 0.72,
+          "end": 1.0
+        },
+        {
+          "raw": "in",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "Dooka's",
+          "start": 1.2,
+          "end": 1.7
+        },
+        {
+          "raw": "Intentationum.",
+          "start": 1.7,
+          "end": 2.46
+        }
+      ],
+      "expected_tokens": [
+        "_—Et",
+        "ne",
+        "nos",
+        "inducas",
+        "in",
+        "tentationem._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          "equal",
+          4,
+          5,
+          2,
+          3
+        ],
+        [
+          "replace",
+          5,
+          6,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ettney",
+          "start": 0.18,
+          "end": 0.72,
+          "key": "ettney",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 0.72,
+          "end": 1.0,
+          "key": "knows",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dooka's",
+          "start": 1.2,
+          "end": 1.7,
+          "key": "dookas",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Intentationum.",
+          "start": 1.7,
+          "end": 2.46,
+          "key": "intentationum",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—Et",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "ne",
+          "start": 0.5,
+          "end": 0.75
+        },
+        {
+          "text": "nos",
+          "start": 0.75,
+          "end": 0.875
+        },
+        {
+          "text": "inducas",
+          "start": 0.875,
+          "end": 0.938
+        },
+        {
+          "text": "in",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "tentationem._",
+          "start": 1.2,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 1
+      },
+      "match_ratio": 0.16666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12022058200091124
+    },
+    {
+      "asr_seconds": 0.11614536197157577,
+      "alignment_seconds": 0.00017251097597181797,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ettney knows in Dooka's Intentationum.",
+          "start": 0.18,
+          "end": 2.46,
+          "words": [
+            {
+              "text": " Ettney",
+              "start": 0.18,
+              "end": 0.72,
+              "probability": 0.4352213541666667
+            },
+            {
+              "text": " knows",
+              "start": 0.72,
+              "end": 1.0,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " in",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.5478515625
+            },
+            {
+              "text": " Dooka's",
+              "start": 1.2,
+              "end": 1.7,
+              "probability": 0.6746826171875
+            },
+            {
+              "text": " Intentationum.",
+              "start": 1.7,
+              "end": 2.46,
+              "probability": 0.70806884765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ettney",
+          "start": 0.18,
+          "end": 0.72
+        },
+        {
+          "raw": "knows",
+          "start": 0.72,
+          "end": 1.0
+        },
+        {
+          "raw": "in",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "Dooka's",
+          "start": 1.2,
+          "end": 1.7
+        },
+        {
+          "raw": "Intentationum.",
+          "start": 1.7,
+          "end": 2.46
+        }
+      ],
+      "expected_tokens": [
+        "_—Et",
+        "ne",
+        "nos",
+        "inducas",
+        "in",
+        "tentationem._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          "equal",
+          4,
+          5,
+          2,
+          3
+        ],
+        [
+          "replace",
+          5,
+          6,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ettney",
+          "start": 0.18,
+          "end": 0.72,
+          "key": "ettney",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 0.72,
+          "end": 1.0,
+          "key": "knows",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dooka's",
+          "start": 1.2,
+          "end": 1.7,
+          "key": "dookas",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Intentationum.",
+          "start": 1.7,
+          "end": 2.46,
+          "key": "intentationum",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—Et",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "ne",
+          "start": 0.5,
+          "end": 0.75
+        },
+        {
+          "text": "nos",
+          "start": 0.75,
+          "end": 0.875
+        },
+        {
+          "text": "inducas",
+          "start": 0.875,
+          "end": 0.938
+        },
+        {
+          "text": "in",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "tentationem._",
+          "start": 1.2,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 1
+      },
+      "match_ratio": 0.16666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11637502297526225
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "af9b5fbc30ff46ac5bf67a994dd7d2be8acc1cf2dadce421e3291a79da21e4da",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "23a50deef2d8cc2e8dd70adf9c675321726f838a9672ad9b26ca9851b799f5e5",
+  "attempts": [
+    {
+      "asr_seconds": 0.09114830940961838,
+      "alignment_seconds": 0.00011543929576873779,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Follow me not; stay here.",
+        "hotwords": "Lear, Follow"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, Follow me not, stay here.",
+          "start": 0.05,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.7314453125
+            },
+            {
+              "text": " Follow",
+              "start": 1.03,
+              "end": 1.15,
+              "probability": 0.0543212890625
+            },
+            {
+              "text": " me",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " not,",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " stay",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " here.",
+              "start": 1.75,
+              "end": 2.05,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Follow",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "raw": "me",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "not,",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "stay",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "here.",
+          "start": 1.75,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Follow",
+        "me",
+        "not;",
+        "stay",
+        "here."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Follow",
+          "start": 1.03,
+          "end": 1.15,
+          "key": "follow",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.15,
+          "end": 1.31,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "stay",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 1.75,
+          "end": 2.05,
+          "key": "here",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Follow",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "text": "me",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "not;",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "stay",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "text": "here.",
+          "start": 1.75,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09130427986383438
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0c3f075d59440a254d96c2d4a78844a920408164625324b381f95c44704cee44",
+  "selected_reasons": []
+}

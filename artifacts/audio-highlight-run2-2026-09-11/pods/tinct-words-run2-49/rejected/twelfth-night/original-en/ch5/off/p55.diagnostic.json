@@ -1,0 +1,498 @@
+{
+  "complete": true,
+  "signature": "3e00fa7bd71db1bed56eb2e204093e04ee96c6feb1cfed320776080b6bf995ed",
+  "attempts": [
+    {
+      "asr_seconds": 0.23544219136238098,
+      "alignment_seconds": 0.0006148628890514374,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, by mine honor, half drunk. What is he at the gate, cousin?",
+          "start": 0.05,
+          "end": 4.05,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.67236328125
+            },
+            {
+              "text": " by",
+              "start": 1.11,
+              "end": 1.29,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " mine",
+              "start": 1.29,
+              "end": 1.53,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " honor,",
+              "start": 1.53,
+              "end": 1.85,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " half",
+              "start": 1.93,
+              "end": 2.11,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " drunk.",
+              "start": 2.11,
+              "end": 2.43,
+              "probability": 0.6748046875
+            },
+            {
+              "text": " What",
+              "start": 3.03,
+              "end": 3.09,
+              "probability": 0.986328125
+            },
+            {
+              "text": " is",
+              "start": 3.09,
+              "end": 3.19,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " he",
+              "start": 3.19,
+              "end": 3.29,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " at",
+              "start": 3.29,
+              "end": 3.39,
+              "probability": 0.896484375
+            },
+            {
+              "text": " the",
+              "start": 3.39,
+              "end": 3.49,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " gate,",
+              "start": 3.49,
+              "end": 3.75,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " cousin?",
+              "start": 3.99,
+              "end": 4.05,
+              "probability": 0.83740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "by",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "raw": "mine",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "raw": "honor,",
+          "start": 1.53,
+          "end": 1.85
+        },
+        {
+          "raw": "half",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "raw": "drunk.",
+          "start": 2.11,
+          "end": 2.43
+        },
+        {
+          "raw": "What",
+          "start": 3.03,
+          "end": 3.09
+        },
+        {
+          "raw": "is",
+          "start": 3.09,
+          "end": 3.19
+        },
+        {
+          "raw": "he",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "raw": "at",
+          "start": 3.29,
+          "end": 3.39
+        },
+        {
+          "raw": "the",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "raw": "gate,",
+          "start": 3.49,
+          "end": 3.75
+        },
+        {
+          "raw": "cousin?",
+          "start": 3.99,
+          "end": 4.05
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "By",
+        "mine",
+        "honour,",
+        "half",
+        "drunk.",
+        "What",
+        "is",
+        "he",
+        "at",
+        "the",
+        "gate,",
+        "cousin?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          13,
+          4,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.11,
+          "end": 1.29,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 1.29,
+          "end": 1.53,
+          "key": "mine",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "honor,",
+          "start": 1.53,
+          "end": 1.85,
+          "key": "honor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "half",
+          "start": 1.93,
+          "end": 2.11,
+          "key": "half",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "drunk.",
+          "start": 2.11,
+          "end": 2.43,
+          "key": "drunk",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 3.03,
+          "end": 3.09,
+          "key": "what",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.09,
+          "end": 3.19,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.19,
+          "end": 3.29,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.29,
+          "end": 3.39,
+          "key": "at",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.39,
+          "end": 3.49,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "gate,",
+          "start": 3.49,
+          "end": 3.75,
+          "key": "gate",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "cousin?",
+          "start": 3.99,
+          "end": 4.05,
+          "key": "cousin",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "By",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "text": "mine",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "text": "honour,",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "text": "half",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "text": "drunk.",
+          "start": 2.11,
+          "end": 2.43
+        },
+        {
+          "text": "What",
+          "start": 3.03,
+          "end": 3.09
+        },
+        {
+          "text": "is",
+          "start": 3.09,
+          "end": 3.19
+        },
+        {
+          "text": "he",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "text": "at",
+          "start": 3.29,
+          "end": 3.39
+        },
+        {
+          "text": "the",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "text": "gate,",
+          "start": 3.49,
+          "end": 3.75
+        },
+        {
+          "text": "cousin?",
+          "start": 3.99,
+          "end": 4.05
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.23629381880164146
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9fca33f5fa00f21578194459816e30d99ab4627a3a306d907f492c3229b3cbeb",
+  "selected_reasons": []
+}

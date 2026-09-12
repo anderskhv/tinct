@@ -1,0 +1,1875 @@
+{
+  "complete": true,
+  "signature": "74adb3078c31452ac47036d3a2a8e7b76381808e4eb895274fa9d558f6bf374e",
+  "attempts": [
+    {
+      "asr_seconds": 0.6882183188572526,
+      "alignment_seconds": 0.0010250583291053772,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But, sir, when I said so to myself on rising this morning, and when I looked round the room to gather courage and comfort from the cheerful aspect of each familiar object in full daylight, there—on the carpet—I saw what gave the distinct lie to my hypothesis,—the veil, torn from top to bottom in two halves!\"",
+        "hotwords": "But, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But, sir, when I said so to myself on rising this morning, and when I looked round the room",
+          "start": 0.05,
+          "end": 5.27,
+          "words": [
+            {
+              "text": " But,",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.5986328125
+            },
+            {
+              "text": " sir,",
+              "start": 0.87,
+              "end": 0.89,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " when",
+              "start": 1.21,
+              "end": 1.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 1.31,
+              "end": 1.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " said",
+              "start": 1.47,
+              "end": 1.65,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " so",
+              "start": 1.65,
+              "end": 1.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.87,
+              "end": 2.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " myself",
+              "start": 2.01,
+              "end": 2.35,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " on",
+              "start": 2.35,
+              "end": 2.63,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " rising",
+              "start": 2.63,
+              "end": 2.93,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " this",
+              "start": 2.93,
+              "end": 3.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " morning,",
+              "start": 3.25,
+              "end": 3.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 4.09,
+              "end": 4.25,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " when",
+              "start": 4.25,
+              "end": 4.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 4.35,
+              "end": 4.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " looked",
+              "start": 4.51,
+              "end": 4.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " round",
+              "start": 4.67,
+              "end": 4.93,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " the",
+              "start": 4.93,
+              "end": 5.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " room",
+              "start": 5.09,
+              "end": 5.27,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " to gather courage and comfort from the cheerful aspect of each familiar object in full daylight,",
+          "start": 5.27,
+          "end": 10.41,
+          "words": [
+            {
+              "text": " to",
+              "start": 5.27,
+              "end": 5.49,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " gather",
+              "start": 5.49,
+              "end": 5.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " courage",
+              "start": 5.71,
+              "end": 6.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 6.19,
+              "end": 6.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " comfort",
+              "start": 6.47,
+              "end": 6.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " from",
+              "start": 6.85,
+              "end": 7.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 7.11,
+              "end": 7.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " cheerful",
+              "start": 7.25,
+              "end": 7.53,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " aspect",
+              "start": 7.53,
+              "end": 8.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 8.07,
+              "end": 8.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " each",
+              "start": 8.29,
+              "end": 8.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " familiar",
+              "start": 8.49,
+              "end": 8.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " object",
+              "start": 8.91,
+              "end": 9.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 9.47,
+              "end": 9.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " full",
+              "start": 9.75,
+              "end": 9.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " daylight,",
+              "start": 9.97,
+              "end": 10.41,
+              "probability": 0.98193359375
+            }
+          ]
+        },
+        {
+          "text": " there—on the carpet—I saw what gave the distinct lie to my hypothesis,—the veil,",
+          "start": 11.41,
+          "end": 16.79,
+          "words": [
+            {
+              "text": " there—on",
+              "start": 11.41,
+              "end": 11.93,
+              "probability": 0.654693603515625
+            },
+            {
+              "text": " the",
+              "start": 11.93,
+              "end": 12.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " carpet—I",
+              "start": 12.03,
+              "end": 13.13,
+              "probability": 0.9435221354166666
+            },
+            {
+              "text": " saw",
+              "start": 13.13,
+              "end": 13.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " what",
+              "start": 13.37,
+              "end": 13.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gave",
+              "start": 13.55,
+              "end": 13.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 13.71,
+              "end": 13.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " distinct",
+              "start": 13.89,
+              "end": 14.27,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lie",
+              "start": 14.27,
+              "end": 14.65,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 14.65,
+              "end": 14.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " my",
+              "start": 14.83,
+              "end": 14.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hypothesis,—the",
+              "start": 14.97,
+              "end": 16.41,
+              "probability": 0.6577835083007812
+            },
+            {
+              "text": " veil,",
+              "start": 16.41,
+              "end": 16.79,
+              "probability": 0.98828125
+            }
+          ]
+        },
+        {
+          "text": " torn from top to bottom in two halves!",
+          "start": 17.17,
+          "end": 19.29,
+          "words": [
+            {
+              "text": " torn",
+              "start": 17.17,
+              "end": 17.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " from",
+              "start": 17.43,
+              "end": 17.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " top",
+              "start": 17.69,
+              "end": 17.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 17.95,
+              "end": 18.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bottom",
+              "start": 18.21,
+              "end": 18.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 18.47,
+              "end": 18.71,
+              "probability": 0.9921875
+            },
+            {
+              "text": " two",
+              "start": 18.71,
+              "end": 18.93,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " halves!",
+              "start": 18.93,
+              "end": 19.29,
+              "probability": 0.97021484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "sir,",
+          "start": 0.87,
+          "end": 0.89
+        },
+        {
+          "raw": "when",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "raw": "I",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "raw": "said",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "raw": "so",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "raw": "to",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "raw": "myself",
+          "start": 2.01,
+          "end": 2.35
+        },
+        {
+          "raw": "on",
+          "start": 2.35,
+          "end": 2.63
+        },
+        {
+          "raw": "rising",
+          "start": 2.63,
+          "end": 2.93
+        },
+        {
+          "raw": "this",
+          "start": 2.93,
+          "end": 3.25
+        },
+        {
+          "raw": "morning,",
+          "start": 3.25,
+          "end": 3.59
+        },
+        {
+          "raw": "and",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "raw": "when",
+          "start": 4.25,
+          "end": 4.35
+        },
+        {
+          "raw": "I",
+          "start": 4.35,
+          "end": 4.51
+        },
+        {
+          "raw": "looked",
+          "start": 4.51,
+          "end": 4.67
+        },
+        {
+          "raw": "round",
+          "start": 4.67,
+          "end": 4.93
+        },
+        {
+          "raw": "the",
+          "start": 4.93,
+          "end": 5.09
+        },
+        {
+          "raw": "room",
+          "start": 5.09,
+          "end": 5.27
+        },
+        {
+          "raw": "to",
+          "start": 5.27,
+          "end": 5.49
+        },
+        {
+          "raw": "gather",
+          "start": 5.49,
+          "end": 5.71
+        },
+        {
+          "raw": "courage",
+          "start": 5.71,
+          "end": 6.19
+        },
+        {
+          "raw": "and",
+          "start": 6.19,
+          "end": 6.47
+        },
+        {
+          "raw": "comfort",
+          "start": 6.47,
+          "end": 6.85
+        },
+        {
+          "raw": "from",
+          "start": 6.85,
+          "end": 7.11
+        },
+        {
+          "raw": "the",
+          "start": 7.11,
+          "end": 7.25
+        },
+        {
+          "raw": "cheerful",
+          "start": 7.25,
+          "end": 7.53
+        },
+        {
+          "raw": "aspect",
+          "start": 7.53,
+          "end": 8.07
+        },
+        {
+          "raw": "of",
+          "start": 8.07,
+          "end": 8.29
+        },
+        {
+          "raw": "each",
+          "start": 8.29,
+          "end": 8.49
+        },
+        {
+          "raw": "familiar",
+          "start": 8.49,
+          "end": 8.91
+        },
+        {
+          "raw": "object",
+          "start": 8.91,
+          "end": 9.47
+        },
+        {
+          "raw": "in",
+          "start": 9.47,
+          "end": 9.75
+        },
+        {
+          "raw": "full",
+          "start": 9.75,
+          "end": 9.97
+        },
+        {
+          "raw": "daylight,",
+          "start": 9.97,
+          "end": 10.41
+        },
+        {
+          "raw": "there—on",
+          "start": 11.41,
+          "end": 11.93
+        },
+        {
+          "raw": "the",
+          "start": 11.93,
+          "end": 12.03
+        },
+        {
+          "raw": "carpet—I",
+          "start": 12.03,
+          "end": 13.13
+        },
+        {
+          "raw": "saw",
+          "start": 13.13,
+          "end": 13.37
+        },
+        {
+          "raw": "what",
+          "start": 13.37,
+          "end": 13.55
+        },
+        {
+          "raw": "gave",
+          "start": 13.55,
+          "end": 13.71
+        },
+        {
+          "raw": "the",
+          "start": 13.71,
+          "end": 13.89
+        },
+        {
+          "raw": "distinct",
+          "start": 13.89,
+          "end": 14.27
+        },
+        {
+          "raw": "lie",
+          "start": 14.27,
+          "end": 14.65
+        },
+        {
+          "raw": "to",
+          "start": 14.65,
+          "end": 14.83
+        },
+        {
+          "raw": "my",
+          "start": 14.83,
+          "end": 14.97
+        },
+        {
+          "raw": "hypothesis,—the",
+          "start": 14.97,
+          "end": 16.41
+        },
+        {
+          "raw": "veil,",
+          "start": 16.41,
+          "end": 16.79
+        },
+        {
+          "raw": "torn",
+          "start": 17.17,
+          "end": 17.43
+        },
+        {
+          "raw": "from",
+          "start": 17.43,
+          "end": 17.69
+        },
+        {
+          "raw": "top",
+          "start": 17.69,
+          "end": 17.95
+        },
+        {
+          "raw": "to",
+          "start": 17.95,
+          "end": 18.21
+        },
+        {
+          "raw": "bottom",
+          "start": 18.21,
+          "end": 18.47
+        },
+        {
+          "raw": "in",
+          "start": 18.47,
+          "end": 18.71
+        },
+        {
+          "raw": "two",
+          "start": 18.71,
+          "end": 18.93
+        },
+        {
+          "raw": "halves!",
+          "start": 18.93,
+          "end": 19.29
+        }
+      ],
+      "expected_tokens": [
+        "\"But,",
+        "sir,",
+        "when",
+        "I",
+        "said",
+        "so",
+        "to",
+        "myself",
+        "on",
+        "rising",
+        "this",
+        "morning,",
+        "and",
+        "when",
+        "I",
+        "looked",
+        "round",
+        "the",
+        "room",
+        "to",
+        "gather",
+        "courage",
+        "and",
+        "comfort",
+        "from",
+        "the",
+        "cheerful",
+        "aspect",
+        "of",
+        "each",
+        "familiar",
+        "object",
+        "in",
+        "full",
+        "daylight,",
+        "there—on",
+        "the",
+        "carpet—I",
+        "saw",
+        "what",
+        "gave",
+        "the",
+        "distinct",
+        "lie",
+        "to",
+        "my",
+        "hypothesis,—the",
+        "veil,",
+        "torn",
+        "from",
+        "top",
+        "to",
+        "bottom",
+        "in",
+        "two",
+        "halves!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          56,
+          0,
+          56
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But,",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 0.87,
+          "end": 0.89,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.21,
+          "end": 1.31,
+          "key": "when",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.31,
+          "end": 1.47,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.47,
+          "end": 1.65,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.65,
+          "end": 1.87,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.87,
+          "end": 2.01,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 2.01,
+          "end": 2.35,
+          "key": "myself",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.35,
+          "end": 2.63,
+          "key": "on",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "rising",
+          "start": 2.63,
+          "end": 2.93,
+          "key": "rising",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.93,
+          "end": 3.25,
+          "key": "this",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "morning,",
+          "start": 3.25,
+          "end": 3.59,
+          "key": "morning",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.09,
+          "end": 4.25,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.25,
+          "end": 4.35,
+          "key": "when",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.35,
+          "end": 4.51,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 4.51,
+          "end": 4.67,
+          "key": "looked",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 4.67,
+          "end": 4.93,
+          "key": "round",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.93,
+          "end": 5.09,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 5.09,
+          "end": 5.27,
+          "key": "room",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.27,
+          "end": 5.49,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "gather",
+          "start": 5.49,
+          "end": 5.71,
+          "key": "gather",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "courage",
+          "start": 5.71,
+          "end": 6.19,
+          "key": "courage",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.19,
+          "end": 6.47,
+          "key": "and",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "comfort",
+          "start": 6.47,
+          "end": 6.85,
+          "key": "comfort",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 6.85,
+          "end": 7.11,
+          "key": "from",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.11,
+          "end": 7.25,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "cheerful",
+          "start": 7.25,
+          "end": 7.53,
+          "key": "cheerful",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "aspect",
+          "start": 7.53,
+          "end": 8.07,
+          "key": "aspect",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.07,
+          "end": 8.29,
+          "key": "of",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 8.29,
+          "end": 8.49,
+          "key": "each",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "familiar",
+          "start": 8.49,
+          "end": 8.91,
+          "key": "familiar",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "object",
+          "start": 8.91,
+          "end": 9.47,
+          "key": "object",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.47,
+          "end": 9.75,
+          "key": "in",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "full",
+          "start": 9.75,
+          "end": 9.97,
+          "key": "full",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "daylight,",
+          "start": 9.97,
+          "end": 10.41,
+          "key": "daylight",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "there—on",
+          "start": 11.41,
+          "end": 11.93,
+          "key": "thereon",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.93,
+          "end": 12.03,
+          "key": "the",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "carpet—I",
+          "start": 12.03,
+          "end": 13.13,
+          "key": "carpeti",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 13.13,
+          "end": 13.37,
+          "key": "saw",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 13.37,
+          "end": 13.55,
+          "key": "what",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 13.55,
+          "end": 13.71,
+          "key": "gave",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.71,
+          "end": 13.89,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "distinct",
+          "start": 13.89,
+          "end": 14.27,
+          "key": "distinct",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "lie",
+          "start": 14.27,
+          "end": 14.65,
+          "key": "lie",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.65,
+          "end": 14.83,
+          "key": "to",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 14.83,
+          "end": 14.97,
+          "key": "my",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "hypothesis,—the",
+          "start": 14.97,
+          "end": 16.41,
+          "key": "hypothesisthe",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "veil,",
+          "start": 16.41,
+          "end": 16.79,
+          "key": "veil",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "torn",
+          "start": 17.17,
+          "end": 17.43,
+          "key": "torn",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 17.43,
+          "end": 17.69,
+          "key": "from",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "top",
+          "start": 17.69,
+          "end": 17.95,
+          "key": "top",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 17.95,
+          "end": 18.21,
+          "key": "to",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "bottom",
+          "start": 18.21,
+          "end": 18.47,
+          "key": "bottom",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 18.47,
+          "end": 18.71,
+          "key": "in",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 18.71,
+          "end": 18.93,
+          "key": "two",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "halves!",
+          "start": 18.93,
+          "end": 19.29,
+          "key": "halves",
+          "pieces": [
+            55
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "sir,",
+          "start": 0.87,
+          "end": 0.89
+        },
+        {
+          "text": "when",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "text": "I",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "text": "said",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "text": "so",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "text": "to",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "text": "myself",
+          "start": 2.01,
+          "end": 2.35
+        },
+        {
+          "text": "on",
+          "start": 2.35,
+          "end": 2.63
+        },
+        {
+          "text": "rising",
+          "start": 2.63,
+          "end": 2.93
+        },
+        {
+          "text": "this",
+          "start": 2.93,
+          "end": 3.25
+        },
+        {
+          "text": "morning,",
+          "start": 3.25,
+          "end": 3.59
+        },
+        {
+          "text": "and",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "text": "when",
+          "start": 4.25,
+          "end": 4.35
+        },
+        {
+          "text": "I",
+          "start": 4.35,
+          "end": 4.51
+        },
+        {
+          "text": "looked",
+          "start": 4.51,
+          "end": 4.67
+        },
+        {
+          "text": "round",
+          "start": 4.67,
+          "end": 4.93
+        },
+        {
+          "text": "the",
+          "start": 4.93,
+          "end": 5.09
+        },
+        {
+          "text": "room",
+          "start": 5.09,
+          "end": 5.27
+        },
+        {
+          "text": "to",
+          "start": 5.27,
+          "end": 5.49
+        },
+        {
+          "text": "gather",
+          "start": 5.49,
+          "end": 5.71
+        },
+        {
+          "text": "courage",
+          "start": 5.71,
+          "end": 6.19
+        },
+        {
+          "text": "and",
+          "start": 6.19,
+          "end": 6.47
+        },
+        {
+          "text": "comfort",
+          "start": 6.47,
+          "end": 6.85
+        },
+        {
+          "text": "from",
+          "start": 6.85,
+          "end": 7.11
+        },
+        {
+          "text": "the",
+          "start": 7.11,
+          "end": 7.25
+        },
+        {
+          "text": "cheerful",
+          "start": 7.25,
+          "end": 7.53
+        },
+        {
+          "text": "aspect",
+          "start": 7.53,
+          "end": 8.07
+        },
+        {
+          "text": "of",
+          "start": 8.07,
+          "end": 8.29
+        },
+        {
+          "text": "each",
+          "start": 8.29,
+          "end": 8.49
+        },
+        {
+          "text": "familiar",
+          "start": 8.49,
+          "end": 8.91
+        },
+        {
+          "text": "object",
+          "start": 8.91,
+          "end": 9.47
+        },
+        {
+          "text": "in",
+          "start": 9.47,
+          "end": 9.75
+        },
+        {
+          "text": "full",
+          "start": 9.75,
+          "end": 9.97
+        },
+        {
+          "text": "daylight,",
+          "start": 9.97,
+          "end": 10.41
+        },
+        {
+          "text": "there—on",
+          "start": 11.41,
+          "end": 11.93
+        },
+        {
+          "text": "the",
+          "start": 11.93,
+          "end": 12.03
+        },
+        {
+          "text": "carpet—I",
+          "start": 12.03,
+          "end": 13.13
+        },
+        {
+          "text": "saw",
+          "start": 13.13,
+          "end": 13.37
+        },
+        {
+          "text": "what",
+          "start": 13.37,
+          "end": 13.55
+        },
+        {
+          "text": "gave",
+          "start": 13.55,
+          "end": 13.71
+        },
+        {
+          "text": "the",
+          "start": 13.71,
+          "end": 13.89
+        },
+        {
+          "text": "distinct",
+          "start": 13.89,
+          "end": 14.27
+        },
+        {
+          "text": "lie",
+          "start": 14.27,
+          "end": 14.65
+        },
+        {
+          "text": "to",
+          "start": 14.65,
+          "end": 14.83
+        },
+        {
+          "text": "my",
+          "start": 14.83,
+          "end": 14.97
+        },
+        {
+          "text": "hypothesis,—the",
+          "start": 14.97,
+          "end": 16.41
+        },
+        {
+          "text": "veil,",
+          "start": 16.41,
+          "end": 16.79
+        },
+        {
+          "text": "torn",
+          "start": 17.17,
+          "end": 17.43
+        },
+        {
+          "text": "from",
+          "start": 17.43,
+          "end": 17.69
+        },
+        {
+          "text": "top",
+          "start": 17.69,
+          "end": 17.95
+        },
+        {
+          "text": "to",
+          "start": 17.95,
+          "end": 18.21
+        },
+        {
+          "text": "bottom",
+          "start": 18.21,
+          "end": 18.47
+        },
+        {
+          "text": "in",
+          "start": 18.47,
+          "end": 18.71
+        },
+        {
+          "text": "two",
+          "start": 18.71,
+          "end": 18.93
+        },
+        {
+          "text": "halves!\"",
+          "start": 18.93,
+          "end": 19.29
+        }
+      ],
+      "stats": {
+        "expected_words": 56,
+        "heard_words": 56,
+        "matched_words": 56
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6896865610033274
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c04d86aae9c9ef244dc578d3048886d8155469ed28059b16bbe5e7f22733294d",
+  "selected_reasons": []
+}

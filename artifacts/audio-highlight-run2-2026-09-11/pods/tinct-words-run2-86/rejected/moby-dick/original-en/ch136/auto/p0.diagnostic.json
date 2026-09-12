@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "56b51359b13e7ac601ab99f5510399a3cd05d4059aa6f3ba464ca7df8ec7333e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1816234365105629,
+      "alignment_seconds": 0.0003753378987312317,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And I Only Am Escaped Alone To Tell Thee\" Job.",
+        "hotwords": "And, I, Only, Am, Escaped, Alone, To, Tell, Thee, Job"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And I Only Am Escaped Alone To Tell Thee Job.",
+          "start": 0.08,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.64501953125
+            },
+            {
+              "text": " I",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Only",
+              "start": 0.64,
+              "end": 0.88,
+              "probability": 0.0002503395080566406
+            },
+            {
+              "text": " Am",
+              "start": 0.88,
+              "end": 1.08,
+              "probability": 0.48681640625
+            },
+            {
+              "text": " Escaped",
+              "start": 1.08,
+              "end": 1.46,
+              "probability": 0.90625
+            },
+            {
+              "text": " Alone",
+              "start": 1.46,
+              "end": 1.7,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " To",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.65673828125
+            },
+            {
+              "text": " Tell",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Thee",
+              "start": 2.1,
+              "end": 2.62,
+              "probability": 0.819091796875
+            },
+            {
+              "text": " Job.",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "I",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "Only",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "raw": "Am",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "raw": "Escaped",
+          "start": 1.08,
+          "end": 1.46
+        },
+        {
+          "raw": "Alone",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "raw": "To",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "Tell",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "Thee",
+          "start": 2.1,
+          "end": 2.62
+        },
+        {
+          "raw": "Job.",
+          "start": 2.62,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "I",
+        "Only",
+        "Am",
+        "Escaped",
+        "Alone",
+        "To",
+        "Tell",
+        "Thee\"",
+        "Job."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Only",
+          "start": 0.64,
+          "end": 0.88,
+          "key": "only",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Am",
+          "start": 0.88,
+          "end": 1.08,
+          "key": "am",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Escaped",
+          "start": 1.08,
+          "end": 1.46,
+          "key": "escaped",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Alone",
+          "start": 1.46,
+          "end": 1.7,
+          "key": "alone",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Tell",
+          "start": 1.92,
+          "end": 2.1,
+          "key": "tell",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Thee",
+          "start": 2.1,
+          "end": 2.62,
+          "key": "thee",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Job.",
+          "start": 2.62,
+          "end": 2.62,
+          "key": "job",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "I",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "Only",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "text": "Am",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "text": "Escaped",
+          "start": 1.08,
+          "end": 1.46
+        },
+        {
+          "text": "Alone",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "text": "To",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "Tell",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "text": "Thee\"",
+          "start": 2.1,
+          "end": 2.62
+        },
+        {
+          "text": "Job.",
+          "start": 2.62,
+          "end": 2.62
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1821223795413971
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ec2f3800e0f1423502459b61e651cc66d39133e1e4b5cc8cbc8d011f42b392f2",
+  "selected_reasons": []
+}

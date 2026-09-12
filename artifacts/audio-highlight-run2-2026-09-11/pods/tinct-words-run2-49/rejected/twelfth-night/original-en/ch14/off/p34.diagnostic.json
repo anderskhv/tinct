@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "83712b89d2ee0a8c0202383e94e8223be8f79221598b3b6948de88949f8bea67",
+  "attempts": [
+    {
+      "asr_seconds": 0.19066353514790535,
+      "alignment_seconds": 0.00040803104639053345,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, why this is very Midsummer Madness.",
+          "start": 0.05,
+          "end": 2.95,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " why",
+              "start": 1.23,
+              "end": 1.49,
+              "probability": 0.96875
+            },
+            {
+              "text": " this",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " is",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " very",
+              "start": 1.83,
+              "end": 2.09,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Midsummer",
+              "start": 2.09,
+              "end": 2.57,
+              "probability": 0.8245442708333334
+            },
+            {
+              "text": " Madness.",
+              "start": 2.57,
+              "end": 2.95,
+              "probability": 0.7587890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "why",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "raw": "this",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "is",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "raw": "very",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "raw": "Midsummer",
+          "start": 2.09,
+          "end": 2.57
+        },
+        {
+          "raw": "Madness.",
+          "start": 2.57,
+          "end": 2.95
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Why,",
+        "this",
+        "is",
+        "very",
+        "midsummer",
+        "madness."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.23,
+          "end": 1.49,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.49,
+          "end": 1.69,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.83,
+          "end": 2.09,
+          "key": "very",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Midsummer",
+          "start": 2.09,
+          "end": 2.57,
+          "key": "midsummer",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Madness.",
+          "start": 2.57,
+          "end": 2.95,
+          "key": "madness",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Why,",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "text": "this",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "is",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "text": "very",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "text": "midsummer",
+          "start": 2.09,
+          "end": 2.57
+        },
+        {
+          "text": "madness.",
+          "start": 2.57,
+          "end": 2.95
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19122399017214775
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "51cb10794856183e4e1ee3e402be9d735023f9954680847d5fb4d596f456051b",
+  "selected_reasons": []
+}

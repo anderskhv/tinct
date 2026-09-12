@@ -1,0 +1,722 @@
+{
+  "complete": true,
+  "signature": "fd30cc89bb1c6da1e57880583c8613f8764a678e3d4581dd2f05d42f29d21ff8",
+  "attempts": [
+    {
+      "asr_seconds": 0.31545247696340084,
+      "alignment_seconds": 0.0007573019247502089,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tell us if you're worth your salt and be damned to you, Patti Leonard said. Who gave it to you?",
+          "start": 0.08,
+          "end": 5.24,
+          "words": [
+            {
+              "text": " Tell",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.193115234375
+            },
+            {
+              "text": " us",
+              "start": 0.56,
+              "end": 0.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " if",
+              "start": 0.74,
+              "end": 0.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you're",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.994140625
+            },
+            {
+              "text": " worth",
+              "start": 1.04,
+              "end": 1.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " salt",
+              "start": 1.36,
+              "end": 1.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " be",
+              "start": 1.92,
+              "end": 2.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " damned",
+              "start": 2.08,
+              "end": 2.32,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " to",
+              "start": 2.32,
+              "end": 2.54,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you,",
+              "start": 2.54,
+              "end": 2.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Patti",
+              "start": 3.14,
+              "end": 3.34,
+              "probability": 0.697998046875
+            },
+            {
+              "text": " Leonard",
+              "start": 3.34,
+              "end": 3.52,
+              "probability": 0.908203125
+            },
+            {
+              "text": " said.",
+              "start": 3.52,
+              "end": 3.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Who",
+              "start": 4.34,
+              "end": 4.54,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " gave",
+              "start": 4.54,
+              "end": 4.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 4.72,
+              "end": 4.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 4.88,
+              "end": 5.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you?",
+              "start": 5.0,
+              "end": 5.24,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tell",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "us",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "raw": "if",
+          "start": 0.74,
+          "end": 0.86
+        },
+        {
+          "raw": "you're",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "raw": "worth",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "raw": "your",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "salt",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "raw": "and",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "be",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "raw": "damned",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "raw": "to",
+          "start": 2.32,
+          "end": 2.54
+        },
+        {
+          "raw": "you,",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "raw": "Patti",
+          "start": 3.14,
+          "end": 3.34
+        },
+        {
+          "raw": "Leonard",
+          "start": 3.34,
+          "end": 3.52
+        },
+        {
+          "raw": "said.",
+          "start": 3.52,
+          "end": 3.92
+        },
+        {
+          "raw": "Who",
+          "start": 4.34,
+          "end": 4.54
+        },
+        {
+          "raw": "gave",
+          "start": 4.54,
+          "end": 4.72
+        },
+        {
+          "raw": "it",
+          "start": 4.72,
+          "end": 4.88
+        },
+        {
+          "raw": "to",
+          "start": 4.88,
+          "end": 5.0
+        },
+        {
+          "raw": "you?",
+          "start": 5.0,
+          "end": 5.24
+        }
+      ],
+      "expected_tokens": [
+        "—Tell",
+        "us",
+        "if",
+        "you're",
+        "worth",
+        "your",
+        "salt",
+        "and",
+        "be",
+        "damned",
+        "to",
+        "you,",
+        "Paddy",
+        "Leonard",
+        "said.",
+        "Who",
+        "gave",
+        "it",
+        "to",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          20,
+          13,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tell",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "tell",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 0.56,
+          "end": 0.74,
+          "key": "us",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 0.74,
+          "end": 0.86,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you're",
+          "start": 0.86,
+          "end": 1.04,
+          "key": "youre",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "worth",
+          "start": 1.04,
+          "end": 1.18,
+          "key": "worth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "salt",
+          "start": 1.36,
+          "end": 1.7,
+          "key": "salt",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.92,
+          "end": 2.08,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "damned",
+          "start": 2.08,
+          "end": 2.32,
+          "key": "damned",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.32,
+          "end": 2.54,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 2.54,
+          "end": 2.76,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Patti",
+          "start": 3.14,
+          "end": 3.34,
+          "key": "patti",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Leonard",
+          "start": 3.34,
+          "end": 3.52,
+          "key": "leonard",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 3.52,
+          "end": 3.92,
+          "key": "said",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 4.34,
+          "end": 4.54,
+          "key": "who",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 4.54,
+          "end": 4.72,
+          "key": "gave",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.72,
+          "end": 4.88,
+          "key": "it",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.88,
+          "end": 5.0,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 5.0,
+          "end": 5.24,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Tell",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "us",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "text": "if",
+          "start": 0.74,
+          "end": 0.86
+        },
+        {
+          "text": "you're",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "text": "worth",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "text": "your",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "salt",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "text": "and",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "be",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "text": "damned",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "text": "to",
+          "start": 2.32,
+          "end": 2.54
+        },
+        {
+          "text": "you,",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "text": "Paddy",
+          "start": 2.76,
+          "end": 3.05
+        },
+        {
+          "text": "Leonard",
+          "start": 3.34,
+          "end": 3.52
+        },
+        {
+          "text": "said.",
+          "start": 3.52,
+          "end": 3.92
+        },
+        {
+          "text": "Who",
+          "start": 4.34,
+          "end": 4.54
+        },
+        {
+          "text": "gave",
+          "start": 4.54,
+          "end": 4.72
+        },
+        {
+          "text": "it",
+          "start": 4.72,
+          "end": 4.88
+        },
+        {
+          "text": "to",
+          "start": 4.88,
+          "end": 5.0
+        },
+        {
+          "text": "you?",
+          "start": 5.0,
+          "end": 5.24
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.3164383410476148
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aecd9527345bb69524f55ff8ba2eb89ea584b42bd8386d9b1d9fb8b0de1b6f6d",
+  "selected_reasons": []
+}

@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "870b03e451c758900b5f2adec0c063c3f258fc02a96f5ad7438df3ec2ebecc61",
+  "attempts": [
+    {
+      "asr_seconds": 0.12299631536006927,
+      "alignment_seconds": 0.00011995621025562286,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He smiled doubtingly, but patted her hand a little as thanks for her wanting to be kind to him.",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He smiled doubtingly, but patted her hand a little as thanks for her wanting to be kind to him.",
+          "start": 0.02,
+          "end": 5.44,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " smiled",
+              "start": 0.52,
+              "end": 0.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " doubtingly,",
+              "start": 0.98,
+              "end": 1.88,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " but",
+              "start": 2.04,
+              "end": 2.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " patted",
+              "start": 2.26,
+              "end": 2.56,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " her",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hand",
+              "start": 2.74,
+              "end": 3.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 3.08,
+              "end": 3.2,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " little",
+              "start": 3.2,
+              "end": 3.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 3.32,
+              "end": 3.52,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " thanks",
+              "start": 3.52,
+              "end": 3.82,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " for",
+              "start": 3.82,
+              "end": 4.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " her",
+              "start": 4.08,
+              "end": 4.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wanting",
+              "start": 4.2,
+              "end": 4.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 4.46,
+              "end": 4.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 4.64,
+              "end": 4.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " kind",
+              "start": 4.76,
+              "end": 5.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 5.02,
+              "end": 5.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him.",
+              "start": 5.2,
+              "end": 5.44,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "smiled",
+          "start": 0.52,
+          "end": 0.98
+        },
+        {
+          "raw": "doubtingly,",
+          "start": 0.98,
+          "end": 1.88
+        },
+        {
+          "raw": "but",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "raw": "patted",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "raw": "her",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "hand",
+          "start": 2.74,
+          "end": 3.08
+        },
+        {
+          "raw": "a",
+          "start": 3.08,
+          "end": 3.2
+        },
+        {
+          "raw": "little",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "raw": "as",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "raw": "thanks",
+          "start": 3.52,
+          "end": 3.82
+        },
+        {
+          "raw": "for",
+          "start": 3.82,
+          "end": 4.08
+        },
+        {
+          "raw": "her",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "raw": "wanting",
+          "start": 4.2,
+          "end": 4.46
+        },
+        {
+          "raw": "to",
+          "start": 4.46,
+          "end": 4.64
+        },
+        {
+          "raw": "be",
+          "start": 4.64,
+          "end": 4.76
+        },
+        {
+          "raw": "kind",
+          "start": 4.76,
+          "end": 5.02
+        },
+        {
+          "raw": "to",
+          "start": 5.02,
+          "end": 5.2
+        },
+        {
+          "raw": "him.",
+          "start": 5.2,
+          "end": 5.44
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "smiled",
+        "doubtingly,",
+        "but",
+        "patted",
+        "her",
+        "hand",
+        "a",
+        "little",
+        "as",
+        "thanks",
+        "for",
+        "her",
+        "wanting",
+        "to",
+        "be",
+        "kind",
+        "to",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "smiled",
+          "start": 0.52,
+          "end": 0.98,
+          "key": "smiled",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "doubtingly,",
+          "start": 0.98,
+          "end": 1.88,
+          "key": "doubtingly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.04,
+          "end": 2.26,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "patted",
+          "start": 2.26,
+          "end": 2.56,
+          "key": "patted",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.56,
+          "end": 2.74,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 2.74,
+          "end": 3.08,
+          "key": "hand",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.08,
+          "end": 3.2,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 3.2,
+          "end": 3.32,
+          "key": "little",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.32,
+          "end": 3.52,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thanks",
+          "start": 3.52,
+          "end": 3.82,
+          "key": "thanks",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.82,
+          "end": 4.08,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.08,
+          "end": 4.2,
+          "key": "her",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "wanting",
+          "start": 4.2,
+          "end": 4.46,
+          "key": "wanting",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.46,
+          "end": 4.64,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.64,
+          "end": 4.76,
+          "key": "be",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 4.76,
+          "end": 5.02,
+          "key": "kind",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.02,
+          "end": 5.2,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 5.2,
+          "end": 5.44,
+          "key": "him",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "smiled",
+          "start": 0.52,
+          "end": 0.98
+        },
+        {
+          "text": "doubtingly,",
+          "start": 0.98,
+          "end": 1.88
+        },
+        {
+          "text": "but",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "text": "patted",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "text": "her",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "hand",
+          "start": 2.74,
+          "end": 3.08
+        },
+        {
+          "text": "a",
+          "start": 3.08,
+          "end": 3.2
+        },
+        {
+          "text": "little",
+          "start": 3.2,
+          "end": 3.32
+        },
+        {
+          "text": "as",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "text": "thanks",
+          "start": 3.52,
+          "end": 3.82
+        },
+        {
+          "text": "for",
+          "start": 3.82,
+          "end": 4.08
+        },
+        {
+          "text": "her",
+          "start": 4.08,
+          "end": 4.2
+        },
+        {
+          "text": "wanting",
+          "start": 4.2,
+          "end": 4.46
+        },
+        {
+          "text": "to",
+          "start": 4.46,
+          "end": 4.64
+        },
+        {
+          "text": "be",
+          "start": 4.64,
+          "end": 4.76
+        },
+        {
+          "text": "kind",
+          "start": 4.76,
+          "end": 5.02
+        },
+        {
+          "text": "to",
+          "start": 5.02,
+          "end": 5.2
+        },
+        {
+          "text": "him.",
+          "start": 5.2,
+          "end": 5.44
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12316751480102539
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2bbc050a187857681f263bd62d569f551e67704ae56239c745658bde94c5f2a7",
+  "selected_reasons": []
+}

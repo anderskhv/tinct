@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "592eca0b60e4dc42d01e3df9f9d2c8bc32d7bc2cb8972105fd4dfb5269948f0b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2777237771078944,
+      "alignment_seconds": 0.00028414931148290634,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Soothsayer in nature's infinite book of secrecy a little I can read",
+          "start": 0.08,
+          "end": 4.34,
+          "words": [
+            {
+              "text": " Soothsayer",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.7255859375
+            },
+            {
+              "text": " in",
+              "start": 1.0,
+              "end": 1.64,
+              "probability": 0.2822265625
+            },
+            {
+              "text": " nature's",
+              "start": 1.64,
+              "end": 2.08,
+              "probability": 0.914306640625
+            },
+            {
+              "text": " infinite",
+              "start": 2.08,
+              "end": 2.36,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " book",
+              "start": 2.36,
+              "end": 2.64,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " of",
+              "start": 2.64,
+              "end": 2.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " secrecy",
+              "start": 2.78,
+              "end": 3.22,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " a",
+              "start": 3.22,
+              "end": 3.52,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " little",
+              "start": 3.52,
+              "end": 3.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 3.64,
+              "end": 3.8,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " can",
+              "start": 3.8,
+              "end": 3.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " read",
+              "start": 3.98,
+              "end": 4.34,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soothsayer",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "in",
+          "start": 1.0,
+          "end": 1.64
+        },
+        {
+          "raw": "nature's",
+          "start": 1.64,
+          "end": 2.08
+        },
+        {
+          "raw": "infinite",
+          "start": 2.08,
+          "end": 2.36
+        },
+        {
+          "raw": "book",
+          "start": 2.36,
+          "end": 2.64
+        },
+        {
+          "raw": "of",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "raw": "secrecy",
+          "start": 2.78,
+          "end": 3.22
+        },
+        {
+          "raw": "a",
+          "start": 3.22,
+          "end": 3.52
+        },
+        {
+          "raw": "little",
+          "start": 3.52,
+          "end": 3.64
+        },
+        {
+          "raw": "I",
+          "start": 3.64,
+          "end": 3.8
+        },
+        {
+          "raw": "can",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "raw": "read",
+          "start": 3.98,
+          "end": 4.34
+        }
+      ],
+      "expected_tokens": [
+        "Soothsayer.",
+        "In",
+        "nature's",
+        "infinite",
+        "book",
+        "of",
+        "secrecy",
+        "A",
+        "little",
+        "I",
+        "can",
+        "read."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soothsayer",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "soothsayer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.0,
+          "end": 1.64,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nature's",
+          "start": 1.64,
+          "end": 2.08,
+          "key": "natures",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "infinite",
+          "start": 2.08,
+          "end": 2.36,
+          "key": "infinite",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "book",
+          "start": 2.36,
+          "end": 2.64,
+          "key": "book",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.64,
+          "end": 2.78,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "secrecy",
+          "start": 2.78,
+          "end": 3.22,
+          "key": "secrecy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.22,
+          "end": 3.52,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 3.52,
+          "end": 3.64,
+          "key": "little",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.64,
+          "end": 3.8,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 3.8,
+          "end": 3.98,
+          "key": "can",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 3.98,
+          "end": 4.34,
+          "key": "read",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Soothsayer.",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "text": "In",
+          "start": 1.0,
+          "end": 1.64
+        },
+        {
+          "text": "nature's",
+          "start": 1.64,
+          "end": 2.08
+        },
+        {
+          "text": "infinite",
+          "start": 2.08,
+          "end": 2.36
+        },
+        {
+          "text": "book",
+          "start": 2.36,
+          "end": 2.64
+        },
+        {
+          "text": "of",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "text": "secrecy",
+          "start": 2.78,
+          "end": 3.22
+        },
+        {
+          "text": "A",
+          "start": 3.22,
+          "end": 3.52
+        },
+        {
+          "text": "little",
+          "start": 3.52,
+          "end": 3.64
+        },
+        {
+          "text": "I",
+          "start": 3.64,
+          "end": 3.8
+        },
+        {
+          "text": "can",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "text": "read.",
+          "start": 3.98,
+          "end": 4.34
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2781331241130829
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "02eba183c5a7e0c36f03abf2c09a6ab4673aa958c54832cd1eaf11b167a56919",
+  "selected_reasons": []
+}

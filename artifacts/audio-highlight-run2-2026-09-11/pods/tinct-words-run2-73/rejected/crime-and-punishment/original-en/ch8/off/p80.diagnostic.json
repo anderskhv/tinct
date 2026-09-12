@@ -1,0 +1,611 @@
+{
+  "complete": true,
+  "signature": "c7476e034c6b750b5c1f1ab95c1ce3e1b73f8f6a3d90bd5b7ff493786763881f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2729963297024369,
+      "alignment_seconds": 0.0006149411201477051,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " By degrees, he began to regain confidence.",
+          "start": 0.08,
+          "end": 2.7,
+          "words": [
+            {
+              "text": " By",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.9453125
+            },
+            {
+              "text": " degrees,",
+              "start": 0.54,
+              "end": 0.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " he",
+              "start": 1.16,
+              "end": 1.3,
+              "probability": 0.9921875
+            },
+            {
+              "text": " began",
+              "start": 1.3,
+              "end": 1.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " regain",
+              "start": 1.78,
+              "end": 2.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " confidence.",
+              "start": 2.08,
+              "end": 2.7,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " He kept urging himself to have courage and be calm.",
+          "start": 3.28,
+          "end": 5.88,
+          "words": [
+            {
+              "text": " He",
+              "start": 3.28,
+              "end": 3.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " kept",
+              "start": 3.36,
+              "end": 3.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " urging",
+              "start": 3.56,
+              "end": 3.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " himself",
+              "start": 3.9,
+              "end": 4.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 4.3,
+              "end": 4.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " have",
+              "start": 4.52,
+              "end": 4.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " courage",
+              "start": 4.7,
+              "end": 5.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 5.06,
+              "end": 5.38,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " be",
+              "start": 5.38,
+              "end": 5.52,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " calm.",
+              "start": 5.52,
+              "end": 5.88,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "By",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "degrees,",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "raw": "he",
+          "start": 1.16,
+          "end": 1.3
+        },
+        {
+          "raw": "began",
+          "start": 1.3,
+          "end": 1.58
+        },
+        {
+          "raw": "to",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "regain",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "raw": "confidence.",
+          "start": 2.08,
+          "end": 2.7
+        },
+        {
+          "raw": "He",
+          "start": 3.28,
+          "end": 3.36
+        },
+        {
+          "raw": "kept",
+          "start": 3.36,
+          "end": 3.56
+        },
+        {
+          "raw": "urging",
+          "start": 3.56,
+          "end": 3.9
+        },
+        {
+          "raw": "himself",
+          "start": 3.9,
+          "end": 4.3
+        },
+        {
+          "raw": "to",
+          "start": 4.3,
+          "end": 4.52
+        },
+        {
+          "raw": "have",
+          "start": 4.52,
+          "end": 4.7
+        },
+        {
+          "raw": "courage",
+          "start": 4.7,
+          "end": 5.06
+        },
+        {
+          "raw": "and",
+          "start": 5.06,
+          "end": 5.38
+        },
+        {
+          "raw": "be",
+          "start": 5.38,
+          "end": 5.52
+        },
+        {
+          "raw": "calm.",
+          "start": 5.52,
+          "end": 5.88
+        }
+      ],
+      "expected_tokens": [
+        "By",
+        "degrees",
+        "he",
+        "began",
+        "to",
+        "regain",
+        "confidence,",
+        "he",
+        "kept",
+        "urging",
+        "himself",
+        "to",
+        "have",
+        "courage",
+        "and",
+        "be",
+        "calm."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "By",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "by",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "degrees,",
+          "start": 0.54,
+          "end": 0.94,
+          "key": "degrees",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.16,
+          "end": 1.3,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 1.3,
+          "end": 1.58,
+          "key": "began",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "regain",
+          "start": 1.78,
+          "end": 2.08,
+          "key": "regain",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "confidence.",
+          "start": 2.08,
+          "end": 2.7,
+          "key": "confidence",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.28,
+          "end": 3.36,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "kept",
+          "start": 3.36,
+          "end": 3.56,
+          "key": "kept",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "urging",
+          "start": 3.56,
+          "end": 3.9,
+          "key": "urging",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 3.9,
+          "end": 4.3,
+          "key": "himself",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.3,
+          "end": 4.52,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.52,
+          "end": 4.7,
+          "key": "have",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "courage",
+          "start": 4.7,
+          "end": 5.06,
+          "key": "courage",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.06,
+          "end": 5.38,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.38,
+          "end": 5.52,
+          "key": "be",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "calm.",
+          "start": 5.52,
+          "end": 5.88,
+          "key": "calm",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "By",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "degrees",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "text": "he",
+          "start": 1.16,
+          "end": 1.3
+        },
+        {
+          "text": "began",
+          "start": 1.3,
+          "end": 1.58
+        },
+        {
+          "text": "to",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "regain",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "text": "confidence,",
+          "start": 2.08,
+          "end": 2.7
+        },
+        {
+          "text": "he",
+          "start": 3.28,
+          "end": 3.36
+        },
+        {
+          "text": "kept",
+          "start": 3.36,
+          "end": 3.56
+        },
+        {
+          "text": "urging",
+          "start": 3.56,
+          "end": 3.9
+        },
+        {
+          "text": "himself",
+          "start": 3.9,
+          "end": 4.3
+        },
+        {
+          "text": "to",
+          "start": 4.3,
+          "end": 4.52
+        },
+        {
+          "text": "have",
+          "start": 4.52,
+          "end": 4.7
+        },
+        {
+          "text": "courage",
+          "start": 4.7,
+          "end": 5.06
+        },
+        {
+          "text": "and",
+          "start": 5.06,
+          "end": 5.38
+        },
+        {
+          "text": "be",
+          "start": 5.38,
+          "end": 5.52
+        },
+        {
+          "text": "calm.",
+          "start": 5.52,
+          "end": 5.88
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2738697174936533
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "81d6f49a9e40515dd91437b3de7dc4116244459ffdc7766cd56a63baae474e2c",
+  "selected_reasons": []
+}

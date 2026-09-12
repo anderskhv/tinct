@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "e8b169b20000c0c4ec3961cbf0ffc39319ac07219163ea8ce6c2226d502e474d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1650244491174817,
+      "alignment_seconds": 0.00012665893882513046,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " When love absorbs my ardent soul.",
+          "start": 0.05,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " When",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.48828125
+            },
+            {
+              "text": " love",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.927734375
+            },
+            {
+              "text": " absorbs",
+              "start": 0.81,
+              "end": 1.21,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " my",
+              "start": 1.21,
+              "end": 1.45,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " ardent",
+              "start": 1.45,
+              "end": 1.67,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " soul.",
+              "start": 1.67,
+              "end": 1.97,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "When",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "love",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "raw": "absorbs",
+          "start": 0.81,
+          "end": 1.21
+        },
+        {
+          "raw": "my",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "raw": "ardent",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "raw": "soul.",
+          "start": 1.67,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "—_When",
+        "love",
+        "absorbs",
+        "my",
+        "ardent",
+        "soul_..."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "When",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "when",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 0.53,
+          "end": 0.81,
+          "key": "love",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "absorbs",
+          "start": 0.81,
+          "end": 1.21,
+          "key": "absorbs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.21,
+          "end": 1.45,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ardent",
+          "start": 1.45,
+          "end": 1.67,
+          "key": "ardent",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "soul.",
+          "start": 1.67,
+          "end": 1.97,
+          "key": "soul",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_When",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "love",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "text": "absorbs",
+          "start": 0.81,
+          "end": 1.21
+        },
+        {
+          "text": "my",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "text": "ardent",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "text": "soul_...",
+          "start": 1.67,
+          "end": 1.97
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16519214818254113
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8c8f3456c6664aca79797cd95257f2c7b34a6f71d0b887ff70bd71a91758bd2d",
+  "selected_reasons": []
+}

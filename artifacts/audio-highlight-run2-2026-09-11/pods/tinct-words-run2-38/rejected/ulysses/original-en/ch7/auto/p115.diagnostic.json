@@ -1,0 +1,1351 @@
+{
+  "complete": true,
+  "signature": "7754551b3667d66049189569b8cf8077f63c0e71b0f3bc9108dddde2809a5ac8",
+  "attempts": [
+    {
+      "asr_seconds": 0.1412594200228341,
+      "alignment_seconds": 0.00021746096899732947,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—_The pensive bosom and the overarsing leafage_. O boys! O boys!",
+        "hotwords": "O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The pensive bosom and the overarsing leafage_. O boys! O boys!",
+          "start": 0.11,
+          "end": 4.35,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.11,
+              "end": 0.49,
+              "probability": 0.6640625
+            },
+            {
+              "text": " pensive",
+              "start": 0.49,
+              "end": 0.83,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " bosom",
+              "start": 0.83,
+              "end": 1.27,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " and",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " the",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " overarsing",
+              "start": 1.55,
+              "end": 2.13,
+              "probability": 0.4655965169270833
+            },
+            {
+              "text": " leafage_.",
+              "start": 2.13,
+              "end": 3.15,
+              "probability": 0.6422526041666666
+            },
+            {
+              "text": " O",
+              "start": 3.15,
+              "end": 3.21,
+              "probability": 0.394287109375
+            },
+            {
+              "text": " boys!",
+              "start": 3.21,
+              "end": 3.55,
+              "probability": 0.305419921875
+            },
+            {
+              "text": " O",
+              "start": 4.01,
+              "end": 4.11,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " boys!",
+              "start": 4.11,
+              "end": 4.35,
+              "probability": 0.9287109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.11,
+          "end": 0.49
+        },
+        {
+          "raw": "pensive",
+          "start": 0.49,
+          "end": 0.83
+        },
+        {
+          "raw": "bosom",
+          "start": 0.83,
+          "end": 1.27
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "the",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "overarsing",
+          "start": 1.55,
+          "end": 2.13
+        },
+        {
+          "raw": "leafage_.",
+          "start": 2.13,
+          "end": 3.15
+        },
+        {
+          "raw": "O",
+          "start": 3.15,
+          "end": 3.21
+        },
+        {
+          "raw": "boys!",
+          "start": 3.21,
+          "end": 3.55
+        },
+        {
+          "raw": "O",
+          "start": 4.01,
+          "end": 4.11
+        },
+        {
+          "raw": "boys!",
+          "start": 4.11,
+          "end": 4.35
+        }
+      ],
+      "expected_tokens": [
+        "—_The",
+        "pensive",
+        "bosom",
+        "and",
+        "the",
+        "overarsing",
+        "leafage_.",
+        "O",
+        "boys!",
+        "O",
+        "boys!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          11,
+          7,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.11,
+          "end": 0.49,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pensive",
+          "start": 0.49,
+          "end": 0.83,
+          "key": "pensive",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bosom",
+          "start": 0.83,
+          "end": 1.27,
+          "key": "bosom",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "overarsing",
+          "start": 1.55,
+          "end": 2.13,
+          "key": "overarsing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "leafage_.",
+          "start": 2.13,
+          "end": 3.15,
+          "key": "leafage_",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 3.15,
+          "end": 3.21,
+          "key": "o",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "boys!",
+          "start": 3.21,
+          "end": 3.55,
+          "key": "boys",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 4.01,
+          "end": 4.11,
+          "key": "o",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "boys!",
+          "start": 4.11,
+          "end": 4.35,
+          "key": "boys",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_The",
+          "start": 0.11,
+          "end": 0.49
+        },
+        {
+          "text": "pensive",
+          "start": 0.49,
+          "end": 0.83
+        },
+        {
+          "text": "bosom",
+          "start": 0.83,
+          "end": 1.27
+        },
+        {
+          "text": "and",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "the",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "overarsing",
+          "start": 1.55,
+          "end": 2.13
+        },
+        {
+          "text": "leafage_.",
+          "start": 2.13,
+          "end": 2.64
+        },
+        {
+          "text": "O",
+          "start": 3.15,
+          "end": 3.21
+        },
+        {
+          "text": "boys!",
+          "start": 3.21,
+          "end": 3.55
+        },
+        {
+          "text": "O",
+          "start": 4.01,
+          "end": 4.11
+        },
+        {
+          "text": "boys!",
+          "start": 4.11,
+          "end": 4.35
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.14155204204143956
+    },
+    {
+      "asr_seconds": 0.1485278100008145,
+      "alignment_seconds": 0.00030921102734282613,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "O"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " The pensive bosom and the overarching leafage. O boys, O boys.",
+          "start": 0.11,
+          "end": 4.37,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.11,
+              "end": 0.49,
+              "probability": 0.6640625
+            },
+            {
+              "text": " pensive",
+              "start": 0.49,
+              "end": 0.83,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " bosom",
+              "start": 0.83,
+              "end": 1.27,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " and",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " the",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " overarching",
+              "start": 1.55,
+              "end": 1.97,
+              "probability": 0.642578125
+            },
+            {
+              "text": " leafage.",
+              "start": 1.97,
+              "end": 2.67,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " O",
+              "start": 3.15,
+              "end": 3.21,
+              "probability": 0.57080078125
+            },
+            {
+              "text": " boys,",
+              "start": 3.21,
+              "end": 3.55,
+              "probability": 0.341796875
+            },
+            {
+              "text": " O",
+              "start": 4.03,
+              "end": 4.11,
+              "probability": 0.6533203125
+            },
+            {
+              "text": " boys.",
+              "start": 4.11,
+              "end": 4.37,
+              "probability": 0.95166015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.11,
+          "end": 0.49
+        },
+        {
+          "raw": "pensive",
+          "start": 0.49,
+          "end": 0.83
+        },
+        {
+          "raw": "bosom",
+          "start": 0.83,
+          "end": 1.27
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "the",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "overarching",
+          "start": 1.55,
+          "end": 1.97
+        },
+        {
+          "raw": "leafage.",
+          "start": 1.97,
+          "end": 2.67
+        },
+        {
+          "raw": "O",
+          "start": 3.15,
+          "end": 3.21
+        },
+        {
+          "raw": "boys,",
+          "start": 3.21,
+          "end": 3.55
+        },
+        {
+          "raw": "O",
+          "start": 4.03,
+          "end": 4.11
+        },
+        {
+          "raw": "boys.",
+          "start": 4.11,
+          "end": 4.37
+        }
+      ],
+      "expected_tokens": [
+        "—_The",
+        "pensive",
+        "bosom",
+        "and",
+        "the",
+        "overarsing",
+        "leafage_.",
+        "O",
+        "boys!",
+        "O",
+        "boys!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          11,
+          6,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.11,
+          "end": 0.49,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pensive",
+          "start": 0.49,
+          "end": 0.83,
+          "key": "pensive",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bosom",
+          "start": 0.83,
+          "end": 1.27,
+          "key": "bosom",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "overarching",
+          "start": 1.55,
+          "end": 1.97,
+          "key": "overarching",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "leafage.",
+          "start": 1.97,
+          "end": 2.67,
+          "key": "leafage",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 3.15,
+          "end": 3.21,
+          "key": "o",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "boys,",
+          "start": 3.21,
+          "end": 3.55,
+          "key": "boys",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 4.03,
+          "end": 4.11,
+          "key": "o",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "boys.",
+          "start": 4.11,
+          "end": 4.37,
+          "key": "boys",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_The",
+          "start": 0.11,
+          "end": 0.49
+        },
+        {
+          "text": "pensive",
+          "start": 0.49,
+          "end": 0.83
+        },
+        {
+          "text": "bosom",
+          "start": 0.83,
+          "end": 1.27
+        },
+        {
+          "text": "and",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "the",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "overarsing",
+          "start": 1.55,
+          "end": 1.76
+        },
+        {
+          "text": "leafage_.",
+          "start": 1.97,
+          "end": 2.67
+        },
+        {
+          "text": "O",
+          "start": 3.15,
+          "end": 3.21
+        },
+        {
+          "text": "boys!",
+          "start": 3.21,
+          "end": 3.55
+        },
+        {
+          "text": "O",
+          "start": 4.03,
+          "end": 4.11
+        },
+        {
+          "text": "boys!",
+          "start": 4.11,
+          "end": 4.37
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.1489305030554533
+    },
+    {
+      "asr_seconds": 0.17066364496713504,
+      "alignment_seconds": 0.00027568102814257145,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The pensive bosom and the over-arsing leafage, oh boys, oh boys.",
+          "start": 0.11,
+          "end": 4.43,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.11,
+              "end": 0.49,
+              "probability": 0.6640625
+            },
+            {
+              "text": " pensive",
+              "start": 0.49,
+              "end": 0.83,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " bosom",
+              "start": 0.83,
+              "end": 1.27,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " and",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " the",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " over",
+              "start": 1.55,
+              "end": 1.75,
+              "probability": 0.343994140625
+            },
+            {
+              "text": "-arsing",
+              "start": 1.75,
+              "end": 2.13,
+              "probability": 0.8294270833333334
+            },
+            {
+              "text": " leafage,",
+              "start": 2.13,
+              "end": 2.67,
+              "probability": 0.959716796875
+            },
+            {
+              "text": " oh",
+              "start": 3.17,
+              "end": 3.21,
+              "probability": 0.38720703125
+            },
+            {
+              "text": " boys,",
+              "start": 3.21,
+              "end": 3.57,
+              "probability": 0.541015625
+            },
+            {
+              "text": " oh",
+              "start": 4.03,
+              "end": 4.11,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " boys.",
+              "start": 4.11,
+              "end": 4.43,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.11,
+          "end": 0.49
+        },
+        {
+          "raw": "pensive",
+          "start": 0.49,
+          "end": 0.83
+        },
+        {
+          "raw": "bosom",
+          "start": 0.83,
+          "end": 1.27
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "the",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "over",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "raw": "-arsing",
+          "start": 1.75,
+          "end": 2.13
+        },
+        {
+          "raw": "leafage,",
+          "start": 2.13,
+          "end": 2.67
+        },
+        {
+          "raw": "oh",
+          "start": 3.17,
+          "end": 3.21
+        },
+        {
+          "raw": "boys,",
+          "start": 3.21,
+          "end": 3.57
+        },
+        {
+          "raw": "oh",
+          "start": 4.03,
+          "end": 4.11
+        },
+        {
+          "raw": "boys.",
+          "start": 4.11,
+          "end": 4.43
+        }
+      ],
+      "expected_tokens": [
+        "—_The",
+        "pensive",
+        "bosom",
+        "and",
+        "the",
+        "overarsing",
+        "leafage_.",
+        "O",
+        "boys!",
+        "O",
+        "boys!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          9
+        ],
+        [
+          "equal",
+          8,
+          9,
+          9,
+          10
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          11
+        ],
+        [
+          "equal",
+          10,
+          11,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.11,
+          "end": 0.49,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pensive",
+          "start": 0.49,
+          "end": 0.83,
+          "key": "pensive",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bosom",
+          "start": 0.83,
+          "end": 1.27,
+          "key": "bosom",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 1.55,
+          "end": 1.75,
+          "key": "over",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "-arsing",
+          "start": 1.75,
+          "end": 2.13,
+          "key": "arsing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "leafage,",
+          "start": 2.13,
+          "end": 2.67,
+          "key": "leafage",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 3.17,
+          "end": 3.21,
+          "key": "oh",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "boys,",
+          "start": 3.21,
+          "end": 3.57,
+          "key": "boys",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 4.03,
+          "end": 4.11,
+          "key": "oh",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "boys.",
+          "start": 4.11,
+          "end": 4.43,
+          "key": "boys",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_The",
+          "start": 0.11,
+          "end": 0.49
+        },
+        {
+          "text": "pensive",
+          "start": 0.49,
+          "end": 0.83
+        },
+        {
+          "text": "bosom",
+          "start": 0.83,
+          "end": 1.27
+        },
+        {
+          "text": "and",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "the",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "overarsing",
+          "start": 1.55,
+          "end": 1.84
+        },
+        {
+          "text": "leafage_.",
+          "start": 2.13,
+          "end": 2.67
+        },
+        {
+          "text": "O",
+          "start": 2.67,
+          "end": 2.94
+        },
+        {
+          "text": "boys!",
+          "start": 3.21,
+          "end": 3.57
+        },
+        {
+          "text": "O",
+          "start": 3.57,
+          "end": 3.84
+        },
+        {
+          "text": "boys!",
+          "start": 4.11,
+          "end": 4.43
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 8
+      },
+      "match_ratio": 0.7272727272727273,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17102884699124843
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1bf34f1997464ce44aad506b42968ff760e19ddcefe401dd25cef058740c830e",
+  "selected_reasons": []
+}

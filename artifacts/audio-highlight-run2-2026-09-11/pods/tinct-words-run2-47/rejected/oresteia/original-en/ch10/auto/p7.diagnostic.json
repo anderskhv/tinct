@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "b2b291f87a3fe109b0c05072ebaf01236c7f7e3d9d89c073a2b66ffb0958e9ae",
+  "attempts": [
+    {
+      "asr_seconds": 0.2399570599955041,
+      "alignment_seconds": 0.0004681199789047241,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Voice Of Agamemnon. O! O! again, another, another blow!",
+        "hotwords": "Voice, Of, Agamemnon, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Voice Of Agamemnon. O! O! again, another, another blow!",
+          "start": 0.08,
+          "end": 3.98,
+          "words": [
+            {
+              "text": " Voice",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.6435546875
+            },
+            {
+              "text": " Of",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.0020389556884765625
+            },
+            {
+              "text": " Agamemnon.",
+              "start": 0.82,
+              "end": 1.48,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " O!",
+              "start": 2.04,
+              "end": 2.18,
+              "probability": 0.044219970703125
+            },
+            {
+              "text": " O!",
+              "start": 2.44,
+              "end": 2.5,
+              "probability": 0.814453125
+            },
+            {
+              "text": " again,",
+              "start": 2.92,
+              "end": 3.0,
+              "probability": 0.0767822265625
+            },
+            {
+              "text": " another,",
+              "start": 3.16,
+              "end": 3.36,
+              "probability": 0.966796875
+            },
+            {
+              "text": " another",
+              "start": 3.46,
+              "end": 3.66,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " blow!",
+              "start": 3.66,
+              "end": 3.98,
+              "probability": 0.96044921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Voice",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Of",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "Agamemnon.",
+          "start": 0.82,
+          "end": 1.48
+        },
+        {
+          "raw": "O!",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "raw": "O!",
+          "start": 2.44,
+          "end": 2.5
+        },
+        {
+          "raw": "again,",
+          "start": 2.92,
+          "end": 3.0
+        },
+        {
+          "raw": "another,",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "raw": "another",
+          "start": 3.46,
+          "end": 3.66
+        },
+        {
+          "raw": "blow!",
+          "start": 3.66,
+          "end": 3.98
+        }
+      ],
+      "expected_tokens": [
+        "Voice",
+        "Of",
+        "Agamemnon.",
+        "O!",
+        "O!",
+        "again,",
+        "another,",
+        "another",
+        "blow!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Voice",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "voice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 0.66,
+          "end": 0.82,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Agamemnon.",
+          "start": 0.82,
+          "end": 1.48,
+          "key": "agamemnon",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "O!",
+          "start": 2.04,
+          "end": 2.18,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "O!",
+          "start": 2.44,
+          "end": 2.5,
+          "key": "o",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 2.92,
+          "end": 3.0,
+          "key": "again",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "another,",
+          "start": 3.16,
+          "end": 3.36,
+          "key": "another",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 3.46,
+          "end": 3.66,
+          "key": "another",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "blow!",
+          "start": 3.66,
+          "end": 3.98,
+          "key": "blow",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Voice",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Of",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "Agamemnon.",
+          "start": 0.82,
+          "end": 1.48
+        },
+        {
+          "text": "O!",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "text": "O!",
+          "start": 2.44,
+          "end": 2.5
+        },
+        {
+          "text": "again,",
+          "start": 2.92,
+          "end": 3.0
+        },
+        {
+          "text": "another,",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "text": "another",
+          "start": 3.46,
+          "end": 3.66
+        },
+        {
+          "text": "blow!",
+          "start": 3.66,
+          "end": 3.98
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24060887601808645
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f89b4d30a29e7c02306dc0e02b9a10b531504eac615d4d52e935eab78454aaff",
+  "selected_reasons": []
+}

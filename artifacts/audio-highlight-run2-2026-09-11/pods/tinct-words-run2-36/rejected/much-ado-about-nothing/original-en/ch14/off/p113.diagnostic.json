@@ -1,0 +1,611 @@
+{
+  "complete": true,
+  "signature": "0d96025814d2c7f7f163c6b2057d5fa70b5e420776969cfebbd8e5db489c2360",
+  "attempts": [
+    {
+      "asr_seconds": 0.31577084213495255,
+      "alignment_seconds": 0.00046170130372047424,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dogberry, your worship speaks like a most thankful and reverent youth,",
+          "start": 0.05,
+          "end": 4.13,
+          "words": [
+            {
+              "text": " Dogberry,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.821044921875
+            },
+            {
+              "text": " your",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " worship",
+              "start": 1.57,
+              "end": 1.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " speaks",
+              "start": 1.87,
+              "end": 2.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " like",
+              "start": 2.27,
+              "end": 2.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 2.47,
+              "end": 2.57,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " most",
+              "start": 2.57,
+              "end": 2.75,
+              "probability": 0.982421875
+            },
+            {
+              "text": " thankful",
+              "start": 2.75,
+              "end": 3.27,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 3.27,
+              "end": 3.49,
+              "probability": 0.986328125
+            },
+            {
+              "text": " reverent",
+              "start": 3.49,
+              "end": 3.81,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " youth,",
+              "start": 3.81,
+              "end": 4.13,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " and I praise God for you.",
+          "start": 4.55,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " and",
+              "start": 4.55,
+              "end": 4.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 4.65,
+              "end": 4.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " praise",
+              "start": 4.77,
+              "end": 5.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " God",
+              "start": 5.01,
+              "end": 5.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 5.31,
+              "end": 5.51,
+              "probability": 1.0
+            },
+            {
+              "text": " you.",
+              "start": 5.51,
+              "end": 5.73,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dogberry,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "your",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "worship",
+          "start": 1.57,
+          "end": 1.87
+        },
+        {
+          "raw": "speaks",
+          "start": 1.87,
+          "end": 2.27
+        },
+        {
+          "raw": "like",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "raw": "a",
+          "start": 2.47,
+          "end": 2.57
+        },
+        {
+          "raw": "most",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "raw": "thankful",
+          "start": 2.75,
+          "end": 3.27
+        },
+        {
+          "raw": "and",
+          "start": 3.27,
+          "end": 3.49
+        },
+        {
+          "raw": "reverent",
+          "start": 3.49,
+          "end": 3.81
+        },
+        {
+          "raw": "youth,",
+          "start": 3.81,
+          "end": 4.13
+        },
+        {
+          "raw": "and",
+          "start": 4.55,
+          "end": 4.65
+        },
+        {
+          "raw": "I",
+          "start": 4.65,
+          "end": 4.77
+        },
+        {
+          "raw": "praise",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "raw": "God",
+          "start": 5.01,
+          "end": 5.31
+        },
+        {
+          "raw": "for",
+          "start": 5.31,
+          "end": 5.51
+        },
+        {
+          "raw": "you.",
+          "start": 5.51,
+          "end": 5.73
+        }
+      ],
+      "expected_tokens": [
+        "Dogberry.",
+        "Your",
+        "worship",
+        "speaks",
+        "like",
+        "a",
+        "most",
+        "thankful",
+        "and",
+        "reverent",
+        "youth,",
+        "and",
+        "I",
+        "praise",
+        "God",
+        "for",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dogberry,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "dogberry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "worship",
+          "start": 1.57,
+          "end": 1.87,
+          "key": "worship",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "speaks",
+          "start": 1.87,
+          "end": 2.27,
+          "key": "speaks",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 2.27,
+          "end": 2.47,
+          "key": "like",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.47,
+          "end": 2.57,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.57,
+          "end": 2.75,
+          "key": "most",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thankful",
+          "start": 2.75,
+          "end": 3.27,
+          "key": "thankful",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.27,
+          "end": 3.49,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "reverent",
+          "start": 3.49,
+          "end": 3.81,
+          "key": "reverent",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "youth,",
+          "start": 3.81,
+          "end": 4.13,
+          "key": "youth",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.55,
+          "end": 4.65,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.65,
+          "end": 4.77,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "praise",
+          "start": 4.77,
+          "end": 5.01,
+          "key": "praise",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 5.01,
+          "end": 5.31,
+          "key": "god",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.31,
+          "end": 5.51,
+          "key": "for",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 5.51,
+          "end": 5.73,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dogberry.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Your",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "worship",
+          "start": 1.57,
+          "end": 1.87
+        },
+        {
+          "text": "speaks",
+          "start": 1.87,
+          "end": 2.27
+        },
+        {
+          "text": "like",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "text": "a",
+          "start": 2.47,
+          "end": 2.57
+        },
+        {
+          "text": "most",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "text": "thankful",
+          "start": 2.75,
+          "end": 3.27
+        },
+        {
+          "text": "and",
+          "start": 3.27,
+          "end": 3.49
+        },
+        {
+          "text": "reverent",
+          "start": 3.49,
+          "end": 3.81
+        },
+        {
+          "text": "youth,",
+          "start": 3.81,
+          "end": 4.13
+        },
+        {
+          "text": "and",
+          "start": 4.55,
+          "end": 4.65
+        },
+        {
+          "text": "I",
+          "start": 4.65,
+          "end": 4.77
+        },
+        {
+          "text": "praise",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "text": "God",
+          "start": 5.01,
+          "end": 5.31
+        },
+        {
+          "text": "for",
+          "start": 5.31,
+          "end": 5.51
+        },
+        {
+          "text": "you.",
+          "start": 5.51,
+          "end": 5.73
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31643224135041237
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7bbcc25fe782ecd10a23fe96014957b5f3d6fdbe973e1051864a3c82624f459e",
+  "selected_reasons": []
+}

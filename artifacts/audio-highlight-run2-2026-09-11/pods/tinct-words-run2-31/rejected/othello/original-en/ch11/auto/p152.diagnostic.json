@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "aa94313c87f3d79fbe559a23cf16f5772c7391876d3bf9d00ca48abfce5a8d43",
+  "attempts": [
+    {
+      "asr_seconds": 0.11213771300390363,
+      "alignment_seconds": 0.00010883761569857597,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. My lord?",
+        "hotwords": "Desdemona, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, My Lord.",
+          "start": 0.05,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.6455427805582682
+            },
+            {
+              "text": " My",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.04071044921875
+            },
+            {
+              "text": " Lord.",
+              "start": 1.39,
+              "end": 1.63,
+              "probability": 0.85107421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "My",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "Lord.",
+          "start": 1.39,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "My",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.29,
+          "end": 1.39,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lord.",
+          "start": 1.39,
+          "end": 1.63,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "My",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "text": "lord?",
+          "start": 1.39,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1122831110842526
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a6954699a6e00b5bcd0cabdfd981ec2c8d2e41a8a75e234a184e8da130f60090",
+  "selected_reasons": []
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "2723222315211ed597995d633afbd4f508b2719714cf654122d293c7b13d3e9a",
+  "attempts": [
+    {
+      "asr_seconds": 0.10476406291127205,
+      "alignment_seconds": 0.0001499578356742859,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Regan. To whose hands have you sent the lunatic King? Speak.",
+        "hotwords": "Regan, To, King, Speak"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Regan, To whose hands have you sent the lunatic King? Speak.",
+          "start": 0.05,
+          "end": 3.73,
+          "words": [
+            {
+              "text": " Regan,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.6060791015625
+            },
+            {
+              "text": " To",
+              "start": 1.13,
+              "end": 1.27,
+              "probability": 0.005710601806640625
+            },
+            {
+              "text": " whose",
+              "start": 1.27,
+              "end": 1.39,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " hands",
+              "start": 1.39,
+              "end": 1.65,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " have",
+              "start": 1.65,
+              "end": 1.81,
+              "probability": 0.974609375
+            },
+            {
+              "text": " you",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " sent",
+              "start": 1.95,
+              "end": 2.13,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " the",
+              "start": 2.13,
+              "end": 2.29,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " lunatic",
+              "start": 2.29,
+              "end": 2.51,
+              "probability": 0.919921875
+            },
+            {
+              "text": " King?",
+              "start": 2.51,
+              "end": 2.89,
+              "probability": 0.051513671875
+            },
+            {
+              "text": " Speak.",
+              "start": 3.73,
+              "end": 3.73,
+              "probability": 0.9462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "To",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "raw": "whose",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "raw": "hands",
+          "start": 1.39,
+          "end": 1.65
+        },
+        {
+          "raw": "have",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "raw": "you",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "sent",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "raw": "the",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "raw": "lunatic",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "raw": "King?",
+          "start": 2.51,
+          "end": 2.89
+        },
+        {
+          "raw": "Speak.",
+          "start": 3.73,
+          "end": 3.73
+        }
+      ],
+      "expected_tokens": [
+        "Regan.",
+        "To",
+        "whose",
+        "hands",
+        "have",
+        "you",
+        "sent",
+        "the",
+        "lunatic",
+        "King?",
+        "Speak."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "regan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 1.13,
+          "end": 1.27,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "whose",
+          "start": 1.27,
+          "end": 1.39,
+          "key": "whose",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 1.39,
+          "end": 1.65,
+          "key": "hands",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.65,
+          "end": 1.81,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.81,
+          "end": 1.95,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 1.95,
+          "end": 2.13,
+          "key": "sent",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.13,
+          "end": 2.29,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lunatic",
+          "start": 2.29,
+          "end": 2.51,
+          "key": "lunatic",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "King?",
+          "start": 2.51,
+          "end": 2.89,
+          "key": "king",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Speak.",
+          "start": 3.73,
+          "end": 3.73,
+          "key": "speak",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Regan.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "To",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "text": "whose",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "text": "hands",
+          "start": 1.39,
+          "end": 1.65
+        },
+        {
+          "text": "have",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "text": "you",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "sent",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "text": "the",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "text": "lunatic",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "text": "King?",
+          "start": 2.51,
+          "end": 2.89
+        },
+        {
+          "text": "Speak.",
+          "start": 3.73,
+          "end": 3.73
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10497375577688217
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eddb35f0af1a19390f66e1aeffb1edac06e1ad21f6621d83a42ecc00aa938366",
+  "selected_reasons": []
+}

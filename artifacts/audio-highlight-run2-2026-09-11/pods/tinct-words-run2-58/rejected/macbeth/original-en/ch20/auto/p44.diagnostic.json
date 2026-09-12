@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "13d3fae3bd19a2eb75a39e9579e8b5ee90d1893cfc7069635ea577a3eb5dbfa2",
+  "attempts": [
+    {
+      "asr_seconds": 0.13261884823441505,
+      "alignment_seconds": 0.00019619334489107132,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ross. Well too.",
+        "hotwords": "Ross, Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ross, Well too.",
+          "start": 0.02,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " Ross,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " Well",
+              "start": 1.08,
+              "end": 1.14,
+              "probability": 0.07574462890625
+            },
+            {
+              "text": " too.",
+              "start": 1.14,
+              "end": 1.42,
+              "probability": 0.01468658447265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ross,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Well",
+          "start": 1.08,
+          "end": 1.14
+        },
+        {
+          "raw": "too.",
+          "start": 1.14,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "Ross.",
+        "Well",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ross,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "ross",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well",
+          "start": 1.08,
+          "end": 1.14,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 1.14,
+          "end": 1.42,
+          "key": "too",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ross.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Well",
+          "start": 1.08,
+          "end": 1.14
+        },
+        {
+          "text": "too.",
+          "start": 1.14,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13288483396172523
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d583c3266e7fa9d5c903a2e296911a0913674c30c7f529f4891733eba2212168",
+  "selected_reasons": []
+}

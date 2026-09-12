@@ -1,0 +1,610 @@
+{
+  "complete": true,
+  "signature": "4b6b994212e89d5c0d7bc18608cb1ce97a5f27e2f844c25918b6f9dddccf5cab",
+  "attempts": [
+    {
+      "asr_seconds": 0.35045868158340454,
+      "alignment_seconds": 0.000386776402592659,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exeunt Posthumus and Iachimo._]",
+        "hotwords": "Posthumus, Iachimo._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt Posthumus and Iachimo._",
+          "start": 0.05,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.601531982421875
+            },
+            {
+              "text": " Posthumus",
+              "start": 0.77,
+              "end": 1.37,
+              "probability": 0.2713623046875
+            },
+            {
+              "text": " and",
+              "start": 1.37,
+              "end": 1.51,
+              "probability": 0.8046875
+            },
+            {
+              "text": " Iachimo._",
+              "start": 1.51,
+              "end": 2.69,
+              "probability": 0.20139503479003906
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Posthumus",
+          "start": 0.77,
+          "end": 1.37
+        },
+        {
+          "raw": "and",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "raw": "Iachimo._",
+          "start": 1.51,
+          "end": 2.69
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Posthumus",
+        "and",
+        "Iachimo._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Posthumus",
+          "start": 0.77,
+          "end": 1.37,
+          "key": "posthumus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.37,
+          "end": 1.51,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Iachimo._",
+          "start": 1.51,
+          "end": 2.69,
+          "key": "iachimo_",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Posthumus",
+          "start": 0.77,
+          "end": 1.37
+        },
+        {
+          "text": "and",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "text": "Iachimo._]",
+          "start": 1.51,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3509596884250641
+    },
+    {
+      "asr_seconds": 0.18737098574638367,
+      "alignment_seconds": 0.0004537999629974365,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Posthumus, Iachimo._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exhumed Posthumus, Iachimo._",
+          "start": 0.05,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " Exhumed",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.5987345377604166
+            },
+            {
+              "text": " Posthumus,",
+              "start": 0.83,
+              "end": 1.39,
+              "probability": 0.30279541015625
+            },
+            {
+              "text": " Iachimo._",
+              "start": 1.53,
+              "end": 2.2,
+              "probability": 0.09642601013183594
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exhumed",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Posthumus,",
+          "start": 0.83,
+          "end": 1.39
+        },
+        {
+          "raw": "Iachimo._",
+          "start": 1.53,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Posthumus",
+        "and",
+        "Iachimo._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exhumed",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "exhumed",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Posthumus,",
+          "start": 0.83,
+          "end": 1.39,
+          "key": "posthumus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Iachimo._",
+          "start": 1.53,
+          "end": 2.2,
+          "key": "iachimo_",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.415
+        },
+        {
+          "text": "Posthumus",
+          "start": 0.83,
+          "end": 1.39
+        },
+        {
+          "text": "and",
+          "start": 1.39,
+          "end": 1.795
+        },
+        {
+          "text": "Iachimo._]",
+          "start": 1.795,
+          "end": 1.998
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1879244577139616
+    },
+    {
+      "asr_seconds": 0.20432062447071075,
+      "alignment_seconds": 0.0004301890730857849,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exhumed posthumous and Ichimo.",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Exhumed",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.5987345377604166
+            },
+            {
+              "text": " posthumous",
+              "start": 0.83,
+              "end": 1.39,
+              "probability": 0.8175455729166666
+            },
+            {
+              "text": " and",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.6552734375
+            },
+            {
+              "text": " Ichimo.",
+              "start": 1.51,
+              "end": 2.01,
+              "probability": 0.4913736979166667
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exhumed",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "posthumous",
+          "start": 0.83,
+          "end": 1.39
+        },
+        {
+          "raw": "and",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "Ichimo.",
+          "start": 1.51,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Posthumus",
+        "and",
+        "Iachimo._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exhumed",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "exhumed",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "posthumous",
+          "start": 0.83,
+          "end": 1.39,
+          "key": "posthumous",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ichimo.",
+          "start": 1.51,
+          "end": 2.01,
+          "key": "ichimo",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.695
+        },
+        {
+          "text": "Posthumus",
+          "start": 0.695,
+          "end": 1.042
+        },
+        {
+          "text": "and",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "Iachimo._]",
+          "start": 1.51,
+          "end": 1.76
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 1
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2049084585160017
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4470e1dba516d286eefc4477bf0415d4ec5f038e28a0f57950dd0f21e10b7731",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

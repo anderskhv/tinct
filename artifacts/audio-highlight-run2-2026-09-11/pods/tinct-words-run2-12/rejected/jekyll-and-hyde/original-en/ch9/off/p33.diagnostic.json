@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "22b288011ebed4f1c03f73451758c795cc98e77ea9679dc8016196491049ea6b",
+  "attempts": [
+    {
+      "asr_seconds": 0.13016471499577165,
+      "alignment_seconds": 0.00014073215425014496,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hasty Lanyon.",
+          "start": 0.05,
+          "end": 1.11,
+          "words": [
+            {
+              "text": " Hasty",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.6151123046875
+            },
+            {
+              "text": " Lanyon.",
+              "start": 0.73,
+              "end": 1.11,
+              "probability": 0.621337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hasty",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Lanyon.",
+          "start": 0.73,
+          "end": 1.11
+        }
+      ],
+      "expected_tokens": [
+        "Hastie",
+        "Lanyon."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hasty",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "hasty",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lanyon.",
+          "start": 0.73,
+          "end": 1.11,
+          "key": "lanyon",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hastie",
+          "start": 0.0,
+          "end": 0.365
+        },
+        {
+          "text": "Lanyon.",
+          "start": 0.73,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13034696504473686
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "90725a350dbc35335c5dc39e5d0c62745ca51518bbbf83ac5e111c26914f8b26",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

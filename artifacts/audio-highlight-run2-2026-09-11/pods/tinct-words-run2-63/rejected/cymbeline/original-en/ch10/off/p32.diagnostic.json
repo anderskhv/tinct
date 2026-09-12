@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "6c69d83e10b97c324522ef84ac83d7ed8f82de2e6d9a7bf2f80f80f53131c1e6",
+  "attempts": [
+    {
+      "asr_seconds": 0.14015871472656727,
+      "alignment_seconds": 0.0002760253846645355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cloughton, a gentleman.",
+          "start": 0.08,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " Cloughton,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.50830078125
+            },
+            {
+              "text": " a",
+              "start": 1.06,
+              "end": 1.18,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " gentleman.",
+              "start": 1.18,
+              "end": 1.52,
+              "probability": 0.8095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cloughton,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "a",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "raw": "gentleman.",
+          "start": 1.18,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "Cloten.",
+        "A",
+        "gentleman."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cloughton,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "cloughton",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.06,
+          "end": 1.18,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gentleman.",
+          "start": 1.18,
+          "end": 1.52,
+          "key": "gentleman",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cloten.",
+          "start": 0.0,
+          "end": 0.53
+        },
+        {
+          "text": "A",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "text": "gentleman.",
+          "start": 1.18,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14054370298981667
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2946a13149140304aecc93af1b1129156041ae49a47d066851875ac4b0a53bbe",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

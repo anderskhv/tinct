@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "fe5a37f122389fdaa805a7dec1872c5c34c290bf2c6ce08aedfd0bd31c63cb1b",
+  "attempts": [
+    {
+      "asr_seconds": 0.36804562248289585,
+      "alignment_seconds": 0.0007737074047327042,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"She lived, and found powerful friends. She is living now. She is a lady and very beautiful. And I love her!\"",
+        "hotwords": "She, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She lived and found powerful friends. She is living now. She is a lady and very beautiful. And I love her.",
+          "start": 0.08,
+          "end": 6.9,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " lived",
+              "start": 0.56,
+              "end": 0.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 0.84,
+              "end": 1.1,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " found",
+              "start": 1.1,
+              "end": 1.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " powerful",
+              "start": 1.38,
+              "end": 1.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " friends.",
+              "start": 1.92,
+              "end": 2.44,
+              "probability": 0.994140625
+            },
+            {
+              "text": " She",
+              "start": 2.9,
+              "end": 3.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 3.1,
+              "end": 3.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " living",
+              "start": 3.2,
+              "end": 3.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " now.",
+              "start": 3.46,
+              "end": 3.86,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " She",
+              "start": 4.2,
+              "end": 4.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " is",
+              "start": 4.4,
+              "end": 4.48,
+              "probability": 0.9765625
+            },
+            {
+              "text": " a",
+              "start": 4.48,
+              "end": 4.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " lady",
+              "start": 4.62,
+              "end": 4.9,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 4.9,
+              "end": 5.16,
+              "probability": 0.970703125
+            },
+            {
+              "text": " very",
+              "start": 5.16,
+              "end": 5.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " beautiful.",
+              "start": 5.4,
+              "end": 5.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " And",
+              "start": 6.2,
+              "end": 6.3,
+              "probability": 0.962890625
+            },
+            {
+              "text": " I",
+              "start": 6.3,
+              "end": 6.44,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " love",
+              "start": 6.44,
+              "end": 6.66,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " her.",
+              "start": 6.66,
+              "end": 6.9,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "lived",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "raw": "and",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "raw": "found",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "raw": "powerful",
+          "start": 1.38,
+          "end": 1.92
+        },
+        {
+          "raw": "friends.",
+          "start": 1.92,
+          "end": 2.44
+        },
+        {
+          "raw": "She",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "raw": "is",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "raw": "living",
+          "start": 3.2,
+          "end": 3.46
+        },
+        {
+          "raw": "now.",
+          "start": 3.46,
+          "end": 3.86
+        },
+        {
+          "raw": "She",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "raw": "is",
+          "start": 4.4,
+          "end": 4.48
+        },
+        {
+          "raw": "a",
+          "start": 4.48,
+          "end": 4.62
+        },
+        {
+          "raw": "lady",
+          "start": 4.62,
+          "end": 4.9
+        },
+        {
+          "raw": "and",
+          "start": 4.9,
+          "end": 5.16
+        },
+        {
+          "raw": "very",
+          "start": 5.16,
+          "end": 5.4
+        },
+        {
+          "raw": "beautiful.",
+          "start": 5.4,
+          "end": 5.8
+        },
+        {
+          "raw": "And",
+          "start": 6.2,
+          "end": 6.3
+        },
+        {
+          "raw": "I",
+          "start": 6.3,
+          "end": 6.44
+        },
+        {
+          "raw": "love",
+          "start": 6.44,
+          "end": 6.66
+        },
+        {
+          "raw": "her.",
+          "start": 6.66,
+          "end": 6.9
+        }
+      ],
+      "expected_tokens": [
+        "\"She",
+        "lived,",
+        "and",
+        "found",
+        "powerful",
+        "friends.",
+        "She",
+        "is",
+        "living",
+        "now.",
+        "She",
+        "is",
+        "a",
+        "lady",
+        "and",
+        "very",
+        "beautiful.",
+        "And",
+        "I",
+        "love",
+        "her!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lived",
+          "start": 0.56,
+          "end": 0.84,
+          "key": "lived",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.84,
+          "end": 1.1,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 1.1,
+          "end": 1.38,
+          "key": "found",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "powerful",
+          "start": 1.38,
+          "end": 1.92,
+          "key": "powerful",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "friends.",
+          "start": 1.92,
+          "end": 2.44,
+          "key": "friends",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 2.9,
+          "end": 3.1,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.1,
+          "end": 3.2,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "living",
+          "start": 3.2,
+          "end": 3.46,
+          "key": "living",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 3.46,
+          "end": 3.86,
+          "key": "now",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 4.2,
+          "end": 4.4,
+          "key": "she",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.4,
+          "end": 4.48,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.48,
+          "end": 4.62,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 4.62,
+          "end": 4.9,
+          "key": "lady",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.9,
+          "end": 5.16,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 5.16,
+          "end": 5.4,
+          "key": "very",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "beautiful.",
+          "start": 5.4,
+          "end": 5.8,
+          "key": "beautiful",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 6.2,
+          "end": 6.3,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.3,
+          "end": 6.44,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 6.44,
+          "end": 6.66,
+          "key": "love",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 6.66,
+          "end": 6.9,
+          "key": "her",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"She",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "lived,",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "text": "and",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "text": "found",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "text": "powerful",
+          "start": 1.38,
+          "end": 1.92
+        },
+        {
+          "text": "friends.",
+          "start": 1.92,
+          "end": 2.44
+        },
+        {
+          "text": "She",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "text": "is",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "text": "living",
+          "start": 3.2,
+          "end": 3.46
+        },
+        {
+          "text": "now.",
+          "start": 3.46,
+          "end": 3.86
+        },
+        {
+          "text": "She",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "text": "is",
+          "start": 4.4,
+          "end": 4.48
+        },
+        {
+          "text": "a",
+          "start": 4.48,
+          "end": 4.62
+        },
+        {
+          "text": "lady",
+          "start": 4.62,
+          "end": 4.9
+        },
+        {
+          "text": "and",
+          "start": 4.9,
+          "end": 5.16
+        },
+        {
+          "text": "very",
+          "start": 5.16,
+          "end": 5.4
+        },
+        {
+          "text": "beautiful.",
+          "start": 5.4,
+          "end": 5.8
+        },
+        {
+          "text": "And",
+          "start": 6.2,
+          "end": 6.3
+        },
+        {
+          "text": "I",
+          "start": 6.3,
+          "end": 6.44
+        },
+        {
+          "text": "love",
+          "start": 6.44,
+          "end": 6.66
+        },
+        {
+          "text": "her!\"",
+          "start": 6.66,
+          "end": 6.9
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3691413663327694
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dd6ac8e2a385280293e4ea3fe6ee8bcb6b44fc72bcfe2678bb9b1e8887162d85",
+  "selected_reasons": []
+}

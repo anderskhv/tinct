@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "d03b9a360b03908414e669259295e13bd501b48c8670a01e4218609f57dd3021",
+  "attempts": [
+    {
+      "asr_seconds": 0.15386145748198032,
+      "alignment_seconds": 0.00027253665030002594,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The Pole—the officer?\"",
+        "hotwords": "The, Pole—the"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The, Pole—the officer?",
+          "start": 0.02,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " The,",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " Pole—the",
+              "start": 0.6,
+              "end": 1.1,
+              "probability": 0.14732281366984049
+            },
+            {
+              "text": " officer?",
+              "start": 1.1,
+              "end": 1.4,
+              "probability": 0.324951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The,",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Pole—the",
+          "start": 0.6,
+          "end": 1.1
+        },
+        {
+          "raw": "officer?",
+          "start": 1.1,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "Pole—the",
+        "officer?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The,",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pole—the",
+          "start": 0.6,
+          "end": 1.1,
+          "key": "polethe",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "officer?",
+          "start": 1.1,
+          "end": 1.4,
+          "key": "officer",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Pole—the",
+          "start": 0.6,
+          "end": 1.1
+        },
+        {
+          "text": "officer?\"",
+          "start": 1.1,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15424227062612772
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d8df7fe5dceba0446efbfea76c5b862a2f82e02ea1b3cee78f6fef6ed516d107",
+  "selected_reasons": []
+}

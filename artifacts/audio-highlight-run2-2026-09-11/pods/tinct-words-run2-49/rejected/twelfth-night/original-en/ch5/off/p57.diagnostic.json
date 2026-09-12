@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "ef4765e284b9cd117fde818e63d1e528e4c636f9d99f4b2d82e41fb21d0eb6d9",
+  "attempts": [
+    {
+      "asr_seconds": 0.1968931406736374,
+      "alignment_seconds": 0.00037198886275291443,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, a gentleman. What gentleman?",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " a",
+              "start": 1.11,
+              "end": 1.17,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " gentleman.",
+              "start": 1.17,
+              "end": 1.49,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " What",
+              "start": 1.93,
+              "end": 1.99,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " gentleman?",
+              "start": 1.99,
+              "end": 2.35,
+              "probability": 0.78271484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "a",
+          "start": 1.11,
+          "end": 1.17
+        },
+        {
+          "raw": "gentleman.",
+          "start": 1.17,
+          "end": 1.49
+        },
+        {
+          "raw": "What",
+          "start": 1.93,
+          "end": 1.99
+        },
+        {
+          "raw": "gentleman?",
+          "start": 1.99,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "A",
+        "gentleman?",
+        "What",
+        "gentleman?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.11,
+          "end": 1.17,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gentleman.",
+          "start": 1.17,
+          "end": 1.49,
+          "key": "gentleman",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.93,
+          "end": 1.99,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gentleman?",
+          "start": 1.99,
+          "end": 2.35,
+          "key": "gentleman",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "A",
+          "start": 1.11,
+          "end": 1.17
+        },
+        {
+          "text": "gentleman?",
+          "start": 1.17,
+          "end": 1.49
+        },
+        {
+          "text": "What",
+          "start": 1.93,
+          "end": 1.99
+        },
+        {
+          "text": "gentleman?",
+          "start": 1.99,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19738781452178955
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7b7f578961a5d6a177991412cd2363df4277e3b551f9e2eccb8d8b055a5ced86",
+  "selected_reasons": []
+}

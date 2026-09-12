@@ -1,0 +1,136 @@
+{
+  "complete": true,
+  "signature": "a9c2834d9d665b653e9d5e23d3fafcbca109d8eace5cdb228d135c7fa3c386b8",
+  "attempts": [
+    {
+      "asr_seconds": 0.162369464058429,
+      "alignment_seconds": 0.00023182295262813568,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Twenty.\"",
+        "hotwords": "Twenty"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Twenty",
+          "start": 0.05,
+          "end": 0.81,
+          "words": [
+            {
+              "text": " Twenty",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.2257080078125
+            }
+          ]
+        },
+        {
+          "text": " Twenty",
+          "start": 0.81,
+          "end": 0.89,
+          "words": [
+            {
+              "text": " Twenty",
+              "start": 0.81,
+              "end": 0.89,
+              "probability": 8.767843246459961e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Twenty",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Twenty",
+          "start": 0.81,
+          "end": 0.89
+        }
+      ],
+      "expected_tokens": [
+        "\"Twenty.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Twenty",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "twenty",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Twenty",
+          "start": 0.81,
+          "end": 0.89,
+          "key": "twenty",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Twenty.\"",
+          "start": 0.05,
+          "end": 0.81
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16268736007623374
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cbe4e8ba989c88db8688bc78a08be6cdd09442421f3ee979e3b5050b83076d3a",
+  "selected_reasons": []
+}

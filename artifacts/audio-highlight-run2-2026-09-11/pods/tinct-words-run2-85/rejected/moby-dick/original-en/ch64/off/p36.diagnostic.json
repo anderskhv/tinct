@@ -1,0 +1,419 @@
+{
+  "complete": true,
+  "signature": "c26946ca0da8232b2df8558c1834fd96f5d5d2b913fe9585bfe40d823fc1f4f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.22273040330037475,
+      "alignment_seconds": 0.0005879229865968227,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hind to hatchway in ferry boat going over to Roanoke",
+          "start": 0.08,
+          "end": 3.68,
+          "words": [
+            {
+              "text": " Hind",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.38916015625
+            },
+            {
+              "text": " to",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.7646484375
+            },
+            {
+              "text": " hatchway",
+              "start": 0.82,
+              "end": 1.28,
+              "probability": 0.57659912109375
+            },
+            {
+              "text": " in",
+              "start": 1.28,
+              "end": 1.56,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " ferry",
+              "start": 1.56,
+              "end": 1.76,
+              "probability": 0.6328125
+            },
+            {
+              "text": " boat",
+              "start": 1.76,
+              "end": 2.12,
+              "probability": 0.822265625
+            },
+            {
+              "text": " going",
+              "start": 2.12,
+              "end": 2.7,
+              "probability": 0.2216796875
+            },
+            {
+              "text": " over",
+              "start": 2.7,
+              "end": 3.08,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " to",
+              "start": 3.08,
+              "end": 3.24,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " Roanoke",
+              "start": 3.24,
+              "end": 3.68,
+              "probability": 0.9070638020833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hind",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "to",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "hatchway",
+          "start": 0.82,
+          "end": 1.28
+        },
+        {
+          "raw": "in",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "raw": "ferry",
+          "start": 1.56,
+          "end": 1.76
+        },
+        {
+          "raw": "boat",
+          "start": 1.76,
+          "end": 2.12
+        },
+        {
+          "raw": "going",
+          "start": 2.12,
+          "end": 2.7
+        },
+        {
+          "raw": "over",
+          "start": 2.7,
+          "end": 3.08
+        },
+        {
+          "raw": "to",
+          "start": 3.08,
+          "end": 3.24
+        },
+        {
+          "raw": "Roanoke",
+          "start": 3.24,
+          "end": 3.68
+        }
+      ],
+      "expected_tokens": [
+        "\"'Hind",
+        "de",
+        "hatchway,",
+        "in",
+        "ferry-boat,",
+        "goin'",
+        "ober",
+        "de",
+        "Roanoke.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ],
+        [
+          "replace",
+          5,
+          8,
+          5,
+          8
+        ],
+        [
+          "equal",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          5,
+          8,
+          5,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hind",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "hind",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.66,
+          "end": 0.82,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hatchway",
+          "start": 0.82,
+          "end": 1.28,
+          "key": "hatchway",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.28,
+          "end": 1.56,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ferry boat",
+          "start": 1.56,
+          "end": 2.12,
+          "key": "ferryboat",
+          "pieces": [
+            4,
+            5
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 2.12,
+          "end": 2.7,
+          "key": "going",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 2.7,
+          "end": 3.08,
+          "key": "over",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.08,
+          "end": 3.24,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Roanoke",
+          "start": 3.24,
+          "end": 3.68,
+          "key": "roanoke",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "ferry-boat,",
+          "heard": "ferry boat",
+          "heard_indexes": [
+            4,
+            5
+          ],
+          "start": 1.56,
+          "end": 2.12
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"'Hind",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "de",
+          "start": 0.66,
+          "end": 0.74
+        },
+        {
+          "text": "hatchway,",
+          "start": 0.82,
+          "end": 1.28
+        },
+        {
+          "text": "in",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "text": "ferry-boat,",
+          "start": 1.56,
+          "end": 2.12
+        },
+        {
+          "text": "goin'",
+          "start": 2.12,
+          "end": 2.68
+        },
+        {
+          "text": "ober",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "text": "de",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "Roanoke.\"",
+          "start": 3.24,
+          "end": 3.68
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 5
+      },
+      "match_ratio": 0.5555555555555556,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22347387811169028
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8512ef22de6b98ff728d078517c0b2ca529e550a4e305591766e491da4736799",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,697 @@
+{
+  "complete": true,
+  "signature": "c5aa9c2b3ac628f27e5aa34c8020c80e351c5386ce2d25564166cf6fe3582bf1",
+  "attempts": [
+    {
+      "asr_seconds": 0.37473517656326294,
+      "alignment_seconds": 0.00049624964594841,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Everything will be very different now,\" Miss Mention went on.",
+          "start": 0.02,
+          "end": 3.74,
+          "words": [
+            {
+              "text": " Everything",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.11224365234375
+            },
+            {
+              "text": " will",
+              "start": 0.82,
+              "end": 1.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " be",
+              "start": 1.04,
+              "end": 1.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " very",
+              "start": 1.22,
+              "end": 1.56,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " different",
+              "start": 1.56,
+              "end": 1.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " now,\"",
+              "start": 1.9,
+              "end": 2.78,
+              "probability": 0.72119140625
+            },
+            {
+              "text": " Miss",
+              "start": 2.78,
+              "end": 2.92,
+              "probability": 0.31689453125
+            },
+            {
+              "text": " Mention",
+              "start": 2.92,
+              "end": 3.16,
+              "probability": 0.822509765625
+            },
+            {
+              "text": " went",
+              "start": 3.16,
+              "end": 3.44,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " on.",
+              "start": 3.44,
+              "end": 3.74,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " I suppose Miss Amelia has explained matters to you.",
+          "start": 4.38,
+          "end": 7.3,
+          "words": [
+            {
+              "text": " I",
+              "start": 4.38,
+              "end": 4.52,
+              "probability": 0.054412841796875
+            },
+            {
+              "text": " suppose",
+              "start": 4.52,
+              "end": 4.86,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Miss",
+              "start": 4.86,
+              "end": 5.16,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Amelia",
+              "start": 5.16,
+              "end": 5.56,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " has",
+              "start": 5.56,
+              "end": 5.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " explained",
+              "start": 5.84,
+              "end": 6.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " matters",
+              "start": 6.34,
+              "end": 6.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 6.76,
+              "end": 7.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you.",
+              "start": 7.08,
+              "end": 7.3,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Everything",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "will",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "raw": "be",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "raw": "very",
+          "start": 1.22,
+          "end": 1.56
+        },
+        {
+          "raw": "different",
+          "start": 1.56,
+          "end": 1.9
+        },
+        {
+          "raw": "now,\"",
+          "start": 1.9,
+          "end": 2.78
+        },
+        {
+          "raw": "Miss",
+          "start": 2.78,
+          "end": 2.92
+        },
+        {
+          "raw": "Mention",
+          "start": 2.92,
+          "end": 3.16
+        },
+        {
+          "raw": "went",
+          "start": 3.16,
+          "end": 3.44
+        },
+        {
+          "raw": "on.",
+          "start": 3.44,
+          "end": 3.74
+        },
+        {
+          "raw": "I",
+          "start": 4.38,
+          "end": 4.52
+        },
+        {
+          "raw": "suppose",
+          "start": 4.52,
+          "end": 4.86
+        },
+        {
+          "raw": "Miss",
+          "start": 4.86,
+          "end": 5.16
+        },
+        {
+          "raw": "Amelia",
+          "start": 5.16,
+          "end": 5.56
+        },
+        {
+          "raw": "has",
+          "start": 5.56,
+          "end": 5.84
+        },
+        {
+          "raw": "explained",
+          "start": 5.84,
+          "end": 6.34
+        },
+        {
+          "raw": "matters",
+          "start": 6.34,
+          "end": 6.76
+        },
+        {
+          "raw": "to",
+          "start": 6.76,
+          "end": 7.08
+        },
+        {
+          "raw": "you.",
+          "start": 7.08,
+          "end": 7.3
+        }
+      ],
+      "expected_tokens": [
+        "\"Everything",
+        "will",
+        "be",
+        "very",
+        "different",
+        "now,\"",
+        "Miss",
+        "Minchin",
+        "went",
+        "on.",
+        "\"I",
+        "suppose",
+        "Miss",
+        "Amelia",
+        "has",
+        "explained",
+        "matters",
+        "to",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          19,
+          8,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Everything",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "everything",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.82,
+          "end": 1.04,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.04,
+          "end": 1.22,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.22,
+          "end": 1.56,
+          "key": "very",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "different",
+          "start": 1.56,
+          "end": 1.9,
+          "key": "different",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "now,\"",
+          "start": 1.9,
+          "end": 2.78,
+          "key": "now",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 2.78,
+          "end": 2.92,
+          "key": "miss",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Mention",
+          "start": 2.92,
+          "end": 3.16,
+          "key": "mention",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 3.16,
+          "end": 3.44,
+          "key": "went",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 3.44,
+          "end": 3.74,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.38,
+          "end": 4.52,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "suppose",
+          "start": 4.52,
+          "end": 4.86,
+          "key": "suppose",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 4.86,
+          "end": 5.16,
+          "key": "miss",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Amelia",
+          "start": 5.16,
+          "end": 5.56,
+          "key": "amelia",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 5.56,
+          "end": 5.84,
+          "key": "has",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "explained",
+          "start": 5.84,
+          "end": 6.34,
+          "key": "explained",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "matters",
+          "start": 6.34,
+          "end": 6.76,
+          "key": "matters",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.76,
+          "end": 7.08,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 7.08,
+          "end": 7.3,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Everything",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "will",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "text": "be",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "text": "very",
+          "start": 1.22,
+          "end": 1.56
+        },
+        {
+          "text": "different",
+          "start": 1.56,
+          "end": 1.9
+        },
+        {
+          "text": "now,\"",
+          "start": 1.9,
+          "end": 2.78
+        },
+        {
+          "text": "Miss",
+          "start": 2.78,
+          "end": 2.92
+        },
+        {
+          "text": "Minchin",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "went",
+          "start": 3.16,
+          "end": 3.44
+        },
+        {
+          "text": "on.",
+          "start": 3.44,
+          "end": 3.74
+        },
+        {
+          "text": "\"I",
+          "start": 4.38,
+          "end": 4.52
+        },
+        {
+          "text": "suppose",
+          "start": 4.52,
+          "end": 4.86
+        },
+        {
+          "text": "Miss",
+          "start": 4.86,
+          "end": 5.16
+        },
+        {
+          "text": "Amelia",
+          "start": 5.16,
+          "end": 5.56
+        },
+        {
+          "text": "has",
+          "start": 5.56,
+          "end": 5.84
+        },
+        {
+          "text": "explained",
+          "start": 5.84,
+          "end": 6.34
+        },
+        {
+          "text": "matters",
+          "start": 6.34,
+          "end": 6.76
+        },
+        {
+          "text": "to",
+          "start": 6.76,
+          "end": 7.08
+        },
+        {
+          "text": "you.\"",
+          "start": 7.08,
+          "end": 7.3
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.37545765563845634
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3d96d67b9ad79bd18843cbf511dbdb3743120e3f4e5db5535b38c54369fadfee",
+  "selected_reasons": []
+}

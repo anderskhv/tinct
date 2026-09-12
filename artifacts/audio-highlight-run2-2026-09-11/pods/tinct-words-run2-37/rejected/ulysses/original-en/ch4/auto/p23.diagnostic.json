@@ -1,0 +1,293 @@
+{
+  "complete": true,
+  "signature": "542c36f424365b78f5e8c15d44d52c8aa3aab63d30df0ae407bae2c4671b0af9",
+  "attempts": [
+    {
+      "asr_seconds": 0.12065038201399148,
+      "alignment_seconds": 0.00019730700296349823,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Mn.",
+        "hotwords": "Mn"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Amen.",
+          "start": 0.14,
+          "end": 0.58,
+          "words": [
+            {
+              "text": " Amen.",
+              "start": 0.14,
+              "end": 0.58,
+              "probability": 0.91064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amen.",
+          "start": 0.14,
+          "end": 0.58
+        }
+      ],
+      "expected_tokens": [
+        "—Mn."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amen.",
+          "start": 0.14,
+          "end": 0.58,
+          "key": "amen",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Mn.",
+          "start": 0.0,
+          "end": 0.29
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12090720000560395
+    },
+    {
+      "asr_seconds": 0.11565844400320202,
+      "alignment_seconds": 0.00022827700013294816,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Mn"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Amen.",
+          "start": 0.14,
+          "end": 0.58,
+          "words": [
+            {
+              "text": " Amen.",
+              "start": 0.14,
+              "end": 0.58,
+              "probability": 0.91064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amen.",
+          "start": 0.14,
+          "end": 0.58
+        }
+      ],
+      "expected_tokens": [
+        "—Mn."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amen.",
+          "start": 0.14,
+          "end": 0.58,
+          "key": "amen",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Mn.",
+          "start": 0.0,
+          "end": 0.29
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11595357200712897
+    },
+    {
+      "asr_seconds": 0.12176963800447993,
+      "alignment_seconds": 0.00025131000438705087,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Amen.",
+          "start": 0.14,
+          "end": 0.58,
+          "words": [
+            {
+              "text": " Amen.",
+              "start": 0.14,
+              "end": 0.58,
+              "probability": 0.91064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amen.",
+          "start": 0.14,
+          "end": 0.58
+        }
+      ],
+      "expected_tokens": [
+        "—Mn."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amen.",
+          "start": 0.14,
+          "end": 0.58,
+          "key": "amen",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Mn.",
+          "start": 0.0,
+          "end": 0.29
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12209523498313501
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "af3fb1bd269226e9435677251afb35088a6bf1ce8d1f626e3e850b9f09ccecdb",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

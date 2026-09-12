@@ -1,0 +1,310 @@
+{
+  "complete": true,
+  "signature": "84d3961a5227acc439504a33511abd96f3bb0bc1938d117ebdf2296030bc68ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.27728202659636736,
+      "alignment_seconds": 0.0005621807649731636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "123. Even concubinage has been corrupted--by marriage.",
+        "hotwords": "Even"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 123. Even concubinage has been corrupted by marriage.",
+          "start": 0.05,
+          "end": 4.57,
+          "words": [
+            {
+              "text": " 123.",
+              "start": 0.05,
+              "end": 1.13,
+              "probability": 0.857421875
+            },
+            {
+              "text": " Even",
+              "start": 2.29,
+              "end": 2.31,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " concubinage",
+              "start": 2.31,
+              "end": 3.09,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " has",
+              "start": 3.09,
+              "end": 3.29,
+              "probability": 0.99609375
+            },
+            {
+              "text": " been",
+              "start": 3.29,
+              "end": 3.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " corrupted",
+              "start": 3.49,
+              "end": 3.93,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " by",
+              "start": 3.93,
+              "end": 4.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " marriage.",
+              "start": 4.21,
+              "end": 4.57,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "123.",
+          "start": 0.05,
+          "end": 1.13
+        },
+        {
+          "raw": "Even",
+          "start": 2.29,
+          "end": 2.31
+        },
+        {
+          "raw": "concubinage",
+          "start": 2.31,
+          "end": 3.09
+        },
+        {
+          "raw": "has",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "raw": "been",
+          "start": 3.29,
+          "end": 3.49
+        },
+        {
+          "raw": "corrupted",
+          "start": 3.49,
+          "end": 3.93
+        },
+        {
+          "raw": "by",
+          "start": 3.93,
+          "end": 4.21
+        },
+        {
+          "raw": "marriage.",
+          "start": 4.21,
+          "end": 4.57
+        }
+      ],
+      "expected_tokens": [
+        "123.",
+        "Even",
+        "concubinage",
+        "has",
+        "been",
+        "corrupted--by",
+        "marriage."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "123.",
+          "start": 0.05,
+          "end": 1.13,
+          "key": "123",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Even",
+          "start": 2.29,
+          "end": 2.31,
+          "key": "even",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "concubinage",
+          "start": 2.31,
+          "end": 3.09,
+          "key": "concubinage",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.09,
+          "end": 3.29,
+          "key": "has",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 3.29,
+          "end": 3.49,
+          "key": "been",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "corrupted by",
+          "start": 3.49,
+          "end": 4.21,
+          "key": "corruptedby",
+          "pieces": [
+            5,
+            6
+          ]
+        },
+        {
+          "raw": "marriage.",
+          "start": 4.21,
+          "end": 4.57,
+          "key": "marriage",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 5,
+          "text": "corrupted--by",
+          "heard": "corrupted by",
+          "heard_indexes": [
+            5,
+            6
+          ],
+          "start": 3.49,
+          "end": 4.21
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "123.",
+          "start": 0.05,
+          "end": 1.13
+        },
+        {
+          "text": "Even",
+          "start": 2.29,
+          "end": 2.31
+        },
+        {
+          "text": "concubinage",
+          "start": 2.31,
+          "end": 3.09
+        },
+        {
+          "text": "has",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "text": "been",
+          "start": 3.29,
+          "end": 3.49
+        },
+        {
+          "text": "corrupted--by",
+          "start": 3.49,
+          "end": 4.21
+        },
+        {
+          "text": "marriage.",
+          "start": 4.21,
+          "end": 4.57
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2780198873952031
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e2caa4a2890a99d7a8dd58704220659c5ce2c64767b7deecc81940c4a3dd87d1",
+  "selected_reasons": []
+}

@@ -1,0 +1,468 @@
+{
+  "complete": true,
+  "signature": "478df3a10f1acbf934f43428bd9148ff4184e4064edf17547be61b1a0a7c7a3f",
+  "attempts": [
+    {
+      "asr_seconds": 0.232643473893404,
+      "alignment_seconds": 0.00038301944732666016,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Allant sails, stun sails, a low and a loft and on both sides.",
+          "start": 0.08,
+          "end": 3.94,
+          "words": [
+            {
+              "text": " Allant",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.589599609375
+            },
+            {
+              "text": " sails,",
+              "start": 0.7,
+              "end": 1.02,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " stun",
+              "start": 1.66,
+              "end": 1.68,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " sails,",
+              "start": 1.68,
+              "end": 2.06,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " a",
+              "start": 2.32,
+              "end": 2.36,
+              "probability": 0.78857421875
+            },
+            {
+              "text": " low",
+              "start": 2.36,
+              "end": 2.5,
+              "probability": 0.91796875
+            },
+            {
+              "text": " and",
+              "start": 2.5,
+              "end": 2.66,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " a",
+              "start": 2.66,
+              "end": 2.74,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " loft",
+              "start": 2.74,
+              "end": 3.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 3.06,
+              "end": 3.24,
+              "probability": 0.79150390625
+            },
+            {
+              "text": " on",
+              "start": 3.24,
+              "end": 3.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " both",
+              "start": 3.36,
+              "end": 3.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sides.",
+              "start": 3.52,
+              "end": 3.94,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Allant",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "sails,",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "raw": "stun",
+          "start": 1.66,
+          "end": 1.68
+        },
+        {
+          "raw": "sails,",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "raw": "a",
+          "start": 2.32,
+          "end": 2.36
+        },
+        {
+          "raw": "low",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "raw": "and",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "raw": "a",
+          "start": 2.66,
+          "end": 2.74
+        },
+        {
+          "raw": "loft",
+          "start": 2.74,
+          "end": 3.06
+        },
+        {
+          "raw": "and",
+          "start": 3.06,
+          "end": 3.24
+        },
+        {
+          "raw": "on",
+          "start": 3.24,
+          "end": 3.36
+        },
+        {
+          "raw": "both",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "raw": "sides.",
+          "start": 3.52,
+          "end": 3.94
+        }
+      ],
+      "expected_tokens": [
+        "\"T'gallant",
+        "sails!—stunsails!",
+        "alow",
+        "and",
+        "aloft,",
+        "and",
+        "on",
+        "both",
+        "sides!\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          6
+        ],
+        [
+          "equal",
+          3,
+          4,
+          6,
+          7
+        ],
+        [
+          "replace",
+          4,
+          5,
+          7,
+          9
+        ],
+        [
+          "equal",
+          5,
+          9,
+          9,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          6
+        ],
+        [
+          "replace",
+          4,
+          5,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Allant",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "allant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sails,",
+          "start": 0.7,
+          "end": 1.02,
+          "key": "sails",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stun",
+          "start": 1.66,
+          "end": 1.68,
+          "key": "stun",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sails,",
+          "start": 1.68,
+          "end": 2.06,
+          "key": "sails",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.32,
+          "end": 2.36,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "low",
+          "start": 2.36,
+          "end": 2.5,
+          "key": "low",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.5,
+          "end": 2.66,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.66,
+          "end": 2.74,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "loft",
+          "start": 2.74,
+          "end": 3.06,
+          "key": "loft",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.06,
+          "end": 3.24,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.24,
+          "end": 3.36,
+          "key": "on",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 3.36,
+          "end": 3.52,
+          "key": "both",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sides.",
+          "start": 3.52,
+          "end": 3.94,
+          "key": "sides",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"T'gallant",
+          "start": 0.0,
+          "end": 1.25
+        },
+        {
+          "text": "sails!—stunsails!",
+          "start": 1.25,
+          "end": 1.875
+        },
+        {
+          "text": "alow",
+          "start": 1.875,
+          "end": 2.188
+        },
+        {
+          "text": "and",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "text": "aloft,",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "text": "and",
+          "start": 3.06,
+          "end": 3.24
+        },
+        {
+          "text": "on",
+          "start": 3.24,
+          "end": 3.36
+        },
+        {
+          "text": "both",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "text": "sides!\"",
+          "start": 3.52,
+          "end": 3.94
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 13,
+        "matched_words": 5
+      },
+      "match_ratio": 0.5555555555555556,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23317399993538857
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0c9266be9b263d75d3a8b0600ffe7193709cae2a37c685e00d374dc0fd3022d0",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

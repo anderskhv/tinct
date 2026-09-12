@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "31177820f159b7571c02957b985e75508839b1a4f1cf0e5a4337f52cfd7b8bd9",
+  "attempts": [
+    {
+      "asr_seconds": 0.20307250297628343,
+      "alignment_seconds": 0.0005272489506751299,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Rivers. Were you well served, you would be taught your duty.",
+        "hotwords": "Rivers, Were"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Rivers, Were you well served, you would be taught your duty.",
+          "start": 0.05,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " Rivers,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " Were",
+              "start": 1.39,
+              "end": 1.47,
+              "probability": 0.00284576416015625
+            },
+            {
+              "text": " you",
+              "start": 1.47,
+              "end": 1.61,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " well",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " served,",
+              "start": 1.81,
+              "end": 2.15,
+              "probability": 0.728515625
+            },
+            {
+              "text": " you",
+              "start": 2.41,
+              "end": 2.45,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " would",
+              "start": 2.45,
+              "end": 2.53,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " be",
+              "start": 2.53,
+              "end": 2.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " taught",
+              "start": 2.65,
+              "end": 2.83,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " your",
+              "start": 2.83,
+              "end": 2.99,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " duty.",
+              "start": 2.99,
+              "end": 3.23,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rivers,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Were",
+          "start": 1.39,
+          "end": 1.47
+        },
+        {
+          "raw": "you",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "raw": "well",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "raw": "served,",
+          "start": 1.81,
+          "end": 2.15
+        },
+        {
+          "raw": "you",
+          "start": 2.41,
+          "end": 2.45
+        },
+        {
+          "raw": "would",
+          "start": 2.45,
+          "end": 2.53
+        },
+        {
+          "raw": "be",
+          "start": 2.53,
+          "end": 2.65
+        },
+        {
+          "raw": "taught",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "raw": "your",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "raw": "duty.",
+          "start": 2.99,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "Rivers.",
+        "Were",
+        "you",
+        "well",
+        "served,",
+        "you",
+        "would",
+        "be",
+        "taught",
+        "your",
+        "duty."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rivers,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "rivers",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Were",
+          "start": 1.39,
+          "end": 1.47,
+          "key": "were",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.47,
+          "end": 1.61,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "well",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "served,",
+          "start": 1.81,
+          "end": 2.15,
+          "key": "served",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.41,
+          "end": 2.45,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.45,
+          "end": 2.53,
+          "key": "would",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.53,
+          "end": 2.65,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "taught",
+          "start": 2.65,
+          "end": 2.83,
+          "key": "taught",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.83,
+          "end": 2.99,
+          "key": "your",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "duty.",
+          "start": 2.99,
+          "end": 3.23,
+          "key": "duty",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Rivers.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Were",
+          "start": 1.39,
+          "end": 1.47
+        },
+        {
+          "text": "you",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "text": "well",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "text": "served,",
+          "start": 1.81,
+          "end": 2.15
+        },
+        {
+          "text": "you",
+          "start": 2.41,
+          "end": 2.45
+        },
+        {
+          "text": "would",
+          "start": 2.45,
+          "end": 2.53
+        },
+        {
+          "text": "be",
+          "start": 2.53,
+          "end": 2.65
+        },
+        {
+          "text": "taught",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "text": "your",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "text": "duty.",
+          "start": 2.99,
+          "end": 3.23
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20380700891837478
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a2abefe2bd500a5d9272af12971e4e9fe6b67e495ae7736f706bc4d8fc800dc5",
+  "selected_reasons": []
+}

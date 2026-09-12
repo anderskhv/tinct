@@ -1,0 +1,219 @@
+{
+  "complete": true,
+  "signature": "4660be0a2cb6e5c5b4895901105d0704145b4ad0e75d46825f0944249040a03c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1076662209816277,
+      "alignment_seconds": 0.00023643579334020615,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The morn is breaking",
+          "start": 0.08,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " morn",
+              "start": 0.56,
+              "end": 0.8,
+              "probability": 0.874267578125
+            },
+            {
+              "text": " is",
+              "start": 0.8,
+              "end": 1.0,
+              "probability": 0.984375
+            },
+            {
+              "text": " breaking",
+              "start": 1.0,
+              "end": 1.38,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "morn",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "raw": "is",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "raw": "breaking",
+          "start": 1.0,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "—...",
+        "_the",
+        "morn",
+        "is",
+        "breaking._"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          5,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "morn",
+          "start": 0.56,
+          "end": 0.8,
+          "key": "morn",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.8,
+          "end": 1.0,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "breaking",
+          "start": 1.0,
+          "end": 1.38,
+          "key": "breaking",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—...",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "text": "_the",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "morn",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "text": "is",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "text": "breaking._",
+          "start": 1.0,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10797335114330053
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "639a34dae907e6bc015c35f3c04db98346077890ba2db36f670491e2d92b1b59",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

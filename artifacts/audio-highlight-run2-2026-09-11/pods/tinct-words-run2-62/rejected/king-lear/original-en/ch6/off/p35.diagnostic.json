@@ -1,0 +1,706 @@
+{
+  "complete": true,
+  "signature": "fe2a770c5ad26d38f5838e6ecb60924721e24409681c53e416b6d0416990bb95",
+  "attempts": [
+    {
+      "asr_seconds": 0.19202374294400215,
+      "alignment_seconds": 0.000185403972864151,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Regan, if it be true, all vengeance comes too short which can pursue TH offender.",
+          "start": 0.05,
+          "end": 5.23,
+          "words": [
+            {
+              "text": " Regan,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.643798828125
+            },
+            {
+              "text": " if",
+              "start": 1.17,
+              "end": 1.43,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " it",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.9921875
+            },
+            {
+              "text": " true,",
+              "start": 1.67,
+              "end": 2.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " all",
+              "start": 2.43,
+              "end": 2.53,
+              "probability": 0.982421875
+            },
+            {
+              "text": " vengeance",
+              "start": 2.53,
+              "end": 2.87,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " comes",
+              "start": 2.87,
+              "end": 3.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " too",
+              "start": 3.19,
+              "end": 3.47,
+              "probability": 0.966796875
+            },
+            {
+              "text": " short",
+              "start": 3.47,
+              "end": 3.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " which",
+              "start": 3.79,
+              "end": 3.97,
+              "probability": 0.900390625
+            },
+            {
+              "text": " can",
+              "start": 3.97,
+              "end": 4.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pursue",
+              "start": 4.17,
+              "end": 4.49,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " TH",
+              "start": 4.49,
+              "end": 4.81,
+              "probability": 0.53271484375
+            },
+            {
+              "text": " offender.",
+              "start": 4.81,
+              "end": 5.23,
+              "probability": 0.912109375
+            }
+          ]
+        },
+        {
+          "text": " How dust, my lord.",
+          "start": 5.89,
+          "end": 6.87,
+          "words": [
+            {
+              "text": " How",
+              "start": 5.89,
+              "end": 6.03,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " dust,",
+              "start": 6.03,
+              "end": 6.39,
+              "probability": 0.919921875
+            },
+            {
+              "text": " my",
+              "start": 6.51,
+              "end": 6.65,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " lord.",
+              "start": 6.65,
+              "end": 6.87,
+              "probability": 0.88720703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "if",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "raw": "it",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "be",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "true,",
+          "start": 1.67,
+          "end": 2.01
+        },
+        {
+          "raw": "all",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "raw": "vengeance",
+          "start": 2.53,
+          "end": 2.87
+        },
+        {
+          "raw": "comes",
+          "start": 2.87,
+          "end": 3.19
+        },
+        {
+          "raw": "too",
+          "start": 3.19,
+          "end": 3.47
+        },
+        {
+          "raw": "short",
+          "start": 3.47,
+          "end": 3.79
+        },
+        {
+          "raw": "which",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "raw": "can",
+          "start": 3.97,
+          "end": 4.17
+        },
+        {
+          "raw": "pursue",
+          "start": 4.17,
+          "end": 4.49
+        },
+        {
+          "raw": "TH",
+          "start": 4.49,
+          "end": 4.81
+        },
+        {
+          "raw": "offender.",
+          "start": 4.81,
+          "end": 5.23
+        },
+        {
+          "raw": "How",
+          "start": 5.89,
+          "end": 6.03
+        },
+        {
+          "raw": "dust,",
+          "start": 6.03,
+          "end": 6.39
+        },
+        {
+          "raw": "my",
+          "start": 6.51,
+          "end": 6.65
+        },
+        {
+          "raw": "lord.",
+          "start": 6.65,
+          "end": 6.87
+        }
+      ],
+      "expected_tokens": [
+        "Regan.",
+        "If",
+        "it",
+        "be",
+        "true,",
+        "all",
+        "vengeance",
+        "comes",
+        "too",
+        "short",
+        "Which",
+        "can",
+        "pursue",
+        "th'offender.",
+        "How",
+        "dost,",
+        "my",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ],
+        [
+          "equal",
+          14,
+          15,
+          15,
+          16
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          17
+        ],
+        [
+          "equal",
+          16,
+          18,
+          17,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "regan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.17,
+          "end": 1.43,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.43,
+          "end": 1.53,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 1.67,
+          "end": 2.01,
+          "key": "true",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.43,
+          "end": 2.53,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "vengeance",
+          "start": 2.53,
+          "end": 2.87,
+          "key": "vengeance",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 2.87,
+          "end": 3.19,
+          "key": "comes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 3.19,
+          "end": 3.47,
+          "key": "too",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "short",
+          "start": 3.47,
+          "end": 3.79,
+          "key": "short",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.79,
+          "end": 3.97,
+          "key": "which",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 3.97,
+          "end": 4.17,
+          "key": "can",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "pursue",
+          "start": 4.17,
+          "end": 4.49,
+          "key": "pursue",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "TH",
+          "start": 4.49,
+          "end": 4.81,
+          "key": "th",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "offender.",
+          "start": 4.81,
+          "end": 5.23,
+          "key": "offender",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 5.89,
+          "end": 6.03,
+          "key": "how",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "dust,",
+          "start": 6.03,
+          "end": 6.39,
+          "key": "dust",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 6.51,
+          "end": 6.65,
+          "key": "my",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 6.65,
+          "end": 6.87,
+          "key": "lord",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Regan.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "If",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "text": "it",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "text": "be",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "true,",
+          "start": 1.67,
+          "end": 2.01
+        },
+        {
+          "text": "all",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "text": "vengeance",
+          "start": 2.53,
+          "end": 2.87
+        },
+        {
+          "text": "comes",
+          "start": 2.87,
+          "end": 3.19
+        },
+        {
+          "text": "too",
+          "start": 3.19,
+          "end": 3.47
+        },
+        {
+          "text": "short",
+          "start": 3.47,
+          "end": 3.79
+        },
+        {
+          "text": "Which",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "text": "can",
+          "start": 3.97,
+          "end": 4.17
+        },
+        {
+          "text": "pursue",
+          "start": 4.17,
+          "end": 4.49
+        },
+        {
+          "text": "th'offender.",
+          "start": 4.49,
+          "end": 5.19
+        },
+        {
+          "text": "How",
+          "start": 5.89,
+          "end": 6.03
+        },
+        {
+          "text": "dost,",
+          "start": 6.03,
+          "end": 6.27
+        },
+        {
+          "text": "my",
+          "start": 6.51,
+          "end": 6.65
+        },
+        {
+          "text": "lord?",
+          "start": 6.65,
+          "end": 6.87
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.19229315221309662
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "299fe0e9c4a2d5923d56f0eff7aeb22a313cf82917973d90933a58fd8722e427",
+  "selected_reasons": []
+}

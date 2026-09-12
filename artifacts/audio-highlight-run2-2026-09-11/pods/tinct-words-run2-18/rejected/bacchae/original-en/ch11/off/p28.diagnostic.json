@@ -1,0 +1,181 @@
+{
+  "complete": true,
+  "signature": "17283d162e0a104ea7b909d83710b9e7a0cf4d2e81e260acb611b26b7f895a75",
+  "attempts": [
+    {
+      "asr_seconds": 0.13047343003563583,
+      "alignment_seconds": 0.00034494802821427584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Agave, the Daughters.",
+          "start": 0.05,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " Agave,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.490478515625
+            },
+            {
+              "text": " the",
+              "start": 1.05,
+              "end": 1.15,
+              "probability": 0.67724609375
+            },
+            {
+              "text": " Daughters.",
+              "start": 1.15,
+              "end": 1.57,
+              "probability": 0.7010498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agave,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "the",
+          "start": 1.05,
+          "end": 1.15
+        },
+        {
+          "raw": "Daughters.",
+          "start": 1.15,
+          "end": 1.57
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "The",
+        "daughters.",
+        ".",
+        "."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "unspoken",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [
+        3,
+        4
+      ],
+      "compared_heard": [
+        {
+          "raw": "Agave,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "agave",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.05,
+          "end": 1.15,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Daughters.",
+          "start": 1.15,
+          "end": 1.57,
+          "key": "daughters",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "The",
+          "start": 1.05,
+          "end": 1.15
+        },
+        {
+          "text": "daughters.",
+          "start": 1.15,
+          "end": 1.57
+        },
+        {
+          "text": ".",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "text": ".",
+          "start": 1.57,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13092795095872134
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6a89329f50b7e5133b829e11c52ce966a5551e469585067d3f8ae11292eb9299",
+  "selected_reasons": []
+}

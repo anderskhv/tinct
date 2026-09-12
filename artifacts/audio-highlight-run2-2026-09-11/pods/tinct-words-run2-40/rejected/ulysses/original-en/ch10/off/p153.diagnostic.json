@@ -1,0 +1,290 @@
+{
+  "complete": true,
+  "signature": "42976f1b9f746d0a667501778cbfb16575028dde526165bd5545f722335bf335",
+  "attempts": [
+    {
+      "asr_seconds": 0.25027160393074155,
+      "alignment_seconds": 0.00042317435145378113,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ma Sol Sirioe, Almedano Artifoni said.",
+          "start": 0.05,
+          "end": 3.43,
+          "words": [
+            {
+              "text": " Ma",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.4423828125
+            },
+            {
+              "text": " Sol",
+              "start": 0.69,
+              "end": 1.07,
+              "probability": 0.2139892578125
+            },
+            {
+              "text": " Sirioe,",
+              "start": 1.07,
+              "end": 1.83,
+              "probability": 0.4378255208333333
+            },
+            {
+              "text": " Almedano",
+              "start": 2.13,
+              "end": 2.65,
+              "probability": 0.494140625
+            },
+            {
+              "text": " Artifoni",
+              "start": 2.65,
+              "end": 3.11,
+              "probability": 0.7281901041666666
+            },
+            {
+              "text": " said.",
+              "start": 3.11,
+              "end": 3.43,
+              "probability": 0.9140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ma",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Sol",
+          "start": 0.69,
+          "end": 1.07
+        },
+        {
+          "raw": "Sirioe,",
+          "start": 1.07,
+          "end": 1.83
+        },
+        {
+          "raw": "Almedano",
+          "start": 2.13,
+          "end": 2.65
+        },
+        {
+          "raw": "Artifoni",
+          "start": 2.65,
+          "end": 3.11
+        },
+        {
+          "raw": "said.",
+          "start": 3.11,
+          "end": 3.43
+        }
+      ],
+      "expected_tokens": [
+        "—_Ma,",
+        "sul",
+        "serio,",
+        "eh?_",
+        "Almidano",
+        "Artifoni",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          5,
+          1,
+          4
+        ],
+        [
+          "equal",
+          5,
+          7,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          5,
+          1,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ma",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "ma",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sol",
+          "start": 0.69,
+          "end": 1.07,
+          "key": "sol",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sirioe,",
+          "start": 1.07,
+          "end": 1.83,
+          "key": "sirioe",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Almedano",
+          "start": 2.13,
+          "end": 2.65,
+          "key": "almedano",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Artifoni",
+          "start": 2.65,
+          "end": 3.11,
+          "key": "artifoni",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 3.11,
+          "end": 3.43,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_Ma,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "sul",
+          "start": 0.69,
+          "end": 1.67
+        },
+        {
+          "text": "serio,",
+          "start": 1.67,
+          "end": 2.16
+        },
+        {
+          "text": "eh?_",
+          "start": 2.16,
+          "end": 2.405
+        },
+        {
+          "text": "Almidano",
+          "start": 2.405,
+          "end": 2.527
+        },
+        {
+          "text": "Artifoni",
+          "start": 2.65,
+          "end": 3.11
+        },
+        {
+          "text": "said.",
+          "start": 3.11,
+          "end": 3.43
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.42857142857142855,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2508340501226485
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9bd4fb7b1bcef2e7b94bcc6510273054fff9ef448687cfa8bd33579f181de8ef",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

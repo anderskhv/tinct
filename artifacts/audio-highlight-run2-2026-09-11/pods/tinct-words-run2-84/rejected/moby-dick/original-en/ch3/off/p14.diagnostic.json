@@ -1,0 +1,543 @@
+{
+  "complete": true,
+  "signature": "34e0b2c5a8ad2d4983c8ab4e7c9c0b0ff669be2a006dbc7ed958080a4259787e",
+  "attempts": [
+    {
+      "asr_seconds": 0.22193927597254515,
+      "alignment_seconds": 0.0004931027069687843,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The devil he does says I wear is that harpoon ear is he here",
+          "start": 0.02,
+          "end": 4.1,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.716796875
+            },
+            {
+              "text": " devil",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " he",
+              "start": 0.74,
+              "end": 0.98,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " does",
+              "start": 0.98,
+              "end": 1.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " says",
+              "start": 1.34,
+              "end": 1.82,
+              "probability": 0.6455078125
+            },
+            {
+              "text": " I",
+              "start": 1.82,
+              "end": 2.06,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " wear",
+              "start": 2.06,
+              "end": 2.26,
+              "probability": 0.3056640625
+            },
+            {
+              "text": " is",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " that",
+              "start": 2.38,
+              "end": 2.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " harpoon",
+              "start": 2.52,
+              "end": 2.88,
+              "probability": 0.9453125
+            },
+            {
+              "text": " ear",
+              "start": 2.88,
+              "end": 3.18,
+              "probability": 0.53369140625
+            },
+            {
+              "text": " is",
+              "start": 3.18,
+              "end": 3.66,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " he",
+              "start": 3.66,
+              "end": 3.8,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " here",
+              "start": 3.8,
+              "end": 4.1,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "devil",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "he",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "raw": "does",
+          "start": 0.98,
+          "end": 1.34
+        },
+        {
+          "raw": "says",
+          "start": 1.34,
+          "end": 1.82
+        },
+        {
+          "raw": "I",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "raw": "wear",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "raw": "is",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "that",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "raw": "harpoon",
+          "start": 2.52,
+          "end": 2.88
+        },
+        {
+          "raw": "ear",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "raw": "is",
+          "start": 3.18,
+          "end": 3.66
+        },
+        {
+          "raw": "he",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "raw": "here",
+          "start": 3.8,
+          "end": 4.1
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "devil",
+        "he",
+        "does,\"",
+        "says",
+        "I.",
+        "\"Where",
+        "is",
+        "that",
+        "harpooneer?",
+        "Is",
+        "he",
+        "here?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          9,
+          7,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          13,
+          11,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "devil",
+          "start": 0.5,
+          "end": 0.74,
+          "key": "devil",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.74,
+          "end": 0.98,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 0.98,
+          "end": 1.34,
+          "key": "does",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.34,
+          "end": 1.82,
+          "key": "says",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.82,
+          "end": 2.06,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 2.06,
+          "end": 2.26,
+          "key": "wear",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.38,
+          "end": 2.52,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "harpoon",
+          "start": 2.52,
+          "end": 2.88,
+          "key": "harpoon",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ear",
+          "start": 2.88,
+          "end": 3.18,
+          "key": "ear",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.18,
+          "end": 3.66,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.66,
+          "end": 3.8,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 3.8,
+          "end": 4.1,
+          "key": "here",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "devil",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "he",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "text": "does,\"",
+          "start": 0.98,
+          "end": 1.34
+        },
+        {
+          "text": "says",
+          "start": 1.34,
+          "end": 1.82
+        },
+        {
+          "text": "I.",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "text": "\"Where",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "text": "is",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "that",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "text": "harpooneer?",
+          "start": 2.52,
+          "end": 2.85
+        },
+        {
+          "text": "Is",
+          "start": 3.18,
+          "end": 3.66
+        },
+        {
+          "text": "he",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "text": "here?\"",
+          "start": 3.8,
+          "end": 4.1
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22262542601674795
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e6bf1eebc24757d269629e4887cd9a43ccacedf2147690b87c3d737f2b08c658",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

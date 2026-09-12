@@ -1,0 +1,418 @@
+{
+  "complete": true,
+  "signature": "b50d6db4fa4ba2630f103832b801696c778793b4ad0842a2e67ac6449679b7b0",
+  "attempts": [
+    {
+      "asr_seconds": 0.24312872998416424,
+      "alignment_seconds": 0.0005576806142926216,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pistol LeRoy a Cornish name art thou of Cornish crew",
+          "start": 0.05,
+          "end": 3.93,
+          "words": [
+            {
+              "text": " Pistol",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.33740234375
+            },
+            {
+              "text": " LeRoy",
+              "start": 0.73,
+              "end": 1.47,
+              "probability": 0.46966552734375
+            },
+            {
+              "text": " a",
+              "start": 1.47,
+              "end": 1.79,
+              "probability": 0.671875
+            },
+            {
+              "text": " Cornish",
+              "start": 1.79,
+              "end": 2.15,
+              "probability": 0.973876953125
+            },
+            {
+              "text": " name",
+              "start": 2.15,
+              "end": 2.43,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " art",
+              "start": 2.43,
+              "end": 2.89,
+              "probability": 0.873046875
+            },
+            {
+              "text": " thou",
+              "start": 2.89,
+              "end": 3.13,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " of",
+              "start": 3.13,
+              "end": 3.27,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Cornish",
+              "start": 3.27,
+              "end": 3.67,
+              "probability": 0.980712890625
+            },
+            {
+              "text": " crew",
+              "start": 3.67,
+              "end": 3.93,
+              "probability": 0.91845703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pistol",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "LeRoy",
+          "start": 0.73,
+          "end": 1.47
+        },
+        {
+          "raw": "a",
+          "start": 1.47,
+          "end": 1.79
+        },
+        {
+          "raw": "Cornish",
+          "start": 1.79,
+          "end": 2.15
+        },
+        {
+          "raw": "name",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "raw": "art",
+          "start": 2.43,
+          "end": 2.89
+        },
+        {
+          "raw": "thou",
+          "start": 2.89,
+          "end": 3.13
+        },
+        {
+          "raw": "of",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "raw": "Cornish",
+          "start": 3.27,
+          "end": 3.67
+        },
+        {
+          "raw": "crew",
+          "start": 3.67,
+          "end": 3.93
+        }
+      ],
+      "expected_tokens": [
+        "Pistol.",
+        "Le",
+        "Roy!",
+        "a",
+        "Cornish",
+        "name.",
+        "Art",
+        "thou",
+        "of",
+        "Cornish",
+        "crew?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          11,
+          2,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pistol",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "pistol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "LeRoy",
+          "start": 0.73,
+          "end": 1.47,
+          "key": "leroy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.47,
+          "end": 1.79,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cornish",
+          "start": 1.79,
+          "end": 2.15,
+          "key": "cornish",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "name",
+          "start": 2.15,
+          "end": 2.43,
+          "key": "name",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 2.43,
+          "end": 2.89,
+          "key": "art",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.89,
+          "end": 3.13,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.13,
+          "end": 3.27,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Cornish",
+          "start": 3.27,
+          "end": 3.67,
+          "key": "cornish",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "crew",
+          "start": 3.67,
+          "end": 3.93,
+          "key": "crew",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pistol.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Le",
+          "start": 0.73,
+          "end": 1.1
+        },
+        {
+          "text": "Roy!",
+          "start": 1.1,
+          "end": 1.285
+        },
+        {
+          "text": "a",
+          "start": 1.47,
+          "end": 1.79
+        },
+        {
+          "text": "Cornish",
+          "start": 1.79,
+          "end": 2.15
+        },
+        {
+          "text": "name.",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "text": "Art",
+          "start": 2.43,
+          "end": 2.89
+        },
+        {
+          "text": "thou",
+          "start": 2.89,
+          "end": 3.13
+        },
+        {
+          "text": "of",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "text": "Cornish",
+          "start": 3.27,
+          "end": 3.67
+        },
+        {
+          "text": "crew?",
+          "start": 3.67,
+          "end": 3.93
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2438892461359501
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ea6bd7d654fd71f4e8540b5b71eabab297c4cce8a7a6ed1f77ff08c4e48b3157",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

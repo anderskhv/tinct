@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "64ff1d5f161e45e28ca99731333f54e94331ed5536cf99d9db63bf08a99e5e31",
+  "attempts": [
+    {
+      "asr_seconds": 0.1460369098931551,
+      "alignment_seconds": 0.00018512597307562828,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Coriolanus. I am content.",
+        "hotwords": "Coriolanus, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, I am content.",
+          "start": 0.05,
+          "end": 1.99,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.7579752604166666
+            },
+            {
+              "text": " I",
+              "start": 1.35,
+              "end": 1.45,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " am",
+              "start": 1.45,
+              "end": 1.57,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " content.",
+              "start": 1.57,
+              "end": 1.99,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "I",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "raw": "am",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "raw": "content.",
+          "start": 1.57,
+          "end": 1.99
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "I",
+        "am",
+        "content."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.35,
+          "end": 1.45,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.45,
+          "end": 1.57,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "content.",
+          "start": 1.57,
+          "end": 1.99,
+          "key": "content",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "I",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "text": "am",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "text": "content.",
+          "start": 1.57,
+          "end": 1.99
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14628927782177925
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cf95c1f7c5b500a6c9c812fb495d3afebb03415b9d98722b6fe3c72717795c44",
+  "selected_reasons": []
+}

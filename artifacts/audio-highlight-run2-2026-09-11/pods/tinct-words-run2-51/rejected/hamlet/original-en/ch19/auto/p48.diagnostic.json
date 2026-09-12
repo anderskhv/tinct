@@ -1,0 +1,2328 @@
+{
+  "complete": true,
+  "signature": "59d3e5164d40451585a115029e67906055e1a807d652e5b9201c126b5257d866",
+  "attempts": [
+    {
+      "asr_seconds": 0.3922378271818161,
+      "alignment_seconds": 0.0008674990385770798,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. They are sheep and calves which seek out assurance in that. I will speak to this fellow.—Whose grave's this, sir?",
+        "hotwords": "Hamlet, They, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, They are sheep and calves which seek out assurance in that. I will speak to this fellow. Whose grave's this, sir?",
+          "start": 0.05,
+          "end": 6.89,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.734619140625
+            },
+            {
+              "text": " They",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.03228759765625
+            },
+            {
+              "text": " are",
+              "start": 1.35,
+              "end": 1.53,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " sheep",
+              "start": 1.53,
+              "end": 1.73,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " and",
+              "start": 1.73,
+              "end": 1.93,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " calves",
+              "start": 1.93,
+              "end": 2.27,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " which",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " seek",
+              "start": 2.49,
+              "end": 2.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " out",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.98828125
+            },
+            {
+              "text": " assurance",
+              "start": 2.93,
+              "end": 3.27,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " in",
+              "start": 3.27,
+              "end": 3.55,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that.",
+              "start": 3.55,
+              "end": 3.81,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " I",
+              "start": 4.15,
+              "end": 4.31,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " will",
+              "start": 4.31,
+              "end": 4.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " speak",
+              "start": 4.41,
+              "end": 4.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 4.63,
+              "end": 4.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this",
+              "start": 4.81,
+              "end": 4.99,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " fellow.",
+              "start": 4.99,
+              "end": 5.25,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Whose",
+              "start": 5.79,
+              "end": 6.03,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " grave's",
+              "start": 6.03,
+              "end": 6.45,
+              "probability": 0.686767578125
+            },
+            {
+              "text": " this,",
+              "start": 6.45,
+              "end": 6.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sir?",
+              "start": 6.89,
+              "end": 6.89,
+              "probability": 0.8896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "They",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "are",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "raw": "sheep",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "raw": "and",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "raw": "calves",
+          "start": 1.93,
+          "end": 2.27
+        },
+        {
+          "raw": "which",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "raw": "seek",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "raw": "out",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "assurance",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "raw": "in",
+          "start": 3.27,
+          "end": 3.55
+        },
+        {
+          "raw": "that.",
+          "start": 3.55,
+          "end": 3.81
+        },
+        {
+          "raw": "I",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "raw": "will",
+          "start": 4.31,
+          "end": 4.41
+        },
+        {
+          "raw": "speak",
+          "start": 4.41,
+          "end": 4.63
+        },
+        {
+          "raw": "to",
+          "start": 4.63,
+          "end": 4.81
+        },
+        {
+          "raw": "this",
+          "start": 4.81,
+          "end": 4.99
+        },
+        {
+          "raw": "fellow.",
+          "start": 4.99,
+          "end": 5.25
+        },
+        {
+          "raw": "Whose",
+          "start": 5.79,
+          "end": 6.03
+        },
+        {
+          "raw": "grave's",
+          "start": 6.03,
+          "end": 6.45
+        },
+        {
+          "raw": "this,",
+          "start": 6.45,
+          "end": 6.67
+        },
+        {
+          "raw": "sir?",
+          "start": 6.89,
+          "end": 6.89
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "They",
+        "are",
+        "sheep",
+        "and",
+        "calves",
+        "which",
+        "seek",
+        "out",
+        "assurance",
+        "in",
+        "that.",
+        "I",
+        "will",
+        "speak",
+        "to",
+        "this",
+        "fellow.—Whose",
+        "grave's",
+        "this,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ],
+        [
+          "equal",
+          18,
+          21,
+          19,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 1.15,
+          "end": 1.35,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.35,
+          "end": 1.53,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sheep",
+          "start": 1.53,
+          "end": 1.73,
+          "key": "sheep",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.73,
+          "end": 1.93,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "calves",
+          "start": 1.93,
+          "end": 2.27,
+          "key": "calves",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 2.27,
+          "end": 2.49,
+          "key": "which",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "seek",
+          "start": 2.49,
+          "end": 2.75,
+          "key": "seek",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.75,
+          "end": 2.93,
+          "key": "out",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "assurance",
+          "start": 2.93,
+          "end": 3.27,
+          "key": "assurance",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.27,
+          "end": 3.55,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 3.55,
+          "end": 3.81,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.15,
+          "end": 4.31,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.31,
+          "end": 4.41,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 4.41,
+          "end": 4.63,
+          "key": "speak",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.63,
+          "end": 4.81,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.81,
+          "end": 4.99,
+          "key": "this",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "fellow.",
+          "start": 4.99,
+          "end": 5.25,
+          "key": "fellow",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Whose",
+          "start": 5.79,
+          "end": 6.03,
+          "key": "whose",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "grave's",
+          "start": 6.03,
+          "end": 6.45,
+          "key": "graves",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 6.45,
+          "end": 6.67,
+          "key": "this",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 6.89,
+          "end": 6.89,
+          "key": "sir",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "They",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "are",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "text": "sheep",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "text": "and",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "text": "calves",
+          "start": 1.93,
+          "end": 2.27
+        },
+        {
+          "text": "which",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "text": "seek",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "text": "out",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "assurance",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "text": "in",
+          "start": 3.27,
+          "end": 3.55
+        },
+        {
+          "text": "that.",
+          "start": 3.55,
+          "end": 3.81
+        },
+        {
+          "text": "I",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "text": "will",
+          "start": 4.31,
+          "end": 4.41
+        },
+        {
+          "text": "speak",
+          "start": 4.41,
+          "end": 4.63
+        },
+        {
+          "text": "to",
+          "start": 4.63,
+          "end": 4.81
+        },
+        {
+          "text": "this",
+          "start": 4.81,
+          "end": 4.99
+        },
+        {
+          "text": "fellow.—Whose",
+          "start": 4.99,
+          "end": 5.51
+        },
+        {
+          "text": "grave's",
+          "start": 6.03,
+          "end": 6.45
+        },
+        {
+          "text": "this,",
+          "start": 6.45,
+          "end": 6.67
+        },
+        {
+          "text": "sir?",
+          "start": 6.89,
+          "end": 6.89
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.39347065798938274
+    },
+    {
+      "asr_seconds": 0.4071175530552864,
+      "alignment_seconds": 0.0009420318529009819,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Hamlet, They, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Hamlet, They are sheep and calves which seek out assurance in that. I will speak to this",
+          "start": 0.05,
+          "end": 4.99,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.734619140625
+            },
+            {
+              "text": " They",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.03228759765625
+            },
+            {
+              "text": " are",
+              "start": 1.35,
+              "end": 1.53,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " sheep",
+              "start": 1.53,
+              "end": 1.73,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " and",
+              "start": 1.73,
+              "end": 1.93,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " calves",
+              "start": 1.93,
+              "end": 2.27,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " which",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " seek",
+              "start": 2.49,
+              "end": 2.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " out",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.98828125
+            },
+            {
+              "text": " assurance",
+              "start": 2.93,
+              "end": 3.27,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " in",
+              "start": 3.27,
+              "end": 3.55,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that.",
+              "start": 3.55,
+              "end": 3.81,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " I",
+              "start": 4.15,
+              "end": 4.31,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " will",
+              "start": 4.31,
+              "end": 4.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " speak",
+              "start": 4.41,
+              "end": 4.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 4.63,
+              "end": 4.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this",
+              "start": 4.81,
+              "end": 4.99,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " fellow. Whose grave's this, sir?",
+          "start": 4.99,
+          "end": 6.89,
+          "words": [
+            {
+              "text": " fellow.",
+              "start": 4.99,
+              "end": 5.25,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Whose",
+              "start": 5.79,
+              "end": 6.03,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " grave's",
+              "start": 6.03,
+              "end": 6.45,
+              "probability": 0.686767578125
+            },
+            {
+              "text": " this,",
+              "start": 6.45,
+              "end": 6.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sir?",
+              "start": 6.89,
+              "end": 6.89,
+              "probability": 0.8896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "They",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "are",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "raw": "sheep",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "raw": "and",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "raw": "calves",
+          "start": 1.93,
+          "end": 2.27
+        },
+        {
+          "raw": "which",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "raw": "seek",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "raw": "out",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "assurance",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "raw": "in",
+          "start": 3.27,
+          "end": 3.55
+        },
+        {
+          "raw": "that.",
+          "start": 3.55,
+          "end": 3.81
+        },
+        {
+          "raw": "I",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "raw": "will",
+          "start": 4.31,
+          "end": 4.41
+        },
+        {
+          "raw": "speak",
+          "start": 4.41,
+          "end": 4.63
+        },
+        {
+          "raw": "to",
+          "start": 4.63,
+          "end": 4.81
+        },
+        {
+          "raw": "this",
+          "start": 4.81,
+          "end": 4.99
+        },
+        {
+          "raw": "fellow.",
+          "start": 4.99,
+          "end": 5.25
+        },
+        {
+          "raw": "Whose",
+          "start": 5.79,
+          "end": 6.03
+        },
+        {
+          "raw": "grave's",
+          "start": 6.03,
+          "end": 6.45
+        },
+        {
+          "raw": "this,",
+          "start": 6.45,
+          "end": 6.67
+        },
+        {
+          "raw": "sir?",
+          "start": 6.89,
+          "end": 6.89
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "They",
+        "are",
+        "sheep",
+        "and",
+        "calves",
+        "which",
+        "seek",
+        "out",
+        "assurance",
+        "in",
+        "that.",
+        "I",
+        "will",
+        "speak",
+        "to",
+        "this",
+        "fellow.—Whose",
+        "grave's",
+        "this,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ],
+        [
+          "equal",
+          18,
+          21,
+          19,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 1.15,
+          "end": 1.35,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.35,
+          "end": 1.53,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sheep",
+          "start": 1.53,
+          "end": 1.73,
+          "key": "sheep",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.73,
+          "end": 1.93,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "calves",
+          "start": 1.93,
+          "end": 2.27,
+          "key": "calves",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 2.27,
+          "end": 2.49,
+          "key": "which",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "seek",
+          "start": 2.49,
+          "end": 2.75,
+          "key": "seek",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.75,
+          "end": 2.93,
+          "key": "out",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "assurance",
+          "start": 2.93,
+          "end": 3.27,
+          "key": "assurance",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.27,
+          "end": 3.55,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 3.55,
+          "end": 3.81,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.15,
+          "end": 4.31,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.31,
+          "end": 4.41,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 4.41,
+          "end": 4.63,
+          "key": "speak",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.63,
+          "end": 4.81,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.81,
+          "end": 4.99,
+          "key": "this",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "fellow.",
+          "start": 4.99,
+          "end": 5.25,
+          "key": "fellow",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Whose",
+          "start": 5.79,
+          "end": 6.03,
+          "key": "whose",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "grave's",
+          "start": 6.03,
+          "end": 6.45,
+          "key": "graves",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 6.45,
+          "end": 6.67,
+          "key": "this",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 6.89,
+          "end": 6.89,
+          "key": "sir",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "They",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "are",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "text": "sheep",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "text": "and",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "text": "calves",
+          "start": 1.93,
+          "end": 2.27
+        },
+        {
+          "text": "which",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "text": "seek",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "text": "out",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "assurance",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "text": "in",
+          "start": 3.27,
+          "end": 3.55
+        },
+        {
+          "text": "that.",
+          "start": 3.55,
+          "end": 3.81
+        },
+        {
+          "text": "I",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "text": "will",
+          "start": 4.31,
+          "end": 4.41
+        },
+        {
+          "text": "speak",
+          "start": 4.41,
+          "end": 4.63
+        },
+        {
+          "text": "to",
+          "start": 4.63,
+          "end": 4.81
+        },
+        {
+          "text": "this",
+          "start": 4.81,
+          "end": 4.99
+        },
+        {
+          "text": "fellow.—Whose",
+          "start": 4.99,
+          "end": 5.51
+        },
+        {
+          "text": "grave's",
+          "start": 6.03,
+          "end": 6.45
+        },
+        {
+          "text": "this,",
+          "start": 6.45,
+          "end": 6.67
+        },
+        {
+          "text": "sir?",
+          "start": 6.89,
+          "end": 6.89
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.40838070772588253
+    },
+    {
+      "asr_seconds": 0.38908421620726585,
+      "alignment_seconds": 0.0005891257897019386,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, they are sheep and calves which seek out assurance in that.",
+          "start": 0.05,
+          "end": 3.81,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.734619140625
+            },
+            {
+              "text": " they",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " are",
+              "start": 1.35,
+              "end": 1.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sheep",
+              "start": 1.53,
+              "end": 1.73,
+              "probability": 0.986328125
+            },
+            {
+              "text": " and",
+              "start": 1.73,
+              "end": 1.91,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " calves",
+              "start": 1.91,
+              "end": 2.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " which",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.943359375
+            },
+            {
+              "text": " seek",
+              "start": 2.49,
+              "end": 2.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " out",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " assurance",
+              "start": 2.93,
+              "end": 3.29,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 3.29,
+              "end": 3.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that.",
+              "start": 3.55,
+              "end": 3.81,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " I will speak to this fellow.",
+          "start": 4.15,
+          "end": 5.25,
+          "words": [
+            {
+              "text": " I",
+              "start": 4.15,
+              "end": 4.31,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " will",
+              "start": 4.31,
+              "end": 4.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " speak",
+              "start": 4.41,
+              "end": 4.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 4.63,
+              "end": 4.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 4.81,
+              "end": 4.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fellow.",
+              "start": 4.97,
+              "end": 5.25,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " Whose grave's this, sir?\"",
+          "start": 5.81,
+          "end": 7.12,
+          "words": [
+            {
+              "text": " Whose",
+              "start": 5.81,
+              "end": 6.03,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " grave's",
+              "start": 6.03,
+              "end": 6.45,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " this,",
+              "start": 6.45,
+              "end": 6.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sir?\"",
+              "start": 6.89,
+              "end": 7.12,
+              "probability": 0.74462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "they",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "are",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "raw": "sheep",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "raw": "and",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "raw": "calves",
+          "start": 1.91,
+          "end": 2.27
+        },
+        {
+          "raw": "which",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "raw": "seek",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "raw": "out",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "assurance",
+          "start": 2.93,
+          "end": 3.29
+        },
+        {
+          "raw": "in",
+          "start": 3.29,
+          "end": 3.55
+        },
+        {
+          "raw": "that.",
+          "start": 3.55,
+          "end": 3.81
+        },
+        {
+          "raw": "I",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "raw": "will",
+          "start": 4.31,
+          "end": 4.41
+        },
+        {
+          "raw": "speak",
+          "start": 4.41,
+          "end": 4.63
+        },
+        {
+          "raw": "to",
+          "start": 4.63,
+          "end": 4.81
+        },
+        {
+          "raw": "this",
+          "start": 4.81,
+          "end": 4.97
+        },
+        {
+          "raw": "fellow.",
+          "start": 4.97,
+          "end": 5.25
+        },
+        {
+          "raw": "Whose",
+          "start": 5.81,
+          "end": 6.03
+        },
+        {
+          "raw": "grave's",
+          "start": 6.03,
+          "end": 6.45
+        },
+        {
+          "raw": "this,",
+          "start": 6.45,
+          "end": 6.65
+        },
+        {
+          "raw": "sir?\"",
+          "start": 6.89,
+          "end": 7.12
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "They",
+        "are",
+        "sheep",
+        "and",
+        "calves",
+        "which",
+        "seek",
+        "out",
+        "assurance",
+        "in",
+        "that.",
+        "I",
+        "will",
+        "speak",
+        "to",
+        "this",
+        "fellow.—Whose",
+        "grave's",
+        "this,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ],
+        [
+          "equal",
+          18,
+          21,
+          19,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.15,
+          "end": 1.35,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.35,
+          "end": 1.53,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sheep",
+          "start": 1.53,
+          "end": 1.73,
+          "key": "sheep",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.73,
+          "end": 1.91,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "calves",
+          "start": 1.91,
+          "end": 2.27,
+          "key": "calves",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 2.27,
+          "end": 2.49,
+          "key": "which",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "seek",
+          "start": 2.49,
+          "end": 2.75,
+          "key": "seek",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.75,
+          "end": 2.93,
+          "key": "out",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "assurance",
+          "start": 2.93,
+          "end": 3.29,
+          "key": "assurance",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.29,
+          "end": 3.55,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 3.55,
+          "end": 3.81,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.15,
+          "end": 4.31,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.31,
+          "end": 4.41,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 4.41,
+          "end": 4.63,
+          "key": "speak",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.63,
+          "end": 4.81,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.81,
+          "end": 4.97,
+          "key": "this",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "fellow.",
+          "start": 4.97,
+          "end": 5.25,
+          "key": "fellow",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Whose",
+          "start": 5.81,
+          "end": 6.03,
+          "key": "whose",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "grave's",
+          "start": 6.03,
+          "end": 6.45,
+          "key": "graves",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 6.45,
+          "end": 6.65,
+          "key": "this",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "sir?\"",
+          "start": 6.89,
+          "end": 7.12,
+          "key": "sir",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "They",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "are",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "text": "sheep",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "text": "and",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "text": "calves",
+          "start": 1.91,
+          "end": 2.27
+        },
+        {
+          "text": "which",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "text": "seek",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "text": "out",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "assurance",
+          "start": 2.93,
+          "end": 3.29
+        },
+        {
+          "text": "in",
+          "start": 3.29,
+          "end": 3.55
+        },
+        {
+          "text": "that.",
+          "start": 3.55,
+          "end": 3.81
+        },
+        {
+          "text": "I",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "text": "will",
+          "start": 4.31,
+          "end": 4.41
+        },
+        {
+          "text": "speak",
+          "start": 4.41,
+          "end": 4.63
+        },
+        {
+          "text": "to",
+          "start": 4.63,
+          "end": 4.81
+        },
+        {
+          "text": "this",
+          "start": 4.81,
+          "end": 4.97
+        },
+        {
+          "text": "fellow.—Whose",
+          "start": 4.97,
+          "end": 5.5
+        },
+        {
+          "text": "grave's",
+          "start": 6.03,
+          "end": 6.45
+        },
+        {
+          "text": "this,",
+          "start": 6.45,
+          "end": 6.65
+        },
+        {
+          "text": "sir?",
+          "start": 6.89,
+          "end": 7.12
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.38989984057843685
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "37f64a2447aa99638191c4cf4bd5ef1078647324f18fc477ad5c60276563fd3e",
+  "selected_reasons": []
+}

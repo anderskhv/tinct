@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "ec01099e2aead6698b1d1f4ed2085202f681ab9d7538d19cfd9a4747a7bc9da1",
+  "attempts": [
+    {
+      "asr_seconds": 0.0984190299641341,
+      "alignment_seconds": 0.00015632103895768523,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Is he a widower? Stephen asked.",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.2587890625
+            },
+            {
+              "text": " he",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " a",
+              "start": 0.67,
+              "end": 0.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " widower?",
+              "start": 0.73,
+              "end": 1.11,
+              "probability": 0.986572265625
+            },
+            {
+              "text": " Stephen",
+              "start": 1.55,
+              "end": 1.59,
+              "probability": 0.479248046875
+            },
+            {
+              "text": " asked.",
+              "start": 1.59,
+              "end": 2.15,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "he",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "a",
+          "start": 0.67,
+          "end": 0.73
+        },
+        {
+          "raw": "widower?",
+          "start": 0.73,
+          "end": 1.11
+        },
+        {
+          "raw": "Stephen",
+          "start": 1.55,
+          "end": 1.59
+        },
+        {
+          "raw": "asked.",
+          "start": 1.59,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "—Is",
+        "he",
+        "a",
+        "widower?",
+        "Stephen",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "is",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.67,
+          "end": 0.73,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "widower?",
+          "start": 0.73,
+          "end": 1.11,
+          "key": "widower",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Stephen",
+          "start": 1.55,
+          "end": 1.59,
+          "key": "stephen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 1.59,
+          "end": 2.15,
+          "key": "asked",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Is",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "he",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "a",
+          "start": 0.67,
+          "end": 0.73
+        },
+        {
+          "text": "widower?",
+          "start": 0.73,
+          "end": 1.11
+        },
+        {
+          "text": "Stephen",
+          "start": 1.55,
+          "end": 1.59
+        },
+        {
+          "text": "asked.",
+          "start": 1.59,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09863249096088111
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e263aa91f6a4238fc2dab78e00f7a683f51fd7f5652720fd536c422c71bf0133",
+  "selected_reasons": []
+}

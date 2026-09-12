@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "7f915e0457befb9d9adf0785f6d1ded62e49b6ce9daa366ac652e15c42a0f072",
+  "attempts": [
+    {
+      "asr_seconds": 0.08804977219551802,
+      "alignment_seconds": 0.00011438410729169846,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sleeps.",
+          "start": 0.0,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Sleeps.",
+              "start": 0.0,
+              "end": 1.32,
+              "probability": 0.7388916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sleeps.",
+          "start": 0.0,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "[_Sleeps._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sleeps.",
+          "start": 0.0,
+          "end": 1.32,
+          "key": "sleeps",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Sleeps._]",
+          "start": 0.0,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08819678332656622
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8a30c275bbc11fd0a4bef424f5d22e52e0474310348367a1959f2611128cfa59",
+  "selected_reasons": []
+}

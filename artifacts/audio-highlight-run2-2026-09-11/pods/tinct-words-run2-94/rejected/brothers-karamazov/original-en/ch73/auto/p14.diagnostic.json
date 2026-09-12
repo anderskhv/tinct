@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "1633006f8675ac61cd38ec9b4bd3e3bbeebc11431b34524615bc8af661a5ae40",
+  "attempts": [
+    {
+      "asr_seconds": 0.186689592897892,
+      "alignment_seconds": 0.0002961922436952591,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ethics?\" asked Alyosha, wondering.",
+        "hotwords": "Ethics, Alyosha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ethics, asked Alyosha, wondering.",
+          "start": 0.18,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Ethics,",
+              "start": 0.18,
+              "end": 0.86,
+              "probability": 0.63134765625
+            },
+            {
+              "text": " asked",
+              "start": 1.3,
+              "end": 1.44,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " Alyosha,",
+              "start": 1.44,
+              "end": 2.1,
+              "probability": 0.9479166666666666
+            },
+            {
+              "text": " wondering.",
+              "start": 2.22,
+              "end": 2.42,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ethics,",
+          "start": 0.18,
+          "end": 0.86
+        },
+        {
+          "raw": "asked",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "raw": "Alyosha,",
+          "start": 1.44,
+          "end": 2.1
+        },
+        {
+          "raw": "wondering.",
+          "start": 2.22,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "\"Ethics?\"",
+        "asked",
+        "Alyosha,",
+        "wondering."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ethics,",
+          "start": 0.18,
+          "end": 0.86,
+          "key": "ethics",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.3,
+          "end": 1.44,
+          "key": "asked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Alyosha,",
+          "start": 1.44,
+          "end": 2.1,
+          "key": "alyosha",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wondering.",
+          "start": 2.22,
+          "end": 2.42,
+          "key": "wondering",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ethics?\"",
+          "start": 0.18,
+          "end": 0.86
+        },
+        {
+          "text": "asked",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "text": "Alyosha,",
+          "start": 1.44,
+          "end": 2.1
+        },
+        {
+          "text": "wondering.",
+          "start": 2.22,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18709791265428066
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e644090faa75bbf5fecfd924194f251af08d9db5c3954650843875fbced67b6b",
+  "selected_reasons": []
+}

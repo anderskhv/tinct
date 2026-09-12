@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "0d9daf301d25894b1d060202cd01f963dcd0f28808b1e6849166f77993d2ec95",
+  "attempts": [
+    {
+      "asr_seconds": 0.18254048842936754,
+      "alignment_seconds": 0.0003841780126094818,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown, I wish you all joy of the worm.",
+          "start": 0.08,
+          "end": 2.32,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " I",
+              "start": 1.16,
+              "end": 1.26,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " wish",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 1.38,
+              "end": 1.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " all",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " joy",
+              "start": 1.68,
+              "end": 1.86,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " of",
+              "start": 1.86,
+              "end": 2.0,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 2.0,
+              "end": 2.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " worm.",
+              "start": 2.1,
+              "end": 2.32,
+              "probability": 0.94677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "I",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "raw": "wish",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "you",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "raw": "all",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "joy",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "raw": "of",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "raw": "the",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "raw": "worm.",
+          "start": 2.1,
+          "end": 2.32
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "I",
+        "wish",
+        "you",
+        "all",
+        "joy",
+        "of",
+        "the",
+        "worm."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.16,
+          "end": 1.26,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "wish",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.38,
+          "end": 1.54,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "joy",
+          "start": 1.68,
+          "end": 1.86,
+          "key": "joy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.86,
+          "end": 2.0,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.0,
+          "end": 2.1,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "worm.",
+          "start": 2.1,
+          "end": 2.32,
+          "key": "worm",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "I",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "text": "wish",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "you",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "text": "all",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "joy",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "text": "of",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "text": "the",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "text": "worm.",
+          "start": 2.1,
+          "end": 2.32
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18309213686734438
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8e9c516160d01aaf1c4644f88dc34e9221224a6e11acf5dace69d896186edd92",
+  "selected_reasons": []
+}

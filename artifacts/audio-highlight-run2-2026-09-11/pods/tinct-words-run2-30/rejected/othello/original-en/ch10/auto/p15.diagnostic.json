@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "1d59fcb4114de94bbeee463e11b006ee7b98a006366c986842a51e2b8478e798",
+  "attempts": [
+    {
+      "asr_seconds": 0.11100366897881031,
+      "alignment_seconds": 0.00012331921607255936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Emilia. I know not, madam.",
+        "hotwords": "Emilia, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia, I know not, madam.",
+          "start": 0.05,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.60052490234375
+            },
+            {
+              "text": " I",
+              "start": 1.13,
+              "end": 1.31,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " know",
+              "start": 1.31,
+              "end": 1.41,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " not,",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " madam.",
+              "start": 1.75,
+              "end": 2.05,
+              "probability": 0.6995849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "I",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "raw": "know",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "raw": "not,",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "raw": "madam.",
+          "start": 1.75,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "I",
+        "know",
+        "not,",
+        "madam."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.13,
+          "end": 1.31,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.31,
+          "end": 1.41,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 1.41,
+          "end": 1.61,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "madam.",
+          "start": 1.75,
+          "end": 2.05,
+          "key": "madam",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "I",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "text": "know",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "text": "not,",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "text": "madam.",
+          "start": 1.75,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11117272777482867
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f88fdb95d16dc90c4e11e60059f4bfdba89077d91ee49f71b3157bf9d437b16a",
+  "selected_reasons": []
+}

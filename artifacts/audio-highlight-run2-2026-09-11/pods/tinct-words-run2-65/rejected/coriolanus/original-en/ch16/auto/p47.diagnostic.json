@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "02b1928becb15188c3cc3f8eec717ad2040e00438505d855f4cf18ff16facfbc",
+  "attempts": [
+    {
+      "asr_seconds": 3.813533061183989,
+      "alignment_seconds": 0.00031144917011260986,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. But since he hath Served well for Rome—",
+        "hotwords": "Brutus, But, Served, Rome"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus. But since he hath Served well for Rome—",
+          "start": 0.59,
+          "end": 3.45,
+          "words": [
+            {
+              "text": " Brutus.",
+              "start": 0.59,
+              "end": 0.95,
+              "probability": 0.973876953125
+            },
+            {
+              "text": " But",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.875
+            },
+            {
+              "text": " since",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.982421875
+            },
+            {
+              "text": " he",
+              "start": 1.49,
+              "end": 1.63,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " hath",
+              "start": 1.63,
+              "end": 1.77,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Served",
+              "start": 1.77,
+              "end": 2.13,
+              "probability": 0.49222421646118164
+            },
+            {
+              "text": " well",
+              "start": 2.13,
+              "end": 2.29,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " for",
+              "start": 2.29,
+              "end": 2.47,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Rome—",
+              "start": 2.47,
+              "end": 3.45,
+              "probability": 0.499359130859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus.",
+          "start": 0.59,
+          "end": 0.95
+        },
+        {
+          "raw": "But",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "since",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "he",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "raw": "hath",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "raw": "Served",
+          "start": 1.77,
+          "end": 2.13
+        },
+        {
+          "raw": "well",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "raw": "for",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "raw": "Rome—",
+          "start": 2.47,
+          "end": 3.45
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "But",
+        "since",
+        "he",
+        "hath",
+        "Served",
+        "well",
+        "for",
+        "Rome—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus.",
+          "start": 0.59,
+          "end": 0.95,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.19,
+          "end": 1.31,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "since",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.49,
+          "end": 1.63,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.63,
+          "end": 1.77,
+          "key": "hath",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Served",
+          "start": 1.77,
+          "end": 2.13,
+          "key": "served",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 2.13,
+          "end": 2.29,
+          "key": "well",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.29,
+          "end": 2.47,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Rome—",
+          "start": 2.47,
+          "end": 3.45,
+          "key": "rome",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.59,
+          "end": 0.95
+        },
+        {
+          "text": "But",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "text": "since",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "he",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "text": "hath",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "text": "Served",
+          "start": 1.77,
+          "end": 2.13
+        },
+        {
+          "text": "well",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "text": "for",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "text": "Rome—",
+          "start": 2.47,
+          "end": 3.45
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.8139663343317807
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c19cf9e7e5345720dbd52c634d3fe250be3a7bd4fdba50570394fc4ca7c7620d",
+  "selected_reasons": []
+}

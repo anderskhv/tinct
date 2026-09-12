@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "1af10033baa7d61883cfb4f6ea01b33a3336933f282b7159227ce70249cfdeae",
+  "attempts": [
+    {
+      "asr_seconds": 0.22286776918917894,
+      "alignment_seconds": 0.000427858904004097,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Valeria Virgilia, nay tees true.",
+          "start": 0.05,
+          "end": 2.67,
+          "words": [
+            {
+              "text": " Valeria",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.77197265625
+            },
+            {
+              "text": " Virgilia,",
+              "start": 0.87,
+              "end": 1.45,
+              "probability": 0.7439778645833334
+            },
+            {
+              "text": " nay",
+              "start": 1.97,
+              "end": 2.05,
+              "probability": 0.636474609375
+            },
+            {
+              "text": " tees",
+              "start": 2.05,
+              "end": 2.41,
+              "probability": 0.4071044921875
+            },
+            {
+              "text": " true.",
+              "start": 2.41,
+              "end": 2.67,
+              "probability": 0.9443359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Valeria",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Virgilia,",
+          "start": 0.87,
+          "end": 1.45
+        },
+        {
+          "raw": "nay",
+          "start": 1.97,
+          "end": 2.05
+        },
+        {
+          "raw": "tees",
+          "start": 2.05,
+          "end": 2.41
+        },
+        {
+          "raw": "true.",
+          "start": 2.41,
+          "end": 2.67
+        }
+      ],
+      "expected_tokens": [
+        "Valeria,",
+        "Virgilia.",
+        "Nay,",
+        "'tis",
+        "true."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Valeria",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "valeria",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Virgilia,",
+          "start": 0.87,
+          "end": 1.45,
+          "key": "virgilia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nay",
+          "start": 1.97,
+          "end": 2.05,
+          "key": "nay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tees",
+          "start": 2.05,
+          "end": 2.41,
+          "key": "tees",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 2.41,
+          "end": 2.67,
+          "key": "true",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Valeria,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Virgilia.",
+          "start": 0.87,
+          "end": 1.45
+        },
+        {
+          "text": "Nay,",
+          "start": 1.97,
+          "end": 2.05
+        },
+        {
+          "text": "'tis",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "text": "true.",
+          "start": 2.41,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22342293430119753
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "618110c2ffea3ee548b1fe4faca584447bb638fe581872f2e97143f0d7c90dcb",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

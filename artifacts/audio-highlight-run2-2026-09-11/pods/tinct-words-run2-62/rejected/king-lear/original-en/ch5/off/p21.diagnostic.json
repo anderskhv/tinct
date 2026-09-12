@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "6d40feff20e8a8dfbdae6014b7eed3676ee7fc33921c631b54b6d8ae7dad90ae",
+  "attempts": [
+    {
+      "asr_seconds": 0.08217637613415718,
+      "alignment_seconds": 0.00027975812554359436,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, because they are not eight.",
+          "start": 0.02,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.65576171875
+            },
+            {
+              "text": " because",
+              "start": 1.18,
+              "end": 1.2,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " they",
+              "start": 1.2,
+              "end": 1.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " are",
+              "start": 1.4,
+              "end": 1.48,
+              "probability": 0.974609375
+            },
+            {
+              "text": " not",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " eight.",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.68310546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "because",
+          "start": 1.18,
+          "end": 1.2
+        },
+        {
+          "raw": "they",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "raw": "are",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "raw": "not",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "eight.",
+          "start": 1.62,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Because",
+        "they",
+        "are",
+        "not",
+        "eight?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 1.18,
+          "end": 1.2,
+          "key": "because",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.2,
+          "end": 1.4,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.4,
+          "end": 1.48,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.48,
+          "end": 1.62,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "eight.",
+          "start": 1.62,
+          "end": 1.86,
+          "key": "eight",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Because",
+          "start": 1.18,
+          "end": 1.2
+        },
+        {
+          "text": "they",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "text": "are",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "text": "not",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "eight?",
+          "start": 1.62,
+          "end": 1.86
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08250303938984871
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "83f1e17b30eae1487e632eaed5fa9ec809ebd2738bff1f5e562e551f8c877eeb",
+  "selected_reasons": []
+}

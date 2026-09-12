@@ -1,0 +1,837 @@
+{
+  "complete": true,
+  "signature": "483c0eec655aad842623ca9c926b450d4c443361482531d86bad52414844f1ca",
+  "attempts": [
+    {
+      "asr_seconds": 0.41312387213110924,
+      "alignment_seconds": 0.0006699822843074799,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. This is my treasurer. Let him speak, my lord, Upon his peril, that I have reserved To myself nothing. Speak the truth, Seleucus.",
+        "hotwords": "Cleopatra, This, Let, Upon, I, To, Seleucus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra. This is my treasurer. Let him speak, my lord, Upon his peril, That I have reserved",
+          "start": 0.58,
+          "end": 5.94,
+          "words": [
+            {
+              "text": " Cleopatra.",
+              "start": 0.58,
+              "end": 1.06,
+              "probability": 0.9514973958333334
+            },
+            {
+              "text": " This",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " is",
+              "start": 1.7,
+              "end": 1.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 1.86,
+              "end": 2.08,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " treasurer.",
+              "start": 2.08,
+              "end": 2.46,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " Let",
+              "start": 3.18,
+              "end": 3.24,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " him",
+              "start": 3.24,
+              "end": 3.4,
+              "probability": 0.974609375
+            },
+            {
+              "text": " speak,",
+              "start": 3.4,
+              "end": 3.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 3.88,
+              "end": 3.96,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " lord,",
+              "start": 3.96,
+              "end": 4.26,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " Upon",
+              "start": 4.52,
+              "end": 4.6,
+              "probability": 0.002838134765625
+            },
+            {
+              "text": " his",
+              "start": 4.6,
+              "end": 4.8,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " peril,",
+              "start": 4.8,
+              "end": 5.16,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " That",
+              "start": 5.32,
+              "end": 5.38,
+              "probability": 0.33203125
+            },
+            {
+              "text": " I",
+              "start": 5.38,
+              "end": 5.5,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " have",
+              "start": 5.5,
+              "end": 5.62,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " reserved",
+              "start": 5.62,
+              "end": 5.94,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " To myself nothing. Speak the truth, Seleucus.",
+          "start": 5.94,
+          "end": 9.28,
+          "words": [
+            {
+              "text": " To",
+              "start": 5.94,
+              "end": 6.18,
+              "probability": 0.0029163360595703125
+            },
+            {
+              "text": " myself",
+              "start": 6.18,
+              "end": 6.42,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " nothing.",
+              "start": 6.42,
+              "end": 6.8,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Speak",
+              "start": 7.66,
+              "end": 7.86,
+              "probability": 0.958984375
+            },
+            {
+              "text": " the",
+              "start": 7.86,
+              "end": 8.06,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " truth,",
+              "start": 8.06,
+              "end": 8.4,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Seleucus.",
+              "start": 8.84,
+              "end": 9.28,
+              "probability": 0.776123046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra.",
+          "start": 0.58,
+          "end": 1.06
+        },
+        {
+          "raw": "This",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "is",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "raw": "my",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "raw": "treasurer.",
+          "start": 2.08,
+          "end": 2.46
+        },
+        {
+          "raw": "Let",
+          "start": 3.18,
+          "end": 3.24
+        },
+        {
+          "raw": "him",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "raw": "speak,",
+          "start": 3.4,
+          "end": 3.72
+        },
+        {
+          "raw": "my",
+          "start": 3.88,
+          "end": 3.96
+        },
+        {
+          "raw": "lord,",
+          "start": 3.96,
+          "end": 4.26
+        },
+        {
+          "raw": "Upon",
+          "start": 4.52,
+          "end": 4.6
+        },
+        {
+          "raw": "his",
+          "start": 4.6,
+          "end": 4.8
+        },
+        {
+          "raw": "peril,",
+          "start": 4.8,
+          "end": 5.16
+        },
+        {
+          "raw": "That",
+          "start": 5.32,
+          "end": 5.38
+        },
+        {
+          "raw": "I",
+          "start": 5.38,
+          "end": 5.5
+        },
+        {
+          "raw": "have",
+          "start": 5.5,
+          "end": 5.62
+        },
+        {
+          "raw": "reserved",
+          "start": 5.62,
+          "end": 5.94
+        },
+        {
+          "raw": "To",
+          "start": 5.94,
+          "end": 6.18
+        },
+        {
+          "raw": "myself",
+          "start": 6.18,
+          "end": 6.42
+        },
+        {
+          "raw": "nothing.",
+          "start": 6.42,
+          "end": 6.8
+        },
+        {
+          "raw": "Speak",
+          "start": 7.66,
+          "end": 7.86
+        },
+        {
+          "raw": "the",
+          "start": 7.86,
+          "end": 8.06
+        },
+        {
+          "raw": "truth,",
+          "start": 8.06,
+          "end": 8.4
+        },
+        {
+          "raw": "Seleucus.",
+          "start": 8.84,
+          "end": 9.28
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "This",
+        "is",
+        "my",
+        "treasurer.",
+        "Let",
+        "him",
+        "speak,",
+        "my",
+        "lord,",
+        "Upon",
+        "his",
+        "peril,",
+        "that",
+        "I",
+        "have",
+        "reserved",
+        "To",
+        "myself",
+        "nothing.",
+        "Speak",
+        "the",
+        "truth,",
+        "Seleucus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra.",
+          "start": 0.58,
+          "end": 1.06,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 1.52,
+          "end": 1.7,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.7,
+          "end": 1.86,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.86,
+          "end": 2.08,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "treasurer.",
+          "start": 2.08,
+          "end": 2.46,
+          "key": "treasurer",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 3.18,
+          "end": 3.24,
+          "key": "let",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.24,
+          "end": 3.4,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "speak,",
+          "start": 3.4,
+          "end": 3.72,
+          "key": "speak",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.88,
+          "end": 3.96,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 3.96,
+          "end": 4.26,
+          "key": "lord",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 4.52,
+          "end": 4.6,
+          "key": "upon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.6,
+          "end": 4.8,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "peril,",
+          "start": 4.8,
+          "end": 5.16,
+          "key": "peril",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 5.32,
+          "end": 5.38,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.38,
+          "end": 5.5,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.5,
+          "end": 5.62,
+          "key": "have",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "reserved",
+          "start": 5.62,
+          "end": 5.94,
+          "key": "reserved",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 5.94,
+          "end": 6.18,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 6.18,
+          "end": 6.42,
+          "key": "myself",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "nothing.",
+          "start": 6.42,
+          "end": 6.8,
+          "key": "nothing",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Speak",
+          "start": 7.66,
+          "end": 7.86,
+          "key": "speak",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.86,
+          "end": 8.06,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "truth,",
+          "start": 8.06,
+          "end": 8.4,
+          "key": "truth",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Seleucus.",
+          "start": 8.84,
+          "end": 9.28,
+          "key": "seleucus",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.58,
+          "end": 1.06
+        },
+        {
+          "text": "This",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "is",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "text": "my",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "text": "treasurer.",
+          "start": 2.08,
+          "end": 2.46
+        },
+        {
+          "text": "Let",
+          "start": 3.18,
+          "end": 3.24
+        },
+        {
+          "text": "him",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "text": "speak,",
+          "start": 3.4,
+          "end": 3.72
+        },
+        {
+          "text": "my",
+          "start": 3.88,
+          "end": 3.96
+        },
+        {
+          "text": "lord,",
+          "start": 3.96,
+          "end": 4.26
+        },
+        {
+          "text": "Upon",
+          "start": 4.52,
+          "end": 4.6
+        },
+        {
+          "text": "his",
+          "start": 4.6,
+          "end": 4.8
+        },
+        {
+          "text": "peril,",
+          "start": 4.8,
+          "end": 5.16
+        },
+        {
+          "text": "that",
+          "start": 5.32,
+          "end": 5.38
+        },
+        {
+          "text": "I",
+          "start": 5.38,
+          "end": 5.5
+        },
+        {
+          "text": "have",
+          "start": 5.5,
+          "end": 5.62
+        },
+        {
+          "text": "reserved",
+          "start": 5.62,
+          "end": 5.94
+        },
+        {
+          "text": "To",
+          "start": 5.94,
+          "end": 6.18
+        },
+        {
+          "text": "myself",
+          "start": 6.18,
+          "end": 6.42
+        },
+        {
+          "text": "nothing.",
+          "start": 6.42,
+          "end": 6.8
+        },
+        {
+          "text": "Speak",
+          "start": 7.66,
+          "end": 7.86
+        },
+        {
+          "text": "the",
+          "start": 7.86,
+          "end": 8.06
+        },
+        {
+          "text": "truth,",
+          "start": 8.06,
+          "end": 8.4
+        },
+        {
+          "text": "Seleucus.",
+          "start": 8.84,
+          "end": 9.28
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4140787860378623
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b6e88b02cad96b56063958d67d4a9d368e48f5d4c23c80fa71efaa91c8e0ae53",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "c89be4eed03746a530116bbd2074c491a851ab6317b446494829cc391f9af06e",
+  "attempts": [
+    {
+      "asr_seconds": 0.13675380777567625,
+      "alignment_seconds": 0.00035301409661769867,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Leaps into the grave.]",
+        "hotwords": "Leaps"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leaps into the grave.",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Leaps",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.4952545166015625
+            },
+            {
+              "text": " into",
+              "start": 0.68,
+              "end": 0.82,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " the",
+              "start": 0.82,
+              "end": 0.96,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " grave.",
+              "start": 0.96,
+              "end": 1.22,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leaps",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "into",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "raw": "the",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "raw": "grave.",
+          "start": 0.96,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "[Leaps",
+        "into",
+        "the",
+        "grave.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leaps",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "leaps",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 0.68,
+          "end": 0.82,
+          "key": "into",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.82,
+          "end": 0.96,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "grave.",
+          "start": 0.96,
+          "end": 1.22,
+          "key": "grave",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Leaps",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "into",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "text": "the",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "text": "grave.]",
+          "start": 0.96,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13723650109022856
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "120ed85d12bc759007f7a607057c0a521b8f74c4e6bfe6884f28983f11d5ee36",
+  "selected_reasons": []
+}

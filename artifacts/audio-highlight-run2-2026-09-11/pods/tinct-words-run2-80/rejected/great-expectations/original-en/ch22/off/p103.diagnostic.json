@@ -1,0 +1,569 @@
+{
+  "complete": true,
+  "signature": "55680542382e23b7e3448bc60efbcacc20430d434f8ccd1fee45581eac1bdb81",
+  "attempts": [
+    {
+      "asr_seconds": 0.31454299204051495,
+      "alignment_seconds": 0.00033552199602127075,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gracious me, flopsin', said Mrs. Pocket, looking off her book for a moment.",
+          "start": 0.05,
+          "end": 4.63,
+          "words": [
+            {
+              "text": " Gracious",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.4877777099609375
+            },
+            {
+              "text": " me,",
+              "start": 0.85,
+              "end": 1.09,
+              "probability": 0.798828125
+            },
+            {
+              "text": " flopsin',",
+              "start": 1.31,
+              "end": 2.15,
+              "probability": 0.554534912109375
+            },
+            {
+              "text": " said",
+              "start": 2.15,
+              "end": 2.33,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " Mrs.",
+              "start": 2.33,
+              "end": 2.63,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " Pocket,",
+              "start": 2.91,
+              "end": 2.97,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " looking",
+              "start": 3.39,
+              "end": 3.57,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " off",
+              "start": 3.57,
+              "end": 3.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 3.79,
+              "end": 3.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " book",
+              "start": 3.95,
+              "end": 4.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " for",
+              "start": 4.11,
+              "end": 4.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 4.27,
+              "end": 4.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " moment.",
+              "start": 4.37,
+              "end": 4.63,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Everybody's tumbling.",
+          "start": 5.15,
+          "end": 6.03,
+          "words": [
+            {
+              "text": " Everybody's",
+              "start": 5.15,
+              "end": 5.65,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " tumbling.",
+              "start": 5.65,
+              "end": 6.03,
+              "probability": 0.990966796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gracious",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "me,",
+          "start": 0.85,
+          "end": 1.09
+        },
+        {
+          "raw": "flopsin',",
+          "start": 1.31,
+          "end": 2.15
+        },
+        {
+          "raw": "said",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "raw": "Mrs.",
+          "start": 2.33,
+          "end": 2.63
+        },
+        {
+          "raw": "Pocket,",
+          "start": 2.91,
+          "end": 2.97
+        },
+        {
+          "raw": "looking",
+          "start": 3.39,
+          "end": 3.57
+        },
+        {
+          "raw": "off",
+          "start": 3.57,
+          "end": 3.79
+        },
+        {
+          "raw": "her",
+          "start": 3.79,
+          "end": 3.95
+        },
+        {
+          "raw": "book",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "raw": "for",
+          "start": 4.11,
+          "end": 4.27
+        },
+        {
+          "raw": "a",
+          "start": 4.27,
+          "end": 4.37
+        },
+        {
+          "raw": "moment.",
+          "start": 4.37,
+          "end": 4.63
+        },
+        {
+          "raw": "Everybody's",
+          "start": 5.15,
+          "end": 5.65
+        },
+        {
+          "raw": "tumbling.",
+          "start": 5.65,
+          "end": 6.03
+        }
+      ],
+      "expected_tokens": [
+        "\"Gracious",
+        "me,",
+        "Flopson!\"",
+        "said",
+        "Mrs.",
+        "Pocket,",
+        "looking",
+        "off",
+        "her",
+        "book",
+        "for",
+        "a",
+        "moment,",
+        "\"everybody's",
+        "tumbling!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          15,
+          3,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gracious",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "gracious",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 0.85,
+          "end": 1.09,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "flopsin',",
+          "start": 1.31,
+          "end": 2.15,
+          "key": "flopsin",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.15,
+          "end": 2.33,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 2.33,
+          "end": 2.63,
+          "key": "mrs",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Pocket,",
+          "start": 2.91,
+          "end": 2.97,
+          "key": "pocket",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 3.39,
+          "end": 3.57,
+          "key": "looking",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 3.57,
+          "end": 3.79,
+          "key": "off",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.79,
+          "end": 3.95,
+          "key": "her",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "book",
+          "start": 3.95,
+          "end": 4.11,
+          "key": "book",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.11,
+          "end": 4.27,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.27,
+          "end": 4.37,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "moment.",
+          "start": 4.37,
+          "end": 4.63,
+          "key": "moment",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Everybody's",
+          "start": 5.15,
+          "end": 5.65,
+          "key": "everybodys",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "tumbling.",
+          "start": 5.65,
+          "end": 6.03,
+          "key": "tumbling",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Gracious",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "me,",
+          "start": 0.85,
+          "end": 1.09
+        },
+        {
+          "text": "Flopson!\"",
+          "start": 1.09,
+          "end": 1.62
+        },
+        {
+          "text": "said",
+          "start": 2.15,
+          "end": 2.33
+        },
+        {
+          "text": "Mrs.",
+          "start": 2.33,
+          "end": 2.63
+        },
+        {
+          "text": "Pocket,",
+          "start": 2.91,
+          "end": 2.97
+        },
+        {
+          "text": "looking",
+          "start": 3.39,
+          "end": 3.57
+        },
+        {
+          "text": "off",
+          "start": 3.57,
+          "end": 3.79
+        },
+        {
+          "text": "her",
+          "start": 3.79,
+          "end": 3.95
+        },
+        {
+          "text": "book",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "text": "for",
+          "start": 4.11,
+          "end": 4.27
+        },
+        {
+          "text": "a",
+          "start": 4.27,
+          "end": 4.37
+        },
+        {
+          "text": "moment,",
+          "start": 4.37,
+          "end": 4.63
+        },
+        {
+          "text": "\"everybody's",
+          "start": 5.15,
+          "end": 5.65
+        },
+        {
+          "text": "tumbling!\"",
+          "start": 5.65,
+          "end": 6.03
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.3150232881307602
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a59b5345406e8ea2d9c0c4128087f2dc3b85c413383e8ea738fc192a5a3b48ea",
+  "selected_reasons": []
+}

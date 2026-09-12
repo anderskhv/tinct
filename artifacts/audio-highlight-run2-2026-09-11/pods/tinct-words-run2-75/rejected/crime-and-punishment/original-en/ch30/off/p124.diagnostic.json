@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "68c1f07757d05c77368e11bf2a56588d704c489104b3f54c9f2f33c3a8d53cf9",
+  "attempts": [
+    {
+      "asr_seconds": 0.3470933847129345,
+      "alignment_seconds": 0.0005678758025169373,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I've only killed a louse, Sonya, a useless, loathsome, harmful creature.",
+          "start": 0.08,
+          "end": 4.58,
+          "words": [
+            {
+              "text": " I've",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.921875
+            },
+            {
+              "text": " only",
+              "start": 0.58,
+              "end": 0.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " killed",
+              "start": 0.78,
+              "end": 1.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " louse,",
+              "start": 1.2,
+              "end": 1.5,
+              "probability": 0.878173828125
+            },
+            {
+              "text": " Sonya,",
+              "start": 1.96,
+              "end": 2.22,
+              "probability": 0.830810546875
+            },
+            {
+              "text": " a",
+              "start": 2.5,
+              "end": 2.6,
+              "probability": 0.986328125
+            },
+            {
+              "text": " useless,",
+              "start": 2.6,
+              "end": 3.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " loathsome,",
+              "start": 3.36,
+              "end": 3.76,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " harmful",
+              "start": 3.92,
+              "end": 4.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " creature.",
+              "start": 4.14,
+              "end": 4.58,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I've",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "only",
+          "start": 0.58,
+          "end": 0.78
+        },
+        {
+          "raw": "killed",
+          "start": 0.78,
+          "end": 1.06
+        },
+        {
+          "raw": "a",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "louse,",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "raw": "Sonya,",
+          "start": 1.96,
+          "end": 2.22
+        },
+        {
+          "raw": "a",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "raw": "useless,",
+          "start": 2.6,
+          "end": 3.0
+        },
+        {
+          "raw": "loathsome,",
+          "start": 3.36,
+          "end": 3.76
+        },
+        {
+          "raw": "harmful",
+          "start": 3.92,
+          "end": 4.14
+        },
+        {
+          "raw": "creature.",
+          "start": 4.14,
+          "end": 4.58
+        }
+      ],
+      "expected_tokens": [
+        "\"I've",
+        "only",
+        "killed",
+        "a",
+        "louse,",
+        "Sonia,",
+        "a",
+        "useless,",
+        "loathsome,",
+        "harmful",
+        "creature.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          11,
+          6,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I've",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "ive",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 0.58,
+          "end": 0.78,
+          "key": "only",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "killed",
+          "start": 0.78,
+          "end": 1.06,
+          "key": "killed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.06,
+          "end": 1.2,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "louse,",
+          "start": 1.2,
+          "end": 1.5,
+          "key": "louse",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Sonya,",
+          "start": 1.96,
+          "end": 2.22,
+          "key": "sonya",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.5,
+          "end": 2.6,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "useless,",
+          "start": 2.6,
+          "end": 3.0,
+          "key": "useless",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "loathsome,",
+          "start": 3.36,
+          "end": 3.76,
+          "key": "loathsome",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "harmful",
+          "start": 3.92,
+          "end": 4.14,
+          "key": "harmful",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "creature.",
+          "start": 4.14,
+          "end": 4.58,
+          "key": "creature",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I've",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "only",
+          "start": 0.58,
+          "end": 0.78
+        },
+        {
+          "text": "killed",
+          "start": 0.78,
+          "end": 1.06
+        },
+        {
+          "text": "a",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "louse,",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "text": "Sonia,",
+          "start": 1.5,
+          "end": 2.0
+        },
+        {
+          "text": "a",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "text": "useless,",
+          "start": 2.6,
+          "end": 3.0
+        },
+        {
+          "text": "loathsome,",
+          "start": 3.36,
+          "end": 3.76
+        },
+        {
+          "text": "harmful",
+          "start": 3.92,
+          "end": 4.14
+        },
+        {
+          "text": "creature.\"",
+          "start": 4.14,
+          "end": 4.58
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.3478674441576004
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3eccc8d9c699e3b35d2bbf1b340e7c44c9c44e8a5ee570fb7103f30770071e2e",
+  "selected_reasons": []
+}

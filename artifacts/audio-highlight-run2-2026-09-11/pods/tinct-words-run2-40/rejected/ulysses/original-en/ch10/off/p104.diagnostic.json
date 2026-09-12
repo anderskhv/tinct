@@ -1,0 +1,226 @@
+{
+  "complete": true,
+  "signature": "96ad255789aeb9f0496fad1f6daf5cf63f5191101b1a3f0913bf467ac47812c5",
+  "attempts": [
+    {
+      "asr_seconds": 0.11430094996467233,
+      "alignment_seconds": 0.0002938872203230858,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The lacquerang his bell.",
+          "start": 0.02,
+          "end": 1.46,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.7353515625
+            },
+            {
+              "text": " lacquerang",
+              "start": 0.48,
+              "end": 1.04,
+              "probability": 0.6415201822916666
+            },
+            {
+              "text": " his",
+              "start": 1.04,
+              "end": 1.2,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " bell.",
+              "start": 1.2,
+              "end": 1.46,
+              "probability": 0.955078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "lacquerang",
+          "start": 0.48,
+          "end": 1.04
+        },
+        {
+          "raw": "his",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "raw": "bell.",
+          "start": 1.2,
+          "end": 1.46
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "lacquey",
+        "rang",
+        "his",
+        "bell."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          5,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lacquerang",
+          "start": 0.48,
+          "end": 1.04,
+          "key": "lacquerang",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.04,
+          "end": 1.2,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bell.",
+          "start": 1.2,
+          "end": 1.46,
+          "key": "bell",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "lacquey",
+          "start": 0.48,
+          "end": 0.76
+        },
+        {
+          "text": "rang",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "text": "his",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "text": "bell.",
+          "start": 1.2,
+          "end": 1.46
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11470809765160084
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "005ae9b6f0a9efd4f8d2607922f7f5eeeecc9fce46e5f0b6f75750effe0e43d3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

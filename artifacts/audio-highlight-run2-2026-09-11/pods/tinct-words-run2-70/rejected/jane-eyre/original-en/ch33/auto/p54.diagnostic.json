@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "4d487669c6893752964efb564a26aeae6229bf77cc688fd1dcf3e0a623b49e2b",
+  "attempts": [
+    {
+      "asr_seconds": 0.29070597398094833,
+      "alignment_seconds": 0.0003086128272116184,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes—yes; but where is Mr. Briggs? He perhaps knows more of Mr. Rochester than you do.\"",
+        "hotwords": "Yes—yes, Mr, Briggs, He, Rochester"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes—yes, but where is Mr. Briggs? He perhaps knows more of Mr. Rochester than you do.",
+          "start": 0.83,
+          "end": 6.09,
+          "words": [
+            {
+              "text": " Yes—yes,",
+              "start": 0.83,
+              "end": 1.35,
+              "probability": 0.5407829284667969
+            },
+            {
+              "text": " but",
+              "start": 1.57,
+              "end": 1.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " where",
+              "start": 1.91,
+              "end": 2.09,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " is",
+              "start": 2.09,
+              "end": 2.27,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Mr.",
+              "start": 2.27,
+              "end": 2.55,
+              "probability": 0.96484375
+            },
+            {
+              "text": " Briggs?",
+              "start": 2.85,
+              "end": 2.85,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " He",
+              "start": 3.55,
+              "end": 3.67,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " perhaps",
+              "start": 3.67,
+              "end": 3.93,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " knows",
+              "start": 3.93,
+              "end": 4.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " more",
+              "start": 4.23,
+              "end": 4.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 4.49,
+              "end": 4.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Mr.",
+              "start": 4.61,
+              "end": 4.87,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Rochester",
+              "start": 5.11,
+              "end": 5.29,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " than",
+              "start": 5.29,
+              "end": 5.67,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you",
+              "start": 5.67,
+              "end": 5.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " do.",
+              "start": 5.85,
+              "end": 6.09,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes—yes,",
+          "start": 0.83,
+          "end": 1.35
+        },
+        {
+          "raw": "but",
+          "start": 1.57,
+          "end": 1.91
+        },
+        {
+          "raw": "where",
+          "start": 1.91,
+          "end": 2.09
+        },
+        {
+          "raw": "is",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "raw": "Briggs?",
+          "start": 2.85,
+          "end": 2.85
+        },
+        {
+          "raw": "He",
+          "start": 3.55,
+          "end": 3.67
+        },
+        {
+          "raw": "perhaps",
+          "start": 3.67,
+          "end": 3.93
+        },
+        {
+          "raw": "knows",
+          "start": 3.93,
+          "end": 4.23
+        },
+        {
+          "raw": "more",
+          "start": 4.23,
+          "end": 4.49
+        },
+        {
+          "raw": "of",
+          "start": 4.49,
+          "end": 4.61
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.61,
+          "end": 4.87
+        },
+        {
+          "raw": "Rochester",
+          "start": 5.11,
+          "end": 5.29
+        },
+        {
+          "raw": "than",
+          "start": 5.29,
+          "end": 5.67
+        },
+        {
+          "raw": "you",
+          "start": 5.67,
+          "end": 5.85
+        },
+        {
+          "raw": "do.",
+          "start": 5.85,
+          "end": 6.09
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes—yes;",
+        "but",
+        "where",
+        "is",
+        "Mr.",
+        "Briggs?",
+        "He",
+        "perhaps",
+        "knows",
+        "more",
+        "of",
+        "Mr.",
+        "Rochester",
+        "than",
+        "you",
+        "do.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes—yes,",
+          "start": 0.83,
+          "end": 1.35,
+          "key": "yesyes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.57,
+          "end": 1.91,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.91,
+          "end": 2.09,
+          "key": "where",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.09,
+          "end": 2.27,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.27,
+          "end": 2.55,
+          "key": "mr",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Briggs?",
+          "start": 2.85,
+          "end": 2.85,
+          "key": "briggs",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.55,
+          "end": 3.67,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "perhaps",
+          "start": 3.67,
+          "end": 3.93,
+          "key": "perhaps",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 3.93,
+          "end": 4.23,
+          "key": "knows",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 4.23,
+          "end": 4.49,
+          "key": "more",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.49,
+          "end": 4.61,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.61,
+          "end": 4.87,
+          "key": "mr",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Rochester",
+          "start": 5.11,
+          "end": 5.29,
+          "key": "rochester",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 5.29,
+          "end": 5.67,
+          "key": "than",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.67,
+          "end": 5.85,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "do.",
+          "start": 5.85,
+          "end": 6.09,
+          "key": "do",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes—yes;",
+          "start": 0.83,
+          "end": 1.35
+        },
+        {
+          "text": "but",
+          "start": 1.57,
+          "end": 1.91
+        },
+        {
+          "text": "where",
+          "start": 1.91,
+          "end": 2.09
+        },
+        {
+          "text": "is",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "text": "Mr.",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "text": "Briggs?",
+          "start": 2.85,
+          "end": 2.85
+        },
+        {
+          "text": "He",
+          "start": 3.55,
+          "end": 3.67
+        },
+        {
+          "text": "perhaps",
+          "start": 3.67,
+          "end": 3.93
+        },
+        {
+          "text": "knows",
+          "start": 3.93,
+          "end": 4.23
+        },
+        {
+          "text": "more",
+          "start": 4.23,
+          "end": 4.49
+        },
+        {
+          "text": "of",
+          "start": 4.49,
+          "end": 4.61
+        },
+        {
+          "text": "Mr.",
+          "start": 4.61,
+          "end": 4.87
+        },
+        {
+          "text": "Rochester",
+          "start": 5.11,
+          "end": 5.29
+        },
+        {
+          "text": "than",
+          "start": 5.29,
+          "end": 5.67
+        },
+        {
+          "text": "you",
+          "start": 5.67,
+          "end": 5.85
+        },
+        {
+          "text": "do.\"",
+          "start": 5.85,
+          "end": 6.09
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29113784502260387
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6afe3175dd8e090574ae47fa4f9e3572f424a7cfd6e318cad4a032730727eb7d",
+  "selected_reasons": []
+}

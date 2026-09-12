@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "617478f3796c4cbf39e3715f873642a433ae1184e352b756aea63447a4399e40",
+  "attempts": [
+    {
+      "asr_seconds": 0.20560788735747337,
+      "alignment_seconds": 0.00039489753544330597,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Get yourself ready to go along with us do not fail",
+          "start": 0.02,
+          "end": 3.04,
+          "words": [
+            {
+              "text": " Get",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " yourself",
+              "start": 0.54,
+              "end": 0.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ready",
+              "start": 0.78,
+              "end": 1.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " go",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " along",
+              "start": 1.38,
+              "end": 1.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 1.64,
+              "end": 1.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " us",
+              "start": 1.8,
+              "end": 2.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " do",
+              "start": 2.12,
+              "end": 2.48,
+              "probability": 0.1866455078125
+            },
+            {
+              "text": " not",
+              "start": 2.48,
+              "end": 2.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " fail",
+              "start": 2.66,
+              "end": 3.04,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Get",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "yourself",
+          "start": 0.54,
+          "end": 0.78
+        },
+        {
+          "raw": "ready",
+          "start": 0.78,
+          "end": 1.08
+        },
+        {
+          "raw": "to",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "go",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "along",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "raw": "with",
+          "start": 1.64,
+          "end": 1.8
+        },
+        {
+          "raw": "us",
+          "start": 1.8,
+          "end": 2.12
+        },
+        {
+          "raw": "do",
+          "start": 2.12,
+          "end": 2.48
+        },
+        {
+          "raw": "not",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "raw": "fail",
+          "start": 2.66,
+          "end": 3.04
+        }
+      ],
+      "expected_tokens": [
+        "\"Get",
+        "yourself",
+        "ready",
+        "to",
+        "go",
+        "along",
+        "with",
+        "us;",
+        "do",
+        "not",
+        "fail.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Get",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "get",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 0.54,
+          "end": 0.78,
+          "key": "yourself",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ready",
+          "start": 0.78,
+          "end": 1.08,
+          "key": "ready",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.08,
+          "end": 1.26,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "go",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "along",
+          "start": 1.38,
+          "end": 1.64,
+          "key": "along",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.64,
+          "end": 1.8,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.8,
+          "end": 2.12,
+          "key": "us",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.12,
+          "end": 2.48,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.48,
+          "end": 2.66,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fail",
+          "start": 2.66,
+          "end": 3.04,
+          "key": "fail",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Get",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "yourself",
+          "start": 0.54,
+          "end": 0.78
+        },
+        {
+          "text": "ready",
+          "start": 0.78,
+          "end": 1.08
+        },
+        {
+          "text": "to",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "text": "go",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "along",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "text": "with",
+          "start": 1.64,
+          "end": 1.8
+        },
+        {
+          "text": "us;",
+          "start": 1.8,
+          "end": 2.12
+        },
+        {
+          "text": "do",
+          "start": 2.12,
+          "end": 2.48
+        },
+        {
+          "text": "not",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "text": "fail.\"",
+          "start": 2.66,
+          "end": 3.04
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20615428499877453
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2b2efcfb0138d1bf864c268e7d0b8d6ba2e6ee6ce480e0ed8aa98a72722adb9d",
+  "selected_reasons": []
+}

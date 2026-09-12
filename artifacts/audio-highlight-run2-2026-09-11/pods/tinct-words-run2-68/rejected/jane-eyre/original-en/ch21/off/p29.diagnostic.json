@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "11fdbdebe7598900132e4d34761ff795a478ac784b4b283a18b233d82b3e84a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.13866639137268066,
+      "alignment_seconds": 0.0003322325646877289,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " at Gateshead in Shire.",
+          "start": 0.08,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " at",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.453125
+            },
+            {
+              "text": " Gateshead",
+              "start": 0.54,
+              "end": 1.04,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " in",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " Shire.",
+              "start": 1.36,
+              "end": 1.84,
+              "probability": 0.90576171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "at",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "Gateshead",
+          "start": 0.54,
+          "end": 1.04
+        },
+        {
+          "raw": "in",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "raw": "Shire.",
+          "start": 1.36,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "\"At",
+        "Gateshead;",
+        "in",
+        "——shire.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "at",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "at",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gateshead",
+          "start": 0.54,
+          "end": 1.04,
+          "key": "gateshead",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.04,
+          "end": 1.36,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Shire.",
+          "start": 1.36,
+          "end": 1.84,
+          "key": "shire",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"At",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "Gateshead;",
+          "start": 0.54,
+          "end": 1.04
+        },
+        {
+          "text": "in",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "text": "——shire.\"",
+          "start": 1.36,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13911360502243042
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0bfaeac3360da4099070db6a37350aa8c75553cc10a72fb59a4f00d551fb1e7e",
+  "selected_reasons": []
+}

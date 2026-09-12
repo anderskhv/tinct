@@ -1,0 +1,1236 @@
+{
+  "complete": true,
+  "signature": "b30e804a0dd6f45c3caa365c6677dd43c8e28ce656587a00e8a0ab75ca2a1e12",
+  "attempts": [
+    {
+      "asr_seconds": 0.24427409376949072,
+      "alignment_seconds": 0.00018892716616392136,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Juliet. What o'clock tomorrow Shall I send to thee?",
+        "hotwords": "Juliet, What, Shall, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Juliet, What o'clock tomorrow Shall I send to thee?",
+          "start": 0.05,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " What",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.10076904296875
+            },
+            {
+              "text": " o",
+              "start": 1.37,
+              "end": 1.47,
+              "probability": 0.57568359375
+            },
+            {
+              "text": "'clock",
+              "start": 1.47,
+              "end": 1.67,
+              "probability": 0.984619140625
+            },
+            {
+              "text": " tomorrow",
+              "start": 1.67,
+              "end": 1.95,
+              "probability": 0.52001953125
+            },
+            {
+              "text": " Shall",
+              "start": 1.95,
+              "end": 2.21,
+              "probability": 0.0753173828125
+            },
+            {
+              "text": " I",
+              "start": 2.21,
+              "end": 2.35,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " send",
+              "start": 2.35,
+              "end": 2.55,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " to",
+              "start": 2.55,
+              "end": 2.71,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " thee?",
+              "start": 2.71,
+              "end": 2.93,
+              "probability": 0.9697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "What",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "o",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "raw": "'clock",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "raw": "tomorrow",
+          "start": 1.67,
+          "end": 1.95
+        },
+        {
+          "raw": "Shall",
+          "start": 1.95,
+          "end": 2.21
+        },
+        {
+          "raw": "I",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "raw": "send",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "raw": "to",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "raw": "thee?",
+          "start": 2.71,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "What",
+        "o'clock",
+        "tomorrow",
+        "Shall",
+        "I",
+        "send",
+        "to",
+        "thee?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          9,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.23,
+          "end": 1.37,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.37,
+          "end": 1.47,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'clock",
+          "start": 1.47,
+          "end": 1.67,
+          "key": "clock",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tomorrow",
+          "start": 1.67,
+          "end": 1.95,
+          "key": "tomorrow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 1.95,
+          "end": 2.21,
+          "key": "shall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.21,
+          "end": 2.35,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 2.35,
+          "end": 2.55,
+          "key": "send",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.55,
+          "end": 2.71,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thee?",
+          "start": 2.71,
+          "end": 2.93,
+          "key": "thee",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "What",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "text": "o'clock",
+          "start": 1.37,
+          "end": 1.52
+        },
+        {
+          "text": "tomorrow",
+          "start": 1.67,
+          "end": 1.95
+        },
+        {
+          "text": "Shall",
+          "start": 1.95,
+          "end": 2.21
+        },
+        {
+          "text": "I",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "text": "send",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "text": "to",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "text": "thee?",
+          "start": 2.71,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2445266479626298
+    },
+    {
+      "asr_seconds": 0.20198412146419287,
+      "alignment_seconds": 0.0003773970529437065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Juliet, What, Shall, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Send to Thee?",
+          "start": 0.05,
+          "end": 0.79,
+          "words": [
+            {
+              "text": " Send",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 3.5762786865234375e-07
+            },
+            {
+              "text": " to",
+              "start": 0.73,
+              "end": 0.73,
+              "probability": 0.51416015625
+            },
+            {
+              "text": " Thee?",
+              "start": 0.73,
+              "end": 0.79,
+              "probability": 0.523834228515625
+            }
+          ]
+        },
+        {
+          "text": " Juliet, What a clock tomorrow shall I send to Thee?",
+          "start": 0.79,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.79,
+              "end": 0.79,
+              "probability": 0.1790771484375
+            },
+            {
+              "text": " What",
+              "start": 1.27,
+              "end": 1.37,
+              "probability": 0.1751708984375
+            },
+            {
+              "text": " a",
+              "start": 1.37,
+              "end": 1.45,
+              "probability": 0.190673828125
+            },
+            {
+              "text": " clock",
+              "start": 1.45,
+              "end": 1.65,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " tomorrow",
+              "start": 1.65,
+              "end": 1.95,
+              "probability": 0.3994140625
+            },
+            {
+              "text": " shall",
+              "start": 1.95,
+              "end": 2.21,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " I",
+              "start": 2.21,
+              "end": 2.35,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " send",
+              "start": 2.35,
+              "end": 2.55,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " to",
+              "start": 2.55,
+              "end": 2.73,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Thee?",
+              "start": 2.73,
+              "end": 3.13,
+              "probability": 0.94140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Send",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "to",
+          "start": 0.73,
+          "end": 0.73
+        },
+        {
+          "raw": "Thee?",
+          "start": 0.73,
+          "end": 0.79
+        },
+        {
+          "raw": "Juliet,",
+          "start": 0.79,
+          "end": 0.79
+        },
+        {
+          "raw": "What",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "raw": "a",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "raw": "clock",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "raw": "tomorrow",
+          "start": 1.65,
+          "end": 1.95
+        },
+        {
+          "raw": "shall",
+          "start": 1.95,
+          "end": 2.21
+        },
+        {
+          "raw": "I",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "raw": "send",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "raw": "to",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "raw": "Thee?",
+          "start": 2.73,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "What",
+        "o'clock",
+        "tomorrow",
+        "Shall",
+        "I",
+        "send",
+        "to",
+        "thee?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          "equal",
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          "replace",
+          2,
+          3,
+          5,
+          7
+        ],
+        [
+          "equal",
+          3,
+          9,
+          7,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          "replace",
+          2,
+          3,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Send",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "send",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.73,
+          "end": 0.73,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Thee?",
+          "start": 0.73,
+          "end": 0.79,
+          "key": "thee",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Juliet,",
+          "start": 0.79,
+          "end": 0.79,
+          "key": "juliet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.27,
+          "end": 1.37,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.37,
+          "end": 1.45,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "clock",
+          "start": 1.45,
+          "end": 1.65,
+          "key": "clock",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tomorrow",
+          "start": 1.65,
+          "end": 1.95,
+          "key": "tomorrow",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.95,
+          "end": 2.21,
+          "key": "shall",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.21,
+          "end": 2.35,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 2.35,
+          "end": 2.55,
+          "key": "send",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.55,
+          "end": 2.73,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Thee?",
+          "start": 2.73,
+          "end": 3.13,
+          "key": "thee",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.79,
+          "end": 0.79
+        },
+        {
+          "text": "What",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "text": "o'clock",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "text": "tomorrow",
+          "start": 1.65,
+          "end": 1.95
+        },
+        {
+          "text": "Shall",
+          "start": 1.95,
+          "end": 2.21
+        },
+        {
+          "text": "I",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "text": "send",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "text": "to",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "text": "thee?",
+          "start": 2.73,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 13,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2025182479992509
+    },
+    {
+      "asr_seconds": 0.26923089288175106,
+      "alignment_seconds": 0.00039469916373491287,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Juliet, what o'clock tomorrow shall I send to thee?",
+          "start": 0.05,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " what",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " o",
+              "start": 1.37,
+              "end": 1.45,
+              "probability": 0.8603515625
+            },
+            {
+              "text": "'clock",
+              "start": 1.45,
+              "end": 1.67,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " tomorrow",
+              "start": 1.67,
+              "end": 1.97,
+              "probability": 0.66455078125
+            },
+            {
+              "text": " shall",
+              "start": 1.97,
+              "end": 2.21,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " I",
+              "start": 2.21,
+              "end": 2.35,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " send",
+              "start": 2.35,
+              "end": 2.57,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 2.57,
+              "end": 2.71,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " thee?",
+              "start": 2.71,
+              "end": 2.91,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "what",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "o",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "raw": "'clock",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "raw": "tomorrow",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "raw": "shall",
+          "start": 1.97,
+          "end": 2.21
+        },
+        {
+          "raw": "I",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "raw": "send",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "raw": "to",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "raw": "thee?",
+          "start": 2.71,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "What",
+        "o'clock",
+        "tomorrow",
+        "Shall",
+        "I",
+        "send",
+        "to",
+        "thee?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          9,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.23,
+          "end": 1.37,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.37,
+          "end": 1.45,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'clock",
+          "start": 1.45,
+          "end": 1.67,
+          "key": "clock",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tomorrow",
+          "start": 1.67,
+          "end": 1.97,
+          "key": "tomorrow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.97,
+          "end": 2.21,
+          "key": "shall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.21,
+          "end": 2.35,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 2.35,
+          "end": 2.57,
+          "key": "send",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.57,
+          "end": 2.71,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thee?",
+          "start": 2.71,
+          "end": 2.91,
+          "key": "thee",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "What",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "text": "o'clock",
+          "start": 1.37,
+          "end": 1.52
+        },
+        {
+          "text": "tomorrow",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "text": "Shall",
+          "start": 1.97,
+          "end": 2.21
+        },
+        {
+          "text": "I",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "text": "send",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "text": "to",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "text": "thee?",
+          "start": 2.71,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2697779815644026
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ee4ba8e523b8080d3833d31a8c9ad0fe36cd7cb22a9f1788c6ede6a9b46c281b",
+  "selected_reasons": []
+}

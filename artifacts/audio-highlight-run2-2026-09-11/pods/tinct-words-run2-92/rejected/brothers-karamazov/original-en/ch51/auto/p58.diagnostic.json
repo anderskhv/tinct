@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "e77643d2c4466db8b7080c7d5683fca45710cbb0281770eafb3afbced60d47d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.1841075997799635,
+      "alignment_seconds": 0.00048230960965156555,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Nothing to boast of? And who are the others?\"",
+        "hotwords": "Nothing, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nothing to boast of? And who are the others?",
+          "start": 0.05,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " Nothing",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.61767578125
+            },
+            {
+              "text": " to",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " boast",
+              "start": 0.87,
+              "end": 1.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of?",
+              "start": 1.15,
+              "end": 1.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " And",
+              "start": 1.77,
+              "end": 1.85,
+              "probability": 0.923828125
+            },
+            {
+              "text": " who",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " are",
+              "start": 1.99,
+              "end": 2.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.13,
+              "end": 2.25,
+              "probability": 0.994140625
+            },
+            {
+              "text": " others?",
+              "start": 2.25,
+              "end": 2.47,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nothing",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "to",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "boast",
+          "start": 0.87,
+          "end": 1.15
+        },
+        {
+          "raw": "of?",
+          "start": 1.15,
+          "end": 1.43
+        },
+        {
+          "raw": "And",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "raw": "who",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "are",
+          "start": 1.99,
+          "end": 2.13
+        },
+        {
+          "raw": "the",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "raw": "others?",
+          "start": 2.25,
+          "end": 2.47
+        }
+      ],
+      "expected_tokens": [
+        "\"Nothing",
+        "to",
+        "boast",
+        "of?",
+        "And",
+        "who",
+        "are",
+        "the",
+        "others?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nothing",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "nothing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.65,
+          "end": 0.87,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "boast",
+          "start": 0.87,
+          "end": 1.15,
+          "key": "boast",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of?",
+          "start": 1.15,
+          "end": 1.43,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.77,
+          "end": 1.85,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.85,
+          "end": 1.99,
+          "key": "who",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.99,
+          "end": 2.13,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.13,
+          "end": 2.25,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "others?",
+          "start": 2.25,
+          "end": 2.47,
+          "key": "others",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Nothing",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "to",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "text": "boast",
+          "start": 0.87,
+          "end": 1.15
+        },
+        {
+          "text": "of?",
+          "start": 1.15,
+          "end": 1.43
+        },
+        {
+          "text": "And",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "text": "who",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "are",
+          "start": 1.99,
+          "end": 2.13
+        },
+        {
+          "text": "the",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "text": "others?\"",
+          "start": 2.25,
+          "end": 2.47
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18479258567094803
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "db2a1f395de6413844c0c8fb75e7c6f56352c4fcc3dd7270be4b89b4d26872ed",
+  "selected_reasons": []
+}

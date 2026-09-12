@@ -1,0 +1,116 @@
+{
+  "complete": true,
+  "signature": "be2b84b6a2f6ffe063755accb1dbcdc9861dc966a78286d31dd5e8aaa4c4ca5e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1168947140686214,
+      "alignment_seconds": 0.0002477080561220646,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mothhale",
+          "start": 0.02,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " Mothhale",
+              "start": 0.02,
+              "end": 1.1,
+              "probability": 0.513153076171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mothhale",
+          "start": 0.02,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "Moth.",
+        "Hail!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mothhale",
+          "start": 0.02,
+          "end": 1.1,
+          "key": "mothhale",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Moth.",
+          "start": 0.0,
+          "end": 0.55
+        },
+        {
+          "text": "Hail!",
+          "start": 0.55,
+          "end": 0.825
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1172036211937666
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f531e2d1d53936b5bc3c5b0fc09228d6df93b897abad0ef18ce88271c550dfe0",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

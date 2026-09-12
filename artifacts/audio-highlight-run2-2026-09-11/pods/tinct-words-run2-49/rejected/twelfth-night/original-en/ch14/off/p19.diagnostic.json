@@ -1,0 +1,355 @@
+{
+  "complete": true,
+  "signature": "00d473d7ebd990128b84a913c6d4d336414942991aac18c6181b76805c508f64",
+  "attempts": [
+    {
+      "asr_seconds": 0.24710780382156372,
+      "alignment_seconds": 0.00047268345952033997,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Malvolio, be not afraid of greatness.",
+          "start": 0.57,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Malvolio,",
+              "start": 0.57,
+              "end": 1.07,
+              "probability": 0.7967122395833334
+            },
+            {
+              "text": " be",
+              "start": 1.35,
+              "end": 1.41,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " not",
+              "start": 1.41,
+              "end": 1.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " afraid",
+              "start": 1.55,
+              "end": 1.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 1.79,
+              "end": 1.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " greatness.",
+              "start": 1.97,
+              "end": 2.37,
+              "probability": 0.98583984375
+            }
+          ]
+        },
+        {
+          "text": " Twas well writ.",
+          "start": 2.99,
+          "end": 3.69,
+          "words": [
+            {
+              "text": " Twas",
+              "start": 2.99,
+              "end": 3.23,
+              "probability": 0.5560302734375
+            },
+            {
+              "text": " well",
+              "start": 3.23,
+              "end": 3.43,
+              "probability": 0.93359375
+            },
+            {
+              "text": " writ.",
+              "start": 3.43,
+              "end": 3.69,
+              "probability": 0.5166015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.57,
+          "end": 1.07
+        },
+        {
+          "raw": "be",
+          "start": 1.35,
+          "end": 1.41
+        },
+        {
+          "raw": "not",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "raw": "afraid",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "raw": "of",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "raw": "greatness.",
+          "start": 1.97,
+          "end": 2.37
+        },
+        {
+          "raw": "Twas",
+          "start": 2.99,
+          "end": 3.23
+        },
+        {
+          "raw": "well",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "raw": "writ.",
+          "start": 3.43,
+          "end": 3.69
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "'Be",
+        "not",
+        "afraid",
+        "of",
+        "greatness.'",
+        "'Twas",
+        "well",
+        "writ."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.57,
+          "end": 1.07,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.35,
+          "end": 1.41,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.41,
+          "end": 1.55,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "afraid",
+          "start": 1.55,
+          "end": 1.79,
+          "key": "afraid",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.79,
+          "end": 1.97,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "greatness.",
+          "start": 1.97,
+          "end": 2.37,
+          "key": "greatness",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Twas",
+          "start": 2.99,
+          "end": 3.23,
+          "key": "twas",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 3.23,
+          "end": 3.43,
+          "key": "well",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "writ.",
+          "start": 3.43,
+          "end": 3.69,
+          "key": "writ",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.57,
+          "end": 1.07
+        },
+        {
+          "text": "'Be",
+          "start": 1.35,
+          "end": 1.41
+        },
+        {
+          "text": "not",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "text": "afraid",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "text": "of",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "text": "greatness.'",
+          "start": 1.97,
+          "end": 2.37
+        },
+        {
+          "text": "'Twas",
+          "start": 2.99,
+          "end": 3.23
+        },
+        {
+          "text": "well",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "text": "writ.",
+          "start": 3.43,
+          "end": 3.69
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2477930337190628
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "53988887827a644552525dd1687b87ba614ba1b4a14a3e5e1934f65f140e4917",
+  "selected_reasons": []
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "6122c9ff5be387bed192634890371414e55f86fe466d96d2d745302b2ea0b4d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.17583418637514114,
+      "alignment_seconds": 0.00020454823970794678,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hermione, he something seems unsettled.",
+          "start": 0.05,
+          "end": 2.79,
+          "words": [
+            {
+              "text": " Hermione,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.837890625
+            },
+            {
+              "text": " he",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " something",
+              "start": 1.39,
+              "end": 1.61,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " seems",
+              "start": 1.61,
+              "end": 2.07,
+              "probability": 0.986328125
+            },
+            {
+              "text": " unsettled.",
+              "start": 2.07,
+              "end": 2.79,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hermione,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "he",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "something",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "raw": "seems",
+          "start": 1.61,
+          "end": 2.07
+        },
+        {
+          "raw": "unsettled.",
+          "start": 2.07,
+          "end": 2.79
+        }
+      ],
+      "expected_tokens": [
+        "Hermione.",
+        "He",
+        "something",
+        "seems",
+        "unsettled."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hermione,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "hermione",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 1.39,
+          "end": 1.61,
+          "key": "something",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "seems",
+          "start": 1.61,
+          "end": 2.07,
+          "key": "seems",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "unsettled.",
+          "start": 2.07,
+          "end": 2.79,
+          "key": "unsettled",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hermione.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "He",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "something",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "text": "seems",
+          "start": 1.61,
+          "end": 2.07
+        },
+        {
+          "text": "unsettled.",
+          "start": 2.07,
+          "end": 2.79
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17610061913728714
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4af120523a33fbcda45ef2a0ba979e71fa62b7697c9efa95c2bf0beb65ea3f75",
+  "selected_reasons": []
+}

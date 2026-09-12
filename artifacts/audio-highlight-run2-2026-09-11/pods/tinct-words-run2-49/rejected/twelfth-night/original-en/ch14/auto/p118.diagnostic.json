@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "7478236ee1856375a3106be4dadaf729d8a681c19aee65ef548185b88eef2211",
+  "attempts": [
+    {
+      "asr_seconds": 0.2376316525042057,
+      "alignment_seconds": 0.00048505887389183044,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Viola. Pray you, sir, do you know of this matter?",
+        "hotwords": "Viola, Pray"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Viola, Pray you, sir, do you know of this matter?",
+          "start": 0.85,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.85,
+              "end": 1.13,
+              "probability": 0.819091796875
+            },
+            {
+              "text": " Pray",
+              "start": 1.13,
+              "end": 1.41,
+              "probability": 0.532684326171875
+            },
+            {
+              "text": " you,",
+              "start": 1.41,
+              "end": 1.55,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " sir,",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " do",
+              "start": 1.83,
+              "end": 1.91,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " you",
+              "start": 1.91,
+              "end": 1.99,
+              "probability": 0.994140625
+            },
+            {
+              "text": " know",
+              "start": 1.99,
+              "end": 2.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 2.09,
+              "end": 2.21,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " this",
+              "start": 2.21,
+              "end": 2.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " matter?",
+              "start": 2.33,
+              "end": 2.59,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.85,
+          "end": 1.13
+        },
+        {
+          "raw": "Pray",
+          "start": 1.13,
+          "end": 1.41
+        },
+        {
+          "raw": "you,",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "raw": "sir,",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "do",
+          "start": 1.83,
+          "end": 1.91
+        },
+        {
+          "raw": "you",
+          "start": 1.91,
+          "end": 1.99
+        },
+        {
+          "raw": "know",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "raw": "of",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "raw": "this",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "raw": "matter?",
+          "start": 2.33,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "Pray",
+        "you,",
+        "sir,",
+        "do",
+        "you",
+        "know",
+        "of",
+        "this",
+        "matter?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.85,
+          "end": 1.13,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pray",
+          "start": 1.13,
+          "end": 1.41,
+          "key": "pray",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.41,
+          "end": 1.55,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.83,
+          "end": 1.91,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.91,
+          "end": 1.99,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.99,
+          "end": 2.09,
+          "key": "know",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.09,
+          "end": 2.21,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.21,
+          "end": 2.33,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "matter?",
+          "start": 2.33,
+          "end": 2.59,
+          "key": "matter",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.85,
+          "end": 1.13
+        },
+        {
+          "text": "Pray",
+          "start": 1.13,
+          "end": 1.41
+        },
+        {
+          "text": "you,",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "text": "sir,",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "text": "do",
+          "start": 1.83,
+          "end": 1.91
+        },
+        {
+          "text": "you",
+          "start": 1.91,
+          "end": 1.99
+        },
+        {
+          "text": "know",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "text": "of",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "text": "this",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "text": "matter?",
+          "start": 2.33,
+          "end": 2.59
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2383245937526226
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ef0b0cf4ddb4a7bc3ed2ca817efd732f9c825178657eaa2aed3c44232cd34883",
+  "selected_reasons": []
+}

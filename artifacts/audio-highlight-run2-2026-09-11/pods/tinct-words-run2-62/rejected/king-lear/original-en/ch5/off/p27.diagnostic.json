@@ -1,0 +1,729 @@
+{
+  "complete": true,
+  "signature": "bcd97a7931c24f41bd377f3a9fd844a5a5f2c4acf47a9dc37787bbb5420ec7e5",
+  "attempts": [
+    {
+      "asr_seconds": 0.17154536023736,
+      "alignment_seconds": 0.00018957257270812988,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, oh, let me not be mad, not mad, sweet heaven.",
+          "start": 0.05,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.434814453125
+            },
+            {
+              "text": " oh,",
+              "start": 0.99,
+              "end": 1.21,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " let",
+              "start": 1.29,
+              "end": 1.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 1.65,
+              "end": 1.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " mad,",
+              "start": 1.81,
+              "end": 2.13,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " not",
+              "start": 2.33,
+              "end": 2.37,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " mad,",
+              "start": 2.37,
+              "end": 2.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sweet",
+              "start": 2.93,
+              "end": 3.05,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " heaven.",
+              "start": 3.05,
+              "end": 3.37,
+              "probability": 0.6953125
+            }
+          ]
+        },
+        {
+          "text": " Keep me in temper, I would not be mad.",
+          "start": 4.05,
+          "end": 5.69,
+          "words": [
+            {
+              "text": " Keep",
+              "start": 4.05,
+              "end": 4.13,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " me",
+              "start": 4.13,
+              "end": 4.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 4.29,
+              "end": 4.39,
+              "probability": 0.974609375
+            },
+            {
+              "text": " temper,",
+              "start": 4.39,
+              "end": 4.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 4.91,
+              "end": 4.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " would",
+              "start": 4.97,
+              "end": 5.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 5.07,
+              "end": 5.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 5.21,
+              "end": 5.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " mad.",
+              "start": 5.37,
+              "end": 5.69,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "oh,",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "raw": "let",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "raw": "me",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "not",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "be",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "raw": "mad,",
+          "start": 1.81,
+          "end": 2.13
+        },
+        {
+          "raw": "not",
+          "start": 2.33,
+          "end": 2.37
+        },
+        {
+          "raw": "mad,",
+          "start": 2.37,
+          "end": 2.71
+        },
+        {
+          "raw": "sweet",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "raw": "heaven.",
+          "start": 3.05,
+          "end": 3.37
+        },
+        {
+          "raw": "Keep",
+          "start": 4.05,
+          "end": 4.13
+        },
+        {
+          "raw": "me",
+          "start": 4.13,
+          "end": 4.29
+        },
+        {
+          "raw": "in",
+          "start": 4.29,
+          "end": 4.39
+        },
+        {
+          "raw": "temper,",
+          "start": 4.39,
+          "end": 4.71
+        },
+        {
+          "raw": "I",
+          "start": 4.91,
+          "end": 4.97
+        },
+        {
+          "raw": "would",
+          "start": 4.97,
+          "end": 5.07
+        },
+        {
+          "raw": "not",
+          "start": 5.07,
+          "end": 5.21
+        },
+        {
+          "raw": "be",
+          "start": 5.21,
+          "end": 5.37
+        },
+        {
+          "raw": "mad.",
+          "start": 5.37,
+          "end": 5.69
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "O,",
+        "let",
+        "me",
+        "not",
+        "be",
+        "mad,",
+        "not",
+        "mad,",
+        "sweet",
+        "heaven!",
+        "Keep",
+        "me",
+        "in",
+        "temper;",
+        "I",
+        "would",
+        "not",
+        "be",
+        "mad!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          20,
+          2,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh,",
+          "start": 0.99,
+          "end": 1.21,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.29,
+          "end": 1.41,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.65,
+          "end": 1.81,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mad,",
+          "start": 1.81,
+          "end": 2.13,
+          "key": "mad",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.33,
+          "end": 2.37,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mad,",
+          "start": 2.37,
+          "end": 2.71,
+          "key": "mad",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 2.93,
+          "end": 3.05,
+          "key": "sweet",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "heaven.",
+          "start": 3.05,
+          "end": 3.37,
+          "key": "heaven",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Keep",
+          "start": 4.05,
+          "end": 4.13,
+          "key": "keep",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.13,
+          "end": 4.29,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.29,
+          "end": 4.39,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "temper,",
+          "start": 4.39,
+          "end": 4.71,
+          "key": "temper",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.91,
+          "end": 4.97,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.97,
+          "end": 5.07,
+          "key": "would",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.07,
+          "end": 5.21,
+          "key": "not",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.21,
+          "end": 5.37,
+          "key": "be",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "mad.",
+          "start": 5.37,
+          "end": 5.69,
+          "key": "mad",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "O,",
+          "start": 0.63,
+          "end": 0.96
+        },
+        {
+          "text": "let",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "text": "me",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "not",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "be",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "text": "mad,",
+          "start": 1.81,
+          "end": 2.13
+        },
+        {
+          "text": "not",
+          "start": 2.33,
+          "end": 2.37
+        },
+        {
+          "text": "mad,",
+          "start": 2.37,
+          "end": 2.71
+        },
+        {
+          "text": "sweet",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "text": "heaven!",
+          "start": 3.05,
+          "end": 3.37
+        },
+        {
+          "text": "Keep",
+          "start": 4.05,
+          "end": 4.13
+        },
+        {
+          "text": "me",
+          "start": 4.13,
+          "end": 4.29
+        },
+        {
+          "text": "in",
+          "start": 4.29,
+          "end": 4.39
+        },
+        {
+          "text": "temper;",
+          "start": 4.39,
+          "end": 4.71
+        },
+        {
+          "text": "I",
+          "start": 4.91,
+          "end": 4.97
+        },
+        {
+          "text": "would",
+          "start": 4.97,
+          "end": 5.07
+        },
+        {
+          "text": "not",
+          "start": 5.07,
+          "end": 5.21
+        },
+        {
+          "text": "be",
+          "start": 5.21,
+          "end": 5.37
+        },
+        {
+          "text": "mad!",
+          "start": 5.37,
+          "end": 5.69
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.17180918529629707
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e10a59e657ba6de3fde31a831741fb4af5a667c68e6b5d61163737d86cf998f4",
+  "selected_reasons": []
+}

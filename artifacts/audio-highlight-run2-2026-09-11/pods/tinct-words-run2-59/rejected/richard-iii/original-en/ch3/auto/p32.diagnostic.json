@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "970515a767b14e64954f34495d3eeca61c594dffd2fd654432a4e63b9a10dbd2",
+  "attempts": [
+    {
+      "asr_seconds": 0.30722498102113605,
+      "alignment_seconds": 0.00044221593998372555,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Richard. You may deny that you were not the mean Of my Lord Hastings' late imprisonment.",
+        "hotwords": "Richard, Of, Lord, Hastings"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Richard, You may deny that you were not the mean Of my Lord Hastings' late imprisonment.",
+          "start": 0.05,
+          "end": 4.99,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.7412109375
+            },
+            {
+              "text": " You",
+              "start": 1.33,
+              "end": 1.47,
+              "probability": 0.007801055908203125
+            },
+            {
+              "text": " may",
+              "start": 1.47,
+              "end": 1.59,
+              "probability": 0.966796875
+            },
+            {
+              "text": " deny",
+              "start": 1.59,
+              "end": 1.87,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that",
+              "start": 1.87,
+              "end": 2.13,
+              "probability": 0.97265625
+            },
+            {
+              "text": " you",
+              "start": 2.13,
+              "end": 2.29,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " were",
+              "start": 2.29,
+              "end": 2.41,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " not",
+              "start": 2.41,
+              "end": 2.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.61,
+              "end": 2.77,
+              "probability": 0.994140625
+            },
+            {
+              "text": " mean",
+              "start": 2.77,
+              "end": 3.01,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " Of",
+              "start": 3.01,
+              "end": 3.19,
+              "probability": 0.0106048583984375
+            },
+            {
+              "text": " my",
+              "start": 3.19,
+              "end": 3.39,
+              "probability": 0.75341796875
+            },
+            {
+              "text": " Lord",
+              "start": 3.39,
+              "end": 3.61,
+              "probability": 0.68310546875
+            },
+            {
+              "text": " Hastings'",
+              "start": 3.61,
+              "end": 4.09,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " late",
+              "start": 4.35,
+              "end": 4.51,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " imprisonment.",
+              "start": 4.51,
+              "end": 4.99,
+              "probability": 0.96484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "You",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "raw": "may",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "raw": "deny",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "raw": "that",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "raw": "you",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "raw": "were",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "raw": "not",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "raw": "the",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "raw": "mean",
+          "start": 2.77,
+          "end": 3.01
+        },
+        {
+          "raw": "Of",
+          "start": 3.01,
+          "end": 3.19
+        },
+        {
+          "raw": "my",
+          "start": 3.19,
+          "end": 3.39
+        },
+        {
+          "raw": "Lord",
+          "start": 3.39,
+          "end": 3.61
+        },
+        {
+          "raw": "Hastings'",
+          "start": 3.61,
+          "end": 4.09
+        },
+        {
+          "raw": "late",
+          "start": 4.35,
+          "end": 4.51
+        },
+        {
+          "raw": "imprisonment.",
+          "start": 4.51,
+          "end": 4.99
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "You",
+        "may",
+        "deny",
+        "that",
+        "you",
+        "were",
+        "not",
+        "the",
+        "mean",
+        "Of",
+        "my",
+        "Lord",
+        "Hastings'",
+        "late",
+        "imprisonment."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.33,
+          "end": 1.47,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.47,
+          "end": 1.59,
+          "key": "may",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "deny",
+          "start": 1.59,
+          "end": 1.87,
+          "key": "deny",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.87,
+          "end": 2.13,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.13,
+          "end": 2.29,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.29,
+          "end": 2.41,
+          "key": "were",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.41,
+          "end": 2.61,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.61,
+          "end": 2.77,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 2.77,
+          "end": 3.01,
+          "key": "mean",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 3.01,
+          "end": 3.19,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.19,
+          "end": 3.39,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 3.39,
+          "end": 3.61,
+          "key": "lord",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Hastings'",
+          "start": 3.61,
+          "end": 4.09,
+          "key": "hastings",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "late",
+          "start": 4.35,
+          "end": 4.51,
+          "key": "late",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "imprisonment.",
+          "start": 4.51,
+          "end": 4.99,
+          "key": "imprisonment",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "You",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "text": "may",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "text": "deny",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "text": "that",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "text": "you",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "text": "were",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "text": "not",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "text": "the",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "text": "mean",
+          "start": 2.77,
+          "end": 3.01
+        },
+        {
+          "text": "Of",
+          "start": 3.01,
+          "end": 3.19
+        },
+        {
+          "text": "my",
+          "start": 3.19,
+          "end": 3.39
+        },
+        {
+          "text": "Lord",
+          "start": 3.39,
+          "end": 3.61
+        },
+        {
+          "text": "Hastings'",
+          "start": 3.61,
+          "end": 4.09
+        },
+        {
+          "text": "late",
+          "start": 4.35,
+          "end": 4.51
+        },
+        {
+          "text": "imprisonment.",
+          "start": 4.51,
+          "end": 4.99
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.307859038002789
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "402234ea49b797a86080ca1958a516d555397f5b14ca5c63ba73ba33f50afc01",
+  "selected_reasons": []
+}

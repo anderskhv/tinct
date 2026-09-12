@@ -1,0 +1,682 @@
+{
+  "complete": true,
+  "signature": "3b533bfa9a7ec3a6964b89a1366b48bd63dd61236089f481cbc9b8a81768a2ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.3933177627623081,
+      "alignment_seconds": 0.00030833110213279724,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cordelia, Time shall unfold what plighted cunning hides,",
+          "start": 0.0,
+          "end": 3.62,
+          "words": [
+            {
+              "text": " Cordelia,",
+              "start": 0.0,
+              "end": 0.9,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " Time",
+              "start": 1.46,
+              "end": 1.7,
+              "probability": 0.27685546875
+            },
+            {
+              "text": " shall",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.970703125
+            },
+            {
+              "text": " unfold",
+              "start": 1.92,
+              "end": 2.3,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " what",
+              "start": 2.3,
+              "end": 2.56,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " plighted",
+              "start": 2.56,
+              "end": 2.94,
+              "probability": 0.6966145833333334
+            },
+            {
+              "text": " cunning",
+              "start": 2.94,
+              "end": 3.2,
+              "probability": 0.927734375
+            },
+            {
+              "text": " hides,",
+              "start": 3.2,
+              "end": 3.62,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " Who covers faults at last shame derides.",
+          "start": 4.08,
+          "end": 6.3,
+          "words": [
+            {
+              "text": " Who",
+              "start": 4.08,
+              "end": 4.16,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " covers",
+              "start": 4.16,
+              "end": 4.5,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " faults",
+              "start": 4.5,
+              "end": 4.88,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " at",
+              "start": 4.88,
+              "end": 5.14,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " last",
+              "start": 5.14,
+              "end": 5.38,
+              "probability": 0.990234375
+            },
+            {
+              "text": " shame",
+              "start": 5.38,
+              "end": 5.7,
+              "probability": 0.708984375
+            },
+            {
+              "text": " derides.",
+              "start": 5.7,
+              "end": 6.3,
+              "probability": 0.981689453125
+            }
+          ]
+        },
+        {
+          "text": " Well may you prosper.",
+          "start": 6.8,
+          "end": 7.7,
+          "words": [
+            {
+              "text": " Well",
+              "start": 6.8,
+              "end": 6.98,
+              "probability": 0.953125
+            },
+            {
+              "text": " may",
+              "start": 6.98,
+              "end": 7.14,
+              "probability": 0.72900390625
+            },
+            {
+              "text": " you",
+              "start": 7.14,
+              "end": 7.34,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " prosper.",
+              "start": 7.34,
+              "end": 7.7,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cordelia,",
+          "start": 0.0,
+          "end": 0.9
+        },
+        {
+          "raw": "Time",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "raw": "shall",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "unfold",
+          "start": 1.92,
+          "end": 2.3
+        },
+        {
+          "raw": "what",
+          "start": 2.3,
+          "end": 2.56
+        },
+        {
+          "raw": "plighted",
+          "start": 2.56,
+          "end": 2.94
+        },
+        {
+          "raw": "cunning",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "raw": "hides,",
+          "start": 3.2,
+          "end": 3.62
+        },
+        {
+          "raw": "Who",
+          "start": 4.08,
+          "end": 4.16
+        },
+        {
+          "raw": "covers",
+          "start": 4.16,
+          "end": 4.5
+        },
+        {
+          "raw": "faults",
+          "start": 4.5,
+          "end": 4.88
+        },
+        {
+          "raw": "at",
+          "start": 4.88,
+          "end": 5.14
+        },
+        {
+          "raw": "last",
+          "start": 5.14,
+          "end": 5.38
+        },
+        {
+          "raw": "shame",
+          "start": 5.38,
+          "end": 5.7
+        },
+        {
+          "raw": "derides.",
+          "start": 5.7,
+          "end": 6.3
+        },
+        {
+          "raw": "Well",
+          "start": 6.8,
+          "end": 6.98
+        },
+        {
+          "raw": "may",
+          "start": 6.98,
+          "end": 7.14
+        },
+        {
+          "raw": "you",
+          "start": 7.14,
+          "end": 7.34
+        },
+        {
+          "raw": "prosper.",
+          "start": 7.34,
+          "end": 7.7
+        }
+      ],
+      "expected_tokens": [
+        "Cordelia.",
+        "Time",
+        "shall",
+        "unfold",
+        "what",
+        "plighted",
+        "cunning",
+        "hides:",
+        "Who",
+        "covers",
+        "faults,",
+        "at",
+        "last",
+        "shame",
+        "derides.",
+        "Well",
+        "may",
+        "you",
+        "prosper."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cordelia,",
+          "start": 0.0,
+          "end": 0.9,
+          "key": "cordelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Time",
+          "start": 1.46,
+          "end": 1.7,
+          "key": "time",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "shall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "unfold",
+          "start": 1.92,
+          "end": 2.3,
+          "key": "unfold",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.3,
+          "end": 2.56,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "plighted",
+          "start": 2.56,
+          "end": 2.94,
+          "key": "plighted",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cunning",
+          "start": 2.94,
+          "end": 3.2,
+          "key": "cunning",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hides,",
+          "start": 3.2,
+          "end": 3.62,
+          "key": "hides",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 4.08,
+          "end": 4.16,
+          "key": "who",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "covers",
+          "start": 4.16,
+          "end": 4.5,
+          "key": "covers",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "faults",
+          "start": 4.5,
+          "end": 4.88,
+          "key": "faults",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.88,
+          "end": 5.14,
+          "key": "at",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 5.14,
+          "end": 5.38,
+          "key": "last",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "shame",
+          "start": 5.38,
+          "end": 5.7,
+          "key": "shame",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "derides.",
+          "start": 5.7,
+          "end": 6.3,
+          "key": "derides",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Well",
+          "start": 6.8,
+          "end": 6.98,
+          "key": "well",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 6.98,
+          "end": 7.14,
+          "key": "may",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 7.14,
+          "end": 7.34,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "prosper.",
+          "start": 7.34,
+          "end": 7.7,
+          "key": "prosper",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cordelia.",
+          "start": 0.0,
+          "end": 0.9
+        },
+        {
+          "text": "Time",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "text": "shall",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "unfold",
+          "start": 1.92,
+          "end": 2.3
+        },
+        {
+          "text": "what",
+          "start": 2.3,
+          "end": 2.56
+        },
+        {
+          "text": "plighted",
+          "start": 2.56,
+          "end": 2.94
+        },
+        {
+          "text": "cunning",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "text": "hides:",
+          "start": 3.2,
+          "end": 3.62
+        },
+        {
+          "text": "Who",
+          "start": 4.08,
+          "end": 4.16
+        },
+        {
+          "text": "covers",
+          "start": 4.16,
+          "end": 4.5
+        },
+        {
+          "text": "faults,",
+          "start": 4.5,
+          "end": 4.88
+        },
+        {
+          "text": "at",
+          "start": 4.88,
+          "end": 5.14
+        },
+        {
+          "text": "last",
+          "start": 5.14,
+          "end": 5.38
+        },
+        {
+          "text": "shame",
+          "start": 5.38,
+          "end": 5.7
+        },
+        {
+          "text": "derides.",
+          "start": 5.7,
+          "end": 6.3
+        },
+        {
+          "text": "Well",
+          "start": 6.8,
+          "end": 6.98
+        },
+        {
+          "text": "may",
+          "start": 6.98,
+          "end": 7.14
+        },
+        {
+          "text": "you",
+          "start": 7.14,
+          "end": 7.34
+        },
+        {
+          "text": "prosper.",
+          "start": 7.34,
+          "end": 7.7
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.393749063834548
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b38be8915e68eca39d8dbf9978d6585d2033a7ce43490f23e50cc92c9c7ed8ab",
+  "selected_reasons": []
+}

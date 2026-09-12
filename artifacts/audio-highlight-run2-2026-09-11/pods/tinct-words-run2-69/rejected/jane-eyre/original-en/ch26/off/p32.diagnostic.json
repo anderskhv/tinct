@@ -1,0 +1,483 @@
+{
+  "complete": true,
+  "signature": "b60afdcd89965d2d9f84b8aa40c40f3aef260e4f67d8cd95b1ef82b4883d82b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.3254840010777116,
+      "alignment_seconds": 0.0003364458680152893,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hardly was the answer.",
+          "start": 0.05,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " Hardly",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.814453125
+            },
+            {
+              "text": " was",
+              "start": 0.87,
+              "end": 1.27,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " the",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " answer.",
+              "start": 1.45,
+              "end": 1.81,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " I have called it insuperable, and I speak advisedly.",
+          "start": 2.53,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " I",
+              "start": 2.53,
+              "end": 2.59,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " have",
+              "start": 2.59,
+              "end": 2.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " called",
+              "start": 2.69,
+              "end": 2.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it",
+              "start": 2.93,
+              "end": 3.07,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " insuperable,",
+              "start": 3.07,
+              "end": 3.73,
+              "probability": 0.9729817708333334
+            },
+            {
+              "text": " and",
+              "start": 3.89,
+              "end": 3.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 3.91,
+              "end": 4.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " speak",
+              "start": 4.07,
+              "end": 4.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " advisedly.",
+              "start": 4.29,
+              "end": 5.05,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hardly",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "was",
+          "start": 0.87,
+          "end": 1.27
+        },
+        {
+          "raw": "the",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "answer.",
+          "start": 1.45,
+          "end": 1.81
+        },
+        {
+          "raw": "I",
+          "start": 2.53,
+          "end": 2.59
+        },
+        {
+          "raw": "have",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "raw": "called",
+          "start": 2.69,
+          "end": 2.93
+        },
+        {
+          "raw": "it",
+          "start": 2.93,
+          "end": 3.07
+        },
+        {
+          "raw": "insuperable,",
+          "start": 3.07,
+          "end": 3.73
+        },
+        {
+          "raw": "and",
+          "start": 3.89,
+          "end": 3.91
+        },
+        {
+          "raw": "I",
+          "start": 3.91,
+          "end": 4.07
+        },
+        {
+          "raw": "speak",
+          "start": 4.07,
+          "end": 4.29
+        },
+        {
+          "raw": "advisedly.",
+          "start": 4.29,
+          "end": 5.05
+        }
+      ],
+      "expected_tokens": [
+        "\"Hardly,\"",
+        "was",
+        "the",
+        "answer.",
+        "\"I",
+        "have",
+        "called",
+        "it",
+        "insuperable,",
+        "and",
+        "I",
+        "speak",
+        "advisedly.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hardly",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "hardly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.87,
+          "end": 1.27,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "answer.",
+          "start": 1.45,
+          "end": 1.81,
+          "key": "answer",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.53,
+          "end": 2.59,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.59,
+          "end": 2.69,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "called",
+          "start": 2.69,
+          "end": 2.93,
+          "key": "called",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.93,
+          "end": 3.07,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "insuperable,",
+          "start": 3.07,
+          "end": 3.73,
+          "key": "insuperable",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.89,
+          "end": 3.91,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.91,
+          "end": 4.07,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 4.07,
+          "end": 4.29,
+          "key": "speak",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "advisedly.",
+          "start": 4.29,
+          "end": 5.05,
+          "key": "advisedly",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Hardly,\"",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "was",
+          "start": 0.87,
+          "end": 1.27
+        },
+        {
+          "text": "the",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "answer.",
+          "start": 1.45,
+          "end": 1.81
+        },
+        {
+          "text": "\"I",
+          "start": 2.53,
+          "end": 2.59
+        },
+        {
+          "text": "have",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "text": "called",
+          "start": 2.69,
+          "end": 2.93
+        },
+        {
+          "text": "it",
+          "start": 2.93,
+          "end": 3.07
+        },
+        {
+          "text": "insuperable,",
+          "start": 3.07,
+          "end": 3.73
+        },
+        {
+          "text": "and",
+          "start": 3.89,
+          "end": 3.91
+        },
+        {
+          "text": "I",
+          "start": 3.91,
+          "end": 4.07
+        },
+        {
+          "text": "speak",
+          "start": 4.07,
+          "end": 4.29
+        },
+        {
+          "text": "advisedly.\"",
+          "start": 4.29,
+          "end": 5.05
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32594441436231136
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f934a38979a2cf3be10c0420a90aefa128ebfbcaadafc6c6493efbd87cd51ad0",
+  "selected_reasons": []
+}

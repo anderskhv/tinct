@@ -1,0 +1,5502 @@
+{
+  "complete": true,
+  "signature": "4d1e91d6822ed5b76a9b809fa6e2d561a793e15663bbcc2bf749e1cfc962fa20",
+  "attempts": [
+    {
+      "asr_seconds": 0.533815105445683,
+      "alignment_seconds": 0.0031205257400870323,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But need I?\" he exclaimed, \"must I? No one has been condemned, no one has been sent to Siberia in my place, the man died of fever. And I've been punished by my sufferings for the blood I shed. And I shan't be believed, they won't believe my proofs. Need I confess, need I? I am ready to go on suffering all my life for the blood I have shed, if only my wife and children may be spared. Will it be just to ruin them with me? Aren't we making a mistake? What is right in this case? And will people recognize it, will they appreciate it, will they respect it?\"",
+        "hotwords": "But, I, Siberia, I've, Aren't, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And will people recognize it, will they appreciate it, will they respect it?",
+          "start": 25.22,
+          "end": 30.0,
+          "words": [
+            {
+              "text": " And",
+              "start": 25.22,
+              "end": 25.78,
+              "probability": 0.005741119384765625
+            },
+            {
+              "text": " will",
+              "start": 25.78,
+              "end": 26.34,
+              "probability": 0.6787109375
+            },
+            {
+              "text": " people",
+              "start": 26.34,
+              "end": 26.6,
+              "probability": 0.9921875
+            },
+            {
+              "text": " recognize",
+              "start": 26.6,
+              "end": 27.18,
+              "probability": 0.974609375
+            },
+            {
+              "text": " it,",
+              "start": 27.18,
+              "end": 27.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " will",
+              "start": 27.74,
+              "end": 27.88,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " they",
+              "start": 27.88,
+              "end": 28.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " appreciate",
+              "start": 28.0,
+              "end": 28.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it,",
+              "start": 28.38,
+              "end": 28.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " will",
+              "start": 29.06,
+              "end": 29.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " they",
+              "start": 29.18,
+              "end": 29.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " respect",
+              "start": 29.34,
+              "end": 29.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it?",
+              "start": 29.7,
+              "end": 30.0,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Subs by www.zeoranger.co.uk",
+          "start": 30.0,
+          "end": 30.6,
+          "words": [
+            {
+              "text": " Subs",
+              "start": 30.0,
+              "end": 30.6,
+              "probability": 0.4512796401977539
+            },
+            {
+              "text": " by",
+              "start": 30.6,
+              "end": 30.6,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " www",
+              "start": 30.6,
+              "end": 30.6,
+              "probability": 0.677734375
+            },
+            {
+              "text": ".zeoranger",
+              "start": 30.6,
+              "end": 30.6,
+              "probability": 0.98486328125
+            },
+            {
+              "text": ".co",
+              "start": 30.6,
+              "end": 30.6,
+              "probability": 0.99365234375
+            },
+            {
+              "text": ".uk",
+              "start": 30.6,
+              "end": 30.6,
+              "probability": 0.993896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 25.22,
+          "end": 25.78
+        },
+        {
+          "raw": "will",
+          "start": 25.78,
+          "end": 26.34
+        },
+        {
+          "raw": "people",
+          "start": 26.34,
+          "end": 26.6
+        },
+        {
+          "raw": "recognize",
+          "start": 26.6,
+          "end": 27.18
+        },
+        {
+          "raw": "it,",
+          "start": 27.18,
+          "end": 27.48
+        },
+        {
+          "raw": "will",
+          "start": 27.74,
+          "end": 27.88
+        },
+        {
+          "raw": "they",
+          "start": 27.88,
+          "end": 28.0
+        },
+        {
+          "raw": "appreciate",
+          "start": 28.0,
+          "end": 28.38
+        },
+        {
+          "raw": "it,",
+          "start": 28.38,
+          "end": 28.82
+        },
+        {
+          "raw": "will",
+          "start": 29.06,
+          "end": 29.18
+        },
+        {
+          "raw": "they",
+          "start": 29.18,
+          "end": 29.34
+        },
+        {
+          "raw": "respect",
+          "start": 29.34,
+          "end": 29.7
+        },
+        {
+          "raw": "it?",
+          "start": 29.7,
+          "end": 30.0
+        },
+        {
+          "raw": "Subs",
+          "start": 30.0,
+          "end": 30.6
+        },
+        {
+          "raw": "by",
+          "start": 30.6,
+          "end": 30.6
+        },
+        {
+          "raw": "www",
+          "start": 30.6,
+          "end": 30.6
+        },
+        {
+          "raw": ".zeoranger",
+          "start": 30.6,
+          "end": 30.6
+        },
+        {
+          "raw": ".co",
+          "start": 30.6,
+          "end": 30.6
+        },
+        {
+          "raw": ".uk",
+          "start": 30.6,
+          "end": 30.6
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "need",
+        "I?\"",
+        "he",
+        "exclaimed,",
+        "\"must",
+        "I?",
+        "No",
+        "one",
+        "has",
+        "been",
+        "condemned,",
+        "no",
+        "one",
+        "has",
+        "been",
+        "sent",
+        "to",
+        "Siberia",
+        "in",
+        "my",
+        "place,",
+        "the",
+        "man",
+        "died",
+        "of",
+        "fever.",
+        "And",
+        "I've",
+        "been",
+        "punished",
+        "by",
+        "my",
+        "sufferings",
+        "for",
+        "the",
+        "blood",
+        "I",
+        "shed.",
+        "And",
+        "I",
+        "shan't",
+        "be",
+        "believed,",
+        "they",
+        "won't",
+        "believe",
+        "my",
+        "proofs.",
+        "Need",
+        "I",
+        "confess,",
+        "need",
+        "I?",
+        "I",
+        "am",
+        "ready",
+        "to",
+        "go",
+        "on",
+        "suffering",
+        "all",
+        "my",
+        "life",
+        "for",
+        "the",
+        "blood",
+        "I",
+        "have",
+        "shed,",
+        "if",
+        "only",
+        "my",
+        "wife",
+        "and",
+        "children",
+        "may",
+        "be",
+        "spared.",
+        "Will",
+        "it",
+        "be",
+        "just",
+        "to",
+        "ruin",
+        "them",
+        "with",
+        "me?",
+        "Aren't",
+        "we",
+        "making",
+        "a",
+        "mistake?",
+        "What",
+        "is",
+        "right",
+        "in",
+        "this",
+        "case?",
+        "And",
+        "will",
+        "people",
+        "recognize",
+        "it,",
+        "will",
+        "they",
+        "appreciate",
+        "it,",
+        "will",
+        "they",
+        "respect",
+        "it?\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          99,
+          0,
+          0
+        ],
+        [
+          "equal",
+          99,
+          112,
+          0,
+          13
+        ],
+        [
+          "insert",
+          112,
+          112,
+          13,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 78,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 79,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 80,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 81,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 82,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 83,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 84,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 85,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 86,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 87,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 88,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 89,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 90,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 91,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 92,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 93,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 94,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 95,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 96,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 97,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 98,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          99,
+          0,
+          0
+        ],
+        [
+          "insert",
+          112,
+          112,
+          13,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 25.22,
+          "end": 25.78,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 25.78,
+          "end": 26.34,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "people",
+          "start": 26.34,
+          "end": 26.6,
+          "key": "people",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "recognize",
+          "start": 26.6,
+          "end": 27.18,
+          "key": "recognize",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 27.18,
+          "end": 27.48,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 27.74,
+          "end": 27.88,
+          "key": "will",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 27.88,
+          "end": 28.0,
+          "key": "they",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "appreciate",
+          "start": 28.0,
+          "end": 28.38,
+          "key": "appreciate",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 28.38,
+          "end": 28.82,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 29.06,
+          "end": 29.18,
+          "key": "will",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 29.18,
+          "end": 29.34,
+          "key": "they",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "respect",
+          "start": 29.34,
+          "end": 29.7,
+          "key": "respect",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 29.7,
+          "end": 30.0,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Subs",
+          "start": 30.0,
+          "end": 30.6,
+          "key": "subs",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 30.6,
+          "end": 30.6,
+          "key": "by",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "www",
+          "start": 30.6,
+          "end": 30.6,
+          "key": "www",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": ".zeoranger",
+          "start": 30.6,
+          "end": 30.6,
+          "key": "zeoranger",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": ".co",
+          "start": 30.6,
+          "end": 30.6,
+          "key": "co",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": ".uk",
+          "start": 30.6,
+          "end": 30.6,
+          "key": "uk",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.0,
+          "end": 12.61
+        },
+        {
+          "text": "need",
+          "start": 12.61,
+          "end": 18.915
+        },
+        {
+          "text": "I?\"",
+          "start": 18.915,
+          "end": 22.067
+        },
+        {
+          "text": "he",
+          "start": 22.067,
+          "end": 23.643
+        },
+        {
+          "text": "exclaimed,",
+          "start": 23.643,
+          "end": 24.431
+        },
+        {
+          "text": "\"must",
+          "start": 24.431,
+          "end": 24.825
+        },
+        {
+          "text": "I?",
+          "start": 24.825,
+          "end": 25.023
+        },
+        {
+          "text": "No",
+          "start": 25.023,
+          "end": 25.121
+        },
+        {
+          "text": "one",
+          "start": 25.121,
+          "end": 25.17
+        },
+        {
+          "text": "has",
+          "start": 25.17,
+          "end": 25.195
+        },
+        {
+          "text": "been",
+          "start": 25.195,
+          "end": 25.207
+        },
+        {
+          "text": "condemned,",
+          "start": 25.207,
+          "end": 25.213
+        },
+        {
+          "text": "no",
+          "start": 25.213,
+          "end": 25.216
+        },
+        {
+          "text": "one",
+          "start": 25.216,
+          "end": 25.218
+        },
+        {
+          "text": "has",
+          "start": 25.218,
+          "end": 25.219
+        },
+        {
+          "text": "been",
+          "start": 25.219,
+          "end": 25.22
+        },
+        {
+          "text": "sent",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "to",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "Siberia",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "in",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "my",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "place,",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "the",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "man",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "died",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "of",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "fever.",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "And",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "I've",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "been",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "punished",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "by",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "my",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "sufferings",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "for",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "the",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "blood",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "I",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "shed.",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "And",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "I",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "shan't",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "be",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "believed,",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "they",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "won't",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "believe",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "my",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "proofs.",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "Need",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "I",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "confess,",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "need",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "I?",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "I",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "am",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "ready",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "to",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "go",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "on",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "suffering",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "all",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "my",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "life",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "for",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "the",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "blood",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "I",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "have",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "shed,",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "if",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "only",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "my",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "wife",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "and",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "children",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "may",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "be",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "spared.",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "Will",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "it",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "be",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "just",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "to",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "ruin",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "them",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "with",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "me?",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "Aren't",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "we",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "making",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "a",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "mistake?",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "What",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "is",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "right",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "in",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "this",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "case?",
+          "start": 25.22,
+          "end": 25.22
+        },
+        {
+          "text": "And",
+          "start": 25.22,
+          "end": 25.78
+        },
+        {
+          "text": "will",
+          "start": 25.78,
+          "end": 26.34
+        },
+        {
+          "text": "people",
+          "start": 26.34,
+          "end": 26.6
+        },
+        {
+          "text": "recognize",
+          "start": 26.6,
+          "end": 27.18
+        },
+        {
+          "text": "it,",
+          "start": 27.18,
+          "end": 27.48
+        },
+        {
+          "text": "will",
+          "start": 27.74,
+          "end": 27.88
+        },
+        {
+          "text": "they",
+          "start": 27.88,
+          "end": 28.0
+        },
+        {
+          "text": "appreciate",
+          "start": 28.0,
+          "end": 28.38
+        },
+        {
+          "text": "it,",
+          "start": 28.38,
+          "end": 28.82
+        },
+        {
+          "text": "will",
+          "start": 29.06,
+          "end": 29.18
+        },
+        {
+          "text": "they",
+          "start": 29.18,
+          "end": 29.34
+        },
+        {
+          "text": "respect",
+          "start": 29.34,
+          "end": 29.7
+        },
+        {
+          "text": "it?\"",
+          "start": 29.7,
+          "end": 30.0
+        }
+      ],
+      "stats": {
+        "expected_words": 112,
+        "heard_words": 19,
+        "matched_words": 13
+      },
+      "match_ratio": 0.11607142857142858,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.537247491069138
+    },
+    {
+      "asr_seconds": 1.23777805455029,
+      "alignment_seconds": 0.0048207733780145645,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "But, I, Siberia, I've, Aren't, What"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " But need I, He exclaimed, Must I, No one has been condemned, No one has been sent to",
+          "start": 0.08,
+          "end": 5.1,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.32275390625
+            },
+            {
+              "text": " need",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.289306640625
+            },
+            {
+              "text": " I,",
+              "start": 0.68,
+              "end": 0.98,
+              "probability": 0.990234375
+            },
+            {
+              "text": " He",
+              "start": 1.38,
+              "end": 1.48,
+              "probability": 0.0260162353515625
+            },
+            {
+              "text": " exclaimed,",
+              "start": 1.48,
+              "end": 1.92,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Must",
+              "start": 2.32,
+              "end": 2.4,
+              "probability": 0.03265380859375
+            },
+            {
+              "text": " I,",
+              "start": 2.4,
+              "end": 2.74,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " No",
+              "start": 3.22,
+              "end": 3.34,
+              "probability": 0.7578125
+            },
+            {
+              "text": " one",
+              "start": 3.34,
+              "end": 3.46,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " has",
+              "start": 3.46,
+              "end": 3.56,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " been",
+              "start": 3.56,
+              "end": 3.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " condemned,",
+              "start": 3.72,
+              "end": 4.1,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " No",
+              "start": 4.34,
+              "end": 4.42,
+              "probability": 0.48828125
+            },
+            {
+              "text": " one",
+              "start": 4.42,
+              "end": 4.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " has",
+              "start": 4.56,
+              "end": 4.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " been",
+              "start": 4.66,
+              "end": 4.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sent",
+              "start": 4.82,
+              "end": 4.96,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 4.96,
+              "end": 5.1,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " Siberia in my place, The man died of fever, And I've been punished by my sufferings for",
+          "start": 5.1,
+          "end": 9.58,
+          "words": [
+            {
+              "text": " Siberia",
+              "start": 5.1,
+              "end": 5.44,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " in",
+              "start": 5.44,
+              "end": 5.72,
+              "probability": 0.916015625
+            },
+            {
+              "text": " my",
+              "start": 5.72,
+              "end": 5.88,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " place,",
+              "start": 5.88,
+              "end": 6.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " The",
+              "start": 6.28,
+              "end": 6.36,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " man",
+              "start": 6.36,
+              "end": 6.58,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " died",
+              "start": 6.58,
+              "end": 6.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 6.8,
+              "end": 6.98,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " fever,",
+              "start": 6.98,
+              "end": 7.18,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " And",
+              "start": 7.74,
+              "end": 7.94,
+              "probability": 0.841796875
+            },
+            {
+              "text": " I've",
+              "start": 7.94,
+              "end": 8.1,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " been",
+              "start": 8.1,
+              "end": 8.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " punished",
+              "start": 8.24,
+              "end": 8.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " by",
+              "start": 8.56,
+              "end": 8.78,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " my",
+              "start": 8.78,
+              "end": 8.98,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " sufferings",
+              "start": 8.98,
+              "end": 9.42,
+              "probability": 0.98828125
+            },
+            {
+              "text": " for",
+              "start": 9.42,
+              "end": 9.58,
+              "probability": 0.6884765625
+            }
+          ]
+        },
+        {
+          "text": " the blood I shed, And I shan't be believed, they won't believe my proofs, Need I confess,",
+          "start": 9.58,
+          "end": 14.22,
+          "words": [
+            {
+              "text": " the",
+              "start": 9.58,
+              "end": 9.7,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " blood",
+              "start": 9.7,
+              "end": 9.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 9.88,
+              "end": 10.08,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " shed,",
+              "start": 10.08,
+              "end": 10.32,
+              "probability": 0.994140625
+            },
+            {
+              "text": " And",
+              "start": 10.82,
+              "end": 10.98,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " I",
+              "start": 10.98,
+              "end": 11.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " shan't",
+              "start": 11.12,
+              "end": 11.3,
+              "probability": 0.9666341145833334
+            },
+            {
+              "text": " be",
+              "start": 11.3,
+              "end": 11.4,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " believed,",
+              "start": 11.4,
+              "end": 11.8,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " they",
+              "start": 11.92,
+              "end": 12.02,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " won't",
+              "start": 12.02,
+              "end": 12.24,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " believe",
+              "start": 12.24,
+              "end": 12.48,
+              "probability": 0.9921875
+            },
+            {
+              "text": " my",
+              "start": 12.48,
+              "end": 12.72,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " proofs,",
+              "start": 12.72,
+              "end": 13.04,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Need",
+              "start": 13.62,
+              "end": 13.72,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " I",
+              "start": 13.72,
+              "end": 13.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " confess,",
+              "start": 13.86,
+              "end": 14.22,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " Need I, I am ready to go on suffering all my life for the blood I have shed if only",
+          "start": 14.4,
+          "end": 18.3,
+          "words": [
+            {
+              "text": " Need",
+              "start": 14.4,
+              "end": 14.48,
+              "probability": 0.544921875
+            },
+            {
+              "text": " I,",
+              "start": 14.48,
+              "end": 14.68,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I",
+              "start": 15.08,
+              "end": 15.24,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " am",
+              "start": 15.24,
+              "end": 15.3,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " ready",
+              "start": 15.3,
+              "end": 15.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 15.42,
+              "end": 15.58,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " go",
+              "start": 15.58,
+              "end": 15.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 15.68,
+              "end": 15.84,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " suffering",
+              "start": 15.84,
+              "end": 16.2,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " all",
+              "start": 16.2,
+              "end": 16.46,
+              "probability": 0.63427734375
+            },
+            {
+              "text": " my",
+              "start": 16.46,
+              "end": 16.64,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " life",
+              "start": 16.64,
+              "end": 16.9,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " for",
+              "start": 16.9,
+              "end": 17.08,
+              "probability": 0.52587890625
+            },
+            {
+              "text": " the",
+              "start": 17.08,
+              "end": 17.2,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " blood",
+              "start": 17.2,
+              "end": 17.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 17.38,
+              "end": 17.52,
+              "probability": 0.990234375
+            },
+            {
+              "text": " have",
+              "start": 17.52,
+              "end": 17.66,
+              "probability": 0.9765625
+            },
+            {
+              "text": " shed",
+              "start": 17.66,
+              "end": 17.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " if",
+              "start": 17.9,
+              "end": 18.1,
+              "probability": 0.400146484375
+            },
+            {
+              "text": " only",
+              "start": 18.1,
+              "end": 18.3,
+              "probability": 0.984375
+            }
+          ]
+        },
+        {
+          "text": " my wife and children may be spared, Will it be just to ruin them with me, Aren't we making",
+          "start": 18.3,
+          "end": 23.04,
+          "words": [
+            {
+              "text": " my",
+              "start": 18.3,
+              "end": 18.5,
+              "probability": 0.974609375
+            },
+            {
+              "text": " wife",
+              "start": 18.5,
+              "end": 18.7,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " and",
+              "start": 18.7,
+              "end": 18.86,
+              "probability": 0.98046875
+            },
+            {
+              "text": " children",
+              "start": 18.86,
+              "end": 19.2,
+              "probability": 0.98828125
+            },
+            {
+              "text": " may",
+              "start": 19.2,
+              "end": 19.52,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " be",
+              "start": 19.52,
+              "end": 19.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " spared,",
+              "start": 19.7,
+              "end": 20.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Will",
+              "start": 20.6,
+              "end": 20.78,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " it",
+              "start": 20.78,
+              "end": 20.88,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " be",
+              "start": 20.88,
+              "end": 21.0,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " just",
+              "start": 21.0,
+              "end": 21.18,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 21.18,
+              "end": 21.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " ruin",
+              "start": 21.4,
+              "end": 21.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " them",
+              "start": 21.58,
+              "end": 21.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 21.78,
+              "end": 21.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me,",
+              "start": 21.92,
+              "end": 22.18,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Aren't",
+              "start": 22.58,
+              "end": 22.7,
+              "probability": 0.7607421875
+            },
+            {
+              "text": " we",
+              "start": 22.7,
+              "end": 22.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " making",
+              "start": 22.82,
+              "end": 23.04,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " a mistake, What is right in this case?",
+          "start": 23.04,
+          "end": 24.92,
+          "words": [
+            {
+              "text": " a",
+              "start": 23.04,
+              "end": 23.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mistake,",
+              "start": 23.18,
+              "end": 23.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " What",
+              "start": 23.98,
+              "end": 24.08,
+              "probability": 0.58154296875
+            },
+            {
+              "text": " is",
+              "start": 24.08,
+              "end": 24.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " right",
+              "start": 24.2,
+              "end": 24.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 24.4,
+              "end": 24.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this",
+              "start": 24.56,
+              "end": 24.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " case?",
+              "start": 24.7,
+              "end": 24.92,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " And will people recognize it, Will they appreciate it, Will they respect it?",
+          "start": 25.6,
+          "end": 30.0,
+          "words": [
+            {
+              "text": " And",
+              "start": 25.6,
+              "end": 26.2,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " will",
+              "start": 26.2,
+              "end": 26.36,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " people",
+              "start": 26.36,
+              "end": 26.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " recognize",
+              "start": 26.62,
+              "end": 27.18,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " it,",
+              "start": 27.18,
+              "end": 27.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Will",
+              "start": 27.86,
+              "end": 27.88,
+              "probability": 0.00833892822265625
+            },
+            {
+              "text": " they",
+              "start": 27.88,
+              "end": 28.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " appreciate",
+              "start": 28.02,
+              "end": 28.36,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it,",
+              "start": 28.36,
+              "end": 28.8,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Will",
+              "start": 29.1,
+              "end": 29.18,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " they",
+              "start": 29.18,
+              "end": 29.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " respect",
+              "start": 29.36,
+              "end": 29.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it?",
+              "start": 29.66,
+              "end": 30.0,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "need",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "I,",
+          "start": 0.68,
+          "end": 0.98
+        },
+        {
+          "raw": "He",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "raw": "exclaimed,",
+          "start": 1.48,
+          "end": 1.92
+        },
+        {
+          "raw": "Must",
+          "start": 2.32,
+          "end": 2.4
+        },
+        {
+          "raw": "I,",
+          "start": 2.4,
+          "end": 2.74
+        },
+        {
+          "raw": "No",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "raw": "one",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "raw": "has",
+          "start": 3.46,
+          "end": 3.56
+        },
+        {
+          "raw": "been",
+          "start": 3.56,
+          "end": 3.72
+        },
+        {
+          "raw": "condemned,",
+          "start": 3.72,
+          "end": 4.1
+        },
+        {
+          "raw": "No",
+          "start": 4.34,
+          "end": 4.42
+        },
+        {
+          "raw": "one",
+          "start": 4.42,
+          "end": 4.56
+        },
+        {
+          "raw": "has",
+          "start": 4.56,
+          "end": 4.66
+        },
+        {
+          "raw": "been",
+          "start": 4.66,
+          "end": 4.82
+        },
+        {
+          "raw": "sent",
+          "start": 4.82,
+          "end": 4.96
+        },
+        {
+          "raw": "to",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "raw": "Siberia",
+          "start": 5.1,
+          "end": 5.44
+        },
+        {
+          "raw": "in",
+          "start": 5.44,
+          "end": 5.72
+        },
+        {
+          "raw": "my",
+          "start": 5.72,
+          "end": 5.88
+        },
+        {
+          "raw": "place,",
+          "start": 5.88,
+          "end": 6.16
+        },
+        {
+          "raw": "The",
+          "start": 6.28,
+          "end": 6.36
+        },
+        {
+          "raw": "man",
+          "start": 6.36,
+          "end": 6.58
+        },
+        {
+          "raw": "died",
+          "start": 6.58,
+          "end": 6.8
+        },
+        {
+          "raw": "of",
+          "start": 6.8,
+          "end": 6.98
+        },
+        {
+          "raw": "fever,",
+          "start": 6.98,
+          "end": 7.18
+        },
+        {
+          "raw": "And",
+          "start": 7.74,
+          "end": 7.94
+        },
+        {
+          "raw": "I've",
+          "start": 7.94,
+          "end": 8.1
+        },
+        {
+          "raw": "been",
+          "start": 8.1,
+          "end": 8.24
+        },
+        {
+          "raw": "punished",
+          "start": 8.24,
+          "end": 8.56
+        },
+        {
+          "raw": "by",
+          "start": 8.56,
+          "end": 8.78
+        },
+        {
+          "raw": "my",
+          "start": 8.78,
+          "end": 8.98
+        },
+        {
+          "raw": "sufferings",
+          "start": 8.98,
+          "end": 9.42
+        },
+        {
+          "raw": "for",
+          "start": 9.42,
+          "end": 9.58
+        },
+        {
+          "raw": "the",
+          "start": 9.58,
+          "end": 9.7
+        },
+        {
+          "raw": "blood",
+          "start": 9.7,
+          "end": 9.88
+        },
+        {
+          "raw": "I",
+          "start": 9.88,
+          "end": 10.08
+        },
+        {
+          "raw": "shed,",
+          "start": 10.08,
+          "end": 10.32
+        },
+        {
+          "raw": "And",
+          "start": 10.82,
+          "end": 10.98
+        },
+        {
+          "raw": "I",
+          "start": 10.98,
+          "end": 11.12
+        },
+        {
+          "raw": "shan't",
+          "start": 11.12,
+          "end": 11.3
+        },
+        {
+          "raw": "be",
+          "start": 11.3,
+          "end": 11.4
+        },
+        {
+          "raw": "believed,",
+          "start": 11.4,
+          "end": 11.8
+        },
+        {
+          "raw": "they",
+          "start": 11.92,
+          "end": 12.02
+        },
+        {
+          "raw": "won't",
+          "start": 12.02,
+          "end": 12.24
+        },
+        {
+          "raw": "believe",
+          "start": 12.24,
+          "end": 12.48
+        },
+        {
+          "raw": "my",
+          "start": 12.48,
+          "end": 12.72
+        },
+        {
+          "raw": "proofs,",
+          "start": 12.72,
+          "end": 13.04
+        },
+        {
+          "raw": "Need",
+          "start": 13.62,
+          "end": 13.72
+        },
+        {
+          "raw": "I",
+          "start": 13.72,
+          "end": 13.86
+        },
+        {
+          "raw": "confess,",
+          "start": 13.86,
+          "end": 14.22
+        },
+        {
+          "raw": "Need",
+          "start": 14.4,
+          "end": 14.48
+        },
+        {
+          "raw": "I,",
+          "start": 14.48,
+          "end": 14.68
+        },
+        {
+          "raw": "I",
+          "start": 15.08,
+          "end": 15.24
+        },
+        {
+          "raw": "am",
+          "start": 15.24,
+          "end": 15.3
+        },
+        {
+          "raw": "ready",
+          "start": 15.3,
+          "end": 15.42
+        },
+        {
+          "raw": "to",
+          "start": 15.42,
+          "end": 15.58
+        },
+        {
+          "raw": "go",
+          "start": 15.58,
+          "end": 15.68
+        },
+        {
+          "raw": "on",
+          "start": 15.68,
+          "end": 15.84
+        },
+        {
+          "raw": "suffering",
+          "start": 15.84,
+          "end": 16.2
+        },
+        {
+          "raw": "all",
+          "start": 16.2,
+          "end": 16.46
+        },
+        {
+          "raw": "my",
+          "start": 16.46,
+          "end": 16.64
+        },
+        {
+          "raw": "life",
+          "start": 16.64,
+          "end": 16.9
+        },
+        {
+          "raw": "for",
+          "start": 16.9,
+          "end": 17.08
+        },
+        {
+          "raw": "the",
+          "start": 17.08,
+          "end": 17.2
+        },
+        {
+          "raw": "blood",
+          "start": 17.2,
+          "end": 17.38
+        },
+        {
+          "raw": "I",
+          "start": 17.38,
+          "end": 17.52
+        },
+        {
+          "raw": "have",
+          "start": 17.52,
+          "end": 17.66
+        },
+        {
+          "raw": "shed",
+          "start": 17.66,
+          "end": 17.9
+        },
+        {
+          "raw": "if",
+          "start": 17.9,
+          "end": 18.1
+        },
+        {
+          "raw": "only",
+          "start": 18.1,
+          "end": 18.3
+        },
+        {
+          "raw": "my",
+          "start": 18.3,
+          "end": 18.5
+        },
+        {
+          "raw": "wife",
+          "start": 18.5,
+          "end": 18.7
+        },
+        {
+          "raw": "and",
+          "start": 18.7,
+          "end": 18.86
+        },
+        {
+          "raw": "children",
+          "start": 18.86,
+          "end": 19.2
+        },
+        {
+          "raw": "may",
+          "start": 19.2,
+          "end": 19.52
+        },
+        {
+          "raw": "be",
+          "start": 19.52,
+          "end": 19.7
+        },
+        {
+          "raw": "spared,",
+          "start": 19.7,
+          "end": 20.04
+        },
+        {
+          "raw": "Will",
+          "start": 20.6,
+          "end": 20.78
+        },
+        {
+          "raw": "it",
+          "start": 20.78,
+          "end": 20.88
+        },
+        {
+          "raw": "be",
+          "start": 20.88,
+          "end": 21.0
+        },
+        {
+          "raw": "just",
+          "start": 21.0,
+          "end": 21.18
+        },
+        {
+          "raw": "to",
+          "start": 21.18,
+          "end": 21.4
+        },
+        {
+          "raw": "ruin",
+          "start": 21.4,
+          "end": 21.58
+        },
+        {
+          "raw": "them",
+          "start": 21.58,
+          "end": 21.78
+        },
+        {
+          "raw": "with",
+          "start": 21.78,
+          "end": 21.92
+        },
+        {
+          "raw": "me,",
+          "start": 21.92,
+          "end": 22.18
+        },
+        {
+          "raw": "Aren't",
+          "start": 22.58,
+          "end": 22.7
+        },
+        {
+          "raw": "we",
+          "start": 22.7,
+          "end": 22.82
+        },
+        {
+          "raw": "making",
+          "start": 22.82,
+          "end": 23.04
+        },
+        {
+          "raw": "a",
+          "start": 23.04,
+          "end": 23.18
+        },
+        {
+          "raw": "mistake,",
+          "start": 23.18,
+          "end": 23.52
+        },
+        {
+          "raw": "What",
+          "start": 23.98,
+          "end": 24.08
+        },
+        {
+          "raw": "is",
+          "start": 24.08,
+          "end": 24.2
+        },
+        {
+          "raw": "right",
+          "start": 24.2,
+          "end": 24.4
+        },
+        {
+          "raw": "in",
+          "start": 24.4,
+          "end": 24.56
+        },
+        {
+          "raw": "this",
+          "start": 24.56,
+          "end": 24.7
+        },
+        {
+          "raw": "case?",
+          "start": 24.7,
+          "end": 24.92
+        },
+        {
+          "raw": "And",
+          "start": 25.6,
+          "end": 26.2
+        },
+        {
+          "raw": "will",
+          "start": 26.2,
+          "end": 26.36
+        },
+        {
+          "raw": "people",
+          "start": 26.36,
+          "end": 26.62
+        },
+        {
+          "raw": "recognize",
+          "start": 26.62,
+          "end": 27.18
+        },
+        {
+          "raw": "it,",
+          "start": 27.18,
+          "end": 27.48
+        },
+        {
+          "raw": "Will",
+          "start": 27.86,
+          "end": 27.88
+        },
+        {
+          "raw": "they",
+          "start": 27.88,
+          "end": 28.02
+        },
+        {
+          "raw": "appreciate",
+          "start": 28.02,
+          "end": 28.36
+        },
+        {
+          "raw": "it,",
+          "start": 28.36,
+          "end": 28.8
+        },
+        {
+          "raw": "Will",
+          "start": 29.1,
+          "end": 29.18
+        },
+        {
+          "raw": "they",
+          "start": 29.18,
+          "end": 29.36
+        },
+        {
+          "raw": "respect",
+          "start": 29.36,
+          "end": 29.66
+        },
+        {
+          "raw": "it?",
+          "start": 29.66,
+          "end": 30.0
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "need",
+        "I?\"",
+        "he",
+        "exclaimed,",
+        "\"must",
+        "I?",
+        "No",
+        "one",
+        "has",
+        "been",
+        "condemned,",
+        "no",
+        "one",
+        "has",
+        "been",
+        "sent",
+        "to",
+        "Siberia",
+        "in",
+        "my",
+        "place,",
+        "the",
+        "man",
+        "died",
+        "of",
+        "fever.",
+        "And",
+        "I've",
+        "been",
+        "punished",
+        "by",
+        "my",
+        "sufferings",
+        "for",
+        "the",
+        "blood",
+        "I",
+        "shed.",
+        "And",
+        "I",
+        "shan't",
+        "be",
+        "believed,",
+        "they",
+        "won't",
+        "believe",
+        "my",
+        "proofs.",
+        "Need",
+        "I",
+        "confess,",
+        "need",
+        "I?",
+        "I",
+        "am",
+        "ready",
+        "to",
+        "go",
+        "on",
+        "suffering",
+        "all",
+        "my",
+        "life",
+        "for",
+        "the",
+        "blood",
+        "I",
+        "have",
+        "shed,",
+        "if",
+        "only",
+        "my",
+        "wife",
+        "and",
+        "children",
+        "may",
+        "be",
+        "spared.",
+        "Will",
+        "it",
+        "be",
+        "just",
+        "to",
+        "ruin",
+        "them",
+        "with",
+        "me?",
+        "Aren't",
+        "we",
+        "making",
+        "a",
+        "mistake?",
+        "What",
+        "is",
+        "right",
+        "in",
+        "this",
+        "case?",
+        "And",
+        "will",
+        "people",
+        "recognize",
+        "it,",
+        "will",
+        "they",
+        "appreciate",
+        "it,",
+        "will",
+        "they",
+        "respect",
+        "it?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          112,
+          0,
+          112
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 111
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "need",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "need",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 0.68,
+          "end": 0.98,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.38,
+          "end": 1.48,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "exclaimed,",
+          "start": 1.48,
+          "end": 1.92,
+          "key": "exclaimed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Must",
+          "start": 2.32,
+          "end": 2.4,
+          "key": "must",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 2.4,
+          "end": 2.74,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 3.22,
+          "end": 3.34,
+          "key": "no",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 3.34,
+          "end": 3.46,
+          "key": "one",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.46,
+          "end": 3.56,
+          "key": "has",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 3.56,
+          "end": 3.72,
+          "key": "been",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "condemned,",
+          "start": 3.72,
+          "end": 4.1,
+          "key": "condemned",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 4.34,
+          "end": 4.42,
+          "key": "no",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 4.42,
+          "end": 4.56,
+          "key": "one",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 4.56,
+          "end": 4.66,
+          "key": "has",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 4.66,
+          "end": 4.82,
+          "key": "been",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 4.82,
+          "end": 4.96,
+          "key": "sent",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.96,
+          "end": 5.1,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Siberia",
+          "start": 5.1,
+          "end": 5.44,
+          "key": "siberia",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.44,
+          "end": 5.72,
+          "key": "in",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.72,
+          "end": 5.88,
+          "key": "my",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "place,",
+          "start": 5.88,
+          "end": 6.16,
+          "key": "place",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 6.28,
+          "end": 6.36,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 6.36,
+          "end": 6.58,
+          "key": "man",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "died",
+          "start": 6.58,
+          "end": 6.8,
+          "key": "died",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.8,
+          "end": 6.98,
+          "key": "of",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "fever,",
+          "start": 6.98,
+          "end": 7.18,
+          "key": "fever",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 7.74,
+          "end": 7.94,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "I've",
+          "start": 7.94,
+          "end": 8.1,
+          "key": "ive",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 8.1,
+          "end": 8.24,
+          "key": "been",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "punished",
+          "start": 8.24,
+          "end": 8.56,
+          "key": "punished",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 8.56,
+          "end": 8.78,
+          "key": "by",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.78,
+          "end": 8.98,
+          "key": "my",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "sufferings",
+          "start": 8.98,
+          "end": 9.42,
+          "key": "sufferings",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 9.42,
+          "end": 9.58,
+          "key": "for",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.58,
+          "end": 9.7,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "blood",
+          "start": 9.7,
+          "end": 9.88,
+          "key": "blood",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.88,
+          "end": 10.08,
+          "key": "i",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "shed,",
+          "start": 10.08,
+          "end": 10.32,
+          "key": "shed",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 10.82,
+          "end": 10.98,
+          "key": "and",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.98,
+          "end": 11.12,
+          "key": "i",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "shan't",
+          "start": 11.12,
+          "end": 11.3,
+          "key": "shant",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 11.3,
+          "end": 11.4,
+          "key": "be",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "believed,",
+          "start": 11.4,
+          "end": 11.8,
+          "key": "believed",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 11.92,
+          "end": 12.02,
+          "key": "they",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "won't",
+          "start": 12.02,
+          "end": 12.24,
+          "key": "wont",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "believe",
+          "start": 12.24,
+          "end": 12.48,
+          "key": "believe",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 12.48,
+          "end": 12.72,
+          "key": "my",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "proofs,",
+          "start": 12.72,
+          "end": 13.04,
+          "key": "proofs",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Need",
+          "start": 13.62,
+          "end": 13.72,
+          "key": "need",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 13.72,
+          "end": 13.86,
+          "key": "i",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "confess,",
+          "start": 13.86,
+          "end": 14.22,
+          "key": "confess",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Need",
+          "start": 14.4,
+          "end": 14.48,
+          "key": "need",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 14.48,
+          "end": 14.68,
+          "key": "i",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 15.08,
+          "end": 15.24,
+          "key": "i",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 15.24,
+          "end": 15.3,
+          "key": "am",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "ready",
+          "start": 15.3,
+          "end": 15.42,
+          "key": "ready",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.42,
+          "end": 15.58,
+          "key": "to",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 15.58,
+          "end": 15.68,
+          "key": "go",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 15.68,
+          "end": 15.84,
+          "key": "on",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "suffering",
+          "start": 15.84,
+          "end": 16.2,
+          "key": "suffering",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 16.2,
+          "end": 16.46,
+          "key": "all",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 16.46,
+          "end": 16.64,
+          "key": "my",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 16.64,
+          "end": 16.9,
+          "key": "life",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 16.9,
+          "end": 17.08,
+          "key": "for",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.08,
+          "end": 17.2,
+          "key": "the",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "blood",
+          "start": 17.2,
+          "end": 17.38,
+          "key": "blood",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 17.38,
+          "end": 17.52,
+          "key": "i",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 17.52,
+          "end": 17.66,
+          "key": "have",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "shed",
+          "start": 17.66,
+          "end": 17.9,
+          "key": "shed",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 17.9,
+          "end": 18.1,
+          "key": "if",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 18.1,
+          "end": 18.3,
+          "key": "only",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 18.3,
+          "end": 18.5,
+          "key": "my",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "wife",
+          "start": 18.5,
+          "end": 18.7,
+          "key": "wife",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.7,
+          "end": 18.86,
+          "key": "and",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 18.86,
+          "end": 19.2,
+          "key": "children",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 19.2,
+          "end": 19.52,
+          "key": "may",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 19.52,
+          "end": 19.7,
+          "key": "be",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "spared,",
+          "start": 19.7,
+          "end": 20.04,
+          "key": "spared",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 20.6,
+          "end": 20.78,
+          "key": "will",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 20.78,
+          "end": 20.88,
+          "key": "it",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 20.88,
+          "end": 21.0,
+          "key": "be",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 21.0,
+          "end": 21.18,
+          "key": "just",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 21.18,
+          "end": 21.4,
+          "key": "to",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "ruin",
+          "start": 21.4,
+          "end": 21.58,
+          "key": "ruin",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 21.58,
+          "end": 21.78,
+          "key": "them",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 21.78,
+          "end": 21.92,
+          "key": "with",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 21.92,
+          "end": 22.18,
+          "key": "me",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "Aren't",
+          "start": 22.58,
+          "end": 22.7,
+          "key": "arent",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 22.7,
+          "end": 22.82,
+          "key": "we",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "making",
+          "start": 22.82,
+          "end": 23.04,
+          "key": "making",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 23.04,
+          "end": 23.18,
+          "key": "a",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "mistake,",
+          "start": 23.18,
+          "end": 23.52,
+          "key": "mistake",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 23.98,
+          "end": 24.08,
+          "key": "what",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 24.08,
+          "end": 24.2,
+          "key": "is",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "right",
+          "start": 24.2,
+          "end": 24.4,
+          "key": "right",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 24.4,
+          "end": 24.56,
+          "key": "in",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 24.56,
+          "end": 24.7,
+          "key": "this",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "case?",
+          "start": 24.7,
+          "end": 24.92,
+          "key": "case",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 25.6,
+          "end": 26.2,
+          "key": "and",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 26.2,
+          "end": 26.36,
+          "key": "will",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "people",
+          "start": 26.36,
+          "end": 26.62,
+          "key": "people",
+          "pieces": [
+            101
+          ]
+        },
+        {
+          "raw": "recognize",
+          "start": 26.62,
+          "end": 27.18,
+          "key": "recognize",
+          "pieces": [
+            102
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 27.18,
+          "end": 27.48,
+          "key": "it",
+          "pieces": [
+            103
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 27.86,
+          "end": 27.88,
+          "key": "will",
+          "pieces": [
+            104
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 27.88,
+          "end": 28.02,
+          "key": "they",
+          "pieces": [
+            105
+          ]
+        },
+        {
+          "raw": "appreciate",
+          "start": 28.02,
+          "end": 28.36,
+          "key": "appreciate",
+          "pieces": [
+            106
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 28.36,
+          "end": 28.8,
+          "key": "it",
+          "pieces": [
+            107
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 29.1,
+          "end": 29.18,
+          "key": "will",
+          "pieces": [
+            108
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 29.18,
+          "end": 29.36,
+          "key": "they",
+          "pieces": [
+            109
+          ]
+        },
+        {
+          "raw": "respect",
+          "start": 29.36,
+          "end": 29.66,
+          "key": "respect",
+          "pieces": [
+            110
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 29.66,
+          "end": 30.0,
+          "key": "it",
+          "pieces": [
+            111
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "need",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "I?\"",
+          "start": 0.68,
+          "end": 0.98
+        },
+        {
+          "text": "he",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "text": "exclaimed,",
+          "start": 1.48,
+          "end": 1.92
+        },
+        {
+          "text": "\"must",
+          "start": 2.32,
+          "end": 2.4
+        },
+        {
+          "text": "I?",
+          "start": 2.4,
+          "end": 2.74
+        },
+        {
+          "text": "No",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "text": "one",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "text": "has",
+          "start": 3.46,
+          "end": 3.56
+        },
+        {
+          "text": "been",
+          "start": 3.56,
+          "end": 3.72
+        },
+        {
+          "text": "condemned,",
+          "start": 3.72,
+          "end": 4.1
+        },
+        {
+          "text": "no",
+          "start": 4.34,
+          "end": 4.42
+        },
+        {
+          "text": "one",
+          "start": 4.42,
+          "end": 4.56
+        },
+        {
+          "text": "has",
+          "start": 4.56,
+          "end": 4.66
+        },
+        {
+          "text": "been",
+          "start": 4.66,
+          "end": 4.82
+        },
+        {
+          "text": "sent",
+          "start": 4.82,
+          "end": 4.96
+        },
+        {
+          "text": "to",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "text": "Siberia",
+          "start": 5.1,
+          "end": 5.44
+        },
+        {
+          "text": "in",
+          "start": 5.44,
+          "end": 5.72
+        },
+        {
+          "text": "my",
+          "start": 5.72,
+          "end": 5.88
+        },
+        {
+          "text": "place,",
+          "start": 5.88,
+          "end": 6.16
+        },
+        {
+          "text": "the",
+          "start": 6.28,
+          "end": 6.36
+        },
+        {
+          "text": "man",
+          "start": 6.36,
+          "end": 6.58
+        },
+        {
+          "text": "died",
+          "start": 6.58,
+          "end": 6.8
+        },
+        {
+          "text": "of",
+          "start": 6.8,
+          "end": 6.98
+        },
+        {
+          "text": "fever.",
+          "start": 6.98,
+          "end": 7.18
+        },
+        {
+          "text": "And",
+          "start": 7.74,
+          "end": 7.94
+        },
+        {
+          "text": "I've",
+          "start": 7.94,
+          "end": 8.1
+        },
+        {
+          "text": "been",
+          "start": 8.1,
+          "end": 8.24
+        },
+        {
+          "text": "punished",
+          "start": 8.24,
+          "end": 8.56
+        },
+        {
+          "text": "by",
+          "start": 8.56,
+          "end": 8.78
+        },
+        {
+          "text": "my",
+          "start": 8.78,
+          "end": 8.98
+        },
+        {
+          "text": "sufferings",
+          "start": 8.98,
+          "end": 9.42
+        },
+        {
+          "text": "for",
+          "start": 9.42,
+          "end": 9.58
+        },
+        {
+          "text": "the",
+          "start": 9.58,
+          "end": 9.7
+        },
+        {
+          "text": "blood",
+          "start": 9.7,
+          "end": 9.88
+        },
+        {
+          "text": "I",
+          "start": 9.88,
+          "end": 10.08
+        },
+        {
+          "text": "shed.",
+          "start": 10.08,
+          "end": 10.32
+        },
+        {
+          "text": "And",
+          "start": 10.82,
+          "end": 10.98
+        },
+        {
+          "text": "I",
+          "start": 10.98,
+          "end": 11.12
+        },
+        {
+          "text": "shan't",
+          "start": 11.12,
+          "end": 11.3
+        },
+        {
+          "text": "be",
+          "start": 11.3,
+          "end": 11.4
+        },
+        {
+          "text": "believed,",
+          "start": 11.4,
+          "end": 11.8
+        },
+        {
+          "text": "they",
+          "start": 11.92,
+          "end": 12.02
+        },
+        {
+          "text": "won't",
+          "start": 12.02,
+          "end": 12.24
+        },
+        {
+          "text": "believe",
+          "start": 12.24,
+          "end": 12.48
+        },
+        {
+          "text": "my",
+          "start": 12.48,
+          "end": 12.72
+        },
+        {
+          "text": "proofs.",
+          "start": 12.72,
+          "end": 13.04
+        },
+        {
+          "text": "Need",
+          "start": 13.62,
+          "end": 13.72
+        },
+        {
+          "text": "I",
+          "start": 13.72,
+          "end": 13.86
+        },
+        {
+          "text": "confess,",
+          "start": 13.86,
+          "end": 14.22
+        },
+        {
+          "text": "need",
+          "start": 14.4,
+          "end": 14.48
+        },
+        {
+          "text": "I?",
+          "start": 14.48,
+          "end": 14.68
+        },
+        {
+          "text": "I",
+          "start": 15.08,
+          "end": 15.24
+        },
+        {
+          "text": "am",
+          "start": 15.24,
+          "end": 15.3
+        },
+        {
+          "text": "ready",
+          "start": 15.3,
+          "end": 15.42
+        },
+        {
+          "text": "to",
+          "start": 15.42,
+          "end": 15.58
+        },
+        {
+          "text": "go",
+          "start": 15.58,
+          "end": 15.68
+        },
+        {
+          "text": "on",
+          "start": 15.68,
+          "end": 15.84
+        },
+        {
+          "text": "suffering",
+          "start": 15.84,
+          "end": 16.2
+        },
+        {
+          "text": "all",
+          "start": 16.2,
+          "end": 16.46
+        },
+        {
+          "text": "my",
+          "start": 16.46,
+          "end": 16.64
+        },
+        {
+          "text": "life",
+          "start": 16.64,
+          "end": 16.9
+        },
+        {
+          "text": "for",
+          "start": 16.9,
+          "end": 17.08
+        },
+        {
+          "text": "the",
+          "start": 17.08,
+          "end": 17.2
+        },
+        {
+          "text": "blood",
+          "start": 17.2,
+          "end": 17.38
+        },
+        {
+          "text": "I",
+          "start": 17.38,
+          "end": 17.52
+        },
+        {
+          "text": "have",
+          "start": 17.52,
+          "end": 17.66
+        },
+        {
+          "text": "shed,",
+          "start": 17.66,
+          "end": 17.9
+        },
+        {
+          "text": "if",
+          "start": 17.9,
+          "end": 18.1
+        },
+        {
+          "text": "only",
+          "start": 18.1,
+          "end": 18.3
+        },
+        {
+          "text": "my",
+          "start": 18.3,
+          "end": 18.5
+        },
+        {
+          "text": "wife",
+          "start": 18.5,
+          "end": 18.7
+        },
+        {
+          "text": "and",
+          "start": 18.7,
+          "end": 18.86
+        },
+        {
+          "text": "children",
+          "start": 18.86,
+          "end": 19.2
+        },
+        {
+          "text": "may",
+          "start": 19.2,
+          "end": 19.52
+        },
+        {
+          "text": "be",
+          "start": 19.52,
+          "end": 19.7
+        },
+        {
+          "text": "spared.",
+          "start": 19.7,
+          "end": 20.04
+        },
+        {
+          "text": "Will",
+          "start": 20.6,
+          "end": 20.78
+        },
+        {
+          "text": "it",
+          "start": 20.78,
+          "end": 20.88
+        },
+        {
+          "text": "be",
+          "start": 20.88,
+          "end": 21.0
+        },
+        {
+          "text": "just",
+          "start": 21.0,
+          "end": 21.18
+        },
+        {
+          "text": "to",
+          "start": 21.18,
+          "end": 21.4
+        },
+        {
+          "text": "ruin",
+          "start": 21.4,
+          "end": 21.58
+        },
+        {
+          "text": "them",
+          "start": 21.58,
+          "end": 21.78
+        },
+        {
+          "text": "with",
+          "start": 21.78,
+          "end": 21.92
+        },
+        {
+          "text": "me?",
+          "start": 21.92,
+          "end": 22.18
+        },
+        {
+          "text": "Aren't",
+          "start": 22.58,
+          "end": 22.7
+        },
+        {
+          "text": "we",
+          "start": 22.7,
+          "end": 22.82
+        },
+        {
+          "text": "making",
+          "start": 22.82,
+          "end": 23.04
+        },
+        {
+          "text": "a",
+          "start": 23.04,
+          "end": 23.18
+        },
+        {
+          "text": "mistake?",
+          "start": 23.18,
+          "end": 23.52
+        },
+        {
+          "text": "What",
+          "start": 23.98,
+          "end": 24.08
+        },
+        {
+          "text": "is",
+          "start": 24.08,
+          "end": 24.2
+        },
+        {
+          "text": "right",
+          "start": 24.2,
+          "end": 24.4
+        },
+        {
+          "text": "in",
+          "start": 24.4,
+          "end": 24.56
+        },
+        {
+          "text": "this",
+          "start": 24.56,
+          "end": 24.7
+        },
+        {
+          "text": "case?",
+          "start": 24.7,
+          "end": 24.92
+        },
+        {
+          "text": "And",
+          "start": 25.6,
+          "end": 26.2
+        },
+        {
+          "text": "will",
+          "start": 26.2,
+          "end": 26.36
+        },
+        {
+          "text": "people",
+          "start": 26.36,
+          "end": 26.62
+        },
+        {
+          "text": "recognize",
+          "start": 26.62,
+          "end": 27.18
+        },
+        {
+          "text": "it,",
+          "start": 27.18,
+          "end": 27.48
+        },
+        {
+          "text": "will",
+          "start": 27.86,
+          "end": 27.88
+        },
+        {
+          "text": "they",
+          "start": 27.88,
+          "end": 28.02
+        },
+        {
+          "text": "appreciate",
+          "start": 28.02,
+          "end": 28.36
+        },
+        {
+          "text": "it,",
+          "start": 28.36,
+          "end": 28.8
+        },
+        {
+          "text": "will",
+          "start": 29.1,
+          "end": 29.18
+        },
+        {
+          "text": "they",
+          "start": 29.18,
+          "end": 29.36
+        },
+        {
+          "text": "respect",
+          "start": 29.36,
+          "end": 29.66
+        },
+        {
+          "text": "it?\"",
+          "start": 29.66,
+          "end": 30.0
+        }
+      ],
+      "stats": {
+        "expected_words": 112,
+        "heard_words": 112,
+        "matched_words": 112
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.2432825351133943
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "969703607efe6a175157f3f21a32cfd03172a267ed687418534324c9bf29e2fd",
+  "selected_reasons": []
+}

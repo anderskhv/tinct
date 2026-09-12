@@ -1,0 +1,302 @@
+{
+  "complete": true,
+  "signature": "bec2a48bd01e5122597e1df676b82e2b05e27cd2e876cf7cf87c8b4042dbd43d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2208961769938469,
+      "alignment_seconds": 0.0004929639399051666,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Re-enter Leonardo, Antonio, and the Sexton.",
+          "start": 0.05,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " Re",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.47900390625
+            },
+            {
+              "text": "-enter",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.737060546875
+            },
+            {
+              "text": " Leonardo,",
+              "start": 0.73,
+              "end": 1.17,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " Antonio,",
+              "start": 1.71,
+              "end": 1.99,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " and",
+              "start": 2.29,
+              "end": 2.33,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " the",
+              "start": 2.33,
+              "end": 2.43,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " Sexton.",
+              "start": 2.43,
+              "end": 2.83,
+              "probability": 0.90087890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Re",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "-enter",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "Leonardo,",
+          "start": 0.73,
+          "end": 1.17
+        },
+        {
+          "raw": "Antonio,",
+          "start": 1.71,
+          "end": 1.99
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.33
+        },
+        {
+          "raw": "the",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "raw": "Sexton.",
+          "start": 2.43,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "Re-enter",
+        "Leonato,",
+        "Antonio",
+        "and",
+        "the",
+        "Sexton."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Re -enter",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "reenter",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "Leonardo,",
+          "start": 0.73,
+          "end": 1.17,
+          "key": "leonardo",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Antonio,",
+          "start": 1.71,
+          "end": 1.99,
+          "key": "antonio",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.33,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.33,
+          "end": 2.43,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Sexton.",
+          "start": 2.43,
+          "end": 2.83,
+          "key": "sexton",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "Re-enter",
+          "heard": "Re -enter",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.05,
+          "end": 0.73
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Re-enter",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Leonato,",
+          "start": 0.73,
+          "end": 1.22
+        },
+        {
+          "text": "Antonio",
+          "start": 1.71,
+          "end": 1.99
+        },
+        {
+          "text": "and",
+          "start": 2.29,
+          "end": 2.33
+        },
+        {
+          "text": "the",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "text": "Sexton.",
+          "start": 2.43,
+          "end": 2.83
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22152379527688026
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5951798774017996e437980fdfb78b009277cd75049ecc6d8713810ec7b34e0a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

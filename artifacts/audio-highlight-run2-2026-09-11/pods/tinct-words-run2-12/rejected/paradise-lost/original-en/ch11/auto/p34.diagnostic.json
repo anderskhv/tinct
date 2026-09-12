@@ -1,0 +1,2668 @@
+{
+  "complete": true,
+  "signature": "0c1e2642cd85f31c49124762ea243f5081afb8376025fe1875197482a15f52ec",
+  "attempts": [
+    {
+      "asr_seconds": 3.050733949057758,
+      "alignment_seconds": 0.0019174378830939531,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Thee lastly, nuptial bower! by me adorned With what to sight or smell was sweet! from thee How shall I part, and whither wander down Into a lower world; to this obscure And wild, how shall we breathe in other air Less pure, accustomed to immortal fruits?",
+        "hotwords": "With, I, Into, Less"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thee lastly, nuptial bower! by me adorned With what to sight or smell was sweet! from thee How shall I part, and whither wander down Into a lower world? to this obscure And wild, how shall we breathe in other air Less pure, accustomed to immortal fruits?",
+          "start": 0.02,
+          "end": 15.72,
+          "words": [
+            {
+              "text": " Thee",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.40219879150390625
+            },
+            {
+              "text": " lastly,",
+              "start": 0.76,
+              "end": 1.06,
+              "probability": 0.6455078125
+            },
+            {
+              "text": " nuptial",
+              "start": 1.22,
+              "end": 1.54,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " bower!",
+              "start": 1.54,
+              "end": 1.88,
+              "probability": 0.954833984375
+            },
+            {
+              "text": " by",
+              "start": 2.48,
+              "end": 2.6,
+              "probability": 0.043975830078125
+            },
+            {
+              "text": " me",
+              "start": 2.6,
+              "end": 2.74,
+              "probability": 0.982421875
+            },
+            {
+              "text": " adorned",
+              "start": 2.74,
+              "end": 3.08,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " With",
+              "start": 3.08,
+              "end": 3.34,
+              "probability": 0.042510986328125
+            },
+            {
+              "text": " what",
+              "start": 3.34,
+              "end": 3.52,
+              "probability": 0.98046875
+            },
+            {
+              "text": " to",
+              "start": 3.52,
+              "end": 3.68,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " sight",
+              "start": 3.68,
+              "end": 3.98,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " or",
+              "start": 3.98,
+              "end": 4.22,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " smell",
+              "start": 4.22,
+              "end": 4.6,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " was",
+              "start": 4.6,
+              "end": 4.82,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " sweet!",
+              "start": 4.82,
+              "end": 5.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " from",
+              "start": 5.92,
+              "end": 6.02,
+              "probability": 0.26123046875
+            },
+            {
+              "text": " thee",
+              "start": 6.02,
+              "end": 6.16,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " How",
+              "start": 6.16,
+              "end": 6.38,
+              "probability": 0.05780029296875
+            },
+            {
+              "text": " shall",
+              "start": 6.38,
+              "end": 6.6,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " I",
+              "start": 6.6,
+              "end": 6.78,
+              "probability": 0.974609375
+            },
+            {
+              "text": " part,",
+              "start": 6.78,
+              "end": 7.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 7.38,
+              "end": 7.54,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " whither",
+              "start": 7.54,
+              "end": 7.8,
+              "probability": 0.779541015625
+            },
+            {
+              "text": " wander",
+              "start": 7.8,
+              "end": 8.04,
+              "probability": 0.765625
+            },
+            {
+              "text": " down",
+              "start": 8.04,
+              "end": 8.46,
+              "probability": 0.67333984375
+            },
+            {
+              "text": " Into",
+              "start": 8.46,
+              "end": 8.68,
+              "probability": 0.56494140625
+            },
+            {
+              "text": " a",
+              "start": 8.68,
+              "end": 8.88,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " lower",
+              "start": 8.88,
+              "end": 9.12,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " world?",
+              "start": 9.12,
+              "end": 9.52,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " to",
+              "start": 10.04,
+              "end": 10.2,
+              "probability": 0.415283203125
+            },
+            {
+              "text": " this",
+              "start": 10.2,
+              "end": 10.4,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " obscure",
+              "start": 10.4,
+              "end": 10.84,
+              "probability": 0.94921875
+            },
+            {
+              "text": " And",
+              "start": 10.84,
+              "end": 11.06,
+              "probability": 0.01190185546875
+            },
+            {
+              "text": " wild,",
+              "start": 11.06,
+              "end": 11.4,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " how",
+              "start": 11.88,
+              "end": 12.0,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " shall",
+              "start": 12.0,
+              "end": 12.16,
+              "probability": 0.96875
+            },
+            {
+              "text": " we",
+              "start": 12.16,
+              "end": 12.34,
+              "probability": 0.9609375
+            },
+            {
+              "text": " breathe",
+              "start": 12.34,
+              "end": 12.56,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " in",
+              "start": 12.56,
+              "end": 12.76,
+              "probability": 0.478515625
+            },
+            {
+              "text": " other",
+              "start": 12.76,
+              "end": 12.94,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " air",
+              "start": 12.94,
+              "end": 13.2,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " Less",
+              "start": 13.2,
+              "end": 13.46,
+              "probability": 0.27880859375
+            },
+            {
+              "text": " pure,",
+              "start": 13.46,
+              "end": 13.86,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " accustomed",
+              "start": 14.38,
+              "end": 14.52,
+              "probability": 0.9453125
+            },
+            {
+              "text": " to",
+              "start": 14.52,
+              "end": 14.92,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " immortal",
+              "start": 14.92,
+              "end": 15.32,
+              "probability": 0.9375
+            },
+            {
+              "text": " fruits?",
+              "start": 15.32,
+              "end": 15.72,
+              "probability": 0.9248046875
+            }
+          ]
+        },
+        {
+          "text": " Thee lastly, nuptial bower! by me adorned With what to sight or smell was sweet! from thee How shall I part, and whither wander down Into a lower world? by me adorned With what to sight or smell was sweet! from thee How shall I part, and whither wandered, and whither wandered? by me",
+          "start": 15.72,
+          "end": 16.5,
+          "words": [
+            {
+              "text": " Thee",
+              "start": 15.72,
+              "end": 15.72,
+              "probability": 0.0036590099334716797
+            },
+            {
+              "text": " lastly,",
+              "start": 15.72,
+              "end": 15.72,
+              "probability": 0.0014660358428955078
+            },
+            {
+              "text": " nuptial",
+              "start": 15.72,
+              "end": 15.86,
+              "probability": 0.27044949928919476
+            },
+            {
+              "text": " bower!",
+              "start": 15.86,
+              "end": 15.86,
+              "probability": 0.0006672143936157227
+            },
+            {
+              "text": " by",
+              "start": 15.86,
+              "end": 15.86,
+              "probability": 0.0002999305725097656
+            },
+            {
+              "text": " me",
+              "start": 15.86,
+              "end": 15.86,
+              "probability": 0.00156402587890625
+            },
+            {
+              "text": " adorned",
+              "start": 15.86,
+              "end": 15.86,
+              "probability": 1.1920928955078125e-07
+            },
+            {
+              "text": " With",
+              "start": 15.86,
+              "end": 15.86,
+              "probability": 0.000537872314453125
+            },
+            {
+              "text": " what",
+              "start": 15.86,
+              "end": 15.86,
+              "probability": 0.0009870529174804688
+            },
+            {
+              "text": " to",
+              "start": 15.86,
+              "end": 15.86,
+              "probability": 0.0005712509155273438
+            },
+            {
+              "text": " sight",
+              "start": 15.86,
+              "end": 15.9,
+              "probability": 3.0517578125e-05
+            },
+            {
+              "text": " or",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.0013589859008789062
+            },
+            {
+              "text": " smell",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.00323486328125
+            },
+            {
+              "text": " was",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.0018329620361328125
+            },
+            {
+              "text": " sweet!",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.0003952980041503906
+            },
+            {
+              "text": " from",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.00266265869140625
+            },
+            {
+              "text": " thee",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 2.396106719970703e-05
+            },
+            {
+              "text": " How",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.0006985664367675781
+            },
+            {
+              "text": " shall",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.00603485107421875
+            },
+            {
+              "text": " I",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.30908203125
+            },
+            {
+              "text": " part,",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.0003533363342285156
+            },
+            {
+              "text": " and",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.0968017578125
+            },
+            {
+              "text": " whither",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.1590561866760254
+            },
+            {
+              "text": " wander",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 1.4901161193847656e-06
+            },
+            {
+              "text": " down",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.0008273124694824219
+            },
+            {
+              "text": " Into",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.00027632713317871094
+            },
+            {
+              "text": " a",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.08929443359375
+            },
+            {
+              "text": " lower",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.00013756752014160156
+            },
+            {
+              "text": " world?",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.00843048095703125
+            },
+            {
+              "text": " by",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.057281494140625
+            },
+            {
+              "text": " me",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.285888671875
+            },
+            {
+              "text": " adorned",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.00011712312698364258
+            },
+            {
+              "text": " With",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.1436767578125
+            },
+            {
+              "text": " what",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.1473388671875
+            },
+            {
+              "text": " to",
+              "start": 15.9,
+              "end": 15.9,
+              "probability": 0.439697265625
+            },
+            {
+              "text": " sight",
+              "start": 15.9,
+              "end": 15.92,
+              "probability": 0.0186767578125
+            },
+            {
+              "text": " or",
+              "start": 15.92,
+              "end": 15.92,
+              "probability": 0.45849609375
+            },
+            {
+              "text": " smell",
+              "start": 15.92,
+              "end": 15.92,
+              "probability": 0.6962890625
+            },
+            {
+              "text": " was",
+              "start": 15.92,
+              "end": 15.92,
+              "probability": 0.43896484375
+            },
+            {
+              "text": " sweet!",
+              "start": 15.92,
+              "end": 16.2,
+              "probability": 0.6611328125
+            },
+            {
+              "text": " from",
+              "start": 16.2,
+              "end": 16.4,
+              "probability": 0.07177734375
+            },
+            {
+              "text": " thee",
+              "start": 16.4,
+              "end": 16.4,
+              "probability": 0.779296875
+            },
+            {
+              "text": " How",
+              "start": 16.4,
+              "end": 16.4,
+              "probability": 0.260009765625
+            },
+            {
+              "text": " shall",
+              "start": 16.4,
+              "end": 16.5,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " I",
+              "start": 16.5,
+              "end": 16.5,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " part,",
+              "start": 16.5,
+              "end": 16.5,
+              "probability": 0.68994140625
+            },
+            {
+              "text": " and",
+              "start": 16.5,
+              "end": 16.5,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " whither",
+              "start": 16.5,
+              "end": 16.5,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " wandered,",
+              "start": 16.5,
+              "end": 16.5,
+              "probability": 0.03216552734375
+            },
+            {
+              "text": " and",
+              "start": 16.5,
+              "end": 16.5,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " whither",
+              "start": 16.5,
+              "end": 16.5,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " wandered?",
+              "start": 16.5,
+              "end": 16.5,
+              "probability": 0.68212890625
+            },
+            {
+              "text": " by",
+              "start": 16.5,
+              "end": 16.5,
+              "probability": 0.767578125
+            },
+            {
+              "text": " me",
+              "start": 16.5,
+              "end": 16.5,
+              "probability": 0.96484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thee",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "lastly,",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "raw": "nuptial",
+          "start": 1.22,
+          "end": 1.54
+        },
+        {
+          "raw": "bower!",
+          "start": 1.54,
+          "end": 1.88
+        },
+        {
+          "raw": "by",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "raw": "me",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "raw": "adorned",
+          "start": 2.74,
+          "end": 3.08
+        },
+        {
+          "raw": "With",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "raw": "what",
+          "start": 3.34,
+          "end": 3.52
+        },
+        {
+          "raw": "to",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "raw": "sight",
+          "start": 3.68,
+          "end": 3.98
+        },
+        {
+          "raw": "or",
+          "start": 3.98,
+          "end": 4.22
+        },
+        {
+          "raw": "smell",
+          "start": 4.22,
+          "end": 4.6
+        },
+        {
+          "raw": "was",
+          "start": 4.6,
+          "end": 4.82
+        },
+        {
+          "raw": "sweet!",
+          "start": 4.82,
+          "end": 5.2
+        },
+        {
+          "raw": "from",
+          "start": 5.92,
+          "end": 6.02
+        },
+        {
+          "raw": "thee",
+          "start": 6.02,
+          "end": 6.16
+        },
+        {
+          "raw": "How",
+          "start": 6.16,
+          "end": 6.38
+        },
+        {
+          "raw": "shall",
+          "start": 6.38,
+          "end": 6.6
+        },
+        {
+          "raw": "I",
+          "start": 6.6,
+          "end": 6.78
+        },
+        {
+          "raw": "part,",
+          "start": 6.78,
+          "end": 7.08
+        },
+        {
+          "raw": "and",
+          "start": 7.38,
+          "end": 7.54
+        },
+        {
+          "raw": "whither",
+          "start": 7.54,
+          "end": 7.8
+        },
+        {
+          "raw": "wander",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "raw": "down",
+          "start": 8.04,
+          "end": 8.46
+        },
+        {
+          "raw": "Into",
+          "start": 8.46,
+          "end": 8.68
+        },
+        {
+          "raw": "a",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "raw": "lower",
+          "start": 8.88,
+          "end": 9.12
+        },
+        {
+          "raw": "world?",
+          "start": 9.12,
+          "end": 9.52
+        },
+        {
+          "raw": "to",
+          "start": 10.04,
+          "end": 10.2
+        },
+        {
+          "raw": "this",
+          "start": 10.2,
+          "end": 10.4
+        },
+        {
+          "raw": "obscure",
+          "start": 10.4,
+          "end": 10.84
+        },
+        {
+          "raw": "And",
+          "start": 10.84,
+          "end": 11.06
+        },
+        {
+          "raw": "wild,",
+          "start": 11.06,
+          "end": 11.4
+        },
+        {
+          "raw": "how",
+          "start": 11.88,
+          "end": 12.0
+        },
+        {
+          "raw": "shall",
+          "start": 12.0,
+          "end": 12.16
+        },
+        {
+          "raw": "we",
+          "start": 12.16,
+          "end": 12.34
+        },
+        {
+          "raw": "breathe",
+          "start": 12.34,
+          "end": 12.56
+        },
+        {
+          "raw": "in",
+          "start": 12.56,
+          "end": 12.76
+        },
+        {
+          "raw": "other",
+          "start": 12.76,
+          "end": 12.94
+        },
+        {
+          "raw": "air",
+          "start": 12.94,
+          "end": 13.2
+        },
+        {
+          "raw": "Less",
+          "start": 13.2,
+          "end": 13.46
+        },
+        {
+          "raw": "pure,",
+          "start": 13.46,
+          "end": 13.86
+        },
+        {
+          "raw": "accustomed",
+          "start": 14.38,
+          "end": 14.52
+        },
+        {
+          "raw": "to",
+          "start": 14.52,
+          "end": 14.92
+        },
+        {
+          "raw": "immortal",
+          "start": 14.92,
+          "end": 15.32
+        },
+        {
+          "raw": "fruits?",
+          "start": 15.32,
+          "end": 15.72
+        },
+        {
+          "raw": "Thee",
+          "start": 15.72,
+          "end": 15.72
+        },
+        {
+          "raw": "lastly,",
+          "start": 15.72,
+          "end": 15.72
+        },
+        {
+          "raw": "nuptial",
+          "start": 15.72,
+          "end": 15.86
+        },
+        {
+          "raw": "bower!",
+          "start": 15.86,
+          "end": 15.86
+        },
+        {
+          "raw": "by",
+          "start": 15.86,
+          "end": 15.86
+        },
+        {
+          "raw": "me",
+          "start": 15.86,
+          "end": 15.86
+        },
+        {
+          "raw": "adorned",
+          "start": 15.86,
+          "end": 15.86
+        },
+        {
+          "raw": "With",
+          "start": 15.86,
+          "end": 15.86
+        },
+        {
+          "raw": "what",
+          "start": 15.86,
+          "end": 15.86
+        },
+        {
+          "raw": "to",
+          "start": 15.86,
+          "end": 15.86
+        },
+        {
+          "raw": "sight",
+          "start": 15.86,
+          "end": 15.9
+        },
+        {
+          "raw": "or",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "smell",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "was",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "sweet!",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "from",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "thee",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "How",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "shall",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "I",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "part,",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "and",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "whither",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "wander",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "down",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "Into",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "a",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "lower",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "world?",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "by",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "me",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "adorned",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "With",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "what",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "to",
+          "start": 15.9,
+          "end": 15.9
+        },
+        {
+          "raw": "sight",
+          "start": 15.9,
+          "end": 15.92
+        },
+        {
+          "raw": "or",
+          "start": 15.92,
+          "end": 15.92
+        },
+        {
+          "raw": "smell",
+          "start": 15.92,
+          "end": 15.92
+        },
+        {
+          "raw": "was",
+          "start": 15.92,
+          "end": 15.92
+        },
+        {
+          "raw": "sweet!",
+          "start": 15.92,
+          "end": 16.2
+        },
+        {
+          "raw": "from",
+          "start": 16.2,
+          "end": 16.4
+        },
+        {
+          "raw": "thee",
+          "start": 16.4,
+          "end": 16.4
+        },
+        {
+          "raw": "How",
+          "start": 16.4,
+          "end": 16.4
+        },
+        {
+          "raw": "shall",
+          "start": 16.4,
+          "end": 16.5
+        },
+        {
+          "raw": "I",
+          "start": 16.5,
+          "end": 16.5
+        },
+        {
+          "raw": "part,",
+          "start": 16.5,
+          "end": 16.5
+        },
+        {
+          "raw": "and",
+          "start": 16.5,
+          "end": 16.5
+        },
+        {
+          "raw": "whither",
+          "start": 16.5,
+          "end": 16.5
+        },
+        {
+          "raw": "wandered,",
+          "start": 16.5,
+          "end": 16.5
+        },
+        {
+          "raw": "and",
+          "start": 16.5,
+          "end": 16.5
+        },
+        {
+          "raw": "whither",
+          "start": 16.5,
+          "end": 16.5
+        },
+        {
+          "raw": "wandered?",
+          "start": 16.5,
+          "end": 16.5
+        },
+        {
+          "raw": "by",
+          "start": 16.5,
+          "end": 16.5
+        },
+        {
+          "raw": "me",
+          "start": 16.5,
+          "end": 16.5
+        }
+      ],
+      "expected_tokens": [
+        "Thee",
+        "lastly,",
+        "nuptial",
+        "bower!",
+        "by",
+        "me",
+        "adorned",
+        "With",
+        "what",
+        "to",
+        "sight",
+        "or",
+        "smell",
+        "was",
+        "sweet!",
+        "from",
+        "thee",
+        "How",
+        "shall",
+        "I",
+        "part,",
+        "and",
+        "whither",
+        "wander",
+        "down",
+        "Into",
+        "a",
+        "lower",
+        "world;",
+        "to",
+        "this",
+        "obscure",
+        "And",
+        "wild,",
+        "how",
+        "shall",
+        "we",
+        "breathe",
+        "in",
+        "other",
+        "air",
+        "Less",
+        "pure,",
+        "accustomed",
+        "to",
+        "immortal",
+        "fruits?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          47,
+          0,
+          47
+        ],
+        [
+          "insert",
+          47,
+          47,
+          47,
+          101
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          47,
+          47,
+          47,
+          101
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thee",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "thee",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lastly,",
+          "start": 0.76,
+          "end": 1.06,
+          "key": "lastly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nuptial",
+          "start": 1.22,
+          "end": 1.54,
+          "key": "nuptial",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bower!",
+          "start": 1.54,
+          "end": 1.88,
+          "key": "bower",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.48,
+          "end": 2.6,
+          "key": "by",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.6,
+          "end": 2.74,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "adorned",
+          "start": 2.74,
+          "end": 3.08,
+          "key": "adorned",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 3.08,
+          "end": 3.34,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.34,
+          "end": 3.52,
+          "key": "what",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.52,
+          "end": 3.68,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sight",
+          "start": 3.68,
+          "end": 3.98,
+          "key": "sight",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 3.98,
+          "end": 4.22,
+          "key": "or",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "smell",
+          "start": 4.22,
+          "end": 4.6,
+          "key": "smell",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.6,
+          "end": 4.82,
+          "key": "was",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sweet!",
+          "start": 4.82,
+          "end": 5.2,
+          "key": "sweet",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 5.92,
+          "end": 6.02,
+          "key": "from",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 6.02,
+          "end": 6.16,
+          "key": "thee",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 6.16,
+          "end": 6.38,
+          "key": "how",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 6.38,
+          "end": 6.6,
+          "key": "shall",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.6,
+          "end": 6.78,
+          "key": "i",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "part,",
+          "start": 6.78,
+          "end": 7.08,
+          "key": "part",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.38,
+          "end": 7.54,
+          "key": "and",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "whither",
+          "start": 7.54,
+          "end": 7.8,
+          "key": "whither",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "wander",
+          "start": 7.8,
+          "end": 8.04,
+          "key": "wander",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 8.04,
+          "end": 8.46,
+          "key": "down",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Into",
+          "start": 8.46,
+          "end": 8.68,
+          "key": "into",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.68,
+          "end": 8.88,
+          "key": "a",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "lower",
+          "start": 8.88,
+          "end": 9.12,
+          "key": "lower",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "world?",
+          "start": 9.12,
+          "end": 9.52,
+          "key": "world",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.04,
+          "end": 10.2,
+          "key": "to",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 10.2,
+          "end": 10.4,
+          "key": "this",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "obscure",
+          "start": 10.4,
+          "end": 10.84,
+          "key": "obscure",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 10.84,
+          "end": 11.06,
+          "key": "and",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "wild,",
+          "start": 11.06,
+          "end": 11.4,
+          "key": "wild",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 11.88,
+          "end": 12.0,
+          "key": "how",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 12.0,
+          "end": 12.16,
+          "key": "shall",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 12.16,
+          "end": 12.34,
+          "key": "we",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "breathe",
+          "start": 12.34,
+          "end": 12.56,
+          "key": "breathe",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 12.56,
+          "end": 12.76,
+          "key": "in",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 12.76,
+          "end": 12.94,
+          "key": "other",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "air",
+          "start": 12.94,
+          "end": 13.2,
+          "key": "air",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Less",
+          "start": 13.2,
+          "end": 13.46,
+          "key": "less",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "pure,",
+          "start": 13.46,
+          "end": 13.86,
+          "key": "pure",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "accustomed",
+          "start": 14.38,
+          "end": 14.52,
+          "key": "accustomed",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.52,
+          "end": 14.92,
+          "key": "to",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "immortal",
+          "start": 14.92,
+          "end": 15.32,
+          "key": "immortal",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "fruits?",
+          "start": 15.32,
+          "end": 15.72,
+          "key": "fruits",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Thee",
+          "start": 15.72,
+          "end": 15.72,
+          "key": "thee",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "lastly,",
+          "start": 15.72,
+          "end": 15.72,
+          "key": "lastly",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "nuptial",
+          "start": 15.72,
+          "end": 15.86,
+          "key": "nuptial",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "bower!",
+          "start": 15.86,
+          "end": 15.86,
+          "key": "bower",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 15.86,
+          "end": 15.86,
+          "key": "by",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 15.86,
+          "end": 15.86,
+          "key": "me",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "adorned",
+          "start": 15.86,
+          "end": 15.86,
+          "key": "adorned",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 15.86,
+          "end": 15.86,
+          "key": "with",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 15.86,
+          "end": 15.86,
+          "key": "what",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.86,
+          "end": 15.86,
+          "key": "to",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "sight",
+          "start": 15.86,
+          "end": 15.9,
+          "key": "sight",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "or",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "smell",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "smell",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "was",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "sweet!",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "sweet",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "from",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "thee",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "how",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "shall",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "i",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "part,",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "part",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "and",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "whither",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "whither",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "wander",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "wander",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "down",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "Into",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "into",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "a",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "lower",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "lower",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "world?",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "world",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "by",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "me",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "adorned",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "adorned",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "with",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "what",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.9,
+          "end": 15.9,
+          "key": "to",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "sight",
+          "start": 15.9,
+          "end": 15.92,
+          "key": "sight",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 15.92,
+          "end": 15.92,
+          "key": "or",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "smell",
+          "start": 15.92,
+          "end": 15.92,
+          "key": "smell",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 15.92,
+          "end": 15.92,
+          "key": "was",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "sweet!",
+          "start": 15.92,
+          "end": 16.2,
+          "key": "sweet",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 16.2,
+          "end": 16.4,
+          "key": "from",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 16.4,
+          "end": 16.4,
+          "key": "thee",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 16.4,
+          "end": 16.4,
+          "key": "how",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 16.4,
+          "end": 16.5,
+          "key": "shall",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 16.5,
+          "end": 16.5,
+          "key": "i",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "part,",
+          "start": 16.5,
+          "end": 16.5,
+          "key": "part",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.5,
+          "end": 16.5,
+          "key": "and",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "whither",
+          "start": 16.5,
+          "end": 16.5,
+          "key": "whither",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "wandered,",
+          "start": 16.5,
+          "end": 16.5,
+          "key": "wandered",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.5,
+          "end": 16.5,
+          "key": "and",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "whither",
+          "start": 16.5,
+          "end": 16.5,
+          "key": "whither",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "wandered?",
+          "start": 16.5,
+          "end": 16.5,
+          "key": "wandered",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 16.5,
+          "end": 16.5,
+          "key": "by",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 16.5,
+          "end": 16.5,
+          "key": "me",
+          "pieces": [
+            100
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Thee",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "lastly,",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "text": "nuptial",
+          "start": 1.22,
+          "end": 1.54
+        },
+        {
+          "text": "bower!",
+          "start": 1.54,
+          "end": 1.88
+        },
+        {
+          "text": "by",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "text": "me",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "text": "adorned",
+          "start": 2.74,
+          "end": 3.08
+        },
+        {
+          "text": "With",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "text": "what",
+          "start": 3.34,
+          "end": 3.52
+        },
+        {
+          "text": "to",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "text": "sight",
+          "start": 3.68,
+          "end": 3.98
+        },
+        {
+          "text": "or",
+          "start": 3.98,
+          "end": 4.22
+        },
+        {
+          "text": "smell",
+          "start": 4.22,
+          "end": 4.6
+        },
+        {
+          "text": "was",
+          "start": 4.6,
+          "end": 4.82
+        },
+        {
+          "text": "sweet!",
+          "start": 4.82,
+          "end": 5.2
+        },
+        {
+          "text": "from",
+          "start": 5.92,
+          "end": 6.02
+        },
+        {
+          "text": "thee",
+          "start": 6.02,
+          "end": 6.16
+        },
+        {
+          "text": "How",
+          "start": 6.16,
+          "end": 6.38
+        },
+        {
+          "text": "shall",
+          "start": 6.38,
+          "end": 6.6
+        },
+        {
+          "text": "I",
+          "start": 6.6,
+          "end": 6.78
+        },
+        {
+          "text": "part,",
+          "start": 6.78,
+          "end": 7.08
+        },
+        {
+          "text": "and",
+          "start": 7.38,
+          "end": 7.54
+        },
+        {
+          "text": "whither",
+          "start": 7.54,
+          "end": 7.8
+        },
+        {
+          "text": "wander",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "text": "down",
+          "start": 8.04,
+          "end": 8.46
+        },
+        {
+          "text": "Into",
+          "start": 8.46,
+          "end": 8.68
+        },
+        {
+          "text": "a",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "text": "lower",
+          "start": 8.88,
+          "end": 9.12
+        },
+        {
+          "text": "world;",
+          "start": 9.12,
+          "end": 9.52
+        },
+        {
+          "text": "to",
+          "start": 10.04,
+          "end": 10.2
+        },
+        {
+          "text": "this",
+          "start": 10.2,
+          "end": 10.4
+        },
+        {
+          "text": "obscure",
+          "start": 10.4,
+          "end": 10.84
+        },
+        {
+          "text": "And",
+          "start": 10.84,
+          "end": 11.06
+        },
+        {
+          "text": "wild,",
+          "start": 11.06,
+          "end": 11.4
+        },
+        {
+          "text": "how",
+          "start": 11.88,
+          "end": 12.0
+        },
+        {
+          "text": "shall",
+          "start": 12.0,
+          "end": 12.16
+        },
+        {
+          "text": "we",
+          "start": 12.16,
+          "end": 12.34
+        },
+        {
+          "text": "breathe",
+          "start": 12.34,
+          "end": 12.56
+        },
+        {
+          "text": "in",
+          "start": 12.56,
+          "end": 12.76
+        },
+        {
+          "text": "other",
+          "start": 12.76,
+          "end": 12.94
+        },
+        {
+          "text": "air",
+          "start": 12.94,
+          "end": 13.2
+        },
+        {
+          "text": "Less",
+          "start": 13.2,
+          "end": 13.46
+        },
+        {
+          "text": "pure,",
+          "start": 13.46,
+          "end": 13.86
+        },
+        {
+          "text": "accustomed",
+          "start": 14.38,
+          "end": 14.52
+        },
+        {
+          "text": "to",
+          "start": 14.52,
+          "end": 14.92
+        },
+        {
+          "text": "immortal",
+          "start": 14.92,
+          "end": 15.32
+        },
+        {
+          "text": "fruits?",
+          "start": 15.32,
+          "end": 15.72
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 101,
+        "matched_words": 47
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.054082497023046
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3b21b4e54a81d985e0012bf09d2ac4e4d85f20cde59e944dbab86af73578cd7f",
+  "selected_reasons": []
+}

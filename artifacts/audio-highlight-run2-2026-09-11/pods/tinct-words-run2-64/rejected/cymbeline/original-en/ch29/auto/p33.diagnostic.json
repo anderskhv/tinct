@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "01a4170724f55426637967ca45605104e3b05f764ea997b83e617723ae8f5aa2",
+  "attempts": [
+    {
+      "asr_seconds": 0.23980635032057762,
+      "alignment_seconds": 0.0006147827953100204,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Imogen. I'll tell you, sir, in private, if you please To give me hearing.",
+        "hotwords": "Imogen, I'll, To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Imogen, I'll tell you, sir, in private, if you please To give me hearing.",
+          "start": 0.46,
+          "end": 4.02,
+          "words": [
+            {
+              "text": " Imogen,",
+              "start": 0.46,
+              "end": 0.82,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " I'll",
+              "start": 1.3,
+              "end": 1.54,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " tell",
+              "start": 1.54,
+              "end": 1.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you,",
+              "start": 1.7,
+              "end": 1.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sir,",
+              "start": 2.08,
+              "end": 2.1,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " in",
+              "start": 2.16,
+              "end": 2.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " private,",
+              "start": 2.28,
+              "end": 2.6,
+              "probability": 0.9921875
+            },
+            {
+              "text": " if",
+              "start": 2.94,
+              "end": 2.98,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you",
+              "start": 2.98,
+              "end": 3.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " please",
+              "start": 3.1,
+              "end": 3.28,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " To",
+              "start": 3.28,
+              "end": 3.5,
+              "probability": 8.308887481689453e-05
+            },
+            {
+              "text": " give",
+              "start": 3.5,
+              "end": 3.6,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " me",
+              "start": 3.6,
+              "end": 3.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hearing.",
+              "start": 3.76,
+              "end": 4.02,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imogen,",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "raw": "I'll",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "raw": "tell",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "raw": "you,",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "raw": "sir,",
+          "start": 2.08,
+          "end": 2.1
+        },
+        {
+          "raw": "in",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "raw": "private,",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "raw": "if",
+          "start": 2.94,
+          "end": 2.98
+        },
+        {
+          "raw": "you",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "raw": "please",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "raw": "To",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "raw": "give",
+          "start": 3.5,
+          "end": 3.6
+        },
+        {
+          "raw": "me",
+          "start": 3.6,
+          "end": 3.76
+        },
+        {
+          "raw": "hearing.",
+          "start": 3.76,
+          "end": 4.02
+        }
+      ],
+      "expected_tokens": [
+        "Imogen.",
+        "I'll",
+        "tell",
+        "you,",
+        "sir,",
+        "in",
+        "private,",
+        "if",
+        "you",
+        "please",
+        "To",
+        "give",
+        "me",
+        "hearing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imogen,",
+          "start": 0.46,
+          "end": 0.82,
+          "key": "imogen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.3,
+          "end": 1.54,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 1.54,
+          "end": 1.7,
+          "key": "tell",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.7,
+          "end": 1.94,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.08,
+          "end": 2.1,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.16,
+          "end": 2.28,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "private,",
+          "start": 2.28,
+          "end": 2.6,
+          "key": "private",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.94,
+          "end": 2.98,
+          "key": "if",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.98,
+          "end": 3.1,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 3.1,
+          "end": 3.28,
+          "key": "please",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 3.28,
+          "end": 3.5,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 3.5,
+          "end": 3.6,
+          "key": "give",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.6,
+          "end": 3.76,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hearing.",
+          "start": 3.76,
+          "end": 4.02,
+          "key": "hearing",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imogen.",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "text": "I'll",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "text": "tell",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "text": "you,",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "text": "sir,",
+          "start": 2.08,
+          "end": 2.1
+        },
+        {
+          "text": "in",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "text": "private,",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "text": "if",
+          "start": 2.94,
+          "end": 2.98
+        },
+        {
+          "text": "you",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "text": "please",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "text": "To",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "text": "give",
+          "start": 3.5,
+          "end": 3.6
+        },
+        {
+          "text": "me",
+          "start": 3.6,
+          "end": 3.76
+        },
+        {
+          "text": "hearing.",
+          "start": 3.76,
+          "end": 4.02
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2406845921650529
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9f778dce3514d575009b0c5d6a70defc8f62c3a426ddd428f82038dd8ac8e484",
+  "selected_reasons": []
+}

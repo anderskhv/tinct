@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "1ea5c9d40c79c6fda8619ac95f7a8c9e10b68bc4289b39a84ec3d1118cb0e596",
+  "attempts": [
+    {
+      "asr_seconds": 0.20108510926365852,
+      "alignment_seconds": 0.00020304787904024124,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Merchant! Yes, that you did, sir, and forswore it, too.",
+          "start": 0.5,
+          "end": 3.4,
+          "words": [
+            {
+              "text": " Merchant!",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.468505859375
+            },
+            {
+              "text": " Yes,",
+              "start": 1.34,
+              "end": 1.56,
+              "probability": 0.849609375
+            },
+            {
+              "text": " that",
+              "start": 1.68,
+              "end": 1.78,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " you",
+              "start": 1.78,
+              "end": 1.94,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " did,",
+              "start": 1.94,
+              "end": 2.16,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " sir,",
+              "start": 2.38,
+              "end": 2.42,
+              "probability": 0.796875
+            },
+            {
+              "text": " and",
+              "start": 2.52,
+              "end": 2.62,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " forswore",
+              "start": 2.62,
+              "end": 3.02,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " it,",
+              "start": 3.02,
+              "end": 3.16,
+              "probability": 0.990234375
+            },
+            {
+              "text": " too.",
+              "start": 3.26,
+              "end": 3.4,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Merchant!",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "raw": "that",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "raw": "you",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "raw": "did,",
+          "start": 1.94,
+          "end": 2.16
+        },
+        {
+          "raw": "sir,",
+          "start": 2.38,
+          "end": 2.42
+        },
+        {
+          "raw": "and",
+          "start": 2.52,
+          "end": 2.62
+        },
+        {
+          "raw": "forswore",
+          "start": 2.62,
+          "end": 3.02
+        },
+        {
+          "raw": "it,",
+          "start": 3.02,
+          "end": 3.16
+        },
+        {
+          "raw": "too.",
+          "start": 3.26,
+          "end": 3.4
+        }
+      ],
+      "expected_tokens": [
+        "Merchant.",
+        "Yes,",
+        "that",
+        "you",
+        "did,",
+        "sir,",
+        "and",
+        "forswore",
+        "it",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Merchant!",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "merchant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.34,
+          "end": 1.56,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.68,
+          "end": 1.78,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.78,
+          "end": 1.94,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "did,",
+          "start": 1.94,
+          "end": 2.16,
+          "key": "did",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.38,
+          "end": 2.42,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.52,
+          "end": 2.62,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "forswore",
+          "start": 2.62,
+          "end": 3.02,
+          "key": "forswore",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 3.02,
+          "end": 3.16,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 3.26,
+          "end": 3.4,
+          "key": "too",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Merchant.",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "Yes,",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "text": "that",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "text": "you",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "text": "did,",
+          "start": 1.94,
+          "end": 2.16
+        },
+        {
+          "text": "sir,",
+          "start": 2.38,
+          "end": 2.42
+        },
+        {
+          "text": "and",
+          "start": 2.52,
+          "end": 2.62
+        },
+        {
+          "text": "forswore",
+          "start": 2.62,
+          "end": 3.02
+        },
+        {
+          "text": "it",
+          "start": 3.02,
+          "end": 3.16
+        },
+        {
+          "text": "too.",
+          "start": 3.26,
+          "end": 3.4
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20136425225064158
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "542320fd9bc55c36e8f8299ff2e91f6164524abfbb577deabde209e4b566c21c",
+  "selected_reasons": []
+}

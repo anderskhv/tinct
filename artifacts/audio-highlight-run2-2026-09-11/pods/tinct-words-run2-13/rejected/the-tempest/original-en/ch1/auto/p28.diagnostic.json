@@ -1,0 +1,773 @@
+{
+  "complete": true,
+  "signature": "18614c6e6f81a2f6c24e277d2a341760b6b607e33aa493a7b3f6d710e8fb386d",
+  "attempts": [
+    {
+      "asr_seconds": 0.389057251624763,
+      "alignment_seconds": 0.0007050344720482826,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gonzalo. I'll warrant him for drowning; though the ship were no stronger than a nutshell and as leaky as an unstanched wench.",
+        "hotwords": "Gonzalo, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gonzalo, I'll warrant him for drowning, though the ship were no stronger than a nutshell and",
+          "start": 0.05,
+          "end": 5.41,
+          "words": [
+            {
+              "text": " Gonzalo,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.792724609375
+            },
+            {
+              "text": " I'll",
+              "start": 1.33,
+              "end": 1.69,
+              "probability": 0.979248046875
+            },
+            {
+              "text": " warrant",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " him",
+              "start": 1.87,
+              "end": 2.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " drowning,",
+              "start": 2.23,
+              "end": 2.55,
+              "probability": 0.986328125
+            },
+            {
+              "text": " though",
+              "start": 3.11,
+              "end": 3.23,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 3.23,
+              "end": 3.37,
+              "probability": 0.994140625
+            },
+            {
+              "text": " ship",
+              "start": 3.37,
+              "end": 3.55,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " were",
+              "start": 3.55,
+              "end": 3.73,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " no",
+              "start": 3.73,
+              "end": 3.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stronger",
+              "start": 3.89,
+              "end": 4.27,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " than",
+              "start": 4.27,
+              "end": 4.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 4.59,
+              "end": 4.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " nutshell",
+              "start": 4.69,
+              "end": 5.07,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " and",
+              "start": 5.07,
+              "end": 5.41,
+              "probability": 0.8828125
+            }
+          ]
+        },
+        {
+          "text": " as leaky as an unstanched wench.",
+          "start": 5.41,
+          "end": 7.19,
+          "words": [
+            {
+              "text": " as",
+              "start": 5.41,
+              "end": 5.53,
+              "probability": 0.94140625
+            },
+            {
+              "text": " leaky",
+              "start": 5.53,
+              "end": 5.95,
+              "probability": 0.990966796875
+            },
+            {
+              "text": " as",
+              "start": 5.95,
+              "end": 6.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " an",
+              "start": 6.05,
+              "end": 6.15,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " unstanched",
+              "start": 6.15,
+              "end": 6.85,
+              "probability": 0.8958333333333334
+            },
+            {
+              "text": " wench.",
+              "start": 6.85,
+              "end": 7.19,
+              "probability": 0.9619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "I'll",
+          "start": 1.33,
+          "end": 1.69
+        },
+        {
+          "raw": "warrant",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "him",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "raw": "for",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "drowning,",
+          "start": 2.23,
+          "end": 2.55
+        },
+        {
+          "raw": "though",
+          "start": 3.11,
+          "end": 3.23
+        },
+        {
+          "raw": "the",
+          "start": 3.23,
+          "end": 3.37
+        },
+        {
+          "raw": "ship",
+          "start": 3.37,
+          "end": 3.55
+        },
+        {
+          "raw": "were",
+          "start": 3.55,
+          "end": 3.73
+        },
+        {
+          "raw": "no",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "raw": "stronger",
+          "start": 3.89,
+          "end": 4.27
+        },
+        {
+          "raw": "than",
+          "start": 4.27,
+          "end": 4.59
+        },
+        {
+          "raw": "a",
+          "start": 4.59,
+          "end": 4.69
+        },
+        {
+          "raw": "nutshell",
+          "start": 4.69,
+          "end": 5.07
+        },
+        {
+          "raw": "and",
+          "start": 5.07,
+          "end": 5.41
+        },
+        {
+          "raw": "as",
+          "start": 5.41,
+          "end": 5.53
+        },
+        {
+          "raw": "leaky",
+          "start": 5.53,
+          "end": 5.95
+        },
+        {
+          "raw": "as",
+          "start": 5.95,
+          "end": 6.05
+        },
+        {
+          "raw": "an",
+          "start": 6.05,
+          "end": 6.15
+        },
+        {
+          "raw": "unstanched",
+          "start": 6.15,
+          "end": 6.85
+        },
+        {
+          "raw": "wench.",
+          "start": 6.85,
+          "end": 7.19
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "I'll",
+        "warrant",
+        "him",
+        "for",
+        "drowning;",
+        "though",
+        "the",
+        "ship",
+        "were",
+        "no",
+        "stronger",
+        "than",
+        "a",
+        "nutshell",
+        "and",
+        "as",
+        "leaky",
+        "as",
+        "an",
+        "unstanched",
+        "wench."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "gonzalo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.33,
+          "end": 1.69,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "warrant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.87,
+          "end": 2.07,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "drowning,",
+          "start": 2.23,
+          "end": 2.55,
+          "key": "drowning",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 3.11,
+          "end": 3.23,
+          "key": "though",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.23,
+          "end": 3.37,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ship",
+          "start": 3.37,
+          "end": 3.55,
+          "key": "ship",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 3.55,
+          "end": 3.73,
+          "key": "were",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.73,
+          "end": 3.89,
+          "key": "no",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "stronger",
+          "start": 3.89,
+          "end": 4.27,
+          "key": "stronger",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 4.27,
+          "end": 4.59,
+          "key": "than",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.59,
+          "end": 4.69,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "nutshell",
+          "start": 4.69,
+          "end": 5.07,
+          "key": "nutshell",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.07,
+          "end": 5.41,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.41,
+          "end": 5.53,
+          "key": "as",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "leaky",
+          "start": 5.53,
+          "end": 5.95,
+          "key": "leaky",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.95,
+          "end": 6.05,
+          "key": "as",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 6.05,
+          "end": 6.15,
+          "key": "an",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "unstanched",
+          "start": 6.15,
+          "end": 6.85,
+          "key": "unstanched",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "wench.",
+          "start": 6.85,
+          "end": 7.19,
+          "key": "wench",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "I'll",
+          "start": 1.33,
+          "end": 1.69
+        },
+        {
+          "text": "warrant",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "him",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "text": "for",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "drowning;",
+          "start": 2.23,
+          "end": 2.55
+        },
+        {
+          "text": "though",
+          "start": 3.11,
+          "end": 3.23
+        },
+        {
+          "text": "the",
+          "start": 3.23,
+          "end": 3.37
+        },
+        {
+          "text": "ship",
+          "start": 3.37,
+          "end": 3.55
+        },
+        {
+          "text": "were",
+          "start": 3.55,
+          "end": 3.73
+        },
+        {
+          "text": "no",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "text": "stronger",
+          "start": 3.89,
+          "end": 4.27
+        },
+        {
+          "text": "than",
+          "start": 4.27,
+          "end": 4.59
+        },
+        {
+          "text": "a",
+          "start": 4.59,
+          "end": 4.69
+        },
+        {
+          "text": "nutshell",
+          "start": 4.69,
+          "end": 5.07
+        },
+        {
+          "text": "and",
+          "start": 5.07,
+          "end": 5.41
+        },
+        {
+          "text": "as",
+          "start": 5.41,
+          "end": 5.53
+        },
+        {
+          "text": "leaky",
+          "start": 5.53,
+          "end": 5.95
+        },
+        {
+          "text": "as",
+          "start": 5.95,
+          "end": 6.05
+        },
+        {
+          "text": "an",
+          "start": 6.05,
+          "end": 6.15
+        },
+        {
+          "text": "unstanched",
+          "start": 6.15,
+          "end": 6.85
+        },
+        {
+          "text": "wench.",
+          "start": 6.85,
+          "end": 7.19
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.390049709007144
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "25196a77984a8477866002d2240fdf07da10a0437b1b349f9f64065a19d17565",
+  "selected_reasons": []
+}

@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "e2a71347395eb2727c50635618c1979731f3af5db7ca2ea9faeaf36a3af8a41c",
+  "attempts": [
+    {
+      "asr_seconds": 0.16099004197167233,
+      "alignment_seconds": 0.00023560202680528164,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—O God! Mr Power whispered. First I heard of it. Poisoned himself?",
+        "hotwords": "O, God, Mr, Power, First, I, Poisoned"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " O God! Mr Power whispered. First I heard of it. Poisoned himself?",
+          "start": 0.08,
+          "end": 4.06,
+          "words": [
+            {
+              "text": " O",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.0750732421875
+            },
+            {
+              "text": " God!",
+              "start": 0.58,
+              "end": 0.92,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " Mr",
+              "start": 1.14,
+              "end": 1.34,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Power",
+              "start": 1.34,
+              "end": 1.64,
+              "probability": 0.11553955078125
+            },
+            {
+              "text": " whispered.",
+              "start": 1.64,
+              "end": 2.0,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " First",
+              "start": 2.54,
+              "end": 2.66,
+              "probability": 0.91796875
+            },
+            {
+              "text": " I",
+              "start": 2.66,
+              "end": 2.84,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " heard",
+              "start": 2.84,
+              "end": 3.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 3.02,
+              "end": 3.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it.",
+              "start": 3.14,
+              "end": 3.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Poisoned",
+              "start": 3.52,
+              "end": 3.78,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " himself?",
+              "start": 3.78,
+              "end": 4.06,
+              "probability": 0.83984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "God!",
+          "start": 0.58,
+          "end": 0.92
+        },
+        {
+          "raw": "Mr",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "raw": "Power",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "raw": "whispered.",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "raw": "First",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.84
+        },
+        {
+          "raw": "heard",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "raw": "of",
+          "start": 3.02,
+          "end": 3.14
+        },
+        {
+          "raw": "it.",
+          "start": 3.14,
+          "end": 3.32
+        },
+        {
+          "raw": "Poisoned",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "raw": "himself?",
+          "start": 3.78,
+          "end": 4.06
+        }
+      ],
+      "expected_tokens": [
+        "—O",
+        "God!",
+        "Mr",
+        "Power",
+        "whispered.",
+        "First",
+        "I",
+        "heard",
+        "of",
+        "it.",
+        "Poisoned",
+        "himself?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "O",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "o",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "God!",
+          "start": 0.58,
+          "end": 0.92,
+          "key": "god",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr",
+          "start": 1.14,
+          "end": 1.34,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Power",
+          "start": 1.34,
+          "end": 1.64,
+          "key": "power",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "whispered.",
+          "start": 1.64,
+          "end": 2.0,
+          "key": "whispered",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "First",
+          "start": 2.54,
+          "end": 2.66,
+          "key": "first",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.84,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 2.84,
+          "end": 3.02,
+          "key": "heard",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.02,
+          "end": 3.14,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 3.14,
+          "end": 3.32,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Poisoned",
+          "start": 3.52,
+          "end": 3.78,
+          "key": "poisoned",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "himself?",
+          "start": 3.78,
+          "end": 4.06,
+          "key": "himself",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—O",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "God!",
+          "start": 0.58,
+          "end": 0.92
+        },
+        {
+          "text": "Mr",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "text": "Power",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "text": "whispered.",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "text": "First",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "text": "I",
+          "start": 2.66,
+          "end": 2.84
+        },
+        {
+          "text": "heard",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "text": "of",
+          "start": 3.02,
+          "end": 3.14
+        },
+        {
+          "text": "it.",
+          "start": 3.14,
+          "end": 3.32
+        },
+        {
+          "text": "Poisoned",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "text": "himself?",
+          "start": 3.78,
+          "end": 4.06
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16130350402090698
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d6e4ff48c04088a33a833e97420bb2d98b2d91e459532db2b1df78018baf9630",
+  "selected_reasons": []
+}

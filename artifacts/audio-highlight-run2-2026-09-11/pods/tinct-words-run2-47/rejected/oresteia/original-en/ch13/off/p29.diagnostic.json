@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "1a142bb7933c6b8808754b8cbce9d48ec3510bb77ccd5849bfb510aed3ae3093",
+  "attempts": [
+    {
+      "asr_seconds": 0.23429228199529462,
+      "alignment_seconds": 0.0005023580160923302,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Electra, that may he guess who will, the sign is plain.",
+          "start": 0.53,
+          "end": 3.35,
+          "words": [
+            {
+              "text": " Electra,",
+              "start": 0.53,
+              "end": 0.95,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " that",
+              "start": 1.27,
+              "end": 1.41,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " may",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " he",
+              "start": 1.57,
+              "end": 1.67,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " guess",
+              "start": 1.67,
+              "end": 1.81,
+              "probability": 0.994140625
+            },
+            {
+              "text": " who",
+              "start": 1.81,
+              "end": 2.01,
+              "probability": 0.98828125
+            },
+            {
+              "text": " will,",
+              "start": 2.01,
+              "end": 2.23,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " the",
+              "start": 2.51,
+              "end": 2.61,
+              "probability": 0.984375
+            },
+            {
+              "text": " sign",
+              "start": 2.61,
+              "end": 2.85,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " is",
+              "start": 2.85,
+              "end": 3.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " plain.",
+              "start": 3.05,
+              "end": 3.35,
+              "probability": 0.9599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Electra,",
+          "start": 0.53,
+          "end": 0.95
+        },
+        {
+          "raw": "that",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "raw": "may",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "he",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "raw": "guess",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "raw": "who",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "raw": "will,",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "raw": "the",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "raw": "sign",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "raw": "is",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "raw": "plain.",
+          "start": 3.05,
+          "end": 3.35
+        }
+      ],
+      "expected_tokens": [
+        "Electra.",
+        "That",
+        "may",
+        "he",
+        "guess",
+        "who",
+        "will;",
+        "the",
+        "sign",
+        "is",
+        "plain."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Electra,",
+          "start": 0.53,
+          "end": 0.95,
+          "key": "electra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.27,
+          "end": 1.41,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "may",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.57,
+          "end": 1.67,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "guess",
+          "start": 1.67,
+          "end": 1.81,
+          "key": "guess",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.81,
+          "end": 2.01,
+          "key": "who",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 2.01,
+          "end": 2.23,
+          "key": "will",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.51,
+          "end": 2.61,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sign",
+          "start": 2.61,
+          "end": 2.85,
+          "key": "sign",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.85,
+          "end": 3.05,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "plain.",
+          "start": 3.05,
+          "end": 3.35,
+          "key": "plain",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Electra.",
+          "start": 0.53,
+          "end": 0.95
+        },
+        {
+          "text": "That",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "text": "may",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "he",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "text": "guess",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "text": "who",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "text": "will;",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "text": "the",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "text": "sign",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "text": "is",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "text": "plain.",
+          "start": 3.05,
+          "end": 3.35
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23500085598789155
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "47c6a9744977f8a5e8b00dbac3f9704afdcd698ef92015a12c8ba00c9fda7d8b",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "1137656ccbd1f38dde6bb10cd133c9bc0a1e15cc385bcd65187492b79a18b78f",
+  "attempts": [
+    {
+      "asr_seconds": 0.18652846897020936,
+      "alignment_seconds": 0.0001541399396955967,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Mr. Rivers!\" I interrupted.",
+        "hotwords": "Mr, Rivers, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mr. Rivers, I interrupted.",
+          "start": 0.02,
+          "end": 1.9,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.351318359375
+            },
+            {
+              "text": " Rivers,",
+              "start": 0.82,
+              "end": 1.02,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.98828125
+            },
+            {
+              "text": " interrupted.",
+              "start": 1.56,
+              "end": 1.9,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Rivers,",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "interrupted.",
+          "start": 1.56,
+          "end": 1.9
+        }
+      ],
+      "expected_tokens": [
+        "\"Mr.",
+        "Rivers!\"",
+        "I",
+        "interrupted."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Rivers,",
+          "start": 0.82,
+          "end": 1.02,
+          "key": "rivers",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "interrupted.",
+          "start": 1.56,
+          "end": 1.9,
+          "key": "interrupted",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Mr.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Rivers!\"",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "text": "I",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "interrupted.",
+          "start": 1.56,
+          "end": 1.9
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18673541699536145
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "42e76e419a2003be35d0b1eed23e9b9dfd6dfd41ae879ccdd1abbce1b1a80fc5",
+  "selected_reasons": []
+}

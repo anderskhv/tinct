@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "b10212efed13c9df8031e96e280a7199abab0e245465c9dd489e39a628ab2e03",
+  "attempts": [
+    {
+      "asr_seconds": 0.11162649327889085,
+      "alignment_seconds": 0.0002983938902616501,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All, I die.",
+          "start": 0.05,
+          "end": 1.31,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.7333984375
+            },
+            {
+              "text": " I",
+              "start": 1.05,
+              "end": 1.13,
+              "probability": 0.80859375
+            },
+            {
+              "text": " die.",
+              "start": 1.13,
+              "end": 1.31,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "I",
+          "start": 1.05,
+          "end": 1.13
+        },
+        {
+          "raw": "die.",
+          "start": 1.13,
+          "end": 1.31
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "Aye!",
+        "aye!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.05,
+          "end": 1.13,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "die.",
+          "start": 1.13,
+          "end": 1.31,
+          "key": "die",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Aye!",
+          "start": 0.71,
+          "end": 1.01
+        },
+        {
+          "text": "aye!",
+          "start": 1.01,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11202198918908834
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5a8bd9a894079fd00f2b0a0cb9369f8572a6bb5cfc37239d762d8e804be6ea5f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "e6813af48c83d1703f2eec507ef5a493ae67f916d54ec1bcb06c714d933836ba",
+  "attempts": [
+    {
+      "asr_seconds": 0.07976327399956062,
+      "alignment_seconds": 8.596302359364927e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony.",
+          "start": 0.05,
+          "end": 0.83,
+          "words": [
+            {
+              "text": " Antony.",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.75732421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony.",
+          "start": 0.05,
+          "end": 0.83
+        }
+      ],
+      "expected_tokens": [
+        "Antony."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony.",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.83
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07987778799724765
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f91b25362e8db837197f260bbf4ef75149d947e5ea603064520fec45e8c81890",
+  "selected_reasons": []
+}

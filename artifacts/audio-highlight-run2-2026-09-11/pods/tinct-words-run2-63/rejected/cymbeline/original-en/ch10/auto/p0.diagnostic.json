@@ -1,0 +1,93 @@
+{
+  "complete": true,
+  "signature": "30637ef90da079ba81c7bb96c213d16c3d7a965fbb94e174ebe31295f24ca785",
+  "attempts": [
+    {
+      "asr_seconds": 0.1240055114030838,
+      "alignment_seconds": 0.00023071840405464172,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "apartments."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Apartments.",
+          "start": 0.02,
+          "end": 1.02,
+          "words": [
+            {
+              "text": " Apartments.",
+              "start": 0.02,
+              "end": 1.02,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Apartments.",
+          "start": 0.02,
+          "end": 1.02
+        }
+      ],
+      "expected_tokens": [
+        "apartments."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Apartments.",
+          "start": 0.02,
+          "end": 1.02,
+          "key": "apartments",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "apartments.",
+          "start": 0.02,
+          "end": 1.02
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12430718913674355
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f21bc6e7a21108523bf9238e287076680a023001a4cd3f16513ae470456c6846",
+  "selected_reasons": []
+}

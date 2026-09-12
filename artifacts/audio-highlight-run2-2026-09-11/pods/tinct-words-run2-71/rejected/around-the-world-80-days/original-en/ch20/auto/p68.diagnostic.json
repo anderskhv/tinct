@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "30cbf937584548de826e8e80c7a782a16208e607c5d535ecf5975d0284adad88",
+  "attempts": [
+    {
+      "asr_seconds": 0.2795393234118819,
+      "alignment_seconds": 0.0006531821563839912,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The detective had a feeling akin to humiliation in profiting by the kindness of Mr. Fogg.",
+        "hotwords": "Mr, Fogg"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The detective had a feeling akin to humiliation in profiting by the kindness of Mr. Fogg.",
+          "start": 0.02,
+          "end": 6.02,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " detective",
+              "start": 0.48,
+              "end": 0.84,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " had",
+              "start": 0.84,
+              "end": 1.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " feeling",
+              "start": 1.38,
+              "end": 1.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " akin",
+              "start": 1.62,
+              "end": 2.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.06,
+              "end": 2.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " humiliation",
+              "start": 2.44,
+              "end": 3.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 3.06,
+              "end": 3.76,
+              "probability": 0.5302734375
+            },
+            {
+              "text": " profiting",
+              "start": 3.76,
+              "end": 4.24,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " by",
+              "start": 4.24,
+              "end": 4.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 4.5,
+              "end": 4.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " kindness",
+              "start": 4.64,
+              "end": 5.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 5.04,
+              "end": 5.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Mr.",
+              "start": 5.4,
+              "end": 5.68,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Fogg.",
+              "start": 5.94,
+              "end": 6.02,
+              "probability": 0.881591796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "detective",
+          "start": 0.48,
+          "end": 0.84
+        },
+        {
+          "raw": "had",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "raw": "a",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "feeling",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "raw": "akin",
+          "start": 1.62,
+          "end": 2.06
+        },
+        {
+          "raw": "to",
+          "start": 2.06,
+          "end": 2.44
+        },
+        {
+          "raw": "humiliation",
+          "start": 2.44,
+          "end": 3.06
+        },
+        {
+          "raw": "in",
+          "start": 3.06,
+          "end": 3.76
+        },
+        {
+          "raw": "profiting",
+          "start": 3.76,
+          "end": 4.24
+        },
+        {
+          "raw": "by",
+          "start": 4.24,
+          "end": 4.5
+        },
+        {
+          "raw": "the",
+          "start": 4.5,
+          "end": 4.64
+        },
+        {
+          "raw": "kindness",
+          "start": 4.64,
+          "end": 5.04
+        },
+        {
+          "raw": "of",
+          "start": 5.04,
+          "end": 5.4
+        },
+        {
+          "raw": "Mr.",
+          "start": 5.4,
+          "end": 5.68
+        },
+        {
+          "raw": "Fogg.",
+          "start": 5.94,
+          "end": 6.02
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "detective",
+        "had",
+        "a",
+        "feeling",
+        "akin",
+        "to",
+        "humiliation",
+        "in",
+        "profiting",
+        "by",
+        "the",
+        "kindness",
+        "of",
+        "Mr.",
+        "Fogg."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "detective",
+          "start": 0.48,
+          "end": 0.84,
+          "key": "detective",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.84,
+          "end": 1.26,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "feeling",
+          "start": 1.38,
+          "end": 1.62,
+          "key": "feeling",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "akin",
+          "start": 1.62,
+          "end": 2.06,
+          "key": "akin",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.06,
+          "end": 2.44,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "humiliation",
+          "start": 2.44,
+          "end": 3.06,
+          "key": "humiliation",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.06,
+          "end": 3.76,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "profiting",
+          "start": 3.76,
+          "end": 4.24,
+          "key": "profiting",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.24,
+          "end": 4.5,
+          "key": "by",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.5,
+          "end": 4.64,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "kindness",
+          "start": 4.64,
+          "end": 5.04,
+          "key": "kindness",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.04,
+          "end": 5.4,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 5.4,
+          "end": 5.68,
+          "key": "mr",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Fogg.",
+          "start": 5.94,
+          "end": 6.02,
+          "key": "fogg",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "detective",
+          "start": 0.48,
+          "end": 0.84
+        },
+        {
+          "text": "had",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "text": "a",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "feeling",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "text": "akin",
+          "start": 1.62,
+          "end": 2.06
+        },
+        {
+          "text": "to",
+          "start": 2.06,
+          "end": 2.44
+        },
+        {
+          "text": "humiliation",
+          "start": 2.44,
+          "end": 3.06
+        },
+        {
+          "text": "in",
+          "start": 3.06,
+          "end": 3.76
+        },
+        {
+          "text": "profiting",
+          "start": 3.76,
+          "end": 4.24
+        },
+        {
+          "text": "by",
+          "start": 4.24,
+          "end": 4.5
+        },
+        {
+          "text": "the",
+          "start": 4.5,
+          "end": 4.64
+        },
+        {
+          "text": "kindness",
+          "start": 4.64,
+          "end": 5.04
+        },
+        {
+          "text": "of",
+          "start": 5.04,
+          "end": 5.4
+        },
+        {
+          "text": "Mr.",
+          "start": 5.4,
+          "end": 5.68
+        },
+        {
+          "text": "Fogg.",
+          "start": 5.94,
+          "end": 6.02
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28041123040020466
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f16c9d3d976f23f9121c599dc47f38a757f9f08081d7fa55465ab99fb394c2c7",
+  "selected_reasons": []
+}

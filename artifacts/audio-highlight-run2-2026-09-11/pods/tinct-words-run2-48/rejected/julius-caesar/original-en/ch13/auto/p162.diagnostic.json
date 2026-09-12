@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "d171ef0dc72e4e7bf17b2a21a4c7b5f37893479a30b45190a9bdf9f601e5ed5e",
+  "attempts": [
+    {
+      "asr_seconds": 0.13408136926591396,
+      "alignment_seconds": 0.0003163423389196396,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lucius. My lord?",
+        "hotwords": "Lucius, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lucius, My lord?",
+          "start": 0.05,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " Lucius,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " My",
+              "start": 1.07,
+              "end": 1.13,
+              "probability": 0.0225982666015625
+            },
+            {
+              "text": " lord?",
+              "start": 1.13,
+              "end": 1.37,
+              "probability": 0.140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucius,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "My",
+          "start": 1.07,
+          "end": 1.13
+        },
+        {
+          "raw": "lord?",
+          "start": 1.13,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "Lucius.",
+        "My",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucius,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "lucius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.07,
+          "end": 1.13,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord?",
+          "start": 1.13,
+          "end": 1.37,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lucius.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "My",
+          "start": 1.07,
+          "end": 1.13
+        },
+        {
+          "text": "lord?",
+          "start": 1.13,
+          "end": 1.37
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13451139815151691
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7512467c0717528beeb2360921b9a4e69e832810c607c6b0d1ac3fc37e711e4a",
+  "selected_reasons": []
+}

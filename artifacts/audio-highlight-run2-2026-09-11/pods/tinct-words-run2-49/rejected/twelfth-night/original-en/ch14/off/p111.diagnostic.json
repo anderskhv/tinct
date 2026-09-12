@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "a3309be31a173c3e9cfd4561c1a27f075ca5781460a0f37d7b5dfe718f62b952",
+  "attempts": [
+    {
+      "asr_seconds": 0.22082960978150368,
+      "alignment_seconds": 0.00043087825179100037,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Viola I pray you sir. What is he?",
+          "start": 0.55,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Viola",
+              "start": 0.55,
+              "end": 0.91,
+              "probability": 0.7471923828125
+            },
+            {
+              "text": " I",
+              "start": 0.91,
+              "end": 1.27,
+              "probability": 0.20556640625
+            },
+            {
+              "text": " pray",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " sir.",
+              "start": 1.63,
+              "end": 1.79,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " What",
+              "start": 1.81,
+              "end": 1.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 1.93,
+              "end": 2.05,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " he?",
+              "start": 2.05,
+              "end": 2.25,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola",
+          "start": 0.55,
+          "end": 0.91
+        },
+        {
+          "raw": "I",
+          "start": 0.91,
+          "end": 1.27
+        },
+        {
+          "raw": "pray",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "you",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "sir.",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "raw": "What",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "raw": "is",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "raw": "he?",
+          "start": 2.05,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "I",
+        "pray",
+        "you,",
+        "sir,",
+        "what",
+        "is",
+        "he?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola",
+          "start": 0.55,
+          "end": 0.91,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.91,
+          "end": 1.27,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.63,
+          "end": 1.79,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.81,
+          "end": 1.93,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.93,
+          "end": 2.05,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he?",
+          "start": 2.05,
+          "end": 2.25,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.55,
+          "end": 0.91
+        },
+        {
+          "text": "I",
+          "start": 0.91,
+          "end": 1.27
+        },
+        {
+          "text": "pray",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "you,",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "text": "sir,",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "text": "what",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "text": "is",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "text": "he?",
+          "start": 2.05,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2214483805000782
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "731a65f8f1d1b3b283a188a48865051de94555e804775a5ee337ebcdf2538fe2",
+  "selected_reasons": []
+}

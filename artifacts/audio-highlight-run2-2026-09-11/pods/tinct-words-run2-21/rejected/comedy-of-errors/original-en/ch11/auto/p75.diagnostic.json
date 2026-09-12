@@ -1,0 +1,2109 @@
+{
+  "complete": true,
+  "signature": "6829359dc72c18dbd9c5ccf6495a8eb4fc64cb5d4063bd93e7c7c45e62c28b41",
+  "attempts": [
+    {
+      "asr_seconds": 0.2333934409543872,
+      "alignment_seconds": 0.0001727808266878128,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Luciana. Ne'er may I look on day nor sleep on night But she tells to your highness simple truth.",
+        "hotwords": "Luciana, Ne'er, I, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Luciana, Ne'er may I look on day nor sleep on night But she tells to your highness simple truth.",
+          "start": 0.05,
+          "end": 5.85,
+          "words": [
+            {
+              "text": " Luciana,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.603515625
+            },
+            {
+              "text": " Ne",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.004283905029296875
+            },
+            {
+              "text": "'er",
+              "start": 1.65,
+              "end": 1.73,
+              "probability": 0.767333984375
+            },
+            {
+              "text": " may",
+              "start": 1.73,
+              "end": 1.83,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " I",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " look",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " on",
+              "start": 2.07,
+              "end": 2.27,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " day",
+              "start": 2.27,
+              "end": 2.47,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " nor",
+              "start": 2.47,
+              "end": 2.69,
+              "probability": 0.7451171875
+            },
+            {
+              "text": " sleep",
+              "start": 2.69,
+              "end": 2.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " on",
+              "start": 2.97,
+              "end": 3.17,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " night",
+              "start": 3.17,
+              "end": 3.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " But",
+              "start": 3.43,
+              "end": 3.87,
+              "probability": 0.0296783447265625
+            },
+            {
+              "text": " she",
+              "start": 3.87,
+              "end": 4.05,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " tells",
+              "start": 4.05,
+              "end": 4.31,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " to",
+              "start": 4.31,
+              "end": 4.55,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " your",
+              "start": 4.55,
+              "end": 4.71,
+              "probability": 0.921875
+            },
+            {
+              "text": " highness",
+              "start": 4.71,
+              "end": 5.11,
+              "probability": 0.687255859375
+            },
+            {
+              "text": " simple",
+              "start": 5.11,
+              "end": 5.37,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " truth.",
+              "start": 5.37,
+              "end": 5.85,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Luciana,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Ne",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "'er",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "raw": "may",
+          "start": 1.73,
+          "end": 1.83
+        },
+        {
+          "raw": "I",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "look",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "on",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "raw": "day",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "raw": "nor",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "raw": "sleep",
+          "start": 2.69,
+          "end": 2.97
+        },
+        {
+          "raw": "on",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "raw": "night",
+          "start": 3.17,
+          "end": 3.43
+        },
+        {
+          "raw": "But",
+          "start": 3.43,
+          "end": 3.87
+        },
+        {
+          "raw": "she",
+          "start": 3.87,
+          "end": 4.05
+        },
+        {
+          "raw": "tells",
+          "start": 4.05,
+          "end": 4.31
+        },
+        {
+          "raw": "to",
+          "start": 4.31,
+          "end": 4.55
+        },
+        {
+          "raw": "your",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "raw": "highness",
+          "start": 4.71,
+          "end": 5.11
+        },
+        {
+          "raw": "simple",
+          "start": 5.11,
+          "end": 5.37
+        },
+        {
+          "raw": "truth.",
+          "start": 5.37,
+          "end": 5.85
+        }
+      ],
+      "expected_tokens": [
+        "Luciana.",
+        "Ne'er",
+        "may",
+        "I",
+        "look",
+        "on",
+        "day",
+        "nor",
+        "sleep",
+        "on",
+        "night",
+        "But",
+        "she",
+        "tells",
+        "to",
+        "your",
+        "highness",
+        "simple",
+        "truth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          19,
+          3,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Luciana,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "luciana",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ne",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "ne",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 1.65,
+          "end": 1.73,
+          "key": "er",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.73,
+          "end": 1.83,
+          "key": "may",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "look",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.07,
+          "end": 2.27,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 2.27,
+          "end": 2.47,
+          "key": "day",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 2.47,
+          "end": 2.69,
+          "key": "nor",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sleep",
+          "start": 2.69,
+          "end": 2.97,
+          "key": "sleep",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.97,
+          "end": 3.17,
+          "key": "on",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 3.17,
+          "end": 3.43,
+          "key": "night",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 3.43,
+          "end": 3.87,
+          "key": "but",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.87,
+          "end": 4.05,
+          "key": "she",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "tells",
+          "start": 4.05,
+          "end": 4.31,
+          "key": "tells",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.31,
+          "end": 4.55,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.55,
+          "end": 4.71,
+          "key": "your",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "highness",
+          "start": 4.71,
+          "end": 5.11,
+          "key": "highness",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "simple",
+          "start": 5.11,
+          "end": 5.37,
+          "key": "simple",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "truth.",
+          "start": 5.37,
+          "end": 5.85,
+          "key": "truth",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Luciana.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Ne'er",
+          "start": 0.91,
+          "end": 1.32
+        },
+        {
+          "text": "may",
+          "start": 1.73,
+          "end": 1.83
+        },
+        {
+          "text": "I",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "look",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "text": "on",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "text": "day",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "text": "nor",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "text": "sleep",
+          "start": 2.69,
+          "end": 2.97
+        },
+        {
+          "text": "on",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "text": "night",
+          "start": 3.17,
+          "end": 3.43
+        },
+        {
+          "text": "But",
+          "start": 3.43,
+          "end": 3.87
+        },
+        {
+          "text": "she",
+          "start": 3.87,
+          "end": 4.05
+        },
+        {
+          "text": "tells",
+          "start": 4.05,
+          "end": 4.31
+        },
+        {
+          "text": "to",
+          "start": 4.31,
+          "end": 4.55
+        },
+        {
+          "text": "your",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "text": "highness",
+          "start": 4.71,
+          "end": 5.11
+        },
+        {
+          "text": "simple",
+          "start": 5.11,
+          "end": 5.37
+        },
+        {
+          "text": "truth.",
+          "start": 5.37,
+          "end": 5.85
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.23363262321799994
+    },
+    {
+      "asr_seconds": 0.2406557290814817,
+      "alignment_seconds": 0.0003630290739238262,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Luciana, Ne'er, I, But"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Luciana, Ne'er may I look on day nor sleep on night, But she tells to your Highness simple",
+          "start": 0.05,
+          "end": 5.39,
+          "words": [
+            {
+              "text": " Luciana,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.603515625
+            },
+            {
+              "text": " Ne",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.004283905029296875
+            },
+            {
+              "text": "'er",
+              "start": 1.65,
+              "end": 1.73,
+              "probability": 0.767333984375
+            },
+            {
+              "text": " may",
+              "start": 1.73,
+              "end": 1.83,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " I",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " look",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " on",
+              "start": 2.07,
+              "end": 2.27,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " day",
+              "start": 2.27,
+              "end": 2.47,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " nor",
+              "start": 2.47,
+              "end": 2.69,
+              "probability": 0.7451171875
+            },
+            {
+              "text": " sleep",
+              "start": 2.69,
+              "end": 2.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " on",
+              "start": 2.97,
+              "end": 3.17,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " night,",
+              "start": 3.17,
+              "end": 3.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " But",
+              "start": 3.79,
+              "end": 3.89,
+              "probability": 0.1724853515625
+            },
+            {
+              "text": " she",
+              "start": 3.89,
+              "end": 4.05,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " tells",
+              "start": 4.05,
+              "end": 4.33,
+              "probability": 0.986328125
+            },
+            {
+              "text": " to",
+              "start": 4.33,
+              "end": 4.55,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " your",
+              "start": 4.55,
+              "end": 4.71,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " Highness",
+              "start": 4.71,
+              "end": 5.13,
+              "probability": 0.7568359375
+            },
+            {
+              "text": " simple",
+              "start": 5.13,
+              "end": 5.39,
+              "probability": 0.90625
+            }
+          ]
+        },
+        {
+          "text": " truth.",
+          "start": 5.39,
+          "end": 5.77,
+          "words": [
+            {
+              "text": " truth.",
+              "start": 5.39,
+              "end": 5.77,
+              "probability": 0.95068359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Luciana,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Ne",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "'er",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "raw": "may",
+          "start": 1.73,
+          "end": 1.83
+        },
+        {
+          "raw": "I",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "look",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "on",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "raw": "day",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "raw": "nor",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "raw": "sleep",
+          "start": 2.69,
+          "end": 2.97
+        },
+        {
+          "raw": "on",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "raw": "night,",
+          "start": 3.17,
+          "end": 3.43
+        },
+        {
+          "raw": "But",
+          "start": 3.79,
+          "end": 3.89
+        },
+        {
+          "raw": "she",
+          "start": 3.89,
+          "end": 4.05
+        },
+        {
+          "raw": "tells",
+          "start": 4.05,
+          "end": 4.33
+        },
+        {
+          "raw": "to",
+          "start": 4.33,
+          "end": 4.55
+        },
+        {
+          "raw": "your",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "raw": "Highness",
+          "start": 4.71,
+          "end": 5.13
+        },
+        {
+          "raw": "simple",
+          "start": 5.13,
+          "end": 5.39
+        },
+        {
+          "raw": "truth.",
+          "start": 5.39,
+          "end": 5.77
+        }
+      ],
+      "expected_tokens": [
+        "Luciana.",
+        "Ne'er",
+        "may",
+        "I",
+        "look",
+        "on",
+        "day",
+        "nor",
+        "sleep",
+        "on",
+        "night",
+        "But",
+        "she",
+        "tells",
+        "to",
+        "your",
+        "highness",
+        "simple",
+        "truth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          19,
+          3,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Luciana,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "luciana",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ne",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "ne",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 1.65,
+          "end": 1.73,
+          "key": "er",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.73,
+          "end": 1.83,
+          "key": "may",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "look",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.07,
+          "end": 2.27,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 2.27,
+          "end": 2.47,
+          "key": "day",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 2.47,
+          "end": 2.69,
+          "key": "nor",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sleep",
+          "start": 2.69,
+          "end": 2.97,
+          "key": "sleep",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.97,
+          "end": 3.17,
+          "key": "on",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "night,",
+          "start": 3.17,
+          "end": 3.43,
+          "key": "night",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 3.79,
+          "end": 3.89,
+          "key": "but",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.89,
+          "end": 4.05,
+          "key": "she",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "tells",
+          "start": 4.05,
+          "end": 4.33,
+          "key": "tells",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.33,
+          "end": 4.55,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.55,
+          "end": 4.71,
+          "key": "your",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Highness",
+          "start": 4.71,
+          "end": 5.13,
+          "key": "highness",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "simple",
+          "start": 5.13,
+          "end": 5.39,
+          "key": "simple",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "truth.",
+          "start": 5.39,
+          "end": 5.77,
+          "key": "truth",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Luciana.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Ne'er",
+          "start": 0.91,
+          "end": 1.32
+        },
+        {
+          "text": "may",
+          "start": 1.73,
+          "end": 1.83
+        },
+        {
+          "text": "I",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "look",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "text": "on",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "text": "day",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "text": "nor",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "text": "sleep",
+          "start": 2.69,
+          "end": 2.97
+        },
+        {
+          "text": "on",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "text": "night",
+          "start": 3.17,
+          "end": 3.43
+        },
+        {
+          "text": "But",
+          "start": 3.79,
+          "end": 3.89
+        },
+        {
+          "text": "she",
+          "start": 3.89,
+          "end": 4.05
+        },
+        {
+          "text": "tells",
+          "start": 4.05,
+          "end": 4.33
+        },
+        {
+          "text": "to",
+          "start": 4.33,
+          "end": 4.55
+        },
+        {
+          "text": "your",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "text": "highness",
+          "start": 4.71,
+          "end": 5.13
+        },
+        {
+          "text": "simple",
+          "start": 5.13,
+          "end": 5.39
+        },
+        {
+          "text": "truth.",
+          "start": 5.39,
+          "end": 5.77
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.24117072811350226
+    },
+    {
+      "asr_seconds": 0.2739944108761847,
+      "alignment_seconds": 0.00018721306696534157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Luciana.",
+          "start": 0.49,
+          "end": 0.93,
+          "words": [
+            {
+              "text": " Luciana.",
+              "start": 0.49,
+              "end": 0.93,
+              "probability": 0.603515625
+            }
+          ]
+        },
+        {
+          "text": " Nor may I look on day nor sleep on night, but she tells to your Highness simple truth.",
+          "start": 1.63,
+          "end": 5.75,
+          "words": [
+            {
+              "text": " Nor",
+              "start": 1.63,
+              "end": 1.67,
+              "probability": 0.06231689453125
+            },
+            {
+              "text": " may",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " I",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " look",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.994140625
+            },
+            {
+              "text": " on",
+              "start": 2.07,
+              "end": 2.27,
+              "probability": 0.986328125
+            },
+            {
+              "text": " day",
+              "start": 2.27,
+              "end": 2.47,
+              "probability": 0.931640625
+            },
+            {
+              "text": " nor",
+              "start": 2.47,
+              "end": 2.69,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " sleep",
+              "start": 2.69,
+              "end": 2.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 2.97,
+              "end": 3.17,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " night,",
+              "start": 3.17,
+              "end": 3.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " but",
+              "start": 3.77,
+              "end": 3.89,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " she",
+              "start": 3.89,
+              "end": 4.05,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " tells",
+              "start": 4.05,
+              "end": 4.33,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " to",
+              "start": 4.33,
+              "end": 4.55,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " your",
+              "start": 4.55,
+              "end": 4.71,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " Highness",
+              "start": 4.71,
+              "end": 5.11,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " simple",
+              "start": 5.11,
+              "end": 5.39,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " truth.",
+              "start": 5.39,
+              "end": 5.75,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Luciana.",
+          "start": 0.49,
+          "end": 0.93
+        },
+        {
+          "raw": "Nor",
+          "start": 1.63,
+          "end": 1.67
+        },
+        {
+          "raw": "may",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "raw": "I",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "look",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "on",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "raw": "day",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "raw": "nor",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "raw": "sleep",
+          "start": 2.69,
+          "end": 2.97
+        },
+        {
+          "raw": "on",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "raw": "night,",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "raw": "but",
+          "start": 3.77,
+          "end": 3.89
+        },
+        {
+          "raw": "she",
+          "start": 3.89,
+          "end": 4.05
+        },
+        {
+          "raw": "tells",
+          "start": 4.05,
+          "end": 4.33
+        },
+        {
+          "raw": "to",
+          "start": 4.33,
+          "end": 4.55
+        },
+        {
+          "raw": "your",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "raw": "Highness",
+          "start": 4.71,
+          "end": 5.11
+        },
+        {
+          "raw": "simple",
+          "start": 5.11,
+          "end": 5.39
+        },
+        {
+          "raw": "truth.",
+          "start": 5.39,
+          "end": 5.75
+        }
+      ],
+      "expected_tokens": [
+        "Luciana.",
+        "Ne'er",
+        "may",
+        "I",
+        "look",
+        "on",
+        "day",
+        "nor",
+        "sleep",
+        "on",
+        "night",
+        "But",
+        "she",
+        "tells",
+        "to",
+        "your",
+        "highness",
+        "simple",
+        "truth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          19,
+          2,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Luciana.",
+          "start": 0.49,
+          "end": 0.93,
+          "key": "luciana",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nor",
+          "start": 1.63,
+          "end": 1.67,
+          "key": "nor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.67,
+          "end": 1.83,
+          "key": "may",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "look",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.07,
+          "end": 2.27,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 2.27,
+          "end": 2.47,
+          "key": "day",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 2.47,
+          "end": 2.69,
+          "key": "nor",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sleep",
+          "start": 2.69,
+          "end": 2.97,
+          "key": "sleep",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.97,
+          "end": 3.17,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "night,",
+          "start": 3.17,
+          "end": 3.45,
+          "key": "night",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.77,
+          "end": 3.89,
+          "key": "but",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.89,
+          "end": 4.05,
+          "key": "she",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tells",
+          "start": 4.05,
+          "end": 4.33,
+          "key": "tells",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.33,
+          "end": 4.55,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.55,
+          "end": 4.71,
+          "key": "your",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Highness",
+          "start": 4.71,
+          "end": 5.11,
+          "key": "highness",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "simple",
+          "start": 5.11,
+          "end": 5.39,
+          "key": "simple",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "truth.",
+          "start": 5.39,
+          "end": 5.75,
+          "key": "truth",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Luciana.",
+          "start": 0.49,
+          "end": 0.93
+        },
+        {
+          "text": "Ne'er",
+          "start": 0.93,
+          "end": 1.3
+        },
+        {
+          "text": "may",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "text": "I",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "look",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "text": "on",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "text": "day",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "text": "nor",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "text": "sleep",
+          "start": 2.69,
+          "end": 2.97
+        },
+        {
+          "text": "on",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "text": "night",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "text": "But",
+          "start": 3.77,
+          "end": 3.89
+        },
+        {
+          "text": "she",
+          "start": 3.89,
+          "end": 4.05
+        },
+        {
+          "text": "tells",
+          "start": 4.05,
+          "end": 4.33
+        },
+        {
+          "text": "to",
+          "start": 4.33,
+          "end": 4.55
+        },
+        {
+          "text": "your",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "text": "highness",
+          "start": 4.71,
+          "end": 5.11
+        },
+        {
+          "text": "simple",
+          "start": 5.11,
+          "end": 5.39
+        },
+        {
+          "text": "truth.",
+          "start": 5.39,
+          "end": 5.75
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.274247903842479
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0694d9719aba408fa2b42e2a0ecf5c0c8a891fbcb515d14f10d5b2f12ccd9a3d",
+  "selected_reasons": []
+}

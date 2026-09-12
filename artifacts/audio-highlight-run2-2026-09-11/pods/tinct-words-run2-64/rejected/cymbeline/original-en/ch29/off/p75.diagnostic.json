@@ -1,0 +1,266 @@
+{
+  "complete": true,
+  "signature": "f25731819ad592ba0246196552f34b7d473f45e49bbc1c17a276641499159cea",
+  "attempts": [
+    {
+      "asr_seconds": 0.22995862178504467,
+      "alignment_seconds": 0.00042497552931308746,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pisanio, how fair is my mistress?",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Pisanio,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.6105143229166666
+            },
+            {
+              "text": " how",
+              "start": 1.27,
+              "end": 1.41,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " fair",
+              "start": 1.41,
+              "end": 1.59,
+              "probability": 0.82421875
+            },
+            {
+              "text": " is",
+              "start": 1.59,
+              "end": 1.73,
+              "probability": 0.54345703125
+            },
+            {
+              "text": " my",
+              "start": 1.73,
+              "end": 1.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " mistress?",
+              "start": 1.83,
+              "end": 2.19,
+              "probability": 0.978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pisanio,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "how",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "raw": "fair",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "raw": "is",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "raw": "my",
+          "start": 1.73,
+          "end": 1.83
+        },
+        {
+          "raw": "mistress?",
+          "start": 1.83,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Pisanio.",
+        "How",
+        "fares",
+        "my",
+        "mistress?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          5,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pisanio,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "pisanio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.27,
+          "end": 1.41,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 1.41,
+          "end": 1.59,
+          "key": "fair",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.59,
+          "end": 1.73,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.73,
+          "end": 1.83,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mistress?",
+          "start": 1.83,
+          "end": 2.19,
+          "key": "mistress",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pisanio.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "How",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "text": "fares",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "my",
+          "start": 1.73,
+          "end": 1.83
+        },
+        {
+          "text": "mistress?",
+          "start": 1.83,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2305382313206792
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "81b92024f555f27b2b1e21b9810b3628593a387237f341fb0f4ad5fc947964ae",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

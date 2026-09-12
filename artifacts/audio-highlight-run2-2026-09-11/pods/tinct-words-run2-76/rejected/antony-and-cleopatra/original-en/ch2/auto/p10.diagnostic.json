@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "be244704f05ce318213a808498b8e3b8854a5409546f6321f18ba31e748239a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.20630088495090604,
+      "alignment_seconds": 0.0004947618581354618,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Charmian. Pray, then, foresee me one.",
+        "hotwords": "Charmian, Pray"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Charmian, Pray, then, foresee me one.",
+          "start": 0.51,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Charmian,",
+              "start": 0.51,
+              "end": 0.89,
+              "probability": 0.6322021484375
+            },
+            {
+              "text": " Pray,",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.521697998046875
+            },
+            {
+              "text": " then,",
+              "start": 1.53,
+              "end": 1.59,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " foresee",
+              "start": 1.73,
+              "end": 1.85,
+              "probability": 0.259033203125
+            },
+            {
+              "text": " me",
+              "start": 1.85,
+              "end": 2.13,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " one.",
+              "start": 2.13,
+              "end": 2.37,
+              "probability": 0.83447265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmian,",
+          "start": 0.51,
+          "end": 0.89
+        },
+        {
+          "raw": "Pray,",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "then,",
+          "start": 1.53,
+          "end": 1.59
+        },
+        {
+          "raw": "foresee",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "raw": "me",
+          "start": 1.85,
+          "end": 2.13
+        },
+        {
+          "raw": "one.",
+          "start": 2.13,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "Pray,",
+        "then,",
+        "foresee",
+        "me",
+        "one."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmian,",
+          "start": 0.51,
+          "end": 0.89,
+          "key": "charmian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pray,",
+          "start": 1.31,
+          "end": 1.43,
+          "key": "pray",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 1.53,
+          "end": 1.59,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "foresee",
+          "start": 1.73,
+          "end": 1.85,
+          "key": "foresee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.85,
+          "end": 2.13,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "one.",
+          "start": 2.13,
+          "end": 2.37,
+          "key": "one",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.51,
+          "end": 0.89
+        },
+        {
+          "text": "Pray,",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "then,",
+          "start": 1.53,
+          "end": 1.59
+        },
+        {
+          "text": "foresee",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "text": "me",
+          "start": 1.85,
+          "end": 2.13
+        },
+        {
+          "text": "one.",
+          "start": 2.13,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2069361242465675
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a58a269ad41b7df193267fefdf10f5641d598ba7a2f49260a320727c3dff4afa",
+  "selected_reasons": []
+}

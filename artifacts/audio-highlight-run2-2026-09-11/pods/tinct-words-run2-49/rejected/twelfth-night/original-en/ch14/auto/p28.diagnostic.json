@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "455c3ac904f0b3f48b0d4b31ee2449b9b0b574408f3cf59fa6b9bb4cb02befea",
+  "attempts": [
+    {
+      "asr_seconds": 0.18527745828032494,
+      "alignment_seconds": 0.00031946226954460144,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Olivia. Thy yellow stockings?",
+        "hotwords": "Olivia, Thy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Olivia, Thy yellow stockings?",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " Thy",
+              "start": 1.13,
+              "end": 1.31,
+              "probability": 0.0034389495849609375
+            },
+            {
+              "text": " yellow",
+              "start": 1.31,
+              "end": 1.53,
+              "probability": 0.04486083984375
+            },
+            {
+              "text": " stockings?",
+              "start": 1.53,
+              "end": 2.19,
+              "probability": 0.95263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Thy",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "raw": "yellow",
+          "start": 1.31,
+          "end": 1.53
+        },
+        {
+          "raw": "stockings?",
+          "start": 1.53,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Thy",
+        "yellow",
+        "stockings?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thy",
+          "start": 1.13,
+          "end": 1.31,
+          "key": "thy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yellow",
+          "start": 1.31,
+          "end": 1.53,
+          "key": "yellow",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stockings?",
+          "start": 1.53,
+          "end": 2.19,
+          "key": "stockings",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Thy",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "text": "yellow",
+          "start": 1.31,
+          "end": 1.53
+        },
+        {
+          "text": "stockings?",
+          "start": 1.53,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18573321774601936
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f1bae19af4a72c93c95a2c3c01feb4177b1495c4f6403a1a1ec657510c06d4d9",
+  "selected_reasons": []
+}

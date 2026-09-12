@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "eaa4b42849d53250f93bd687bd0b03e1491570fd0ec506316eb5c4141c7b7d75",
+  "attempts": [
+    {
+      "asr_seconds": 0.28323134407401085,
+      "alignment_seconds": 0.0003690868616104126,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"An hour ago Smerdyakov hanged himself,\" Alyosha answered from the yard.",
+        "hotwords": "An, Smerdyakov, Alyosha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " An hour ago Smerdyakov hanged himself, Alyosha answered from the yard.",
+          "start": 0.02,
+          "end": 4.52,
+          "words": [
+            {
+              "text": " An",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.962890625
+            },
+            {
+              "text": " hour",
+              "start": 0.52,
+              "end": 0.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ago",
+              "start": 0.8,
+              "end": 1.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Smerdyakov",
+              "start": 1.06,
+              "end": 1.62,
+              "probability": 0.5210113525390625
+            },
+            {
+              "text": " hanged",
+              "start": 1.62,
+              "end": 1.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " himself,",
+              "start": 1.96,
+              "end": 2.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Alyosha",
+              "start": 3.14,
+              "end": 3.52,
+              "probability": 0.9431966145833334
+            },
+            {
+              "text": " answered",
+              "start": 3.52,
+              "end": 3.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " from",
+              "start": 3.88,
+              "end": 4.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 4.14,
+              "end": 4.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " yard.",
+              "start": 4.24,
+              "end": 4.52,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "An",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "hour",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "raw": "ago",
+          "start": 0.8,
+          "end": 1.06
+        },
+        {
+          "raw": "Smerdyakov",
+          "start": 1.06,
+          "end": 1.62
+        },
+        {
+          "raw": "hanged",
+          "start": 1.62,
+          "end": 1.96
+        },
+        {
+          "raw": "himself,",
+          "start": 1.96,
+          "end": 2.5
+        },
+        {
+          "raw": "Alyosha",
+          "start": 3.14,
+          "end": 3.52
+        },
+        {
+          "raw": "answered",
+          "start": 3.52,
+          "end": 3.88
+        },
+        {
+          "raw": "from",
+          "start": 3.88,
+          "end": 4.14
+        },
+        {
+          "raw": "the",
+          "start": 4.14,
+          "end": 4.24
+        },
+        {
+          "raw": "yard.",
+          "start": 4.24,
+          "end": 4.52
+        }
+      ],
+      "expected_tokens": [
+        "\"An",
+        "hour",
+        "ago",
+        "Smerdyakov",
+        "hanged",
+        "himself,\"",
+        "Alyosha",
+        "answered",
+        "from",
+        "the",
+        "yard."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "An",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "an",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hour",
+          "start": 0.52,
+          "end": 0.8,
+          "key": "hour",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ago",
+          "start": 0.8,
+          "end": 1.06,
+          "key": "ago",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Smerdyakov",
+          "start": 1.06,
+          "end": 1.62,
+          "key": "smerdyakov",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hanged",
+          "start": 1.62,
+          "end": 1.96,
+          "key": "hanged",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "himself,",
+          "start": 1.96,
+          "end": 2.5,
+          "key": "himself",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 3.14,
+          "end": 3.52,
+          "key": "alyosha",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 3.52,
+          "end": 3.88,
+          "key": "answered",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.88,
+          "end": 4.14,
+          "key": "from",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.14,
+          "end": 4.24,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "yard.",
+          "start": 4.24,
+          "end": 4.52,
+          "key": "yard",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"An",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "hour",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "text": "ago",
+          "start": 0.8,
+          "end": 1.06
+        },
+        {
+          "text": "Smerdyakov",
+          "start": 1.06,
+          "end": 1.62
+        },
+        {
+          "text": "hanged",
+          "start": 1.62,
+          "end": 1.96
+        },
+        {
+          "text": "himself,\"",
+          "start": 1.96,
+          "end": 2.5
+        },
+        {
+          "text": "Alyosha",
+          "start": 3.14,
+          "end": 3.52
+        },
+        {
+          "text": "answered",
+          "start": 3.52,
+          "end": 3.88
+        },
+        {
+          "text": "from",
+          "start": 3.88,
+          "end": 4.14
+        },
+        {
+          "text": "the",
+          "start": 4.14,
+          "end": 4.24
+        },
+        {
+          "text": "yard.",
+          "start": 4.24,
+          "end": 4.52
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2837502360343933
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "298f1c6fc765eaeaaabd2a5b3def6e44b85c8ce279a94b85d7cad406596226ae",
+  "selected_reasons": []
+}

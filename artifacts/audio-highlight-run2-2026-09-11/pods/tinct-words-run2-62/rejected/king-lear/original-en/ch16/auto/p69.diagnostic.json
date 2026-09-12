@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "b42ccdd304279b55ef92133ee863fbaf2c1d6d4481d090b8de7d225cb7060faf",
+  "attempts": [
+    {
+      "asr_seconds": 0.2106918953359127,
+      "alignment_seconds": 0.00023430213332176208,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Third Servant. If she live long, And in the end meet the old course of death, Women will all turn monsters.",
+        "hotwords": "Third, Servant, If, And, Women"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Third Servant, If she live long, And in the end meet the old course of death, Women will all turn monsters.",
+          "start": 0.05,
+          "end": 6.61,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.818359375
+            },
+            {
+              "text": " Servant,",
+              "start": 0.63,
+              "end": 1.21,
+              "probability": 0.58172607421875
+            },
+            {
+              "text": " If",
+              "start": 1.53,
+              "end": 1.79,
+              "probability": 0.078369140625
+            },
+            {
+              "text": " she",
+              "start": 1.79,
+              "end": 1.97,
+              "probability": 0.837890625
+            },
+            {
+              "text": " live",
+              "start": 1.97,
+              "end": 2.13,
+              "probability": 0.958984375
+            },
+            {
+              "text": " long,",
+              "start": 2.13,
+              "end": 2.51,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " And",
+              "start": 2.85,
+              "end": 2.91,
+              "probability": 0.039794921875
+            },
+            {
+              "text": " in",
+              "start": 2.91,
+              "end": 3.01,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " the",
+              "start": 3.01,
+              "end": 3.11,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " end",
+              "start": 3.11,
+              "end": 3.35,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " meet",
+              "start": 3.35,
+              "end": 3.55,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " the",
+              "start": 3.55,
+              "end": 3.71,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " old",
+              "start": 3.71,
+              "end": 3.93,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " course",
+              "start": 3.93,
+              "end": 4.19,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " of",
+              "start": 4.19,
+              "end": 4.41,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " death,",
+              "start": 4.41,
+              "end": 4.69,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " Women",
+              "start": 5.17,
+              "end": 5.27,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " will",
+              "start": 5.27,
+              "end": 5.57,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " all",
+              "start": 5.57,
+              "end": 5.83,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " turn",
+              "start": 5.83,
+              "end": 6.13,
+              "probability": 0.994140625
+            },
+            {
+              "text": " monsters.",
+              "start": 6.13,
+              "end": 6.61,
+              "probability": 0.8955078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Servant,",
+          "start": 0.63,
+          "end": 1.21
+        },
+        {
+          "raw": "If",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "raw": "she",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "raw": "live",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "raw": "long,",
+          "start": 2.13,
+          "end": 2.51
+        },
+        {
+          "raw": "And",
+          "start": 2.85,
+          "end": 2.91
+        },
+        {
+          "raw": "in",
+          "start": 2.91,
+          "end": 3.01
+        },
+        {
+          "raw": "the",
+          "start": 3.01,
+          "end": 3.11
+        },
+        {
+          "raw": "end",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "raw": "meet",
+          "start": 3.35,
+          "end": 3.55
+        },
+        {
+          "raw": "the",
+          "start": 3.55,
+          "end": 3.71
+        },
+        {
+          "raw": "old",
+          "start": 3.71,
+          "end": 3.93
+        },
+        {
+          "raw": "course",
+          "start": 3.93,
+          "end": 4.19
+        },
+        {
+          "raw": "of",
+          "start": 4.19,
+          "end": 4.41
+        },
+        {
+          "raw": "death,",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "raw": "Women",
+          "start": 5.17,
+          "end": 5.27
+        },
+        {
+          "raw": "will",
+          "start": 5.27,
+          "end": 5.57
+        },
+        {
+          "raw": "all",
+          "start": 5.57,
+          "end": 5.83
+        },
+        {
+          "raw": "turn",
+          "start": 5.83,
+          "end": 6.13
+        },
+        {
+          "raw": "monsters.",
+          "start": 6.13,
+          "end": 6.61
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Servant.",
+        "If",
+        "she",
+        "live",
+        "long,",
+        "And",
+        "in",
+        "the",
+        "end",
+        "meet",
+        "the",
+        "old",
+        "course",
+        "of",
+        "death,",
+        "Women",
+        "will",
+        "all",
+        "turn",
+        "monsters."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Servant,",
+          "start": 0.63,
+          "end": 1.21,
+          "key": "servant",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.53,
+          "end": 1.79,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.79,
+          "end": 1.97,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 1.97,
+          "end": 2.13,
+          "key": "live",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "long,",
+          "start": 2.13,
+          "end": 2.51,
+          "key": "long",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 2.85,
+          "end": 2.91,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.91,
+          "end": 3.01,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.01,
+          "end": 3.11,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "end",
+          "start": 3.11,
+          "end": 3.35,
+          "key": "end",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "meet",
+          "start": 3.35,
+          "end": 3.55,
+          "key": "meet",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.55,
+          "end": 3.71,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 3.71,
+          "end": 3.93,
+          "key": "old",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "course",
+          "start": 3.93,
+          "end": 4.19,
+          "key": "course",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.19,
+          "end": 4.41,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "death,",
+          "start": 4.41,
+          "end": 4.69,
+          "key": "death",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Women",
+          "start": 5.17,
+          "end": 5.27,
+          "key": "women",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.27,
+          "end": 5.57,
+          "key": "will",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 5.57,
+          "end": 5.83,
+          "key": "all",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 5.83,
+          "end": 6.13,
+          "key": "turn",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "monsters.",
+          "start": 6.13,
+          "end": 6.61,
+          "key": "monsters",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Servant.",
+          "start": 0.63,
+          "end": 1.21
+        },
+        {
+          "text": "If",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "text": "she",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "text": "live",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "text": "long,",
+          "start": 2.13,
+          "end": 2.51
+        },
+        {
+          "text": "And",
+          "start": 2.85,
+          "end": 2.91
+        },
+        {
+          "text": "in",
+          "start": 2.91,
+          "end": 3.01
+        },
+        {
+          "text": "the",
+          "start": 3.01,
+          "end": 3.11
+        },
+        {
+          "text": "end",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "text": "meet",
+          "start": 3.35,
+          "end": 3.55
+        },
+        {
+          "text": "the",
+          "start": 3.55,
+          "end": 3.71
+        },
+        {
+          "text": "old",
+          "start": 3.71,
+          "end": 3.93
+        },
+        {
+          "text": "course",
+          "start": 3.93,
+          "end": 4.19
+        },
+        {
+          "text": "of",
+          "start": 4.19,
+          "end": 4.41
+        },
+        {
+          "text": "death,",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "text": "Women",
+          "start": 5.17,
+          "end": 5.27
+        },
+        {
+          "text": "will",
+          "start": 5.27,
+          "end": 5.57
+        },
+        {
+          "text": "all",
+          "start": 5.57,
+          "end": 5.83
+        },
+        {
+          "text": "turn",
+          "start": 5.83,
+          "end": 6.13
+        },
+        {
+          "text": "monsters.",
+          "start": 6.13,
+          "end": 6.61
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2110166698694229
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "05ef1e34ee4068cb0b34929280119f2473d058bf56cb2772b3bf45cd2b3c80d6",
+  "selected_reasons": []
+}

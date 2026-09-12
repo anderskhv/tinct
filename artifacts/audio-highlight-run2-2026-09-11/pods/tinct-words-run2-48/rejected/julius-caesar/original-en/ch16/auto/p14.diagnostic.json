@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "777ec0f7007aeb490d985e8d1848989efa5c6455ea30bbf95064b8ee7c288f39",
+  "attempts": [
+    {
+      "asr_seconds": 0.10568747762590647,
+      "alignment_seconds": 0.0001527378335595131,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Above._] O my lord!",
+        "hotwords": "O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Above! O my lord!",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Above!",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " O",
+              "start": 1.21,
+              "end": 1.27,
+              "probability": 0.61767578125
+            },
+            {
+              "text": " my",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.755859375
+            },
+            {
+              "text": " lord!",
+              "start": 1.45,
+              "end": 1.65,
+              "probability": 0.59375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Above!",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "O",
+          "start": 1.21,
+          "end": 1.27
+        },
+        {
+          "raw": "my",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "lord!",
+          "start": 1.45,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "[_Above._]",
+        "O",
+        "my",
+        "lord!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Above!",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "above",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.21,
+          "end": 1.27,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord!",
+          "start": 1.45,
+          "end": 1.65,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Above._]",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "O",
+          "start": 1.21,
+          "end": 1.27
+        },
+        {
+          "text": "my",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "lord!",
+          "start": 1.45,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10589244216680527
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5e125a60d66222f28e2e3c5ca02b00a7ef75aa39707b33120e96a03a9137fa91",
+  "selected_reasons": []
+}

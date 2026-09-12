@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "65c70f73d5b040bb8f05d2942dfc225f2a1a5ed08ec11b213bbe97b9dd08644e",
+  "attempts": [
+    {
+      "asr_seconds": 0.13038311898708344,
+      "alignment_seconds": 0.000306643545627594,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First player. I warrant your honor",
+          "start": 0.11,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " player.",
+              "start": 0.65,
+              "end": 1.03,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " I",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " warrant",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.6083984375
+            },
+            {
+              "text": " your",
+              "start": 1.73,
+              "end": 1.89,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " honor",
+              "start": 1.89,
+              "end": 2.13,
+              "probability": 0.97314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "player.",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "warrant",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "raw": "your",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "raw": "honor",
+          "start": 1.89,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Player.",
+        "I",
+        "warrant",
+        "your",
+        "honour."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "player.",
+          "start": 0.65,
+          "end": 1.03,
+          "key": "player",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 1.55,
+          "end": 1.73,
+          "key": "warrant",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.73,
+          "end": 1.89,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 1.89,
+          "end": 2.13,
+          "key": "honor",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Player.",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "text": "I",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "warrant",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "text": "your",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "text": "honour.",
+          "start": 1.89,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1308057475835085
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5a704f7573b70dfe11c095b9d49cc277dc7a34931cff0bd83ddaf6951b95ebef",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

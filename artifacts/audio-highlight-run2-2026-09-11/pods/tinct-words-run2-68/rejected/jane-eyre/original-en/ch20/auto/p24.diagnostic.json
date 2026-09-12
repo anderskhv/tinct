@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "f4882716aabe019156828536f885f0461bafa8539ed779a1d71ab25c19606c48",
+  "attempts": [
+    {
+      "asr_seconds": 0.13008514419198036,
+      "alignment_seconds": 0.0002777576446533203,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And dressed?\"",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And dressed?",
+          "start": 0.08,
+          "end": 0.88,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.351318359375
+            },
+            {
+              "text": " dressed?",
+              "start": 0.58,
+              "end": 0.88,
+              "probability": 0.09912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "dressed?",
+          "start": 0.58,
+          "end": 0.88
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "dressed?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dressed?",
+          "start": 0.58,
+          "end": 0.88,
+          "key": "dressed",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "dressed?\"",
+          "start": 0.58,
+          "end": 0.88
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13046479225158691
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "92e1177d4b980bd1e2cdbac8852970995fff3f3856047f42d32f41ef105504e8",
+  "selected_reasons": []
+}

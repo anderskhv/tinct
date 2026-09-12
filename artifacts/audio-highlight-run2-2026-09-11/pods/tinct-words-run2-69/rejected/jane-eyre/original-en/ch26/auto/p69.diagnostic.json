@@ -1,0 +1,857 @@
+{
+  "complete": true,
+  "signature": "f71e97f6ed353972e8135533436a9adc2cac38205b1f3468c8d2364487614671",
+  "attempts": [
+    {
+      "asr_seconds": 0.3210253696888685,
+      "alignment_seconds": 0.0006212107837200165,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "A fierce cry seemed to give the lie to her favourable report: the clothed hyena rose up, and stood tall on its hind-feet.",
+        "hotwords": "A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A A fierce cry seemed to give the lie to her favourable report. The clothed hyena rose up, and stood tall on its hind-feet.",
+          "start": 0.05,
+          "end": 7.51,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.91015625
+            },
+            {
+              "text": " A",
+              "start": 0.53,
+              "end": 0.53,
+              "probability": 1.7881393432617188e-07
+            },
+            {
+              "text": " fierce",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " cry",
+              "start": 0.81,
+              "end": 1.23,
+              "probability": 0.982421875
+            },
+            {
+              "text": " seemed",
+              "start": 1.23,
+              "end": 1.53,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " to",
+              "start": 1.53,
+              "end": 1.71,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " give",
+              "start": 1.71,
+              "end": 1.81,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " the",
+              "start": 1.81,
+              "end": 1.97,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " lie",
+              "start": 1.97,
+              "end": 2.23,
+              "probability": 0.970703125
+            },
+            {
+              "text": " to",
+              "start": 2.23,
+              "end": 2.39,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " her",
+              "start": 2.39,
+              "end": 2.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " favourable",
+              "start": 2.53,
+              "end": 2.95,
+              "probability": 0.022491455078125
+            },
+            {
+              "text": " report.",
+              "start": 2.95,
+              "end": 3.49,
+              "probability": 0.994140625
+            },
+            {
+              "text": " The",
+              "start": 4.17,
+              "end": 4.25,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " clothed",
+              "start": 4.25,
+              "end": 4.59,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " hyena",
+              "start": 4.59,
+              "end": 5.07,
+              "probability": 0.841796875
+            },
+            {
+              "text": " rose",
+              "start": 5.07,
+              "end": 5.33,
+              "probability": 0.982421875
+            },
+            {
+              "text": " up,",
+              "start": 5.33,
+              "end": 5.69,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 5.99,
+              "end": 6.15,
+              "probability": 0.982421875
+            },
+            {
+              "text": " stood",
+              "start": 6.15,
+              "end": 6.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " tall",
+              "start": 6.35,
+              "end": 6.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " on",
+              "start": 6.73,
+              "end": 6.91,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " its",
+              "start": 6.91,
+              "end": 7.03,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " hind",
+              "start": 7.03,
+              "end": 7.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": "-feet.",
+              "start": 7.25,
+              "end": 7.51,
+              "probability": 0.49005889892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "A",
+          "start": 0.53,
+          "end": 0.53
+        },
+        {
+          "raw": "fierce",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "raw": "cry",
+          "start": 0.81,
+          "end": 1.23
+        },
+        {
+          "raw": "seemed",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "raw": "to",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "raw": "give",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "raw": "the",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "raw": "lie",
+          "start": 1.97,
+          "end": 2.23
+        },
+        {
+          "raw": "to",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "raw": "her",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "raw": "favourable",
+          "start": 2.53,
+          "end": 2.95
+        },
+        {
+          "raw": "report.",
+          "start": 2.95,
+          "end": 3.49
+        },
+        {
+          "raw": "The",
+          "start": 4.17,
+          "end": 4.25
+        },
+        {
+          "raw": "clothed",
+          "start": 4.25,
+          "end": 4.59
+        },
+        {
+          "raw": "hyena",
+          "start": 4.59,
+          "end": 5.07
+        },
+        {
+          "raw": "rose",
+          "start": 5.07,
+          "end": 5.33
+        },
+        {
+          "raw": "up,",
+          "start": 5.33,
+          "end": 5.69
+        },
+        {
+          "raw": "and",
+          "start": 5.99,
+          "end": 6.15
+        },
+        {
+          "raw": "stood",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "raw": "tall",
+          "start": 6.35,
+          "end": 6.73
+        },
+        {
+          "raw": "on",
+          "start": 6.73,
+          "end": 6.91
+        },
+        {
+          "raw": "its",
+          "start": 6.91,
+          "end": 7.03
+        },
+        {
+          "raw": "hind",
+          "start": 7.03,
+          "end": 7.25
+        },
+        {
+          "raw": "-feet.",
+          "start": 7.25,
+          "end": 7.51
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "fierce",
+        "cry",
+        "seemed",
+        "to",
+        "give",
+        "the",
+        "lie",
+        "to",
+        "her",
+        "favourable",
+        "report:",
+        "the",
+        "clothed",
+        "hyena",
+        "rose",
+        "up,",
+        "and",
+        "stood",
+        "tall",
+        "on",
+        "its",
+        "hind-feet."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          23,
+          1,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 0.53,
+          "end": 0.53,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fierce",
+          "start": 0.53,
+          "end": 0.81,
+          "key": "fierce",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 0.81,
+          "end": 1.23,
+          "key": "cry",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 1.23,
+          "end": 1.53,
+          "key": "seemed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.53,
+          "end": 1.71,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.71,
+          "end": 1.81,
+          "key": "give",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.81,
+          "end": 1.97,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lie",
+          "start": 1.97,
+          "end": 2.23,
+          "key": "lie",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.23,
+          "end": 2.39,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.39,
+          "end": 2.53,
+          "key": "her",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "favourable",
+          "start": 2.53,
+          "end": 2.95,
+          "key": "favourable",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "report.",
+          "start": 2.95,
+          "end": 3.49,
+          "key": "report",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.17,
+          "end": 4.25,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "clothed",
+          "start": 4.25,
+          "end": 4.59,
+          "key": "clothed",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hyena",
+          "start": 4.59,
+          "end": 5.07,
+          "key": "hyena",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "rose",
+          "start": 5.07,
+          "end": 5.33,
+          "key": "rose",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "up,",
+          "start": 5.33,
+          "end": 5.69,
+          "key": "up",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.99,
+          "end": 6.15,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "stood",
+          "start": 6.15,
+          "end": 6.35,
+          "key": "stood",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "tall",
+          "start": 6.35,
+          "end": 6.73,
+          "key": "tall",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 6.73,
+          "end": 6.91,
+          "key": "on",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 6.91,
+          "end": 7.03,
+          "key": "its",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "hind -feet.",
+          "start": 7.03,
+          "end": 7.51,
+          "key": "hindfeet",
+          "pieces": [
+            23,
+            24
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 22,
+          "text": "hind-feet.",
+          "heard": "hind -feet.",
+          "heard_indexes": [
+            23,
+            24
+          ],
+          "start": 7.03,
+          "end": 7.51
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.53,
+          "end": 0.53
+        },
+        {
+          "text": "fierce",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "text": "cry",
+          "start": 0.81,
+          "end": 1.23
+        },
+        {
+          "text": "seemed",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "text": "to",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "text": "give",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "text": "the",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "text": "lie",
+          "start": 1.97,
+          "end": 2.23
+        },
+        {
+          "text": "to",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "text": "her",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "text": "favourable",
+          "start": 2.53,
+          "end": 2.95
+        },
+        {
+          "text": "report:",
+          "start": 2.95,
+          "end": 3.49
+        },
+        {
+          "text": "the",
+          "start": 4.17,
+          "end": 4.25
+        },
+        {
+          "text": "clothed",
+          "start": 4.25,
+          "end": 4.59
+        },
+        {
+          "text": "hyena",
+          "start": 4.59,
+          "end": 5.07
+        },
+        {
+          "text": "rose",
+          "start": 5.07,
+          "end": 5.33
+        },
+        {
+          "text": "up,",
+          "start": 5.33,
+          "end": 5.69
+        },
+        {
+          "text": "and",
+          "start": 5.99,
+          "end": 6.15
+        },
+        {
+          "text": "stood",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "text": "tall",
+          "start": 6.35,
+          "end": 6.73
+        },
+        {
+          "text": "on",
+          "start": 6.73,
+          "end": 6.91
+        },
+        {
+          "text": "its",
+          "start": 6.91,
+          "end": 7.03
+        },
+        {
+          "text": "hind-feet.",
+          "start": 7.03,
+          "end": 7.51
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 24,
+        "matched_words": 23
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3218804644420743
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ef195bf454473a52afc6405cb5f128995cefe0d310f70aef68763c02669994ba",
+  "selected_reasons": []
+}

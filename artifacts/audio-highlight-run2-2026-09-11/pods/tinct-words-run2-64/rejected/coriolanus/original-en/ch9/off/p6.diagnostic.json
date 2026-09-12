@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "20cd18212fec7edc28b01ffd7fe031d469ac0884da8f4ab5a296c5c174f8dfa9",
+  "attempts": [
+    {
+      "asr_seconds": 0.25143235083669424,
+      "alignment_seconds": 0.0003297831863164902,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Martius, I have some wounds upon me, and they smart to hear themselves remembered.",
+          "start": 0.05,
+          "end": 4.75,
+          "words": [
+            {
+              "text": " Martius,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.45361328125
+            },
+            {
+              "text": " I",
+              "start": 1.31,
+              "end": 1.55,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " have",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " some",
+              "start": 1.71,
+              "end": 1.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wounds",
+              "start": 1.91,
+              "end": 2.19,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " upon",
+              "start": 2.19,
+              "end": 2.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me,",
+              "start": 2.51,
+              "end": 2.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 3.01,
+              "end": 3.07,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " they",
+              "start": 3.07,
+              "end": 3.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " smart",
+              "start": 3.21,
+              "end": 3.47,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " to",
+              "start": 3.47,
+              "end": 3.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hear",
+              "start": 3.67,
+              "end": 3.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " themselves",
+              "start": 3.81,
+              "end": 4.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " remembered.",
+              "start": 4.27,
+              "end": 4.75,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Martius,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "I",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "raw": "have",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "some",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "raw": "wounds",
+          "start": 1.91,
+          "end": 2.19
+        },
+        {
+          "raw": "upon",
+          "start": 2.19,
+          "end": 2.51
+        },
+        {
+          "raw": "me,",
+          "start": 2.51,
+          "end": 2.75
+        },
+        {
+          "raw": "and",
+          "start": 3.01,
+          "end": 3.07
+        },
+        {
+          "raw": "they",
+          "start": 3.07,
+          "end": 3.21
+        },
+        {
+          "raw": "smart",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "raw": "to",
+          "start": 3.47,
+          "end": 3.67
+        },
+        {
+          "raw": "hear",
+          "start": 3.67,
+          "end": 3.81
+        },
+        {
+          "raw": "themselves",
+          "start": 3.81,
+          "end": 4.27
+        },
+        {
+          "raw": "remembered.",
+          "start": 4.27,
+          "end": 4.75
+        }
+      ],
+      "expected_tokens": [
+        "Martius.",
+        "I",
+        "have",
+        "some",
+        "wounds",
+        "upon",
+        "me,",
+        "and",
+        "they",
+        "smart",
+        "To",
+        "hear",
+        "themselves",
+        "remembered."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Martius,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "martius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.31,
+          "end": 1.55,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 1.71,
+          "end": 1.91,
+          "key": "some",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wounds",
+          "start": 1.91,
+          "end": 2.19,
+          "key": "wounds",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.19,
+          "end": 2.51,
+          "key": "upon",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.51,
+          "end": 2.75,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.01,
+          "end": 3.07,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.07,
+          "end": 3.21,
+          "key": "they",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "smart",
+          "start": 3.21,
+          "end": 3.47,
+          "key": "smart",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.47,
+          "end": 3.67,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 3.67,
+          "end": 3.81,
+          "key": "hear",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "themselves",
+          "start": 3.81,
+          "end": 4.27,
+          "key": "themselves",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "remembered.",
+          "start": 4.27,
+          "end": 4.75,
+          "key": "remembered",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Martius.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "I",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "text": "have",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "text": "some",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "text": "wounds",
+          "start": 1.91,
+          "end": 2.19
+        },
+        {
+          "text": "upon",
+          "start": 2.19,
+          "end": 2.51
+        },
+        {
+          "text": "me,",
+          "start": 2.51,
+          "end": 2.75
+        },
+        {
+          "text": "and",
+          "start": 3.01,
+          "end": 3.07
+        },
+        {
+          "text": "they",
+          "start": 3.07,
+          "end": 3.21
+        },
+        {
+          "text": "smart",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "text": "To",
+          "start": 3.47,
+          "end": 3.67
+        },
+        {
+          "text": "hear",
+          "start": 3.67,
+          "end": 3.81
+        },
+        {
+          "text": "themselves",
+          "start": 3.81,
+          "end": 4.27
+        },
+        {
+          "text": "remembered.",
+          "start": 4.27,
+          "end": 4.75
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25190175976604223
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fe14c0d72a288eba6bdbc5aa83798724e2398afea3fce2e283852e81b24830c7",
+  "selected_reasons": []
+}

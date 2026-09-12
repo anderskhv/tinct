@@ -1,0 +1,467 @@
+{
+  "complete": true,
+  "signature": "bc6c074c965eea82ce30009efc7b36cc5edaecbcfe83c2e503c11f3748597d7d",
+  "attempts": [
+    {
+      "asr_seconds": 0.16467075096443295,
+      "alignment_seconds": 0.00023524201242253184,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He wants you for the press gang, J.J. O'Malley said.",
+          "start": 0.05,
+          "end": 3.03,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.67724609375
+            },
+            {
+              "text": " wants",
+              "start": 0.51,
+              "end": 0.71,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 0.71,
+              "end": 0.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 0.87,
+              "end": 0.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 0.99,
+              "end": 1.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " press",
+              "start": 1.11,
+              "end": 1.29,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " gang,",
+              "start": 1.29,
+              "end": 1.65,
+              "probability": 0.5703125
+            },
+            {
+              "text": " J",
+              "start": 2.09,
+              "end": 2.11,
+              "probability": 0.29296875
+            },
+            {
+              "text": ".J.",
+              "start": 2.11,
+              "end": 2.31,
+              "probability": 0.944580078125
+            },
+            {
+              "text": " O",
+              "start": 2.41,
+              "end": 2.49,
+              "probability": 0.77587890625
+            },
+            {
+              "text": "'Malley",
+              "start": 2.49,
+              "end": 2.67,
+              "probability": 0.842529296875
+            },
+            {
+              "text": " said.",
+              "start": 2.67,
+              "end": 3.03,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "wants",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "raw": "you",
+          "start": 0.71,
+          "end": 0.87
+        },
+        {
+          "raw": "for",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "raw": "the",
+          "start": 0.99,
+          "end": 1.11
+        },
+        {
+          "raw": "press",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "raw": "gang,",
+          "start": 1.29,
+          "end": 1.65
+        },
+        {
+          "raw": "J",
+          "start": 2.09,
+          "end": 2.11
+        },
+        {
+          "raw": ".J.",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "raw": "O",
+          "start": 2.41,
+          "end": 2.49
+        },
+        {
+          "raw": "'Malley",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "raw": "said.",
+          "start": 2.67,
+          "end": 3.03
+        }
+      ],
+      "expected_tokens": [
+        "—He",
+        "wants",
+        "you",
+        "for",
+        "the",
+        "pressgang,",
+        "J.",
+        "J.",
+        "O'Molloy",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          8,
+          7,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ],
+        [
+          "equal",
+          9,
+          10,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wants",
+          "start": 0.51,
+          "end": 0.71,
+          "key": "wants",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.71,
+          "end": 0.87,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.87,
+          "end": 0.99,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.99,
+          "end": 1.11,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "press",
+          "start": 1.11,
+          "end": 1.29,
+          "key": "press",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gang,",
+          "start": 1.29,
+          "end": 1.65,
+          "key": "gang",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "J",
+          "start": 2.09,
+          "end": 2.11,
+          "key": "j",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": ".J.",
+          "start": 2.11,
+          "end": 2.31,
+          "key": "j",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 2.41,
+          "end": 2.49,
+          "key": "o",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "'Malley",
+          "start": 2.49,
+          "end": 2.67,
+          "key": "malley",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.67,
+          "end": 3.03,
+          "key": "said",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "wants",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "text": "you",
+          "start": 0.71,
+          "end": 0.87
+        },
+        {
+          "text": "for",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "text": "the",
+          "start": 0.99,
+          "end": 1.11
+        },
+        {
+          "text": "pressgang,",
+          "start": 1.11,
+          "end": 1.6
+        },
+        {
+          "text": "J.",
+          "start": 2.09,
+          "end": 2.11
+        },
+        {
+          "text": "J.",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "text": "O'Molloy",
+          "start": 2.31,
+          "end": 2.49
+        },
+        {
+          "text": "said.",
+          "start": 2.67,
+          "end": 3.03
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 12,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16499197197845206
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bc5c9bf5e8f19d4d058474ae607d33501edfd941090f1fb0e001bff397fc30fb",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

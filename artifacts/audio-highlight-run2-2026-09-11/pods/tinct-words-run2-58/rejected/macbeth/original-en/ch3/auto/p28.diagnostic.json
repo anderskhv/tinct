@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "6e65e5b95d931ca08dc5aa89e34566d3776d24132fa9dd33865f5abb6b20620e",
+  "attempts": [
+    {
+      "asr_seconds": 0.24926056060940027,
+      "alignment_seconds": 0.0003980407491326332,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Witch. Banquo and Macbeth, all hail!",
+        "hotwords": "First, Witch, Banquo, Macbeth"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Witch, Banquo and Macbeth, all hail!",
+          "start": 0.05,
+          "end": 2.71,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.76025390625
+            },
+            {
+              "text": " Witch,",
+              "start": 0.65,
+              "end": 0.95,
+              "probability": 0.31640625
+            },
+            {
+              "text": " Banquo",
+              "start": 1.51,
+              "end": 1.77,
+              "probability": 0.8951822916666666
+            },
+            {
+              "text": " and",
+              "start": 1.77,
+              "end": 1.87,
+              "probability": 0.56591796875
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.87,
+              "end": 2.29,
+              "probability": 0.9073893229166666
+            },
+            {
+              "text": " all",
+              "start": 2.43,
+              "end": 2.49,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " hail!",
+              "start": 2.49,
+              "end": 2.71,
+              "probability": 0.79345703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "raw": "Banquo",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "raw": "and",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.87,
+          "end": 2.29
+        },
+        {
+          "raw": "all",
+          "start": 2.43,
+          "end": 2.49
+        },
+        {
+          "raw": "hail!",
+          "start": 2.49,
+          "end": 2.71
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Witch.",
+        "Banquo",
+        "and",
+        "Macbeth,",
+        "all",
+        "hail!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.65,
+          "end": 0.95,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Banquo",
+          "start": 1.51,
+          "end": 1.77,
+          "key": "banquo",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.77,
+          "end": 1.87,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.87,
+          "end": 2.29,
+          "key": "macbeth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.43,
+          "end": 2.49,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hail!",
+          "start": 2.49,
+          "end": 2.71,
+          "key": "hail",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Witch.",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "text": "Banquo",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "text": "and",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "text": "Macbeth,",
+          "start": 1.87,
+          "end": 2.29
+        },
+        {
+          "text": "all",
+          "start": 2.43,
+          "end": 2.49
+        },
+        {
+          "text": "hail!",
+          "start": 2.49,
+          "end": 2.71
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24981251545250416
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5934ab53fef888e27737a881731f455c1f3e3f553ed5012890f0fe2afc1ec6a8",
+  "selected_reasons": []
+}

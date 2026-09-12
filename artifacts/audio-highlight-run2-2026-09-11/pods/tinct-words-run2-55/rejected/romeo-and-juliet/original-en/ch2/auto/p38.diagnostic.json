@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "58f0dc2cff98b0e18c261eef70db4ad2d6be10f8826e444a4203e8b85e3f002d",
+  "attempts": [
+    {
+      "asr_seconds": 0.11540885362774134,
+      "alignment_seconds": 0.00019530300050973892,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Benvolio.]",
+        "hotwords": "Enter, Benvolio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Benvolio.",
+          "start": 0.08,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " Benvolio.",
+              "start": 0.68,
+              "end": 1.42,
+              "probability": 0.9527994791666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Benvolio.",
+          "start": 0.68,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Benvolio.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Benvolio.",
+          "start": 0.68,
+          "end": 1.42,
+          "key": "benvolio",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Benvolio.]",
+          "start": 0.68,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11566389258950949
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "15f591d1f78f58df61f574bcb2a7940546445ac69b4777f94a3741b0f24ac729",
+  "selected_reasons": []
+}

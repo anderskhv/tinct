@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "80b76e782cca7cba463d4a11d6cea33fc44b5b04e41ba7b038d5d9ecbc4c861c",
+  "attempts": [
+    {
+      "asr_seconds": 0.09991762042045593,
+      "alignment_seconds": 0.00013745948672294617,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cornwall, come, sir, what letters had you late from France?",
+          "start": 0.05,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Cornwall,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " come,",
+              "start": 1.23,
+              "end": 1.49,
+              "probability": 0.86328125
+            },
+            {
+              "text": " sir,",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.904296875
+            },
+            {
+              "text": " what",
+              "start": 2.05,
+              "end": 2.09,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " letters",
+              "start": 2.09,
+              "end": 2.35,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " had",
+              "start": 2.35,
+              "end": 2.53,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " you",
+              "start": 2.53,
+              "end": 2.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " late",
+              "start": 2.67,
+              "end": 2.83,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " from",
+              "start": 2.83,
+              "end": 3.05,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " France?",
+              "start": 3.05,
+              "end": 3.37,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "come,",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "raw": "sir,",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "what",
+          "start": 2.05,
+          "end": 2.09
+        },
+        {
+          "raw": "letters",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "raw": "had",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "raw": "you",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "raw": "late",
+          "start": 2.67,
+          "end": 2.83
+        },
+        {
+          "raw": "from",
+          "start": 2.83,
+          "end": 3.05
+        },
+        {
+          "raw": "France?",
+          "start": 3.05,
+          "end": 3.37
+        }
+      ],
+      "expected_tokens": [
+        "Cornwall.",
+        "Come,",
+        "sir,",
+        "what",
+        "letters",
+        "had",
+        "you",
+        "late",
+        "from",
+        "France?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "cornwall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come,",
+          "start": 1.23,
+          "end": 1.49,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.05,
+          "end": 2.09,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "letters",
+          "start": 2.09,
+          "end": 2.35,
+          "key": "letters",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.35,
+          "end": 2.53,
+          "key": "had",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.53,
+          "end": 2.67,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "late",
+          "start": 2.67,
+          "end": 2.83,
+          "key": "late",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.83,
+          "end": 3.05,
+          "key": "from",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "France?",
+          "start": 3.05,
+          "end": 3.37,
+          "key": "france",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cornwall.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Come,",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "text": "sir,",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "text": "what",
+          "start": 2.05,
+          "end": 2.09
+        },
+        {
+          "text": "letters",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "text": "had",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "text": "you",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "text": "late",
+          "start": 2.67,
+          "end": 2.83
+        },
+        {
+          "text": "from",
+          "start": 2.83,
+          "end": 3.05
+        },
+        {
+          "text": "France?",
+          "start": 3.05,
+          "end": 3.37
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10010765120387077
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "51da81cc999cc42b2b44ab8aede1fe9cbfd8e75fd2c8446fc113415ec7c4c092",
+  "selected_reasons": []
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "b2dd5f1507436bc07651e0c91a89f97f8685ece7976a2c17f162a65dfe3237a1",
+  "attempts": [
+    {
+      "asr_seconds": 0.13451441377401352,
+      "alignment_seconds": 0.0003483956679701805,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Now my lord constable",
+          "start": 0.05,
+          "end": 1.71,
+          "words": [
+            {
+              "text": " Now",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " my",
+              "start": 0.65,
+              "end": 0.93,
+              "probability": 0.287841796875
+            },
+            {
+              "text": " lord",
+              "start": 0.93,
+              "end": 1.15,
+              "probability": 0.397705078125
+            },
+            {
+              "text": " constable",
+              "start": 1.15,
+              "end": 1.71,
+              "probability": 0.9736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "my",
+          "start": 0.65,
+          "end": 0.93
+        },
+        {
+          "raw": "lord",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "raw": "constable",
+          "start": 1.15,
+          "end": 1.71
+        }
+      ],
+      "expected_tokens": [
+        "Now,",
+        "my",
+        "Lord",
+        "Constable!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Now",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "now",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.65,
+          "end": 0.93,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 0.93,
+          "end": 1.15,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "constable",
+          "start": 1.15,
+          "end": 1.71,
+          "key": "constable",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Now,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "my",
+          "start": 0.65,
+          "end": 0.93
+        },
+        {
+          "text": "Lord",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "text": "Constable!",
+          "start": 1.15,
+          "end": 1.71
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13499449286609888
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5fb0451b11372f50857cb83165e23202afc17ee35a709b123b25f35f3426a251",
+  "selected_reasons": []
+}

@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "a9808815d0b9236a9a500440a81d34e43a4c3dc85704d98abef8be46622c8c34",
+  "attempts": [
+    {
+      "asr_seconds": 0.12546869507059455,
+      "alignment_seconds": 0.00013701990246772766,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. A good wench, give it me.",
+        "hotwords": "Iago, A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, A good wench, give it me.",
+          "start": 0.47,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.47,
+              "end": 0.79,
+              "probability": 0.1733837127685547
+            },
+            {
+              "text": " A",
+              "start": 1.15,
+              "end": 1.29,
+              "probability": 0.04290771484375
+            },
+            {
+              "text": " good",
+              "start": 1.29,
+              "end": 1.41,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " wench,",
+              "start": 1.41,
+              "end": 1.75,
+              "probability": 0.935302734375
+            },
+            {
+              "text": " give",
+              "start": 1.87,
+              "end": 1.93,
+              "probability": 0.8515625
+            },
+            {
+              "text": " it",
+              "start": 1.93,
+              "end": 2.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " me.",
+              "start": 2.05,
+              "end": 2.23,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.47,
+          "end": 0.79
+        },
+        {
+          "raw": "A",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "raw": "good",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "raw": "wench,",
+          "start": 1.41,
+          "end": 1.75
+        },
+        {
+          "raw": "give",
+          "start": 1.87,
+          "end": 1.93
+        },
+        {
+          "raw": "it",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "raw": "me.",
+          "start": 2.05,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "A",
+        "good",
+        "wench,",
+        "give",
+        "it",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.47,
+          "end": 0.79,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.15,
+          "end": 1.29,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.29,
+          "end": 1.41,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wench,",
+          "start": 1.41,
+          "end": 1.75,
+          "key": "wench",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.87,
+          "end": 1.93,
+          "key": "give",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.93,
+          "end": 2.05,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.05,
+          "end": 2.23,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.47,
+          "end": 0.79
+        },
+        {
+          "text": "A",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "text": "good",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "text": "wench,",
+          "start": 1.41,
+          "end": 1.75
+        },
+        {
+          "text": "give",
+          "start": 1.87,
+          "end": 1.93
+        },
+        {
+          "text": "it",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "text": "me.",
+          "start": 2.05,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12565704388543963
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0b5f14876ec943d59d076b935f04a76661d488377e410c8d2d30fc472f892a46",
+  "selected_reasons": []
+}

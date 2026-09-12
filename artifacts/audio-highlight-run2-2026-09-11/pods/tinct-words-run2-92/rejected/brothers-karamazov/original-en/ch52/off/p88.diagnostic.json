@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "4ca3dbdced9b5de9507f3241eb756bf26ad9e08b065bcb513ae75b6c8cd529be",
+  "attempts": [
+    {
+      "asr_seconds": 0.27202010713517666,
+      "alignment_seconds": 0.0005674436688423157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Now to Russia, panovey, and let us be brothers.",
+          "start": 0.05,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " Now",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " to",
+              "start": 0.57,
+              "end": 0.77,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " Russia,",
+              "start": 0.77,
+              "end": 1.09,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " panovey,",
+              "start": 1.53,
+              "end": 1.99,
+              "probability": 0.3543294270833333
+            },
+            {
+              "text": " and",
+              "start": 2.11,
+              "end": 2.15,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " let",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " us",
+              "start": 2.29,
+              "end": 2.41,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " be",
+              "start": 2.41,
+              "end": 2.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " brothers.",
+              "start": 2.59,
+              "end": 2.87,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "to",
+          "start": 0.57,
+          "end": 0.77
+        },
+        {
+          "raw": "Russia,",
+          "start": 0.77,
+          "end": 1.09
+        },
+        {
+          "raw": "panovey,",
+          "start": 1.53,
+          "end": 1.99
+        },
+        {
+          "raw": "and",
+          "start": 2.11,
+          "end": 2.15
+        },
+        {
+          "raw": "let",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "us",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "raw": "be",
+          "start": 2.41,
+          "end": 2.59
+        },
+        {
+          "raw": "brothers.",
+          "start": 2.59,
+          "end": 2.87
+        }
+      ],
+      "expected_tokens": [
+        "\"Now",
+        "to",
+        "Russia,",
+        "_panovie_,",
+        "and",
+        "let",
+        "us",
+        "be",
+        "brothers!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Now",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "now",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.57,
+          "end": 0.77,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Russia,",
+          "start": 0.77,
+          "end": 1.09,
+          "key": "russia",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "panovey,",
+          "start": 1.53,
+          "end": 1.99,
+          "key": "panovey",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.11,
+          "end": 2.15,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 2.15,
+          "end": 2.29,
+          "key": "let",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 2.29,
+          "end": 2.41,
+          "key": "us",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.41,
+          "end": 2.59,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "brothers.",
+          "start": 2.59,
+          "end": 2.87,
+          "key": "brothers",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Now",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "to",
+          "start": 0.57,
+          "end": 0.77
+        },
+        {
+          "text": "Russia,",
+          "start": 0.77,
+          "end": 1.09
+        },
+        {
+          "text": "_panovie_,",
+          "start": 1.09,
+          "end": 1.6
+        },
+        {
+          "text": "and",
+          "start": 2.11,
+          "end": 2.15
+        },
+        {
+          "text": "let",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "text": "us",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "text": "be",
+          "start": 2.41,
+          "end": 2.59
+        },
+        {
+          "text": "brothers!\"",
+          "start": 2.59,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.27277242578566074
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b5daa27929bea6562002eda9e7cf4eb174cab2ae3112f66481ed1025c639f612",
+  "selected_reasons": []
+}

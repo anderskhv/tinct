@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "8a2794c832db3aebb096ae64ca74140b999fab4b6780d391c86ec282222627fc",
+  "attempts": [
+    {
+      "asr_seconds": 0.12569551542401314,
+      "alignment_seconds": 0.0003780350089073181,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Anne. I would I knew thy heart.",
+        "hotwords": "Anne, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anne, I would I knew thy heart.",
+          "start": 0.02,
+          "end": 1.88,
+          "words": [
+            {
+              "text": " Anne,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.399658203125
+            },
+            {
+              "text": " I",
+              "start": 0.98,
+              "end": 1.06,
+              "probability": 0.95703125
+            },
+            {
+              "text": " would",
+              "start": 1.06,
+              "end": 1.14,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " I",
+              "start": 1.14,
+              "end": 1.26,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " knew",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " thy",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.986328125
+            },
+            {
+              "text": " heart.",
+              "start": 1.6,
+              "end": 1.88,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "I",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "raw": "would",
+          "start": 1.06,
+          "end": 1.14
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "raw": "knew",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "thy",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "heart.",
+          "start": 1.6,
+          "end": 1.88
+        }
+      ],
+      "expected_tokens": [
+        "Anne.",
+        "I",
+        "would",
+        "I",
+        "knew",
+        "thy",
+        "heart."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "anne",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.98,
+          "end": 1.06,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.06,
+          "end": 1.14,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.26,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "knew",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "thy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heart.",
+          "start": 1.6,
+          "end": 1.88,
+          "key": "heart",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Anne.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "I",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "text": "would",
+          "start": 1.06,
+          "end": 1.14
+        },
+        {
+          "text": "I",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "text": "knew",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "thy",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "heart.",
+          "start": 1.6,
+          "end": 1.88
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12620829604566097
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5bd6e054cbd1e1bf6051d7fc5bd4b2e9d5d982cc783ff9fbfcb28eb6025f675c",
+  "selected_reasons": []
+}

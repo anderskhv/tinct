@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "56af28896cf88e863f8104575cf46b4f25a9e0b737d3e6f9fd71ef05b19bb1e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.34875812381505966,
+      "alignment_seconds": 0.00045089423656463623,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"That is offering a premium on incapacity: I shall now endeavour to fail.\"",
+        "hotwords": "That, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That is offering a premium on incapacity. I shall now endeavour to fail.",
+          "start": 0.02,
+          "end": 4.42,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " is",
+              "start": 0.56,
+              "end": 0.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " offering",
+              "start": 0.68,
+              "end": 1.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 1.06,
+              "end": 1.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " premium",
+              "start": 1.22,
+              "end": 1.56,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " on",
+              "start": 1.56,
+              "end": 1.84,
+              "probability": 0.994140625
+            },
+            {
+              "text": " incapacity.",
+              "start": 1.84,
+              "end": 2.62,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " I",
+              "start": 3.0,
+              "end": 3.2,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " shall",
+              "start": 3.2,
+              "end": 3.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " now",
+              "start": 3.34,
+              "end": 3.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " endeavour",
+              "start": 3.54,
+              "end": 3.88,
+              "probability": 0.006984710693359375
+            },
+            {
+              "text": " to",
+              "start": 3.88,
+              "end": 4.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " fail.",
+              "start": 4.16,
+              "end": 4.42,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "raw": "offering",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "raw": "a",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "raw": "premium",
+          "start": 1.22,
+          "end": 1.56
+        },
+        {
+          "raw": "on",
+          "start": 1.56,
+          "end": 1.84
+        },
+        {
+          "raw": "incapacity.",
+          "start": 1.84,
+          "end": 2.62
+        },
+        {
+          "raw": "I",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "raw": "shall",
+          "start": 3.2,
+          "end": 3.34
+        },
+        {
+          "raw": "now",
+          "start": 3.34,
+          "end": 3.54
+        },
+        {
+          "raw": "endeavour",
+          "start": 3.54,
+          "end": 3.88
+        },
+        {
+          "raw": "to",
+          "start": 3.88,
+          "end": 4.16
+        },
+        {
+          "raw": "fail.",
+          "start": 4.16,
+          "end": 4.42
+        }
+      ],
+      "expected_tokens": [
+        "\"That",
+        "is",
+        "offering",
+        "a",
+        "premium",
+        "on",
+        "incapacity:",
+        "I",
+        "shall",
+        "now",
+        "endeavour",
+        "to",
+        "fail.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.68,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "offering",
+          "start": 0.68,
+          "end": 1.06,
+          "key": "offering",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.06,
+          "end": 1.22,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "premium",
+          "start": 1.22,
+          "end": 1.56,
+          "key": "premium",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.56,
+          "end": 1.84,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "incapacity.",
+          "start": 1.84,
+          "end": 2.62,
+          "key": "incapacity",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.0,
+          "end": 3.2,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.2,
+          "end": 3.34,
+          "key": "shall",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 3.34,
+          "end": 3.54,
+          "key": "now",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "endeavour",
+          "start": 3.54,
+          "end": 3.88,
+          "key": "endeavour",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.88,
+          "end": 4.16,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "fail.",
+          "start": 4.16,
+          "end": 4.42,
+          "key": "fail",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "is",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "text": "offering",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "text": "a",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "text": "premium",
+          "start": 1.22,
+          "end": 1.56
+        },
+        {
+          "text": "on",
+          "start": 1.56,
+          "end": 1.84
+        },
+        {
+          "text": "incapacity:",
+          "start": 1.84,
+          "end": 2.62
+        },
+        {
+          "text": "I",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "text": "shall",
+          "start": 3.2,
+          "end": 3.34
+        },
+        {
+          "text": "now",
+          "start": 3.34,
+          "end": 3.54
+        },
+        {
+          "text": "endeavour",
+          "start": 3.54,
+          "end": 3.88
+        },
+        {
+          "text": "to",
+          "start": 3.88,
+          "end": 4.16
+        },
+        {
+          "text": "fail.\"",
+          "start": 4.16,
+          "end": 4.42
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3493916466832161
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "796caa4c391baf5cc47de6d5cc9a617dec2138bad20121a1a8b870913f9c735a",
+  "selected_reasons": []
+}

@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "3786a3d6d1912a7a70e92cf2ec674db13277a6f26a481bf10cfe40af5fc35b5c",
+  "attempts": [
+    {
+      "asr_seconds": 0.16760693676769733,
+      "alignment_seconds": 0.0001628473401069641,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Benedict, I pray you, what is he?",
+          "start": 0.08,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Benedict,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.69482421875
+            },
+            {
+              "text": " I",
+              "start": 1.2,
+              "end": 1.3,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " pray",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you,",
+              "start": 1.48,
+              "end": 1.66,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " what",
+              "start": 1.74,
+              "end": 1.8,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " is",
+              "start": 1.8,
+              "end": 1.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " he?",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.97412109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Benedict,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "I",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "raw": "pray",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "you,",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "raw": "what",
+          "start": 1.74,
+          "end": 1.8
+        },
+        {
+          "raw": "is",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "raw": "he?",
+          "start": 1.94,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "Benedick.",
+        "I",
+        "pray",
+        "you,",
+        "what",
+        "is",
+        "he?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Benedict,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "benedict",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.2,
+          "end": 1.3,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.3,
+          "end": 1.48,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.48,
+          "end": 1.66,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.74,
+          "end": 1.8,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.8,
+          "end": 1.94,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he?",
+          "start": 1.94,
+          "end": 2.12,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Benedick.",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "I",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "text": "pray",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "you,",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "text": "what",
+          "start": 1.74,
+          "end": 1.8
+        },
+        {
+          "text": "is",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "text": "he?",
+          "start": 1.94,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.16782485507428646
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "169e4c9d8283d93624d55b3728d74b17f24a1d02fa9a4291bac74b8e75a307ba",
+  "selected_reasons": []
+}

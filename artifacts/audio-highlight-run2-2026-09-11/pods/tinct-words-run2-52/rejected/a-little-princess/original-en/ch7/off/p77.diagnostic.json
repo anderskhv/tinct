@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "cf559810b032e569d2ae5adebcb740b9dd95fc3270c62883c34701fd2d385ad1",
+  "attempts": [
+    {
+      "asr_seconds": 0.20138775184750557,
+      "alignment_seconds": 0.00035168975591659546,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Here Miss Minchin stopped him with a gasp.",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " Here",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.634765625
+            },
+            {
+              "text": " Miss",
+              "start": 0.57,
+              "end": 0.79,
+              "probability": 0.51904296875
+            },
+            {
+              "text": " Minchin",
+              "start": 0.79,
+              "end": 1.13,
+              "probability": 0.686767578125
+            },
+            {
+              "text": " stopped",
+              "start": 1.13,
+              "end": 1.53,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " him",
+              "start": 1.53,
+              "end": 1.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 1.77,
+              "end": 1.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 1.87,
+              "end": 1.97,
+              "probability": 0.994140625
+            },
+            {
+              "text": " gasp.",
+              "start": 1.97,
+              "end": 2.35,
+              "probability": 0.96826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Here",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Miss",
+          "start": 0.57,
+          "end": 0.79
+        },
+        {
+          "raw": "Minchin",
+          "start": 0.79,
+          "end": 1.13
+        },
+        {
+          "raw": "stopped",
+          "start": 1.13,
+          "end": 1.53
+        },
+        {
+          "raw": "him",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "raw": "with",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "raw": "a",
+          "start": 1.87,
+          "end": 1.97
+        },
+        {
+          "raw": "gasp.",
+          "start": 1.97,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "Here",
+        "Miss",
+        "Minchin",
+        "stopped",
+        "him",
+        "with",
+        "a",
+        "gasp."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Here",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "here",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 0.57,
+          "end": 0.79,
+          "key": "miss",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Minchin",
+          "start": 0.79,
+          "end": 1.13,
+          "key": "minchin",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stopped",
+          "start": 1.13,
+          "end": 1.53,
+          "key": "stopped",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.53,
+          "end": 1.77,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.77,
+          "end": 1.87,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.87,
+          "end": 1.97,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gasp.",
+          "start": 1.97,
+          "end": 2.35,
+          "key": "gasp",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Here",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Miss",
+          "start": 0.57,
+          "end": 0.79
+        },
+        {
+          "text": "Minchin",
+          "start": 0.79,
+          "end": 1.13
+        },
+        {
+          "text": "stopped",
+          "start": 1.13,
+          "end": 1.53
+        },
+        {
+          "text": "him",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "text": "with",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "text": "a",
+          "start": 1.87,
+          "end": 1.97
+        },
+        {
+          "text": "gasp.",
+          "start": 1.97,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20188918709754944
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "955fb18e83ce533bc0782275ce32ad587a3e87d935a3bff5daa34d9122c4e0e9",
+  "selected_reasons": []
+}

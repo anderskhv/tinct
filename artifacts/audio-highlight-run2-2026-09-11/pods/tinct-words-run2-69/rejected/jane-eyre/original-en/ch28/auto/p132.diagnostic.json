@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "2debad601ac2eb434473f4bbe059f960e245f2e608debda6b207adc06806ab88",
+  "attempts": [
+    {
+      "asr_seconds": 0.21262708865106106,
+      "alignment_seconds": 0.0006382986903190613,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No more at present, sister. Try if she can speak now—ask her her name.\"",
+        "hotwords": "No, Try"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No more at present, sister. Try if she can speak now—ask her her name.",
+          "start": 0.02,
+          "end": 4.32,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.837890625
+            },
+            {
+              "text": " more",
+              "start": 0.58,
+              "end": 0.74,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " at",
+              "start": 0.74,
+              "end": 0.9,
+              "probability": 0.98828125
+            },
+            {
+              "text": " present,",
+              "start": 0.9,
+              "end": 1.2,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " sister.",
+              "start": 1.4,
+              "end": 1.62,
+              "probability": 0.65869140625
+            },
+            {
+              "text": " Try",
+              "start": 2.3,
+              "end": 2.36,
+              "probability": 0.986328125
+            },
+            {
+              "text": " if",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.986328125
+            },
+            {
+              "text": " she",
+              "start": 2.48,
+              "end": 2.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " can",
+              "start": 2.6,
+              "end": 2.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " speak",
+              "start": 2.76,
+              "end": 2.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " now—ask",
+              "start": 2.96,
+              "end": 3.82,
+              "probability": 0.6284128824869791
+            },
+            {
+              "text": " her",
+              "start": 3.82,
+              "end": 3.98,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " her",
+              "start": 3.98,
+              "end": 4.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " name.",
+              "start": 4.08,
+              "end": 4.32,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "more",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "raw": "at",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "raw": "present,",
+          "start": 0.9,
+          "end": 1.2
+        },
+        {
+          "raw": "sister.",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "raw": "Try",
+          "start": 2.3,
+          "end": 2.36
+        },
+        {
+          "raw": "if",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "she",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "raw": "can",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "raw": "speak",
+          "start": 2.76,
+          "end": 2.96
+        },
+        {
+          "raw": "now—ask",
+          "start": 2.96,
+          "end": 3.82
+        },
+        {
+          "raw": "her",
+          "start": 3.82,
+          "end": 3.98
+        },
+        {
+          "raw": "her",
+          "start": 3.98,
+          "end": 4.08
+        },
+        {
+          "raw": "name.",
+          "start": 4.08,
+          "end": 4.32
+        }
+      ],
+      "expected_tokens": [
+        "\"No",
+        "more",
+        "at",
+        "present,",
+        "sister.",
+        "Try",
+        "if",
+        "she",
+        "can",
+        "speak",
+        "now—ask",
+        "her",
+        "her",
+        "name.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 0.58,
+          "end": 0.74,
+          "key": "more",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.74,
+          "end": 0.9,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "present,",
+          "start": 0.9,
+          "end": 1.2,
+          "key": "present",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sister.",
+          "start": 1.4,
+          "end": 1.62,
+          "key": "sister",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Try",
+          "start": 2.3,
+          "end": 2.36,
+          "key": "try",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.36,
+          "end": 2.48,
+          "key": "if",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.48,
+          "end": 2.6,
+          "key": "she",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 2.6,
+          "end": 2.76,
+          "key": "can",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 2.76,
+          "end": 2.96,
+          "key": "speak",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "now—ask",
+          "start": 2.96,
+          "end": 3.82,
+          "key": "nowask",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.82,
+          "end": 3.98,
+          "key": "her",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.98,
+          "end": 4.08,
+          "key": "her",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "name.",
+          "start": 4.08,
+          "end": 4.32,
+          "key": "name",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "more",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "text": "at",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "text": "present,",
+          "start": 0.9,
+          "end": 1.2
+        },
+        {
+          "text": "sister.",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "text": "Try",
+          "start": 2.3,
+          "end": 2.36
+        },
+        {
+          "text": "if",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "she",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "text": "can",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "text": "speak",
+          "start": 2.76,
+          "end": 2.96
+        },
+        {
+          "text": "now—ask",
+          "start": 2.96,
+          "end": 3.82
+        },
+        {
+          "text": "her",
+          "start": 3.82,
+          "end": 3.98
+        },
+        {
+          "text": "her",
+          "start": 3.98,
+          "end": 4.08
+        },
+        {
+          "text": "name.\"",
+          "start": 4.08,
+          "end": 4.32
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21351781580597162
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7523223fabbbb34c21063aee05a311d609bb817f9899c05932a6abd6f698742a",
+  "selected_reasons": []
+}

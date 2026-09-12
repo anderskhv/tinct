@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "d3dd293c6701e03823e1fc0a534d17622d20befc6ddbad74aa8f33f124811e94",
+  "attempts": [
+    {
+      "asr_seconds": 0.2444056924432516,
+      "alignment_seconds": 0.0005143880844116211,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Most illustrious, will you be pleased to retire as well?\"",
+        "hotwords": "Most"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Most illustrious, will you be pleased to retire as well?",
+          "start": 0.05,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Most",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.8173828125
+            },
+            {
+              "text": " illustrious,",
+              "start": 0.67,
+              "end": 1.15,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " will",
+              "start": 1.75,
+              "end": 1.79,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " you",
+              "start": 1.79,
+              "end": 1.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 1.87,
+              "end": 2.01,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " pleased",
+              "start": 2.01,
+              "end": 2.25,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " to",
+              "start": 2.25,
+              "end": 2.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " retire",
+              "start": 2.47,
+              "end": 2.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 2.81,
+              "end": 3.07,
+              "probability": 0.962890625
+            },
+            {
+              "text": " well?",
+              "start": 3.07,
+              "end": 3.37,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Most",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "illustrious,",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "raw": "will",
+          "start": 1.75,
+          "end": 1.79
+        },
+        {
+          "raw": "you",
+          "start": 1.79,
+          "end": 1.87
+        },
+        {
+          "raw": "be",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "raw": "pleased",
+          "start": 2.01,
+          "end": 2.25
+        },
+        {
+          "raw": "to",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "raw": "retire",
+          "start": 2.47,
+          "end": 2.81
+        },
+        {
+          "raw": "as",
+          "start": 2.81,
+          "end": 3.07
+        },
+        {
+          "raw": "well?",
+          "start": 3.07,
+          "end": 3.37
+        }
+      ],
+      "expected_tokens": [
+        "\"Most",
+        "illustrious,",
+        "will",
+        "you",
+        "be",
+        "pleased",
+        "to",
+        "retire",
+        "as",
+        "well?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Most",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "most",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "illustrious,",
+          "start": 0.67,
+          "end": 1.15,
+          "key": "illustrious",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.75,
+          "end": 1.79,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.79,
+          "end": 1.87,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.87,
+          "end": 2.01,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pleased",
+          "start": 2.01,
+          "end": 2.25,
+          "key": "pleased",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.25,
+          "end": 2.47,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "retire",
+          "start": 2.47,
+          "end": 2.81,
+          "key": "retire",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.81,
+          "end": 3.07,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "well?",
+          "start": 3.07,
+          "end": 3.37,
+          "key": "well",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Most",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "illustrious,",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "text": "will",
+          "start": 1.75,
+          "end": 1.79
+        },
+        {
+          "text": "you",
+          "start": 1.79,
+          "end": 1.87
+        },
+        {
+          "text": "be",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "text": "pleased",
+          "start": 2.01,
+          "end": 2.25
+        },
+        {
+          "text": "to",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "text": "retire",
+          "start": 2.47,
+          "end": 2.81
+        },
+        {
+          "text": "as",
+          "start": 2.81,
+          "end": 3.07
+        },
+        {
+          "text": "well?\"",
+          "start": 3.07,
+          "end": 3.37
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24513268191367388
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6d71c43217274a81c291035d5f0841cfeb54c2ef918e127c725435d646072b92",
+  "selected_reasons": []
+}

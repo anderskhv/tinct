@@ -1,0 +1,1694 @@
+{
+  "complete": true,
+  "signature": "86e25392525148e1e2a9e23ead6404e0a6c70abdc4efd56dfe12334e2150fa41",
+  "attempts": [
+    {
+      "asr_seconds": 0.6342139849439263,
+      "alignment_seconds": 0.0008592214435338974,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The fact is I didn't give it to him, and it's a long story,\" answered Alyosha, as though he, too, could think of nothing but his regret at having failed, yet Lise saw perfectly well that he, too, looked away, and that he, too, was trying to talk of other things.",
+        "hotwords": "The, I, Alyosha, Lise"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The fact is I didn't give it to him, and it's a long story,\" answered Alyosha, as though he, too, could think of nothing but his regret at having failed, yet Lise saw perfectly well that he, too, looked away, and that he, too, was trying to talk of other things.",
+          "start": 0.02,
+          "end": 15.88,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.099853515625
+            },
+            {
+              "text": " fact",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " is",
+              "start": 0.74,
+              "end": 0.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 0.92,
+              "end": 1.04,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " didn't",
+              "start": 1.04,
+              "end": 1.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " give",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 1.54,
+              "end": 1.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him,",
+              "start": 1.66,
+              "end": 1.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 2.22,
+              "end": 2.36,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " it's",
+              "start": 2.36,
+              "end": 2.5,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " a",
+              "start": 2.5,
+              "end": 2.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " long",
+              "start": 2.62,
+              "end": 2.88,
+              "probability": 0.990234375
+            },
+            {
+              "text": " story,\"",
+              "start": 2.88,
+              "end": 3.9,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " answered",
+              "start": 3.9,
+              "end": 4.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Alyosha,",
+              "start": 4.3,
+              "end": 5.0,
+              "probability": 0.9300130208333334
+            },
+            {
+              "text": " as",
+              "start": 5.4,
+              "end": 5.6,
+              "probability": 0.966796875
+            },
+            {
+              "text": " though",
+              "start": 5.6,
+              "end": 5.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he,",
+              "start": 5.78,
+              "end": 5.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " too,",
+              "start": 5.98,
+              "end": 6.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " could",
+              "start": 6.54,
+              "end": 6.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " think",
+              "start": 6.68,
+              "end": 6.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 6.86,
+              "end": 7.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nothing",
+              "start": 7.0,
+              "end": 7.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 7.3,
+              "end": 7.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 7.56,
+              "end": 7.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " regret",
+              "start": 7.72,
+              "end": 8.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 8.08,
+              "end": 8.26,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " having",
+              "start": 8.26,
+              "end": 8.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " failed,",
+              "start": 8.52,
+              "end": 8.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " yet",
+              "start": 9.52,
+              "end": 9.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Lise",
+              "start": 9.72,
+              "end": 10.02,
+              "probability": 0.0928955078125
+            },
+            {
+              "text": " saw",
+              "start": 10.02,
+              "end": 10.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " perfectly",
+              "start": 10.32,
+              "end": 10.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " well",
+              "start": 10.78,
+              "end": 11.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 11.18,
+              "end": 11.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he,",
+              "start": 11.4,
+              "end": 11.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " too,",
+              "start": 11.84,
+              "end": 12.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " looked",
+              "start": 12.44,
+              "end": 12.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " away,",
+              "start": 12.56,
+              "end": 12.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 13.42,
+              "end": 13.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 13.5,
+              "end": 13.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he,",
+              "start": 13.62,
+              "end": 13.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " too,",
+              "start": 13.86,
+              "end": 14.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " was",
+              "start": 14.42,
+              "end": 14.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " trying",
+              "start": 14.54,
+              "end": 14.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 14.82,
+              "end": 15.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " talk",
+              "start": 15.02,
+              "end": 15.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 15.26,
+              "end": 15.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " other",
+              "start": 15.38,
+              "end": 15.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " things.",
+              "start": 15.56,
+              "end": 15.88,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "fact",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "is",
+          "start": 0.74,
+          "end": 0.92
+        },
+        {
+          "raw": "I",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "raw": "didn't",
+          "start": 1.04,
+          "end": 1.3
+        },
+        {
+          "raw": "give",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "it",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "to",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "raw": "him,",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "raw": "and",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "raw": "it's",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "raw": "a",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "raw": "long",
+          "start": 2.62,
+          "end": 2.88
+        },
+        {
+          "raw": "story,\"",
+          "start": 2.88,
+          "end": 3.9
+        },
+        {
+          "raw": "answered",
+          "start": 3.9,
+          "end": 4.3
+        },
+        {
+          "raw": "Alyosha,",
+          "start": 4.3,
+          "end": 5.0
+        },
+        {
+          "raw": "as",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "raw": "though",
+          "start": 5.6,
+          "end": 5.78
+        },
+        {
+          "raw": "he,",
+          "start": 5.78,
+          "end": 5.98
+        },
+        {
+          "raw": "too,",
+          "start": 5.98,
+          "end": 6.36
+        },
+        {
+          "raw": "could",
+          "start": 6.54,
+          "end": 6.68
+        },
+        {
+          "raw": "think",
+          "start": 6.68,
+          "end": 6.86
+        },
+        {
+          "raw": "of",
+          "start": 6.86,
+          "end": 7.0
+        },
+        {
+          "raw": "nothing",
+          "start": 7.0,
+          "end": 7.3
+        },
+        {
+          "raw": "but",
+          "start": 7.3,
+          "end": 7.56
+        },
+        {
+          "raw": "his",
+          "start": 7.56,
+          "end": 7.72
+        },
+        {
+          "raw": "regret",
+          "start": 7.72,
+          "end": 8.08
+        },
+        {
+          "raw": "at",
+          "start": 8.08,
+          "end": 8.26
+        },
+        {
+          "raw": "having",
+          "start": 8.26,
+          "end": 8.52
+        },
+        {
+          "raw": "failed,",
+          "start": 8.52,
+          "end": 8.96
+        },
+        {
+          "raw": "yet",
+          "start": 9.52,
+          "end": 9.72
+        },
+        {
+          "raw": "Lise",
+          "start": 9.72,
+          "end": 10.02
+        },
+        {
+          "raw": "saw",
+          "start": 10.02,
+          "end": 10.32
+        },
+        {
+          "raw": "perfectly",
+          "start": 10.32,
+          "end": 10.78
+        },
+        {
+          "raw": "well",
+          "start": 10.78,
+          "end": 11.18
+        },
+        {
+          "raw": "that",
+          "start": 11.18,
+          "end": 11.4
+        },
+        {
+          "raw": "he,",
+          "start": 11.4,
+          "end": 11.7
+        },
+        {
+          "raw": "too,",
+          "start": 11.84,
+          "end": 12.18
+        },
+        {
+          "raw": "looked",
+          "start": 12.44,
+          "end": 12.56
+        },
+        {
+          "raw": "away,",
+          "start": 12.56,
+          "end": 12.92
+        },
+        {
+          "raw": "and",
+          "start": 13.42,
+          "end": 13.5
+        },
+        {
+          "raw": "that",
+          "start": 13.5,
+          "end": 13.62
+        },
+        {
+          "raw": "he,",
+          "start": 13.62,
+          "end": 13.86
+        },
+        {
+          "raw": "too,",
+          "start": 13.86,
+          "end": 14.18
+        },
+        {
+          "raw": "was",
+          "start": 14.42,
+          "end": 14.54
+        },
+        {
+          "raw": "trying",
+          "start": 14.54,
+          "end": 14.82
+        },
+        {
+          "raw": "to",
+          "start": 14.82,
+          "end": 15.02
+        },
+        {
+          "raw": "talk",
+          "start": 15.02,
+          "end": 15.26
+        },
+        {
+          "raw": "of",
+          "start": 15.26,
+          "end": 15.38
+        },
+        {
+          "raw": "other",
+          "start": 15.38,
+          "end": 15.56
+        },
+        {
+          "raw": "things.",
+          "start": 15.56,
+          "end": 15.88
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "fact",
+        "is",
+        "I",
+        "didn't",
+        "give",
+        "it",
+        "to",
+        "him,",
+        "and",
+        "it's",
+        "a",
+        "long",
+        "story,\"",
+        "answered",
+        "Alyosha,",
+        "as",
+        "though",
+        "he,",
+        "too,",
+        "could",
+        "think",
+        "of",
+        "nothing",
+        "but",
+        "his",
+        "regret",
+        "at",
+        "having",
+        "failed,",
+        "yet",
+        "Lise",
+        "saw",
+        "perfectly",
+        "well",
+        "that",
+        "he,",
+        "too,",
+        "looked",
+        "away,",
+        "and",
+        "that",
+        "he,",
+        "too,",
+        "was",
+        "trying",
+        "to",
+        "talk",
+        "of",
+        "other",
+        "things."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          51,
+          0,
+          51
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fact",
+          "start": 0.5,
+          "end": 0.74,
+          "key": "fact",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.74,
+          "end": 0.92,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.92,
+          "end": 1.04,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "didn't",
+          "start": 1.04,
+          "end": 1.3,
+          "key": "didnt",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "give",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.54,
+          "end": 1.66,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 1.66,
+          "end": 1.9,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.22,
+          "end": 2.36,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 2.36,
+          "end": 2.5,
+          "key": "its",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.5,
+          "end": 2.62,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 2.62,
+          "end": 2.88,
+          "key": "long",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "story,\"",
+          "start": 2.88,
+          "end": 3.9,
+          "key": "story",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 3.9,
+          "end": 4.3,
+          "key": "answered",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Alyosha,",
+          "start": 4.3,
+          "end": 5.0,
+          "key": "alyosha",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.4,
+          "end": 5.6,
+          "key": "as",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 5.6,
+          "end": 5.78,
+          "key": "though",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 5.78,
+          "end": 5.98,
+          "key": "he",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 5.98,
+          "end": 6.36,
+          "key": "too",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 6.54,
+          "end": 6.68,
+          "key": "could",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 6.68,
+          "end": 6.86,
+          "key": "think",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.86,
+          "end": 7.0,
+          "key": "of",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 7.0,
+          "end": 7.3,
+          "key": "nothing",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 7.3,
+          "end": 7.56,
+          "key": "but",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 7.56,
+          "end": 7.72,
+          "key": "his",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "regret",
+          "start": 7.72,
+          "end": 8.08,
+          "key": "regret",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 8.08,
+          "end": 8.26,
+          "key": "at",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "having",
+          "start": 8.26,
+          "end": 8.52,
+          "key": "having",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "failed,",
+          "start": 8.52,
+          "end": 8.96,
+          "key": "failed",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 9.52,
+          "end": 9.72,
+          "key": "yet",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Lise",
+          "start": 9.72,
+          "end": 10.02,
+          "key": "lise",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 10.02,
+          "end": 10.32,
+          "key": "saw",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "perfectly",
+          "start": 10.32,
+          "end": 10.78,
+          "key": "perfectly",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 10.78,
+          "end": 11.18,
+          "key": "well",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 11.18,
+          "end": 11.4,
+          "key": "that",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 11.4,
+          "end": 11.7,
+          "key": "he",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 11.84,
+          "end": 12.18,
+          "key": "too",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 12.44,
+          "end": 12.56,
+          "key": "looked",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "away,",
+          "start": 12.56,
+          "end": 12.92,
+          "key": "away",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.42,
+          "end": 13.5,
+          "key": "and",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 13.5,
+          "end": 13.62,
+          "key": "that",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 13.62,
+          "end": 13.86,
+          "key": "he",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 13.86,
+          "end": 14.18,
+          "key": "too",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 14.42,
+          "end": 14.54,
+          "key": "was",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "trying",
+          "start": 14.54,
+          "end": 14.82,
+          "key": "trying",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.82,
+          "end": 15.02,
+          "key": "to",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 15.02,
+          "end": 15.26,
+          "key": "talk",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 15.26,
+          "end": 15.38,
+          "key": "of",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 15.38,
+          "end": 15.56,
+          "key": "other",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "things.",
+          "start": 15.56,
+          "end": 15.88,
+          "key": "things",
+          "pieces": [
+            50
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "fact",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "is",
+          "start": 0.74,
+          "end": 0.92
+        },
+        {
+          "text": "I",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "text": "didn't",
+          "start": 1.04,
+          "end": 1.3
+        },
+        {
+          "text": "give",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "it",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "to",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "text": "him,",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "text": "and",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "text": "it's",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "text": "a",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "text": "long",
+          "start": 2.62,
+          "end": 2.88
+        },
+        {
+          "text": "story,\"",
+          "start": 2.88,
+          "end": 3.9
+        },
+        {
+          "text": "answered",
+          "start": 3.9,
+          "end": 4.3
+        },
+        {
+          "text": "Alyosha,",
+          "start": 4.3,
+          "end": 5.0
+        },
+        {
+          "text": "as",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "text": "though",
+          "start": 5.6,
+          "end": 5.78
+        },
+        {
+          "text": "he,",
+          "start": 5.78,
+          "end": 5.98
+        },
+        {
+          "text": "too,",
+          "start": 5.98,
+          "end": 6.36
+        },
+        {
+          "text": "could",
+          "start": 6.54,
+          "end": 6.68
+        },
+        {
+          "text": "think",
+          "start": 6.68,
+          "end": 6.86
+        },
+        {
+          "text": "of",
+          "start": 6.86,
+          "end": 7.0
+        },
+        {
+          "text": "nothing",
+          "start": 7.0,
+          "end": 7.3
+        },
+        {
+          "text": "but",
+          "start": 7.3,
+          "end": 7.56
+        },
+        {
+          "text": "his",
+          "start": 7.56,
+          "end": 7.72
+        },
+        {
+          "text": "regret",
+          "start": 7.72,
+          "end": 8.08
+        },
+        {
+          "text": "at",
+          "start": 8.08,
+          "end": 8.26
+        },
+        {
+          "text": "having",
+          "start": 8.26,
+          "end": 8.52
+        },
+        {
+          "text": "failed,",
+          "start": 8.52,
+          "end": 8.96
+        },
+        {
+          "text": "yet",
+          "start": 9.52,
+          "end": 9.72
+        },
+        {
+          "text": "Lise",
+          "start": 9.72,
+          "end": 10.02
+        },
+        {
+          "text": "saw",
+          "start": 10.02,
+          "end": 10.32
+        },
+        {
+          "text": "perfectly",
+          "start": 10.32,
+          "end": 10.78
+        },
+        {
+          "text": "well",
+          "start": 10.78,
+          "end": 11.18
+        },
+        {
+          "text": "that",
+          "start": 11.18,
+          "end": 11.4
+        },
+        {
+          "text": "he,",
+          "start": 11.4,
+          "end": 11.7
+        },
+        {
+          "text": "too,",
+          "start": 11.84,
+          "end": 12.18
+        },
+        {
+          "text": "looked",
+          "start": 12.44,
+          "end": 12.56
+        },
+        {
+          "text": "away,",
+          "start": 12.56,
+          "end": 12.92
+        },
+        {
+          "text": "and",
+          "start": 13.42,
+          "end": 13.5
+        },
+        {
+          "text": "that",
+          "start": 13.5,
+          "end": 13.62
+        },
+        {
+          "text": "he,",
+          "start": 13.62,
+          "end": 13.86
+        },
+        {
+          "text": "too,",
+          "start": 13.86,
+          "end": 14.18
+        },
+        {
+          "text": "was",
+          "start": 14.42,
+          "end": 14.54
+        },
+        {
+          "text": "trying",
+          "start": 14.54,
+          "end": 14.82
+        },
+        {
+          "text": "to",
+          "start": 14.82,
+          "end": 15.02
+        },
+        {
+          "text": "talk",
+          "start": 15.02,
+          "end": 15.26
+        },
+        {
+          "text": "of",
+          "start": 15.26,
+          "end": 15.38
+        },
+        {
+          "text": "other",
+          "start": 15.38,
+          "end": 15.56
+        },
+        {
+          "text": "things.",
+          "start": 15.56,
+          "end": 15.88
+        }
+      ],
+      "stats": {
+        "expected_words": 51,
+        "heard_words": 51,
+        "matched_words": 51
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6354888556525111
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "10f7e703fd442770b4409f0c043872f56540eede054da3db0b03cc64b9cde460",
+  "selected_reasons": []
+}

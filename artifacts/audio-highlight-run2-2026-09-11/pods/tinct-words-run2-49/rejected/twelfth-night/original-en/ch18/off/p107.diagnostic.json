@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "4519c1afefa418c225ebcf6d14e029ec60d0f87fe0aa80bf4cdb68438ed4f612",
+  "attempts": [
+    {
+      "asr_seconds": 0.18058892711997032,
+      "alignment_seconds": 0.0003764741122722626,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To Olivia, so comes it lady you have been mistook",
+          "start": 0.0,
+          "end": 3.28,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.52,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " Olivia,",
+              "start": 0.52,
+              "end": 0.96,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " so",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " comes",
+              "start": 1.68,
+              "end": 1.94,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " it",
+              "start": 1.94,
+              "end": 2.06,
+              "probability": 0.865234375
+            },
+            {
+              "text": " lady",
+              "start": 2.06,
+              "end": 2.26,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " you",
+              "start": 2.26,
+              "end": 2.62,
+              "probability": 0.70654296875
+            },
+            {
+              "text": " have",
+              "start": 2.62,
+              "end": 2.7,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " been",
+              "start": 2.7,
+              "end": 2.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " mistook",
+              "start": 2.8,
+              "end": 3.28,
+              "probability": 0.81640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "raw": "Olivia,",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "raw": "so",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "comes",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "raw": "it",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "raw": "lady",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "raw": "you",
+          "start": 2.26,
+          "end": 2.62
+        },
+        {
+          "raw": "have",
+          "start": 2.62,
+          "end": 2.7
+        },
+        {
+          "raw": "been",
+          "start": 2.7,
+          "end": 2.8
+        },
+        {
+          "raw": "mistook",
+          "start": 2.8,
+          "end": 3.28
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Olivia._]",
+        "So",
+        "comes",
+        "it,",
+        "lady,",
+        "you",
+        "have",
+        "been",
+        "mistook."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.52,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Olivia,",
+          "start": 0.52,
+          "end": 0.96,
+          "key": "olivia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.44,
+          "end": 1.68,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 1.68,
+          "end": 1.94,
+          "key": "comes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.94,
+          "end": 2.06,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 2.06,
+          "end": 2.26,
+          "key": "lady",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.26,
+          "end": 2.62,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.62,
+          "end": 2.7,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.7,
+          "end": 2.8,
+          "key": "been",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mistook",
+          "start": 2.8,
+          "end": 3.28,
+          "key": "mistook",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "Olivia._]",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "text": "So",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "comes",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "text": "it,",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "text": "lady,",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "text": "you",
+          "start": 2.26,
+          "end": 2.62
+        },
+        {
+          "text": "have",
+          "start": 2.62,
+          "end": 2.7
+        },
+        {
+          "text": "been",
+          "start": 2.7,
+          "end": 2.8
+        },
+        {
+          "text": "mistook.",
+          "start": 2.8,
+          "end": 3.28
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18110588565468788
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a5c64b1e1b04a4525341b347f62e0ee449507a5b2021e5a75d7c8828ad31a80d",
+  "selected_reasons": []
+}

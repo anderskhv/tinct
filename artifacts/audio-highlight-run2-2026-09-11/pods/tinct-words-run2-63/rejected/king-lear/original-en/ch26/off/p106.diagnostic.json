@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "b67f11e0e91204a46f4d12413939637097a48a22b6df7cdf86d6651ab4243455",
+  "attempts": [
+    {
+      "asr_seconds": 0.18141014873981476,
+      "alignment_seconds": 0.00040217675268650055,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Albany. Run, run, oh, run.",
+          "start": 0.44,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Albany.",
+              "start": 0.44,
+              "end": 0.74,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Run,",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " run,",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " oh,",
+              "start": 1.8,
+              "end": 1.86,
+              "probability": 0.849609375
+            },
+            {
+              "text": " run.",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Albany.",
+          "start": 0.44,
+          "end": 0.74
+        },
+        {
+          "raw": "Run,",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "run,",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "oh,",
+          "start": 1.8,
+          "end": 1.86
+        },
+        {
+          "raw": "run.",
+          "start": 1.94,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "Albany.",
+        "Run,",
+        "run,",
+        "O,",
+        "run!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Albany.",
+          "start": 0.44,
+          "end": 0.74,
+          "key": "albany",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Run,",
+          "start": 1.28,
+          "end": 1.4,
+          "key": "run",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "run,",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "run",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "oh,",
+          "start": 1.8,
+          "end": 1.86,
+          "key": "oh",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "run.",
+          "start": 1.94,
+          "end": 2.12,
+          "key": "run",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Albany.",
+          "start": 0.44,
+          "end": 0.74
+        },
+        {
+          "text": "Run,",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "text": "run,",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "O,",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "text": "run!",
+          "start": 1.94,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18195143342018127
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8ee1bd9b513640c19e22b7fea855381c3bf7dcc29cc96d7aa4eb90faa5dbf786",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

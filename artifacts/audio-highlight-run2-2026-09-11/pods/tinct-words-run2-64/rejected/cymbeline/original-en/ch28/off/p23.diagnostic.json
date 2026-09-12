@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "9714b6f77c2ff35eaf24a5a361299bfd241d5384490cb422fa652bdfef82c036",
+  "attempts": [
+    {
+      "asr_seconds": 0.10100156906992197,
+      "alignment_seconds": 0.00017111003398895264,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All thanks, Jupiter.",
+          "start": 0.05,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.806640625
+            },
+            {
+              "text": " thanks,",
+              "start": 0.67,
+              "end": 1.15,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " Jupiter.",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "thanks,",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "raw": "Jupiter.",
+          "start": 1.37,
+          "end": 1.55
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "Thanks,",
+        "Jupiter!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thanks,",
+          "start": 0.67,
+          "end": 1.15,
+          "key": "thanks",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Jupiter.",
+          "start": 1.37,
+          "end": 1.55,
+          "key": "jupiter",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Thanks,",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "text": "Jupiter!",
+          "start": 1.37,
+          "end": 1.55
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1012336928397417
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "548ef1bc02952e75572a9cbf3f6a11ddc5d8efe584929baffd50a4cca351c68f",
+  "selected_reasons": []
+}

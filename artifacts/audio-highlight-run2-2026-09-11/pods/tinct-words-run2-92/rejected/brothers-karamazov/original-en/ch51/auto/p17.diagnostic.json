@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "91ca6f8fee455a7929f58ed51eaeb47e05c36a11cb0082a40989cfa84de80a2a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2849314520135522,
+      "alignment_seconds": 0.0002758800983428955,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Cards?\"",
+        "hotwords": "Cards"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cards",
+          "start": 0.05,
+          "end": 0.61,
+          "words": [
+            {
+              "text": " Cards",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.50537109375
+            }
+          ]
+        },
+        {
+          "text": " Cards",
+          "start": 0.61,
+          "end": 0.85,
+          "words": [
+            {
+              "text": " Cards",
+              "start": 0.61,
+              "end": 0.85,
+              "probability": 0.00024139881134033203
+            }
+          ]
+        },
+        {
+          "text": " Cards",
+          "start": 0.85,
+          "end": 0.95,
+          "words": [
+            {
+              "text": " Cards",
+              "start": 0.85,
+              "end": 0.95,
+              "probability": 7.152557373046875e-07
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cards",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Cards",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "raw": "Cards",
+          "start": 0.85,
+          "end": 0.95
+        }
+      ],
+      "expected_tokens": [
+        "\"Cards?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cards",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "cards",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cards",
+          "start": 0.61,
+          "end": 0.85,
+          "key": "cards",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cards",
+          "start": 0.85,
+          "end": 0.95,
+          "key": "cards",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Cards?\"",
+          "start": 0.05,
+          "end": 0.61
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.285322361625731
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "15f55511eb5fc0cab91f4a6313b11d46476882306e5b04706ce4ad6297db6f04",
+  "selected_reasons": []
+}

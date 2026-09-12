@@ -1,0 +1,1291 @@
+{
+  "complete": true,
+  "signature": "e7e8a34502216bbe2f1d99e83a0904f1b4f984ce180629656edc17d1cf94db2c",
+  "attempts": [
+    {
+      "asr_seconds": 0.24289154401049018,
+      "alignment_seconds": 0.0002961386926472187,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Didn't say dat t'all,\" said Fleece, again in the sulks.",
+        "hotwords": "Didn't, Fleece"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Didn't say dat t'all,\" said Fleece, again in the sulks.",
+          "start": 0.02,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " Didn't",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.5633544921875
+            },
+            {
+              "text": " say",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.9765625
+            },
+            {
+              "text": " dat",
+              "start": 0.8,
+              "end": 1.02,
+              "probability": 0.2322998046875
+            },
+            {
+              "text": " t",
+              "start": 1.02,
+              "end": 1.2,
+              "probability": 0.147216796875
+            },
+            {
+              "text": "'all,\"",
+              "start": 1.2,
+              "end": 1.78,
+              "probability": 0.5812174479166666
+            },
+            {
+              "text": " said",
+              "start": 1.78,
+              "end": 2.08,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Fleece,",
+              "start": 2.08,
+              "end": 2.52,
+              "probability": 0.8357747395833334
+            },
+            {
+              "text": " again",
+              "start": 2.56,
+              "end": 2.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 2.78,
+              "end": 2.9,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " the",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.966796875
+            },
+            {
+              "text": " sulks.",
+              "start": 3.02,
+              "end": 3.42,
+              "probability": 0.93798828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Didn't",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "say",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "dat",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "raw": "t",
+          "start": 1.02,
+          "end": 1.2
+        },
+        {
+          "raw": "'all,\"",
+          "start": 1.2,
+          "end": 1.78
+        },
+        {
+          "raw": "said",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "raw": "Fleece,",
+          "start": 2.08,
+          "end": 2.52
+        },
+        {
+          "raw": "again",
+          "start": 2.56,
+          "end": 2.78
+        },
+        {
+          "raw": "in",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "sulks.",
+          "start": 3.02,
+          "end": 3.42
+        }
+      ],
+      "expected_tokens": [
+        "\"Didn't",
+        "say",
+        "dat",
+        "t'all,\"",
+        "said",
+        "Fleece,",
+        "again",
+        "in",
+        "the",
+        "sulks."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          10,
+          5,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Didn't",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "didnt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 0.66,
+          "end": 0.8,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dat",
+          "start": 0.8,
+          "end": 1.02,
+          "key": "dat",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "t",
+          "start": 1.02,
+          "end": 1.2,
+          "key": "t",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'all,\"",
+          "start": 1.2,
+          "end": 1.78,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.78,
+          "end": 2.08,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Fleece,",
+          "start": 2.08,
+          "end": 2.52,
+          "key": "fleece",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 2.56,
+          "end": 2.78,
+          "key": "again",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.78,
+          "end": 2.9,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sulks.",
+          "start": 3.02,
+          "end": 3.42,
+          "key": "sulks",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Didn't",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "say",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "text": "dat",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "text": "t'all,\"",
+          "start": 1.02,
+          "end": 1.4
+        },
+        {
+          "text": "said",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "text": "Fleece,",
+          "start": 2.08,
+          "end": 2.52
+        },
+        {
+          "text": "again",
+          "start": 2.56,
+          "end": 2.78
+        },
+        {
+          "text": "in",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "text": "the",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "sulks.",
+          "start": 3.02,
+          "end": 3.42
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.2433011601679027
+    },
+    {
+      "asr_seconds": 0.2482683672569692,
+      "alignment_seconds": 0.0003618230111896992,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Didn't, Fleece"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Didn't say dat to y'all,\" said Fleece again in the sulks.",
+          "start": 0.02,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " Didn't",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.5633544921875
+            },
+            {
+              "text": " say",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.9765625
+            },
+            {
+              "text": " dat",
+              "start": 0.8,
+              "end": 1.02,
+              "probability": 0.2322998046875
+            },
+            {
+              "text": " to",
+              "start": 1.02,
+              "end": 1.2,
+              "probability": 0.62451171875
+            },
+            {
+              "text": " y",
+              "start": 1.2,
+              "end": 1.36,
+              "probability": 0.8291015625
+            },
+            {
+              "text": "'all,\"",
+              "start": 1.36,
+              "end": 1.8,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " said",
+              "start": 1.8,
+              "end": 2.08,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Fleece",
+              "start": 2.08,
+              "end": 2.52,
+              "probability": 0.8489583333333334
+            },
+            {
+              "text": " again",
+              "start": 2.52,
+              "end": 2.76,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " in",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " sulks.",
+              "start": 3.02,
+              "end": 3.42,
+              "probability": 0.94287109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Didn't",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "say",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "dat",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "raw": "to",
+          "start": 1.02,
+          "end": 1.2
+        },
+        {
+          "raw": "y",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "raw": "'all,\"",
+          "start": 1.36,
+          "end": 1.8
+        },
+        {
+          "raw": "said",
+          "start": 1.8,
+          "end": 2.08
+        },
+        {
+          "raw": "Fleece",
+          "start": 2.08,
+          "end": 2.52
+        },
+        {
+          "raw": "again",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "raw": "in",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "sulks.",
+          "start": 3.02,
+          "end": 3.42
+        }
+      ],
+      "expected_tokens": [
+        "\"Didn't",
+        "say",
+        "dat",
+        "t'all,\"",
+        "said",
+        "Fleece,",
+        "again",
+        "in",
+        "the",
+        "sulks."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          6
+        ],
+        [
+          "equal",
+          4,
+          10,
+          6,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Didn't",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "didnt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 0.66,
+          "end": 0.8,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dat",
+          "start": 0.8,
+          "end": 1.02,
+          "key": "dat",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.02,
+          "end": 1.2,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "y",
+          "start": 1.2,
+          "end": 1.36,
+          "key": "y",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "'all,\"",
+          "start": 1.36,
+          "end": 1.8,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.8,
+          "end": 2.08,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Fleece",
+          "start": 2.08,
+          "end": 2.52,
+          "key": "fleece",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 2.52,
+          "end": 2.76,
+          "key": "again",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sulks.",
+          "start": 3.02,
+          "end": 3.42,
+          "key": "sulks",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Didn't",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "say",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "text": "dat",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "text": "t'all,\"",
+          "start": 1.02,
+          "end": 1.41
+        },
+        {
+          "text": "said",
+          "start": 1.8,
+          "end": 2.08
+        },
+        {
+          "text": "Fleece,",
+          "start": 2.08,
+          "end": 2.52
+        },
+        {
+          "text": "again",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "text": "in",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "the",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "sulks.",
+          "start": 3.02,
+          "end": 3.42
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.24876304203644395
+    },
+    {
+      "asr_seconds": 0.2000513426028192,
+      "alignment_seconds": 0.0004750378429889679,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Didn't say dat to y'all,\" said Fleece again in the sulks.",
+          "start": 0.02,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " Didn't",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.5633544921875
+            },
+            {
+              "text": " say",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.9765625
+            },
+            {
+              "text": " dat",
+              "start": 0.8,
+              "end": 1.02,
+              "probability": 0.2322998046875
+            },
+            {
+              "text": " to",
+              "start": 1.02,
+              "end": 1.2,
+              "probability": 0.62451171875
+            },
+            {
+              "text": " y",
+              "start": 1.2,
+              "end": 1.36,
+              "probability": 0.8291015625
+            },
+            {
+              "text": "'all,\"",
+              "start": 1.36,
+              "end": 1.8,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " said",
+              "start": 1.8,
+              "end": 2.08,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Fleece",
+              "start": 2.08,
+              "end": 2.52,
+              "probability": 0.8489583333333334
+            },
+            {
+              "text": " again",
+              "start": 2.52,
+              "end": 2.76,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " in",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " sulks.",
+              "start": 3.02,
+              "end": 3.42,
+              "probability": 0.94287109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Didn't",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "say",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "dat",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "raw": "to",
+          "start": 1.02,
+          "end": 1.2
+        },
+        {
+          "raw": "y",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "raw": "'all,\"",
+          "start": 1.36,
+          "end": 1.8
+        },
+        {
+          "raw": "said",
+          "start": 1.8,
+          "end": 2.08
+        },
+        {
+          "raw": "Fleece",
+          "start": 2.08,
+          "end": 2.52
+        },
+        {
+          "raw": "again",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "raw": "in",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "sulks.",
+          "start": 3.02,
+          "end": 3.42
+        }
+      ],
+      "expected_tokens": [
+        "\"Didn't",
+        "say",
+        "dat",
+        "t'all,\"",
+        "said",
+        "Fleece,",
+        "again",
+        "in",
+        "the",
+        "sulks."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          6
+        ],
+        [
+          "equal",
+          4,
+          10,
+          6,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Didn't",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "didnt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 0.66,
+          "end": 0.8,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dat",
+          "start": 0.8,
+          "end": 1.02,
+          "key": "dat",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.02,
+          "end": 1.2,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "y",
+          "start": 1.2,
+          "end": 1.36,
+          "key": "y",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "'all,\"",
+          "start": 1.36,
+          "end": 1.8,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.8,
+          "end": 2.08,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Fleece",
+          "start": 2.08,
+          "end": 2.52,
+          "key": "fleece",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 2.52,
+          "end": 2.76,
+          "key": "again",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sulks.",
+          "start": 3.02,
+          "end": 3.42,
+          "key": "sulks",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Didn't",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "say",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "text": "dat",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "text": "t'all,\"",
+          "start": 1.02,
+          "end": 1.41
+        },
+        {
+          "text": "said",
+          "start": 1.8,
+          "end": 2.08
+        },
+        {
+          "text": "Fleece,",
+          "start": 2.08,
+          "end": 2.52
+        },
+        {
+          "text": "again",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "text": "in",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "the",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "sulks.",
+          "start": 3.02,
+          "end": 3.42
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.20072874892503023
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "568eded386de664348e80e62961fae166059d75b59c718c0999c89a6bb77feaa",
+  "selected_reasons": []
+}

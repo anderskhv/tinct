@@ -1,0 +1,690 @@
+{
+  "complete": true,
+  "signature": "5d00e8b093ddf30d500c9d3edb5c247e35c3f76061e2dda8775a94d05d15dada",
+  "attempts": [
+    {
+      "asr_seconds": 0.300326406955719,
+      "alignment_seconds": 0.000680234283208847,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We must go in, said Mr. Rochester. The weather changes. I could have sat with the till morning Jane",
+          "start": 0.02,
+          "end": 6.34,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.107666015625
+            },
+            {
+              "text": " must",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " go",
+              "start": 0.7,
+              "end": 0.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in,",
+              "start": 0.96,
+              "end": 1.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " said",
+              "start": 1.48,
+              "end": 1.78,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Mr.",
+              "start": 1.78,
+              "end": 2.1,
+              "probability": 0.943359375
+            },
+            {
+              "text": " Rochester.",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.953125
+            },
+            {
+              "text": " The",
+              "start": 3.24,
+              "end": 3.38,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " weather",
+              "start": 3.38,
+              "end": 3.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " changes.",
+              "start": 3.56,
+              "end": 4.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 4.7,
+              "end": 4.76,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " could",
+              "start": 4.76,
+              "end": 4.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 4.86,
+              "end": 4.98,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " sat",
+              "start": 4.98,
+              "end": 5.16,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " with",
+              "start": 5.16,
+              "end": 5.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 5.34,
+              "end": 5.44,
+              "probability": 0.0703125
+            },
+            {
+              "text": " till",
+              "start": 5.44,
+              "end": 5.6,
+              "probability": 0.6474609375
+            },
+            {
+              "text": " morning",
+              "start": 5.6,
+              "end": 5.94,
+              "probability": 0.880859375
+            },
+            {
+              "text": " Jane",
+              "start": 5.94,
+              "end": 6.34,
+              "probability": 0.7578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "must",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "go",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "raw": "in,",
+          "start": 0.96,
+          "end": 1.36
+        },
+        {
+          "raw": "said",
+          "start": 1.48,
+          "end": 1.78
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.78,
+          "end": 2.1
+        },
+        {
+          "raw": "Rochester.",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "The",
+          "start": 3.24,
+          "end": 3.38
+        },
+        {
+          "raw": "weather",
+          "start": 3.38,
+          "end": 3.56
+        },
+        {
+          "raw": "changes.",
+          "start": 3.56,
+          "end": 4.06
+        },
+        {
+          "raw": "I",
+          "start": 4.7,
+          "end": 4.76
+        },
+        {
+          "raw": "could",
+          "start": 4.76,
+          "end": 4.86
+        },
+        {
+          "raw": "have",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "raw": "sat",
+          "start": 4.98,
+          "end": 5.16
+        },
+        {
+          "raw": "with",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "raw": "the",
+          "start": 5.34,
+          "end": 5.44
+        },
+        {
+          "raw": "till",
+          "start": 5.44,
+          "end": 5.6
+        },
+        {
+          "raw": "morning",
+          "start": 5.6,
+          "end": 5.94
+        },
+        {
+          "raw": "Jane",
+          "start": 5.94,
+          "end": 6.34
+        }
+      ],
+      "expected_tokens": [
+        "\"We",
+        "must",
+        "go",
+        "in,\"",
+        "said",
+        "Mr.",
+        "Rochester:",
+        "\"the",
+        "weather",
+        "changes.",
+        "I",
+        "could",
+        "have",
+        "sat",
+        "with",
+        "thee",
+        "till",
+        "morning,",
+        "Jane.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          19,
+          16,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "must",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.7,
+          "end": 0.96,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in,",
+          "start": 0.96,
+          "end": 1.36,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.48,
+          "end": 1.78,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.78,
+          "end": 2.1,
+          "key": "mr",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Rochester.",
+          "start": 2.38,
+          "end": 2.54,
+          "key": "rochester",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.24,
+          "end": 3.38,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "weather",
+          "start": 3.38,
+          "end": 3.56,
+          "key": "weather",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "changes.",
+          "start": 3.56,
+          "end": 4.06,
+          "key": "changes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.7,
+          "end": 4.76,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 4.76,
+          "end": 4.86,
+          "key": "could",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.86,
+          "end": 4.98,
+          "key": "have",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 4.98,
+          "end": 5.16,
+          "key": "sat",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.16,
+          "end": 5.34,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.34,
+          "end": 5.44,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 5.44,
+          "end": 5.6,
+          "key": "till",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "morning",
+          "start": 5.6,
+          "end": 5.94,
+          "key": "morning",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Jane",
+          "start": 5.94,
+          "end": 6.34,
+          "key": "jane",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"We",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "must",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "text": "go",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "text": "in,\"",
+          "start": 0.96,
+          "end": 1.36
+        },
+        {
+          "text": "said",
+          "start": 1.48,
+          "end": 1.78
+        },
+        {
+          "text": "Mr.",
+          "start": 1.78,
+          "end": 2.1
+        },
+        {
+          "text": "Rochester:",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "\"the",
+          "start": 3.24,
+          "end": 3.38
+        },
+        {
+          "text": "weather",
+          "start": 3.38,
+          "end": 3.56
+        },
+        {
+          "text": "changes.",
+          "start": 3.56,
+          "end": 4.06
+        },
+        {
+          "text": "I",
+          "start": 4.7,
+          "end": 4.76
+        },
+        {
+          "text": "could",
+          "start": 4.76,
+          "end": 4.86
+        },
+        {
+          "text": "have",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "text": "sat",
+          "start": 4.98,
+          "end": 5.16
+        },
+        {
+          "text": "with",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "text": "thee",
+          "start": 5.34,
+          "end": 5.39
+        },
+        {
+          "text": "till",
+          "start": 5.44,
+          "end": 5.6
+        },
+        {
+          "text": "morning,",
+          "start": 5.6,
+          "end": 5.94
+        },
+        {
+          "text": "Jane.\"",
+          "start": 5.94,
+          "end": 6.34
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.3013428822159767
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c776e8701b0126f149c745add11ece80752d1517e66af5039fbde8a53a16b9de",
+  "selected_reasons": []
+}

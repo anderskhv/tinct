@@ -1,0 +1,340 @@
+{
+  "complete": true,
+  "signature": "1099c4338942d5dc204679c909f07c9d4083d4f3314f15a69b2929888a5ff22d",
+  "attempts": [
+    {
+      "asr_seconds": 0.19480788800865412,
+      "alignment_seconds": 0.00027959304861724377,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pentheus, how now, this is some plot against me.",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " Pentheus,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " how",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.98046875
+            },
+            {
+              "text": " now,",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " this",
+              "start": 1.99,
+              "end": 2.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " is",
+              "start": 2.09,
+              "end": 2.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " some",
+              "start": 2.23,
+              "end": 2.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " plot",
+              "start": 2.39,
+              "end": 2.61,
+              "probability": 0.9921875
+            },
+            {
+              "text": " against",
+              "start": 2.61,
+              "end": 2.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me.",
+              "start": 2.83,
+              "end": 3.17,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pentheus,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "how",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "now,",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "this",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "raw": "is",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "raw": "some",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "raw": "plot",
+          "start": 2.39,
+          "end": 2.61
+        },
+        {
+          "raw": "against",
+          "start": 2.61,
+          "end": 2.83
+        },
+        {
+          "raw": "me.",
+          "start": 2.83,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "Pentheus.",
+        "How",
+        "now?--This",
+        "is",
+        "some",
+        "plot",
+        "against",
+        "me!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pentheus,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "pentheus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now, this",
+          "start": 1.45,
+          "end": 2.09,
+          "key": "nowthis",
+          "pieces": [
+            2,
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.09,
+          "end": 2.23,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 2.23,
+          "end": 2.39,
+          "key": "some",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "plot",
+          "start": 2.39,
+          "end": 2.61,
+          "key": "plot",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 2.61,
+          "end": 2.83,
+          "key": "against",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.83,
+          "end": 3.17,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 2,
+          "text": "now?--This",
+          "heard": "now, this",
+          "heard_indexes": [
+            2,
+            3
+          ],
+          "start": 1.45,
+          "end": 2.09
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Pentheus.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "How",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "now?--This",
+          "start": 1.45,
+          "end": 2.09
+        },
+        {
+          "text": "is",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "text": "some",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "text": "plot",
+          "start": 2.39,
+          "end": 2.61
+        },
+        {
+          "text": "against",
+          "start": 2.61,
+          "end": 2.83
+        },
+        {
+          "text": "me!",
+          "start": 2.83,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19517841504421085
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4f8cf112a97379dca8f352596af2e7b0615a7bffd120f219ea4108f362e1e90a",
+  "selected_reasons": []
+}

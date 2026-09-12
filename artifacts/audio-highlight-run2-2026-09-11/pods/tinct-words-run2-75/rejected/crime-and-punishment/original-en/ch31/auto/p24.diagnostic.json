@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "eda14efcd25ffe89296f9d40f1d167a7523b337685bfc388348f183be6344efc",
+  "attempts": [
+    {
+      "asr_seconds": 0.14897850900888443,
+      "alignment_seconds": 0.0002849698066711426,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dounia flushed slightly.",
+        "hotwords": "Dounia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dounia flushed slightly.",
+          "start": 0.05,
+          "end": 1.47,
+          "words": [
+            {
+              "text": " Dounia",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.548095703125
+            },
+            {
+              "text": " flushed",
+              "start": 0.77,
+              "end": 1.01,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " slightly.",
+              "start": 1.01,
+              "end": 1.47,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dounia",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "flushed",
+          "start": 0.77,
+          "end": 1.01
+        },
+        {
+          "raw": "slightly.",
+          "start": 1.01,
+          "end": 1.47
+        }
+      ],
+      "expected_tokens": [
+        "Dounia",
+        "flushed",
+        "slightly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dounia",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "dounia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "flushed",
+          "start": 0.77,
+          "end": 1.01,
+          "key": "flushed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "slightly.",
+          "start": 1.01,
+          "end": 1.47,
+          "key": "slightly",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dounia",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "flushed",
+          "start": 0.77,
+          "end": 1.01
+        },
+        {
+          "text": "slightly.",
+          "start": 1.01,
+          "end": 1.47
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14937873557209969
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0257fe260419ef03b08b08568c5aecfa3acc263ddc9ef2a1b31e7927d053dcfa",
+  "selected_reasons": []
+}

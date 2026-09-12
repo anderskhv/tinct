@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "efda65aaa8b9c2c6353759ee7a2b2e7e06a7f1ff6cae00324ebf5270662b1f6d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2812803350389004,
+      "alignment_seconds": 0.00038906000554561615,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 106. By means of music, the very passions enjoy themselves.",
+          "start": 0.05,
+          "end": 4.43,
+          "words": [
+            {
+              "text": " 106.",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " By",
+              "start": 1.89,
+              "end": 1.99,
+              "probability": 0.955078125
+            },
+            {
+              "text": " means",
+              "start": 1.99,
+              "end": 2.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 2.19,
+              "end": 2.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " music,",
+              "start": 2.35,
+              "end": 2.63,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 2.77,
+              "end": 2.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " very",
+              "start": 2.85,
+              "end": 3.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " passions",
+              "start": 3.09,
+              "end": 3.55,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " enjoy",
+              "start": 3.55,
+              "end": 3.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " themselves.",
+              "start": 3.99,
+              "end": 4.43,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "106.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "By",
+          "start": 1.89,
+          "end": 1.99
+        },
+        {
+          "raw": "means",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "raw": "of",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "raw": "music,",
+          "start": 2.35,
+          "end": 2.63
+        },
+        {
+          "raw": "the",
+          "start": 2.77,
+          "end": 2.85
+        },
+        {
+          "raw": "very",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "raw": "passions",
+          "start": 3.09,
+          "end": 3.55
+        },
+        {
+          "raw": "enjoy",
+          "start": 3.55,
+          "end": 3.99
+        },
+        {
+          "raw": "themselves.",
+          "start": 3.99,
+          "end": 4.43
+        }
+      ],
+      "expected_tokens": [
+        "106.",
+        "By",
+        "means",
+        "of",
+        "music",
+        "the",
+        "very",
+        "passions",
+        "enjoy",
+        "themselves."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "106.",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "106",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 1.89,
+          "end": 1.99,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 1.99,
+          "end": 2.19,
+          "key": "means",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.19,
+          "end": 2.35,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "music,",
+          "start": 2.35,
+          "end": 2.63,
+          "key": "music",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.77,
+          "end": 2.85,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 2.85,
+          "end": 3.09,
+          "key": "very",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "passions",
+          "start": 3.09,
+          "end": 3.55,
+          "key": "passions",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "enjoy",
+          "start": 3.55,
+          "end": 3.99,
+          "key": "enjoy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "themselves.",
+          "start": 3.99,
+          "end": 4.43,
+          "key": "themselves",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "106.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "By",
+          "start": 1.89,
+          "end": 1.99
+        },
+        {
+          "text": "means",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "text": "of",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "text": "music",
+          "start": 2.35,
+          "end": 2.63
+        },
+        {
+          "text": "the",
+          "start": 2.77,
+          "end": 2.85
+        },
+        {
+          "text": "very",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "text": "passions",
+          "start": 3.09,
+          "end": 3.55
+        },
+        {
+          "text": "enjoy",
+          "start": 3.55,
+          "end": 3.99
+        },
+        {
+          "text": "themselves.",
+          "start": 3.99,
+          "end": 4.43
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2818161128088832
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "78741b22941f51183e2ee581c1aa0b9f29f66a0a2ebb1901e64e88918e53ab07",
+  "selected_reasons": []
+}

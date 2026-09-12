@@ -1,0 +1,739 @@
+{
+  "complete": true,
+  "signature": "7cfba60bbc8c7ee91c6e9cd11a86c6b3d3c8ef5d347f235af2ee68d22f23af21",
+  "attempts": [
+    {
+      "asr_seconds": 0.2846074216067791,
+      "alignment_seconds": 0.000506967306137085,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That's the point, that he isn't.",
+          "start": 0.02,
+          "end": 2.28,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.960205078125
+            },
+            {
+              "text": " the",
+              "start": 0.7,
+              "end": 0.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " point,",
+              "start": 0.84,
+              "end": 1.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he",
+              "start": 1.68,
+              "end": 1.84,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " isn't.",
+              "start": 1.84,
+              "end": 2.28,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " He lay there almost a thousand years and then he got up and went on.",
+          "start": 2.78,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " He",
+              "start": 2.78,
+              "end": 2.86,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " lay",
+              "start": 2.86,
+              "end": 3.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " there",
+              "start": 3.04,
+              "end": 3.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " almost",
+              "start": 3.24,
+              "end": 3.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 3.6,
+              "end": 3.82,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " thousand",
+              "start": 3.82,
+              "end": 4.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " years",
+              "start": 4.14,
+              "end": 4.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 4.54,
+              "end": 4.84,
+              "probability": 0.5078125
+            },
+            {
+              "text": " then",
+              "start": 4.84,
+              "end": 4.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " he",
+              "start": 4.96,
+              "end": 5.06,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " got",
+              "start": 5.06,
+              "end": 5.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " up",
+              "start": 5.2,
+              "end": 5.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 5.38,
+              "end": 5.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " went",
+              "start": 5.52,
+              "end": 5.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on.",
+              "start": 5.64,
+              "end": 5.92,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "the",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "raw": "point,",
+          "start": 0.84,
+          "end": 1.14
+        },
+        {
+          "raw": "that",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "raw": "he",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "raw": "isn't.",
+          "start": 1.84,
+          "end": 2.28
+        },
+        {
+          "raw": "He",
+          "start": 2.78,
+          "end": 2.86
+        },
+        {
+          "raw": "lay",
+          "start": 2.86,
+          "end": 3.04
+        },
+        {
+          "raw": "there",
+          "start": 3.04,
+          "end": 3.24
+        },
+        {
+          "raw": "almost",
+          "start": 3.24,
+          "end": 3.6
+        },
+        {
+          "raw": "a",
+          "start": 3.6,
+          "end": 3.82
+        },
+        {
+          "raw": "thousand",
+          "start": 3.82,
+          "end": 4.14
+        },
+        {
+          "raw": "years",
+          "start": 4.14,
+          "end": 4.54
+        },
+        {
+          "raw": "and",
+          "start": 4.54,
+          "end": 4.84
+        },
+        {
+          "raw": "then",
+          "start": 4.84,
+          "end": 4.96
+        },
+        {
+          "raw": "he",
+          "start": 4.96,
+          "end": 5.06
+        },
+        {
+          "raw": "got",
+          "start": 5.06,
+          "end": 5.2
+        },
+        {
+          "raw": "up",
+          "start": 5.2,
+          "end": 5.38
+        },
+        {
+          "raw": "and",
+          "start": 5.38,
+          "end": 5.52
+        },
+        {
+          "raw": "went",
+          "start": 5.52,
+          "end": 5.64
+        },
+        {
+          "raw": "on.",
+          "start": 5.64,
+          "end": 5.92
+        }
+      ],
+      "expected_tokens": [
+        "\"That's",
+        "the",
+        "point,",
+        "that",
+        "he",
+        "isn't.",
+        "He",
+        "lay",
+        "there",
+        "almost",
+        "a",
+        "thousand",
+        "years",
+        "and",
+        "then",
+        "he",
+        "got",
+        "up",
+        "and",
+        "went",
+        "on.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.7,
+          "end": 0.84,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "point,",
+          "start": 0.84,
+          "end": 1.14,
+          "key": "point",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.52,
+          "end": 1.68,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.68,
+          "end": 1.84,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "isn't.",
+          "start": 1.84,
+          "end": 2.28,
+          "key": "isnt",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.78,
+          "end": 2.86,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 2.86,
+          "end": 3.04,
+          "key": "lay",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 3.04,
+          "end": 3.24,
+          "key": "there",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 3.24,
+          "end": 3.6,
+          "key": "almost",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.6,
+          "end": 3.82,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 3.82,
+          "end": 4.14,
+          "key": "thousand",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "years",
+          "start": 4.14,
+          "end": 4.54,
+          "key": "years",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.54,
+          "end": 4.84,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 4.84,
+          "end": 4.96,
+          "key": "then",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.96,
+          "end": 5.06,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 5.06,
+          "end": 5.2,
+          "key": "got",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 5.2,
+          "end": 5.38,
+          "key": "up",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.38,
+          "end": 5.52,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 5.52,
+          "end": 5.64,
+          "key": "went",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 5.64,
+          "end": 5.92,
+          "key": "on",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That's",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "the",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "text": "point,",
+          "start": 0.84,
+          "end": 1.14
+        },
+        {
+          "text": "that",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "text": "he",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "text": "isn't.",
+          "start": 1.84,
+          "end": 2.28
+        },
+        {
+          "text": "He",
+          "start": 2.78,
+          "end": 2.86
+        },
+        {
+          "text": "lay",
+          "start": 2.86,
+          "end": 3.04
+        },
+        {
+          "text": "there",
+          "start": 3.04,
+          "end": 3.24
+        },
+        {
+          "text": "almost",
+          "start": 3.24,
+          "end": 3.6
+        },
+        {
+          "text": "a",
+          "start": 3.6,
+          "end": 3.82
+        },
+        {
+          "text": "thousand",
+          "start": 3.82,
+          "end": 4.14
+        },
+        {
+          "text": "years",
+          "start": 4.14,
+          "end": 4.54
+        },
+        {
+          "text": "and",
+          "start": 4.54,
+          "end": 4.84
+        },
+        {
+          "text": "then",
+          "start": 4.84,
+          "end": 4.96
+        },
+        {
+          "text": "he",
+          "start": 4.96,
+          "end": 5.06
+        },
+        {
+          "text": "got",
+          "start": 5.06,
+          "end": 5.2
+        },
+        {
+          "text": "up",
+          "start": 5.2,
+          "end": 5.38
+        },
+        {
+          "text": "and",
+          "start": 5.38,
+          "end": 5.52
+        },
+        {
+          "text": "went",
+          "start": 5.52,
+          "end": 5.64
+        },
+        {
+          "text": "on.\"",
+          "start": 5.64,
+          "end": 5.92
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28535914048552513
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "989a4d35233113448d517390737ae54917af55faf77494991ea531461ff5aefb",
+  "selected_reasons": []
+}

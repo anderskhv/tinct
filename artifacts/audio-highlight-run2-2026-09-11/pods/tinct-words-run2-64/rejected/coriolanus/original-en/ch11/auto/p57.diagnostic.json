@@ -1,0 +1,493 @@
+{
+  "complete": true,
+  "signature": "bc932090de6c45063c775d75e96555843359d53f926ad60900fbe3a13e2ebdf2",
+  "attempts": [
+    {
+      "asr_seconds": 0.3271763687953353,
+      "alignment_seconds": 0.0005188398063182831,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Volumnia. He had, before this last expedition, twenty-five wounds upon him.",
+        "hotwords": "Volumnia, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Volumnia, He Volumnia. He had, before this last expedition, twenty-five wounds upon him.",
+          "start": 0.05,
+          "end": 5.09,
+          "words": [
+            {
+              "text": " Volumnia,",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 0.6796468098958334
+            },
+            {
+              "text": " He",
+              "start": 1.39,
+              "end": 1.67,
+              "probability": 0.07373046875
+            },
+            {
+              "text": " Volumnia.",
+              "start": 1.67,
+              "end": 1.87,
+              "probability": 0.6513671875
+            },
+            {
+              "text": " He",
+              "start": 1.87,
+              "end": 1.87,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " had,",
+              "start": 1.87,
+              "end": 1.91,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " before",
+              "start": 2.19,
+              "end": 2.19,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " this",
+              "start": 2.19,
+              "end": 2.39,
+              "probability": 0.97265625
+            },
+            {
+              "text": " last",
+              "start": 2.39,
+              "end": 2.69,
+              "probability": 0.8828125
+            },
+            {
+              "text": " expedition,",
+              "start": 2.69,
+              "end": 3.19,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " twenty",
+              "start": 3.75,
+              "end": 3.85,
+              "probability": 0.456298828125
+            },
+            {
+              "text": "-five",
+              "start": 3.85,
+              "end": 4.23,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " wounds",
+              "start": 4.23,
+              "end": 4.49,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " upon",
+              "start": 4.49,
+              "end": 4.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him.",
+              "start": 4.81,
+              "end": 5.09,
+              "probability": 0.76220703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Volumnia,",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "raw": "He",
+          "start": 1.39,
+          "end": 1.67
+        },
+        {
+          "raw": "Volumnia.",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "raw": "He",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "raw": "had,",
+          "start": 1.87,
+          "end": 1.91
+        },
+        {
+          "raw": "before",
+          "start": 2.19,
+          "end": 2.19
+        },
+        {
+          "raw": "this",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "raw": "last",
+          "start": 2.39,
+          "end": 2.69
+        },
+        {
+          "raw": "expedition,",
+          "start": 2.69,
+          "end": 3.19
+        },
+        {
+          "raw": "twenty",
+          "start": 3.75,
+          "end": 3.85
+        },
+        {
+          "raw": "-five",
+          "start": 3.85,
+          "end": 4.23
+        },
+        {
+          "raw": "wounds",
+          "start": 4.23,
+          "end": 4.49
+        },
+        {
+          "raw": "upon",
+          "start": 4.49,
+          "end": 4.81
+        },
+        {
+          "raw": "him.",
+          "start": 4.81,
+          "end": 5.09
+        }
+      ],
+      "expected_tokens": [
+        "Volumnia.",
+        "He",
+        "had,",
+        "before",
+        "this",
+        "last",
+        "expedition,",
+        "twenty-five",
+        "wounds",
+        "upon",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          11,
+          2,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Volumnia,",
+          "start": 0.05,
+          "end": 1.07,
+          "key": "volumnia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.39,
+          "end": 1.67,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Volumnia.",
+          "start": 1.67,
+          "end": 1.87,
+          "key": "volumnia",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.87,
+          "end": 1.87,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "had,",
+          "start": 1.87,
+          "end": 1.91,
+          "key": "had",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 2.19,
+          "end": 2.19,
+          "key": "before",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.19,
+          "end": 2.39,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 2.39,
+          "end": 2.69,
+          "key": "last",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "expedition,",
+          "start": 2.69,
+          "end": 3.19,
+          "key": "expedition",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "twenty -five",
+          "start": 3.75,
+          "end": 4.23,
+          "key": "twentyfive",
+          "pieces": [
+            9,
+            10
+          ]
+        },
+        {
+          "raw": "wounds",
+          "start": 4.23,
+          "end": 4.49,
+          "key": "wounds",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 4.49,
+          "end": 4.81,
+          "key": "upon",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 4.81,
+          "end": 5.09,
+          "key": "him",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "twenty-five",
+          "heard": "twenty -five",
+          "heard_indexes": [
+            9,
+            10
+          ],
+          "start": 3.75,
+          "end": 4.23
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Volumnia.",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "text": "He",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "text": "had,",
+          "start": 1.87,
+          "end": 1.91
+        },
+        {
+          "text": "before",
+          "start": 2.19,
+          "end": 2.19
+        },
+        {
+          "text": "this",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "text": "last",
+          "start": 2.39,
+          "end": 2.69
+        },
+        {
+          "text": "expedition,",
+          "start": 2.69,
+          "end": 3.19
+        },
+        {
+          "text": "twenty-five",
+          "start": 3.75,
+          "end": 4.23
+        },
+        {
+          "text": "wounds",
+          "start": 4.23,
+          "end": 4.49
+        },
+        {
+          "text": "upon",
+          "start": 4.49,
+          "end": 4.81
+        },
+        {
+          "text": "him.",
+          "start": 4.81,
+          "end": 5.09
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3278744798153639
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "72e219b466e24662f4e3972f226c13508de0b0a88cbe22aae32e97beb564fedd",
+  "selected_reasons": []
+}

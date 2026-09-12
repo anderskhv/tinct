@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "7e80262c5ff076a46fe6c2a207c4df5f3115aad70b69d3f1e54c4bf96d7f8be6",
+  "attempts": [
+    {
+      "asr_seconds": 0.20448451582342386,
+      "alignment_seconds": 0.00038021616637706757,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Cymbeline and Imogen converse apart._]",
+        "hotwords": "Imogen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cymbeline and Imogen converse apart.",
+          "start": 0.11,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " Cymbeline",
+              "start": 0.11,
+              "end": 0.91,
+              "probability": 0.5145111083984375
+            },
+            {
+              "text": " and",
+              "start": 0.91,
+              "end": 1.25,
+              "probability": 0.51123046875
+            },
+            {
+              "text": " Imogen",
+              "start": 1.25,
+              "end": 1.55,
+              "probability": 0.54345703125
+            },
+            {
+              "text": " converse",
+              "start": 1.55,
+              "end": 2.11,
+              "probability": 0.56793212890625
+            },
+            {
+              "text": " apart.",
+              "start": 2.11,
+              "end": 2.47,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline",
+          "start": 0.11,
+          "end": 0.91
+        },
+        {
+          "raw": "and",
+          "start": 0.91,
+          "end": 1.25
+        },
+        {
+          "raw": "Imogen",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "raw": "converse",
+          "start": 1.55,
+          "end": 2.11
+        },
+        {
+          "raw": "apart.",
+          "start": 2.11,
+          "end": 2.47
+        }
+      ],
+      "expected_tokens": [
+        "[_Cymbeline",
+        "and",
+        "Imogen",
+        "converse",
+        "apart._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline",
+          "start": 0.11,
+          "end": 0.91,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.91,
+          "end": 1.25,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Imogen",
+          "start": 1.25,
+          "end": 1.55,
+          "key": "imogen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "converse",
+          "start": 1.55,
+          "end": 2.11,
+          "key": "converse",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "apart.",
+          "start": 2.11,
+          "end": 2.47,
+          "key": "apart",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Cymbeline",
+          "start": 0.11,
+          "end": 0.91
+        },
+        {
+          "text": "and",
+          "start": 0.91,
+          "end": 1.25
+        },
+        {
+          "text": "Imogen",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "text": "converse",
+          "start": 1.55,
+          "end": 2.11
+        },
+        {
+          "text": "apart._]",
+          "start": 2.11,
+          "end": 2.47
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20499152038246393
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4daea2b62f82b04006e59a67d994ed1c813cba29d136705db45ef8f75636315f",
+  "selected_reasons": []
+}

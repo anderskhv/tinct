@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "1d41f83eeb53bf0c2a30b4b29b920f0925bef4facabfc17f7f458a7c7482a13f",
+  "attempts": [
+    {
+      "asr_seconds": 0.06834917515516281,
+      "alignment_seconds": 9.255483746528625e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Don't do it, Gertrude!\" he implored.",
+        "hotwords": "Don't, Gertrude"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don't do it, Gertrude, he implored.",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Don't",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.5682373046875
+            },
+            {
+              "text": " do",
+              "start": 0.63,
+              "end": 0.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " it,",
+              "start": 0.75,
+              "end": 0.91,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Gertrude,",
+              "start": 1.03,
+              "end": 1.41,
+              "probability": 0.9915771484375
+            },
+            {
+              "text": " he",
+              "start": 1.69,
+              "end": 1.89,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " implored.",
+              "start": 1.89,
+              "end": 2.43,
+              "probability": 0.996337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don't",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "do",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "raw": "it,",
+          "start": 0.75,
+          "end": 0.91
+        },
+        {
+          "raw": "Gertrude,",
+          "start": 1.03,
+          "end": 1.41
+        },
+        {
+          "raw": "he",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "raw": "implored.",
+          "start": 1.89,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "\"Don't",
+        "do",
+        "it,",
+        "Gertrude!\"",
+        "he",
+        "implored."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don't",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "dont",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.63,
+          "end": 0.75,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 0.75,
+          "end": 0.91,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Gertrude,",
+          "start": 1.03,
+          "end": 1.41,
+          "key": "gertrude",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.69,
+          "end": 1.89,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "implored.",
+          "start": 1.89,
+          "end": 2.43,
+          "key": "implored",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Don't",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "do",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "text": "it,",
+          "start": 0.75,
+          "end": 0.91
+        },
+        {
+          "text": "Gertrude!\"",
+          "start": 1.03,
+          "end": 1.41
+        },
+        {
+          "text": "he",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "text": "implored.",
+          "start": 1.89,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06847454980015755
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a72a738b28cafb6f7cb0c3c0c5ba92920120b1de6a11aba1222c99dcde0af731",
+  "selected_reasons": []
+}

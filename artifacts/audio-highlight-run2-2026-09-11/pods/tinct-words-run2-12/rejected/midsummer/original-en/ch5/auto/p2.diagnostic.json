@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "82021e51504f695b53b814f16727be8e17ef0a231aa4cf2abe261e59e94ccf54",
+  "attempts": [
+    {
+      "asr_seconds": 0.1416540490463376,
+      "alignment_seconds": 0.00036340183578431606,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Bottom. Are we all met?",
+        "hotwords": "Bottom, Are"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bottom, Are we all met?",
+          "start": 0.08,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " Bottom,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " Are",
+              "start": 1.06,
+              "end": 1.16,
+              "probability": 0.0150146484375
+            },
+            {
+              "text": " we",
+              "start": 1.16,
+              "end": 1.26,
+              "probability": 0.70947265625
+            },
+            {
+              "text": " all",
+              "start": 1.26,
+              "end": 1.34,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " met?",
+              "start": 1.34,
+              "end": 1.56,
+              "probability": 0.857421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bottom,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Are",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "raw": "we",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "raw": "all",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "raw": "met?",
+          "start": 1.34,
+          "end": 1.56
+        }
+      ],
+      "expected_tokens": [
+        "Bottom.",
+        "Are",
+        "we",
+        "all",
+        "met?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bottom,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "bottom",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 1.06,
+          "end": 1.16,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.16,
+          "end": 1.26,
+          "key": "we",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.26,
+          "end": 1.34,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "met?",
+          "start": 1.34,
+          "end": 1.56,
+          "key": "met",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bottom.",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Are",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "text": "we",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "text": "all",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "text": "met?",
+          "start": 1.34,
+          "end": 1.56
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.142141446005553
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ca863e8bdcc51be8bd065ea6aa47da2cdfb463086c020b8422b4c1a0ac321f3d",
+  "selected_reasons": []
+}

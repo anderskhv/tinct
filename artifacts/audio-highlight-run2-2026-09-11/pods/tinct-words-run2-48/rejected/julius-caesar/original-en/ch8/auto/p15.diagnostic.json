@@ -1,0 +1,487 @@
+{
+  "complete": true,
+  "signature": "10d83c05e1f339e55f88466956126e0d80b00689500de085a7cb69411770eaed",
+  "attempts": [
+    {
+      "asr_seconds": 0.1109444024041295,
+      "alignment_seconds": 0.00017173774540424347,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Advances to Caesar._]",
+        "hotwords": "Caesar._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Advances to Caesar._",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Advances",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.968994140625
+            },
+            {
+              "text": " to",
+              "start": 0.93,
+              "end": 1.15,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Caesar._",
+              "start": 1.15,
+              "end": 2.15,
+              "probability": 0.332275390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Advances",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "raw": "Caesar._",
+          "start": 1.15,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "[_Advances",
+        "to",
+        "Caesar._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Advances",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "advances",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.15,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Caesar._",
+          "start": 1.15,
+          "end": 2.15,
+          "key": "caesar_",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Advances",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "to",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "text": "Caesar._]",
+          "start": 1.15,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11116775125265121
+    },
+    {
+      "asr_seconds": 0.11954620480537415,
+      "alignment_seconds": 0.000346427783370018,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Caesar._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Advances to Caesar._",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Advances",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.968994140625
+            },
+            {
+              "text": " to",
+              "start": 0.93,
+              "end": 1.15,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Caesar._",
+              "start": 1.15,
+              "end": 2.15,
+              "probability": 0.332275390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Advances",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "raw": "Caesar._",
+          "start": 1.15,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "[_Advances",
+        "to",
+        "Caesar._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Advances",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "advances",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.15,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Caesar._",
+          "start": 1.15,
+          "end": 2.15,
+          "key": "caesar_",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Advances",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "to",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "text": "Caesar._]",
+          "start": 1.15,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12000317964702845
+    },
+    {
+      "asr_seconds": 0.12681430205702782,
+      "alignment_seconds": 0.00011856947094202042,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Advances to Caesar.",
+          "start": 0.05,
+          "end": 1.45,
+          "words": [
+            {
+              "text": " Advances",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.968994140625
+            },
+            {
+              "text": " to",
+              "start": 0.93,
+              "end": 1.15,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Caesar.",
+              "start": 1.15,
+              "end": 1.45,
+              "probability": 0.66455078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Advances",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "raw": "Caesar.",
+          "start": 1.15,
+          "end": 1.45
+        }
+      ],
+      "expected_tokens": [
+        "[_Advances",
+        "to",
+        "Caesar._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Advances",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "advances",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.15,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Caesar.",
+          "start": 1.15,
+          "end": 1.45,
+          "key": "caesar",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Advances",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "to",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "text": "Caesar._]",
+          "start": 1.15,
+          "end": 1.45
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1269695134833455
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9309754758c62a3327636a240cbb7fe3bb88951f6c95a29dece3b5b66199ec8d",
+  "selected_reasons": []
+}

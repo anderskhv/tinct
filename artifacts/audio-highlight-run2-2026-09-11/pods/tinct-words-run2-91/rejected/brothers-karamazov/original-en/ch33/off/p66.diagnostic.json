@@ -1,0 +1,483 @@
+{
+  "complete": true,
+  "signature": "ebd00692faaf22704b872e9041cb9f634b703c8c380b7ec24f6180e5a77093b2",
+  "attempts": [
+    {
+      "asr_seconds": 0.33663572929799557,
+      "alignment_seconds": 0.0004057418555021286,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A minute later, Alyosha was sitting beside his brother.",
+          "start": 0.08,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " minute",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " later,",
+              "start": 0.64,
+              "end": 1.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Alyosha",
+              "start": 1.24,
+              "end": 1.7,
+              "probability": 0.9373372395833334
+            },
+            {
+              "text": " was",
+              "start": 1.7,
+              "end": 1.94,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " sitting",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " beside",
+              "start": 2.14,
+              "end": 2.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 2.52,
+              "end": 2.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " brother.",
+              "start": 2.74,
+              "end": 3.02,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Ivan was alone dining.",
+          "start": 3.78,
+          "end": 4.76,
+          "words": [
+            {
+              "text": " Ivan",
+              "start": 3.78,
+              "end": 3.8,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " was",
+              "start": 3.8,
+              "end": 4.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " alone",
+              "start": 4.08,
+              "end": 4.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dining.",
+              "start": 4.4,
+              "end": 4.76,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "minute",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "later,",
+          "start": 0.64,
+          "end": 1.04
+        },
+        {
+          "raw": "Alyosha",
+          "start": 1.24,
+          "end": 1.7
+        },
+        {
+          "raw": "was",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "raw": "sitting",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "raw": "beside",
+          "start": 2.14,
+          "end": 2.52
+        },
+        {
+          "raw": "his",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "raw": "brother.",
+          "start": 2.74,
+          "end": 3.02
+        },
+        {
+          "raw": "Ivan",
+          "start": 3.78,
+          "end": 3.8
+        },
+        {
+          "raw": "was",
+          "start": 3.8,
+          "end": 4.08
+        },
+        {
+          "raw": "alone",
+          "start": 4.08,
+          "end": 4.4
+        },
+        {
+          "raw": "dining.",
+          "start": 4.4,
+          "end": 4.76
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "minute",
+        "later",
+        "Alyosha",
+        "was",
+        "sitting",
+        "beside",
+        "his",
+        "brother.",
+        "Ivan",
+        "was",
+        "alone",
+        "dining."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "minute",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "minute",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "later,",
+          "start": 0.64,
+          "end": 1.04,
+          "key": "later",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 1.24,
+          "end": 1.7,
+          "key": "alyosha",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.7,
+          "end": 1.94,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sitting",
+          "start": 1.94,
+          "end": 2.14,
+          "key": "sitting",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "beside",
+          "start": 2.14,
+          "end": 2.52,
+          "key": "beside",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.52,
+          "end": 2.74,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "brother.",
+          "start": 2.74,
+          "end": 3.02,
+          "key": "brother",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Ivan",
+          "start": 3.78,
+          "end": 3.8,
+          "key": "ivan",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.8,
+          "end": 4.08,
+          "key": "was",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "alone",
+          "start": 4.08,
+          "end": 4.4,
+          "key": "alone",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dining.",
+          "start": 4.4,
+          "end": 4.76,
+          "key": "dining",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "minute",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "later",
+          "start": 0.64,
+          "end": 1.04
+        },
+        {
+          "text": "Alyosha",
+          "start": 1.24,
+          "end": 1.7
+        },
+        {
+          "text": "was",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "text": "sitting",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "text": "beside",
+          "start": 2.14,
+          "end": 2.52
+        },
+        {
+          "text": "his",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "text": "brother.",
+          "start": 2.74,
+          "end": 3.02
+        },
+        {
+          "text": "Ivan",
+          "start": 3.78,
+          "end": 3.8
+        },
+        {
+          "text": "was",
+          "start": 3.8,
+          "end": 4.08
+        },
+        {
+          "text": "alone",
+          "start": 4.08,
+          "end": 4.4
+        },
+        {
+          "text": "dining.",
+          "start": 4.4,
+          "end": 4.76
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3372247666120529
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c047f2bee8ca7806555587b58c4d194aa40e4af3d212c5814827c8b0e1a419b8",
+  "selected_reasons": []
+}

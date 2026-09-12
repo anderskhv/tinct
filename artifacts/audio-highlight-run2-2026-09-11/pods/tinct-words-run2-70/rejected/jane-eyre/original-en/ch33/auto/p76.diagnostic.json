@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "28cc2fab1de103baba62bfbb59f18862a25eb0c5b78e8c6fe13fffae12e90dfa",
+  "attempts": [
+    {
+      "asr_seconds": 0.21460783807560802,
+      "alignment_seconds": 0.00047069694846868515,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He was lifting the latch: a sudden thought occurred to me.",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He was lifting the latch. A sudden thought occurred to me.",
+          "start": 0.02,
+          "end": 3.28,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " was",
+              "start": 0.48,
+              "end": 0.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lifting",
+              "start": 0.6,
+              "end": 0.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 0.9,
+              "end": 1.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " latch.",
+              "start": 1.1,
+              "end": 1.38,
+              "probability": 0.9921875
+            },
+            {
+              "text": " A",
+              "start": 1.94,
+              "end": 1.98,
+              "probability": 0.9921875
+            },
+            {
+              "text": " sudden",
+              "start": 1.98,
+              "end": 2.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thought",
+              "start": 2.22,
+              "end": 2.56,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " occurred",
+              "start": 2.56,
+              "end": 2.88,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " to",
+              "start": 2.88,
+              "end": 3.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me.",
+              "start": 3.08,
+              "end": 3.28,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "was",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "raw": "lifting",
+          "start": 0.6,
+          "end": 0.9
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "raw": "latch.",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "raw": "A",
+          "start": 1.94,
+          "end": 1.98
+        },
+        {
+          "raw": "sudden",
+          "start": 1.98,
+          "end": 2.22
+        },
+        {
+          "raw": "thought",
+          "start": 2.22,
+          "end": 2.56
+        },
+        {
+          "raw": "occurred",
+          "start": 2.56,
+          "end": 2.88
+        },
+        {
+          "raw": "to",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "raw": "me.",
+          "start": 3.08,
+          "end": 3.28
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "was",
+        "lifting",
+        "the",
+        "latch:",
+        "a",
+        "sudden",
+        "thought",
+        "occurred",
+        "to",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.48,
+          "end": 0.6,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lifting",
+          "start": 0.6,
+          "end": 0.9,
+          "key": "lifting",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 1.1,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "latch.",
+          "start": 1.1,
+          "end": 1.38,
+          "key": "latch",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.94,
+          "end": 1.98,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sudden",
+          "start": 1.98,
+          "end": 2.22,
+          "key": "sudden",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 2.22,
+          "end": 2.56,
+          "key": "thought",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "occurred",
+          "start": 2.56,
+          "end": 2.88,
+          "key": "occurred",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.88,
+          "end": 3.08,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 3.08,
+          "end": 3.28,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "was",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "text": "lifting",
+          "start": 0.6,
+          "end": 0.9
+        },
+        {
+          "text": "the",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "text": "latch:",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "text": "a",
+          "start": 1.94,
+          "end": 1.98
+        },
+        {
+          "text": "sudden",
+          "start": 1.98,
+          "end": 2.22
+        },
+        {
+          "text": "thought",
+          "start": 2.22,
+          "end": 2.56
+        },
+        {
+          "text": "occurred",
+          "start": 2.56,
+          "end": 2.88
+        },
+        {
+          "text": "to",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "text": "me.",
+          "start": 3.08,
+          "end": 3.28
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21526576206088066
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9b26909d5e54a1a644d8d49d86f3998417122b4e2e4cb48f83c4f353b2eb37c6",
+  "selected_reasons": []
+}

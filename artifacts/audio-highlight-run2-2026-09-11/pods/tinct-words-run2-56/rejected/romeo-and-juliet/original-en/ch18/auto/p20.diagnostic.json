@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "503414c0f7989d0b8164c7813aff6d497c1ec0b4a57ec8dfc8fc8ee5be6867e8",
+  "attempts": [
+    {
+      "asr_seconds": 0.3096176190301776,
+      "alignment_seconds": 0.0004673916846513748,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Juliet. The tears have got small victory by that; For it was bad enough before their spite.",
+        "hotwords": "Juliet, The, For"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Juliet, The tears have got small victory by that, For it was bad enough before their spite.",
+          "start": 0.02,
+          "end": 5.48,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.73046875
+            },
+            {
+              "text": " The",
+              "start": 1.38,
+              "end": 1.56,
+              "probability": 0.0628662109375
+            },
+            {
+              "text": " tears",
+              "start": 1.56,
+              "end": 1.8,
+              "probability": 0.66796875
+            },
+            {
+              "text": " have",
+              "start": 1.8,
+              "end": 2.02,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " got",
+              "start": 2.02,
+              "end": 2.18,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " small",
+              "start": 2.18,
+              "end": 2.56,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " victory",
+              "start": 2.56,
+              "end": 2.88,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " by",
+              "start": 2.88,
+              "end": 3.2,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " that,",
+              "start": 3.2,
+              "end": 3.52,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " For",
+              "start": 3.86,
+              "end": 3.94,
+              "probability": 0.27392578125
+            },
+            {
+              "text": " it",
+              "start": 3.94,
+              "end": 4.04,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " was",
+              "start": 4.04,
+              "end": 4.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bad",
+              "start": 4.14,
+              "end": 4.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " enough",
+              "start": 4.38,
+              "end": 4.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " before",
+              "start": 4.6,
+              "end": 4.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " their",
+              "start": 4.94,
+              "end": 5.16,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " spite.",
+              "start": 5.16,
+              "end": 5.48,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "The",
+          "start": 1.38,
+          "end": 1.56
+        },
+        {
+          "raw": "tears",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "raw": "have",
+          "start": 1.8,
+          "end": 2.02
+        },
+        {
+          "raw": "got",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "raw": "small",
+          "start": 2.18,
+          "end": 2.56
+        },
+        {
+          "raw": "victory",
+          "start": 2.56,
+          "end": 2.88
+        },
+        {
+          "raw": "by",
+          "start": 2.88,
+          "end": 3.2
+        },
+        {
+          "raw": "that,",
+          "start": 3.2,
+          "end": 3.52
+        },
+        {
+          "raw": "For",
+          "start": 3.86,
+          "end": 3.94
+        },
+        {
+          "raw": "it",
+          "start": 3.94,
+          "end": 4.04
+        },
+        {
+          "raw": "was",
+          "start": 4.04,
+          "end": 4.14
+        },
+        {
+          "raw": "bad",
+          "start": 4.14,
+          "end": 4.38
+        },
+        {
+          "raw": "enough",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "raw": "before",
+          "start": 4.6,
+          "end": 4.94
+        },
+        {
+          "raw": "their",
+          "start": 4.94,
+          "end": 5.16
+        },
+        {
+          "raw": "spite.",
+          "start": 5.16,
+          "end": 5.48
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "The",
+        "tears",
+        "have",
+        "got",
+        "small",
+        "victory",
+        "by",
+        "that;",
+        "For",
+        "it",
+        "was",
+        "bad",
+        "enough",
+        "before",
+        "their",
+        "spite."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.38,
+          "end": 1.56,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tears",
+          "start": 1.56,
+          "end": 1.8,
+          "key": "tears",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.8,
+          "end": 2.02,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 2.02,
+          "end": 2.18,
+          "key": "got",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "small",
+          "start": 2.18,
+          "end": 2.56,
+          "key": "small",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "victory",
+          "start": 2.56,
+          "end": 2.88,
+          "key": "victory",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.88,
+          "end": 3.2,
+          "key": "by",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 3.2,
+          "end": 3.52,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 3.86,
+          "end": 3.94,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.94,
+          "end": 4.04,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.04,
+          "end": 4.14,
+          "key": "was",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "bad",
+          "start": 4.14,
+          "end": 4.38,
+          "key": "bad",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 4.38,
+          "end": 4.6,
+          "key": "enough",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 4.6,
+          "end": 4.94,
+          "key": "before",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.94,
+          "end": 5.16,
+          "key": "their",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "spite.",
+          "start": 5.16,
+          "end": 5.48,
+          "key": "spite",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "The",
+          "start": 1.38,
+          "end": 1.56
+        },
+        {
+          "text": "tears",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "text": "have",
+          "start": 1.8,
+          "end": 2.02
+        },
+        {
+          "text": "got",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "text": "small",
+          "start": 2.18,
+          "end": 2.56
+        },
+        {
+          "text": "victory",
+          "start": 2.56,
+          "end": 2.88
+        },
+        {
+          "text": "by",
+          "start": 2.88,
+          "end": 3.2
+        },
+        {
+          "text": "that;",
+          "start": 3.2,
+          "end": 3.52
+        },
+        {
+          "text": "For",
+          "start": 3.86,
+          "end": 3.94
+        },
+        {
+          "text": "it",
+          "start": 3.94,
+          "end": 4.04
+        },
+        {
+          "text": "was",
+          "start": 4.04,
+          "end": 4.14
+        },
+        {
+          "text": "bad",
+          "start": 4.14,
+          "end": 4.38
+        },
+        {
+          "text": "enough",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "text": "before",
+          "start": 4.6,
+          "end": 4.94
+        },
+        {
+          "text": "their",
+          "start": 4.94,
+          "end": 5.16
+        },
+        {
+          "text": "spite.",
+          "start": 5.16,
+          "end": 5.48
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31027553882449865
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "579f10caf725ddefd4b8721b480fddb19cde42d70e96c0a2811d0ce3c90d2a8c",
+  "selected_reasons": []
+}

@@ -1,0 +1,1245 @@
+{
+  "complete": true,
+  "signature": "5d189e9c502905fc2b434d3cfca0901dc79adad96fbf20ad9840bbad8f7c31a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.4192954758182168,
+      "alignment_seconds": 0.0008396678604185581,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "These are all the materials excepting the timber stones and sand, which I claimed by squatter's right. I have also a small wood-shed adjoining, made chiefly of the stuff which was left after building the house.",
+        "hotwords": "These, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " These are all the materials excepting the timber stones and sand, which I claimed by squatter's right.",
+          "start": 0.02,
+          "end": 5.9,
+          "words": [
+            {
+              "text": " These",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " are",
+              "start": 0.58,
+              "end": 0.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " all",
+              "start": 0.8,
+              "end": 0.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 0.96,
+              "end": 1.08,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " materials",
+              "start": 1.08,
+              "end": 1.52,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " excepting",
+              "start": 1.52,
+              "end": 2.18,
+              "probability": 0.6231689453125
+            },
+            {
+              "text": " the",
+              "start": 2.18,
+              "end": 2.3,
+              "probability": 0.994140625
+            },
+            {
+              "text": " timber",
+              "start": 2.3,
+              "end": 2.56,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " stones",
+              "start": 2.56,
+              "end": 3.02,
+              "probability": 0.67138671875
+            },
+            {
+              "text": " and",
+              "start": 3.02,
+              "end": 3.38,
+              "probability": 0.9921875
+            },
+            {
+              "text": " sand,",
+              "start": 3.38,
+              "end": 3.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " which",
+              "start": 4.22,
+              "end": 4.34,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 4.34,
+              "end": 4.5,
+              "probability": 0.994140625
+            },
+            {
+              "text": " claimed",
+              "start": 4.5,
+              "end": 4.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " by",
+              "start": 4.84,
+              "end": 5.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " squatter's",
+              "start": 5.16,
+              "end": 5.72,
+              "probability": 0.7381184895833334
+            },
+            {
+              "text": " right.",
+              "start": 5.72,
+              "end": 5.9,
+              "probability": 0.8662109375
+            }
+          ]
+        },
+        {
+          "text": " I have also a small wood-shed adjoining, made chiefly of the stuff which was left after building the house.",
+          "start": 6.54,
+          "end": 12.16,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.54,
+              "end": 6.76,
+              "probability": 0.9921875
+            },
+            {
+              "text": " have",
+              "start": 6.76,
+              "end": 6.9,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " also",
+              "start": 6.9,
+              "end": 7.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 7.22,
+              "end": 7.36,
+              "probability": 0.99609375
+            },
+            {
+              "text": " small",
+              "start": 7.36,
+              "end": 7.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wood",
+              "start": 7.68,
+              "end": 7.92,
+              "probability": 0.32421875
+            },
+            {
+              "text": "-shed",
+              "start": 7.92,
+              "end": 8.14,
+              "probability": 0.57366943359375
+            },
+            {
+              "text": " adjoining,",
+              "start": 8.14,
+              "end": 8.58,
+              "probability": 0.986328125
+            },
+            {
+              "text": " made",
+              "start": 9.12,
+              "end": 9.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " chiefly",
+              "start": 9.26,
+              "end": 9.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 9.62,
+              "end": 9.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 9.86,
+              "end": 9.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " stuff",
+              "start": 9.98,
+              "end": 10.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " which",
+              "start": 10.24,
+              "end": 10.48,
+              "probability": 0.98828125
+            },
+            {
+              "text": " was",
+              "start": 10.48,
+              "end": 10.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " left",
+              "start": 10.68,
+              "end": 11.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " after",
+              "start": 11.02,
+              "end": 11.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " building",
+              "start": 11.38,
+              "end": 11.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 11.64,
+              "end": 11.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " house.",
+              "start": 11.86,
+              "end": 12.16,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "These",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "are",
+          "start": 0.58,
+          "end": 0.8
+        },
+        {
+          "raw": "all",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.08
+        },
+        {
+          "raw": "materials",
+          "start": 1.08,
+          "end": 1.52
+        },
+        {
+          "raw": "excepting",
+          "start": 1.52,
+          "end": 2.18
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "raw": "timber",
+          "start": 2.3,
+          "end": 2.56
+        },
+        {
+          "raw": "stones",
+          "start": 2.56,
+          "end": 3.02
+        },
+        {
+          "raw": "and",
+          "start": 3.02,
+          "end": 3.38
+        },
+        {
+          "raw": "sand,",
+          "start": 3.38,
+          "end": 3.7
+        },
+        {
+          "raw": "which",
+          "start": 4.22,
+          "end": 4.34
+        },
+        {
+          "raw": "I",
+          "start": 4.34,
+          "end": 4.5
+        },
+        {
+          "raw": "claimed",
+          "start": 4.5,
+          "end": 4.84
+        },
+        {
+          "raw": "by",
+          "start": 4.84,
+          "end": 5.16
+        },
+        {
+          "raw": "squatter's",
+          "start": 5.16,
+          "end": 5.72
+        },
+        {
+          "raw": "right.",
+          "start": 5.72,
+          "end": 5.9
+        },
+        {
+          "raw": "I",
+          "start": 6.54,
+          "end": 6.76
+        },
+        {
+          "raw": "have",
+          "start": 6.76,
+          "end": 6.9
+        },
+        {
+          "raw": "also",
+          "start": 6.9,
+          "end": 7.22
+        },
+        {
+          "raw": "a",
+          "start": 7.22,
+          "end": 7.36
+        },
+        {
+          "raw": "small",
+          "start": 7.36,
+          "end": 7.68
+        },
+        {
+          "raw": "wood",
+          "start": 7.68,
+          "end": 7.92
+        },
+        {
+          "raw": "-shed",
+          "start": 7.92,
+          "end": 8.14
+        },
+        {
+          "raw": "adjoining,",
+          "start": 8.14,
+          "end": 8.58
+        },
+        {
+          "raw": "made",
+          "start": 9.12,
+          "end": 9.26
+        },
+        {
+          "raw": "chiefly",
+          "start": 9.26,
+          "end": 9.62
+        },
+        {
+          "raw": "of",
+          "start": 9.62,
+          "end": 9.86
+        },
+        {
+          "raw": "the",
+          "start": 9.86,
+          "end": 9.98
+        },
+        {
+          "raw": "stuff",
+          "start": 9.98,
+          "end": 10.24
+        },
+        {
+          "raw": "which",
+          "start": 10.24,
+          "end": 10.48
+        },
+        {
+          "raw": "was",
+          "start": 10.48,
+          "end": 10.68
+        },
+        {
+          "raw": "left",
+          "start": 10.68,
+          "end": 11.02
+        },
+        {
+          "raw": "after",
+          "start": 11.02,
+          "end": 11.38
+        },
+        {
+          "raw": "building",
+          "start": 11.38,
+          "end": 11.64
+        },
+        {
+          "raw": "the",
+          "start": 11.64,
+          "end": 11.86
+        },
+        {
+          "raw": "house.",
+          "start": 11.86,
+          "end": 12.16
+        }
+      ],
+      "expected_tokens": [
+        "These",
+        "are",
+        "all",
+        "the",
+        "materials",
+        "excepting",
+        "the",
+        "timber",
+        "stones",
+        "and",
+        "sand,",
+        "which",
+        "I",
+        "claimed",
+        "by",
+        "squatter's",
+        "right.",
+        "I",
+        "have",
+        "also",
+        "a",
+        "small",
+        "wood-shed",
+        "adjoining,",
+        "made",
+        "chiefly",
+        "of",
+        "the",
+        "stuff",
+        "which",
+        "was",
+        "left",
+        "after",
+        "building",
+        "the",
+        "house."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          36,
+          0,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "These",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "these",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.58,
+          "end": 0.8,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.8,
+          "end": 0.96,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.08,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "materials",
+          "start": 1.08,
+          "end": 1.52,
+          "key": "materials",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "excepting",
+          "start": 1.52,
+          "end": 2.18,
+          "key": "excepting",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.3,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "timber",
+          "start": 2.3,
+          "end": 2.56,
+          "key": "timber",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "stones",
+          "start": 2.56,
+          "end": 3.02,
+          "key": "stones",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.02,
+          "end": 3.38,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sand,",
+          "start": 3.38,
+          "end": 3.7,
+          "key": "sand",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 4.22,
+          "end": 4.34,
+          "key": "which",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.34,
+          "end": 4.5,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "claimed",
+          "start": 4.5,
+          "end": 4.84,
+          "key": "claimed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.84,
+          "end": 5.16,
+          "key": "by",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "squatter's",
+          "start": 5.16,
+          "end": 5.72,
+          "key": "squatters",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "right.",
+          "start": 5.72,
+          "end": 5.9,
+          "key": "right",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.54,
+          "end": 6.76,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.76,
+          "end": 6.9,
+          "key": "have",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "also",
+          "start": 6.9,
+          "end": 7.22,
+          "key": "also",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.22,
+          "end": 7.36,
+          "key": "a",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "small",
+          "start": 7.36,
+          "end": 7.68,
+          "key": "small",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "wood -shed",
+          "start": 7.68,
+          "end": 8.14,
+          "key": "woodshed",
+          "pieces": [
+            22,
+            23
+          ]
+        },
+        {
+          "raw": "adjoining,",
+          "start": 8.14,
+          "end": 8.58,
+          "key": "adjoining",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 9.12,
+          "end": 9.26,
+          "key": "made",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "chiefly",
+          "start": 9.26,
+          "end": 9.62,
+          "key": "chiefly",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.62,
+          "end": 9.86,
+          "key": "of",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.86,
+          "end": 9.98,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "stuff",
+          "start": 9.98,
+          "end": 10.24,
+          "key": "stuff",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 10.24,
+          "end": 10.48,
+          "key": "which",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 10.48,
+          "end": 10.68,
+          "key": "was",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "left",
+          "start": 10.68,
+          "end": 11.02,
+          "key": "left",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 11.02,
+          "end": 11.38,
+          "key": "after",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "building",
+          "start": 11.38,
+          "end": 11.64,
+          "key": "building",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.64,
+          "end": 11.86,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "house.",
+          "start": 11.86,
+          "end": 12.16,
+          "key": "house",
+          "pieces": [
+            36
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 22,
+          "text": "wood-shed",
+          "heard": "wood -shed",
+          "heard_indexes": [
+            22,
+            23
+          ],
+          "start": 7.68,
+          "end": 8.14
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "These",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "are",
+          "start": 0.58,
+          "end": 0.8
+        },
+        {
+          "text": "all",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "text": "the",
+          "start": 0.96,
+          "end": 1.08
+        },
+        {
+          "text": "materials",
+          "start": 1.08,
+          "end": 1.52
+        },
+        {
+          "text": "excepting",
+          "start": 1.52,
+          "end": 2.18
+        },
+        {
+          "text": "the",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "text": "timber",
+          "start": 2.3,
+          "end": 2.56
+        },
+        {
+          "text": "stones",
+          "start": 2.56,
+          "end": 3.02
+        },
+        {
+          "text": "and",
+          "start": 3.02,
+          "end": 3.38
+        },
+        {
+          "text": "sand,",
+          "start": 3.38,
+          "end": 3.7
+        },
+        {
+          "text": "which",
+          "start": 4.22,
+          "end": 4.34
+        },
+        {
+          "text": "I",
+          "start": 4.34,
+          "end": 4.5
+        },
+        {
+          "text": "claimed",
+          "start": 4.5,
+          "end": 4.84
+        },
+        {
+          "text": "by",
+          "start": 4.84,
+          "end": 5.16
+        },
+        {
+          "text": "squatter's",
+          "start": 5.16,
+          "end": 5.72
+        },
+        {
+          "text": "right.",
+          "start": 5.72,
+          "end": 5.9
+        },
+        {
+          "text": "I",
+          "start": 6.54,
+          "end": 6.76
+        },
+        {
+          "text": "have",
+          "start": 6.76,
+          "end": 6.9
+        },
+        {
+          "text": "also",
+          "start": 6.9,
+          "end": 7.22
+        },
+        {
+          "text": "a",
+          "start": 7.22,
+          "end": 7.36
+        },
+        {
+          "text": "small",
+          "start": 7.36,
+          "end": 7.68
+        },
+        {
+          "text": "wood-shed",
+          "start": 7.68,
+          "end": 8.14
+        },
+        {
+          "text": "adjoining,",
+          "start": 8.14,
+          "end": 8.58
+        },
+        {
+          "text": "made",
+          "start": 9.12,
+          "end": 9.26
+        },
+        {
+          "text": "chiefly",
+          "start": 9.26,
+          "end": 9.62
+        },
+        {
+          "text": "of",
+          "start": 9.62,
+          "end": 9.86
+        },
+        {
+          "text": "the",
+          "start": 9.86,
+          "end": 9.98
+        },
+        {
+          "text": "stuff",
+          "start": 9.98,
+          "end": 10.24
+        },
+        {
+          "text": "which",
+          "start": 10.24,
+          "end": 10.48
+        },
+        {
+          "text": "was",
+          "start": 10.48,
+          "end": 10.68
+        },
+        {
+          "text": "left",
+          "start": 10.68,
+          "end": 11.02
+        },
+        {
+          "text": "after",
+          "start": 11.02,
+          "end": 11.38
+        },
+        {
+          "text": "building",
+          "start": 11.38,
+          "end": 11.64
+        },
+        {
+          "text": "the",
+          "start": 11.64,
+          "end": 11.86
+        },
+        {
+          "text": "house.",
+          "start": 11.86,
+          "end": 12.16
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 36,
+        "matched_words": 36
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.42046391498297453
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b19872f2c5a71003a572de128d215a4ad9cb76e86ba7afa33fb664e252e9d0aa",
+  "selected_reasons": []
+}

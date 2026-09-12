@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "f23349e3f7fba05e4d6ca5d129adb147a4068ac42775f76bbb1fb9239e57fbc5",
+  "attempts": [
+    {
+      "asr_seconds": 0.1512987595051527,
+      "alignment_seconds": 0.0003242194652557373,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edgar. Here comes Kent.",
+        "hotwords": "Edgar, Here, Kent"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edgar, Here comes Kent.",
+          "start": 0.11,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.11,
+              "end": 0.69,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Here",
+              "start": 1.03,
+              "end": 1.11,
+              "probability": 0.031005859375
+            },
+            {
+              "text": " comes",
+              "start": 1.11,
+              "end": 1.29,
+              "probability": 0.67138671875
+            },
+            {
+              "text": " Kent.",
+              "start": 1.29,
+              "end": 1.59,
+              "probability": 0.9677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "raw": "Here",
+          "start": 1.03,
+          "end": 1.11
+        },
+        {
+          "raw": "comes",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "raw": "Kent.",
+          "start": 1.29,
+          "end": 1.59
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "Here",
+        "comes",
+        "Kent."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.11,
+          "end": 0.69,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 1.03,
+          "end": 1.11,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 1.11,
+          "end": 1.29,
+          "key": "comes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Kent.",
+          "start": 1.29,
+          "end": 1.59,
+          "key": "kent",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "text": "Here",
+          "start": 1.03,
+          "end": 1.11
+        },
+        {
+          "text": "comes",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "text": "Kent.",
+          "start": 1.29,
+          "end": 1.59
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1517707109451294
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "00b4ec436bb231c6204642d4c9b2d1a252674438c885a7e2bb2a3ab25039864d",
+  "selected_reasons": []
+}

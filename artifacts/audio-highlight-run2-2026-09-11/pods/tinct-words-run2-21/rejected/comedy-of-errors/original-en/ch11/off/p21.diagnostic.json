@@ -1,0 +1,415 @@
+{
+  "complete": true,
+  "signature": "892e79b9e976125f56e6c4806f339cf1d88d4c545f98d33741b53943e30f93a6",
+  "attempts": [
+    {
+      "asr_seconds": 0.18184202536940575,
+      "alignment_seconds": 0.0001264810562133789,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And Gilo, I knew he was not in his perfect wits.",
+          "start": 0.08,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.626953125
+            },
+            {
+              "text": " Gilo,",
+              "start": 0.58,
+              "end": 0.9,
+              "probability": 0.4815673828125
+            },
+            {
+              "text": " I",
+              "start": 1.22,
+              "end": 1.48,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " knew",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " he",
+              "start": 1.62,
+              "end": 1.76,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " was",
+              "start": 1.76,
+              "end": 1.84,
+              "probability": 0.98828125
+            },
+            {
+              "text": " not",
+              "start": 1.84,
+              "end": 2.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 2.04,
+              "end": 2.16,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " his",
+              "start": 2.16,
+              "end": 2.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " perfect",
+              "start": 2.28,
+              "end": 2.6,
+              "probability": 0.984375
+            },
+            {
+              "text": " wits.",
+              "start": 2.6,
+              "end": 3.02,
+              "probability": 0.995361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "Gilo,",
+          "start": 0.58,
+          "end": 0.9
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.48
+        },
+        {
+          "raw": "knew",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "he",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "raw": "was",
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "raw": "not",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "raw": "in",
+          "start": 2.04,
+          "end": 2.16
+        },
+        {
+          "raw": "his",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "raw": "perfect",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "raw": "wits.",
+          "start": 2.6,
+          "end": 3.02
+        }
+      ],
+      "expected_tokens": [
+        "Angelo.",
+        "I",
+        "knew",
+        "he",
+        "was",
+        "not",
+        "in",
+        "his",
+        "perfect",
+        "wits."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          10,
+          2,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gilo,",
+          "start": 0.58,
+          "end": 0.9,
+          "key": "gilo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.48,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 1.48,
+          "end": 1.62,
+          "key": "knew",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.62,
+          "end": 1.76,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.76,
+          "end": 1.84,
+          "key": "was",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.84,
+          "end": 2.04,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.04,
+          "end": 2.16,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.16,
+          "end": 2.28,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "perfect",
+          "start": 2.28,
+          "end": 2.6,
+          "key": "perfect",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "wits.",
+          "start": 2.6,
+          "end": 3.02,
+          "key": "wits",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Angelo.",
+          "start": 0.0,
+          "end": 0.61
+        },
+        {
+          "text": "I",
+          "start": 1.22,
+          "end": 1.48
+        },
+        {
+          "text": "knew",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "he",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "text": "was",
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "text": "not",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "text": "in",
+          "start": 2.04,
+          "end": 2.16
+        },
+        {
+          "text": "his",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "text": "perfect",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "text": "wits.",
+          "start": 2.6,
+          "end": 3.02
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.18201436614617705
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8df5818dae17b61d057719eb80917310b7708b60e25d6c4325756509fb0ad477",
+  "selected_reasons": []
+}

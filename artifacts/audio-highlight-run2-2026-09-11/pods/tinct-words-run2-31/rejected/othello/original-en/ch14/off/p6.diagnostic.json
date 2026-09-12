@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "4721d1653c4f223b2285d821ba9c5a27c18879cf718d60e8be7499f812b9a4d6",
+  "attempts": [
+    {
+      "asr_seconds": 0.11121502285823226,
+      "alignment_seconds": 0.0002210172824561596,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Goes to a stand",
+          "start": 0.05,
+          "end": 1.23,
+          "words": [
+            {
+              "text": " Goes",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.351318359375
+            },
+            {
+              "text": " to",
+              "start": 0.57,
+              "end": 0.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 0.79,
+              "end": 0.89,
+              "probability": 0.74658203125
+            },
+            {
+              "text": " stand",
+              "start": 0.89,
+              "end": 1.23,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Goes",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "to",
+          "start": 0.57,
+          "end": 0.79
+        },
+        {
+          "raw": "a",
+          "start": 0.79,
+          "end": 0.89
+        },
+        {
+          "raw": "stand",
+          "start": 0.89,
+          "end": 1.23
+        }
+      ],
+      "expected_tokens": [
+        "[Goes",
+        "to",
+        "his",
+        "stand.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Goes",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "goes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.57,
+          "end": 0.79,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.79,
+          "end": 0.89,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 0.89,
+          "end": 1.23,
+          "key": "stand",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Goes",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "to",
+          "start": 0.57,
+          "end": 0.79
+        },
+        {
+          "text": "his",
+          "start": 0.79,
+          "end": 0.84
+        },
+        {
+          "text": "stand.]",
+          "start": 0.89,
+          "end": 1.23
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1115060499869287
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0840df36436b22cd814d946be70d2b1fb73139d7cbf764bc7ee8a17a333978fa",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,285 @@
+{
+  "complete": true,
+  "signature": "6f4cfc3fb44281d221b1dd35fb1a78886acbd28d74eee43b2b27e133928a09c2",
+  "attempts": [
+    {
+      "asr_seconds": 0.14726849552243948,
+      "alignment_seconds": 0.0002873893827199936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Senna, truly my name is Senna.",
+          "start": 0.08,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Senna,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.458251953125
+            },
+            {
+              "text": " truly",
+              "start": 1.06,
+              "end": 1.18,
+              "probability": 0.986328125
+            },
+            {
+              "text": " my",
+              "start": 1.18,
+              "end": 1.46,
+              "probability": 0.548828125
+            },
+            {
+              "text": " name",
+              "start": 1.46,
+              "end": 1.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Senna.",
+              "start": 1.76,
+              "end": 1.98,
+              "probability": 0.984619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Senna,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "truly",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "raw": "my",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "raw": "name",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "raw": "is",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "Senna.",
+          "start": 1.76,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "Cinna.",
+        "Truly,",
+        "my",
+        "name",
+        "is",
+        "Cinna."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Senna,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "senna",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "truly",
+          "start": 1.06,
+          "end": 1.18,
+          "key": "truly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.18,
+          "end": 1.46,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "name",
+          "start": 1.46,
+          "end": 1.6,
+          "key": "name",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Senna.",
+          "start": 1.76,
+          "end": 1.98,
+          "key": "senna",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cinna.",
+          "start": 0.0,
+          "end": 0.53
+        },
+        {
+          "text": "Truly,",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "text": "my",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "text": "name",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "text": "is",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "Cinna.",
+          "start": 1.76,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14765496831387281
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cd836a0e9551c758b7801b2dbbf91fd4c370c57644206455438f2e8f575bc518",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

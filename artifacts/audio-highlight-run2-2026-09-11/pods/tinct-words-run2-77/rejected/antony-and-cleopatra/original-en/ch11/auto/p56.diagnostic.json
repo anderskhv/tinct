@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "ab77c1a762eb523e187a817ec9c4c31086357c621149fa3286e45e7dfdf2032b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2529636940162163,
+      "alignment_seconds": 0.000264468981185928,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menas. For my part, I am sorry it is turned to a drinking. Pompey doth this day laugh away his fortune.",
+        "hotwords": "Menas, For, I, Pompey"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menas, For my part, I am sorry it is turned to a drinking. Pompey doth this day laugh away his fortune.",
+          "start": 0.05,
+          "end": 6.75,
+          "words": [
+            {
+              "text": " Menas,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.49334716796875
+            },
+            {
+              "text": " For",
+              "start": 1.13,
+              "end": 1.43,
+              "probability": 0.034912109375
+            },
+            {
+              "text": " my",
+              "start": 1.43,
+              "end": 1.59,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " part,",
+              "start": 1.59,
+              "end": 1.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " am",
+              "start": 2.29,
+              "end": 2.39,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " sorry",
+              "start": 2.39,
+              "end": 2.71,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " it",
+              "start": 2.71,
+              "end": 2.89,
+              "probability": 0.83203125
+            },
+            {
+              "text": " is",
+              "start": 2.89,
+              "end": 3.01,
+              "probability": 0.6279296875
+            },
+            {
+              "text": " turned",
+              "start": 3.01,
+              "end": 3.25,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " to",
+              "start": 3.25,
+              "end": 3.45,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " a",
+              "start": 3.45,
+              "end": 3.55,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " drinking.",
+              "start": 3.55,
+              "end": 3.89,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " Pompey",
+              "start": 4.63,
+              "end": 4.95,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " doth",
+              "start": 4.95,
+              "end": 5.13,
+              "probability": 0.890380859375
+            },
+            {
+              "text": " this",
+              "start": 5.13,
+              "end": 5.33,
+              "probability": 0.984375
+            },
+            {
+              "text": " day",
+              "start": 5.33,
+              "end": 5.61,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " laugh",
+              "start": 5.61,
+              "end": 5.91,
+              "probability": 0.982421875
+            },
+            {
+              "text": " away",
+              "start": 5.91,
+              "end": 6.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 6.17,
+              "end": 6.37,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " fortune.",
+              "start": 6.37,
+              "end": 6.75,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menas,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "For",
+          "start": 1.13,
+          "end": 1.43
+        },
+        {
+          "raw": "my",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "raw": "part,",
+          "start": 1.59,
+          "end": 1.91
+        },
+        {
+          "raw": "I",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "am",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "raw": "sorry",
+          "start": 2.39,
+          "end": 2.71
+        },
+        {
+          "raw": "it",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "raw": "is",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "raw": "turned",
+          "start": 3.01,
+          "end": 3.25
+        },
+        {
+          "raw": "to",
+          "start": 3.25,
+          "end": 3.45
+        },
+        {
+          "raw": "a",
+          "start": 3.45,
+          "end": 3.55
+        },
+        {
+          "raw": "drinking.",
+          "start": 3.55,
+          "end": 3.89
+        },
+        {
+          "raw": "Pompey",
+          "start": 4.63,
+          "end": 4.95
+        },
+        {
+          "raw": "doth",
+          "start": 4.95,
+          "end": 5.13
+        },
+        {
+          "raw": "this",
+          "start": 5.13,
+          "end": 5.33
+        },
+        {
+          "raw": "day",
+          "start": 5.33,
+          "end": 5.61
+        },
+        {
+          "raw": "laugh",
+          "start": 5.61,
+          "end": 5.91
+        },
+        {
+          "raw": "away",
+          "start": 5.91,
+          "end": 6.17
+        },
+        {
+          "raw": "his",
+          "start": 6.17,
+          "end": 6.37
+        },
+        {
+          "raw": "fortune.",
+          "start": 6.37,
+          "end": 6.75
+        }
+      ],
+      "expected_tokens": [
+        "Menas.",
+        "For",
+        "my",
+        "part,",
+        "I",
+        "am",
+        "sorry",
+        "it",
+        "is",
+        "turned",
+        "to",
+        "a",
+        "drinking.",
+        "Pompey",
+        "doth",
+        "this",
+        "day",
+        "laugh",
+        "away",
+        "his",
+        "fortune."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menas,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "menas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 1.13,
+          "end": 1.43,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.43,
+          "end": 1.59,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "part,",
+          "start": 1.59,
+          "end": 1.91,
+          "key": "part",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.15,
+          "end": 2.29,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.29,
+          "end": 2.39,
+          "key": "am",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sorry",
+          "start": 2.39,
+          "end": 2.71,
+          "key": "sorry",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.71,
+          "end": 2.89,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.89,
+          "end": 3.01,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 3.01,
+          "end": 3.25,
+          "key": "turned",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.25,
+          "end": 3.45,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.45,
+          "end": 3.55,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "drinking.",
+          "start": 3.55,
+          "end": 3.89,
+          "key": "drinking",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Pompey",
+          "start": 4.63,
+          "end": 4.95,
+          "key": "pompey",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 4.95,
+          "end": 5.13,
+          "key": "doth",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 5.13,
+          "end": 5.33,
+          "key": "this",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 5.33,
+          "end": 5.61,
+          "key": "day",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "laugh",
+          "start": 5.61,
+          "end": 5.91,
+          "key": "laugh",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 5.91,
+          "end": 6.17,
+          "key": "away",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.17,
+          "end": 6.37,
+          "key": "his",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "fortune.",
+          "start": 6.37,
+          "end": 6.75,
+          "key": "fortune",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menas.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "For",
+          "start": 1.13,
+          "end": 1.43
+        },
+        {
+          "text": "my",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "text": "part,",
+          "start": 1.59,
+          "end": 1.91
+        },
+        {
+          "text": "I",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "text": "am",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "text": "sorry",
+          "start": 2.39,
+          "end": 2.71
+        },
+        {
+          "text": "it",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "text": "is",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "text": "turned",
+          "start": 3.01,
+          "end": 3.25
+        },
+        {
+          "text": "to",
+          "start": 3.25,
+          "end": 3.45
+        },
+        {
+          "text": "a",
+          "start": 3.45,
+          "end": 3.55
+        },
+        {
+          "text": "drinking.",
+          "start": 3.55,
+          "end": 3.89
+        },
+        {
+          "text": "Pompey",
+          "start": 4.63,
+          "end": 4.95
+        },
+        {
+          "text": "doth",
+          "start": 4.95,
+          "end": 5.13
+        },
+        {
+          "text": "this",
+          "start": 5.13,
+          "end": 5.33
+        },
+        {
+          "text": "day",
+          "start": 5.33,
+          "end": 5.61
+        },
+        {
+          "text": "laugh",
+          "start": 5.61,
+          "end": 5.91
+        },
+        {
+          "text": "away",
+          "start": 5.91,
+          "end": 6.17
+        },
+        {
+          "text": "his",
+          "start": 6.17,
+          "end": 6.37
+        },
+        {
+          "text": "fortune.",
+          "start": 6.37,
+          "end": 6.75
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2533257259929087
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a104472dfa3e40fa06423b37226efab290c4f8f70c2e589e3cbeee8a1e1379a4",
+  "selected_reasons": []
+}

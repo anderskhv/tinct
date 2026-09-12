@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "56a41154ee8c0bdeb04d9198f85ceae69b1739c471f833e53d317a2adbddd23a",
+  "attempts": [
+    {
+      "asr_seconds": 0.23380343010649085,
+      "alignment_seconds": 0.0002531050704419613,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Very, Mr. Dedela said, staring hard at a headless sardine.",
+          "start": 0.05,
+          "end": 4.09,
+          "words": [
+            {
+              "text": " Very,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.1446533203125
+            },
+            {
+              "text": " Mr.",
+              "start": 1.15,
+              "end": 1.33,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " Dedela",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.5198974609375
+            },
+            {
+              "text": " said,",
+              "start": 1.71,
+              "end": 2.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " staring",
+              "start": 2.61,
+              "end": 2.75,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " hard",
+              "start": 2.75,
+              "end": 3.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 3.07,
+              "end": 3.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 3.19,
+              "end": 3.29,
+              "probability": 0.9921875
+            },
+            {
+              "text": " headless",
+              "start": 3.29,
+              "end": 3.65,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " sardine.",
+              "start": 3.65,
+              "end": 4.09,
+              "probability": 0.9791666666666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "raw": "Dedela",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "said,",
+          "start": 1.71,
+          "end": 2.07
+        },
+        {
+          "raw": "staring",
+          "start": 2.61,
+          "end": 2.75
+        },
+        {
+          "raw": "hard",
+          "start": 2.75,
+          "end": 3.07
+        },
+        {
+          "raw": "at",
+          "start": 3.07,
+          "end": 3.19
+        },
+        {
+          "raw": "a",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "raw": "headless",
+          "start": 3.29,
+          "end": 3.65
+        },
+        {
+          "raw": "sardine.",
+          "start": 3.65,
+          "end": 4.09
+        }
+      ],
+      "expected_tokens": [
+        "—Very,",
+        "Mr",
+        "Dedalus",
+        "said,",
+        "staring",
+        "hard",
+        "at",
+        "a",
+        "headless",
+        "sardine."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          10,
+          3,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Very,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "very",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.15,
+          "end": 1.33,
+          "key": "mr",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dedela",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "dedela",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.71,
+          "end": 2.07,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "staring",
+          "start": 2.61,
+          "end": 2.75,
+          "key": "staring",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hard",
+          "start": 2.75,
+          "end": 3.07,
+          "key": "hard",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.07,
+          "end": 3.19,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.19,
+          "end": 3.29,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "headless",
+          "start": 3.29,
+          "end": 3.65,
+          "key": "headless",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sardine.",
+          "start": 3.65,
+          "end": 4.09,
+          "key": "sardine",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Very,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Mr",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "text": "Dedalus",
+          "start": 1.33,
+          "end": 1.52
+        },
+        {
+          "text": "said,",
+          "start": 1.71,
+          "end": 2.07
+        },
+        {
+          "text": "staring",
+          "start": 2.61,
+          "end": 2.75
+        },
+        {
+          "text": "hard",
+          "start": 2.75,
+          "end": 3.07
+        },
+        {
+          "text": "at",
+          "start": 3.07,
+          "end": 3.19
+        },
+        {
+          "text": "a",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "text": "headless",
+          "start": 3.29,
+          "end": 3.65
+        },
+        {
+          "text": "sardine.",
+          "start": 3.65,
+          "end": 4.09
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.2341615902259946
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "90d435d7efb7a63a95ddfcf13a3cb10e054a148914829b92ccec68f2ada790a3",
+  "selected_reasons": []
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "e47238746029a317a17c48411ef972a05042b179e7ff0c0cbf237b4876ac825e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2297406680881977,
+      "alignment_seconds": 0.00038545578718185425,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Richard. Bear her my true love's kiss; and so, farewell.",
+        "hotwords": "King, Richard, Bear"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Richard, Bear her my true love's kiss, and so, farewell.",
+          "start": 0.05,
+          "end": 3.65,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.728515625
+            },
+            {
+              "text": " Richard,",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Bear",
+              "start": 1.47,
+              "end": 1.61,
+              "probability": 0.03472900390625
+            },
+            {
+              "text": " her",
+              "start": 1.61,
+              "end": 1.75,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " my",
+              "start": 1.75,
+              "end": 1.89,
+              "probability": 0.951171875
+            },
+            {
+              "text": " true",
+              "start": 1.89,
+              "end": 2.07,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " love's",
+              "start": 2.07,
+              "end": 2.39,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " kiss,",
+              "start": 2.39,
+              "end": 2.61,
+              "probability": 0.98828125
+            },
+            {
+              "text": " and",
+              "start": 2.95,
+              "end": 3.03,
+              "probability": 0.5654296875
+            },
+            {
+              "text": " so,",
+              "start": 3.03,
+              "end": 3.27,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " farewell.",
+              "start": 3.39,
+              "end": 3.65,
+              "probability": 0.86181640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "Bear",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "raw": "her",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "raw": "my",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "raw": "true",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "raw": "love's",
+          "start": 2.07,
+          "end": 2.39
+        },
+        {
+          "raw": "kiss,",
+          "start": 2.39,
+          "end": 2.61
+        },
+        {
+          "raw": "and",
+          "start": 2.95,
+          "end": 3.03
+        },
+        {
+          "raw": "so,",
+          "start": 3.03,
+          "end": 3.27
+        },
+        {
+          "raw": "farewell.",
+          "start": 3.39,
+          "end": 3.65
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Bear",
+        "her",
+        "my",
+        "true",
+        "love's",
+        "kiss;",
+        "and",
+        "so,",
+        "farewell."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Bear",
+          "start": 1.47,
+          "end": 1.61,
+          "key": "bear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.61,
+          "end": 1.75,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.75,
+          "end": 1.89,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 1.89,
+          "end": 2.07,
+          "key": "true",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "love's",
+          "start": 2.07,
+          "end": 2.39,
+          "key": "loves",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "kiss,",
+          "start": 2.39,
+          "end": 2.61,
+          "key": "kiss",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.95,
+          "end": 3.03,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 3.03,
+          "end": 3.27,
+          "key": "so",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "farewell.",
+          "start": 3.39,
+          "end": 3.65,
+          "key": "farewell",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Richard.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "Bear",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "text": "her",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "text": "my",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "text": "true",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "text": "love's",
+          "start": 2.07,
+          "end": 2.39
+        },
+        {
+          "text": "kiss;",
+          "start": 2.39,
+          "end": 2.61
+        },
+        {
+          "text": "and",
+          "start": 2.95,
+          "end": 3.03
+        },
+        {
+          "text": "so,",
+          "start": 3.03,
+          "end": 3.27
+        },
+        {
+          "text": "farewell.",
+          "start": 3.39,
+          "end": 3.65
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23028695210814476
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "76ed3c60aedae6da178cd932b0c38aece4f7206a238deea286a96a5799c310cf",
+  "selected_reasons": []
+}

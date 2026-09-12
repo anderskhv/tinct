@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "d6b5b9acedc5cccb41c4da63a2485463e9880e71611318e71b1b2f6c7a340a15",
+  "attempts": [
+    {
+      "asr_seconds": 0.1985341440886259,
+      "alignment_seconds": 0.00017736386507749557,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But fleece had hardly got three paces off when he was recalled",
+          "start": 0.02,
+          "end": 3.7,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.7578125
+            },
+            {
+              "text": " fleece",
+              "start": 0.52,
+              "end": 0.88,
+              "probability": 0.59088134765625
+            },
+            {
+              "text": " had",
+              "start": 0.88,
+              "end": 0.98,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " hardly",
+              "start": 0.98,
+              "end": 1.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " got",
+              "start": 1.22,
+              "end": 1.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " three",
+              "start": 1.52,
+              "end": 1.78,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " paces",
+              "start": 1.78,
+              "end": 2.14,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " off",
+              "start": 2.14,
+              "end": 2.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " when",
+              "start": 2.5,
+              "end": 3.04,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " he",
+              "start": 3.04,
+              "end": 3.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 3.14,
+              "end": 3.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " recalled",
+              "start": 3.26,
+              "end": 3.7,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "fleece",
+          "start": 0.52,
+          "end": 0.88
+        },
+        {
+          "raw": "had",
+          "start": 0.88,
+          "end": 0.98
+        },
+        {
+          "raw": "hardly",
+          "start": 0.98,
+          "end": 1.22
+        },
+        {
+          "raw": "got",
+          "start": 1.22,
+          "end": 1.52
+        },
+        {
+          "raw": "three",
+          "start": 1.52,
+          "end": 1.78
+        },
+        {
+          "raw": "paces",
+          "start": 1.78,
+          "end": 2.14
+        },
+        {
+          "raw": "off",
+          "start": 2.14,
+          "end": 2.5
+        },
+        {
+          "raw": "when",
+          "start": 2.5,
+          "end": 3.04
+        },
+        {
+          "raw": "he",
+          "start": 3.04,
+          "end": 3.14
+        },
+        {
+          "raw": "was",
+          "start": 3.14,
+          "end": 3.26
+        },
+        {
+          "raw": "recalled",
+          "start": 3.26,
+          "end": 3.7
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "Fleece",
+        "had",
+        "hardly",
+        "got",
+        "three",
+        "paces",
+        "off,",
+        "when",
+        "he",
+        "was",
+        "recalled."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fleece",
+          "start": 0.52,
+          "end": 0.88,
+          "key": "fleece",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.88,
+          "end": 0.98,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hardly",
+          "start": 0.98,
+          "end": 1.22,
+          "key": "hardly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 1.22,
+          "end": 1.52,
+          "key": "got",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 1.52,
+          "end": 1.78,
+          "key": "three",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "paces",
+          "start": 1.78,
+          "end": 2.14,
+          "key": "paces",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 2.14,
+          "end": 2.5,
+          "key": "off",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 2.5,
+          "end": 3.04,
+          "key": "when",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.04,
+          "end": 3.14,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.14,
+          "end": 3.26,
+          "key": "was",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "recalled",
+          "start": 3.26,
+          "end": 3.7,
+          "key": "recalled",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "Fleece",
+          "start": 0.52,
+          "end": 0.88
+        },
+        {
+          "text": "had",
+          "start": 0.88,
+          "end": 0.98
+        },
+        {
+          "text": "hardly",
+          "start": 0.98,
+          "end": 1.22
+        },
+        {
+          "text": "got",
+          "start": 1.22,
+          "end": 1.52
+        },
+        {
+          "text": "three",
+          "start": 1.52,
+          "end": 1.78
+        },
+        {
+          "text": "paces",
+          "start": 1.78,
+          "end": 2.14
+        },
+        {
+          "text": "off,",
+          "start": 2.14,
+          "end": 2.5
+        },
+        {
+          "text": "when",
+          "start": 2.5,
+          "end": 3.04
+        },
+        {
+          "text": "he",
+          "start": 3.04,
+          "end": 3.14
+        },
+        {
+          "text": "was",
+          "start": 3.14,
+          "end": 3.26
+        },
+        {
+          "text": "recalled.",
+          "start": 3.26,
+          "end": 3.7
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19878170220181346
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a26526d8ef89dd8c9284466be0db08d562aab2f3dfcebea512768ba1f09602fa",
+  "selected_reasons": []
+}

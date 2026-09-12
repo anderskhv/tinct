@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "c041e2923c2afd051e09dca10b39f99343890692db7f274639e0655e4cfd9658",
+  "attempts": [
+    {
+      "asr_seconds": 0.1370788550702855,
+      "alignment_seconds": 0.00033336307387799025,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leader. Thou art glad?",
+        "hotwords": "Leader, Thou"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leader, Thou art glad?",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " Thou",
+              "start": 1.07,
+              "end": 1.15,
+              "probability": 0.2315673828125
+            },
+            {
+              "text": " art",
+              "start": 1.15,
+              "end": 1.37,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " glad?",
+              "start": 1.37,
+              "end": 1.67,
+              "probability": 0.94482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Thou",
+          "start": 1.07,
+          "end": 1.15
+        },
+        {
+          "raw": "art",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "raw": "glad?",
+          "start": 1.37,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "Thou",
+        "art",
+        "glad?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leader,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "leader",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 1.07,
+          "end": 1.15,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 1.15,
+          "end": 1.37,
+          "key": "art",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "glad?",
+          "start": 1.37,
+          "end": 1.67,
+          "key": "glad",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Thou",
+          "start": 1.07,
+          "end": 1.15
+        },
+        {
+          "text": "art",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "text": "glad?",
+          "start": 1.37,
+          "end": 1.67
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1375367430737242
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5d4a58154fc4f43fc4842d5af0802cc753e1d70ef42265d350eb5b6ea8065335",
+  "selected_reasons": []
+}

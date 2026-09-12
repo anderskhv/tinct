@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "079a1f64c66e6af54eb32dbfd192cd986ecebd95aed231ee48cbc8f78a0f5239",
+  "attempts": [
+    {
+      "asr_seconds": 0.24969394505023956,
+      "alignment_seconds": 0.0005938708782196045,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And who goes with you? You don't travel a hundred miles alone.",
+          "start": 0.08,
+          "end": 3.56,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.73779296875
+            },
+            {
+              "text": " who",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " goes",
+              "start": 0.68,
+              "end": 0.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 0.94,
+              "end": 1.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you?",
+              "start": 1.16,
+              "end": 1.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " You",
+              "start": 1.8,
+              "end": 1.9,
+              "probability": 0.9921875
+            },
+            {
+              "text": " don't",
+              "start": 1.9,
+              "end": 2.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " travel",
+              "start": 2.14,
+              "end": 2.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.69921875
+            },
+            {
+              "text": " hundred",
+              "start": 2.54,
+              "end": 2.78,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " miles",
+              "start": 2.78,
+              "end": 3.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " alone.",
+              "start": 3.14,
+              "end": 3.56,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "who",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "goes",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "raw": "with",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "raw": "you?",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "raw": "You",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "raw": "don't",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "raw": "travel",
+          "start": 2.14,
+          "end": 2.38
+        },
+        {
+          "raw": "a",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "hundred",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "raw": "miles",
+          "start": 2.78,
+          "end": 3.14
+        },
+        {
+          "raw": "alone.",
+          "start": 3.14,
+          "end": 3.56
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "who",
+        "goes",
+        "with",
+        "you?",
+        "You",
+        "don't",
+        "travel",
+        "a",
+        "hundred",
+        "miles",
+        "alone.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "goes",
+          "start": 0.68,
+          "end": 0.94,
+          "key": "goes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.94,
+          "end": 1.16,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 1.16,
+          "end": 1.38,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.8,
+          "end": 1.9,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 1.9,
+          "end": 2.14,
+          "key": "dont",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "travel",
+          "start": 2.14,
+          "end": 2.38,
+          "key": "travel",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.38,
+          "end": 2.54,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hundred",
+          "start": 2.54,
+          "end": 2.78,
+          "key": "hundred",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "miles",
+          "start": 2.78,
+          "end": 3.14,
+          "key": "miles",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "alone.",
+          "start": 3.14,
+          "end": 3.56,
+          "key": "alone",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "who",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "goes",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "text": "with",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "text": "you?",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "text": "You",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "text": "don't",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "text": "travel",
+          "start": 2.14,
+          "end": 2.38
+        },
+        {
+          "text": "a",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "hundred",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "text": "miles",
+          "start": 2.78,
+          "end": 3.14
+        },
+        {
+          "text": "alone.\"",
+          "start": 3.14,
+          "end": 3.56
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25050700455904007
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6e81b387a4c166d5ac5aa2b0deef44563427b42945d6cffd44249971878d2678",
+  "selected_reasons": []
+}

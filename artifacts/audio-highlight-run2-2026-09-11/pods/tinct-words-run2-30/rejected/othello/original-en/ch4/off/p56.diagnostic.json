@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "a5d7fb8f4bd00cba6da60aaa8b17e6cb262ff85c740600fe0a405840427fa522",
+  "attempts": [
+    {
+      "asr_seconds": 0.10741166770458221,
+      "alignment_seconds": 0.0001485804095864296,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Amelia, you shall not write my praise.",
+          "start": 0.05,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " Amelia,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.59765625
+            },
+            {
+              "text": " you",
+              "start": 1.25,
+              "end": 1.35,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " shall",
+              "start": 1.35,
+              "end": 1.47,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " not",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " write",
+              "start": 1.63,
+              "end": 1.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " my",
+              "start": 1.79,
+              "end": 1.97,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " praise.",
+              "start": 1.97,
+              "end": 2.27,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "you",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "raw": "shall",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "raw": "not",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "write",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "raw": "my",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "raw": "praise.",
+          "start": 1.97,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "You",
+        "shall",
+        "not",
+        "write",
+        "my",
+        "praise."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "amelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.25,
+          "end": 1.35,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.35,
+          "end": 1.47,
+          "key": "shall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.47,
+          "end": 1.63,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "write",
+          "start": 1.63,
+          "end": 1.79,
+          "key": "write",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.79,
+          "end": 1.97,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "praise.",
+          "start": 1.97,
+          "end": 2.27,
+          "key": "praise",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.0,
+          "end": 0.625
+        },
+        {
+          "text": "You",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "text": "shall",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "text": "not",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "write",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "text": "my",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "text": "praise.",
+          "start": 1.97,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.10761242685839534
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "af0b5f4979969c6d390adcf011147f2389cf2bdecc550765c5e30df39aeee6ca",
+  "selected_reasons": []
+}

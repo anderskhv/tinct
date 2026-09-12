@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "486b58677ff44f8b480df193de3df4de3a863782cef6f99c9b70a22341a452e5",
+  "attempts": [
+    {
+      "asr_seconds": 0.17688335798447952,
+      "alignment_seconds": 0.00034191200393252075,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enobarbus. 'A bears the third part of the world, man. Seest not?",
+        "hotwords": "Enobarbus, A, Seest"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enobarbus, A bears the third part of the world, man. Seest not?",
+          "start": 0.61,
+          "end": 4.19,
+          "words": [
+            {
+              "text": " Enobarbus,",
+              "start": 0.61,
+              "end": 1.05,
+              "probability": 0.3227221171061198
+            },
+            {
+              "text": " A",
+              "start": 1.57,
+              "end": 1.63,
+              "probability": 0.01549530029296875
+            },
+            {
+              "text": " bears",
+              "start": 1.63,
+              "end": 1.83,
+              "probability": 0.0648193359375
+            },
+            {
+              "text": " the",
+              "start": 1.83,
+              "end": 2.07,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " third",
+              "start": 2.07,
+              "end": 2.27,
+              "probability": 0.978515625
+            },
+            {
+              "text": " part",
+              "start": 2.27,
+              "end": 2.47,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 2.47,
+              "end": 2.57,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 2.57,
+              "end": 2.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " world,",
+              "start": 2.67,
+              "end": 2.91,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " man.",
+              "start": 3.15,
+              "end": 3.27,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " Seest",
+              "start": 3.71,
+              "end": 3.89,
+              "probability": 0.3302001953125
+            },
+            {
+              "text": " not?",
+              "start": 3.89,
+              "end": 4.19,
+              "probability": 0.91162109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enobarbus,",
+          "start": 0.61,
+          "end": 1.05
+        },
+        {
+          "raw": "A",
+          "start": 1.57,
+          "end": 1.63
+        },
+        {
+          "raw": "bears",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "raw": "third",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "raw": "part",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "raw": "of",
+          "start": 2.47,
+          "end": 2.57
+        },
+        {
+          "raw": "the",
+          "start": 2.57,
+          "end": 2.67
+        },
+        {
+          "raw": "world,",
+          "start": 2.67,
+          "end": 2.91
+        },
+        {
+          "raw": "man.",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "raw": "Seest",
+          "start": 3.71,
+          "end": 3.89
+        },
+        {
+          "raw": "not?",
+          "start": 3.89,
+          "end": 4.19
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus.",
+        "'A",
+        "bears",
+        "the",
+        "third",
+        "part",
+        "of",
+        "the",
+        "world,",
+        "man.",
+        "Seest",
+        "not?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enobarbus,",
+          "start": 0.61,
+          "end": 1.05,
+          "key": "enobarbus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.57,
+          "end": 1.63,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bears",
+          "start": 1.63,
+          "end": 1.83,
+          "key": "bears",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 2.07,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "third",
+          "start": 2.07,
+          "end": 2.27,
+          "key": "third",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 2.27,
+          "end": 2.47,
+          "key": "part",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.47,
+          "end": 2.57,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.57,
+          "end": 2.67,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "world,",
+          "start": 2.67,
+          "end": 2.91,
+          "key": "world",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 3.15,
+          "end": 3.27,
+          "key": "man",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Seest",
+          "start": 3.71,
+          "end": 3.89,
+          "key": "seest",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not?",
+          "start": 3.89,
+          "end": 4.19,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.61,
+          "end": 1.05
+        },
+        {
+          "text": "'A",
+          "start": 1.57,
+          "end": 1.63
+        },
+        {
+          "text": "bears",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "text": "the",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "text": "third",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "text": "part",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "text": "of",
+          "start": 2.47,
+          "end": 2.57
+        },
+        {
+          "text": "the",
+          "start": 2.57,
+          "end": 2.67
+        },
+        {
+          "text": "world,",
+          "start": 2.67,
+          "end": 2.91
+        },
+        {
+          "text": "man.",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "text": "Seest",
+          "start": 3.71,
+          "end": 3.89
+        },
+        {
+          "text": "not?",
+          "start": 3.89,
+          "end": 4.19
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1773757050104905
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0b3dec5aad011d28fdf7cd1eaf467dacff20388fbde7767eb9ac8eb2a8f58620",
+  "selected_reasons": []
+}

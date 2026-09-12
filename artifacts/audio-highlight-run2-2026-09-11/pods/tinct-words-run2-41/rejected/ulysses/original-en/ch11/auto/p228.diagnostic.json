@@ -1,0 +1,1118 @@
+{
+  "complete": true,
+  "signature": "7ca9b4c86d76857765377e6c1bf8a3eee40e39caf5b5d508b202d5fa39264e80",
+  "attempts": [
+    {
+      "asr_seconds": 0.4744963520206511,
+      "alignment_seconds": 0.0007224418222904205,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Between the car and window, warily walking, went Bloom, unconquered hero. See me he might. The seat he sat on: warm. Black wary hecat walked towards Richie Goulding's legal bag, lifted aloft, saluting.",
+        "hotwords": "Between, Bloom, See, Black, Richie, Goulding's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Between the car and window, warily walking, went Bloom, unconquered hero. See me he might. The seat he sat on, warm. Black wary hecat walked towards Richie Goulding's legal bag, lifted aloft, saluting.",
+          "start": 0.0,
+          "end": 13.54,
+          "words": [
+            {
+              "text": " Between",
+              "start": 0.0,
+              "end": 0.56,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " the",
+              "start": 0.56,
+              "end": 0.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " car",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 0.94,
+              "end": 1.14,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " window,",
+              "start": 1.14,
+              "end": 1.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " warily",
+              "start": 1.84,
+              "end": 2.06,
+              "probability": 0.591064453125
+            },
+            {
+              "text": " walking,",
+              "start": 2.06,
+              "end": 2.52,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " went",
+              "start": 2.72,
+              "end": 2.82,
+              "probability": 0.96875
+            },
+            {
+              "text": " Bloom,",
+              "start": 2.82,
+              "end": 3.24,
+              "probability": 0.39306640625
+            },
+            {
+              "text": " unconquered",
+              "start": 3.54,
+              "end": 4.1,
+              "probability": 0.8673502604166666
+            },
+            {
+              "text": " hero.",
+              "start": 4.1,
+              "end": 4.38,
+              "probability": 0.73828125
+            },
+            {
+              "text": " See",
+              "start": 5.04,
+              "end": 5.24,
+              "probability": 0.449951171875
+            },
+            {
+              "text": " me",
+              "start": 5.24,
+              "end": 5.4,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " he",
+              "start": 5.4,
+              "end": 5.56,
+              "probability": 0.328125
+            },
+            {
+              "text": " might.",
+              "start": 5.56,
+              "end": 5.78,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " The",
+              "start": 6.34,
+              "end": 6.44,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " seat",
+              "start": 6.44,
+              "end": 6.6,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " he",
+              "start": 6.6,
+              "end": 6.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sat",
+              "start": 6.76,
+              "end": 6.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on,",
+              "start": 6.94,
+              "end": 7.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " warm.",
+              "start": 7.7,
+              "end": 7.98,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Black",
+              "start": 8.74,
+              "end": 8.98,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " wary",
+              "start": 8.98,
+              "end": 9.24,
+              "probability": 0.08941650390625
+            },
+            {
+              "text": " hecat",
+              "start": 9.24,
+              "end": 9.66,
+              "probability": 0.37884521484375
+            },
+            {
+              "text": " walked",
+              "start": 9.66,
+              "end": 10.02,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " towards",
+              "start": 10.02,
+              "end": 10.48,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Richie",
+              "start": 10.48,
+              "end": 10.8,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " Goulding's",
+              "start": 10.8,
+              "end": 11.28,
+              "probability": 0.6380453904469808
+            },
+            {
+              "text": " legal",
+              "start": 11.28,
+              "end": 11.5,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " bag,",
+              "start": 11.5,
+              "end": 11.98,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " lifted",
+              "start": 12.26,
+              "end": 12.46,
+              "probability": 0.994140625
+            },
+            {
+              "text": " aloft,",
+              "start": 12.46,
+              "end": 13.0,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " saluting.",
+              "start": 13.28,
+              "end": 13.54,
+              "probability": 0.992431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Between",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "raw": "the",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "raw": "car",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "and",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "raw": "window,",
+          "start": 1.14,
+          "end": 1.54
+        },
+        {
+          "raw": "warily",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "raw": "walking,",
+          "start": 2.06,
+          "end": 2.52
+        },
+        {
+          "raw": "went",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "raw": "Bloom,",
+          "start": 2.82,
+          "end": 3.24
+        },
+        {
+          "raw": "unconquered",
+          "start": 3.54,
+          "end": 4.1
+        },
+        {
+          "raw": "hero.",
+          "start": 4.1,
+          "end": 4.38
+        },
+        {
+          "raw": "See",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "raw": "me",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "raw": "he",
+          "start": 5.4,
+          "end": 5.56
+        },
+        {
+          "raw": "might.",
+          "start": 5.56,
+          "end": 5.78
+        },
+        {
+          "raw": "The",
+          "start": 6.34,
+          "end": 6.44
+        },
+        {
+          "raw": "seat",
+          "start": 6.44,
+          "end": 6.6
+        },
+        {
+          "raw": "he",
+          "start": 6.6,
+          "end": 6.76
+        },
+        {
+          "raw": "sat",
+          "start": 6.76,
+          "end": 6.94
+        },
+        {
+          "raw": "on,",
+          "start": 6.94,
+          "end": 7.3
+        },
+        {
+          "raw": "warm.",
+          "start": 7.7,
+          "end": 7.98
+        },
+        {
+          "raw": "Black",
+          "start": 8.74,
+          "end": 8.98
+        },
+        {
+          "raw": "wary",
+          "start": 8.98,
+          "end": 9.24
+        },
+        {
+          "raw": "hecat",
+          "start": 9.24,
+          "end": 9.66
+        },
+        {
+          "raw": "walked",
+          "start": 9.66,
+          "end": 10.02
+        },
+        {
+          "raw": "towards",
+          "start": 10.02,
+          "end": 10.48
+        },
+        {
+          "raw": "Richie",
+          "start": 10.48,
+          "end": 10.8
+        },
+        {
+          "raw": "Goulding's",
+          "start": 10.8,
+          "end": 11.28
+        },
+        {
+          "raw": "legal",
+          "start": 11.28,
+          "end": 11.5
+        },
+        {
+          "raw": "bag,",
+          "start": 11.5,
+          "end": 11.98
+        },
+        {
+          "raw": "lifted",
+          "start": 12.26,
+          "end": 12.46
+        },
+        {
+          "raw": "aloft,",
+          "start": 12.46,
+          "end": 13.0
+        },
+        {
+          "raw": "saluting.",
+          "start": 13.28,
+          "end": 13.54
+        }
+      ],
+      "expected_tokens": [
+        "Between",
+        "the",
+        "car",
+        "and",
+        "window,",
+        "warily",
+        "walking,",
+        "went",
+        "Bloom,",
+        "unconquered",
+        "hero.",
+        "See",
+        "me",
+        "he",
+        "might.",
+        "The",
+        "seat",
+        "he",
+        "sat",
+        "on:",
+        "warm.",
+        "Black",
+        "wary",
+        "hecat",
+        "walked",
+        "towards",
+        "Richie",
+        "Goulding's",
+        "legal",
+        "bag,",
+        "lifted",
+        "aloft,",
+        "saluting."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          33,
+          0,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Between",
+          "start": 0.0,
+          "end": 0.56,
+          "key": "between",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.56,
+          "end": 0.7,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "car",
+          "start": 0.7,
+          "end": 0.94,
+          "key": "car",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.94,
+          "end": 1.14,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "window,",
+          "start": 1.14,
+          "end": 1.54,
+          "key": "window",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "warily",
+          "start": 1.84,
+          "end": 2.06,
+          "key": "warily",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "walking,",
+          "start": 2.06,
+          "end": 2.52,
+          "key": "walking",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 2.72,
+          "end": 2.82,
+          "key": "went",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Bloom,",
+          "start": 2.82,
+          "end": 3.24,
+          "key": "bloom",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "unconquered",
+          "start": 3.54,
+          "end": 4.1,
+          "key": "unconquered",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hero.",
+          "start": 4.1,
+          "end": 4.38,
+          "key": "hero",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 5.04,
+          "end": 5.24,
+          "key": "see",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.24,
+          "end": 5.4,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.4,
+          "end": 5.56,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "might.",
+          "start": 5.56,
+          "end": 5.78,
+          "key": "might",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 6.34,
+          "end": 6.44,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "seat",
+          "start": 6.44,
+          "end": 6.6,
+          "key": "seat",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.6,
+          "end": 6.76,
+          "key": "he",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 6.76,
+          "end": 6.94,
+          "key": "sat",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 6.94,
+          "end": 7.3,
+          "key": "on",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "warm.",
+          "start": 7.7,
+          "end": 7.98,
+          "key": "warm",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Black",
+          "start": 8.74,
+          "end": 8.98,
+          "key": "black",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "wary",
+          "start": 8.98,
+          "end": 9.24,
+          "key": "wary",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "hecat",
+          "start": 9.24,
+          "end": 9.66,
+          "key": "hecat",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "walked",
+          "start": 9.66,
+          "end": 10.02,
+          "key": "walked",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 10.02,
+          "end": 10.48,
+          "key": "towards",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Richie",
+          "start": 10.48,
+          "end": 10.8,
+          "key": "richie",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Goulding's",
+          "start": 10.8,
+          "end": 11.28,
+          "key": "gouldings",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "legal",
+          "start": 11.28,
+          "end": 11.5,
+          "key": "legal",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "bag,",
+          "start": 11.5,
+          "end": 11.98,
+          "key": "bag",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "lifted",
+          "start": 12.26,
+          "end": 12.46,
+          "key": "lifted",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "aloft,",
+          "start": 12.46,
+          "end": 13.0,
+          "key": "aloft",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "saluting.",
+          "start": 13.28,
+          "end": 13.54,
+          "key": "saluting",
+          "pieces": [
+            32
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Between",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "the",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "text": "car",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "text": "and",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "text": "window,",
+          "start": 1.14,
+          "end": 1.54
+        },
+        {
+          "text": "warily",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "text": "walking,",
+          "start": 2.06,
+          "end": 2.52
+        },
+        {
+          "text": "went",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "text": "Bloom,",
+          "start": 2.82,
+          "end": 3.24
+        },
+        {
+          "text": "unconquered",
+          "start": 3.54,
+          "end": 4.1
+        },
+        {
+          "text": "hero.",
+          "start": 4.1,
+          "end": 4.38
+        },
+        {
+          "text": "See",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "text": "me",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "text": "he",
+          "start": 5.4,
+          "end": 5.56
+        },
+        {
+          "text": "might.",
+          "start": 5.56,
+          "end": 5.78
+        },
+        {
+          "text": "The",
+          "start": 6.34,
+          "end": 6.44
+        },
+        {
+          "text": "seat",
+          "start": 6.44,
+          "end": 6.6
+        },
+        {
+          "text": "he",
+          "start": 6.6,
+          "end": 6.76
+        },
+        {
+          "text": "sat",
+          "start": 6.76,
+          "end": 6.94
+        },
+        {
+          "text": "on:",
+          "start": 6.94,
+          "end": 7.3
+        },
+        {
+          "text": "warm.",
+          "start": 7.7,
+          "end": 7.98
+        },
+        {
+          "text": "Black",
+          "start": 8.74,
+          "end": 8.98
+        },
+        {
+          "text": "wary",
+          "start": 8.98,
+          "end": 9.24
+        },
+        {
+          "text": "hecat",
+          "start": 9.24,
+          "end": 9.66
+        },
+        {
+          "text": "walked",
+          "start": 9.66,
+          "end": 10.02
+        },
+        {
+          "text": "towards",
+          "start": 10.02,
+          "end": 10.48
+        },
+        {
+          "text": "Richie",
+          "start": 10.48,
+          "end": 10.8
+        },
+        {
+          "text": "Goulding's",
+          "start": 10.8,
+          "end": 11.28
+        },
+        {
+          "text": "legal",
+          "start": 11.28,
+          "end": 11.5
+        },
+        {
+          "text": "bag,",
+          "start": 11.5,
+          "end": 11.98
+        },
+        {
+          "text": "lifted",
+          "start": 12.26,
+          "end": 12.46
+        },
+        {
+          "text": "aloft,",
+          "start": 12.46,
+          "end": 13.0
+        },
+        {
+          "text": "saluting.",
+          "start": 13.28,
+          "end": 13.54
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 33,
+        "matched_words": 33
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4755371371284127
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3e818ad21523b8109a220feedd420f379bed6536a78117eb22caf5ebbea4e506",
+  "selected_reasons": []
+}

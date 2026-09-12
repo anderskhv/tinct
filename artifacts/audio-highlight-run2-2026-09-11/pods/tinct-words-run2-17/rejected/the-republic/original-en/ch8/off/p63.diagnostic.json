@@ -1,0 +1,641 @@
+{
+  "complete": true,
+  "signature": "4082639892c7f2e0b66791e1f2048bcd8334a3c0d779cad1fa5a955ccbda18ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.34798533096909523,
+      "alignment_seconds": 0.00023197755217552185,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, said a Day Mantis.",
+          "start": 0.02,
+          "end": 1.64,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.047576904296875
+            },
+            {
+              "text": " said",
+              "start": 0.86,
+              "end": 1.06,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " a",
+              "start": 1.06,
+              "end": 1.16,
+              "probability": 0.36865234375
+            },
+            {
+              "text": " Day",
+              "start": 1.16,
+              "end": 1.3,
+              "probability": 0.1595458984375
+            },
+            {
+              "text": " Mantis.",
+              "start": 1.3,
+              "end": 1.64,
+              "probability": 0.6944580078125
+            }
+          ]
+        },
+        {
+          "text": " They give us plenty of them, and their complaints are so like themselves.",
+          "start": 2.16,
+          "end": 5.2,
+          "words": [
+            {
+              "text": " They",
+              "start": 2.16,
+              "end": 2.32,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " give",
+              "start": 2.32,
+              "end": 2.46,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " us",
+              "start": 2.46,
+              "end": 2.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " plenty",
+              "start": 2.62,
+              "end": 2.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 2.86,
+              "end": 3.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them,",
+              "start": 3.12,
+              "end": 3.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 3.58,
+              "end": 3.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " their",
+              "start": 3.74,
+              "end": 3.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " complaints",
+              "start": 3.88,
+              "end": 4.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 4.24,
+              "end": 4.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " so",
+              "start": 4.46,
+              "end": 4.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " like",
+              "start": 4.64,
+              "end": 4.84,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " themselves.",
+              "start": 4.84,
+              "end": 5.2,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "said",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "raw": "a",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "raw": "Day",
+          "start": 1.16,
+          "end": 1.3
+        },
+        {
+          "raw": "Mantis.",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "raw": "They",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "raw": "give",
+          "start": 2.32,
+          "end": 2.46
+        },
+        {
+          "raw": "us",
+          "start": 2.46,
+          "end": 2.62
+        },
+        {
+          "raw": "plenty",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "raw": "of",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "raw": "them,",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "raw": "and",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "raw": "their",
+          "start": 3.74,
+          "end": 3.88
+        },
+        {
+          "raw": "complaints",
+          "start": 3.88,
+          "end": 4.24
+        },
+        {
+          "raw": "are",
+          "start": 4.24,
+          "end": 4.46
+        },
+        {
+          "raw": "so",
+          "start": 4.46,
+          "end": 4.64
+        },
+        {
+          "raw": "like",
+          "start": 4.64,
+          "end": 4.84
+        },
+        {
+          "raw": "themselves.",
+          "start": 4.84,
+          "end": 5.2
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "said",
+        "Adeimantus,",
+        "they",
+        "give",
+        "us",
+        "plenty",
+        "of",
+        "them,",
+        "and",
+        "their",
+        "complaints",
+        "are",
+        "so",
+        "like",
+        "themselves."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          5
+        ],
+        [
+          "equal",
+          3,
+          16,
+          5,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.86,
+          "end": 1.06,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.06,
+          "end": 1.16,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Day",
+          "start": 1.16,
+          "end": 1.3,
+          "key": "day",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mantis.",
+          "start": 1.3,
+          "end": 1.64,
+          "key": "mantis",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 2.16,
+          "end": 2.32,
+          "key": "they",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 2.32,
+          "end": 2.46,
+          "key": "give",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 2.46,
+          "end": 2.62,
+          "key": "us",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "plenty",
+          "start": 2.62,
+          "end": 2.86,
+          "key": "plenty",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.86,
+          "end": 3.12,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 3.12,
+          "end": 3.32,
+          "key": "them",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.58,
+          "end": 3.74,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 3.74,
+          "end": 3.88,
+          "key": "their",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "complaints",
+          "start": 3.88,
+          "end": 4.24,
+          "key": "complaints",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.24,
+          "end": 4.46,
+          "key": "are",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.46,
+          "end": 4.64,
+          "key": "so",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 4.64,
+          "end": 4.84,
+          "key": "like",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "themselves.",
+          "start": 4.84,
+          "end": 5.2,
+          "key": "themselves",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "said",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "text": "Adeimantus,",
+          "start": 1.06,
+          "end": 1.61
+        },
+        {
+          "text": "they",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "text": "give",
+          "start": 2.32,
+          "end": 2.46
+        },
+        {
+          "text": "us",
+          "start": 2.46,
+          "end": 2.62
+        },
+        {
+          "text": "plenty",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "text": "of",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "text": "them,",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "text": "and",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "text": "their",
+          "start": 3.74,
+          "end": 3.88
+        },
+        {
+          "text": "complaints",
+          "start": 3.88,
+          "end": 4.24
+        },
+        {
+          "text": "are",
+          "start": 4.24,
+          "end": 4.46
+        },
+        {
+          "text": "so",
+          "start": 4.46,
+          "end": 4.64
+        },
+        {
+          "text": "like",
+          "start": 4.64,
+          "end": 4.84
+        },
+        {
+          "text": "themselves.",
+          "start": 4.84,
+          "end": 5.2
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 18,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.34832361806184053
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ffec1c01bc513f87765630c79188e558a7e558881cc402ee3774286434493161",
+  "selected_reasons": []
+}

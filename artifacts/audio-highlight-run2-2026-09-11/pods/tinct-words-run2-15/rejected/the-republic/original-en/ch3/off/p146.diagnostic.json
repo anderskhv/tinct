@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "4e36e8e69c8a811b261e88c507495090e26ee4d7fde2ba7a937f530e5ba72c73",
+  "attempts": [
+    {
+      "asr_seconds": 0.10810856148600578,
+      "alignment_seconds": 0.0003214143216609955,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Very true.",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.73486328125
+            },
+            {
+              "text": " true.",
+              "start": 0.67,
+              "end": 0.99,
+              "probability": 0.91015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "true.",
+          "start": 0.67,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "Very",
+        "true."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Very",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "very",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 0.67,
+          "end": 0.99,
+          "key": "true",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Very",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "true.",
+          "start": 0.67,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1085641160607338
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0029a89cfe102e6970a80664e411163160a693f326bb6ff95ea077b7eb01e81d",
+  "selected_reasons": []
+}

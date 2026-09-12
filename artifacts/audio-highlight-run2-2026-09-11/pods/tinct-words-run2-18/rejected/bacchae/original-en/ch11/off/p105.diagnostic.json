@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "0d4ea9adae24c1be89f2aeba0a2f8850c83350a5d57bdc02a8b20fdd23bac066",
+  "attempts": [
+    {
+      "asr_seconds": 0.3066555541008711,
+      "alignment_seconds": 0.0005407400894910097,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cadmus, nay child, tease I must weep for thee, for thee and for thy sister's twain.",
+          "start": 0.49,
+          "end": 5.29,
+          "words": [
+            {
+              "text": " Cadmus,",
+              "start": 0.49,
+              "end": 0.89,
+              "probability": 0.7220458984375
+            },
+            {
+              "text": " nay",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.717529296875
+            },
+            {
+              "text": " child,",
+              "start": 1.53,
+              "end": 1.91,
+              "probability": 0.623046875
+            },
+            {
+              "text": " tease",
+              "start": 2.53,
+              "end": 2.53,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " I",
+              "start": 2.53,
+              "end": 2.69,
+              "probability": 0.921875
+            },
+            {
+              "text": " must",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " weep",
+              "start": 2.85,
+              "end": 3.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 3.05,
+              "end": 3.23,
+              "probability": 0.962890625
+            },
+            {
+              "text": " thee,",
+              "start": 3.23,
+              "end": 3.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 3.73,
+              "end": 3.79,
+              "probability": 0.859375
+            },
+            {
+              "text": " thee",
+              "start": 3.79,
+              "end": 3.95,
+              "probability": 0.974609375
+            },
+            {
+              "text": " and",
+              "start": 3.95,
+              "end": 4.09,
+              "probability": 0.94140625
+            },
+            {
+              "text": " for",
+              "start": 4.09,
+              "end": 4.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " thy",
+              "start": 4.23,
+              "end": 4.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sister's",
+              "start": 4.41,
+              "end": 4.87,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " twain.",
+              "start": 4.87,
+              "end": 5.29,
+              "probability": 0.96630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.49,
+          "end": 0.89
+        },
+        {
+          "raw": "nay",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "child,",
+          "start": 1.53,
+          "end": 1.91
+        },
+        {
+          "raw": "tease",
+          "start": 2.53,
+          "end": 2.53
+        },
+        {
+          "raw": "I",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "raw": "must",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "weep",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "raw": "for",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "raw": "thee,",
+          "start": 3.23,
+          "end": 3.47
+        },
+        {
+          "raw": "for",
+          "start": 3.73,
+          "end": 3.79
+        },
+        {
+          "raw": "thee",
+          "start": 3.79,
+          "end": 3.95
+        },
+        {
+          "raw": "and",
+          "start": 3.95,
+          "end": 4.09
+        },
+        {
+          "raw": "for",
+          "start": 4.09,
+          "end": 4.23
+        },
+        {
+          "raw": "thy",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "raw": "sister's",
+          "start": 4.41,
+          "end": 4.87
+        },
+        {
+          "raw": "twain.",
+          "start": 4.87,
+          "end": 5.29
+        }
+      ],
+      "expected_tokens": [
+        "Cadmus.",
+        "Nay,",
+        "Child,",
+        "'tis",
+        "I",
+        "must",
+        "weep",
+        "for",
+        "thee;",
+        "For",
+        "thee",
+        "and",
+        "for",
+        "thy",
+        "sisters",
+        "twain!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          16,
+          4,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.49,
+          "end": 0.89,
+          "key": "cadmus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nay",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "child,",
+          "start": 1.53,
+          "end": 1.91,
+          "key": "child",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 2.53,
+          "end": 2.53,
+          "key": "tease",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.53,
+          "end": 2.69,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.69,
+          "end": 2.85,
+          "key": "must",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "weep",
+          "start": 2.85,
+          "end": 3.05,
+          "key": "weep",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.05,
+          "end": 3.23,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 3.23,
+          "end": 3.47,
+          "key": "thee",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.73,
+          "end": 3.79,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 3.79,
+          "end": 3.95,
+          "key": "thee",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.95,
+          "end": 4.09,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.09,
+          "end": 4.23,
+          "key": "for",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 4.23,
+          "end": 4.41,
+          "key": "thy",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sister's",
+          "start": 4.41,
+          "end": 4.87,
+          "key": "sisters",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "twain.",
+          "start": 4.87,
+          "end": 5.29,
+          "key": "twain",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cadmus.",
+          "start": 0.49,
+          "end": 0.89
+        },
+        {
+          "text": "Nay,",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "Child,",
+          "start": 1.53,
+          "end": 1.91
+        },
+        {
+          "text": "'tis",
+          "start": 1.91,
+          "end": 2.22
+        },
+        {
+          "text": "I",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "text": "must",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "weep",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "text": "for",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "text": "thee;",
+          "start": 3.23,
+          "end": 3.47
+        },
+        {
+          "text": "For",
+          "start": 3.73,
+          "end": 3.79
+        },
+        {
+          "text": "thee",
+          "start": 3.79,
+          "end": 3.95
+        },
+        {
+          "text": "and",
+          "start": 3.95,
+          "end": 4.09
+        },
+        {
+          "text": "for",
+          "start": 4.09,
+          "end": 4.23
+        },
+        {
+          "text": "thy",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "text": "sisters",
+          "start": 4.41,
+          "end": 4.87
+        },
+        {
+          "text": "twain!",
+          "start": 4.87,
+          "end": 5.29
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.30740519904065877
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0535c471f5dd6baf94e3929ed11dd8969facf7675d7b7d4b6b7116b59e03f2ed",
+  "selected_reasons": []
+}

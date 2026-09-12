@@ -1,0 +1,3004 @@
+{
+  "complete": true,
+  "signature": "ec7a4ef61eb375526136d236238772c70f61b5920c3bbe67794dd94c645f7a36",
+  "attempts": [
+    {
+      "asr_seconds": 0.3104240112006664,
+      "alignment_seconds": 0.0004429426044225693,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Say you ne'er had done't— Harp on that still—but by our putting on. And presently when you have drawn your number, Repair to th' Capitol.",
+        "hotwords": "Brutus, Say, Harp, And, Repair, Capitol"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus. Say you ne'er had done't— Harp on that still—but by our putting on. And presently when you have drawn your number, Repair to th' Capitol.",
+          "start": 0.05,
+          "end": 8.77,
+          "words": [
+            {
+              "text": " Brutus.",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Say",
+              "start": 1.21,
+              "end": 1.37,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " you",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.765625
+            },
+            {
+              "text": " ne",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.86865234375
+            },
+            {
+              "text": "'er",
+              "start": 1.71,
+              "end": 1.79,
+              "probability": 0.979736328125
+            },
+            {
+              "text": " had",
+              "start": 1.79,
+              "end": 1.93,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " done't—",
+              "start": 1.93,
+              "end": 2.51,
+              "probability": 0.12781548500061035
+            },
+            {
+              "text": " Harp",
+              "start": 2.51,
+              "end": 2.59,
+              "probability": 0.502349853515625
+            },
+            {
+              "text": " on",
+              "start": 2.59,
+              "end": 2.73,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " that",
+              "start": 2.73,
+              "end": 2.89,
+              "probability": 0.98046875
+            },
+            {
+              "text": " still—but",
+              "start": 2.89,
+              "end": 3.81,
+              "probability": 0.4731038411458333
+            },
+            {
+              "text": " by",
+              "start": 3.81,
+              "end": 3.99,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " our",
+              "start": 3.99,
+              "end": 4.13,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " putting",
+              "start": 4.13,
+              "end": 4.35,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " on.",
+              "start": 4.35,
+              "end": 4.71,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " And",
+              "start": 5.35,
+              "end": 5.47,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " presently",
+              "start": 5.47,
+              "end": 5.77,
+              "probability": 0.9765625
+            },
+            {
+              "text": " when",
+              "start": 5.77,
+              "end": 6.03,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " you",
+              "start": 6.03,
+              "end": 6.15,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " have",
+              "start": 6.15,
+              "end": 6.27,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " drawn",
+              "start": 6.27,
+              "end": 6.47,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " your",
+              "start": 6.47,
+              "end": 6.65,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " number,",
+              "start": 6.65,
+              "end": 6.97,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " Repair",
+              "start": 7.29,
+              "end": 7.51,
+              "probability": 0.20166015625
+            },
+            {
+              "text": " to",
+              "start": 7.51,
+              "end": 7.75,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " th'",
+              "start": 7.75,
+              "end": 8.15,
+              "probability": 0.19287109375
+            },
+            {
+              "text": " Capitol.",
+              "start": 8.47,
+              "end": 8.77,
+              "probability": 0.025482177734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Say",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "raw": "you",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "ne",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "'er",
+          "start": 1.71,
+          "end": 1.79
+        },
+        {
+          "raw": "had",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "raw": "done't—",
+          "start": 1.93,
+          "end": 2.51
+        },
+        {
+          "raw": "Harp",
+          "start": 2.51,
+          "end": 2.59
+        },
+        {
+          "raw": "on",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "raw": "that",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "raw": "still—but",
+          "start": 2.89,
+          "end": 3.81
+        },
+        {
+          "raw": "by",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "raw": "our",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "raw": "putting",
+          "start": 4.13,
+          "end": 4.35
+        },
+        {
+          "raw": "on.",
+          "start": 4.35,
+          "end": 4.71
+        },
+        {
+          "raw": "And",
+          "start": 5.35,
+          "end": 5.47
+        },
+        {
+          "raw": "presently",
+          "start": 5.47,
+          "end": 5.77
+        },
+        {
+          "raw": "when",
+          "start": 5.77,
+          "end": 6.03
+        },
+        {
+          "raw": "you",
+          "start": 6.03,
+          "end": 6.15
+        },
+        {
+          "raw": "have",
+          "start": 6.15,
+          "end": 6.27
+        },
+        {
+          "raw": "drawn",
+          "start": 6.27,
+          "end": 6.47
+        },
+        {
+          "raw": "your",
+          "start": 6.47,
+          "end": 6.65
+        },
+        {
+          "raw": "number,",
+          "start": 6.65,
+          "end": 6.97
+        },
+        {
+          "raw": "Repair",
+          "start": 7.29,
+          "end": 7.51
+        },
+        {
+          "raw": "to",
+          "start": 7.51,
+          "end": 7.75
+        },
+        {
+          "raw": "th'",
+          "start": 7.75,
+          "end": 8.15
+        },
+        {
+          "raw": "Capitol.",
+          "start": 8.47,
+          "end": 8.77
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Say",
+        "you",
+        "ne'er",
+        "had",
+        "done't—",
+        "Harp",
+        "on",
+        "that",
+        "still—but",
+        "by",
+        "our",
+        "putting",
+        "on.",
+        "And",
+        "presently",
+        "when",
+        "you",
+        "have",
+        "drawn",
+        "your",
+        "number,",
+        "Repair",
+        "to",
+        "th'",
+        "Capitol."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          26,
+          5,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus.",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Say",
+          "start": 1.21,
+          "end": 1.37,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.37,
+          "end": 1.55,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ne",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "ne",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 1.71,
+          "end": 1.79,
+          "key": "er",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.79,
+          "end": 1.93,
+          "key": "had",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "done't—",
+          "start": 1.93,
+          "end": 2.51,
+          "key": "donet",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Harp",
+          "start": 2.51,
+          "end": 2.59,
+          "key": "harp",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.59,
+          "end": 2.73,
+          "key": "on",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.73,
+          "end": 2.89,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "still—but",
+          "start": 2.89,
+          "end": 3.81,
+          "key": "stillbut",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.81,
+          "end": 3.99,
+          "key": "by",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 3.99,
+          "end": 4.13,
+          "key": "our",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "putting",
+          "start": 4.13,
+          "end": 4.35,
+          "key": "putting",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 4.35,
+          "end": 4.71,
+          "key": "on",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.35,
+          "end": 5.47,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "presently",
+          "start": 5.47,
+          "end": 5.77,
+          "key": "presently",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 5.77,
+          "end": 6.03,
+          "key": "when",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.03,
+          "end": 6.15,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.15,
+          "end": 6.27,
+          "key": "have",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "drawn",
+          "start": 6.27,
+          "end": 6.47,
+          "key": "drawn",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 6.47,
+          "end": 6.65,
+          "key": "your",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "number,",
+          "start": 6.65,
+          "end": 6.97,
+          "key": "number",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Repair",
+          "start": 7.29,
+          "end": 7.51,
+          "key": "repair",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.51,
+          "end": 7.75,
+          "key": "to",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 7.75,
+          "end": 8.15,
+          "key": "th",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Capitol.",
+          "start": 8.47,
+          "end": 8.77,
+          "key": "capitol",
+          "pieces": [
+            26
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Say",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "text": "you",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "ne'er",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "had",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "text": "done't—",
+          "start": 1.93,
+          "end": 2.51
+        },
+        {
+          "text": "Harp",
+          "start": 2.51,
+          "end": 2.59
+        },
+        {
+          "text": "on",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "text": "that",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "text": "still—but",
+          "start": 2.89,
+          "end": 3.81
+        },
+        {
+          "text": "by",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "text": "our",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "text": "putting",
+          "start": 4.13,
+          "end": 4.35
+        },
+        {
+          "text": "on.",
+          "start": 4.35,
+          "end": 4.71
+        },
+        {
+          "text": "And",
+          "start": 5.35,
+          "end": 5.47
+        },
+        {
+          "text": "presently",
+          "start": 5.47,
+          "end": 5.77
+        },
+        {
+          "text": "when",
+          "start": 5.77,
+          "end": 6.03
+        },
+        {
+          "text": "you",
+          "start": 6.03,
+          "end": 6.15
+        },
+        {
+          "text": "have",
+          "start": 6.15,
+          "end": 6.27
+        },
+        {
+          "text": "drawn",
+          "start": 6.27,
+          "end": 6.47
+        },
+        {
+          "text": "your",
+          "start": 6.47,
+          "end": 6.65
+        },
+        {
+          "text": "number,",
+          "start": 6.65,
+          "end": 6.97
+        },
+        {
+          "text": "Repair",
+          "start": 7.29,
+          "end": 7.51
+        },
+        {
+          "text": "to",
+          "start": 7.51,
+          "end": 7.75
+        },
+        {
+          "text": "th'",
+          "start": 7.75,
+          "end": 8.15
+        },
+        {
+          "text": "Capitol.",
+          "start": 8.47,
+          "end": 8.77
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 27,
+        "matched_words": 25
+      },
+      "match_ratio": 0.9615384615384616,
+      "rejection_reasons": [],
+      "seconds": 0.31104458030313253
+    },
+    {
+      "asr_seconds": 0.33472485514357686,
+      "alignment_seconds": 0.0006485688500106335,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Brutus, Say, Harp, And, Repair, Capitol"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Brutus, Say you ne'er had don't harp on that still, But by our putting on.",
+          "start": 0.05,
+          "end": 4.73,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Say",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.007457733154296875
+            },
+            {
+              "text": " you",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " ne",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.86083984375
+            },
+            {
+              "text": "'er",
+              "start": 1.71,
+              "end": 1.79,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " had",
+              "start": 1.79,
+              "end": 1.93,
+              "probability": 0.865234375
+            },
+            {
+              "text": " don't",
+              "start": 1.93,
+              "end": 2.33,
+              "probability": 0.893798828125
+            },
+            {
+              "text": " harp",
+              "start": 2.33,
+              "end": 2.61,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " on",
+              "start": 2.61,
+              "end": 2.71,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " that",
+              "start": 2.71,
+              "end": 2.89,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " still,",
+              "start": 2.89,
+              "end": 3.23,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " But",
+              "start": 3.67,
+              "end": 3.81,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " by",
+              "start": 3.81,
+              "end": 3.99,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " our",
+              "start": 3.99,
+              "end": 4.13,
+              "probability": 0.978515625
+            },
+            {
+              "text": " putting",
+              "start": 4.13,
+              "end": 4.35,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " on.",
+              "start": 4.35,
+              "end": 4.73,
+              "probability": 0.9736328125
+            }
+          ]
+        },
+        {
+          "text": " And presently when you have drawn your number, Repair to T.H. Capitol.",
+          "start": 5.33,
+          "end": 8.71,
+          "words": [
+            {
+              "text": " And",
+              "start": 5.33,
+              "end": 5.47,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " presently",
+              "start": 5.47,
+              "end": 5.77,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " when",
+              "start": 5.77,
+              "end": 6.03,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " you",
+              "start": 6.03,
+              "end": 6.15,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " have",
+              "start": 6.15,
+              "end": 6.27,
+              "probability": 0.98046875
+            },
+            {
+              "text": " drawn",
+              "start": 6.27,
+              "end": 6.47,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " your",
+              "start": 6.47,
+              "end": 6.65,
+              "probability": 0.890625
+            },
+            {
+              "text": " number,",
+              "start": 6.65,
+              "end": 6.99,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " Repair",
+              "start": 7.27,
+              "end": 7.49,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " to",
+              "start": 7.49,
+              "end": 7.77,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " T",
+              "start": 7.77,
+              "end": 7.95,
+              "probability": 0.38232421875
+            },
+            {
+              "text": ".H.",
+              "start": 7.95,
+              "end": 8.33,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " Capitol.",
+              "start": 8.49,
+              "end": 8.71,
+              "probability": 0.1474609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Say",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "you",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "ne",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "'er",
+          "start": 1.71,
+          "end": 1.79
+        },
+        {
+          "raw": "had",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "raw": "don't",
+          "start": 1.93,
+          "end": 2.33
+        },
+        {
+          "raw": "harp",
+          "start": 2.33,
+          "end": 2.61
+        },
+        {
+          "raw": "on",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "raw": "that",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "raw": "still,",
+          "start": 2.89,
+          "end": 3.23
+        },
+        {
+          "raw": "But",
+          "start": 3.67,
+          "end": 3.81
+        },
+        {
+          "raw": "by",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "raw": "our",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "raw": "putting",
+          "start": 4.13,
+          "end": 4.35
+        },
+        {
+          "raw": "on.",
+          "start": 4.35,
+          "end": 4.73
+        },
+        {
+          "raw": "And",
+          "start": 5.33,
+          "end": 5.47
+        },
+        {
+          "raw": "presently",
+          "start": 5.47,
+          "end": 5.77
+        },
+        {
+          "raw": "when",
+          "start": 5.77,
+          "end": 6.03
+        },
+        {
+          "raw": "you",
+          "start": 6.03,
+          "end": 6.15
+        },
+        {
+          "raw": "have",
+          "start": 6.15,
+          "end": 6.27
+        },
+        {
+          "raw": "drawn",
+          "start": 6.27,
+          "end": 6.47
+        },
+        {
+          "raw": "your",
+          "start": 6.47,
+          "end": 6.65
+        },
+        {
+          "raw": "number,",
+          "start": 6.65,
+          "end": 6.99
+        },
+        {
+          "raw": "Repair",
+          "start": 7.27,
+          "end": 7.49
+        },
+        {
+          "raw": "to",
+          "start": 7.49,
+          "end": 7.77
+        },
+        {
+          "raw": "T",
+          "start": 7.77,
+          "end": 7.95
+        },
+        {
+          "raw": ".H.",
+          "start": 7.95,
+          "end": 8.33
+        },
+        {
+          "raw": "Capitol.",
+          "start": 8.49,
+          "end": 8.71
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Say",
+        "you",
+        "ne'er",
+        "had",
+        "done't—",
+        "Harp",
+        "on",
+        "that",
+        "still—but",
+        "by",
+        "our",
+        "putting",
+        "on.",
+        "And",
+        "presently",
+        "when",
+        "you",
+        "have",
+        "drawn",
+        "your",
+        "number,",
+        "Repair",
+        "to",
+        "th'",
+        "Capitol."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ],
+        [
+          "replace",
+          5,
+          6,
+          6,
+          7
+        ],
+        [
+          "equal",
+          6,
+          9,
+          7,
+          10
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          12
+        ],
+        [
+          "equal",
+          10,
+          24,
+          12,
+          26
+        ],
+        [
+          "replace",
+          24,
+          25,
+          26,
+          28
+        ],
+        [
+          "equal",
+          25,
+          26,
+          28,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          6,
+          7
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          12
+        ],
+        [
+          "replace",
+          24,
+          25,
+          26,
+          28
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Say",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.37,
+          "end": 1.55,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ne",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "ne",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 1.71,
+          "end": 1.79,
+          "key": "er",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.79,
+          "end": 1.93,
+          "key": "had",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 1.93,
+          "end": 2.33,
+          "key": "dont",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "harp",
+          "start": 2.33,
+          "end": 2.61,
+          "key": "harp",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.61,
+          "end": 2.71,
+          "key": "on",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.71,
+          "end": 2.89,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "still,",
+          "start": 2.89,
+          "end": 3.23,
+          "key": "still",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 3.67,
+          "end": 3.81,
+          "key": "but",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.81,
+          "end": 3.99,
+          "key": "by",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 3.99,
+          "end": 4.13,
+          "key": "our",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "putting",
+          "start": 4.13,
+          "end": 4.35,
+          "key": "putting",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 4.35,
+          "end": 4.73,
+          "key": "on",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.33,
+          "end": 5.47,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "presently",
+          "start": 5.47,
+          "end": 5.77,
+          "key": "presently",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 5.77,
+          "end": 6.03,
+          "key": "when",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.03,
+          "end": 6.15,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.15,
+          "end": 6.27,
+          "key": "have",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "drawn",
+          "start": 6.27,
+          "end": 6.47,
+          "key": "drawn",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 6.47,
+          "end": 6.65,
+          "key": "your",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "number,",
+          "start": 6.65,
+          "end": 6.99,
+          "key": "number",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Repair",
+          "start": 7.27,
+          "end": 7.49,
+          "key": "repair",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.49,
+          "end": 7.77,
+          "key": "to",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 7.77,
+          "end": 7.95,
+          "key": "t",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": ".H.",
+          "start": 7.95,
+          "end": 8.33,
+          "key": "h",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Capitol.",
+          "start": 8.49,
+          "end": 8.71,
+          "key": "capitol",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Say",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "you",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "ne'er",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "had",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "text": "done't—",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "text": "Harp",
+          "start": 2.33,
+          "end": 2.61
+        },
+        {
+          "text": "on",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "text": "that",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "text": "still—but",
+          "start": 2.89,
+          "end": 3.35
+        },
+        {
+          "text": "by",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "text": "our",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "text": "putting",
+          "start": 4.13,
+          "end": 4.35
+        },
+        {
+          "text": "on.",
+          "start": 4.35,
+          "end": 4.73
+        },
+        {
+          "text": "And",
+          "start": 5.33,
+          "end": 5.47
+        },
+        {
+          "text": "presently",
+          "start": 5.47,
+          "end": 5.77
+        },
+        {
+          "text": "when",
+          "start": 5.77,
+          "end": 6.03
+        },
+        {
+          "text": "you",
+          "start": 6.03,
+          "end": 6.15
+        },
+        {
+          "text": "have",
+          "start": 6.15,
+          "end": 6.27
+        },
+        {
+          "text": "drawn",
+          "start": 6.27,
+          "end": 6.47
+        },
+        {
+          "text": "your",
+          "start": 6.47,
+          "end": 6.65
+        },
+        {
+          "text": "number,",
+          "start": 6.65,
+          "end": 6.99
+        },
+        {
+          "text": "Repair",
+          "start": 7.27,
+          "end": 7.49
+        },
+        {
+          "text": "to",
+          "start": 7.49,
+          "end": 7.77
+        },
+        {
+          "text": "th'",
+          "start": 7.77,
+          "end": 8.13
+        },
+        {
+          "text": "Capitol.",
+          "start": 8.49,
+          "end": 8.71
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 29,
+        "matched_words": 22
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3356320820748806
+    },
+    {
+      "asr_seconds": 0.34745984012261033,
+      "alignment_seconds": 0.00045984284952282906,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, say you ne'er had don't harp on that still, but by our putting on.",
+          "start": 0.05,
+          "end": 4.73,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.97265625
+            },
+            {
+              "text": " say",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " you",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " ne",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.859375
+            },
+            {
+              "text": "'er",
+              "start": 1.71,
+              "end": 1.79,
+              "probability": 0.980712890625
+            },
+            {
+              "text": " had",
+              "start": 1.79,
+              "end": 1.93,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " don't",
+              "start": 1.93,
+              "end": 2.35,
+              "probability": 0.908447265625
+            },
+            {
+              "text": " harp",
+              "start": 2.35,
+              "end": 2.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " on",
+              "start": 2.61,
+              "end": 2.71,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " that",
+              "start": 2.71,
+              "end": 2.89,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " still,",
+              "start": 2.89,
+              "end": 3.23,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " but",
+              "start": 3.73,
+              "end": 3.81,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " by",
+              "start": 3.81,
+              "end": 3.99,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " our",
+              "start": 3.99,
+              "end": 4.13,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " putting",
+              "start": 4.13,
+              "end": 4.37,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " on.",
+              "start": 4.37,
+              "end": 4.73,
+              "probability": 0.98193359375
+            }
+          ]
+        },
+        {
+          "text": " And presently when you have drawn your number, repair to T.H. capital.",
+          "start": 5.35,
+          "end": 8.71,
+          "words": [
+            {
+              "text": " And",
+              "start": 5.35,
+              "end": 5.47,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " presently",
+              "start": 5.47,
+              "end": 5.77,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " when",
+              "start": 5.77,
+              "end": 6.03,
+              "probability": 0.791015625
+            },
+            {
+              "text": " you",
+              "start": 6.03,
+              "end": 6.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have",
+              "start": 6.15,
+              "end": 6.27,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " drawn",
+              "start": 6.27,
+              "end": 6.47,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " your",
+              "start": 6.47,
+              "end": 6.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " number,",
+              "start": 6.65,
+              "end": 6.99,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " repair",
+              "start": 7.27,
+              "end": 7.51,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " to",
+              "start": 7.51,
+              "end": 7.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " T",
+              "start": 7.77,
+              "end": 7.95,
+              "probability": 0.50146484375
+            },
+            {
+              "text": ".H.",
+              "start": 7.95,
+              "end": 8.33,
+              "probability": 0.732666015625
+            },
+            {
+              "text": " capital.",
+              "start": 8.49,
+              "end": 8.71,
+              "probability": 0.252197265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "say",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "you",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "ne",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "'er",
+          "start": 1.71,
+          "end": 1.79
+        },
+        {
+          "raw": "had",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "raw": "don't",
+          "start": 1.93,
+          "end": 2.35
+        },
+        {
+          "raw": "harp",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "raw": "on",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "raw": "that",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "raw": "still,",
+          "start": 2.89,
+          "end": 3.23
+        },
+        {
+          "raw": "but",
+          "start": 3.73,
+          "end": 3.81
+        },
+        {
+          "raw": "by",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "raw": "our",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "raw": "putting",
+          "start": 4.13,
+          "end": 4.37
+        },
+        {
+          "raw": "on.",
+          "start": 4.37,
+          "end": 4.73
+        },
+        {
+          "raw": "And",
+          "start": 5.35,
+          "end": 5.47
+        },
+        {
+          "raw": "presently",
+          "start": 5.47,
+          "end": 5.77
+        },
+        {
+          "raw": "when",
+          "start": 5.77,
+          "end": 6.03
+        },
+        {
+          "raw": "you",
+          "start": 6.03,
+          "end": 6.15
+        },
+        {
+          "raw": "have",
+          "start": 6.15,
+          "end": 6.27
+        },
+        {
+          "raw": "drawn",
+          "start": 6.27,
+          "end": 6.47
+        },
+        {
+          "raw": "your",
+          "start": 6.47,
+          "end": 6.65
+        },
+        {
+          "raw": "number,",
+          "start": 6.65,
+          "end": 6.99
+        },
+        {
+          "raw": "repair",
+          "start": 7.27,
+          "end": 7.51
+        },
+        {
+          "raw": "to",
+          "start": 7.51,
+          "end": 7.77
+        },
+        {
+          "raw": "T",
+          "start": 7.77,
+          "end": 7.95
+        },
+        {
+          "raw": ".H.",
+          "start": 7.95,
+          "end": 8.33
+        },
+        {
+          "raw": "capital.",
+          "start": 8.49,
+          "end": 8.71
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Say",
+        "you",
+        "ne'er",
+        "had",
+        "done't—",
+        "Harp",
+        "on",
+        "that",
+        "still—but",
+        "by",
+        "our",
+        "putting",
+        "on.",
+        "And",
+        "presently",
+        "when",
+        "you",
+        "have",
+        "drawn",
+        "your",
+        "number,",
+        "Repair",
+        "to",
+        "th'",
+        "Capitol."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ],
+        [
+          "replace",
+          5,
+          6,
+          6,
+          7
+        ],
+        [
+          "equal",
+          6,
+          9,
+          7,
+          10
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          12
+        ],
+        [
+          "equal",
+          10,
+          24,
+          12,
+          26
+        ],
+        [
+          "replace",
+          24,
+          26,
+          26,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          6,
+          7
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          12
+        ],
+        [
+          "replace",
+          24,
+          26,
+          26,
+          29
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.37,
+          "end": 1.55,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ne",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "ne",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 1.71,
+          "end": 1.79,
+          "key": "er",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.79,
+          "end": 1.93,
+          "key": "had",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 1.93,
+          "end": 2.35,
+          "key": "dont",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "harp",
+          "start": 2.35,
+          "end": 2.61,
+          "key": "harp",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.61,
+          "end": 2.71,
+          "key": "on",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.71,
+          "end": 2.89,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "still,",
+          "start": 2.89,
+          "end": 3.23,
+          "key": "still",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.73,
+          "end": 3.81,
+          "key": "but",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.81,
+          "end": 3.99,
+          "key": "by",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 3.99,
+          "end": 4.13,
+          "key": "our",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "putting",
+          "start": 4.13,
+          "end": 4.37,
+          "key": "putting",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 4.37,
+          "end": 4.73,
+          "key": "on",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.35,
+          "end": 5.47,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "presently",
+          "start": 5.47,
+          "end": 5.77,
+          "key": "presently",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 5.77,
+          "end": 6.03,
+          "key": "when",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.03,
+          "end": 6.15,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.15,
+          "end": 6.27,
+          "key": "have",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "drawn",
+          "start": 6.27,
+          "end": 6.47,
+          "key": "drawn",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 6.47,
+          "end": 6.65,
+          "key": "your",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "number,",
+          "start": 6.65,
+          "end": 6.99,
+          "key": "number",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "repair",
+          "start": 7.27,
+          "end": 7.51,
+          "key": "repair",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.51,
+          "end": 7.77,
+          "key": "to",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 7.77,
+          "end": 7.95,
+          "key": "t",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": ".H.",
+          "start": 7.95,
+          "end": 8.33,
+          "key": "h",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "capital.",
+          "start": 8.49,
+          "end": 8.71,
+          "key": "capital",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Say",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "you",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "ne'er",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "had",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "text": "done't—",
+          "start": 1.93,
+          "end": 2.14
+        },
+        {
+          "text": "Harp",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "text": "on",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "text": "that",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "text": "still—but",
+          "start": 2.89,
+          "end": 3.35
+        },
+        {
+          "text": "by",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "text": "our",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "text": "putting",
+          "start": 4.13,
+          "end": 4.37
+        },
+        {
+          "text": "on.",
+          "start": 4.37,
+          "end": 4.73
+        },
+        {
+          "text": "And",
+          "start": 5.35,
+          "end": 5.47
+        },
+        {
+          "text": "presently",
+          "start": 5.47,
+          "end": 5.77
+        },
+        {
+          "text": "when",
+          "start": 5.77,
+          "end": 6.03
+        },
+        {
+          "text": "you",
+          "start": 6.03,
+          "end": 6.15
+        },
+        {
+          "text": "have",
+          "start": 6.15,
+          "end": 6.27
+        },
+        {
+          "text": "drawn",
+          "start": 6.27,
+          "end": 6.47
+        },
+        {
+          "text": "your",
+          "start": 6.47,
+          "end": 6.65
+        },
+        {
+          "text": "number,",
+          "start": 6.65,
+          "end": 6.99
+        },
+        {
+          "text": "Repair",
+          "start": 7.27,
+          "end": 7.51
+        },
+        {
+          "text": "to",
+          "start": 7.51,
+          "end": 7.77
+        },
+        {
+          "text": "th'",
+          "start": 7.77,
+          "end": 8.24
+        },
+        {
+          "text": "Capitol.",
+          "start": 8.24,
+          "end": 8.475
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 29,
+        "matched_words": 21
+      },
+      "match_ratio": 0.8076923076923077,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3481081794016063
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "38f262bb3822e5ac9782eb7b0a2348fb81a0a6879a604375b4292b332479462f",
+  "selected_reasons": []
+}

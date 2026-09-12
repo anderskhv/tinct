@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "13d897388459fbdd76cad63192f025bebc48a5188a289bdad8a5a44328d71f32",
+  "attempts": [
+    {
+      "asr_seconds": 0.21160763874650002,
+      "alignment_seconds": 0.00043864548206329346,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, smilst thou, I sent for thee upon a sad occasion.",
+          "start": 0.05,
+          "end": 4.05,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.410400390625
+            },
+            {
+              "text": " smilst",
+              "start": 1.29,
+              "end": 1.71,
+              "probability": 0.7755533854166666
+            },
+            {
+              "text": " thou,",
+              "start": 1.71,
+              "end": 1.95,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " I",
+              "start": 2.47,
+              "end": 2.53,
+              "probability": 0.98828125
+            },
+            {
+              "text": " sent",
+              "start": 2.53,
+              "end": 2.75,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " for",
+              "start": 2.75,
+              "end": 2.91,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " thee",
+              "start": 2.91,
+              "end": 3.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " upon",
+              "start": 3.05,
+              "end": 3.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 3.23,
+              "end": 3.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sad",
+              "start": 3.39,
+              "end": 3.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " occasion.",
+              "start": 3.57,
+              "end": 4.05,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "smilst",
+          "start": 1.29,
+          "end": 1.71
+        },
+        {
+          "raw": "thou,",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "raw": "I",
+          "start": 2.47,
+          "end": 2.53
+        },
+        {
+          "raw": "sent",
+          "start": 2.53,
+          "end": 2.75
+        },
+        {
+          "raw": "for",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "raw": "thee",
+          "start": 2.91,
+          "end": 3.05
+        },
+        {
+          "raw": "upon",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "raw": "a",
+          "start": 3.23,
+          "end": 3.39
+        },
+        {
+          "raw": "sad",
+          "start": 3.39,
+          "end": 3.57
+        },
+        {
+          "raw": "occasion.",
+          "start": 3.57,
+          "end": 4.05
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Smil'st",
+        "thou?",
+        "I",
+        "sent",
+        "for",
+        "thee",
+        "upon",
+        "a",
+        "sad",
+        "occasion."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "smilst",
+          "start": 1.29,
+          "end": 1.71,
+          "key": "smilst",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou,",
+          "start": 1.71,
+          "end": 1.95,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.47,
+          "end": 2.53,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 2.53,
+          "end": 2.75,
+          "key": "sent",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.75,
+          "end": 2.91,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.91,
+          "end": 3.05,
+          "key": "thee",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.05,
+          "end": 3.23,
+          "key": "upon",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.23,
+          "end": 3.39,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sad",
+          "start": 3.39,
+          "end": 3.57,
+          "key": "sad",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "occasion.",
+          "start": 3.57,
+          "end": 4.05,
+          "key": "occasion",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Smil'st",
+          "start": 1.29,
+          "end": 1.71
+        },
+        {
+          "text": "thou?",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "text": "I",
+          "start": 2.47,
+          "end": 2.53
+        },
+        {
+          "text": "sent",
+          "start": 2.53,
+          "end": 2.75
+        },
+        {
+          "text": "for",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "text": "thee",
+          "start": 2.91,
+          "end": 3.05
+        },
+        {
+          "text": "upon",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "text": "a",
+          "start": 3.23,
+          "end": 3.39
+        },
+        {
+          "text": "sad",
+          "start": 3.39,
+          "end": 3.57
+        },
+        {
+          "text": "occasion.",
+          "start": 3.57,
+          "end": 4.05
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2122158780694008
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e61fec31a69dc9f776f54d446317a82087c6ca1a0ac01882112cd5100e8971a1",
+  "selected_reasons": []
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "879e6b67e5ea83e116d843df46cb1660257a7300ca8be2470b5cb1394cfa8104",
+  "attempts": [
+    {
+      "asr_seconds": 0.26221003918908536,
+      "alignment_seconds": 0.00041854986920952797,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Katharine. Your Majesty shall mock me; I cannot speak your England.",
+        "hotwords": "Katharine, Majesty, I, England"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Katharine. Your Majesty shall mock me. I cannot speak your England.",
+          "start": 0.05,
+          "end": 4.13,
+          "words": [
+            {
+              "text": " Katharine.",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.52679443359375
+            },
+            {
+              "text": " Your",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " Majesty",
+              "start": 1.53,
+              "end": 1.83,
+              "probability": 0.37353515625
+            },
+            {
+              "text": " shall",
+              "start": 1.83,
+              "end": 2.17,
+              "probability": 0.986328125
+            },
+            {
+              "text": " mock",
+              "start": 2.17,
+              "end": 2.39,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " me.",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 3.03,
+              "end": 3.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " cannot",
+              "start": 3.11,
+              "end": 3.35,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " speak",
+              "start": 3.35,
+              "end": 3.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 3.67,
+              "end": 3.85,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " England.",
+              "start": 3.85,
+              "end": 4.13,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katharine.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "Your",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "Majesty",
+          "start": 1.53,
+          "end": 1.83
+        },
+        {
+          "raw": "shall",
+          "start": 1.83,
+          "end": 2.17
+        },
+        {
+          "raw": "mock",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "raw": "me.",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "raw": "I",
+          "start": 3.03,
+          "end": 3.11
+        },
+        {
+          "raw": "cannot",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "raw": "speak",
+          "start": 3.35,
+          "end": 3.67
+        },
+        {
+          "raw": "your",
+          "start": 3.67,
+          "end": 3.85
+        },
+        {
+          "raw": "England.",
+          "start": 3.85,
+          "end": 4.13
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "Your",
+        "Majesty",
+        "shall",
+        "mock",
+        "me;",
+        "I",
+        "cannot",
+        "speak",
+        "your",
+        "England."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katharine.",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "katharine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 1.43,
+          "end": 1.53,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Majesty",
+          "start": 1.53,
+          "end": 1.83,
+          "key": "majesty",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.83,
+          "end": 2.17,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mock",
+          "start": 2.17,
+          "end": 2.39,
+          "key": "mock",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.03,
+          "end": 3.11,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 3.11,
+          "end": 3.35,
+          "key": "cannot",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 3.35,
+          "end": 3.67,
+          "key": "speak",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.67,
+          "end": 3.85,
+          "key": "your",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "England.",
+          "start": 3.85,
+          "end": 4.13,
+          "key": "england",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Your",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "text": "Majesty",
+          "start": 1.53,
+          "end": 1.83
+        },
+        {
+          "text": "shall",
+          "start": 1.83,
+          "end": 2.17
+        },
+        {
+          "text": "mock",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "text": "me;",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "text": "I",
+          "start": 3.03,
+          "end": 3.11
+        },
+        {
+          "text": "cannot",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "text": "speak",
+          "start": 3.35,
+          "end": 3.67
+        },
+        {
+          "text": "your",
+          "start": 3.67,
+          "end": 3.85
+        },
+        {
+          "text": "England.",
+          "start": 3.85,
+          "end": 4.13
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2628002231940627
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c0777c2c2f40b669210533e2874d4ff536fff71f0ebbbebeaabe1588f0f66ec6",
+  "selected_reasons": []
+}

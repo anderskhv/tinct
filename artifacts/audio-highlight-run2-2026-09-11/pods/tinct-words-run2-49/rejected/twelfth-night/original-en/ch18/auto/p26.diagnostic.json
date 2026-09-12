@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "4a512bb92a70001a5426621d396012f85a88d47882abb335769c186076ae8d20",
+  "attempts": [
+    {
+      "asr_seconds": 0.15135786682367325,
+      "alignment_seconds": 0.00033337995409965515,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Antonio and Officers.",
+        "hotwords": "Enter, Antonio, Officers"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Antonio and Officers.",
+          "start": 0.08,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " Antonio",
+              "start": 0.66,
+              "end": 1.12,
+              "probability": 0.935546875
+            },
+            {
+              "text": " and",
+              "start": 1.12,
+              "end": 1.42,
+              "probability": 0.896484375
+            },
+            {
+              "text": " Officers.",
+              "start": 1.42,
+              "end": 1.78,
+              "probability": 0.303466796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Antonio",
+          "start": 0.66,
+          "end": 1.12
+        },
+        {
+          "raw": "and",
+          "start": 1.12,
+          "end": 1.42
+        },
+        {
+          "raw": "Officers.",
+          "start": 1.42,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Antonio",
+        "and",
+        "Officers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Antonio",
+          "start": 0.66,
+          "end": 1.12,
+          "key": "antonio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.12,
+          "end": 1.42,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Officers.",
+          "start": 1.42,
+          "end": 1.78,
+          "key": "officers",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Antonio",
+          "start": 0.66,
+          "end": 1.12
+        },
+        {
+          "text": "and",
+          "start": 1.12,
+          "end": 1.42
+        },
+        {
+          "text": "Officers.",
+          "start": 1.42,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15181580558419228
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d817b82595b18286b872a102bdab2225032beaa1c7db9a1f1f70d58e68fbab4d",
+  "selected_reasons": []
+}

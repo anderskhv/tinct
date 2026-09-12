@@ -1,0 +1,307 @@
+{
+  "complete": true,
+  "signature": "88430ee3b70a3e3c7204ae99ed1606c35a24194cc85d1090cb884737025f00b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.24633986223489046,
+      "alignment_seconds": 0.0004703495651483536,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That's true.",
+          "start": 0.02,
+          "end": 1.02,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.916015625
+            },
+            {
+              "text": " true.",
+              "start": 0.76,
+              "end": 1.02,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " A scented pan rubble ski.",
+          "start": 1.5,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " A",
+              "start": 1.5,
+              "end": 1.52,
+              "probability": 0.1927490234375
+            },
+            {
+              "text": " scented",
+              "start": 1.52,
+              "end": 1.76,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " pan",
+              "start": 1.76,
+              "end": 2.04,
+              "probability": 0.9453125
+            },
+            {
+              "text": " rubble",
+              "start": 2.04,
+              "end": 2.4,
+              "probability": 0.21807861328125
+            },
+            {
+              "text": " ski.",
+              "start": 2.4,
+              "end": 2.64,
+              "probability": 0.81103515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "true.",
+          "start": 0.76,
+          "end": 1.02
+        },
+        {
+          "raw": "A",
+          "start": 1.5,
+          "end": 1.52
+        },
+        {
+          "raw": "scented",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "raw": "pan",
+          "start": 1.76,
+          "end": 2.04
+        },
+        {
+          "raw": "rubble",
+          "start": 2.04,
+          "end": 2.4
+        },
+        {
+          "raw": "ski.",
+          "start": 2.4,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "\"That's",
+        "true,\"",
+        "assented",
+        "Pan",
+        "Vrublevsky."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          4,
+          4,
+          5
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 0.76,
+          "end": 1.02,
+          "key": "true",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.5,
+          "end": 1.52,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "scented",
+          "start": 1.52,
+          "end": 1.76,
+          "key": "scented",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pan",
+          "start": 1.76,
+          "end": 2.04,
+          "key": "pan",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "rubble",
+          "start": 2.04,
+          "end": 2.4,
+          "key": "rubble",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ski.",
+          "start": 2.4,
+          "end": 2.64,
+          "key": "ski",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That's",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "true,\"",
+          "start": 0.76,
+          "end": 1.02
+        },
+        {
+          "text": "assented",
+          "start": 1.02,
+          "end": 1.39
+        },
+        {
+          "text": "Pan",
+          "start": 1.76,
+          "end": 2.04
+        },
+        {
+          "text": "Vrublevsky.",
+          "start": 2.04,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 7,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24696883466094732
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c6c21823078b2d0da89567bc49958d0f60df5f2c797a4b6c0048c1e469d8ae3e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "ef626b9809ee8f41eb58f1617349864edb9ceed111f1e25c359c67f6ebbb5c4f",
+  "attempts": [
+    {
+      "asr_seconds": 0.16387883014976978,
+      "alignment_seconds": 0.00029215961694717407,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All. To th' pot, I warrant him.",
+        "hotwords": "All, To, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All, To th' pot, I warrant him.",
+          "start": 0.05,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.71240234375
+            },
+            {
+              "text": " To",
+              "start": 0.91,
+              "end": 1.07,
+              "probability": 0.00395965576171875
+            },
+            {
+              "text": " th'",
+              "start": 1.07,
+              "end": 1.35,
+              "probability": 0.134033203125
+            },
+            {
+              "text": " pot,",
+              "start": 1.39,
+              "end": 1.71,
+              "probability": 0.41943359375
+            },
+            {
+              "text": " I",
+              "start": 1.83,
+              "end": 1.87,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " warrant",
+              "start": 1.87,
+              "end": 2.05,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " him.",
+              "start": 2.05,
+              "end": 2.31,
+              "probability": 0.93212890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "To",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "raw": "th'",
+          "start": 1.07,
+          "end": 1.35
+        },
+        {
+          "raw": "pot,",
+          "start": 1.39,
+          "end": 1.71
+        },
+        {
+          "raw": "I",
+          "start": 1.83,
+          "end": 1.87
+        },
+        {
+          "raw": "warrant",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "raw": "him.",
+          "start": 2.05,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "To",
+        "th'",
+        "pot,",
+        "I",
+        "warrant",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 0.91,
+          "end": 1.07,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 1.07,
+          "end": 1.35,
+          "key": "th",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pot,",
+          "start": 1.39,
+          "end": 1.71,
+          "key": "pot",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.83,
+          "end": 1.87,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 1.87,
+          "end": 2.05,
+          "key": "warrant",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 2.05,
+          "end": 2.31,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "To",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "text": "th'",
+          "start": 1.07,
+          "end": 1.35
+        },
+        {
+          "text": "pot,",
+          "start": 1.39,
+          "end": 1.71
+        },
+        {
+          "text": "I",
+          "start": 1.83,
+          "end": 1.87
+        },
+        {
+          "text": "warrant",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "text": "him.",
+          "start": 2.05,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16432628966867924
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8eb959c796c4e197db6aee079b9d12095b23faa5c9e33f2af82c40d4cbf9ac99",
+  "selected_reasons": []
+}

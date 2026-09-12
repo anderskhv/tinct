@@ -1,0 +1,677 @@
+{
+  "complete": true,
+  "signature": "4422b67f3f517b78f198a0b661b3e910084750b142d6f72f082f9d877ef20f83",
+  "attempts": [
+    {
+      "asr_seconds": 0.3565402189269662,
+      "alignment_seconds": 0.0006597468163818121,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Williams. An't please your Majesty, 'tis the gage of one that I should fight withal, if he be alive.",
+        "hotwords": "Williams, An't, Majesty, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Williams, An't please your Majesty,",
+          "start": 0.46,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Williams,",
+              "start": 0.46,
+              "end": 0.82,
+              "probability": 0.385498046875
+            },
+            {
+              "text": " An't",
+              "start": 1.56,
+              "end": 1.74,
+              "probability": 0.11644363403320312
+            },
+            {
+              "text": " please",
+              "start": 1.74,
+              "end": 1.84,
+              "probability": 0.459716796875
+            },
+            {
+              "text": " your",
+              "start": 1.84,
+              "end": 2.04,
+              "probability": 0.74365234375
+            },
+            {
+              "text": " Majesty,",
+              "start": 2.04,
+              "end": 2.44,
+              "probability": 0.521484375
+            }
+          ]
+        },
+        {
+          "text": " Tis the gage of one that I should fight withal, if he be alive.",
+          "start": 3.08,
+          "end": 5.98,
+          "words": [
+            {
+              "text": " Tis",
+              "start": 3.08,
+              "end": 3.26,
+              "probability": 0.0564422607421875
+            },
+            {
+              "text": " the",
+              "start": 3.26,
+              "end": 3.4,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " gage",
+              "start": 3.4,
+              "end": 3.68,
+              "probability": 0.58404541015625
+            },
+            {
+              "text": " of",
+              "start": 3.68,
+              "end": 3.82,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " one",
+              "start": 3.82,
+              "end": 4.0,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " that",
+              "start": 4.0,
+              "end": 4.14,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " I",
+              "start": 4.14,
+              "end": 4.28,
+              "probability": 0.9765625
+            },
+            {
+              "text": " should",
+              "start": 4.28,
+              "end": 4.44,
+              "probability": 0.955078125
+            },
+            {
+              "text": " fight",
+              "start": 4.44,
+              "end": 4.68,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " withal,",
+              "start": 4.68,
+              "end": 5.14,
+              "probability": 0.481201171875
+            },
+            {
+              "text": " if",
+              "start": 5.3,
+              "end": 5.38,
+              "probability": 0.68408203125
+            },
+            {
+              "text": " he",
+              "start": 5.38,
+              "end": 5.5,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " be",
+              "start": 5.5,
+              "end": 5.64,
+              "probability": 0.98828125
+            },
+            {
+              "text": " alive.",
+              "start": 5.64,
+              "end": 5.98,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Williams,",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "raw": "An't",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "raw": "please",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "raw": "your",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "raw": "Majesty,",
+          "start": 2.04,
+          "end": 2.44
+        },
+        {
+          "raw": "Tis",
+          "start": 3.08,
+          "end": 3.26
+        },
+        {
+          "raw": "the",
+          "start": 3.26,
+          "end": 3.4
+        },
+        {
+          "raw": "gage",
+          "start": 3.4,
+          "end": 3.68
+        },
+        {
+          "raw": "of",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "raw": "one",
+          "start": 3.82,
+          "end": 4.0
+        },
+        {
+          "raw": "that",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "raw": "I",
+          "start": 4.14,
+          "end": 4.28
+        },
+        {
+          "raw": "should",
+          "start": 4.28,
+          "end": 4.44
+        },
+        {
+          "raw": "fight",
+          "start": 4.44,
+          "end": 4.68
+        },
+        {
+          "raw": "withal,",
+          "start": 4.68,
+          "end": 5.14
+        },
+        {
+          "raw": "if",
+          "start": 5.3,
+          "end": 5.38
+        },
+        {
+          "raw": "he",
+          "start": 5.38,
+          "end": 5.5
+        },
+        {
+          "raw": "be",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "raw": "alive.",
+          "start": 5.64,
+          "end": 5.98
+        }
+      ],
+      "expected_tokens": [
+        "Williams.",
+        "An't",
+        "please",
+        "your",
+        "Majesty,",
+        "'tis",
+        "the",
+        "gage",
+        "of",
+        "one",
+        "that",
+        "I",
+        "should",
+        "fight",
+        "withal,",
+        "if",
+        "he",
+        "be",
+        "alive."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Williams,",
+          "start": 0.46,
+          "end": 0.82,
+          "key": "williams",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "An't",
+          "start": 1.56,
+          "end": 1.74,
+          "key": "ant",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 1.74,
+          "end": 1.84,
+          "key": "please",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.84,
+          "end": 2.04,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Majesty,",
+          "start": 2.04,
+          "end": 2.44,
+          "key": "majesty",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 3.08,
+          "end": 3.26,
+          "key": "tis",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.26,
+          "end": 3.4,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gage",
+          "start": 3.4,
+          "end": 3.68,
+          "key": "gage",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.68,
+          "end": 3.82,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 3.82,
+          "end": 4.0,
+          "key": "one",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.0,
+          "end": 4.14,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.14,
+          "end": 4.28,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 4.28,
+          "end": 4.44,
+          "key": "should",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fight",
+          "start": 4.44,
+          "end": 4.68,
+          "key": "fight",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "withal,",
+          "start": 4.68,
+          "end": 5.14,
+          "key": "withal",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 5.3,
+          "end": 5.38,
+          "key": "if",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.38,
+          "end": 5.5,
+          "key": "he",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.5,
+          "end": 5.64,
+          "key": "be",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "alive.",
+          "start": 5.64,
+          "end": 5.98,
+          "key": "alive",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Williams.",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "text": "An't",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "text": "please",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "text": "your",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "text": "Majesty,",
+          "start": 2.04,
+          "end": 2.44
+        },
+        {
+          "text": "'tis",
+          "start": 3.08,
+          "end": 3.26
+        },
+        {
+          "text": "the",
+          "start": 3.26,
+          "end": 3.4
+        },
+        {
+          "text": "gage",
+          "start": 3.4,
+          "end": 3.68
+        },
+        {
+          "text": "of",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "text": "one",
+          "start": 3.82,
+          "end": 4.0
+        },
+        {
+          "text": "that",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "text": "I",
+          "start": 4.14,
+          "end": 4.28
+        },
+        {
+          "text": "should",
+          "start": 4.28,
+          "end": 4.44
+        },
+        {
+          "text": "fight",
+          "start": 4.44,
+          "end": 4.68
+        },
+        {
+          "text": "withal,",
+          "start": 4.68,
+          "end": 5.14
+        },
+        {
+          "text": "if",
+          "start": 5.3,
+          "end": 5.38
+        },
+        {
+          "text": "he",
+          "start": 5.38,
+          "end": 5.5
+        },
+        {
+          "text": "be",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "text": "alive.",
+          "start": 5.64,
+          "end": 5.98
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3574816449545324
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "24ce5f14795a65aa59213978e515e80de6eeeb83fb62db722fd0bd13ed72b279",
+  "selected_reasons": []
+}

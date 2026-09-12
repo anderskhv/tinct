@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "2b48db91b39d7cf3768567f03e29fe233945aa6e735992f29507b7ebd9a09b0f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2557559210108593,
+      "alignment_seconds": 0.0005255150026641786,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Sit down or by the law Harry I'll knock you down.",
+        "hotwords": "Sit, Harry, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sit down or by the law Harry I'll knock you down.",
+          "start": 0.11,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Sit",
+              "start": 0.11,
+              "end": 0.59,
+              "probability": 0.923828125
+            },
+            {
+              "text": " down",
+              "start": 0.59,
+              "end": 0.89,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " or",
+              "start": 0.89,
+              "end": 1.23,
+              "probability": 0.4912109375
+            },
+            {
+              "text": " by",
+              "start": 1.23,
+              "end": 1.33,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " the",
+              "start": 1.33,
+              "end": 1.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " law",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Harry",
+              "start": 1.63,
+              "end": 1.87,
+              "probability": 0.609375
+            },
+            {
+              "text": " I'll",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.676025390625
+            },
+            {
+              "text": " knock",
+              "start": 2.09,
+              "end": 2.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 2.27,
+              "end": 2.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " down.",
+              "start": 2.43,
+              "end": 2.75,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sit",
+          "start": 0.11,
+          "end": 0.59
+        },
+        {
+          "raw": "down",
+          "start": 0.59,
+          "end": 0.89
+        },
+        {
+          "raw": "or",
+          "start": 0.89,
+          "end": 1.23
+        },
+        {
+          "raw": "by",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "raw": "the",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "raw": "law",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "Harry",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "raw": "I'll",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "raw": "knock",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "raw": "you",
+          "start": 2.27,
+          "end": 2.43
+        },
+        {
+          "raw": "down.",
+          "start": 2.43,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "—Sit",
+        "down",
+        "or",
+        "by",
+        "the",
+        "law",
+        "Harry",
+        "I'll",
+        "knock",
+        "you",
+        "down."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sit",
+          "start": 0.11,
+          "end": 0.59,
+          "key": "sit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 0.59,
+          "end": 0.89,
+          "key": "down",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 0.89,
+          "end": 1.23,
+          "key": "or",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.23,
+          "end": 1.33,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.33,
+          "end": 1.45,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "law",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "law",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Harry",
+          "start": 1.63,
+          "end": 1.87,
+          "key": "harry",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.87,
+          "end": 2.09,
+          "key": "ill",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "knock",
+          "start": 2.09,
+          "end": 2.27,
+          "key": "knock",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.27,
+          "end": 2.43,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "down.",
+          "start": 2.43,
+          "end": 2.75,
+          "key": "down",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Sit",
+          "start": 0.11,
+          "end": 0.59
+        },
+        {
+          "text": "down",
+          "start": 0.59,
+          "end": 0.89
+        },
+        {
+          "text": "or",
+          "start": 0.89,
+          "end": 1.23
+        },
+        {
+          "text": "by",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "text": "the",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "text": "law",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "text": "Harry",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "text": "I'll",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "text": "knock",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "text": "you",
+          "start": 2.27,
+          "end": 2.43
+        },
+        {
+          "text": "down.",
+          "start": 2.43,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2564901150180958
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6a92c7e5d91cf994441cf8869e0150b403a467023f66ac41116a0ef5423edb68",
+  "selected_reasons": []
+}

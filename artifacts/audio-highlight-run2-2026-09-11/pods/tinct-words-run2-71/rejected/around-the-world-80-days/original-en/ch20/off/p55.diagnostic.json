@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "c82406eb5691827eeb242dc386515599d90f269fb40412bed2c565c3852b0e78",
+  "attempts": [
+    {
+      "asr_seconds": 0.1905407290905714,
+      "alignment_seconds": 0.00041220709681510925,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, John Bunsby, Master of the Tanketeer.",
+          "start": 0.05,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " John",
+              "start": 1.21,
+              "end": 1.27,
+              "probability": 0.81201171875
+            },
+            {
+              "text": " Bunsby,",
+              "start": 1.27,
+              "end": 1.75,
+              "probability": 0.6624348958333334
+            },
+            {
+              "text": " Master",
+              "start": 2.07,
+              "end": 2.19,
+              "probability": 0.40966796875
+            },
+            {
+              "text": " of",
+              "start": 2.19,
+              "end": 2.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.39,
+              "end": 2.49,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Tanketeer.",
+              "start": 2.49,
+              "end": 3.09,
+              "probability": 0.655517578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "John",
+          "start": 1.21,
+          "end": 1.27
+        },
+        {
+          "raw": "Bunsby,",
+          "start": 1.27,
+          "end": 1.75
+        },
+        {
+          "raw": "Master",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "raw": "of",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "raw": "the",
+          "start": 2.39,
+          "end": 2.49
+        },
+        {
+          "raw": "Tanketeer.",
+          "start": 2.49,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes;",
+        "John",
+        "Bunsby,",
+        "master",
+        "of",
+        "the",
+        "'Tankadere.'\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 1.21,
+          "end": 1.27,
+          "key": "john",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Bunsby,",
+          "start": 1.27,
+          "end": 1.75,
+          "key": "bunsby",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 2.07,
+          "end": 2.19,
+          "key": "master",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.19,
+          "end": 2.39,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.39,
+          "end": 2.49,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Tanketeer.",
+          "start": 2.49,
+          "end": 3.09,
+          "key": "tanketeer",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes;",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "John",
+          "start": 1.21,
+          "end": 1.27
+        },
+        {
+          "text": "Bunsby,",
+          "start": 1.27,
+          "end": 1.75
+        },
+        {
+          "text": "master",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "text": "of",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "text": "the",
+          "start": 2.39,
+          "end": 2.49
+        },
+        {
+          "text": "'Tankadere.'\"",
+          "start": 2.49,
+          "end": 2.79
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.19109039101749659
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "72fbee907898abbe498e3f56b4cd53f9cc18fe0b31dde183d1f09bdae97f9058",
+  "selected_reasons": []
+}

@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "f2f7708575e2c222a334c0d3c8b880c93166a24f27bbd97a7a1951d3e984b4ca",
+  "attempts": [
+    {
+      "asr_seconds": 0.2125119399279356,
+      "alignment_seconds": 0.0004332668613642454,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richard, have done thy charm, thou hateful withered hag.",
+          "start": 0.02,
+          "end": 3.36,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.6787109375
+            },
+            {
+              "text": " have",
+              "start": 1.28,
+              "end": 1.36,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " done",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " thy",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " charm,",
+              "start": 1.7,
+              "end": 2.02,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " thou",
+              "start": 2.22,
+              "end": 2.26,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " hateful",
+              "start": 2.26,
+              "end": 2.56,
+              "probability": 0.990234375
+            },
+            {
+              "text": " withered",
+              "start": 2.56,
+              "end": 2.98,
+              "probability": 0.932861328125
+            },
+            {
+              "text": " hag.",
+              "start": 2.98,
+              "end": 3.36,
+              "probability": 0.975830078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "have",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "raw": "done",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "thy",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "charm,",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "raw": "thou",
+          "start": 2.22,
+          "end": 2.26
+        },
+        {
+          "raw": "hateful",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "raw": "withered",
+          "start": 2.56,
+          "end": 2.98
+        },
+        {
+          "raw": "hag.",
+          "start": 2.98,
+          "end": 3.36
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Have",
+        "done",
+        "thy",
+        "charm,",
+        "thou",
+        "hateful",
+        "withered",
+        "hag."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.28,
+          "end": 1.36,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "done",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.5,
+          "end": 1.7,
+          "key": "thy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "charm,",
+          "start": 1.7,
+          "end": 2.02,
+          "key": "charm",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.22,
+          "end": 2.26,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hateful",
+          "start": 2.26,
+          "end": 2.56,
+          "key": "hateful",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "withered",
+          "start": 2.56,
+          "end": 2.98,
+          "key": "withered",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hag.",
+          "start": 2.98,
+          "end": 3.36,
+          "key": "hag",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "Have",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "text": "done",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "thy",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "text": "charm,",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "text": "thou",
+          "start": 2.22,
+          "end": 2.26
+        },
+        {
+          "text": "hateful",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "text": "withered",
+          "start": 2.56,
+          "end": 2.98
+        },
+        {
+          "text": "hag.",
+          "start": 2.98,
+          "end": 3.36
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2131061488762498
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aeaa5bdc611ad2298acbca8923b29c2756e747b8ebc34bb14ab1771e783c1fd5",
+  "selected_reasons": []
+}

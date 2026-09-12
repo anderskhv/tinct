@@ -1,0 +1,291 @@
+{
+  "complete": true,
+  "signature": "a06b8c81bf198f38dc6d0f8817e9776ec76225cf9e535cc30bc649bed5977729",
+  "attempts": [
+    {
+      "asr_seconds": 0.17172078898875043,
+      "alignment_seconds": 0.00014414501492865384,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In Arbarbus, Caesar's sister is called Octavia.",
+          "start": 0.05,
+          "end": 3.01,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.8984375
+            },
+            {
+              "text": " Arbarbus,",
+              "start": 0.53,
+              "end": 1.05,
+              "probability": 0.4829915364583333
+            },
+            {
+              "text": " Caesar's",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.843994140625
+            },
+            {
+              "text": " sister",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " is",
+              "start": 2.03,
+              "end": 2.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " called",
+              "start": 2.25,
+              "end": 2.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Octavia.",
+              "start": 2.51,
+              "end": 3.01,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Arbarbus,",
+          "start": 0.53,
+          "end": 1.05
+        },
+        {
+          "raw": "Caesar's",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "raw": "sister",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "is",
+          "start": 2.03,
+          "end": 2.25
+        },
+        {
+          "raw": "called",
+          "start": 2.25,
+          "end": 2.51
+        },
+        {
+          "raw": "Octavia.",
+          "start": 2.51,
+          "end": 3.01
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus.",
+        "Caesar's",
+        "sister",
+        "is",
+        "called",
+        "Octavia."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          6,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Arbarbus,",
+          "start": 0.53,
+          "end": 1.05,
+          "key": "arbarbus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Caesar's",
+          "start": 1.55,
+          "end": 1.83,
+          "key": "caesars",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sister",
+          "start": 1.83,
+          "end": 2.03,
+          "key": "sister",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.03,
+          "end": 2.25,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "called",
+          "start": 2.25,
+          "end": 2.51,
+          "key": "called",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Octavia.",
+          "start": 2.51,
+          "end": 3.01,
+          "key": "octavia",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.0,
+          "end": 0.775
+        },
+        {
+          "text": "Caesar's",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "text": "sister",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "is",
+          "start": 2.03,
+          "end": 2.25
+        },
+        {
+          "text": "called",
+          "start": 2.25,
+          "end": 2.51
+        },
+        {
+          "text": "Octavia.",
+          "start": 2.51,
+          "end": 3.01
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1719136160099879
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c54aca84b9719b0a013664d167383d280bb1d3a226872e204d5f53111fc93087",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

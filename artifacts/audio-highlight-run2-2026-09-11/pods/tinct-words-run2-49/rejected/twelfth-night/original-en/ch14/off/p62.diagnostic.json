@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "4f6d920e93d0925a0171395b6989424aa5defbb7896ae14cbeedeeced90c6e77",
+  "attempts": [
+    {
+      "asr_seconds": 0.2135419175028801,
+      "alignment_seconds": 0.0005123801529407501,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Maria, no, I warrant you. He will not hear of godliness.",
+          "start": 0.05,
+          "end": 3.31,
+          "words": [
+            {
+              "text": " Maria,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.1776123046875
+            },
+            {
+              "text": " no,",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " I",
+              "start": 1.61,
+              "end": 1.61,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " warrant",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.923828125
+            },
+            {
+              "text": " you.",
+              "start": 1.79,
+              "end": 2.07,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " He",
+              "start": 2.21,
+              "end": 2.27,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " will",
+              "start": 2.27,
+              "end": 2.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 2.37,
+              "end": 2.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hear",
+              "start": 2.51,
+              "end": 2.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 2.71,
+              "end": 2.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " godliness.",
+              "start": 2.89,
+              "end": 3.31,
+              "probability": 0.96142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Maria,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "no,",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "I",
+          "start": 1.61,
+          "end": 1.61
+        },
+        {
+          "raw": "warrant",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "you.",
+          "start": 1.79,
+          "end": 2.07
+        },
+        {
+          "raw": "He",
+          "start": 2.21,
+          "end": 2.27
+        },
+        {
+          "raw": "will",
+          "start": 2.27,
+          "end": 2.37
+        },
+        {
+          "raw": "not",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "raw": "hear",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "raw": "of",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "raw": "godliness.",
+          "start": 2.89,
+          "end": 3.31
+        }
+      ],
+      "expected_tokens": [
+        "Maria.",
+        "No,",
+        "I",
+        "warrant",
+        "you,",
+        "he",
+        "will",
+        "not",
+        "hear",
+        "of",
+        "godliness."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Maria,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "maria",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.61,
+          "end": 1.61,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "warrant",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.79,
+          "end": 2.07,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.21,
+          "end": 2.27,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.27,
+          "end": 2.37,
+          "key": "will",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.37,
+          "end": 2.51,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 2.51,
+          "end": 2.71,
+          "key": "hear",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.71,
+          "end": 2.89,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "godliness.",
+          "start": 2.89,
+          "end": 3.31,
+          "key": "godliness",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Maria.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "No,",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "I",
+          "start": 1.61,
+          "end": 1.61
+        },
+        {
+          "text": "warrant",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "you,",
+          "start": 1.79,
+          "end": 2.07
+        },
+        {
+          "text": "he",
+          "start": 2.21,
+          "end": 2.27
+        },
+        {
+          "text": "will",
+          "start": 2.27,
+          "end": 2.37
+        },
+        {
+          "text": "not",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "text": "hear",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "text": "of",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "text": "godliness.",
+          "start": 2.89,
+          "end": 3.31
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21426580101251602
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fe6ea79394948a8f77a44ea6b16f7ffa0a87c65b56c90c8ed5db5e9fb4422f9d",
+  "selected_reasons": []
+}

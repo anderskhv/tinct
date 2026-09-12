@@ -1,0 +1,736 @@
+{
+  "complete": true,
+  "signature": "8fd03faa7f5bd4d6cf460cbda695790d26e60bd606018a104c351e9508fd137d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2964194300584495,
+      "alignment_seconds": 0.0005553318187594414,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The human and fallible should not irrigate a power with which the divine and perfect alone can be safely entrusted.",
+          "start": 0.02,
+          "end": 6.98,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " human",
+              "start": 0.5,
+              "end": 0.86,
+              "probability": 0.951171875
+            },
+            {
+              "text": " and",
+              "start": 0.86,
+              "end": 1.1,
+              "probability": 0.623046875
+            },
+            {
+              "text": " fallible",
+              "start": 1.1,
+              "end": 1.56,
+              "probability": 0.994384765625
+            },
+            {
+              "text": " should",
+              "start": 1.56,
+              "end": 1.82,
+              "probability": 0.994140625
+            },
+            {
+              "text": " not",
+              "start": 1.82,
+              "end": 2.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " irrigate",
+              "start": 2.06,
+              "end": 2.54,
+              "probability": 0.7305908203125
+            },
+            {
+              "text": " a",
+              "start": 2.54,
+              "end": 2.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " power",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " with",
+              "start": 2.96,
+              "end": 3.44,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " which",
+              "start": 3.44,
+              "end": 3.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.6,
+              "end": 3.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " divine",
+              "start": 3.74,
+              "end": 4.2,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " and",
+              "start": 4.2,
+              "end": 4.54,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " perfect",
+              "start": 4.54,
+              "end": 4.92,
+              "probability": 0.994140625
+            },
+            {
+              "text": " alone",
+              "start": 4.92,
+              "end": 5.32,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " can",
+              "start": 5.32,
+              "end": 5.86,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " be",
+              "start": 5.86,
+              "end": 6.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " safely",
+              "start": 6.0,
+              "end": 6.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " entrusted.",
+              "start": 6.44,
+              "end": 6.98,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "human",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "raw": "and",
+          "start": 0.86,
+          "end": 1.1
+        },
+        {
+          "raw": "fallible",
+          "start": 1.1,
+          "end": 1.56
+        },
+        {
+          "raw": "should",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "raw": "not",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "raw": "irrigate",
+          "start": 2.06,
+          "end": 2.54
+        },
+        {
+          "raw": "a",
+          "start": 2.54,
+          "end": 2.64
+        },
+        {
+          "raw": "power",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "raw": "with",
+          "start": 2.96,
+          "end": 3.44
+        },
+        {
+          "raw": "which",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "raw": "the",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "raw": "divine",
+          "start": 3.74,
+          "end": 4.2
+        },
+        {
+          "raw": "and",
+          "start": 4.2,
+          "end": 4.54
+        },
+        {
+          "raw": "perfect",
+          "start": 4.54,
+          "end": 4.92
+        },
+        {
+          "raw": "alone",
+          "start": 4.92,
+          "end": 5.32
+        },
+        {
+          "raw": "can",
+          "start": 5.32,
+          "end": 5.86
+        },
+        {
+          "raw": "be",
+          "start": 5.86,
+          "end": 6.0
+        },
+        {
+          "raw": "safely",
+          "start": 6.0,
+          "end": 6.44
+        },
+        {
+          "raw": "entrusted.",
+          "start": 6.44,
+          "end": 6.98
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "human",
+        "and",
+        "fallible",
+        "should",
+        "not",
+        "arrogate",
+        "a",
+        "power",
+        "with",
+        "which",
+        "the",
+        "divine",
+        "and",
+        "perfect",
+        "alone",
+        "can",
+        "be",
+        "safely",
+        "intrusted.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          19,
+          7,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "human",
+          "start": 0.5,
+          "end": 0.86,
+          "key": "human",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.86,
+          "end": 1.1,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fallible",
+          "start": 1.1,
+          "end": 1.56,
+          "key": "fallible",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.56,
+          "end": 1.82,
+          "key": "should",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.82,
+          "end": 2.06,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "irrigate",
+          "start": 2.06,
+          "end": 2.54,
+          "key": "irrigate",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.54,
+          "end": 2.64,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "power",
+          "start": 2.64,
+          "end": 2.96,
+          "key": "power",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.96,
+          "end": 3.44,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.44,
+          "end": 3.6,
+          "key": "which",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.6,
+          "end": 3.74,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "divine",
+          "start": 3.74,
+          "end": 4.2,
+          "key": "divine",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.2,
+          "end": 4.54,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "perfect",
+          "start": 4.54,
+          "end": 4.92,
+          "key": "perfect",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "alone",
+          "start": 4.92,
+          "end": 5.32,
+          "key": "alone",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 5.32,
+          "end": 5.86,
+          "key": "can",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.86,
+          "end": 6.0,
+          "key": "be",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "safely",
+          "start": 6.0,
+          "end": 6.44,
+          "key": "safely",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "entrusted.",
+          "start": 6.44,
+          "end": 6.98,
+          "key": "entrusted",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "human",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "text": "and",
+          "start": 0.86,
+          "end": 1.1
+        },
+        {
+          "text": "fallible",
+          "start": 1.1,
+          "end": 1.56
+        },
+        {
+          "text": "should",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "text": "not",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "text": "arrogate",
+          "start": 2.06,
+          "end": 2.3
+        },
+        {
+          "text": "a",
+          "start": 2.54,
+          "end": 2.64
+        },
+        {
+          "text": "power",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "with",
+          "start": 2.96,
+          "end": 3.44
+        },
+        {
+          "text": "which",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "text": "the",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "text": "divine",
+          "start": 3.74,
+          "end": 4.2
+        },
+        {
+          "text": "and",
+          "start": 4.2,
+          "end": 4.54
+        },
+        {
+          "text": "perfect",
+          "start": 4.54,
+          "end": 4.92
+        },
+        {
+          "text": "alone",
+          "start": 4.92,
+          "end": 5.32
+        },
+        {
+          "text": "can",
+          "start": 5.32,
+          "end": 5.86
+        },
+        {
+          "text": "be",
+          "start": 5.86,
+          "end": 6.0
+        },
+        {
+          "text": "safely",
+          "start": 6.0,
+          "end": 6.44
+        },
+        {
+          "text": "intrusted.\"",
+          "start": 6.44,
+          "end": 6.71
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.29718074575066566
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e0f84b41d6a61db2b7e59e340600e1fb0fb6a793fac3dd8e47a28c06d8ed4588",
+  "selected_reasons": []
+}

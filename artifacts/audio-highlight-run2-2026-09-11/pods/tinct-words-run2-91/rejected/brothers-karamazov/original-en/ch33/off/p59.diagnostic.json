@@ -1,0 +1,503 @@
+{
+  "complete": true,
+  "signature": "c5a01e9d2aac25033fb027b33e6b7d9c01156485341653b8c6d5dfdc56e86962",
+  "attempts": [
+    {
+      "asr_seconds": 0.21475325617939234,
+      "alignment_seconds": 0.0002426430583000183,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, I'll go to the tavern as though by chance don't be anxious",
+          "start": 0.08,
+          "end": 3.72,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.10577392578125
+            },
+            {
+              "text": " I'll",
+              "start": 0.78,
+              "end": 1.12,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " go",
+              "start": 1.12,
+              "end": 1.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.2,
+              "end": 1.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " tavern",
+              "start": 1.42,
+              "end": 1.72,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " as",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.845703125
+            },
+            {
+              "text": " though",
+              "start": 1.9,
+              "end": 2.04,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " by",
+              "start": 2.04,
+              "end": 2.18,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " chance",
+              "start": 2.18,
+              "end": 2.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " don't",
+              "start": 2.54,
+              "end": 3.2,
+              "probability": 0.782470703125
+            },
+            {
+              "text": " be",
+              "start": 3.2,
+              "end": 3.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " anxious",
+              "start": 3.3,
+              "end": 3.72,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "I'll",
+          "start": 0.78,
+          "end": 1.12
+        },
+        {
+          "raw": "go",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "raw": "to",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "raw": "the",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "tavern",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "raw": "as",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "raw": "though",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "raw": "by",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "raw": "chance",
+          "start": 2.18,
+          "end": 2.54
+        },
+        {
+          "raw": "don't",
+          "start": 2.54,
+          "end": 3.2
+        },
+        {
+          "raw": "be",
+          "start": 3.2,
+          "end": 3.3
+        },
+        {
+          "raw": "anxious",
+          "start": 3.3,
+          "end": 3.72
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "no,",
+        "I'll",
+        "go",
+        "to",
+        "the",
+        "tavern",
+        "as",
+        "though",
+        "by",
+        "chance.",
+        "Don't",
+        "be",
+        "anxious.\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          14,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 0.78,
+          "end": 1.12,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.12,
+          "end": 1.2,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.2,
+          "end": 1.3,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tavern",
+          "start": 1.42,
+          "end": 1.72,
+          "key": "tavern",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.72,
+          "end": 1.9,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 1.9,
+          "end": 2.04,
+          "key": "though",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.04,
+          "end": 2.18,
+          "key": "by",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "chance",
+          "start": 2.18,
+          "end": 2.54,
+          "key": "chance",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 2.54,
+          "end": 3.2,
+          "key": "dont",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.2,
+          "end": 3.3,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "anxious",
+          "start": 3.3,
+          "end": 3.72,
+          "key": "anxious",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "text": "no,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "I'll",
+          "start": 0.78,
+          "end": 1.12
+        },
+        {
+          "text": "go",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "text": "to",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "text": "the",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "tavern",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "text": "as",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "though",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "text": "by",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "text": "chance.",
+          "start": 2.18,
+          "end": 2.54
+        },
+        {
+          "text": "Don't",
+          "start": 2.54,
+          "end": 3.2
+        },
+        {
+          "text": "be",
+          "start": 3.2,
+          "end": 3.3
+        },
+        {
+          "text": "anxious.\"",
+          "start": 3.3,
+          "end": 3.72
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.21508880332112312
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1de9edba24c7c1f38c8e8792fd2e0090fe85e3b1bbff827f33d223244a5875bf",
+  "selected_reasons": []
+}

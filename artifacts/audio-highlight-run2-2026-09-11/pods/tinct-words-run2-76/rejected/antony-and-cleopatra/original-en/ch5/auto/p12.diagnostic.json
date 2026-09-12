@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "b6f1b05ae402f3c9bde0141e390770a2d6042fa0370f958ac549eadd4ae71841",
+  "attempts": [
+    {
+      "asr_seconds": 0.2083812658675015,
+      "alignment_seconds": 0.00029239989817142487,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mardian. Yes, gracious madam.",
+        "hotwords": "Mardian, Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mardian, Yes, gracious madam.",
+          "start": 0.08,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " Mardian,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.2668050130208333
+            },
+            {
+              "text": " Yes,",
+              "start": 1.24,
+              "end": 1.52,
+              "probability": 0.076171875
+            },
+            {
+              "text": " gracious",
+              "start": 1.8,
+              "end": 2.0,
+              "probability": 0.459228515625
+            },
+            {
+              "text": " madam.",
+              "start": 2.0,
+              "end": 2.52,
+              "probability": 0.690673828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mardian,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.24,
+          "end": 1.52
+        },
+        {
+          "raw": "gracious",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "raw": "madam.",
+          "start": 2.0,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "Mardian.",
+        "Yes,",
+        "gracious",
+        "madam."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mardian,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "mardian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.24,
+          "end": 1.52,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gracious",
+          "start": 1.8,
+          "end": 2.0,
+          "key": "gracious",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "madam.",
+          "start": 2.0,
+          "end": 2.52,
+          "key": "madam",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mardian.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Yes,",
+          "start": 1.24,
+          "end": 1.52
+        },
+        {
+          "text": "gracious",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "text": "madam.",
+          "start": 2.0,
+          "end": 2.52
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20882955379784107
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b44045cee67d23fbd68114db17983b8d7f42ef9f6cde6300b2cbc980e851ea95",
+  "selected_reasons": []
+}

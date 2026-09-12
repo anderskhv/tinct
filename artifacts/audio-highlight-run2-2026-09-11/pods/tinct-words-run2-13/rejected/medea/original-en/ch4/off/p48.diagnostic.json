@@ -1,0 +1,531 @@
+{
+  "complete": true,
+  "signature": "e81bdb44fa8782dab76ea3932ce1a3191e920208b35fb3d601c018345180b9ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.33613148611038923,
+      "alignment_seconds": 0.0004914132878184319,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " E.G.S., what word is this? Say clearly what thus makes thy visage dim.",
+          "start": 0.02,
+          "end": 4.48,
+          "words": [
+            {
+              "text": " E",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.291259765625
+            },
+            {
+              "text": ".G",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.45672607421875
+            },
+            {
+              "text": ".S.,",
+              "start": 0.68,
+              "end": 1.18,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " what",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " word",
+              "start": 1.36,
+              "end": 1.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " is",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this?",
+              "start": 1.72,
+              "end": 2.02,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Say",
+              "start": 2.52,
+              "end": 2.64,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " clearly",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " what",
+              "start": 2.96,
+              "end": 3.2,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " thus",
+              "start": 3.2,
+              "end": 3.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " makes",
+              "start": 3.42,
+              "end": 3.64,
+              "probability": 0.98828125
+            },
+            {
+              "text": " thy",
+              "start": 3.64,
+              "end": 3.84,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " visage",
+              "start": 3.84,
+              "end": 4.2,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " dim.",
+              "start": 4.2,
+              "end": 4.48,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "E",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": ".G",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": ".S.,",
+          "start": 0.68,
+          "end": 1.18
+        },
+        {
+          "raw": "what",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "word",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "raw": "is",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "this?",
+          "start": 1.72,
+          "end": 2.02
+        },
+        {
+          "raw": "Say",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "raw": "clearly",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "raw": "what",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "raw": "thus",
+          "start": 3.2,
+          "end": 3.42
+        },
+        {
+          "raw": "makes",
+          "start": 3.42,
+          "end": 3.64
+        },
+        {
+          "raw": "thy",
+          "start": 3.64,
+          "end": 3.84
+        },
+        {
+          "raw": "visage",
+          "start": 3.84,
+          "end": 4.2
+        },
+        {
+          "raw": "dim.",
+          "start": 4.2,
+          "end": 4.48
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "What",
+        "word",
+        "is",
+        "this?",
+        "Say",
+        "clearly",
+        "what",
+        "thus",
+        "makes",
+        "thy",
+        "visage",
+        "dim?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          13,
+          3,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "E",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "e",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".G",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "g",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": ".S.,",
+          "start": 0.68,
+          "end": 1.18,
+          "key": "s",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 1.36,
+          "end": 1.52,
+          "key": "word",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this?",
+          "start": 1.72,
+          "end": 2.02,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Say",
+          "start": 2.52,
+          "end": 2.64,
+          "key": "say",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "clearly",
+          "start": 2.64,
+          "end": 2.96,
+          "key": "clearly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.96,
+          "end": 3.2,
+          "key": "what",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 3.2,
+          "end": 3.42,
+          "key": "thus",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "makes",
+          "start": 3.42,
+          "end": 3.64,
+          "key": "makes",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 3.64,
+          "end": 3.84,
+          "key": "thy",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "visage",
+          "start": 3.84,
+          "end": 4.2,
+          "key": "visage",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "dim.",
+          "start": 4.2,
+          "end": 4.48,
+          "key": "dim",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.0,
+          "end": 0.59
+        },
+        {
+          "text": "What",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "word",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "text": "is",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "text": "this?",
+          "start": 1.72,
+          "end": 2.02
+        },
+        {
+          "text": "Say",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "text": "clearly",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "what",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "text": "thus",
+          "start": 3.2,
+          "end": 3.42
+        },
+        {
+          "text": "makes",
+          "start": 3.42,
+          "end": 3.64
+        },
+        {
+          "text": "thy",
+          "start": 3.64,
+          "end": 3.84
+        },
+        {
+          "text": "visage",
+          "start": 3.84,
+          "end": 4.2
+        },
+        {
+          "text": "dim?",
+          "start": 4.2,
+          "end": 4.48
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 15,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.3368426254019141
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "055de5c0799f1d6f52e807dc135446f0e09047ffe09bcf87d707bd68d55188db",
+  "selected_reasons": []
+}

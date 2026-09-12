@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "96f125c94a77d5d910350d0bce6ac5896c1cdbd371fe358dde4f3fd49d544046",
+  "attempts": [
+    {
+      "asr_seconds": 0.10601175017654896,
+      "alignment_seconds": 0.0002518007531762123,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " They lifted.",
+          "start": 0.05,
+          "end": 0.83,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " lifted.",
+              "start": 0.53,
+              "end": 0.83,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "lifted.",
+          "start": 0.53,
+          "end": 0.83
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "lifted."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lifted.",
+          "start": 0.53,
+          "end": 0.83,
+          "key": "lifted",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "lifted.",
+          "start": 0.53,
+          "end": 0.83
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10635181190446019
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "db632b14feeeda2c318e8d60de6b7a9f3819ac88f45a66c1b00f6cb7de6d7f54",
+  "selected_reasons": []
+}

@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "b134283abe158f7f145b7e33eb79b7cd91698416409ed422d1d8e808f9c1f3cb",
+  "attempts": [
+    {
+      "asr_seconds": 0.12458639696706086,
+      "alignment_seconds": 0.00018884101882576942,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " in the heart of the Hibernian Metropolis.",
+          "start": 0.05,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " in",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.658203125
+            },
+            {
+              "text": " the",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " heart",
+              "start": 0.63,
+              "end": 0.89,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " of",
+              "start": 0.89,
+              "end": 1.29,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Hibernian",
+              "start": 1.39,
+              "end": 1.93,
+              "probability": 0.8299153645833334
+            },
+            {
+              "text": " Metropolis.",
+              "start": 1.93,
+              "end": 2.47,
+              "probability": 0.8232421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "in",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "heart",
+          "start": 0.63,
+          "end": 0.89
+        },
+        {
+          "raw": "of",
+          "start": 0.89,
+          "end": 1.29
+        },
+        {
+          "raw": "the",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "Hibernian",
+          "start": 1.39,
+          "end": 1.93
+        },
+        {
+          "raw": "Metropolis.",
+          "start": 1.93,
+          "end": 2.47
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "The",
+        "Heart",
+        "Of",
+        "The",
+        "Hibernian",
+        "Metropolis"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "in",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.63,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 0.63,
+          "end": 0.89,
+          "key": "heart",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.89,
+          "end": 1.29,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.29,
+          "end": 1.39,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Hibernian",
+          "start": 1.39,
+          "end": 1.93,
+          "key": "hibernian",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Metropolis.",
+          "start": 1.93,
+          "end": 2.47,
+          "key": "metropolis",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "The",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "Heart",
+          "start": 0.63,
+          "end": 0.89
+        },
+        {
+          "text": "Of",
+          "start": 0.89,
+          "end": 1.29
+        },
+        {
+          "text": "The",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "text": "Hibernian",
+          "start": 1.39,
+          "end": 1.93
+        },
+        {
+          "text": "Metropolis",
+          "start": 1.93,
+          "end": 2.47
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12483580800471827
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "154beba4793aca19e85fbbac318dcf71215ef2e7d18f67f98b0237d263fe5e8d",
+  "selected_reasons": []
+}

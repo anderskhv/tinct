@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "1d0b83746f9314ab818b8241f8aa81d00d5f8eb716876015ac1b55ef0d829fe5",
+  "attempts": [
+    {
+      "asr_seconds": 0.30901567300315946,
+      "alignment_seconds": 0.0003668249992188066,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Chorus. It is a sorrow grievous as his death, That he should live yet never dare return.",
+        "hotwords": "Chorus, It, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Chorus, It is a sorrow grievous as his death, That he should live yet never dare return.",
+          "start": 0.0,
+          "end": 5.58,
+          "words": [
+            {
+              "text": " Chorus,",
+              "start": 0.0,
+              "end": 0.78,
+              "probability": 0.679931640625
+            },
+            {
+              "text": " It",
+              "start": 1.26,
+              "end": 1.46,
+              "probability": 0.12066650390625
+            },
+            {
+              "text": " is",
+              "start": 1.46,
+              "end": 1.56,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " a",
+              "start": 1.56,
+              "end": 1.7,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " sorrow",
+              "start": 1.7,
+              "end": 2.04,
+              "probability": 0.966796875
+            },
+            {
+              "text": " grievous",
+              "start": 2.04,
+              "end": 2.6,
+              "probability": 0.913330078125
+            },
+            {
+              "text": " as",
+              "start": 2.6,
+              "end": 2.72,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " his",
+              "start": 2.72,
+              "end": 2.88,
+              "probability": 0.943359375
+            },
+            {
+              "text": " death,",
+              "start": 2.88,
+              "end": 3.18,
+              "probability": 0.994140625
+            },
+            {
+              "text": " That",
+              "start": 3.52,
+              "end": 3.62,
+              "probability": 0.50927734375
+            },
+            {
+              "text": " he",
+              "start": 3.62,
+              "end": 3.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " should",
+              "start": 3.78,
+              "end": 3.92,
+              "probability": 0.9921875
+            },
+            {
+              "text": " live",
+              "start": 3.92,
+              "end": 4.22,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " yet",
+              "start": 4.22,
+              "end": 4.44,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " never",
+              "start": 4.44,
+              "end": 4.82,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " dare",
+              "start": 4.82,
+              "end": 5.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " return.",
+              "start": 5.06,
+              "end": 5.58,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chorus,",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "raw": "It",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "raw": "is",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "raw": "a",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "raw": "sorrow",
+          "start": 1.7,
+          "end": 2.04
+        },
+        {
+          "raw": "grievous",
+          "start": 2.04,
+          "end": 2.6
+        },
+        {
+          "raw": "as",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "raw": "his",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "raw": "death,",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "raw": "That",
+          "start": 3.52,
+          "end": 3.62
+        },
+        {
+          "raw": "he",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "raw": "should",
+          "start": 3.78,
+          "end": 3.92
+        },
+        {
+          "raw": "live",
+          "start": 3.92,
+          "end": 4.22
+        },
+        {
+          "raw": "yet",
+          "start": 4.22,
+          "end": 4.44
+        },
+        {
+          "raw": "never",
+          "start": 4.44,
+          "end": 4.82
+        },
+        {
+          "raw": "dare",
+          "start": 4.82,
+          "end": 5.06
+        },
+        {
+          "raw": "return.",
+          "start": 5.06,
+          "end": 5.58
+        }
+      ],
+      "expected_tokens": [
+        "Chorus.",
+        "It",
+        "is",
+        "a",
+        "sorrow",
+        "grievous",
+        "as",
+        "his",
+        "death,",
+        "That",
+        "he",
+        "should",
+        "live",
+        "yet",
+        "never",
+        "dare",
+        "return."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chorus,",
+          "start": 0.0,
+          "end": 0.78,
+          "key": "chorus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 1.26,
+          "end": 1.46,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.46,
+          "end": 1.56,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.56,
+          "end": 1.7,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sorrow",
+          "start": 1.7,
+          "end": 2.04,
+          "key": "sorrow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "grievous",
+          "start": 2.04,
+          "end": 2.6,
+          "key": "grievous",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.6,
+          "end": 2.72,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.72,
+          "end": 2.88,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "death,",
+          "start": 2.88,
+          "end": 3.18,
+          "key": "death",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 3.52,
+          "end": 3.62,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.62,
+          "end": 3.78,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 3.78,
+          "end": 3.92,
+          "key": "should",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 3.92,
+          "end": 4.22,
+          "key": "live",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 4.22,
+          "end": 4.44,
+          "key": "yet",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 4.44,
+          "end": 4.82,
+          "key": "never",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "dare",
+          "start": 4.82,
+          "end": 5.06,
+          "key": "dare",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "return.",
+          "start": 5.06,
+          "end": 5.58,
+          "key": "return",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Chorus.",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "text": "It",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "text": "is",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "text": "a",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "text": "sorrow",
+          "start": 1.7,
+          "end": 2.04
+        },
+        {
+          "text": "grievous",
+          "start": 2.04,
+          "end": 2.6
+        },
+        {
+          "text": "as",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "text": "his",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "text": "death,",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "text": "That",
+          "start": 3.52,
+          "end": 3.62
+        },
+        {
+          "text": "he",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "text": "should",
+          "start": 3.78,
+          "end": 3.92
+        },
+        {
+          "text": "live",
+          "start": 3.92,
+          "end": 4.22
+        },
+        {
+          "text": "yet",
+          "start": 4.22,
+          "end": 4.44
+        },
+        {
+          "text": "never",
+          "start": 4.44,
+          "end": 4.82
+        },
+        {
+          "text": "dare",
+          "start": 4.82,
+          "end": 5.06
+        },
+        {
+          "text": "return.",
+          "start": 5.06,
+          "end": 5.58
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30952935898676515
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b10f369a3630cc1d5c83071bdcee29334aa4aabea91a23de39e0d0b1d4756258",
+  "selected_reasons": []
+}

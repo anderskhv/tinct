@@ -1,0 +1,319 @@
+{
+  "complete": true,
+  "signature": "c36c1bf55780a3c5d446db6835d416898bfbc069d6300ca84ff4e7f175e8ad31",
+  "attempts": [
+    {
+      "asr_seconds": 0.19589055143296719,
+      "alignment_seconds": 0.00035082362592220306,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dork is me too. Let me go thither.",
+          "start": 0.08,
+          "end": 2.4,
+          "words": [
+            {
+              "text": " Dork",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.939697265625
+            },
+            {
+              "text": " is",
+              "start": 0.66,
+              "end": 0.86,
+              "probability": 0.5419921875
+            },
+            {
+              "text": " me",
+              "start": 0.86,
+              "end": 1.06,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " too.",
+              "start": 1.06,
+              "end": 1.38,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " Let",
+              "start": 1.7,
+              "end": 1.82,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " me",
+              "start": 1.82,
+              "end": 1.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " go",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thither.",
+              "start": 2.06,
+              "end": 2.4,
+              "probability": 0.85498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dork",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "is",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "raw": "me",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "raw": "too.",
+          "start": 1.06,
+          "end": 1.38
+        },
+        {
+          "raw": "Let",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "raw": "me",
+          "start": 1.82,
+          "end": 1.9
+        },
+        {
+          "raw": "go",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "thither.",
+          "start": 2.06,
+          "end": 2.4
+        }
+      ],
+      "expected_tokens": [
+        "Dorcas.",
+        "_Me",
+        "too!",
+        "Let",
+        "me",
+        "go",
+        "thither._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          7,
+          2,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dork",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "dork",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.66,
+          "end": 0.86,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.86,
+          "end": 1.06,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 1.06,
+          "end": 1.38,
+          "key": "too",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 1.7,
+          "end": 1.82,
+          "key": "let",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.82,
+          "end": 1.9,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.9,
+          "end": 2.06,
+          "key": "go",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thither.",
+          "start": 2.06,
+          "end": 2.4,
+          "key": "thither",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dorcas.",
+          "start": 0.0,
+          "end": 0.43
+        },
+        {
+          "text": "_Me",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "text": "too!",
+          "start": 1.06,
+          "end": 1.38
+        },
+        {
+          "text": "Let",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "text": "me",
+          "start": 1.82,
+          "end": 1.9
+        },
+        {
+          "text": "go",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "text": "thither._",
+          "start": 2.06,
+          "end": 2.4
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.1963820867240429
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "95d0fae314403de8467ca7660ab99556a8277d09fea84b380b824f227a2d4226",
+  "selected_reasons": []
+}

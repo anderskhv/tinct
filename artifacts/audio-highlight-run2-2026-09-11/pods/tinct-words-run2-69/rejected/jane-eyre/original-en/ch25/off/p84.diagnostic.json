@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "0af71cf14070beeafc9aa11d5a5c9542d4565187461f6d9b6ffd13e2e2165bc4",
+  "attempts": [
+    {
+      "asr_seconds": 0.11581552680581808,
+      "alignment_seconds": 0.00021455157548189163,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Afterwards.",
+          "start": 0.18,
+          "end": 0.8,
+          "words": [
+            {
+              "text": " Afterwards.",
+              "start": 0.18,
+              "end": 0.8,
+              "probability": 0.8046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Afterwards.",
+          "start": 0.18,
+          "end": 0.8
+        }
+      ],
+      "expected_tokens": [
+        "\"Afterwards?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Afterwards.",
+          "start": 0.18,
+          "end": 0.8,
+          "key": "afterwards",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Afterwards?\"",
+          "start": 0.18,
+          "end": 0.8
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11610143259167671
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "34f3a50905739a4aedfa325367c3857cbadacbd57bb78da87f849328d57295df",
+  "selected_reasons": []
+}

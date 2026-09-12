@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "bd2ed5d505b0cdddde6301b467b522fa9afc36bce7dc5b29897e39590c926e35",
+  "attempts": [
+    {
+      "asr_seconds": 0.22074586525559425,
+      "alignment_seconds": 0.00039365142583847046,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gentlemen, towards Chertsey Noble Lord.",
+          "start": 0.05,
+          "end": 2.65,
+          "words": [
+            {
+              "text": " Gentlemen,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " towards",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " Chertsey",
+              "start": 1.55,
+              "end": 2.03,
+              "probability": 0.6691080729166666
+            },
+            {
+              "text": " Noble",
+              "start": 2.03,
+              "end": 2.33,
+              "probability": 0.288818359375
+            },
+            {
+              "text": " Lord.",
+              "start": 2.33,
+              "end": 2.65,
+              "probability": 0.94921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "towards",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "Chertsey",
+          "start": 1.55,
+          "end": 2.03
+        },
+        {
+          "raw": "Noble",
+          "start": 2.03,
+          "end": 2.33
+        },
+        {
+          "raw": "Lord.",
+          "start": 2.33,
+          "end": 2.65
+        }
+      ],
+      "expected_tokens": [
+        "Gentleman.",
+        "Towards",
+        "Chertsey,",
+        "noble",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "gentlemen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "towards",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Chertsey",
+          "start": 1.55,
+          "end": 2.03,
+          "key": "chertsey",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Noble",
+          "start": 2.03,
+          "end": 2.33,
+          "key": "noble",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lord.",
+          "start": 2.33,
+          "end": 2.65,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gentleman.",
+          "start": 0.0,
+          "end": 0.695
+        },
+        {
+          "text": "Towards",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "Chertsey,",
+          "start": 1.55,
+          "end": 2.03
+        },
+        {
+          "text": "noble",
+          "start": 2.03,
+          "end": 2.33
+        },
+        {
+          "text": "lord?",
+          "start": 2.33,
+          "end": 2.65
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22126588970422745
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "96de415603c60b85323e1e548ac1c5ccd89f8578b2a1801ceb1caea0b9e88dfd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "b05e9b72e109cbd1870c195ae9a1223334f7c31ae8fbba140820d3dfbe0a5f69",
+  "attempts": [
+    {
+      "asr_seconds": 0.20243395119905472,
+      "alignment_seconds": 0.000192251056432724,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Regan. I know't, my sister's: this approves her letter, That she would soon be here.",
+        "hotwords": "Regan, I, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Regan, I know't, my sister's. This approves her letter, That she would soon be here.",
+          "start": 0.05,
+          "end": 5.01,
+          "words": [
+            {
+              "text": " Regan,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.614990234375
+            },
+            {
+              "text": " I",
+              "start": 1.17,
+              "end": 1.39,
+              "probability": 0.984375
+            },
+            {
+              "text": " know't,",
+              "start": 1.39,
+              "end": 1.69,
+              "probability": 0.18822669982910156
+            },
+            {
+              "text": " my",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.9921875
+            },
+            {
+              "text": " sister's.",
+              "start": 1.83,
+              "end": 2.45,
+              "probability": 0.49575042724609375
+            },
+            {
+              "text": " This",
+              "start": 2.89,
+              "end": 2.95,
+              "probability": 0.984375
+            },
+            {
+              "text": " approves",
+              "start": 2.95,
+              "end": 3.27,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " her",
+              "start": 3.27,
+              "end": 3.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " letter,",
+              "start": 3.47,
+              "end": 3.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " That",
+              "start": 3.73,
+              "end": 3.93,
+              "probability": 0.002361297607421875
+            },
+            {
+              "text": " she",
+              "start": 3.93,
+              "end": 4.11,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " would",
+              "start": 4.11,
+              "end": 4.23,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " soon",
+              "start": 4.23,
+              "end": 4.47,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " be",
+              "start": 4.47,
+              "end": 4.71,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " here.",
+              "start": 4.71,
+              "end": 5.01,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "I",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "raw": "know't,",
+          "start": 1.39,
+          "end": 1.69
+        },
+        {
+          "raw": "my",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "raw": "sister's.",
+          "start": 1.83,
+          "end": 2.45
+        },
+        {
+          "raw": "This",
+          "start": 2.89,
+          "end": 2.95
+        },
+        {
+          "raw": "approves",
+          "start": 2.95,
+          "end": 3.27
+        },
+        {
+          "raw": "her",
+          "start": 3.27,
+          "end": 3.47
+        },
+        {
+          "raw": "letter,",
+          "start": 3.47,
+          "end": 3.69
+        },
+        {
+          "raw": "That",
+          "start": 3.73,
+          "end": 3.93
+        },
+        {
+          "raw": "she",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "raw": "would",
+          "start": 4.11,
+          "end": 4.23
+        },
+        {
+          "raw": "soon",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "raw": "be",
+          "start": 4.47,
+          "end": 4.71
+        },
+        {
+          "raw": "here.",
+          "start": 4.71,
+          "end": 5.01
+        }
+      ],
+      "expected_tokens": [
+        "Regan.",
+        "I",
+        "know't,",
+        "my",
+        "sister's:",
+        "this",
+        "approves",
+        "her",
+        "letter,",
+        "That",
+        "she",
+        "would",
+        "soon",
+        "be",
+        "here."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "regan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.17,
+          "end": 1.39,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know't,",
+          "start": 1.39,
+          "end": 1.69,
+          "key": "knowt",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sister's.",
+          "start": 1.83,
+          "end": 2.45,
+          "key": "sisters",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 2.89,
+          "end": 2.95,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "approves",
+          "start": 2.95,
+          "end": 3.27,
+          "key": "approves",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.27,
+          "end": 3.47,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "letter,",
+          "start": 3.47,
+          "end": 3.69,
+          "key": "letter",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 3.73,
+          "end": 3.93,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.93,
+          "end": 4.11,
+          "key": "she",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.11,
+          "end": 4.23,
+          "key": "would",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "soon",
+          "start": 4.23,
+          "end": 4.47,
+          "key": "soon",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.47,
+          "end": 4.71,
+          "key": "be",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 4.71,
+          "end": 5.01,
+          "key": "here",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Regan.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "I",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "text": "know't,",
+          "start": 1.39,
+          "end": 1.69
+        },
+        {
+          "text": "my",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "text": "sister's:",
+          "start": 1.83,
+          "end": 2.45
+        },
+        {
+          "text": "this",
+          "start": 2.89,
+          "end": 2.95
+        },
+        {
+          "text": "approves",
+          "start": 2.95,
+          "end": 3.27
+        },
+        {
+          "text": "her",
+          "start": 3.27,
+          "end": 3.47
+        },
+        {
+          "text": "letter,",
+          "start": 3.47,
+          "end": 3.69
+        },
+        {
+          "text": "That",
+          "start": 3.73,
+          "end": 3.93
+        },
+        {
+          "text": "she",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "text": "would",
+          "start": 4.11,
+          "end": 4.23
+        },
+        {
+          "text": "soon",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "text": "be",
+          "start": 4.47,
+          "end": 4.71
+        },
+        {
+          "text": "here.",
+          "start": 4.71,
+          "end": 5.01
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20269957557320595
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "63cfdb99a0b6e7ebe4a4601d153191f0a70bbb97eb836b6def8c54d204fada61",
+  "selected_reasons": []
+}

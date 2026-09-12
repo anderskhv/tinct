@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "ecabcd1836dee1de780a3b21507ad78f02ae0bcc22be2790f8ce6d7acd4540f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.35693905397783965,
+      "alignment_seconds": 0.00039729196578264236,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dionysus, the said robe falling to thy feet, and on thine head a snood.",
+          "start": 0.73,
+          "end": 4.63,
+          "words": [
+            {
+              "text": " Dionysus,",
+              "start": 0.73,
+              "end": 1.21,
+              "probability": 0.9401041666666666
+            },
+            {
+              "text": " the",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " said",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " robe",
+              "start": 1.87,
+              "end": 2.23,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " falling",
+              "start": 2.23,
+              "end": 2.55,
+              "probability": 0.96484375
+            },
+            {
+              "text": " to",
+              "start": 2.55,
+              "end": 2.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thy",
+              "start": 2.75,
+              "end": 2.87,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " feet,",
+              "start": 2.87,
+              "end": 3.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 3.49,
+              "end": 3.55,
+              "probability": 0.93359375
+            },
+            {
+              "text": " on",
+              "start": 3.55,
+              "end": 3.69,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " thine",
+              "start": 3.69,
+              "end": 3.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " head",
+              "start": 3.93,
+              "end": 4.13,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " a",
+              "start": 4.13,
+              "end": 4.23,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " snood.",
+              "start": 4.23,
+              "end": 4.63,
+              "probability": 0.835205078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dionysus,",
+          "start": 0.73,
+          "end": 1.21
+        },
+        {
+          "raw": "the",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "said",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "robe",
+          "start": 1.87,
+          "end": 2.23
+        },
+        {
+          "raw": "falling",
+          "start": 2.23,
+          "end": 2.55
+        },
+        {
+          "raw": "to",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "raw": "thy",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "raw": "feet,",
+          "start": 2.87,
+          "end": 3.21
+        },
+        {
+          "raw": "and",
+          "start": 3.49,
+          "end": 3.55
+        },
+        {
+          "raw": "on",
+          "start": 3.55,
+          "end": 3.69
+        },
+        {
+          "raw": "thine",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "raw": "head",
+          "start": 3.93,
+          "end": 4.13
+        },
+        {
+          "raw": "a",
+          "start": 4.13,
+          "end": 4.23
+        },
+        {
+          "raw": "snood.",
+          "start": 4.23,
+          "end": 4.63
+        }
+      ],
+      "expected_tokens": [
+        "Dionysus.",
+        "The",
+        "said",
+        "Robe,",
+        "falling",
+        "to",
+        "thy",
+        "feet;",
+        "and",
+        "on",
+        "thine",
+        "head",
+        "A",
+        "snood."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dionysus,",
+          "start": 0.73,
+          "end": 1.21,
+          "key": "dionysus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "robe",
+          "start": 1.87,
+          "end": 2.23,
+          "key": "robe",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "falling",
+          "start": 2.23,
+          "end": 2.55,
+          "key": "falling",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.55,
+          "end": 2.75,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 2.75,
+          "end": 2.87,
+          "key": "thy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "feet,",
+          "start": 2.87,
+          "end": 3.21,
+          "key": "feet",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.49,
+          "end": 3.55,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.55,
+          "end": 3.69,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 3.69,
+          "end": 3.93,
+          "key": "thine",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 3.93,
+          "end": 4.13,
+          "key": "head",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.13,
+          "end": 4.23,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "snood.",
+          "start": 4.23,
+          "end": 4.63,
+          "key": "snood",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dionysus.",
+          "start": 0.73,
+          "end": 1.21
+        },
+        {
+          "text": "The",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "said",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "Robe,",
+          "start": 1.87,
+          "end": 2.23
+        },
+        {
+          "text": "falling",
+          "start": 2.23,
+          "end": 2.55
+        },
+        {
+          "text": "to",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "text": "thy",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "text": "feet;",
+          "start": 2.87,
+          "end": 3.21
+        },
+        {
+          "text": "and",
+          "start": 3.49,
+          "end": 3.55
+        },
+        {
+          "text": "on",
+          "start": 3.55,
+          "end": 3.69
+        },
+        {
+          "text": "thine",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "text": "head",
+          "start": 3.93,
+          "end": 4.13
+        },
+        {
+          "text": "A",
+          "start": 4.13,
+          "end": 4.23
+        },
+        {
+          "text": "snood.",
+          "start": 4.23,
+          "end": 4.63
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.357484229025431
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9fcb808c15a925e81babf2ff4dc3cfb0134bc59b21880c1d7ae2adc6aa0fd3a8",
+  "selected_reasons": []
+}

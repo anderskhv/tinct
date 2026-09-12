@@ -1,0 +1,420 @@
+{
+  "complete": true,
+  "signature": "8f8a8f04e3750363305573fbb59b6b753256d0bca5291d2a4d4670903fa0d992",
+  "attempts": [
+    {
+      "asr_seconds": 0.1788622848689556,
+      "alignment_seconds": 0.00019747624173760414,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second Servingman, where's Coddus? My master calls for him, Coddus.",
+          "start": 0.08,
+          "end": 4.36,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.42626953125
+            },
+            {
+              "text": " Servingman,",
+              "start": 0.72,
+              "end": 1.26,
+              "probability": 0.5799560546875
+            },
+            {
+              "text": " where's",
+              "start": 1.62,
+              "end": 1.88,
+              "probability": 0.826171875
+            },
+            {
+              "text": " Coddus?",
+              "start": 1.88,
+              "end": 2.22,
+              "probability": 0.2950032552083333
+            },
+            {
+              "text": " My",
+              "start": 2.46,
+              "end": 2.58,
+              "probability": 0.978515625
+            },
+            {
+              "text": " master",
+              "start": 2.58,
+              "end": 2.88,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " calls",
+              "start": 2.88,
+              "end": 3.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " for",
+              "start": 3.2,
+              "end": 3.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " him,",
+              "start": 3.44,
+              "end": 3.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Coddus.",
+              "start": 4.0,
+              "end": 4.36,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Servingman,",
+          "start": 0.72,
+          "end": 1.26
+        },
+        {
+          "raw": "where's",
+          "start": 1.62,
+          "end": 1.88
+        },
+        {
+          "raw": "Coddus?",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "raw": "My",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "raw": "master",
+          "start": 2.58,
+          "end": 2.88
+        },
+        {
+          "raw": "calls",
+          "start": 2.88,
+          "end": 3.2
+        },
+        {
+          "raw": "for",
+          "start": 3.2,
+          "end": 3.44
+        },
+        {
+          "raw": "him,",
+          "start": 3.44,
+          "end": 3.66
+        },
+        {
+          "raw": "Coddus.",
+          "start": 4.0,
+          "end": 4.36
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Servingman.",
+        "Where's",
+        "Cotus?",
+        "My",
+        "master",
+        "calls",
+        "for",
+        "him.",
+        "Cotus!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Servingman,",
+          "start": 0.72,
+          "end": 1.26,
+          "key": "servingman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "where's",
+          "start": 1.62,
+          "end": 1.88,
+          "key": "wheres",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Coddus?",
+          "start": 1.88,
+          "end": 2.22,
+          "key": "coddus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 2.46,
+          "end": 2.58,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 2.58,
+          "end": 2.88,
+          "key": "master",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "calls",
+          "start": 2.88,
+          "end": 3.2,
+          "key": "calls",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.2,
+          "end": 3.44,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 3.44,
+          "end": 3.66,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Coddus.",
+          "start": 4.0,
+          "end": 4.36,
+          "key": "coddus",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Servingman.",
+          "start": 0.72,
+          "end": 1.26
+        },
+        {
+          "text": "Where's",
+          "start": 1.62,
+          "end": 1.88
+        },
+        {
+          "text": "Cotus?",
+          "start": 1.88,
+          "end": 2.17
+        },
+        {
+          "text": "My",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "text": "master",
+          "start": 2.58,
+          "end": 2.88
+        },
+        {
+          "text": "calls",
+          "start": 2.88,
+          "end": 3.2
+        },
+        {
+          "text": "for",
+          "start": 3.2,
+          "end": 3.44
+        },
+        {
+          "text": "him.",
+          "start": 3.44,
+          "end": 3.66
+        },
+        {
+          "text": "Cotus!",
+          "start": 3.66,
+          "end": 4.01
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17911910219118
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "178e6e53d199b7f0496fee6158cae0fa392784ddcba5e8dd1a08ad0a8152b69e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

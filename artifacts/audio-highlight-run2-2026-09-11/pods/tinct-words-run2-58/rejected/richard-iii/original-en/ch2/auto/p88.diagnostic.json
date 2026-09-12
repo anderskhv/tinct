@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "3de99e2289bbfa7fde9a150b13def5c3c268f9cdbc67d7dc17ed14dcaaa9b8e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.19058266002684832,
+      "alignment_seconds": 0.00043496768921613693,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Anne. All men, I hope, live so.",
+        "hotwords": "Anne, All, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anne, All men, I hope, live so.",
+          "start": 0.38,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " Anne,",
+              "start": 0.38,
+              "end": 0.72,
+              "probability": 0.319091796875
+            },
+            {
+              "text": " All",
+              "start": 1.08,
+              "end": 1.16,
+              "probability": 0.045745849609375
+            },
+            {
+              "text": " men,",
+              "start": 1.16,
+              "end": 1.34,
+              "probability": 0.309814453125
+            },
+            {
+              "text": " I",
+              "start": 1.5,
+              "end": 1.5,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " hope,",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " live",
+              "start": 1.76,
+              "end": 1.84,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " so.",
+              "start": 1.84,
+              "end": 2.16,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anne,",
+          "start": 0.38,
+          "end": 0.72
+        },
+        {
+          "raw": "All",
+          "start": 1.08,
+          "end": 1.16
+        },
+        {
+          "raw": "men,",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "raw": "I",
+          "start": 1.5,
+          "end": 1.5
+        },
+        {
+          "raw": "hope,",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "live",
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "raw": "so.",
+          "start": 1.84,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "Anne.",
+        "All",
+        "men,",
+        "I",
+        "hope,",
+        "live",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anne,",
+          "start": 0.38,
+          "end": 0.72,
+          "key": "anne",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 1.08,
+          "end": 1.16,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "men,",
+          "start": 1.16,
+          "end": 1.34,
+          "key": "men",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.5,
+          "end": 1.5,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hope,",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "hope",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 1.76,
+          "end": 1.84,
+          "key": "live",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 1.84,
+          "end": 2.16,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Anne.",
+          "start": 0.38,
+          "end": 0.72
+        },
+        {
+          "text": "All",
+          "start": 1.08,
+          "end": 1.16
+        },
+        {
+          "text": "men,",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "text": "I",
+          "start": 1.5,
+          "end": 1.5
+        },
+        {
+          "text": "hope,",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "live",
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "text": "so.",
+          "start": 1.84,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1912125926464796
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7eb284eb3e7f90a30e381c9d085829c8b4fca13806fc63b771ad12466b1d5823",
+  "selected_reasons": []
+}

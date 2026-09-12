@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "cb64c1c2131743a222d8d58e10afa432579ca12ac8d606973e0cecf70eeebec5",
+  "attempts": [
+    {
+      "asr_seconds": 0.19819138199090958,
+      "alignment_seconds": 0.0004298100247979164,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Soothsayer you shall outlive the lady whom you serve",
+          "start": 0.08,
+          "end": 3.0,
+          "words": [
+            {
+              "text": " Soothsayer",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.7997233072916666
+            },
+            {
+              "text": " you",
+              "start": 0.94,
+              "end": 1.44,
+              "probability": 0.186767578125
+            },
+            {
+              "text": " shall",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " outlive",
+              "start": 1.58,
+              "end": 1.92,
+              "probability": 0.982421875
+            },
+            {
+              "text": " the",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " lady",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " whom",
+              "start": 2.3,
+              "end": 2.52,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " you",
+              "start": 2.52,
+              "end": 2.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " serve",
+              "start": 2.7,
+              "end": 3.0,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soothsayer",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "you",
+          "start": 0.94,
+          "end": 1.44
+        },
+        {
+          "raw": "shall",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "outlive",
+          "start": 1.58,
+          "end": 1.92
+        },
+        {
+          "raw": "the",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "lady",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "whom",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "raw": "you",
+          "start": 2.52,
+          "end": 2.7
+        },
+        {
+          "raw": "serve",
+          "start": 2.7,
+          "end": 3.0
+        }
+      ],
+      "expected_tokens": [
+        "Soothsayer.",
+        "You",
+        "shall",
+        "outlive",
+        "the",
+        "lady",
+        "whom",
+        "you",
+        "serve."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soothsayer",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "soothsayer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.94,
+          "end": 1.44,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "shall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "outlive",
+          "start": 1.58,
+          "end": 1.92,
+          "key": "outlive",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.92,
+          "end": 2.1,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 2.1,
+          "end": 2.3,
+          "key": "lady",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 2.3,
+          "end": 2.52,
+          "key": "whom",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.52,
+          "end": 2.7,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "serve",
+          "start": 2.7,
+          "end": 3.0,
+          "key": "serve",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Soothsayer.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "You",
+          "start": 0.94,
+          "end": 1.44
+        },
+        {
+          "text": "shall",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "outlive",
+          "start": 1.58,
+          "end": 1.92
+        },
+        {
+          "text": "the",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "text": "lady",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "whom",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "text": "you",
+          "start": 2.52,
+          "end": 2.7
+        },
+        {
+          "text": "serve.",
+          "start": 2.7,
+          "end": 3.0
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19878255389630795
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c52df54c8676bc93d1f94bf30ab4993d94d136f24f6e32b7fa353bb4caef74e1",
+  "selected_reasons": []
+}

@@ -1,0 +1,300 @@
+{
+  "complete": true,
+  "signature": "ad42aaa8d43ae653c0b3274dcdad2987938c779a7a3f52a4b093343577c4c3af",
+  "attempts": [
+    {
+      "asr_seconds": 4.104829692980275,
+      "alignment_seconds": 0.00034460704773664474,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter First Murderer.",
+        "hotwords": "Enter, First, Murderer"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, First, Murderer",
+          "start": 0.05,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " First,",
+              "start": 1.05,
+              "end": 1.05,
+              "probability": 0.11956787109375
+            },
+            {
+              "text": " Murderer",
+              "start": 1.15,
+              "end": 1.49,
+              "probability": 0.935791015625
+            }
+          ]
+        },
+        {
+          "text": " Enter, First, Murderer Enter, First, Murderer",
+          "start": 1.49,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 1.49,
+              "end": 2.13,
+              "probability": 1.2576580047607422e-05
+            },
+            {
+              "text": " First,",
+              "start": 2.13,
+              "end": 2.13,
+              "probability": 3.74913215637207e-05
+            },
+            {
+              "text": " Murderer",
+              "start": 2.13,
+              "end": 2.13,
+              "probability": 0.33130064606666565
+            },
+            {
+              "text": " Enter,",
+              "start": 2.13,
+              "end": 2.13,
+              "probability": 0.00013589859008789062
+            },
+            {
+              "text": " First,",
+              "start": 2.13,
+              "end": 2.13,
+              "probability": 0.57080078125
+            },
+            {
+              "text": " Murderer",
+              "start": 2.13,
+              "end": 2.13,
+              "probability": 0.918701171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "First,",
+          "start": 1.05,
+          "end": 1.05
+        },
+        {
+          "raw": "Murderer",
+          "start": 1.15,
+          "end": 1.49
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.49,
+          "end": 2.13
+        },
+        {
+          "raw": "First,",
+          "start": 2.13,
+          "end": 2.13
+        },
+        {
+          "raw": "Murderer",
+          "start": 2.13,
+          "end": 2.13
+        },
+        {
+          "raw": "Enter,",
+          "start": 2.13,
+          "end": 2.13
+        },
+        {
+          "raw": "First,",
+          "start": 2.13,
+          "end": 2.13
+        },
+        {
+          "raw": "Murderer",
+          "start": 2.13,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "First",
+        "Murderer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "First,",
+          "start": 1.05,
+          "end": 1.05,
+          "key": "first",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Murderer",
+          "start": 1.15,
+          "end": 1.49,
+          "key": "murderer",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.49,
+          "end": 2.13,
+          "key": "enter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "First,",
+          "start": 2.13,
+          "end": 2.13,
+          "key": "first",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Murderer",
+          "start": 2.13,
+          "end": 2.13,
+          "key": "murderer",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Enter,",
+          "start": 2.13,
+          "end": 2.13,
+          "key": "enter",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "First,",
+          "start": 2.13,
+          "end": 2.13,
+          "key": "first",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Murderer",
+          "start": 2.13,
+          "end": 2.13,
+          "key": "murderer",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "First",
+          "start": 1.05,
+          "end": 1.05
+        },
+        {
+          "text": "Murderer.",
+          "start": 1.15,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 9,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 4.1053534259554
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d7614734bec500df8299cf4dcbab957b3a67f535af7615bfaea4a0d98e8bd401",
+  "selected_reasons": []
+}

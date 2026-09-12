@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "fcb0b100c9263989eb0e04361180f5fc29c7ecfca01e7208c82b236e54751a19",
+  "attempts": [
+    {
+      "asr_seconds": 0.0956027377396822,
+      "alignment_seconds": 0.00011377083137631416,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tap",
+          "start": 0.05,
+          "end": 0.67,
+          "words": [
+            {
+              "text": " Tap",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.68359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tap",
+          "start": 0.05,
+          "end": 0.67
+        }
+      ],
+      "expected_tokens": [
+        "Tap."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tap",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "tap",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tap.",
+          "start": 0.05,
+          "end": 0.67
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09575306111946702
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9e91ec714a5da9fe99e027fdf9c32ac89e7844520d6a1e3f70c4833db54a906f",
+  "selected_reasons": []
+}

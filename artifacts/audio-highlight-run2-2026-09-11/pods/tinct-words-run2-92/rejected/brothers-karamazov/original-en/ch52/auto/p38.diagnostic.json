@@ -1,0 +1,1192 @@
+{
+  "complete": true,
+  "signature": "078d104af4f770e375c0c34fcf59732ea091d0ffd1f02c212c047546813f452b",
+  "attempts": [
+    {
+      "asr_seconds": 0.4562456728890538,
+      "alignment_seconds": 0.0006675375625491142,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Was he a cavalry officer indeed? Ha ha!\" cried Mitya, listening eagerly, and turning his inquiring eyes to each as he spoke, as though there were no knowing what he might hear from each.",
+        "hotwords": "Was, Mitya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Was he a cavalry officer indeed? Ha ha!\" cried Mitya, listening eagerly, and turning his inquiring eyes to each as he spoke, as though there were no knowing what he might hear from each.",
+          "start": 0.02,
+          "end": 11.74,
+          "words": [
+            {
+              "text": " Was",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.260986328125
+            },
+            {
+              "text": " he",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 0.68,
+              "end": 0.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cavalry",
+              "start": 0.84,
+              "end": 1.16,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " officer",
+              "start": 1.16,
+              "end": 1.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " indeed?",
+              "start": 1.64,
+              "end": 2.12,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " Ha",
+              "start": 2.82,
+              "end": 2.96,
+              "probability": 0.1553955078125
+            },
+            {
+              "text": " ha",
+              "start": 2.96,
+              "end": 3.44,
+              "probability": 0.497314453125
+            },
+            {
+              "text": "!\"",
+              "start": 3.44,
+              "end": 3.94,
+              "probability": 0.393310546875
+            },
+            {
+              "text": " cried",
+              "start": 3.94,
+              "end": 4.24,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Mitya,",
+              "start": 4.24,
+              "end": 4.74,
+              "probability": 0.4041239420572917
+            },
+            {
+              "text": " listening",
+              "start": 4.98,
+              "end": 5.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " eagerly,",
+              "start": 5.32,
+              "end": 5.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 6.16,
+              "end": 6.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " turning",
+              "start": 6.3,
+              "end": 6.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 6.56,
+              "end": 6.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " inquiring",
+              "start": 6.8,
+              "end": 7.42,
+              "probability": 0.974365234375
+            },
+            {
+              "text": " eyes",
+              "start": 7.42,
+              "end": 7.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 7.76,
+              "end": 8.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " each",
+              "start": 8.06,
+              "end": 8.2,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " as",
+              "start": 8.2,
+              "end": 8.4,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " he",
+              "start": 8.4,
+              "end": 8.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " spoke,",
+              "start": 8.54,
+              "end": 8.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 9.32,
+              "end": 9.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " though",
+              "start": 9.48,
+              "end": 9.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " there",
+              "start": 9.66,
+              "end": 9.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " were",
+              "start": 9.8,
+              "end": 9.88,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " no",
+              "start": 9.88,
+              "end": 10.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " knowing",
+              "start": 10.1,
+              "end": 10.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " what",
+              "start": 10.4,
+              "end": 10.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 10.66,
+              "end": 10.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " might",
+              "start": 10.8,
+              "end": 10.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hear",
+              "start": 10.98,
+              "end": 11.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " from",
+              "start": 11.22,
+              "end": 11.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " each.",
+              "start": 11.42,
+              "end": 11.74,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Was",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "he",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "a",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "raw": "cavalry",
+          "start": 0.84,
+          "end": 1.16
+        },
+        {
+          "raw": "officer",
+          "start": 1.16,
+          "end": 1.64
+        },
+        {
+          "raw": "indeed?",
+          "start": 1.64,
+          "end": 2.12
+        },
+        {
+          "raw": "Ha",
+          "start": 2.82,
+          "end": 2.96
+        },
+        {
+          "raw": "ha",
+          "start": 2.96,
+          "end": 3.44
+        },
+        {
+          "raw": "!\"",
+          "start": 3.44,
+          "end": 3.94
+        },
+        {
+          "raw": "cried",
+          "start": 3.94,
+          "end": 4.24
+        },
+        {
+          "raw": "Mitya,",
+          "start": 4.24,
+          "end": 4.74
+        },
+        {
+          "raw": "listening",
+          "start": 4.98,
+          "end": 5.32
+        },
+        {
+          "raw": "eagerly,",
+          "start": 5.32,
+          "end": 5.74
+        },
+        {
+          "raw": "and",
+          "start": 6.16,
+          "end": 6.3
+        },
+        {
+          "raw": "turning",
+          "start": 6.3,
+          "end": 6.56
+        },
+        {
+          "raw": "his",
+          "start": 6.56,
+          "end": 6.8
+        },
+        {
+          "raw": "inquiring",
+          "start": 6.8,
+          "end": 7.42
+        },
+        {
+          "raw": "eyes",
+          "start": 7.42,
+          "end": 7.76
+        },
+        {
+          "raw": "to",
+          "start": 7.76,
+          "end": 8.06
+        },
+        {
+          "raw": "each",
+          "start": 8.06,
+          "end": 8.2
+        },
+        {
+          "raw": "as",
+          "start": 8.2,
+          "end": 8.4
+        },
+        {
+          "raw": "he",
+          "start": 8.4,
+          "end": 8.54
+        },
+        {
+          "raw": "spoke,",
+          "start": 8.54,
+          "end": 8.88
+        },
+        {
+          "raw": "as",
+          "start": 9.32,
+          "end": 9.48
+        },
+        {
+          "raw": "though",
+          "start": 9.48,
+          "end": 9.66
+        },
+        {
+          "raw": "there",
+          "start": 9.66,
+          "end": 9.8
+        },
+        {
+          "raw": "were",
+          "start": 9.8,
+          "end": 9.88
+        },
+        {
+          "raw": "no",
+          "start": 9.88,
+          "end": 10.1
+        },
+        {
+          "raw": "knowing",
+          "start": 10.1,
+          "end": 10.4
+        },
+        {
+          "raw": "what",
+          "start": 10.4,
+          "end": 10.66
+        },
+        {
+          "raw": "he",
+          "start": 10.66,
+          "end": 10.8
+        },
+        {
+          "raw": "might",
+          "start": 10.8,
+          "end": 10.98
+        },
+        {
+          "raw": "hear",
+          "start": 10.98,
+          "end": 11.22
+        },
+        {
+          "raw": "from",
+          "start": 11.22,
+          "end": 11.42
+        },
+        {
+          "raw": "each.",
+          "start": 11.42,
+          "end": 11.74
+        }
+      ],
+      "expected_tokens": [
+        "\"Was",
+        "he",
+        "a",
+        "cavalry",
+        "officer",
+        "indeed?",
+        "Ha",
+        "ha!\"",
+        "cried",
+        "Mitya,",
+        "listening",
+        "eagerly,",
+        "and",
+        "turning",
+        "his",
+        "inquiring",
+        "eyes",
+        "to",
+        "each",
+        "as",
+        "he",
+        "spoke,",
+        "as",
+        "though",
+        "there",
+        "were",
+        "no",
+        "knowing",
+        "what",
+        "he",
+        "might",
+        "hear",
+        "from",
+        "each."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ],
+        [
+          "equal",
+          8,
+          34,
+          9,
+          35
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          8,
+          8,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Was",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "was",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.68,
+          "end": 0.84,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cavalry",
+          "start": 0.84,
+          "end": 1.16,
+          "key": "cavalry",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "officer",
+          "start": 1.16,
+          "end": 1.64,
+          "key": "officer",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "indeed?",
+          "start": 1.64,
+          "end": 2.12,
+          "key": "indeed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Ha",
+          "start": 2.82,
+          "end": 2.96,
+          "key": "ha",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ha",
+          "start": 2.96,
+          "end": 3.44,
+          "key": "ha",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 3.44,
+          "end": 3.94,
+          "key": "",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 3.94,
+          "end": 4.24,
+          "key": "cried",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Mitya,",
+          "start": 4.24,
+          "end": 4.74,
+          "key": "mitya",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "listening",
+          "start": 4.98,
+          "end": 5.32,
+          "key": "listening",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "eagerly,",
+          "start": 5.32,
+          "end": 5.74,
+          "key": "eagerly",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.16,
+          "end": 6.3,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "turning",
+          "start": 6.3,
+          "end": 6.56,
+          "key": "turning",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.56,
+          "end": 6.8,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "inquiring",
+          "start": 6.8,
+          "end": 7.42,
+          "key": "inquiring",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 7.42,
+          "end": 7.76,
+          "key": "eyes",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.76,
+          "end": 8.06,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 8.06,
+          "end": 8.2,
+          "key": "each",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 8.2,
+          "end": 8.4,
+          "key": "as",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 8.4,
+          "end": 8.54,
+          "key": "he",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "spoke,",
+          "start": 8.54,
+          "end": 8.88,
+          "key": "spoke",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 9.32,
+          "end": 9.48,
+          "key": "as",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 9.48,
+          "end": 9.66,
+          "key": "though",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 9.66,
+          "end": 9.8,
+          "key": "there",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 9.8,
+          "end": 9.88,
+          "key": "were",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 9.88,
+          "end": 10.1,
+          "key": "no",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "knowing",
+          "start": 10.1,
+          "end": 10.4,
+          "key": "knowing",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 10.4,
+          "end": 10.66,
+          "key": "what",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.66,
+          "end": 10.8,
+          "key": "he",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 10.8,
+          "end": 10.98,
+          "key": "might",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 10.98,
+          "end": 11.22,
+          "key": "hear",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 11.22,
+          "end": 11.42,
+          "key": "from",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "each.",
+          "start": 11.42,
+          "end": 11.74,
+          "key": "each",
+          "pieces": [
+            34
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Was",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "he",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "a",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "text": "cavalry",
+          "start": 0.84,
+          "end": 1.16
+        },
+        {
+          "text": "officer",
+          "start": 1.16,
+          "end": 1.64
+        },
+        {
+          "text": "indeed?",
+          "start": 1.64,
+          "end": 2.12
+        },
+        {
+          "text": "Ha",
+          "start": 2.82,
+          "end": 2.96
+        },
+        {
+          "text": "ha!\"",
+          "start": 2.96,
+          "end": 3.44
+        },
+        {
+          "text": "cried",
+          "start": 3.94,
+          "end": 4.24
+        },
+        {
+          "text": "Mitya,",
+          "start": 4.24,
+          "end": 4.74
+        },
+        {
+          "text": "listening",
+          "start": 4.98,
+          "end": 5.32
+        },
+        {
+          "text": "eagerly,",
+          "start": 5.32,
+          "end": 5.74
+        },
+        {
+          "text": "and",
+          "start": 6.16,
+          "end": 6.3
+        },
+        {
+          "text": "turning",
+          "start": 6.3,
+          "end": 6.56
+        },
+        {
+          "text": "his",
+          "start": 6.56,
+          "end": 6.8
+        },
+        {
+          "text": "inquiring",
+          "start": 6.8,
+          "end": 7.42
+        },
+        {
+          "text": "eyes",
+          "start": 7.42,
+          "end": 7.76
+        },
+        {
+          "text": "to",
+          "start": 7.76,
+          "end": 8.06
+        },
+        {
+          "text": "each",
+          "start": 8.06,
+          "end": 8.2
+        },
+        {
+          "text": "as",
+          "start": 8.2,
+          "end": 8.4
+        },
+        {
+          "text": "he",
+          "start": 8.4,
+          "end": 8.54
+        },
+        {
+          "text": "spoke,",
+          "start": 8.54,
+          "end": 8.88
+        },
+        {
+          "text": "as",
+          "start": 9.32,
+          "end": 9.48
+        },
+        {
+          "text": "though",
+          "start": 9.48,
+          "end": 9.66
+        },
+        {
+          "text": "there",
+          "start": 9.66,
+          "end": 9.8
+        },
+        {
+          "text": "were",
+          "start": 9.8,
+          "end": 9.88
+        },
+        {
+          "text": "no",
+          "start": 9.88,
+          "end": 10.1
+        },
+        {
+          "text": "knowing",
+          "start": 10.1,
+          "end": 10.4
+        },
+        {
+          "text": "what",
+          "start": 10.4,
+          "end": 10.66
+        },
+        {
+          "text": "he",
+          "start": 10.66,
+          "end": 10.8
+        },
+        {
+          "text": "might",
+          "start": 10.8,
+          "end": 10.98
+        },
+        {
+          "text": "hear",
+          "start": 10.98,
+          "end": 11.22
+        },
+        {
+          "text": "from",
+          "start": 11.22,
+          "end": 11.42
+        },
+        {
+          "text": "each.",
+          "start": 11.42,
+          "end": 11.74
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 35,
+        "matched_words": 34
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.45721357502043247
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a844976a0f4923ae56b8bb106de6d017791b968274e2a310f78d8a98f2aaba5f",
+  "selected_reasons": []
+}

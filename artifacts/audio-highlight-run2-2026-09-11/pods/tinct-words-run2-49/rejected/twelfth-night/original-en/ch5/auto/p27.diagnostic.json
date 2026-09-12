@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "1b26f0badc079cdb68aec7cfd0a4d7121fa920abe11afe411e5532757d9e9fe4",
+  "attempts": [
+    {
+      "asr_seconds": 0.15160683169960976,
+      "alignment_seconds": 0.0003270953893661499,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Olivia. Make your proof.",
+        "hotwords": "Olivia, Make"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Olivia, Make your proof.",
+          "start": 0.05,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.896484375
+            },
+            {
+              "text": " Make",
+              "start": 1.15,
+              "end": 1.23,
+              "probability": 0.04522705078125
+            },
+            {
+              "text": " your",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.37646484375
+            },
+            {
+              "text": " proof.",
+              "start": 1.37,
+              "end": 1.63,
+              "probability": 0.880859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Make",
+          "start": 1.15,
+          "end": 1.23
+        },
+        {
+          "raw": "your",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "proof.",
+          "start": 1.37,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Make",
+        "your",
+        "proof."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Make",
+          "start": 1.15,
+          "end": 1.23,
+          "key": "make",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.23,
+          "end": 1.37,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "proof.",
+          "start": 1.37,
+          "end": 1.63,
+          "key": "proof",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Make",
+          "start": 1.15,
+          "end": 1.23
+        },
+        {
+          "text": "your",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "text": "proof.",
+          "start": 1.37,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15205615386366844
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "234f3a2c192c594646f116d9aaf9c0726b59be195be786c53a832cd6a9b2d4bb",
+  "selected_reasons": []
+}

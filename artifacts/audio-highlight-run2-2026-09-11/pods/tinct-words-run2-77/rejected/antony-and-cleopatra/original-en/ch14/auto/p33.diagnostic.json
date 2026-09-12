@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "261ee7fc5bfec56b2e799f6aab63c332f435fb6015ed9b544aef0fcbb23b1a1e",
+  "attempts": [
+    {
+      "asr_seconds": 0.08210423399577849,
+      "alignment_seconds": 8.603301830589771e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Agrippa.",
+        "hotwords": "Agrippa"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Agrippa.",
+          "start": 0.11,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " Agrippa.",
+              "start": 0.11,
+              "end": 0.99,
+              "probability": 0.9060872395833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agrippa.",
+          "start": 0.11,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "Agrippa."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agrippa.",
+          "start": 0.11,
+          "end": 0.99,
+          "key": "agrippa",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agrippa.",
+          "start": 0.11,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08221768797375262
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "080689c5064650884bd379602bc7f05e9f5d9116da19dd2dac37cffffb76670f",
+  "selected_reasons": []
+}

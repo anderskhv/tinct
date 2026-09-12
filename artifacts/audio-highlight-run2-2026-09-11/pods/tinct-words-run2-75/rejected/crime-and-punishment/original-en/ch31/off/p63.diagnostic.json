@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "a4f1b0e2fe8048bf11cc794604a5088d4c47150d78bb08856a8547f38c9416ea",
+  "attempts": [
+    {
+      "asr_seconds": 0.24396926537156105,
+      "alignment_seconds": 0.0005549639463424683,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She's cut herself. She's bleeding. Oh dear cried Sonya bending over her",
+          "start": 0.05,
+          "end": 4.89,
+          "words": [
+            {
+              "text": " She's",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.6236572265625
+            },
+            {
+              "text": " cut",
+              "start": 0.63,
+              "end": 0.77,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " herself.",
+              "start": 0.77,
+              "end": 1.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " She's",
+              "start": 1.25,
+              "end": 1.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bleeding.",
+              "start": 1.47,
+              "end": 1.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Oh",
+              "start": 2.17,
+              "end": 2.45,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " dear",
+              "start": 2.45,
+              "end": 2.77,
+              "probability": 0.88671875
+            },
+            {
+              "text": " cried",
+              "start": 2.77,
+              "end": 3.45,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " Sonya",
+              "start": 3.45,
+              "end": 3.99,
+              "probability": 0.622314453125
+            },
+            {
+              "text": " bending",
+              "start": 3.99,
+              "end": 4.23,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " over",
+              "start": 4.23,
+              "end": 4.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " her",
+              "start": 4.59,
+              "end": 4.89,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She's",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "cut",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "raw": "herself.",
+          "start": 0.77,
+          "end": 1.11
+        },
+        {
+          "raw": "She's",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "raw": "bleeding.",
+          "start": 1.47,
+          "end": 1.75
+        },
+        {
+          "raw": "Oh",
+          "start": 2.17,
+          "end": 2.45
+        },
+        {
+          "raw": "dear",
+          "start": 2.45,
+          "end": 2.77
+        },
+        {
+          "raw": "cried",
+          "start": 2.77,
+          "end": 3.45
+        },
+        {
+          "raw": "Sonya",
+          "start": 3.45,
+          "end": 3.99
+        },
+        {
+          "raw": "bending",
+          "start": 3.99,
+          "end": 4.23
+        },
+        {
+          "raw": "over",
+          "start": 4.23,
+          "end": 4.59
+        },
+        {
+          "raw": "her",
+          "start": 4.59,
+          "end": 4.89
+        }
+      ],
+      "expected_tokens": [
+        "\"She's",
+        "cut",
+        "herself,",
+        "she's",
+        "bleeding!",
+        "Oh,",
+        "dear!\"",
+        "cried",
+        "Sonia,",
+        "bending",
+        "over",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          12,
+          9,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She's",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "shes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cut",
+          "start": 0.63,
+          "end": 0.77,
+          "key": "cut",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "herself.",
+          "start": 0.77,
+          "end": 1.11,
+          "key": "herself",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "She's",
+          "start": 1.25,
+          "end": 1.47,
+          "key": "shes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bleeding.",
+          "start": 1.47,
+          "end": 1.75,
+          "key": "bleeding",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Oh",
+          "start": 2.17,
+          "end": 2.45,
+          "key": "oh",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 2.45,
+          "end": 2.77,
+          "key": "dear",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.77,
+          "end": 3.45,
+          "key": "cried",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Sonya",
+          "start": 3.45,
+          "end": 3.99,
+          "key": "sonya",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "bending",
+          "start": 3.99,
+          "end": 4.23,
+          "key": "bending",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 4.23,
+          "end": 4.59,
+          "key": "over",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.59,
+          "end": 4.89,
+          "key": "her",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"She's",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "cut",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "text": "herself,",
+          "start": 0.77,
+          "end": 1.11
+        },
+        {
+          "text": "she's",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "text": "bleeding!",
+          "start": 1.47,
+          "end": 1.75
+        },
+        {
+          "text": "Oh,",
+          "start": 2.17,
+          "end": 2.45
+        },
+        {
+          "text": "dear!\"",
+          "start": 2.45,
+          "end": 2.77
+        },
+        {
+          "text": "cried",
+          "start": 2.77,
+          "end": 3.45
+        },
+        {
+          "text": "Sonia,",
+          "start": 3.45,
+          "end": 3.72
+        },
+        {
+          "text": "bending",
+          "start": 3.99,
+          "end": 4.23
+        },
+        {
+          "text": "over",
+          "start": 4.23,
+          "end": 4.59
+        },
+        {
+          "text": "her.",
+          "start": 4.59,
+          "end": 4.89
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.24476655945181847
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4cdb2b2f50fa71d77446d8e5a7ab8184d2c88aef5aabef70f8bfc7b6ff717ea8",
+  "selected_reasons": []
+}

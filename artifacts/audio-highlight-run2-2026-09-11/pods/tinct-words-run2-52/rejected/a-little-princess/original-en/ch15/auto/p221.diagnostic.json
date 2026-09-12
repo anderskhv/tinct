@@ -1,0 +1,1022 @@
+{
+  "complete": true,
+  "signature": "260ee40b2ae86c71cf3a4f4a4f1468d18d2ec633db448700452d9fa75a3fc107",
+  "attempts": [
+    {
+      "asr_seconds": 0.3658635951578617,
+      "alignment_seconds": 0.000778883695602417,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I will leave you to wonder,\" she said. \"Go to bed this instant.\" And she shut the door behind herself and poor stumbling Ermengarde, and left Sara standing quite alone.",
+        "hotwords": "I, Go, Ermengarde, Sara"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I will leave you to wonder, she said. Go to bed this instant. And she shut the door behind herself and poor stumbling Ermengarde, and left Sara standing quite alone.",
+          "start": 0.05,
+          "end": 10.31,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.1929931640625
+            },
+            {
+              "text": " will",
+              "start": 0.49,
+              "end": 0.65,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " leave",
+              "start": 0.65,
+              "end": 0.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 0.85,
+              "end": 1.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.05,
+              "end": 1.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wonder,",
+              "start": 1.19,
+              "end": 1.55,
+              "probability": 0.904296875
+            },
+            {
+              "text": " she",
+              "start": 1.83,
+              "end": 2.05,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " said.",
+              "start": 2.05,
+              "end": 2.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Go",
+              "start": 2.87,
+              "end": 2.97,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " to",
+              "start": 2.97,
+              "end": 3.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bed",
+              "start": 3.07,
+              "end": 3.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this",
+              "start": 3.25,
+              "end": 3.51,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " instant.",
+              "start": 3.51,
+              "end": 3.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " And",
+              "start": 4.67,
+              "end": 4.83,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " she",
+              "start": 4.83,
+              "end": 5.01,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " shut",
+              "start": 5.01,
+              "end": 5.23,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 5.23,
+              "end": 5.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " door",
+              "start": 5.37,
+              "end": 5.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " behind",
+              "start": 5.55,
+              "end": 5.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " herself",
+              "start": 5.93,
+              "end": 6.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 6.37,
+              "end": 6.65,
+              "probability": 0.896484375
+            },
+            {
+              "text": " poor",
+              "start": 6.65,
+              "end": 6.93,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " stumbling",
+              "start": 6.93,
+              "end": 7.51,
+              "probability": 0.55322265625
+            },
+            {
+              "text": " Ermengarde,",
+              "start": 7.51,
+              "end": 8.21,
+              "probability": 0.3786773681640625
+            },
+            {
+              "text": " and",
+              "start": 8.63,
+              "end": 8.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " left",
+              "start": 8.71,
+              "end": 8.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Sara",
+              "start": 8.91,
+              "end": 9.25,
+              "probability": 0.09661865234375
+            },
+            {
+              "text": " standing",
+              "start": 9.25,
+              "end": 9.65,
+              "probability": 0.994140625
+            },
+            {
+              "text": " quite",
+              "start": 9.65,
+              "end": 9.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " alone.",
+              "start": 9.95,
+              "end": 10.31,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "will",
+          "start": 0.49,
+          "end": 0.65
+        },
+        {
+          "raw": "leave",
+          "start": 0.65,
+          "end": 0.85
+        },
+        {
+          "raw": "you",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "raw": "to",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "raw": "wonder,",
+          "start": 1.19,
+          "end": 1.55
+        },
+        {
+          "raw": "she",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "raw": "said.",
+          "start": 2.05,
+          "end": 2.35
+        },
+        {
+          "raw": "Go",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "raw": "to",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "raw": "bed",
+          "start": 3.07,
+          "end": 3.25
+        },
+        {
+          "raw": "this",
+          "start": 3.25,
+          "end": 3.51
+        },
+        {
+          "raw": "instant.",
+          "start": 3.51,
+          "end": 3.95
+        },
+        {
+          "raw": "And",
+          "start": 4.67,
+          "end": 4.83
+        },
+        {
+          "raw": "she",
+          "start": 4.83,
+          "end": 5.01
+        },
+        {
+          "raw": "shut",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "raw": "the",
+          "start": 5.23,
+          "end": 5.37
+        },
+        {
+          "raw": "door",
+          "start": 5.37,
+          "end": 5.55
+        },
+        {
+          "raw": "behind",
+          "start": 5.55,
+          "end": 5.93
+        },
+        {
+          "raw": "herself",
+          "start": 5.93,
+          "end": 6.37
+        },
+        {
+          "raw": "and",
+          "start": 6.37,
+          "end": 6.65
+        },
+        {
+          "raw": "poor",
+          "start": 6.65,
+          "end": 6.93
+        },
+        {
+          "raw": "stumbling",
+          "start": 6.93,
+          "end": 7.51
+        },
+        {
+          "raw": "Ermengarde,",
+          "start": 7.51,
+          "end": 8.21
+        },
+        {
+          "raw": "and",
+          "start": 8.63,
+          "end": 8.71
+        },
+        {
+          "raw": "left",
+          "start": 8.71,
+          "end": 8.91
+        },
+        {
+          "raw": "Sara",
+          "start": 8.91,
+          "end": 9.25
+        },
+        {
+          "raw": "standing",
+          "start": 9.25,
+          "end": 9.65
+        },
+        {
+          "raw": "quite",
+          "start": 9.65,
+          "end": 9.95
+        },
+        {
+          "raw": "alone.",
+          "start": 9.95,
+          "end": 10.31
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "will",
+        "leave",
+        "you",
+        "to",
+        "wonder,\"",
+        "she",
+        "said.",
+        "\"Go",
+        "to",
+        "bed",
+        "this",
+        "instant.\"",
+        "And",
+        "she",
+        "shut",
+        "the",
+        "door",
+        "behind",
+        "herself",
+        "and",
+        "poor",
+        "stumbling",
+        "Ermengarde,",
+        "and",
+        "left",
+        "Sara",
+        "standing",
+        "quite",
+        "alone."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          30,
+          0,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.49,
+          "end": 0.65,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 0.65,
+          "end": 0.85,
+          "key": "leave",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.85,
+          "end": 1.05,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.05,
+          "end": 1.19,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wonder,",
+          "start": 1.19,
+          "end": 1.55,
+          "key": "wonder",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.83,
+          "end": 2.05,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.05,
+          "end": 2.35,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 2.87,
+          "end": 2.97,
+          "key": "go",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.97,
+          "end": 3.07,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bed",
+          "start": 3.07,
+          "end": 3.25,
+          "key": "bed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.25,
+          "end": 3.51,
+          "key": "this",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "instant.",
+          "start": 3.51,
+          "end": 3.95,
+          "key": "instant",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 4.67,
+          "end": 4.83,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 4.83,
+          "end": 5.01,
+          "key": "she",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "shut",
+          "start": 5.01,
+          "end": 5.23,
+          "key": "shut",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.23,
+          "end": 5.37,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "door",
+          "start": 5.37,
+          "end": 5.55,
+          "key": "door",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "behind",
+          "start": 5.55,
+          "end": 5.93,
+          "key": "behind",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "herself",
+          "start": 5.93,
+          "end": 6.37,
+          "key": "herself",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.37,
+          "end": 6.65,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 6.65,
+          "end": 6.93,
+          "key": "poor",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "stumbling",
+          "start": 6.93,
+          "end": 7.51,
+          "key": "stumbling",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Ermengarde,",
+          "start": 7.51,
+          "end": 8.21,
+          "key": "ermengarde",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.63,
+          "end": 8.71,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "left",
+          "start": 8.71,
+          "end": 8.91,
+          "key": "left",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Sara",
+          "start": 8.91,
+          "end": 9.25,
+          "key": "sara",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "standing",
+          "start": 9.25,
+          "end": 9.65,
+          "key": "standing",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 9.65,
+          "end": 9.95,
+          "key": "quite",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "alone.",
+          "start": 9.95,
+          "end": 10.31,
+          "key": "alone",
+          "pieces": [
+            29
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "will",
+          "start": 0.49,
+          "end": 0.65
+        },
+        {
+          "text": "leave",
+          "start": 0.65,
+          "end": 0.85
+        },
+        {
+          "text": "you",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "text": "to",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "text": "wonder,\"",
+          "start": 1.19,
+          "end": 1.55
+        },
+        {
+          "text": "she",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "text": "said.",
+          "start": 2.05,
+          "end": 2.35
+        },
+        {
+          "text": "\"Go",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "text": "to",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "text": "bed",
+          "start": 3.07,
+          "end": 3.25
+        },
+        {
+          "text": "this",
+          "start": 3.25,
+          "end": 3.51
+        },
+        {
+          "text": "instant.\"",
+          "start": 3.51,
+          "end": 3.95
+        },
+        {
+          "text": "And",
+          "start": 4.67,
+          "end": 4.83
+        },
+        {
+          "text": "she",
+          "start": 4.83,
+          "end": 5.01
+        },
+        {
+          "text": "shut",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "text": "the",
+          "start": 5.23,
+          "end": 5.37
+        },
+        {
+          "text": "door",
+          "start": 5.37,
+          "end": 5.55
+        },
+        {
+          "text": "behind",
+          "start": 5.55,
+          "end": 5.93
+        },
+        {
+          "text": "herself",
+          "start": 5.93,
+          "end": 6.37
+        },
+        {
+          "text": "and",
+          "start": 6.37,
+          "end": 6.65
+        },
+        {
+          "text": "poor",
+          "start": 6.65,
+          "end": 6.93
+        },
+        {
+          "text": "stumbling",
+          "start": 6.93,
+          "end": 7.51
+        },
+        {
+          "text": "Ermengarde,",
+          "start": 7.51,
+          "end": 8.21
+        },
+        {
+          "text": "and",
+          "start": 8.63,
+          "end": 8.71
+        },
+        {
+          "text": "left",
+          "start": 8.71,
+          "end": 8.91
+        },
+        {
+          "text": "Sara",
+          "start": 8.91,
+          "end": 9.25
+        },
+        {
+          "text": "standing",
+          "start": 9.25,
+          "end": 9.65
+        },
+        {
+          "text": "quite",
+          "start": 9.65,
+          "end": 9.95
+        },
+        {
+          "text": "alone.",
+          "start": 9.95,
+          "end": 10.31
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 30,
+        "matched_words": 30
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3669782243669033
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ca03b2d597db8a3c52ffe744422235923ad7fc3d040d28777bffbd19ff1fe7f1",
+  "selected_reasons": []
+}

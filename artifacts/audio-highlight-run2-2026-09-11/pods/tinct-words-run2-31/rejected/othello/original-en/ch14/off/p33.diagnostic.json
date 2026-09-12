@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "94e948bb5faeb3362f602bfc19c539d4e70ae34483c78992defe0f5fb722cd62",
+  "attempts": [
+    {
+      "asr_seconds": 0.11793314013630152,
+      "alignment_seconds": 0.00016192812472581863,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ludovico Hark",
+          "start": 0.02,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " Ludovico",
+              "start": 0.02,
+              "end": 1.02,
+              "probability": 0.7382405598958334
+            },
+            {
+              "text": " Hark",
+              "start": 1.02,
+              "end": 1.56,
+              "probability": 0.5860595703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ludovico",
+          "start": 0.02,
+          "end": 1.02
+        },
+        {
+          "raw": "Hark",
+          "start": 1.02,
+          "end": 1.56
+        }
+      ],
+      "expected_tokens": [
+        "Lodovico.",
+        "Hark!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ludovico",
+          "start": 0.02,
+          "end": 1.02,
+          "key": "ludovico",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hark",
+          "start": 1.02,
+          "end": 1.56,
+          "key": "hark",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lodovico.",
+          "start": 0.0,
+          "end": 0.51
+        },
+        {
+          "text": "Hark!",
+          "start": 1.02,
+          "end": 1.56
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11814544815570116
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bc9cc6b28d7870d6f7721bd42c796a4bc28189e7f880dc744243c3b9e4d6a6bb",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

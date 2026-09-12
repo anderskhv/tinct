@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "cd966472f8213cdf2267c3c16e34eece25994726cfb9651a1d7a82547e1895e6",
+  "attempts": [
+    {
+      "asr_seconds": 0.21953856499749236,
+      "alignment_seconds": 0.00018293698667548597,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Servant. But it raises the greater war between him and his discretion.",
+        "hotwords": "First, Servant, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Servant. But it raises the greater war between him and his discretion.",
+          "start": 0.05,
+          "end": 4.57,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.740234375
+            },
+            {
+              "text": " Servant.",
+              "start": 0.71,
+              "end": 1.29,
+              "probability": 0.55438232421875
+            },
+            {
+              "text": " But",
+              "start": 1.63,
+              "end": 1.81,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " it",
+              "start": 1.81,
+              "end": 1.91,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " raises",
+              "start": 1.91,
+              "end": 2.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.19,
+              "end": 2.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " greater",
+              "start": 2.49,
+              "end": 2.73,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " war",
+              "start": 2.73,
+              "end": 3.11,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " between",
+              "start": 3.11,
+              "end": 3.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him",
+              "start": 3.43,
+              "end": 3.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 3.73,
+              "end": 4.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 4.01,
+              "end": 4.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " discretion.",
+              "start": 4.15,
+              "end": 4.57,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Servant.",
+          "start": 0.71,
+          "end": 1.29
+        },
+        {
+          "raw": "But",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "raw": "it",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "raw": "raises",
+          "start": 1.91,
+          "end": 2.19
+        },
+        {
+          "raw": "the",
+          "start": 2.19,
+          "end": 2.49
+        },
+        {
+          "raw": "greater",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "raw": "war",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "raw": "between",
+          "start": 3.11,
+          "end": 3.43
+        },
+        {
+          "raw": "him",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "raw": "and",
+          "start": 3.73,
+          "end": 4.01
+        },
+        {
+          "raw": "his",
+          "start": 4.01,
+          "end": 4.15
+        },
+        {
+          "raw": "discretion.",
+          "start": 4.15,
+          "end": 4.57
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Servant.",
+        "But",
+        "it",
+        "raises",
+        "the",
+        "greater",
+        "war",
+        "between",
+        "him",
+        "and",
+        "his",
+        "discretion."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Servant.",
+          "start": 0.71,
+          "end": 1.29,
+          "key": "servant",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.63,
+          "end": 1.81,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.81,
+          "end": 1.91,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "raises",
+          "start": 1.91,
+          "end": 2.19,
+          "key": "raises",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.19,
+          "end": 2.49,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "greater",
+          "start": 2.49,
+          "end": 2.73,
+          "key": "greater",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "war",
+          "start": 2.73,
+          "end": 3.11,
+          "key": "war",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 3.11,
+          "end": 3.43,
+          "key": "between",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.43,
+          "end": 3.73,
+          "key": "him",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.73,
+          "end": 4.01,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.01,
+          "end": 4.15,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "discretion.",
+          "start": 4.15,
+          "end": 4.57,
+          "key": "discretion",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Servant.",
+          "start": 0.71,
+          "end": 1.29
+        },
+        {
+          "text": "But",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "text": "it",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "text": "raises",
+          "start": 1.91,
+          "end": 2.19
+        },
+        {
+          "text": "the",
+          "start": 2.19,
+          "end": 2.49
+        },
+        {
+          "text": "greater",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "text": "war",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "text": "between",
+          "start": 3.11,
+          "end": 3.43
+        },
+        {
+          "text": "him",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "text": "and",
+          "start": 3.73,
+          "end": 4.01
+        },
+        {
+          "text": "his",
+          "start": 4.01,
+          "end": 4.15
+        },
+        {
+          "text": "discretion.",
+          "start": 4.15,
+          "end": 4.57
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2197917440207675
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4e76e5614ce216f272d6ef9c005d416088084a043fd3d8b905926c45ef26dffd",
+  "selected_reasons": []
+}

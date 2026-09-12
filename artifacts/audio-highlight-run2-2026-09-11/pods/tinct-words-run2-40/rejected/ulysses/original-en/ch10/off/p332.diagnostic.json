@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "102cadd52f2c7bcc9044df7ad9689e052aaf38af64982f53a9e511e897bdc017",
+  "attempts": [
+    {
+      "asr_seconds": 0.17187620094045997,
+      "alignment_seconds": 0.00038010813295841217,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Dedellus thought and nodded.",
+          "start": 0.05,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " Dedellus",
+              "start": 0.85,
+              "end": 1.15,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " thought",
+              "start": 1.15,
+              "end": 1.39,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " and",
+              "start": 1.39,
+              "end": 1.61,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " nodded.",
+              "start": 1.61,
+              "end": 1.87,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Dedellus",
+          "start": 0.85,
+          "end": 1.15
+        },
+        {
+          "raw": "thought",
+          "start": 1.15,
+          "end": 1.39
+        },
+        {
+          "raw": "and",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "raw": "nodded.",
+          "start": 1.61,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "Dedalus",
+        "thought",
+        "and",
+        "nodded."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dedellus",
+          "start": 0.85,
+          "end": 1.15,
+          "key": "dedellus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 1.15,
+          "end": 1.39,
+          "key": "thought",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.39,
+          "end": 1.61,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "nodded.",
+          "start": 1.61,
+          "end": 1.87,
+          "key": "nodded",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Dedalus",
+          "start": 0.67,
+          "end": 0.91
+        },
+        {
+          "text": "thought",
+          "start": 1.15,
+          "end": 1.39
+        },
+        {
+          "text": "and",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "text": "nodded.",
+          "start": 1.61,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17239097598940134
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f097cd15e823cfce3dbc6db732e571f139bc9b1d08091e711dda2abb830abd8e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

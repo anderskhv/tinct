@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "31d37ef5b7acfe2cc47681e8fcea28d73bd4cd5d8657725dee1b96be638a8fa5",
+  "attempts": [
+    {
+      "asr_seconds": 0.10392830893397331,
+      "alignment_seconds": 0.00013522803783416748,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Assuredly not.",
+        "hotwords": "Assuredly"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Assuredly not.",
+          "start": 0.05,
+          "end": 1.17,
+          "words": [
+            {
+              "text": " Assuredly",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.8453776041666666
+            },
+            {
+              "text": " not.",
+              "start": 0.91,
+              "end": 1.17,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Assuredly",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "not.",
+          "start": 0.91,
+          "end": 1.17
+        }
+      ],
+      "expected_tokens": [
+        "Assuredly",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Assuredly",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "assuredly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 0.91,
+          "end": 1.17,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Assuredly",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "not.",
+          "start": 0.91,
+          "end": 1.17
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10410678759217262
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4d77b6f80db637debbe1ed4d077be76ffbd08dad6f3b7ed6c58c7d232e926de8",
+  "selected_reasons": []
+}

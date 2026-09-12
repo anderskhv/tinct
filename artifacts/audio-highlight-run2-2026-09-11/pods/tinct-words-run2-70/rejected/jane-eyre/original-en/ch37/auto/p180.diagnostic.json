@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "44b768c863a0f8dea0e20fc1409f42972970685359580f4d227e95173587e5c5",
+  "attempts": [
+    {
+      "asr_seconds": 0.11915573291480541,
+      "alignment_seconds": 0.00024899793788790703,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Only me.\"",
+        "hotwords": "Only"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Only me.",
+          "start": 0.05,
+          "end": 0.89,
+          "words": [
+            {
+              "text": " Only",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.72119140625
+            },
+            {
+              "text": " me.",
+              "start": 0.63,
+              "end": 0.89,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Only",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "me.",
+          "start": 0.63,
+          "end": 0.89
+        }
+      ],
+      "expected_tokens": [
+        "\"Only",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Only",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "only",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 0.63,
+          "end": 0.89,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Only",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "me.\"",
+          "start": 0.63,
+          "end": 0.89
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11949524888768792
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f3feba82f967580861e1524156f1e769c1dfe933b7a69aa953ee549063d30dae",
+  "selected_reasons": []
+}

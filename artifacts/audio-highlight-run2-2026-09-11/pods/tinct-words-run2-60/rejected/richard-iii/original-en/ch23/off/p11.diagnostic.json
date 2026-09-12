@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "79733d00d48ebf7aa1ed1ee49894a8d86cea508a93e8186dda3ad18ecfb5e71a",
+  "attempts": [
+    {
+      "asr_seconds": 0.32562386244535446,
+      "alignment_seconds": 0.00042167678475379944,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Richmond. Sir William Brandon, Oxford, Herbert, Blunt, and others who pitch Richmond's tent.",
+          "start": 0.14,
+          "end": 6.16,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.66,
+              "probability": 0.9296875
+            },
+            {
+              "text": " Richmond.",
+              "start": 0.66,
+              "end": 1.08,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Sir",
+              "start": 1.66,
+              "end": 1.7,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " William",
+              "start": 1.7,
+              "end": 2.02,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Brandon,",
+              "start": 2.02,
+              "end": 2.42,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " Oxford,",
+              "start": 2.88,
+              "end": 3.04,
+              "probability": 0.984375
+            },
+            {
+              "text": " Herbert,",
+              "start": 3.74,
+              "end": 3.74,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Blunt,",
+              "start": 4.12,
+              "end": 4.24,
+              "probability": 0.748291015625
+            },
+            {
+              "text": " and",
+              "start": 4.64,
+              "end": 4.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " others",
+              "start": 4.68,
+              "end": 4.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " who",
+              "start": 4.94,
+              "end": 5.16,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " pitch",
+              "start": 5.16,
+              "end": 5.38,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Richmond's",
+              "start": 5.38,
+              "end": 5.96,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " tent.",
+              "start": 5.96,
+              "end": 6.16,
+              "probability": 0.90234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "raw": "Richmond.",
+          "start": 0.66,
+          "end": 1.08
+        },
+        {
+          "raw": "Sir",
+          "start": 1.66,
+          "end": 1.7
+        },
+        {
+          "raw": "William",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "raw": "Brandon,",
+          "start": 2.02,
+          "end": 2.42
+        },
+        {
+          "raw": "Oxford,",
+          "start": 2.88,
+          "end": 3.04
+        },
+        {
+          "raw": "Herbert,",
+          "start": 3.74,
+          "end": 3.74
+        },
+        {
+          "raw": "Blunt,",
+          "start": 4.12,
+          "end": 4.24
+        },
+        {
+          "raw": "and",
+          "start": 4.64,
+          "end": 4.68
+        },
+        {
+          "raw": "others",
+          "start": 4.68,
+          "end": 4.94
+        },
+        {
+          "raw": "who",
+          "start": 4.94,
+          "end": 5.16
+        },
+        {
+          "raw": "pitch",
+          "start": 5.16,
+          "end": 5.38
+        },
+        {
+          "raw": "Richmond's",
+          "start": 5.38,
+          "end": 5.96
+        },
+        {
+          "raw": "tent.",
+          "start": 5.96,
+          "end": 6.16
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Richmond,",
+        "Sir",
+        "William",
+        "Brandon,",
+        "Oxford,",
+        "Herbert,",
+        "Blunt,",
+        "and",
+        "others",
+        "who",
+        "pitch",
+        "Richmond's",
+        "tent."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richmond.",
+          "start": 0.66,
+          "end": 1.08,
+          "key": "richmond",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 1.66,
+          "end": 1.7,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "William",
+          "start": 1.7,
+          "end": 2.02,
+          "key": "william",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Brandon,",
+          "start": 2.02,
+          "end": 2.42,
+          "key": "brandon",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Oxford,",
+          "start": 2.88,
+          "end": 3.04,
+          "key": "oxford",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Herbert,",
+          "start": 3.74,
+          "end": 3.74,
+          "key": "herbert",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Blunt,",
+          "start": 4.12,
+          "end": 4.24,
+          "key": "blunt",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.64,
+          "end": 4.68,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 4.68,
+          "end": 4.94,
+          "key": "others",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 4.94,
+          "end": 5.16,
+          "key": "who",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "pitch",
+          "start": 5.16,
+          "end": 5.38,
+          "key": "pitch",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Richmond's",
+          "start": 5.38,
+          "end": 5.96,
+          "key": "richmonds",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tent.",
+          "start": 5.96,
+          "end": 6.16,
+          "key": "tent",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "text": "Richmond,",
+          "start": 0.66,
+          "end": 1.08
+        },
+        {
+          "text": "Sir",
+          "start": 1.66,
+          "end": 1.7
+        },
+        {
+          "text": "William",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "text": "Brandon,",
+          "start": 2.02,
+          "end": 2.42
+        },
+        {
+          "text": "Oxford,",
+          "start": 2.88,
+          "end": 3.04
+        },
+        {
+          "text": "Herbert,",
+          "start": 3.74,
+          "end": 3.74
+        },
+        {
+          "text": "Blunt,",
+          "start": 4.12,
+          "end": 4.24
+        },
+        {
+          "text": "and",
+          "start": 4.64,
+          "end": 4.68
+        },
+        {
+          "text": "others",
+          "start": 4.68,
+          "end": 4.94
+        },
+        {
+          "text": "who",
+          "start": 4.94,
+          "end": 5.16
+        },
+        {
+          "text": "pitch",
+          "start": 5.16,
+          "end": 5.38
+        },
+        {
+          "text": "Richmond's",
+          "start": 5.38,
+          "end": 5.96
+        },
+        {
+          "text": "tent.",
+          "start": 5.96,
+          "end": 6.16
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3262113593518734
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cca2fe18400ebcc9fed4ddf42fe8a1cb99d21ca08d6199c0c48ecf7582653677",
+  "selected_reasons": []
+}

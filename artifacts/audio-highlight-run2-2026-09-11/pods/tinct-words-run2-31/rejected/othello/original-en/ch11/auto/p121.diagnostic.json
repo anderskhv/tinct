@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "75de92a7b071f16d6f2a9490cf60756e5200861ac6b660d4cf0d18f82b1b1673",
+  "attempts": [
+    {
+      "asr_seconds": 0.15093292482197285,
+      "alignment_seconds": 0.0002605370245873928,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. I kiss the instrument of their pleasures.",
+        "hotwords": "Othello, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, I kiss the instrument of their pleasures.",
+          "start": 0.05,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.9401041666666666
+            },
+            {
+              "text": " I",
+              "start": 1.21,
+              "end": 1.45,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " kiss",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.39501953125
+            },
+            {
+              "text": " the",
+              "start": 1.61,
+              "end": 1.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " instrument",
+              "start": 1.85,
+              "end": 2.19,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " of",
+              "start": 2.19,
+              "end": 2.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 2.39,
+              "end": 2.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " pleasures.",
+              "start": 2.53,
+              "end": 2.87,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "I",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "raw": "kiss",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "the",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "raw": "instrument",
+          "start": 1.85,
+          "end": 2.19
+        },
+        {
+          "raw": "of",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "raw": "their",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "raw": "pleasures.",
+          "start": 2.53,
+          "end": 2.87
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "I",
+        "kiss",
+        "the",
+        "instrument",
+        "of",
+        "their",
+        "pleasures."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.21,
+          "end": 1.45,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "kiss",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "kiss",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.61,
+          "end": 1.85,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "instrument",
+          "start": 1.85,
+          "end": 2.19,
+          "key": "instrument",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.19,
+          "end": 2.39,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.39,
+          "end": 2.53,
+          "key": "their",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pleasures.",
+          "start": 2.53,
+          "end": 2.87,
+          "key": "pleasures",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "I",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "text": "kiss",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "the",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "text": "instrument",
+          "start": 1.85,
+          "end": 2.19
+        },
+        {
+          "text": "of",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "text": "their",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "text": "pleasures.",
+          "start": 2.53,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15129686100408435
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a5944b822ea090b6ad462ba80db1de83f23271a8fe93556d838c717e28238a01",
+  "selected_reasons": []
+}

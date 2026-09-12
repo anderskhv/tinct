@@ -1,0 +1,8143 @@
+{
+  "complete": true,
+  "signature": "a785354ecd61034ffe7f65efc659ce337910a3e7adbb2cc7dcc7778f895a38e2",
+  "attempts": [
+    {
+      "asr_seconds": 0.5622889520600438,
+      "alignment_seconds": 0.002644845750182867,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "During this interval, even Adèle was seldom sent for to his presence, and all my acquaintance with him was confined to an occasional rencontre in the hall, on the stairs, or in the gallery, when he would sometimes pass me haughtily and coldly, just acknowledging my presence by a distant nod or a cool glance, and sometimes bow and smile with gentlemanlike affability. His changes of mood did not offend me, because I saw that I had nothing to do with their alternation; the ebb and flow depended on causes quite disconnected with me.",
+        "hotwords": "During, Adèle, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " During this interval, even Adèle was seldom sent",
+          "start": 23.91,
+          "end": 30.03,
+          "words": [
+            {
+              "text": " During",
+              "start": 23.91,
+              "end": 25.31,
+              "probability": 0.358642578125
+            },
+            {
+              "text": " this",
+              "start": 25.31,
+              "end": 26.71,
+              "probability": 0.986328125
+            },
+            {
+              "text": " interval,",
+              "start": 26.71,
+              "end": 26.71,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " even",
+              "start": 26.73,
+              "end": 26.73,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Adèle",
+              "start": 26.73,
+              "end": 30.03,
+              "probability": 0.740234375
+            },
+            {
+              "text": " was",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " seldom",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sent",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " for to his presence by a distant nod or a cool glance, but the ebb and flow depended",
+          "start": 30.03,
+          "end": 30.99,
+          "words": [
+            {
+              "text": " for",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 4.798173904418945e-05
+            },
+            {
+              "text": " to",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.0005512237548828125
+            },
+            {
+              "text": " his",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.0005221366882324219
+            },
+            {
+              "text": " presence",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.00011277198791503906
+            },
+            {
+              "text": " by",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.003231048583984375
+            },
+            {
+              "text": " a",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.0251007080078125
+            },
+            {
+              "text": " distant",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.0012750625610351562
+            },
+            {
+              "text": " nod",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 1.0728836059570312e-05
+            },
+            {
+              "text": " or",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.01116180419921875
+            },
+            {
+              "text": " a",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.1661376953125
+            },
+            {
+              "text": " cool",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 3.784894943237305e-05
+            },
+            {
+              "text": " glance,",
+              "start": 30.03,
+              "end": 30.07,
+              "probability": 8.624792098999023e-05
+            },
+            {
+              "text": " but",
+              "start": 30.07,
+              "end": 30.07,
+              "probability": 0.11492919921875
+            },
+            {
+              "text": " the",
+              "start": 30.07,
+              "end": 30.07,
+              "probability": 0.1556396484375
+            },
+            {
+              "text": " ebb",
+              "start": 30.07,
+              "end": 30.07,
+              "probability": 0.030990660190582275
+            },
+            {
+              "text": " and",
+              "start": 30.07,
+              "end": 30.21,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " flow",
+              "start": 30.21,
+              "end": 30.57,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " depended",
+              "start": 30.57,
+              "end": 30.99,
+              "probability": 0.96875
+            }
+          ]
+        },
+        {
+          "text": " on causes quite disconnected with me.",
+          "start": 30.99,
+          "end": 33.29,
+          "words": [
+            {
+              "text": " on",
+              "start": 30.99,
+              "end": 31.27,
+              "probability": 0.56982421875
+            },
+            {
+              "text": " causes",
+              "start": 31.27,
+              "end": 31.77,
+              "probability": 0.970703125
+            },
+            {
+              "text": " quite",
+              "start": 31.77,
+              "end": 32.17,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " disconnected",
+              "start": 32.17,
+              "end": 32.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 32.73,
+              "end": 33.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me.",
+              "start": 33.05,
+              "end": 33.29,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "During",
+          "start": 23.91,
+          "end": 25.31
+        },
+        {
+          "raw": "this",
+          "start": 25.31,
+          "end": 26.71
+        },
+        {
+          "raw": "interval,",
+          "start": 26.71,
+          "end": 26.71
+        },
+        {
+          "raw": "even",
+          "start": 26.73,
+          "end": 26.73
+        },
+        {
+          "raw": "Adèle",
+          "start": 26.73,
+          "end": 30.03
+        },
+        {
+          "raw": "was",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "seldom",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "sent",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "for",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "to",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "his",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "presence",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "by",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "a",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "distant",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "nod",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "or",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "a",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "cool",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "glance,",
+          "start": 30.03,
+          "end": 30.07
+        },
+        {
+          "raw": "but",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "raw": "the",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "raw": "ebb",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "raw": "and",
+          "start": 30.07,
+          "end": 30.21
+        },
+        {
+          "raw": "flow",
+          "start": 30.21,
+          "end": 30.57
+        },
+        {
+          "raw": "depended",
+          "start": 30.57,
+          "end": 30.99
+        },
+        {
+          "raw": "on",
+          "start": 30.99,
+          "end": 31.27
+        },
+        {
+          "raw": "causes",
+          "start": 31.27,
+          "end": 31.77
+        },
+        {
+          "raw": "quite",
+          "start": 31.77,
+          "end": 32.17
+        },
+        {
+          "raw": "disconnected",
+          "start": 32.17,
+          "end": 32.73
+        },
+        {
+          "raw": "with",
+          "start": 32.73,
+          "end": 33.05
+        },
+        {
+          "raw": "me.",
+          "start": 33.05,
+          "end": 33.29
+        }
+      ],
+      "expected_tokens": [
+        "During",
+        "this",
+        "interval,",
+        "even",
+        "Adèle",
+        "was",
+        "seldom",
+        "sent",
+        "for",
+        "to",
+        "his",
+        "presence,",
+        "and",
+        "all",
+        "my",
+        "acquaintance",
+        "with",
+        "him",
+        "was",
+        "confined",
+        "to",
+        "an",
+        "occasional",
+        "rencontre",
+        "in",
+        "the",
+        "hall,",
+        "on",
+        "the",
+        "stairs,",
+        "or",
+        "in",
+        "the",
+        "gallery,",
+        "when",
+        "he",
+        "would",
+        "sometimes",
+        "pass",
+        "me",
+        "haughtily",
+        "and",
+        "coldly,",
+        "just",
+        "acknowledging",
+        "my",
+        "presence",
+        "by",
+        "a",
+        "distant",
+        "nod",
+        "or",
+        "a",
+        "cool",
+        "glance,",
+        "and",
+        "sometimes",
+        "bow",
+        "and",
+        "smile",
+        "with",
+        "gentlemanlike",
+        "affability.",
+        "His",
+        "changes",
+        "of",
+        "mood",
+        "did",
+        "not",
+        "offend",
+        "me,",
+        "because",
+        "I",
+        "saw",
+        "that",
+        "I",
+        "had",
+        "nothing",
+        "to",
+        "do",
+        "with",
+        "their",
+        "alternation;",
+        "the",
+        "ebb",
+        "and",
+        "flow",
+        "depended",
+        "on",
+        "causes",
+        "quite",
+        "disconnected",
+        "with",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "delete",
+          12,
+          47,
+          12,
+          12
+        ],
+        [
+          "equal",
+          47,
+          55,
+          12,
+          20
+        ],
+        [
+          "replace",
+          55,
+          83,
+          20,
+          21
+        ],
+        [
+          "equal",
+          83,
+          94,
+          21,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 78,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 79,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 80,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 81,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 82,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          12,
+          47,
+          12,
+          12
+        ],
+        [
+          "replace",
+          55,
+          83,
+          20,
+          21
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "During",
+          "start": 23.91,
+          "end": 25.31,
+          "key": "during",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 25.31,
+          "end": 26.71,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "interval,",
+          "start": 26.71,
+          "end": 26.71,
+          "key": "interval",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 26.73,
+          "end": 26.73,
+          "key": "even",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Adèle",
+          "start": 26.73,
+          "end": 30.03,
+          "key": "adèle",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "was",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "seldom",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "seldom",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "sent",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "presence",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "presence",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "by",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "distant",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "distant",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "nod",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "nod",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "or",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "cool",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "cool",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "glance,",
+          "start": 30.03,
+          "end": 30.07,
+          "key": "glance",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 30.07,
+          "end": 30.07,
+          "key": "but",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.07,
+          "end": 30.07,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "ebb",
+          "start": 30.07,
+          "end": 30.07,
+          "key": "ebb",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 30.07,
+          "end": 30.21,
+          "key": "and",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "flow",
+          "start": 30.21,
+          "end": 30.57,
+          "key": "flow",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "depended",
+          "start": 30.57,
+          "end": 30.99,
+          "key": "depended",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 30.99,
+          "end": 31.27,
+          "key": "on",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "causes",
+          "start": 31.27,
+          "end": 31.77,
+          "key": "causes",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 31.77,
+          "end": 32.17,
+          "key": "quite",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "disconnected",
+          "start": 32.17,
+          "end": 32.73,
+          "key": "disconnected",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 32.73,
+          "end": 33.05,
+          "key": "with",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 33.05,
+          "end": 33.29,
+          "key": "me",
+          "pieces": [
+            31
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "During",
+          "start": 23.91,
+          "end": 25.31
+        },
+        {
+          "text": "this",
+          "start": 25.31,
+          "end": 26.71
+        },
+        {
+          "text": "interval,",
+          "start": 26.71,
+          "end": 26.71
+        },
+        {
+          "text": "even",
+          "start": 26.73,
+          "end": 26.73
+        },
+        {
+          "text": "Adèle",
+          "start": 26.73,
+          "end": 30.03
+        },
+        {
+          "text": "was",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "seldom",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "sent",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "for",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "to",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "his",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "presence,",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "and",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "all",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "my",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "acquaintance",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "with",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "him",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "was",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "confined",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "to",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "an",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "occasional",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "rencontre",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "in",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "the",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "hall,",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "on",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "the",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "stairs,",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "or",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "in",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "the",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "gallery,",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "when",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "he",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "would",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "sometimes",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "pass",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "me",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "haughtily",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "and",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "coldly,",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "just",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "acknowledging",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "my",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "presence",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "by",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "a",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "distant",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "nod",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "or",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "a",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "cool",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "glance,",
+          "start": 30.03,
+          "end": 30.07
+        },
+        {
+          "text": "and",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "sometimes",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "bow",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "and",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "smile",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "with",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "gentlemanlike",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "affability.",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "His",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "changes",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "of",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "mood",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "did",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "not",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "offend",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "me,",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "because",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "I",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "saw",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "that",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "I",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "had",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "nothing",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "to",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "do",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "with",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "their",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "alternation;",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "the",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "ebb",
+          "start": 30.07,
+          "end": 30.07
+        },
+        {
+          "text": "and",
+          "start": 30.07,
+          "end": 30.21
+        },
+        {
+          "text": "flow",
+          "start": 30.21,
+          "end": 30.57
+        },
+        {
+          "text": "depended",
+          "start": 30.57,
+          "end": 30.99
+        },
+        {
+          "text": "on",
+          "start": 30.99,
+          "end": 31.27
+        },
+        {
+          "text": "causes",
+          "start": 31.27,
+          "end": 31.77
+        },
+        {
+          "text": "quite",
+          "start": 31.77,
+          "end": 32.17
+        },
+        {
+          "text": "disconnected",
+          "start": 32.17,
+          "end": 32.73
+        },
+        {
+          "text": "with",
+          "start": 32.73,
+          "end": 33.05
+        },
+        {
+          "text": "me.",
+          "start": 33.05,
+          "end": 33.29
+        }
+      ],
+      "stats": {
+        "expected_words": 94,
+        "heard_words": 32,
+        "matched_words": 31
+      },
+      "match_ratio": 0.32978723404255317,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.56543571036309
+    },
+    {
+      "asr_seconds": 0.8714563339017332,
+      "alignment_seconds": 0.002854138147085905,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "During, Adèle, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " During this interval, even Adèle was seldom sent for to his presence, and all my acquaintance",
+          "start": 0.05,
+          "end": 5.47,
+          "words": [
+            {
+              "text": " During",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.3583984375
+            },
+            {
+              "text": " this",
+              "start": 0.59,
+              "end": 0.83,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " interval,",
+              "start": 0.83,
+              "end": 1.25,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " even",
+              "start": 1.67,
+              "end": 1.85,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Adèle",
+              "start": 1.85,
+              "end": 2.25,
+              "probability": 0.74072265625
+            },
+            {
+              "text": " was",
+              "start": 2.25,
+              "end": 2.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " seldom",
+              "start": 2.43,
+              "end": 2.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sent",
+              "start": 2.83,
+              "end": 3.17,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 3.17,
+              "end": 3.41,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " to",
+              "start": 3.41,
+              "end": 3.57,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " his",
+              "start": 3.57,
+              "end": 3.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " presence,",
+              "start": 3.71,
+              "end": 4.09,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 4.35,
+              "end": 4.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " all",
+              "start": 4.71,
+              "end": 4.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 4.91,
+              "end": 5.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " acquaintance",
+              "start": 5.07,
+              "end": 5.47,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " with him was confined to an occasional renconter in the hall, on the stairs, or in the gallery,",
+          "start": 5.47,
+          "end": 11.17,
+          "words": [
+            {
+              "text": " with",
+              "start": 5.47,
+              "end": 5.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 5.73,
+              "end": 5.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 5.91,
+              "end": 6.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " confined",
+              "start": 6.09,
+              "end": 6.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 6.53,
+              "end": 6.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " an",
+              "start": 6.83,
+              "end": 6.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " occasional",
+              "start": 6.93,
+              "end": 7.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " renconter",
+              "start": 7.43,
+              "end": 8.13,
+              "probability": 0.684326171875
+            },
+            {
+              "text": " in",
+              "start": 8.13,
+              "end": 8.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 8.29,
+              "end": 8.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hall,",
+              "start": 8.39,
+              "end": 8.61,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " on",
+              "start": 9.13,
+              "end": 9.31,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 9.31,
+              "end": 9.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " stairs,",
+              "start": 9.43,
+              "end": 9.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " or",
+              "start": 10.29,
+              "end": 10.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 10.55,
+              "end": 10.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 10.71,
+              "end": 10.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gallery,",
+              "start": 10.81,
+              "end": 11.17,
+              "probability": 0.98828125
+            }
+          ]
+        },
+        {
+          "text": " when he would sometimes pass me haughtily and coldly, just acknowledging my presence",
+          "start": 11.65,
+          "end": 16.03,
+          "words": [
+            {
+              "text": " when",
+              "start": 11.65,
+              "end": 11.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 11.85,
+              "end": 11.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " would",
+              "start": 11.93,
+              "end": 12.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sometimes",
+              "start": 12.03,
+              "end": 12.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " pass",
+              "start": 12.47,
+              "end": 12.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 12.85,
+              "end": 13.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " haughtily",
+              "start": 13.15,
+              "end": 13.51,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " and",
+              "start": 13.51,
+              "end": 13.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " coldly,",
+              "start": 13.75,
+              "end": 14.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " just",
+              "start": 14.79,
+              "end": 14.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " acknowledging",
+              "start": 14.97,
+              "end": 15.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " my",
+              "start": 15.41,
+              "end": 15.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " presence",
+              "start": 15.69,
+              "end": 16.03,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " by a distant nod or a cool glance, and sometimes bow and smile with gentlemanlike affability.",
+          "start": 16.03,
+          "end": 22.09,
+          "words": [
+            {
+              "text": " by",
+              "start": 16.03,
+              "end": 16.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 16.33,
+              "end": 16.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " distant",
+              "start": 16.51,
+              "end": 16.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " nod",
+              "start": 16.83,
+              "end": 17.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " or",
+              "start": 17.17,
+              "end": 17.45,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 17.45,
+              "end": 17.63,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " cool",
+              "start": 17.63,
+              "end": 17.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " glance,",
+              "start": 17.83,
+              "end": 18.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 18.77,
+              "end": 18.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sometimes",
+              "start": 18.93,
+              "end": 19.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " bow",
+              "start": 19.49,
+              "end": 19.77,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " and",
+              "start": 19.77,
+              "end": 20.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " smile",
+              "start": 20.11,
+              "end": 20.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 20.49,
+              "end": 20.79,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " gentlemanlike",
+              "start": 20.79,
+              "end": 21.53,
+              "probability": 0.6455078125
+            },
+            {
+              "text": " affability.",
+              "start": 21.53,
+              "end": 22.09,
+              "probability": 0.953369140625
+            }
+          ]
+        },
+        {
+          "text": " His changes of mood did not offend me, because I saw that I had nothing to do with their",
+          "start": 23.19,
+          "end": 28.13,
+          "words": [
+            {
+              "text": " His",
+              "start": 23.19,
+              "end": 23.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " changes",
+              "start": 23.41,
+              "end": 23.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 23.77,
+              "end": 24.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " mood",
+              "start": 24.03,
+              "end": 24.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " did",
+              "start": 24.31,
+              "end": 24.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 24.63,
+              "end": 24.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " offend",
+              "start": 24.85,
+              "end": 25.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me,",
+              "start": 25.15,
+              "end": 25.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " because",
+              "start": 25.79,
+              "end": 26.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 26.13,
+              "end": 26.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " saw",
+              "start": 26.31,
+              "end": 26.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 26.53,
+              "end": 26.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 26.67,
+              "end": 26.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " had",
+              "start": 26.79,
+              "end": 26.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nothing",
+              "start": 26.97,
+              "end": 27.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 27.25,
+              "end": 27.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " do",
+              "start": 27.51,
+              "end": 27.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 27.71,
+              "end": 27.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 27.93,
+              "end": 28.13,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " alternation. The ebb and flow depended on causes quite disconnected with me.",
+          "start": 28.13,
+          "end": 33.29,
+          "words": [
+            {
+              "text": " alternation.",
+              "start": 28.13,
+              "end": 28.91,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " The",
+              "start": 29.45,
+              "end": 29.67,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " ebb",
+              "start": 29.67,
+              "end": 30.07,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " and",
+              "start": 30.07,
+              "end": 30.25,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " flow",
+              "start": 30.25,
+              "end": 30.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " depended",
+              "start": 30.57,
+              "end": 30.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " on",
+              "start": 30.99,
+              "end": 31.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " causes",
+              "start": 31.31,
+              "end": 31.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " quite",
+              "start": 31.77,
+              "end": 32.17,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " disconnected",
+              "start": 32.17,
+              "end": 32.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 32.75,
+              "end": 33.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me.",
+              "start": 33.05,
+              "end": 33.29,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "During",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "this",
+          "start": 0.59,
+          "end": 0.83
+        },
+        {
+          "raw": "interval,",
+          "start": 0.83,
+          "end": 1.25
+        },
+        {
+          "raw": "even",
+          "start": 1.67,
+          "end": 1.85
+        },
+        {
+          "raw": "Adèle",
+          "start": 1.85,
+          "end": 2.25
+        },
+        {
+          "raw": "was",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "raw": "seldom",
+          "start": 2.43,
+          "end": 2.83
+        },
+        {
+          "raw": "sent",
+          "start": 2.83,
+          "end": 3.17
+        },
+        {
+          "raw": "for",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "raw": "to",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "raw": "his",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "raw": "presence,",
+          "start": 3.71,
+          "end": 4.09
+        },
+        {
+          "raw": "and",
+          "start": 4.35,
+          "end": 4.71
+        },
+        {
+          "raw": "all",
+          "start": 4.71,
+          "end": 4.91
+        },
+        {
+          "raw": "my",
+          "start": 4.91,
+          "end": 5.07
+        },
+        {
+          "raw": "acquaintance",
+          "start": 5.07,
+          "end": 5.47
+        },
+        {
+          "raw": "with",
+          "start": 5.47,
+          "end": 5.73
+        },
+        {
+          "raw": "him",
+          "start": 5.73,
+          "end": 5.91
+        },
+        {
+          "raw": "was",
+          "start": 5.91,
+          "end": 6.09
+        },
+        {
+          "raw": "confined",
+          "start": 6.09,
+          "end": 6.53
+        },
+        {
+          "raw": "to",
+          "start": 6.53,
+          "end": 6.83
+        },
+        {
+          "raw": "an",
+          "start": 6.83,
+          "end": 6.93
+        },
+        {
+          "raw": "occasional",
+          "start": 6.93,
+          "end": 7.43
+        },
+        {
+          "raw": "renconter",
+          "start": 7.43,
+          "end": 8.13
+        },
+        {
+          "raw": "in",
+          "start": 8.13,
+          "end": 8.29
+        },
+        {
+          "raw": "the",
+          "start": 8.29,
+          "end": 8.39
+        },
+        {
+          "raw": "hall,",
+          "start": 8.39,
+          "end": 8.61
+        },
+        {
+          "raw": "on",
+          "start": 9.13,
+          "end": 9.31
+        },
+        {
+          "raw": "the",
+          "start": 9.31,
+          "end": 9.43
+        },
+        {
+          "raw": "stairs,",
+          "start": 9.43,
+          "end": 9.77
+        },
+        {
+          "raw": "or",
+          "start": 10.29,
+          "end": 10.55
+        },
+        {
+          "raw": "in",
+          "start": 10.55,
+          "end": 10.71
+        },
+        {
+          "raw": "the",
+          "start": 10.71,
+          "end": 10.81
+        },
+        {
+          "raw": "gallery,",
+          "start": 10.81,
+          "end": 11.17
+        },
+        {
+          "raw": "when",
+          "start": 11.65,
+          "end": 11.85
+        },
+        {
+          "raw": "he",
+          "start": 11.85,
+          "end": 11.93
+        },
+        {
+          "raw": "would",
+          "start": 11.93,
+          "end": 12.03
+        },
+        {
+          "raw": "sometimes",
+          "start": 12.03,
+          "end": 12.47
+        },
+        {
+          "raw": "pass",
+          "start": 12.47,
+          "end": 12.85
+        },
+        {
+          "raw": "me",
+          "start": 12.85,
+          "end": 13.15
+        },
+        {
+          "raw": "haughtily",
+          "start": 13.15,
+          "end": 13.51
+        },
+        {
+          "raw": "and",
+          "start": 13.51,
+          "end": 13.75
+        },
+        {
+          "raw": "coldly,",
+          "start": 13.75,
+          "end": 14.33
+        },
+        {
+          "raw": "just",
+          "start": 14.79,
+          "end": 14.97
+        },
+        {
+          "raw": "acknowledging",
+          "start": 14.97,
+          "end": 15.41
+        },
+        {
+          "raw": "my",
+          "start": 15.41,
+          "end": 15.69
+        },
+        {
+          "raw": "presence",
+          "start": 15.69,
+          "end": 16.03
+        },
+        {
+          "raw": "by",
+          "start": 16.03,
+          "end": 16.33
+        },
+        {
+          "raw": "a",
+          "start": 16.33,
+          "end": 16.51
+        },
+        {
+          "raw": "distant",
+          "start": 16.51,
+          "end": 16.83
+        },
+        {
+          "raw": "nod",
+          "start": 16.83,
+          "end": 17.17
+        },
+        {
+          "raw": "or",
+          "start": 17.17,
+          "end": 17.45
+        },
+        {
+          "raw": "a",
+          "start": 17.45,
+          "end": 17.63
+        },
+        {
+          "raw": "cool",
+          "start": 17.63,
+          "end": 17.83
+        },
+        {
+          "raw": "glance,",
+          "start": 17.83,
+          "end": 18.29
+        },
+        {
+          "raw": "and",
+          "start": 18.77,
+          "end": 18.93
+        },
+        {
+          "raw": "sometimes",
+          "start": 18.93,
+          "end": 19.49
+        },
+        {
+          "raw": "bow",
+          "start": 19.49,
+          "end": 19.77
+        },
+        {
+          "raw": "and",
+          "start": 19.77,
+          "end": 20.11
+        },
+        {
+          "raw": "smile",
+          "start": 20.11,
+          "end": 20.49
+        },
+        {
+          "raw": "with",
+          "start": 20.49,
+          "end": 20.79
+        },
+        {
+          "raw": "gentlemanlike",
+          "start": 20.79,
+          "end": 21.53
+        },
+        {
+          "raw": "affability.",
+          "start": 21.53,
+          "end": 22.09
+        },
+        {
+          "raw": "His",
+          "start": 23.19,
+          "end": 23.41
+        },
+        {
+          "raw": "changes",
+          "start": 23.41,
+          "end": 23.77
+        },
+        {
+          "raw": "of",
+          "start": 23.77,
+          "end": 24.03
+        },
+        {
+          "raw": "mood",
+          "start": 24.03,
+          "end": 24.31
+        },
+        {
+          "raw": "did",
+          "start": 24.31,
+          "end": 24.63
+        },
+        {
+          "raw": "not",
+          "start": 24.63,
+          "end": 24.85
+        },
+        {
+          "raw": "offend",
+          "start": 24.85,
+          "end": 25.15
+        },
+        {
+          "raw": "me,",
+          "start": 25.15,
+          "end": 25.55
+        },
+        {
+          "raw": "because",
+          "start": 25.79,
+          "end": 26.13
+        },
+        {
+          "raw": "I",
+          "start": 26.13,
+          "end": 26.31
+        },
+        {
+          "raw": "saw",
+          "start": 26.31,
+          "end": 26.53
+        },
+        {
+          "raw": "that",
+          "start": 26.53,
+          "end": 26.67
+        },
+        {
+          "raw": "I",
+          "start": 26.67,
+          "end": 26.79
+        },
+        {
+          "raw": "had",
+          "start": 26.79,
+          "end": 26.97
+        },
+        {
+          "raw": "nothing",
+          "start": 26.97,
+          "end": 27.25
+        },
+        {
+          "raw": "to",
+          "start": 27.25,
+          "end": 27.51
+        },
+        {
+          "raw": "do",
+          "start": 27.51,
+          "end": 27.71
+        },
+        {
+          "raw": "with",
+          "start": 27.71,
+          "end": 27.93
+        },
+        {
+          "raw": "their",
+          "start": 27.93,
+          "end": 28.13
+        },
+        {
+          "raw": "alternation.",
+          "start": 28.13,
+          "end": 28.91
+        },
+        {
+          "raw": "The",
+          "start": 29.45,
+          "end": 29.67
+        },
+        {
+          "raw": "ebb",
+          "start": 29.67,
+          "end": 30.07
+        },
+        {
+          "raw": "and",
+          "start": 30.07,
+          "end": 30.25
+        },
+        {
+          "raw": "flow",
+          "start": 30.25,
+          "end": 30.57
+        },
+        {
+          "raw": "depended",
+          "start": 30.57,
+          "end": 30.99
+        },
+        {
+          "raw": "on",
+          "start": 30.99,
+          "end": 31.31
+        },
+        {
+          "raw": "causes",
+          "start": 31.31,
+          "end": 31.77
+        },
+        {
+          "raw": "quite",
+          "start": 31.77,
+          "end": 32.17
+        },
+        {
+          "raw": "disconnected",
+          "start": 32.17,
+          "end": 32.75
+        },
+        {
+          "raw": "with",
+          "start": 32.75,
+          "end": 33.05
+        },
+        {
+          "raw": "me.",
+          "start": 33.05,
+          "end": 33.29
+        }
+      ],
+      "expected_tokens": [
+        "During",
+        "this",
+        "interval,",
+        "even",
+        "Adèle",
+        "was",
+        "seldom",
+        "sent",
+        "for",
+        "to",
+        "his",
+        "presence,",
+        "and",
+        "all",
+        "my",
+        "acquaintance",
+        "with",
+        "him",
+        "was",
+        "confined",
+        "to",
+        "an",
+        "occasional",
+        "rencontre",
+        "in",
+        "the",
+        "hall,",
+        "on",
+        "the",
+        "stairs,",
+        "or",
+        "in",
+        "the",
+        "gallery,",
+        "when",
+        "he",
+        "would",
+        "sometimes",
+        "pass",
+        "me",
+        "haughtily",
+        "and",
+        "coldly,",
+        "just",
+        "acknowledging",
+        "my",
+        "presence",
+        "by",
+        "a",
+        "distant",
+        "nod",
+        "or",
+        "a",
+        "cool",
+        "glance,",
+        "and",
+        "sometimes",
+        "bow",
+        "and",
+        "smile",
+        "with",
+        "gentlemanlike",
+        "affability.",
+        "His",
+        "changes",
+        "of",
+        "mood",
+        "did",
+        "not",
+        "offend",
+        "me,",
+        "because",
+        "I",
+        "saw",
+        "that",
+        "I",
+        "had",
+        "nothing",
+        "to",
+        "do",
+        "with",
+        "their",
+        "alternation;",
+        "the",
+        "ebb",
+        "and",
+        "flow",
+        "depended",
+        "on",
+        "causes",
+        "quite",
+        "disconnected",
+        "with",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ],
+        [
+          "equal",
+          24,
+          94,
+          24,
+          94
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "During",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "during",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.59,
+          "end": 0.83,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "interval,",
+          "start": 0.83,
+          "end": 1.25,
+          "key": "interval",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 1.67,
+          "end": 1.85,
+          "key": "even",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Adèle",
+          "start": 1.85,
+          "end": 2.25,
+          "key": "adèle",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.25,
+          "end": 2.43,
+          "key": "was",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "seldom",
+          "start": 2.43,
+          "end": 2.83,
+          "key": "seldom",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 2.83,
+          "end": 3.17,
+          "key": "sent",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.17,
+          "end": 3.41,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.41,
+          "end": 3.57,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.57,
+          "end": 3.71,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "presence,",
+          "start": 3.71,
+          "end": 4.09,
+          "key": "presence",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.35,
+          "end": 4.71,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 4.71,
+          "end": 4.91,
+          "key": "all",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.91,
+          "end": 5.07,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "acquaintance",
+          "start": 5.07,
+          "end": 5.47,
+          "key": "acquaintance",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.47,
+          "end": 5.73,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.73,
+          "end": 5.91,
+          "key": "him",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.91,
+          "end": 6.09,
+          "key": "was",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "confined",
+          "start": 6.09,
+          "end": 6.53,
+          "key": "confined",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.53,
+          "end": 6.83,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 6.83,
+          "end": 6.93,
+          "key": "an",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "occasional",
+          "start": 6.93,
+          "end": 7.43,
+          "key": "occasional",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "renconter",
+          "start": 7.43,
+          "end": 8.13,
+          "key": "renconter",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.13,
+          "end": 8.29,
+          "key": "in",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.29,
+          "end": 8.39,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "hall,",
+          "start": 8.39,
+          "end": 8.61,
+          "key": "hall",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 9.13,
+          "end": 9.31,
+          "key": "on",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.31,
+          "end": 9.43,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "stairs,",
+          "start": 9.43,
+          "end": 9.77,
+          "key": "stairs",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 10.29,
+          "end": 10.55,
+          "key": "or",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.55,
+          "end": 10.71,
+          "key": "in",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.71,
+          "end": 10.81,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "gallery,",
+          "start": 10.81,
+          "end": 11.17,
+          "key": "gallery",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 11.65,
+          "end": 11.85,
+          "key": "when",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 11.85,
+          "end": 11.93,
+          "key": "he",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 11.93,
+          "end": 12.03,
+          "key": "would",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "sometimes",
+          "start": 12.03,
+          "end": 12.47,
+          "key": "sometimes",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "pass",
+          "start": 12.47,
+          "end": 12.85,
+          "key": "pass",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 12.85,
+          "end": 13.15,
+          "key": "me",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "haughtily",
+          "start": 13.15,
+          "end": 13.51,
+          "key": "haughtily",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.51,
+          "end": 13.75,
+          "key": "and",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "coldly,",
+          "start": 13.75,
+          "end": 14.33,
+          "key": "coldly",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 14.79,
+          "end": 14.97,
+          "key": "just",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "acknowledging",
+          "start": 14.97,
+          "end": 15.41,
+          "key": "acknowledging",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 15.41,
+          "end": 15.69,
+          "key": "my",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "presence",
+          "start": 15.69,
+          "end": 16.03,
+          "key": "presence",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 16.03,
+          "end": 16.33,
+          "key": "by",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.33,
+          "end": 16.51,
+          "key": "a",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "distant",
+          "start": 16.51,
+          "end": 16.83,
+          "key": "distant",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "nod",
+          "start": 16.83,
+          "end": 17.17,
+          "key": "nod",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 17.17,
+          "end": 17.45,
+          "key": "or",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 17.45,
+          "end": 17.63,
+          "key": "a",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "cool",
+          "start": 17.63,
+          "end": 17.83,
+          "key": "cool",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "glance,",
+          "start": 17.83,
+          "end": 18.29,
+          "key": "glance",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.77,
+          "end": 18.93,
+          "key": "and",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "sometimes",
+          "start": 18.93,
+          "end": 19.49,
+          "key": "sometimes",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "bow",
+          "start": 19.49,
+          "end": 19.77,
+          "key": "bow",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.77,
+          "end": 20.11,
+          "key": "and",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "smile",
+          "start": 20.11,
+          "end": 20.49,
+          "key": "smile",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 20.49,
+          "end": 20.79,
+          "key": "with",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "gentlemanlike",
+          "start": 20.79,
+          "end": 21.53,
+          "key": "gentlemanlike",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "affability.",
+          "start": 21.53,
+          "end": 22.09,
+          "key": "affability",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 23.19,
+          "end": 23.41,
+          "key": "his",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "changes",
+          "start": 23.41,
+          "end": 23.77,
+          "key": "changes",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 23.77,
+          "end": 24.03,
+          "key": "of",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "mood",
+          "start": 24.03,
+          "end": 24.31,
+          "key": "mood",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 24.31,
+          "end": 24.63,
+          "key": "did",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 24.63,
+          "end": 24.85,
+          "key": "not",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "offend",
+          "start": 24.85,
+          "end": 25.15,
+          "key": "offend",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 25.15,
+          "end": 25.55,
+          "key": "me",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 25.79,
+          "end": 26.13,
+          "key": "because",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 26.13,
+          "end": 26.31,
+          "key": "i",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 26.31,
+          "end": 26.53,
+          "key": "saw",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 26.53,
+          "end": 26.67,
+          "key": "that",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 26.67,
+          "end": 26.79,
+          "key": "i",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 26.79,
+          "end": 26.97,
+          "key": "had",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 26.97,
+          "end": 27.25,
+          "key": "nothing",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 27.25,
+          "end": 27.51,
+          "key": "to",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 27.51,
+          "end": 27.71,
+          "key": "do",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 27.71,
+          "end": 27.93,
+          "key": "with",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 27.93,
+          "end": 28.13,
+          "key": "their",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "alternation.",
+          "start": 28.13,
+          "end": 28.91,
+          "key": "alternation",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 29.45,
+          "end": 29.67,
+          "key": "the",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "ebb",
+          "start": 29.67,
+          "end": 30.07,
+          "key": "ebb",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 30.07,
+          "end": 30.25,
+          "key": "and",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "flow",
+          "start": 30.25,
+          "end": 30.57,
+          "key": "flow",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "depended",
+          "start": 30.57,
+          "end": 30.99,
+          "key": "depended",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 30.99,
+          "end": 31.31,
+          "key": "on",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "causes",
+          "start": 31.31,
+          "end": 31.77,
+          "key": "causes",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 31.77,
+          "end": 32.17,
+          "key": "quite",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "disconnected",
+          "start": 32.17,
+          "end": 32.75,
+          "key": "disconnected",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 32.75,
+          "end": 33.05,
+          "key": "with",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 33.05,
+          "end": 33.29,
+          "key": "me",
+          "pieces": [
+            93
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "During",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "this",
+          "start": 0.59,
+          "end": 0.83
+        },
+        {
+          "text": "interval,",
+          "start": 0.83,
+          "end": 1.25
+        },
+        {
+          "text": "even",
+          "start": 1.67,
+          "end": 1.85
+        },
+        {
+          "text": "Adèle",
+          "start": 1.85,
+          "end": 2.25
+        },
+        {
+          "text": "was",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "text": "seldom",
+          "start": 2.43,
+          "end": 2.83
+        },
+        {
+          "text": "sent",
+          "start": 2.83,
+          "end": 3.17
+        },
+        {
+          "text": "for",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "text": "to",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "text": "his",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "text": "presence,",
+          "start": 3.71,
+          "end": 4.09
+        },
+        {
+          "text": "and",
+          "start": 4.35,
+          "end": 4.71
+        },
+        {
+          "text": "all",
+          "start": 4.71,
+          "end": 4.91
+        },
+        {
+          "text": "my",
+          "start": 4.91,
+          "end": 5.07
+        },
+        {
+          "text": "acquaintance",
+          "start": 5.07,
+          "end": 5.47
+        },
+        {
+          "text": "with",
+          "start": 5.47,
+          "end": 5.73
+        },
+        {
+          "text": "him",
+          "start": 5.73,
+          "end": 5.91
+        },
+        {
+          "text": "was",
+          "start": 5.91,
+          "end": 6.09
+        },
+        {
+          "text": "confined",
+          "start": 6.09,
+          "end": 6.53
+        },
+        {
+          "text": "to",
+          "start": 6.53,
+          "end": 6.83
+        },
+        {
+          "text": "an",
+          "start": 6.83,
+          "end": 6.93
+        },
+        {
+          "text": "occasional",
+          "start": 6.93,
+          "end": 7.43
+        },
+        {
+          "text": "rencontre",
+          "start": 7.43,
+          "end": 7.78
+        },
+        {
+          "text": "in",
+          "start": 8.13,
+          "end": 8.29
+        },
+        {
+          "text": "the",
+          "start": 8.29,
+          "end": 8.39
+        },
+        {
+          "text": "hall,",
+          "start": 8.39,
+          "end": 8.61
+        },
+        {
+          "text": "on",
+          "start": 9.13,
+          "end": 9.31
+        },
+        {
+          "text": "the",
+          "start": 9.31,
+          "end": 9.43
+        },
+        {
+          "text": "stairs,",
+          "start": 9.43,
+          "end": 9.77
+        },
+        {
+          "text": "or",
+          "start": 10.29,
+          "end": 10.55
+        },
+        {
+          "text": "in",
+          "start": 10.55,
+          "end": 10.71
+        },
+        {
+          "text": "the",
+          "start": 10.71,
+          "end": 10.81
+        },
+        {
+          "text": "gallery,",
+          "start": 10.81,
+          "end": 11.17
+        },
+        {
+          "text": "when",
+          "start": 11.65,
+          "end": 11.85
+        },
+        {
+          "text": "he",
+          "start": 11.85,
+          "end": 11.93
+        },
+        {
+          "text": "would",
+          "start": 11.93,
+          "end": 12.03
+        },
+        {
+          "text": "sometimes",
+          "start": 12.03,
+          "end": 12.47
+        },
+        {
+          "text": "pass",
+          "start": 12.47,
+          "end": 12.85
+        },
+        {
+          "text": "me",
+          "start": 12.85,
+          "end": 13.15
+        },
+        {
+          "text": "haughtily",
+          "start": 13.15,
+          "end": 13.51
+        },
+        {
+          "text": "and",
+          "start": 13.51,
+          "end": 13.75
+        },
+        {
+          "text": "coldly,",
+          "start": 13.75,
+          "end": 14.33
+        },
+        {
+          "text": "just",
+          "start": 14.79,
+          "end": 14.97
+        },
+        {
+          "text": "acknowledging",
+          "start": 14.97,
+          "end": 15.41
+        },
+        {
+          "text": "my",
+          "start": 15.41,
+          "end": 15.69
+        },
+        {
+          "text": "presence",
+          "start": 15.69,
+          "end": 16.03
+        },
+        {
+          "text": "by",
+          "start": 16.03,
+          "end": 16.33
+        },
+        {
+          "text": "a",
+          "start": 16.33,
+          "end": 16.51
+        },
+        {
+          "text": "distant",
+          "start": 16.51,
+          "end": 16.83
+        },
+        {
+          "text": "nod",
+          "start": 16.83,
+          "end": 17.17
+        },
+        {
+          "text": "or",
+          "start": 17.17,
+          "end": 17.45
+        },
+        {
+          "text": "a",
+          "start": 17.45,
+          "end": 17.63
+        },
+        {
+          "text": "cool",
+          "start": 17.63,
+          "end": 17.83
+        },
+        {
+          "text": "glance,",
+          "start": 17.83,
+          "end": 18.29
+        },
+        {
+          "text": "and",
+          "start": 18.77,
+          "end": 18.93
+        },
+        {
+          "text": "sometimes",
+          "start": 18.93,
+          "end": 19.49
+        },
+        {
+          "text": "bow",
+          "start": 19.49,
+          "end": 19.77
+        },
+        {
+          "text": "and",
+          "start": 19.77,
+          "end": 20.11
+        },
+        {
+          "text": "smile",
+          "start": 20.11,
+          "end": 20.49
+        },
+        {
+          "text": "with",
+          "start": 20.49,
+          "end": 20.79
+        },
+        {
+          "text": "gentlemanlike",
+          "start": 20.79,
+          "end": 21.53
+        },
+        {
+          "text": "affability.",
+          "start": 21.53,
+          "end": 22.09
+        },
+        {
+          "text": "His",
+          "start": 23.19,
+          "end": 23.41
+        },
+        {
+          "text": "changes",
+          "start": 23.41,
+          "end": 23.77
+        },
+        {
+          "text": "of",
+          "start": 23.77,
+          "end": 24.03
+        },
+        {
+          "text": "mood",
+          "start": 24.03,
+          "end": 24.31
+        },
+        {
+          "text": "did",
+          "start": 24.31,
+          "end": 24.63
+        },
+        {
+          "text": "not",
+          "start": 24.63,
+          "end": 24.85
+        },
+        {
+          "text": "offend",
+          "start": 24.85,
+          "end": 25.15
+        },
+        {
+          "text": "me,",
+          "start": 25.15,
+          "end": 25.55
+        },
+        {
+          "text": "because",
+          "start": 25.79,
+          "end": 26.13
+        },
+        {
+          "text": "I",
+          "start": 26.13,
+          "end": 26.31
+        },
+        {
+          "text": "saw",
+          "start": 26.31,
+          "end": 26.53
+        },
+        {
+          "text": "that",
+          "start": 26.53,
+          "end": 26.67
+        },
+        {
+          "text": "I",
+          "start": 26.67,
+          "end": 26.79
+        },
+        {
+          "text": "had",
+          "start": 26.79,
+          "end": 26.97
+        },
+        {
+          "text": "nothing",
+          "start": 26.97,
+          "end": 27.25
+        },
+        {
+          "text": "to",
+          "start": 27.25,
+          "end": 27.51
+        },
+        {
+          "text": "do",
+          "start": 27.51,
+          "end": 27.71
+        },
+        {
+          "text": "with",
+          "start": 27.71,
+          "end": 27.93
+        },
+        {
+          "text": "their",
+          "start": 27.93,
+          "end": 28.13
+        },
+        {
+          "text": "alternation;",
+          "start": 28.13,
+          "end": 28.91
+        },
+        {
+          "text": "the",
+          "start": 29.45,
+          "end": 29.67
+        },
+        {
+          "text": "ebb",
+          "start": 29.67,
+          "end": 30.07
+        },
+        {
+          "text": "and",
+          "start": 30.07,
+          "end": 30.25
+        },
+        {
+          "text": "flow",
+          "start": 30.25,
+          "end": 30.57
+        },
+        {
+          "text": "depended",
+          "start": 30.57,
+          "end": 30.99
+        },
+        {
+          "text": "on",
+          "start": 30.99,
+          "end": 31.31
+        },
+        {
+          "text": "causes",
+          "start": 31.31,
+          "end": 31.77
+        },
+        {
+          "text": "quite",
+          "start": 31.77,
+          "end": 32.17
+        },
+        {
+          "text": "disconnected",
+          "start": 32.17,
+          "end": 32.75
+        },
+        {
+          "text": "with",
+          "start": 32.75,
+          "end": 33.05
+        },
+        {
+          "text": "me.",
+          "start": 33.05,
+          "end": 33.29
+        }
+      ],
+      "stats": {
+        "expected_words": 94,
+        "heard_words": 94,
+        "matched_words": 93
+      },
+      "match_ratio": 0.9893617021276596,
+      "rejection_reasons": [],
+      "seconds": 0.8756372109055519
+    },
+    {
+      "asr_seconds": 0.8876755968667567,
+      "alignment_seconds": 0.0029613678343594074,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " During this interval, even Adele was seldom sent for to his presence, and all my acquaintance",
+          "start": 0.05,
+          "end": 5.47,
+          "words": [
+            {
+              "text": " During",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.3583984375
+            },
+            {
+              "text": " this",
+              "start": 0.59,
+              "end": 0.83,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " interval,",
+              "start": 0.83,
+              "end": 1.25,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " even",
+              "start": 1.67,
+              "end": 1.85,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Adele",
+              "start": 1.85,
+              "end": 2.19,
+              "probability": 0.7166748046875
+            },
+            {
+              "text": " was",
+              "start": 2.19,
+              "end": 2.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seldom",
+              "start": 2.43,
+              "end": 2.83,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sent",
+              "start": 2.83,
+              "end": 3.17,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 3.17,
+              "end": 3.41,
+              "probability": 0.921875
+            },
+            {
+              "text": " to",
+              "start": 3.41,
+              "end": 3.57,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " his",
+              "start": 3.57,
+              "end": 3.71,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " presence,",
+              "start": 3.71,
+              "end": 4.09,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 4.33,
+              "end": 4.71,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " all",
+              "start": 4.71,
+              "end": 4.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 4.91,
+              "end": 5.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " acquaintance",
+              "start": 5.07,
+              "end": 5.47,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " with him was confined to an occasional renconter in the hall, on the stairs, or in the gallery,",
+          "start": 5.47,
+          "end": 11.17,
+          "words": [
+            {
+              "text": " with",
+              "start": 5.47,
+              "end": 5.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 5.73,
+              "end": 5.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 5.91,
+              "end": 6.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " confined",
+              "start": 6.09,
+              "end": 6.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 6.53,
+              "end": 6.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " an",
+              "start": 6.83,
+              "end": 6.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " occasional",
+              "start": 6.93,
+              "end": 7.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " renconter",
+              "start": 7.43,
+              "end": 8.13,
+              "probability": 0.697509765625
+            },
+            {
+              "text": " in",
+              "start": 8.13,
+              "end": 8.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 8.29,
+              "end": 8.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hall,",
+              "start": 8.39,
+              "end": 8.61,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " on",
+              "start": 9.13,
+              "end": 9.31,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 9.31,
+              "end": 9.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " stairs,",
+              "start": 9.43,
+              "end": 9.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " or",
+              "start": 10.29,
+              "end": 10.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 10.55,
+              "end": 10.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 10.71,
+              "end": 10.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gallery,",
+              "start": 10.81,
+              "end": 11.17,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " when he would sometimes pass me haughtily and coldly, just acknowledging my presence",
+          "start": 11.65,
+          "end": 16.03,
+          "words": [
+            {
+              "text": " when",
+              "start": 11.65,
+              "end": 11.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 11.85,
+              "end": 11.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " would",
+              "start": 11.93,
+              "end": 12.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sometimes",
+              "start": 12.03,
+              "end": 12.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " pass",
+              "start": 12.47,
+              "end": 12.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 12.85,
+              "end": 13.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " haughtily",
+              "start": 13.15,
+              "end": 13.51,
+              "probability": 0.9222005208333334
+            },
+            {
+              "text": " and",
+              "start": 13.51,
+              "end": 13.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " coldly,",
+              "start": 13.75,
+              "end": 14.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " just",
+              "start": 14.79,
+              "end": 14.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " acknowledging",
+              "start": 14.97,
+              "end": 15.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " my",
+              "start": 15.41,
+              "end": 15.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " presence",
+              "start": 15.69,
+              "end": 16.03,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " by a distant nod or a cool glance, and sometimes bow and smile with gentlemanlike affability.",
+          "start": 16.03,
+          "end": 22.09,
+          "words": [
+            {
+              "text": " by",
+              "start": 16.03,
+              "end": 16.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 16.33,
+              "end": 16.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " distant",
+              "start": 16.51,
+              "end": 16.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " nod",
+              "start": 16.83,
+              "end": 17.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " or",
+              "start": 17.17,
+              "end": 17.45,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 17.45,
+              "end": 17.63,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " cool",
+              "start": 17.63,
+              "end": 17.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " glance,",
+              "start": 17.83,
+              "end": 18.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 18.77,
+              "end": 18.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sometimes",
+              "start": 18.93,
+              "end": 19.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " bow",
+              "start": 19.49,
+              "end": 19.77,
+              "probability": 0.970703125
+            },
+            {
+              "text": " and",
+              "start": 19.77,
+              "end": 20.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " smile",
+              "start": 20.11,
+              "end": 20.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 20.49,
+              "end": 20.79,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " gentlemanlike",
+              "start": 20.79,
+              "end": 21.53,
+              "probability": 0.63623046875
+            },
+            {
+              "text": " affability.",
+              "start": 21.53,
+              "end": 22.09,
+              "probability": 0.95361328125
+            }
+          ]
+        },
+        {
+          "text": " His changes of mood did not offend me, because I saw that I had nothing to do with their",
+          "start": 23.19,
+          "end": 28.13,
+          "words": [
+            {
+              "text": " His",
+              "start": 23.19,
+              "end": 23.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " changes",
+              "start": 23.41,
+              "end": 23.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 23.77,
+              "end": 24.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " mood",
+              "start": 24.03,
+              "end": 24.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " did",
+              "start": 24.31,
+              "end": 24.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 24.63,
+              "end": 24.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " offend",
+              "start": 24.85,
+              "end": 25.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me,",
+              "start": 25.15,
+              "end": 25.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " because",
+              "start": 25.79,
+              "end": 26.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 26.13,
+              "end": 26.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " saw",
+              "start": 26.31,
+              "end": 26.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 26.53,
+              "end": 26.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 26.65,
+              "end": 26.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " had",
+              "start": 26.79,
+              "end": 26.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nothing",
+              "start": 26.97,
+              "end": 27.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 27.25,
+              "end": 27.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " do",
+              "start": 27.51,
+              "end": 27.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 27.71,
+              "end": 27.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 27.93,
+              "end": 28.13,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " alternation. The ebb and flow depended on causes quite disconnected with me.",
+          "start": 28.13,
+          "end": 33.29,
+          "words": [
+            {
+              "text": " alternation.",
+              "start": 28.13,
+              "end": 28.91,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " The",
+              "start": 29.45,
+              "end": 29.67,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " ebb",
+              "start": 29.67,
+              "end": 30.07,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " and",
+              "start": 30.07,
+              "end": 30.25,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " flow",
+              "start": 30.25,
+              "end": 30.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " depended",
+              "start": 30.57,
+              "end": 30.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " on",
+              "start": 30.99,
+              "end": 31.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " causes",
+              "start": 31.31,
+              "end": 31.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " quite",
+              "start": 31.77,
+              "end": 32.17,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " disconnected",
+              "start": 32.17,
+              "end": 32.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 32.75,
+              "end": 33.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me.",
+              "start": 33.05,
+              "end": 33.29,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "During",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "this",
+          "start": 0.59,
+          "end": 0.83
+        },
+        {
+          "raw": "interval,",
+          "start": 0.83,
+          "end": 1.25
+        },
+        {
+          "raw": "even",
+          "start": 1.67,
+          "end": 1.85
+        },
+        {
+          "raw": "Adele",
+          "start": 1.85,
+          "end": 2.19
+        },
+        {
+          "raw": "was",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "raw": "seldom",
+          "start": 2.43,
+          "end": 2.83
+        },
+        {
+          "raw": "sent",
+          "start": 2.83,
+          "end": 3.17
+        },
+        {
+          "raw": "for",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "raw": "to",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "raw": "his",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "raw": "presence,",
+          "start": 3.71,
+          "end": 4.09
+        },
+        {
+          "raw": "and",
+          "start": 4.33,
+          "end": 4.71
+        },
+        {
+          "raw": "all",
+          "start": 4.71,
+          "end": 4.91
+        },
+        {
+          "raw": "my",
+          "start": 4.91,
+          "end": 5.07
+        },
+        {
+          "raw": "acquaintance",
+          "start": 5.07,
+          "end": 5.47
+        },
+        {
+          "raw": "with",
+          "start": 5.47,
+          "end": 5.73
+        },
+        {
+          "raw": "him",
+          "start": 5.73,
+          "end": 5.91
+        },
+        {
+          "raw": "was",
+          "start": 5.91,
+          "end": 6.09
+        },
+        {
+          "raw": "confined",
+          "start": 6.09,
+          "end": 6.53
+        },
+        {
+          "raw": "to",
+          "start": 6.53,
+          "end": 6.83
+        },
+        {
+          "raw": "an",
+          "start": 6.83,
+          "end": 6.93
+        },
+        {
+          "raw": "occasional",
+          "start": 6.93,
+          "end": 7.43
+        },
+        {
+          "raw": "renconter",
+          "start": 7.43,
+          "end": 8.13
+        },
+        {
+          "raw": "in",
+          "start": 8.13,
+          "end": 8.29
+        },
+        {
+          "raw": "the",
+          "start": 8.29,
+          "end": 8.39
+        },
+        {
+          "raw": "hall,",
+          "start": 8.39,
+          "end": 8.61
+        },
+        {
+          "raw": "on",
+          "start": 9.13,
+          "end": 9.31
+        },
+        {
+          "raw": "the",
+          "start": 9.31,
+          "end": 9.43
+        },
+        {
+          "raw": "stairs,",
+          "start": 9.43,
+          "end": 9.77
+        },
+        {
+          "raw": "or",
+          "start": 10.29,
+          "end": 10.55
+        },
+        {
+          "raw": "in",
+          "start": 10.55,
+          "end": 10.71
+        },
+        {
+          "raw": "the",
+          "start": 10.71,
+          "end": 10.81
+        },
+        {
+          "raw": "gallery,",
+          "start": 10.81,
+          "end": 11.17
+        },
+        {
+          "raw": "when",
+          "start": 11.65,
+          "end": 11.85
+        },
+        {
+          "raw": "he",
+          "start": 11.85,
+          "end": 11.93
+        },
+        {
+          "raw": "would",
+          "start": 11.93,
+          "end": 12.03
+        },
+        {
+          "raw": "sometimes",
+          "start": 12.03,
+          "end": 12.47
+        },
+        {
+          "raw": "pass",
+          "start": 12.47,
+          "end": 12.85
+        },
+        {
+          "raw": "me",
+          "start": 12.85,
+          "end": 13.15
+        },
+        {
+          "raw": "haughtily",
+          "start": 13.15,
+          "end": 13.51
+        },
+        {
+          "raw": "and",
+          "start": 13.51,
+          "end": 13.75
+        },
+        {
+          "raw": "coldly,",
+          "start": 13.75,
+          "end": 14.33
+        },
+        {
+          "raw": "just",
+          "start": 14.79,
+          "end": 14.97
+        },
+        {
+          "raw": "acknowledging",
+          "start": 14.97,
+          "end": 15.41
+        },
+        {
+          "raw": "my",
+          "start": 15.41,
+          "end": 15.69
+        },
+        {
+          "raw": "presence",
+          "start": 15.69,
+          "end": 16.03
+        },
+        {
+          "raw": "by",
+          "start": 16.03,
+          "end": 16.33
+        },
+        {
+          "raw": "a",
+          "start": 16.33,
+          "end": 16.51
+        },
+        {
+          "raw": "distant",
+          "start": 16.51,
+          "end": 16.83
+        },
+        {
+          "raw": "nod",
+          "start": 16.83,
+          "end": 17.17
+        },
+        {
+          "raw": "or",
+          "start": 17.17,
+          "end": 17.45
+        },
+        {
+          "raw": "a",
+          "start": 17.45,
+          "end": 17.63
+        },
+        {
+          "raw": "cool",
+          "start": 17.63,
+          "end": 17.83
+        },
+        {
+          "raw": "glance,",
+          "start": 17.83,
+          "end": 18.29
+        },
+        {
+          "raw": "and",
+          "start": 18.77,
+          "end": 18.93
+        },
+        {
+          "raw": "sometimes",
+          "start": 18.93,
+          "end": 19.49
+        },
+        {
+          "raw": "bow",
+          "start": 19.49,
+          "end": 19.77
+        },
+        {
+          "raw": "and",
+          "start": 19.77,
+          "end": 20.11
+        },
+        {
+          "raw": "smile",
+          "start": 20.11,
+          "end": 20.49
+        },
+        {
+          "raw": "with",
+          "start": 20.49,
+          "end": 20.79
+        },
+        {
+          "raw": "gentlemanlike",
+          "start": 20.79,
+          "end": 21.53
+        },
+        {
+          "raw": "affability.",
+          "start": 21.53,
+          "end": 22.09
+        },
+        {
+          "raw": "His",
+          "start": 23.19,
+          "end": 23.41
+        },
+        {
+          "raw": "changes",
+          "start": 23.41,
+          "end": 23.77
+        },
+        {
+          "raw": "of",
+          "start": 23.77,
+          "end": 24.03
+        },
+        {
+          "raw": "mood",
+          "start": 24.03,
+          "end": 24.31
+        },
+        {
+          "raw": "did",
+          "start": 24.31,
+          "end": 24.63
+        },
+        {
+          "raw": "not",
+          "start": 24.63,
+          "end": 24.85
+        },
+        {
+          "raw": "offend",
+          "start": 24.85,
+          "end": 25.15
+        },
+        {
+          "raw": "me,",
+          "start": 25.15,
+          "end": 25.55
+        },
+        {
+          "raw": "because",
+          "start": 25.79,
+          "end": 26.13
+        },
+        {
+          "raw": "I",
+          "start": 26.13,
+          "end": 26.31
+        },
+        {
+          "raw": "saw",
+          "start": 26.31,
+          "end": 26.53
+        },
+        {
+          "raw": "that",
+          "start": 26.53,
+          "end": 26.65
+        },
+        {
+          "raw": "I",
+          "start": 26.65,
+          "end": 26.79
+        },
+        {
+          "raw": "had",
+          "start": 26.79,
+          "end": 26.97
+        },
+        {
+          "raw": "nothing",
+          "start": 26.97,
+          "end": 27.25
+        },
+        {
+          "raw": "to",
+          "start": 27.25,
+          "end": 27.51
+        },
+        {
+          "raw": "do",
+          "start": 27.51,
+          "end": 27.71
+        },
+        {
+          "raw": "with",
+          "start": 27.71,
+          "end": 27.93
+        },
+        {
+          "raw": "their",
+          "start": 27.93,
+          "end": 28.13
+        },
+        {
+          "raw": "alternation.",
+          "start": 28.13,
+          "end": 28.91
+        },
+        {
+          "raw": "The",
+          "start": 29.45,
+          "end": 29.67
+        },
+        {
+          "raw": "ebb",
+          "start": 29.67,
+          "end": 30.07
+        },
+        {
+          "raw": "and",
+          "start": 30.07,
+          "end": 30.25
+        },
+        {
+          "raw": "flow",
+          "start": 30.25,
+          "end": 30.57
+        },
+        {
+          "raw": "depended",
+          "start": 30.57,
+          "end": 30.99
+        },
+        {
+          "raw": "on",
+          "start": 30.99,
+          "end": 31.31
+        },
+        {
+          "raw": "causes",
+          "start": 31.31,
+          "end": 31.77
+        },
+        {
+          "raw": "quite",
+          "start": 31.77,
+          "end": 32.17
+        },
+        {
+          "raw": "disconnected",
+          "start": 32.17,
+          "end": 32.75
+        },
+        {
+          "raw": "with",
+          "start": 32.75,
+          "end": 33.05
+        },
+        {
+          "raw": "me.",
+          "start": 33.05,
+          "end": 33.29
+        }
+      ],
+      "expected_tokens": [
+        "During",
+        "this",
+        "interval,",
+        "even",
+        "Adèle",
+        "was",
+        "seldom",
+        "sent",
+        "for",
+        "to",
+        "his",
+        "presence,",
+        "and",
+        "all",
+        "my",
+        "acquaintance",
+        "with",
+        "him",
+        "was",
+        "confined",
+        "to",
+        "an",
+        "occasional",
+        "rencontre",
+        "in",
+        "the",
+        "hall,",
+        "on",
+        "the",
+        "stairs,",
+        "or",
+        "in",
+        "the",
+        "gallery,",
+        "when",
+        "he",
+        "would",
+        "sometimes",
+        "pass",
+        "me",
+        "haughtily",
+        "and",
+        "coldly,",
+        "just",
+        "acknowledging",
+        "my",
+        "presence",
+        "by",
+        "a",
+        "distant",
+        "nod",
+        "or",
+        "a",
+        "cool",
+        "glance,",
+        "and",
+        "sometimes",
+        "bow",
+        "and",
+        "smile",
+        "with",
+        "gentlemanlike",
+        "affability.",
+        "His",
+        "changes",
+        "of",
+        "mood",
+        "did",
+        "not",
+        "offend",
+        "me,",
+        "because",
+        "I",
+        "saw",
+        "that",
+        "I",
+        "had",
+        "nothing",
+        "to",
+        "do",
+        "with",
+        "their",
+        "alternation;",
+        "the",
+        "ebb",
+        "and",
+        "flow",
+        "depended",
+        "on",
+        "causes",
+        "quite",
+        "disconnected",
+        "with",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          23,
+          5,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ],
+        [
+          "equal",
+          24,
+          94,
+          24,
+          94
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "During",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "during",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.59,
+          "end": 0.83,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "interval,",
+          "start": 0.83,
+          "end": 1.25,
+          "key": "interval",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 1.67,
+          "end": 1.85,
+          "key": "even",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Adele",
+          "start": 1.85,
+          "end": 2.19,
+          "key": "adele",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.19,
+          "end": 2.43,
+          "key": "was",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "seldom",
+          "start": 2.43,
+          "end": 2.83,
+          "key": "seldom",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 2.83,
+          "end": 3.17,
+          "key": "sent",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.17,
+          "end": 3.41,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.41,
+          "end": 3.57,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.57,
+          "end": 3.71,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "presence,",
+          "start": 3.71,
+          "end": 4.09,
+          "key": "presence",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.33,
+          "end": 4.71,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 4.71,
+          "end": 4.91,
+          "key": "all",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.91,
+          "end": 5.07,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "acquaintance",
+          "start": 5.07,
+          "end": 5.47,
+          "key": "acquaintance",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.47,
+          "end": 5.73,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.73,
+          "end": 5.91,
+          "key": "him",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.91,
+          "end": 6.09,
+          "key": "was",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "confined",
+          "start": 6.09,
+          "end": 6.53,
+          "key": "confined",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.53,
+          "end": 6.83,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 6.83,
+          "end": 6.93,
+          "key": "an",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "occasional",
+          "start": 6.93,
+          "end": 7.43,
+          "key": "occasional",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "renconter",
+          "start": 7.43,
+          "end": 8.13,
+          "key": "renconter",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.13,
+          "end": 8.29,
+          "key": "in",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.29,
+          "end": 8.39,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "hall,",
+          "start": 8.39,
+          "end": 8.61,
+          "key": "hall",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 9.13,
+          "end": 9.31,
+          "key": "on",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.31,
+          "end": 9.43,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "stairs,",
+          "start": 9.43,
+          "end": 9.77,
+          "key": "stairs",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 10.29,
+          "end": 10.55,
+          "key": "or",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.55,
+          "end": 10.71,
+          "key": "in",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.71,
+          "end": 10.81,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "gallery,",
+          "start": 10.81,
+          "end": 11.17,
+          "key": "gallery",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 11.65,
+          "end": 11.85,
+          "key": "when",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 11.85,
+          "end": 11.93,
+          "key": "he",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 11.93,
+          "end": 12.03,
+          "key": "would",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "sometimes",
+          "start": 12.03,
+          "end": 12.47,
+          "key": "sometimes",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "pass",
+          "start": 12.47,
+          "end": 12.85,
+          "key": "pass",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 12.85,
+          "end": 13.15,
+          "key": "me",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "haughtily",
+          "start": 13.15,
+          "end": 13.51,
+          "key": "haughtily",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.51,
+          "end": 13.75,
+          "key": "and",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "coldly,",
+          "start": 13.75,
+          "end": 14.33,
+          "key": "coldly",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 14.79,
+          "end": 14.97,
+          "key": "just",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "acknowledging",
+          "start": 14.97,
+          "end": 15.41,
+          "key": "acknowledging",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 15.41,
+          "end": 15.69,
+          "key": "my",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "presence",
+          "start": 15.69,
+          "end": 16.03,
+          "key": "presence",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 16.03,
+          "end": 16.33,
+          "key": "by",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.33,
+          "end": 16.51,
+          "key": "a",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "distant",
+          "start": 16.51,
+          "end": 16.83,
+          "key": "distant",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "nod",
+          "start": 16.83,
+          "end": 17.17,
+          "key": "nod",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 17.17,
+          "end": 17.45,
+          "key": "or",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 17.45,
+          "end": 17.63,
+          "key": "a",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "cool",
+          "start": 17.63,
+          "end": 17.83,
+          "key": "cool",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "glance,",
+          "start": 17.83,
+          "end": 18.29,
+          "key": "glance",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.77,
+          "end": 18.93,
+          "key": "and",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "sometimes",
+          "start": 18.93,
+          "end": 19.49,
+          "key": "sometimes",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "bow",
+          "start": 19.49,
+          "end": 19.77,
+          "key": "bow",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.77,
+          "end": 20.11,
+          "key": "and",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "smile",
+          "start": 20.11,
+          "end": 20.49,
+          "key": "smile",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 20.49,
+          "end": 20.79,
+          "key": "with",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "gentlemanlike",
+          "start": 20.79,
+          "end": 21.53,
+          "key": "gentlemanlike",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "affability.",
+          "start": 21.53,
+          "end": 22.09,
+          "key": "affability",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 23.19,
+          "end": 23.41,
+          "key": "his",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "changes",
+          "start": 23.41,
+          "end": 23.77,
+          "key": "changes",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 23.77,
+          "end": 24.03,
+          "key": "of",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "mood",
+          "start": 24.03,
+          "end": 24.31,
+          "key": "mood",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 24.31,
+          "end": 24.63,
+          "key": "did",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 24.63,
+          "end": 24.85,
+          "key": "not",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "offend",
+          "start": 24.85,
+          "end": 25.15,
+          "key": "offend",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 25.15,
+          "end": 25.55,
+          "key": "me",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 25.79,
+          "end": 26.13,
+          "key": "because",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 26.13,
+          "end": 26.31,
+          "key": "i",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 26.31,
+          "end": 26.53,
+          "key": "saw",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 26.53,
+          "end": 26.65,
+          "key": "that",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 26.65,
+          "end": 26.79,
+          "key": "i",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 26.79,
+          "end": 26.97,
+          "key": "had",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 26.97,
+          "end": 27.25,
+          "key": "nothing",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 27.25,
+          "end": 27.51,
+          "key": "to",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 27.51,
+          "end": 27.71,
+          "key": "do",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 27.71,
+          "end": 27.93,
+          "key": "with",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 27.93,
+          "end": 28.13,
+          "key": "their",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "alternation.",
+          "start": 28.13,
+          "end": 28.91,
+          "key": "alternation",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 29.45,
+          "end": 29.67,
+          "key": "the",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "ebb",
+          "start": 29.67,
+          "end": 30.07,
+          "key": "ebb",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 30.07,
+          "end": 30.25,
+          "key": "and",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "flow",
+          "start": 30.25,
+          "end": 30.57,
+          "key": "flow",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "depended",
+          "start": 30.57,
+          "end": 30.99,
+          "key": "depended",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 30.99,
+          "end": 31.31,
+          "key": "on",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "causes",
+          "start": 31.31,
+          "end": 31.77,
+          "key": "causes",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 31.77,
+          "end": 32.17,
+          "key": "quite",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "disconnected",
+          "start": 32.17,
+          "end": 32.75,
+          "key": "disconnected",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 32.75,
+          "end": 33.05,
+          "key": "with",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 33.05,
+          "end": 33.29,
+          "key": "me",
+          "pieces": [
+            93
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "During",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "this",
+          "start": 0.59,
+          "end": 0.83
+        },
+        {
+          "text": "interval,",
+          "start": 0.83,
+          "end": 1.25
+        },
+        {
+          "text": "even",
+          "start": 1.67,
+          "end": 1.85
+        },
+        {
+          "text": "Adèle",
+          "start": 1.85,
+          "end": 2.02
+        },
+        {
+          "text": "was",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "text": "seldom",
+          "start": 2.43,
+          "end": 2.83
+        },
+        {
+          "text": "sent",
+          "start": 2.83,
+          "end": 3.17
+        },
+        {
+          "text": "for",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "text": "to",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "text": "his",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "text": "presence,",
+          "start": 3.71,
+          "end": 4.09
+        },
+        {
+          "text": "and",
+          "start": 4.33,
+          "end": 4.71
+        },
+        {
+          "text": "all",
+          "start": 4.71,
+          "end": 4.91
+        },
+        {
+          "text": "my",
+          "start": 4.91,
+          "end": 5.07
+        },
+        {
+          "text": "acquaintance",
+          "start": 5.07,
+          "end": 5.47
+        },
+        {
+          "text": "with",
+          "start": 5.47,
+          "end": 5.73
+        },
+        {
+          "text": "him",
+          "start": 5.73,
+          "end": 5.91
+        },
+        {
+          "text": "was",
+          "start": 5.91,
+          "end": 6.09
+        },
+        {
+          "text": "confined",
+          "start": 6.09,
+          "end": 6.53
+        },
+        {
+          "text": "to",
+          "start": 6.53,
+          "end": 6.83
+        },
+        {
+          "text": "an",
+          "start": 6.83,
+          "end": 6.93
+        },
+        {
+          "text": "occasional",
+          "start": 6.93,
+          "end": 7.43
+        },
+        {
+          "text": "rencontre",
+          "start": 7.43,
+          "end": 7.78
+        },
+        {
+          "text": "in",
+          "start": 8.13,
+          "end": 8.29
+        },
+        {
+          "text": "the",
+          "start": 8.29,
+          "end": 8.39
+        },
+        {
+          "text": "hall,",
+          "start": 8.39,
+          "end": 8.61
+        },
+        {
+          "text": "on",
+          "start": 9.13,
+          "end": 9.31
+        },
+        {
+          "text": "the",
+          "start": 9.31,
+          "end": 9.43
+        },
+        {
+          "text": "stairs,",
+          "start": 9.43,
+          "end": 9.77
+        },
+        {
+          "text": "or",
+          "start": 10.29,
+          "end": 10.55
+        },
+        {
+          "text": "in",
+          "start": 10.55,
+          "end": 10.71
+        },
+        {
+          "text": "the",
+          "start": 10.71,
+          "end": 10.81
+        },
+        {
+          "text": "gallery,",
+          "start": 10.81,
+          "end": 11.17
+        },
+        {
+          "text": "when",
+          "start": 11.65,
+          "end": 11.85
+        },
+        {
+          "text": "he",
+          "start": 11.85,
+          "end": 11.93
+        },
+        {
+          "text": "would",
+          "start": 11.93,
+          "end": 12.03
+        },
+        {
+          "text": "sometimes",
+          "start": 12.03,
+          "end": 12.47
+        },
+        {
+          "text": "pass",
+          "start": 12.47,
+          "end": 12.85
+        },
+        {
+          "text": "me",
+          "start": 12.85,
+          "end": 13.15
+        },
+        {
+          "text": "haughtily",
+          "start": 13.15,
+          "end": 13.51
+        },
+        {
+          "text": "and",
+          "start": 13.51,
+          "end": 13.75
+        },
+        {
+          "text": "coldly,",
+          "start": 13.75,
+          "end": 14.33
+        },
+        {
+          "text": "just",
+          "start": 14.79,
+          "end": 14.97
+        },
+        {
+          "text": "acknowledging",
+          "start": 14.97,
+          "end": 15.41
+        },
+        {
+          "text": "my",
+          "start": 15.41,
+          "end": 15.69
+        },
+        {
+          "text": "presence",
+          "start": 15.69,
+          "end": 16.03
+        },
+        {
+          "text": "by",
+          "start": 16.03,
+          "end": 16.33
+        },
+        {
+          "text": "a",
+          "start": 16.33,
+          "end": 16.51
+        },
+        {
+          "text": "distant",
+          "start": 16.51,
+          "end": 16.83
+        },
+        {
+          "text": "nod",
+          "start": 16.83,
+          "end": 17.17
+        },
+        {
+          "text": "or",
+          "start": 17.17,
+          "end": 17.45
+        },
+        {
+          "text": "a",
+          "start": 17.45,
+          "end": 17.63
+        },
+        {
+          "text": "cool",
+          "start": 17.63,
+          "end": 17.83
+        },
+        {
+          "text": "glance,",
+          "start": 17.83,
+          "end": 18.29
+        },
+        {
+          "text": "and",
+          "start": 18.77,
+          "end": 18.93
+        },
+        {
+          "text": "sometimes",
+          "start": 18.93,
+          "end": 19.49
+        },
+        {
+          "text": "bow",
+          "start": 19.49,
+          "end": 19.77
+        },
+        {
+          "text": "and",
+          "start": 19.77,
+          "end": 20.11
+        },
+        {
+          "text": "smile",
+          "start": 20.11,
+          "end": 20.49
+        },
+        {
+          "text": "with",
+          "start": 20.49,
+          "end": 20.79
+        },
+        {
+          "text": "gentlemanlike",
+          "start": 20.79,
+          "end": 21.53
+        },
+        {
+          "text": "affability.",
+          "start": 21.53,
+          "end": 22.09
+        },
+        {
+          "text": "His",
+          "start": 23.19,
+          "end": 23.41
+        },
+        {
+          "text": "changes",
+          "start": 23.41,
+          "end": 23.77
+        },
+        {
+          "text": "of",
+          "start": 23.77,
+          "end": 24.03
+        },
+        {
+          "text": "mood",
+          "start": 24.03,
+          "end": 24.31
+        },
+        {
+          "text": "did",
+          "start": 24.31,
+          "end": 24.63
+        },
+        {
+          "text": "not",
+          "start": 24.63,
+          "end": 24.85
+        },
+        {
+          "text": "offend",
+          "start": 24.85,
+          "end": 25.15
+        },
+        {
+          "text": "me,",
+          "start": 25.15,
+          "end": 25.55
+        },
+        {
+          "text": "because",
+          "start": 25.79,
+          "end": 26.13
+        },
+        {
+          "text": "I",
+          "start": 26.13,
+          "end": 26.31
+        },
+        {
+          "text": "saw",
+          "start": 26.31,
+          "end": 26.53
+        },
+        {
+          "text": "that",
+          "start": 26.53,
+          "end": 26.65
+        },
+        {
+          "text": "I",
+          "start": 26.65,
+          "end": 26.79
+        },
+        {
+          "text": "had",
+          "start": 26.79,
+          "end": 26.97
+        },
+        {
+          "text": "nothing",
+          "start": 26.97,
+          "end": 27.25
+        },
+        {
+          "text": "to",
+          "start": 27.25,
+          "end": 27.51
+        },
+        {
+          "text": "do",
+          "start": 27.51,
+          "end": 27.71
+        },
+        {
+          "text": "with",
+          "start": 27.71,
+          "end": 27.93
+        },
+        {
+          "text": "their",
+          "start": 27.93,
+          "end": 28.13
+        },
+        {
+          "text": "alternation;",
+          "start": 28.13,
+          "end": 28.91
+        },
+        {
+          "text": "the",
+          "start": 29.45,
+          "end": 29.67
+        },
+        {
+          "text": "ebb",
+          "start": 29.67,
+          "end": 30.07
+        },
+        {
+          "text": "and",
+          "start": 30.07,
+          "end": 30.25
+        },
+        {
+          "text": "flow",
+          "start": 30.25,
+          "end": 30.57
+        },
+        {
+          "text": "depended",
+          "start": 30.57,
+          "end": 30.99
+        },
+        {
+          "text": "on",
+          "start": 30.99,
+          "end": 31.31
+        },
+        {
+          "text": "causes",
+          "start": 31.31,
+          "end": 31.77
+        },
+        {
+          "text": "quite",
+          "start": 31.77,
+          "end": 32.17
+        },
+        {
+          "text": "disconnected",
+          "start": 32.17,
+          "end": 32.75
+        },
+        {
+          "text": "with",
+          "start": 32.75,
+          "end": 33.05
+        },
+        {
+          "text": "me.",
+          "start": 33.05,
+          "end": 33.29
+        }
+      ],
+      "stats": {
+        "expected_words": 94,
+        "heard_words": 94,
+        "matched_words": 92
+      },
+      "match_ratio": 0.9787234042553191,
+      "rejection_reasons": [],
+      "seconds": 0.8919646628201008
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "572b8893ff86d90dc7a59e7da6a581f6a4081295ada7800671f087f7ecc7a50b",
+  "selected_reasons": []
+}

@@ -1,0 +1,562 @@
+{
+  "complete": true,
+  "signature": "ce7c1885098093c4da7d223eee74367c9c9ff5679e4c026608d7bcc1f1fc7901",
+  "attempts": [
+    {
+      "asr_seconds": 0.329214321449399,
+      "alignment_seconds": 0.0006167162209749222,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hush, old man, you'll get well,\" Krasetkin cried suddenly in a voice that sounded angry.",
+          "start": 0.08,
+          "end": 5.78,
+          "words": [
+            {
+              "text": " Hush,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.519256591796875
+            },
+            {
+              "text": " old",
+              "start": 0.74,
+              "end": 0.98,
+              "probability": 0.953125
+            },
+            {
+              "text": " man,",
+              "start": 0.98,
+              "end": 1.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you'll",
+              "start": 1.46,
+              "end": 1.6,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " get",
+              "start": 1.6,
+              "end": 1.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " well,\"",
+              "start": 1.68,
+              "end": 2.7,
+              "probability": 0.75830078125
+            },
+            {
+              "text": " Krasetkin",
+              "start": 2.7,
+              "end": 3.04,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " cried",
+              "start": 3.04,
+              "end": 3.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " suddenly",
+              "start": 3.4,
+              "end": 3.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 3.9,
+              "end": 4.42,
+              "probability": 0.50537109375
+            },
+            {
+              "text": " a",
+              "start": 4.42,
+              "end": 4.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " voice",
+              "start": 4.52,
+              "end": 4.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 4.72,
+              "end": 4.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sounded",
+              "start": 4.94,
+              "end": 5.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " angry.",
+              "start": 5.3,
+              "end": 5.78,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hush,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "old",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "raw": "man,",
+          "start": 0.98,
+          "end": 1.32
+        },
+        {
+          "raw": "you'll",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "raw": "get",
+          "start": 1.6,
+          "end": 1.68
+        },
+        {
+          "raw": "well,\"",
+          "start": 1.68,
+          "end": 2.7
+        },
+        {
+          "raw": "Krasetkin",
+          "start": 2.7,
+          "end": 3.04
+        },
+        {
+          "raw": "cried",
+          "start": 3.04,
+          "end": 3.4
+        },
+        {
+          "raw": "suddenly",
+          "start": 3.4,
+          "end": 3.9
+        },
+        {
+          "raw": "in",
+          "start": 3.9,
+          "end": 4.42
+        },
+        {
+          "raw": "a",
+          "start": 4.42,
+          "end": 4.52
+        },
+        {
+          "raw": "voice",
+          "start": 4.52,
+          "end": 4.72
+        },
+        {
+          "raw": "that",
+          "start": 4.72,
+          "end": 4.94
+        },
+        {
+          "raw": "sounded",
+          "start": 4.94,
+          "end": 5.3
+        },
+        {
+          "raw": "angry.",
+          "start": 5.3,
+          "end": 5.78
+        }
+      ],
+      "expected_tokens": [
+        "\"Hush,",
+        "old",
+        "man,",
+        "you'll",
+        "get",
+        "well,\"",
+        "Krassotkin",
+        "cried",
+        "suddenly,",
+        "in",
+        "a",
+        "voice",
+        "that",
+        "sounded",
+        "angry."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          15,
+          7,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hush,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "hush",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 0.74,
+          "end": 0.98,
+          "key": "old",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 0.98,
+          "end": 1.32,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you'll",
+          "start": 1.46,
+          "end": 1.6,
+          "key": "youll",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 1.6,
+          "end": 1.68,
+          "key": "get",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "well,\"",
+          "start": 1.68,
+          "end": 2.7,
+          "key": "well",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Krasetkin",
+          "start": 2.7,
+          "end": 3.04,
+          "key": "krasetkin",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 3.04,
+          "end": 3.4,
+          "key": "cried",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 3.4,
+          "end": 3.9,
+          "key": "suddenly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.9,
+          "end": 4.42,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.42,
+          "end": 4.52,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 4.52,
+          "end": 4.72,
+          "key": "voice",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.72,
+          "end": 4.94,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sounded",
+          "start": 4.94,
+          "end": 5.3,
+          "key": "sounded",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "angry.",
+          "start": 5.3,
+          "end": 5.78,
+          "key": "angry",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Hush,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "old",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "text": "man,",
+          "start": 0.98,
+          "end": 1.32
+        },
+        {
+          "text": "you'll",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "text": "get",
+          "start": 1.6,
+          "end": 1.68
+        },
+        {
+          "text": "well,\"",
+          "start": 1.68,
+          "end": 2.7
+        },
+        {
+          "text": "Krassotkin",
+          "start": 2.7,
+          "end": 2.87
+        },
+        {
+          "text": "cried",
+          "start": 3.04,
+          "end": 3.4
+        },
+        {
+          "text": "suddenly,",
+          "start": 3.4,
+          "end": 3.9
+        },
+        {
+          "text": "in",
+          "start": 3.9,
+          "end": 4.42
+        },
+        {
+          "text": "a",
+          "start": 4.42,
+          "end": 4.52
+        },
+        {
+          "text": "voice",
+          "start": 4.52,
+          "end": 4.72
+        },
+        {
+          "text": "that",
+          "start": 4.72,
+          "end": 4.94
+        },
+        {
+          "text": "sounded",
+          "start": 4.94,
+          "end": 5.3
+        },
+        {
+          "text": "angry.",
+          "start": 5.3,
+          "end": 5.78
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.3300877921283245
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "daed0c8a40a32585cc7eb08d0d3291a07817761e8017f02ebee3ba2b8574a14a",
+  "selected_reasons": []
+}

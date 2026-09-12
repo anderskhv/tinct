@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "28bb56bcd4d1c77c6c57097f83a54d31ab3120228413b65692eac83aebb57f13",
+  "attempts": [
+    {
+      "asr_seconds": 0.19743206538259983,
+      "alignment_seconds": 0.0003340579569339752,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Where have you been?\" I asked him.",
+        "hotwords": "Where, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Where have you been? I asked him.",
+          "start": 0.02,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " Where",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.382080078125
+            },
+            {
+              "text": " have",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " been?",
+              "start": 0.78,
+              "end": 1.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 1.28,
+              "end": 1.5,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " asked",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.",
+              "start": 1.74,
+              "end": 1.96,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "have",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "you",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "been?",
+          "start": 0.78,
+          "end": 1.04
+        },
+        {
+          "raw": "I",
+          "start": 1.28,
+          "end": 1.5
+        },
+        {
+          "raw": "asked",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "raw": "him.",
+          "start": 1.74,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "\"Where",
+        "have",
+        "you",
+        "been?\"",
+        "I",
+        "asked",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "where",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.66,
+          "end": 0.78,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "been?",
+          "start": 0.78,
+          "end": 1.04,
+          "key": "been",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.28,
+          "end": 1.5,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.5,
+          "end": 1.74,
+          "key": "asked",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.74,
+          "end": 1.96,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Where",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "have",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "you",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "been?\"",
+          "start": 0.78,
+          "end": 1.04
+        },
+        {
+          "text": "I",
+          "start": 1.28,
+          "end": 1.5
+        },
+        {
+          "text": "asked",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "text": "him.",
+          "start": 1.74,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19789714273065329
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e81f0103ebb07a3ce00d61d36016fc1faf53ea9cb2a3c7d3ba9f68b38795717f",
+  "selected_reasons": []
+}

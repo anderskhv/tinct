@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "c19cf6d2c6c023512fd9a4f47c53157a4d10d10ddd83fca8d9ba22efa3deff5c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11651318892836571,
+      "alignment_seconds": 0.00017233192920684814,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cornwall. Peace, sirrah! You beastly knave, know you no reverence?",
+        "hotwords": "Cornwall, Peace"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cornwall, Peace, sirrah! You beastly knave, know you no reverence?",
+          "start": 0.05,
+          "end": 3.71,
+          "words": [
+            {
+              "text": " Cornwall,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.9296875
+            },
+            {
+              "text": " Peace,",
+              "start": 1.17,
+              "end": 1.29,
+              "probability": 0.16357421875
+            },
+            {
+              "text": " sirrah!",
+              "start": 1.53,
+              "end": 1.85,
+              "probability": 0.40502357482910156
+            },
+            {
+              "text": " You",
+              "start": 2.11,
+              "end": 2.19,
+              "probability": 0.865234375
+            },
+            {
+              "text": " beastly",
+              "start": 2.19,
+              "end": 2.59,
+              "probability": 0.965087890625
+            },
+            {
+              "text": " knave,",
+              "start": 2.59,
+              "end": 2.95,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " know",
+              "start": 3.03,
+              "end": 3.11,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " you",
+              "start": 3.11,
+              "end": 3.25,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " no",
+              "start": 3.25,
+              "end": 3.41,
+              "probability": 0.1265869140625
+            },
+            {
+              "text": " reverence?",
+              "start": 3.41,
+              "end": 3.71,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Peace,",
+          "start": 1.17,
+          "end": 1.29
+        },
+        {
+          "raw": "sirrah!",
+          "start": 1.53,
+          "end": 1.85
+        },
+        {
+          "raw": "You",
+          "start": 2.11,
+          "end": 2.19
+        },
+        {
+          "raw": "beastly",
+          "start": 2.19,
+          "end": 2.59
+        },
+        {
+          "raw": "knave,",
+          "start": 2.59,
+          "end": 2.95
+        },
+        {
+          "raw": "know",
+          "start": 3.03,
+          "end": 3.11
+        },
+        {
+          "raw": "you",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "raw": "no",
+          "start": 3.25,
+          "end": 3.41
+        },
+        {
+          "raw": "reverence?",
+          "start": 3.41,
+          "end": 3.71
+        }
+      ],
+      "expected_tokens": [
+        "Cornwall.",
+        "Peace,",
+        "sirrah!",
+        "You",
+        "beastly",
+        "knave,",
+        "know",
+        "you",
+        "no",
+        "reverence?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "cornwall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Peace,",
+          "start": 1.17,
+          "end": 1.29,
+          "key": "peace",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sirrah!",
+          "start": 1.53,
+          "end": 1.85,
+          "key": "sirrah",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.11,
+          "end": 2.19,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "beastly",
+          "start": 2.19,
+          "end": 2.59,
+          "key": "beastly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "knave,",
+          "start": 2.59,
+          "end": 2.95,
+          "key": "knave",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 3.03,
+          "end": 3.11,
+          "key": "know",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.11,
+          "end": 3.25,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.25,
+          "end": 3.41,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "reverence?",
+          "start": 3.41,
+          "end": 3.71,
+          "key": "reverence",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cornwall.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Peace,",
+          "start": 1.17,
+          "end": 1.29
+        },
+        {
+          "text": "sirrah!",
+          "start": 1.53,
+          "end": 1.85
+        },
+        {
+          "text": "You",
+          "start": 2.11,
+          "end": 2.19
+        },
+        {
+          "text": "beastly",
+          "start": 2.19,
+          "end": 2.59
+        },
+        {
+          "text": "knave,",
+          "start": 2.59,
+          "end": 2.95
+        },
+        {
+          "text": "know",
+          "start": 3.03,
+          "end": 3.11
+        },
+        {
+          "text": "you",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "text": "no",
+          "start": 3.25,
+          "end": 3.41
+        },
+        {
+          "text": "reverence?",
+          "start": 3.41,
+          "end": 3.71
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11675311997532845
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dd27dd976db3a03186217a422c59e7d150a7124fdf5cc88653a164fea0467637",
+  "selected_reasons": []
+}

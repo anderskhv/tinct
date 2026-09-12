@@ -1,0 +1,376 @@
+{
+  "complete": true,
+  "signature": "a03e139751397f903c5e5f81c02c16d670ef2e9c22555c27c7c9214d8697e5f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.1907034097239375,
+      "alignment_seconds": 0.00038007181137800217,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Missala, myself have letters of the self same tenor.",
+          "start": 0.05,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Missala,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.374755859375
+            },
+            {
+              "text": " myself",
+              "start": 1.33,
+              "end": 1.67,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " have",
+              "start": 1.67,
+              "end": 2.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " letters",
+              "start": 2.05,
+              "end": 2.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 2.31,
+              "end": 2.51,
+              "probability": 0.984375
+            },
+            {
+              "text": " the",
+              "start": 2.51,
+              "end": 2.61,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " self",
+              "start": 2.61,
+              "end": 2.81,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " same",
+              "start": 2.81,
+              "end": 3.09,
+              "probability": 0.72314453125
+            },
+            {
+              "text": " tenor.",
+              "start": 3.09,
+              "end": 3.53,
+              "probability": 0.988037109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Missala,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "myself",
+          "start": 1.33,
+          "end": 1.67
+        },
+        {
+          "raw": "have",
+          "start": 1.67,
+          "end": 2.05
+        },
+        {
+          "raw": "letters",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "raw": "of",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "raw": "the",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "raw": "self",
+          "start": 2.61,
+          "end": 2.81
+        },
+        {
+          "raw": "same",
+          "start": 2.81,
+          "end": 3.09
+        },
+        {
+          "raw": "tenor.",
+          "start": 3.09,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "Messala.",
+        "Myself",
+        "have",
+        "letters",
+        "of",
+        "the",
+        "selfsame",
+        "tenor."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          8,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Missala,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "missala",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 1.33,
+          "end": 1.67,
+          "key": "myself",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.67,
+          "end": 2.05,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "letters",
+          "start": 2.05,
+          "end": 2.31,
+          "key": "letters",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.31,
+          "end": 2.51,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.51,
+          "end": 2.61,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "self",
+          "start": 2.61,
+          "end": 2.81,
+          "key": "self",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 2.81,
+          "end": 3.09,
+          "key": "same",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tenor.",
+          "start": 3.09,
+          "end": 3.53,
+          "key": "tenor",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messala.",
+          "start": 0.0,
+          "end": 0.665
+        },
+        {
+          "text": "Myself",
+          "start": 1.33,
+          "end": 1.67
+        },
+        {
+          "text": "have",
+          "start": 1.67,
+          "end": 2.05
+        },
+        {
+          "text": "letters",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "text": "of",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "text": "the",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "text": "selfsame",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "text": "tenor.",
+          "start": 3.09,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19120172690600157
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "81b5009f01ab82bc3f0f80d139a5b344120164c34bd2ac2732e6cbb15b7bfeb1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

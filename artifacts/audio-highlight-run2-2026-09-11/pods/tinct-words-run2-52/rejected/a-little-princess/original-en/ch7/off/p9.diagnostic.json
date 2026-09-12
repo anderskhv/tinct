@@ -1,0 +1,480 @@
+{
+  "complete": true,
+  "signature": "ccb6ba20c6cfdeb9f95a6b3e1ac5bf454fc4bcb1fa29e4830825f884e597a8f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.23933584615588188,
+      "alignment_seconds": 0.00041634589433670044,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " If you please mismention, said Sarah suddenly, may Aunt Becky stay.",
+          "start": 0.05,
+          "end": 4.21,
+          "words": [
+            {
+              "text": " If",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.10955810546875
+            },
+            {
+              "text": " you",
+              "start": 0.55,
+              "end": 0.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " please",
+              "start": 0.69,
+              "end": 0.99,
+              "probability": 0.9921875
+            },
+            {
+              "text": " mismention,",
+              "start": 0.99,
+              "end": 1.75,
+              "probability": 0.7698567708333334
+            },
+            {
+              "text": " said",
+              "start": 1.85,
+              "end": 2.11,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Sarah",
+              "start": 2.11,
+              "end": 2.45,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " suddenly,",
+              "start": 2.45,
+              "end": 2.93,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " may",
+              "start": 3.49,
+              "end": 3.53,
+              "probability": 0.814453125
+            },
+            {
+              "text": " Aunt",
+              "start": 3.53,
+              "end": 3.63,
+              "probability": 0.60693359375
+            },
+            {
+              "text": " Becky",
+              "start": 3.63,
+              "end": 3.87,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " stay.",
+              "start": 3.87,
+              "end": 4.21,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "If",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "you",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "raw": "please",
+          "start": 0.69,
+          "end": 0.99
+        },
+        {
+          "raw": "mismention,",
+          "start": 0.99,
+          "end": 1.75
+        },
+        {
+          "raw": "said",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "raw": "Sarah",
+          "start": 2.11,
+          "end": 2.45
+        },
+        {
+          "raw": "suddenly,",
+          "start": 2.45,
+          "end": 2.93
+        },
+        {
+          "raw": "may",
+          "start": 3.49,
+          "end": 3.53
+        },
+        {
+          "raw": "Aunt",
+          "start": 3.53,
+          "end": 3.63
+        },
+        {
+          "raw": "Becky",
+          "start": 3.63,
+          "end": 3.87
+        },
+        {
+          "raw": "stay.",
+          "start": 3.87,
+          "end": 4.21
+        }
+      ],
+      "expected_tokens": [
+        "\"If",
+        "you",
+        "please,",
+        "Miss",
+        "Minchin,\"",
+        "said",
+        "Sara,",
+        "suddenly,",
+        "\"mayn't",
+        "Becky",
+        "stay?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ],
+        [
+          "equal",
+          5,
+          6,
+          4,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          6
+        ],
+        [
+          "equal",
+          7,
+          8,
+          6,
+          7
+        ],
+        [
+          "replace",
+          8,
+          9,
+          7,
+          9
+        ],
+        [
+          "equal",
+          9,
+          11,
+          9,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          6
+        ],
+        [
+          "replace",
+          8,
+          9,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "If",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "if",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.55,
+          "end": 0.69,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 0.69,
+          "end": 0.99,
+          "key": "please",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mismention,",
+          "start": 0.99,
+          "end": 1.75,
+          "key": "mismention",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.85,
+          "end": 2.11,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Sarah",
+          "start": 2.11,
+          "end": 2.45,
+          "key": "sarah",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "suddenly,",
+          "start": 2.45,
+          "end": 2.93,
+          "key": "suddenly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 3.49,
+          "end": 3.53,
+          "key": "may",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Aunt",
+          "start": 3.53,
+          "end": 3.63,
+          "key": "aunt",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Becky",
+          "start": 3.63,
+          "end": 3.87,
+          "key": "becky",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "stay.",
+          "start": 3.87,
+          "end": 4.21,
+          "key": "stay",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"If",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "you",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "text": "please,",
+          "start": 0.69,
+          "end": 0.99
+        },
+        {
+          "text": "Miss",
+          "start": 0.99,
+          "end": 1.42
+        },
+        {
+          "text": "Minchin,\"",
+          "start": 1.42,
+          "end": 1.635
+        },
+        {
+          "text": "said",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "text": "Sara,",
+          "start": 2.11,
+          "end": 2.28
+        },
+        {
+          "text": "suddenly,",
+          "start": 2.45,
+          "end": 2.93
+        },
+        {
+          "text": "\"mayn't",
+          "start": 2.93,
+          "end": 3.28
+        },
+        {
+          "text": "Becky",
+          "start": 3.63,
+          "end": 3.87
+        },
+        {
+          "text": "stay?\"",
+          "start": 3.87,
+          "end": 4.21
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 7
+      },
+      "match_ratio": 0.6363636363636364,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23989545181393623
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "591031e9036cddbfa2df2a6f406dde02e78a455ff953ea0842546aa640a311ba",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "9226e0c28dbff518550c0ecaac70d5f1cd6063aac3fa72439612eb21e661ae05",
+  "attempts": [
+    {
+      "asr_seconds": 0.11386374849826097,
+      "alignment_seconds": 0.00023526977747678757,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Very well, sir.",
+          "start": 0.05,
+          "end": 1.13,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.859375
+            },
+            {
+              "text": " well,",
+              "start": 0.65,
+              "end": 0.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sir.",
+              "start": 1.09,
+              "end": 1.13,
+              "probability": 0.88037109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "well,",
+          "start": 0.65,
+          "end": 0.89
+        },
+        {
+          "raw": "sir.",
+          "start": 1.09,
+          "end": 1.13
+        }
+      ],
+      "expected_tokens": [
+        "\"Very",
+        "well,",
+        "sir.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Very",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "very",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 0.65,
+          "end": 0.89,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.09,
+          "end": 1.13,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Very",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "well,",
+          "start": 0.65,
+          "end": 0.89
+        },
+        {
+          "text": "sir.\"",
+          "start": 1.09,
+          "end": 1.13
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11420409753918648
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f4951ee5aed071da776dafca6a869a73980bb8045cbe09b999ddb8cbe12b3140",
+  "selected_reasons": []
+}

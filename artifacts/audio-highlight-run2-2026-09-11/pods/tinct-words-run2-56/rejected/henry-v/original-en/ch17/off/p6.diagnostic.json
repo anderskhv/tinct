@@ -1,0 +1,415 @@
+{
+  "complete": true,
+  "signature": "68e77ec0a24ec401dd210e5ac285b8005c1ae9c56968321bcaea5016585d3f7e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2560048047453165,
+      "alignment_seconds": 0.0005390169098973274,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " French soldier, au prenez monsieur record, ais pitier de moi.",
+          "start": 0.05,
+          "end": 4.27,
+          "words": [
+            {
+              "text": " French",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " soldier,",
+              "start": 0.63,
+              "end": 1.17,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " au",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.65234375
+            },
+            {
+              "text": " prenez",
+              "start": 1.75,
+              "end": 2.13,
+              "probability": 0.731689453125
+            },
+            {
+              "text": " monsieur",
+              "start": 2.13,
+              "end": 2.41,
+              "probability": 0.6405029296875
+            },
+            {
+              "text": " record,",
+              "start": 2.41,
+              "end": 2.69,
+              "probability": 0.333984375
+            },
+            {
+              "text": " ais",
+              "start": 3.23,
+              "end": 3.37,
+              "probability": 0.37060546875
+            },
+            {
+              "text": " pitier",
+              "start": 3.37,
+              "end": 3.77,
+              "probability": 0.4742431640625
+            },
+            {
+              "text": " de",
+              "start": 3.77,
+              "end": 3.91,
+              "probability": 0.6142578125
+            },
+            {
+              "text": " moi.",
+              "start": 3.91,
+              "end": 4.27,
+              "probability": 0.898681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "French",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.63,
+          "end": 1.17
+        },
+        {
+          "raw": "au",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "prenez",
+          "start": 1.75,
+          "end": 2.13
+        },
+        {
+          "raw": "monsieur",
+          "start": 2.13,
+          "end": 2.41
+        },
+        {
+          "raw": "record,",
+          "start": 2.41,
+          "end": 2.69
+        },
+        {
+          "raw": "ais",
+          "start": 3.23,
+          "end": 3.37
+        },
+        {
+          "raw": "pitier",
+          "start": 3.37,
+          "end": 3.77
+        },
+        {
+          "raw": "de",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "raw": "moi.",
+          "start": 3.91,
+          "end": 4.27
+        }
+      ],
+      "expected_tokens": [
+        "French",
+        "Soldier.",
+        "_O,",
+        "prenez",
+        "miséricorde!",
+        "Ayez",
+        "pitié",
+        "de",
+        "moi!_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          4,
+          7,
+          4,
+          8
+        ],
+        [
+          "equal",
+          7,
+          9,
+          8,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          7,
+          4,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "French",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "french",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.63,
+          "end": 1.17,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "au",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "au",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "prenez",
+          "start": 1.75,
+          "end": 2.13,
+          "key": "prenez",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "monsieur",
+          "start": 2.13,
+          "end": 2.41,
+          "key": "monsieur",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "record,",
+          "start": 2.41,
+          "end": 2.69,
+          "key": "record",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ais",
+          "start": 3.23,
+          "end": 3.37,
+          "key": "ais",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pitier",
+          "start": 3.37,
+          "end": 3.77,
+          "key": "pitier",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 3.77,
+          "end": 3.91,
+          "key": "de",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "moi.",
+          "start": 3.91,
+          "end": 4.27,
+          "key": "moi",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "French",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.63,
+          "end": 1.17
+        },
+        {
+          "text": "_O,",
+          "start": 1.17,
+          "end": 1.46
+        },
+        {
+          "text": "prenez",
+          "start": 1.75,
+          "end": 2.13
+        },
+        {
+          "text": "miséricorde!",
+          "start": 2.13,
+          "end": 2.95
+        },
+        {
+          "text": "Ayez",
+          "start": 2.95,
+          "end": 3.36
+        },
+        {
+          "text": "pitié",
+          "start": 3.36,
+          "end": 3.565
+        },
+        {
+          "text": "de",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "text": "moi!_",
+          "start": 3.91,
+          "end": 4.27
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 5
+      },
+      "match_ratio": 0.5555555555555556,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2567165410146117
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "59a35b79444c3ed2042c44f7142d1bfbb78f124873a801a217c1ebbdb548ce02",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

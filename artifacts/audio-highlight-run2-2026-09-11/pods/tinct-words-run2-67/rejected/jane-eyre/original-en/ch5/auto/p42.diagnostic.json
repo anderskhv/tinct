@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "990ebbfe51214b38bffd2b5cee9f77fdcc3b5a961c39ab62355cef7f3212cd55",
+  "attempts": [
+    {
+      "asr_seconds": 0.17858244106173515,
+      "alignment_seconds": 0.00017161201685667038,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Disgusting! The porridge is burnt again!\"",
+        "hotwords": "Disgusting, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Disgusting, The porridge is burnt again!",
+          "start": 0.02,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Disgusting,",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " The",
+              "start": 1.34,
+              "end": 1.42,
+              "probability": 0.05389404296875
+            },
+            {
+              "text": " porridge",
+              "start": 1.42,
+              "end": 1.78,
+              "probability": 0.833740234375
+            },
+            {
+              "text": " is",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " burnt",
+              "start": 1.92,
+              "end": 2.08,
+              "probability": 0.6875
+            },
+            {
+              "text": " again!",
+              "start": 2.08,
+              "end": 2.42,
+              "probability": 0.9736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Disgusting,",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "raw": "The",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "raw": "porridge",
+          "start": 1.42,
+          "end": 1.78
+        },
+        {
+          "raw": "is",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "burnt",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "raw": "again!",
+          "start": 2.08,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "\"Disgusting!",
+        "The",
+        "porridge",
+        "is",
+        "burnt",
+        "again!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Disgusting,",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "disgusting",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.34,
+          "end": 1.42,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "porridge",
+          "start": 1.42,
+          "end": 1.78,
+          "key": "porridge",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.78,
+          "end": 1.92,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "burnt",
+          "start": 1.92,
+          "end": 2.08,
+          "key": "burnt",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "again!",
+          "start": 2.08,
+          "end": 2.42,
+          "key": "again",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Disgusting!",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "text": "The",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "text": "porridge",
+          "start": 1.42,
+          "end": 1.78
+        },
+        {
+          "text": "is",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "burnt",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "text": "again!\"",
+          "start": 2.08,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17881569312885404
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6c24b90f53511c21432b696611e0ff4e5dbf11ac282580436a6e5af118489c60",
+  "selected_reasons": []
+}

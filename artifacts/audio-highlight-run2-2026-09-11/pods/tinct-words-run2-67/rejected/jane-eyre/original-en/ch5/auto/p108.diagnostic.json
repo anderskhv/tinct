@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "79ea2d651997f606a177936d78581598627a70178321cbf98bc87dc4248c5b6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.13813974428921938,
+      "alignment_seconds": 0.0003352230414748192,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Are you happy here?\"",
+        "hotwords": "Are"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Are you happy here?",
+          "start": 0.02,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " Are",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " you",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " happy",
+              "start": 0.62,
+              "end": 0.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " here?",
+              "start": 0.86,
+              "end": 1.18,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Are",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "you",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "happy",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "raw": "here?",
+          "start": 0.86,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "\"Are",
+        "you",
+        "happy",
+        "here?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Are",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "are",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "happy",
+          "start": 0.62,
+          "end": 0.86,
+          "key": "happy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "here?",
+          "start": 0.86,
+          "end": 1.18,
+          "key": "here",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Are",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "you",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "happy",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "text": "here?\"",
+          "start": 0.86,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13859596010297537
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "32793b339a41722cd2f19540eb0e92ee4abb98f7629de9dd824b5150078d55be",
+  "selected_reasons": []
+}

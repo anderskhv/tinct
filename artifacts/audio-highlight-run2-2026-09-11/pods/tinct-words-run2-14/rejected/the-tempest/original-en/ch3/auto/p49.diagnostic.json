@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "e8872005a256b1bb811e975f222c53001522218e8e62f48b69a30b9814a11687",
+  "attempts": [
+    {
+      "asr_seconds": 0.19985371828079224,
+      "alignment_seconds": 0.0004004649817943573,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sebastian. 'Twas a sweet marriage, and we prosper well in our return.",
+        "hotwords": "Sebastian, Twas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sebastian, Twas a sweet marriage, and we prosper well in our return.",
+          "start": 0.08,
+          "end": 4.38,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.384765625
+            },
+            {
+              "text": " Twas",
+              "start": 1.8,
+              "end": 1.94,
+              "probability": 0.1442413330078125
+            },
+            {
+              "text": " a",
+              "start": 1.94,
+              "end": 2.06,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " sweet",
+              "start": 2.06,
+              "end": 2.28,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " marriage,",
+              "start": 2.28,
+              "end": 2.66,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 2.94,
+              "end": 3.02,
+              "probability": 0.884765625
+            },
+            {
+              "text": " we",
+              "start": 3.02,
+              "end": 3.12,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " prosper",
+              "start": 3.12,
+              "end": 3.46,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " well",
+              "start": 3.46,
+              "end": 3.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 3.74,
+              "end": 3.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " our",
+              "start": 3.9,
+              "end": 4.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " return.",
+              "start": 4.02,
+              "end": 4.38,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "Twas",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "raw": "a",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "raw": "sweet",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "raw": "marriage,",
+          "start": 2.28,
+          "end": 2.66
+        },
+        {
+          "raw": "and",
+          "start": 2.94,
+          "end": 3.02
+        },
+        {
+          "raw": "we",
+          "start": 3.02,
+          "end": 3.12
+        },
+        {
+          "raw": "prosper",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "raw": "well",
+          "start": 3.46,
+          "end": 3.74
+        },
+        {
+          "raw": "in",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "raw": "our",
+          "start": 3.9,
+          "end": 4.02
+        },
+        {
+          "raw": "return.",
+          "start": 4.02,
+          "end": 4.38
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "'Twas",
+        "a",
+        "sweet",
+        "marriage,",
+        "and",
+        "we",
+        "prosper",
+        "well",
+        "in",
+        "our",
+        "return."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "sebastian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Twas",
+          "start": 1.8,
+          "end": 1.94,
+          "key": "twas",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.94,
+          "end": 2.06,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 2.06,
+          "end": 2.28,
+          "key": "sweet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "marriage,",
+          "start": 2.28,
+          "end": 2.66,
+          "key": "marriage",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.94,
+          "end": 3.02,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.02,
+          "end": 3.12,
+          "key": "we",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "prosper",
+          "start": 3.12,
+          "end": 3.46,
+          "key": "prosper",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 3.46,
+          "end": 3.74,
+          "key": "well",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.74,
+          "end": 3.9,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 3.9,
+          "end": 4.02,
+          "key": "our",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "return.",
+          "start": 4.02,
+          "end": 4.38,
+          "key": "return",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "text": "'Twas",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "text": "a",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "text": "sweet",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "text": "marriage,",
+          "start": 2.28,
+          "end": 2.66
+        },
+        {
+          "text": "and",
+          "start": 2.94,
+          "end": 3.02
+        },
+        {
+          "text": "we",
+          "start": 3.02,
+          "end": 3.12
+        },
+        {
+          "text": "prosper",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "text": "well",
+          "start": 3.46,
+          "end": 3.74
+        },
+        {
+          "text": "in",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "text": "our",
+          "start": 3.9,
+          "end": 4.02
+        },
+        {
+          "text": "return.",
+          "start": 4.02,
+          "end": 4.38
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20041697844862938
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8e5c202bb834329a97cb0f6eaf1976c7908ff8662913656e365d9f80f0f92cde",
+  "selected_reasons": []
+}

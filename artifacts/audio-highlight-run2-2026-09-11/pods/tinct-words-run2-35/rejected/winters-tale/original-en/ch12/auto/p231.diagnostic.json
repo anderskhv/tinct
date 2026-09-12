@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "0e6910b14d5ebcc8641e1bd346896161f61b2ac08d470668f8a09086ae33b7f3",
+  "attempts": [
+    {
+      "asr_seconds": 0.14674552716314793,
+      "alignment_seconds": 0.00037396885454654694,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Shepherd. Nay, but hear me.",
+        "hotwords": "Shepherd, Nay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shepherd, Nay, but hear me.",
+          "start": 0.08,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " Shepherd,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.365478515625
+            },
+            {
+              "text": " Nay,",
+              "start": 1.06,
+              "end": 1.16,
+              "probability": 0.492431640625
+            },
+            {
+              "text": " but",
+              "start": 1.26,
+              "end": 1.3,
+              "probability": 0.845703125
+            },
+            {
+              "text": " hear",
+              "start": 1.3,
+              "end": 1.5,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " me.",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shepherd,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "raw": "but",
+          "start": 1.26,
+          "end": 1.3
+        },
+        {
+          "raw": "hear",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "raw": "me.",
+          "start": 1.5,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "Shepherd.",
+        "Nay,",
+        "but",
+        "hear",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shepherd,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "shepherd",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.06,
+          "end": 1.16,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.26,
+          "end": 1.3,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 1.3,
+          "end": 1.5,
+          "key": "hear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 1.5,
+          "end": 1.74,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Shepherd.",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "Nay,",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "text": "but",
+          "start": 1.26,
+          "end": 1.3
+        },
+        {
+          "text": "hear",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "text": "me.",
+          "start": 1.5,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14726510271430016
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f6c17f77f6c6057e7eebaa1851d97a83c14ee39889029fa4292a6ecbdf3c5478",
+  "selected_reasons": []
+}

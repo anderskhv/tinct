@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "fd9648808aeca2b62753777dce3d1b19c8fa2f0a8b4d65dcfdfad14da41b1158",
+  "attempts": [
+    {
+      "asr_seconds": 0.1150600709952414,
+      "alignment_seconds": 0.00019690580666065216,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mininius. Well, no more.",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Mininius.",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.5170084635416666
+            },
+            {
+              "text": " Well,",
+              "start": 1.39,
+              "end": 1.47,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " no",
+              "start": 1.51,
+              "end": 1.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " more.",
+              "start": 1.65,
+              "end": 1.93,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mininius.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "Well,",
+          "start": 1.39,
+          "end": 1.47
+        },
+        {
+          "raw": "no",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "raw": "more.",
+          "start": 1.65,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "Well,",
+        "no",
+        "more."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mininius.",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "mininius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 1.39,
+          "end": 1.47,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.51,
+          "end": 1.65,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 1.65,
+          "end": 1.93,
+          "key": "more",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.0,
+          "end": 0.695
+        },
+        {
+          "text": "Well,",
+          "start": 1.39,
+          "end": 1.47
+        },
+        {
+          "text": "no",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "text": "more.",
+          "start": 1.65,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11532479897141457
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9f33384f7f9d5ca63ead2ad3c7def9fcaf428821306c92d312f4e64322de487f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

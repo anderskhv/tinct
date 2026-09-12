@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "e2c3ef27267d7a0df1b1ab14d26e0aa2138f87a4811b93eec1ec1bea1a940c10",
+  "attempts": [
+    {
+      "asr_seconds": 0.23387908935546875,
+      "alignment_seconds": 0.0004232339560985565,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sebastian. You have taken it wiselier than I meant you should.",
+        "hotwords": "Sebastian, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sebastian, you have taken it wiselier than I meant you should.",
+          "start": 0.08,
+          "end": 3.44,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.325439453125
+            },
+            {
+              "text": " you",
+              "start": 1.44,
+              "end": 1.6,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " have",
+              "start": 1.6,
+              "end": 1.7,
+              "probability": 0.990234375
+            },
+            {
+              "text": " taken",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " wiselier",
+              "start": 2.1,
+              "end": 2.58,
+              "probability": 0.495819091796875
+            },
+            {
+              "text": " than",
+              "start": 2.58,
+              "end": 2.74,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " I",
+              "start": 2.74,
+              "end": 2.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " meant",
+              "start": 2.86,
+              "end": 2.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " you",
+              "start": 2.98,
+              "end": 3.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " should.",
+              "start": 3.16,
+              "end": 3.44,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "you",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "raw": "have",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "raw": "taken",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "it",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "wiselier",
+          "start": 2.1,
+          "end": 2.58
+        },
+        {
+          "raw": "than",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "raw": "I",
+          "start": 2.74,
+          "end": 2.86
+        },
+        {
+          "raw": "meant",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "raw": "you",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "raw": "should.",
+          "start": 3.16,
+          "end": 3.44
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "You",
+        "have",
+        "taken",
+        "it",
+        "wiselier",
+        "than",
+        "I",
+        "meant",
+        "you",
+        "should."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "sebastian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.44,
+          "end": 1.6,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.6,
+          "end": 1.7,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "taken",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "taken",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.92,
+          "end": 2.1,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wiselier",
+          "start": 2.1,
+          "end": 2.58,
+          "key": "wiselier",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.58,
+          "end": 2.74,
+          "key": "than",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.74,
+          "end": 2.86,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "meant",
+          "start": 2.86,
+          "end": 2.98,
+          "key": "meant",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.98,
+          "end": 3.16,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "should.",
+          "start": 3.16,
+          "end": 3.44,
+          "key": "should",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "You",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "text": "have",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "text": "taken",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "it",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "text": "wiselier",
+          "start": 2.1,
+          "end": 2.58
+        },
+        {
+          "text": "than",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "text": "I",
+          "start": 2.74,
+          "end": 2.86
+        },
+        {
+          "text": "meant",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "text": "you",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "text": "should.",
+          "start": 3.16,
+          "end": 3.44
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2344714254140854
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "673013d4af5f841b5d50a81aa4ed52d69de974a9f5d130272a2b0490ebb1116d",
+  "selected_reasons": []
+}

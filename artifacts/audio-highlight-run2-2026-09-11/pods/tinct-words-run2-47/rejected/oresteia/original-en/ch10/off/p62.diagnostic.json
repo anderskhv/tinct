@@ -1,0 +1,498 @@
+{
+  "complete": true,
+  "signature": "61b3ad50d05f408bd37588ee16132302477e8d47ea9f5c95f82eba83efb33404",
+  "attempts": [
+    {
+      "asr_seconds": 0.32881200101110153,
+      "alignment_seconds": 0.0006488940271083266,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Chorus, ruler, but he's not for Argives, thus to own a dastard lord.",
+          "start": 0.0,
+          "end": 4.68,
+          "words": [
+            {
+              "text": " Chorus,",
+              "start": 0.0,
+              "end": 0.8,
+              "probability": 0.774169921875
+            },
+            {
+              "text": " ruler,",
+              "start": 1.1,
+              "end": 1.32,
+              "probability": 0.68212890625
+            },
+            {
+              "text": " but",
+              "start": 2.0,
+              "end": 2.08,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " he's",
+              "start": 2.08,
+              "end": 2.32,
+              "probability": 0.5863037109375
+            },
+            {
+              "text": " not",
+              "start": 2.32,
+              "end": 2.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " for",
+              "start": 2.48,
+              "end": 2.68,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Argives,",
+              "start": 2.68,
+              "end": 3.18,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " thus",
+              "start": 3.3,
+              "end": 3.46,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " to",
+              "start": 3.46,
+              "end": 3.68,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " own",
+              "start": 3.68,
+              "end": 3.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 3.82,
+              "end": 3.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " dastard",
+              "start": 3.94,
+              "end": 4.4,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " lord.",
+              "start": 4.4,
+              "end": 4.68,
+              "probability": 0.92041015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chorus,",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "raw": "ruler,",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "raw": "but",
+          "start": 2.0,
+          "end": 2.08
+        },
+        {
+          "raw": "he's",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "raw": "not",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "raw": "for",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "raw": "Argives,",
+          "start": 2.68,
+          "end": 3.18
+        },
+        {
+          "raw": "thus",
+          "start": 3.3,
+          "end": 3.46
+        },
+        {
+          "raw": "to",
+          "start": 3.46,
+          "end": 3.68
+        },
+        {
+          "raw": "own",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "raw": "a",
+          "start": 3.82,
+          "end": 3.94
+        },
+        {
+          "raw": "dastard",
+          "start": 3.94,
+          "end": 4.4
+        },
+        {
+          "raw": "lord.",
+          "start": 4.4,
+          "end": 4.68
+        }
+      ],
+      "expected_tokens": [
+        "Chorus.",
+        "Ruler?",
+        "but",
+        "'tis",
+        "not",
+        "for",
+        "Argives,",
+        "thus",
+        "to",
+        "own",
+        "a",
+        "dastard",
+        "lord!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          13,
+          4,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chorus,",
+          "start": 0.0,
+          "end": 0.8,
+          "key": "chorus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ruler,",
+          "start": 1.1,
+          "end": 1.32,
+          "key": "ruler",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.0,
+          "end": 2.08,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he's",
+          "start": 2.08,
+          "end": 2.32,
+          "key": "hes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.32,
+          "end": 2.48,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.48,
+          "end": 2.68,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Argives,",
+          "start": 2.68,
+          "end": 3.18,
+          "key": "argives",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 3.3,
+          "end": 3.46,
+          "key": "thus",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.46,
+          "end": 3.68,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 3.68,
+          "end": 3.82,
+          "key": "own",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.82,
+          "end": 3.94,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "dastard",
+          "start": 3.94,
+          "end": 4.4,
+          "key": "dastard",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 4.4,
+          "end": 4.68,
+          "key": "lord",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Chorus.",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "text": "Ruler?",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "text": "but",
+          "start": 2.0,
+          "end": 2.08
+        },
+        {
+          "text": "'tis",
+          "start": 2.08,
+          "end": 2.2
+        },
+        {
+          "text": "not",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "text": "for",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "text": "Argives,",
+          "start": 2.68,
+          "end": 3.18
+        },
+        {
+          "text": "thus",
+          "start": 3.3,
+          "end": 3.46
+        },
+        {
+          "text": "to",
+          "start": 3.46,
+          "end": 3.68
+        },
+        {
+          "text": "own",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "text": "a",
+          "start": 3.82,
+          "end": 3.94
+        },
+        {
+          "text": "dastard",
+          "start": 3.94,
+          "end": 4.4
+        },
+        {
+          "text": "lord!",
+          "start": 4.4,
+          "end": 4.68
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.32971014801296405
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d609febe38ed65f723e51a6921499dd63ac19e158679855c9f8a6d43bc59545e",
+  "selected_reasons": []
+}

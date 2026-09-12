@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "f7a948730f4c857ef1715df737990e89022ef27225d172016eeaae68ab6e5ac0",
+  "attempts": [
+    {
+      "asr_seconds": 0.144385842140764,
+      "alignment_seconds": 0.0002536280080676079,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All Plebeians. Down with him, down with him!",
+        "hotwords": "All, Plebeians"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All Plebeians. Down with him, down with him!",
+          "start": 0.08,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " Plebeians.",
+              "start": 0.58,
+              "end": 1.12,
+              "probability": 0.6506271362304688
+            },
+            {
+              "text": " Down",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " with",
+              "start": 1.74,
+              "end": 1.88,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " him,",
+              "start": 1.88,
+              "end": 2.04,
+              "probability": 0.9921875
+            },
+            {
+              "text": " down",
+              "start": 2.18,
+              "end": 2.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " with",
+              "start": 2.3,
+              "end": 2.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him!",
+              "start": 2.48,
+              "end": 2.68,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "Plebeians.",
+          "start": 0.58,
+          "end": 1.12
+        },
+        {
+          "raw": "Down",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "with",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "raw": "him,",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "raw": "down",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "raw": "with",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "raw": "him!",
+          "start": 2.48,
+          "end": 2.68
+        }
+      ],
+      "expected_tokens": [
+        "All",
+        "Plebeians.",
+        "Down",
+        "with",
+        "him,",
+        "down",
+        "with",
+        "him!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Plebeians.",
+          "start": 0.58,
+          "end": 1.12,
+          "key": "plebeians",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Down",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "down",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.74,
+          "end": 1.88,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 1.88,
+          "end": 2.04,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 2.18,
+          "end": 2.3,
+          "key": "down",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.3,
+          "end": 2.48,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him!",
+          "start": 2.48,
+          "end": 2.68,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "Plebeians.",
+          "start": 0.58,
+          "end": 1.12
+        },
+        {
+          "text": "Down",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "with",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "text": "him,",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "text": "down",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "text": "with",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "text": "him!",
+          "start": 2.48,
+          "end": 2.68
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14473677333444357
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "487dc7b98b7f8caf37752d473549ffbbfc3a59abbb6005aae6d6bcd789990bc8",
+  "selected_reasons": []
+}

@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "f2b005d4cbf230cd50f52c2cf93da1a69925977a1979812897f95d6a7311fda3",
+  "attempts": [
+    {
+      "asr_seconds": 0.13211208814755082,
+      "alignment_seconds": 0.00018002837896347046,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Thy husband.",
+        "hotwords": "Othello, Thy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Thy Husband.",
+          "start": 0.02,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.9375
+            },
+            {
+              "text": " Thy",
+              "start": 1.1,
+              "end": 1.24,
+              "probability": 0.03704833984375
+            },
+            {
+              "text": " Husband.",
+              "start": 1.24,
+              "end": 1.74,
+              "probability": 0.899169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Thy",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "raw": "Husband.",
+          "start": 1.24,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Thy",
+        "husband."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thy",
+          "start": 1.1,
+          "end": 1.24,
+          "key": "thy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Husband.",
+          "start": 1.24,
+          "end": 1.74,
+          "key": "husband",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Thy",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "text": "husband.",
+          "start": 1.24,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1323557049036026
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8c7f1eb7a925f08ad74bbe74f5f64d2b501a5f888866543686b0e5d4819011ce",
+  "selected_reasons": []
+}

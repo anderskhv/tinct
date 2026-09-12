@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "12f39b9a98a04a798631e974d8e79fb59e5949a456e6bc52083467b2b4f16f65",
+  "attempts": [
+    {
+      "asr_seconds": 0.12169703096151352,
+      "alignment_seconds": 0.0001725032925605774,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " God knows I am the old man burst forth. I only wish I had never come back at all",
+          "start": 0.05,
+          "end": 5.53,
+          "words": [
+            {
+              "text": " God",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.315673828125
+            },
+            {
+              "text": " knows",
+              "start": 0.67,
+              "end": 0.91,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " I",
+              "start": 0.91,
+              "end": 1.23,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " am",
+              "start": 1.23,
+              "end": 1.51,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 1.51,
+              "end": 2.03,
+              "probability": 0.1212158203125
+            },
+            {
+              "text": " old",
+              "start": 2.03,
+              "end": 2.21,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " man",
+              "start": 2.21,
+              "end": 2.47,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " burst",
+              "start": 2.47,
+              "end": 2.77,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " forth.",
+              "start": 2.77,
+              "end": 3.17,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " I",
+              "start": 3.57,
+              "end": 3.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " only",
+              "start": 3.81,
+              "end": 4.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wish",
+              "start": 4.03,
+              "end": 4.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 4.27,
+              "end": 4.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " had",
+              "start": 4.41,
+              "end": 4.51,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " never",
+              "start": 4.51,
+              "end": 4.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " come",
+              "start": 4.69,
+              "end": 4.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " back",
+              "start": 4.89,
+              "end": 5.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 5.11,
+              "end": 5.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " all",
+              "start": 5.23,
+              "end": 5.53,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "God",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "knows",
+          "start": 0.67,
+          "end": 0.91
+        },
+        {
+          "raw": "I",
+          "start": 0.91,
+          "end": 1.23
+        },
+        {
+          "raw": "am",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "raw": "the",
+          "start": 1.51,
+          "end": 2.03
+        },
+        {
+          "raw": "old",
+          "start": 2.03,
+          "end": 2.21
+        },
+        {
+          "raw": "man",
+          "start": 2.21,
+          "end": 2.47
+        },
+        {
+          "raw": "burst",
+          "start": 2.47,
+          "end": 2.77
+        },
+        {
+          "raw": "forth.",
+          "start": 2.77,
+          "end": 3.17
+        },
+        {
+          "raw": "I",
+          "start": 3.57,
+          "end": 3.81
+        },
+        {
+          "raw": "only",
+          "start": 3.81,
+          "end": 4.03
+        },
+        {
+          "raw": "wish",
+          "start": 4.03,
+          "end": 4.27
+        },
+        {
+          "raw": "I",
+          "start": 4.27,
+          "end": 4.41
+        },
+        {
+          "raw": "had",
+          "start": 4.41,
+          "end": 4.51
+        },
+        {
+          "raw": "never",
+          "start": 4.51,
+          "end": 4.69
+        },
+        {
+          "raw": "come",
+          "start": 4.69,
+          "end": 4.89
+        },
+        {
+          "raw": "back",
+          "start": 4.89,
+          "end": 5.11
+        },
+        {
+          "raw": "at",
+          "start": 5.11,
+          "end": 5.23
+        },
+        {
+          "raw": "all",
+          "start": 5.23,
+          "end": 5.53
+        }
+      ],
+      "expected_tokens": [
+        "\"God",
+        "knows",
+        "I",
+        "am!\"",
+        "the",
+        "old",
+        "man",
+        "burst",
+        "forth.",
+        "\"I",
+        "only",
+        "wish",
+        "I",
+        "had",
+        "never",
+        "come",
+        "back",
+        "at",
+        "all!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "God",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "god",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 0.67,
+          "end": 0.91,
+          "key": "knows",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.91,
+          "end": 1.23,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.23,
+          "end": 1.51,
+          "key": "am",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.51,
+          "end": 2.03,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 2.03,
+          "end": 2.21,
+          "key": "old",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.21,
+          "end": 2.47,
+          "key": "man",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "burst",
+          "start": 2.47,
+          "end": 2.77,
+          "key": "burst",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "forth.",
+          "start": 2.77,
+          "end": 3.17,
+          "key": "forth",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.57,
+          "end": 3.81,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 3.81,
+          "end": 4.03,
+          "key": "only",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 4.03,
+          "end": 4.27,
+          "key": "wish",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.27,
+          "end": 4.41,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.41,
+          "end": 4.51,
+          "key": "had",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 4.51,
+          "end": 4.69,
+          "key": "never",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 4.69,
+          "end": 4.89,
+          "key": "come",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 4.89,
+          "end": 5.11,
+          "key": "back",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.11,
+          "end": 5.23,
+          "key": "at",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 5.23,
+          "end": 5.53,
+          "key": "all",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"God",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "knows",
+          "start": 0.67,
+          "end": 0.91
+        },
+        {
+          "text": "I",
+          "start": 0.91,
+          "end": 1.23
+        },
+        {
+          "text": "am!\"",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "text": "the",
+          "start": 1.51,
+          "end": 2.03
+        },
+        {
+          "text": "old",
+          "start": 2.03,
+          "end": 2.21
+        },
+        {
+          "text": "man",
+          "start": 2.21,
+          "end": 2.47
+        },
+        {
+          "text": "burst",
+          "start": 2.47,
+          "end": 2.77
+        },
+        {
+          "text": "forth.",
+          "start": 2.77,
+          "end": 3.17
+        },
+        {
+          "text": "\"I",
+          "start": 3.57,
+          "end": 3.81
+        },
+        {
+          "text": "only",
+          "start": 3.81,
+          "end": 4.03
+        },
+        {
+          "text": "wish",
+          "start": 4.03,
+          "end": 4.27
+        },
+        {
+          "text": "I",
+          "start": 4.27,
+          "end": 4.41
+        },
+        {
+          "text": "had",
+          "start": 4.41,
+          "end": 4.51
+        },
+        {
+          "text": "never",
+          "start": 4.51,
+          "end": 4.69
+        },
+        {
+          "text": "come",
+          "start": 4.69,
+          "end": 4.89
+        },
+        {
+          "text": "back",
+          "start": 4.89,
+          "end": 5.11
+        },
+        {
+          "text": "at",
+          "start": 5.11,
+          "end": 5.23
+        },
+        {
+          "text": "all!\"",
+          "start": 5.23,
+          "end": 5.53
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12193922512233257
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0939f58a5202a819dd8603138157d21003f7070ea8865bcf25dc8be52ec4a68f",
+  "selected_reasons": []
+}

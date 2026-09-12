@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "69ad5d1147103b396a492866f6cd203488bd11cf4aba4bc53f02f69d77913871",
+  "attempts": [
+    {
+      "asr_seconds": 0.14658184349536896,
+      "alignment_seconds": 0.00029893219470977783,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Most certainly, he replied.",
+        "hotwords": "Most"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Most certainly, he replied.",
+          "start": 0.02,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " Most",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.677734375
+            },
+            {
+              "text": " certainly,",
+              "start": 0.6,
+              "end": 1.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 1.28,
+              "end": 1.36,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " replied.",
+              "start": 1.36,
+              "end": 1.74,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Most",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "certainly,",
+          "start": 0.6,
+          "end": 1.0
+        },
+        {
+          "raw": "he",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "raw": "replied.",
+          "start": 1.36,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "Most",
+        "certainly,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Most",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "most",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "certainly,",
+          "start": 0.6,
+          "end": 1.0,
+          "key": "certainly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.28,
+          "end": 1.36,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "replied.",
+          "start": 1.36,
+          "end": 1.74,
+          "key": "replied",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Most",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "certainly,",
+          "start": 0.6,
+          "end": 1.0
+        },
+        {
+          "text": "he",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "text": "replied.",
+          "start": 1.36,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14699146896600723
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e992173d3199d1ce04f6e2ec8f799b06584bdf864db35ad279173e2cc90a8c3b",
+  "selected_reasons": []
+}

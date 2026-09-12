@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "288ea32aebe2dfec6eee6135bb7f1ce646984c5b8fa6407537485db8e83a6184",
+  "attempts": [
+    {
+      "asr_seconds": 0.11849571019411087,
+      "alignment_seconds": 0.0002986583858728409,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I believe you.\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I believe you.",
+          "start": 0.05,
+          "end": 1.09,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.91796875
+            },
+            {
+              "text": " believe",
+              "start": 0.53,
+              "end": 0.79,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " you.",
+              "start": 0.79,
+              "end": 1.09,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "believe",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "raw": "you.",
+          "start": 0.79,
+          "end": 1.09
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "believe",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "believe",
+          "start": 0.53,
+          "end": 0.79,
+          "key": "believe",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 0.79,
+          "end": 1.09,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "believe",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "text": "you.\"",
+          "start": 0.79,
+          "end": 1.09
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11889150179922581
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7935f48c3169f5450390c6128e8c45d758d0f2b01c5585f50a3e1cfe5441e203",
+  "selected_reasons": []
+}

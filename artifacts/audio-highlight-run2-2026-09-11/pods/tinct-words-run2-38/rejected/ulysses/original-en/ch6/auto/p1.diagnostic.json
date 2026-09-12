@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "0de3b480f8dcc78555a687eb8bed32527ac39a438ce6c284ee2bda7594153711",
+  "attempts": [
+    {
+      "asr_seconds": 0.08620619401335716,
+      "alignment_seconds": 0.00011170096695423126,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Come on, Simon.",
+        "hotwords": "Come, Simon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Come on, Simon.",
+          "start": 0.05,
+          "end": 1.03,
+          "words": [
+            {
+              "text": " Come",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " on,",
+              "start": 0.53,
+              "end": 0.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Simon.",
+              "start": 0.93,
+              "end": 1.03,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Come",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "on,",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "raw": "Simon.",
+          "start": 0.93,
+          "end": 1.03
+        }
+      ],
+      "expected_tokens": [
+        "—Come",
+        "on,",
+        "Simon."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Come",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "come",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 0.53,
+          "end": 0.75,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Simon.",
+          "start": 0.93,
+          "end": 1.03,
+          "key": "simon",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Come",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "on,",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "text": "Simon.",
+          "start": 0.93,
+          "end": 1.03
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0863579650176689
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "651f68aa68702d9e120e0cd1fd00a44c321fe9335dfc6f6a913ed611ff47f43a",
+  "selected_reasons": []
+}

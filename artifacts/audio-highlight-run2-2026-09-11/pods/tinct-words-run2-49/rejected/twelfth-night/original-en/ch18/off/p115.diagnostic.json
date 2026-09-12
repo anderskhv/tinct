@@ -1,0 +1,771 @@
+{
+  "complete": true,
+  "signature": "16f0ecfb169723ff6a21f3895bf3c554fee52ef30df041fda94225b8b0e57346",
+  "attempts": [
+    {
+      "asr_seconds": 0.45503587275743484,
+      "alignment_seconds": 0.000671975314617157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, he shall enlarge him, fetch Malvolio hither.",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.2841796875
+            },
+            {
+              "text": " he",
+              "start": 1.09,
+              "end": 1.17,
+              "probability": 0.958984375
+            },
+            {
+              "text": " shall",
+              "start": 1.17,
+              "end": 1.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " enlarge",
+              "start": 1.33,
+              "end": 1.69,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " him,",
+              "start": 1.69,
+              "end": 2.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " fetch",
+              "start": 2.71,
+              "end": 2.71,
+              "probability": 0.8828125
+            },
+            {
+              "text": " Malvolio",
+              "start": 2.71,
+              "end": 3.37,
+              "probability": 0.9161783854166666
+            },
+            {
+              "text": " hither.",
+              "start": 3.37,
+              "end": 3.63,
+              "probability": 0.92626953125
+            }
+          ]
+        },
+        {
+          "text": " And yet, alas, now I remember me, they say, poor gentleman, he's much distract.",
+          "start": 4.35,
+          "end": 8.69,
+          "words": [
+            {
+              "text": " And",
+              "start": 4.35,
+              "end": 4.43,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " yet,",
+              "start": 4.43,
+              "end": 4.59,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " alas,",
+              "start": 4.91,
+              "end": 4.93,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " now",
+              "start": 5.39,
+              "end": 5.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 5.45,
+              "end": 5.63,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " remember",
+              "start": 5.63,
+              "end": 5.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " me,",
+              "start": 5.91,
+              "end": 6.19,
+              "probability": 0.984375
+            },
+            {
+              "text": " they",
+              "start": 6.35,
+              "end": 6.45,
+              "probability": 0.962890625
+            },
+            {
+              "text": " say,",
+              "start": 6.45,
+              "end": 6.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " poor",
+              "start": 6.99,
+              "end": 7.13,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " gentleman,",
+              "start": 7.13,
+              "end": 7.55,
+              "probability": 0.6083984375
+            },
+            {
+              "text": " he's",
+              "start": 7.83,
+              "end": 7.99,
+              "probability": 0.947998046875
+            },
+            {
+              "text": " much",
+              "start": 7.99,
+              "end": 8.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " distract.",
+              "start": 8.21,
+              "end": 8.69,
+              "probability": 0.85791015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "he",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "raw": "shall",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "raw": "enlarge",
+          "start": 1.33,
+          "end": 1.69
+        },
+        {
+          "raw": "him,",
+          "start": 1.69,
+          "end": 2.09
+        },
+        {
+          "raw": "fetch",
+          "start": 2.71,
+          "end": 2.71
+        },
+        {
+          "raw": "Malvolio",
+          "start": 2.71,
+          "end": 3.37
+        },
+        {
+          "raw": "hither.",
+          "start": 3.37,
+          "end": 3.63
+        },
+        {
+          "raw": "And",
+          "start": 4.35,
+          "end": 4.43
+        },
+        {
+          "raw": "yet,",
+          "start": 4.43,
+          "end": 4.59
+        },
+        {
+          "raw": "alas,",
+          "start": 4.91,
+          "end": 4.93
+        },
+        {
+          "raw": "now",
+          "start": 5.39,
+          "end": 5.45
+        },
+        {
+          "raw": "I",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "raw": "remember",
+          "start": 5.63,
+          "end": 5.91
+        },
+        {
+          "raw": "me,",
+          "start": 5.91,
+          "end": 6.19
+        },
+        {
+          "raw": "they",
+          "start": 6.35,
+          "end": 6.45
+        },
+        {
+          "raw": "say,",
+          "start": 6.45,
+          "end": 6.75
+        },
+        {
+          "raw": "poor",
+          "start": 6.99,
+          "end": 7.13
+        },
+        {
+          "raw": "gentleman,",
+          "start": 7.13,
+          "end": 7.55
+        },
+        {
+          "raw": "he's",
+          "start": 7.83,
+          "end": 7.99
+        },
+        {
+          "raw": "much",
+          "start": 7.99,
+          "end": 8.21
+        },
+        {
+          "raw": "distract.",
+          "start": 8.21,
+          "end": 8.69
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "He",
+        "shall",
+        "enlarge",
+        "him.",
+        "Fetch",
+        "Malvolio",
+        "hither.",
+        "And",
+        "yet,",
+        "alas,",
+        "now",
+        "I",
+        "remember",
+        "me,",
+        "They",
+        "say,",
+        "poor",
+        "gentleman,",
+        "he's",
+        "much",
+        "distract."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.09,
+          "end": 1.17,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.17,
+          "end": 1.33,
+          "key": "shall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "enlarge",
+          "start": 1.33,
+          "end": 1.69,
+          "key": "enlarge",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 1.69,
+          "end": 2.09,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fetch",
+          "start": 2.71,
+          "end": 2.71,
+          "key": "fetch",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Malvolio",
+          "start": 2.71,
+          "end": 3.37,
+          "key": "malvolio",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hither.",
+          "start": 3.37,
+          "end": 3.63,
+          "key": "hither",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 4.35,
+          "end": 4.43,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "yet,",
+          "start": 4.43,
+          "end": 4.59,
+          "key": "yet",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "alas,",
+          "start": 4.91,
+          "end": 4.93,
+          "key": "alas",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 5.39,
+          "end": 5.45,
+          "key": "now",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.45,
+          "end": 5.63,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "remember",
+          "start": 5.63,
+          "end": 5.91,
+          "key": "remember",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 5.91,
+          "end": 6.19,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 6.35,
+          "end": 6.45,
+          "key": "they",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 6.45,
+          "end": 6.75,
+          "key": "say",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 6.99,
+          "end": 7.13,
+          "key": "poor",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "gentleman,",
+          "start": 7.13,
+          "end": 7.55,
+          "key": "gentleman",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "he's",
+          "start": 7.83,
+          "end": 7.99,
+          "key": "hes",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 7.99,
+          "end": 8.21,
+          "key": "much",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "distract.",
+          "start": 8.21,
+          "end": 8.69,
+          "key": "distract",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "He",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "text": "shall",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "text": "enlarge",
+          "start": 1.33,
+          "end": 1.69
+        },
+        {
+          "text": "him.",
+          "start": 1.69,
+          "end": 2.09
+        },
+        {
+          "text": "Fetch",
+          "start": 2.71,
+          "end": 2.71
+        },
+        {
+          "text": "Malvolio",
+          "start": 2.71,
+          "end": 3.37
+        },
+        {
+          "text": "hither.",
+          "start": 3.37,
+          "end": 3.63
+        },
+        {
+          "text": "And",
+          "start": 4.35,
+          "end": 4.43
+        },
+        {
+          "text": "yet,",
+          "start": 4.43,
+          "end": 4.59
+        },
+        {
+          "text": "alas,",
+          "start": 4.91,
+          "end": 4.93
+        },
+        {
+          "text": "now",
+          "start": 5.39,
+          "end": 5.45
+        },
+        {
+          "text": "I",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "text": "remember",
+          "start": 5.63,
+          "end": 5.91
+        },
+        {
+          "text": "me,",
+          "start": 5.91,
+          "end": 6.19
+        },
+        {
+          "text": "They",
+          "start": 6.35,
+          "end": 6.45
+        },
+        {
+          "text": "say,",
+          "start": 6.45,
+          "end": 6.75
+        },
+        {
+          "text": "poor",
+          "start": 6.99,
+          "end": 7.13
+        },
+        {
+          "text": "gentleman,",
+          "start": 7.13,
+          "end": 7.55
+        },
+        {
+          "text": "he's",
+          "start": 7.83,
+          "end": 7.99
+        },
+        {
+          "text": "much",
+          "start": 7.99,
+          "end": 8.21
+        },
+        {
+          "text": "distract.",
+          "start": 8.21,
+          "end": 8.69
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4559920057654381
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8615d158e32c2bd35221af9709a945ce695a026a6c709b311d28c8ff2c7697f5",
+  "selected_reasons": []
+}

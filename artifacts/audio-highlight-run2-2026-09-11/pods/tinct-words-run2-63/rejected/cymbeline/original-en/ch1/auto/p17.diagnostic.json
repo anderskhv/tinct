@@ -1,0 +1,1993 @@
+{
+  "complete": true,
+  "signature": "7b8c61f8989aeb58d805fef316990854b2e5c1914f30b1efcb3fd536083f247a",
+  "attempts": [
+    {
+      "asr_seconds": 5.574189484119415,
+      "alignment_seconds": 0.0002701804041862488,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Gentleman. Howsoe'er 'tis strange, Or that the negligence may well be laugh'd at, Yet is it true, sir.",
+        "hotwords": "First, Gentleman, Howsoe'er, Or, Yet"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Gentleman, Howsoe'er, Or, Yet First Gentleman, Or, Yet First Gentleman, Or, Yet First Gentleman, Or, Yet",
+          "start": 0.05,
+          "end": 7.45,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.298828125
+            },
+            {
+              "text": " Gentleman,",
+              "start": 0.65,
+              "end": 1.13,
+              "probability": 0.06005859375
+            },
+            {
+              "text": " Howsoe",
+              "start": 1.59,
+              "end": 2.17,
+              "probability": 0.15651448567708334
+            },
+            {
+              "text": "'er,",
+              "start": 2.17,
+              "end": 2.29,
+              "probability": 0.6192626953125
+            },
+            {
+              "text": " Or,",
+              "start": 2.29,
+              "end": 2.69,
+              "probability": 5.9604644775390625e-06
+            },
+            {
+              "text": " Yet",
+              "start": 2.69,
+              "end": 3.15,
+              "probability": 0.0001685619354248047
+            },
+            {
+              "text": " First",
+              "start": 3.15,
+              "end": 3.15,
+              "probability": 7.033348083496094e-06
+            },
+            {
+              "text": " Gentleman,",
+              "start": 3.15,
+              "end": 3.15,
+              "probability": 0.62841796875
+            },
+            {
+              "text": " Or,",
+              "start": 3.15,
+              "end": 3.15,
+              "probability": 0.0228271484375
+            },
+            {
+              "text": " Yet",
+              "start": 3.67,
+              "end": 3.69,
+              "probability": 0.444580078125
+            },
+            {
+              "text": " First",
+              "start": 3.69,
+              "end": 3.89,
+              "probability": 0.0281829833984375
+            },
+            {
+              "text": " Gentleman,",
+              "start": 3.89,
+              "end": 4.19,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " Or,",
+              "start": 4.53,
+              "end": 4.53,
+              "probability": 0.1876220703125
+            },
+            {
+              "text": " Yet",
+              "start": 4.53,
+              "end": 4.53,
+              "probability": 0.7607421875
+            },
+            {
+              "text": " First",
+              "start": 4.53,
+              "end": 6.39,
+              "probability": 0.2119140625
+            },
+            {
+              "text": " Gentleman,",
+              "start": 6.39,
+              "end": 6.99,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " Or,",
+              "start": 6.99,
+              "end": 6.99,
+              "probability": 0.375732421875
+            },
+            {
+              "text": " Yet",
+              "start": 6.99,
+              "end": 7.45,
+              "probability": 0.84619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Gentleman,",
+          "start": 0.65,
+          "end": 1.13
+        },
+        {
+          "raw": "Howsoe",
+          "start": 1.59,
+          "end": 2.17
+        },
+        {
+          "raw": "'er,",
+          "start": 2.17,
+          "end": 2.29
+        },
+        {
+          "raw": "Or,",
+          "start": 2.29,
+          "end": 2.69
+        },
+        {
+          "raw": "Yet",
+          "start": 2.69,
+          "end": 3.15
+        },
+        {
+          "raw": "First",
+          "start": 3.15,
+          "end": 3.15
+        },
+        {
+          "raw": "Gentleman,",
+          "start": 3.15,
+          "end": 3.15
+        },
+        {
+          "raw": "Or,",
+          "start": 3.15,
+          "end": 3.15
+        },
+        {
+          "raw": "Yet",
+          "start": 3.67,
+          "end": 3.69
+        },
+        {
+          "raw": "First",
+          "start": 3.69,
+          "end": 3.89
+        },
+        {
+          "raw": "Gentleman,",
+          "start": 3.89,
+          "end": 4.19
+        },
+        {
+          "raw": "Or,",
+          "start": 4.53,
+          "end": 4.53
+        },
+        {
+          "raw": "Yet",
+          "start": 4.53,
+          "end": 4.53
+        },
+        {
+          "raw": "First",
+          "start": 4.53,
+          "end": 6.39
+        },
+        {
+          "raw": "Gentleman,",
+          "start": 6.39,
+          "end": 6.99
+        },
+        {
+          "raw": "Or,",
+          "start": 6.99,
+          "end": 6.99
+        },
+        {
+          "raw": "Yet",
+          "start": 6.99,
+          "end": 7.45
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Gentleman.",
+        "Howsoe'er",
+        "'tis",
+        "strange,",
+        "Or",
+        "that",
+        "the",
+        "negligence",
+        "may",
+        "well",
+        "be",
+        "laugh'd",
+        "at,",
+        "Yet",
+        "is",
+        "it",
+        "true,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          5,
+          2,
+          4
+        ],
+        [
+          "equal",
+          5,
+          6,
+          4,
+          5
+        ],
+        [
+          "delete",
+          6,
+          14,
+          5,
+          5
+        ],
+        [
+          "equal",
+          14,
+          15,
+          5,
+          6
+        ],
+        [
+          "replace",
+          15,
+          19,
+          6,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          5,
+          2,
+          4
+        ],
+        [
+          "delete",
+          6,
+          14,
+          5,
+          5
+        ],
+        [
+          "replace",
+          15,
+          19,
+          6,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gentleman,",
+          "start": 0.65,
+          "end": 1.13,
+          "key": "gentleman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Howsoe",
+          "start": 1.59,
+          "end": 2.17,
+          "key": "howsoe",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'er,",
+          "start": 2.17,
+          "end": 2.29,
+          "key": "er",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Or,",
+          "start": 2.29,
+          "end": 2.69,
+          "key": "or",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Yet",
+          "start": 2.69,
+          "end": 3.15,
+          "key": "yet",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "First",
+          "start": 3.15,
+          "end": 3.15,
+          "key": "first",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Gentleman,",
+          "start": 3.15,
+          "end": 3.15,
+          "key": "gentleman",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Or,",
+          "start": 3.15,
+          "end": 3.15,
+          "key": "or",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Yet",
+          "start": 3.67,
+          "end": 3.69,
+          "key": "yet",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "First",
+          "start": 3.69,
+          "end": 3.89,
+          "key": "first",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Gentleman,",
+          "start": 3.89,
+          "end": 4.19,
+          "key": "gentleman",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Or,",
+          "start": 4.53,
+          "end": 4.53,
+          "key": "or",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Yet",
+          "start": 4.53,
+          "end": 4.53,
+          "key": "yet",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "First",
+          "start": 4.53,
+          "end": 6.39,
+          "key": "first",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Gentleman,",
+          "start": 6.39,
+          "end": 6.99,
+          "key": "gentleman",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Or,",
+          "start": 6.99,
+          "end": 6.99,
+          "key": "or",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Yet",
+          "start": 6.99,
+          "end": 7.45,
+          "key": "yet",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Gentleman.",
+          "start": 0.65,
+          "end": 1.13
+        },
+        {
+          "text": "Howsoe'er",
+          "start": 1.13,
+          "end": 1.71
+        },
+        {
+          "text": "'tis",
+          "start": 1.71,
+          "end": 2.0
+        },
+        {
+          "text": "strange,",
+          "start": 2.0,
+          "end": 2.145
+        },
+        {
+          "text": "Or",
+          "start": 2.29,
+          "end": 2.69
+        },
+        {
+          "text": "that",
+          "start": 2.69,
+          "end": 2.69
+        },
+        {
+          "text": "the",
+          "start": 2.69,
+          "end": 2.69
+        },
+        {
+          "text": "negligence",
+          "start": 2.69,
+          "end": 2.69
+        },
+        {
+          "text": "may",
+          "start": 2.69,
+          "end": 2.69
+        },
+        {
+          "text": "well",
+          "start": 2.69,
+          "end": 2.69
+        },
+        {
+          "text": "be",
+          "start": 2.69,
+          "end": 2.69
+        },
+        {
+          "text": "laugh'd",
+          "start": 2.69,
+          "end": 2.69
+        },
+        {
+          "text": "at,",
+          "start": 2.69,
+          "end": 2.69
+        },
+        {
+          "text": "Yet",
+          "start": 2.69,
+          "end": 3.15
+        },
+        {
+          "text": "is",
+          "start": 3.15,
+          "end": 5.3
+        },
+        {
+          "text": "it",
+          "start": 5.3,
+          "end": 6.375
+        },
+        {
+          "text": "true,",
+          "start": 6.375,
+          "end": 6.912
+        },
+        {
+          "text": "sir.",
+          "start": 6.912,
+          "end": 7.181
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 18,
+        "matched_words": 4
+      },
+      "match_ratio": 0.21052631578947367,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 5.574537131935358
+    },
+    {
+      "asr_seconds": 0.24580319970846176,
+      "alignment_seconds": 0.0002096761018037796,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "First, Gentleman, Howsoe'er, Or, Yet"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " the negligence may well be laughed at, Yet is it true, sir?",
+          "start": 3.19,
+          "end": 6.81,
+          "words": [
+            {
+              "text": " the",
+              "start": 3.19,
+              "end": 3.67,
+              "probability": 0.0001323223114013672
+            },
+            {
+              "text": " negligence",
+              "start": 3.67,
+              "end": 4.15,
+              "probability": 0.01279449462890625
+            },
+            {
+              "text": " may",
+              "start": 4.15,
+              "end": 4.51,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " well",
+              "start": 4.51,
+              "end": 4.73,
+              "probability": 0.982421875
+            },
+            {
+              "text": " be",
+              "start": 4.73,
+              "end": 4.91,
+              "probability": 0.9921875
+            },
+            {
+              "text": " laughed",
+              "start": 4.91,
+              "end": 5.23,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " at,",
+              "start": 5.23,
+              "end": 5.59,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Yet",
+              "start": 5.75,
+              "end": 5.85,
+              "probability": 0.007404327392578125
+            },
+            {
+              "text": " is",
+              "start": 5.85,
+              "end": 5.99,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " it",
+              "start": 5.99,
+              "end": 6.15,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " true,",
+              "start": 6.15,
+              "end": 6.43,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " sir?",
+              "start": 6.67,
+              "end": 6.81,
+              "probability": 0.7705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "the",
+          "start": 3.19,
+          "end": 3.67
+        },
+        {
+          "raw": "negligence",
+          "start": 3.67,
+          "end": 4.15
+        },
+        {
+          "raw": "may",
+          "start": 4.15,
+          "end": 4.51
+        },
+        {
+          "raw": "well",
+          "start": 4.51,
+          "end": 4.73
+        },
+        {
+          "raw": "be",
+          "start": 4.73,
+          "end": 4.91
+        },
+        {
+          "raw": "laughed",
+          "start": 4.91,
+          "end": 5.23
+        },
+        {
+          "raw": "at,",
+          "start": 5.23,
+          "end": 5.59
+        },
+        {
+          "raw": "Yet",
+          "start": 5.75,
+          "end": 5.85
+        },
+        {
+          "raw": "is",
+          "start": 5.85,
+          "end": 5.99
+        },
+        {
+          "raw": "it",
+          "start": 5.99,
+          "end": 6.15
+        },
+        {
+          "raw": "true,",
+          "start": 6.15,
+          "end": 6.43
+        },
+        {
+          "raw": "sir?",
+          "start": 6.67,
+          "end": 6.81
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Gentleman.",
+        "Howsoe'er",
+        "'tis",
+        "strange,",
+        "Or",
+        "that",
+        "the",
+        "negligence",
+        "may",
+        "well",
+        "be",
+        "laugh'd",
+        "at,",
+        "Yet",
+        "is",
+        "it",
+        "true,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          7,
+          0,
+          0
+        ],
+        [
+          "equal",
+          7,
+          12,
+          0,
+          5
+        ],
+        [
+          "replace",
+          12,
+          13,
+          5,
+          6
+        ],
+        [
+          "equal",
+          13,
+          19,
+          6,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          7,
+          0,
+          0
+        ],
+        [
+          "replace",
+          12,
+          13,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "the",
+          "start": 3.19,
+          "end": 3.67,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "negligence",
+          "start": 3.67,
+          "end": 4.15,
+          "key": "negligence",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 4.15,
+          "end": 4.51,
+          "key": "may",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 4.51,
+          "end": 4.73,
+          "key": "well",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.73,
+          "end": 4.91,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "laughed",
+          "start": 4.91,
+          "end": 5.23,
+          "key": "laughed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at,",
+          "start": 5.23,
+          "end": 5.59,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Yet",
+          "start": 5.75,
+          "end": 5.85,
+          "key": "yet",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.85,
+          "end": 5.99,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.99,
+          "end": 6.15,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 6.15,
+          "end": 6.43,
+          "key": "true",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 6.67,
+          "end": 6.81,
+          "key": "sir",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.0,
+          "end": 1.595
+        },
+        {
+          "text": "Gentleman.",
+          "start": 1.595,
+          "end": 2.393
+        },
+        {
+          "text": "Howsoe'er",
+          "start": 2.393,
+          "end": 2.792
+        },
+        {
+          "text": "'tis",
+          "start": 2.792,
+          "end": 2.991
+        },
+        {
+          "text": "strange,",
+          "start": 2.991,
+          "end": 3.091
+        },
+        {
+          "text": "Or",
+          "start": 3.091,
+          "end": 3.141
+        },
+        {
+          "text": "that",
+          "start": 3.141,
+          "end": 3.165
+        },
+        {
+          "text": "the",
+          "start": 3.19,
+          "end": 3.67
+        },
+        {
+          "text": "negligence",
+          "start": 3.67,
+          "end": 4.15
+        },
+        {
+          "text": "may",
+          "start": 4.15,
+          "end": 4.51
+        },
+        {
+          "text": "well",
+          "start": 4.51,
+          "end": 4.73
+        },
+        {
+          "text": "be",
+          "start": 4.73,
+          "end": 4.91
+        },
+        {
+          "text": "laugh'd",
+          "start": 4.91,
+          "end": 5.07
+        },
+        {
+          "text": "at,",
+          "start": 5.23,
+          "end": 5.59
+        },
+        {
+          "text": "Yet",
+          "start": 5.75,
+          "end": 5.85
+        },
+        {
+          "text": "is",
+          "start": 5.85,
+          "end": 5.99
+        },
+        {
+          "text": "it",
+          "start": 5.99,
+          "end": 6.15
+        },
+        {
+          "text": "true,",
+          "start": 6.15,
+          "end": 6.43
+        },
+        {
+          "text": "sir.",
+          "start": 6.67,
+          "end": 6.81
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.5789473684210527,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24607340060174465
+    },
+    {
+      "asr_seconds": 0.3685885835438967,
+      "alignment_seconds": 0.00044645555317401886,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First, gentlemen, how swear T's strange, or that the negligence may well be laughed at, yet is it true, sir?",
+          "start": 0.05,
+          "end": 6.79,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.298828125
+            },
+            {
+              "text": " gentlemen,",
+              "start": 0.75,
+              "end": 1.09,
+              "probability": 0.8056640625
+            },
+            {
+              "text": " how",
+              "start": 1.73,
+              "end": 1.89,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " swear",
+              "start": 1.89,
+              "end": 2.19,
+              "probability": 0.25
+            },
+            {
+              "text": " T's",
+              "start": 2.19,
+              "end": 2.61,
+              "probability": 0.42156982421875
+            },
+            {
+              "text": " strange,",
+              "start": 2.61,
+              "end": 3.01,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " or",
+              "start": 3.53,
+              "end": 3.57,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " that",
+              "start": 3.57,
+              "end": 3.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 3.69,
+              "end": 3.83,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " negligence",
+              "start": 3.83,
+              "end": 4.21,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " may",
+              "start": 4.21,
+              "end": 4.51,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " well",
+              "start": 4.51,
+              "end": 4.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 4.75,
+              "end": 4.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " laughed",
+              "start": 4.91,
+              "end": 5.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at,",
+              "start": 5.19,
+              "end": 5.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " yet",
+              "start": 5.73,
+              "end": 5.85,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " is",
+              "start": 5.85,
+              "end": 5.99,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " it",
+              "start": 5.99,
+              "end": 6.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " true,",
+              "start": 6.13,
+              "end": 6.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sir?",
+              "start": 6.59,
+              "end": 6.79,
+              "probability": 0.951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "gentlemen,",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "raw": "how",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "raw": "swear",
+          "start": 1.89,
+          "end": 2.19
+        },
+        {
+          "raw": "T's",
+          "start": 2.19,
+          "end": 2.61
+        },
+        {
+          "raw": "strange,",
+          "start": 2.61,
+          "end": 3.01
+        },
+        {
+          "raw": "or",
+          "start": 3.53,
+          "end": 3.57
+        },
+        {
+          "raw": "that",
+          "start": 3.57,
+          "end": 3.69
+        },
+        {
+          "raw": "the",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "raw": "negligence",
+          "start": 3.83,
+          "end": 4.21
+        },
+        {
+          "raw": "may",
+          "start": 4.21,
+          "end": 4.51
+        },
+        {
+          "raw": "well",
+          "start": 4.51,
+          "end": 4.75
+        },
+        {
+          "raw": "be",
+          "start": 4.75,
+          "end": 4.91
+        },
+        {
+          "raw": "laughed",
+          "start": 4.91,
+          "end": 5.19
+        },
+        {
+          "raw": "at,",
+          "start": 5.19,
+          "end": 5.53
+        },
+        {
+          "raw": "yet",
+          "start": 5.73,
+          "end": 5.85
+        },
+        {
+          "raw": "is",
+          "start": 5.85,
+          "end": 5.99
+        },
+        {
+          "raw": "it",
+          "start": 5.99,
+          "end": 6.13
+        },
+        {
+          "raw": "true,",
+          "start": 6.13,
+          "end": 6.43
+        },
+        {
+          "raw": "sir?",
+          "start": 6.59,
+          "end": 6.79
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Gentleman.",
+        "Howsoe'er",
+        "'tis",
+        "strange,",
+        "Or",
+        "that",
+        "the",
+        "negligence",
+        "may",
+        "well",
+        "be",
+        "laugh'd",
+        "at,",
+        "Yet",
+        "is",
+        "it",
+        "true,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          4,
+          1,
+          5
+        ],
+        [
+          "equal",
+          4,
+          12,
+          5,
+          13
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          14
+        ],
+        [
+          "equal",
+          13,
+          19,
+          14,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          4,
+          1,
+          5
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gentlemen,",
+          "start": 0.75,
+          "end": 1.09,
+          "key": "gentlemen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.73,
+          "end": 1.89,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "swear",
+          "start": 1.89,
+          "end": 2.19,
+          "key": "swear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "T's",
+          "start": 2.19,
+          "end": 2.61,
+          "key": "ts",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "strange,",
+          "start": 2.61,
+          "end": 3.01,
+          "key": "strange",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 3.53,
+          "end": 3.57,
+          "key": "or",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.57,
+          "end": 3.69,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.69,
+          "end": 3.83,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "negligence",
+          "start": 3.83,
+          "end": 4.21,
+          "key": "negligence",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 4.21,
+          "end": 4.51,
+          "key": "may",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 4.51,
+          "end": 4.75,
+          "key": "well",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.75,
+          "end": 4.91,
+          "key": "be",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "laughed",
+          "start": 4.91,
+          "end": 5.19,
+          "key": "laughed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "at,",
+          "start": 5.19,
+          "end": 5.53,
+          "key": "at",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 5.73,
+          "end": 5.85,
+          "key": "yet",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.85,
+          "end": 5.99,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.99,
+          "end": 6.13,
+          "key": "it",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 6.13,
+          "end": 6.43,
+          "key": "true",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 6.59,
+          "end": 6.79,
+          "key": "sir",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Gentleman.",
+          "start": 0.65,
+          "end": 1.63
+        },
+        {
+          "text": "Howsoe'er",
+          "start": 1.63,
+          "end": 2.12
+        },
+        {
+          "text": "'tis",
+          "start": 2.12,
+          "end": 2.365
+        },
+        {
+          "text": "strange,",
+          "start": 2.61,
+          "end": 3.01
+        },
+        {
+          "text": "Or",
+          "start": 3.53,
+          "end": 3.57
+        },
+        {
+          "text": "that",
+          "start": 3.57,
+          "end": 3.69
+        },
+        {
+          "text": "the",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "text": "negligence",
+          "start": 3.83,
+          "end": 4.21
+        },
+        {
+          "text": "may",
+          "start": 4.21,
+          "end": 4.51
+        },
+        {
+          "text": "well",
+          "start": 4.51,
+          "end": 4.75
+        },
+        {
+          "text": "be",
+          "start": 4.75,
+          "end": 4.91
+        },
+        {
+          "text": "laugh'd",
+          "start": 4.91,
+          "end": 5.05
+        },
+        {
+          "text": "at,",
+          "start": 5.19,
+          "end": 5.53
+        },
+        {
+          "text": "Yet",
+          "start": 5.73,
+          "end": 5.85
+        },
+        {
+          "text": "is",
+          "start": 5.85,
+          "end": 5.99
+        },
+        {
+          "text": "it",
+          "start": 5.99,
+          "end": 6.13
+        },
+        {
+          "text": "true,",
+          "start": 6.13,
+          "end": 6.43
+        },
+        {
+          "text": "sir.",
+          "start": 6.59,
+          "end": 6.79
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 15
+      },
+      "match_ratio": 0.7894736842105263,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3691943548619747
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "372d1e2cc34425c0be5051aada2164caabdf692b2de4acbc356867f30968efa7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

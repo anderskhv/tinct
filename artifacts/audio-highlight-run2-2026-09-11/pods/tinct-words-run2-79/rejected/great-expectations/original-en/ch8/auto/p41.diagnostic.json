@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "ad0bc9577f3d449b43b7c35acac5370317f28fb61daa26d1a21c243d180f11e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.3164779650978744,
+      "alignment_seconds": 0.0005753282457590103,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Do you know what I touch here?\" she said, laying her hands, one upon the other, on her left side.",
+        "hotwords": "Do, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Do you know what I touch here?\" she said, laying her hands, one upon the other, on her left side.",
+          "start": 0.05,
+          "end": 5.27,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.2181396484375
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " know",
+              "start": 0.59,
+              "end": 0.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " what",
+              "start": 0.69,
+              "end": 0.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 0.83,
+              "end": 0.99,
+              "probability": 0.986328125
+            },
+            {
+              "text": " touch",
+              "start": 0.99,
+              "end": 1.21,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " here?\"",
+              "start": 1.21,
+              "end": 1.87,
+              "probability": 0.6634521484375
+            },
+            {
+              "text": " she",
+              "start": 1.87,
+              "end": 2.11,
+              "probability": 0.701171875
+            },
+            {
+              "text": " said,",
+              "start": 2.11,
+              "end": 2.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " laying",
+              "start": 2.79,
+              "end": 2.99,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " her",
+              "start": 2.99,
+              "end": 3.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hands,",
+              "start": 3.21,
+              "end": 3.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " one",
+              "start": 3.75,
+              "end": 3.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " upon",
+              "start": 3.87,
+              "end": 4.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 4.09,
+              "end": 4.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " other,",
+              "start": 4.25,
+              "end": 4.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 4.47,
+              "end": 4.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 4.65,
+              "end": 4.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " left",
+              "start": 4.77,
+              "end": 4.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " side.",
+              "start": 4.91,
+              "end": 5.27,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.59
+        },
+        {
+          "raw": "know",
+          "start": 0.59,
+          "end": 0.69
+        },
+        {
+          "raw": "what",
+          "start": 0.69,
+          "end": 0.83
+        },
+        {
+          "raw": "I",
+          "start": 0.83,
+          "end": 0.99
+        },
+        {
+          "raw": "touch",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "raw": "here?\"",
+          "start": 1.21,
+          "end": 1.87
+        },
+        {
+          "raw": "she",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "raw": "said,",
+          "start": 2.11,
+          "end": 2.43
+        },
+        {
+          "raw": "laying",
+          "start": 2.79,
+          "end": 2.99
+        },
+        {
+          "raw": "her",
+          "start": 2.99,
+          "end": 3.21
+        },
+        {
+          "raw": "hands,",
+          "start": 3.21,
+          "end": 3.61
+        },
+        {
+          "raw": "one",
+          "start": 3.75,
+          "end": 3.87
+        },
+        {
+          "raw": "upon",
+          "start": 3.87,
+          "end": 4.09
+        },
+        {
+          "raw": "the",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "raw": "other,",
+          "start": 4.25,
+          "end": 4.47
+        },
+        {
+          "raw": "on",
+          "start": 4.47,
+          "end": 4.65
+        },
+        {
+          "raw": "her",
+          "start": 4.65,
+          "end": 4.77
+        },
+        {
+          "raw": "left",
+          "start": 4.77,
+          "end": 4.91
+        },
+        {
+          "raw": "side.",
+          "start": 4.91,
+          "end": 5.27
+        }
+      ],
+      "expected_tokens": [
+        "\"Do",
+        "you",
+        "know",
+        "what",
+        "I",
+        "touch",
+        "here?\"",
+        "she",
+        "said,",
+        "laying",
+        "her",
+        "hands,",
+        "one",
+        "upon",
+        "the",
+        "other,",
+        "on",
+        "her",
+        "left",
+        "side."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.59,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 0.59,
+          "end": 0.69,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.69,
+          "end": 0.83,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.83,
+          "end": 0.99,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "touch",
+          "start": 0.99,
+          "end": 1.21,
+          "key": "touch",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "here?\"",
+          "start": 1.21,
+          "end": 1.87,
+          "key": "here",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.87,
+          "end": 2.11,
+          "key": "she",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 2.11,
+          "end": 2.43,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "laying",
+          "start": 2.79,
+          "end": 2.99,
+          "key": "laying",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.99,
+          "end": 3.21,
+          "key": "her",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "hands,",
+          "start": 3.21,
+          "end": 3.61,
+          "key": "hands",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 3.75,
+          "end": 3.87,
+          "key": "one",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.87,
+          "end": 4.09,
+          "key": "upon",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.09,
+          "end": 4.25,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "other,",
+          "start": 4.25,
+          "end": 4.47,
+          "key": "other",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.47,
+          "end": 4.65,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.65,
+          "end": 4.77,
+          "key": "her",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "left",
+          "start": 4.77,
+          "end": 4.91,
+          "key": "left",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "side.",
+          "start": 4.91,
+          "end": 5.27,
+          "key": "side",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Do",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.59
+        },
+        {
+          "text": "know",
+          "start": 0.59,
+          "end": 0.69
+        },
+        {
+          "text": "what",
+          "start": 0.69,
+          "end": 0.83
+        },
+        {
+          "text": "I",
+          "start": 0.83,
+          "end": 0.99
+        },
+        {
+          "text": "touch",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "text": "here?\"",
+          "start": 1.21,
+          "end": 1.87
+        },
+        {
+          "text": "she",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "text": "said,",
+          "start": 2.11,
+          "end": 2.43
+        },
+        {
+          "text": "laying",
+          "start": 2.79,
+          "end": 2.99
+        },
+        {
+          "text": "her",
+          "start": 2.99,
+          "end": 3.21
+        },
+        {
+          "text": "hands,",
+          "start": 3.21,
+          "end": 3.61
+        },
+        {
+          "text": "one",
+          "start": 3.75,
+          "end": 3.87
+        },
+        {
+          "text": "upon",
+          "start": 3.87,
+          "end": 4.09
+        },
+        {
+          "text": "the",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "text": "other,",
+          "start": 4.25,
+          "end": 4.47
+        },
+        {
+          "text": "on",
+          "start": 4.47,
+          "end": 4.65
+        },
+        {
+          "text": "her",
+          "start": 4.65,
+          "end": 4.77
+        },
+        {
+          "text": "left",
+          "start": 4.77,
+          "end": 4.91
+        },
+        {
+          "text": "side.",
+          "start": 4.91,
+          "end": 5.27
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3173110820353031
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fff008851f12418f87723640c5348185e22156bdc0e261f626a428d22879e8f0",
+  "selected_reasons": []
+}

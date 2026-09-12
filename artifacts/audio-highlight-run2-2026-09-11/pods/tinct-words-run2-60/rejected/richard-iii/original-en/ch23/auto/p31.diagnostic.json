@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "142949f24f74d37e92adcef7f8406542e3f09a6ce241b4405adf09fa5d9936f6",
+  "attempts": [
+    {
+      "asr_seconds": 0.13958141207695007,
+      "alignment_seconds": 0.0002790577709674835,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Catesby. My lord?",
+        "hotwords": "Catesby, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Catesby, My Lord.",
+          "start": 0.08,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Catesby,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.3172658284505208
+            },
+            {
+              "text": " My",
+              "start": 1.14,
+              "end": 1.26,
+              "probability": 0.03948974609375
+            },
+            {
+              "text": " Lord.",
+              "start": 1.26,
+              "end": 1.5,
+              "probability": 0.85205078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Catesby,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "My",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "raw": "Lord.",
+          "start": 1.26,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "Catesby.",
+        "My",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Catesby,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "catesby",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.14,
+          "end": 1.26,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lord.",
+          "start": 1.26,
+          "end": 1.5,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Catesby.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "My",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "text": "lord?",
+          "start": 1.26,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13996974006295204
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "42524f446d5c75a1e3676b1dd12ce022d33278d2858d04363b02732aca45e178",
+  "selected_reasons": []
+}

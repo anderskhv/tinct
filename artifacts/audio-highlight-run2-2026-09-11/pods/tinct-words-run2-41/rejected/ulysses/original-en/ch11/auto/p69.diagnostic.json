@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "924dab0667f66d5cc0fb2924588b7b10eb92563198ebac5047155fe9d10e1e52",
+  "attempts": [
+    {
+      "asr_seconds": 0.37771271960809827,
+      "alignment_seconds": 0.0005927151069045067,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "She darted, bronze, to the backmost corner, flattening her face against the pane in a halo of hurried breath.",
+        "hotwords": "She"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She darted, bronze, to the backmost corner, flattening her face against the pane in a halo of hurried breath.",
+          "start": 0.02,
+          "end": 6.54,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.91796875
+            },
+            {
+              "text": " darted,",
+              "start": 0.54,
+              "end": 0.98,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " bronze,",
+              "start": 1.04,
+              "end": 1.5,
+              "probability": 0.9453125
+            },
+            {
+              "text": " to",
+              "start": 1.98,
+              "end": 2.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.08,
+              "end": 2.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " backmost",
+              "start": 2.18,
+              "end": 2.62,
+              "probability": 0.826171875
+            },
+            {
+              "text": " corner,",
+              "start": 2.62,
+              "end": 3.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " flattening",
+              "start": 3.7,
+              "end": 3.98,
+              "probability": 0.994384765625
+            },
+            {
+              "text": " her",
+              "start": 3.98,
+              "end": 4.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " face",
+              "start": 4.14,
+              "end": 4.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " against",
+              "start": 4.38,
+              "end": 4.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 4.64,
+              "end": 4.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pane",
+              "start": 4.84,
+              "end": 5.14,
+              "probability": 0.045562744140625
+            },
+            {
+              "text": " in",
+              "start": 5.14,
+              "end": 5.32,
+              "probability": 0.986328125
+            },
+            {
+              "text": " a",
+              "start": 5.32,
+              "end": 5.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " halo",
+              "start": 5.42,
+              "end": 5.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 5.7,
+              "end": 5.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hurried",
+              "start": 5.9,
+              "end": 6.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " breath.",
+              "start": 6.2,
+              "end": 6.54,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "darted,",
+          "start": 0.54,
+          "end": 0.98
+        },
+        {
+          "raw": "bronze,",
+          "start": 1.04,
+          "end": 1.5
+        },
+        {
+          "raw": "to",
+          "start": 1.98,
+          "end": 2.08
+        },
+        {
+          "raw": "the",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "raw": "backmost",
+          "start": 2.18,
+          "end": 2.62
+        },
+        {
+          "raw": "corner,",
+          "start": 2.62,
+          "end": 3.06
+        },
+        {
+          "raw": "flattening",
+          "start": 3.7,
+          "end": 3.98
+        },
+        {
+          "raw": "her",
+          "start": 3.98,
+          "end": 4.14
+        },
+        {
+          "raw": "face",
+          "start": 4.14,
+          "end": 4.38
+        },
+        {
+          "raw": "against",
+          "start": 4.38,
+          "end": 4.64
+        },
+        {
+          "raw": "the",
+          "start": 4.64,
+          "end": 4.84
+        },
+        {
+          "raw": "pane",
+          "start": 4.84,
+          "end": 5.14
+        },
+        {
+          "raw": "in",
+          "start": 5.14,
+          "end": 5.32
+        },
+        {
+          "raw": "a",
+          "start": 5.32,
+          "end": 5.42
+        },
+        {
+          "raw": "halo",
+          "start": 5.42,
+          "end": 5.7
+        },
+        {
+          "raw": "of",
+          "start": 5.7,
+          "end": 5.9
+        },
+        {
+          "raw": "hurried",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "raw": "breath.",
+          "start": 6.2,
+          "end": 6.54
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "darted,",
+        "bronze,",
+        "to",
+        "the",
+        "backmost",
+        "corner,",
+        "flattening",
+        "her",
+        "face",
+        "against",
+        "the",
+        "pane",
+        "in",
+        "a",
+        "halo",
+        "of",
+        "hurried",
+        "breath."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "darted,",
+          "start": 0.54,
+          "end": 0.98,
+          "key": "darted",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bronze,",
+          "start": 1.04,
+          "end": 1.5,
+          "key": "bronze",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.98,
+          "end": 2.08,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.08,
+          "end": 2.18,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "backmost",
+          "start": 2.18,
+          "end": 2.62,
+          "key": "backmost",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "corner,",
+          "start": 2.62,
+          "end": 3.06,
+          "key": "corner",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "flattening",
+          "start": 3.7,
+          "end": 3.98,
+          "key": "flattening",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.98,
+          "end": 4.14,
+          "key": "her",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 4.14,
+          "end": 4.38,
+          "key": "face",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 4.38,
+          "end": 4.64,
+          "key": "against",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.64,
+          "end": 4.84,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "pane",
+          "start": 4.84,
+          "end": 5.14,
+          "key": "pane",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.14,
+          "end": 5.32,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.32,
+          "end": 5.42,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "halo",
+          "start": 5.42,
+          "end": 5.7,
+          "key": "halo",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.7,
+          "end": 5.9,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "hurried",
+          "start": 5.9,
+          "end": 6.2,
+          "key": "hurried",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "breath.",
+          "start": 6.2,
+          "end": 6.54,
+          "key": "breath",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "darted,",
+          "start": 0.54,
+          "end": 0.98
+        },
+        {
+          "text": "bronze,",
+          "start": 1.04,
+          "end": 1.5
+        },
+        {
+          "text": "to",
+          "start": 1.98,
+          "end": 2.08
+        },
+        {
+          "text": "the",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "text": "backmost",
+          "start": 2.18,
+          "end": 2.62
+        },
+        {
+          "text": "corner,",
+          "start": 2.62,
+          "end": 3.06
+        },
+        {
+          "text": "flattening",
+          "start": 3.7,
+          "end": 3.98
+        },
+        {
+          "text": "her",
+          "start": 3.98,
+          "end": 4.14
+        },
+        {
+          "text": "face",
+          "start": 4.14,
+          "end": 4.38
+        },
+        {
+          "text": "against",
+          "start": 4.38,
+          "end": 4.64
+        },
+        {
+          "text": "the",
+          "start": 4.64,
+          "end": 4.84
+        },
+        {
+          "text": "pane",
+          "start": 4.84,
+          "end": 5.14
+        },
+        {
+          "text": "in",
+          "start": 5.14,
+          "end": 5.32
+        },
+        {
+          "text": "a",
+          "start": 5.32,
+          "end": 5.42
+        },
+        {
+          "text": "halo",
+          "start": 5.42,
+          "end": 5.7
+        },
+        {
+          "text": "of",
+          "start": 5.7,
+          "end": 5.9
+        },
+        {
+          "text": "hurried",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "text": "breath.",
+          "start": 6.2,
+          "end": 6.54
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3786127660423517
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "518b4a210f1acef9defcf75ee122db624ca9c89d8192c9ba6a20f022080e5afb",
+  "selected_reasons": []
+}

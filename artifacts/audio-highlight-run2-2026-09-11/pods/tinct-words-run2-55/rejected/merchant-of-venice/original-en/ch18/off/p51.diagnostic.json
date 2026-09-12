@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "097efb8f0b4f5d17f65a593d2bd56dc5ac2779b6e327a6a0aceb861824aba763",
+  "attempts": [
+    {
+      "asr_seconds": 0.2092581083998084,
+      "alignment_seconds": 0.00039499253034591675,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To Antonio you stand within his danger. Do you not?",
+          "start": 0.0,
+          "end": 3.48,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.52,
+              "probability": 0.787109375
+            },
+            {
+              "text": " Antonio",
+              "start": 0.52,
+              "end": 1.02,
+              "probability": 0.982421875
+            },
+            {
+              "text": " you",
+              "start": 1.02,
+              "end": 1.84,
+              "probability": 0.437255859375
+            },
+            {
+              "text": " stand",
+              "start": 1.84,
+              "end": 2.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " within",
+              "start": 2.16,
+              "end": 2.4,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " his",
+              "start": 2.4,
+              "end": 2.62,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " danger.",
+              "start": 2.62,
+              "end": 2.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Do",
+              "start": 3.04,
+              "end": 3.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 3.16,
+              "end": 3.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not?",
+              "start": 3.26,
+              "end": 3.48,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "raw": "Antonio",
+          "start": 0.52,
+          "end": 1.02
+        },
+        {
+          "raw": "you",
+          "start": 1.02,
+          "end": 1.84
+        },
+        {
+          "raw": "stand",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "raw": "within",
+          "start": 2.16,
+          "end": 2.4
+        },
+        {
+          "raw": "his",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "raw": "danger.",
+          "start": 2.62,
+          "end": 2.98
+        },
+        {
+          "raw": "Do",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "raw": "you",
+          "start": 3.16,
+          "end": 3.26
+        },
+        {
+          "raw": "not?",
+          "start": 3.26,
+          "end": 3.48
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Antonio_.]",
+        "You",
+        "stand",
+        "within",
+        "his",
+        "danger,",
+        "do",
+        "you",
+        "not?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.52,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Antonio",
+          "start": 0.52,
+          "end": 1.02,
+          "key": "antonio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.02,
+          "end": 1.84,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 1.84,
+          "end": 2.16,
+          "key": "stand",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 2.16,
+          "end": 2.4,
+          "key": "within",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.4,
+          "end": 2.62,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "danger.",
+          "start": 2.62,
+          "end": 2.98,
+          "key": "danger",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 3.04,
+          "end": 3.16,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.16,
+          "end": 3.26,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not?",
+          "start": 3.26,
+          "end": 3.48,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "Antonio_.]",
+          "start": 0.52,
+          "end": 1.02
+        },
+        {
+          "text": "You",
+          "start": 1.02,
+          "end": 1.84
+        },
+        {
+          "text": "stand",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "text": "within",
+          "start": 2.16,
+          "end": 2.4
+        },
+        {
+          "text": "his",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "text": "danger,",
+          "start": 2.62,
+          "end": 2.98
+        },
+        {
+          "text": "do",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "text": "you",
+          "start": 3.16,
+          "end": 3.26
+        },
+        {
+          "text": "not?",
+          "start": 3.26,
+          "end": 3.48
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20979437604546547
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "156d72091f6b4750898270f0fc9c4cb504af265716e605b2528ea1ea966b4661",
+  "selected_reasons": []
+}

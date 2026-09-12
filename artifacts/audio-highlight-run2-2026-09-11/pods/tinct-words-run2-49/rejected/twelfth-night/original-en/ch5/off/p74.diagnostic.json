@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "5d782faccc524026c4c1caa5220933d9d7591c443ac0932786c7a53e3ed1db0c",
+  "attempts": [
+    {
+      "asr_seconds": 0.20497672632336617,
+      "alignment_seconds": 0.00044086575508117676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, what kind of man is he?",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.8828125
+            },
+            {
+              "text": " what",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " kind",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.97265625
+            },
+            {
+              "text": " of",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.77734375
+            },
+            {
+              "text": " man",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " is",
+              "start": 1.81,
+              "end": 1.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he?",
+              "start": 1.99,
+              "end": 2.19,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "what",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "kind",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "of",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "man",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "raw": "is",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "raw": "he?",
+          "start": 1.99,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "What",
+        "kind",
+        "o'",
+        "man",
+        "is",
+        "he?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.19,
+          "end": 1.31,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "kind",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "man",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.81,
+          "end": 1.99,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he?",
+          "start": 1.99,
+          "end": 2.19,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "What",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "text": "kind",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "o'",
+          "start": 1.49,
+          "end": 1.55
+        },
+        {
+          "text": "man",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "text": "is",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "text": "he?",
+          "start": 1.99,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.20557885617017746
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3a3c786a6f1769f2e804d93c107f69c700aa7140fb68b51324e0d0a1ec354e1e",
+  "selected_reasons": []
+}

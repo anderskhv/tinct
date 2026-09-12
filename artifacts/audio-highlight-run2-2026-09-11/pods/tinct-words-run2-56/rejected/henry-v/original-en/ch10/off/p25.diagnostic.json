@@ -1,0 +1,627 @@
+{
+  "complete": true,
+  "signature": "c11eb48a19d5a90ec6d7c0446f88c5cd56b29c7879ee9e1b444a56225b0fb5eb",
+  "attempts": [
+    {
+      "asr_seconds": 0.31138377264142036,
+      "alignment_seconds": 0.0006340155377984047,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Catharine, genie d'out point de prender parle grès de dia et en pued attempts.",
+          "start": 0.11,
+          "end": 5.27,
+          "words": [
+            {
+              "text": " Catharine,",
+              "start": 0.11,
+              "end": 0.95,
+              "probability": 0.46636962890625
+            },
+            {
+              "text": " genie",
+              "start": 1.51,
+              "end": 1.89,
+              "probability": 0.54046630859375
+            },
+            {
+              "text": " d",
+              "start": 1.89,
+              "end": 2.03,
+              "probability": 0.2149658203125
+            },
+            {
+              "text": "'out",
+              "start": 2.03,
+              "end": 2.09,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " point",
+              "start": 2.09,
+              "end": 2.35,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " de",
+              "start": 2.35,
+              "end": 2.55,
+              "probability": 0.5927734375
+            },
+            {
+              "text": " prender",
+              "start": 2.55,
+              "end": 2.91,
+              "probability": 0.655029296875
+            },
+            {
+              "text": " parle",
+              "start": 2.91,
+              "end": 3.33,
+              "probability": 0.640380859375
+            },
+            {
+              "text": " grès",
+              "start": 3.33,
+              "end": 3.69,
+              "probability": 0.4159952799479167
+            },
+            {
+              "text": " de",
+              "start": 3.69,
+              "end": 3.79,
+              "probability": 0.472412109375
+            },
+            {
+              "text": " dia",
+              "start": 3.79,
+              "end": 4.07,
+              "probability": 0.770263671875
+            },
+            {
+              "text": " et",
+              "start": 4.07,
+              "end": 4.45,
+              "probability": 0.8828125
+            },
+            {
+              "text": " en",
+              "start": 4.45,
+              "end": 4.63,
+              "probability": 0.7216796875
+            },
+            {
+              "text": " pued",
+              "start": 4.63,
+              "end": 4.83,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " attempts.",
+              "start": 4.83,
+              "end": 5.27,
+              "probability": 0.4208984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Catharine,",
+          "start": 0.11,
+          "end": 0.95
+        },
+        {
+          "raw": "genie",
+          "start": 1.51,
+          "end": 1.89
+        },
+        {
+          "raw": "d",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "raw": "'out",
+          "start": 2.03,
+          "end": 2.09
+        },
+        {
+          "raw": "point",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "raw": "de",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "raw": "prender",
+          "start": 2.55,
+          "end": 2.91
+        },
+        {
+          "raw": "parle",
+          "start": 2.91,
+          "end": 3.33
+        },
+        {
+          "raw": "grès",
+          "start": 3.33,
+          "end": 3.69
+        },
+        {
+          "raw": "de",
+          "start": 3.69,
+          "end": 3.79
+        },
+        {
+          "raw": "dia",
+          "start": 3.79,
+          "end": 4.07
+        },
+        {
+          "raw": "et",
+          "start": 4.07,
+          "end": 4.45
+        },
+        {
+          "raw": "en",
+          "start": 4.45,
+          "end": 4.63
+        },
+        {
+          "raw": "pued",
+          "start": 4.63,
+          "end": 4.83
+        },
+        {
+          "raw": "attempts.",
+          "start": 4.83,
+          "end": 5.27
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "_Je",
+        "ne",
+        "doute",
+        "point",
+        "d'apprendre,",
+        "par",
+        "la",
+        "grâce",
+        "de",
+        "Dieu,",
+        "et",
+        "en",
+        "peu",
+        "de",
+        "temps._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "delete",
+          5,
+          9,
+          5,
+          5
+        ],
+        [
+          "equal",
+          9,
+          10,
+          5,
+          6
+        ],
+        [
+          "replace",
+          10,
+          11,
+          6,
+          11
+        ],
+        [
+          "equal",
+          11,
+          13,
+          11,
+          13
+        ],
+        [
+          "replace",
+          13,
+          16,
+          13,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "delete",
+          5,
+          9,
+          5,
+          5
+        ],
+        [
+          "replace",
+          10,
+          11,
+          6,
+          11
+        ],
+        [
+          "replace",
+          13,
+          16,
+          13,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Catharine,",
+          "start": 0.11,
+          "end": 0.95,
+          "key": "catharine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "genie",
+          "start": 1.51,
+          "end": 1.89,
+          "key": "genie",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 1.89,
+          "end": 2.03,
+          "key": "d",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'out",
+          "start": 2.03,
+          "end": 2.09,
+          "key": "out",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "point",
+          "start": 2.09,
+          "end": 2.35,
+          "key": "point",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.35,
+          "end": 2.55,
+          "key": "de",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "prender",
+          "start": 2.55,
+          "end": 2.91,
+          "key": "prender",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "parle",
+          "start": 2.91,
+          "end": 3.33,
+          "key": "parle",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "grès",
+          "start": 3.33,
+          "end": 3.69,
+          "key": "grès",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 3.69,
+          "end": 3.79,
+          "key": "de",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dia",
+          "start": 3.79,
+          "end": 4.07,
+          "key": "dia",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 4.07,
+          "end": 4.45,
+          "key": "et",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "en",
+          "start": 4.45,
+          "end": 4.63,
+          "key": "en",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pued",
+          "start": 4.63,
+          "end": 4.83,
+          "key": "pued",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "attempts.",
+          "start": 4.83,
+          "end": 5.27,
+          "key": "attempts",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.0,
+          "end": 1.045
+        },
+        {
+          "text": "_Je",
+          "start": 1.045,
+          "end": 1.567
+        },
+        {
+          "text": "ne",
+          "start": 1.567,
+          "end": 1.829
+        },
+        {
+          "text": "doute",
+          "start": 1.829,
+          "end": 1.959
+        },
+        {
+          "text": "point",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "text": "d'apprendre,",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "text": "par",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "text": "la",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "text": "grâce",
+          "start": 2.35,
+          "end": 2.35
+        },
+        {
+          "text": "de",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "text": "Dieu,",
+          "start": 2.55,
+          "end": 3.31
+        },
+        {
+          "text": "et",
+          "start": 4.07,
+          "end": 4.45
+        },
+        {
+          "text": "en",
+          "start": 4.45,
+          "end": 4.63
+        },
+        {
+          "text": "peu",
+          "start": 4.63,
+          "end": 4.95
+        },
+        {
+          "text": "de",
+          "start": 4.95,
+          "end": 5.11
+        },
+        {
+          "text": "temps._",
+          "start": 5.11,
+          "end": 5.19
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 15,
+        "matched_words": 4
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.312214694917202
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3405b7f6e1788493e9339f66ee833651265a6c48438e9ffe85153b0560d2162d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

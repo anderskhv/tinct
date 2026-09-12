@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "dbe4fa0944d2f35b77d866165487a8a694995cb28d8d09661b0277f88815ba6c",
+  "attempts": [
+    {
+      "asr_seconds": 0.22799981106072664,
+      "alignment_seconds": 0.00013565504923462868,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dromio of Ephesus. Sir, he dined with her there at the Porpentine.",
+          "start": 0.05,
+          "end": 4.45,
+          "words": [
+            {
+              "text": " Dromio",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.669677734375
+            },
+            {
+              "text": " of",
+              "start": 0.89,
+              "end": 1.05,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " Ephesus.",
+              "start": 1.05,
+              "end": 1.73,
+              "probability": 0.9825846354166666
+            },
+            {
+              "text": " Sir,",
+              "start": 2.09,
+              "end": 2.31,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " he",
+              "start": 2.61,
+              "end": 2.69,
+              "probability": 0.984375
+            },
+            {
+              "text": " dined",
+              "start": 2.69,
+              "end": 3.01,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " with",
+              "start": 3.01,
+              "end": 3.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " her",
+              "start": 3.17,
+              "end": 3.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " there",
+              "start": 3.29,
+              "end": 3.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 3.53,
+              "end": 3.73,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " the",
+              "start": 3.73,
+              "end": 3.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Porpentine.",
+              "start": 3.83,
+              "end": 4.45,
+              "probability": 0.818115234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dromio",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "of",
+          "start": 0.89,
+          "end": 1.05
+        },
+        {
+          "raw": "Ephesus.",
+          "start": 1.05,
+          "end": 1.73
+        },
+        {
+          "raw": "Sir,",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "raw": "he",
+          "start": 2.61,
+          "end": 2.69
+        },
+        {
+          "raw": "dined",
+          "start": 2.69,
+          "end": 3.01
+        },
+        {
+          "raw": "with",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "raw": "her",
+          "start": 3.17,
+          "end": 3.29
+        },
+        {
+          "raw": "there",
+          "start": 3.29,
+          "end": 3.53
+        },
+        {
+          "raw": "at",
+          "start": 3.53,
+          "end": 3.73
+        },
+        {
+          "raw": "the",
+          "start": 3.73,
+          "end": 3.83
+        },
+        {
+          "raw": "Porpentine.",
+          "start": 3.83,
+          "end": 4.45
+        }
+      ],
+      "expected_tokens": [
+        "Dromio",
+        "Of",
+        "Ephesus.",
+        "Sir,",
+        "he",
+        "dined",
+        "with",
+        "her",
+        "there,",
+        "at",
+        "the",
+        "Porpentine."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dromio",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "dromio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.89,
+          "end": 1.05,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ephesus.",
+          "start": 1.05,
+          "end": 1.73,
+          "key": "ephesus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 2.09,
+          "end": 2.31,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.61,
+          "end": 2.69,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dined",
+          "start": 2.69,
+          "end": 3.01,
+          "key": "dined",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.01,
+          "end": 3.17,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.17,
+          "end": 3.29,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 3.29,
+          "end": 3.53,
+          "key": "there",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.53,
+          "end": 3.73,
+          "key": "at",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.73,
+          "end": 3.83,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Porpentine.",
+          "start": 3.83,
+          "end": 4.45,
+          "key": "porpentine",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dromio",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Of",
+          "start": 0.89,
+          "end": 1.05
+        },
+        {
+          "text": "Ephesus.",
+          "start": 1.05,
+          "end": 1.73
+        },
+        {
+          "text": "Sir,",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "text": "he",
+          "start": 2.61,
+          "end": 2.69
+        },
+        {
+          "text": "dined",
+          "start": 2.69,
+          "end": 3.01
+        },
+        {
+          "text": "with",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "text": "her",
+          "start": 3.17,
+          "end": 3.29
+        },
+        {
+          "text": "there,",
+          "start": 3.29,
+          "end": 3.53
+        },
+        {
+          "text": "at",
+          "start": 3.53,
+          "end": 3.73
+        },
+        {
+          "text": "the",
+          "start": 3.73,
+          "end": 3.83
+        },
+        {
+          "text": "Porpentine.",
+          "start": 3.83,
+          "end": 4.45
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2281836192123592
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2bd23d96878509e67ff13626fec259941293809c6b19ac8fca24c91d691ea4f1",
+  "selected_reasons": []
+}

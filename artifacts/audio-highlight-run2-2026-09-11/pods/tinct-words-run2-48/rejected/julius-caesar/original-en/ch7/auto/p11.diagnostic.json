@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "1d17cf71eb6e9e1bf45338d4bd85f5e798dfce9a73225880930c855844b7e64c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11774240992963314,
+      "alignment_seconds": 0.0002884380519390106,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter the Soothsayer.",
+        "hotwords": "Enter, Soothsayer"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter the Soothsayer.",
+          "start": 0.11,
+          "end": 1.29,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " the",
+              "start": 0.61,
+              "end": 0.77,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " Soothsayer.",
+              "start": 0.77,
+              "end": 1.29,
+              "probability": 0.7174479166666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "raw": "Soothsayer.",
+          "start": 0.77,
+          "end": 1.29
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "the",
+        "Soothsayer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.77,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Soothsayer.",
+          "start": 0.77,
+          "end": 1.29,
+          "key": "soothsayer",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "text": "the",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "text": "Soothsayer.",
+          "start": 0.77,
+          "end": 1.29
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11813814099878073
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1496c5d0d9d0ecc92619ea90713732876272e4c2f8dc322aba34b93d35c2d437",
+  "selected_reasons": []
+}

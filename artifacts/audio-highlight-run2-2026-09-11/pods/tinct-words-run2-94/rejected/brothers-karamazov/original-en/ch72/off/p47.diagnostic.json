@@ -1,0 +1,601 @@
+{
+  "complete": true,
+  "signature": "29bfdb03407b3989266ef89005167a5267a5b7d39d8c2260cbcc5f15ac21dc39",
+  "attempts": [
+    {
+      "asr_seconds": 0.35939907655119896,
+      "alignment_seconds": 0.0006917137652635574,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, I am.",
+          "start": 0.05,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " I",
+              "start": 1.03,
+              "end": 1.09,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " am.",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " Mama reads them and hides them under her pillow and I steal them.",
+          "start": 1.93,
+          "end": 4.85,
+          "words": [
+            {
+              "text": " Mama",
+              "start": 1.93,
+              "end": 2.07,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " reads",
+              "start": 2.07,
+              "end": 2.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " them",
+              "start": 2.41,
+              "end": 2.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.955078125
+            },
+            {
+              "text": " hides",
+              "start": 2.85,
+              "end": 3.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them",
+              "start": 3.09,
+              "end": 3.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " under",
+              "start": 3.31,
+              "end": 3.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her",
+              "start": 3.47,
+              "end": 3.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " pillow",
+              "start": 3.61,
+              "end": 3.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 3.87,
+              "end": 4.13,
+              "probability": 0.58837890625
+            },
+            {
+              "text": " I",
+              "start": 4.13,
+              "end": 4.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " steal",
+              "start": 4.27,
+              "end": 4.53,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " them.",
+              "start": 4.53,
+              "end": 4.85,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "I",
+          "start": 1.03,
+          "end": 1.09
+        },
+        {
+          "raw": "am.",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "raw": "Mama",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "raw": "reads",
+          "start": 2.07,
+          "end": 2.41
+        },
+        {
+          "raw": "them",
+          "start": 2.41,
+          "end": 2.69
+        },
+        {
+          "raw": "and",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "hides",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "raw": "them",
+          "start": 3.09,
+          "end": 3.31
+        },
+        {
+          "raw": "under",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "raw": "her",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "raw": "pillow",
+          "start": 3.61,
+          "end": 3.87
+        },
+        {
+          "raw": "and",
+          "start": 3.87,
+          "end": 4.13
+        },
+        {
+          "raw": "I",
+          "start": 4.13,
+          "end": 4.27
+        },
+        {
+          "raw": "steal",
+          "start": 4.27,
+          "end": 4.53
+        },
+        {
+          "raw": "them.",
+          "start": 4.53,
+          "end": 4.85
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "I",
+        "am.",
+        "Mamma",
+        "reads",
+        "them",
+        "and",
+        "hides",
+        "them",
+        "under",
+        "her",
+        "pillow",
+        "and",
+        "I",
+        "steal",
+        "them.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          16,
+          4,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.03,
+          "end": 1.09,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am.",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mama",
+          "start": 1.93,
+          "end": 2.07,
+          "key": "mama",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "reads",
+          "start": 2.07,
+          "end": 2.41,
+          "key": "reads",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.41,
+          "end": 2.69,
+          "key": "them",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.69,
+          "end": 2.85,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hides",
+          "start": 2.85,
+          "end": 3.09,
+          "key": "hides",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.09,
+          "end": 3.31,
+          "key": "them",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 3.31,
+          "end": 3.47,
+          "key": "under",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.47,
+          "end": 3.61,
+          "key": "her",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "pillow",
+          "start": 3.61,
+          "end": 3.87,
+          "key": "pillow",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.87,
+          "end": 4.13,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.13,
+          "end": 4.27,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "steal",
+          "start": 4.27,
+          "end": 4.53,
+          "key": "steal",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 4.53,
+          "end": 4.85,
+          "key": "them",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "I",
+          "start": 1.03,
+          "end": 1.09
+        },
+        {
+          "text": "am.",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "text": "Mamma",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "text": "reads",
+          "start": 2.07,
+          "end": 2.41
+        },
+        {
+          "text": "them",
+          "start": 2.41,
+          "end": 2.69
+        },
+        {
+          "text": "and",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "hides",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "text": "them",
+          "start": 3.09,
+          "end": 3.31
+        },
+        {
+          "text": "under",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "text": "her",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "text": "pillow",
+          "start": 3.61,
+          "end": 3.87
+        },
+        {
+          "text": "and",
+          "start": 3.87,
+          "end": 4.13
+        },
+        {
+          "text": "I",
+          "start": 4.13,
+          "end": 4.27
+        },
+        {
+          "text": "steal",
+          "start": 4.27,
+          "end": 4.53
+        },
+        {
+          "text": "them.\"",
+          "start": 4.53,
+          "end": 4.85
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.36038167402148247
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "82740aaa9f692df1b6f6e607c5f7bedf27673558a0d62e695ea62aa0e9bcec6c",
+  "selected_reasons": []
+}

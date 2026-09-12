@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "2656a5ec5dcd83a2e5d7d0e682907cc6f85145374ff3de8d3aa1c9f1dc2624a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.13446698201005347,
+      "alignment_seconds": 0.000135750015033409,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Desolation.",
+          "start": 0.05,
+          "end": 0.95,
+          "words": [
+            {
+              "text": " Desolation.",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.8671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desolation.",
+          "start": 0.05,
+          "end": 0.95
+        }
+      ],
+      "expected_tokens": [
+        "Desolation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desolation.",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "desolation",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desolation.",
+          "start": 0.05,
+          "end": 0.95
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13464179800939746
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "efca298d05fe17c9b954b0c48a2195253ba8d71365452c6d4e0f7c8e99a77bb9",
+  "selected_reasons": []
+}

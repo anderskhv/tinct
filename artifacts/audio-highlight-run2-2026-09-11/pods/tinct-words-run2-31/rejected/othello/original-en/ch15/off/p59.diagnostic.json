@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "14aa45400bc9578af110dc82890262180c7c88f20462d1cd760976ea4a3dfbf8",
+  "attempts": [
+    {
+      "asr_seconds": 0.11517257103696465,
+      "alignment_seconds": 0.00011521810665726662,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, who's there?",
+          "start": 0.02,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.9620768229166666
+            },
+            {
+              "text": " who's",
+              "start": 1.06,
+              "end": 1.3,
+              "probability": 0.965087890625
+            },
+            {
+              "text": " there?",
+              "start": 1.3,
+              "end": 1.5,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "who's",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "raw": "there?",
+          "start": 1.3,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Who's",
+        "there?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who's",
+          "start": 1.06,
+          "end": 1.3,
+          "key": "whos",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there?",
+          "start": 1.3,
+          "end": 1.5,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "text": "Who's",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "text": "there?",
+          "start": 1.3,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11532375914976001
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "06d4930bd4224ee69f1cbadf98b301a5f2deebc96ec4c3aa63e51a2319df7726",
+  "selected_reasons": []
+}

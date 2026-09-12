@@ -1,0 +1,890 @@
+{
+  "complete": true,
+  "signature": "9e290e316de23cbc05f14a9d7cf963950e9e42fafdc04ea2b5e0e5a570d89752",
+  "attempts": [
+    {
+      "asr_seconds": 0.2355613219551742,
+      "alignment_seconds": 0.00027771806344389915,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Coriolanus. Where? At the Senate House?",
+        "hotwords": "Coriolanus, Where, At, Senate, House"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, Where, At, Senate, House",
+          "start": 0.08,
+          "end": 2.66,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.08,
+              "end": 1.08,
+              "probability": 0.7823893229166666
+            },
+            {
+              "text": " Where,",
+              "start": 1.42,
+              "end": 1.46,
+              "probability": 0.0137786865234375
+            },
+            {
+              "text": " At,",
+              "start": 1.82,
+              "end": 1.92,
+              "probability": 0.0657958984375
+            },
+            {
+              "text": " Senate,",
+              "start": 1.92,
+              "end": 2.2,
+              "probability": 0.0242156982421875
+            },
+            {
+              "text": " House",
+              "start": 2.4,
+              "end": 2.66,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " Coriolanus, Where, At, Senate, House Coriolanus.",
+          "start": 2.66,
+          "end": 2.88,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 2.66,
+              "end": 2.78,
+              "probability": 0.002528587977091471
+            },
+            {
+              "text": " Where,",
+              "start": 2.88,
+              "end": 2.88,
+              "probability": 3.74913215637207e-05
+            },
+            {
+              "text": " At,",
+              "start": 2.88,
+              "end": 2.88,
+              "probability": 0.0027866363525390625
+            },
+            {
+              "text": " Senate,",
+              "start": 2.88,
+              "end": 2.88,
+              "probability": 1.7344951629638672e-05
+            },
+            {
+              "text": " House",
+              "start": 2.88,
+              "end": 2.88,
+              "probability": 0.02069091796875
+            },
+            {
+              "text": " Coriolanus.",
+              "start": 2.88,
+              "end": 2.88,
+              "probability": 0.35899899403254193
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.08,
+          "end": 1.08
+        },
+        {
+          "raw": "Where,",
+          "start": 1.42,
+          "end": 1.46
+        },
+        {
+          "raw": "At,",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "raw": "Senate,",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "raw": "House",
+          "start": 2.4,
+          "end": 2.66
+        },
+        {
+          "raw": "Coriolanus,",
+          "start": 2.66,
+          "end": 2.78
+        },
+        {
+          "raw": "Where,",
+          "start": 2.88,
+          "end": 2.88
+        },
+        {
+          "raw": "At,",
+          "start": 2.88,
+          "end": 2.88
+        },
+        {
+          "raw": "Senate,",
+          "start": 2.88,
+          "end": 2.88
+        },
+        {
+          "raw": "House",
+          "start": 2.88,
+          "end": 2.88
+        },
+        {
+          "raw": "Coriolanus.",
+          "start": 2.88,
+          "end": 2.88
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "Where?",
+        "At",
+        "the",
+        "Senate",
+        "House?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "delete",
+          3,
+          4,
+          3,
+          3
+        ],
+        [
+          "equal",
+          4,
+          6,
+          3,
+          5
+        ],
+        [
+          "insert",
+          6,
+          6,
+          5,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          3,
+          4,
+          3,
+          3
+        ],
+        [
+          "insert",
+          6,
+          6,
+          5,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.08,
+          "end": 1.08,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where,",
+          "start": 1.42,
+          "end": 1.46,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "At,",
+          "start": 1.82,
+          "end": 1.92,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Senate,",
+          "start": 1.92,
+          "end": 2.2,
+          "key": "senate",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "House",
+          "start": 2.4,
+          "end": 2.66,
+          "key": "house",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Coriolanus,",
+          "start": 2.66,
+          "end": 2.78,
+          "key": "coriolanus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Where,",
+          "start": 2.88,
+          "end": 2.88,
+          "key": "where",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "At,",
+          "start": 2.88,
+          "end": 2.88,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Senate,",
+          "start": 2.88,
+          "end": 2.88,
+          "key": "senate",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "House",
+          "start": 2.88,
+          "end": 2.88,
+          "key": "house",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Coriolanus.",
+          "start": 2.88,
+          "end": 2.88,
+          "key": "coriolanus",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.08,
+          "end": 1.08
+        },
+        {
+          "text": "Where?",
+          "start": 1.42,
+          "end": 1.46
+        },
+        {
+          "text": "At",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "text": "the",
+          "start": 1.92,
+          "end": 1.92
+        },
+        {
+          "text": "Senate",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "text": "House?",
+          "start": 2.4,
+          "end": 2.66
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 11,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23599066492170095
+    },
+    {
+      "asr_seconds": 0.17287332890555263,
+      "alignment_seconds": 0.0002307468093931675,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Coriolanus, Where, At, Senate, House"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, Where, At, Senate, House",
+          "start": 0.08,
+          "end": 2.66,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.08,
+              "end": 1.08,
+              "probability": 0.7823893229166666
+            },
+            {
+              "text": " Where,",
+              "start": 1.42,
+              "end": 1.46,
+              "probability": 0.0137786865234375
+            },
+            {
+              "text": " At,",
+              "start": 1.82,
+              "end": 1.92,
+              "probability": 0.0657958984375
+            },
+            {
+              "text": " Senate,",
+              "start": 1.92,
+              "end": 2.2,
+              "probability": 0.0242156982421875
+            },
+            {
+              "text": " House",
+              "start": 2.4,
+              "end": 2.66,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.08,
+          "end": 1.08
+        },
+        {
+          "raw": "Where,",
+          "start": 1.42,
+          "end": 1.46
+        },
+        {
+          "raw": "At,",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "raw": "Senate,",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "raw": "House",
+          "start": 2.4,
+          "end": 2.66
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "Where?",
+        "At",
+        "the",
+        "Senate",
+        "House?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "delete",
+          3,
+          4,
+          3,
+          3
+        ],
+        [
+          "equal",
+          4,
+          6,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          3,
+          4,
+          3,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.08,
+          "end": 1.08,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where,",
+          "start": 1.42,
+          "end": 1.46,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "At,",
+          "start": 1.82,
+          "end": 1.92,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Senate,",
+          "start": 1.92,
+          "end": 2.2,
+          "key": "senate",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "House",
+          "start": 2.4,
+          "end": 2.66,
+          "key": "house",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.08,
+          "end": 1.08
+        },
+        {
+          "text": "Where?",
+          "start": 1.42,
+          "end": 1.46
+        },
+        {
+          "text": "At",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "text": "the",
+          "start": 1.92,
+          "end": 1.92
+        },
+        {
+          "text": "Senate",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "text": "House?",
+          "start": 2.4,
+          "end": 2.66
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17317599803209305
+    },
+    {
+      "asr_seconds": 0.12721327785402536,
+      "alignment_seconds": 0.00023181689903140068,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, where? At the Senate House.",
+          "start": 0.6,
+          "end": 2.56,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.6,
+              "end": 1.08,
+              "probability": 0.7823893229166666
+            },
+            {
+              "text": " where?",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " At",
+              "start": 1.84,
+              "end": 1.92,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " the",
+              "start": 1.92,
+              "end": 2.04,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Senate",
+              "start": 2.04,
+              "end": 2.22,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " House.",
+              "start": 2.22,
+              "end": 2.56,
+              "probability": 0.95068359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.6,
+          "end": 1.08
+        },
+        {
+          "raw": "where?",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "raw": "At",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "raw": "the",
+          "start": 1.92,
+          "end": 2.04
+        },
+        {
+          "raw": "Senate",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "raw": "House.",
+          "start": 2.22,
+          "end": 2.56
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "Where?",
+        "At",
+        "the",
+        "Senate",
+        "House?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.6,
+          "end": 1.08,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "where?",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 1.84,
+          "end": 1.92,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.92,
+          "end": 2.04,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Senate",
+          "start": 2.04,
+          "end": 2.22,
+          "key": "senate",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "House.",
+          "start": 2.22,
+          "end": 2.56,
+          "key": "house",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.6,
+          "end": 1.08
+        },
+        {
+          "text": "Where?",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "text": "At",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "text": "the",
+          "start": 1.92,
+          "end": 2.04
+        },
+        {
+          "text": "Senate",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "text": "House?",
+          "start": 2.22,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1275262269191444
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fda26952769c204889c157c38e25d1037f0fce3b4d6dba540a0c74289d4ce2a3",
+  "selected_reasons": []
+}

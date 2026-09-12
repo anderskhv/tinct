@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "a8ae61eb984e23063b937aca964b8739566058a673e9fcf7e2f02e02061b63ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.09170492272824049,
+      "alignment_seconds": 0.00016504526138305664,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But can you?\"",
+        "hotwords": "But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But can you?",
+          "start": 0.02,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " can",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " you?",
+              "start": 0.68,
+              "end": 0.92,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "can",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "you?",
+          "start": 0.68,
+          "end": 0.92
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "can",
+        "you?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "can",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 0.68,
+          "end": 0.92,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "can",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "you?\"",
+          "start": 0.68,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09192854072898626
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f94bbf6713775cfe2ce576f640411154961f698eb1e506535890b5cbb7b5698a",
+  "selected_reasons": []
+}

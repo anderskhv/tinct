@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "b0cb8ad1d036f3fc288d4c9caf059b6135746bb9daeaa00bfb899c835fb99b0d",
+  "attempts": [
+    {
+      "asr_seconds": 0.22765464708209038,
+      "alignment_seconds": 0.0004988806322216988,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Drum and colours. Enter King Henry, Gloucester and his poor soldiers.",
+        "hotwords": "Drum, Enter, King, Henry, Gloucester"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Drum and colours. Enter King Henry, Gloucester and his poor soldiers.",
+          "start": 0.05,
+          "end": 4.31,
+          "words": [
+            {
+              "text": " Drum",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.045928955078125
+            },
+            {
+              "text": " and",
+              "start": 0.63,
+              "end": 0.85,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " colours.",
+              "start": 0.85,
+              "end": 1.19,
+              "probability": 0.03076171875
+            },
+            {
+              "text": " Enter",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " King",
+              "start": 2.03,
+              "end": 2.25,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Henry,",
+              "start": 2.25,
+              "end": 2.63,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Gloucester",
+              "start": 3.11,
+              "end": 3.37,
+              "probability": 0.979248046875
+            },
+            {
+              "text": " and",
+              "start": 3.37,
+              "end": 3.53,
+              "probability": 0.71044921875
+            },
+            {
+              "text": " his",
+              "start": 3.53,
+              "end": 3.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " poor",
+              "start": 3.69,
+              "end": 3.89,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " soldiers.",
+              "start": 3.89,
+              "end": 4.31,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Drum",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "and",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "raw": "colours.",
+          "start": 0.85,
+          "end": 1.19
+        },
+        {
+          "raw": "Enter",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "King",
+          "start": 2.03,
+          "end": 2.25
+        },
+        {
+          "raw": "Henry,",
+          "start": 2.25,
+          "end": 2.63
+        },
+        {
+          "raw": "Gloucester",
+          "start": 3.11,
+          "end": 3.37
+        },
+        {
+          "raw": "and",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "raw": "his",
+          "start": 3.53,
+          "end": 3.69
+        },
+        {
+          "raw": "poor",
+          "start": 3.69,
+          "end": 3.89
+        },
+        {
+          "raw": "soldiers.",
+          "start": 3.89,
+          "end": 4.31
+        }
+      ],
+      "expected_tokens": [
+        "Drum",
+        "and",
+        "colours.",
+        "Enter",
+        "King",
+        "Henry,",
+        "Gloucester",
+        "and",
+        "his",
+        "poor",
+        "soldiers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Drum",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "drum",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.63,
+          "end": 0.85,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "colours.",
+          "start": 0.85,
+          "end": 1.19,
+          "key": "colours",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 1.85,
+          "end": 2.03,
+          "key": "enter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 2.03,
+          "end": 2.25,
+          "key": "king",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 2.25,
+          "end": 2.63,
+          "key": "henry",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Gloucester",
+          "start": 3.11,
+          "end": 3.37,
+          "key": "gloucester",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.37,
+          "end": 3.53,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.53,
+          "end": 3.69,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 3.69,
+          "end": 3.89,
+          "key": "poor",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "soldiers.",
+          "start": 3.89,
+          "end": 4.31,
+          "key": "soldiers",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Drum",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "and",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "text": "colours.",
+          "start": 0.85,
+          "end": 1.19
+        },
+        {
+          "text": "Enter",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "King",
+          "start": 2.03,
+          "end": 2.25
+        },
+        {
+          "text": "Henry,",
+          "start": 2.25,
+          "end": 2.63
+        },
+        {
+          "text": "Gloucester",
+          "start": 3.11,
+          "end": 3.37
+        },
+        {
+          "text": "and",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "text": "his",
+          "start": 3.53,
+          "end": 3.69
+        },
+        {
+          "text": "poor",
+          "start": 3.69,
+          "end": 3.89
+        },
+        {
+          "text": "soldiers.",
+          "start": 3.89,
+          "end": 4.31
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22834006045013666
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c23ccecc0c12750c901f8be7cf95dd05ab0cab2453e3d312ce776ef43752b3d0",
+  "selected_reasons": []
+}

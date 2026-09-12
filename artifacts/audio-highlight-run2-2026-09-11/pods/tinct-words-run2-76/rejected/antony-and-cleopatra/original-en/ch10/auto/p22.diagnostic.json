@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "e161f8cc483c218a7069c21630fc3d9ecca6f7865a7bf9ef92b4a7ccbeaa8e06",
+  "attempts": [
+    {
+      "asr_seconds": 0.16824452485889196,
+      "alignment_seconds": 0.0002788109704852104,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. Well said.",
+        "hotwords": "Cleopatra, Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, Well said.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " Well",
+              "start": 1.25,
+              "end": 1.45,
+              "probability": 0.171142578125
+            },
+            {
+              "text": " said.",
+              "start": 1.45,
+              "end": 1.75,
+              "probability": 0.84814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "Well",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "raw": "said.",
+          "start": 1.45,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Well",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well",
+          "start": 1.25,
+          "end": 1.45,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.45,
+          "end": 1.75,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Well",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "said.",
+          "start": 1.45,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16863105027005076
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "75808e2596b28da3145d2eec23e86f9b58a9c0d30618cb8366e9f87d02d43368",
+  "selected_reasons": []
+}

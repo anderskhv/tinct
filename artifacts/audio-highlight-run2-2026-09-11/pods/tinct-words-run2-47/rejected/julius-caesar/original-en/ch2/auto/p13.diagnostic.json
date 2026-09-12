@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "8e0c94d2038a2de4df979614b6ead57b0633c5bf6765ce7b88b8def3c2864784",
+  "attempts": [
+    {
+      "asr_seconds": 0.144128757994622,
+      "alignment_seconds": 0.0003149700060021132,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caesar. Ha! Who calls?",
+        "hotwords": "Caesar, Ha, Who"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caesar, Ha! Who calls?",
+          "start": 0.11,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.37744140625
+            },
+            {
+              "text": " Ha!",
+              "start": 1.19,
+              "end": 1.23,
+              "probability": 0.006816864013671875
+            },
+            {
+              "text": " Who",
+              "start": 1.35,
+              "end": 1.43,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " calls?",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.045501708984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "Ha!",
+          "start": 1.19,
+          "end": 1.23
+        },
+        {
+          "raw": "Who",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "raw": "calls?",
+          "start": 1.43,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "Ha!",
+        "Who",
+        "calls?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ha!",
+          "start": 1.19,
+          "end": 1.23,
+          "key": "ha",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 1.35,
+          "end": 1.43,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "calls?",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "calls",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "Ha!",
+          "start": 1.19,
+          "end": 1.23
+        },
+        {
+          "text": "Who",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "text": "calls?",
+          "start": 1.43,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14456501801032573
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d8e0cbef20279ff7a3a0f7955cc48a6687c4775da8e49d3448a1fb0b535e6ede",
+  "selected_reasons": []
+}

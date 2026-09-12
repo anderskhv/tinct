@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "57142363ca8a7883289b79347ec9a39ed2a46669c6e6aa8da206aa33412532cb",
+  "attempts": [
+    {
+      "asr_seconds": 0.3255971008911729,
+      "alignment_seconds": 0.0007412508130073547,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It removed my veil from its gaunt head, rented in two parts, and flinging both on the floor, trampled on them.",
+          "start": 0.02,
+          "end": 6.68,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " removed",
+              "start": 0.5,
+              "end": 0.88,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " my",
+              "start": 0.88,
+              "end": 1.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " veil",
+              "start": 1.14,
+              "end": 1.48,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " from",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " its",
+              "start": 1.7,
+              "end": 1.84,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " gaunt",
+              "start": 1.84,
+              "end": 2.12,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " head,",
+              "start": 2.12,
+              "end": 2.48,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " rented",
+              "start": 2.88,
+              "end": 3.1,
+              "probability": 0.83203125
+            },
+            {
+              "text": " in",
+              "start": 3.1,
+              "end": 3.34,
+              "probability": 0.9921875
+            },
+            {
+              "text": " two",
+              "start": 3.34,
+              "end": 3.54,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " parts,",
+              "start": 3.54,
+              "end": 3.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 4.46,
+              "end": 4.5,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " flinging",
+              "start": 4.5,
+              "end": 4.86,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " both",
+              "start": 4.86,
+              "end": 5.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 5.1,
+              "end": 5.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.28,
+              "end": 5.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " floor,",
+              "start": 5.38,
+              "end": 5.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " trampled",
+              "start": 6.08,
+              "end": 6.32,
+              "probability": 0.990966796875
+            },
+            {
+              "text": " on",
+              "start": 6.32,
+              "end": 6.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them.",
+              "start": 6.5,
+              "end": 6.68,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "removed",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "raw": "my",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "raw": "veil",
+          "start": 1.14,
+          "end": 1.48
+        },
+        {
+          "raw": "from",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "raw": "its",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "raw": "gaunt",
+          "start": 1.84,
+          "end": 2.12
+        },
+        {
+          "raw": "head,",
+          "start": 2.12,
+          "end": 2.48
+        },
+        {
+          "raw": "rented",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "raw": "in",
+          "start": 3.1,
+          "end": 3.34
+        },
+        {
+          "raw": "two",
+          "start": 3.34,
+          "end": 3.54
+        },
+        {
+          "raw": "parts,",
+          "start": 3.54,
+          "end": 3.94
+        },
+        {
+          "raw": "and",
+          "start": 4.46,
+          "end": 4.5
+        },
+        {
+          "raw": "flinging",
+          "start": 4.5,
+          "end": 4.86
+        },
+        {
+          "raw": "both",
+          "start": 4.86,
+          "end": 5.1
+        },
+        {
+          "raw": "on",
+          "start": 5.1,
+          "end": 5.28
+        },
+        {
+          "raw": "the",
+          "start": 5.28,
+          "end": 5.38
+        },
+        {
+          "raw": "floor,",
+          "start": 5.38,
+          "end": 5.68
+        },
+        {
+          "raw": "trampled",
+          "start": 6.08,
+          "end": 6.32
+        },
+        {
+          "raw": "on",
+          "start": 6.32,
+          "end": 6.5
+        },
+        {
+          "raw": "them.",
+          "start": 6.5,
+          "end": 6.68
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "removed",
+        "my",
+        "veil",
+        "from",
+        "its",
+        "gaunt",
+        "head,",
+        "rent",
+        "it",
+        "in",
+        "two",
+        "parts,",
+        "and",
+        "flinging",
+        "both",
+        "on",
+        "the",
+        "floor,",
+        "trampled",
+        "on",
+        "them"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          10,
+          8,
+          9
+        ],
+        [
+          "equal",
+          10,
+          22,
+          9,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          10,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "removed",
+          "start": 0.5,
+          "end": 0.88,
+          "key": "removed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.88,
+          "end": 1.14,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "veil",
+          "start": 1.14,
+          "end": 1.48,
+          "key": "veil",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.48,
+          "end": 1.7,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 1.7,
+          "end": 1.84,
+          "key": "its",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gaunt",
+          "start": 1.84,
+          "end": 2.12,
+          "key": "gaunt",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "head,",
+          "start": 2.12,
+          "end": 2.48,
+          "key": "head",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "rented",
+          "start": 2.88,
+          "end": 3.1,
+          "key": "rented",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.1,
+          "end": 3.34,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 3.34,
+          "end": 3.54,
+          "key": "two",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "parts,",
+          "start": 3.54,
+          "end": 3.94,
+          "key": "parts",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.46,
+          "end": 4.5,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "flinging",
+          "start": 4.5,
+          "end": 4.86,
+          "key": "flinging",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 4.86,
+          "end": 5.1,
+          "key": "both",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.1,
+          "end": 5.28,
+          "key": "on",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.28,
+          "end": 5.38,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "floor,",
+          "start": 5.38,
+          "end": 5.68,
+          "key": "floor",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "trampled",
+          "start": 6.08,
+          "end": 6.32,
+          "key": "trampled",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 6.32,
+          "end": 6.5,
+          "key": "on",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 6.5,
+          "end": 6.68,
+          "key": "them",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "removed",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "text": "my",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "text": "veil",
+          "start": 1.14,
+          "end": 1.48
+        },
+        {
+          "text": "from",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "text": "its",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "text": "gaunt",
+          "start": 1.84,
+          "end": 2.12
+        },
+        {
+          "text": "head,",
+          "start": 2.12,
+          "end": 2.48
+        },
+        {
+          "text": "rent",
+          "start": 2.48,
+          "end": 2.79
+        },
+        {
+          "text": "it",
+          "start": 2.79,
+          "end": 2.945
+        },
+        {
+          "text": "in",
+          "start": 3.1,
+          "end": 3.34
+        },
+        {
+          "text": "two",
+          "start": 3.34,
+          "end": 3.54
+        },
+        {
+          "text": "parts,",
+          "start": 3.54,
+          "end": 3.94
+        },
+        {
+          "text": "and",
+          "start": 4.46,
+          "end": 4.5
+        },
+        {
+          "text": "flinging",
+          "start": 4.5,
+          "end": 4.86
+        },
+        {
+          "text": "both",
+          "start": 4.86,
+          "end": 5.1
+        },
+        {
+          "text": "on",
+          "start": 5.1,
+          "end": 5.28
+        },
+        {
+          "text": "the",
+          "start": 5.28,
+          "end": 5.38
+        },
+        {
+          "text": "floor,",
+          "start": 5.38,
+          "end": 5.68
+        },
+        {
+          "text": "trampled",
+          "start": 6.08,
+          "end": 6.32
+        },
+        {
+          "text": "on",
+          "start": 6.32,
+          "end": 6.5
+        },
+        {
+          "text": "them",
+          "start": 6.5,
+          "end": 6.68
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.3266269788146019
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dffa3b945498cbaf1efa27f617fafeda9ef209a640065811bb88bcceb39c7dc6",
+  "selected_reasons": []
+}

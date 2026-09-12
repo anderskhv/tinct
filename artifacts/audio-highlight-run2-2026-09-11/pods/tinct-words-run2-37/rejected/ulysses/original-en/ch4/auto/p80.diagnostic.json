@@ -1,0 +1,129 @@
+{
+  "complete": true,
+  "signature": "fc53837457dc2d1f788fa5cbeb59bf1f86d0f455a5d15a704386b5c9370d5c3e",
+  "attempts": [
+    {
+      "asr_seconds": 0.17155965301208198,
+      "alignment_seconds": 0.00023961300030350685,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Poldy!",
+        "hotwords": "Poldy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Poldy —Poldy!",
+          "start": 0.05,
+          "end": 0.87,
+          "words": [
+            {
+              "text": " Poldy",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.5287272135416666
+            },
+            {
+              "text": " —Poldy!",
+              "start": 0.87,
+              "end": 0.87,
+              "probability": 0.2745877504348755
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Poldy",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "—Poldy!",
+          "start": 0.87,
+          "end": 0.87
+        }
+      ],
+      "expected_tokens": [
+        "—Poldy!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Poldy",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "poldy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "—Poldy!",
+          "start": 0.87,
+          "end": 0.87,
+          "key": "poldy",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Poldy!",
+          "start": 0.05,
+          "end": 0.87
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1718930400093086
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9a55267ff9d8603aedee4b830e898fc574c5c1dfad2042c900dfca9608664431",
+  "selected_reasons": []
+}

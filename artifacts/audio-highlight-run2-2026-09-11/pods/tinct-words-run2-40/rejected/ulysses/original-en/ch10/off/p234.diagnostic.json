@@ -1,0 +1,420 @@
+{
+  "complete": true,
+  "signature": "bbd383d24313baa6fedd264712ba6c67f5fc4fca54f8a3129fbeb7fac810da39",
+  "attempts": [
+    {
+      "asr_seconds": 0.20343037322163582,
+      "alignment_seconds": 0.0004950729198753834,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, Madden, Lenihan said, and a game filly she is.",
+          "start": 0.05,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.0784912109375
+            },
+            {
+              "text": " Madden,",
+              "start": 0.75,
+              "end": 0.85,
+              "probability": 0.810546875
+            },
+            {
+              "text": " Lenihan",
+              "start": 1.01,
+              "end": 1.33,
+              "probability": 0.7051595052083334
+            },
+            {
+              "text": " said,",
+              "start": 1.33,
+              "end": 1.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 2.03,
+              "end": 2.11,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " a",
+              "start": 2.11,
+              "end": 2.21,
+              "probability": 0.978515625
+            },
+            {
+              "text": " game",
+              "start": 2.21,
+              "end": 2.43,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " filly",
+              "start": 2.43,
+              "end": 2.81,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " she",
+              "start": 2.81,
+              "end": 2.97,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " is.",
+              "start": 2.97,
+              "end": 3.25,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Madden,",
+          "start": 0.75,
+          "end": 0.85
+        },
+        {
+          "raw": "Lenihan",
+          "start": 1.01,
+          "end": 1.33
+        },
+        {
+          "raw": "said,",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "raw": "and",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "raw": "a",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "raw": "game",
+          "start": 2.21,
+          "end": 2.43
+        },
+        {
+          "raw": "filly",
+          "start": 2.43,
+          "end": 2.81
+        },
+        {
+          "raw": "she",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "raw": "is.",
+          "start": 2.97,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "—O.",
+        "Madden,",
+        "Lenehan",
+        "said.",
+        "And",
+        "a",
+        "game",
+        "filly",
+        "she",
+        "is."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          10,
+          3,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Madden,",
+          "start": 0.75,
+          "end": 0.85,
+          "key": "madden",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lenihan",
+          "start": 1.01,
+          "end": 1.33,
+          "key": "lenihan",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.33,
+          "end": 1.59,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.03,
+          "end": 2.11,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.11,
+          "end": 2.21,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "game",
+          "start": 2.21,
+          "end": 2.43,
+          "key": "game",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "filly",
+          "start": 2.43,
+          "end": 2.81,
+          "key": "filly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.81,
+          "end": 2.97,
+          "key": "she",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is.",
+          "start": 2.97,
+          "end": 3.25,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—O.",
+          "start": 0.0,
+          "end": 0.375
+        },
+        {
+          "text": "Madden,",
+          "start": 0.75,
+          "end": 0.85
+        },
+        {
+          "text": "Lenehan",
+          "start": 0.85,
+          "end": 1.09
+        },
+        {
+          "text": "said.",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "text": "And",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "text": "a",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "text": "game",
+          "start": 2.21,
+          "end": 2.43
+        },
+        {
+          "text": "filly",
+          "start": 2.43,
+          "end": 2.81
+        },
+        {
+          "text": "she",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "text": "is.",
+          "start": 2.97,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2040936299599707
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f6abff378c45c91fcb2b0e6b569364a72371cd6806272f4e4bfb5e12167a1991",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

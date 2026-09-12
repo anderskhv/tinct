@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "b1be76d927e8e45fb0020a1d55a24bda0283e9970e6d739ee406b45254fd41fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.09204677306115627,
+      "alignment_seconds": 0.00013423897325992584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Takes her aside",
+          "start": 0.05,
+          "end": 1.07,
+          "words": [
+            {
+              "text": " Takes",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.397216796875
+            },
+            {
+              "text": " her",
+              "start": 0.55,
+              "end": 0.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " aside",
+              "start": 0.73,
+              "end": 1.07,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Takes",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "her",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "raw": "aside",
+          "start": 0.73,
+          "end": 1.07
+        }
+      ],
+      "expected_tokens": [
+        "[Takes",
+        "her",
+        "aside.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Takes",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "takes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.55,
+          "end": 0.73,
+          "key": "her",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "aside",
+          "start": 0.73,
+          "end": 1.07,
+          "key": "aside",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Takes",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "her",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "text": "aside.]",
+          "start": 0.73,
+          "end": 1.07
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0922254603356123
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a5cef20d326a1a05b3f93ee41816b9aee7ce5f25603c942c59cb00b3e494689f",
+  "selected_reasons": []
+}

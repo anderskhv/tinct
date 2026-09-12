@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "936372105ac9baab1c41e1c0c9ddabac0a896e9234ca17f19f904ff4ad4b281b",
+  "attempts": [
+    {
+      "asr_seconds": 0.19171664118766785,
+      "alignment_seconds": 0.000331120565533638,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Imogen. How now, Pisanio?",
+        "hotwords": "Imogen, How, Pisanio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Imogen, How now, Pisanio?",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Imogen,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.877685546875
+            },
+            {
+              "text": " How",
+              "start": 1.09,
+              "end": 1.25,
+              "probability": 0.028411865234375
+            },
+            {
+              "text": " now,",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.10260009765625
+            },
+            {
+              "text": " Pisanio?",
+              "start": 1.53,
+              "end": 2.01,
+              "probability": 0.5708414713541666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imogen,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "How",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "raw": "now,",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "Pisanio?",
+          "start": 1.53,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "Imogen.",
+        "How",
+        "now,",
+        "Pisanio?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imogen,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "imogen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.09,
+          "end": 1.25,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Pisanio?",
+          "start": 1.53,
+          "end": 2.01,
+          "key": "pisanio",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imogen.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "How",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "text": "now,",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "Pisanio?",
+          "start": 1.53,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19217237830162048
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d10fd044f0132abc8fd988e9736ecb86f850fed1b0827069002368ff2a36deb4",
+  "selected_reasons": []
+}

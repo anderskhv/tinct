@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "a3a8c029335a359b13abefd182fd92a3a4ad8e52c0d992b5ecb3321b315c678e",
+  "attempts": [
+    {
+      "asr_seconds": 0.17886280175298452,
+      "alignment_seconds": 0.00037652719765901566,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Macbeth, your children shall be kings.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.9376627604166666
+            },
+            {
+              "text": " your",
+              "start": 1.21,
+              "end": 1.29,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " children",
+              "start": 1.29,
+              "end": 1.51,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " shall",
+              "start": 1.51,
+              "end": 1.85,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " be",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " kings.",
+              "start": 1.99,
+              "end": 2.25,
+              "probability": 0.95361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "your",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "raw": "children",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "raw": "shall",
+          "start": 1.51,
+          "end": 1.85
+        },
+        {
+          "raw": "be",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "kings.",
+          "start": 1.99,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "Your",
+        "children",
+        "shall",
+        "be",
+        "kings."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.21,
+          "end": 1.29,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 1.29,
+          "end": 1.51,
+          "key": "children",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.51,
+          "end": 1.85,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.85,
+          "end": 1.99,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "kings.",
+          "start": 1.99,
+          "end": 2.25,
+          "key": "kings",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "Your",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "text": "children",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "text": "shall",
+          "start": 1.51,
+          "end": 1.85
+        },
+        {
+          "text": "be",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "kings.",
+          "start": 1.99,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17939453665167093
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "008d2d2a5d63db4a7c46cd40b2db545083041a16b96a51de100921fc6036096e",
+  "selected_reasons": []
+}

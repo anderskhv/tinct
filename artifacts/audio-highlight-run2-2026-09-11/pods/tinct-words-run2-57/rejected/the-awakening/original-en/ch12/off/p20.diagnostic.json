@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "2931b1929e4a7bba03e6777d99b4ca0757b47484323b044f1041ee3229876257",
+  "attempts": [
+    {
+      "asr_seconds": 0.18123173480853438,
+      "alignment_seconds": 0.0003229419235140085,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Of course not, laughed Robert.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.587890625
+            },
+            {
+              "text": " course",
+              "start": 0.55,
+              "end": 0.75,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " not,",
+              "start": 0.75,
+              "end": 1.19,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " laughed",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " Robert.",
+              "start": 1.63,
+              "end": 2.07,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "course",
+          "start": 0.55,
+          "end": 0.75
+        },
+        {
+          "raw": "not,",
+          "start": 0.75,
+          "end": 1.19
+        },
+        {
+          "raw": "laughed",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "Robert.",
+          "start": 1.63,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "\"Of",
+        "course",
+        "not,\"",
+        "laughed",
+        "Robert."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Of",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "of",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "course",
+          "start": 0.55,
+          "end": 0.75,
+          "key": "course",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 0.75,
+          "end": 1.19,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "laughed",
+          "start": 1.53,
+          "end": 1.63,
+          "key": "laughed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Robert.",
+          "start": 1.63,
+          "end": 2.07,
+          "key": "robert",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Of",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "course",
+          "start": 0.55,
+          "end": 0.75
+        },
+        {
+          "text": "not,\"",
+          "start": 0.75,
+          "end": 1.19
+        },
+        {
+          "text": "laughed",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "Robert.",
+          "start": 1.63,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18167367577552795
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "10478c8cd239f340b306f28d19dbe43c7914cdce654897ea0ae830a505e1b4a3",
+  "selected_reasons": []
+}

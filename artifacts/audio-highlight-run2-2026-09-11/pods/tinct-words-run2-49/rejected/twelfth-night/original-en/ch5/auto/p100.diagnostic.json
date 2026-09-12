@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "b0e4f76e9f5084a11ff1501b1f7e28515233dc511a4e8c4dc4cf68df020ed803",
+  "attempts": [
+    {
+      "asr_seconds": 0.3216977119445801,
+      "alignment_seconds": 0.0006388425827026367,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Olivia. Sure, you have some hideous matter to deliver, when the courtesy of it is so fearful. Speak your office.",
+        "hotwords": "Olivia, Sure, Speak"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Olivia, Sure, you have some hideous matter to deliver, when the courtesy of it is so fearful. Speak your office.",
+          "start": 0.05,
+          "end": 6.93,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " Sure,",
+              "start": 1.19,
+              "end": 1.51,
+              "probability": 0.0143890380859375
+            },
+            {
+              "text": " you",
+              "start": 2.01,
+              "end": 2.07,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " have",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " some",
+              "start": 2.23,
+              "end": 2.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " hideous",
+              "start": 2.41,
+              "end": 2.75,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " matter",
+              "start": 2.75,
+              "end": 3.09,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " to",
+              "start": 3.09,
+              "end": 3.35,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " deliver,",
+              "start": 3.35,
+              "end": 3.69,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " when",
+              "start": 3.91,
+              "end": 3.99,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " the",
+              "start": 3.99,
+              "end": 4.13,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " courtesy",
+              "start": 4.13,
+              "end": 4.39,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 4.39,
+              "end": 4.67,
+              "probability": 0.990234375
+            },
+            {
+              "text": " it",
+              "start": 4.67,
+              "end": 4.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " is",
+              "start": 4.77,
+              "end": 4.93,
+              "probability": 0.9921875
+            },
+            {
+              "text": " so",
+              "start": 4.93,
+              "end": 5.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fearful.",
+              "start": 5.11,
+              "end": 5.53,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Speak",
+              "start": 6.19,
+              "end": 6.41,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " your",
+              "start": 6.41,
+              "end": 6.57,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " office.",
+              "start": 6.57,
+              "end": 6.93,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Sure,",
+          "start": 1.19,
+          "end": 1.51
+        },
+        {
+          "raw": "you",
+          "start": 2.01,
+          "end": 2.07
+        },
+        {
+          "raw": "have",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "some",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "raw": "hideous",
+          "start": 2.41,
+          "end": 2.75
+        },
+        {
+          "raw": "matter",
+          "start": 2.75,
+          "end": 3.09
+        },
+        {
+          "raw": "to",
+          "start": 3.09,
+          "end": 3.35
+        },
+        {
+          "raw": "deliver,",
+          "start": 3.35,
+          "end": 3.69
+        },
+        {
+          "raw": "when",
+          "start": 3.91,
+          "end": 3.99
+        },
+        {
+          "raw": "the",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "raw": "courtesy",
+          "start": 4.13,
+          "end": 4.39
+        },
+        {
+          "raw": "of",
+          "start": 4.39,
+          "end": 4.67
+        },
+        {
+          "raw": "it",
+          "start": 4.67,
+          "end": 4.77
+        },
+        {
+          "raw": "is",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "raw": "so",
+          "start": 4.93,
+          "end": 5.11
+        },
+        {
+          "raw": "fearful.",
+          "start": 5.11,
+          "end": 5.53
+        },
+        {
+          "raw": "Speak",
+          "start": 6.19,
+          "end": 6.41
+        },
+        {
+          "raw": "your",
+          "start": 6.41,
+          "end": 6.57
+        },
+        {
+          "raw": "office.",
+          "start": 6.57,
+          "end": 6.93
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Sure,",
+        "you",
+        "have",
+        "some",
+        "hideous",
+        "matter",
+        "to",
+        "deliver,",
+        "when",
+        "the",
+        "courtesy",
+        "of",
+        "it",
+        "is",
+        "so",
+        "fearful.",
+        "Speak",
+        "your",
+        "office."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sure,",
+          "start": 1.19,
+          "end": 1.51,
+          "key": "sure",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.01,
+          "end": 2.07,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 2.23,
+          "end": 2.41,
+          "key": "some",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hideous",
+          "start": 2.41,
+          "end": 2.75,
+          "key": "hideous",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 2.75,
+          "end": 3.09,
+          "key": "matter",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.09,
+          "end": 3.35,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "deliver,",
+          "start": 3.35,
+          "end": 3.69,
+          "key": "deliver",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.91,
+          "end": 3.99,
+          "key": "when",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.99,
+          "end": 4.13,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "courtesy",
+          "start": 4.13,
+          "end": 4.39,
+          "key": "courtesy",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.39,
+          "end": 4.67,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.67,
+          "end": 4.77,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.77,
+          "end": 4.93,
+          "key": "is",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.93,
+          "end": 5.11,
+          "key": "so",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "fearful.",
+          "start": 5.11,
+          "end": 5.53,
+          "key": "fearful",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Speak",
+          "start": 6.19,
+          "end": 6.41,
+          "key": "speak",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 6.41,
+          "end": 6.57,
+          "key": "your",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "office.",
+          "start": 6.57,
+          "end": 6.93,
+          "key": "office",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Sure,",
+          "start": 1.19,
+          "end": 1.51
+        },
+        {
+          "text": "you",
+          "start": 2.01,
+          "end": 2.07
+        },
+        {
+          "text": "have",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "some",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "text": "hideous",
+          "start": 2.41,
+          "end": 2.75
+        },
+        {
+          "text": "matter",
+          "start": 2.75,
+          "end": 3.09
+        },
+        {
+          "text": "to",
+          "start": 3.09,
+          "end": 3.35
+        },
+        {
+          "text": "deliver,",
+          "start": 3.35,
+          "end": 3.69
+        },
+        {
+          "text": "when",
+          "start": 3.91,
+          "end": 3.99
+        },
+        {
+          "text": "the",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "text": "courtesy",
+          "start": 4.13,
+          "end": 4.39
+        },
+        {
+          "text": "of",
+          "start": 4.39,
+          "end": 4.67
+        },
+        {
+          "text": "it",
+          "start": 4.67,
+          "end": 4.77
+        },
+        {
+          "text": "is",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "text": "so",
+          "start": 4.93,
+          "end": 5.11
+        },
+        {
+          "text": "fearful.",
+          "start": 5.11,
+          "end": 5.53
+        },
+        {
+          "text": "Speak",
+          "start": 6.19,
+          "end": 6.41
+        },
+        {
+          "text": "your",
+          "start": 6.41,
+          "end": 6.57
+        },
+        {
+          "text": "office.",
+          "start": 6.57,
+          "end": 6.93
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3226241394877434
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0031223d65dd57e7daad3c2c3a42e7b1d488c1c6ebdde3b5cff33b7eb40b1621",
+  "selected_reasons": []
+}

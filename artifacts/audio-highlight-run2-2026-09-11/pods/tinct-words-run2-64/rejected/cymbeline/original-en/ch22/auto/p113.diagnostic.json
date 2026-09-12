@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "e089c240058aada9e95144076d132a2f40f1dad20d89031107ffb49b7542017b",
+  "attempts": [
+    {
+      "asr_seconds": 0.13561917562037706,
+      "alignment_seconds": 0.00028772931545972824,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Arviragus. 'Tis true.",
+        "hotwords": "Arviragus, Tis"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Arviragus, Tis true.",
+          "start": 0.14,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Arviragus,",
+              "start": 0.14,
+              "end": 1.06,
+              "probability": 0.5540974934895834
+            },
+            {
+              "text": " Tis",
+              "start": 1.5,
+              "end": 1.72,
+              "probability": 0.037200927734375
+            },
+            {
+              "text": " true.",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.67919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Arviragus,",
+          "start": 0.14,
+          "end": 1.06
+        },
+        {
+          "raw": "Tis",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "raw": "true.",
+          "start": 1.72,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "Arviragus.",
+        "'Tis",
+        "true."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Arviragus,",
+          "start": 0.14,
+          "end": 1.06,
+          "key": "arviragus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.5,
+          "end": 1.72,
+          "key": "tis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 1.72,
+          "end": 2.0,
+          "key": "true",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Arviragus.",
+          "start": 0.14,
+          "end": 1.06
+        },
+        {
+          "text": "'Tis",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "text": "true.",
+          "start": 1.72,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13601034134626389
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8fb7d048f5067a90edae44952bd2744db9e67c826566785d7dc1ca3442506e15",
+  "selected_reasons": []
+}

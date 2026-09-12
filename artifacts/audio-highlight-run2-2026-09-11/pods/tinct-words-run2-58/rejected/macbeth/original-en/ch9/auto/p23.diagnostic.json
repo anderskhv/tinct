@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "287754aa9df89d24b50ca5b95d540a9e422bf04b658b1a612dc63107175e5e1c",
+  "attempts": [
+    {
+      "asr_seconds": 0.14175905659794807,
+      "alignment_seconds": 0.00023484136909246445,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lady Macbeth. What do you mean?",
+        "hotwords": "Lady, Macbeth, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lady Macbeth, What do you mean?",
+          "start": 0.02,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " Lady",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " Macbeth,",
+              "start": 0.64,
+              "end": 1.18,
+              "probability": 0.9026692708333334
+            },
+            {
+              "text": " What",
+              "start": 1.44,
+              "end": 1.56,
+              "probability": 0.052215576171875
+            },
+            {
+              "text": " do",
+              "start": 1.56,
+              "end": 1.66,
+              "probability": 0.89453125
+            },
+            {
+              "text": " you",
+              "start": 1.66,
+              "end": 1.76,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " mean?",
+              "start": 1.76,
+              "end": 1.92,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 0.64,
+          "end": 1.18
+        },
+        {
+          "raw": "What",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "raw": "do",
+          "start": 1.56,
+          "end": 1.66
+        },
+        {
+          "raw": "you",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "raw": "mean?",
+          "start": 1.76,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "Lady",
+        "Macbeth.",
+        "What",
+        "do",
+        "you",
+        "mean?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 0.64,
+          "end": 1.18,
+          "key": "macbeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.44,
+          "end": 1.56,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.56,
+          "end": 1.66,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.66,
+          "end": 1.76,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mean?",
+          "start": 1.76,
+          "end": 1.92,
+          "key": "mean",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Macbeth.",
+          "start": 0.64,
+          "end": 1.18
+        },
+        {
+          "text": "What",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "text": "do",
+          "start": 1.56,
+          "end": 1.66
+        },
+        {
+          "text": "you",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "text": "mean?",
+          "start": 1.76,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1420910870656371
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "455f753e95c59fe127a9604a62431e7c8470a44a34a64b240d8d358c585a0008",
+  "selected_reasons": []
+}

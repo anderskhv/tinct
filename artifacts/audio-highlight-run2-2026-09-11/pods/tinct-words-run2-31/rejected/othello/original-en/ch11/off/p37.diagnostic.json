@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "50fee7d91b4c75a10f81b83935b1a8e9612b1ec9fc62a3e163702e4b1cbe9c02",
+  "attempts": [
+    {
+      "asr_seconds": 0.15370221808552742,
+      "alignment_seconds": 0.0003007659688591957,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, a horned man's a monster and a beast.",
+          "start": 0.05,
+          "end": 2.95,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.9518229166666666
+            },
+            {
+              "text": " a",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.943359375
+            },
+            {
+              "text": " horned",
+              "start": 1.35,
+              "end": 1.75,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " man's",
+              "start": 1.75,
+              "end": 1.97,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " a",
+              "start": 1.97,
+              "end": 2.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " monster",
+              "start": 2.05,
+              "end": 2.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 2.37,
+              "end": 2.61,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " a",
+              "start": 2.61,
+              "end": 2.71,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " beast.",
+              "start": 2.71,
+              "end": 2.95,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "a",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "horned",
+          "start": 1.35,
+          "end": 1.75
+        },
+        {
+          "raw": "man's",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "raw": "a",
+          "start": 1.97,
+          "end": 2.05
+        },
+        {
+          "raw": "monster",
+          "start": 2.05,
+          "end": 2.37
+        },
+        {
+          "raw": "and",
+          "start": 2.37,
+          "end": 2.61
+        },
+        {
+          "raw": "a",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "raw": "beast.",
+          "start": 2.71,
+          "end": 2.95
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "A",
+        "horned",
+        "man's",
+        "a",
+        "monster",
+        "and",
+        "a",
+        "beast."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.21,
+          "end": 1.35,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "horned",
+          "start": 1.35,
+          "end": 1.75,
+          "key": "horned",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "man's",
+          "start": 1.75,
+          "end": 1.97,
+          "key": "mans",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.97,
+          "end": 2.05,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "monster",
+          "start": 2.05,
+          "end": 2.37,
+          "key": "monster",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.37,
+          "end": 2.61,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.61,
+          "end": 2.71,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "beast.",
+          "start": 2.71,
+          "end": 2.95,
+          "key": "beast",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "A",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "text": "horned",
+          "start": 1.35,
+          "end": 1.75
+        },
+        {
+          "text": "man's",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "text": "a",
+          "start": 1.97,
+          "end": 2.05
+        },
+        {
+          "text": "monster",
+          "start": 2.05,
+          "end": 2.37
+        },
+        {
+          "text": "and",
+          "start": 2.37,
+          "end": 2.61
+        },
+        {
+          "text": "a",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "text": "beast.",
+          "start": 2.71,
+          "end": 2.95
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15411901287734509
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0d57db39d74a7c2361b54106a21a716a067c22c21c005e0b10310c93c79faf5f",
+  "selected_reasons": []
+}

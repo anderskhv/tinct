@@ -1,0 +1,761 @@
+{
+  "complete": true,
+  "signature": "43d7222500fc8b597f7823864f8525ebea47c56cce155c97c72df3dd50b271ea",
+  "attempts": [
+    {
+      "asr_seconds": 0.37980406172573566,
+      "alignment_seconds": 0.0003201263025403023,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The pupils bowed ceremoniously, and Sarah made a little curtsy, and then they sat down",
+          "start": 0.02,
+          "end": 5.74,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " pupils",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " bowed",
+              "start": 0.8,
+              "end": 1.24,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " ceremoniously,",
+              "start": 1.24,
+              "end": 2.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 2.78,
+              "end": 2.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Sarah",
+              "start": 2.9,
+              "end": 3.18,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " made",
+              "start": 3.18,
+              "end": 3.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 3.4,
+              "end": 3.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " little",
+              "start": 3.54,
+              "end": 3.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " curtsy,",
+              "start": 3.74,
+              "end": 4.18,
+              "probability": 0.956298828125
+            },
+            {
+              "text": " and",
+              "start": 4.76,
+              "end": 4.86,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " then",
+              "start": 4.86,
+              "end": 5.0,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " they",
+              "start": 5.0,
+              "end": 5.16,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sat",
+              "start": 5.16,
+              "end": 5.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " down",
+              "start": 5.36,
+              "end": 5.74,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " and looked at each other again.",
+          "start": 5.74,
+          "end": 7.0,
+          "words": [
+            {
+              "text": " and",
+              "start": 5.74,
+              "end": 5.96,
+              "probability": 0.986328125
+            },
+            {
+              "text": " looked",
+              "start": 5.96,
+              "end": 6.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 6.12,
+              "end": 6.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " each",
+              "start": 6.28,
+              "end": 6.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " other",
+              "start": 6.44,
+              "end": 6.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " again.",
+              "start": 6.64,
+              "end": 7.0,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "pupils",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "bowed",
+          "start": 0.8,
+          "end": 1.24
+        },
+        {
+          "raw": "ceremoniously,",
+          "start": 1.24,
+          "end": 2.26
+        },
+        {
+          "raw": "and",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "raw": "Sarah",
+          "start": 2.9,
+          "end": 3.18
+        },
+        {
+          "raw": "made",
+          "start": 3.18,
+          "end": 3.4
+        },
+        {
+          "raw": "a",
+          "start": 3.4,
+          "end": 3.54
+        },
+        {
+          "raw": "little",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "raw": "curtsy,",
+          "start": 3.74,
+          "end": 4.18
+        },
+        {
+          "raw": "and",
+          "start": 4.76,
+          "end": 4.86
+        },
+        {
+          "raw": "then",
+          "start": 4.86,
+          "end": 5.0
+        },
+        {
+          "raw": "they",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "raw": "sat",
+          "start": 5.16,
+          "end": 5.36
+        },
+        {
+          "raw": "down",
+          "start": 5.36,
+          "end": 5.74
+        },
+        {
+          "raw": "and",
+          "start": 5.74,
+          "end": 5.96
+        },
+        {
+          "raw": "looked",
+          "start": 5.96,
+          "end": 6.12
+        },
+        {
+          "raw": "at",
+          "start": 6.12,
+          "end": 6.28
+        },
+        {
+          "raw": "each",
+          "start": 6.28,
+          "end": 6.44
+        },
+        {
+          "raw": "other",
+          "start": 6.44,
+          "end": 6.64
+        },
+        {
+          "raw": "again.",
+          "start": 6.64,
+          "end": 7.0
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "pupils",
+        "bowed",
+        "ceremoniously,",
+        "and",
+        "Sara",
+        "made",
+        "a",
+        "little",
+        "curtsy,",
+        "and",
+        "then",
+        "they",
+        "sat",
+        "down",
+        "and",
+        "looked",
+        "at",
+        "each",
+        "other",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          21,
+          6,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pupils",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "pupils",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bowed",
+          "start": 0.8,
+          "end": 1.24,
+          "key": "bowed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ceremoniously,",
+          "start": 1.24,
+          "end": 2.26,
+          "key": "ceremoniously",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.78,
+          "end": 2.9,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Sarah",
+          "start": 2.9,
+          "end": 3.18,
+          "key": "sarah",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 3.18,
+          "end": 3.4,
+          "key": "made",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.4,
+          "end": 3.54,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 3.54,
+          "end": 3.74,
+          "key": "little",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "curtsy,",
+          "start": 3.74,
+          "end": 4.18,
+          "key": "curtsy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.76,
+          "end": 4.86,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 4.86,
+          "end": 5.0,
+          "key": "then",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 5.0,
+          "end": 5.16,
+          "key": "they",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 5.16,
+          "end": 5.36,
+          "key": "sat",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 5.36,
+          "end": 5.74,
+          "key": "down",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.74,
+          "end": 5.96,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 5.96,
+          "end": 6.12,
+          "key": "looked",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 6.12,
+          "end": 6.28,
+          "key": "at",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 6.28,
+          "end": 6.44,
+          "key": "each",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 6.44,
+          "end": 6.64,
+          "key": "other",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 6.64,
+          "end": 7.0,
+          "key": "again",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "pupils",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "bowed",
+          "start": 0.8,
+          "end": 1.24
+        },
+        {
+          "text": "ceremoniously,",
+          "start": 1.24,
+          "end": 2.26
+        },
+        {
+          "text": "and",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "text": "Sara",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "made",
+          "start": 3.18,
+          "end": 3.4
+        },
+        {
+          "text": "a",
+          "start": 3.4,
+          "end": 3.54
+        },
+        {
+          "text": "little",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "text": "curtsy,",
+          "start": 3.74,
+          "end": 4.18
+        },
+        {
+          "text": "and",
+          "start": 4.76,
+          "end": 4.86
+        },
+        {
+          "text": "then",
+          "start": 4.86,
+          "end": 5.0
+        },
+        {
+          "text": "they",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "text": "sat",
+          "start": 5.16,
+          "end": 5.36
+        },
+        {
+          "text": "down",
+          "start": 5.36,
+          "end": 5.74
+        },
+        {
+          "text": "and",
+          "start": 5.74,
+          "end": 5.96
+        },
+        {
+          "text": "looked",
+          "start": 5.96,
+          "end": 6.12
+        },
+        {
+          "text": "at",
+          "start": 6.12,
+          "end": 6.28
+        },
+        {
+          "text": "each",
+          "start": 6.28,
+          "end": 6.44
+        },
+        {
+          "text": "other",
+          "start": 6.44,
+          "end": 6.64
+        },
+        {
+          "text": "again.",
+          "start": 6.64,
+          "end": 7.0
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.380265636369586
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "602bfd15eb88404a366717ccc42309854d875c0a8adc5cb3340fcc7547f5d735",
+  "selected_reasons": []
+}

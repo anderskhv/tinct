@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "abd272318b2b008e16d4186758bfd8f06591a88b1fc551c106108494b8c75538",
+  "attempts": [
+    {
+      "asr_seconds": 0.13951021106913686,
+      "alignment_seconds": 0.0002255178987979889,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. Faith, I intend so.",
+        "hotwords": "Cassio, Faith, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio, Faith, I intend so.",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.66650390625
+            },
+            {
+              "text": " Faith,",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.47119140625
+            },
+            {
+              "text": " I",
+              "start": 1.57,
+              "end": 1.57,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " intend",
+              "start": 1.57,
+              "end": 1.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " so.",
+              "start": 1.83,
+              "end": 2.19,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Faith,",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "I",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "raw": "intend",
+          "start": 1.57,
+          "end": 1.83
+        },
+        {
+          "raw": "so.",
+          "start": 1.83,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "Faith,",
+        "I",
+        "intend",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Faith,",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "faith",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.57,
+          "end": 1.57,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "intend",
+          "start": 1.57,
+          "end": 1.83,
+          "key": "intend",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 1.83,
+          "end": 2.19,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Faith,",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "I",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "text": "intend",
+          "start": 1.57,
+          "end": 1.83
+        },
+        {
+          "text": "so.",
+          "start": 1.83,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13981783809140325
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "438b13cd1584b0b3e69ebce6c1c25d3df015f1387eb4ae62537814f56a868e5d",
+  "selected_reasons": []
+}

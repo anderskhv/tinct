@@ -1,0 +1,388 @@
+{
+  "complete": true,
+  "signature": "bb2994b27969c0a080d19e0c336be965493a332396e369ad0e12b5a553824de2",
+  "attempts": [
+    {
+      "asr_seconds": 0.2297074142843485,
+      "alignment_seconds": 0.00045138783752918243,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leonardo the revelers are entering brother make good room",
+          "start": 0.05,
+          "end": 3.89,
+          "words": [
+            {
+              "text": " Leonardo",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.6943359375
+            },
+            {
+              "text": " the",
+              "start": 0.83,
+              "end": 1.51,
+              "probability": 0.12164306640625
+            },
+            {
+              "text": " revelers",
+              "start": 1.51,
+              "end": 1.95,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " are",
+              "start": 1.95,
+              "end": 2.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " entering",
+              "start": 2.03,
+              "end": 2.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " brother",
+              "start": 2.45,
+              "end": 2.87,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " make",
+              "start": 2.87,
+              "end": 3.31,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " good",
+              "start": 3.31,
+              "end": 3.55,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " room",
+              "start": 3.55,
+              "end": 3.89,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonardo",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "the",
+          "start": 0.83,
+          "end": 1.51
+        },
+        {
+          "raw": "revelers",
+          "start": 1.51,
+          "end": 1.95
+        },
+        {
+          "raw": "are",
+          "start": 1.95,
+          "end": 2.03
+        },
+        {
+          "raw": "entering",
+          "start": 2.03,
+          "end": 2.45
+        },
+        {
+          "raw": "brother",
+          "start": 2.45,
+          "end": 2.87
+        },
+        {
+          "raw": "make",
+          "start": 2.87,
+          "end": 3.31
+        },
+        {
+          "raw": "good",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "raw": "room",
+          "start": 3.55,
+          "end": 3.89
+        }
+      ],
+      "expected_tokens": [
+        "Leonato.",
+        "The",
+        "revellers",
+        "are",
+        "entering,",
+        "brother:",
+        "make",
+        "good",
+        "room."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          9,
+          3,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonardo",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "leonardo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.83,
+          "end": 1.51,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "revelers",
+          "start": 1.51,
+          "end": 1.95,
+          "key": "revelers",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.95,
+          "end": 2.03,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "entering",
+          "start": 2.03,
+          "end": 2.45,
+          "key": "entering",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "brother",
+          "start": 2.45,
+          "end": 2.87,
+          "key": "brother",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 2.87,
+          "end": 3.31,
+          "key": "make",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.31,
+          "end": 3.55,
+          "key": "good",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 3.55,
+          "end": 3.89,
+          "key": "room",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.415
+        },
+        {
+          "text": "The",
+          "start": 0.83,
+          "end": 1.51
+        },
+        {
+          "text": "revellers",
+          "start": 1.51,
+          "end": 1.73
+        },
+        {
+          "text": "are",
+          "start": 1.95,
+          "end": 2.03
+        },
+        {
+          "text": "entering,",
+          "start": 2.03,
+          "end": 2.45
+        },
+        {
+          "text": "brother:",
+          "start": 2.45,
+          "end": 2.87
+        },
+        {
+          "text": "make",
+          "start": 2.87,
+          "end": 3.31
+        },
+        {
+          "text": "good",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "text": "room.",
+          "start": 3.55,
+          "end": 3.89
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23030385002493858
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "102695d4301ddbc911398f245bf046cdb90ff6dec3c474ccabcc6413e0e929ba",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "5bf1776a629adaba428f931c89871877b8eaa6043478e2f1438b1123307bff03",
+  "attempts": [
+    {
+      "asr_seconds": 0.17035628110170364,
+      "alignment_seconds": 0.00025812163949012756,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lords. Upon the stroke of four.",
+        "hotwords": "Lords, Upon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lords, Upon the stroke of four.",
+          "start": 0.02,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " Lords,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.27294921875
+            },
+            {
+              "text": " Upon",
+              "start": 1.34,
+              "end": 1.36,
+              "probability": 0.0869140625
+            },
+            {
+              "text": " the",
+              "start": 1.36,
+              "end": 1.58,
+              "probability": 0.908203125
+            },
+            {
+              "text": " stroke",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.59912109375
+            },
+            {
+              "text": " of",
+              "start": 1.72,
+              "end": 1.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " four.",
+              "start": 1.92,
+              "end": 2.2,
+              "probability": 0.83056640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lords,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Upon",
+          "start": 1.34,
+          "end": 1.36
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "raw": "stroke",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "of",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "raw": "four.",
+          "start": 1.92,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "Lords.",
+        "Upon",
+        "the",
+        "stroke",
+        "of",
+        "four."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lords,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "lords",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 1.34,
+          "end": 1.36,
+          "key": "upon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.58,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stroke",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "stroke",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.72,
+          "end": 1.92,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "four.",
+          "start": 1.92,
+          "end": 2.2,
+          "key": "four",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lords.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Upon",
+          "start": 1.34,
+          "end": 1.36
+        },
+        {
+          "text": "the",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "text": "stroke",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "of",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "text": "four.",
+          "start": 1.92,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17071177810430527
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6cf8049422a37e6fa807f7c145976f1592756f73ef9b937aafb693b9c49078b9",
+  "selected_reasons": []
+}

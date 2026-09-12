@@ -1,0 +1,501 @@
+{
+  "complete": true,
+  "signature": "3816604f4cad0f7b252abfb4b44ce1a7462a84b5ed0c00b5c2b5a4a7728cfecb",
+  "attempts": [
+    {
+      "asr_seconds": 0.1980306280311197,
+      "alignment_seconds": 0.0004932470619678497,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Agave. I see . . . most deadly pain! Oh, woe is me!",
+        "hotwords": "Agave, I, Oh"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Agave, I see . . . most deadly pain! Oh, woe is me!",
+          "start": 0.05,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " Agave,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.619873046875
+            },
+            {
+              "text": " I",
+              "start": 0.97,
+              "end": 1.05,
+              "probability": 0.9765625
+            },
+            {
+              "text": " see",
+              "start": 1.05,
+              "end": 1.29,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " .",
+              "start": 1.29,
+              "end": 1.59,
+              "probability": 0.0002193450927734375
+            },
+            {
+              "text": " .",
+              "start": 1.59,
+              "end": 1.65,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " .",
+              "start": 1.65,
+              "end": 1.65,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " most",
+              "start": 1.65,
+              "end": 1.71,
+              "probability": 0.56982421875
+            },
+            {
+              "text": " deadly",
+              "start": 1.71,
+              "end": 1.99,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " pain!",
+              "start": 1.99,
+              "end": 2.41,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Oh,",
+              "start": 2.65,
+              "end": 2.75,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " woe",
+              "start": 2.83,
+              "end": 2.97,
+              "probability": 0.885498046875
+            },
+            {
+              "text": " is",
+              "start": 2.97,
+              "end": 3.13,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " me!",
+              "start": 3.13,
+              "end": 3.33,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agave,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "I",
+          "start": 0.97,
+          "end": 1.05
+        },
+        {
+          "raw": "see",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "raw": ".",
+          "start": 1.29,
+          "end": 1.59
+        },
+        {
+          "raw": ".",
+          "start": 1.59,
+          "end": 1.65
+        },
+        {
+          "raw": ".",
+          "start": 1.65,
+          "end": 1.65
+        },
+        {
+          "raw": "most",
+          "start": 1.65,
+          "end": 1.71
+        },
+        {
+          "raw": "deadly",
+          "start": 1.71,
+          "end": 1.99
+        },
+        {
+          "raw": "pain!",
+          "start": 1.99,
+          "end": 2.41
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.65,
+          "end": 2.75
+        },
+        {
+          "raw": "woe",
+          "start": 2.83,
+          "end": 2.97
+        },
+        {
+          "raw": "is",
+          "start": 2.97,
+          "end": 3.13
+        },
+        {
+          "raw": "me!",
+          "start": 3.13,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "I",
+        "see",
+        ".",
+        ".",
+        ".",
+        "most",
+        "deadly",
+        "pain!",
+        "Oh,",
+        "woe",
+        "is",
+        "me!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          6
+        ],
+        [
+          "equal",
+          3,
+          10,
+          6,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [
+        3,
+        4,
+        5
+      ],
+      "compared_heard": [
+        {
+          "raw": "Agave,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "agave",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.97,
+          "end": 1.05,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.05,
+          "end": 1.29,
+          "key": "see",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": ".",
+          "start": 1.29,
+          "end": 1.59,
+          "key": "",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": ".",
+          "start": 1.59,
+          "end": 1.65,
+          "key": "",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": ".",
+          "start": 1.65,
+          "end": 1.65,
+          "key": "",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.65,
+          "end": 1.71,
+          "key": "most",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "deadly",
+          "start": 1.71,
+          "end": 1.99,
+          "key": "deadly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pain!",
+          "start": 1.99,
+          "end": 2.41,
+          "key": "pain",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.65,
+          "end": 2.75,
+          "key": "oh",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "woe",
+          "start": 2.83,
+          "end": 2.97,
+          "key": "woe",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.97,
+          "end": 3.13,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me!",
+          "start": 3.13,
+          "end": 3.33,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "I",
+          "start": 0.97,
+          "end": 1.05
+        },
+        {
+          "text": "see",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "text": ".",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "text": ".",
+          "start": 1.47,
+          "end": 1.56
+        },
+        {
+          "text": ".",
+          "start": 1.56,
+          "end": 1.605
+        },
+        {
+          "text": "most",
+          "start": 1.65,
+          "end": 1.71
+        },
+        {
+          "text": "deadly",
+          "start": 1.71,
+          "end": 1.99
+        },
+        {
+          "text": "pain!",
+          "start": 1.99,
+          "end": 2.41
+        },
+        {
+          "text": "Oh,",
+          "start": 2.65,
+          "end": 2.75
+        },
+        {
+          "text": "woe",
+          "start": 2.83,
+          "end": 2.97
+        },
+        {
+          "text": "is",
+          "start": 2.97,
+          "end": 3.13
+        },
+        {
+          "text": "me!",
+          "start": 3.13,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19871905609034002
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1a223f6345e4803a44377d3eb01aae779951dd6abc1b22e2a08838733561c06e",
+  "selected_reasons": []
+}

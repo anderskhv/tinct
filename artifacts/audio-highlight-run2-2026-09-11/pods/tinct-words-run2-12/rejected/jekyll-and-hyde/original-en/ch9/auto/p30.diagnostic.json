@@ -1,0 +1,8934 @@
+{
+  "complete": true,
+  "signature": "5fecc12c9b00374bc6e20192eed550628b0236cfef9b990a0e50eaaf394eff23",
+  "attempts": [
+    {
+      "asr_seconds": 0.8312848501373082,
+      "alignment_seconds": 0.0023079889360815287,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He put the glass to his lips and drank at one gulp. A cry followed; he reeled, staggered, clutched at the table and held on, staring with injected eyes, gasping with open mouth; and as I looked there came, I thought, a change—he seemed to swell—his face became suddenly black and the features seemed to melt and alter—and the next moment, I had sprung to my feet and leaped back against the wall, my arms raised to shield me from that prodigy, my mind submerged in terror.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I He put the glass to his lips and drank at one gulp. A cry followed. He reeled, staggered,",
+          "start": 0.05,
+          "end": 5.61,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.0013980865478515625
+            },
+            {
+              "text": " He",
+              "start": 0.49,
+              "end": 0.49,
+              "probability": 0.0002627372741699219
+            },
+            {
+              "text": " put",
+              "start": 0.49,
+              "end": 0.61,
+              "probability": 0.94140625
+            },
+            {
+              "text": " the",
+              "start": 0.61,
+              "end": 0.73,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " glass",
+              "start": 0.73,
+              "end": 0.95,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " to",
+              "start": 0.95,
+              "end": 1.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " his",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.962890625
+            },
+            {
+              "text": " lips",
+              "start": 1.31,
+              "end": 1.51,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 1.51,
+              "end": 1.79,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " drank",
+              "start": 1.79,
+              "end": 1.99,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " at",
+              "start": 1.99,
+              "end": 2.17,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " one",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " gulp.",
+              "start": 2.35,
+              "end": 2.63,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " A",
+              "start": 3.15,
+              "end": 3.35,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " cry",
+              "start": 3.35,
+              "end": 3.57,
+              "probability": 0.982421875
+            },
+            {
+              "text": " followed.",
+              "start": 3.57,
+              "end": 4.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " He",
+              "start": 4.51,
+              "end": 4.69,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " reeled,",
+              "start": 4.69,
+              "end": 5.09,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " staggered,",
+              "start": 5.25,
+              "end": 5.61,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " clutched at the table and held on, staring with injected eyes, gasping with open mouth—and",
+          "start": 5.79,
+          "end": 11.07,
+          "words": [
+            {
+              "text": " clutched",
+              "start": 5.79,
+              "end": 6.05,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " at",
+              "start": 6.05,
+              "end": 6.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 6.15,
+              "end": 6.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " table",
+              "start": 6.23,
+              "end": 6.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 6.51,
+              "end": 6.71,
+              "probability": 0.7646484375
+            },
+            {
+              "text": " held",
+              "start": 6.71,
+              "end": 6.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on,",
+              "start": 6.89,
+              "end": 7.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " staring",
+              "start": 7.55,
+              "end": 7.81,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 7.81,
+              "end": 8.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " injected",
+              "start": 8.05,
+              "end": 8.47,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " eyes,",
+              "start": 8.47,
+              "end": 8.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gasping",
+              "start": 9.17,
+              "end": 9.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " with",
+              "start": 9.59,
+              "end": 9.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " open",
+              "start": 9.73,
+              "end": 10.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " mouth—and",
+              "start": 10.07,
+              "end": 11.07,
+              "probability": 0.627277692159017
+            }
+          ]
+        },
+        {
+          "text": " as I looked there came, I thought, a change—he seemed to swell—his face became suddenly",
+          "start": 11.07,
+          "end": 15.87,
+          "words": [
+            {
+              "text": " as",
+              "start": 11.07,
+              "end": 11.19,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " I",
+              "start": 11.19,
+              "end": 11.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " looked",
+              "start": 11.33,
+              "end": 11.45,
+              "probability": 0.763671875
+            },
+            {
+              "text": " there",
+              "start": 11.45,
+              "end": 11.67,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " came,",
+              "start": 11.67,
+              "end": 11.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 11.99,
+              "end": 12.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thought,",
+              "start": 12.13,
+              "end": 12.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 12.55,
+              "end": 12.67,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " change—he",
+              "start": 12.67,
+              "end": 13.53,
+              "probability": 0.6657562255859375
+            },
+            {
+              "text": " seemed",
+              "start": 13.53,
+              "end": 13.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 13.75,
+              "end": 13.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " swell—his",
+              "start": 13.93,
+              "end": 14.85,
+              "probability": 0.65631103515625
+            },
+            {
+              "text": " face",
+              "start": 14.85,
+              "end": 15.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " became",
+              "start": 15.09,
+              "end": 15.45,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " suddenly",
+              "start": 15.45,
+              "end": 15.87,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " black and the features seemed to melt and alter—and the next moment, I had sprung",
+          "start": 15.87,
+          "end": 20.17,
+          "words": [
+            {
+              "text": " black",
+              "start": 15.87,
+              "end": 16.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 16.25,
+              "end": 16.49,
+              "probability": 0.826171875
+            },
+            {
+              "text": " the",
+              "start": 16.49,
+              "end": 16.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " features",
+              "start": 16.61,
+              "end": 16.89,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " seemed",
+              "start": 16.89,
+              "end": 17.15,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " to",
+              "start": 17.15,
+              "end": 17.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " melt",
+              "start": 17.39,
+              "end": 17.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 17.55,
+              "end": 17.77,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " alter—and",
+              "start": 17.77,
+              "end": 18.85,
+              "probability": 0.7605794270833334
+            },
+            {
+              "text": " the",
+              "start": 18.85,
+              "end": 18.95,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " next",
+              "start": 18.95,
+              "end": 19.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " moment,",
+              "start": 19.17,
+              "end": 19.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 19.65,
+              "end": 19.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " had",
+              "start": 19.81,
+              "end": 19.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sprung",
+              "start": 19.93,
+              "end": 20.17,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " to my feet and leaped back against the wall, my arms raised to shield me from that prodigy,",
+          "start": 20.17,
+          "end": 24.87,
+          "words": [
+            {
+              "text": " to",
+              "start": 20.17,
+              "end": 20.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 20.37,
+              "end": 20.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " feet",
+              "start": 20.51,
+              "end": 20.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 20.81,
+              "end": 21.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " leaped",
+              "start": 21.03,
+              "end": 21.27,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " back",
+              "start": 21.27,
+              "end": 21.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " against",
+              "start": 21.49,
+              "end": 21.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 21.75,
+              "end": 21.97,
+              "probability": 0.994140625
+            },
+            {
+              "text": " wall,",
+              "start": 21.97,
+              "end": 22.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 22.59,
+              "end": 22.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " arms",
+              "start": 22.77,
+              "end": 23.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " raised",
+              "start": 23.11,
+              "end": 23.39,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " to",
+              "start": 23.39,
+              "end": 23.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shield",
+              "start": 23.71,
+              "end": 23.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me",
+              "start": 23.91,
+              "end": 24.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " from",
+              "start": 24.11,
+              "end": 24.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 24.25,
+              "end": 24.49,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " prodigy,",
+              "start": 24.49,
+              "end": 24.87,
+              "probability": 0.981689453125
+            }
+          ]
+        },
+        {
+          "text": " my mind submerged in terror.",
+          "start": 24.87,
+          "end": 26.93,
+          "words": [
+            {
+              "text": " my",
+              "start": 24.87,
+              "end": 25.39,
+              "probability": 0.321044921875
+            },
+            {
+              "text": " mind",
+              "start": 25.39,
+              "end": 25.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " submerged",
+              "start": 25.79,
+              "end": 26.31,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " in",
+              "start": 26.31,
+              "end": 26.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " terror.",
+              "start": 26.69,
+              "end": 26.93,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "He",
+          "start": 0.49,
+          "end": 0.49
+        },
+        {
+          "raw": "put",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.73
+        },
+        {
+          "raw": "glass",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "raw": "to",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "raw": "his",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "lips",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "raw": "and",
+          "start": 1.51,
+          "end": 1.79
+        },
+        {
+          "raw": "drank",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "raw": "at",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "raw": "one",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "gulp.",
+          "start": 2.35,
+          "end": 2.63
+        },
+        {
+          "raw": "A",
+          "start": 3.15,
+          "end": 3.35
+        },
+        {
+          "raw": "cry",
+          "start": 3.35,
+          "end": 3.57
+        },
+        {
+          "raw": "followed.",
+          "start": 3.57,
+          "end": 4.07
+        },
+        {
+          "raw": "He",
+          "start": 4.51,
+          "end": 4.69
+        },
+        {
+          "raw": "reeled,",
+          "start": 4.69,
+          "end": 5.09
+        },
+        {
+          "raw": "staggered,",
+          "start": 5.25,
+          "end": 5.61
+        },
+        {
+          "raw": "clutched",
+          "start": 5.79,
+          "end": 6.05
+        },
+        {
+          "raw": "at",
+          "start": 6.05,
+          "end": 6.15
+        },
+        {
+          "raw": "the",
+          "start": 6.15,
+          "end": 6.23
+        },
+        {
+          "raw": "table",
+          "start": 6.23,
+          "end": 6.51
+        },
+        {
+          "raw": "and",
+          "start": 6.51,
+          "end": 6.71
+        },
+        {
+          "raw": "held",
+          "start": 6.71,
+          "end": 6.89
+        },
+        {
+          "raw": "on,",
+          "start": 6.89,
+          "end": 7.23
+        },
+        {
+          "raw": "staring",
+          "start": 7.55,
+          "end": 7.81
+        },
+        {
+          "raw": "with",
+          "start": 7.81,
+          "end": 8.05
+        },
+        {
+          "raw": "injected",
+          "start": 8.05,
+          "end": 8.47
+        },
+        {
+          "raw": "eyes,",
+          "start": 8.47,
+          "end": 8.97
+        },
+        {
+          "raw": "gasping",
+          "start": 9.17,
+          "end": 9.59
+        },
+        {
+          "raw": "with",
+          "start": 9.59,
+          "end": 9.73
+        },
+        {
+          "raw": "open",
+          "start": 9.73,
+          "end": 10.07
+        },
+        {
+          "raw": "mouth—and",
+          "start": 10.07,
+          "end": 11.07
+        },
+        {
+          "raw": "as",
+          "start": 11.07,
+          "end": 11.19
+        },
+        {
+          "raw": "I",
+          "start": 11.19,
+          "end": 11.33
+        },
+        {
+          "raw": "looked",
+          "start": 11.33,
+          "end": 11.45
+        },
+        {
+          "raw": "there",
+          "start": 11.45,
+          "end": 11.67
+        },
+        {
+          "raw": "came,",
+          "start": 11.67,
+          "end": 11.89
+        },
+        {
+          "raw": "I",
+          "start": 11.99,
+          "end": 12.13
+        },
+        {
+          "raw": "thought,",
+          "start": 12.13,
+          "end": 12.37
+        },
+        {
+          "raw": "a",
+          "start": 12.55,
+          "end": 12.67
+        },
+        {
+          "raw": "change—he",
+          "start": 12.67,
+          "end": 13.53
+        },
+        {
+          "raw": "seemed",
+          "start": 13.53,
+          "end": 13.75
+        },
+        {
+          "raw": "to",
+          "start": 13.75,
+          "end": 13.93
+        },
+        {
+          "raw": "swell—his",
+          "start": 13.93,
+          "end": 14.85
+        },
+        {
+          "raw": "face",
+          "start": 14.85,
+          "end": 15.09
+        },
+        {
+          "raw": "became",
+          "start": 15.09,
+          "end": 15.45
+        },
+        {
+          "raw": "suddenly",
+          "start": 15.45,
+          "end": 15.87
+        },
+        {
+          "raw": "black",
+          "start": 15.87,
+          "end": 16.25
+        },
+        {
+          "raw": "and",
+          "start": 16.25,
+          "end": 16.49
+        },
+        {
+          "raw": "the",
+          "start": 16.49,
+          "end": 16.61
+        },
+        {
+          "raw": "features",
+          "start": 16.61,
+          "end": 16.89
+        },
+        {
+          "raw": "seemed",
+          "start": 16.89,
+          "end": 17.15
+        },
+        {
+          "raw": "to",
+          "start": 17.15,
+          "end": 17.39
+        },
+        {
+          "raw": "melt",
+          "start": 17.39,
+          "end": 17.55
+        },
+        {
+          "raw": "and",
+          "start": 17.55,
+          "end": 17.77
+        },
+        {
+          "raw": "alter—and",
+          "start": 17.77,
+          "end": 18.85
+        },
+        {
+          "raw": "the",
+          "start": 18.85,
+          "end": 18.95
+        },
+        {
+          "raw": "next",
+          "start": 18.95,
+          "end": 19.17
+        },
+        {
+          "raw": "moment,",
+          "start": 19.17,
+          "end": 19.53
+        },
+        {
+          "raw": "I",
+          "start": 19.65,
+          "end": 19.81
+        },
+        {
+          "raw": "had",
+          "start": 19.81,
+          "end": 19.93
+        },
+        {
+          "raw": "sprung",
+          "start": 19.93,
+          "end": 20.17
+        },
+        {
+          "raw": "to",
+          "start": 20.17,
+          "end": 20.37
+        },
+        {
+          "raw": "my",
+          "start": 20.37,
+          "end": 20.51
+        },
+        {
+          "raw": "feet",
+          "start": 20.51,
+          "end": 20.81
+        },
+        {
+          "raw": "and",
+          "start": 20.81,
+          "end": 21.03
+        },
+        {
+          "raw": "leaped",
+          "start": 21.03,
+          "end": 21.27
+        },
+        {
+          "raw": "back",
+          "start": 21.27,
+          "end": 21.49
+        },
+        {
+          "raw": "against",
+          "start": 21.49,
+          "end": 21.75
+        },
+        {
+          "raw": "the",
+          "start": 21.75,
+          "end": 21.97
+        },
+        {
+          "raw": "wall,",
+          "start": 21.97,
+          "end": 22.25
+        },
+        {
+          "raw": "my",
+          "start": 22.59,
+          "end": 22.77
+        },
+        {
+          "raw": "arms",
+          "start": 22.77,
+          "end": 23.11
+        },
+        {
+          "raw": "raised",
+          "start": 23.11,
+          "end": 23.39
+        },
+        {
+          "raw": "to",
+          "start": 23.39,
+          "end": 23.71
+        },
+        {
+          "raw": "shield",
+          "start": 23.71,
+          "end": 23.91
+        },
+        {
+          "raw": "me",
+          "start": 23.91,
+          "end": 24.11
+        },
+        {
+          "raw": "from",
+          "start": 24.11,
+          "end": 24.25
+        },
+        {
+          "raw": "that",
+          "start": 24.25,
+          "end": 24.49
+        },
+        {
+          "raw": "prodigy,",
+          "start": 24.49,
+          "end": 24.87
+        },
+        {
+          "raw": "my",
+          "start": 24.87,
+          "end": 25.39
+        },
+        {
+          "raw": "mind",
+          "start": 25.39,
+          "end": 25.79
+        },
+        {
+          "raw": "submerged",
+          "start": 25.79,
+          "end": 26.31
+        },
+        {
+          "raw": "in",
+          "start": 26.31,
+          "end": 26.69
+        },
+        {
+          "raw": "terror.",
+          "start": 26.69,
+          "end": 26.93
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "put",
+        "the",
+        "glass",
+        "to",
+        "his",
+        "lips",
+        "and",
+        "drank",
+        "at",
+        "one",
+        "gulp.",
+        "A",
+        "cry",
+        "followed;",
+        "he",
+        "reeled,",
+        "staggered,",
+        "clutched",
+        "at",
+        "the",
+        "table",
+        "and",
+        "held",
+        "on,",
+        "staring",
+        "with",
+        "injected",
+        "eyes,",
+        "gasping",
+        "with",
+        "open",
+        "mouth;",
+        "and",
+        "as",
+        "I",
+        "looked",
+        "there",
+        "came,",
+        "I",
+        "thought,",
+        "a",
+        "change—he",
+        "seemed",
+        "to",
+        "swell—his",
+        "face",
+        "became",
+        "suddenly",
+        "black",
+        "and",
+        "the",
+        "features",
+        "seemed",
+        "to",
+        "melt",
+        "and",
+        "alter—and",
+        "the",
+        "next",
+        "moment,",
+        "I",
+        "had",
+        "sprung",
+        "to",
+        "my",
+        "feet",
+        "and",
+        "leaped",
+        "back",
+        "against",
+        "the",
+        "wall,",
+        "my",
+        "arms",
+        "raised",
+        "to",
+        "shield",
+        "me",
+        "from",
+        "that",
+        "prodigy,",
+        "my",
+        "mind",
+        "submerged",
+        "in",
+        "terror."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          32,
+          1,
+          33
+        ],
+        [
+          "replace",
+          32,
+          34,
+          33,
+          34
+        ],
+        [
+          "equal",
+          34,
+          87,
+          34,
+          87
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          32,
+          34,
+          33,
+          34
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 0.49,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 0.49,
+          "end": 0.61,
+          "key": "put",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.73,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "glass",
+          "start": 0.73,
+          "end": 0.95,
+          "key": "glass",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.95,
+          "end": 1.15,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.15,
+          "end": 1.31,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lips",
+          "start": 1.31,
+          "end": 1.51,
+          "key": "lips",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.51,
+          "end": 1.79,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "drank",
+          "start": 1.79,
+          "end": 1.99,
+          "key": "drank",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.99,
+          "end": 2.17,
+          "key": "at",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "one",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "gulp.",
+          "start": 2.35,
+          "end": 2.63,
+          "key": "gulp",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 3.15,
+          "end": 3.35,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 3.35,
+          "end": 3.57,
+          "key": "cry",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "followed.",
+          "start": 3.57,
+          "end": 4.07,
+          "key": "followed",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.51,
+          "end": 4.69,
+          "key": "he",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "reeled,",
+          "start": 4.69,
+          "end": 5.09,
+          "key": "reeled",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "staggered,",
+          "start": 5.25,
+          "end": 5.61,
+          "key": "staggered",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "clutched",
+          "start": 5.79,
+          "end": 6.05,
+          "key": "clutched",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 6.05,
+          "end": 6.15,
+          "key": "at",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.15,
+          "end": 6.23,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "table",
+          "start": 6.23,
+          "end": 6.51,
+          "key": "table",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.51,
+          "end": 6.71,
+          "key": "and",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "held",
+          "start": 6.71,
+          "end": 6.89,
+          "key": "held",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 6.89,
+          "end": 7.23,
+          "key": "on",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "staring",
+          "start": 7.55,
+          "end": 7.81,
+          "key": "staring",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.81,
+          "end": 8.05,
+          "key": "with",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "injected",
+          "start": 8.05,
+          "end": 8.47,
+          "key": "injected",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "eyes,",
+          "start": 8.47,
+          "end": 8.97,
+          "key": "eyes",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "gasping",
+          "start": 9.17,
+          "end": 9.59,
+          "key": "gasping",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.59,
+          "end": 9.73,
+          "key": "with",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "open",
+          "start": 9.73,
+          "end": 10.07,
+          "key": "open",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "mouth—and",
+          "start": 10.07,
+          "end": 11.07,
+          "key": "mouthand",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 11.07,
+          "end": 11.19,
+          "key": "as",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 11.19,
+          "end": 11.33,
+          "key": "i",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 11.33,
+          "end": 11.45,
+          "key": "looked",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 11.45,
+          "end": 11.67,
+          "key": "there",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "came,",
+          "start": 11.67,
+          "end": 11.89,
+          "key": "came",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 11.99,
+          "end": 12.13,
+          "key": "i",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "thought,",
+          "start": 12.13,
+          "end": 12.37,
+          "key": "thought",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.55,
+          "end": 12.67,
+          "key": "a",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "change—he",
+          "start": 12.67,
+          "end": 13.53,
+          "key": "changehe",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 13.53,
+          "end": 13.75,
+          "key": "seemed",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.75,
+          "end": 13.93,
+          "key": "to",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "swell—his",
+          "start": 13.93,
+          "end": 14.85,
+          "key": "swellhis",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 14.85,
+          "end": 15.09,
+          "key": "face",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "became",
+          "start": 15.09,
+          "end": 15.45,
+          "key": "became",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 15.45,
+          "end": 15.87,
+          "key": "suddenly",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "black",
+          "start": 15.87,
+          "end": 16.25,
+          "key": "black",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.25,
+          "end": 16.49,
+          "key": "and",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.49,
+          "end": 16.61,
+          "key": "the",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "features",
+          "start": 16.61,
+          "end": 16.89,
+          "key": "features",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 16.89,
+          "end": 17.15,
+          "key": "seemed",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 17.15,
+          "end": 17.39,
+          "key": "to",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "melt",
+          "start": 17.39,
+          "end": 17.55,
+          "key": "melt",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.55,
+          "end": 17.77,
+          "key": "and",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "alter—and",
+          "start": 17.77,
+          "end": 18.85,
+          "key": "alterand",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.85,
+          "end": 18.95,
+          "key": "the",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 18.95,
+          "end": 19.17,
+          "key": "next",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "moment,",
+          "start": 19.17,
+          "end": 19.53,
+          "key": "moment",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 19.65,
+          "end": 19.81,
+          "key": "i",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 19.81,
+          "end": 19.93,
+          "key": "had",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "sprung",
+          "start": 19.93,
+          "end": 20.17,
+          "key": "sprung",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 20.17,
+          "end": 20.37,
+          "key": "to",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 20.37,
+          "end": 20.51,
+          "key": "my",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "feet",
+          "start": 20.51,
+          "end": 20.81,
+          "key": "feet",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 20.81,
+          "end": 21.03,
+          "key": "and",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "leaped",
+          "start": 21.03,
+          "end": 21.27,
+          "key": "leaped",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 21.27,
+          "end": 21.49,
+          "key": "back",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 21.49,
+          "end": 21.75,
+          "key": "against",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.75,
+          "end": 21.97,
+          "key": "the",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "wall,",
+          "start": 21.97,
+          "end": 22.25,
+          "key": "wall",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 22.59,
+          "end": 22.77,
+          "key": "my",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "arms",
+          "start": 22.77,
+          "end": 23.11,
+          "key": "arms",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "raised",
+          "start": 23.11,
+          "end": 23.39,
+          "key": "raised",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 23.39,
+          "end": 23.71,
+          "key": "to",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "shield",
+          "start": 23.71,
+          "end": 23.91,
+          "key": "shield",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 23.91,
+          "end": 24.11,
+          "key": "me",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 24.11,
+          "end": 24.25,
+          "key": "from",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 24.25,
+          "end": 24.49,
+          "key": "that",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "prodigy,",
+          "start": 24.49,
+          "end": 24.87,
+          "key": "prodigy",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 24.87,
+          "end": 25.39,
+          "key": "my",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 25.39,
+          "end": 25.79,
+          "key": "mind",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "submerged",
+          "start": 25.79,
+          "end": 26.31,
+          "key": "submerged",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 26.31,
+          "end": 26.69,
+          "key": "in",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "terror.",
+          "start": 26.69,
+          "end": 26.93,
+          "key": "terror",
+          "pieces": [
+            86
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.49,
+          "end": 0.49
+        },
+        {
+          "text": "put",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "text": "the",
+          "start": 0.61,
+          "end": 0.73
+        },
+        {
+          "text": "glass",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "text": "to",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "text": "his",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "lips",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "text": "and",
+          "start": 1.51,
+          "end": 1.79
+        },
+        {
+          "text": "drank",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "text": "at",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "text": "one",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "text": "gulp.",
+          "start": 2.35,
+          "end": 2.63
+        },
+        {
+          "text": "A",
+          "start": 3.15,
+          "end": 3.35
+        },
+        {
+          "text": "cry",
+          "start": 3.35,
+          "end": 3.57
+        },
+        {
+          "text": "followed;",
+          "start": 3.57,
+          "end": 4.07
+        },
+        {
+          "text": "he",
+          "start": 4.51,
+          "end": 4.69
+        },
+        {
+          "text": "reeled,",
+          "start": 4.69,
+          "end": 5.09
+        },
+        {
+          "text": "staggered,",
+          "start": 5.25,
+          "end": 5.61
+        },
+        {
+          "text": "clutched",
+          "start": 5.79,
+          "end": 6.05
+        },
+        {
+          "text": "at",
+          "start": 6.05,
+          "end": 6.15
+        },
+        {
+          "text": "the",
+          "start": 6.15,
+          "end": 6.23
+        },
+        {
+          "text": "table",
+          "start": 6.23,
+          "end": 6.51
+        },
+        {
+          "text": "and",
+          "start": 6.51,
+          "end": 6.71
+        },
+        {
+          "text": "held",
+          "start": 6.71,
+          "end": 6.89
+        },
+        {
+          "text": "on,",
+          "start": 6.89,
+          "end": 7.23
+        },
+        {
+          "text": "staring",
+          "start": 7.55,
+          "end": 7.81
+        },
+        {
+          "text": "with",
+          "start": 7.81,
+          "end": 8.05
+        },
+        {
+          "text": "injected",
+          "start": 8.05,
+          "end": 8.47
+        },
+        {
+          "text": "eyes,",
+          "start": 8.47,
+          "end": 8.97
+        },
+        {
+          "text": "gasping",
+          "start": 9.17,
+          "end": 9.59
+        },
+        {
+          "text": "with",
+          "start": 9.59,
+          "end": 9.73
+        },
+        {
+          "text": "open",
+          "start": 9.73,
+          "end": 10.07
+        },
+        {
+          "text": "mouth;",
+          "start": 10.07,
+          "end": 10.57
+        },
+        {
+          "text": "and",
+          "start": 10.57,
+          "end": 10.82
+        },
+        {
+          "text": "as",
+          "start": 11.07,
+          "end": 11.19
+        },
+        {
+          "text": "I",
+          "start": 11.19,
+          "end": 11.33
+        },
+        {
+          "text": "looked",
+          "start": 11.33,
+          "end": 11.45
+        },
+        {
+          "text": "there",
+          "start": 11.45,
+          "end": 11.67
+        },
+        {
+          "text": "came,",
+          "start": 11.67,
+          "end": 11.89
+        },
+        {
+          "text": "I",
+          "start": 11.99,
+          "end": 12.13
+        },
+        {
+          "text": "thought,",
+          "start": 12.13,
+          "end": 12.37
+        },
+        {
+          "text": "a",
+          "start": 12.55,
+          "end": 12.67
+        },
+        {
+          "text": "change—he",
+          "start": 12.67,
+          "end": 13.53
+        },
+        {
+          "text": "seemed",
+          "start": 13.53,
+          "end": 13.75
+        },
+        {
+          "text": "to",
+          "start": 13.75,
+          "end": 13.93
+        },
+        {
+          "text": "swell—his",
+          "start": 13.93,
+          "end": 14.85
+        },
+        {
+          "text": "face",
+          "start": 14.85,
+          "end": 15.09
+        },
+        {
+          "text": "became",
+          "start": 15.09,
+          "end": 15.45
+        },
+        {
+          "text": "suddenly",
+          "start": 15.45,
+          "end": 15.87
+        },
+        {
+          "text": "black",
+          "start": 15.87,
+          "end": 16.25
+        },
+        {
+          "text": "and",
+          "start": 16.25,
+          "end": 16.49
+        },
+        {
+          "text": "the",
+          "start": 16.49,
+          "end": 16.61
+        },
+        {
+          "text": "features",
+          "start": 16.61,
+          "end": 16.89
+        },
+        {
+          "text": "seemed",
+          "start": 16.89,
+          "end": 17.15
+        },
+        {
+          "text": "to",
+          "start": 17.15,
+          "end": 17.39
+        },
+        {
+          "text": "melt",
+          "start": 17.39,
+          "end": 17.55
+        },
+        {
+          "text": "and",
+          "start": 17.55,
+          "end": 17.77
+        },
+        {
+          "text": "alter—and",
+          "start": 17.77,
+          "end": 18.85
+        },
+        {
+          "text": "the",
+          "start": 18.85,
+          "end": 18.95
+        },
+        {
+          "text": "next",
+          "start": 18.95,
+          "end": 19.17
+        },
+        {
+          "text": "moment,",
+          "start": 19.17,
+          "end": 19.53
+        },
+        {
+          "text": "I",
+          "start": 19.65,
+          "end": 19.81
+        },
+        {
+          "text": "had",
+          "start": 19.81,
+          "end": 19.93
+        },
+        {
+          "text": "sprung",
+          "start": 19.93,
+          "end": 20.17
+        },
+        {
+          "text": "to",
+          "start": 20.17,
+          "end": 20.37
+        },
+        {
+          "text": "my",
+          "start": 20.37,
+          "end": 20.51
+        },
+        {
+          "text": "feet",
+          "start": 20.51,
+          "end": 20.81
+        },
+        {
+          "text": "and",
+          "start": 20.81,
+          "end": 21.03
+        },
+        {
+          "text": "leaped",
+          "start": 21.03,
+          "end": 21.27
+        },
+        {
+          "text": "back",
+          "start": 21.27,
+          "end": 21.49
+        },
+        {
+          "text": "against",
+          "start": 21.49,
+          "end": 21.75
+        },
+        {
+          "text": "the",
+          "start": 21.75,
+          "end": 21.97
+        },
+        {
+          "text": "wall,",
+          "start": 21.97,
+          "end": 22.25
+        },
+        {
+          "text": "my",
+          "start": 22.59,
+          "end": 22.77
+        },
+        {
+          "text": "arms",
+          "start": 22.77,
+          "end": 23.11
+        },
+        {
+          "text": "raised",
+          "start": 23.11,
+          "end": 23.39
+        },
+        {
+          "text": "to",
+          "start": 23.39,
+          "end": 23.71
+        },
+        {
+          "text": "shield",
+          "start": 23.71,
+          "end": 23.91
+        },
+        {
+          "text": "me",
+          "start": 23.91,
+          "end": 24.11
+        },
+        {
+          "text": "from",
+          "start": 24.11,
+          "end": 24.25
+        },
+        {
+          "text": "that",
+          "start": 24.25,
+          "end": 24.49
+        },
+        {
+          "text": "prodigy,",
+          "start": 24.49,
+          "end": 24.87
+        },
+        {
+          "text": "my",
+          "start": 24.87,
+          "end": 25.39
+        },
+        {
+          "text": "mind",
+          "start": 25.39,
+          "end": 25.79
+        },
+        {
+          "text": "submerged",
+          "start": 25.79,
+          "end": 26.31
+        },
+        {
+          "text": "in",
+          "start": 26.31,
+          "end": 26.69
+        },
+        {
+          "text": "terror.",
+          "start": 26.69,
+          "end": 26.93
+        }
+      ],
+      "stats": {
+        "expected_words": 87,
+        "heard_words": 87,
+        "matched_words": 85
+      },
+      "match_ratio": 0.9770114942528736,
+      "rejection_reasons": [],
+      "seconds": 0.8345811539329588
+    },
+    {
+      "asr_seconds": 0.8640459410380572,
+      "alignment_seconds": 0.002977929078042507,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " He put the glass to his lips and drank at one gulp. A cry followed. He reeled, staggered,",
+          "start": 0.05,
+          "end": 5.59,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " put",
+              "start": 0.49,
+              "end": 0.61,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 0.61,
+              "end": 0.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " glass",
+              "start": 0.75,
+              "end": 0.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 0.95,
+              "end": 1.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 1.17,
+              "end": 1.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " lips",
+              "start": 1.31,
+              "end": 1.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 1.51,
+              "end": 1.81,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " drank",
+              "start": 1.81,
+              "end": 1.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " at",
+              "start": 1.99,
+              "end": 2.17,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " one",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gulp.",
+              "start": 2.35,
+              "end": 2.61,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " A",
+              "start": 3.25,
+              "end": 3.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " cry",
+              "start": 3.35,
+              "end": 3.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " followed.",
+              "start": 3.57,
+              "end": 4.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He",
+              "start": 4.51,
+              "end": 4.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " reeled,",
+              "start": 4.69,
+              "end": 5.09,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " staggered,",
+              "start": 5.25,
+              "end": 5.59,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " clutched at the table and held on, staring with injected eyes, gasping with open mouth.",
+          "start": 5.79,
+          "end": 10.39,
+          "words": [
+            {
+              "text": " clutched",
+              "start": 5.79,
+              "end": 6.05,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " at",
+              "start": 6.05,
+              "end": 6.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 6.15,
+              "end": 6.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " table",
+              "start": 6.23,
+              "end": 6.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 6.51,
+              "end": 6.71,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " held",
+              "start": 6.71,
+              "end": 6.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on,",
+              "start": 6.89,
+              "end": 7.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " staring",
+              "start": 7.55,
+              "end": 7.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 7.81,
+              "end": 8.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " injected",
+              "start": 8.03,
+              "end": 8.47,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " eyes,",
+              "start": 8.47,
+              "end": 8.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " gasping",
+              "start": 9.17,
+              "end": 9.59,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " with",
+              "start": 9.59,
+              "end": 9.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " open",
+              "start": 9.73,
+              "end": 10.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " mouth.",
+              "start": 10.07,
+              "end": 10.39,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " And as I looked there came, I thought, a change. He seemed to swell. His face became suddenly",
+          "start": 10.93,
+          "end": 15.89,
+          "words": [
+            {
+              "text": " And",
+              "start": 10.93,
+              "end": 11.07,
+              "probability": 0.986328125
+            },
+            {
+              "text": " as",
+              "start": 11.07,
+              "end": 11.19,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " I",
+              "start": 11.19,
+              "end": 11.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " looked",
+              "start": 11.33,
+              "end": 11.47,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " there",
+              "start": 11.47,
+              "end": 11.67,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " came,",
+              "start": 11.67,
+              "end": 11.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 12.01,
+              "end": 12.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thought,",
+              "start": 12.13,
+              "end": 12.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 12.55,
+              "end": 12.65,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " change.",
+              "start": 12.65,
+              "end": 12.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " He",
+              "start": 13.39,
+              "end": 13.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " seemed",
+              "start": 13.55,
+              "end": 13.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 13.75,
+              "end": 13.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " swell.",
+              "start": 13.95,
+              "end": 14.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " His",
+              "start": 14.69,
+              "end": 14.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " face",
+              "start": 14.85,
+              "end": 15.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " became",
+              "start": 15.07,
+              "end": 15.45,
+              "probability": 0.98828125
+            },
+            {
+              "text": " suddenly",
+              "start": 15.45,
+              "end": 15.89,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " black and the features seemed to melt and alter. And the next moment I had sprung to",
+          "start": 15.89,
+          "end": 20.37,
+          "words": [
+            {
+              "text": " black",
+              "start": 15.89,
+              "end": 16.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 16.25,
+              "end": 16.49,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " the",
+              "start": 16.49,
+              "end": 16.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " features",
+              "start": 16.61,
+              "end": 16.89,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " seemed",
+              "start": 16.89,
+              "end": 17.15,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 17.15,
+              "end": 17.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " melt",
+              "start": 17.39,
+              "end": 17.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 17.55,
+              "end": 17.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " alter.",
+              "start": 17.77,
+              "end": 18.09,
+              "probability": 0.986328125
+            },
+            {
+              "text": " And",
+              "start": 18.65,
+              "end": 18.85,
+              "probability": 0.31787109375
+            },
+            {
+              "text": " the",
+              "start": 18.85,
+              "end": 18.95,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " next",
+              "start": 18.95,
+              "end": 19.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " moment",
+              "start": 19.17,
+              "end": 19.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 19.55,
+              "end": 19.81,
+              "probability": 0.383544921875
+            },
+            {
+              "text": " had",
+              "start": 19.81,
+              "end": 19.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sprung",
+              "start": 19.93,
+              "end": 20.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 20.17,
+              "end": 20.37,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " my feet and leaped back against the wall, my arms raised to shield me from that prodigy,",
+          "start": 20.37,
+          "end": 24.87,
+          "words": [
+            {
+              "text": " my",
+              "start": 20.37,
+              "end": 20.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " feet",
+              "start": 20.51,
+              "end": 20.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 20.81,
+              "end": 21.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " leaped",
+              "start": 21.03,
+              "end": 21.27,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " back",
+              "start": 21.27,
+              "end": 21.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " against",
+              "start": 21.49,
+              "end": 21.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 21.75,
+              "end": 21.97,
+              "probability": 0.994140625
+            },
+            {
+              "text": " wall,",
+              "start": 21.97,
+              "end": 22.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 22.65,
+              "end": 22.79,
+              "probability": 0.9921875
+            },
+            {
+              "text": " arms",
+              "start": 22.79,
+              "end": 23.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " raised",
+              "start": 23.09,
+              "end": 23.41,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 23.41,
+              "end": 23.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shield",
+              "start": 23.71,
+              "end": 23.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me",
+              "start": 23.91,
+              "end": 24.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " from",
+              "start": 24.11,
+              "end": 24.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 24.25,
+              "end": 24.49,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " prodigy,",
+              "start": 24.49,
+              "end": 24.87,
+              "probability": 0.97998046875
+            }
+          ]
+        },
+        {
+          "text": " my mind submerged in terror.",
+          "start": 24.87,
+          "end": 26.93,
+          "words": [
+            {
+              "text": " my",
+              "start": 24.87,
+              "end": 25.39,
+              "probability": 0.321044921875
+            },
+            {
+              "text": " mind",
+              "start": 25.39,
+              "end": 25.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " submerged",
+              "start": 25.79,
+              "end": 26.31,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " in",
+              "start": 26.31,
+              "end": 26.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " terror.",
+              "start": 26.69,
+              "end": 26.93,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "put",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "raw": "glass",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "raw": "to",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "raw": "his",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "raw": "lips",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "raw": "and",
+          "start": 1.51,
+          "end": 1.81
+        },
+        {
+          "raw": "drank",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "raw": "at",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "raw": "one",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "gulp.",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "raw": "A",
+          "start": 3.25,
+          "end": 3.35
+        },
+        {
+          "raw": "cry",
+          "start": 3.35,
+          "end": 3.57
+        },
+        {
+          "raw": "followed.",
+          "start": 3.57,
+          "end": 4.07
+        },
+        {
+          "raw": "He",
+          "start": 4.51,
+          "end": 4.69
+        },
+        {
+          "raw": "reeled,",
+          "start": 4.69,
+          "end": 5.09
+        },
+        {
+          "raw": "staggered,",
+          "start": 5.25,
+          "end": 5.59
+        },
+        {
+          "raw": "clutched",
+          "start": 5.79,
+          "end": 6.05
+        },
+        {
+          "raw": "at",
+          "start": 6.05,
+          "end": 6.15
+        },
+        {
+          "raw": "the",
+          "start": 6.15,
+          "end": 6.23
+        },
+        {
+          "raw": "table",
+          "start": 6.23,
+          "end": 6.51
+        },
+        {
+          "raw": "and",
+          "start": 6.51,
+          "end": 6.71
+        },
+        {
+          "raw": "held",
+          "start": 6.71,
+          "end": 6.89
+        },
+        {
+          "raw": "on,",
+          "start": 6.89,
+          "end": 7.23
+        },
+        {
+          "raw": "staring",
+          "start": 7.55,
+          "end": 7.81
+        },
+        {
+          "raw": "with",
+          "start": 7.81,
+          "end": 8.03
+        },
+        {
+          "raw": "injected",
+          "start": 8.03,
+          "end": 8.47
+        },
+        {
+          "raw": "eyes,",
+          "start": 8.47,
+          "end": 8.97
+        },
+        {
+          "raw": "gasping",
+          "start": 9.17,
+          "end": 9.59
+        },
+        {
+          "raw": "with",
+          "start": 9.59,
+          "end": 9.73
+        },
+        {
+          "raw": "open",
+          "start": 9.73,
+          "end": 10.07
+        },
+        {
+          "raw": "mouth.",
+          "start": 10.07,
+          "end": 10.39
+        },
+        {
+          "raw": "And",
+          "start": 10.93,
+          "end": 11.07
+        },
+        {
+          "raw": "as",
+          "start": 11.07,
+          "end": 11.19
+        },
+        {
+          "raw": "I",
+          "start": 11.19,
+          "end": 11.33
+        },
+        {
+          "raw": "looked",
+          "start": 11.33,
+          "end": 11.47
+        },
+        {
+          "raw": "there",
+          "start": 11.47,
+          "end": 11.67
+        },
+        {
+          "raw": "came,",
+          "start": 11.67,
+          "end": 11.89
+        },
+        {
+          "raw": "I",
+          "start": 12.01,
+          "end": 12.13
+        },
+        {
+          "raw": "thought,",
+          "start": 12.13,
+          "end": 12.37
+        },
+        {
+          "raw": "a",
+          "start": 12.55,
+          "end": 12.65
+        },
+        {
+          "raw": "change.",
+          "start": 12.65,
+          "end": 12.97
+        },
+        {
+          "raw": "He",
+          "start": 13.39,
+          "end": 13.55
+        },
+        {
+          "raw": "seemed",
+          "start": 13.55,
+          "end": 13.75
+        },
+        {
+          "raw": "to",
+          "start": 13.75,
+          "end": 13.95
+        },
+        {
+          "raw": "swell.",
+          "start": 13.95,
+          "end": 14.17
+        },
+        {
+          "raw": "His",
+          "start": 14.69,
+          "end": 14.85
+        },
+        {
+          "raw": "face",
+          "start": 14.85,
+          "end": 15.07
+        },
+        {
+          "raw": "became",
+          "start": 15.07,
+          "end": 15.45
+        },
+        {
+          "raw": "suddenly",
+          "start": 15.45,
+          "end": 15.89
+        },
+        {
+          "raw": "black",
+          "start": 15.89,
+          "end": 16.25
+        },
+        {
+          "raw": "and",
+          "start": 16.25,
+          "end": 16.49
+        },
+        {
+          "raw": "the",
+          "start": 16.49,
+          "end": 16.61
+        },
+        {
+          "raw": "features",
+          "start": 16.61,
+          "end": 16.89
+        },
+        {
+          "raw": "seemed",
+          "start": 16.89,
+          "end": 17.15
+        },
+        {
+          "raw": "to",
+          "start": 17.15,
+          "end": 17.39
+        },
+        {
+          "raw": "melt",
+          "start": 17.39,
+          "end": 17.55
+        },
+        {
+          "raw": "and",
+          "start": 17.55,
+          "end": 17.77
+        },
+        {
+          "raw": "alter.",
+          "start": 17.77,
+          "end": 18.09
+        },
+        {
+          "raw": "And",
+          "start": 18.65,
+          "end": 18.85
+        },
+        {
+          "raw": "the",
+          "start": 18.85,
+          "end": 18.95
+        },
+        {
+          "raw": "next",
+          "start": 18.95,
+          "end": 19.17
+        },
+        {
+          "raw": "moment",
+          "start": 19.17,
+          "end": 19.55
+        },
+        {
+          "raw": "I",
+          "start": 19.55,
+          "end": 19.81
+        },
+        {
+          "raw": "had",
+          "start": 19.81,
+          "end": 19.93
+        },
+        {
+          "raw": "sprung",
+          "start": 19.93,
+          "end": 20.17
+        },
+        {
+          "raw": "to",
+          "start": 20.17,
+          "end": 20.37
+        },
+        {
+          "raw": "my",
+          "start": 20.37,
+          "end": 20.51
+        },
+        {
+          "raw": "feet",
+          "start": 20.51,
+          "end": 20.81
+        },
+        {
+          "raw": "and",
+          "start": 20.81,
+          "end": 21.03
+        },
+        {
+          "raw": "leaped",
+          "start": 21.03,
+          "end": 21.27
+        },
+        {
+          "raw": "back",
+          "start": 21.27,
+          "end": 21.49
+        },
+        {
+          "raw": "against",
+          "start": 21.49,
+          "end": 21.75
+        },
+        {
+          "raw": "the",
+          "start": 21.75,
+          "end": 21.97
+        },
+        {
+          "raw": "wall,",
+          "start": 21.97,
+          "end": 22.25
+        },
+        {
+          "raw": "my",
+          "start": 22.65,
+          "end": 22.79
+        },
+        {
+          "raw": "arms",
+          "start": 22.79,
+          "end": 23.09
+        },
+        {
+          "raw": "raised",
+          "start": 23.09,
+          "end": 23.41
+        },
+        {
+          "raw": "to",
+          "start": 23.41,
+          "end": 23.71
+        },
+        {
+          "raw": "shield",
+          "start": 23.71,
+          "end": 23.91
+        },
+        {
+          "raw": "me",
+          "start": 23.91,
+          "end": 24.11
+        },
+        {
+          "raw": "from",
+          "start": 24.11,
+          "end": 24.25
+        },
+        {
+          "raw": "that",
+          "start": 24.25,
+          "end": 24.49
+        },
+        {
+          "raw": "prodigy,",
+          "start": 24.49,
+          "end": 24.87
+        },
+        {
+          "raw": "my",
+          "start": 24.87,
+          "end": 25.39
+        },
+        {
+          "raw": "mind",
+          "start": 25.39,
+          "end": 25.79
+        },
+        {
+          "raw": "submerged",
+          "start": 25.79,
+          "end": 26.31
+        },
+        {
+          "raw": "in",
+          "start": 26.31,
+          "end": 26.69
+        },
+        {
+          "raw": "terror.",
+          "start": 26.69,
+          "end": 26.93
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "put",
+        "the",
+        "glass",
+        "to",
+        "his",
+        "lips",
+        "and",
+        "drank",
+        "at",
+        "one",
+        "gulp.",
+        "A",
+        "cry",
+        "followed;",
+        "he",
+        "reeled,",
+        "staggered,",
+        "clutched",
+        "at",
+        "the",
+        "table",
+        "and",
+        "held",
+        "on,",
+        "staring",
+        "with",
+        "injected",
+        "eyes,",
+        "gasping",
+        "with",
+        "open",
+        "mouth;",
+        "and",
+        "as",
+        "I",
+        "looked",
+        "there",
+        "came,",
+        "I",
+        "thought,",
+        "a",
+        "change—he",
+        "seemed",
+        "to",
+        "swell—his",
+        "face",
+        "became",
+        "suddenly",
+        "black",
+        "and",
+        "the",
+        "features",
+        "seemed",
+        "to",
+        "melt",
+        "and",
+        "alter—and",
+        "the",
+        "next",
+        "moment,",
+        "I",
+        "had",
+        "sprung",
+        "to",
+        "my",
+        "feet",
+        "and",
+        "leaped",
+        "back",
+        "against",
+        "the",
+        "wall,",
+        "my",
+        "arms",
+        "raised",
+        "to",
+        "shield",
+        "me",
+        "from",
+        "that",
+        "prodigy,",
+        "my",
+        "mind",
+        "submerged",
+        "in",
+        "terror."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          42,
+          0,
+          42
+        ],
+        [
+          "replace",
+          42,
+          43,
+          42,
+          44
+        ],
+        [
+          "equal",
+          43,
+          45,
+          44,
+          46
+        ],
+        [
+          "replace",
+          45,
+          46,
+          46,
+          48
+        ],
+        [
+          "equal",
+          46,
+          57,
+          48,
+          59
+        ],
+        [
+          "replace",
+          57,
+          58,
+          59,
+          61
+        ],
+        [
+          "equal",
+          58,
+          87,
+          61,
+          90
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 89
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          42,
+          43,
+          42,
+          44
+        ],
+        [
+          "replace",
+          45,
+          46,
+          46,
+          48
+        ],
+        [
+          "replace",
+          57,
+          58,
+          59,
+          61
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 0.49,
+          "end": 0.61,
+          "key": "put",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.75,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "glass",
+          "start": 0.75,
+          "end": 0.95,
+          "key": "glass",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.95,
+          "end": 1.17,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.17,
+          "end": 1.31,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lips",
+          "start": 1.31,
+          "end": 1.51,
+          "key": "lips",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.51,
+          "end": 1.81,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "drank",
+          "start": 1.81,
+          "end": 1.99,
+          "key": "drank",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.99,
+          "end": 2.17,
+          "key": "at",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "one",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "gulp.",
+          "start": 2.35,
+          "end": 2.61,
+          "key": "gulp",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 3.25,
+          "end": 3.35,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 3.35,
+          "end": 3.57,
+          "key": "cry",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "followed.",
+          "start": 3.57,
+          "end": 4.07,
+          "key": "followed",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.51,
+          "end": 4.69,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "reeled,",
+          "start": 4.69,
+          "end": 5.09,
+          "key": "reeled",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "staggered,",
+          "start": 5.25,
+          "end": 5.59,
+          "key": "staggered",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "clutched",
+          "start": 5.79,
+          "end": 6.05,
+          "key": "clutched",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 6.05,
+          "end": 6.15,
+          "key": "at",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.15,
+          "end": 6.23,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "table",
+          "start": 6.23,
+          "end": 6.51,
+          "key": "table",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.51,
+          "end": 6.71,
+          "key": "and",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "held",
+          "start": 6.71,
+          "end": 6.89,
+          "key": "held",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 6.89,
+          "end": 7.23,
+          "key": "on",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "staring",
+          "start": 7.55,
+          "end": 7.81,
+          "key": "staring",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.81,
+          "end": 8.03,
+          "key": "with",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "injected",
+          "start": 8.03,
+          "end": 8.47,
+          "key": "injected",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "eyes,",
+          "start": 8.47,
+          "end": 8.97,
+          "key": "eyes",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "gasping",
+          "start": 9.17,
+          "end": 9.59,
+          "key": "gasping",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.59,
+          "end": 9.73,
+          "key": "with",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "open",
+          "start": 9.73,
+          "end": 10.07,
+          "key": "open",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "mouth.",
+          "start": 10.07,
+          "end": 10.39,
+          "key": "mouth",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 10.93,
+          "end": 11.07,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 11.07,
+          "end": 11.19,
+          "key": "as",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 11.19,
+          "end": 11.33,
+          "key": "i",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 11.33,
+          "end": 11.47,
+          "key": "looked",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 11.47,
+          "end": 11.67,
+          "key": "there",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "came,",
+          "start": 11.67,
+          "end": 11.89,
+          "key": "came",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 12.01,
+          "end": 12.13,
+          "key": "i",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "thought,",
+          "start": 12.13,
+          "end": 12.37,
+          "key": "thought",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.55,
+          "end": 12.65,
+          "key": "a",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "change.",
+          "start": 12.65,
+          "end": 12.97,
+          "key": "change",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 13.39,
+          "end": 13.55,
+          "key": "he",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 13.55,
+          "end": 13.75,
+          "key": "seemed",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.75,
+          "end": 13.95,
+          "key": "to",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "swell.",
+          "start": 13.95,
+          "end": 14.17,
+          "key": "swell",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 14.69,
+          "end": 14.85,
+          "key": "his",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 14.85,
+          "end": 15.07,
+          "key": "face",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "became",
+          "start": 15.07,
+          "end": 15.45,
+          "key": "became",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 15.45,
+          "end": 15.89,
+          "key": "suddenly",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "black",
+          "start": 15.89,
+          "end": 16.25,
+          "key": "black",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.25,
+          "end": 16.49,
+          "key": "and",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.49,
+          "end": 16.61,
+          "key": "the",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "features",
+          "start": 16.61,
+          "end": 16.89,
+          "key": "features",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 16.89,
+          "end": 17.15,
+          "key": "seemed",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 17.15,
+          "end": 17.39,
+          "key": "to",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "melt",
+          "start": 17.39,
+          "end": 17.55,
+          "key": "melt",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.55,
+          "end": 17.77,
+          "key": "and",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "alter.",
+          "start": 17.77,
+          "end": 18.09,
+          "key": "alter",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 18.65,
+          "end": 18.85,
+          "key": "and",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.85,
+          "end": 18.95,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 18.95,
+          "end": 19.17,
+          "key": "next",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "moment",
+          "start": 19.17,
+          "end": 19.55,
+          "key": "moment",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 19.55,
+          "end": 19.81,
+          "key": "i",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 19.81,
+          "end": 19.93,
+          "key": "had",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "sprung",
+          "start": 19.93,
+          "end": 20.17,
+          "key": "sprung",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 20.17,
+          "end": 20.37,
+          "key": "to",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 20.37,
+          "end": 20.51,
+          "key": "my",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "feet",
+          "start": 20.51,
+          "end": 20.81,
+          "key": "feet",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 20.81,
+          "end": 21.03,
+          "key": "and",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "leaped",
+          "start": 21.03,
+          "end": 21.27,
+          "key": "leaped",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 21.27,
+          "end": 21.49,
+          "key": "back",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 21.49,
+          "end": 21.75,
+          "key": "against",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.75,
+          "end": 21.97,
+          "key": "the",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "wall,",
+          "start": 21.97,
+          "end": 22.25,
+          "key": "wall",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 22.65,
+          "end": 22.79,
+          "key": "my",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "arms",
+          "start": 22.79,
+          "end": 23.09,
+          "key": "arms",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "raised",
+          "start": 23.09,
+          "end": 23.41,
+          "key": "raised",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 23.41,
+          "end": 23.71,
+          "key": "to",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "shield",
+          "start": 23.71,
+          "end": 23.91,
+          "key": "shield",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 23.91,
+          "end": 24.11,
+          "key": "me",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 24.11,
+          "end": 24.25,
+          "key": "from",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 24.25,
+          "end": 24.49,
+          "key": "that",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "prodigy,",
+          "start": 24.49,
+          "end": 24.87,
+          "key": "prodigy",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 24.87,
+          "end": 25.39,
+          "key": "my",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 25.39,
+          "end": 25.79,
+          "key": "mind",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "submerged",
+          "start": 25.79,
+          "end": 26.31,
+          "key": "submerged",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 26.31,
+          "end": 26.69,
+          "key": "in",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "terror.",
+          "start": 26.69,
+          "end": 26.93,
+          "key": "terror",
+          "pieces": [
+            89
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "put",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "text": "the",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "text": "glass",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "text": "to",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "text": "his",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "text": "lips",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "text": "and",
+          "start": 1.51,
+          "end": 1.81
+        },
+        {
+          "text": "drank",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "text": "at",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "text": "one",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "text": "gulp.",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "text": "A",
+          "start": 3.25,
+          "end": 3.35
+        },
+        {
+          "text": "cry",
+          "start": 3.35,
+          "end": 3.57
+        },
+        {
+          "text": "followed;",
+          "start": 3.57,
+          "end": 4.07
+        },
+        {
+          "text": "he",
+          "start": 4.51,
+          "end": 4.69
+        },
+        {
+          "text": "reeled,",
+          "start": 4.69,
+          "end": 5.09
+        },
+        {
+          "text": "staggered,",
+          "start": 5.25,
+          "end": 5.59
+        },
+        {
+          "text": "clutched",
+          "start": 5.79,
+          "end": 6.05
+        },
+        {
+          "text": "at",
+          "start": 6.05,
+          "end": 6.15
+        },
+        {
+          "text": "the",
+          "start": 6.15,
+          "end": 6.23
+        },
+        {
+          "text": "table",
+          "start": 6.23,
+          "end": 6.51
+        },
+        {
+          "text": "and",
+          "start": 6.51,
+          "end": 6.71
+        },
+        {
+          "text": "held",
+          "start": 6.71,
+          "end": 6.89
+        },
+        {
+          "text": "on,",
+          "start": 6.89,
+          "end": 7.23
+        },
+        {
+          "text": "staring",
+          "start": 7.55,
+          "end": 7.81
+        },
+        {
+          "text": "with",
+          "start": 7.81,
+          "end": 8.03
+        },
+        {
+          "text": "injected",
+          "start": 8.03,
+          "end": 8.47
+        },
+        {
+          "text": "eyes,",
+          "start": 8.47,
+          "end": 8.97
+        },
+        {
+          "text": "gasping",
+          "start": 9.17,
+          "end": 9.59
+        },
+        {
+          "text": "with",
+          "start": 9.59,
+          "end": 9.73
+        },
+        {
+          "text": "open",
+          "start": 9.73,
+          "end": 10.07
+        },
+        {
+          "text": "mouth;",
+          "start": 10.07,
+          "end": 10.39
+        },
+        {
+          "text": "and",
+          "start": 10.93,
+          "end": 11.07
+        },
+        {
+          "text": "as",
+          "start": 11.07,
+          "end": 11.19
+        },
+        {
+          "text": "I",
+          "start": 11.19,
+          "end": 11.33
+        },
+        {
+          "text": "looked",
+          "start": 11.33,
+          "end": 11.47
+        },
+        {
+          "text": "there",
+          "start": 11.47,
+          "end": 11.67
+        },
+        {
+          "text": "came,",
+          "start": 11.67,
+          "end": 11.89
+        },
+        {
+          "text": "I",
+          "start": 12.01,
+          "end": 12.13
+        },
+        {
+          "text": "thought,",
+          "start": 12.13,
+          "end": 12.37
+        },
+        {
+          "text": "a",
+          "start": 12.55,
+          "end": 12.65
+        },
+        {
+          "text": "change—he",
+          "start": 12.65,
+          "end": 13.1
+        },
+        {
+          "text": "seemed",
+          "start": 13.55,
+          "end": 13.75
+        },
+        {
+          "text": "to",
+          "start": 13.75,
+          "end": 13.95
+        },
+        {
+          "text": "swell—his",
+          "start": 13.95,
+          "end": 14.4
+        },
+        {
+          "text": "face",
+          "start": 14.85,
+          "end": 15.07
+        },
+        {
+          "text": "became",
+          "start": 15.07,
+          "end": 15.45
+        },
+        {
+          "text": "suddenly",
+          "start": 15.45,
+          "end": 15.89
+        },
+        {
+          "text": "black",
+          "start": 15.89,
+          "end": 16.25
+        },
+        {
+          "text": "and",
+          "start": 16.25,
+          "end": 16.49
+        },
+        {
+          "text": "the",
+          "start": 16.49,
+          "end": 16.61
+        },
+        {
+          "text": "features",
+          "start": 16.61,
+          "end": 16.89
+        },
+        {
+          "text": "seemed",
+          "start": 16.89,
+          "end": 17.15
+        },
+        {
+          "text": "to",
+          "start": 17.15,
+          "end": 17.39
+        },
+        {
+          "text": "melt",
+          "start": 17.39,
+          "end": 17.55
+        },
+        {
+          "text": "and",
+          "start": 17.55,
+          "end": 17.77
+        },
+        {
+          "text": "alter—and",
+          "start": 17.77,
+          "end": 18.31
+        },
+        {
+          "text": "the",
+          "start": 18.85,
+          "end": 18.95
+        },
+        {
+          "text": "next",
+          "start": 18.95,
+          "end": 19.17
+        },
+        {
+          "text": "moment,",
+          "start": 19.17,
+          "end": 19.55
+        },
+        {
+          "text": "I",
+          "start": 19.55,
+          "end": 19.81
+        },
+        {
+          "text": "had",
+          "start": 19.81,
+          "end": 19.93
+        },
+        {
+          "text": "sprung",
+          "start": 19.93,
+          "end": 20.17
+        },
+        {
+          "text": "to",
+          "start": 20.17,
+          "end": 20.37
+        },
+        {
+          "text": "my",
+          "start": 20.37,
+          "end": 20.51
+        },
+        {
+          "text": "feet",
+          "start": 20.51,
+          "end": 20.81
+        },
+        {
+          "text": "and",
+          "start": 20.81,
+          "end": 21.03
+        },
+        {
+          "text": "leaped",
+          "start": 21.03,
+          "end": 21.27
+        },
+        {
+          "text": "back",
+          "start": 21.27,
+          "end": 21.49
+        },
+        {
+          "text": "against",
+          "start": 21.49,
+          "end": 21.75
+        },
+        {
+          "text": "the",
+          "start": 21.75,
+          "end": 21.97
+        },
+        {
+          "text": "wall,",
+          "start": 21.97,
+          "end": 22.25
+        },
+        {
+          "text": "my",
+          "start": 22.65,
+          "end": 22.79
+        },
+        {
+          "text": "arms",
+          "start": 22.79,
+          "end": 23.09
+        },
+        {
+          "text": "raised",
+          "start": 23.09,
+          "end": 23.41
+        },
+        {
+          "text": "to",
+          "start": 23.41,
+          "end": 23.71
+        },
+        {
+          "text": "shield",
+          "start": 23.71,
+          "end": 23.91
+        },
+        {
+          "text": "me",
+          "start": 23.91,
+          "end": 24.11
+        },
+        {
+          "text": "from",
+          "start": 24.11,
+          "end": 24.25
+        },
+        {
+          "text": "that",
+          "start": 24.25,
+          "end": 24.49
+        },
+        {
+          "text": "prodigy,",
+          "start": 24.49,
+          "end": 24.87
+        },
+        {
+          "text": "my",
+          "start": 24.87,
+          "end": 25.39
+        },
+        {
+          "text": "mind",
+          "start": 25.39,
+          "end": 25.79
+        },
+        {
+          "text": "submerged",
+          "start": 25.79,
+          "end": 26.31
+        },
+        {
+          "text": "in",
+          "start": 26.31,
+          "end": 26.69
+        },
+        {
+          "text": "terror.",
+          "start": 26.69,
+          "end": 26.93
+        }
+      ],
+      "stats": {
+        "expected_words": 87,
+        "heard_words": 90,
+        "matched_words": 84
+      },
+      "match_ratio": 0.9655172413793104,
+      "rejection_reasons": [],
+      "seconds": 0.8683279098477215
+    },
+    {
+      "asr_seconds": 0.9644797139335424,
+      "alignment_seconds": 0.0029980160761624575,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He put the glass to his lips and drank at one gulp.",
+          "start": 0.05,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " put",
+              "start": 0.49,
+              "end": 0.61,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 0.61,
+              "end": 0.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " glass",
+              "start": 0.75,
+              "end": 0.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 0.95,
+              "end": 1.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 1.17,
+              "end": 1.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " lips",
+              "start": 1.31,
+              "end": 1.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 1.51,
+              "end": 1.81,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " drank",
+              "start": 1.81,
+              "end": 1.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " at",
+              "start": 1.99,
+              "end": 2.17,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " one",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gulp.",
+              "start": 2.35,
+              "end": 2.61,
+              "probability": 0.991455078125
+            }
+          ]
+        },
+        {
+          "text": " A cry followed.",
+          "start": 3.25,
+          "end": 4.07,
+          "words": [
+            {
+              "text": " A",
+              "start": 3.25,
+              "end": 3.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " cry",
+              "start": 3.35,
+              "end": 3.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " followed.",
+              "start": 3.57,
+              "end": 4.07,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " He reeled, staggered, clutched at the table and held on, staring with injected eyes, gasping",
+          "start": 4.51,
+          "end": 9.59,
+          "words": [
+            {
+              "text": " He",
+              "start": 4.51,
+              "end": 4.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " reeled,",
+              "start": 4.69,
+              "end": 5.09,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " staggered,",
+              "start": 5.25,
+              "end": 5.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " clutched",
+              "start": 5.79,
+              "end": 6.05,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " at",
+              "start": 6.05,
+              "end": 6.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 6.15,
+              "end": 6.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " table",
+              "start": 6.23,
+              "end": 6.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 6.51,
+              "end": 6.71,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " held",
+              "start": 6.71,
+              "end": 6.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on,",
+              "start": 6.89,
+              "end": 7.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " staring",
+              "start": 7.55,
+              "end": 7.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 7.81,
+              "end": 8.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " injected",
+              "start": 8.03,
+              "end": 8.47,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " eyes,",
+              "start": 8.47,
+              "end": 8.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " gasping",
+              "start": 9.17,
+              "end": 9.59,
+              "probability": 0.995849609375
+            }
+          ]
+        },
+        {
+          "text": " with open mouth.",
+          "start": 9.59,
+          "end": 10.39,
+          "words": [
+            {
+              "text": " with",
+              "start": 9.59,
+              "end": 9.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " open",
+              "start": 9.73,
+              "end": 10.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " mouth.",
+              "start": 10.07,
+              "end": 10.39,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " And as I looked there came, I thought, a change.",
+          "start": 10.93,
+          "end": 12.97,
+          "words": [
+            {
+              "text": " And",
+              "start": 10.93,
+              "end": 11.07,
+              "probability": 0.986328125
+            },
+            {
+              "text": " as",
+              "start": 11.07,
+              "end": 11.19,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " I",
+              "start": 11.19,
+              "end": 11.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " looked",
+              "start": 11.33,
+              "end": 11.47,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " there",
+              "start": 11.47,
+              "end": 11.67,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " came,",
+              "start": 11.67,
+              "end": 11.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 12.01,
+              "end": 12.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thought,",
+              "start": 12.13,
+              "end": 12.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 12.55,
+              "end": 12.65,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " change.",
+              "start": 12.65,
+              "end": 12.97,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " He seemed to swell.",
+          "start": 13.39,
+          "end": 14.17,
+          "words": [
+            {
+              "text": " He",
+              "start": 13.39,
+              "end": 13.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " seemed",
+              "start": 13.55,
+              "end": 13.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 13.75,
+              "end": 13.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " swell.",
+              "start": 13.95,
+              "end": 14.17,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " His face became suddenly black and the features seemed to melt and alter.",
+          "start": 14.69,
+          "end": 18.09,
+          "words": [
+            {
+              "text": " His",
+              "start": 14.69,
+              "end": 14.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " face",
+              "start": 14.85,
+              "end": 15.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " became",
+              "start": 15.07,
+              "end": 15.45,
+              "probability": 0.98828125
+            },
+            {
+              "text": " suddenly",
+              "start": 15.45,
+              "end": 15.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " black",
+              "start": 15.89,
+              "end": 16.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 16.25,
+              "end": 16.49,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " the",
+              "start": 16.49,
+              "end": 16.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " features",
+              "start": 16.61,
+              "end": 16.89,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " seemed",
+              "start": 16.89,
+              "end": 17.15,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 17.15,
+              "end": 17.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " melt",
+              "start": 17.39,
+              "end": 17.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 17.55,
+              "end": 17.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " alter.",
+              "start": 17.77,
+              "end": 18.09,
+              "probability": 0.986328125
+            }
+          ]
+        },
+        {
+          "text": " And the next moment, I had sprung to my feet and leaped back against the wall, my arms",
+          "start": 18.65,
+          "end": 23.09,
+          "words": [
+            {
+              "text": " And",
+              "start": 18.65,
+              "end": 18.85,
+              "probability": 0.31787109375
+            },
+            {
+              "text": " the",
+              "start": 18.85,
+              "end": 18.95,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " next",
+              "start": 18.95,
+              "end": 19.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " moment,",
+              "start": 19.17,
+              "end": 19.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 19.67,
+              "end": 19.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " had",
+              "start": 19.81,
+              "end": 19.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sprung",
+              "start": 19.93,
+              "end": 20.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 20.19,
+              "end": 20.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 20.37,
+              "end": 20.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " feet",
+              "start": 20.51,
+              "end": 20.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 20.81,
+              "end": 21.03,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " leaped",
+              "start": 21.03,
+              "end": 21.27,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " back",
+              "start": 21.27,
+              "end": 21.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " against",
+              "start": 21.49,
+              "end": 21.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 21.75,
+              "end": 21.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " wall,",
+              "start": 21.97,
+              "end": 22.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 22.63,
+              "end": 22.79,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " arms",
+              "start": 22.79,
+              "end": 23.09,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " raised to shield me from that prodigy.",
+          "start": 23.09,
+          "end": 24.87,
+          "words": [
+            {
+              "text": " raised",
+              "start": 23.09,
+              "end": 23.41,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " to",
+              "start": 23.41,
+              "end": 23.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shield",
+              "start": 23.71,
+              "end": 23.91,
+              "probability": 1.0
+            },
+            {
+              "text": " me",
+              "start": 23.91,
+              "end": 24.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " from",
+              "start": 24.11,
+              "end": 24.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 24.25,
+              "end": 24.49,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " prodigy.",
+              "start": 24.49,
+              "end": 24.87,
+              "probability": 0.980224609375
+            }
+          ]
+        },
+        {
+          "text": " My mind submerged in terror.",
+          "start": 24.87,
+          "end": 26.95,
+          "words": [
+            {
+              "text": " My",
+              "start": 24.87,
+              "end": 25.39,
+              "probability": 0.59033203125
+            },
+            {
+              "text": " mind",
+              "start": 25.39,
+              "end": 25.77,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " submerged",
+              "start": 25.77,
+              "end": 26.31,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " in",
+              "start": 26.31,
+              "end": 26.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " terror.",
+              "start": 26.69,
+              "end": 26.95,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "put",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "raw": "glass",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "raw": "to",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "raw": "his",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "raw": "lips",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "raw": "and",
+          "start": 1.51,
+          "end": 1.81
+        },
+        {
+          "raw": "drank",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "raw": "at",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "raw": "one",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "gulp.",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "raw": "A",
+          "start": 3.25,
+          "end": 3.35
+        },
+        {
+          "raw": "cry",
+          "start": 3.35,
+          "end": 3.57
+        },
+        {
+          "raw": "followed.",
+          "start": 3.57,
+          "end": 4.07
+        },
+        {
+          "raw": "He",
+          "start": 4.51,
+          "end": 4.69
+        },
+        {
+          "raw": "reeled,",
+          "start": 4.69,
+          "end": 5.09
+        },
+        {
+          "raw": "staggered,",
+          "start": 5.25,
+          "end": 5.59
+        },
+        {
+          "raw": "clutched",
+          "start": 5.79,
+          "end": 6.05
+        },
+        {
+          "raw": "at",
+          "start": 6.05,
+          "end": 6.15
+        },
+        {
+          "raw": "the",
+          "start": 6.15,
+          "end": 6.23
+        },
+        {
+          "raw": "table",
+          "start": 6.23,
+          "end": 6.51
+        },
+        {
+          "raw": "and",
+          "start": 6.51,
+          "end": 6.71
+        },
+        {
+          "raw": "held",
+          "start": 6.71,
+          "end": 6.89
+        },
+        {
+          "raw": "on,",
+          "start": 6.89,
+          "end": 7.23
+        },
+        {
+          "raw": "staring",
+          "start": 7.55,
+          "end": 7.81
+        },
+        {
+          "raw": "with",
+          "start": 7.81,
+          "end": 8.03
+        },
+        {
+          "raw": "injected",
+          "start": 8.03,
+          "end": 8.47
+        },
+        {
+          "raw": "eyes,",
+          "start": 8.47,
+          "end": 8.97
+        },
+        {
+          "raw": "gasping",
+          "start": 9.17,
+          "end": 9.59
+        },
+        {
+          "raw": "with",
+          "start": 9.59,
+          "end": 9.73
+        },
+        {
+          "raw": "open",
+          "start": 9.73,
+          "end": 10.07
+        },
+        {
+          "raw": "mouth.",
+          "start": 10.07,
+          "end": 10.39
+        },
+        {
+          "raw": "And",
+          "start": 10.93,
+          "end": 11.07
+        },
+        {
+          "raw": "as",
+          "start": 11.07,
+          "end": 11.19
+        },
+        {
+          "raw": "I",
+          "start": 11.19,
+          "end": 11.33
+        },
+        {
+          "raw": "looked",
+          "start": 11.33,
+          "end": 11.47
+        },
+        {
+          "raw": "there",
+          "start": 11.47,
+          "end": 11.67
+        },
+        {
+          "raw": "came,",
+          "start": 11.67,
+          "end": 11.89
+        },
+        {
+          "raw": "I",
+          "start": 12.01,
+          "end": 12.13
+        },
+        {
+          "raw": "thought,",
+          "start": 12.13,
+          "end": 12.37
+        },
+        {
+          "raw": "a",
+          "start": 12.55,
+          "end": 12.65
+        },
+        {
+          "raw": "change.",
+          "start": 12.65,
+          "end": 12.97
+        },
+        {
+          "raw": "He",
+          "start": 13.39,
+          "end": 13.55
+        },
+        {
+          "raw": "seemed",
+          "start": 13.55,
+          "end": 13.75
+        },
+        {
+          "raw": "to",
+          "start": 13.75,
+          "end": 13.95
+        },
+        {
+          "raw": "swell.",
+          "start": 13.95,
+          "end": 14.17
+        },
+        {
+          "raw": "His",
+          "start": 14.69,
+          "end": 14.85
+        },
+        {
+          "raw": "face",
+          "start": 14.85,
+          "end": 15.07
+        },
+        {
+          "raw": "became",
+          "start": 15.07,
+          "end": 15.45
+        },
+        {
+          "raw": "suddenly",
+          "start": 15.45,
+          "end": 15.89
+        },
+        {
+          "raw": "black",
+          "start": 15.89,
+          "end": 16.25
+        },
+        {
+          "raw": "and",
+          "start": 16.25,
+          "end": 16.49
+        },
+        {
+          "raw": "the",
+          "start": 16.49,
+          "end": 16.61
+        },
+        {
+          "raw": "features",
+          "start": 16.61,
+          "end": 16.89
+        },
+        {
+          "raw": "seemed",
+          "start": 16.89,
+          "end": 17.15
+        },
+        {
+          "raw": "to",
+          "start": 17.15,
+          "end": 17.39
+        },
+        {
+          "raw": "melt",
+          "start": 17.39,
+          "end": 17.55
+        },
+        {
+          "raw": "and",
+          "start": 17.55,
+          "end": 17.77
+        },
+        {
+          "raw": "alter.",
+          "start": 17.77,
+          "end": 18.09
+        },
+        {
+          "raw": "And",
+          "start": 18.65,
+          "end": 18.85
+        },
+        {
+          "raw": "the",
+          "start": 18.85,
+          "end": 18.95
+        },
+        {
+          "raw": "next",
+          "start": 18.95,
+          "end": 19.17
+        },
+        {
+          "raw": "moment,",
+          "start": 19.17,
+          "end": 19.55
+        },
+        {
+          "raw": "I",
+          "start": 19.67,
+          "end": 19.81
+        },
+        {
+          "raw": "had",
+          "start": 19.81,
+          "end": 19.93
+        },
+        {
+          "raw": "sprung",
+          "start": 19.93,
+          "end": 20.19
+        },
+        {
+          "raw": "to",
+          "start": 20.19,
+          "end": 20.37
+        },
+        {
+          "raw": "my",
+          "start": 20.37,
+          "end": 20.51
+        },
+        {
+          "raw": "feet",
+          "start": 20.51,
+          "end": 20.81
+        },
+        {
+          "raw": "and",
+          "start": 20.81,
+          "end": 21.03
+        },
+        {
+          "raw": "leaped",
+          "start": 21.03,
+          "end": 21.27
+        },
+        {
+          "raw": "back",
+          "start": 21.27,
+          "end": 21.49
+        },
+        {
+          "raw": "against",
+          "start": 21.49,
+          "end": 21.75
+        },
+        {
+          "raw": "the",
+          "start": 21.75,
+          "end": 21.97
+        },
+        {
+          "raw": "wall,",
+          "start": 21.97,
+          "end": 22.25
+        },
+        {
+          "raw": "my",
+          "start": 22.63,
+          "end": 22.79
+        },
+        {
+          "raw": "arms",
+          "start": 22.79,
+          "end": 23.09
+        },
+        {
+          "raw": "raised",
+          "start": 23.09,
+          "end": 23.41
+        },
+        {
+          "raw": "to",
+          "start": 23.41,
+          "end": 23.71
+        },
+        {
+          "raw": "shield",
+          "start": 23.71,
+          "end": 23.91
+        },
+        {
+          "raw": "me",
+          "start": 23.91,
+          "end": 24.11
+        },
+        {
+          "raw": "from",
+          "start": 24.11,
+          "end": 24.25
+        },
+        {
+          "raw": "that",
+          "start": 24.25,
+          "end": 24.49
+        },
+        {
+          "raw": "prodigy.",
+          "start": 24.49,
+          "end": 24.87
+        },
+        {
+          "raw": "My",
+          "start": 24.87,
+          "end": 25.39
+        },
+        {
+          "raw": "mind",
+          "start": 25.39,
+          "end": 25.77
+        },
+        {
+          "raw": "submerged",
+          "start": 25.77,
+          "end": 26.31
+        },
+        {
+          "raw": "in",
+          "start": 26.31,
+          "end": 26.69
+        },
+        {
+          "raw": "terror.",
+          "start": 26.69,
+          "end": 26.95
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "put",
+        "the",
+        "glass",
+        "to",
+        "his",
+        "lips",
+        "and",
+        "drank",
+        "at",
+        "one",
+        "gulp.",
+        "A",
+        "cry",
+        "followed;",
+        "he",
+        "reeled,",
+        "staggered,",
+        "clutched",
+        "at",
+        "the",
+        "table",
+        "and",
+        "held",
+        "on,",
+        "staring",
+        "with",
+        "injected",
+        "eyes,",
+        "gasping",
+        "with",
+        "open",
+        "mouth;",
+        "and",
+        "as",
+        "I",
+        "looked",
+        "there",
+        "came,",
+        "I",
+        "thought,",
+        "a",
+        "change—he",
+        "seemed",
+        "to",
+        "swell—his",
+        "face",
+        "became",
+        "suddenly",
+        "black",
+        "and",
+        "the",
+        "features",
+        "seemed",
+        "to",
+        "melt",
+        "and",
+        "alter—and",
+        "the",
+        "next",
+        "moment,",
+        "I",
+        "had",
+        "sprung",
+        "to",
+        "my",
+        "feet",
+        "and",
+        "leaped",
+        "back",
+        "against",
+        "the",
+        "wall,",
+        "my",
+        "arms",
+        "raised",
+        "to",
+        "shield",
+        "me",
+        "from",
+        "that",
+        "prodigy,",
+        "my",
+        "mind",
+        "submerged",
+        "in",
+        "terror."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          42,
+          0,
+          42
+        ],
+        [
+          "replace",
+          42,
+          43,
+          42,
+          44
+        ],
+        [
+          "equal",
+          43,
+          45,
+          44,
+          46
+        ],
+        [
+          "replace",
+          45,
+          46,
+          46,
+          48
+        ],
+        [
+          "equal",
+          46,
+          57,
+          48,
+          59
+        ],
+        [
+          "replace",
+          57,
+          58,
+          59,
+          61
+        ],
+        [
+          "equal",
+          58,
+          87,
+          61,
+          90
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 89
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          42,
+          43,
+          42,
+          44
+        ],
+        [
+          "replace",
+          45,
+          46,
+          46,
+          48
+        ],
+        [
+          "replace",
+          57,
+          58,
+          59,
+          61
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 0.49,
+          "end": 0.61,
+          "key": "put",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.75,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "glass",
+          "start": 0.75,
+          "end": 0.95,
+          "key": "glass",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.95,
+          "end": 1.17,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.17,
+          "end": 1.31,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lips",
+          "start": 1.31,
+          "end": 1.51,
+          "key": "lips",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.51,
+          "end": 1.81,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "drank",
+          "start": 1.81,
+          "end": 1.99,
+          "key": "drank",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.99,
+          "end": 2.17,
+          "key": "at",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "one",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "gulp.",
+          "start": 2.35,
+          "end": 2.61,
+          "key": "gulp",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 3.25,
+          "end": 3.35,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 3.35,
+          "end": 3.57,
+          "key": "cry",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "followed.",
+          "start": 3.57,
+          "end": 4.07,
+          "key": "followed",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.51,
+          "end": 4.69,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "reeled,",
+          "start": 4.69,
+          "end": 5.09,
+          "key": "reeled",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "staggered,",
+          "start": 5.25,
+          "end": 5.59,
+          "key": "staggered",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "clutched",
+          "start": 5.79,
+          "end": 6.05,
+          "key": "clutched",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 6.05,
+          "end": 6.15,
+          "key": "at",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.15,
+          "end": 6.23,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "table",
+          "start": 6.23,
+          "end": 6.51,
+          "key": "table",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.51,
+          "end": 6.71,
+          "key": "and",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "held",
+          "start": 6.71,
+          "end": 6.89,
+          "key": "held",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 6.89,
+          "end": 7.23,
+          "key": "on",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "staring",
+          "start": 7.55,
+          "end": 7.81,
+          "key": "staring",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.81,
+          "end": 8.03,
+          "key": "with",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "injected",
+          "start": 8.03,
+          "end": 8.47,
+          "key": "injected",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "eyes,",
+          "start": 8.47,
+          "end": 8.97,
+          "key": "eyes",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "gasping",
+          "start": 9.17,
+          "end": 9.59,
+          "key": "gasping",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.59,
+          "end": 9.73,
+          "key": "with",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "open",
+          "start": 9.73,
+          "end": 10.07,
+          "key": "open",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "mouth.",
+          "start": 10.07,
+          "end": 10.39,
+          "key": "mouth",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 10.93,
+          "end": 11.07,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 11.07,
+          "end": 11.19,
+          "key": "as",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 11.19,
+          "end": 11.33,
+          "key": "i",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 11.33,
+          "end": 11.47,
+          "key": "looked",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 11.47,
+          "end": 11.67,
+          "key": "there",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "came,",
+          "start": 11.67,
+          "end": 11.89,
+          "key": "came",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 12.01,
+          "end": 12.13,
+          "key": "i",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "thought,",
+          "start": 12.13,
+          "end": 12.37,
+          "key": "thought",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.55,
+          "end": 12.65,
+          "key": "a",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "change.",
+          "start": 12.65,
+          "end": 12.97,
+          "key": "change",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 13.39,
+          "end": 13.55,
+          "key": "he",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 13.55,
+          "end": 13.75,
+          "key": "seemed",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.75,
+          "end": 13.95,
+          "key": "to",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "swell.",
+          "start": 13.95,
+          "end": 14.17,
+          "key": "swell",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 14.69,
+          "end": 14.85,
+          "key": "his",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 14.85,
+          "end": 15.07,
+          "key": "face",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "became",
+          "start": 15.07,
+          "end": 15.45,
+          "key": "became",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 15.45,
+          "end": 15.89,
+          "key": "suddenly",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "black",
+          "start": 15.89,
+          "end": 16.25,
+          "key": "black",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.25,
+          "end": 16.49,
+          "key": "and",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.49,
+          "end": 16.61,
+          "key": "the",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "features",
+          "start": 16.61,
+          "end": 16.89,
+          "key": "features",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 16.89,
+          "end": 17.15,
+          "key": "seemed",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 17.15,
+          "end": 17.39,
+          "key": "to",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "melt",
+          "start": 17.39,
+          "end": 17.55,
+          "key": "melt",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.55,
+          "end": 17.77,
+          "key": "and",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "alter.",
+          "start": 17.77,
+          "end": 18.09,
+          "key": "alter",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 18.65,
+          "end": 18.85,
+          "key": "and",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.85,
+          "end": 18.95,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 18.95,
+          "end": 19.17,
+          "key": "next",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "moment,",
+          "start": 19.17,
+          "end": 19.55,
+          "key": "moment",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 19.67,
+          "end": 19.81,
+          "key": "i",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 19.81,
+          "end": 19.93,
+          "key": "had",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "sprung",
+          "start": 19.93,
+          "end": 20.19,
+          "key": "sprung",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 20.19,
+          "end": 20.37,
+          "key": "to",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 20.37,
+          "end": 20.51,
+          "key": "my",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "feet",
+          "start": 20.51,
+          "end": 20.81,
+          "key": "feet",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 20.81,
+          "end": 21.03,
+          "key": "and",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "leaped",
+          "start": 21.03,
+          "end": 21.27,
+          "key": "leaped",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 21.27,
+          "end": 21.49,
+          "key": "back",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 21.49,
+          "end": 21.75,
+          "key": "against",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.75,
+          "end": 21.97,
+          "key": "the",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "wall,",
+          "start": 21.97,
+          "end": 22.25,
+          "key": "wall",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 22.63,
+          "end": 22.79,
+          "key": "my",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "arms",
+          "start": 22.79,
+          "end": 23.09,
+          "key": "arms",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "raised",
+          "start": 23.09,
+          "end": 23.41,
+          "key": "raised",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 23.41,
+          "end": 23.71,
+          "key": "to",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "shield",
+          "start": 23.71,
+          "end": 23.91,
+          "key": "shield",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 23.91,
+          "end": 24.11,
+          "key": "me",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 24.11,
+          "end": 24.25,
+          "key": "from",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 24.25,
+          "end": 24.49,
+          "key": "that",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "prodigy.",
+          "start": 24.49,
+          "end": 24.87,
+          "key": "prodigy",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 24.87,
+          "end": 25.39,
+          "key": "my",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 25.39,
+          "end": 25.77,
+          "key": "mind",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "submerged",
+          "start": 25.77,
+          "end": 26.31,
+          "key": "submerged",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 26.31,
+          "end": 26.69,
+          "key": "in",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "terror.",
+          "start": 26.69,
+          "end": 26.95,
+          "key": "terror",
+          "pieces": [
+            89
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "put",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "text": "the",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "text": "glass",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "text": "to",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "text": "his",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "text": "lips",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "text": "and",
+          "start": 1.51,
+          "end": 1.81
+        },
+        {
+          "text": "drank",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "text": "at",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "text": "one",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "text": "gulp.",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "text": "A",
+          "start": 3.25,
+          "end": 3.35
+        },
+        {
+          "text": "cry",
+          "start": 3.35,
+          "end": 3.57
+        },
+        {
+          "text": "followed;",
+          "start": 3.57,
+          "end": 4.07
+        },
+        {
+          "text": "he",
+          "start": 4.51,
+          "end": 4.69
+        },
+        {
+          "text": "reeled,",
+          "start": 4.69,
+          "end": 5.09
+        },
+        {
+          "text": "staggered,",
+          "start": 5.25,
+          "end": 5.59
+        },
+        {
+          "text": "clutched",
+          "start": 5.79,
+          "end": 6.05
+        },
+        {
+          "text": "at",
+          "start": 6.05,
+          "end": 6.15
+        },
+        {
+          "text": "the",
+          "start": 6.15,
+          "end": 6.23
+        },
+        {
+          "text": "table",
+          "start": 6.23,
+          "end": 6.51
+        },
+        {
+          "text": "and",
+          "start": 6.51,
+          "end": 6.71
+        },
+        {
+          "text": "held",
+          "start": 6.71,
+          "end": 6.89
+        },
+        {
+          "text": "on,",
+          "start": 6.89,
+          "end": 7.23
+        },
+        {
+          "text": "staring",
+          "start": 7.55,
+          "end": 7.81
+        },
+        {
+          "text": "with",
+          "start": 7.81,
+          "end": 8.03
+        },
+        {
+          "text": "injected",
+          "start": 8.03,
+          "end": 8.47
+        },
+        {
+          "text": "eyes,",
+          "start": 8.47,
+          "end": 8.97
+        },
+        {
+          "text": "gasping",
+          "start": 9.17,
+          "end": 9.59
+        },
+        {
+          "text": "with",
+          "start": 9.59,
+          "end": 9.73
+        },
+        {
+          "text": "open",
+          "start": 9.73,
+          "end": 10.07
+        },
+        {
+          "text": "mouth;",
+          "start": 10.07,
+          "end": 10.39
+        },
+        {
+          "text": "and",
+          "start": 10.93,
+          "end": 11.07
+        },
+        {
+          "text": "as",
+          "start": 11.07,
+          "end": 11.19
+        },
+        {
+          "text": "I",
+          "start": 11.19,
+          "end": 11.33
+        },
+        {
+          "text": "looked",
+          "start": 11.33,
+          "end": 11.47
+        },
+        {
+          "text": "there",
+          "start": 11.47,
+          "end": 11.67
+        },
+        {
+          "text": "came,",
+          "start": 11.67,
+          "end": 11.89
+        },
+        {
+          "text": "I",
+          "start": 12.01,
+          "end": 12.13
+        },
+        {
+          "text": "thought,",
+          "start": 12.13,
+          "end": 12.37
+        },
+        {
+          "text": "a",
+          "start": 12.55,
+          "end": 12.65
+        },
+        {
+          "text": "change—he",
+          "start": 12.65,
+          "end": 13.1
+        },
+        {
+          "text": "seemed",
+          "start": 13.55,
+          "end": 13.75
+        },
+        {
+          "text": "to",
+          "start": 13.75,
+          "end": 13.95
+        },
+        {
+          "text": "swell—his",
+          "start": 13.95,
+          "end": 14.4
+        },
+        {
+          "text": "face",
+          "start": 14.85,
+          "end": 15.07
+        },
+        {
+          "text": "became",
+          "start": 15.07,
+          "end": 15.45
+        },
+        {
+          "text": "suddenly",
+          "start": 15.45,
+          "end": 15.89
+        },
+        {
+          "text": "black",
+          "start": 15.89,
+          "end": 16.25
+        },
+        {
+          "text": "and",
+          "start": 16.25,
+          "end": 16.49
+        },
+        {
+          "text": "the",
+          "start": 16.49,
+          "end": 16.61
+        },
+        {
+          "text": "features",
+          "start": 16.61,
+          "end": 16.89
+        },
+        {
+          "text": "seemed",
+          "start": 16.89,
+          "end": 17.15
+        },
+        {
+          "text": "to",
+          "start": 17.15,
+          "end": 17.39
+        },
+        {
+          "text": "melt",
+          "start": 17.39,
+          "end": 17.55
+        },
+        {
+          "text": "and",
+          "start": 17.55,
+          "end": 17.77
+        },
+        {
+          "text": "alter—and",
+          "start": 17.77,
+          "end": 18.31
+        },
+        {
+          "text": "the",
+          "start": 18.85,
+          "end": 18.95
+        },
+        {
+          "text": "next",
+          "start": 18.95,
+          "end": 19.17
+        },
+        {
+          "text": "moment,",
+          "start": 19.17,
+          "end": 19.55
+        },
+        {
+          "text": "I",
+          "start": 19.67,
+          "end": 19.81
+        },
+        {
+          "text": "had",
+          "start": 19.81,
+          "end": 19.93
+        },
+        {
+          "text": "sprung",
+          "start": 19.93,
+          "end": 20.19
+        },
+        {
+          "text": "to",
+          "start": 20.19,
+          "end": 20.37
+        },
+        {
+          "text": "my",
+          "start": 20.37,
+          "end": 20.51
+        },
+        {
+          "text": "feet",
+          "start": 20.51,
+          "end": 20.81
+        },
+        {
+          "text": "and",
+          "start": 20.81,
+          "end": 21.03
+        },
+        {
+          "text": "leaped",
+          "start": 21.03,
+          "end": 21.27
+        },
+        {
+          "text": "back",
+          "start": 21.27,
+          "end": 21.49
+        },
+        {
+          "text": "against",
+          "start": 21.49,
+          "end": 21.75
+        },
+        {
+          "text": "the",
+          "start": 21.75,
+          "end": 21.97
+        },
+        {
+          "text": "wall,",
+          "start": 21.97,
+          "end": 22.25
+        },
+        {
+          "text": "my",
+          "start": 22.63,
+          "end": 22.79
+        },
+        {
+          "text": "arms",
+          "start": 22.79,
+          "end": 23.09
+        },
+        {
+          "text": "raised",
+          "start": 23.09,
+          "end": 23.41
+        },
+        {
+          "text": "to",
+          "start": 23.41,
+          "end": 23.71
+        },
+        {
+          "text": "shield",
+          "start": 23.71,
+          "end": 23.91
+        },
+        {
+          "text": "me",
+          "start": 23.91,
+          "end": 24.11
+        },
+        {
+          "text": "from",
+          "start": 24.11,
+          "end": 24.25
+        },
+        {
+          "text": "that",
+          "start": 24.25,
+          "end": 24.49
+        },
+        {
+          "text": "prodigy,",
+          "start": 24.49,
+          "end": 24.87
+        },
+        {
+          "text": "my",
+          "start": 24.87,
+          "end": 25.39
+        },
+        {
+          "text": "mind",
+          "start": 25.39,
+          "end": 25.77
+        },
+        {
+          "text": "submerged",
+          "start": 25.77,
+          "end": 26.31
+        },
+        {
+          "text": "in",
+          "start": 26.31,
+          "end": 26.69
+        },
+        {
+          "text": "terror.",
+          "start": 26.69,
+          "end": 26.95
+        }
+      ],
+      "stats": {
+        "expected_words": 87,
+        "heard_words": 90,
+        "matched_words": 84
+      },
+      "match_ratio": 0.9655172413793104,
+      "rejection_reasons": [],
+      "seconds": 0.9687508158385754
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a9bee8511c9e0847158fa83a6b81cbe29c316682d5d5929fcca52b3fd7168dda",
+  "selected_reasons": []
+}

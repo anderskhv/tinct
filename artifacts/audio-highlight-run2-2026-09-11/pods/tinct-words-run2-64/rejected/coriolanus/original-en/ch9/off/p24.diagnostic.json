@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "19b4863ce691b0177f9fed1b479c073d9965e0cd05c2ea20e299e48d6fd73b9a",
+  "attempts": [
+    {
+      "asr_seconds": 0.21010909881442785,
+      "alignment_seconds": 0.0003773728385567665,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A Flourish of Cornettes. Exeunt.",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " Flourish",
+              "start": 0.51,
+              "end": 0.83,
+              "probability": 0.7171223958333334
+            },
+            {
+              "text": " of",
+              "start": 0.83,
+              "end": 0.99,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " Cornettes.",
+              "start": 0.99,
+              "end": 1.55,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " Exeunt.",
+              "start": 1.95,
+              "end": 2.35,
+              "probability": 0.7286783854166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "Flourish",
+          "start": 0.51,
+          "end": 0.83
+        },
+        {
+          "raw": "of",
+          "start": 0.83,
+          "end": 0.99
+        },
+        {
+          "raw": "Cornettes.",
+          "start": 0.99,
+          "end": 1.55
+        },
+        {
+          "raw": "Exeunt.",
+          "start": 1.95,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "[_A",
+        "flourish",
+        "of",
+        "cornets.",
+        "Exeunt._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Flourish",
+          "start": 0.51,
+          "end": 0.83,
+          "key": "flourish",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.83,
+          "end": 0.99,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cornettes.",
+          "start": 0.99,
+          "end": 1.55,
+          "key": "cornettes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Exeunt.",
+          "start": 1.95,
+          "end": 2.35,
+          "key": "exeunt",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "flourish",
+          "start": 0.51,
+          "end": 0.83
+        },
+        {
+          "text": "of",
+          "start": 0.83,
+          "end": 0.99
+        },
+        {
+          "text": "cornets.",
+          "start": 0.99,
+          "end": 1.47
+        },
+        {
+          "text": "Exeunt._]",
+          "start": 1.95,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2106094742193818
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a932981776777e17570e9b726a41740390984676020d5b642f498e410ae54aed",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

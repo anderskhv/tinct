@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "76a31b4d947932e36cd46b1ff18fb405939c4a1a9a5170b8b5a224a17a3c0610",
+  "attempts": [
+    {
+      "asr_seconds": 2.5597249399870634,
+      "alignment_seconds": 0.0002626068890094757,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Being done, there is no pause.",
+        "hotwords": "Othello, Being"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Being Done, there is no pause.",
+          "start": 0.24,
+          "end": 2.48,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.24,
+              "end": 0.9,
+              "probability": 0.962890625
+            },
+            {
+              "text": " Being",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.018463134765625
+            },
+            {
+              "text": " Done,",
+              "start": 1.42,
+              "end": 1.64,
+              "probability": 0.02276611328125
+            },
+            {
+              "text": " there",
+              "start": 1.78,
+              "end": 1.82,
+              "probability": 0.13623046875
+            },
+            {
+              "text": " is",
+              "start": 1.82,
+              "end": 1.94,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " no",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " pause.",
+              "start": 2.14,
+              "end": 2.48,
+              "probability": 0.9677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.9
+        },
+        {
+          "raw": "Being",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "Done,",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "raw": "there",
+          "start": 1.78,
+          "end": 1.82
+        },
+        {
+          "raw": "is",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "raw": "no",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "raw": "pause.",
+          "start": 2.14,
+          "end": 2.48
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Being",
+        "done,",
+        "there",
+        "is",
+        "no",
+        "pause."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Being",
+          "start": 1.28,
+          "end": 1.42,
+          "key": "being",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Done,",
+          "start": 1.42,
+          "end": 1.64,
+          "key": "done",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.78,
+          "end": 1.82,
+          "key": "there",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.82,
+          "end": 1.94,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.94,
+          "end": 2.14,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pause.",
+          "start": 2.14,
+          "end": 2.48,
+          "key": "pause",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.24,
+          "end": 0.9
+        },
+        {
+          "text": "Being",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "done,",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "text": "there",
+          "start": 1.78,
+          "end": 1.82
+        },
+        {
+          "text": "is",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "text": "no",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "text": "pause.",
+          "start": 2.14,
+          "end": 2.48
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.5600837958045304
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b1f3264bda9188f4d29404b51e0db7279f0df926ded3b308c4b89a13be7a72be",
+  "selected_reasons": []
+}

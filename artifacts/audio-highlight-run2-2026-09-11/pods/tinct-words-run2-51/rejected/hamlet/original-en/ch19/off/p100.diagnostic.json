@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "15a491c2bf58ae2d67f276e8e8edfa72411e05f9811edb0cba22df61e0fb172d",
+  "attempts": [
+    {
+      "asr_seconds": 0.27816568221896887,
+      "alignment_seconds": 0.0004811212420463562,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, that is Lertz, a very noble youth. Mark.",
+          "start": 0.46,
+          "end": 3.36,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.46,
+              "end": 0.82,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " that",
+              "start": 1.0,
+              "end": 1.18,
+              "probability": 0.974609375
+            },
+            {
+              "text": " is",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Lertz,",
+              "start": 1.34,
+              "end": 1.66,
+              "probability": 0.3634847005208333
+            },
+            {
+              "text": " a",
+              "start": 1.7,
+              "end": 1.76,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " very",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " noble",
+              "start": 1.94,
+              "end": 2.22,
+              "probability": 0.9921875
+            },
+            {
+              "text": " youth.",
+              "start": 2.22,
+              "end": 2.68,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Mark.",
+              "start": 3.24,
+              "end": 3.36,
+              "probability": 0.875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "raw": "that",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "Lertz,",
+          "start": 1.34,
+          "end": 1.66
+        },
+        {
+          "raw": "a",
+          "start": 1.7,
+          "end": 1.76
+        },
+        {
+          "raw": "very",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "raw": "noble",
+          "start": 1.94,
+          "end": 2.22
+        },
+        {
+          "raw": "youth.",
+          "start": 2.22,
+          "end": 2.68
+        },
+        {
+          "raw": "Mark.",
+          "start": 3.24,
+          "end": 3.36
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "That",
+        "is",
+        "Laertes,",
+        "a",
+        "very",
+        "noble",
+        "youth.",
+        "Mark."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.46,
+          "end": 0.82,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.0,
+          "end": 1.18,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.34,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lertz,",
+          "start": 1.34,
+          "end": 1.66,
+          "key": "lertz",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.7,
+          "end": 1.76,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.76,
+          "end": 1.94,
+          "key": "very",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 1.94,
+          "end": 2.22,
+          "key": "noble",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "youth.",
+          "start": 2.22,
+          "end": 2.68,
+          "key": "youth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Mark.",
+          "start": 3.24,
+          "end": 3.36,
+          "key": "mark",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "text": "That",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "text": "is",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "Laertes,",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "text": "a",
+          "start": 1.7,
+          "end": 1.76
+        },
+        {
+          "text": "very",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "text": "noble",
+          "start": 1.94,
+          "end": 2.22
+        },
+        {
+          "text": "youth.",
+          "start": 2.22,
+          "end": 2.68
+        },
+        {
+          "text": "Mark.",
+          "start": 3.24,
+          "end": 3.36
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2788110366091132
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "de7b8c87aa46b7fc4ac4748cdbda04b65d74cdec15e7dffceab377fe8a110d4a",
+  "selected_reasons": []
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "e806f4859be7f1de636f3cbace03720689f18dd5ce2a7a4c30b32674588dff4a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1370334792882204,
+      "alignment_seconds": 0.0002377806231379509,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, with a will.",
+          "start": 0.02,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.8173828125
+            },
+            {
+              "text": " with",
+              "start": 0.76,
+              "end": 0.9,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " a",
+              "start": 0.9,
+              "end": 1.0,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " will.",
+              "start": 1.0,
+              "end": 1.18,
+              "probability": 0.8779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "with",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "raw": "a",
+          "start": 0.9,
+          "end": 1.0
+        },
+        {
+          "raw": "will.",
+          "start": 1.0,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "with",
+        "a",
+        "will."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.76,
+          "end": 0.9,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.9,
+          "end": 1.0,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will.",
+          "start": 1.0,
+          "end": 1.18,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "with",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "text": "a",
+          "start": 0.9,
+          "end": 1.0
+        },
+        {
+          "text": "will.",
+          "start": 1.0,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13735893182456493
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eed6320deb70185b9bc935535e5947f52a0a332a876846c3e0006779118fe7f3",
+  "selected_reasons": []
+}

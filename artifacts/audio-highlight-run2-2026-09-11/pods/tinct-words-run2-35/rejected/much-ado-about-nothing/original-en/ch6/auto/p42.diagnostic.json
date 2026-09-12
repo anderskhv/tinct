@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "b3f307abb11f4f7b42a670c43d16647fc7ea54fc57919611bd77ecd360555d4c",
+  "attempts": [
+    {
+      "asr_seconds": 0.18950466439127922,
+      "alignment_seconds": 0.0004378650337457657,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Don Pedro. Maybe she doth but counterfeit.",
+        "hotwords": "Don, Pedro, Maybe"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don, Pedro, Maybe she doth but counterfeit.",
+          "start": 0.02,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Don,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.62060546875
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.9,
+              "end": 1.02,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " Maybe",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 0.0253143310546875
+            },
+            {
+              "text": " she",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " doth",
+              "start": 1.88,
+              "end": 2.08,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " but",
+              "start": 2.08,
+              "end": 2.26,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " counterfeit.",
+              "start": 2.26,
+              "end": 2.64,
+              "probability": 0.8486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.9,
+          "end": 1.02
+        },
+        {
+          "raw": "Maybe",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "raw": "she",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "doth",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "raw": "but",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "raw": "counterfeit.",
+          "start": 2.26,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "Maybe",
+        "she",
+        "doth",
+        "but",
+        "counterfeit."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.9,
+          "end": 1.02,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Maybe",
+          "start": 1.5,
+          "end": 1.64,
+          "key": "maybe",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 1.88,
+          "end": 2.08,
+          "key": "doth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.08,
+          "end": 2.26,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "counterfeit.",
+          "start": 2.26,
+          "end": 2.64,
+          "key": "counterfeit",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.9,
+          "end": 1.02
+        },
+        {
+          "text": "Maybe",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "she",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "text": "doth",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "text": "but",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "text": "counterfeit.",
+          "start": 2.26,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19009661301970482
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2ab3ae49509658eed0ef4714e1d7200434cbfee15fae59ce2edab9667ce5e4d5",
+  "selected_reasons": []
+}

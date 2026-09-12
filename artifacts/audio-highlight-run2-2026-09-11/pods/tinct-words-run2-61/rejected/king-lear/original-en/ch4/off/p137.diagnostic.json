@@ -1,0 +1,219 @@
+{
+  "complete": true,
+  "signature": "d59c81c690875f9bd8fc376f3949263ccc1aff360ec2e37c01af4beec61e9bd1",
+  "attempts": [
+    {
+      "asr_seconds": 0.2070826906710863,
+      "alignment_seconds": 0.0004082340747117996,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt Lear, Canton attendance.",
+          "start": 0.05,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.59228515625
+            },
+            {
+              "text": " Lear,",
+              "start": 0.77,
+              "end": 1.01,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " Canton",
+              "start": 1.47,
+              "end": 1.67,
+              "probability": 0.958984375
+            },
+            {
+              "text": " attendance.",
+              "start": 1.67,
+              "end": 2.03,
+              "probability": 0.671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Lear,",
+          "start": 0.77,
+          "end": 1.01
+        },
+        {
+          "raw": "Canton",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "raw": "attendance.",
+          "start": 1.67,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Lear,",
+        "Kent",
+        "and",
+        "Attendants._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          5,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          5,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lear,",
+          "start": 0.77,
+          "end": 1.01,
+          "key": "lear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Canton",
+          "start": 1.47,
+          "end": 1.67,
+          "key": "canton",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "attendance.",
+          "start": 1.67,
+          "end": 2.03,
+          "key": "attendance",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Lear,",
+          "start": 0.77,
+          "end": 1.01
+        },
+        {
+          "text": "Kent",
+          "start": 1.01,
+          "end": 1.52
+        },
+        {
+          "text": "and",
+          "start": 1.52,
+          "end": 1.775
+        },
+        {
+          "text": "Attendants._]",
+          "start": 1.775,
+          "end": 1.902
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20763020776212215
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aaf3352a8a0fd6c25d00a6ae0e0cae306bc0aa2af450c5fc4884eb200f4f44ed",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

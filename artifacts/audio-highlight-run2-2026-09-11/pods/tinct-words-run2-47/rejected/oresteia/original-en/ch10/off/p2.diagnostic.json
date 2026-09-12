@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "3957abaca24e88c54c4a47c9f67f43954af9a11c1f20f986210ba9eea66dc686",
+  "attempts": [
+    {
+      "asr_seconds": 0.17635904499911703,
+      "alignment_seconds": 0.0004532710008788854,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Away. Tease ill to enter here.",
+          "start": 0.05,
+          "end": 2.21,
+          "words": [
+            {
+              "text": " Away.",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.64404296875
+            },
+            {
+              "text": " Tease",
+              "start": 1.05,
+              "end": 1.37,
+              "probability": 0.70166015625
+            },
+            {
+              "text": " ill",
+              "start": 1.37,
+              "end": 1.51,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " to",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " enter",
+              "start": 1.67,
+              "end": 1.87,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " here.",
+              "start": 1.87,
+              "end": 2.21,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Away.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Tease",
+          "start": 1.05,
+          "end": 1.37
+        },
+        {
+          "raw": "ill",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "raw": "to",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "enter",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "raw": "here.",
+          "start": 1.87,
+          "end": 2.21
+        }
+      ],
+      "expected_tokens": [
+        "[Away!",
+        "'tis",
+        "ill",
+        "to",
+        "enter",
+        "here!]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Away.",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "away",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 1.05,
+          "end": 1.37,
+          "key": "tease",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ill",
+          "start": 1.37,
+          "end": 1.51,
+          "key": "ill",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 1.67,
+          "end": 1.87,
+          "key": "enter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 1.87,
+          "end": 2.21,
+          "key": "here",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Away!",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "'tis",
+          "start": 0.69,
+          "end": 1.03
+        },
+        {
+          "text": "ill",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "text": "to",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "text": "enter",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "text": "here!]",
+          "start": 1.87,
+          "end": 2.21
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17695261602057144
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2154cc866db478f4e861795bf29ba38e3f2a32203255d06f21a82b55da65eb90",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

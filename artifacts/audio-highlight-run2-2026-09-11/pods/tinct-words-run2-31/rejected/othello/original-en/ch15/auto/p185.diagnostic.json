@@ -1,0 +1,581 @@
+{
+  "complete": true,
+  "signature": "b53def3da948254ae08a01247cb15865ae25e819f4b3662efa252a031c6342fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.32322759088128805,
+      "alignment_seconds": 0.00022850790992379189,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. O the pernicious caitiff! How came you, Cassio, by that handkerchief That was my wife's?",
+        "hotwords": "Othello, O, How, Cassio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, O the pernicious caitiff! How came you, Cassio, by that handkerchief",
+          "start": 0.08,
+          "end": 4.94,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.8834635416666666
+            },
+            {
+              "text": " O",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 0.41943359375
+            },
+            {
+              "text": " the",
+              "start": 1.34,
+              "end": 1.48,
+              "probability": 0.833984375
+            },
+            {
+              "text": " pernicious",
+              "start": 1.48,
+              "end": 1.84,
+              "probability": 0.9949544270833334
+            },
+            {
+              "text": " caitiff!",
+              "start": 1.84,
+              "end": 2.46,
+              "probability": 0.2979329427083333
+            },
+            {
+              "text": " How",
+              "start": 2.98,
+              "end": 3.08,
+              "probability": 0.8671875
+            },
+            {
+              "text": " came",
+              "start": 3.08,
+              "end": 3.3,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " you,",
+              "start": 3.3,
+              "end": 3.5,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Cassio,",
+              "start": 3.72,
+              "end": 4.0,
+              "probability": 0.809326171875
+            },
+            {
+              "text": " by",
+              "start": 4.14,
+              "end": 4.22,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " that",
+              "start": 4.22,
+              "end": 4.44,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " handkerchief",
+              "start": 4.44,
+              "end": 4.94,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " That was my wife's?",
+          "start": 4.94,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " That",
+              "start": 4.94,
+              "end": 5.1,
+              "probability": 0.1644287109375
+            },
+            {
+              "text": " was",
+              "start": 5.1,
+              "end": 5.22,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " my",
+              "start": 5.22,
+              "end": 5.44,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " wife's?",
+              "start": 5.44,
+              "end": 6.0,
+              "probability": 0.92431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "O",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "raw": "pernicious",
+          "start": 1.48,
+          "end": 1.84
+        },
+        {
+          "raw": "caitiff!",
+          "start": 1.84,
+          "end": 2.46
+        },
+        {
+          "raw": "How",
+          "start": 2.98,
+          "end": 3.08
+        },
+        {
+          "raw": "came",
+          "start": 3.08,
+          "end": 3.3
+        },
+        {
+          "raw": "you,",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "raw": "Cassio,",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "raw": "by",
+          "start": 4.14,
+          "end": 4.22
+        },
+        {
+          "raw": "that",
+          "start": 4.22,
+          "end": 4.44
+        },
+        {
+          "raw": "handkerchief",
+          "start": 4.44,
+          "end": 4.94
+        },
+        {
+          "raw": "That",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "raw": "was",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "raw": "my",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "raw": "wife's?",
+          "start": 5.44,
+          "end": 6.0
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "O",
+        "the",
+        "pernicious",
+        "caitiff!",
+        "How",
+        "came",
+        "you,",
+        "Cassio,",
+        "by",
+        "that",
+        "handkerchief",
+        "That",
+        "was",
+        "my",
+        "wife's?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.24,
+          "end": 1.34,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.48,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pernicious",
+          "start": 1.48,
+          "end": 1.84,
+          "key": "pernicious",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "caitiff!",
+          "start": 1.84,
+          "end": 2.46,
+          "key": "caitiff",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.98,
+          "end": 3.08,
+          "key": "how",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 3.08,
+          "end": 3.3,
+          "key": "came",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 3.3,
+          "end": 3.5,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Cassio,",
+          "start": 3.72,
+          "end": 4.0,
+          "key": "cassio",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.14,
+          "end": 4.22,
+          "key": "by",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.22,
+          "end": 4.44,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "handkerchief",
+          "start": 4.44,
+          "end": 4.94,
+          "key": "handkerchief",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 4.94,
+          "end": 5.1,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.1,
+          "end": 5.22,
+          "key": "was",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.22,
+          "end": 5.44,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "wife's?",
+          "start": 5.44,
+          "end": 6.0,
+          "key": "wifes",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "O",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "text": "the",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "text": "pernicious",
+          "start": 1.48,
+          "end": 1.84
+        },
+        {
+          "text": "caitiff!",
+          "start": 1.84,
+          "end": 2.46
+        },
+        {
+          "text": "How",
+          "start": 2.98,
+          "end": 3.08
+        },
+        {
+          "text": "came",
+          "start": 3.08,
+          "end": 3.3
+        },
+        {
+          "text": "you,",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "text": "Cassio,",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "text": "by",
+          "start": 4.14,
+          "end": 4.22
+        },
+        {
+          "text": "that",
+          "start": 4.22,
+          "end": 4.44
+        },
+        {
+          "text": "handkerchief",
+          "start": 4.44,
+          "end": 4.94
+        },
+        {
+          "text": "That",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "text": "was",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "text": "my",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "text": "wife's?",
+          "start": 5.44,
+          "end": 6.0
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32353940792381763
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1ded50a98ee95cb28ce0bc232df05e231f39048e48652c519a304f88a9892423",
+  "selected_reasons": []
+}

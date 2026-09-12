@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "1cc532fca9dd3423d99f96567f32a08efeb73e52aa35706ef74bfa53b6c5d7b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.20031784288585186,
+      "alignment_seconds": 0.00035767722874879837,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menenius. Ha? Martius coming home?",
+        "hotwords": "Menenius, Ha, Martius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menenius, Ha, Martius coming home?",
+          "start": 0.05,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Menenius,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.64794921875
+            },
+            {
+              "text": " Ha,",
+              "start": 1.25,
+              "end": 1.37,
+              "probability": 0.00238800048828125
+            },
+            {
+              "text": " Martius",
+              "start": 1.91,
+              "end": 2.15,
+              "probability": 0.746826171875
+            },
+            {
+              "text": " coming",
+              "start": 2.15,
+              "end": 2.39,
+              "probability": 0.853515625
+            },
+            {
+              "text": " home?",
+              "start": 2.39,
+              "end": 2.75,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "Ha,",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "raw": "Martius",
+          "start": 1.91,
+          "end": 2.15
+        },
+        {
+          "raw": "coming",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "raw": "home?",
+          "start": 2.39,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "Ha?",
+        "Martius",
+        "coming",
+        "home?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ha,",
+          "start": 1.25,
+          "end": 1.37,
+          "key": "ha",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Martius",
+          "start": 1.91,
+          "end": 2.15,
+          "key": "martius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "coming",
+          "start": 2.15,
+          "end": 2.39,
+          "key": "coming",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "home?",
+          "start": 2.39,
+          "end": 2.75,
+          "key": "home",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "Ha?",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "text": "Martius",
+          "start": 1.91,
+          "end": 2.15
+        },
+        {
+          "text": "coming",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "text": "home?",
+          "start": 2.39,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20079981535673141
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "89882d016acd6aeb6a9125b53e30c1e2125e56a6baf9945eb55a915c4ff61a99",
+  "selected_reasons": []
+}

@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "96d7606c0679f8360fae32898a3eeffd14f87771b82398fe2f791a62975e4273",
+  "attempts": [
+    {
+      "asr_seconds": 0.2036521239206195,
+      "alignment_seconds": 0.0002309158444404602,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Bassanio, Antonio, Graciano, and their followers.",
+          "start": 0.11,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " Bassanio,",
+              "start": 0.65,
+              "end": 1.31,
+              "probability": 0.8375651041666666
+            },
+            {
+              "text": " Antonio,",
+              "start": 1.69,
+              "end": 2.05,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " Graciano,",
+              "start": 2.57,
+              "end": 2.87,
+              "probability": 0.6563720703125
+            },
+            {
+              "text": " and",
+              "start": 3.11,
+              "end": 3.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " their",
+              "start": 3.15,
+              "end": 3.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " followers.",
+              "start": 3.29,
+              "end": 3.63,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Bassanio,",
+          "start": 0.65,
+          "end": 1.31
+        },
+        {
+          "raw": "Antonio,",
+          "start": 1.69,
+          "end": 2.05
+        },
+        {
+          "raw": "Graciano,",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "raw": "and",
+          "start": 3.11,
+          "end": 3.15
+        },
+        {
+          "raw": "their",
+          "start": 3.15,
+          "end": 3.29
+        },
+        {
+          "raw": "followers.",
+          "start": 3.29,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Bassanio,",
+        "Antonio,",
+        "Gratiano",
+        "and",
+        "their",
+        "Followers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bassanio,",
+          "start": 0.65,
+          "end": 1.31,
+          "key": "bassanio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Antonio,",
+          "start": 1.69,
+          "end": 2.05,
+          "key": "antonio",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Graciano,",
+          "start": 2.57,
+          "end": 2.87,
+          "key": "graciano",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.11,
+          "end": 3.15,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 3.15,
+          "end": 3.29,
+          "key": "their",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "followers.",
+          "start": 3.29,
+          "end": 3.63,
+          "key": "followers",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Bassanio,",
+          "start": 0.65,
+          "end": 1.31
+        },
+        {
+          "text": "Antonio,",
+          "start": 1.69,
+          "end": 2.05
+        },
+        {
+          "text": "Gratiano",
+          "start": 2.05,
+          "end": 2.58
+        },
+        {
+          "text": "and",
+          "start": 3.11,
+          "end": 3.15
+        },
+        {
+          "text": "their",
+          "start": 3.15,
+          "end": 3.29
+        },
+        {
+          "text": "Followers.",
+          "start": 3.29,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.20396243501454592
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8cad79d7e80e4cb42f39672510ad44a9a48c137ab8b2e83baa1b2786ef3a3516",
+  "selected_reasons": []
+}

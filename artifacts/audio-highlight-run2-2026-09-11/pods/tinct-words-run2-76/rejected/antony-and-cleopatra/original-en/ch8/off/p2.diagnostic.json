@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "2c220986425e51aa8cfb0777bebfbae131a4cf16d69863ff0ebd5af3bade0eb4",
+  "attempts": [
+    {
+      "asr_seconds": 0.3127634688280523,
+      "alignment_seconds": 0.0006396197713911533,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Octavia, all which time before the gods my knee shall bow my prayers to them for you.",
+          "start": 0.24,
+          "end": 5.02,
+          "words": [
+            {
+              "text": " Octavia,",
+              "start": 0.24,
+              "end": 0.94,
+              "probability": 0.964599609375
+            },
+            {
+              "text": " all",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.89453125
+            },
+            {
+              "text": " which",
+              "start": 1.68,
+              "end": 1.86,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " time",
+              "start": 1.86,
+              "end": 2.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " before",
+              "start": 2.12,
+              "end": 2.34,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 2.34,
+              "end": 2.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " gods",
+              "start": 2.52,
+              "end": 2.74,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " my",
+              "start": 2.74,
+              "end": 2.98,
+              "probability": 0.67529296875
+            },
+            {
+              "text": " knee",
+              "start": 2.98,
+              "end": 3.24,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " shall",
+              "start": 3.24,
+              "end": 3.46,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " bow",
+              "start": 3.46,
+              "end": 3.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 3.64,
+              "end": 3.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " prayers",
+              "start": 3.86,
+              "end": 4.16,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " to",
+              "start": 4.16,
+              "end": 4.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 4.42,
+              "end": 4.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 4.56,
+              "end": 4.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you.",
+              "start": 4.74,
+              "end": 5.02,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Octavia,",
+          "start": 0.24,
+          "end": 0.94
+        },
+        {
+          "raw": "all",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "which",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "raw": "time",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "raw": "before",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "raw": "gods",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "raw": "my",
+          "start": 2.74,
+          "end": 2.98
+        },
+        {
+          "raw": "knee",
+          "start": 2.98,
+          "end": 3.24
+        },
+        {
+          "raw": "shall",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "raw": "bow",
+          "start": 3.46,
+          "end": 3.64
+        },
+        {
+          "raw": "my",
+          "start": 3.64,
+          "end": 3.86
+        },
+        {
+          "raw": "prayers",
+          "start": 3.86,
+          "end": 4.16
+        },
+        {
+          "raw": "to",
+          "start": 4.16,
+          "end": 4.42
+        },
+        {
+          "raw": "them",
+          "start": 4.42,
+          "end": 4.56
+        },
+        {
+          "raw": "for",
+          "start": 4.56,
+          "end": 4.74
+        },
+        {
+          "raw": "you.",
+          "start": 4.74,
+          "end": 5.02
+        }
+      ],
+      "expected_tokens": [
+        "Octavia.",
+        "All",
+        "which",
+        "time",
+        "Before",
+        "the",
+        "gods",
+        "my",
+        "knee",
+        "shall",
+        "bow",
+        "my",
+        "prayers",
+        "To",
+        "them",
+        "for",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Octavia,",
+          "start": 0.24,
+          "end": 0.94,
+          "key": "octavia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.56,
+          "end": 1.68,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 1.68,
+          "end": 1.86,
+          "key": "which",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 1.86,
+          "end": 2.12,
+          "key": "time",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 2.12,
+          "end": 2.34,
+          "key": "before",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.52,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gods",
+          "start": 2.52,
+          "end": 2.74,
+          "key": "gods",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.74,
+          "end": 2.98,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "knee",
+          "start": 2.98,
+          "end": 3.24,
+          "key": "knee",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.24,
+          "end": 3.46,
+          "key": "shall",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bow",
+          "start": 3.46,
+          "end": 3.64,
+          "key": "bow",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.64,
+          "end": 3.86,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "prayers",
+          "start": 3.86,
+          "end": 4.16,
+          "key": "prayers",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.16,
+          "end": 4.42,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.42,
+          "end": 4.56,
+          "key": "them",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.56,
+          "end": 4.74,
+          "key": "for",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 4.74,
+          "end": 5.02,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Octavia.",
+          "start": 0.24,
+          "end": 0.94
+        },
+        {
+          "text": "All",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "which",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "text": "time",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "text": "Before",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "text": "the",
+          "start": 2.34,
+          "end": 2.52
+        },
+        {
+          "text": "gods",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "text": "my",
+          "start": 2.74,
+          "end": 2.98
+        },
+        {
+          "text": "knee",
+          "start": 2.98,
+          "end": 3.24
+        },
+        {
+          "text": "shall",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "text": "bow",
+          "start": 3.46,
+          "end": 3.64
+        },
+        {
+          "text": "my",
+          "start": 3.64,
+          "end": 3.86
+        },
+        {
+          "text": "prayers",
+          "start": 3.86,
+          "end": 4.16
+        },
+        {
+          "text": "To",
+          "start": 4.16,
+          "end": 4.42
+        },
+        {
+          "text": "them",
+          "start": 4.42,
+          "end": 4.56
+        },
+        {
+          "text": "for",
+          "start": 4.56,
+          "end": 4.74
+        },
+        {
+          "text": "you.",
+          "start": 4.74,
+          "end": 5.02
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31371786491945386
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e8e37f535da4b118d5c442aeedbddbb82721e6f1526b9c9958cd52fbc864a43d",
+  "selected_reasons": []
+}

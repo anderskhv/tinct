@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "9ce58e50fe2069d0ddc1ced8569d68b7effb518de1e8696b6a57e6859b2d0cdf",
+  "attempts": [
+    {
+      "asr_seconds": 0.21108158864080906,
+      "alignment_seconds": 0.00017946306616067886,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, Caesar did right for him to come to Rome.",
+          "start": 0.05,
+          "end": 3.15,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.764892578125
+            },
+            {
+              "text": " Caesar",
+              "start": 1.27,
+              "end": 1.59,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " did",
+              "start": 1.59,
+              "end": 1.87,
+              "probability": 0.9765625
+            },
+            {
+              "text": " right",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.654296875
+            },
+            {
+              "text": " for",
+              "start": 2.09,
+              "end": 2.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him",
+              "start": 2.29,
+              "end": 2.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 2.43,
+              "end": 2.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " come",
+              "start": 2.59,
+              "end": 2.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 2.73,
+              "end": 2.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Rome.",
+              "start": 2.89,
+              "end": 3.15,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Caesar",
+          "start": 1.27,
+          "end": 1.59
+        },
+        {
+          "raw": "did",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "raw": "right",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "raw": "for",
+          "start": 2.09,
+          "end": 2.29
+        },
+        {
+          "raw": "him",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "raw": "to",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "raw": "come",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "raw": "to",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "raw": "Rome.",
+          "start": 2.89,
+          "end": 3.15
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Caesar",
+        "did",
+        "write",
+        "for",
+        "him",
+        "to",
+        "come",
+        "to",
+        "Rome."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          10,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 1.27,
+          "end": 1.59,
+          "key": "caesar",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.59,
+          "end": 1.87,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "right",
+          "start": 1.87,
+          "end": 2.09,
+          "key": "right",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.09,
+          "end": 2.29,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.29,
+          "end": 2.43,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.43,
+          "end": 2.59,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.59,
+          "end": 2.73,
+          "key": "come",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.73,
+          "end": 2.89,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Rome.",
+          "start": 2.89,
+          "end": 3.15,
+          "key": "rome",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Caesar",
+          "start": 1.27,
+          "end": 1.59
+        },
+        {
+          "text": "did",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "text": "write",
+          "start": 1.87,
+          "end": 1.98
+        },
+        {
+          "text": "for",
+          "start": 2.09,
+          "end": 2.29
+        },
+        {
+          "text": "him",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "text": "to",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "text": "come",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "text": "to",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "text": "Rome.",
+          "start": 2.89,
+          "end": 3.15
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.2113322587683797
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7779b9ec443541c148df422575c2bf08718111ea86bd754d19f6bb9394530f15",
+  "selected_reasons": []
+}

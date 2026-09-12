@@ -1,0 +1,857 @@
+{
+  "complete": true,
+  "signature": "2efe025a64cb5919db3e19b0d7f4718b538c718d6715aa7262a7ed949739ad00",
+  "attempts": [
+    {
+      "asr_seconds": 0.37189990282058716,
+      "alignment_seconds": 0.0006144344806671143,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown, madman, thou heirest, I say there is no darkness but ignorance, in which thou art",
+          "start": 0.0,
+          "end": 6.32,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.0,
+              "end": 0.7,
+              "probability": 0.40673828125
+            },
+            {
+              "text": " madman,",
+              "start": 1.2,
+              "end": 1.66,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " thou",
+              "start": 1.92,
+              "end": 1.98,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " heirest,",
+              "start": 1.98,
+              "end": 2.48,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " I",
+              "start": 3.06,
+              "end": 3.18,
+              "probability": 0.98046875
+            },
+            {
+              "text": " say",
+              "start": 3.18,
+              "end": 3.38,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " there",
+              "start": 3.38,
+              "end": 3.52,
+              "probability": 0.91796875
+            },
+            {
+              "text": " is",
+              "start": 3.52,
+              "end": 3.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " no",
+              "start": 3.64,
+              "end": 3.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " darkness",
+              "start": 3.86,
+              "end": 4.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " but",
+              "start": 4.32,
+              "end": 4.62,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " ignorance,",
+              "start": 4.62,
+              "end": 5.06,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " in",
+              "start": 5.58,
+              "end": 5.68,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " which",
+              "start": 5.68,
+              "end": 5.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thou",
+              "start": 5.86,
+              "end": 6.06,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " art",
+              "start": 6.06,
+              "end": 6.32,
+              "probability": 0.9921875
+            }
+          ]
+        },
+        {
+          "text": " more puzzled than the Egyptians in their fog.",
+          "start": 6.32,
+          "end": 8.44,
+          "words": [
+            {
+              "text": " more",
+              "start": 6.32,
+              "end": 6.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " puzzled",
+              "start": 6.54,
+              "end": 6.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " than",
+              "start": 6.9,
+              "end": 7.16,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 7.16,
+              "end": 7.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Egyptians",
+              "start": 7.3,
+              "end": 7.7,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " in",
+              "start": 7.7,
+              "end": 7.98,
+              "probability": 0.48876953125
+            },
+            {
+              "text": " their",
+              "start": 7.98,
+              "end": 8.12,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " fog.",
+              "start": 8.12,
+              "end": 8.44,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "raw": "madman,",
+          "start": 1.2,
+          "end": 1.66
+        },
+        {
+          "raw": "thou",
+          "start": 1.92,
+          "end": 1.98
+        },
+        {
+          "raw": "heirest,",
+          "start": 1.98,
+          "end": 2.48
+        },
+        {
+          "raw": "I",
+          "start": 3.06,
+          "end": 3.18
+        },
+        {
+          "raw": "say",
+          "start": 3.18,
+          "end": 3.38
+        },
+        {
+          "raw": "there",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "raw": "is",
+          "start": 3.52,
+          "end": 3.64
+        },
+        {
+          "raw": "no",
+          "start": 3.64,
+          "end": 3.86
+        },
+        {
+          "raw": "darkness",
+          "start": 3.86,
+          "end": 4.32
+        },
+        {
+          "raw": "but",
+          "start": 4.32,
+          "end": 4.62
+        },
+        {
+          "raw": "ignorance,",
+          "start": 4.62,
+          "end": 5.06
+        },
+        {
+          "raw": "in",
+          "start": 5.58,
+          "end": 5.68
+        },
+        {
+          "raw": "which",
+          "start": 5.68,
+          "end": 5.86
+        },
+        {
+          "raw": "thou",
+          "start": 5.86,
+          "end": 6.06
+        },
+        {
+          "raw": "art",
+          "start": 6.06,
+          "end": 6.32
+        },
+        {
+          "raw": "more",
+          "start": 6.32,
+          "end": 6.54
+        },
+        {
+          "raw": "puzzled",
+          "start": 6.54,
+          "end": 6.9
+        },
+        {
+          "raw": "than",
+          "start": 6.9,
+          "end": 7.16
+        },
+        {
+          "raw": "the",
+          "start": 7.16,
+          "end": 7.3
+        },
+        {
+          "raw": "Egyptians",
+          "start": 7.3,
+          "end": 7.7
+        },
+        {
+          "raw": "in",
+          "start": 7.7,
+          "end": 7.98
+        },
+        {
+          "raw": "their",
+          "start": 7.98,
+          "end": 8.12
+        },
+        {
+          "raw": "fog.",
+          "start": 8.12,
+          "end": 8.44
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Madman,",
+        "thou",
+        "errest.",
+        "I",
+        "say",
+        "there",
+        "is",
+        "no",
+        "darkness",
+        "but",
+        "ignorance,",
+        "in",
+        "which",
+        "thou",
+        "art",
+        "more",
+        "puzzled",
+        "than",
+        "the",
+        "Egyptians",
+        "in",
+        "their",
+        "fog."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          24,
+          4,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "madman,",
+          "start": 1.2,
+          "end": 1.66,
+          "key": "madman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.92,
+          "end": 1.98,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heirest,",
+          "start": 1.98,
+          "end": 2.48,
+          "key": "heirest",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.06,
+          "end": 3.18,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 3.18,
+          "end": 3.38,
+          "key": "say",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 3.38,
+          "end": 3.52,
+          "key": "there",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.52,
+          "end": 3.64,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.64,
+          "end": 3.86,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "darkness",
+          "start": 3.86,
+          "end": 4.32,
+          "key": "darkness",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.32,
+          "end": 4.62,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ignorance,",
+          "start": 4.62,
+          "end": 5.06,
+          "key": "ignorance",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.58,
+          "end": 5.68,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 5.68,
+          "end": 5.86,
+          "key": "which",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 5.86,
+          "end": 6.06,
+          "key": "thou",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 6.06,
+          "end": 6.32,
+          "key": "art",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 6.32,
+          "end": 6.54,
+          "key": "more",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "puzzled",
+          "start": 6.54,
+          "end": 6.9,
+          "key": "puzzled",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 6.9,
+          "end": 7.16,
+          "key": "than",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.16,
+          "end": 7.3,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Egyptians",
+          "start": 7.3,
+          "end": 7.7,
+          "key": "egyptians",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.7,
+          "end": 7.98,
+          "key": "in",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 7.98,
+          "end": 8.12,
+          "key": "their",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "fog.",
+          "start": 8.12,
+          "end": 8.44,
+          "key": "fog",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "text": "Madman,",
+          "start": 1.2,
+          "end": 1.66
+        },
+        {
+          "text": "thou",
+          "start": 1.92,
+          "end": 1.98
+        },
+        {
+          "text": "errest.",
+          "start": 1.98,
+          "end": 2.52
+        },
+        {
+          "text": "I",
+          "start": 3.06,
+          "end": 3.18
+        },
+        {
+          "text": "say",
+          "start": 3.18,
+          "end": 3.38
+        },
+        {
+          "text": "there",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "text": "is",
+          "start": 3.52,
+          "end": 3.64
+        },
+        {
+          "text": "no",
+          "start": 3.64,
+          "end": 3.86
+        },
+        {
+          "text": "darkness",
+          "start": 3.86,
+          "end": 4.32
+        },
+        {
+          "text": "but",
+          "start": 4.32,
+          "end": 4.62
+        },
+        {
+          "text": "ignorance,",
+          "start": 4.62,
+          "end": 5.06
+        },
+        {
+          "text": "in",
+          "start": 5.58,
+          "end": 5.68
+        },
+        {
+          "text": "which",
+          "start": 5.68,
+          "end": 5.86
+        },
+        {
+          "text": "thou",
+          "start": 5.86,
+          "end": 6.06
+        },
+        {
+          "text": "art",
+          "start": 6.06,
+          "end": 6.32
+        },
+        {
+          "text": "more",
+          "start": 6.32,
+          "end": 6.54
+        },
+        {
+          "text": "puzzled",
+          "start": 6.54,
+          "end": 6.9
+        },
+        {
+          "text": "than",
+          "start": 6.9,
+          "end": 7.16
+        },
+        {
+          "text": "the",
+          "start": 7.16,
+          "end": 7.3
+        },
+        {
+          "text": "Egyptians",
+          "start": 7.3,
+          "end": 7.7
+        },
+        {
+          "text": "in",
+          "start": 7.7,
+          "end": 7.98
+        },
+        {
+          "text": "their",
+          "start": 7.98,
+          "end": 8.12
+        },
+        {
+          "text": "fog.",
+          "start": 8.12,
+          "end": 8.44
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 23
+      },
+      "match_ratio": 0.9583333333333334,
+      "rejection_reasons": [],
+      "seconds": 0.3727860748767853
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "85efcba3c95f936ebb8b943e47f8e7865d749a096b1e4dcfe9714e0d0636b93a",
+  "selected_reasons": []
+}

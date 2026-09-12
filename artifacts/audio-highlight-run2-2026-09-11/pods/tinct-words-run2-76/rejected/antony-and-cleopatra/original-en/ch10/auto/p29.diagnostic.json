@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "ee142d9f40dadc035cb0169fc6e5d777535c296c682a239a46152a5c5aaca5bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.34814994083717465,
+      "alignment_seconds": 0.00045721884816884995,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Messenger. Free, madam? No. I made no such report. He's bound unto Octavia.",
+        "hotwords": "Messenger, Free, I, He's, Octavia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Messenger, Free, madam? No. I made no such report. He's bound unto Octavia.",
+          "start": 0.02,
+          "end": 5.28,
+          "words": [
+            {
+              "text": " Messenger,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.470458984375
+            },
+            {
+              "text": " Free,",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.0745849609375
+            },
+            {
+              "text": " madam?",
+              "start": 1.48,
+              "end": 1.84,
+              "probability": 0.670166015625
+            },
+            {
+              "text": " No.",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " I",
+              "start": 2.72,
+              "end": 2.74,
+              "probability": 0.982421875
+            },
+            {
+              "text": " made",
+              "start": 2.74,
+              "end": 2.88,
+              "probability": 0.984375
+            },
+            {
+              "text": " no",
+              "start": 2.88,
+              "end": 3.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " such",
+              "start": 3.04,
+              "end": 3.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " report.",
+              "start": 3.22,
+              "end": 3.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " He's",
+              "start": 4.0,
+              "end": 4.2,
+              "probability": 0.970703125
+            },
+            {
+              "text": " bound",
+              "start": 4.2,
+              "end": 4.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " unto",
+              "start": 4.44,
+              "end": 4.74,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Octavia.",
+              "start": 4.74,
+              "end": 5.28,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "Free,",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "madam?",
+          "start": 1.48,
+          "end": 1.84
+        },
+        {
+          "raw": "No.",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "I",
+          "start": 2.72,
+          "end": 2.74
+        },
+        {
+          "raw": "made",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "raw": "no",
+          "start": 2.88,
+          "end": 3.04
+        },
+        {
+          "raw": "such",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "raw": "report.",
+          "start": 3.22,
+          "end": 3.64
+        },
+        {
+          "raw": "He's",
+          "start": 4.0,
+          "end": 4.2
+        },
+        {
+          "raw": "bound",
+          "start": 4.2,
+          "end": 4.44
+        },
+        {
+          "raw": "unto",
+          "start": 4.44,
+          "end": 4.74
+        },
+        {
+          "raw": "Octavia.",
+          "start": 4.74,
+          "end": 5.28
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "Free,",
+        "madam?",
+        "No.",
+        "I",
+        "made",
+        "no",
+        "such",
+        "report.",
+        "He's",
+        "bound",
+        "unto",
+        "Octavia."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Free,",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "free",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "madam?",
+          "start": 1.48,
+          "end": 1.84,
+          "key": "madam",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "No.",
+          "start": 2.36,
+          "end": 2.52,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.72,
+          "end": 2.74,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 2.74,
+          "end": 2.88,
+          "key": "made",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.88,
+          "end": 3.04,
+          "key": "no",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 3.04,
+          "end": 3.22,
+          "key": "such",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "report.",
+          "start": 3.22,
+          "end": 3.64,
+          "key": "report",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 4.0,
+          "end": 4.2,
+          "key": "hes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bound",
+          "start": 4.2,
+          "end": 4.44,
+          "key": "bound",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "unto",
+          "start": 4.44,
+          "end": 4.74,
+          "key": "unto",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Octavia.",
+          "start": 4.74,
+          "end": 5.28,
+          "key": "octavia",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "Free,",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "madam?",
+          "start": 1.48,
+          "end": 1.84
+        },
+        {
+          "text": "No.",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "text": "I",
+          "start": 2.72,
+          "end": 2.74
+        },
+        {
+          "text": "made",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "text": "no",
+          "start": 2.88,
+          "end": 3.04
+        },
+        {
+          "text": "such",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "text": "report.",
+          "start": 3.22,
+          "end": 3.64
+        },
+        {
+          "text": "He's",
+          "start": 4.0,
+          "end": 4.2
+        },
+        {
+          "text": "bound",
+          "start": 4.2,
+          "end": 4.44
+        },
+        {
+          "text": "unto",
+          "start": 4.44,
+          "end": 4.74
+        },
+        {
+          "text": "Octavia.",
+          "start": 4.74,
+          "end": 5.28
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3487771567888558
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3764d66a39b9e618a712267a6b07323639ff0b72fd5d7d5859544ea587c7c995",
+  "selected_reasons": []
+}

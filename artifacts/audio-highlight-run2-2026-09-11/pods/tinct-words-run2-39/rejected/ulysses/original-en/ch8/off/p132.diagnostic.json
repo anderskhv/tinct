@@ -1,0 +1,228 @@
+{
+  "complete": true,
+  "signature": "69a827eb87f3e943e89631e592e8c6ac268f8744c7907ca8d3d755a7e0dd44c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.20126056484878063,
+      "alignment_seconds": 0.00034141005016863346,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bar Maids 2, Tobacco Shop Girls.",
+          "start": 0.02,
+          "end": 2.3,
+          "words": [
+            {
+              "text": " Bar",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.42333984375
+            },
+            {
+              "text": " Maids",
+              "start": 0.58,
+              "end": 0.94,
+              "probability": 0.614013671875
+            },
+            {
+              "text": " 2,",
+              "start": 0.94,
+              "end": 1.18,
+              "probability": 0.78857421875
+            },
+            {
+              "text": " Tobacco",
+              "start": 1.7,
+              "end": 1.72,
+              "probability": 0.51953125
+            },
+            {
+              "text": " Shop",
+              "start": 1.72,
+              "end": 2.04,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " Girls.",
+              "start": 2.04,
+              "end": 2.3,
+              "probability": 0.7431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bar",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "Maids",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "raw": "2,",
+          "start": 0.94,
+          "end": 1.18
+        },
+        {
+          "raw": "Tobacco",
+          "start": 1.7,
+          "end": 1.72
+        },
+        {
+          "raw": "Shop",
+          "start": 1.72,
+          "end": 2.04
+        },
+        {
+          "raw": "Girls.",
+          "start": 2.04,
+          "end": 2.3
+        }
+      ],
+      "expected_tokens": [
+        "Barmaids",
+        "too.",
+        "Tobaccoshopgirls."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bar",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "bar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Maids",
+          "start": 0.58,
+          "end": 0.94,
+          "key": "maids",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "2,",
+          "start": 0.94,
+          "end": 1.18,
+          "key": "two",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Tobacco",
+          "start": 1.7,
+          "end": 1.72,
+          "key": "tobacco",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Shop",
+          "start": 1.72,
+          "end": 2.04,
+          "key": "shop",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Girls.",
+          "start": 2.04,
+          "end": 2.3,
+          "key": "girls",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Barmaids",
+          "start": 0.0,
+          "end": 1.15
+        },
+        {
+          "text": "too.",
+          "start": 1.15,
+          "end": 1.725
+        },
+        {
+          "text": "Tobaccoshopgirls.",
+          "start": 1.725,
+          "end": 2.013
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 6,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20173987396992743
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "95e0f38d708f578172ef8717b1e7e32aa0f5d29a37e0b9ae80a228eb730861e1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

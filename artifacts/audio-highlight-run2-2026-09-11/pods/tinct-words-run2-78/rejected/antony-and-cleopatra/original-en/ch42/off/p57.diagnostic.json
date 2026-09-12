@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "851ccd589a52780e1403d106225532a8f92483a432a0849f930a7f028f7eb823",
+  "attempts": [
+    {
+      "asr_seconds": 0.11246108636260033,
+      "alignment_seconds": 0.000261194072663784,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cleopatra Kneales",
+          "start": 0.05,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " Cleopatra",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.9373372395833334
+            },
+            {
+              "text": " Kneales",
+              "start": 0.93,
+              "end": 1.37,
+              "probability": 0.5569254557291666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "Kneales",
+          "start": 0.93,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "[_Cleopatra",
+        "kneels._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kneales",
+          "start": 0.93,
+          "end": 1.37,
+          "key": "kneales",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Cleopatra",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "kneels._]",
+          "start": 0.93,
+          "end": 1.15
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11279973015189171
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9d4ed045ed0ee154490d5779be0c7e8f3c344142c630f490bd0c92c824157989",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,645 @@
+{
+  "complete": true,
+  "signature": "23596744eddfac573418e722c719623bf2f90302a3a6c00766f9c236e6947b90",
+  "attempts": [
+    {
+      "asr_seconds": 0.41034972853958607,
+      "alignment_seconds": 0.000676274299621582,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Florizel. No, good sir; He has his health, and ampler strength indeed Than most have of his age.",
+        "hotwords": "Florizel, No, He, Than"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Florizel, No, good sir, He has his health, and ampler strength indeed Than most have",
+          "start": 0.05,
+          "end": 5.63,
+          "words": [
+            {
+              "text": " Florizel,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.2538503011067708
+            },
+            {
+              "text": " No,",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.051727294921875
+            },
+            {
+              "text": " good",
+              "start": 1.87,
+              "end": 1.95,
+              "probability": 0.796875
+            },
+            {
+              "text": " sir,",
+              "start": 1.95,
+              "end": 2.23,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " He",
+              "start": 2.65,
+              "end": 2.75,
+              "probability": 0.202880859375
+            },
+            {
+              "text": " has",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " his",
+              "start": 2.93,
+              "end": 3.11,
+              "probability": 0.97265625
+            },
+            {
+              "text": " health,",
+              "start": 3.11,
+              "end": 3.33,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " and",
+              "start": 3.55,
+              "end": 3.67,
+              "probability": 0.60107421875
+            },
+            {
+              "text": " ampler",
+              "start": 3.67,
+              "end": 4.17,
+              "probability": 0.130035400390625
+            },
+            {
+              "text": " strength",
+              "start": 4.17,
+              "end": 4.47,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " indeed",
+              "start": 4.47,
+              "end": 4.89,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " Than",
+              "start": 4.89,
+              "end": 5.15,
+              "probability": 0.2054443359375
+            },
+            {
+              "text": " most",
+              "start": 5.15,
+              "end": 5.37,
+              "probability": 0.994140625
+            },
+            {
+              "text": " have",
+              "start": 5.37,
+              "end": 5.63,
+              "probability": 0.65673828125
+            }
+          ]
+        },
+        {
+          "text": " of his age.",
+          "start": 5.63,
+          "end": 6.21,
+          "words": [
+            {
+              "text": " of",
+              "start": 5.63,
+              "end": 5.75,
+              "probability": 0.9921875
+            },
+            {
+              "text": " his",
+              "start": 5.75,
+              "end": 5.87,
+              "probability": 0.994140625
+            },
+            {
+              "text": " age.",
+              "start": 5.87,
+              "end": 6.21,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Florizel,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "No,",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "raw": "good",
+          "start": 1.87,
+          "end": 1.95
+        },
+        {
+          "raw": "sir,",
+          "start": 1.95,
+          "end": 2.23
+        },
+        {
+          "raw": "He",
+          "start": 2.65,
+          "end": 2.75
+        },
+        {
+          "raw": "has",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "his",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "raw": "health,",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "raw": "and",
+          "start": 3.55,
+          "end": 3.67
+        },
+        {
+          "raw": "ampler",
+          "start": 3.67,
+          "end": 4.17
+        },
+        {
+          "raw": "strength",
+          "start": 4.17,
+          "end": 4.47
+        },
+        {
+          "raw": "indeed",
+          "start": 4.47,
+          "end": 4.89
+        },
+        {
+          "raw": "Than",
+          "start": 4.89,
+          "end": 5.15
+        },
+        {
+          "raw": "most",
+          "start": 5.15,
+          "end": 5.37
+        },
+        {
+          "raw": "have",
+          "start": 5.37,
+          "end": 5.63
+        },
+        {
+          "raw": "of",
+          "start": 5.63,
+          "end": 5.75
+        },
+        {
+          "raw": "his",
+          "start": 5.75,
+          "end": 5.87
+        },
+        {
+          "raw": "age.",
+          "start": 5.87,
+          "end": 6.21
+        }
+      ],
+      "expected_tokens": [
+        "Florizel.",
+        "No,",
+        "good",
+        "sir;",
+        "He",
+        "has",
+        "his",
+        "health,",
+        "and",
+        "ampler",
+        "strength",
+        "indeed",
+        "Than",
+        "most",
+        "have",
+        "of",
+        "his",
+        "age."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Florizel,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "florizel",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.43,
+          "end": 1.69,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.87,
+          "end": 1.95,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.95,
+          "end": 2.23,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.65,
+          "end": 2.75,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 2.75,
+          "end": 2.93,
+          "key": "has",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.93,
+          "end": 3.11,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "health,",
+          "start": 3.11,
+          "end": 3.33,
+          "key": "health",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.55,
+          "end": 3.67,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ampler",
+          "start": 3.67,
+          "end": 4.17,
+          "key": "ampler",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "strength",
+          "start": 4.17,
+          "end": 4.47,
+          "key": "strength",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "indeed",
+          "start": 4.47,
+          "end": 4.89,
+          "key": "indeed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Than",
+          "start": 4.89,
+          "end": 5.15,
+          "key": "than",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 5.15,
+          "end": 5.37,
+          "key": "most",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.37,
+          "end": 5.63,
+          "key": "have",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.63,
+          "end": 5.75,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.75,
+          "end": 5.87,
+          "key": "his",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "age.",
+          "start": 5.87,
+          "end": 6.21,
+          "key": "age",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Florizel.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "No,",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "text": "good",
+          "start": 1.87,
+          "end": 1.95
+        },
+        {
+          "text": "sir;",
+          "start": 1.95,
+          "end": 2.23
+        },
+        {
+          "text": "He",
+          "start": 2.65,
+          "end": 2.75
+        },
+        {
+          "text": "has",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "his",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "text": "health,",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "text": "and",
+          "start": 3.55,
+          "end": 3.67
+        },
+        {
+          "text": "ampler",
+          "start": 3.67,
+          "end": 4.17
+        },
+        {
+          "text": "strength",
+          "start": 4.17,
+          "end": 4.47
+        },
+        {
+          "text": "indeed",
+          "start": 4.47,
+          "end": 4.89
+        },
+        {
+          "text": "Than",
+          "start": 4.89,
+          "end": 5.15
+        },
+        {
+          "text": "most",
+          "start": 5.15,
+          "end": 5.37
+        },
+        {
+          "text": "have",
+          "start": 5.37,
+          "end": 5.63
+        },
+        {
+          "text": "of",
+          "start": 5.63,
+          "end": 5.75
+        },
+        {
+          "text": "his",
+          "start": 5.75,
+          "end": 5.87
+        },
+        {
+          "text": "age.",
+          "start": 5.87,
+          "end": 6.21
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4112951923161745
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b54f87de6ef56fded6c1c5bf64f5b8cd5c0ce5281ceeba1c0052cf4d5e990bcb",
+  "selected_reasons": []
+}

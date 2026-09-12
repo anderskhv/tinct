@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "23f3d15d3fb76902f7ac02b409953e17564c0c435a95f958821a9841e09bc9cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.35346866119652987,
+      "alignment_seconds": 0.0006643906235694885,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ermengarde did not know why a lump came into her throat and her eyes felt as if tears were in them.",
+        "hotwords": "Ermengarde"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ermengarde did not know why a lump came into her throat and her eyes felt as if tears were in them.",
+          "start": 0.18,
+          "end": 5.8,
+          "words": [
+            {
+              "text": " Ermengarde",
+              "start": 0.18,
+              "end": 0.92,
+              "probability": 0.4622650146484375
+            },
+            {
+              "text": " did",
+              "start": 0.92,
+              "end": 1.14,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " not",
+              "start": 1.14,
+              "end": 1.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " know",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " why",
+              "start": 1.54,
+              "end": 1.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lump",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " came",
+              "start": 2.12,
+              "end": 2.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " into",
+              "start": 2.38,
+              "end": 2.62,
+              "probability": 0.9765625
+            },
+            {
+              "text": " her",
+              "start": 2.62,
+              "end": 2.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " throat",
+              "start": 2.8,
+              "end": 3.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 3.14,
+              "end": 3.72,
+              "probability": 0.2900390625
+            },
+            {
+              "text": " her",
+              "start": 3.72,
+              "end": 3.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " eyes",
+              "start": 3.84,
+              "end": 4.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " felt",
+              "start": 4.16,
+              "end": 4.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " as",
+              "start": 4.52,
+              "end": 4.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " if",
+              "start": 4.78,
+              "end": 4.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tears",
+              "start": 4.92,
+              "end": 5.16,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " were",
+              "start": 5.16,
+              "end": 5.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 5.46,
+              "end": 5.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them.",
+              "start": 5.6,
+              "end": 5.8,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ermengarde",
+          "start": 0.18,
+          "end": 0.92
+        },
+        {
+          "raw": "did",
+          "start": 0.92,
+          "end": 1.14
+        },
+        {
+          "raw": "not",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "raw": "know",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "why",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "raw": "a",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "raw": "lump",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "raw": "came",
+          "start": 2.12,
+          "end": 2.38
+        },
+        {
+          "raw": "into",
+          "start": 2.38,
+          "end": 2.62
+        },
+        {
+          "raw": "her",
+          "start": 2.62,
+          "end": 2.8
+        },
+        {
+          "raw": "throat",
+          "start": 2.8,
+          "end": 3.14
+        },
+        {
+          "raw": "and",
+          "start": 3.14,
+          "end": 3.72
+        },
+        {
+          "raw": "her",
+          "start": 3.72,
+          "end": 3.84
+        },
+        {
+          "raw": "eyes",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "raw": "felt",
+          "start": 4.16,
+          "end": 4.52
+        },
+        {
+          "raw": "as",
+          "start": 4.52,
+          "end": 4.78
+        },
+        {
+          "raw": "if",
+          "start": 4.78,
+          "end": 4.92
+        },
+        {
+          "raw": "tears",
+          "start": 4.92,
+          "end": 5.16
+        },
+        {
+          "raw": "were",
+          "start": 5.16,
+          "end": 5.46
+        },
+        {
+          "raw": "in",
+          "start": 5.46,
+          "end": 5.6
+        },
+        {
+          "raw": "them.",
+          "start": 5.6,
+          "end": 5.8
+        }
+      ],
+      "expected_tokens": [
+        "Ermengarde",
+        "did",
+        "not",
+        "know",
+        "why",
+        "a",
+        "lump",
+        "came",
+        "into",
+        "her",
+        "throat",
+        "and",
+        "her",
+        "eyes",
+        "felt",
+        "as",
+        "if",
+        "tears",
+        "were",
+        "in",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ermengarde",
+          "start": 0.18,
+          "end": 0.92,
+          "key": "ermengarde",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.92,
+          "end": 1.14,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.14,
+          "end": 1.34,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.34,
+          "end": 1.54,
+          "key": "know",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.54,
+          "end": 1.76,
+          "key": "why",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.76,
+          "end": 1.94,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lump",
+          "start": 1.94,
+          "end": 2.12,
+          "key": "lump",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 2.12,
+          "end": 2.38,
+          "key": "came",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 2.38,
+          "end": 2.62,
+          "key": "into",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.62,
+          "end": 2.8,
+          "key": "her",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "throat",
+          "start": 2.8,
+          "end": 3.14,
+          "key": "throat",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.14,
+          "end": 3.72,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.72,
+          "end": 3.84,
+          "key": "her",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 3.84,
+          "end": 4.16,
+          "key": "eyes",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 4.16,
+          "end": 4.52,
+          "key": "felt",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.52,
+          "end": 4.78,
+          "key": "as",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 4.78,
+          "end": 4.92,
+          "key": "if",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "tears",
+          "start": 4.92,
+          "end": 5.16,
+          "key": "tears",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 5.16,
+          "end": 5.46,
+          "key": "were",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.46,
+          "end": 5.6,
+          "key": "in",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 5.6,
+          "end": 5.8,
+          "key": "them",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ermengarde",
+          "start": 0.18,
+          "end": 0.92
+        },
+        {
+          "text": "did",
+          "start": 0.92,
+          "end": 1.14
+        },
+        {
+          "text": "not",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "text": "know",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "why",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "text": "a",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "text": "lump",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "text": "came",
+          "start": 2.12,
+          "end": 2.38
+        },
+        {
+          "text": "into",
+          "start": 2.38,
+          "end": 2.62
+        },
+        {
+          "text": "her",
+          "start": 2.62,
+          "end": 2.8
+        },
+        {
+          "text": "throat",
+          "start": 2.8,
+          "end": 3.14
+        },
+        {
+          "text": "and",
+          "start": 3.14,
+          "end": 3.72
+        },
+        {
+          "text": "her",
+          "start": 3.72,
+          "end": 3.84
+        },
+        {
+          "text": "eyes",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "text": "felt",
+          "start": 4.16,
+          "end": 4.52
+        },
+        {
+          "text": "as",
+          "start": 4.52,
+          "end": 4.78
+        },
+        {
+          "text": "if",
+          "start": 4.78,
+          "end": 4.92
+        },
+        {
+          "text": "tears",
+          "start": 4.92,
+          "end": 5.16
+        },
+        {
+          "text": "were",
+          "start": 5.16,
+          "end": 5.46
+        },
+        {
+          "text": "in",
+          "start": 5.46,
+          "end": 5.6
+        },
+        {
+          "text": "them.",
+          "start": 5.6,
+          "end": 5.8
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3544195191934705
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fc065d9776ecefe2f79496a0bd7b763885bbadc7ed8c8152806fe164e3b397e8",
+  "selected_reasons": []
+}

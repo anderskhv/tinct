@@ -1,0 +1,2747 @@
+{
+  "complete": true,
+  "signature": "6d6f05bbcfbb020e81bc67228705d01d2c9aa58ca8b23cceab948485b69837d2",
+  "attempts": [
+    {
+      "asr_seconds": 0.49963923287577927,
+      "alignment_seconds": 0.0008797259069979191,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You must prove your identity of course,\" resumed St. John presently: \"a step which will offer no difficulties; you can then enter on immediate possession. Your fortune is vested in the English funds; Briggs has the will and the necessary documents.\"",
+        "hotwords": "St, John, English, Briggs"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You must prove your identity of course,\" resumed St. John presently.\"A step which will offer no difficulties. You can then enter on immediate possession. Your fortune is vested in the English funds. Briggs has the will and the necessary documents.\"",
+          "start": 0.02,
+          "end": 15.02,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.047088623046875
+            },
+            {
+              "text": " must",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.990234375
+            },
+            {
+              "text": " prove",
+              "start": 0.7,
+              "end": 1.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " identity",
+              "start": 1.2,
+              "end": 1.62,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 1.62,
+              "end": 1.9,
+              "probability": 0.1531982421875
+            },
+            {
+              "text": " course,\"",
+              "start": 1.9,
+              "end": 3.02,
+              "probability": 0.58929443359375
+            },
+            {
+              "text": " resumed",
+              "start": 3.02,
+              "end": 3.08,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " St.",
+              "start": 3.08,
+              "end": 3.44,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " John",
+              "start": 3.74,
+              "end": 3.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " presently.\"A",
+              "start": 3.76,
+              "end": 5.08,
+              "probability": 0.5312779744466146
+            },
+            {
+              "text": " step",
+              "start": 5.08,
+              "end": 5.36,
+              "probability": 0.986328125
+            },
+            {
+              "text": " which",
+              "start": 5.36,
+              "end": 5.56,
+              "probability": 0.98828125
+            },
+            {
+              "text": " will",
+              "start": 5.56,
+              "end": 5.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " offer",
+              "start": 5.72,
+              "end": 6.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " no",
+              "start": 6.02,
+              "end": 6.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " difficulties.",
+              "start": 6.24,
+              "end": 6.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " You",
+              "start": 7.32,
+              "end": 7.42,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " can",
+              "start": 7.42,
+              "end": 7.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " then",
+              "start": 7.54,
+              "end": 7.7,
+              "probability": 0.994140625
+            },
+            {
+              "text": " enter",
+              "start": 7.7,
+              "end": 8.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " on",
+              "start": 8.08,
+              "end": 8.32,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " immediate",
+              "start": 8.32,
+              "end": 8.7,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " possession.",
+              "start": 8.7,
+              "end": 9.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Your",
+              "start": 10.04,
+              "end": 10.2,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " fortune",
+              "start": 10.2,
+              "end": 10.56,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 10.56,
+              "end": 10.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " vested",
+              "start": 10.82,
+              "end": 11.14,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " in",
+              "start": 11.14,
+              "end": 11.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 11.38,
+              "end": 11.5,
+              "probability": 0.9921875
+            },
+            {
+              "text": " English",
+              "start": 11.5,
+              "end": 11.78,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " funds.",
+              "start": 11.78,
+              "end": 12.18,
+              "probability": 0.876953125
+            },
+            {
+              "text": " Briggs",
+              "start": 13.0,
+              "end": 13.0,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " has",
+              "start": 13.0,
+              "end": 13.36,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 13.36,
+              "end": 13.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " will",
+              "start": 13.56,
+              "end": 13.8,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 13.8,
+              "end": 14.08,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " the",
+              "start": 14.08,
+              "end": 14.24,
+              "probability": 0.974609375
+            },
+            {
+              "text": " necessary",
+              "start": 14.24,
+              "end": 14.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " documents.\"",
+              "start": 14.62,
+              "end": 15.02,
+              "probability": 0.8740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "must",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "prove",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "raw": "your",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "identity",
+          "start": 1.2,
+          "end": 1.62
+        },
+        {
+          "raw": "of",
+          "start": 1.62,
+          "end": 1.9
+        },
+        {
+          "raw": "course,\"",
+          "start": 1.9,
+          "end": 3.02
+        },
+        {
+          "raw": "resumed",
+          "start": 3.02,
+          "end": 3.08
+        },
+        {
+          "raw": "St.",
+          "start": 3.08,
+          "end": 3.44
+        },
+        {
+          "raw": "John",
+          "start": 3.74,
+          "end": 3.76
+        },
+        {
+          "raw": "presently.\"A",
+          "start": 3.76,
+          "end": 5.08
+        },
+        {
+          "raw": "step",
+          "start": 5.08,
+          "end": 5.36
+        },
+        {
+          "raw": "which",
+          "start": 5.36,
+          "end": 5.56
+        },
+        {
+          "raw": "will",
+          "start": 5.56,
+          "end": 5.72
+        },
+        {
+          "raw": "offer",
+          "start": 5.72,
+          "end": 6.02
+        },
+        {
+          "raw": "no",
+          "start": 6.02,
+          "end": 6.24
+        },
+        {
+          "raw": "difficulties.",
+          "start": 6.24,
+          "end": 6.76
+        },
+        {
+          "raw": "You",
+          "start": 7.32,
+          "end": 7.42
+        },
+        {
+          "raw": "can",
+          "start": 7.42,
+          "end": 7.54
+        },
+        {
+          "raw": "then",
+          "start": 7.54,
+          "end": 7.7
+        },
+        {
+          "raw": "enter",
+          "start": 7.7,
+          "end": 8.08
+        },
+        {
+          "raw": "on",
+          "start": 8.08,
+          "end": 8.32
+        },
+        {
+          "raw": "immediate",
+          "start": 8.32,
+          "end": 8.7
+        },
+        {
+          "raw": "possession.",
+          "start": 8.7,
+          "end": 9.32
+        },
+        {
+          "raw": "Your",
+          "start": 10.04,
+          "end": 10.2
+        },
+        {
+          "raw": "fortune",
+          "start": 10.2,
+          "end": 10.56
+        },
+        {
+          "raw": "is",
+          "start": 10.56,
+          "end": 10.82
+        },
+        {
+          "raw": "vested",
+          "start": 10.82,
+          "end": 11.14
+        },
+        {
+          "raw": "in",
+          "start": 11.14,
+          "end": 11.38
+        },
+        {
+          "raw": "the",
+          "start": 11.38,
+          "end": 11.5
+        },
+        {
+          "raw": "English",
+          "start": 11.5,
+          "end": 11.78
+        },
+        {
+          "raw": "funds.",
+          "start": 11.78,
+          "end": 12.18
+        },
+        {
+          "raw": "Briggs",
+          "start": 13.0,
+          "end": 13.0
+        },
+        {
+          "raw": "has",
+          "start": 13.0,
+          "end": 13.36
+        },
+        {
+          "raw": "the",
+          "start": 13.36,
+          "end": 13.56
+        },
+        {
+          "raw": "will",
+          "start": 13.56,
+          "end": 13.8
+        },
+        {
+          "raw": "and",
+          "start": 13.8,
+          "end": 14.08
+        },
+        {
+          "raw": "the",
+          "start": 14.08,
+          "end": 14.24
+        },
+        {
+          "raw": "necessary",
+          "start": 14.24,
+          "end": 14.62
+        },
+        {
+          "raw": "documents.\"",
+          "start": 14.62,
+          "end": 15.02
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "must",
+        "prove",
+        "your",
+        "identity",
+        "of",
+        "course,\"",
+        "resumed",
+        "St.",
+        "John",
+        "presently:",
+        "\"a",
+        "step",
+        "which",
+        "will",
+        "offer",
+        "no",
+        "difficulties;",
+        "you",
+        "can",
+        "then",
+        "enter",
+        "on",
+        "immediate",
+        "possession.",
+        "Your",
+        "fortune",
+        "is",
+        "vested",
+        "in",
+        "the",
+        "English",
+        "funds;",
+        "Briggs",
+        "has",
+        "the",
+        "will",
+        "and",
+        "the",
+        "necessary",
+        "documents.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          12,
+          10,
+          11
+        ],
+        [
+          "equal",
+          12,
+          41,
+          11,
+          40
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          12,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "must",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "prove",
+          "start": 0.7,
+          "end": 1.0,
+          "key": "prove",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "identity",
+          "start": 1.2,
+          "end": 1.62,
+          "key": "identity",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.62,
+          "end": 1.9,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "course,\"",
+          "start": 1.9,
+          "end": 3.02,
+          "key": "course",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "resumed",
+          "start": 3.02,
+          "end": 3.08,
+          "key": "resumed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "St.",
+          "start": 3.08,
+          "end": 3.44,
+          "key": "st",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 3.74,
+          "end": 3.76,
+          "key": "john",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "presently.\"A",
+          "start": 3.76,
+          "end": 5.08,
+          "key": "presentlya",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "step",
+          "start": 5.08,
+          "end": 5.36,
+          "key": "step",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 5.36,
+          "end": 5.56,
+          "key": "which",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.56,
+          "end": 5.72,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "offer",
+          "start": 5.72,
+          "end": 6.02,
+          "key": "offer",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 6.02,
+          "end": 6.24,
+          "key": "no",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "difficulties.",
+          "start": 6.24,
+          "end": 6.76,
+          "key": "difficulties",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 7.32,
+          "end": 7.42,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 7.42,
+          "end": 7.54,
+          "key": "can",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 7.54,
+          "end": 7.7,
+          "key": "then",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 7.7,
+          "end": 8.08,
+          "key": "enter",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 8.08,
+          "end": 8.32,
+          "key": "on",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "immediate",
+          "start": 8.32,
+          "end": 8.7,
+          "key": "immediate",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "possession.",
+          "start": 8.7,
+          "end": 9.32,
+          "key": "possession",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 10.04,
+          "end": 10.2,
+          "key": "your",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "fortune",
+          "start": 10.2,
+          "end": 10.56,
+          "key": "fortune",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 10.56,
+          "end": 10.82,
+          "key": "is",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "vested",
+          "start": 10.82,
+          "end": 11.14,
+          "key": "vested",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.14,
+          "end": 11.38,
+          "key": "in",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.38,
+          "end": 11.5,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "English",
+          "start": 11.5,
+          "end": 11.78,
+          "key": "english",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "funds.",
+          "start": 11.78,
+          "end": 12.18,
+          "key": "funds",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Briggs",
+          "start": 13.0,
+          "end": 13.0,
+          "key": "briggs",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 13.0,
+          "end": 13.36,
+          "key": "has",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.36,
+          "end": 13.56,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 13.56,
+          "end": 13.8,
+          "key": "will",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.8,
+          "end": 14.08,
+          "key": "and",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.08,
+          "end": 14.24,
+          "key": "the",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "necessary",
+          "start": 14.24,
+          "end": 14.62,
+          "key": "necessary",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "documents.\"",
+          "start": 14.62,
+          "end": 15.02,
+          "key": "documents",
+          "pieces": [
+            39
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "must",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "text": "prove",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "text": "your",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "identity",
+          "start": 1.2,
+          "end": 1.62
+        },
+        {
+          "text": "of",
+          "start": 1.62,
+          "end": 1.9
+        },
+        {
+          "text": "course,\"",
+          "start": 1.9,
+          "end": 3.02
+        },
+        {
+          "text": "resumed",
+          "start": 3.02,
+          "end": 3.08
+        },
+        {
+          "text": "St.",
+          "start": 3.08,
+          "end": 3.44
+        },
+        {
+          "text": "John",
+          "start": 3.74,
+          "end": 3.76
+        },
+        {
+          "text": "presently:",
+          "start": 3.76,
+          "end": 4.42
+        },
+        {
+          "text": "\"a",
+          "start": 4.42,
+          "end": 4.75
+        },
+        {
+          "text": "step",
+          "start": 5.08,
+          "end": 5.36
+        },
+        {
+          "text": "which",
+          "start": 5.36,
+          "end": 5.56
+        },
+        {
+          "text": "will",
+          "start": 5.56,
+          "end": 5.72
+        },
+        {
+          "text": "offer",
+          "start": 5.72,
+          "end": 6.02
+        },
+        {
+          "text": "no",
+          "start": 6.02,
+          "end": 6.24
+        },
+        {
+          "text": "difficulties;",
+          "start": 6.24,
+          "end": 6.76
+        },
+        {
+          "text": "you",
+          "start": 7.32,
+          "end": 7.42
+        },
+        {
+          "text": "can",
+          "start": 7.42,
+          "end": 7.54
+        },
+        {
+          "text": "then",
+          "start": 7.54,
+          "end": 7.7
+        },
+        {
+          "text": "enter",
+          "start": 7.7,
+          "end": 8.08
+        },
+        {
+          "text": "on",
+          "start": 8.08,
+          "end": 8.32
+        },
+        {
+          "text": "immediate",
+          "start": 8.32,
+          "end": 8.7
+        },
+        {
+          "text": "possession.",
+          "start": 8.7,
+          "end": 9.32
+        },
+        {
+          "text": "Your",
+          "start": 10.04,
+          "end": 10.2
+        },
+        {
+          "text": "fortune",
+          "start": 10.2,
+          "end": 10.56
+        },
+        {
+          "text": "is",
+          "start": 10.56,
+          "end": 10.82
+        },
+        {
+          "text": "vested",
+          "start": 10.82,
+          "end": 11.14
+        },
+        {
+          "text": "in",
+          "start": 11.14,
+          "end": 11.38
+        },
+        {
+          "text": "the",
+          "start": 11.38,
+          "end": 11.5
+        },
+        {
+          "text": "English",
+          "start": 11.5,
+          "end": 11.78
+        },
+        {
+          "text": "funds;",
+          "start": 11.78,
+          "end": 12.18
+        },
+        {
+          "text": "Briggs",
+          "start": 13.0,
+          "end": 13.0
+        },
+        {
+          "text": "has",
+          "start": 13.0,
+          "end": 13.36
+        },
+        {
+          "text": "the",
+          "start": 13.36,
+          "end": 13.56
+        },
+        {
+          "text": "will",
+          "start": 13.56,
+          "end": 13.8
+        },
+        {
+          "text": "and",
+          "start": 13.8,
+          "end": 14.08
+        },
+        {
+          "text": "the",
+          "start": 14.08,
+          "end": 14.24
+        },
+        {
+          "text": "necessary",
+          "start": 14.24,
+          "end": 14.62
+        },
+        {
+          "text": "documents.\"",
+          "start": 14.62,
+          "end": 15.02
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 40,
+        "matched_words": 39
+      },
+      "match_ratio": 0.9512195121951219,
+      "rejection_reasons": [],
+      "seconds": 0.5009403370786458
+    },
+    {
+      "asr_seconds": 0.4935676909517497,
+      "alignment_seconds": 0.0012430779170244932,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "St, John, English, Briggs"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " You must prove your identity, of course, resumed St. John presently. A step which will offer no difficulties.",
+          "start": 0.02,
+          "end": 6.76,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.047088623046875
+            },
+            {
+              "text": " must",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.990234375
+            },
+            {
+              "text": " prove",
+              "start": 0.7,
+              "end": 1.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " identity,",
+              "start": 1.2,
+              "end": 1.66,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 1.82,
+              "end": 1.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " course,",
+              "start": 1.9,
+              "end": 2.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " resumed",
+              "start": 3.12,
+              "end": 3.12,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " St.",
+              "start": 3.12,
+              "end": 3.44,
+              "probability": 0.759765625
+            },
+            {
+              "text": " John",
+              "start": 3.74,
+              "end": 3.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " presently.",
+              "start": 3.76,
+              "end": 4.28,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " A",
+              "start": 4.9,
+              "end": 5.08,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " step",
+              "start": 5.08,
+              "end": 5.36,
+              "probability": 0.982421875
+            },
+            {
+              "text": " which",
+              "start": 5.36,
+              "end": 5.56,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " will",
+              "start": 5.56,
+              "end": 5.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " offer",
+              "start": 5.72,
+              "end": 6.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " no",
+              "start": 6.04,
+              "end": 6.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " difficulties.",
+              "start": 6.24,
+              "end": 6.76,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " You can then enter on immediate possession. Your fortune is vested in the English funds. Briggs has the will and the necessary documents.",
+          "start": 7.32,
+          "end": 15.22,
+          "words": [
+            {
+              "text": " You",
+              "start": 7.32,
+              "end": 7.42,
+              "probability": 0.9921875
+            },
+            {
+              "text": " can",
+              "start": 7.42,
+              "end": 7.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " then",
+              "start": 7.54,
+              "end": 7.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " enter",
+              "start": 7.7,
+              "end": 8.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 8.08,
+              "end": 8.32,
+              "probability": 0.994140625
+            },
+            {
+              "text": " immediate",
+              "start": 8.32,
+              "end": 8.68,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " possession.",
+              "start": 8.68,
+              "end": 9.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Your",
+              "start": 10.06,
+              "end": 10.2,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " fortune",
+              "start": 10.2,
+              "end": 10.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " is",
+              "start": 10.56,
+              "end": 10.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " vested",
+              "start": 10.82,
+              "end": 11.16,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 11.16,
+              "end": 11.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 11.38,
+              "end": 11.5,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " English",
+              "start": 11.5,
+              "end": 11.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " funds.",
+              "start": 11.78,
+              "end": 12.18,
+              "probability": 0.875
+            },
+            {
+              "text": " Briggs",
+              "start": 13.0,
+              "end": 13.0,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " has",
+              "start": 13.0,
+              "end": 13.36,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 13.36,
+              "end": 13.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " will",
+              "start": 13.56,
+              "end": 13.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 13.8,
+              "end": 14.08,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " the",
+              "start": 14.08,
+              "end": 14.22,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " necessary",
+              "start": 14.22,
+              "end": 14.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " documents.",
+              "start": 14.62,
+              "end": 15.22,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "must",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "prove",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "raw": "your",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "identity,",
+          "start": 1.2,
+          "end": 1.66
+        },
+        {
+          "raw": "of",
+          "start": 1.82,
+          "end": 1.9
+        },
+        {
+          "raw": "course,",
+          "start": 1.9,
+          "end": 2.32
+        },
+        {
+          "raw": "resumed",
+          "start": 3.12,
+          "end": 3.12
+        },
+        {
+          "raw": "St.",
+          "start": 3.12,
+          "end": 3.44
+        },
+        {
+          "raw": "John",
+          "start": 3.74,
+          "end": 3.76
+        },
+        {
+          "raw": "presently.",
+          "start": 3.76,
+          "end": 4.28
+        },
+        {
+          "raw": "A",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "raw": "step",
+          "start": 5.08,
+          "end": 5.36
+        },
+        {
+          "raw": "which",
+          "start": 5.36,
+          "end": 5.56
+        },
+        {
+          "raw": "will",
+          "start": 5.56,
+          "end": 5.72
+        },
+        {
+          "raw": "offer",
+          "start": 5.72,
+          "end": 6.04
+        },
+        {
+          "raw": "no",
+          "start": 6.04,
+          "end": 6.24
+        },
+        {
+          "raw": "difficulties.",
+          "start": 6.24,
+          "end": 6.76
+        },
+        {
+          "raw": "You",
+          "start": 7.32,
+          "end": 7.42
+        },
+        {
+          "raw": "can",
+          "start": 7.42,
+          "end": 7.54
+        },
+        {
+          "raw": "then",
+          "start": 7.54,
+          "end": 7.7
+        },
+        {
+          "raw": "enter",
+          "start": 7.7,
+          "end": 8.08
+        },
+        {
+          "raw": "on",
+          "start": 8.08,
+          "end": 8.32
+        },
+        {
+          "raw": "immediate",
+          "start": 8.32,
+          "end": 8.68
+        },
+        {
+          "raw": "possession.",
+          "start": 8.68,
+          "end": 9.32
+        },
+        {
+          "raw": "Your",
+          "start": 10.06,
+          "end": 10.2
+        },
+        {
+          "raw": "fortune",
+          "start": 10.2,
+          "end": 10.56
+        },
+        {
+          "raw": "is",
+          "start": 10.56,
+          "end": 10.82
+        },
+        {
+          "raw": "vested",
+          "start": 10.82,
+          "end": 11.16
+        },
+        {
+          "raw": "in",
+          "start": 11.16,
+          "end": 11.38
+        },
+        {
+          "raw": "the",
+          "start": 11.38,
+          "end": 11.5
+        },
+        {
+          "raw": "English",
+          "start": 11.5,
+          "end": 11.78
+        },
+        {
+          "raw": "funds.",
+          "start": 11.78,
+          "end": 12.18
+        },
+        {
+          "raw": "Briggs",
+          "start": 13.0,
+          "end": 13.0
+        },
+        {
+          "raw": "has",
+          "start": 13.0,
+          "end": 13.36
+        },
+        {
+          "raw": "the",
+          "start": 13.36,
+          "end": 13.56
+        },
+        {
+          "raw": "will",
+          "start": 13.56,
+          "end": 13.8
+        },
+        {
+          "raw": "and",
+          "start": 13.8,
+          "end": 14.08
+        },
+        {
+          "raw": "the",
+          "start": 14.08,
+          "end": 14.22
+        },
+        {
+          "raw": "necessary",
+          "start": 14.22,
+          "end": 14.62
+        },
+        {
+          "raw": "documents.",
+          "start": 14.62,
+          "end": 15.22
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "must",
+        "prove",
+        "your",
+        "identity",
+        "of",
+        "course,\"",
+        "resumed",
+        "St.",
+        "John",
+        "presently:",
+        "\"a",
+        "step",
+        "which",
+        "will",
+        "offer",
+        "no",
+        "difficulties;",
+        "you",
+        "can",
+        "then",
+        "enter",
+        "on",
+        "immediate",
+        "possession.",
+        "Your",
+        "fortune",
+        "is",
+        "vested",
+        "in",
+        "the",
+        "English",
+        "funds;",
+        "Briggs",
+        "has",
+        "the",
+        "will",
+        "and",
+        "the",
+        "necessary",
+        "documents.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          41,
+          0,
+          41
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "must",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "prove",
+          "start": 0.7,
+          "end": 1.0,
+          "key": "prove",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "identity,",
+          "start": 1.2,
+          "end": 1.66,
+          "key": "identity",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.82,
+          "end": 1.9,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "course,",
+          "start": 1.9,
+          "end": 2.32,
+          "key": "course",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "resumed",
+          "start": 3.12,
+          "end": 3.12,
+          "key": "resumed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "St.",
+          "start": 3.12,
+          "end": 3.44,
+          "key": "st",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 3.74,
+          "end": 3.76,
+          "key": "john",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "presently.",
+          "start": 3.76,
+          "end": 4.28,
+          "key": "presently",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 4.9,
+          "end": 5.08,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "step",
+          "start": 5.08,
+          "end": 5.36,
+          "key": "step",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 5.36,
+          "end": 5.56,
+          "key": "which",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.56,
+          "end": 5.72,
+          "key": "will",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "offer",
+          "start": 5.72,
+          "end": 6.04,
+          "key": "offer",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 6.04,
+          "end": 6.24,
+          "key": "no",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "difficulties.",
+          "start": 6.24,
+          "end": 6.76,
+          "key": "difficulties",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 7.32,
+          "end": 7.42,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 7.42,
+          "end": 7.54,
+          "key": "can",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 7.54,
+          "end": 7.7,
+          "key": "then",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 7.7,
+          "end": 8.08,
+          "key": "enter",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 8.08,
+          "end": 8.32,
+          "key": "on",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "immediate",
+          "start": 8.32,
+          "end": 8.68,
+          "key": "immediate",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "possession.",
+          "start": 8.68,
+          "end": 9.32,
+          "key": "possession",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 10.06,
+          "end": 10.2,
+          "key": "your",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "fortune",
+          "start": 10.2,
+          "end": 10.56,
+          "key": "fortune",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 10.56,
+          "end": 10.82,
+          "key": "is",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "vested",
+          "start": 10.82,
+          "end": 11.16,
+          "key": "vested",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.16,
+          "end": 11.38,
+          "key": "in",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.38,
+          "end": 11.5,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "English",
+          "start": 11.5,
+          "end": 11.78,
+          "key": "english",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "funds.",
+          "start": 11.78,
+          "end": 12.18,
+          "key": "funds",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Briggs",
+          "start": 13.0,
+          "end": 13.0,
+          "key": "briggs",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 13.0,
+          "end": 13.36,
+          "key": "has",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.36,
+          "end": 13.56,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 13.56,
+          "end": 13.8,
+          "key": "will",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.8,
+          "end": 14.08,
+          "key": "and",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.08,
+          "end": 14.22,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "necessary",
+          "start": 14.22,
+          "end": 14.62,
+          "key": "necessary",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "documents.",
+          "start": 14.62,
+          "end": 15.22,
+          "key": "documents",
+          "pieces": [
+            40
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "must",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "text": "prove",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "text": "your",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "identity",
+          "start": 1.2,
+          "end": 1.66
+        },
+        {
+          "text": "of",
+          "start": 1.82,
+          "end": 1.9
+        },
+        {
+          "text": "course,\"",
+          "start": 1.9,
+          "end": 2.32
+        },
+        {
+          "text": "resumed",
+          "start": 3.12,
+          "end": 3.12
+        },
+        {
+          "text": "St.",
+          "start": 3.12,
+          "end": 3.44
+        },
+        {
+          "text": "John",
+          "start": 3.74,
+          "end": 3.76
+        },
+        {
+          "text": "presently:",
+          "start": 3.76,
+          "end": 4.28
+        },
+        {
+          "text": "\"a",
+          "start": 4.9,
+          "end": 5.08
+        },
+        {
+          "text": "step",
+          "start": 5.08,
+          "end": 5.36
+        },
+        {
+          "text": "which",
+          "start": 5.36,
+          "end": 5.56
+        },
+        {
+          "text": "will",
+          "start": 5.56,
+          "end": 5.72
+        },
+        {
+          "text": "offer",
+          "start": 5.72,
+          "end": 6.04
+        },
+        {
+          "text": "no",
+          "start": 6.04,
+          "end": 6.24
+        },
+        {
+          "text": "difficulties;",
+          "start": 6.24,
+          "end": 6.76
+        },
+        {
+          "text": "you",
+          "start": 7.32,
+          "end": 7.42
+        },
+        {
+          "text": "can",
+          "start": 7.42,
+          "end": 7.54
+        },
+        {
+          "text": "then",
+          "start": 7.54,
+          "end": 7.7
+        },
+        {
+          "text": "enter",
+          "start": 7.7,
+          "end": 8.08
+        },
+        {
+          "text": "on",
+          "start": 8.08,
+          "end": 8.32
+        },
+        {
+          "text": "immediate",
+          "start": 8.32,
+          "end": 8.68
+        },
+        {
+          "text": "possession.",
+          "start": 8.68,
+          "end": 9.32
+        },
+        {
+          "text": "Your",
+          "start": 10.06,
+          "end": 10.2
+        },
+        {
+          "text": "fortune",
+          "start": 10.2,
+          "end": 10.56
+        },
+        {
+          "text": "is",
+          "start": 10.56,
+          "end": 10.82
+        },
+        {
+          "text": "vested",
+          "start": 10.82,
+          "end": 11.16
+        },
+        {
+          "text": "in",
+          "start": 11.16,
+          "end": 11.38
+        },
+        {
+          "text": "the",
+          "start": 11.38,
+          "end": 11.5
+        },
+        {
+          "text": "English",
+          "start": 11.5,
+          "end": 11.78
+        },
+        {
+          "text": "funds;",
+          "start": 11.78,
+          "end": 12.18
+        },
+        {
+          "text": "Briggs",
+          "start": 13.0,
+          "end": 13.0
+        },
+        {
+          "text": "has",
+          "start": 13.0,
+          "end": 13.36
+        },
+        {
+          "text": "the",
+          "start": 13.36,
+          "end": 13.56
+        },
+        {
+          "text": "will",
+          "start": 13.56,
+          "end": 13.8
+        },
+        {
+          "text": "and",
+          "start": 13.8,
+          "end": 14.08
+        },
+        {
+          "text": "the",
+          "start": 14.08,
+          "end": 14.22
+        },
+        {
+          "text": "necessary",
+          "start": 14.22,
+          "end": 14.62
+        },
+        {
+          "text": "documents.\"",
+          "start": 14.62,
+          "end": 15.22
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 41,
+        "matched_words": 41
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.49520609783940017
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "6fb83672d957c3b35b6bac3875994637c05038039b6e9e85223ac68fb097c503",
+  "selected_reasons": []
+}

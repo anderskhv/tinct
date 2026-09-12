@@ -1,0 +1,226 @@
+{
+  "complete": true,
+  "signature": "429638970cb3da0746b94c95136736733bbb331dd4e3442891601b43dff53bc4",
+  "attempts": [
+    {
+      "asr_seconds": 0.20246611163020134,
+      "alignment_seconds": 0.0003788582980632782,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Maria, naked Sir Toby.",
+          "start": 0.02,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " Maria,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.1644287109375
+            },
+            {
+              "text": " naked",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.33642578125
+            },
+            {
+              "text": " Sir",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.332275390625
+            },
+            {
+              "text": " Toby.",
+              "start": 1.68,
+              "end": 1.96,
+              "probability": 0.86474609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Maria,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "naked",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "raw": "Sir",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "Toby.",
+          "start": 1.68,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "Maria.",
+        "Nay,",
+        "good",
+        "Sir",
+        "Toby."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          5,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Maria,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "maria",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "naked",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "naked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Toby.",
+          "start": 1.68,
+          "end": 1.96,
+          "key": "toby",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Maria.",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "Nay,",
+          "start": 0.86,
+          "end": 1.16
+        },
+        {
+          "text": "good",
+          "start": 1.16,
+          "end": 1.31
+        },
+        {
+          "text": "Sir",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": "Toby.",
+          "start": 1.68,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20295554772019386
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2b3a451166c6b8e499b3679ae1f844ee24e1e1021d1f9e94a1283ba9bb09de7c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

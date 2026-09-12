@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "7b22462c65482009e43046aa76a61e657e594af46acdc50e3dcb5e4b1622d5a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.27561934664845467,
+      "alignment_seconds": 0.00046881381422281265,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Suddenly Maximov, who had followed him out, touched him on the shoulder.",
+        "hotwords": "Suddenly, Maximov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Suddenly, Maximov, who had followed him out, touched him on the shoulder.",
+          "start": 0.08,
+          "end": 3.9,
+          "words": [
+            {
+              "text": " Suddenly,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " Maximov,",
+              "start": 1.14,
+              "end": 1.46,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " who",
+              "start": 1.8,
+              "end": 1.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " had",
+              "start": 1.96,
+              "end": 2.08,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " followed",
+              "start": 2.08,
+              "end": 2.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " him",
+              "start": 2.32,
+              "end": 2.5,
+              "probability": 0.99609375
+            },
+            {
+              "text": " out,",
+              "start": 2.5,
+              "end": 2.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " touched",
+              "start": 3.12,
+              "end": 3.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 3.22,
+              "end": 3.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 3.44,
+              "end": 3.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.54,
+              "end": 3.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shoulder.",
+              "start": 3.68,
+              "end": 3.9,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Suddenly,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "Maximov,",
+          "start": 1.14,
+          "end": 1.46
+        },
+        {
+          "raw": "who",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "raw": "had",
+          "start": 1.96,
+          "end": 2.08
+        },
+        {
+          "raw": "followed",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "raw": "him",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "raw": "out,",
+          "start": 2.5,
+          "end": 2.76
+        },
+        {
+          "raw": "touched",
+          "start": 3.12,
+          "end": 3.22
+        },
+        {
+          "raw": "him",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "raw": "on",
+          "start": 3.44,
+          "end": 3.54
+        },
+        {
+          "raw": "the",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "raw": "shoulder.",
+          "start": 3.68,
+          "end": 3.9
+        }
+      ],
+      "expected_tokens": [
+        "Suddenly",
+        "Maximov,",
+        "who",
+        "had",
+        "followed",
+        "him",
+        "out,",
+        "touched",
+        "him",
+        "on",
+        "the",
+        "shoulder."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Suddenly,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "suddenly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Maximov,",
+          "start": 1.14,
+          "end": 1.46,
+          "key": "maximov",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.8,
+          "end": 1.96,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.96,
+          "end": 2.08,
+          "key": "had",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "followed",
+          "start": 2.08,
+          "end": 2.32,
+          "key": "followed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.32,
+          "end": 2.5,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "out,",
+          "start": 2.5,
+          "end": 2.76,
+          "key": "out",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "touched",
+          "start": 3.12,
+          "end": 3.22,
+          "key": "touched",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.22,
+          "end": 3.44,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.44,
+          "end": 3.54,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.54,
+          "end": 3.68,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "shoulder.",
+          "start": 3.68,
+          "end": 3.9,
+          "key": "shoulder",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Suddenly",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "Maximov,",
+          "start": 1.14,
+          "end": 1.46
+        },
+        {
+          "text": "who",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "text": "had",
+          "start": 1.96,
+          "end": 2.08
+        },
+        {
+          "text": "followed",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "text": "him",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "text": "out,",
+          "start": 2.5,
+          "end": 2.76
+        },
+        {
+          "text": "touched",
+          "start": 3.12,
+          "end": 3.22
+        },
+        {
+          "text": "him",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "text": "on",
+          "start": 3.44,
+          "end": 3.54
+        },
+        {
+          "text": "the",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "text": "shoulder.",
+          "start": 3.68,
+          "end": 3.9
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27627244777977467
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "92f904dbb0cb032d6c7de1f32295e76cc8964f9bacbd3a13d26d48b77f53af98",
+  "selected_reasons": []
+}

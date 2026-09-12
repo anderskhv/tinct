@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "7a46b272cc3d3b3d20d48d0b6f79c1ee81b6265928d0fee75a8b3e06b080a27d",
+  "attempts": [
+    {
+      "asr_seconds": 0.16005633398890495,
+      "alignment_seconds": 0.00035377219319343567,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Duke, there's for thy pains.",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " there's",
+              "start": 1.05,
+              "end": 1.23,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " for",
+              "start": 1.23,
+              "end": 1.35,
+              "probability": 0.9921875
+            },
+            {
+              "text": " thy",
+              "start": 1.35,
+              "end": 1.51,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " pains.",
+              "start": 1.51,
+              "end": 1.85,
+              "probability": 0.85791015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "there's",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "raw": "for",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "raw": "thy",
+          "start": 1.35,
+          "end": 1.51
+        },
+        {
+          "raw": "pains.",
+          "start": 1.51,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "There's",
+        "for",
+        "thy",
+        "pains."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 1.05,
+          "end": 1.23,
+          "key": "theres",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.23,
+          "end": 1.35,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.35,
+          "end": 1.51,
+          "key": "thy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pains.",
+          "start": 1.51,
+          "end": 1.85,
+          "key": "pains",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "There's",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "text": "for",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "text": "thy",
+          "start": 1.35,
+          "end": 1.51
+        },
+        {
+          "text": "pains.",
+          "start": 1.51,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16053301841020584
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d5c8b57a6580384d8aaf2c6adfe394b21dab57c66a976aa64a8023d5578a683c",
+  "selected_reasons": []
+}

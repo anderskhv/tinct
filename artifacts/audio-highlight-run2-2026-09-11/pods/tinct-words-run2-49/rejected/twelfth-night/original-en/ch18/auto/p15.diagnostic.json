@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "45bf28662e9583f543d6e4fae1662928bc6d4eb691356f8554f57e00748a48cb",
+  "attempts": [
+    {
+      "asr_seconds": 0.3067227303981781,
+      "alignment_seconds": 0.00035942718386650085,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Duke. Why, this is excellent.",
+        "hotwords": "Duke, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, Why, this is excellent.",
+          "start": 0.02,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.9375
+            },
+            {
+              "text": " Why,",
+              "start": 1.02,
+              "end": 1.2,
+              "probability": 0.0173187255859375
+            },
+            {
+              "text": " this",
+              "start": 1.26,
+              "end": 1.36,
+              "probability": 0.488525390625
+            },
+            {
+              "text": " is",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.953125
+            },
+            {
+              "text": " excellent.",
+              "start": 1.5,
+              "end": 1.92,
+              "probability": 0.9287109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Why,",
+          "start": 1.02,
+          "end": 1.2
+        },
+        {
+          "raw": "this",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "raw": "is",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "excellent.",
+          "start": 1.5,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "Why,",
+        "this",
+        "is",
+        "excellent."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.02,
+          "end": 1.2,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.26,
+          "end": 1.36,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "excellent.",
+          "start": 1.5,
+          "end": 1.92,
+          "key": "excellent",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Why,",
+          "start": 1.02,
+          "end": 1.2
+        },
+        {
+          "text": "this",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "text": "is",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "excellent.",
+          "start": 1.5,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30720600485801697
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a3c16ad261673985d728e27194c5ae3350cc1f4dac68c2d756569fc7f3687d7c",
+  "selected_reasons": []
+}

@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "011cf11940eb959733b0bac7ae0664497689dc1e52b30dd858af387ddb9b8d8f",
+  "attempts": [
+    {
+      "asr_seconds": 0.10602688882499933,
+      "alignment_seconds": 0.0001289178617298603,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Casio, oh help.",
+          "start": 0.05,
+          "end": 1.51,
+          "words": [
+            {
+              "text": " Casio,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " oh",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.4365234375
+            },
+            {
+              "text": " help.",
+              "start": 1.25,
+              "end": 1.51,
+              "probability": 0.8662109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Casio,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "oh",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "help.",
+          "start": 1.25,
+          "end": 1.51
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "O,",
+        "help!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Casio,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "casio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "help.",
+          "start": 1.25,
+          "end": 1.51,
+          "key": "help",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.0,
+          "end": 0.625
+        },
+        {
+          "text": "O,",
+          "start": 0.625,
+          "end": 0.938
+        },
+        {
+          "text": "help!",
+          "start": 1.25,
+          "end": 1.51
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10619415668770671
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d5d714809f29499197edbb2b96f6ef2e04a949cc5900db29f3eef454fe25cfcc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

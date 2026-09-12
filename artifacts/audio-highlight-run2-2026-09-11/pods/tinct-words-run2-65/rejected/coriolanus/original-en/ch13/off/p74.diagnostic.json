@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "3e61ae917f9ce7b23a02a0fb8963f7049821c58bbc933c39ca1383961891fb71",
+  "attempts": [
+    {
+      "asr_seconds": 0.10653351107612252,
+      "alignment_seconds": 0.00020075589418411255,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter the peblands.",
+          "start": 0.08,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " the",
+              "start": 0.64,
+              "end": 0.78,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " peblands.",
+              "start": 0.78,
+              "end": 1.22,
+              "probability": 0.5457356770833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "the",
+          "start": 0.64,
+          "end": 0.78
+        },
+        {
+          "raw": "peblands.",
+          "start": 0.78,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "the",
+        "Pebleians."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.64,
+          "end": 0.78,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "peblands.",
+          "start": 0.78,
+          "end": 1.22,
+          "key": "peblands",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "the",
+          "start": 0.64,
+          "end": 0.78
+        },
+        {
+          "text": "Pebleians.",
+          "start": 0.78,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10679577803239226
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "397c370998cd59ad315e932447ae8b10a43052ad9b3d694168f160670868cc01",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

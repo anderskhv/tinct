@@ -1,0 +1,741 @@
+{
+  "complete": true,
+  "signature": "1a4d7084200e4fdcc4ff7a9440bca3794484116aadaaaa39947d80474bd2c949",
+  "attempts": [
+    {
+      "asr_seconds": 0.38583612628281116,
+      "alignment_seconds": 0.0011196490377187729,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But maybe they're not in bed!\" Andrey went on after a pause. \"Timofey said they were a lot of them there—\"",
+        "hotwords": "But, Andrey, Timofey"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But maybe they're not in bed. Andrey went on after a pause.",
+          "start": 0.02,
+          "end": 3.72,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.412353515625
+            },
+            {
+              "text": " maybe",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " they're",
+              "start": 0.74,
+              "end": 1.04,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " not",
+              "start": 1.04,
+              "end": 1.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bed.",
+              "start": 1.42,
+              "end": 1.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Andrey",
+              "start": 2.32,
+              "end": 2.54,
+              "probability": 0.3255615234375
+            },
+            {
+              "text": " went",
+              "start": 2.54,
+              "end": 2.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 2.7,
+              "end": 2.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " after",
+              "start": 2.94,
+              "end": 3.24,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " a",
+              "start": 3.24,
+              "end": 3.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " pause.",
+              "start": 3.36,
+              "end": 3.72,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Timofey said they were a lot of them there.",
+          "start": 4.36,
+          "end": 5.96,
+          "words": [
+            {
+              "text": " Timofey",
+              "start": 4.36,
+              "end": 4.72,
+              "probability": 0.4292093912760417
+            },
+            {
+              "text": " said",
+              "start": 4.72,
+              "end": 4.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " they",
+              "start": 4.86,
+              "end": 5.02,
+              "probability": 0.853515625
+            },
+            {
+              "text": " were",
+              "start": 5.02,
+              "end": 5.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 5.14,
+              "end": 5.26,
+              "probability": 0.9921875
+            },
+            {
+              "text": " lot",
+              "start": 5.26,
+              "end": 5.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 5.4,
+              "end": 5.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 5.52,
+              "end": 5.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " there.",
+              "start": 5.66,
+              "end": 5.96,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "maybe",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "they're",
+          "start": 0.74,
+          "end": 1.04
+        },
+        {
+          "raw": "not",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "raw": "in",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "bed.",
+          "start": 1.42,
+          "end": 1.76
+        },
+        {
+          "raw": "Andrey",
+          "start": 2.32,
+          "end": 2.54
+        },
+        {
+          "raw": "went",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "raw": "on",
+          "start": 2.7,
+          "end": 2.94
+        },
+        {
+          "raw": "after",
+          "start": 2.94,
+          "end": 3.24
+        },
+        {
+          "raw": "a",
+          "start": 3.24,
+          "end": 3.36
+        },
+        {
+          "raw": "pause.",
+          "start": 3.36,
+          "end": 3.72
+        },
+        {
+          "raw": "Timofey",
+          "start": 4.36,
+          "end": 4.72
+        },
+        {
+          "raw": "said",
+          "start": 4.72,
+          "end": 4.86
+        },
+        {
+          "raw": "they",
+          "start": 4.86,
+          "end": 5.02
+        },
+        {
+          "raw": "were",
+          "start": 5.02,
+          "end": 5.14
+        },
+        {
+          "raw": "a",
+          "start": 5.14,
+          "end": 5.26
+        },
+        {
+          "raw": "lot",
+          "start": 5.26,
+          "end": 5.4
+        },
+        {
+          "raw": "of",
+          "start": 5.4,
+          "end": 5.52
+        },
+        {
+          "raw": "them",
+          "start": 5.52,
+          "end": 5.66
+        },
+        {
+          "raw": "there.",
+          "start": 5.66,
+          "end": 5.96
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "maybe",
+        "they're",
+        "not",
+        "in",
+        "bed!\"",
+        "Andrey",
+        "went",
+        "on",
+        "after",
+        "a",
+        "pause.",
+        "\"Timofey",
+        "said",
+        "they",
+        "were",
+        "a",
+        "lot",
+        "of",
+        "them",
+        "there—\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "maybe",
+          "start": 0.5,
+          "end": 0.74,
+          "key": "maybe",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "they're",
+          "start": 0.74,
+          "end": 1.04,
+          "key": "theyre",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.04,
+          "end": 1.24,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bed.",
+          "start": 1.42,
+          "end": 1.76,
+          "key": "bed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Andrey",
+          "start": 2.32,
+          "end": 2.54,
+          "key": "andrey",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 2.54,
+          "end": 2.7,
+          "key": "went",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.7,
+          "end": 2.94,
+          "key": "on",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 2.94,
+          "end": 3.24,
+          "key": "after",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.24,
+          "end": 3.36,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "pause.",
+          "start": 3.36,
+          "end": 3.72,
+          "key": "pause",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Timofey",
+          "start": 4.36,
+          "end": 4.72,
+          "key": "timofey",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 4.72,
+          "end": 4.86,
+          "key": "said",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.86,
+          "end": 5.02,
+          "key": "they",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 5.02,
+          "end": 5.14,
+          "key": "were",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.14,
+          "end": 5.26,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "lot",
+          "start": 5.26,
+          "end": 5.4,
+          "key": "lot",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.4,
+          "end": 5.52,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 5.52,
+          "end": 5.66,
+          "key": "them",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 5.66,
+          "end": 5.96,
+          "key": "there",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "maybe",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "they're",
+          "start": 0.74,
+          "end": 1.04
+        },
+        {
+          "text": "not",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "text": "in",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "bed!\"",
+          "start": 1.42,
+          "end": 1.76
+        },
+        {
+          "text": "Andrey",
+          "start": 2.32,
+          "end": 2.54
+        },
+        {
+          "text": "went",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "text": "on",
+          "start": 2.7,
+          "end": 2.94
+        },
+        {
+          "text": "after",
+          "start": 2.94,
+          "end": 3.24
+        },
+        {
+          "text": "a",
+          "start": 3.24,
+          "end": 3.36
+        },
+        {
+          "text": "pause.",
+          "start": 3.36,
+          "end": 3.72
+        },
+        {
+          "text": "\"Timofey",
+          "start": 4.36,
+          "end": 4.72
+        },
+        {
+          "text": "said",
+          "start": 4.72,
+          "end": 4.86
+        },
+        {
+          "text": "they",
+          "start": 4.86,
+          "end": 5.02
+        },
+        {
+          "text": "were",
+          "start": 5.02,
+          "end": 5.14
+        },
+        {
+          "text": "a",
+          "start": 5.14,
+          "end": 5.26
+        },
+        {
+          "text": "lot",
+          "start": 5.26,
+          "end": 5.4
+        },
+        {
+          "text": "of",
+          "start": 5.4,
+          "end": 5.52
+        },
+        {
+          "text": "them",
+          "start": 5.52,
+          "end": 5.66
+        },
+        {
+          "text": "there—\"",
+          "start": 5.66,
+          "end": 5.96
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.38749101012945175
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cbca4370255cb5a39b054445150925f718462e01bd3d53dd7ee6e370a111a207",
+  "selected_reasons": []
+}

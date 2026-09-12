@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "f8f12a0896d8c2c4287a6be185118a26f59de72035e38efe80543ec81e02e5f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.28799670189619064,
+      "alignment_seconds": 0.00042364001274108887,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Poor dear soul!\" said this lady, with an abruptness of manner quite my sister's. \"Nobody's enemy but his own!\"",
+        "hotwords": "Poor, Nobody's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Poor dear soul! said this lady, with an abruptness of manner quite my sister's. Nobody's enemy but his own.",
+          "start": 0.05,
+          "end": 7.23,
+          "words": [
+            {
+              "text": " Poor",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.21923828125
+            },
+            {
+              "text": " dear",
+              "start": 0.61,
+              "end": 0.81,
+              "probability": 0.75
+            },
+            {
+              "text": " soul!",
+              "start": 0.81,
+              "end": 1.31,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " said",
+              "start": 1.77,
+              "end": 1.85,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " this",
+              "start": 1.85,
+              "end": 2.07,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " lady,",
+              "start": 2.07,
+              "end": 2.37,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " with",
+              "start": 2.71,
+              "end": 2.85,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " an",
+              "start": 2.85,
+              "end": 2.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " abruptness",
+              "start": 2.95,
+              "end": 3.47,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 3.47,
+              "end": 3.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " manner",
+              "start": 3.59,
+              "end": 3.89,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " quite",
+              "start": 3.89,
+              "end": 4.19,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " my",
+              "start": 4.19,
+              "end": 4.39,
+              "probability": 0.978515625
+            },
+            {
+              "text": " sister's.",
+              "start": 4.39,
+              "end": 5.03,
+              "probability": 0.59967041015625
+            },
+            {
+              "text": " Nobody's",
+              "start": 5.65,
+              "end": 6.25,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " enemy",
+              "start": 6.25,
+              "end": 6.49,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " but",
+              "start": 6.49,
+              "end": 6.79,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " his",
+              "start": 6.79,
+              "end": 6.93,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " own.",
+              "start": 6.93,
+              "end": 7.23,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Poor",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "dear",
+          "start": 0.61,
+          "end": 0.81
+        },
+        {
+          "raw": "soul!",
+          "start": 0.81,
+          "end": 1.31
+        },
+        {
+          "raw": "said",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "raw": "this",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "raw": "lady,",
+          "start": 2.07,
+          "end": 2.37
+        },
+        {
+          "raw": "with",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "raw": "an",
+          "start": 2.85,
+          "end": 2.95
+        },
+        {
+          "raw": "abruptness",
+          "start": 2.95,
+          "end": 3.47
+        },
+        {
+          "raw": "of",
+          "start": 3.47,
+          "end": 3.59
+        },
+        {
+          "raw": "manner",
+          "start": 3.59,
+          "end": 3.89
+        },
+        {
+          "raw": "quite",
+          "start": 3.89,
+          "end": 4.19
+        },
+        {
+          "raw": "my",
+          "start": 4.19,
+          "end": 4.39
+        },
+        {
+          "raw": "sister's.",
+          "start": 4.39,
+          "end": 5.03
+        },
+        {
+          "raw": "Nobody's",
+          "start": 5.65,
+          "end": 6.25
+        },
+        {
+          "raw": "enemy",
+          "start": 6.25,
+          "end": 6.49
+        },
+        {
+          "raw": "but",
+          "start": 6.49,
+          "end": 6.79
+        },
+        {
+          "raw": "his",
+          "start": 6.79,
+          "end": 6.93
+        },
+        {
+          "raw": "own.",
+          "start": 6.93,
+          "end": 7.23
+        }
+      ],
+      "expected_tokens": [
+        "\"Poor",
+        "dear",
+        "soul!\"",
+        "said",
+        "this",
+        "lady,",
+        "with",
+        "an",
+        "abruptness",
+        "of",
+        "manner",
+        "quite",
+        "my",
+        "sister's.",
+        "\"Nobody's",
+        "enemy",
+        "but",
+        "his",
+        "own!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Poor",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "poor",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 0.61,
+          "end": 0.81,
+          "key": "dear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "soul!",
+          "start": 0.81,
+          "end": 1.31,
+          "key": "soul",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.77,
+          "end": 1.85,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.85,
+          "end": 2.07,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lady,",
+          "start": 2.07,
+          "end": 2.37,
+          "key": "lady",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.71,
+          "end": 2.85,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.85,
+          "end": 2.95,
+          "key": "an",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "abruptness",
+          "start": 2.95,
+          "end": 3.47,
+          "key": "abruptness",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.47,
+          "end": 3.59,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "manner",
+          "start": 3.59,
+          "end": 3.89,
+          "key": "manner",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 3.89,
+          "end": 4.19,
+          "key": "quite",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.19,
+          "end": 4.39,
+          "key": "my",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sister's.",
+          "start": 4.39,
+          "end": 5.03,
+          "key": "sisters",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Nobody's",
+          "start": 5.65,
+          "end": 6.25,
+          "key": "nobodys",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "enemy",
+          "start": 6.25,
+          "end": 6.49,
+          "key": "enemy",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 6.49,
+          "end": 6.79,
+          "key": "but",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.79,
+          "end": 6.93,
+          "key": "his",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "own.",
+          "start": 6.93,
+          "end": 7.23,
+          "key": "own",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Poor",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "dear",
+          "start": 0.61,
+          "end": 0.81
+        },
+        {
+          "text": "soul!\"",
+          "start": 0.81,
+          "end": 1.31
+        },
+        {
+          "text": "said",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "text": "this",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "text": "lady,",
+          "start": 2.07,
+          "end": 2.37
+        },
+        {
+          "text": "with",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "text": "an",
+          "start": 2.85,
+          "end": 2.95
+        },
+        {
+          "text": "abruptness",
+          "start": 2.95,
+          "end": 3.47
+        },
+        {
+          "text": "of",
+          "start": 3.47,
+          "end": 3.59
+        },
+        {
+          "text": "manner",
+          "start": 3.59,
+          "end": 3.89
+        },
+        {
+          "text": "quite",
+          "start": 3.89,
+          "end": 4.19
+        },
+        {
+          "text": "my",
+          "start": 4.19,
+          "end": 4.39
+        },
+        {
+          "text": "sister's.",
+          "start": 4.39,
+          "end": 5.03
+        },
+        {
+          "text": "\"Nobody's",
+          "start": 5.65,
+          "end": 6.25
+        },
+        {
+          "text": "enemy",
+          "start": 6.25,
+          "end": 6.49
+        },
+        {
+          "text": "but",
+          "start": 6.49,
+          "end": 6.79
+        },
+        {
+          "text": "his",
+          "start": 6.79,
+          "end": 6.93
+        },
+        {
+          "text": "own!\"",
+          "start": 6.93,
+          "end": 7.23
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28874632623046637
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "530bd28542e292d4690dee05710e4341b98f537df8266c048d00f65a423912b0",
+  "selected_reasons": []
+}

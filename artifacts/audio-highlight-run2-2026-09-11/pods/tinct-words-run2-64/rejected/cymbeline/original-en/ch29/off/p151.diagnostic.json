@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "5b5c148795488cb679f14832c32c5841d203eabf3c3d1780111367f0f909a1a8",
+  "attempts": [
+    {
+      "asr_seconds": 0.21660085208714008,
+      "alignment_seconds": 0.0003963811323046684,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lucius, read and declare the meaning.",
+          "start": 0.05,
+          "end": 2.53,
+          "words": [
+            {
+              "text": " Lucius,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " read",
+              "start": 1.37,
+              "end": 1.53,
+              "probability": 0.98828125
+            },
+            {
+              "text": " and",
+              "start": 1.53,
+              "end": 1.87,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " declare",
+              "start": 1.87,
+              "end": 2.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.15,
+              "end": 2.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " meaning.",
+              "start": 2.31,
+              "end": 2.53,
+              "probability": 0.95751953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucius,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "read",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "raw": "and",
+          "start": 1.53,
+          "end": 1.87
+        },
+        {
+          "raw": "declare",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "raw": "the",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "raw": "meaning.",
+          "start": 2.31,
+          "end": 2.53
+        }
+      ],
+      "expected_tokens": [
+        "Lucius.",
+        "Read,",
+        "and",
+        "declare",
+        "the",
+        "meaning."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucius,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "lucius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 1.37,
+          "end": 1.53,
+          "key": "read",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.53,
+          "end": 1.87,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "declare",
+          "start": 1.87,
+          "end": 2.15,
+          "key": "declare",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.15,
+          "end": 2.31,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "meaning.",
+          "start": 2.31,
+          "end": 2.53,
+          "key": "meaning",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lucius.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Read,",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "text": "and",
+          "start": 1.53,
+          "end": 1.87
+        },
+        {
+          "text": "declare",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "text": "the",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "text": "meaning.",
+          "start": 2.31,
+          "end": 2.53
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21715757064521313
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e2938a09fd74a7f9ceff2c30029581e8ea6171dfd63ac71060c7e214d050d45c",
+  "selected_reasons": []
+}

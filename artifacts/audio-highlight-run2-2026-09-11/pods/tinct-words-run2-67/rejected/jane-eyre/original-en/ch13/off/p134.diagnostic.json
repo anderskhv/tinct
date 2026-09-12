@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "5fc473ff3fd09172c3dd3984597cb9d677e9d372ace3fec7dda205a94bf9b284",
+  "attempts": [
+    {
+      "asr_seconds": 0.11606296291574836,
+      "alignment_seconds": 0.00037836888805031776,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why should he shun it?",
+          "start": 0.02,
+          "end": 1.36,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " should",
+              "start": 0.54,
+              "end": 0.72,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " he",
+              "start": 0.72,
+              "end": 0.84,
+              "probability": 0.966796875
+            },
+            {
+              "text": " shun",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.1820068359375
+            },
+            {
+              "text": " it?",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "should",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "raw": "he",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "raw": "shun",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "it?",
+          "start": 1.04,
+          "end": 1.36
+        }
+      ],
+      "expected_tokens": [
+        "\"Why",
+        "should",
+        "he",
+        "shun",
+        "it?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 0.54,
+          "end": 0.72,
+          "key": "should",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.72,
+          "end": 0.84,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shun",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "shun",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 1.04,
+          "end": 1.36,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "should",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "text": "he",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "text": "shun",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "it?\"",
+          "start": 1.04,
+          "end": 1.36
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1165655548684299
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fd6ac042a38ea7d4c7532f4946df4dc03ffa03bb9c7d1032764afd45e3fe4751",
+  "selected_reasons": []
+}

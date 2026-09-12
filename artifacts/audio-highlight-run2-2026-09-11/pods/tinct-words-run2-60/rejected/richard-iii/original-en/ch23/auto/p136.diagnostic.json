@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "f36c0f69f781c65c4620e26b6b113b12bcb1649c36f1443afa495da73a2d9906",
+  "attempts": [
+    {
+      "asr_seconds": 0.20921143516898155,
+      "alignment_seconds": 0.00038605183362960815,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Richard. What said Northumberland as touching Richmond?",
+        "hotwords": "King, Richard, What, Northumberland, Richmond"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Richard. What said Northumberland as touching Richmond?",
+          "start": 0.05,
+          "end": 3.43,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " Richard.",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " What",
+              "start": 1.53,
+              "end": 1.59,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " said",
+              "start": 1.59,
+              "end": 1.79,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Northumberland",
+              "start": 1.79,
+              "end": 2.47,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " as",
+              "start": 2.47,
+              "end": 2.73,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " touching",
+              "start": 2.73,
+              "end": 3.07,
+              "probability": 0.63818359375
+            },
+            {
+              "text": " Richmond?",
+              "start": 3.07,
+              "end": 3.43,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Richard.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "What",
+          "start": 1.53,
+          "end": 1.59
+        },
+        {
+          "raw": "said",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "raw": "Northumberland",
+          "start": 1.79,
+          "end": 2.47
+        },
+        {
+          "raw": "as",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "raw": "touching",
+          "start": 2.73,
+          "end": 3.07
+        },
+        {
+          "raw": "Richmond?",
+          "start": 3.07,
+          "end": 3.43
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "What",
+        "said",
+        "Northumberland",
+        "as",
+        "touching",
+        "Richmond?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard.",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.53,
+          "end": 1.59,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.59,
+          "end": 1.79,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Northumberland",
+          "start": 1.79,
+          "end": 2.47,
+          "key": "northumberland",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.47,
+          "end": 2.73,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "touching",
+          "start": 2.73,
+          "end": 3.07,
+          "key": "touching",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Richmond?",
+          "start": 3.07,
+          "end": 3.43,
+          "key": "richmond",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Richard.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "What",
+          "start": 1.53,
+          "end": 1.59
+        },
+        {
+          "text": "said",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "text": "Northumberland",
+          "start": 1.79,
+          "end": 2.47
+        },
+        {
+          "text": "as",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "text": "touching",
+          "start": 2.73,
+          "end": 3.07
+        },
+        {
+          "text": "Richmond?",
+          "start": 3.07,
+          "end": 3.43
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20974326133728027
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0bb36e2770cbc5c1744f3a6a3a9432cb2a8155bd20c16958dbb9063b92f0892c",
+  "selected_reasons": []
+}

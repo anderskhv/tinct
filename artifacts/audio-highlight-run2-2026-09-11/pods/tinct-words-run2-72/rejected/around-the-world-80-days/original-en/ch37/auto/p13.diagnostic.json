@@ -1,0 +1,288 @@
+{
+  "complete": true,
+  "signature": "d472882deeca7dfaaded95f82c02840131a12a424dc2db2359a7d741ab02ed54",
+  "attempts": [
+    {
+      "asr_seconds": 0.49074786901474,
+      "alignment_seconds": 0.0003592721186578274,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Saturday? Impossible!\"",
+        "hotwords": "Saturday, Impossible"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Saturday, Impossible",
+          "start": 0.11,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " Saturday,",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.92578125
+            },
+            {
+              "text": " Impossible",
+              "start": 1.21,
+              "end": 1.57,
+              "probability": 0.0799560546875
+            }
+          ]
+        },
+        {
+          "text": " Subscribe to my channel for more videos!",
+          "start": 1.57,
+          "end": 2.41,
+          "words": [
+            {
+              "text": " Subscribe",
+              "start": 1.57,
+              "end": 1.57,
+              "probability": 3.2961368560791016e-05
+            },
+            {
+              "text": " to",
+              "start": 1.57,
+              "end": 1.79,
+              "probability": 0.39208984375
+            },
+            {
+              "text": " my",
+              "start": 1.79,
+              "end": 1.79,
+              "probability": 0.05230712890625
+            },
+            {
+              "text": " channel",
+              "start": 1.79,
+              "end": 1.79,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " for",
+              "start": 1.79,
+              "end": 2.37,
+              "probability": 0.349609375
+            },
+            {
+              "text": " more",
+              "start": 2.37,
+              "end": 2.41,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " videos!",
+              "start": 2.41,
+              "end": 2.41,
+              "probability": 0.298828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Saturday,",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "Impossible",
+          "start": 1.21,
+          "end": 1.57
+        },
+        {
+          "raw": "Subscribe",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "raw": "to",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "raw": "my",
+          "start": 1.79,
+          "end": 1.79
+        },
+        {
+          "raw": "channel",
+          "start": 1.79,
+          "end": 1.79
+        },
+        {
+          "raw": "for",
+          "start": 1.79,
+          "end": 2.37
+        },
+        {
+          "raw": "more",
+          "start": 2.37,
+          "end": 2.41
+        },
+        {
+          "raw": "videos!",
+          "start": 2.41,
+          "end": 2.41
+        }
+      ],
+      "expected_tokens": [
+        "\"Saturday?",
+        "Impossible!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Saturday,",
+          "start": 0.11,
+          "end": 0.83,
+          "key": "saturday",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Impossible",
+          "start": 1.21,
+          "end": 1.57,
+          "key": "impossible",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Subscribe",
+          "start": 1.57,
+          "end": 1.57,
+          "key": "subscribe",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.57,
+          "end": 1.79,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.79,
+          "end": 1.79,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "channel",
+          "start": 1.79,
+          "end": 1.79,
+          "key": "channel",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.79,
+          "end": 2.37,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.37,
+          "end": 2.41,
+          "key": "more",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "videos!",
+          "start": 2.41,
+          "end": 2.41,
+          "key": "videos",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Saturday?",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "Impossible!\"",
+          "start": 1.21,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 9,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4912995873019099
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bb6647febcc214639e6c4541a27f51a6ed7636651abfb2944bce0df6f3aa75e5",
+  "selected_reasons": []
+}

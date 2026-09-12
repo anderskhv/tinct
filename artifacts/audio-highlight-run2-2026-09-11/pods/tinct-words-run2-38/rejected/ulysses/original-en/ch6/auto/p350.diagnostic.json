@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "ca055827e9e8b83d27437d4800d15abaf27e60fbdac015a7e1732aac3d8d7401",
+  "attempts": [
+    {
+      "asr_seconds": 0.14206966501660645,
+      "alignment_seconds": 0.000189181009773165,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The clay fell softer. Begin to be forgotten. Out of sight, out of mind.",
+        "hotwords": "The, Begin"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The clay fell softer. Begin to be forgotten. Out of sight, out of mind.",
+          "start": 0.02,
+          "end": 4.38,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " clay",
+              "start": 0.48,
+              "end": 0.7,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " fell",
+              "start": 0.7,
+              "end": 0.98,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " softer.",
+              "start": 0.98,
+              "end": 1.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Begin",
+              "start": 2.02,
+              "end": 2.12,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " to",
+              "start": 2.12,
+              "end": 2.24,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " be",
+              "start": 2.24,
+              "end": 2.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " forgotten.",
+              "start": 2.34,
+              "end": 2.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Out",
+              "start": 3.34,
+              "end": 3.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 3.42,
+              "end": 3.54,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " sight,",
+              "start": 3.54,
+              "end": 3.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " out",
+              "start": 3.92,
+              "end": 4.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 4.0,
+              "end": 4.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mind.",
+              "start": 4.14,
+              "end": 4.38,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "clay",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "raw": "fell",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "raw": "softer.",
+          "start": 0.98,
+          "end": 1.48
+        },
+        {
+          "raw": "Begin",
+          "start": 2.02,
+          "end": 2.12
+        },
+        {
+          "raw": "to",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "raw": "be",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "raw": "forgotten.",
+          "start": 2.34,
+          "end": 2.7
+        },
+        {
+          "raw": "Out",
+          "start": 3.34,
+          "end": 3.42
+        },
+        {
+          "raw": "of",
+          "start": 3.42,
+          "end": 3.54
+        },
+        {
+          "raw": "sight,",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "raw": "out",
+          "start": 3.92,
+          "end": 4.0
+        },
+        {
+          "raw": "of",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "raw": "mind.",
+          "start": 4.14,
+          "end": 4.38
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "clay",
+        "fell",
+        "softer.",
+        "Begin",
+        "to",
+        "be",
+        "forgotten.",
+        "Out",
+        "of",
+        "sight,",
+        "out",
+        "of",
+        "mind."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "clay",
+          "start": 0.48,
+          "end": 0.7,
+          "key": "clay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fell",
+          "start": 0.7,
+          "end": 0.98,
+          "key": "fell",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "softer.",
+          "start": 0.98,
+          "end": 1.48,
+          "key": "softer",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Begin",
+          "start": 2.02,
+          "end": 2.12,
+          "key": "begin",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.12,
+          "end": 2.24,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.24,
+          "end": 2.34,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "forgotten.",
+          "start": 2.34,
+          "end": 2.7,
+          "key": "forgotten",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Out",
+          "start": 3.34,
+          "end": 3.42,
+          "key": "out",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.42,
+          "end": 3.54,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sight,",
+          "start": 3.54,
+          "end": 3.78,
+          "key": "sight",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 3.92,
+          "end": 4.0,
+          "key": "out",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.0,
+          "end": 4.14,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "mind.",
+          "start": 4.14,
+          "end": 4.38,
+          "key": "mind",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "clay",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "text": "fell",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "text": "softer.",
+          "start": 0.98,
+          "end": 1.48
+        },
+        {
+          "text": "Begin",
+          "start": 2.02,
+          "end": 2.12
+        },
+        {
+          "text": "to",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "text": "be",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "text": "forgotten.",
+          "start": 2.34,
+          "end": 2.7
+        },
+        {
+          "text": "Out",
+          "start": 3.34,
+          "end": 3.42
+        },
+        {
+          "text": "of",
+          "start": 3.42,
+          "end": 3.54
+        },
+        {
+          "text": "sight,",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "text": "out",
+          "start": 3.92,
+          "end": 4.0
+        },
+        {
+          "text": "of",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "text": "mind.",
+          "start": 4.14,
+          "end": 4.38
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14233429601881653
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "50d82b3fb0b190e005a35cb26ccbccbe1f4ee517313a6d05deb1a5897446c71e",
+  "selected_reasons": []
+}

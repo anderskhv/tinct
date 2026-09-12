@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "95015194ee7c3cd01d880e69b1980672b249f8b82d26570be3b50f277467411d",
+  "attempts": [
+    {
+      "asr_seconds": 0.28655269369482994,
+      "alignment_seconds": 0.00046657025814056396,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Can I work she said if I can work it will not matter so much. What can I do?",
+          "start": 0.05,
+          "end": 5.19,
+          "words": [
+            {
+              "text": " Can",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.45703125
+            },
+            {
+              "text": " I",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " work",
+              "start": 0.67,
+              "end": 1.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " she",
+              "start": 1.01,
+              "end": 1.43,
+              "probability": 0.2978515625
+            },
+            {
+              "text": " said",
+              "start": 1.43,
+              "end": 1.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " if",
+              "start": 1.77,
+              "end": 2.31,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " I",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " can",
+              "start": 2.43,
+              "end": 2.59,
+              "probability": 1.0
+            },
+            {
+              "text": " work",
+              "start": 2.59,
+              "end": 2.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 2.77,
+              "end": 2.87,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " will",
+              "start": 2.87,
+              "end": 2.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 2.97,
+              "end": 3.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " matter",
+              "start": 3.17,
+              "end": 3.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so",
+              "start": 3.41,
+              "end": 3.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " much.",
+              "start": 3.71,
+              "end": 4.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " What",
+              "start": 4.11,
+              "end": 4.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " can",
+              "start": 4.53,
+              "end": 4.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 4.69,
+              "end": 4.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " do?",
+              "start": 4.85,
+              "end": 5.19,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Can",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "I",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "work",
+          "start": 0.67,
+          "end": 1.01
+        },
+        {
+          "raw": "she",
+          "start": 1.01,
+          "end": 1.43
+        },
+        {
+          "raw": "said",
+          "start": 1.43,
+          "end": 1.77
+        },
+        {
+          "raw": "if",
+          "start": 1.77,
+          "end": 2.31
+        },
+        {
+          "raw": "I",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "can",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "raw": "work",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "raw": "it",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "raw": "will",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "raw": "not",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "raw": "matter",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "raw": "so",
+          "start": 3.41,
+          "end": 3.71
+        },
+        {
+          "raw": "much.",
+          "start": 3.71,
+          "end": 4.11
+        },
+        {
+          "raw": "What",
+          "start": 4.11,
+          "end": 4.53
+        },
+        {
+          "raw": "can",
+          "start": 4.53,
+          "end": 4.69
+        },
+        {
+          "raw": "I",
+          "start": 4.69,
+          "end": 4.85
+        },
+        {
+          "raw": "do?",
+          "start": 4.85,
+          "end": 5.19
+        }
+      ],
+      "expected_tokens": [
+        "\"Can",
+        "I",
+        "work?\"",
+        "she",
+        "said.",
+        "\"If",
+        "I",
+        "can",
+        "work",
+        "it",
+        "will",
+        "not",
+        "matter",
+        "so",
+        "much.",
+        "What",
+        "can",
+        "I",
+        "do?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Can",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "can",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "work",
+          "start": 0.67,
+          "end": 1.01,
+          "key": "work",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.01,
+          "end": 1.43,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.43,
+          "end": 1.77,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.77,
+          "end": 2.31,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 2.43,
+          "end": 2.59,
+          "key": "can",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "work",
+          "start": 2.59,
+          "end": 2.77,
+          "key": "work",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.77,
+          "end": 2.87,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.87,
+          "end": 2.97,
+          "key": "will",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.97,
+          "end": 3.17,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 3.17,
+          "end": 3.41,
+          "key": "matter",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.41,
+          "end": 3.71,
+          "key": "so",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "much.",
+          "start": 3.71,
+          "end": 4.11,
+          "key": "much",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 4.11,
+          "end": 4.53,
+          "key": "what",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 4.53,
+          "end": 4.69,
+          "key": "can",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.69,
+          "end": 4.85,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "do?",
+          "start": 4.85,
+          "end": 5.19,
+          "key": "do",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Can",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "I",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "work?\"",
+          "start": 0.67,
+          "end": 1.01
+        },
+        {
+          "text": "she",
+          "start": 1.01,
+          "end": 1.43
+        },
+        {
+          "text": "said.",
+          "start": 1.43,
+          "end": 1.77
+        },
+        {
+          "text": "\"If",
+          "start": 1.77,
+          "end": 2.31
+        },
+        {
+          "text": "I",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "can",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "text": "work",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "text": "it",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "text": "will",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "text": "not",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "text": "matter",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "text": "so",
+          "start": 3.41,
+          "end": 3.71
+        },
+        {
+          "text": "much.",
+          "start": 3.71,
+          "end": 4.11
+        },
+        {
+          "text": "What",
+          "start": 4.11,
+          "end": 4.53
+        },
+        {
+          "text": "can",
+          "start": 4.53,
+          "end": 4.69
+        },
+        {
+          "text": "I",
+          "start": 4.69,
+          "end": 4.85
+        },
+        {
+          "text": "do?\"",
+          "start": 4.85,
+          "end": 5.19
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28722643107175827
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8c61908546806baff7d381a7dbe86ea6573ec1d63237278d8c55dcc4bf263c1f",
+  "selected_reasons": []
+}

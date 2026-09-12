@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "48ff71cfb7f30647a0cb095dae31b52df112252ef2bbdf2ba3e0141e4feefee4",
+  "attempts": [
+    {
+      "asr_seconds": 0.11241951957345009,
+      "alignment_seconds": 0.00019346550107002258,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown",
+          "start": 0.08,
+          "end": 0.66,
+          "words": [
+            {
+              "text": " Clown",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.354248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown",
+          "start": 0.08,
+          "end": 0.66
+        }
+      ],
+      "expected_tokens": [
+        "Clown."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.66
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11267959699034691
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "959d1c44d8f2ecd0d2dd9508282f6a1fd3342b641729cc9926b8f62ef02dbf30",
+  "selected_reasons": []
+}

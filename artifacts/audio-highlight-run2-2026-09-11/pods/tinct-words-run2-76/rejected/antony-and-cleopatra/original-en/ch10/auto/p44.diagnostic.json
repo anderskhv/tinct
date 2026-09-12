@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "4d29241b5cd997dac32374016fbbc7ab433980eb5ffc6491337eca22000a97c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.17828476196154952,
+      "alignment_seconds": 0.0003279843367636204,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Messenger. He's married, madam.",
+        "hotwords": "Messenger, He's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Messenger, He's Married, Madam.",
+          "start": 0.02,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " Messenger,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.63916015625
+            },
+            {
+              "text": " He's",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.4838409423828125
+            },
+            {
+              "text": " Married,",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.5986328125
+            },
+            {
+              "text": " Madam.",
+              "start": 1.88,
+              "end": 2.22,
+              "probability": 0.924560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "He's",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "Married,",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "Madam.",
+          "start": 1.88,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "He's",
+        "married,",
+        "madam."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "hes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Married,",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "married",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Madam.",
+          "start": 1.88,
+          "end": 2.22,
+          "key": "madam",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "He's",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "married,",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": "madam.",
+          "start": 1.88,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17873489670455456
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "97db48da104ee3a2be46c9a275dd45b8b0fa8c91dc49c54a66672c4c2add91dd",
+  "selected_reasons": []
+}

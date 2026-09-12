@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "f8b02ebdfafbc0b0c6e7364fb1ef6cfe869a58111019c1d7b30e254b0b515122",
+  "attempts": [
+    {
+      "asr_seconds": 0.31395795196294785,
+      "alignment_seconds": 0.0004413081333041191,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clarence. Oh no, he loves me and he holds me dear. Go you to him from me.",
+          "start": 0.02,
+          "end": 4.72,
+          "words": [
+            {
+              "text": " Clarence.",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.833984375
+            },
+            {
+              "text": " Oh",
+              "start": 1.38,
+              "end": 1.54,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " no,",
+              "start": 1.54,
+              "end": 1.76,
+              "probability": 0.73486328125
+            },
+            {
+              "text": " he",
+              "start": 1.88,
+              "end": 1.98,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " loves",
+              "start": 1.98,
+              "end": 2.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 2.14,
+              "end": 2.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.4,
+              "end": 2.54,
+              "probability": 0.884765625
+            },
+            {
+              "text": " he",
+              "start": 2.54,
+              "end": 2.64,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " holds",
+              "start": 2.64,
+              "end": 2.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " me",
+              "start": 2.84,
+              "end": 3.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " dear.",
+              "start": 3.06,
+              "end": 3.36,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Go",
+              "start": 3.84,
+              "end": 3.92,
+              "probability": 0.978515625
+            },
+            {
+              "text": " you",
+              "start": 3.92,
+              "end": 4.02,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " to",
+              "start": 4.02,
+              "end": 4.12,
+              "probability": 0.99609375
+            },
+            {
+              "text": " him",
+              "start": 4.12,
+              "end": 4.28,
+              "probability": 0.9921875
+            },
+            {
+              "text": " from",
+              "start": 4.28,
+              "end": 4.48,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " me.",
+              "start": 4.48,
+              "end": 4.72,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clarence.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "Oh",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "raw": "no,",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "raw": "he",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "raw": "loves",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "raw": "me",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "raw": "and",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "raw": "he",
+          "start": 2.54,
+          "end": 2.64
+        },
+        {
+          "raw": "holds",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "raw": "me",
+          "start": 2.84,
+          "end": 3.06
+        },
+        {
+          "raw": "dear.",
+          "start": 3.06,
+          "end": 3.36
+        },
+        {
+          "raw": "Go",
+          "start": 3.84,
+          "end": 3.92
+        },
+        {
+          "raw": "you",
+          "start": 3.92,
+          "end": 4.02
+        },
+        {
+          "raw": "to",
+          "start": 4.02,
+          "end": 4.12
+        },
+        {
+          "raw": "him",
+          "start": 4.12,
+          "end": 4.28
+        },
+        {
+          "raw": "from",
+          "start": 4.28,
+          "end": 4.48
+        },
+        {
+          "raw": "me.",
+          "start": 4.48,
+          "end": 4.72
+        }
+      ],
+      "expected_tokens": [
+        "Clarence.",
+        "O",
+        "no,",
+        "he",
+        "loves",
+        "me,",
+        "and",
+        "he",
+        "holds",
+        "me",
+        "dear.",
+        "Go",
+        "you",
+        "to",
+        "him",
+        "from",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          17,
+          2,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clarence.",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "clarence",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Oh",
+          "start": 1.38,
+          "end": 1.54,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 1.54,
+          "end": 1.76,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.88,
+          "end": 1.98,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "loves",
+          "start": 1.98,
+          "end": 2.14,
+          "key": "loves",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.14,
+          "end": 2.4,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.4,
+          "end": 2.54,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.54,
+          "end": 2.64,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "holds",
+          "start": 2.64,
+          "end": 2.84,
+          "key": "holds",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.84,
+          "end": 3.06,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dear.",
+          "start": 3.06,
+          "end": 3.36,
+          "key": "dear",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 3.84,
+          "end": 3.92,
+          "key": "go",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.92,
+          "end": 4.02,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.02,
+          "end": 4.12,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.12,
+          "end": 4.28,
+          "key": "him",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 4.28,
+          "end": 4.48,
+          "key": "from",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 4.48,
+          "end": 4.72,
+          "key": "me",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clarence.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "O",
+          "start": 0.72,
+          "end": 1.13
+        },
+        {
+          "text": "no,",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "text": "he",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "text": "loves",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "text": "me,",
+          "start": 2.14,
+          "end": 2.4
+        },
+        {
+          "text": "and",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "text": "he",
+          "start": 2.54,
+          "end": 2.64
+        },
+        {
+          "text": "holds",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "text": "me",
+          "start": 2.84,
+          "end": 3.06
+        },
+        {
+          "text": "dear.",
+          "start": 3.06,
+          "end": 3.36
+        },
+        {
+          "text": "Go",
+          "start": 3.84,
+          "end": 3.92
+        },
+        {
+          "text": "you",
+          "start": 3.92,
+          "end": 4.02
+        },
+        {
+          "text": "to",
+          "start": 4.02,
+          "end": 4.12
+        },
+        {
+          "text": "him",
+          "start": 4.12,
+          "end": 4.28
+        },
+        {
+          "text": "from",
+          "start": 4.28,
+          "end": 4.48
+        },
+        {
+          "text": "me.",
+          "start": 4.48,
+          "end": 4.72
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.3145734288264066
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cbbea7c9f0ae3a5c39a979465a258115e68e9812c8e5364e6743711c0f86e7be",
+  "selected_reasons": []
+}

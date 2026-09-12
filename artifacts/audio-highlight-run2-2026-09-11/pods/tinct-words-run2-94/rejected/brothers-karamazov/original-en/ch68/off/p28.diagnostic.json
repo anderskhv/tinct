@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "7d85e5536822bfa8fc3819c51a46effe0f40b6c06a69fff5c49ac07b6440d7f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.24743741005659103,
+      "alignment_seconds": 0.0006078444421291351,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Didn't go off with Aniajin, surely you don't.",
+          "start": 0.02,
+          "end": 3.1,
+          "words": [
+            {
+              "text": " Didn't",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " go",
+              "start": 0.62,
+              "end": 0.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " off",
+              "start": 0.74,
+              "end": 0.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 0.98,
+              "end": 1.14,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Aniajin,",
+              "start": 1.14,
+              "end": 1.74,
+              "probability": 0.3104654947916667
+            },
+            {
+              "text": " surely",
+              "start": 2.16,
+              "end": 2.3,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " you",
+              "start": 2.3,
+              "end": 2.6,
+              "probability": 0.990234375
+            },
+            {
+              "text": " don't.",
+              "start": 2.6,
+              "end": 3.1,
+              "probability": 0.998291015625
+            }
+          ]
+        },
+        {
+          "text": " Understand that already.",
+          "start": 3.68,
+          "end": 4.24,
+          "words": [
+            {
+              "text": " Understand",
+              "start": 3.68,
+              "end": 3.68,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " that",
+              "start": 3.68,
+              "end": 3.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " already.",
+              "start": 3.92,
+              "end": 4.24,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Didn't",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "go",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "raw": "off",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "raw": "with",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "raw": "Aniajin,",
+          "start": 1.14,
+          "end": 1.74
+        },
+        {
+          "raw": "surely",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "raw": "you",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "raw": "don't.",
+          "start": 2.6,
+          "end": 3.1
+        },
+        {
+          "raw": "Understand",
+          "start": 3.68,
+          "end": 3.68
+        },
+        {
+          "raw": "that",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "raw": "already.",
+          "start": 3.92,
+          "end": 4.24
+        }
+      ],
+      "expected_tokens": [
+        "\"Didn't",
+        "go",
+        "off",
+        "with",
+        "Onyegin?",
+        "Surely",
+        "you",
+        "don't",
+        "...",
+        "understand",
+        "that",
+        "already?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          8,
+          5,
+          8
+        ],
+        [
+          "delete",
+          8,
+          9,
+          8,
+          8
+        ],
+        [
+          "equal",
+          9,
+          12,
+          8,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "delete",
+          8,
+          9,
+          8,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Didn't",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "didnt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.62,
+          "end": 0.74,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 0.74,
+          "end": 0.98,
+          "key": "off",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.98,
+          "end": 1.14,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Aniajin,",
+          "start": 1.14,
+          "end": 1.74,
+          "key": "aniajin",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "surely",
+          "start": 2.16,
+          "end": 2.3,
+          "key": "surely",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.3,
+          "end": 2.6,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "don't.",
+          "start": 2.6,
+          "end": 3.1,
+          "key": "dont",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Understand",
+          "start": 3.68,
+          "end": 3.68,
+          "key": "understand",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.68,
+          "end": 3.92,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "already.",
+          "start": 3.92,
+          "end": 4.24,
+          "key": "already",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Didn't",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "go",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "text": "off",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "text": "with",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "text": "Onyegin?",
+          "start": 1.14,
+          "end": 1.65
+        },
+        {
+          "text": "Surely",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "text": "you",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "text": "don't",
+          "start": 2.6,
+          "end": 3.1
+        },
+        {
+          "text": "...",
+          "start": 3.1,
+          "end": 3.39
+        },
+        {
+          "text": "understand",
+          "start": 3.68,
+          "end": 3.68
+        },
+        {
+          "text": "that",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "text": "already?\"",
+          "start": 3.92,
+          "end": 4.24
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24826194159686565
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5f94cbb77fac355d2108323e81c1b4ce4c6360238108c52d6fee34aa06bd7d28",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

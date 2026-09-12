@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "c78097275d5865a53a9270857a64fed76dd85bdeb5cbc470e2791bf70c921b00",
+  "attempts": [
+    {
+      "asr_seconds": 0.08620434600743465,
+      "alignment_seconds": 0.00011337301111780107,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pompey",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " Pompey",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.781494140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pompey",
+          "start": 0.05,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "Pompey."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pompey",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "pompey",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pompey.",
+          "start": 0.05,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08635366201633587
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fd62f4d9020c2489f2132e76477ea455d60faffd512a2313ebfb323f408b6d89",
+  "selected_reasons": []
+}

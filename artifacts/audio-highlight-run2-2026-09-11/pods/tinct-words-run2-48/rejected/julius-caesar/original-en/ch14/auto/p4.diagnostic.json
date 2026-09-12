@@ -1,0 +1,869 @@
+{
+  "complete": true,
+  "signature": "694db07837f04d54d2f847b5accd4c643ff323e4116ee003fc22213faede7f62",
+  "attempts": [
+    {
+      "asr_seconds": 0.3494868688285351,
+      "alignment_seconds": 0.0005302941426634789,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Messenger. Prepare you, generals. The enemy comes on in gallant show; Their bloody sign of battle is hung out, And something to be done immediately.",
+        "hotwords": "Messenger, Prepare, The, Their, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Messenger, Prepare you, generals. The enemy comes on in gallant show. Their bloody sign",
+          "start": 0.05,
+          "end": 6.23,
+          "words": [
+            {
+              "text": " Messenger,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.61328125
+            },
+            {
+              "text": " Prepare",
+              "start": 1.41,
+              "end": 1.65,
+              "probability": 0.0163421630859375
+            },
+            {
+              "text": " you,",
+              "start": 1.65,
+              "end": 1.89,
+              "probability": 0.9140625
+            },
+            {
+              "text": " generals.",
+              "start": 1.95,
+              "end": 2.21,
+              "probability": 0.275146484375
+            },
+            {
+              "text": " The",
+              "start": 2.97,
+              "end": 3.07,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " enemy",
+              "start": 3.07,
+              "end": 3.29,
+              "probability": 0.95703125
+            },
+            {
+              "text": " comes",
+              "start": 3.29,
+              "end": 3.65,
+              "probability": 0.986328125
+            },
+            {
+              "text": " on",
+              "start": 3.65,
+              "end": 4.01,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " in",
+              "start": 4.01,
+              "end": 4.25,
+              "probability": 0.962890625
+            },
+            {
+              "text": " gallant",
+              "start": 4.25,
+              "end": 4.67,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " show.",
+              "start": 4.67,
+              "end": 4.97,
+              "probability": 0.923828125
+            },
+            {
+              "text": " Their",
+              "start": 5.45,
+              "end": 5.57,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " bloody",
+              "start": 5.57,
+              "end": 5.89,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sign",
+              "start": 5.89,
+              "end": 6.23,
+              "probability": 0.9892578125
+            }
+          ]
+        },
+        {
+          "text": " of battle is hung out, And something to be done immediately.",
+          "start": 6.23,
+          "end": 8.87,
+          "words": [
+            {
+              "text": " of",
+              "start": 6.23,
+              "end": 6.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " battle",
+              "start": 6.41,
+              "end": 6.65,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " is",
+              "start": 6.65,
+              "end": 6.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " hung",
+              "start": 6.91,
+              "end": 7.09,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " out,",
+              "start": 7.09,
+              "end": 7.39,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " And",
+              "start": 7.63,
+              "end": 7.73,
+              "probability": 0.01258087158203125
+            },
+            {
+              "text": " something",
+              "start": 7.73,
+              "end": 7.95,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " to",
+              "start": 7.95,
+              "end": 8.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " be",
+              "start": 8.19,
+              "end": 8.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " done",
+              "start": 8.33,
+              "end": 8.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " immediately.",
+              "start": 8.51,
+              "end": 8.87,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Prepare",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "raw": "you,",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "raw": "generals.",
+          "start": 1.95,
+          "end": 2.21
+        },
+        {
+          "raw": "The",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "raw": "enemy",
+          "start": 3.07,
+          "end": 3.29
+        },
+        {
+          "raw": "comes",
+          "start": 3.29,
+          "end": 3.65
+        },
+        {
+          "raw": "on",
+          "start": 3.65,
+          "end": 4.01
+        },
+        {
+          "raw": "in",
+          "start": 4.01,
+          "end": 4.25
+        },
+        {
+          "raw": "gallant",
+          "start": 4.25,
+          "end": 4.67
+        },
+        {
+          "raw": "show.",
+          "start": 4.67,
+          "end": 4.97
+        },
+        {
+          "raw": "Their",
+          "start": 5.45,
+          "end": 5.57
+        },
+        {
+          "raw": "bloody",
+          "start": 5.57,
+          "end": 5.89
+        },
+        {
+          "raw": "sign",
+          "start": 5.89,
+          "end": 6.23
+        },
+        {
+          "raw": "of",
+          "start": 6.23,
+          "end": 6.41
+        },
+        {
+          "raw": "battle",
+          "start": 6.41,
+          "end": 6.65
+        },
+        {
+          "raw": "is",
+          "start": 6.65,
+          "end": 6.91
+        },
+        {
+          "raw": "hung",
+          "start": 6.91,
+          "end": 7.09
+        },
+        {
+          "raw": "out,",
+          "start": 7.09,
+          "end": 7.39
+        },
+        {
+          "raw": "And",
+          "start": 7.63,
+          "end": 7.73
+        },
+        {
+          "raw": "something",
+          "start": 7.73,
+          "end": 7.95
+        },
+        {
+          "raw": "to",
+          "start": 7.95,
+          "end": 8.19
+        },
+        {
+          "raw": "be",
+          "start": 8.19,
+          "end": 8.33
+        },
+        {
+          "raw": "done",
+          "start": 8.33,
+          "end": 8.51
+        },
+        {
+          "raw": "immediately.",
+          "start": 8.51,
+          "end": 8.87
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "Prepare",
+        "you,",
+        "generals.",
+        "The",
+        "enemy",
+        "comes",
+        "on",
+        "in",
+        "gallant",
+        "show;",
+        "Their",
+        "bloody",
+        "sign",
+        "of",
+        "battle",
+        "is",
+        "hung",
+        "out,",
+        "And",
+        "something",
+        "to",
+        "be",
+        "done",
+        "immediately."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Prepare",
+          "start": 1.41,
+          "end": 1.65,
+          "key": "prepare",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.65,
+          "end": 1.89,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "generals.",
+          "start": 1.95,
+          "end": 2.21,
+          "key": "generals",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.97,
+          "end": 3.07,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "enemy",
+          "start": 3.07,
+          "end": 3.29,
+          "key": "enemy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 3.29,
+          "end": 3.65,
+          "key": "comes",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.65,
+          "end": 4.01,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.01,
+          "end": 4.25,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "gallant",
+          "start": 4.25,
+          "end": 4.67,
+          "key": "gallant",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "show.",
+          "start": 4.67,
+          "end": 4.97,
+          "key": "show",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 5.45,
+          "end": 5.57,
+          "key": "their",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "bloody",
+          "start": 5.57,
+          "end": 5.89,
+          "key": "bloody",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sign",
+          "start": 5.89,
+          "end": 6.23,
+          "key": "sign",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.23,
+          "end": 6.41,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "battle",
+          "start": 6.41,
+          "end": 6.65,
+          "key": "battle",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.65,
+          "end": 6.91,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "hung",
+          "start": 6.91,
+          "end": 7.09,
+          "key": "hung",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "out,",
+          "start": 7.09,
+          "end": 7.39,
+          "key": "out",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 7.63,
+          "end": 7.73,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 7.73,
+          "end": 7.95,
+          "key": "something",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.95,
+          "end": 8.19,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 8.19,
+          "end": 8.33,
+          "key": "be",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 8.33,
+          "end": 8.51,
+          "key": "done",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "immediately.",
+          "start": 8.51,
+          "end": 8.87,
+          "key": "immediately",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Prepare",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "text": "you,",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "text": "generals.",
+          "start": 1.95,
+          "end": 2.21
+        },
+        {
+          "text": "The",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "text": "enemy",
+          "start": 3.07,
+          "end": 3.29
+        },
+        {
+          "text": "comes",
+          "start": 3.29,
+          "end": 3.65
+        },
+        {
+          "text": "on",
+          "start": 3.65,
+          "end": 4.01
+        },
+        {
+          "text": "in",
+          "start": 4.01,
+          "end": 4.25
+        },
+        {
+          "text": "gallant",
+          "start": 4.25,
+          "end": 4.67
+        },
+        {
+          "text": "show;",
+          "start": 4.67,
+          "end": 4.97
+        },
+        {
+          "text": "Their",
+          "start": 5.45,
+          "end": 5.57
+        },
+        {
+          "text": "bloody",
+          "start": 5.57,
+          "end": 5.89
+        },
+        {
+          "text": "sign",
+          "start": 5.89,
+          "end": 6.23
+        },
+        {
+          "text": "of",
+          "start": 6.23,
+          "end": 6.41
+        },
+        {
+          "text": "battle",
+          "start": 6.41,
+          "end": 6.65
+        },
+        {
+          "text": "is",
+          "start": 6.65,
+          "end": 6.91
+        },
+        {
+          "text": "hung",
+          "start": 6.91,
+          "end": 7.09
+        },
+        {
+          "text": "out,",
+          "start": 7.09,
+          "end": 7.39
+        },
+        {
+          "text": "And",
+          "start": 7.63,
+          "end": 7.73
+        },
+        {
+          "text": "something",
+          "start": 7.73,
+          "end": 7.95
+        },
+        {
+          "text": "to",
+          "start": 7.95,
+          "end": 8.19
+        },
+        {
+          "text": "be",
+          "start": 8.19,
+          "end": 8.33
+        },
+        {
+          "text": "done",
+          "start": 8.33,
+          "end": 8.51
+        },
+        {
+          "text": "immediately.",
+          "start": 8.51,
+          "end": 8.87
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 25
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3502638451755047
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5280094663e0ccca21599f7df944145384fa8057e1577d93c3c582c55d1cdf67",
+  "selected_reasons": []
+}

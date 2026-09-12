@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "2e53fb7af27a95683efdf0a93f3dd9f4fbb198879a1794e63184a6da81d29a59",
+  "attempts": [
+    {
+      "asr_seconds": 0.15898723434656858,
+      "alignment_seconds": 0.0003771306946873665,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Shall she?\" she said.",
+        "hotwords": "Shall"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shall she?\" she said.",
+          "start": 0.02,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " Shall",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.163330078125
+            },
+            {
+              "text": " she?\"",
+              "start": 0.64,
+              "end": 1.2,
+              "probability": 0.534912109375
+            },
+            {
+              "text": " she",
+              "start": 1.2,
+              "end": 1.28,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " said.",
+              "start": 1.28,
+              "end": 1.54,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "she?\"",
+          "start": 0.64,
+          "end": 1.2
+        },
+        {
+          "raw": "she",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "raw": "said.",
+          "start": 1.28,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "\"Shall",
+        "she?\"",
+        "she",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she?\"",
+          "start": 0.64,
+          "end": 1.2,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.2,
+          "end": 1.28,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.28,
+          "end": 1.54,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Shall",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "she?\"",
+          "start": 0.64,
+          "end": 1.2
+        },
+        {
+          "text": "she",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "text": "said.",
+          "start": 1.28,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15947964321821928
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1af338ba6772b28f159a589536a259269eea332e442b790512739a41a6c90dc0",
+  "selected_reasons": []
+}

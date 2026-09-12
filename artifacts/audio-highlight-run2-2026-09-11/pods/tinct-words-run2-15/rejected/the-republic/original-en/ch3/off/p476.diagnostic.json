@@ -1,0 +1,636 @@
+{
+  "complete": true,
+  "signature": "a1918f521675bc9016fdb4c88d83d2338259cd82631acc64b0ec178b81575f83",
+  "attempts": [
+    {
+      "asr_seconds": 0.30876221880316734,
+      "alignment_seconds": 0.000545009970664978,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You had good reason he said to be ashamed of the lie, which you were going to tell",
+          "start": 0.05,
+          "end": 4.73,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.1795654296875
+            },
+            {
+              "text": " had",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " good",
+              "start": 0.67,
+              "end": 0.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " reason",
+              "start": 0.87,
+              "end": 1.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 1.27,
+              "end": 1.73,
+              "probability": 0.08502197265625
+            },
+            {
+              "text": " said",
+              "start": 1.73,
+              "end": 2.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.05,
+              "end": 2.57,
+              "probability": 0.94921875
+            },
+            {
+              "text": " be",
+              "start": 2.57,
+              "end": 2.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ashamed",
+              "start": 2.69,
+              "end": 3.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.25,
+              "end": 3.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lie,",
+              "start": 3.37,
+              "end": 3.61,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " which",
+              "start": 3.63,
+              "end": 3.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you",
+              "start": 3.83,
+              "end": 4.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " were",
+              "start": 4.01,
+              "end": 4.09,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " going",
+              "start": 4.09,
+              "end": 4.29,
+              "probability": 1.0
+            },
+            {
+              "text": " to",
+              "start": 4.29,
+              "end": 4.43,
+              "probability": 1.0
+            },
+            {
+              "text": " tell",
+              "start": 4.43,
+              "end": 4.73,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "had",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "good",
+          "start": 0.67,
+          "end": 0.87
+        },
+        {
+          "raw": "reason",
+          "start": 0.87,
+          "end": 1.27
+        },
+        {
+          "raw": "he",
+          "start": 1.27,
+          "end": 1.73
+        },
+        {
+          "raw": "said",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "raw": "to",
+          "start": 2.05,
+          "end": 2.57
+        },
+        {
+          "raw": "be",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "raw": "ashamed",
+          "start": 2.69,
+          "end": 3.03
+        },
+        {
+          "raw": "of",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "raw": "the",
+          "start": 3.25,
+          "end": 3.37
+        },
+        {
+          "raw": "lie,",
+          "start": 3.37,
+          "end": 3.61
+        },
+        {
+          "raw": "which",
+          "start": 3.63,
+          "end": 3.83
+        },
+        {
+          "raw": "you",
+          "start": 3.83,
+          "end": 4.01
+        },
+        {
+          "raw": "were",
+          "start": 4.01,
+          "end": 4.09
+        },
+        {
+          "raw": "going",
+          "start": 4.09,
+          "end": 4.29
+        },
+        {
+          "raw": "to",
+          "start": 4.29,
+          "end": 4.43
+        },
+        {
+          "raw": "tell",
+          "start": 4.43,
+          "end": 4.73
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "had",
+        "good",
+        "reason,",
+        "he",
+        "said,",
+        "to",
+        "be",
+        "ashamed",
+        "of",
+        "the",
+        "lie",
+        "which",
+        "you",
+        "were",
+        "going",
+        "to",
+        "tell."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "had",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 0.67,
+          "end": 0.87,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 0.87,
+          "end": 1.27,
+          "key": "reason",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.27,
+          "end": 1.73,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.73,
+          "end": 2.05,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.05,
+          "end": 2.57,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.57,
+          "end": 2.69,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ashamed",
+          "start": 2.69,
+          "end": 3.03,
+          "key": "ashamed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.03,
+          "end": 3.25,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.25,
+          "end": 3.37,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lie,",
+          "start": 3.37,
+          "end": 3.61,
+          "key": "lie",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.63,
+          "end": 3.83,
+          "key": "which",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.83,
+          "end": 4.01,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 4.01,
+          "end": 4.09,
+          "key": "were",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 4.09,
+          "end": 4.29,
+          "key": "going",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.29,
+          "end": 4.43,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 4.43,
+          "end": 4.73,
+          "key": "tell",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "had",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "good",
+          "start": 0.67,
+          "end": 0.87
+        },
+        {
+          "text": "reason,",
+          "start": 0.87,
+          "end": 1.27
+        },
+        {
+          "text": "he",
+          "start": 1.27,
+          "end": 1.73
+        },
+        {
+          "text": "said,",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "text": "to",
+          "start": 2.05,
+          "end": 2.57
+        },
+        {
+          "text": "be",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "text": "ashamed",
+          "start": 2.69,
+          "end": 3.03
+        },
+        {
+          "text": "of",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "text": "the",
+          "start": 3.25,
+          "end": 3.37
+        },
+        {
+          "text": "lie",
+          "start": 3.37,
+          "end": 3.61
+        },
+        {
+          "text": "which",
+          "start": 3.63,
+          "end": 3.83
+        },
+        {
+          "text": "you",
+          "start": 3.83,
+          "end": 4.01
+        },
+        {
+          "text": "were",
+          "start": 4.01,
+          "end": 4.09
+        },
+        {
+          "text": "going",
+          "start": 4.09,
+          "end": 4.29
+        },
+        {
+          "text": "to",
+          "start": 4.29,
+          "end": 4.43
+        },
+        {
+          "text": "tell.",
+          "start": 4.43,
+          "end": 4.73
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3095265068113804
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "865de518210db361087f26e8caadb73b04369b012e0992bf7dfa649c18f4beba",
+  "selected_reasons": []
+}

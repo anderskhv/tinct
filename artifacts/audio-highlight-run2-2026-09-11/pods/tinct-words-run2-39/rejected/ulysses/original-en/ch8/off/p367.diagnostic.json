@@ -1,0 +1,531 @@
+{
+  "complete": true,
+  "signature": "dddb55a26fa9923621999eaf5bb91064f6e2d825013088676ad6b4112a29ee34",
+  "attempts": [
+    {
+      "asr_seconds": 0.2230539619922638,
+      "alignment_seconds": 0.00041690398938953876,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Straw hat and sunlight tan shoes turn it up trousers it is it is",
+          "start": 0.08,
+          "end": 5.02,
+          "words": [
+            {
+              "text": " Straw",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " hat",
+              "start": 0.62,
+              "end": 0.9,
+              "probability": 0.7333984375
+            },
+            {
+              "text": " and",
+              "start": 0.9,
+              "end": 1.08,
+              "probability": 0.689453125
+            },
+            {
+              "text": " sunlight",
+              "start": 1.08,
+              "end": 1.52,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " tan",
+              "start": 1.52,
+              "end": 2.18,
+              "probability": 0.422119140625
+            },
+            {
+              "text": " shoes",
+              "start": 2.18,
+              "end": 2.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " turn",
+              "start": 2.64,
+              "end": 3.14,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " it",
+              "start": 3.14,
+              "end": 3.24,
+              "probability": 0.978515625
+            },
+            {
+              "text": " up",
+              "start": 3.24,
+              "end": 3.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " trousers",
+              "start": 3.38,
+              "end": 3.78,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " it",
+              "start": 3.78,
+              "end": 4.04,
+              "probability": 0.490966796875
+            },
+            {
+              "text": " is",
+              "start": 4.04,
+              "end": 4.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " it",
+              "start": 4.38,
+              "end": 4.68,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " is",
+              "start": 4.68,
+              "end": 5.02,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Straw",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "hat",
+          "start": 0.62,
+          "end": 0.9
+        },
+        {
+          "raw": "and",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "raw": "sunlight",
+          "start": 1.08,
+          "end": 1.52
+        },
+        {
+          "raw": "tan",
+          "start": 1.52,
+          "end": 2.18
+        },
+        {
+          "raw": "shoes",
+          "start": 2.18,
+          "end": 2.64
+        },
+        {
+          "raw": "turn",
+          "start": 2.64,
+          "end": 3.14
+        },
+        {
+          "raw": "it",
+          "start": 3.14,
+          "end": 3.24
+        },
+        {
+          "raw": "up",
+          "start": 3.24,
+          "end": 3.38
+        },
+        {
+          "raw": "trousers",
+          "start": 3.38,
+          "end": 3.78
+        },
+        {
+          "raw": "it",
+          "start": 3.78,
+          "end": 4.04
+        },
+        {
+          "raw": "is",
+          "start": 4.04,
+          "end": 4.38
+        },
+        {
+          "raw": "it",
+          "start": 4.38,
+          "end": 4.68
+        },
+        {
+          "raw": "is",
+          "start": 4.68,
+          "end": 5.02
+        }
+      ],
+      "expected_tokens": [
+        "Straw",
+        "hat",
+        "in",
+        "sunlight.",
+        "Tan",
+        "shoes.",
+        "Turnedup",
+        "trousers.",
+        "It",
+        "is.",
+        "It",
+        "is."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          9
+        ],
+        [
+          "equal",
+          7,
+          12,
+          9,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Straw",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "straw",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hat",
+          "start": 0.62,
+          "end": 0.9,
+          "key": "hat",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.9,
+          "end": 1.08,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sunlight",
+          "start": 1.08,
+          "end": 1.52,
+          "key": "sunlight",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tan",
+          "start": 1.52,
+          "end": 2.18,
+          "key": "tan",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shoes",
+          "start": 2.18,
+          "end": 2.64,
+          "key": "shoes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 2.64,
+          "end": 3.14,
+          "key": "turn",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.14,
+          "end": 3.24,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 3.24,
+          "end": 3.38,
+          "key": "up",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "trousers",
+          "start": 3.38,
+          "end": 3.78,
+          "key": "trousers",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.78,
+          "end": 4.04,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.04,
+          "end": 4.38,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.38,
+          "end": 4.68,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.68,
+          "end": 5.02,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Straw",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "hat",
+          "start": 0.62,
+          "end": 0.9
+        },
+        {
+          "text": "in",
+          "start": 0.9,
+          "end": 0.99
+        },
+        {
+          "text": "sunlight.",
+          "start": 1.08,
+          "end": 1.52
+        },
+        {
+          "text": "Tan",
+          "start": 1.52,
+          "end": 2.18
+        },
+        {
+          "text": "shoes.",
+          "start": 2.18,
+          "end": 2.64
+        },
+        {
+          "text": "Turnedup",
+          "start": 2.64,
+          "end": 3.01
+        },
+        {
+          "text": "trousers.",
+          "start": 3.38,
+          "end": 3.78
+        },
+        {
+          "text": "It",
+          "start": 3.78,
+          "end": 4.04
+        },
+        {
+          "text": "is.",
+          "start": 4.04,
+          "end": 4.38
+        },
+        {
+          "text": "It",
+          "start": 4.38,
+          "end": 4.68
+        },
+        {
+          "text": "is.",
+          "start": 4.68,
+          "end": 5.02
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 14,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22363599599339068
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "21755d4246cf5c35a9b079a8ec916b293d8f9e0682854c4094ca58d0e38480bb",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

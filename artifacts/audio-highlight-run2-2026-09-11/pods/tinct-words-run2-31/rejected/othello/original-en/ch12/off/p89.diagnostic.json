@@ -1,0 +1,228 @@
+{
+  "complete": true,
+  "signature": "27d8f2e8765283e7ef5fc28abc5c4d15e99efcba5f7241dffa39850e52db0efb",
+  "attempts": [
+    {
+      "asr_seconds": 0.14340783609077334,
+      "alignment_seconds": 0.00021857721731066704,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt, Distimona, and Amelia.",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " Exeunt,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.6097005208333334
+            },
+            {
+              "text": " Distimona,",
+              "start": 0.99,
+              "end": 1.45,
+              "probability": 0.654693603515625
+            },
+            {
+              "text": " and",
+              "start": 1.63,
+              "end": 1.67,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Amelia.",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.63623046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Distimona,",
+          "start": 0.99,
+          "end": 1.45
+        },
+        {
+          "raw": "and",
+          "start": 1.63,
+          "end": 1.67
+        },
+        {
+          "raw": "Amelia.",
+          "start": 1.67,
+          "end": 1.91
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt",
+        "Desdemona",
+        "and",
+        "Emilia.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Distimona,",
+          "start": 0.99,
+          "end": 1.45,
+          "key": "distimona",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.63,
+          "end": 1.67,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Amelia.",
+          "start": 1.67,
+          "end": 1.91,
+          "key": "amelia",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Desdemona",
+          "start": 0.85,
+          "end": 1.24
+        },
+        {
+          "text": "and",
+          "start": 1.63,
+          "end": 1.67
+        },
+        {
+          "text": "Emilia.]",
+          "start": 1.67,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14369526272639632
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d3d3791fd5503b50ca52f2be3506f77e40abf14a644e12408bc9302a306ea16b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,854 @@
+{
+  "complete": true,
+  "signature": "0c4e734d8e490743accd9f513ce4f8d1b41518199f3d384db9f7813d536a2f89",
+  "attempts": [
+    {
+      "asr_seconds": 0.26660740096122026,
+      "alignment_seconds": 0.0003469320363365114,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He poked Mr. O'Madden Burke mildly in the spleen.",
+          "start": 0.05,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " poked",
+              "start": 0.49,
+              "end": 0.75,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Mr.",
+              "start": 0.75,
+              "end": 1.07,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " O",
+              "start": 1.21,
+              "end": 1.21,
+              "probability": 0.89892578125
+            },
+            {
+              "text": "'Madden",
+              "start": 1.21,
+              "end": 1.43,
+              "probability": 0.8829752604166666
+            },
+            {
+              "text": " Burke",
+              "start": 1.43,
+              "end": 1.75,
+              "probability": 0.82421875
+            },
+            {
+              "text": " mildly",
+              "start": 1.75,
+              "end": 2.13,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " in",
+              "start": 2.13,
+              "end": 2.57,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 2.57,
+              "end": 2.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " spleen.",
+              "start": 2.69,
+              "end": 3.09,
+              "probability": 0.992431640625
+            }
+          ]
+        },
+        {
+          "text": " Mr. O'Madden Burke fell back with grace on his umbrella, feigning a gasp.",
+          "start": 3.85,
+          "end": 7.73,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 3.85,
+              "end": 3.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " O",
+              "start": 4.11,
+              "end": 4.13,
+              "probability": 0.9951171875
+            },
+            {
+              "text": "'Madden",
+              "start": 4.13,
+              "end": 4.35,
+              "probability": 0.9944661458333334
+            },
+            {
+              "text": " Burke",
+              "start": 4.35,
+              "end": 4.69,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " fell",
+              "start": 4.69,
+              "end": 4.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " back",
+              "start": 4.93,
+              "end": 5.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 5.23,
+              "end": 5.43,
+              "probability": 0.994140625
+            },
+            {
+              "text": " grace",
+              "start": 5.43,
+              "end": 5.75,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " on",
+              "start": 5.75,
+              "end": 5.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 5.99,
+              "end": 6.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " umbrella,",
+              "start": 6.11,
+              "end": 6.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " feigning",
+              "start": 7.09,
+              "end": 7.29,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " a",
+              "start": 7.29,
+              "end": 7.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " gasp.",
+              "start": 7.45,
+              "end": 7.73,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "poked",
+          "start": 0.49,
+          "end": 0.75
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.75,
+          "end": 1.07
+        },
+        {
+          "raw": "O",
+          "start": 1.21,
+          "end": 1.21
+        },
+        {
+          "raw": "'Madden",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "raw": "Burke",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "raw": "mildly",
+          "start": 1.75,
+          "end": 2.13
+        },
+        {
+          "raw": "in",
+          "start": 2.13,
+          "end": 2.57
+        },
+        {
+          "raw": "the",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "raw": "spleen.",
+          "start": 2.69,
+          "end": 3.09
+        },
+        {
+          "raw": "Mr.",
+          "start": 3.85,
+          "end": 3.93
+        },
+        {
+          "raw": "O",
+          "start": 4.11,
+          "end": 4.13
+        },
+        {
+          "raw": "'Madden",
+          "start": 4.13,
+          "end": 4.35
+        },
+        {
+          "raw": "Burke",
+          "start": 4.35,
+          "end": 4.69
+        },
+        {
+          "raw": "fell",
+          "start": 4.69,
+          "end": 4.93
+        },
+        {
+          "raw": "back",
+          "start": 4.93,
+          "end": 5.23
+        },
+        {
+          "raw": "with",
+          "start": 5.23,
+          "end": 5.43
+        },
+        {
+          "raw": "grace",
+          "start": 5.43,
+          "end": 5.75
+        },
+        {
+          "raw": "on",
+          "start": 5.75,
+          "end": 5.99
+        },
+        {
+          "raw": "his",
+          "start": 5.99,
+          "end": 6.11
+        },
+        {
+          "raw": "umbrella,",
+          "start": 6.11,
+          "end": 6.57
+        },
+        {
+          "raw": "feigning",
+          "start": 7.09,
+          "end": 7.29
+        },
+        {
+          "raw": "a",
+          "start": 7.29,
+          "end": 7.45
+        },
+        {
+          "raw": "gasp.",
+          "start": 7.45,
+          "end": 7.73
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "poked",
+        "Mr",
+        "O'Madden",
+        "Burke",
+        "mildly",
+        "in",
+        "the",
+        "spleen.",
+        "Mr",
+        "O'Madden",
+        "Burke",
+        "fell",
+        "back",
+        "with",
+        "grace",
+        "on",
+        "his",
+        "umbrella,",
+        "feigning",
+        "a",
+        "gasp."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          10,
+          5,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ],
+        [
+          "equal",
+          11,
+          22,
+          13,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "poked",
+          "start": 0.49,
+          "end": 0.75,
+          "key": "poked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.75,
+          "end": 1.07,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.21,
+          "end": 1.21,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'Madden",
+          "start": 1.21,
+          "end": 1.43,
+          "key": "madden",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Burke",
+          "start": 1.43,
+          "end": 1.75,
+          "key": "burke",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mildly",
+          "start": 1.75,
+          "end": 2.13,
+          "key": "mildly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.13,
+          "end": 2.57,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.57,
+          "end": 2.69,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "spleen.",
+          "start": 2.69,
+          "end": 3.09,
+          "key": "spleen",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 3.85,
+          "end": 3.93,
+          "key": "mr",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 4.11,
+          "end": 4.13,
+          "key": "o",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "'Madden",
+          "start": 4.13,
+          "end": 4.35,
+          "key": "madden",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Burke",
+          "start": 4.35,
+          "end": 4.69,
+          "key": "burke",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fell",
+          "start": 4.69,
+          "end": 4.93,
+          "key": "fell",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 4.93,
+          "end": 5.23,
+          "key": "back",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.23,
+          "end": 5.43,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "grace",
+          "start": 5.43,
+          "end": 5.75,
+          "key": "grace",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.75,
+          "end": 5.99,
+          "key": "on",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.99,
+          "end": 6.11,
+          "key": "his",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "umbrella,",
+          "start": 6.11,
+          "end": 6.57,
+          "key": "umbrella",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "feigning",
+          "start": 7.09,
+          "end": 7.29,
+          "key": "feigning",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.29,
+          "end": 7.45,
+          "key": "a",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "gasp.",
+          "start": 7.45,
+          "end": 7.73,
+          "key": "gasp",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "poked",
+          "start": 0.49,
+          "end": 0.75
+        },
+        {
+          "text": "Mr",
+          "start": 0.75,
+          "end": 1.07
+        },
+        {
+          "text": "O'Madden",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "text": "Burke",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "text": "mildly",
+          "start": 1.75,
+          "end": 2.13
+        },
+        {
+          "text": "in",
+          "start": 2.13,
+          "end": 2.57
+        },
+        {
+          "text": "the",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "text": "spleen.",
+          "start": 2.69,
+          "end": 3.09
+        },
+        {
+          "text": "Mr",
+          "start": 3.85,
+          "end": 3.93
+        },
+        {
+          "text": "O'Madden",
+          "start": 3.93,
+          "end": 4.14
+        },
+        {
+          "text": "Burke",
+          "start": 4.35,
+          "end": 4.69
+        },
+        {
+          "text": "fell",
+          "start": 4.69,
+          "end": 4.93
+        },
+        {
+          "text": "back",
+          "start": 4.93,
+          "end": 5.23
+        },
+        {
+          "text": "with",
+          "start": 5.23,
+          "end": 5.43
+        },
+        {
+          "text": "grace",
+          "start": 5.43,
+          "end": 5.75
+        },
+        {
+          "text": "on",
+          "start": 5.75,
+          "end": 5.99
+        },
+        {
+          "text": "his",
+          "start": 5.99,
+          "end": 6.11
+        },
+        {
+          "text": "umbrella,",
+          "start": 6.11,
+          "end": 6.57
+        },
+        {
+          "text": "feigning",
+          "start": 7.09,
+          "end": 7.29
+        },
+        {
+          "text": "a",
+          "start": 7.29,
+          "end": 7.45
+        },
+        {
+          "text": "gasp.",
+          "start": 7.45,
+          "end": 7.73
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 24,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.26708475401392207
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1032d77cffb0878dfdce5270bf9a0c44645604084fe16fb1bd389ff3f6c6f530",
+  "selected_reasons": []
+}

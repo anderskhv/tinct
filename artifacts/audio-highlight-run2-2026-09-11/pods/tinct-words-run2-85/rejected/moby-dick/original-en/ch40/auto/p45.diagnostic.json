@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "36af03946d107b5ca30dcfddaf2feaa1c07394d5518326d016ba16c3e23716c8",
+  "attempts": [
+    {
+      "asr_seconds": 0.3509206213057041,
+      "alignment_seconds": 0.001054449938237667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Belfast Sailor. A row! arrah a row! The Virgin be blessed, a row! Plunge in with ye!",
+        "hotwords": "Belfast, Sailor, The, Virgin, Plunge"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Belfast, Sailor, A row! arrah a row! The Virgin be blessed, a row! Plunge in with ye!",
+          "start": 0.14,
+          "end": 5.52,
+          "words": [
+            {
+              "text": " Belfast,",
+              "start": 0.14,
+              "end": 0.74,
+              "probability": 0.87109375
+            },
+            {
+              "text": " Sailor,",
+              "start": 1.06,
+              "end": 1.28,
+              "probability": 0.420654296875
+            },
+            {
+              "text": " A",
+              "start": 1.74,
+              "end": 1.74,
+              "probability": 0.220458984375
+            },
+            {
+              "text": " row!",
+              "start": 1.74,
+              "end": 1.96,
+              "probability": 0.00933837890625
+            },
+            {
+              "text": " arrah",
+              "start": 2.3,
+              "end": 2.52,
+              "probability": 0.03524971008300781
+            },
+            {
+              "text": " a",
+              "start": 2.52,
+              "end": 2.6,
+              "probability": 0.41552734375
+            },
+            {
+              "text": " row!",
+              "start": 2.6,
+              "end": 2.84,
+              "probability": 0.73486328125
+            },
+            {
+              "text": " The",
+              "start": 3.26,
+              "end": 3.34,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " Virgin",
+              "start": 3.34,
+              "end": 3.56,
+              "probability": 0.810546875
+            },
+            {
+              "text": " be",
+              "start": 3.56,
+              "end": 3.76,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " blessed,",
+              "start": 3.76,
+              "end": 4.02,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " a",
+              "start": 4.26,
+              "end": 4.28,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " row!",
+              "start": 4.28,
+              "end": 4.54,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " Plunge",
+              "start": 4.86,
+              "end": 5.04,
+              "probability": 0.8024088541666666
+            },
+            {
+              "text": " in",
+              "start": 5.04,
+              "end": 5.14,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " with",
+              "start": 5.14,
+              "end": 5.3,
+              "probability": 0.984375
+            },
+            {
+              "text": " ye!",
+              "start": 5.3,
+              "end": 5.52,
+              "probability": 0.89306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Belfast,",
+          "start": 0.14,
+          "end": 0.74
+        },
+        {
+          "raw": "Sailor,",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "raw": "A",
+          "start": 1.74,
+          "end": 1.74
+        },
+        {
+          "raw": "row!",
+          "start": 1.74,
+          "end": 1.96
+        },
+        {
+          "raw": "arrah",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "raw": "a",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "raw": "row!",
+          "start": 2.6,
+          "end": 2.84
+        },
+        {
+          "raw": "The",
+          "start": 3.26,
+          "end": 3.34
+        },
+        {
+          "raw": "Virgin",
+          "start": 3.34,
+          "end": 3.56
+        },
+        {
+          "raw": "be",
+          "start": 3.56,
+          "end": 3.76
+        },
+        {
+          "raw": "blessed,",
+          "start": 3.76,
+          "end": 4.02
+        },
+        {
+          "raw": "a",
+          "start": 4.26,
+          "end": 4.28
+        },
+        {
+          "raw": "row!",
+          "start": 4.28,
+          "end": 4.54
+        },
+        {
+          "raw": "Plunge",
+          "start": 4.86,
+          "end": 5.04
+        },
+        {
+          "raw": "in",
+          "start": 5.04,
+          "end": 5.14
+        },
+        {
+          "raw": "with",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "raw": "ye!",
+          "start": 5.3,
+          "end": 5.52
+        }
+      ],
+      "expected_tokens": [
+        "Belfast",
+        "Sailor.",
+        "A",
+        "row!",
+        "arrah",
+        "a",
+        "row!",
+        "The",
+        "Virgin",
+        "be",
+        "blessed,",
+        "a",
+        "row!",
+        "Plunge",
+        "in",
+        "with",
+        "ye!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Belfast,",
+          "start": 0.14,
+          "end": 0.74,
+          "key": "belfast",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sailor,",
+          "start": 1.06,
+          "end": 1.28,
+          "key": "sailor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.74,
+          "end": 1.74,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "row!",
+          "start": 1.74,
+          "end": 1.96,
+          "key": "row",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "arrah",
+          "start": 2.3,
+          "end": 2.52,
+          "key": "arrah",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.52,
+          "end": 2.6,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "row!",
+          "start": 2.6,
+          "end": 2.84,
+          "key": "row",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.26,
+          "end": 3.34,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Virgin",
+          "start": 3.34,
+          "end": 3.56,
+          "key": "virgin",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.56,
+          "end": 3.76,
+          "key": "be",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "blessed,",
+          "start": 3.76,
+          "end": 4.02,
+          "key": "blessed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.26,
+          "end": 4.28,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "row!",
+          "start": 4.28,
+          "end": 4.54,
+          "key": "row",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Plunge",
+          "start": 4.86,
+          "end": 5.04,
+          "key": "plunge",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.04,
+          "end": 5.14,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.14,
+          "end": 5.3,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ye!",
+          "start": 5.3,
+          "end": 5.52,
+          "key": "ye",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belfast",
+          "start": 0.14,
+          "end": 0.74
+        },
+        {
+          "text": "Sailor.",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "text": "A",
+          "start": 1.74,
+          "end": 1.74
+        },
+        {
+          "text": "row!",
+          "start": 1.74,
+          "end": 1.96
+        },
+        {
+          "text": "arrah",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "text": "a",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "text": "row!",
+          "start": 2.6,
+          "end": 2.84
+        },
+        {
+          "text": "The",
+          "start": 3.26,
+          "end": 3.34
+        },
+        {
+          "text": "Virgin",
+          "start": 3.34,
+          "end": 3.56
+        },
+        {
+          "text": "be",
+          "start": 3.56,
+          "end": 3.76
+        },
+        {
+          "text": "blessed,",
+          "start": 3.76,
+          "end": 4.02
+        },
+        {
+          "text": "a",
+          "start": 4.26,
+          "end": 4.28
+        },
+        {
+          "text": "row!",
+          "start": 4.28,
+          "end": 4.54
+        },
+        {
+          "text": "Plunge",
+          "start": 4.86,
+          "end": 5.04
+        },
+        {
+          "text": "in",
+          "start": 5.04,
+          "end": 5.14
+        },
+        {
+          "text": "with",
+          "start": 5.14,
+          "end": 5.3
+        },
+        {
+          "text": "ye!",
+          "start": 5.3,
+          "end": 5.52
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35242485301569104
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c6961edf2f12e80890c89f9be112a524d0386e3601f985afbfc4689a9138ee7f",
+  "selected_reasons": []
+}

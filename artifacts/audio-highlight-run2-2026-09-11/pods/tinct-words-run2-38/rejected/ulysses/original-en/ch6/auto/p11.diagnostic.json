@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "c7c36da43f697e8d3ba13afea68408b1a9c6636fee3cbb7daaaf961a4a250509",
+  "attempts": [
+    {
+      "asr_seconds": 0.12530626694206148,
+      "alignment_seconds": 0.00019895099103450775,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Irishtown, Martin Cunningham said. Ringsend. Brunswick street.",
+        "hotwords": "Irishtown, Martin, Cunningham, Ringsend, Brunswick"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Irishtown, Martin Cunningham said. Ringsend. Brunswick street.",
+          "start": 0.08,
+          "end": 4.08,
+          "words": [
+            {
+              "text": " Irishtown,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.407440185546875
+            },
+            {
+              "text": " Martin",
+              "start": 1.14,
+              "end": 1.24,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " Cunningham",
+              "start": 1.24,
+              "end": 1.6,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " said.",
+              "start": 1.6,
+              "end": 2.02,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " Ringsend.",
+              "start": 2.44,
+              "end": 2.92,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " Brunswick",
+              "start": 3.48,
+              "end": 3.68,
+              "probability": 0.986328125
+            },
+            {
+              "text": " street.",
+              "start": 3.68,
+              "end": 4.08,
+              "probability": 0.05242919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Irishtown,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "Martin",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "raw": "Cunningham",
+          "start": 1.24,
+          "end": 1.6
+        },
+        {
+          "raw": "said.",
+          "start": 1.6,
+          "end": 2.02
+        },
+        {
+          "raw": "Ringsend.",
+          "start": 2.44,
+          "end": 2.92
+        },
+        {
+          "raw": "Brunswick",
+          "start": 3.48,
+          "end": 3.68
+        },
+        {
+          "raw": "street.",
+          "start": 3.68,
+          "end": 4.08
+        }
+      ],
+      "expected_tokens": [
+        "—Irishtown,",
+        "Martin",
+        "Cunningham",
+        "said.",
+        "Ringsend.",
+        "Brunswick",
+        "street."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Irishtown,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "irishtown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Martin",
+          "start": 1.14,
+          "end": 1.24,
+          "key": "martin",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cunningham",
+          "start": 1.24,
+          "end": 1.6,
+          "key": "cunningham",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.6,
+          "end": 2.02,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Ringsend.",
+          "start": 2.44,
+          "end": 2.92,
+          "key": "ringsend",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Brunswick",
+          "start": 3.48,
+          "end": 3.68,
+          "key": "brunswick",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "street.",
+          "start": 3.68,
+          "end": 4.08,
+          "key": "street",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Irishtown,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Martin",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "text": "Cunningham",
+          "start": 1.24,
+          "end": 1.6
+        },
+        {
+          "text": "said.",
+          "start": 1.6,
+          "end": 2.02
+        },
+        {
+          "text": "Ringsend.",
+          "start": 2.44,
+          "end": 2.92
+        },
+        {
+          "text": "Brunswick",
+          "start": 3.48,
+          "end": 3.68
+        },
+        {
+          "text": "street.",
+          "start": 3.68,
+          "end": 4.08
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12557820894289762
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "40204be9a4a9144677f908dc6bf6b51d12e86d3da157f0063105735aee62539f",
+  "selected_reasons": []
+}

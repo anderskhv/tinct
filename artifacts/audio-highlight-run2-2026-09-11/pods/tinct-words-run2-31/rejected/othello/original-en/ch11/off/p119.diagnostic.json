@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "61a8284d919091a6a992ff08370b6a3dfed5d57d3b5a7c11faa797da40261c9a",
+  "attempts": [
+    {
+      "asr_seconds": 0.16090223100036383,
+      "alignment_seconds": 0.00018656812608242035,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ladovico, the Duke and Senators of Venice greet you.",
+          "start": 0.05,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " Ladovico,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.6017252604166666
+            },
+            {
+              "text": " the",
+              "start": 1.57,
+              "end": 1.61,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " Duke",
+              "start": 1.61,
+              "end": 1.83,
+              "probability": 0.888671875
+            },
+            {
+              "text": " and",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Senators",
+              "start": 2.03,
+              "end": 2.31,
+              "probability": 0.75439453125
+            },
+            {
+              "text": " of",
+              "start": 2.31,
+              "end": 2.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Venice",
+              "start": 2.57,
+              "end": 2.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " greet",
+              "start": 2.89,
+              "end": 3.19,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " you.",
+              "start": 3.19,
+              "end": 3.55,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ladovico,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "the",
+          "start": 1.57,
+          "end": 1.61
+        },
+        {
+          "raw": "Duke",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "raw": "and",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "Senators",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "raw": "of",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "raw": "Venice",
+          "start": 2.57,
+          "end": 2.89
+        },
+        {
+          "raw": "greet",
+          "start": 2.89,
+          "end": 3.19
+        },
+        {
+          "raw": "you.",
+          "start": 3.19,
+          "end": 3.55
+        }
+      ],
+      "expected_tokens": [
+        "Lodovico.",
+        "The",
+        "duke",
+        "and",
+        "senators",
+        "of",
+        "Venice",
+        "greet",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          9,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ladovico,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "ladovico",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.57,
+          "end": 1.61,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Duke",
+          "start": 1.61,
+          "end": 1.83,
+          "key": "duke",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.83,
+          "end": 2.03,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Senators",
+          "start": 2.03,
+          "end": 2.31,
+          "key": "senators",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.31,
+          "end": 2.57,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Venice",
+          "start": 2.57,
+          "end": 2.89,
+          "key": "venice",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "greet",
+          "start": 2.89,
+          "end": 3.19,
+          "key": "greet",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 3.19,
+          "end": 3.55,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lodovico.",
+          "start": 0.0,
+          "end": 0.785
+        },
+        {
+          "text": "The",
+          "start": 1.57,
+          "end": 1.61
+        },
+        {
+          "text": "duke",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "text": "and",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "senators",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "text": "of",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "text": "Venice",
+          "start": 2.57,
+          "end": 2.89
+        },
+        {
+          "text": "greet",
+          "start": 2.89,
+          "end": 3.19
+        },
+        {
+          "text": "you.",
+          "start": 3.19,
+          "end": 3.55
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.16114733833819628
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "13efa1e62d8331fd3501a3519b814050a1e9e9015ddaedb999a37b39aa94b024",
+  "selected_reasons": []
+}

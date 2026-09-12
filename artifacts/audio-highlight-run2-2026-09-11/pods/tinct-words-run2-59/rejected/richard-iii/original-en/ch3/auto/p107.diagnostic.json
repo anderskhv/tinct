@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "fbc4919543b6b9ada58aca7c5017d37677cf8fded79324eeec2bff028c5ca1bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.24982855399139225,
+      "alignment_seconds": 0.000439035939052701,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Buckingham. Nothing that I respect, my gracious lord.",
+        "hotwords": "Buckingham, Nothing, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Buckingham, Nothing that I respect, my gracious lord.",
+          "start": 0.05,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " Buckingham,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " Nothing",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.0098419189453125
+            },
+            {
+              "text": " that",
+              "start": 1.55,
+              "end": 1.77,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " I",
+              "start": 1.77,
+              "end": 1.89,
+              "probability": 0.8671875
+            },
+            {
+              "text": " respect,",
+              "start": 1.89,
+              "end": 2.21,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " my",
+              "start": 2.41,
+              "end": 2.47,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " gracious",
+              "start": 2.47,
+              "end": 2.85,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " lord.",
+              "start": 2.85,
+              "end": 3.23,
+              "probability": 0.50341796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Nothing",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "that",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "raw": "I",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "raw": "respect,",
+          "start": 1.89,
+          "end": 2.21
+        },
+        {
+          "raw": "my",
+          "start": 2.41,
+          "end": 2.47
+        },
+        {
+          "raw": "gracious",
+          "start": 2.47,
+          "end": 2.85
+        },
+        {
+          "raw": "lord.",
+          "start": 2.85,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "Nothing",
+        "that",
+        "I",
+        "respect,",
+        "my",
+        "gracious",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nothing",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "nothing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.55,
+          "end": 1.77,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.77,
+          "end": 1.89,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "respect,",
+          "start": 1.89,
+          "end": 2.21,
+          "key": "respect",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.41,
+          "end": 2.47,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gracious",
+          "start": 2.47,
+          "end": 2.85,
+          "key": "gracious",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 2.85,
+          "end": 3.23,
+          "key": "lord",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Nothing",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "that",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "text": "I",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "text": "respect,",
+          "start": 1.89,
+          "end": 2.21
+        },
+        {
+          "text": "my",
+          "start": 2.41,
+          "end": 2.47
+        },
+        {
+          "text": "gracious",
+          "start": 2.47,
+          "end": 2.85
+        },
+        {
+          "text": "lord.",
+          "start": 2.85,
+          "end": 3.23
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2504180730320513
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5c5af0e70657980f3512b9d48164ed5303d12579eafc8c9ec910c84b71e8adda",
+  "selected_reasons": []
+}

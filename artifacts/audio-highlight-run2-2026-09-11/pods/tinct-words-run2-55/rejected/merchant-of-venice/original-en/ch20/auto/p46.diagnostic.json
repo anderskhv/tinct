@@ -1,0 +1,2521 @@
+{
+  "complete": true,
+  "signature": "abbb772d64dd632d01083937a71b324a438f4ab552160ec10a0711d19b6b1701",
+  "attempts": [
+    {
+      "asr_seconds": 7.2148956544697285,
+      "alignment_seconds": 0.001425587572157383,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Portia. We have been praying for our husbands' welfare, Which speed, we hope, the better for our words. Are they return'd?",
+        "hotwords": "Portia, Which, Are"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Portia, We have been praying for our husbands' welfare, Which speed, we hope, the better for our words. Are they",
+          "start": 0.05,
+          "end": 6.65,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.7474365234375
+            },
+            {
+              "text": " We",
+              "start": 1.07,
+              "end": 1.35,
+              "probability": 0.0144195556640625
+            },
+            {
+              "text": " have",
+              "start": 1.35,
+              "end": 1.43,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " been",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " praying",
+              "start": 1.57,
+              "end": 1.81,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " for",
+              "start": 1.81,
+              "end": 2.07,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " our",
+              "start": 2.07,
+              "end": 2.25,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " husbands'",
+              "start": 2.25,
+              "end": 2.47,
+              "probability": 0.296142578125
+            },
+            {
+              "text": " welfare,",
+              "start": 2.69,
+              "end": 3.05,
+              "probability": 0.984375
+            },
+            {
+              "text": " Which",
+              "start": 3.37,
+              "end": 3.53,
+              "probability": 0.19189453125
+            },
+            {
+              "text": " speed,",
+              "start": 3.53,
+              "end": 3.93,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " we",
+              "start": 4.07,
+              "end": 4.19,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " hope,",
+              "start": 4.19,
+              "end": 4.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 4.61,
+              "end": 4.69,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " better",
+              "start": 4.69,
+              "end": 4.87,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " for",
+              "start": 4.87,
+              "end": 5.11,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " our",
+              "start": 5.11,
+              "end": 5.27,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " words.",
+              "start": 5.27,
+              "end": 5.65,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Are",
+              "start": 6.25,
+              "end": 6.39,
+              "probability": 0.95703125
+            },
+            {
+              "text": " they",
+              "start": 6.39,
+              "end": 6.65,
+              "probability": 0.96875
+            }
+          ]
+        },
+        {
+          "text": " future? Portia, We need love in today. Portia, We need love in today.",
+          "start": 6.65,
+          "end": 6.99,
+          "words": [
+            {
+              "text": " future?",
+              "start": 6.65,
+              "end": 6.65,
+              "probability": 6.657838821411133e-05
+            },
+            {
+              "text": " Portia,",
+              "start": 6.65,
+              "end": 6.71,
+              "probability": 0.006552368402481079
+            },
+            {
+              "text": " We",
+              "start": 6.71,
+              "end": 6.71,
+              "probability": 0.004611968994140625
+            },
+            {
+              "text": " need",
+              "start": 6.71,
+              "end": 6.99,
+              "probability": 0.036468505859375
+            },
+            {
+              "text": " love",
+              "start": 6.99,
+              "end": 6.99,
+              "probability": 0.0002162456512451172
+            },
+            {
+              "text": " in",
+              "start": 6.99,
+              "end": 6.99,
+              "probability": 0.029083251953125
+            },
+            {
+              "text": " today.",
+              "start": 6.99,
+              "end": 6.99,
+              "probability": 0.011566162109375
+            },
+            {
+              "text": " Portia,",
+              "start": 6.99,
+              "end": 6.99,
+              "probability": 0.49720335006713867
+            },
+            {
+              "text": " We",
+              "start": 6.99,
+              "end": 6.99,
+              "probability": 0.2425537109375
+            },
+            {
+              "text": " need",
+              "start": 6.99,
+              "end": 6.99,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " love",
+              "start": 6.99,
+              "end": 6.99,
+              "probability": 0.41796875
+            },
+            {
+              "text": " in",
+              "start": 6.99,
+              "end": 6.99,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " today.",
+              "start": 6.99,
+              "end": 6.99,
+              "probability": 0.88134765625
+            }
+          ]
+        },
+        {
+          "text": " Not,",
+          "start": 6.99,
+          "end": 7.25,
+          "words": [
+            {
+              "text": " Not,",
+              "start": 6.99,
+              "end": 7.25,
+              "probability": 0.0003123283386230469
+            }
+          ]
+        },
+        {
+          "text": " Not,",
+          "start": 7.25,
+          "end": 7.27,
+          "words": [
+            {
+              "text": " Not,",
+              "start": 7.25,
+              "end": 7.27,
+              "probability": 0.90380859375
+            }
+          ]
+        },
+        {
+          "text": " What,",
+          "start": 7.27,
+          "end": 7.29,
+          "words": [
+            {
+              "text": " What,",
+              "start": 7.27,
+              "end": 7.29,
+              "probability": 0.0007314682006835938
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "We",
+          "start": 1.07,
+          "end": 1.35
+        },
+        {
+          "raw": "have",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "raw": "been",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "praying",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "raw": "for",
+          "start": 1.81,
+          "end": 2.07
+        },
+        {
+          "raw": "our",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "raw": "husbands'",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "raw": "welfare,",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "raw": "Which",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "raw": "speed,",
+          "start": 3.53,
+          "end": 3.93
+        },
+        {
+          "raw": "we",
+          "start": 4.07,
+          "end": 4.19
+        },
+        {
+          "raw": "hope,",
+          "start": 4.19,
+          "end": 4.41
+        },
+        {
+          "raw": "the",
+          "start": 4.61,
+          "end": 4.69
+        },
+        {
+          "raw": "better",
+          "start": 4.69,
+          "end": 4.87
+        },
+        {
+          "raw": "for",
+          "start": 4.87,
+          "end": 5.11
+        },
+        {
+          "raw": "our",
+          "start": 5.11,
+          "end": 5.27
+        },
+        {
+          "raw": "words.",
+          "start": 5.27,
+          "end": 5.65
+        },
+        {
+          "raw": "Are",
+          "start": 6.25,
+          "end": 6.39
+        },
+        {
+          "raw": "they",
+          "start": 6.39,
+          "end": 6.65
+        },
+        {
+          "raw": "future?",
+          "start": 6.65,
+          "end": 6.65
+        },
+        {
+          "raw": "Portia,",
+          "start": 6.65,
+          "end": 6.71
+        },
+        {
+          "raw": "We",
+          "start": 6.71,
+          "end": 6.71
+        },
+        {
+          "raw": "need",
+          "start": 6.71,
+          "end": 6.99
+        },
+        {
+          "raw": "love",
+          "start": 6.99,
+          "end": 6.99
+        },
+        {
+          "raw": "in",
+          "start": 6.99,
+          "end": 6.99
+        },
+        {
+          "raw": "today.",
+          "start": 6.99,
+          "end": 6.99
+        },
+        {
+          "raw": "Portia,",
+          "start": 6.99,
+          "end": 6.99
+        },
+        {
+          "raw": "We",
+          "start": 6.99,
+          "end": 6.99
+        },
+        {
+          "raw": "need",
+          "start": 6.99,
+          "end": 6.99
+        },
+        {
+          "raw": "love",
+          "start": 6.99,
+          "end": 6.99
+        },
+        {
+          "raw": "in",
+          "start": 6.99,
+          "end": 6.99
+        },
+        {
+          "raw": "today.",
+          "start": 6.99,
+          "end": 6.99
+        },
+        {
+          "raw": "Not,",
+          "start": 6.99,
+          "end": 7.25
+        },
+        {
+          "raw": "Not,",
+          "start": 7.25,
+          "end": 7.27
+        },
+        {
+          "raw": "What,",
+          "start": 7.27,
+          "end": 7.29
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "We",
+        "have",
+        "been",
+        "praying",
+        "for",
+        "our",
+        "husbands'",
+        "welfare,",
+        "Which",
+        "speed,",
+        "we",
+        "hope,",
+        "the",
+        "better",
+        "for",
+        "our",
+        "words.",
+        "Are",
+        "they",
+        "return'd?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          20,
+          21,
+          20,
+          36
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.07,
+          "end": 1.35,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.35,
+          "end": 1.43,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "been",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "praying",
+          "start": 1.57,
+          "end": 1.81,
+          "key": "praying",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.81,
+          "end": 2.07,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.07,
+          "end": 2.25,
+          "key": "our",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "husbands'",
+          "start": 2.25,
+          "end": 2.47,
+          "key": "husbands",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "welfare,",
+          "start": 2.69,
+          "end": 3.05,
+          "key": "welfare",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 3.37,
+          "end": 3.53,
+          "key": "which",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "speed,",
+          "start": 3.53,
+          "end": 3.93,
+          "key": "speed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 4.07,
+          "end": 4.19,
+          "key": "we",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hope,",
+          "start": 4.19,
+          "end": 4.41,
+          "key": "hope",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.61,
+          "end": 4.69,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 4.69,
+          "end": 4.87,
+          "key": "better",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.87,
+          "end": 5.11,
+          "key": "for",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 5.11,
+          "end": 5.27,
+          "key": "our",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "words.",
+          "start": 5.27,
+          "end": 5.65,
+          "key": "words",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 6.25,
+          "end": 6.39,
+          "key": "are",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 6.39,
+          "end": 6.65,
+          "key": "they",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "future?",
+          "start": 6.65,
+          "end": 6.65,
+          "key": "future",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Portia,",
+          "start": 6.65,
+          "end": 6.71,
+          "key": "portia",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 6.71,
+          "end": 6.71,
+          "key": "we",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "need",
+          "start": 6.71,
+          "end": 6.99,
+          "key": "need",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 6.99,
+          "end": 6.99,
+          "key": "love",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.99,
+          "end": 6.99,
+          "key": "in",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "today.",
+          "start": 6.99,
+          "end": 6.99,
+          "key": "today",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Portia,",
+          "start": 6.99,
+          "end": 6.99,
+          "key": "portia",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 6.99,
+          "end": 6.99,
+          "key": "we",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "need",
+          "start": 6.99,
+          "end": 6.99,
+          "key": "need",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 6.99,
+          "end": 6.99,
+          "key": "love",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.99,
+          "end": 6.99,
+          "key": "in",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "today.",
+          "start": 6.99,
+          "end": 6.99,
+          "key": "today",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Not,",
+          "start": 6.99,
+          "end": 7.25,
+          "key": "not",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Not,",
+          "start": 7.25,
+          "end": 7.27,
+          "key": "not",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 7.27,
+          "end": 7.29,
+          "key": "what",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "We",
+          "start": 1.07,
+          "end": 1.35
+        },
+        {
+          "text": "have",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "text": "been",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "praying",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "text": "for",
+          "start": 1.81,
+          "end": 2.07
+        },
+        {
+          "text": "our",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "text": "husbands'",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "text": "welfare,",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "text": "Which",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "text": "speed,",
+          "start": 3.53,
+          "end": 3.93
+        },
+        {
+          "text": "we",
+          "start": 4.07,
+          "end": 4.19
+        },
+        {
+          "text": "hope,",
+          "start": 4.19,
+          "end": 4.41
+        },
+        {
+          "text": "the",
+          "start": 4.61,
+          "end": 4.69
+        },
+        {
+          "text": "better",
+          "start": 4.69,
+          "end": 4.87
+        },
+        {
+          "text": "for",
+          "start": 4.87,
+          "end": 5.11
+        },
+        {
+          "text": "our",
+          "start": 5.11,
+          "end": 5.27
+        },
+        {
+          "text": "words.",
+          "start": 5.27,
+          "end": 5.65
+        },
+        {
+          "text": "Are",
+          "start": 6.25,
+          "end": 6.39
+        },
+        {
+          "text": "they",
+          "start": 6.39,
+          "end": 6.65
+        },
+        {
+          "text": "return'd?",
+          "start": 6.65,
+          "end": 6.97
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 36,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 7.216882702894509
+    },
+    {
+      "asr_seconds": 0.397085920907557,
+      "alignment_seconds": 0.0005911197513341904,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Portia, Which, Are"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Portia, We Have Been Praying For Our Husband's Welfare, Which Speed We Hope The Better For",
+          "start": 0.05,
+          "end": 5.11,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.7474365234375
+            },
+            {
+              "text": " We",
+              "start": 1.07,
+              "end": 1.35,
+              "probability": 0.0144195556640625
+            },
+            {
+              "text": " Have",
+              "start": 1.35,
+              "end": 1.43,
+              "probability": 0.005077362060546875
+            },
+            {
+              "text": " Been",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Praying",
+              "start": 1.57,
+              "end": 1.87,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " For",
+              "start": 1.87,
+              "end": 2.07,
+              "probability": 0.66259765625
+            },
+            {
+              "text": " Our",
+              "start": 2.07,
+              "end": 2.25,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Husband's",
+              "start": 2.25,
+              "end": 2.69,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " Welfare,",
+              "start": 2.69,
+              "end": 3.03,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Which",
+              "start": 3.41,
+              "end": 3.53,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Speed",
+              "start": 3.53,
+              "end": 3.89,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " We",
+              "start": 3.89,
+              "end": 4.19,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " Hope",
+              "start": 4.19,
+              "end": 4.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " The",
+              "start": 4.41,
+              "end": 4.69,
+              "probability": 0.7568359375
+            },
+            {
+              "text": " Better",
+              "start": 4.69,
+              "end": 4.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " For",
+              "start": 4.87,
+              "end": 5.11,
+              "probability": 0.9609375
+            }
+          ]
+        },
+        {
+          "text": " Our Words, Are They?",
+          "start": 5.11,
+          "end": 6.65,
+          "words": [
+            {
+              "text": " Our",
+              "start": 5.11,
+              "end": 5.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Words,",
+              "start": 5.27,
+              "end": 5.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Are",
+              "start": 6.25,
+              "end": 6.39,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " They?",
+              "start": 6.39,
+              "end": 6.65,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "We",
+          "start": 1.07,
+          "end": 1.35
+        },
+        {
+          "raw": "Have",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "raw": "Been",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "Praying",
+          "start": 1.57,
+          "end": 1.87
+        },
+        {
+          "raw": "For",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "raw": "Our",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "raw": "Husband's",
+          "start": 2.25,
+          "end": 2.69
+        },
+        {
+          "raw": "Welfare,",
+          "start": 2.69,
+          "end": 3.03
+        },
+        {
+          "raw": "Which",
+          "start": 3.41,
+          "end": 3.53
+        },
+        {
+          "raw": "Speed",
+          "start": 3.53,
+          "end": 3.89
+        },
+        {
+          "raw": "We",
+          "start": 3.89,
+          "end": 4.19
+        },
+        {
+          "raw": "Hope",
+          "start": 4.19,
+          "end": 4.41
+        },
+        {
+          "raw": "The",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "raw": "Better",
+          "start": 4.69,
+          "end": 4.87
+        },
+        {
+          "raw": "For",
+          "start": 4.87,
+          "end": 5.11
+        },
+        {
+          "raw": "Our",
+          "start": 5.11,
+          "end": 5.27
+        },
+        {
+          "raw": "Words,",
+          "start": 5.27,
+          "end": 5.63
+        },
+        {
+          "raw": "Are",
+          "start": 6.25,
+          "end": 6.39
+        },
+        {
+          "raw": "They?",
+          "start": 6.39,
+          "end": 6.65
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "We",
+        "have",
+        "been",
+        "praying",
+        "for",
+        "our",
+        "husbands'",
+        "welfare,",
+        "Which",
+        "speed,",
+        "we",
+        "hope,",
+        "the",
+        "better",
+        "for",
+        "our",
+        "words.",
+        "Are",
+        "they",
+        "return'd?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "delete",
+          20,
+          21,
+          20,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          20,
+          21,
+          20,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.07,
+          "end": 1.35,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 1.35,
+          "end": 1.43,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Been",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "been",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Praying",
+          "start": 1.57,
+          "end": 1.87,
+          "key": "praying",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 1.87,
+          "end": 2.07,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 2.07,
+          "end": 2.25,
+          "key": "our",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Husband's",
+          "start": 2.25,
+          "end": 2.69,
+          "key": "husbands",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Welfare,",
+          "start": 2.69,
+          "end": 3.03,
+          "key": "welfare",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 3.41,
+          "end": 3.53,
+          "key": "which",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Speed",
+          "start": 3.53,
+          "end": 3.89,
+          "key": "speed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 3.89,
+          "end": 4.19,
+          "key": "we",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Hope",
+          "start": 4.19,
+          "end": 4.41,
+          "key": "hope",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.41,
+          "end": 4.69,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Better",
+          "start": 4.69,
+          "end": 4.87,
+          "key": "better",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 4.87,
+          "end": 5.11,
+          "key": "for",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 5.11,
+          "end": 5.27,
+          "key": "our",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Words,",
+          "start": 5.27,
+          "end": 5.63,
+          "key": "words",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 6.25,
+          "end": 6.39,
+          "key": "are",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "They?",
+          "start": 6.39,
+          "end": 6.65,
+          "key": "they",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "We",
+          "start": 1.07,
+          "end": 1.35
+        },
+        {
+          "text": "have",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "text": "been",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "praying",
+          "start": 1.57,
+          "end": 1.87
+        },
+        {
+          "text": "for",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "text": "our",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "text": "husbands'",
+          "start": 2.25,
+          "end": 2.69
+        },
+        {
+          "text": "welfare,",
+          "start": 2.69,
+          "end": 3.03
+        },
+        {
+          "text": "Which",
+          "start": 3.41,
+          "end": 3.53
+        },
+        {
+          "text": "speed,",
+          "start": 3.53,
+          "end": 3.89
+        },
+        {
+          "text": "we",
+          "start": 3.89,
+          "end": 4.19
+        },
+        {
+          "text": "hope,",
+          "start": 4.19,
+          "end": 4.41
+        },
+        {
+          "text": "the",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "text": "better",
+          "start": 4.69,
+          "end": 4.87
+        },
+        {
+          "text": "for",
+          "start": 4.87,
+          "end": 5.11
+        },
+        {
+          "text": "our",
+          "start": 5.11,
+          "end": 5.27
+        },
+        {
+          "text": "words.",
+          "start": 5.27,
+          "end": 5.63
+        },
+        {
+          "text": "Are",
+          "start": 6.25,
+          "end": 6.39
+        },
+        {
+          "text": "they",
+          "start": 6.39,
+          "end": 6.65
+        },
+        {
+          "text": "return'd?",
+          "start": 6.65,
+          "end": 6.65
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.3978651612997055
+    },
+    {
+      "asr_seconds": 0.3714780891314149,
+      "alignment_seconds": 0.0005709044635295868,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Portia we have been praying for our husband's welfare which speed we hope the better for our words are they",
+          "start": 0.05,
+          "end": 6.67,
+          "words": [
+            {
+              "text": " Portia",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.7474365234375
+            },
+            {
+              "text": " we",
+              "start": 0.85,
+              "end": 1.35,
+              "probability": 0.12298583984375
+            },
+            {
+              "text": " have",
+              "start": 1.35,
+              "end": 1.43,
+              "probability": 0.9140625
+            },
+            {
+              "text": " been",
+              "start": 1.43,
+              "end": 1.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " praying",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " for",
+              "start": 1.83,
+              "end": 2.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " our",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " husband's",
+              "start": 2.23,
+              "end": 2.69,
+              "probability": 0.905517578125
+            },
+            {
+              "text": " welfare",
+              "start": 2.69,
+              "end": 3.05,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " which",
+              "start": 3.05,
+              "end": 3.51,
+              "probability": 0.501953125
+            },
+            {
+              "text": " speed",
+              "start": 3.51,
+              "end": 3.93,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " we",
+              "start": 3.93,
+              "end": 4.17,
+              "probability": 0.93359375
+            },
+            {
+              "text": " hope",
+              "start": 4.17,
+              "end": 4.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 4.41,
+              "end": 4.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " better",
+              "start": 4.67,
+              "end": 4.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 4.87,
+              "end": 5.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " our",
+              "start": 5.11,
+              "end": 5.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " words",
+              "start": 5.27,
+              "end": 5.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 5.67,
+              "end": 6.39,
+              "probability": 0.439697265625
+            },
+            {
+              "text": " they",
+              "start": 6.39,
+              "end": 6.67,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "we",
+          "start": 0.85,
+          "end": 1.35
+        },
+        {
+          "raw": "have",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "raw": "been",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "raw": "praying",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "raw": "for",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "raw": "our",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "husband's",
+          "start": 2.23,
+          "end": 2.69
+        },
+        {
+          "raw": "welfare",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "raw": "which",
+          "start": 3.05,
+          "end": 3.51
+        },
+        {
+          "raw": "speed",
+          "start": 3.51,
+          "end": 3.93
+        },
+        {
+          "raw": "we",
+          "start": 3.93,
+          "end": 4.17
+        },
+        {
+          "raw": "hope",
+          "start": 4.17,
+          "end": 4.41
+        },
+        {
+          "raw": "the",
+          "start": 4.41,
+          "end": 4.67
+        },
+        {
+          "raw": "better",
+          "start": 4.67,
+          "end": 4.87
+        },
+        {
+          "raw": "for",
+          "start": 4.87,
+          "end": 5.11
+        },
+        {
+          "raw": "our",
+          "start": 5.11,
+          "end": 5.27
+        },
+        {
+          "raw": "words",
+          "start": 5.27,
+          "end": 5.67
+        },
+        {
+          "raw": "are",
+          "start": 5.67,
+          "end": 6.39
+        },
+        {
+          "raw": "they",
+          "start": 6.39,
+          "end": 6.67
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "We",
+        "have",
+        "been",
+        "praying",
+        "for",
+        "our",
+        "husbands'",
+        "welfare,",
+        "Which",
+        "speed,",
+        "we",
+        "hope,",
+        "the",
+        "better",
+        "for",
+        "our",
+        "words.",
+        "Are",
+        "they",
+        "return'd?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "delete",
+          20,
+          21,
+          20,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          20,
+          21,
+          20,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 0.85,
+          "end": 1.35,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.35,
+          "end": 1.43,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.43,
+          "end": 1.55,
+          "key": "been",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "praying",
+          "start": 1.55,
+          "end": 1.83,
+          "key": "praying",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.83,
+          "end": 2.07,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "our",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "husband's",
+          "start": 2.23,
+          "end": 2.69,
+          "key": "husbands",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "welfare",
+          "start": 2.69,
+          "end": 3.05,
+          "key": "welfare",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.05,
+          "end": 3.51,
+          "key": "which",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "speed",
+          "start": 3.51,
+          "end": 3.93,
+          "key": "speed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.93,
+          "end": 4.17,
+          "key": "we",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 4.17,
+          "end": 4.41,
+          "key": "hope",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.41,
+          "end": 4.67,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 4.67,
+          "end": 4.87,
+          "key": "better",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.87,
+          "end": 5.11,
+          "key": "for",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 5.11,
+          "end": 5.27,
+          "key": "our",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 5.27,
+          "end": 5.67,
+          "key": "words",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.67,
+          "end": 6.39,
+          "key": "are",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 6.39,
+          "end": 6.67,
+          "key": "they",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "We",
+          "start": 0.85,
+          "end": 1.35
+        },
+        {
+          "text": "have",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "text": "been",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "text": "praying",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "text": "for",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "text": "our",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "husbands'",
+          "start": 2.23,
+          "end": 2.69
+        },
+        {
+          "text": "welfare,",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "text": "Which",
+          "start": 3.05,
+          "end": 3.51
+        },
+        {
+          "text": "speed,",
+          "start": 3.51,
+          "end": 3.93
+        },
+        {
+          "text": "we",
+          "start": 3.93,
+          "end": 4.17
+        },
+        {
+          "text": "hope,",
+          "start": 4.17,
+          "end": 4.41
+        },
+        {
+          "text": "the",
+          "start": 4.41,
+          "end": 4.67
+        },
+        {
+          "text": "better",
+          "start": 4.67,
+          "end": 4.87
+        },
+        {
+          "text": "for",
+          "start": 4.87,
+          "end": 5.11
+        },
+        {
+          "text": "our",
+          "start": 5.11,
+          "end": 5.27
+        },
+        {
+          "text": "words.",
+          "start": 5.27,
+          "end": 5.67
+        },
+        {
+          "text": "Are",
+          "start": 5.67,
+          "end": 6.39
+        },
+        {
+          "text": "they",
+          "start": 6.39,
+          "end": 6.67
+        },
+        {
+          "text": "return'd?",
+          "start": 6.67,
+          "end": 6.67
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.3723085653036833
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "394341ee89cf3d6a9cde2bb7b91a9b4da26d89a42f5a841805b04602cfe5a5a9",
+  "selected_reasons": []
+}

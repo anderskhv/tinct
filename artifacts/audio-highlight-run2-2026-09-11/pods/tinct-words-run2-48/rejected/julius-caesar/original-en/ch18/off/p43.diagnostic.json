@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "cddfbc9b94c9d159cd8186d9bad58dd3d0e4eb6ab786c3fe64f0b11af72c70da",
+  "attempts": [
+    {
+      "asr_seconds": 0.1782121965661645,
+      "alignment_seconds": 0.0003327643498778343,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Missala, how died my master, Strato?",
+          "start": 0.05,
+          "end": 2.71,
+          "words": [
+            {
+              "text": " Missala,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.5361328125
+            },
+            {
+              "text": " how",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " died",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.57421875
+            },
+            {
+              "text": " my",
+              "start": 1.63,
+              "end": 1.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " master,",
+              "start": 1.79,
+              "end": 2.17,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " Strato?",
+              "start": 2.29,
+              "end": 2.71,
+              "probability": 0.777099609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Missala,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "how",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "raw": "died",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "raw": "my",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "raw": "master,",
+          "start": 1.79,
+          "end": 2.17
+        },
+        {
+          "raw": "Strato?",
+          "start": 2.29,
+          "end": 2.71
+        }
+      ],
+      "expected_tokens": [
+        "Messala.",
+        "How",
+        "died",
+        "my",
+        "master,",
+        "Strato?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Missala,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "missala",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.17,
+          "end": 1.41,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "died",
+          "start": 1.41,
+          "end": 1.63,
+          "key": "died",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.63,
+          "end": 1.79,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "master,",
+          "start": 1.79,
+          "end": 2.17,
+          "key": "master",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Strato?",
+          "start": 2.29,
+          "end": 2.71,
+          "key": "strato",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messala.",
+          "start": 0.0,
+          "end": 0.585
+        },
+        {
+          "text": "How",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "text": "died",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "text": "my",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "text": "master,",
+          "start": 1.79,
+          "end": 2.17
+        },
+        {
+          "text": "Strato?",
+          "start": 2.29,
+          "end": 2.71
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17869220208376646
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "14c0ffe0f5e8a6b0b1368c5f4ca06a4845deb6b965f9e99fe5e63cb3d77d6ce3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "049d6efce8af50ccef2e4c238e77dcf0490b1b527aad681f15996f1db26a326f",
+  "attempts": [
+    {
+      "asr_seconds": 0.24916567606851459,
+      "alignment_seconds": 0.0004618493840098381,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Messenger. The nature of bad news infects the teller.",
+        "hotwords": "Messenger"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Messenger. The nature of bad news infects the teller.",
+          "start": 0.05,
+          "end": 3.43,
+          "words": [
+            {
+              "text": " Messenger.",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.6201171875
+            },
+            {
+              "text": " The",
+              "start": 1.39,
+              "end": 1.45,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " nature",
+              "start": 1.45,
+              "end": 1.67,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " of",
+              "start": 1.67,
+              "end": 1.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bad",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " news",
+              "start": 2.09,
+              "end": 2.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " infects",
+              "start": 2.43,
+              "end": 3.01,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " the",
+              "start": 3.01,
+              "end": 3.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " teller.",
+              "start": 3.05,
+              "end": 3.43,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "The",
+          "start": 1.39,
+          "end": 1.45
+        },
+        {
+          "raw": "nature",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "raw": "of",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "raw": "bad",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "raw": "news",
+          "start": 2.09,
+          "end": 2.43
+        },
+        {
+          "raw": "infects",
+          "start": 2.43,
+          "end": 3.01
+        },
+        {
+          "raw": "the",
+          "start": 3.01,
+          "end": 3.05
+        },
+        {
+          "raw": "teller.",
+          "start": 3.05,
+          "end": 3.43
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "The",
+        "nature",
+        "of",
+        "bad",
+        "news",
+        "infects",
+        "the",
+        "teller."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger.",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.39,
+          "end": 1.45,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nature",
+          "start": 1.45,
+          "end": 1.67,
+          "key": "nature",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.67,
+          "end": 1.87,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bad",
+          "start": 1.87,
+          "end": 2.09,
+          "key": "bad",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "news",
+          "start": 2.09,
+          "end": 2.43,
+          "key": "news",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "infects",
+          "start": 2.43,
+          "end": 3.01,
+          "key": "infects",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.01,
+          "end": 3.05,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "teller.",
+          "start": 3.05,
+          "end": 3.43,
+          "key": "teller",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "The",
+          "start": 1.39,
+          "end": 1.45
+        },
+        {
+          "text": "nature",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "text": "of",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "text": "bad",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "text": "news",
+          "start": 2.09,
+          "end": 2.43
+        },
+        {
+          "text": "infects",
+          "start": 2.43,
+          "end": 3.01
+        },
+        {
+          "text": "the",
+          "start": 3.01,
+          "end": 3.05
+        },
+        {
+          "text": "teller.",
+          "start": 3.05,
+          "end": 3.43
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2498061778023839
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "54de43fd7446a768c0006947ee36d549326914febf258d9206115215e212e443",
+  "selected_reasons": []
+}

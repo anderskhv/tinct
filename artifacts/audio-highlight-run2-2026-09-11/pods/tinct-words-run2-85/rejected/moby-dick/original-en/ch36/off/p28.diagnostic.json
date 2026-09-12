@@ -1,0 +1,750 @@
+{
+  "complete": true,
+  "signature": "bfb18e5868748d0d4326ce2c90e90f5369fb57d454f896612b4b7a97e2dd1e96",
+  "attempts": [
+    {
+      "asr_seconds": 0.3737647612579167,
+      "alignment_seconds": 0.0008104098960757256,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And has he a curious spout, too?\" said Dago.",
+          "start": 0.05,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.380859375
+            },
+            {
+              "text": " has",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.97265625
+            },
+            {
+              "text": " he",
+              "start": 0.67,
+              "end": 0.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 0.79,
+              "end": 0.97,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " curious",
+              "start": 0.97,
+              "end": 1.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " spout,",
+              "start": 1.27,
+              "end": 1.71,
+              "probability": 0.967041015625
+            },
+            {
+              "text": " too?\"",
+              "start": 1.71,
+              "end": 2.31,
+              "probability": 0.7294921875
+            },
+            {
+              "text": " said",
+              "start": 2.31,
+              "end": 2.63,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " Dago.",
+              "start": 2.63,
+              "end": 2.91,
+              "probability": 0.721435546875
+            }
+          ]
+        },
+        {
+          "text": " Very bushy, even for a Parmicity and mighty quick, Captain Ahab.",
+          "start": 3.47,
+          "end": 7.17,
+          "words": [
+            {
+              "text": " Very",
+              "start": 3.47,
+              "end": 3.83,
+              "probability": 0.262451171875
+            },
+            {
+              "text": " bushy,",
+              "start": 3.83,
+              "end": 4.27,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " even",
+              "start": 4.41,
+              "end": 4.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 4.59,
+              "end": 4.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 4.79,
+              "end": 4.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Parmicity",
+              "start": 4.91,
+              "end": 5.35,
+              "probability": 0.406005859375
+            },
+            {
+              "text": " and",
+              "start": 5.35,
+              "end": 5.63,
+              "probability": 0.60546875
+            },
+            {
+              "text": " mighty",
+              "start": 5.63,
+              "end": 5.85,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " quick,",
+              "start": 5.85,
+              "end": 6.19,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " Captain",
+              "start": 6.51,
+              "end": 6.73,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " Ahab.",
+              "start": 6.73,
+              "end": 7.17,
+              "probability": 0.982177734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "has",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "he",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "raw": "a",
+          "start": 0.79,
+          "end": 0.97
+        },
+        {
+          "raw": "curious",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "raw": "spout,",
+          "start": 1.27,
+          "end": 1.71
+        },
+        {
+          "raw": "too?\"",
+          "start": 1.71,
+          "end": 2.31
+        },
+        {
+          "raw": "said",
+          "start": 2.31,
+          "end": 2.63
+        },
+        {
+          "raw": "Dago.",
+          "start": 2.63,
+          "end": 2.91
+        },
+        {
+          "raw": "Very",
+          "start": 3.47,
+          "end": 3.83
+        },
+        {
+          "raw": "bushy,",
+          "start": 3.83,
+          "end": 4.27
+        },
+        {
+          "raw": "even",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "raw": "for",
+          "start": 4.59,
+          "end": 4.79
+        },
+        {
+          "raw": "a",
+          "start": 4.79,
+          "end": 4.91
+        },
+        {
+          "raw": "Parmicity",
+          "start": 4.91,
+          "end": 5.35
+        },
+        {
+          "raw": "and",
+          "start": 5.35,
+          "end": 5.63
+        },
+        {
+          "raw": "mighty",
+          "start": 5.63,
+          "end": 5.85
+        },
+        {
+          "raw": "quick,",
+          "start": 5.85,
+          "end": 6.19
+        },
+        {
+          "raw": "Captain",
+          "start": 6.51,
+          "end": 6.73
+        },
+        {
+          "raw": "Ahab.",
+          "start": 6.73,
+          "end": 7.17
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "has",
+        "he",
+        "a",
+        "curious",
+        "spout,",
+        "too,\"",
+        "said",
+        "Daggoo,",
+        "\"very",
+        "bushy,",
+        "even",
+        "for",
+        "a",
+        "parmacetty,",
+        "and",
+        "mighty",
+        "quick,",
+        "Captain",
+        "Ahab?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          14,
+          9,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          20,
+          15,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 0.51,
+          "end": 0.67,
+          "key": "has",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.67,
+          "end": 0.79,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.79,
+          "end": 0.97,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "curious",
+          "start": 0.97,
+          "end": 1.27,
+          "key": "curious",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "spout,",
+          "start": 1.27,
+          "end": 1.71,
+          "key": "spout",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "too?\"",
+          "start": 1.71,
+          "end": 2.31,
+          "key": "too",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.31,
+          "end": 2.63,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Dago.",
+          "start": 2.63,
+          "end": 2.91,
+          "key": "dago",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Very",
+          "start": 3.47,
+          "end": 3.83,
+          "key": "very",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bushy,",
+          "start": 3.83,
+          "end": 4.27,
+          "key": "bushy",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 4.41,
+          "end": 4.59,
+          "key": "even",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.59,
+          "end": 4.79,
+          "key": "for",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.79,
+          "end": 4.91,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Parmicity",
+          "start": 4.91,
+          "end": 5.35,
+          "key": "parmicity",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.35,
+          "end": 5.63,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "mighty",
+          "start": 5.63,
+          "end": 5.85,
+          "key": "mighty",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "quick,",
+          "start": 5.85,
+          "end": 6.19,
+          "key": "quick",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Captain",
+          "start": 6.51,
+          "end": 6.73,
+          "key": "captain",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Ahab.",
+          "start": 6.73,
+          "end": 7.17,
+          "key": "ahab",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "has",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "text": "he",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "text": "a",
+          "start": 0.79,
+          "end": 0.97
+        },
+        {
+          "text": "curious",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "text": "spout,",
+          "start": 1.27,
+          "end": 1.71
+        },
+        {
+          "text": "too,\"",
+          "start": 1.71,
+          "end": 2.31
+        },
+        {
+          "text": "said",
+          "start": 2.31,
+          "end": 2.63
+        },
+        {
+          "text": "Daggoo,",
+          "start": 2.63,
+          "end": 3.05
+        },
+        {
+          "text": "\"very",
+          "start": 3.47,
+          "end": 3.83
+        },
+        {
+          "text": "bushy,",
+          "start": 3.83,
+          "end": 4.27
+        },
+        {
+          "text": "even",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "text": "for",
+          "start": 4.59,
+          "end": 4.79
+        },
+        {
+          "text": "a",
+          "start": 4.79,
+          "end": 4.91
+        },
+        {
+          "text": "parmacetty,",
+          "start": 4.91,
+          "end": 5.13
+        },
+        {
+          "text": "and",
+          "start": 5.35,
+          "end": 5.63
+        },
+        {
+          "text": "mighty",
+          "start": 5.63,
+          "end": 5.85
+        },
+        {
+          "text": "quick,",
+          "start": 5.85,
+          "end": 6.19
+        },
+        {
+          "text": "Captain",
+          "start": 6.51,
+          "end": 6.73
+        },
+        {
+          "text": "Ahab?\"",
+          "start": 6.73,
+          "end": 7.17
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.37487274408340454
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8dd6d98aa27d1ca00c7bdea417bf39aadfccb60e6a44756600460e4cc7326977",
+  "selected_reasons": []
+}

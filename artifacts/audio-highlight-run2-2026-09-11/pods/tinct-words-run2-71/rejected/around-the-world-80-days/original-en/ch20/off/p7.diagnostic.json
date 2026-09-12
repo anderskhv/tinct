@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "8c4d5d00764ff2064926367b58ad07c600934d988a54d57e16137f653389d3be",
+  "attempts": [
+    {
+      "asr_seconds": 0.18280041217803955,
+      "alignment_seconds": 0.0004016309976577759,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pardon me. I thought I should find your servant here.",
+          "start": 0.05,
+          "end": 2.85,
+          "words": [
+            {
+              "text": " Pardon",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " me.",
+              "start": 0.75,
+              "end": 0.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 1.29,
+              "end": 1.47,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " thought",
+              "start": 1.47,
+              "end": 1.59,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 1.59,
+              "end": 1.71,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " should",
+              "start": 1.71,
+              "end": 1.85,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " find",
+              "start": 1.85,
+              "end": 2.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 2.05,
+              "end": 2.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " servant",
+              "start": 2.23,
+              "end": 2.53,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " here.",
+              "start": 2.53,
+              "end": 2.85,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pardon",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "me.",
+          "start": 0.75,
+          "end": 0.99
+        },
+        {
+          "raw": "I",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "raw": "thought",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "raw": "I",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "raw": "should",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "raw": "find",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "raw": "your",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "raw": "servant",
+          "start": 2.23,
+          "end": 2.53
+        },
+        {
+          "raw": "here.",
+          "start": 2.53,
+          "end": 2.85
+        }
+      ],
+      "expected_tokens": [
+        "\"Pardon",
+        "me;",
+        "I",
+        "thought",
+        "I",
+        "should",
+        "find",
+        "your",
+        "servant",
+        "here.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pardon",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "pardon",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 0.75,
+          "end": 0.99,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.29,
+          "end": 1.47,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 1.47,
+          "end": 1.59,
+          "key": "thought",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.59,
+          "end": 1.71,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.71,
+          "end": 1.85,
+          "key": "should",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 1.85,
+          "end": 2.05,
+          "key": "find",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.05,
+          "end": 2.23,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "servant",
+          "start": 2.23,
+          "end": 2.53,
+          "key": "servant",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 2.53,
+          "end": 2.85,
+          "key": "here",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Pardon",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "me;",
+          "start": 0.75,
+          "end": 0.99
+        },
+        {
+          "text": "I",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "text": "thought",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "text": "I",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "text": "should",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "text": "find",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "text": "your",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "text": "servant",
+          "start": 2.23,
+          "end": 2.53
+        },
+        {
+          "text": "here.\"",
+          "start": 2.53,
+          "end": 2.85
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18336590752005577
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6857aa1ed2def102981e2cf09baea1291b8b3b31cff293075491da5e4dcba7cc",
+  "selected_reasons": []
+}

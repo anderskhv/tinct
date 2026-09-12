@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "6d5e1b115b9a906d74ff048485b012641384ae54ffbdeccf6c9cf3ee95e3c4f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.2877812199294567,
+      "alignment_seconds": 0.00037167593836784363,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Conclusion of the Digression concerning the Variations in the Value of Silver.",
+        "hotwords": "Conclusion, Digression, Variations, Value, Silver"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Conclusion of the Digression concerning the Variations in the Value of Silver.",
+          "start": 0.05,
+          "end": 4.81,
+          "words": [
+            {
+              "text": " Conclusion",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " of",
+              "start": 0.79,
+              "end": 1.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.13,
+              "end": 1.23,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Digression",
+              "start": 1.23,
+              "end": 1.77,
+              "probability": 0.60089111328125
+            },
+            {
+              "text": " concerning",
+              "start": 1.77,
+              "end": 2.59,
+              "probability": 0.059722900390625
+            },
+            {
+              "text": " the",
+              "start": 2.59,
+              "end": 2.89,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Variations",
+              "start": 2.89,
+              "end": 3.53,
+              "probability": 0.53607177734375
+            },
+            {
+              "text": " in",
+              "start": 3.53,
+              "end": 3.81,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " the",
+              "start": 3.81,
+              "end": 3.91,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Value",
+              "start": 3.91,
+              "end": 4.15,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " of",
+              "start": 4.15,
+              "end": 4.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Silver.",
+              "start": 4.41,
+              "end": 4.81,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Conclusion",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "of",
+          "start": 0.79,
+          "end": 1.13
+        },
+        {
+          "raw": "the",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "raw": "Digression",
+          "start": 1.23,
+          "end": 1.77
+        },
+        {
+          "raw": "concerning",
+          "start": 1.77,
+          "end": 2.59
+        },
+        {
+          "raw": "the",
+          "start": 2.59,
+          "end": 2.89
+        },
+        {
+          "raw": "Variations",
+          "start": 2.89,
+          "end": 3.53
+        },
+        {
+          "raw": "in",
+          "start": 3.53,
+          "end": 3.81
+        },
+        {
+          "raw": "the",
+          "start": 3.81,
+          "end": 3.91
+        },
+        {
+          "raw": "Value",
+          "start": 3.91,
+          "end": 4.15
+        },
+        {
+          "raw": "of",
+          "start": 4.15,
+          "end": 4.41
+        },
+        {
+          "raw": "Silver.",
+          "start": 4.41,
+          "end": 4.81
+        }
+      ],
+      "expected_tokens": [
+        "Conclusion",
+        "of",
+        "the",
+        "Digression",
+        "concerning",
+        "the",
+        "Variations",
+        "in",
+        "the",
+        "Value",
+        "of",
+        "Silver."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Conclusion",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "conclusion",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.79,
+          "end": 1.13,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.13,
+          "end": 1.23,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Digression",
+          "start": 1.23,
+          "end": 1.77,
+          "key": "digression",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "concerning",
+          "start": 1.77,
+          "end": 2.59,
+          "key": "concerning",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.59,
+          "end": 2.89,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Variations",
+          "start": 2.89,
+          "end": 3.53,
+          "key": "variations",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.53,
+          "end": 3.81,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.81,
+          "end": 3.91,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Value",
+          "start": 3.91,
+          "end": 4.15,
+          "key": "value",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.15,
+          "end": 4.41,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Silver.",
+          "start": 4.41,
+          "end": 4.81,
+          "key": "silver",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Conclusion",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "of",
+          "start": 0.79,
+          "end": 1.13
+        },
+        {
+          "text": "the",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "text": "Digression",
+          "start": 1.23,
+          "end": 1.77
+        },
+        {
+          "text": "concerning",
+          "start": 1.77,
+          "end": 2.59
+        },
+        {
+          "text": "the",
+          "start": 2.59,
+          "end": 2.89
+        },
+        {
+          "text": "Variations",
+          "start": 2.89,
+          "end": 3.53
+        },
+        {
+          "text": "in",
+          "start": 3.53,
+          "end": 3.81
+        },
+        {
+          "text": "the",
+          "start": 3.81,
+          "end": 3.91
+        },
+        {
+          "text": "Value",
+          "start": 3.91,
+          "end": 4.15
+        },
+        {
+          "text": "of",
+          "start": 4.15,
+          "end": 4.41
+        },
+        {
+          "text": "Silver.",
+          "start": 4.41,
+          "end": 4.81
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28833720088005066
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a1d52d2f947baf5e4747ba7c4417b82655c4d4ff246c426c8945d5544869840f",
+  "selected_reasons": []
+}

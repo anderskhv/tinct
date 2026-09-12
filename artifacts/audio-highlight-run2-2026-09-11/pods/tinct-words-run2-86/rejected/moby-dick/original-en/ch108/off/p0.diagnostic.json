@@ -1,0 +1,234 @@
+{
+  "complete": true,
+  "signature": "9877ce873b4d6ae67c28c229e208c98058f80a608251641c7181409a71177329",
+  "attempts": [
+    {
+      "asr_seconds": 0.10619980841875076,
+      "alignment_seconds": 0.00038706138730049133,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The Deck, first night watch.",
+          "start": 0.02,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " Deck,",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.71875
+            },
+            {
+              "text": " first",
+              "start": 0.94,
+              "end": 1.04,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " night",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.94140625
+            },
+            {
+              "text": " watch.",
+              "start": 1.26,
+              "end": 1.58,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Deck,",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "first",
+          "start": 0.94,
+          "end": 1.04
+        },
+        {
+          "raw": "night",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "watch.",
+          "start": 1.26,
+          "end": 1.58
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Deck—First",
+        "Night",
+        "Watch."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          4,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Deck,",
+          "start": 0.5,
+          "end": 0.74,
+          "key": "deck",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 0.94,
+          "end": 1.04,
+          "key": "first",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "night",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "watch.",
+          "start": 1.26,
+          "end": 1.58,
+          "key": "watch",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Deck—First",
+          "start": 0.5,
+          "end": 0.77
+        },
+        {
+          "text": "Night",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "Watch.",
+          "start": 1.26,
+          "end": 1.58
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10672755539417267
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d8048bd58adbe5f10cfa9813a6dea1f8824ee064133b76488758e21226f77304",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

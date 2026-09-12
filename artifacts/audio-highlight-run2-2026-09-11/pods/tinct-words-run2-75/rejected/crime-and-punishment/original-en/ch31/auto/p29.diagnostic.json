@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "f0d767e04150b2b52dce6496a5ef04d0ad4fc495de813342cb076e740752e2dd",
+  "attempts": [
+    {
+      "asr_seconds": 0.15896087884902954,
+      "alignment_seconds": 0.0003167688846588135,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Never mind.... Good-bye.\"",
+        "hotwords": "Never, Good-bye"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Never mind. Goodbye.",
+          "start": 0.02,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Never",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.783203125
+            },
+            {
+              "text": " mind.",
+              "start": 0.7,
+              "end": 1.06,
+              "probability": 0.68359375
+            },
+            {
+              "text": " Goodbye.",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.8818359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Never",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "mind.",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "raw": "Goodbye.",
+          "start": 1.52,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "\"Never",
+        "mind....",
+        "Good-bye.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Never",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "never",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mind.",
+          "start": 0.7,
+          "end": 1.06,
+          "key": "mind",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Goodbye.",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "goodbye",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Never",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "mind....",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "text": "Good-bye.\"",
+          "start": 1.52,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1593756340444088
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cab8b3357071ea5a049f3d724c38f4757bb24d883d4647defdd221e2ccc64546",
+  "selected_reasons": []
+}

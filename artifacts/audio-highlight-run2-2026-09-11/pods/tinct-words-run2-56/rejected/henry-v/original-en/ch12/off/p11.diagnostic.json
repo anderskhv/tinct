@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "1ff6e0d797416ce41ed02ad77f3818a57110fa7cf7cad5885bf36b727e915a61",
+  "attempts": [
+    {
+      "asr_seconds": 0.23103672731667757,
+      "alignment_seconds": 0.000616738572716713,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fluellen, I praise God, and I have merited some love at His hands.",
+          "start": 0.05,
+          "end": 4.49,
+          "words": [
+            {
+              "text": " Fluellen,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.4563751220703125
+            },
+            {
+              "text": " I",
+              "start": 1.25,
+              "end": 1.55,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " praise",
+              "start": 1.55,
+              "end": 1.97,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " God,",
+              "start": 1.97,
+              "end": 2.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 2.75,
+              "end": 2.83,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I",
+              "start": 2.83,
+              "end": 2.93,
+              "probability": 0.994140625
+            },
+            {
+              "text": " have",
+              "start": 2.93,
+              "end": 3.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " merited",
+              "start": 3.05,
+              "end": 3.39,
+              "probability": 0.98828125
+            },
+            {
+              "text": " some",
+              "start": 3.39,
+              "end": 3.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " love",
+              "start": 3.63,
+              "end": 3.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 3.83,
+              "end": 3.95,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " His",
+              "start": 3.95,
+              "end": 4.07,
+              "probability": 0.7734375
+            },
+            {
+              "text": " hands.",
+              "start": 4.07,
+              "end": 4.49,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fluellen,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "raw": "praise",
+          "start": 1.55,
+          "end": 1.97
+        },
+        {
+          "raw": "God,",
+          "start": 1.97,
+          "end": 2.39
+        },
+        {
+          "raw": "and",
+          "start": 2.75,
+          "end": 2.83
+        },
+        {
+          "raw": "I",
+          "start": 2.83,
+          "end": 2.93
+        },
+        {
+          "raw": "have",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "raw": "merited",
+          "start": 3.05,
+          "end": 3.39
+        },
+        {
+          "raw": "some",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "raw": "love",
+          "start": 3.63,
+          "end": 3.83
+        },
+        {
+          "raw": "at",
+          "start": 3.83,
+          "end": 3.95
+        },
+        {
+          "raw": "His",
+          "start": 3.95,
+          "end": 4.07
+        },
+        {
+          "raw": "hands.",
+          "start": 4.07,
+          "end": 4.49
+        }
+      ],
+      "expected_tokens": [
+        "Fluellen.",
+        "Ay,",
+        "I",
+        "praise",
+        "God;",
+        "and",
+        "I",
+        "have",
+        "merited",
+        "some",
+        "love",
+        "at",
+        "his",
+        "hands."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          14,
+          1,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fluellen,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "fluellen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.55,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "praise",
+          "start": 1.55,
+          "end": 1.97,
+          "key": "praise",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "God,",
+          "start": 1.97,
+          "end": 2.39,
+          "key": "god",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.75,
+          "end": 2.83,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.83,
+          "end": 2.93,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.93,
+          "end": 3.05,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "merited",
+          "start": 3.05,
+          "end": 3.39,
+          "key": "merited",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 3.39,
+          "end": 3.63,
+          "key": "some",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 3.63,
+          "end": 3.83,
+          "key": "love",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.83,
+          "end": 3.95,
+          "key": "at",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 3.95,
+          "end": 4.07,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hands.",
+          "start": 4.07,
+          "end": 4.49,
+          "key": "hands",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fluellen.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Ay,",
+          "start": 0.87,
+          "end": 1.06
+        },
+        {
+          "text": "I",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "text": "praise",
+          "start": 1.55,
+          "end": 1.97
+        },
+        {
+          "text": "God;",
+          "start": 1.97,
+          "end": 2.39
+        },
+        {
+          "text": "and",
+          "start": 2.75,
+          "end": 2.83
+        },
+        {
+          "text": "I",
+          "start": 2.83,
+          "end": 2.93
+        },
+        {
+          "text": "have",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "text": "merited",
+          "start": 3.05,
+          "end": 3.39
+        },
+        {
+          "text": "some",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "text": "love",
+          "start": 3.63,
+          "end": 3.83
+        },
+        {
+          "text": "at",
+          "start": 3.83,
+          "end": 3.95
+        },
+        {
+          "text": "his",
+          "start": 3.95,
+          "end": 4.07
+        },
+        {
+          "text": "hands.",
+          "start": 4.07,
+          "end": 4.49
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.23190271202474833
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d3ebcd2f1312f23e5b987dd3742f74c7cd2bfd9aea56ff521c7ef00f92b67d55",
+  "selected_reasons": []
+}

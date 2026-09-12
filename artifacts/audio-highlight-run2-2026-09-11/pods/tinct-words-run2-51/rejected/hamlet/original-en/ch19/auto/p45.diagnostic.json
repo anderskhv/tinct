@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "bae03bfbf7b0e0c96ec9ce6237c644014593a3d886c29552e14ecd8a836f398d",
+  "attempts": [
+    {
+      "asr_seconds": 0.20521803479641676,
+      "alignment_seconds": 0.00034104660153388977,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Horatio. Not a jot more, my lord.",
+        "hotwords": "Horatio, Not"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Horatio, Not a jot more, my lord.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Horatio,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Not",
+              "start": 1.19,
+              "end": 1.39,
+              "probability": 0.0088043212890625
+            },
+            {
+              "text": " a",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.845703125
+            },
+            {
+              "text": " jot",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.4972076416015625
+            },
+            {
+              "text": " more,",
+              "start": 1.67,
+              "end": 1.87,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " my",
+              "start": 1.95,
+              "end": 2.05,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " lord.",
+              "start": 2.05,
+              "end": 2.25,
+              "probability": 0.89501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Horatio,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Not",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "raw": "a",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "jot",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "raw": "more,",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "raw": "my",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "raw": "lord.",
+          "start": 2.05,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Horatio.",
+        "Not",
+        "a",
+        "jot",
+        "more,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Horatio,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "horatio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 1.19,
+          "end": 1.39,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.39,
+          "end": 1.49,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "jot",
+          "start": 1.49,
+          "end": 1.67,
+          "key": "jot",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "more,",
+          "start": 1.67,
+          "end": 1.87,
+          "key": "more",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.95,
+          "end": 2.05,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 2.05,
+          "end": 2.25,
+          "key": "lord",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Horatio.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Not",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "text": "a",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "jot",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "more,",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "text": "my",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "text": "lord.",
+          "start": 2.05,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20569213945418596
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0cb8626ddc39940ae630bb40b0be4b02d2ac309548b5b556aa21d22660d82c3b",
+  "selected_reasons": []
+}

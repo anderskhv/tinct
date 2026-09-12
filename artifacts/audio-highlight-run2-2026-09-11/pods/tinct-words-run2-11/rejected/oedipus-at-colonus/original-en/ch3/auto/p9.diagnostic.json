@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "3809d5059c2e1deb7deccf59ffa735da8300d65f7ab1fbb4e5fb726e61340c41",
+  "attempts": [
+    {
+      "asr_seconds": 0.17958211712539196,
+      "alignment_seconds": 0.00032666977494955063,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ismene. O disastrous plight!",
+        "hotwords": "Ismene, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ismene, O disastrous plight!",
+          "start": 0.02,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " Ismene,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.4979654947916667
+            },
+            {
+              "text": " O",
+              "start": 1.16,
+              "end": 1.26,
+              "probability": 0.46630859375
+            },
+            {
+              "text": " disastrous",
+              "start": 1.26,
+              "end": 1.62,
+              "probability": 0.75244140625
+            },
+            {
+              "text": " plight!",
+              "start": 1.62,
+              "end": 2.04,
+              "probability": 0.95458984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ismene,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "O",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "raw": "disastrous",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "raw": "plight!",
+          "start": 1.62,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "Ismene.",
+        "O",
+        "disastrous",
+        "plight!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ismene,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "ismene",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.16,
+          "end": 1.26,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "disastrous",
+          "start": 1.26,
+          "end": 1.62,
+          "key": "disastrous",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "plight!",
+          "start": 1.62,
+          "end": 2.04,
+          "key": "plight",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ismene.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "O",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "text": "disastrous",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "text": "plight!",
+          "start": 1.62,
+          "end": 2.04
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18003149703145027
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fec9cd9ecea291f49ad7c725df10756df4d43ca108d3061243c39da09e163305",
+  "selected_reasons": []
+}

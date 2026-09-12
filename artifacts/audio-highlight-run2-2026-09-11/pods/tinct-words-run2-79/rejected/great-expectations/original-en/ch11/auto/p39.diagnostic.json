@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "13512a840db528aece44dc4f07f983bed1b442815fb8100d716fc515753e6ae6",
+  "attempts": [
+    {
+      "asr_seconds": 0.23170582996681333,
+      "alignment_seconds": 0.00040117884054780006,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Boy of the neighbourhood? Hey?\" said he.",
+        "hotwords": "Boy, Hey"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Boy of the neighbourhood? Hey? said he.",
+          "start": 0.08,
+          "end": 2.4,
+          "words": [
+            {
+              "text": " Boy",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.37841796875
+            },
+            {
+              "text": " of",
+              "start": 0.56,
+              "end": 0.68,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " the",
+              "start": 0.68,
+              "end": 0.78,
+              "probability": 0.994140625
+            },
+            {
+              "text": " neighbourhood?",
+              "start": 0.78,
+              "end": 1.12,
+              "probability": 0.008087158203125
+            },
+            {
+              "text": " Hey?",
+              "start": 1.6,
+              "end": 1.7,
+              "probability": 0.626953125
+            },
+            {
+              "text": " said",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " he.",
+              "start": 2.16,
+              "end": 2.4,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boy",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "of",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "raw": "the",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "raw": "neighbourhood?",
+          "start": 0.78,
+          "end": 1.12
+        },
+        {
+          "raw": "Hey?",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "raw": "said",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "raw": "he.",
+          "start": 2.16,
+          "end": 2.4
+        }
+      ],
+      "expected_tokens": [
+        "\"Boy",
+        "of",
+        "the",
+        "neighbourhood?",
+        "Hey?\"",
+        "said",
+        "he."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boy",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "boy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.56,
+          "end": 0.68,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.68,
+          "end": 0.78,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "neighbourhood?",
+          "start": 0.78,
+          "end": 1.12,
+          "key": "neighbourhood",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Hey?",
+          "start": 1.6,
+          "end": 1.7,
+          "key": "hey",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.0,
+          "end": 2.16,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 2.16,
+          "end": 2.4,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Boy",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "of",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "text": "the",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "text": "neighbourhood?",
+          "start": 0.78,
+          "end": 1.12
+        },
+        {
+          "text": "Hey?\"",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "text": "said",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "text": "he.",
+          "start": 2.16,
+          "end": 2.4
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23222379991784692
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a6b1b306ba2b4c11c473e82090d86739001dd7db96952fd8966be619d9ac4b92",
+  "selected_reasons": []
+}

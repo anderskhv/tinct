@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "475ef5461476fe0500755a76c9a68ab6b4e6631c28f27d5a1df09d5424356a2d",
+  "attempts": [
+    {
+      "asr_seconds": 0.14738155528903008,
+      "alignment_seconds": 0.00044373050332069397,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Servant. My master's.",
+        "hotwords": "Servant, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Servant, My Master's.",
+          "start": 0.08,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " Servant,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " My",
+              "start": 1.04,
+              "end": 1.12,
+              "probability": 0.057342529296875
+            },
+            {
+              "text": " Master's.",
+              "start": 1.12,
+              "end": 1.78,
+              "probability": 0.5078582763671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Servant,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "My",
+          "start": 1.04,
+          "end": 1.12
+        },
+        {
+          "raw": "Master's.",
+          "start": 1.12,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "Servant.",
+        "My",
+        "master's."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Servant,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "servant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.04,
+          "end": 1.12,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Master's.",
+          "start": 1.12,
+          "end": 1.78,
+          "key": "masters",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Servant.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "My",
+          "start": 1.04,
+          "end": 1.12
+        },
+        {
+          "text": "master's.",
+          "start": 1.12,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1479820441454649
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8ac334e723382374f55fbe70d4310b6311096b105823ada69a18055ba48160f6",
+  "selected_reasons": []
+}

@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "4942903d688b2ab6e8a74413bec584c2014a028d4a99fcca8dd217530b87303b",
+  "attempts": [
+    {
+      "asr_seconds": 0.15062692388892174,
+      "alignment_seconds": 0.00020986609160900116,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Boratio.",
+          "start": 0.08,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " Boratio.",
+              "start": 0.7,
+              "end": 1.18,
+              "probability": 0.6474609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Boratio.",
+          "start": 0.7,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Borachio."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Boratio.",
+          "start": 0.7,
+          "end": 1.18,
+          "key": "boratio",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Borachio.",
+          "start": 0.7,
+          "end": 0.94
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15090148895978928
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ba6c3c38227e950af71f8bb3aca544876f7e826ef34d1c572c096445784dc25f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

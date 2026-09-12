@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "e882e250728777f556417c23dd2f5a854c26b767ef5365d38b913eaa5c6eb456",
+  "attempts": [
+    {
+      "asr_seconds": 0.11649299878627062,
+      "alignment_seconds": 0.00018318742513656616,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Exit. Knocking within.]",
+        "hotwords": "Exit, Knocking"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit, Knocking Within.",
+          "start": 0.08,
+          "end": 1.76,
+          "words": [
+            {
+              "text": " Exit,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " Knocking",
+              "start": 1.12,
+              "end": 1.46,
+              "probability": 0.54779052734375
+            },
+            {
+              "text": " Within.",
+              "start": 1.46,
+              "end": 1.76,
+              "probability": 0.9658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "Knocking",
+          "start": 1.12,
+          "end": 1.46
+        },
+        {
+          "raw": "Within.",
+          "start": 1.46,
+          "end": 1.76
+        }
+      ],
+      "expected_tokens": [
+        "[Exit.",
+        "Knocking",
+        "within.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Knocking",
+          "start": 1.12,
+          "end": 1.46,
+          "key": "knocking",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Within.",
+          "start": 1.46,
+          "end": 1.76,
+          "key": "within",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exit.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "Knocking",
+          "start": 1.12,
+          "end": 1.46
+        },
+        {
+          "text": "within.]",
+          "start": 1.46,
+          "end": 1.76
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11673889588564634
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8d203c2af5f4dfb57fbf6b799f32fdf84116dab9ea0acc40f421393d18106dea",
+  "selected_reasons": []
+}

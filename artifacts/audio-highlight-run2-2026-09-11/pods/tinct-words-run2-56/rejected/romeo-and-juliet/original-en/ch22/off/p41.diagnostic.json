@@ -1,0 +1,562 @@
+{
+  "complete": true,
+  "signature": "4f98ee163f660e2eb637fb5157bc97129abb99dbd4d354798d0ac9af65b5fd55",
+  "attempts": [
+    {
+      "asr_seconds": 0.22243068274110556,
+      "alignment_seconds": 0.0006538694724440575,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Peter no money on my face, but the Gleek I will give you the minstrel",
+          "start": 0.05,
+          "end": 4.45,
+          "words": [
+            {
+              "text": " Peter",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " no",
+              "start": 0.67,
+              "end": 1.31,
+              "probability": 0.46875
+            },
+            {
+              "text": " money",
+              "start": 1.31,
+              "end": 1.53,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " on",
+              "start": 1.53,
+              "end": 1.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 1.77,
+              "end": 1.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " face,",
+              "start": 1.93,
+              "end": 2.23,
+              "probability": 0.685546875
+            },
+            {
+              "text": " but",
+              "start": 2.23,
+              "end": 2.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 2.49,
+              "end": 2.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Gleek",
+              "start": 2.61,
+              "end": 3.01,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " I",
+              "start": 3.01,
+              "end": 3.47,
+              "probability": 0.5537109375
+            },
+            {
+              "text": " will",
+              "start": 3.47,
+              "end": 3.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " give",
+              "start": 3.57,
+              "end": 3.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 3.71,
+              "end": 3.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 3.83,
+              "end": 3.93,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " minstrel",
+              "start": 3.93,
+              "end": 4.45,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Peter",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "no",
+          "start": 0.67,
+          "end": 1.31
+        },
+        {
+          "raw": "money",
+          "start": 1.31,
+          "end": 1.53
+        },
+        {
+          "raw": "on",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "raw": "my",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "raw": "face,",
+          "start": 1.93,
+          "end": 2.23
+        },
+        {
+          "raw": "but",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "raw": "the",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "raw": "Gleek",
+          "start": 2.61,
+          "end": 3.01
+        },
+        {
+          "raw": "I",
+          "start": 3.01,
+          "end": 3.47
+        },
+        {
+          "raw": "will",
+          "start": 3.47,
+          "end": 3.57
+        },
+        {
+          "raw": "give",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "raw": "you",
+          "start": 3.71,
+          "end": 3.83
+        },
+        {
+          "raw": "the",
+          "start": 3.83,
+          "end": 3.93
+        },
+        {
+          "raw": "minstrel",
+          "start": 3.93,
+          "end": 4.45
+        }
+      ],
+      "expected_tokens": [
+        "Peter.",
+        "No",
+        "money,",
+        "on",
+        "my",
+        "faith,",
+        "but",
+        "the",
+        "gleek!",
+        "I",
+        "will",
+        "give",
+        "you",
+        "the",
+        "minstrel."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          15,
+          6,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Peter",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "peter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.67,
+          "end": 1.31,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "money",
+          "start": 1.31,
+          "end": 1.53,
+          "key": "money",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.53,
+          "end": 1.77,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.77,
+          "end": 1.93,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "face,",
+          "start": 1.93,
+          "end": 2.23,
+          "key": "face",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.23,
+          "end": 2.49,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.49,
+          "end": 2.61,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Gleek",
+          "start": 2.61,
+          "end": 3.01,
+          "key": "gleek",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.01,
+          "end": 3.47,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.47,
+          "end": 3.57,
+          "key": "will",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 3.57,
+          "end": 3.71,
+          "key": "give",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.71,
+          "end": 3.83,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.83,
+          "end": 3.93,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "minstrel",
+          "start": 3.93,
+          "end": 4.45,
+          "key": "minstrel",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Peter.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "No",
+          "start": 0.67,
+          "end": 1.31
+        },
+        {
+          "text": "money,",
+          "start": 1.31,
+          "end": 1.53
+        },
+        {
+          "text": "on",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "text": "my",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "text": "faith,",
+          "start": 1.93,
+          "end": 2.08
+        },
+        {
+          "text": "but",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "text": "the",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "text": "gleek!",
+          "start": 2.61,
+          "end": 3.01
+        },
+        {
+          "text": "I",
+          "start": 3.01,
+          "end": 3.47
+        },
+        {
+          "text": "will",
+          "start": 3.47,
+          "end": 3.57
+        },
+        {
+          "text": "give",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "text": "you",
+          "start": 3.71,
+          "end": 3.83
+        },
+        {
+          "text": "the",
+          "start": 3.83,
+          "end": 3.93
+        },
+        {
+          "text": "minstrel.",
+          "start": 3.93,
+          "end": 4.45
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.22335404064506292
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aaccd4c5c6493a7ecc068a1500935498b82591f2fea7477c12ca6478c950335f",
+  "selected_reasons": []
+}

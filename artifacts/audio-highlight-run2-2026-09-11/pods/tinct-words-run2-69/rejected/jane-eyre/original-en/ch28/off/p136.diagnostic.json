@@ -1,0 +1,322 @@
+{
+  "complete": true,
+  "signature": "b6bbd4d2175ed7aef4ba1a147f0efb674543b7c4d9b182a0124f68ed44eb9ef6",
+  "attempts": [
+    {
+      "asr_seconds": 0.13787350244820118,
+      "alignment_seconds": 0.0004194350913167,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Can we send for anyone you know?",
+          "start": 0.02,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " Can",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " we",
+              "start": 0.48,
+              "end": 0.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " send",
+              "start": 0.6,
+              "end": 0.82,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " for",
+              "start": 0.82,
+              "end": 1.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " anyone",
+              "start": 1.0,
+              "end": 1.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 1.22,
+              "end": 1.42,
+              "probability": 0.923828125
+            },
+            {
+              "text": " know?",
+              "start": 1.42,
+              "end": 1.66,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Can",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "we",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "raw": "send",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "raw": "for",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "raw": "anyone",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "raw": "you",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "raw": "know?",
+          "start": 1.42,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "\"Can",
+        "we",
+        "send",
+        "for",
+        "any",
+        "one",
+        "you",
+        "know?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          5
+        ],
+        [
+          "equal",
+          6,
+          8,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          6,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Can",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "can",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 0.48,
+          "end": 0.6,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 0.6,
+          "end": 0.82,
+          "key": "send",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.82,
+          "end": 1.0,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "anyone",
+          "start": 1.0,
+          "end": 1.22,
+          "key": "anyone",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.22,
+          "end": 1.42,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "know?",
+          "start": 1.42,
+          "end": 1.66,
+          "key": "know",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Can",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "we",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "text": "send",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "text": "for",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "text": "any",
+          "start": 1.0,
+          "end": 1.11
+        },
+        {
+          "text": "one",
+          "start": 1.11,
+          "end": 1.165
+        },
+        {
+          "text": "you",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "text": "know?\"",
+          "start": 1.42,
+          "end": 1.66
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13841673079878092
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b06000df90ac1547ae648afdf6f3b4970de29ce764a80920af0fcc1fce95263d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

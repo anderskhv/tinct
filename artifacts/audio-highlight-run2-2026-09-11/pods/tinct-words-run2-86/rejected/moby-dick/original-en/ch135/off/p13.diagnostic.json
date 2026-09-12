@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "d0f30e27de182c559636f82d29c9819fbddb5bed73113dc1a2969b7eeed89bd9",
+  "attempts": [
+    {
+      "asr_seconds": 0.13131294026970863,
+      "alignment_seconds": 0.00022896379232406616,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Starbuck.",
+          "start": 0.0,
+          "end": 0.88,
+          "words": [
+            {
+              "text": " Starbuck.",
+              "start": 0.0,
+              "end": 0.88,
+              "probability": 0.5506591796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Starbuck.",
+          "start": 0.0,
+          "end": 0.88
+        }
+      ],
+      "expected_tokens": [
+        "\"Starbuck!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Starbuck.",
+          "start": 0.0,
+          "end": 0.88,
+          "key": "starbuck",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Starbuck!\"",
+          "start": 0.0,
+          "end": 0.88
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13160856440663338
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4f3832cced14545cac8d738145f936a098075565be62a436d96995cdc6df6da2",
+  "selected_reasons": []
+}

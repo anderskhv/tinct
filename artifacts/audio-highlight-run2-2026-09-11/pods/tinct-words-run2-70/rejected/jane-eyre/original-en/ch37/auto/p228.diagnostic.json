@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "57486b0ee5ce97a3c6f1845c8c8e2813a69ccb9bfdc0a21ec41208ada6170428",
+  "attempts": [
+    {
+      "asr_seconds": 0.13317102915607393,
+      "alignment_seconds": 0.00014069490134716034,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Most truly, sir.\"",
+        "hotwords": "Most"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Most truly, sir.",
+          "start": 0.02,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " Most",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " truly,",
+              "start": 0.6,
+              "end": 0.94,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " sir.",
+              "start": 1.18,
+              "end": 1.2,
+              "probability": 0.82666015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Most",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "truly,",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "raw": "sir.",
+          "start": 1.18,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "\"Most",
+        "truly,",
+        "sir.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Most",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "most",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "truly,",
+          "start": 0.6,
+          "end": 0.94,
+          "key": "truly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.18,
+          "end": 1.2,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Most",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "truly,",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "text": "sir.\"",
+          "start": 1.18,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13336170720867813
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "edc350fcf030570822bf58ad170eb6a1e3685dfa21bb7000fc2156abd86d67b2",
+  "selected_reasons": []
+}

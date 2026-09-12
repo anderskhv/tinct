@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "4a510daac06a145a053b13c6225c5652279f882963bde2438df631a3b7af4282",
+  "attempts": [
+    {
+      "asr_seconds": 0.21030211448669434,
+      "alignment_seconds": 0.0003239437937736511,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edgar. I know thee well. A serviceable villain, As duteous to the vices of thy mistress As badness would desire.",
+        "hotwords": "Edgar, I, A, As"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edgar, I know thee well. A serviceable villain, As duteous to the vices of thy mistress As badness would desire.",
+          "start": 0.02,
+          "end": 7.04,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.765625
+            },
+            {
+              "text": " I",
+              "start": 1.08,
+              "end": 1.1,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " know",
+              "start": 1.1,
+              "end": 1.24,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " thee",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.99609375
+            },
+            {
+              "text": " well.",
+              "start": 1.42,
+              "end": 1.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " A",
+              "start": 2.32,
+              "end": 2.44,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " serviceable",
+              "start": 2.44,
+              "end": 3.02,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " villain,",
+              "start": 3.02,
+              "end": 3.32,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " As",
+              "start": 3.74,
+              "end": 3.86,
+              "probability": 0.025848388671875
+            },
+            {
+              "text": " duteous",
+              "start": 3.86,
+              "end": 4.3,
+              "probability": 0.3635457356770833
+            },
+            {
+              "text": " to",
+              "start": 4.3,
+              "end": 4.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 4.48,
+              "end": 4.58,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " vices",
+              "start": 4.58,
+              "end": 4.88,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 4.88,
+              "end": 5.08,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " thy",
+              "start": 5.08,
+              "end": 5.22,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " mistress",
+              "start": 5.22,
+              "end": 5.6,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " As",
+              "start": 5.6,
+              "end": 5.92,
+              "probability": 0.43994140625
+            },
+            {
+              "text": " badness",
+              "start": 5.92,
+              "end": 6.44,
+              "probability": 0.943115234375
+            },
+            {
+              "text": " would",
+              "start": 6.44,
+              "end": 6.62,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " desire.",
+              "start": 6.62,
+              "end": 7.04,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.1
+        },
+        {
+          "raw": "know",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "raw": "thee",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "well.",
+          "start": 1.42,
+          "end": 1.74
+        },
+        {
+          "raw": "A",
+          "start": 2.32,
+          "end": 2.44
+        },
+        {
+          "raw": "serviceable",
+          "start": 2.44,
+          "end": 3.02
+        },
+        {
+          "raw": "villain,",
+          "start": 3.02,
+          "end": 3.32
+        },
+        {
+          "raw": "As",
+          "start": 3.74,
+          "end": 3.86
+        },
+        {
+          "raw": "duteous",
+          "start": 3.86,
+          "end": 4.3
+        },
+        {
+          "raw": "to",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "raw": "the",
+          "start": 4.48,
+          "end": 4.58
+        },
+        {
+          "raw": "vices",
+          "start": 4.58,
+          "end": 4.88
+        },
+        {
+          "raw": "of",
+          "start": 4.88,
+          "end": 5.08
+        },
+        {
+          "raw": "thy",
+          "start": 5.08,
+          "end": 5.22
+        },
+        {
+          "raw": "mistress",
+          "start": 5.22,
+          "end": 5.6
+        },
+        {
+          "raw": "As",
+          "start": 5.6,
+          "end": 5.92
+        },
+        {
+          "raw": "badness",
+          "start": 5.92,
+          "end": 6.44
+        },
+        {
+          "raw": "would",
+          "start": 6.44,
+          "end": 6.62
+        },
+        {
+          "raw": "desire.",
+          "start": 6.62,
+          "end": 7.04
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "I",
+        "know",
+        "thee",
+        "well.",
+        "A",
+        "serviceable",
+        "villain,",
+        "As",
+        "duteous",
+        "to",
+        "the",
+        "vices",
+        "of",
+        "thy",
+        "mistress",
+        "As",
+        "badness",
+        "would",
+        "desire."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.1,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.1,
+          "end": 1.24,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.42,
+          "end": 1.74,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 2.32,
+          "end": 2.44,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "serviceable",
+          "start": 2.44,
+          "end": 3.02,
+          "key": "serviceable",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "villain,",
+          "start": 3.02,
+          "end": 3.32,
+          "key": "villain",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 3.74,
+          "end": 3.86,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "duteous",
+          "start": 3.86,
+          "end": 4.3,
+          "key": "duteous",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.3,
+          "end": 4.48,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.48,
+          "end": 4.58,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "vices",
+          "start": 4.58,
+          "end": 4.88,
+          "key": "vices",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.88,
+          "end": 5.08,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 5.08,
+          "end": 5.22,
+          "key": "thy",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "mistress",
+          "start": 5.22,
+          "end": 5.6,
+          "key": "mistress",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 5.6,
+          "end": 5.92,
+          "key": "as",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "badness",
+          "start": 5.92,
+          "end": 6.44,
+          "key": "badness",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 6.44,
+          "end": 6.62,
+          "key": "would",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "desire.",
+          "start": 6.62,
+          "end": 7.04,
+          "key": "desire",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "I",
+          "start": 1.08,
+          "end": 1.1
+        },
+        {
+          "text": "know",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "text": "thee",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "well.",
+          "start": 1.42,
+          "end": 1.74
+        },
+        {
+          "text": "A",
+          "start": 2.32,
+          "end": 2.44
+        },
+        {
+          "text": "serviceable",
+          "start": 2.44,
+          "end": 3.02
+        },
+        {
+          "text": "villain,",
+          "start": 3.02,
+          "end": 3.32
+        },
+        {
+          "text": "As",
+          "start": 3.74,
+          "end": 3.86
+        },
+        {
+          "text": "duteous",
+          "start": 3.86,
+          "end": 4.3
+        },
+        {
+          "text": "to",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "text": "the",
+          "start": 4.48,
+          "end": 4.58
+        },
+        {
+          "text": "vices",
+          "start": 4.58,
+          "end": 4.88
+        },
+        {
+          "text": "of",
+          "start": 4.88,
+          "end": 5.08
+        },
+        {
+          "text": "thy",
+          "start": 5.08,
+          "end": 5.22
+        },
+        {
+          "text": "mistress",
+          "start": 5.22,
+          "end": 5.6
+        },
+        {
+          "text": "As",
+          "start": 5.6,
+          "end": 5.92
+        },
+        {
+          "text": "badness",
+          "start": 5.92,
+          "end": 6.44
+        },
+        {
+          "text": "would",
+          "start": 6.44,
+          "end": 6.62
+        },
+        {
+          "text": "desire.",
+          "start": 6.62,
+          "end": 7.04
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2107454054057598
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1dd1a3f2a9103fc84195faec334354751a2d54e9d9ea532622d6ad4c77b9f046",
+  "selected_reasons": []
+}

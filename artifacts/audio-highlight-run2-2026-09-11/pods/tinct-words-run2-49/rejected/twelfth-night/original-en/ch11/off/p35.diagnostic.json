@@ -1,0 +1,700 @@
+{
+  "complete": true,
+  "signature": "df6adac06fff198165cba965ef4e5c7ee4975e35613282db0c7db8f112144d55",
+  "attempts": [
+    {
+      "asr_seconds": 0.32014382258057594,
+      "alignment_seconds": 0.0007401630282402039,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir Toby, will you encounter the house? My niece is desirous you should enter if your trade be to her",
+          "start": 0.05,
+          "end": 6.31,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " Toby,",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " will",
+              "start": 1.25,
+              "end": 1.57,
+              "probability": 0.986328125
+            },
+            {
+              "text": " you",
+              "start": 1.57,
+              "end": 1.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " encounter",
+              "start": 1.71,
+              "end": 2.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.05,
+              "end": 2.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " house?",
+              "start": 2.29,
+              "end": 2.61,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " My",
+              "start": 3.23,
+              "end": 3.31,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " niece",
+              "start": 3.31,
+              "end": 3.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 3.53,
+              "end": 3.71,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " desirous",
+              "start": 3.71,
+              "end": 4.33,
+              "probability": 0.9488932291666666
+            },
+            {
+              "text": " you",
+              "start": 4.33,
+              "end": 4.53,
+              "probability": 0.56494140625
+            },
+            {
+              "text": " should",
+              "start": 4.53,
+              "end": 4.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " enter",
+              "start": 4.65,
+              "end": 5.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " if",
+              "start": 5.05,
+              "end": 5.31,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " your",
+              "start": 5.31,
+              "end": 5.41,
+              "probability": 0.736328125
+            },
+            {
+              "text": " trade",
+              "start": 5.41,
+              "end": 5.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 5.71,
+              "end": 5.93,
+              "probability": 0.990234375
+            },
+            {
+              "text": " to",
+              "start": 5.93,
+              "end": 6.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 6.07,
+              "end": 6.31,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "will",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "raw": "you",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "raw": "encounter",
+          "start": 1.71,
+          "end": 2.05
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "raw": "house?",
+          "start": 2.29,
+          "end": 2.61
+        },
+        {
+          "raw": "My",
+          "start": 3.23,
+          "end": 3.31
+        },
+        {
+          "raw": "niece",
+          "start": 3.31,
+          "end": 3.53
+        },
+        {
+          "raw": "is",
+          "start": 3.53,
+          "end": 3.71
+        },
+        {
+          "raw": "desirous",
+          "start": 3.71,
+          "end": 4.33
+        },
+        {
+          "raw": "you",
+          "start": 4.33,
+          "end": 4.53
+        },
+        {
+          "raw": "should",
+          "start": 4.53,
+          "end": 4.65
+        },
+        {
+          "raw": "enter",
+          "start": 4.65,
+          "end": 5.05
+        },
+        {
+          "raw": "if",
+          "start": 5.05,
+          "end": 5.31
+        },
+        {
+          "raw": "your",
+          "start": 5.31,
+          "end": 5.41
+        },
+        {
+          "raw": "trade",
+          "start": 5.41,
+          "end": 5.71
+        },
+        {
+          "raw": "be",
+          "start": 5.71,
+          "end": 5.93
+        },
+        {
+          "raw": "to",
+          "start": 5.93,
+          "end": 6.07
+        },
+        {
+          "raw": "her",
+          "start": 6.07,
+          "end": 6.31
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "Will",
+        "you",
+        "encounter",
+        "the",
+        "house?",
+        "My",
+        "niece",
+        "is",
+        "desirous",
+        "you",
+        "should",
+        "enter,",
+        "if",
+        "your",
+        "trade",
+        "be",
+        "to",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.25,
+          "end": 1.57,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.57,
+          "end": 1.71,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "encounter",
+          "start": 1.71,
+          "end": 2.05,
+          "key": "encounter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.29,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "house?",
+          "start": 2.29,
+          "end": 2.61,
+          "key": "house",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 3.23,
+          "end": 3.31,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "niece",
+          "start": 3.31,
+          "end": 3.53,
+          "key": "niece",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.53,
+          "end": 3.71,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "desirous",
+          "start": 3.71,
+          "end": 4.33,
+          "key": "desirous",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.33,
+          "end": 4.53,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 4.53,
+          "end": 4.65,
+          "key": "should",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 4.65,
+          "end": 5.05,
+          "key": "enter",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 5.05,
+          "end": 5.31,
+          "key": "if",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.31,
+          "end": 5.41,
+          "key": "your",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "trade",
+          "start": 5.41,
+          "end": 5.71,
+          "key": "trade",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.71,
+          "end": 5.93,
+          "key": "be",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.93,
+          "end": 6.07,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 6.07,
+          "end": 6.31,
+          "key": "her",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Toby.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "Will",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "text": "you",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "text": "encounter",
+          "start": 1.71,
+          "end": 2.05
+        },
+        {
+          "text": "the",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "text": "house?",
+          "start": 2.29,
+          "end": 2.61
+        },
+        {
+          "text": "My",
+          "start": 3.23,
+          "end": 3.31
+        },
+        {
+          "text": "niece",
+          "start": 3.31,
+          "end": 3.53
+        },
+        {
+          "text": "is",
+          "start": 3.53,
+          "end": 3.71
+        },
+        {
+          "text": "desirous",
+          "start": 3.71,
+          "end": 4.33
+        },
+        {
+          "text": "you",
+          "start": 4.33,
+          "end": 4.53
+        },
+        {
+          "text": "should",
+          "start": 4.53,
+          "end": 4.65
+        },
+        {
+          "text": "enter,",
+          "start": 4.65,
+          "end": 5.05
+        },
+        {
+          "text": "if",
+          "start": 5.05,
+          "end": 5.31
+        },
+        {
+          "text": "your",
+          "start": 5.31,
+          "end": 5.41
+        },
+        {
+          "text": "trade",
+          "start": 5.41,
+          "end": 5.71
+        },
+        {
+          "text": "be",
+          "start": 5.71,
+          "end": 5.93
+        },
+        {
+          "text": "to",
+          "start": 5.93,
+          "end": 6.07
+        },
+        {
+          "text": "her.",
+          "start": 6.07,
+          "end": 6.31
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3212529383599758
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "864261e0dc51dfed393267dab0d33be66ca298949054578181d8e3b949654b4c",
+  "selected_reasons": []
+}

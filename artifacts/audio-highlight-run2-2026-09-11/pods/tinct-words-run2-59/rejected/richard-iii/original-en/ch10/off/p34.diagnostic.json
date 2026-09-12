@@ -1,0 +1,630 @@
+{
+  "complete": true,
+  "signature": "578b1543b89f76feda4f1e7d0d7e516c747c136a097c61eff910e5c5b257956d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3330424709711224,
+      "alignment_seconds": 0.0006521039176732302,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Come on, come on. Where's your boar spear, man? Fear you the boar and go so unprovided.",
+          "start": 0.05,
+          "end": 5.35,
+          "words": [
+            {
+              "text": " Come",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " on,",
+              "start": 0.55,
+              "end": 0.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " come",
+              "start": 0.93,
+              "end": 1.01,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " on.",
+              "start": 1.01,
+              "end": 1.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Where's",
+              "start": 1.77,
+              "end": 1.97,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " your",
+              "start": 1.97,
+              "end": 2.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " boar",
+              "start": 2.09,
+              "end": 2.31,
+              "probability": 0.880859375
+            },
+            {
+              "text": " spear,",
+              "start": 2.31,
+              "end": 2.55,
+              "probability": 0.849609375
+            },
+            {
+              "text": " man?",
+              "start": 2.87,
+              "end": 2.93,
+              "probability": 0.9375
+            },
+            {
+              "text": " Fear",
+              "start": 3.67,
+              "end": 3.71,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " you",
+              "start": 3.71,
+              "end": 3.87,
+              "probability": 0.98046875
+            },
+            {
+              "text": " the",
+              "start": 3.87,
+              "end": 3.97,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " boar",
+              "start": 3.97,
+              "end": 4.29,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " and",
+              "start": 4.29,
+              "end": 4.45,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " go",
+              "start": 4.45,
+              "end": 4.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " so",
+              "start": 4.63,
+              "end": 4.85,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " unprovided.",
+              "start": 4.85,
+              "end": 5.35,
+              "probability": 0.9384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Come",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "on,",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "raw": "come",
+          "start": 0.93,
+          "end": 1.01
+        },
+        {
+          "raw": "on.",
+          "start": 1.01,
+          "end": 1.35
+        },
+        {
+          "raw": "Where's",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "raw": "your",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "raw": "boar",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "raw": "spear,",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "raw": "man?",
+          "start": 2.87,
+          "end": 2.93
+        },
+        {
+          "raw": "Fear",
+          "start": 3.67,
+          "end": 3.71
+        },
+        {
+          "raw": "you",
+          "start": 3.71,
+          "end": 3.87
+        },
+        {
+          "raw": "the",
+          "start": 3.87,
+          "end": 3.97
+        },
+        {
+          "raw": "boar",
+          "start": 3.97,
+          "end": 4.29
+        },
+        {
+          "raw": "and",
+          "start": 4.29,
+          "end": 4.45
+        },
+        {
+          "raw": "go",
+          "start": 4.45,
+          "end": 4.63
+        },
+        {
+          "raw": "so",
+          "start": 4.63,
+          "end": 4.85
+        },
+        {
+          "raw": "unprovided.",
+          "start": 4.85,
+          "end": 5.35
+        }
+      ],
+      "expected_tokens": [
+        "Come",
+        "on,",
+        "come",
+        "on.",
+        "Where",
+        "is",
+        "your",
+        "boar-spear,",
+        "man?",
+        "Fear",
+        "you",
+        "the",
+        "boar,",
+        "and",
+        "go",
+        "so",
+        "unprovided?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          5
+        ],
+        [
+          "equal",
+          6,
+          17,
+          5,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          6,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Come",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "come",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 0.55,
+          "end": 0.81,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 0.93,
+          "end": 1.01,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 1.01,
+          "end": 1.35,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Where's",
+          "start": 1.77,
+          "end": 1.97,
+          "key": "wheres",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.97,
+          "end": 2.09,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "boar spear,",
+          "start": 2.09,
+          "end": 2.55,
+          "key": "boarspear",
+          "pieces": [
+            6,
+            7
+          ]
+        },
+        {
+          "raw": "man?",
+          "start": 2.87,
+          "end": 2.93,
+          "key": "man",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Fear",
+          "start": 3.67,
+          "end": 3.71,
+          "key": "fear",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.71,
+          "end": 3.87,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.87,
+          "end": 3.97,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "boar",
+          "start": 3.97,
+          "end": 4.29,
+          "key": "boar",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.29,
+          "end": 4.45,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 4.45,
+          "end": 4.63,
+          "key": "go",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.63,
+          "end": 4.85,
+          "key": "so",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "unprovided.",
+          "start": 4.85,
+          "end": 5.35,
+          "key": "unprovided",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "boar-spear,",
+          "heard": "boar spear,",
+          "heard_indexes": [
+            6,
+            7
+          ],
+          "start": 2.09,
+          "end": 2.55
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Come",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "on,",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "text": "come",
+          "start": 0.93,
+          "end": 1.01
+        },
+        {
+          "text": "on.",
+          "start": 1.01,
+          "end": 1.35
+        },
+        {
+          "text": "Where",
+          "start": 1.35,
+          "end": 1.66
+        },
+        {
+          "text": "is",
+          "start": 1.66,
+          "end": 1.815
+        },
+        {
+          "text": "your",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "text": "boar-spear,",
+          "start": 2.09,
+          "end": 2.55
+        },
+        {
+          "text": "man?",
+          "start": 2.87,
+          "end": 2.93
+        },
+        {
+          "text": "Fear",
+          "start": 3.67,
+          "end": 3.71
+        },
+        {
+          "text": "you",
+          "start": 3.71,
+          "end": 3.87
+        },
+        {
+          "text": "the",
+          "start": 3.87,
+          "end": 3.97
+        },
+        {
+          "text": "boar,",
+          "start": 3.97,
+          "end": 4.29
+        },
+        {
+          "text": "and",
+          "start": 4.29,
+          "end": 4.45
+        },
+        {
+          "text": "go",
+          "start": 4.45,
+          "end": 4.63
+        },
+        {
+          "text": "so",
+          "start": 4.63,
+          "end": 4.85
+        },
+        {
+          "text": "unprovided?",
+          "start": 4.85,
+          "end": 5.35
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.33391418610699475
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "de0023110ef0e74f44a118bfbbd03e4f66a6161547853365ec5fdd399fdc2595",
+  "selected_reasons": []
+}

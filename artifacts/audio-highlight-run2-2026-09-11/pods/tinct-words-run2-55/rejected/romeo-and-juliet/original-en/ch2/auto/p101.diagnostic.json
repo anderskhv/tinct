@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "3e0aa92b5c4fadf1f11fbbd22778d4024111e6a38b64132dbd343a7398eca216",
+  "attempts": [
+    {
+      "asr_seconds": 0.18417878914624453,
+      "alignment_seconds": 0.0004252362996339798,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Romeo. A right good markman, and she's fair I love.",
+        "hotwords": "Romeo, A, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Romeo, A right good markman, and she's fair I love.",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " Romeo,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " A",
+              "start": 1.35,
+              "end": 1.45,
+              "probability": 0.0240478515625
+            },
+            {
+              "text": " right",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.779296875
+            },
+            {
+              "text": " good",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " markman,",
+              "start": 1.77,
+              "end": 2.21,
+              "probability": 0.82373046875
+            },
+            {
+              "text": " and",
+              "start": 2.33,
+              "end": 2.37,
+              "probability": 0.66064453125
+            },
+            {
+              "text": " she's",
+              "start": 2.37,
+              "end": 2.61,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " fair",
+              "start": 2.61,
+              "end": 2.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I",
+              "start": 2.73,
+              "end": 2.93,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " love.",
+              "start": 2.93,
+              "end": 3.21,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Romeo,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "A",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "raw": "right",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "good",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "markman,",
+          "start": 1.77,
+          "end": 2.21
+        },
+        {
+          "raw": "and",
+          "start": 2.33,
+          "end": 2.37
+        },
+        {
+          "raw": "she's",
+          "start": 2.37,
+          "end": 2.61
+        },
+        {
+          "raw": "fair",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "raw": "I",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "raw": "love.",
+          "start": 2.93,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "Romeo.",
+        "A",
+        "right",
+        "good",
+        "markman,",
+        "and",
+        "she's",
+        "fair",
+        "I",
+        "love."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Romeo,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "romeo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.35,
+          "end": 1.45,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "right",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "right",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "markman,",
+          "start": 1.77,
+          "end": 2.21,
+          "key": "markman",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.33,
+          "end": 2.37,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 2.37,
+          "end": 2.61,
+          "key": "shes",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 2.61,
+          "end": 2.73,
+          "key": "fair",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.73,
+          "end": 2.93,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "love.",
+          "start": 2.93,
+          "end": 3.21,
+          "key": "love",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Romeo.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "A",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "text": "right",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "good",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "markman,",
+          "start": 1.77,
+          "end": 2.21
+        },
+        {
+          "text": "and",
+          "start": 2.33,
+          "end": 2.37
+        },
+        {
+          "text": "she's",
+          "start": 2.37,
+          "end": 2.61
+        },
+        {
+          "text": "fair",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "text": "I",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "text": "love.",
+          "start": 2.93,
+          "end": 3.21
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1847729878500104
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2f73917722b253cb126a0bb7081da243536b507dde6aaf2d074b5093cb375d04",
+  "selected_reasons": []
+}

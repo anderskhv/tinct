@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "dd792223f42b3af426fc309331b1d71b0286ba5bea7d6f5a0db69f6ec6870fe4",
+  "attempts": [
+    {
+      "asr_seconds": 0.13864210434257984,
+      "alignment_seconds": 0.0003068298101425171,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Regan, led.",
+          "start": 0.05,
+          "end": 1.47,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " Regan,",
+              "start": 0.65,
+              "end": 1.13,
+              "probability": 0.4437255859375
+            },
+            {
+              "text": " led.",
+              "start": 1.39,
+              "end": 1.47,
+              "probability": 0.279296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Regan,",
+          "start": 0.65,
+          "end": 1.13
+        },
+        {
+          "raw": "led.",
+          "start": 1.39,
+          "end": 1.47
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Regan,",
+        "led._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Regan,",
+          "start": 0.65,
+          "end": 1.13,
+          "key": "regan",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "led.",
+          "start": 1.39,
+          "end": 1.47,
+          "key": "led",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Regan,",
+          "start": 0.65,
+          "end": 1.13
+        },
+        {
+          "text": "led._]",
+          "start": 1.39,
+          "end": 1.47
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13905848935246468
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a2d2ad48f02ba417234c53b6b6f96aa57f0ce62d66717b46890c68d5b2293c9a",
+  "selected_reasons": []
+}

@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "ca4db50d372842c28b739fb09fe37bdd97d96f3326477f785654f020aaac4035",
+  "attempts": [
+    {
+      "asr_seconds": 0.17363966535776854,
+      "alignment_seconds": 0.00041461922228336334,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You're very funny, Dilly said, grinning.",
+          "start": 0.02,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " You're",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.622802734375
+            },
+            {
+              "text": " very",
+              "start": 0.58,
+              "end": 0.74,
+              "probability": 0.9921875
+            },
+            {
+              "text": " funny,",
+              "start": 0.74,
+              "end": 1.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Dilly",
+              "start": 1.4,
+              "end": 1.58,
+              "probability": 0.849853515625
+            },
+            {
+              "text": " said,",
+              "start": 1.58,
+              "end": 1.84,
+              "probability": 0.970703125
+            },
+            {
+              "text": " grinning.",
+              "start": 2.1,
+              "end": 2.18,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You're",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "very",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "raw": "funny,",
+          "start": 0.74,
+          "end": 1.12
+        },
+        {
+          "raw": "Dilly",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "raw": "said,",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "raw": "grinning.",
+          "start": 2.1,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "—You're",
+        "very",
+        "funny,",
+        "Dilly",
+        "said,",
+        "grinning."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You're",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "youre",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 0.58,
+          "end": 0.74,
+          "key": "very",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "funny,",
+          "start": 0.74,
+          "end": 1.12,
+          "key": "funny",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dilly",
+          "start": 1.4,
+          "end": 1.58,
+          "key": "dilly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.58,
+          "end": 1.84,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "grinning.",
+          "start": 2.1,
+          "end": 2.18,
+          "key": "grinning",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—You're",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "very",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "text": "funny,",
+          "start": 0.74,
+          "end": 1.12
+        },
+        {
+          "text": "Dilly",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "text": "said,",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "text": "grinning.",
+          "start": 2.1,
+          "end": 2.18
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.174188950099051
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c84dc30047a2f012d450efe331544c789494fbb7bdb13d834a06e76904938f76",
+  "selected_reasons": []
+}

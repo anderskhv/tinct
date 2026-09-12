@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "f4e02c977e2ce308be022054c26fe99e27854b3cc7fe3c453de5c76638379cd4",
+  "attempts": [
+    {
+      "asr_seconds": 0.2506324639543891,
+      "alignment_seconds": 0.0001698029227554798,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then not till then. My eppripfftaph. Be pfrwritt.",
+        "hotwords": "My, Be"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then not till then. My eppripfftaph. Be pfrwritt.",
+          "start": 0.05,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " not",
+              "start": 0.55,
+              "end": 0.79,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " till",
+              "start": 0.79,
+              "end": 0.95,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " then.",
+              "start": 0.95,
+              "end": 1.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " My",
+              "start": 1.65,
+              "end": 1.71,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " eppripfftaph.",
+              "start": 1.71,
+              "end": 2.43,
+              "probability": 0.03167533874511719
+            },
+            {
+              "text": " Be",
+              "start": 2.63,
+              "end": 2.71,
+              "probability": 0.0236663818359375
+            },
+            {
+              "text": " pfrwritt.",
+              "start": 2.71,
+              "end": 3.55,
+              "probability": 0.17115043103694916
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "not",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "raw": "till",
+          "start": 0.79,
+          "end": 0.95
+        },
+        {
+          "raw": "then.",
+          "start": 0.95,
+          "end": 1.31
+        },
+        {
+          "raw": "My",
+          "start": 1.65,
+          "end": 1.71
+        },
+        {
+          "raw": "eppripfftaph.",
+          "start": 1.71,
+          "end": 2.43
+        },
+        {
+          "raw": "Be",
+          "start": 2.63,
+          "end": 2.71
+        },
+        {
+          "raw": "pfrwritt.",
+          "start": 2.71,
+          "end": 3.55
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "not",
+        "till",
+        "then.",
+        "My",
+        "eppripfftaph.",
+        "Be",
+        "pfrwritt."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.55,
+          "end": 0.79,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 0.79,
+          "end": 0.95,
+          "key": "till",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "then.",
+          "start": 0.95,
+          "end": 1.31,
+          "key": "then",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.65,
+          "end": 1.71,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "eppripfftaph.",
+          "start": 1.71,
+          "end": 2.43,
+          "key": "eppripfftaph",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 2.63,
+          "end": 2.71,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pfrwritt.",
+          "start": 2.71,
+          "end": 3.55,
+          "key": "pfrwritt",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "not",
+          "start": 0.55,
+          "end": 0.79
+        },
+        {
+          "text": "till",
+          "start": 0.79,
+          "end": 0.95
+        },
+        {
+          "text": "then.",
+          "start": 0.95,
+          "end": 1.31
+        },
+        {
+          "text": "My",
+          "start": 1.65,
+          "end": 1.71
+        },
+        {
+          "text": "eppripfftaph.",
+          "start": 1.71,
+          "end": 2.43
+        },
+        {
+          "text": "Be",
+          "start": 2.63,
+          "end": 2.71
+        },
+        {
+          "text": "pfrwritt.",
+          "start": 2.71,
+          "end": 3.55
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2508644759654999
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0ba3245a2f894f6b0d0381e6af91e0082aff58c8c98268c1e814c238f9727d82",
+  "selected_reasons": []
+}

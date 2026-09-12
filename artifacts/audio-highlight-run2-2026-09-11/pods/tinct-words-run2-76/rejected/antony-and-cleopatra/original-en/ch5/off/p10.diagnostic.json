@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "7e0c588d224f1fa9c97a6f2b9b256a4f76a2b074eb57153fe0bc412c55281f70",
+  "attempts": [
+    {
+      "asr_seconds": 0.17958767944946885,
+      "alignment_seconds": 0.0003944407217204571,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mardyan, what's your highness pleasure?",
+          "start": 0.02,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " Mardyan,",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.4388020833333333
+            },
+            {
+              "text": " what's",
+              "start": 1.22,
+              "end": 1.4,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " your",
+              "start": 1.4,
+              "end": 1.48,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " highness",
+              "start": 1.48,
+              "end": 1.78,
+              "probability": 0.75341796875
+            },
+            {
+              "text": " pleasure?",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.9111328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mardyan,",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "what's",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "raw": "your",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "raw": "highness",
+          "start": 1.48,
+          "end": 1.78
+        },
+        {
+          "raw": "pleasure?",
+          "start": 1.78,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "Mardian.",
+        "What's",
+        "your",
+        "highness'",
+        "pleasure?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mardyan,",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "mardyan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 1.22,
+          "end": 1.4,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.4,
+          "end": 1.48,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "highness",
+          "start": 1.48,
+          "end": 1.78,
+          "key": "highness",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pleasure?",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "pleasure",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mardian.",
+          "start": 0.0,
+          "end": 0.61
+        },
+        {
+          "text": "What's",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "text": "your",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "text": "highness'",
+          "start": 1.48,
+          "end": 1.78
+        },
+        {
+          "text": "pleasure?",
+          "start": 1.78,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18010646011680365
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "16a4fedd33a917f213263ec79052ed3b3950d881d8e3b52062b70034a525ad71",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

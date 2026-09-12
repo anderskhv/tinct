@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "6dbd9032591c67915b8bef55d26112f6df4cbf6600ac4c56e8235f1da1f37525",
+  "attempts": [
+    {
+      "asr_seconds": 0.23072816990315914,
+      "alignment_seconds": 0.0003286181017756462,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Believe. What is the matter? Tell me what you feel.",
+          "start": 0.44,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Believe.",
+              "start": 0.44,
+              "end": 0.72,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " What",
+              "start": 1.12,
+              "end": 1.18,
+              "probability": 0.978515625
+            },
+            {
+              "text": " is",
+              "start": 1.18,
+              "end": 1.28,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " matter?",
+              "start": 1.42,
+              "end": 1.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Tell",
+              "start": 1.94,
+              "end": 2.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " me",
+              "start": 2.04,
+              "end": 2.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " what",
+              "start": 2.14,
+              "end": 2.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " feel.",
+              "start": 2.38,
+              "end": 2.64,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Believe.",
+          "start": 0.44,
+          "end": 0.72
+        },
+        {
+          "raw": "What",
+          "start": 1.12,
+          "end": 1.18
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "raw": "the",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "matter?",
+          "start": 1.42,
+          "end": 1.66
+        },
+        {
+          "raw": "Tell",
+          "start": 1.94,
+          "end": 2.04
+        },
+        {
+          "raw": "me",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "raw": "what",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "raw": "you",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "feel.",
+          "start": 2.38,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "\"Believe!",
+        "What",
+        "is",
+        "the",
+        "matter?",
+        "Tell",
+        "me",
+        "what",
+        "you",
+        "feel.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Believe.",
+          "start": 0.44,
+          "end": 0.72,
+          "key": "believe",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.12,
+          "end": 1.18,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.28,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.28,
+          "end": 1.42,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "matter?",
+          "start": 1.42,
+          "end": 1.66,
+          "key": "matter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Tell",
+          "start": 1.94,
+          "end": 2.04,
+          "key": "tell",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.04,
+          "end": 2.14,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.14,
+          "end": 2.26,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "feel.",
+          "start": 2.38,
+          "end": 2.64,
+          "key": "feel",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Believe!",
+          "start": 0.44,
+          "end": 0.72
+        },
+        {
+          "text": "What",
+          "start": 1.12,
+          "end": 1.18
+        },
+        {
+          "text": "is",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "text": "the",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "matter?",
+          "start": 1.42,
+          "end": 1.66
+        },
+        {
+          "text": "Tell",
+          "start": 1.94,
+          "end": 2.04
+        },
+        {
+          "text": "me",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "text": "what",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "text": "you",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "feel.\"",
+          "start": 2.38,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23118878435343504
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "60112f3ddac28e03d4f1aabceb481df068a1f57ccb2e758d596abd8cd2cb75b5",
+  "selected_reasons": []
+}

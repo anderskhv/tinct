@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "81b1d53af9f3fc07887df08e590f79cb713dc5eabeb6e8b0d60d9de83881519f",
+  "attempts": [
+    {
+      "asr_seconds": 0.10590790957212448,
+      "alignment_seconds": 0.00016827508807182312,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Assuredly.",
+          "start": 0.02,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " Assuredly.",
+              "start": 0.02,
+              "end": 1.0,
+              "probability": 0.9148763020833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Assuredly.",
+          "start": 0.02,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "Assuredly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Assuredly.",
+          "start": 0.02,
+          "end": 1.0,
+          "key": "assuredly",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Assuredly.",
+          "start": 0.02,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10613042116165161
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e32fbc8bf64d2a931a73f68fbb174589da4ea94ba6c27e1d74ad5daae4c7eb7b",
+  "selected_reasons": []
+}

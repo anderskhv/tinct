@@ -1,0 +1,259 @@
+{
+  "complete": true,
+  "signature": "fc0bc2bbb64c745c34c0b8d990a33da48a02fd4684547ce49ca3f62bb2348c1a",
+  "attempts": [
+    {
+      "asr_seconds": 0.21807864820584655,
+      "alignment_seconds": 0.0003464282490313053,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In Albarbus, what's your pleasure, sir?",
+          "start": 0.05,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " Albarbus,",
+              "start": 0.53,
+              "end": 0.99,
+              "probability": 0.5124308268229166
+            },
+            {
+              "text": " what's",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " your",
+              "start": 1.49,
+              "end": 1.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " pleasure,",
+              "start": 1.59,
+              "end": 1.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sir?",
+              "start": 1.95,
+              "end": 2.13,
+              "probability": 0.90185546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Albarbus,",
+          "start": 0.53,
+          "end": 0.99
+        },
+        {
+          "raw": "what's",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "your",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "raw": "pleasure,",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "raw": "sir?",
+          "start": 1.95,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus.",
+        "What's",
+        "your",
+        "pleasure,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          5,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Albarbus,",
+          "start": 0.53,
+          "end": 0.99,
+          "key": "albarbus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "whats",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.49,
+          "end": 1.59,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pleasure,",
+          "start": 1.59,
+          "end": 1.87,
+          "key": "pleasure",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 1.95,
+          "end": 2.13,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.0,
+          "end": 0.675
+        },
+        {
+          "text": "What's",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "your",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "text": "pleasure,",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "text": "sir?",
+          "start": 1.95,
+          "end": 2.13
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2185509530827403
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ac97fcfb6b6e6c991f7251f6cc1389ffd966d4a04fe22a37cce84ca6bc979ad1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

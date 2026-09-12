@@ -1,0 +1,486 @@
+{
+  "complete": true,
+  "signature": "0e333a24d8d36dd5b9038677d3bde6d6580aa9fb918342f7cabd0989a170ffe1",
+  "attempts": [
+    {
+      "asr_seconds": 0.20483864611014724,
+      "alignment_seconds": 0.00028822897002100945,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It is you, is it Jane? You are come back to me then.",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " is",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.982421875
+            },
+            {
+              "text": " you,",
+              "start": 0.65,
+              "end": 0.93,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is",
+              "start": 1.15,
+              "end": 1.19,
+              "probability": 0.7783203125
+            },
+            {
+              "text": " it",
+              "start": 1.19,
+              "end": 1.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Jane?",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " You",
+              "start": 2.11,
+              "end": 2.17,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " are",
+              "start": 2.17,
+              "end": 2.25,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " come",
+              "start": 2.25,
+              "end": 2.41,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " back",
+              "start": 2.41,
+              "end": 2.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 2.65,
+              "end": 2.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 2.79,
+              "end": 2.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " then.",
+              "start": 2.91,
+              "end": 3.17,
+              "probability": 0.9306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "you,",
+          "start": 0.65,
+          "end": 0.93
+        },
+        {
+          "raw": "is",
+          "start": 1.15,
+          "end": 1.19
+        },
+        {
+          "raw": "it",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "raw": "Jane?",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "You",
+          "start": 2.11,
+          "end": 2.17
+        },
+        {
+          "raw": "are",
+          "start": 2.17,
+          "end": 2.25
+        },
+        {
+          "raw": "come",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "raw": "back",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "raw": "to",
+          "start": 2.65,
+          "end": 2.79
+        },
+        {
+          "raw": "me",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "raw": "then.",
+          "start": 2.91,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "is",
+        "you—is",
+        "it,",
+        "Jane?",
+        "You",
+        "are",
+        "come",
+        "back",
+        "to",
+        "me",
+        "then?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          12,
+          4,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 0.65,
+          "end": 0.93,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.15,
+          "end": 1.19,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.19,
+          "end": 1.35,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Jane?",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "jane",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.11,
+          "end": 2.17,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.17,
+          "end": 2.25,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.25,
+          "end": 2.41,
+          "key": "come",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 2.41,
+          "end": 2.65,
+          "key": "back",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.65,
+          "end": 2.79,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.79,
+          "end": 2.91,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "then.",
+          "start": 2.91,
+          "end": 3.17,
+          "key": "then",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "is",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "you—is",
+          "start": 0.65,
+          "end": 0.92
+        },
+        {
+          "text": "it,",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "text": "Jane?",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "You",
+          "start": 2.11,
+          "end": 2.17
+        },
+        {
+          "text": "are",
+          "start": 2.17,
+          "end": 2.25
+        },
+        {
+          "text": "come",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "text": "back",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "text": "to",
+          "start": 2.65,
+          "end": 2.79
+        },
+        {
+          "text": "me",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "text": "then?\"",
+          "start": 2.91,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.20523800514638424
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0f273acd3750567c7293b9100da16c7efb298b5f2e82cc54e699ff44289faa27",
+  "selected_reasons": []
+}

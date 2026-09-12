@@ -1,0 +1,667 @@
+{
+  "complete": true,
+  "signature": "1698f4184f010277e0db3cb6b5e0f976f95b040f76fbb7fdd9b2596938869f3f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2689746506512165,
+      "alignment_seconds": 0.0005487538874149323,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The entire school room rose to its feet as it had done the morning Sarah remembered so well",
+          "start": 0.02,
+          "end": 5.62,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " entire",
+              "start": 0.5,
+              "end": 0.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " school",
+              "start": 0.94,
+              "end": 1.3,
+              "probability": 0.984375
+            },
+            {
+              "text": " room",
+              "start": 1.3,
+              "end": 1.64,
+              "probability": 0.447998046875
+            },
+            {
+              "text": " rose",
+              "start": 1.64,
+              "end": 2.08,
+              "probability": 0.9609375
+            },
+            {
+              "text": " to",
+              "start": 2.08,
+              "end": 2.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " its",
+              "start": 2.36,
+              "end": 2.54,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " feet",
+              "start": 2.54,
+              "end": 2.84,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " as",
+              "start": 2.84,
+              "end": 3.4,
+              "probability": 0.6845703125
+            },
+            {
+              "text": " it",
+              "start": 3.4,
+              "end": 3.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " had",
+              "start": 3.48,
+              "end": 3.58,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " done",
+              "start": 3.58,
+              "end": 3.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.74,
+              "end": 3.88,
+              "probability": 0.986328125
+            },
+            {
+              "text": " morning",
+              "start": 3.88,
+              "end": 4.12,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Sarah",
+              "start": 4.12,
+              "end": 4.46,
+              "probability": 0.5986328125
+            },
+            {
+              "text": " remembered",
+              "start": 4.46,
+              "end": 4.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " so",
+              "start": 4.94,
+              "end": 5.32,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " well",
+              "start": 5.32,
+              "end": 5.62,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "entire",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "raw": "school",
+          "start": 0.94,
+          "end": 1.3
+        },
+        {
+          "raw": "room",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "raw": "rose",
+          "start": 1.64,
+          "end": 2.08
+        },
+        {
+          "raw": "to",
+          "start": 2.08,
+          "end": 2.36
+        },
+        {
+          "raw": "its",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "raw": "feet",
+          "start": 2.54,
+          "end": 2.84
+        },
+        {
+          "raw": "as",
+          "start": 2.84,
+          "end": 3.4
+        },
+        {
+          "raw": "it",
+          "start": 3.4,
+          "end": 3.48
+        },
+        {
+          "raw": "had",
+          "start": 3.48,
+          "end": 3.58
+        },
+        {
+          "raw": "done",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "raw": "the",
+          "start": 3.74,
+          "end": 3.88
+        },
+        {
+          "raw": "morning",
+          "start": 3.88,
+          "end": 4.12
+        },
+        {
+          "raw": "Sarah",
+          "start": 4.12,
+          "end": 4.46
+        },
+        {
+          "raw": "remembered",
+          "start": 4.46,
+          "end": 4.94
+        },
+        {
+          "raw": "so",
+          "start": 4.94,
+          "end": 5.32
+        },
+        {
+          "raw": "well",
+          "start": 5.32,
+          "end": 5.62
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "entire",
+        "schoolroom",
+        "rose",
+        "to",
+        "its",
+        "feet",
+        "as",
+        "it",
+        "had",
+        "done",
+        "the",
+        "morning",
+        "Sara",
+        "remembered",
+        "so",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          13,
+          4,
+          14
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ],
+        [
+          "equal",
+          14,
+          17,
+          15,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "entire",
+          "start": 0.5,
+          "end": 0.94,
+          "key": "entire",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "school",
+          "start": 0.94,
+          "end": 1.3,
+          "key": "school",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 1.3,
+          "end": 1.64,
+          "key": "room",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rose",
+          "start": 1.64,
+          "end": 2.08,
+          "key": "rose",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.08,
+          "end": 2.36,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 2.36,
+          "end": 2.54,
+          "key": "its",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "feet",
+          "start": 2.54,
+          "end": 2.84,
+          "key": "feet",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.84,
+          "end": 3.4,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.4,
+          "end": 3.48,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.48,
+          "end": 3.58,
+          "key": "had",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 3.58,
+          "end": 3.74,
+          "key": "done",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.74,
+          "end": 3.88,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "morning",
+          "start": 3.88,
+          "end": 4.12,
+          "key": "morning",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Sarah",
+          "start": 4.12,
+          "end": 4.46,
+          "key": "sarah",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "remembered",
+          "start": 4.46,
+          "end": 4.94,
+          "key": "remembered",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.94,
+          "end": 5.32,
+          "key": "so",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 5.32,
+          "end": 5.62,
+          "key": "well",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "entire",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "text": "schoolroom",
+          "start": 0.94,
+          "end": 1.29
+        },
+        {
+          "text": "rose",
+          "start": 1.64,
+          "end": 2.08
+        },
+        {
+          "text": "to",
+          "start": 2.08,
+          "end": 2.36
+        },
+        {
+          "text": "its",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "text": "feet",
+          "start": 2.54,
+          "end": 2.84
+        },
+        {
+          "text": "as",
+          "start": 2.84,
+          "end": 3.4
+        },
+        {
+          "text": "it",
+          "start": 3.4,
+          "end": 3.48
+        },
+        {
+          "text": "had",
+          "start": 3.48,
+          "end": 3.58
+        },
+        {
+          "text": "done",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "text": "the",
+          "start": 3.74,
+          "end": 3.88
+        },
+        {
+          "text": "morning",
+          "start": 3.88,
+          "end": 4.12
+        },
+        {
+          "text": "Sara",
+          "start": 4.12,
+          "end": 4.29
+        },
+        {
+          "text": "remembered",
+          "start": 4.46,
+          "end": 4.94
+        },
+        {
+          "text": "so",
+          "start": 4.94,
+          "end": 5.32
+        },
+        {
+          "text": "well.",
+          "start": 5.32,
+          "end": 5.62
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.26972925290465355
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ad402da82a4419b96a65b552a235c3f09a02e24eaedd9f56509d05fa29e9e27c",
+  "selected_reasons": []
+}

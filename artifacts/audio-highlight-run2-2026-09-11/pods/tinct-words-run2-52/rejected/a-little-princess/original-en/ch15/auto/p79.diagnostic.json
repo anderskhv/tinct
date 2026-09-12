@@ -1,0 +1,397 @@
+{
+  "complete": true,
+  "signature": "7dfccb86b9156bde33d84c1744e0dddfbfcc9835dda2bdc463e530fa857bd5e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.21706072986125946,
+      "alignment_seconds": 0.0006690993905067444,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"N-no,\" Ermengarde faltered. \"Did you?\" {another ed. has \"No-no,\"}",
+        "hotwords": "N-no, Ermengarde, Did, No-no"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " N-no, Ermengarde faltered. Did you? Another ed. has No-no.",
+          "start": 0.08,
+          "end": 4.22,
+          "words": [
+            {
+              "text": " N",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.00388336181640625
+            },
+            {
+              "text": "-no,",
+              "start": 0.56,
+              "end": 0.86,
+              "probability": 0.381103515625
+            },
+            {
+              "text": " Ermengarde",
+              "start": 1.12,
+              "end": 1.54,
+              "probability": 0.484954833984375
+            },
+            {
+              "text": " faltered.",
+              "start": 1.54,
+              "end": 1.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Did",
+              "start": 2.2,
+              "end": 2.26,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " you?",
+              "start": 2.26,
+              "end": 2.48,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Another",
+              "start": 2.94,
+              "end": 3.24,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " ed.",
+              "start": 3.24,
+              "end": 3.52,
+              "probability": 0.12188720703125
+            },
+            {
+              "text": " has",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.467041015625
+            },
+            {
+              "text": " No",
+              "start": 3.84,
+              "end": 4.06,
+              "probability": 0.004093170166015625
+            },
+            {
+              "text": "-no.",
+              "start": 4.06,
+              "end": 4.22,
+              "probability": 0.761474609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "N",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "-no,",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "raw": "Ermengarde",
+          "start": 1.12,
+          "end": 1.54
+        },
+        {
+          "raw": "faltered.",
+          "start": 1.54,
+          "end": 1.98
+        },
+        {
+          "raw": "Did",
+          "start": 2.2,
+          "end": 2.26
+        },
+        {
+          "raw": "you?",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "raw": "Another",
+          "start": 2.94,
+          "end": 3.24
+        },
+        {
+          "raw": "ed.",
+          "start": 3.24,
+          "end": 3.52
+        },
+        {
+          "raw": "has",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "raw": "No",
+          "start": 3.84,
+          "end": 4.06
+        },
+        {
+          "raw": "-no.",
+          "start": 4.06,
+          "end": 4.22
+        }
+      ],
+      "expected_tokens": [
+        "\"N-no,\"",
+        "Ermengarde",
+        "faltered.",
+        "\"Did",
+        "you?\"",
+        "{another",
+        "ed.",
+        "has",
+        "\"No-no,\"}"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "N -no,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "nno",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "Ermengarde",
+          "start": 1.12,
+          "end": 1.54,
+          "key": "ermengarde",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "faltered.",
+          "start": 1.54,
+          "end": 1.98,
+          "key": "faltered",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 2.2,
+          "end": 2.26,
+          "key": "did",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 2.26,
+          "end": 2.48,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Another",
+          "start": 2.94,
+          "end": 3.24,
+          "key": "another",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ed.",
+          "start": 3.24,
+          "end": 3.52,
+          "key": "ed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.7,
+          "end": 3.84,
+          "key": "has",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "No -no.",
+          "start": 3.84,
+          "end": 4.22,
+          "key": "nono",
+          "pieces": [
+            9,
+            10
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"N-no,\"",
+          "heard": "N -no,",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "expected_index": 8,
+          "text": "\"No-no,\"}",
+          "heard": "No -no.",
+          "heard_indexes": [
+            9,
+            10
+          ],
+          "start": 3.84,
+          "end": 4.22
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"N-no,\"",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "Ermengarde",
+          "start": 1.12,
+          "end": 1.54
+        },
+        {
+          "text": "faltered.",
+          "start": 1.54,
+          "end": 1.98
+        },
+        {
+          "text": "\"Did",
+          "start": 2.2,
+          "end": 2.26
+        },
+        {
+          "text": "you?\"",
+          "start": 2.26,
+          "end": 2.48
+        },
+        {
+          "text": "{another",
+          "start": 2.94,
+          "end": 3.24
+        },
+        {
+          "text": "ed.",
+          "start": 3.24,
+          "end": 3.52
+        },
+        {
+          "text": "has",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "text": "\"No-no,\"}",
+          "start": 3.84,
+          "end": 4.22
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21793602406978607
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c03997c0d86e9b733bb1acc5018692e48000857b5c12deee83455ed3244298d6",
+  "selected_reasons": []
+}

@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "c01588e64018f32604b4c07a9b09daff78e69edac07071681e2d32e6093a0818",
+  "attempts": [
+    {
+      "asr_seconds": 0.3348851203918457,
+      "alignment_seconds": 0.0009093321859836578,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Who is Emily? Ermengard asked, just as Miss Minchin had done.",
+          "start": 0.05,
+          "end": 3.99,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.28564453125
+            },
+            {
+              "text": " is",
+              "start": 0.53,
+              "end": 0.69,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Emily?",
+              "start": 0.69,
+              "end": 1.11,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Ermengard",
+              "start": 1.61,
+              "end": 2.09,
+              "probability": 0.6634521484375
+            },
+            {
+              "text": " asked,",
+              "start": 2.09,
+              "end": 2.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " just",
+              "start": 2.81,
+              "end": 2.89,
+              "probability": 0.994140625
+            },
+            {
+              "text": " as",
+              "start": 2.89,
+              "end": 3.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Miss",
+              "start": 3.11,
+              "end": 3.27,
+              "probability": 0.591796875
+            },
+            {
+              "text": " Minchin",
+              "start": 3.27,
+              "end": 3.59,
+              "probability": 0.6575927734375
+            },
+            {
+              "text": " had",
+              "start": 3.59,
+              "end": 3.75,
+              "probability": 0.9921875
+            },
+            {
+              "text": " done.",
+              "start": 3.75,
+              "end": 3.99,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "raw": "Emily?",
+          "start": 0.69,
+          "end": 1.11
+        },
+        {
+          "raw": "Ermengard",
+          "start": 1.61,
+          "end": 2.09
+        },
+        {
+          "raw": "asked,",
+          "start": 2.09,
+          "end": 2.55
+        },
+        {
+          "raw": "just",
+          "start": 2.81,
+          "end": 2.89
+        },
+        {
+          "raw": "as",
+          "start": 2.89,
+          "end": 3.11
+        },
+        {
+          "raw": "Miss",
+          "start": 3.11,
+          "end": 3.27
+        },
+        {
+          "raw": "Minchin",
+          "start": 3.27,
+          "end": 3.59
+        },
+        {
+          "raw": "had",
+          "start": 3.59,
+          "end": 3.75
+        },
+        {
+          "raw": "done.",
+          "start": 3.75,
+          "end": 3.99
+        }
+      ],
+      "expected_tokens": [
+        "\"Who",
+        "is",
+        "Emily?\"",
+        "Ermengarde",
+        "asked,",
+        "just",
+        "as",
+        "Miss",
+        "Minchin",
+        "had",
+        "done."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          11,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.69,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Emily?",
+          "start": 0.69,
+          "end": 1.11,
+          "key": "emily",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ermengard",
+          "start": 1.61,
+          "end": 2.09,
+          "key": "ermengard",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "asked,",
+          "start": 2.09,
+          "end": 2.55,
+          "key": "asked",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.81,
+          "end": 2.89,
+          "key": "just",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.89,
+          "end": 3.11,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 3.11,
+          "end": 3.27,
+          "key": "miss",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Minchin",
+          "start": 3.27,
+          "end": 3.59,
+          "key": "minchin",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.59,
+          "end": 3.75,
+          "key": "had",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "done.",
+          "start": 3.75,
+          "end": 3.99,
+          "key": "done",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Who",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "is",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "text": "Emily?\"",
+          "start": 0.69,
+          "end": 1.11
+        },
+        {
+          "text": "Ermengarde",
+          "start": 1.11,
+          "end": 1.6
+        },
+        {
+          "text": "asked,",
+          "start": 2.09,
+          "end": 2.55
+        },
+        {
+          "text": "just",
+          "start": 2.81,
+          "end": 2.89
+        },
+        {
+          "text": "as",
+          "start": 2.89,
+          "end": 3.11
+        },
+        {
+          "text": "Miss",
+          "start": 3.11,
+          "end": 3.27
+        },
+        {
+          "text": "Minchin",
+          "start": 3.27,
+          "end": 3.59
+        },
+        {
+          "text": "had",
+          "start": 3.59,
+          "end": 3.75
+        },
+        {
+          "text": "done.",
+          "start": 3.75,
+          "end": 3.99
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.3361591901630163
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b15a315a4a5c7d2abfcf408c45e2851bea46a776aa7aa39a9e06fbfc5d7fb93b",
+  "selected_reasons": []
+}

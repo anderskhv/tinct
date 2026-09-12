@@ -1,0 +1,636 @@
+{
+  "complete": true,
+  "signature": "3acecc58b92fd6f9150304601b904d6025cc0aeb87269630117038c2bc73362f",
+  "attempts": [
+    {
+      "asr_seconds": 0.5599302500486374,
+      "alignment_seconds": 0.0007064975798130035,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " the present and probable future condition of the three races which inhabit the territory of the United States.",
+          "start": 0.02,
+          "end": 6.76,
+          "words": [
+            {
+              "text": " the",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.487060546875
+            },
+            {
+              "text": " present",
+              "start": 0.52,
+              "end": 0.82,
+              "probability": 0.98828125
+            },
+            {
+              "text": " and",
+              "start": 0.82,
+              "end": 1.1,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " probable",
+              "start": 1.1,
+              "end": 1.48,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " future",
+              "start": 1.48,
+              "end": 1.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " condition",
+              "start": 1.9,
+              "end": 2.5,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 2.5,
+              "end": 3.0,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " the",
+              "start": 3.0,
+              "end": 3.14,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " three",
+              "start": 3.14,
+              "end": 3.38,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " races",
+              "start": 3.38,
+              "end": 3.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " which",
+              "start": 3.82,
+              "end": 4.5,
+              "probability": 0.6240234375
+            },
+            {
+              "text": " inhabit",
+              "start": 4.5,
+              "end": 4.9,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 4.9,
+              "end": 5.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " territory",
+              "start": 5.18,
+              "end": 5.58,
+              "probability": 0.986328125
+            },
+            {
+              "text": " of",
+              "start": 5.58,
+              "end": 5.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 5.94,
+              "end": 6.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " United",
+              "start": 6.06,
+              "end": 6.3,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " States.",
+              "start": 6.3,
+              "end": 6.76,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "the",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "present",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "raw": "and",
+          "start": 0.82,
+          "end": 1.1
+        },
+        {
+          "raw": "probable",
+          "start": 1.1,
+          "end": 1.48
+        },
+        {
+          "raw": "future",
+          "start": 1.48,
+          "end": 1.9
+        },
+        {
+          "raw": "condition",
+          "start": 1.9,
+          "end": 2.5
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 3.0
+        },
+        {
+          "raw": "the",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "raw": "three",
+          "start": 3.14,
+          "end": 3.38
+        },
+        {
+          "raw": "races",
+          "start": 3.38,
+          "end": 3.82
+        },
+        {
+          "raw": "which",
+          "start": 3.82,
+          "end": 4.5
+        },
+        {
+          "raw": "inhabit",
+          "start": 4.5,
+          "end": 4.9
+        },
+        {
+          "raw": "the",
+          "start": 4.9,
+          "end": 5.18
+        },
+        {
+          "raw": "territory",
+          "start": 5.18,
+          "end": 5.58
+        },
+        {
+          "raw": "of",
+          "start": 5.58,
+          "end": 5.94
+        },
+        {
+          "raw": "the",
+          "start": 5.94,
+          "end": 6.06
+        },
+        {
+          "raw": "United",
+          "start": 6.06,
+          "end": 6.3
+        },
+        {
+          "raw": "States.",
+          "start": 6.3,
+          "end": 6.76
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Present",
+        "And",
+        "Probable",
+        "Future",
+        "Condition",
+        "Of",
+        "The",
+        "Three",
+        "Races",
+        "Which",
+        "Inhabit",
+        "The",
+        "Territory",
+        "Of",
+        "The",
+        "United",
+        "States"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "the",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 0.52,
+          "end": 0.82,
+          "key": "present",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.82,
+          "end": 1.1,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "probable",
+          "start": 1.1,
+          "end": 1.48,
+          "key": "probable",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "future",
+          "start": 1.48,
+          "end": 1.9,
+          "key": "future",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "condition",
+          "start": 1.9,
+          "end": 2.5,
+          "key": "condition",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 3.0,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.0,
+          "end": 3.14,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 3.14,
+          "end": 3.38,
+          "key": "three",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "races",
+          "start": 3.38,
+          "end": 3.82,
+          "key": "races",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.82,
+          "end": 4.5,
+          "key": "which",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "inhabit",
+          "start": 4.5,
+          "end": 4.9,
+          "key": "inhabit",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.9,
+          "end": 5.18,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "territory",
+          "start": 5.18,
+          "end": 5.58,
+          "key": "territory",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.58,
+          "end": 5.94,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.94,
+          "end": 6.06,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "United",
+          "start": 6.06,
+          "end": 6.3,
+          "key": "united",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "States.",
+          "start": 6.3,
+          "end": 6.76,
+          "key": "states",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "Present",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "text": "And",
+          "start": 0.82,
+          "end": 1.1
+        },
+        {
+          "text": "Probable",
+          "start": 1.1,
+          "end": 1.48
+        },
+        {
+          "text": "Future",
+          "start": 1.48,
+          "end": 1.9
+        },
+        {
+          "text": "Condition",
+          "start": 1.9,
+          "end": 2.5
+        },
+        {
+          "text": "Of",
+          "start": 2.5,
+          "end": 3.0
+        },
+        {
+          "text": "The",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "text": "Three",
+          "start": 3.14,
+          "end": 3.38
+        },
+        {
+          "text": "Races",
+          "start": 3.38,
+          "end": 3.82
+        },
+        {
+          "text": "Which",
+          "start": 3.82,
+          "end": 4.5
+        },
+        {
+          "text": "Inhabit",
+          "start": 4.5,
+          "end": 4.9
+        },
+        {
+          "text": "The",
+          "start": 4.9,
+          "end": 5.18
+        },
+        {
+          "text": "Territory",
+          "start": 5.18,
+          "end": 5.58
+        },
+        {
+          "text": "Of",
+          "start": 5.58,
+          "end": 5.94
+        },
+        {
+          "text": "The",
+          "start": 5.94,
+          "end": 6.06
+        },
+        {
+          "text": "United",
+          "start": 6.06,
+          "end": 6.3
+        },
+        {
+          "text": "States",
+          "start": 6.3,
+          "end": 6.76
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5608572848141193
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "11f6f54f21ac9ff5667a4eddbd14cfb30bc129f1549264f5247c7160256f07cc",
+  "selected_reasons": []
+}

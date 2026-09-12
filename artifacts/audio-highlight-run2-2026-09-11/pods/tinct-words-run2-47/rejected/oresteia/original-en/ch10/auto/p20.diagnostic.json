@@ -1,0 +1,773 @@
+{
+  "complete": true,
+  "signature": "aa3a5c2d00f6f8396b5979235c4a8d36a161c2be5b3baf1c491a92fbbe74269c",
+  "attempts": [
+    {
+      "asr_seconds": 0.38433985199662857,
+      "alignment_seconds": 0.0007048359839245677,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leader Of The Chorus I read one will from many a diverse word, To know aright, how stands it with our lord!",
+        "hotwords": "Leader, Of, The, Chorus, I, To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leader, Of, The, Chorus, I read one will from many a diverse word, To know aright, how stands",
+          "start": 0.05,
+          "end": 5.65,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.57568359375
+            },
+            {
+              "text": " Of,",
+              "start": 0.87,
+              "end": 0.87,
+              "probability": 0.006771087646484375
+            },
+            {
+              "text": " The,",
+              "start": 0.91,
+              "end": 1.03,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " Chorus,",
+              "start": 1.03,
+              "end": 1.35,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " I",
+              "start": 1.53,
+              "end": 1.59,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " read",
+              "start": 1.59,
+              "end": 1.81,
+              "probability": 0.480224609375
+            },
+            {
+              "text": " one",
+              "start": 1.81,
+              "end": 2.07,
+              "probability": 0.64697265625
+            },
+            {
+              "text": " will",
+              "start": 2.07,
+              "end": 2.27,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " from",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " many",
+              "start": 2.49,
+              "end": 2.71,
+              "probability": 0.8984375
+            },
+            {
+              "text": " a",
+              "start": 2.71,
+              "end": 2.87,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " diverse",
+              "start": 2.87,
+              "end": 3.23,
+              "probability": 0.75341796875
+            },
+            {
+              "text": " word,",
+              "start": 3.23,
+              "end": 3.65,
+              "probability": 0.837890625
+            },
+            {
+              "text": " To",
+              "start": 3.89,
+              "end": 4.23,
+              "probability": 0.337646484375
+            },
+            {
+              "text": " know",
+              "start": 4.23,
+              "end": 4.39,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " aright,",
+              "start": 4.39,
+              "end": 4.83,
+              "probability": 0.6875
+            },
+            {
+              "text": " how",
+              "start": 5.21,
+              "end": 5.33,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " stands",
+              "start": 5.33,
+              "end": 5.65,
+              "probability": 0.9228515625
+            }
+          ]
+        },
+        {
+          "text": " it with our lord!",
+          "start": 5.65,
+          "end": 6.33,
+          "words": [
+            {
+              "text": " it",
+              "start": 5.65,
+              "end": 5.83,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " with",
+              "start": 5.83,
+              "end": 5.95,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " our",
+              "start": 5.95,
+              "end": 6.11,
+              "probability": 0.919921875
+            },
+            {
+              "text": " lord!",
+              "start": 6.11,
+              "end": 6.33,
+              "probability": 0.263427734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Of,",
+          "start": 0.87,
+          "end": 0.87
+        },
+        {
+          "raw": "The,",
+          "start": 0.91,
+          "end": 1.03
+        },
+        {
+          "raw": "Chorus,",
+          "start": 1.03,
+          "end": 1.35
+        },
+        {
+          "raw": "I",
+          "start": 1.53,
+          "end": 1.59
+        },
+        {
+          "raw": "read",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "raw": "one",
+          "start": 1.81,
+          "end": 2.07
+        },
+        {
+          "raw": "will",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "raw": "from",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "raw": "many",
+          "start": 2.49,
+          "end": 2.71
+        },
+        {
+          "raw": "a",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "raw": "diverse",
+          "start": 2.87,
+          "end": 3.23
+        },
+        {
+          "raw": "word,",
+          "start": 3.23,
+          "end": 3.65
+        },
+        {
+          "raw": "To",
+          "start": 3.89,
+          "end": 4.23
+        },
+        {
+          "raw": "know",
+          "start": 4.23,
+          "end": 4.39
+        },
+        {
+          "raw": "aright,",
+          "start": 4.39,
+          "end": 4.83
+        },
+        {
+          "raw": "how",
+          "start": 5.21,
+          "end": 5.33
+        },
+        {
+          "raw": "stands",
+          "start": 5.33,
+          "end": 5.65
+        },
+        {
+          "raw": "it",
+          "start": 5.65,
+          "end": 5.83
+        },
+        {
+          "raw": "with",
+          "start": 5.83,
+          "end": 5.95
+        },
+        {
+          "raw": "our",
+          "start": 5.95,
+          "end": 6.11
+        },
+        {
+          "raw": "lord!",
+          "start": 6.11,
+          "end": 6.33
+        }
+      ],
+      "expected_tokens": [
+        "Leader",
+        "Of",
+        "The",
+        "Chorus",
+        "I",
+        "read",
+        "one",
+        "will",
+        "from",
+        "many",
+        "a",
+        "diverse",
+        "word,",
+        "To",
+        "know",
+        "aright,",
+        "how",
+        "stands",
+        "it",
+        "with",
+        "our",
+        "lord!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leader,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "leader",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Of,",
+          "start": 0.87,
+          "end": 0.87,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "The,",
+          "start": 0.91,
+          "end": 1.03,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Chorus,",
+          "start": 1.03,
+          "end": 1.35,
+          "key": "chorus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.53,
+          "end": 1.59,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 1.59,
+          "end": 1.81,
+          "key": "read",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.81,
+          "end": 2.07,
+          "key": "one",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.07,
+          "end": 2.27,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.27,
+          "end": 2.49,
+          "key": "from",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 2.49,
+          "end": 2.71,
+          "key": "many",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.71,
+          "end": 2.87,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "diverse",
+          "start": 2.87,
+          "end": 3.23,
+          "key": "diverse",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "word,",
+          "start": 3.23,
+          "end": 3.65,
+          "key": "word",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 3.89,
+          "end": 4.23,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 4.23,
+          "end": 4.39,
+          "key": "know",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "aright,",
+          "start": 4.39,
+          "end": 4.83,
+          "key": "aright",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 5.21,
+          "end": 5.33,
+          "key": "how",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "stands",
+          "start": 5.33,
+          "end": 5.65,
+          "key": "stands",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.65,
+          "end": 5.83,
+          "key": "it",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.83,
+          "end": 5.95,
+          "key": "with",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 5.95,
+          "end": 6.11,
+          "key": "our",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "lord!",
+          "start": 6.11,
+          "end": 6.33,
+          "key": "lord",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leader",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Of",
+          "start": 0.87,
+          "end": 0.87
+        },
+        {
+          "text": "The",
+          "start": 0.91,
+          "end": 1.03
+        },
+        {
+          "text": "Chorus",
+          "start": 1.03,
+          "end": 1.35
+        },
+        {
+          "text": "I",
+          "start": 1.53,
+          "end": 1.59
+        },
+        {
+          "text": "read",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "text": "one",
+          "start": 1.81,
+          "end": 2.07
+        },
+        {
+          "text": "will",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "text": "from",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "text": "many",
+          "start": 2.49,
+          "end": 2.71
+        },
+        {
+          "text": "a",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "text": "diverse",
+          "start": 2.87,
+          "end": 3.23
+        },
+        {
+          "text": "word,",
+          "start": 3.23,
+          "end": 3.65
+        },
+        {
+          "text": "To",
+          "start": 3.89,
+          "end": 4.23
+        },
+        {
+          "text": "know",
+          "start": 4.23,
+          "end": 4.39
+        },
+        {
+          "text": "aright,",
+          "start": 4.39,
+          "end": 4.83
+        },
+        {
+          "text": "how",
+          "start": 5.21,
+          "end": 5.33
+        },
+        {
+          "text": "stands",
+          "start": 5.33,
+          "end": 5.65
+        },
+        {
+          "text": "it",
+          "start": 5.65,
+          "end": 5.83
+        },
+        {
+          "text": "with",
+          "start": 5.83,
+          "end": 5.95
+        },
+        {
+          "text": "our",
+          "start": 5.95,
+          "end": 6.11
+        },
+        {
+          "text": "lord!",
+          "start": 6.11,
+          "end": 6.33
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3854000959836412
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "758b7c74d598909a85ec41791f1d5a7976afe2d8c184a149a7e0dfdfb15374d8",
+  "selected_reasons": []
+}

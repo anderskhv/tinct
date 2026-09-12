@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "afceaefa68568464aa9923f7d41a0dac4a3567cdc7f4254f40b484fc6bc77dc7",
+  "attempts": [
+    {
+      "asr_seconds": 0.20171196802402847,
+      "alignment_seconds": 0.0003655780164990574,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Turning into Dorset Street. He said freshly and greeting through the doorway",
+          "start": 0.08,
+          "end": 4.1,
+          "words": [
+            {
+              "text": " Turning",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " into",
+              "start": 0.62,
+              "end": 0.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Dorset",
+              "start": 0.94,
+              "end": 1.26,
+              "probability": 0.943359375
+            },
+            {
+              "text": " Street.",
+              "start": 1.26,
+              "end": 1.62,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " He",
+              "start": 2.02,
+              "end": 2.2,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " said",
+              "start": 2.2,
+              "end": 2.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " freshly",
+              "start": 2.4,
+              "end": 2.84,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " and",
+              "start": 2.84,
+              "end": 3.08,
+              "probability": 0.875
+            },
+            {
+              "text": " greeting",
+              "start": 3.08,
+              "end": 3.32,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " through",
+              "start": 3.32,
+              "end": 3.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.64,
+              "end": 3.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " doorway",
+              "start": 3.78,
+              "end": 4.1,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Turning",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "into",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "raw": "Dorset",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "raw": "Street.",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "raw": "He",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "raw": "said",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "raw": "freshly",
+          "start": 2.4,
+          "end": 2.84
+        },
+        {
+          "raw": "and",
+          "start": 2.84,
+          "end": 3.08
+        },
+        {
+          "raw": "greeting",
+          "start": 3.08,
+          "end": 3.32
+        },
+        {
+          "raw": "through",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "raw": "the",
+          "start": 3.64,
+          "end": 3.78
+        },
+        {
+          "raw": "doorway",
+          "start": 3.78,
+          "end": 4.1
+        }
+      ],
+      "expected_tokens": [
+        "Turning",
+        "into",
+        "Dorset",
+        "street",
+        "he",
+        "said",
+        "freshly",
+        "in",
+        "greeting",
+        "through",
+        "the",
+        "doorway:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          12,
+          8,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Turning",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "turning",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 0.62,
+          "end": 0.94,
+          "key": "into",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dorset",
+          "start": 0.94,
+          "end": 1.26,
+          "key": "dorset",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Street.",
+          "start": 1.26,
+          "end": 1.62,
+          "key": "street",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.02,
+          "end": 2.2,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.2,
+          "end": 2.4,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "freshly",
+          "start": 2.4,
+          "end": 2.84,
+          "key": "freshly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.84,
+          "end": 3.08,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "greeting",
+          "start": 3.08,
+          "end": 3.32,
+          "key": "greeting",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 3.32,
+          "end": 3.64,
+          "key": "through",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.64,
+          "end": 3.78,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "doorway",
+          "start": 3.78,
+          "end": 4.1,
+          "key": "doorway",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Turning",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "into",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "text": "Dorset",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "text": "street",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "text": "he",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "text": "said",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "text": "freshly",
+          "start": 2.4,
+          "end": 2.84
+        },
+        {
+          "text": "in",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "text": "greeting",
+          "start": 3.08,
+          "end": 3.32
+        },
+        {
+          "text": "through",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "text": "the",
+          "start": 3.64,
+          "end": 3.78
+        },
+        {
+          "text": "doorway:",
+          "start": 3.78,
+          "end": 4.1
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.20220847602467984
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fea19b8343d645e827f2dfa575a2d4b9ca202023e1b60d2be79fdff0fe17f83b",
+  "selected_reasons": []
+}

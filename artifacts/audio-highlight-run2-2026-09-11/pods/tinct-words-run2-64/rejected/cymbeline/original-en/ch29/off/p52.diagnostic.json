@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "8182cf0985b7a9e29fdca158ebdf43804635bb5bc8e11d0b17148768ea890513",
+  "attempts": [
+    {
+      "asr_seconds": 0.2024340806528926,
+      "alignment_seconds": 0.0004674149677157402,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, that diamond upon your finger say how came at yours.",
+          "start": 0.08,
+          "end": 3.84,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.6470540364583334
+            },
+            {
+              "text": " that",
+              "start": 1.38,
+              "end": 1.64,
+              "probability": 0.943359375
+            },
+            {
+              "text": " diamond",
+              "start": 1.64,
+              "end": 2.0,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " upon",
+              "start": 2.0,
+              "end": 2.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " your",
+              "start": 2.32,
+              "end": 2.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " finger",
+              "start": 2.48,
+              "end": 2.8,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " say",
+              "start": 2.8,
+              "end": 3.06,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " how",
+              "start": 3.06,
+              "end": 3.24,
+              "probability": 0.85546875
+            },
+            {
+              "text": " came",
+              "start": 3.24,
+              "end": 3.46,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " at",
+              "start": 3.46,
+              "end": 3.58,
+              "probability": 0.59814453125
+            },
+            {
+              "text": " yours.",
+              "start": 3.58,
+              "end": 3.84,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "that",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "raw": "diamond",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "raw": "upon",
+          "start": 2.0,
+          "end": 2.32
+        },
+        {
+          "raw": "your",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "raw": "finger",
+          "start": 2.48,
+          "end": 2.8
+        },
+        {
+          "raw": "say",
+          "start": 2.8,
+          "end": 3.06
+        },
+        {
+          "raw": "how",
+          "start": 3.06,
+          "end": 3.24
+        },
+        {
+          "raw": "came",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "raw": "at",
+          "start": 3.46,
+          "end": 3.58
+        },
+        {
+          "raw": "yours.",
+          "start": 3.58,
+          "end": 3.84
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "That",
+        "diamond",
+        "upon",
+        "your",
+        "finger,",
+        "say",
+        "How",
+        "came",
+        "it",
+        "yours?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.38,
+          "end": 1.64,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "diamond",
+          "start": 1.64,
+          "end": 2.0,
+          "key": "diamond",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.0,
+          "end": 2.32,
+          "key": "upon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.32,
+          "end": 2.48,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "finger",
+          "start": 2.48,
+          "end": 2.8,
+          "key": "finger",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 2.8,
+          "end": 3.06,
+          "key": "say",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 3.06,
+          "end": 3.24,
+          "key": "how",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 3.24,
+          "end": 3.46,
+          "key": "came",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.46,
+          "end": 3.58,
+          "key": "at",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "yours.",
+          "start": 3.58,
+          "end": 3.84,
+          "key": "yours",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "That",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "text": "diamond",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "text": "upon",
+          "start": 2.0,
+          "end": 2.32
+        },
+        {
+          "text": "your",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "text": "finger,",
+          "start": 2.48,
+          "end": 2.8
+        },
+        {
+          "text": "say",
+          "start": 2.8,
+          "end": 3.06
+        },
+        {
+          "text": "How",
+          "start": 3.06,
+          "end": 3.24
+        },
+        {
+          "text": "came",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "text": "it",
+          "start": 3.46,
+          "end": 3.52
+        },
+        {
+          "text": "yours?",
+          "start": 3.58,
+          "end": 3.84
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.20307116769254208
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0f95d183392f3a091f6f1647bfdc35b05883fc7379085218b91f3448f450e048",
+  "selected_reasons": []
+}

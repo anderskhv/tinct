@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "7348a1b4aa4ecdb8fcfe54670cbf21901a84512b073973ad33fbf6664f0fdcf8",
+  "attempts": [
+    {
+      "asr_seconds": 0.1872933879494667,
+      "alignment_seconds": 0.0004129968583583832,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Viola, my lord, I do protest.",
+          "start": 0.51,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.51,
+              "end": 0.91,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " my",
+              "start": 1.13,
+              "end": 1.29,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " lord,",
+              "start": 1.29,
+              "end": 1.49,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " I",
+              "start": 1.63,
+              "end": 1.69,
+              "probability": 0.966796875
+            },
+            {
+              "text": " do",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " protest.",
+              "start": 1.83,
+              "end": 2.23,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.51,
+          "end": 0.91
+        },
+        {
+          "raw": "my",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "raw": "lord,",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "raw": "I",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "raw": "do",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "raw": "protest.",
+          "start": 1.83,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "My",
+        "lord,",
+        "I",
+        "do",
+        "protest—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.51,
+          "end": 0.91,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.13,
+          "end": 1.29,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.29,
+          "end": 1.49,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.63,
+          "end": 1.69,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "protest.",
+          "start": 1.83,
+          "end": 2.23,
+          "key": "protest",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.51,
+          "end": 0.91
+        },
+        {
+          "text": "My",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "text": "lord,",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "text": "I",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "text": "do",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "text": "protest—",
+          "start": 1.83,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18785743415355682
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "970ff92835dffd7a504f66462a2d038601e7d008ec416d33e9a973c00a94840d",
+  "selected_reasons": []
+}

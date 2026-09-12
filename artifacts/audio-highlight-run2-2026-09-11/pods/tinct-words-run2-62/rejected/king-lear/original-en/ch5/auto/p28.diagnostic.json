@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "1c7d1c8c034061609c8826521a7f6474ee120117598caca5e7a05c629d493ede",
+  "attempts": [
+    {
+      "asr_seconds": 0.07746069133281708,
+      "alignment_seconds": 0.0001335926353931427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Gentleman.",
+        "hotwords": "Enter, Gentleman"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Gentleman.",
+          "start": 0.18,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.18,
+              "end": 0.7,
+              "probability": 0.8984375
+            },
+            {
+              "text": " Gentleman.",
+              "start": 0.86,
+              "end": 1.14,
+              "probability": 0.0272674560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.18,
+          "end": 0.7
+        },
+        {
+          "raw": "Gentleman.",
+          "start": 0.86,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Gentleman."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.18,
+          "end": 0.7,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gentleman.",
+          "start": 0.86,
+          "end": 1.14,
+          "key": "gentleman",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.18,
+          "end": 0.7
+        },
+        {
+          "text": "Gentleman.",
+          "start": 0.86,
+          "end": 1.14
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07763354852795601
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d10dfed4810ad9aba604c8421d6f26644c8941f8a5d42cafd715413891807ab6",
+  "selected_reasons": []
+}

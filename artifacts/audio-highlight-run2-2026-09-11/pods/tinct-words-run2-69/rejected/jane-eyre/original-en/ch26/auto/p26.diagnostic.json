@@ -1,0 +1,1413 @@
+{
+  "complete": true,
+  "signature": "4096dd9c19519af43491519062603967d28d4da7fc4eae89f83a9e93c2d835bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.5108712529763579,
+      "alignment_seconds": 0.001380053348839283,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The clergyman looked up at the speaker and stood mute; the clerk did the same; Mr. Rochester moved slightly, as if an earthquake had rolled under his feet: taking a firmer footing, and not turning his head or eyes, he said, \"Proceed.\"",
+        "hotwords": "Mr, Rochester, Proceed"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The clergyman looked up at the speaker and stood mute. The clerk did the same. Mr. Rochester moved slightly, as if an earthquake had rolled under his feet, taking a firmer footing, and not turning his head or eyes, he said,",
+          "start": 0.02,
+          "end": 13.04,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " clergyman",
+              "start": 0.5,
+              "end": 0.98,
+              "probability": 0.972412109375
+            },
+            {
+              "text": " looked",
+              "start": 0.98,
+              "end": 1.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " up",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.5,
+              "end": 1.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " speaker",
+              "start": 1.6,
+              "end": 1.92,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " and",
+              "start": 1.92,
+              "end": 2.2,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " stood",
+              "start": 2.2,
+              "end": 2.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mute.",
+              "start": 2.44,
+              "end": 2.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " The",
+              "start": 3.38,
+              "end": 3.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " clerk",
+              "start": 3.4,
+              "end": 3.6,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " did",
+              "start": 3.6,
+              "end": 3.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.82,
+              "end": 3.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " same.",
+              "start": 3.96,
+              "end": 4.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Mr.",
+              "start": 4.88,
+              "end": 5.08,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " Rochester",
+              "start": 5.56,
+              "end": 5.58,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " moved",
+              "start": 5.58,
+              "end": 6.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " slightly,",
+              "start": 6.1,
+              "end": 6.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " as",
+              "start": 6.96,
+              "end": 7.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " if",
+              "start": 7.24,
+              "end": 7.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " an",
+              "start": 7.36,
+              "end": 7.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " earthquake",
+              "start": 7.48,
+              "end": 7.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " had",
+              "start": 7.92,
+              "end": 8.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " rolled",
+              "start": 8.12,
+              "end": 8.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " under",
+              "start": 8.4,
+              "end": 8.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 8.66,
+              "end": 8.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " feet,",
+              "start": 8.84,
+              "end": 9.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " taking",
+              "start": 9.68,
+              "end": 9.88,
+              "probability": 0.98828125
+            },
+            {
+              "text": " a",
+              "start": 9.88,
+              "end": 10.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " firmer",
+              "start": 10.06,
+              "end": 10.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " footing,",
+              "start": 10.4,
+              "end": 10.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 10.92,
+              "end": 10.96,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " not",
+              "start": 10.96,
+              "end": 11.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " turning",
+              "start": 11.18,
+              "end": 11.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 11.42,
+              "end": 11.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " head",
+              "start": 11.66,
+              "end": 11.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " or",
+              "start": 11.92,
+              "end": 12.1,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " eyes,",
+              "start": 12.1,
+              "end": 12.5,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 12.64,
+              "end": 12.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " said,",
+              "start": 12.74,
+              "end": 13.04,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " \"...Proceed.\"",
+          "start": 13.04,
+          "end": 14.44,
+          "words": [
+            {
+              "text": " \"...Proceed.\"",
+              "start": 13.04,
+              "end": 14.44,
+              "probability": 0.4676760584115982
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "clergyman",
+          "start": 0.5,
+          "end": 0.98
+        },
+        {
+          "raw": "looked",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "raw": "up",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "at",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "raw": "speaker",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "raw": "and",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "raw": "stood",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "raw": "mute.",
+          "start": 2.44,
+          "end": 2.76
+        },
+        {
+          "raw": "The",
+          "start": 3.38,
+          "end": 3.4
+        },
+        {
+          "raw": "clerk",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "raw": "did",
+          "start": 3.6,
+          "end": 3.82
+        },
+        {
+          "raw": "the",
+          "start": 3.82,
+          "end": 3.96
+        },
+        {
+          "raw": "same.",
+          "start": 3.96,
+          "end": 4.3
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.88,
+          "end": 5.08
+        },
+        {
+          "raw": "Rochester",
+          "start": 5.56,
+          "end": 5.58
+        },
+        {
+          "raw": "moved",
+          "start": 5.58,
+          "end": 6.1
+        },
+        {
+          "raw": "slightly,",
+          "start": 6.1,
+          "end": 6.64
+        },
+        {
+          "raw": "as",
+          "start": 6.96,
+          "end": 7.24
+        },
+        {
+          "raw": "if",
+          "start": 7.24,
+          "end": 7.36
+        },
+        {
+          "raw": "an",
+          "start": 7.36,
+          "end": 7.48
+        },
+        {
+          "raw": "earthquake",
+          "start": 7.48,
+          "end": 7.92
+        },
+        {
+          "raw": "had",
+          "start": 7.92,
+          "end": 8.12
+        },
+        {
+          "raw": "rolled",
+          "start": 8.12,
+          "end": 8.4
+        },
+        {
+          "raw": "under",
+          "start": 8.4,
+          "end": 8.66
+        },
+        {
+          "raw": "his",
+          "start": 8.66,
+          "end": 8.84
+        },
+        {
+          "raw": "feet,",
+          "start": 8.84,
+          "end": 9.14
+        },
+        {
+          "raw": "taking",
+          "start": 9.68,
+          "end": 9.88
+        },
+        {
+          "raw": "a",
+          "start": 9.88,
+          "end": 10.06
+        },
+        {
+          "raw": "firmer",
+          "start": 10.06,
+          "end": 10.4
+        },
+        {
+          "raw": "footing,",
+          "start": 10.4,
+          "end": 10.68
+        },
+        {
+          "raw": "and",
+          "start": 10.92,
+          "end": 10.96
+        },
+        {
+          "raw": "not",
+          "start": 10.96,
+          "end": 11.18
+        },
+        {
+          "raw": "turning",
+          "start": 11.18,
+          "end": 11.42
+        },
+        {
+          "raw": "his",
+          "start": 11.42,
+          "end": 11.66
+        },
+        {
+          "raw": "head",
+          "start": 11.66,
+          "end": 11.92
+        },
+        {
+          "raw": "or",
+          "start": 11.92,
+          "end": 12.1
+        },
+        {
+          "raw": "eyes,",
+          "start": 12.1,
+          "end": 12.5
+        },
+        {
+          "raw": "he",
+          "start": 12.64,
+          "end": 12.74
+        },
+        {
+          "raw": "said,",
+          "start": 12.74,
+          "end": 13.04
+        },
+        {
+          "raw": "\"...Proceed.\"",
+          "start": 13.04,
+          "end": 14.44
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "clergyman",
+        "looked",
+        "up",
+        "at",
+        "the",
+        "speaker",
+        "and",
+        "stood",
+        "mute;",
+        "the",
+        "clerk",
+        "did",
+        "the",
+        "same;",
+        "Mr.",
+        "Rochester",
+        "moved",
+        "slightly,",
+        "as",
+        "if",
+        "an",
+        "earthquake",
+        "had",
+        "rolled",
+        "under",
+        "his",
+        "feet:",
+        "taking",
+        "a",
+        "firmer",
+        "footing,",
+        "and",
+        "not",
+        "turning",
+        "his",
+        "head",
+        "or",
+        "eyes,",
+        "he",
+        "said,",
+        "\"Proceed.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          42,
+          0,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "clergyman",
+          "start": 0.5,
+          "end": 0.98,
+          "key": "clergyman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.98,
+          "end": 1.18,
+          "key": "looked",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "up",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.6,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "speaker",
+          "start": 1.6,
+          "end": 1.92,
+          "key": "speaker",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.92,
+          "end": 2.2,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "stood",
+          "start": 2.2,
+          "end": 2.44,
+          "key": "stood",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mute.",
+          "start": 2.44,
+          "end": 2.76,
+          "key": "mute",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.38,
+          "end": 3.4,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "clerk",
+          "start": 3.4,
+          "end": 3.6,
+          "key": "clerk",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 3.6,
+          "end": 3.82,
+          "key": "did",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.82,
+          "end": 3.96,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "same.",
+          "start": 3.96,
+          "end": 4.3,
+          "key": "same",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.88,
+          "end": 5.08,
+          "key": "mr",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Rochester",
+          "start": 5.56,
+          "end": 5.58,
+          "key": "rochester",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "moved",
+          "start": 5.58,
+          "end": 6.1,
+          "key": "moved",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "slightly,",
+          "start": 6.1,
+          "end": 6.64,
+          "key": "slightly",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.96,
+          "end": 7.24,
+          "key": "as",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 7.24,
+          "end": 7.36,
+          "key": "if",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 7.36,
+          "end": 7.48,
+          "key": "an",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "earthquake",
+          "start": 7.48,
+          "end": 7.92,
+          "key": "earthquake",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 7.92,
+          "end": 8.12,
+          "key": "had",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "rolled",
+          "start": 8.12,
+          "end": 8.4,
+          "key": "rolled",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 8.4,
+          "end": 8.66,
+          "key": "under",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 8.66,
+          "end": 8.84,
+          "key": "his",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "feet,",
+          "start": 8.84,
+          "end": 9.14,
+          "key": "feet",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "taking",
+          "start": 9.68,
+          "end": 9.88,
+          "key": "taking",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.88,
+          "end": 10.06,
+          "key": "a",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "firmer",
+          "start": 10.06,
+          "end": 10.4,
+          "key": "firmer",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "footing,",
+          "start": 10.4,
+          "end": 10.68,
+          "key": "footing",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.92,
+          "end": 10.96,
+          "key": "and",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 10.96,
+          "end": 11.18,
+          "key": "not",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "turning",
+          "start": 11.18,
+          "end": 11.42,
+          "key": "turning",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 11.42,
+          "end": 11.66,
+          "key": "his",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 11.66,
+          "end": 11.92,
+          "key": "head",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 11.92,
+          "end": 12.1,
+          "key": "or",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "eyes,",
+          "start": 12.1,
+          "end": 12.5,
+          "key": "eyes",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.64,
+          "end": 12.74,
+          "key": "he",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 12.74,
+          "end": 13.04,
+          "key": "said",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "\"...Proceed.\"",
+          "start": 13.04,
+          "end": 14.44,
+          "key": "proceed",
+          "pieces": [
+            41
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "clergyman",
+          "start": 0.5,
+          "end": 0.98
+        },
+        {
+          "text": "looked",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "text": "up",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "at",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "the",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "text": "speaker",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "text": "and",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "text": "stood",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "text": "mute;",
+          "start": 2.44,
+          "end": 2.76
+        },
+        {
+          "text": "the",
+          "start": 3.38,
+          "end": 3.4
+        },
+        {
+          "text": "clerk",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "text": "did",
+          "start": 3.6,
+          "end": 3.82
+        },
+        {
+          "text": "the",
+          "start": 3.82,
+          "end": 3.96
+        },
+        {
+          "text": "same;",
+          "start": 3.96,
+          "end": 4.3
+        },
+        {
+          "text": "Mr.",
+          "start": 4.88,
+          "end": 5.08
+        },
+        {
+          "text": "Rochester",
+          "start": 5.56,
+          "end": 5.58
+        },
+        {
+          "text": "moved",
+          "start": 5.58,
+          "end": 6.1
+        },
+        {
+          "text": "slightly,",
+          "start": 6.1,
+          "end": 6.64
+        },
+        {
+          "text": "as",
+          "start": 6.96,
+          "end": 7.24
+        },
+        {
+          "text": "if",
+          "start": 7.24,
+          "end": 7.36
+        },
+        {
+          "text": "an",
+          "start": 7.36,
+          "end": 7.48
+        },
+        {
+          "text": "earthquake",
+          "start": 7.48,
+          "end": 7.92
+        },
+        {
+          "text": "had",
+          "start": 7.92,
+          "end": 8.12
+        },
+        {
+          "text": "rolled",
+          "start": 8.12,
+          "end": 8.4
+        },
+        {
+          "text": "under",
+          "start": 8.4,
+          "end": 8.66
+        },
+        {
+          "text": "his",
+          "start": 8.66,
+          "end": 8.84
+        },
+        {
+          "text": "feet:",
+          "start": 8.84,
+          "end": 9.14
+        },
+        {
+          "text": "taking",
+          "start": 9.68,
+          "end": 9.88
+        },
+        {
+          "text": "a",
+          "start": 9.88,
+          "end": 10.06
+        },
+        {
+          "text": "firmer",
+          "start": 10.06,
+          "end": 10.4
+        },
+        {
+          "text": "footing,",
+          "start": 10.4,
+          "end": 10.68
+        },
+        {
+          "text": "and",
+          "start": 10.92,
+          "end": 10.96
+        },
+        {
+          "text": "not",
+          "start": 10.96,
+          "end": 11.18
+        },
+        {
+          "text": "turning",
+          "start": 11.18,
+          "end": 11.42
+        },
+        {
+          "text": "his",
+          "start": 11.42,
+          "end": 11.66
+        },
+        {
+          "text": "head",
+          "start": 11.66,
+          "end": 11.92
+        },
+        {
+          "text": "or",
+          "start": 11.92,
+          "end": 12.1
+        },
+        {
+          "text": "eyes,",
+          "start": 12.1,
+          "end": 12.5
+        },
+        {
+          "text": "he",
+          "start": 12.64,
+          "end": 12.74
+        },
+        {
+          "text": "said,",
+          "start": 12.74,
+          "end": 13.04
+        },
+        {
+          "text": "\"Proceed.\"",
+          "start": 13.04,
+          "end": 14.44
+        }
+      ],
+      "stats": {
+        "expected_words": 42,
+        "heard_words": 42,
+        "matched_words": 42
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5128981629386544
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "80d4f027f5b274aa70f83033c989077dcc8bf83f0e81ede6f6eda0fc7a4d2640",
+  "selected_reasons": []
+}

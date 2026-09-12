@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "1e386889f8ca04d3a22d48400ed6c7fb794d61e09a68b384702f459dbe47d261",
+  "attempts": [
+    {
+      "asr_seconds": 0.17946092411875725,
+      "alignment_seconds": 0.00042638182640075684,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio. Nay, good my lord, be not angry.",
+        "hotwords": "Antonio, Nay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio, Nay, good my lord, be not angry.",
+          "start": 0.47,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.47,
+              "end": 0.83,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " Nay,",
+              "start": 1.55,
+              "end": 1.59,
+              "probability": 0.1927490234375
+            },
+            {
+              "text": " good",
+              "start": 1.77,
+              "end": 1.77,
+              "probability": 0.436767578125
+            },
+            {
+              "text": " my",
+              "start": 1.77,
+              "end": 1.93,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " lord,",
+              "start": 1.93,
+              "end": 2.15,
+              "probability": 0.64111328125
+            },
+            {
+              "text": " be",
+              "start": 2.29,
+              "end": 2.33,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " not",
+              "start": 2.33,
+              "end": 2.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " angry.",
+              "start": 2.49,
+              "end": 2.83,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.47,
+          "end": 0.83
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.55,
+          "end": 1.59
+        },
+        {
+          "raw": "good",
+          "start": 1.77,
+          "end": 1.77
+        },
+        {
+          "raw": "my",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "raw": "lord,",
+          "start": 1.93,
+          "end": 2.15
+        },
+        {
+          "raw": "be",
+          "start": 2.29,
+          "end": 2.33
+        },
+        {
+          "raw": "not",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "raw": "angry.",
+          "start": 2.49,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "Nay,",
+        "good",
+        "my",
+        "lord,",
+        "be",
+        "not",
+        "angry."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.47,
+          "end": 0.83,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.55,
+          "end": 1.59,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.77,
+          "end": 1.77,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.77,
+          "end": 1.93,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.93,
+          "end": 2.15,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.29,
+          "end": 2.33,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.33,
+          "end": 2.49,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "angry.",
+          "start": 2.49,
+          "end": 2.83,
+          "key": "angry",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.47,
+          "end": 0.83
+        },
+        {
+          "text": "Nay,",
+          "start": 1.55,
+          "end": 1.59
+        },
+        {
+          "text": "good",
+          "start": 1.77,
+          "end": 1.77
+        },
+        {
+          "text": "my",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "text": "lord,",
+          "start": 1.93,
+          "end": 2.15
+        },
+        {
+          "text": "be",
+          "start": 2.29,
+          "end": 2.33
+        },
+        {
+          "text": "not",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "text": "angry.",
+          "start": 2.49,
+          "end": 2.83
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18005098402500153
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "83abf643fe1f24610af408878757d1f61e265de791b289b20e00794b7cf40f60",
+  "selected_reasons": []
+}

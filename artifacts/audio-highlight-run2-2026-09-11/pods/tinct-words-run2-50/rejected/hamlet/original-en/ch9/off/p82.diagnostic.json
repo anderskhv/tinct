@@ -1,0 +1,319 @@
+{
+  "complete": true,
+  "signature": "0885059fcd43a3497554c7c89920efb57a5a817109f74ceea9ee436cc99efe35",
+  "attempts": [
+    {
+      "asr_seconds": 0.21161642111837864,
+      "alignment_seconds": 0.00016830861568450928,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Queen the lady protests too much me. Thanks",
+          "start": 0.08,
+          "end": 2.98,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " the",
+              "start": 0.66,
+              "end": 1.24,
+              "probability": 0.36279296875
+            },
+            {
+              "text": " lady",
+              "start": 1.24,
+              "end": 1.46,
+              "probability": 0.974609375
+            },
+            {
+              "text": " protests",
+              "start": 1.46,
+              "end": 1.92,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " too",
+              "start": 1.92,
+              "end": 2.18,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " much",
+              "start": 2.18,
+              "end": 2.44,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " me.",
+              "start": 2.44,
+              "end": 2.6,
+              "probability": 0.62939453125
+            },
+            {
+              "text": " Thanks",
+              "start": 2.84,
+              "end": 2.98,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "the",
+          "start": 0.66,
+          "end": 1.24
+        },
+        {
+          "raw": "lady",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "raw": "protests",
+          "start": 1.46,
+          "end": 1.92
+        },
+        {
+          "raw": "too",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "raw": "much",
+          "start": 2.18,
+          "end": 2.44
+        },
+        {
+          "raw": "me.",
+          "start": 2.44,
+          "end": 2.6
+        },
+        {
+          "raw": "Thanks",
+          "start": 2.84,
+          "end": 2.98
+        }
+      ],
+      "expected_tokens": [
+        "Queen.",
+        "The",
+        "lady",
+        "protests",
+        "too",
+        "much,",
+        "methinks."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.66,
+          "end": 1.24,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 1.24,
+          "end": 1.46,
+          "key": "lady",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "protests",
+          "start": 1.46,
+          "end": 1.92,
+          "key": "protests",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 1.92,
+          "end": 2.18,
+          "key": "too",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.18,
+          "end": 2.44,
+          "key": "much",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.44,
+          "end": 2.6,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Thanks",
+          "start": 2.84,
+          "end": 2.98,
+          "key": "thanks",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen.",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "The",
+          "start": 0.66,
+          "end": 1.24
+        },
+        {
+          "text": "lady",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "text": "protests",
+          "start": 1.46,
+          "end": 1.92
+        },
+        {
+          "text": "too",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "text": "much,",
+          "start": 2.18,
+          "end": 2.44
+        },
+        {
+          "text": "methinks.",
+          "start": 2.44,
+          "end": 2.71
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.21185029484331608
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f2670df43cd7e5b494343e0b4372f5f63cf5260833731f64ae5251321d97b2f9",
+  "selected_reasons": []
+}

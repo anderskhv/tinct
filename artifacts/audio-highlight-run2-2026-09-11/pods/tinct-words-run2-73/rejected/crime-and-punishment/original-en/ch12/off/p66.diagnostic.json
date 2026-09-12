@@ -1,0 +1,374 @@
+{
+  "complete": true,
+  "signature": "ab2ca9bce4252b03091cf2db68254dfd6e0a52e738c83a3ef143a7d6d8be7ea0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2194333989173174,
+      "alignment_seconds": 0.0004911860451102257,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " How does he get hold of them?",
+          "start": 0.05,
+          "end": 1.41,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.59716796875
+            },
+            {
+              "text": " does",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he",
+              "start": 0.63,
+              "end": 0.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " get",
+              "start": 0.73,
+              "end": 0.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hold",
+              "start": 0.83,
+              "end": 1.03,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " of",
+              "start": 1.03,
+              "end": 1.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " them?",
+              "start": 1.19,
+              "end": 1.41,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Ask Zosimov.",
+          "start": 2.01,
+          "end": 2.53,
+          "words": [
+            {
+              "text": " Ask",
+              "start": 2.01,
+              "end": 2.01,
+              "probability": 0.1510009765625
+            },
+            {
+              "text": " Zosimov.",
+              "start": 2.01,
+              "end": 2.53,
+              "probability": 0.7008463541666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "does",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "he",
+          "start": 0.63,
+          "end": 0.73
+        },
+        {
+          "raw": "get",
+          "start": 0.73,
+          "end": 0.83
+        },
+        {
+          "raw": "hold",
+          "start": 0.83,
+          "end": 1.03
+        },
+        {
+          "raw": "of",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "raw": "them?",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "raw": "Ask",
+          "start": 2.01,
+          "end": 2.01
+        },
+        {
+          "raw": "Zosimov.",
+          "start": 2.01,
+          "end": 2.53
+        }
+      ],
+      "expected_tokens": [
+        "\"How",
+        "does",
+        "he",
+        "get",
+        "hold",
+        "of",
+        "them?\"",
+        "asked",
+        "Zossimov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          9,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "does",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.63,
+          "end": 0.73,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 0.73,
+          "end": 0.83,
+          "key": "get",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 0.83,
+          "end": 1.03,
+          "key": "hold",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.03,
+          "end": 1.19,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "them?",
+          "start": 1.19,
+          "end": 1.41,
+          "key": "them",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ask",
+          "start": 2.01,
+          "end": 2.01,
+          "key": "ask",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Zosimov.",
+          "start": 2.01,
+          "end": 2.53,
+          "key": "zosimov",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"How",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "does",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "he",
+          "start": 0.63,
+          "end": 0.73
+        },
+        {
+          "text": "get",
+          "start": 0.73,
+          "end": 0.83
+        },
+        {
+          "text": "hold",
+          "start": 0.83,
+          "end": 1.03
+        },
+        {
+          "text": "of",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "text": "them?\"",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "text": "asked",
+          "start": 1.41,
+          "end": 1.97
+        },
+        {
+          "text": "Zossimov.",
+          "start": 1.97,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.220107801258564
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3cbf24ad303742f7d61b7554d916e093b810148ead29b6dfb1334159fe08ee66",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

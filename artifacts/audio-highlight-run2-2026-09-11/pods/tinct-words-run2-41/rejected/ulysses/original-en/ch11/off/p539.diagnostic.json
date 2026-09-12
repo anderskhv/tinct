@@ -1,0 +1,523 @@
+{
+  "complete": true,
+  "signature": "5580d69bc62e14df86f968ee71245dbd05688ffa86103ab7280b453ac1c834de",
+  "attempts": [
+    {
+      "asr_seconds": 0.21082736505195498,
+      "alignment_seconds": 0.0006059990264475346,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bless me father, dollared the crappie cried. Bless me and let me go",
+          "start": 0.05,
+          "end": 4.25,
+          "words": [
+            {
+              "text": " Bless",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.364990234375
+            },
+            {
+              "text": " me",
+              "start": 0.59,
+              "end": 0.81,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " father,",
+              "start": 0.81,
+              "end": 1.21,
+              "probability": 0.371337890625
+            },
+            {
+              "text": " dollared",
+              "start": 1.53,
+              "end": 1.83,
+              "probability": 0.3963623046875
+            },
+            {
+              "text": " the",
+              "start": 1.83,
+              "end": 1.97,
+              "probability": 0.9765625
+            },
+            {
+              "text": " crappie",
+              "start": 1.97,
+              "end": 2.31,
+              "probability": 0.8875325520833334
+            },
+            {
+              "text": " cried.",
+              "start": 2.31,
+              "end": 2.71,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " Bless",
+              "start": 3.31,
+              "end": 3.37,
+              "probability": 0.9765625
+            },
+            {
+              "text": " me",
+              "start": 3.37,
+              "end": 3.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 3.57,
+              "end": 3.71,
+              "probability": 0.97265625
+            },
+            {
+              "text": " let",
+              "start": 3.71,
+              "end": 3.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 3.83,
+              "end": 3.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " go",
+              "start": 3.95,
+              "end": 4.25,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bless",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "me",
+          "start": 0.59,
+          "end": 0.81
+        },
+        {
+          "raw": "father,",
+          "start": 0.81,
+          "end": 1.21
+        },
+        {
+          "raw": "dollared",
+          "start": 1.53,
+          "end": 1.83
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "raw": "crappie",
+          "start": 1.97,
+          "end": 2.31
+        },
+        {
+          "raw": "cried.",
+          "start": 2.31,
+          "end": 2.71
+        },
+        {
+          "raw": "Bless",
+          "start": 3.31,
+          "end": 3.37
+        },
+        {
+          "raw": "me",
+          "start": 3.37,
+          "end": 3.57
+        },
+        {
+          "raw": "and",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "raw": "let",
+          "start": 3.71,
+          "end": 3.83
+        },
+        {
+          "raw": "me",
+          "start": 3.83,
+          "end": 3.95
+        },
+        {
+          "raw": "go",
+          "start": 3.95,
+          "end": 4.25
+        }
+      ],
+      "expected_tokens": [
+        "—_Bless",
+        "me,",
+        "father,_",
+        "Dollard",
+        "the",
+        "croppy",
+        "cried.",
+        "_Bless",
+        "me",
+        "and",
+        "let",
+        "me",
+        "go._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          13,
+          6,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bless",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "bless",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.59,
+          "end": 0.81,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "father,",
+          "start": 0.81,
+          "end": 1.21,
+          "key": "father",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dollared",
+          "start": 1.53,
+          "end": 1.83,
+          "key": "dollared",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 1.97,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "crappie",
+          "start": 1.97,
+          "end": 2.31,
+          "key": "crappie",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cried.",
+          "start": 2.31,
+          "end": 2.71,
+          "key": "cried",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Bless",
+          "start": 3.31,
+          "end": 3.37,
+          "key": "bless",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.37,
+          "end": 3.57,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.57,
+          "end": 3.71,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 3.71,
+          "end": 3.83,
+          "key": "let",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.83,
+          "end": 3.95,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 3.95,
+          "end": 4.25,
+          "key": "go",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_Bless",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "me,",
+          "start": 0.59,
+          "end": 0.81
+        },
+        {
+          "text": "father,_",
+          "start": 0.81,
+          "end": 1.21
+        },
+        {
+          "text": "Dollard",
+          "start": 1.21,
+          "end": 1.52
+        },
+        {
+          "text": "the",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "text": "croppy",
+          "start": 1.97,
+          "end": 2.14
+        },
+        {
+          "text": "cried.",
+          "start": 2.31,
+          "end": 2.71
+        },
+        {
+          "text": "_Bless",
+          "start": 3.31,
+          "end": 3.37
+        },
+        {
+          "text": "me",
+          "start": 3.37,
+          "end": 3.57
+        },
+        {
+          "text": "and",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "text": "let",
+          "start": 3.71,
+          "end": 3.83
+        },
+        {
+          "text": "me",
+          "start": 3.83,
+          "end": 3.95
+        },
+        {
+          "text": "go._",
+          "start": 3.95,
+          "end": 4.25
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2116456562653184
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dae16f1bbb19136f1a1a99d75d9522afba0847a8d7d6e01022cfda650574380b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

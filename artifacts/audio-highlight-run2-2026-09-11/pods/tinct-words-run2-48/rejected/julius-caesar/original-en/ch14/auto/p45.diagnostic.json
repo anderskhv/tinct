@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "7a56e97f7d44ae79447dd40b46e361bb1bff6bed7107eafc468085141ce013fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.31502882950007915,
+      "alignment_seconds": 0.00035611633211374283,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassius. Then, if we lose this battle, You are contented to be led in triumph Thorough the streets of Rome?",
+        "hotwords": "Cassius, Then, You, Thorough, Rome"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassius. Then, if we lose this battle, You are contented to be led in triumph Thorough the streets of Rome?",
+          "start": 0.02,
+          "end": 6.38,
+          "words": [
+            {
+              "text": " Cassius.",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.920166015625
+            },
+            {
+              "text": " Then,",
+              "start": 1.38,
+              "end": 1.7,
+              "probability": 0.82373046875
+            },
+            {
+              "text": " if",
+              "start": 1.8,
+              "end": 2.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " we",
+              "start": 2.08,
+              "end": 2.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lose",
+              "start": 2.24,
+              "end": 2.46,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " this",
+              "start": 2.46,
+              "end": 2.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " battle,",
+              "start": 2.78,
+              "end": 3.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " You",
+              "start": 3.46,
+              "end": 3.52,
+              "probability": 0.0113067626953125
+            },
+            {
+              "text": " are",
+              "start": 3.52,
+              "end": 3.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " contented",
+              "start": 3.64,
+              "end": 4.14,
+              "probability": 0.957275390625
+            },
+            {
+              "text": " to",
+              "start": 4.14,
+              "end": 4.22,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " be",
+              "start": 4.22,
+              "end": 4.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " led",
+              "start": 4.36,
+              "end": 4.5,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " in",
+              "start": 4.5,
+              "end": 4.68,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " triumph",
+              "start": 4.68,
+              "end": 5.12,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " Thorough",
+              "start": 5.12,
+              "end": 5.5,
+              "probability": 0.46636962890625
+            },
+            {
+              "text": " the",
+              "start": 5.5,
+              "end": 5.72,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " streets",
+              "start": 5.72,
+              "end": 5.92,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " of",
+              "start": 5.92,
+              "end": 6.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Rome?",
+              "start": 6.14,
+              "end": 6.38,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Then,",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "raw": "if",
+          "start": 1.8,
+          "end": 2.08
+        },
+        {
+          "raw": "we",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "raw": "lose",
+          "start": 2.24,
+          "end": 2.46
+        },
+        {
+          "raw": "this",
+          "start": 2.46,
+          "end": 2.78
+        },
+        {
+          "raw": "battle,",
+          "start": 2.78,
+          "end": 3.08
+        },
+        {
+          "raw": "You",
+          "start": 3.46,
+          "end": 3.52
+        },
+        {
+          "raw": "are",
+          "start": 3.52,
+          "end": 3.64
+        },
+        {
+          "raw": "contented",
+          "start": 3.64,
+          "end": 4.14
+        },
+        {
+          "raw": "to",
+          "start": 4.14,
+          "end": 4.22
+        },
+        {
+          "raw": "be",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "raw": "led",
+          "start": 4.36,
+          "end": 4.5
+        },
+        {
+          "raw": "in",
+          "start": 4.5,
+          "end": 4.68
+        },
+        {
+          "raw": "triumph",
+          "start": 4.68,
+          "end": 5.12
+        },
+        {
+          "raw": "Thorough",
+          "start": 5.12,
+          "end": 5.5
+        },
+        {
+          "raw": "the",
+          "start": 5.5,
+          "end": 5.72
+        },
+        {
+          "raw": "streets",
+          "start": 5.72,
+          "end": 5.92
+        },
+        {
+          "raw": "of",
+          "start": 5.92,
+          "end": 6.14
+        },
+        {
+          "raw": "Rome?",
+          "start": 6.14,
+          "end": 6.38
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Then,",
+        "if",
+        "we",
+        "lose",
+        "this",
+        "battle,",
+        "You",
+        "are",
+        "contented",
+        "to",
+        "be",
+        "led",
+        "in",
+        "triumph",
+        "Thorough",
+        "the",
+        "streets",
+        "of",
+        "Rome?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius.",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Then,",
+          "start": 1.38,
+          "end": 1.7,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.8,
+          "end": 2.08,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.08,
+          "end": 2.24,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lose",
+          "start": 2.24,
+          "end": 2.46,
+          "key": "lose",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.46,
+          "end": 2.78,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "battle,",
+          "start": 2.78,
+          "end": 3.08,
+          "key": "battle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 3.46,
+          "end": 3.52,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.52,
+          "end": 3.64,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "contented",
+          "start": 3.64,
+          "end": 4.14,
+          "key": "contented",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.14,
+          "end": 4.22,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.22,
+          "end": 4.36,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "led",
+          "start": 4.36,
+          "end": 4.5,
+          "key": "led",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.5,
+          "end": 4.68,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "triumph",
+          "start": 4.68,
+          "end": 5.12,
+          "key": "triumph",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Thorough",
+          "start": 5.12,
+          "end": 5.5,
+          "key": "thorough",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.5,
+          "end": 5.72,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "streets",
+          "start": 5.72,
+          "end": 5.92,
+          "key": "streets",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.92,
+          "end": 6.14,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Rome?",
+          "start": 6.14,
+          "end": 6.38,
+          "key": "rome",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Then,",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "text": "if",
+          "start": 1.8,
+          "end": 2.08
+        },
+        {
+          "text": "we",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "text": "lose",
+          "start": 2.24,
+          "end": 2.46
+        },
+        {
+          "text": "this",
+          "start": 2.46,
+          "end": 2.78
+        },
+        {
+          "text": "battle,",
+          "start": 2.78,
+          "end": 3.08
+        },
+        {
+          "text": "You",
+          "start": 3.46,
+          "end": 3.52
+        },
+        {
+          "text": "are",
+          "start": 3.52,
+          "end": 3.64
+        },
+        {
+          "text": "contented",
+          "start": 3.64,
+          "end": 4.14
+        },
+        {
+          "text": "to",
+          "start": 4.14,
+          "end": 4.22
+        },
+        {
+          "text": "be",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "text": "led",
+          "start": 4.36,
+          "end": 4.5
+        },
+        {
+          "text": "in",
+          "start": 4.5,
+          "end": 4.68
+        },
+        {
+          "text": "triumph",
+          "start": 4.68,
+          "end": 5.12
+        },
+        {
+          "text": "Thorough",
+          "start": 5.12,
+          "end": 5.5
+        },
+        {
+          "text": "the",
+          "start": 5.5,
+          "end": 5.72
+        },
+        {
+          "text": "streets",
+          "start": 5.72,
+          "end": 5.92
+        },
+        {
+          "text": "of",
+          "start": 5.92,
+          "end": 6.14
+        },
+        {
+          "text": "Rome?",
+          "start": 6.14,
+          "end": 6.38
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31561708357185125
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fcf90967269182a7a9c9b3a259f54bbd437f869f12140e37fce191fef2c576f8",
+  "selected_reasons": []
+}

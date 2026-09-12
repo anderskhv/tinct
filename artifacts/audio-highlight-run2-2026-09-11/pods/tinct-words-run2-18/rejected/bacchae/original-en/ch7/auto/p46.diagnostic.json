@@ -1,0 +1,534 @@
+{
+  "complete": true,
+  "signature": "c4847ffd0f1cab8db97def5d3898930907d53d6dd6e6317e30d5c0ae1ab4ba41",
+  "attempts": [
+    {
+      "asr_seconds": 0.3321445039473474,
+      "alignment_seconds": 0.0006045249756425619,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dionysus. First we need A rich and trailing robe of fine-linen To gird thee.",
+        "hotwords": "Dionysus, First, A, To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dionysus, First we need A rich and trailing robe of fine-linen To gird thee.",
+          "start": 0.63,
+          "end": 5.07,
+          "words": [
+            {
+              "text": " Dionysus,",
+              "start": 0.63,
+              "end": 1.15,
+              "probability": 0.9689127604166666
+            },
+            {
+              "text": " First",
+              "start": 1.59,
+              "end": 1.85,
+              "probability": 0.050048828125
+            },
+            {
+              "text": " we",
+              "start": 1.85,
+              "end": 2.11,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " need",
+              "start": 2.11,
+              "end": 2.25,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " A",
+              "start": 2.25,
+              "end": 2.41,
+              "probability": 0.0023059844970703125
+            },
+            {
+              "text": " rich",
+              "start": 2.41,
+              "end": 2.67,
+              "probability": 0.94921875
+            },
+            {
+              "text": " and",
+              "start": 2.67,
+              "end": 2.89,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " trailing",
+              "start": 2.89,
+              "end": 3.31,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " robe",
+              "start": 3.31,
+              "end": 3.61,
+              "probability": 0.927734375
+            },
+            {
+              "text": " of",
+              "start": 3.61,
+              "end": 3.85,
+              "probability": 0.77783203125
+            },
+            {
+              "text": " fine",
+              "start": 3.85,
+              "end": 4.09,
+              "probability": 0.93701171875
+            },
+            {
+              "text": "-linen",
+              "start": 4.09,
+              "end": 4.39,
+              "probability": 0.6101544698079427
+            },
+            {
+              "text": " To",
+              "start": 4.39,
+              "end": 4.55,
+              "probability": 0.089111328125
+            },
+            {
+              "text": " gird",
+              "start": 4.55,
+              "end": 4.77,
+              "probability": 0.966552734375
+            },
+            {
+              "text": " thee.",
+              "start": 4.77,
+              "end": 5.07,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dionysus,",
+          "start": 0.63,
+          "end": 1.15
+        },
+        {
+          "raw": "First",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "raw": "we",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "raw": "need",
+          "start": 2.11,
+          "end": 2.25
+        },
+        {
+          "raw": "A",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "raw": "rich",
+          "start": 2.41,
+          "end": 2.67
+        },
+        {
+          "raw": "and",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "raw": "trailing",
+          "start": 2.89,
+          "end": 3.31
+        },
+        {
+          "raw": "robe",
+          "start": 3.31,
+          "end": 3.61
+        },
+        {
+          "raw": "of",
+          "start": 3.61,
+          "end": 3.85
+        },
+        {
+          "raw": "fine",
+          "start": 3.85,
+          "end": 4.09
+        },
+        {
+          "raw": "-linen",
+          "start": 4.09,
+          "end": 4.39
+        },
+        {
+          "raw": "To",
+          "start": 4.39,
+          "end": 4.55
+        },
+        {
+          "raw": "gird",
+          "start": 4.55,
+          "end": 4.77
+        },
+        {
+          "raw": "thee.",
+          "start": 4.77,
+          "end": 5.07
+        }
+      ],
+      "expected_tokens": [
+        "Dionysus.",
+        "First",
+        "we",
+        "need",
+        "A",
+        "rich",
+        "and",
+        "trailing",
+        "robe",
+        "of",
+        "fine-linen",
+        "To",
+        "gird",
+        "thee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dionysus,",
+          "start": 0.63,
+          "end": 1.15,
+          "key": "dionysus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "First",
+          "start": 1.59,
+          "end": 1.85,
+          "key": "first",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.85,
+          "end": 2.11,
+          "key": "we",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "need",
+          "start": 2.11,
+          "end": 2.25,
+          "key": "need",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 2.25,
+          "end": 2.41,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "rich",
+          "start": 2.41,
+          "end": 2.67,
+          "key": "rich",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.67,
+          "end": 2.89,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "trailing",
+          "start": 2.89,
+          "end": 3.31,
+          "key": "trailing",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "robe",
+          "start": 3.31,
+          "end": 3.61,
+          "key": "robe",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.61,
+          "end": 3.85,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fine -linen",
+          "start": 3.85,
+          "end": 4.39,
+          "key": "finelinen",
+          "pieces": [
+            10,
+            11
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 4.39,
+          "end": 4.55,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "gird",
+          "start": 4.55,
+          "end": 4.77,
+          "key": "gird",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 4.77,
+          "end": 5.07,
+          "key": "thee",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "fine-linen",
+          "heard": "fine -linen",
+          "heard_indexes": [
+            10,
+            11
+          ],
+          "start": 3.85,
+          "end": 4.39
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Dionysus.",
+          "start": 0.63,
+          "end": 1.15
+        },
+        {
+          "text": "First",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "text": "we",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "text": "need",
+          "start": 2.11,
+          "end": 2.25
+        },
+        {
+          "text": "A",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "text": "rich",
+          "start": 2.41,
+          "end": 2.67
+        },
+        {
+          "text": "and",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "text": "trailing",
+          "start": 2.89,
+          "end": 3.31
+        },
+        {
+          "text": "robe",
+          "start": 3.31,
+          "end": 3.61
+        },
+        {
+          "text": "of",
+          "start": 3.61,
+          "end": 3.85
+        },
+        {
+          "text": "fine-linen",
+          "start": 3.85,
+          "end": 4.39
+        },
+        {
+          "text": "To",
+          "start": 4.39,
+          "end": 4.55
+        },
+        {
+          "text": "gird",
+          "start": 4.55,
+          "end": 4.77
+        },
+        {
+          "text": "thee.",
+          "start": 4.77,
+          "end": 5.07
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3329419340007007
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5a97208c7eeaa3dfaaddf2d09a03a431330204a55c96e61f4c89be5166d6ac9d",
+  "selected_reasons": []
+}

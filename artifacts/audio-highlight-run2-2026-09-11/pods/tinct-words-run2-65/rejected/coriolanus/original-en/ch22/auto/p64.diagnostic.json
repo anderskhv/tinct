@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "9c00922cf6330900e46f3f7f9c54f34a81783c9313547b6df0d257023b7b9eca",
+  "attempts": [
+    {
+      "asr_seconds": 0.16180838411673903,
+      "alignment_seconds": 0.00022090598940849304,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Tribunes. Say not we brought it.",
+        "hotwords": "Tribunes, Say"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Tribunes, Say not we brought it.",
+          "start": 0.48,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " Tribunes,",
+              "start": 0.48,
+              "end": 0.92,
+              "probability": 0.5911865234375
+            },
+            {
+              "text": " Say",
+              "start": 1.26,
+              "end": 1.44,
+              "probability": 0.045196533203125
+            },
+            {
+              "text": " not",
+              "start": 1.44,
+              "end": 1.6,
+              "probability": 0.1632080078125
+            },
+            {
+              "text": " we",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 0.7421875
+            },
+            {
+              "text": " brought",
+              "start": 1.72,
+              "end": 1.94,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " it.",
+              "start": 1.94,
+              "end": 2.16,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tribunes,",
+          "start": 0.48,
+          "end": 0.92
+        },
+        {
+          "raw": "Say",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "raw": "not",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "raw": "we",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "raw": "brought",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "raw": "it.",
+          "start": 1.94,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "Tribunes.",
+        "Say",
+        "not",
+        "we",
+        "brought",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tribunes,",
+          "start": 0.48,
+          "end": 0.92,
+          "key": "tribunes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Say",
+          "start": 1.26,
+          "end": 1.44,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.44,
+          "end": 1.6,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.6,
+          "end": 1.72,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "brought",
+          "start": 1.72,
+          "end": 1.94,
+          "key": "brought",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.94,
+          "end": 2.16,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tribunes.",
+          "start": 0.48,
+          "end": 0.92
+        },
+        {
+          "text": "Say",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "text": "not",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "text": "we",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "text": "brought",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "text": "it.",
+          "start": 1.94,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1621124930679798
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8692b51484fca9fc1b86e6f083053f151c9b94092f8d59b3c5b02b32627e212c",
+  "selected_reasons": []
+}

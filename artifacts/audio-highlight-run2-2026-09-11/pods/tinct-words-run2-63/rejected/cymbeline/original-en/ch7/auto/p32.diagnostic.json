@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "f6c299a7d25e9d379f9c99e3d49ba83244120af50e04ec4d2aefdf1c76f6ee62",
+  "attempts": [
+    {
+      "asr_seconds": 0.14402439631521702,
+      "alignment_seconds": 0.00036821886897087097,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Imogen. Not he, I hope.",
+        "hotwords": "Imogen, Not, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Imogen, Not he, I hope.",
+          "start": 0.42,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " Imogen,",
+              "start": 0.42,
+              "end": 0.76,
+              "probability": 0.926513671875
+            },
+            {
+              "text": " Not",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.013916015625
+            },
+            {
+              "text": " he,",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.40576171875
+            },
+            {
+              "text": " I",
+              "start": 1.52,
+              "end": 1.56,
+              "probability": 0.8359375
+            },
+            {
+              "text": " hope.",
+              "start": 1.56,
+              "end": 1.74,
+              "probability": 0.8876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imogen,",
+          "start": 0.42,
+          "end": 0.76
+        },
+        {
+          "raw": "Not",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "he,",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "I",
+          "start": 1.52,
+          "end": 1.56
+        },
+        {
+          "raw": "hope.",
+          "start": 1.56,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "Imogen.",
+        "Not",
+        "he,",
+        "I",
+        "hope."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imogen,",
+          "start": 0.42,
+          "end": 0.76,
+          "key": "imogen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.52,
+          "end": 1.56,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hope.",
+          "start": 1.56,
+          "end": 1.74,
+          "key": "hope",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imogen.",
+          "start": 0.42,
+          "end": 0.76
+        },
+        {
+          "text": "Not",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "he,",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "I",
+          "start": 1.52,
+          "end": 1.56
+        },
+        {
+          "text": "hope.",
+          "start": 1.56,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1445351168513298
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c1dd5d883d61df8f1248839435c47119e7baef50781552af5b7e7105ec81efc5",
+  "selected_reasons": []
+}

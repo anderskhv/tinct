@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "3a7ab94dfeb8bba2cc386874bb7f2fafc6054f417a3e03a3f9cfaebf2e5989d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1824128683656454,
+      "alignment_seconds": 0.0005205962806940079,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Shepherd to the palace and it like your worship",
+          "start": 0.08,
+          "end": 2.56,
+          "words": [
+            {
+              "text": " Shepherd",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.5283203125
+            },
+            {
+              "text": " to",
+              "start": 0.72,
+              "end": 1.2,
+              "probability": 0.27978515625
+            },
+            {
+              "text": " the",
+              "start": 1.2,
+              "end": 1.3,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " palace",
+              "start": 1.3,
+              "end": 1.64,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " and",
+              "start": 1.64,
+              "end": 1.84,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " it",
+              "start": 1.84,
+              "end": 1.92,
+              "probability": 0.912109375
+            },
+            {
+              "text": " like",
+              "start": 1.92,
+              "end": 2.06,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " your",
+              "start": 2.06,
+              "end": 2.22,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " worship",
+              "start": 2.22,
+              "end": 2.56,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shepherd",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "to",
+          "start": 0.72,
+          "end": 1.2
+        },
+        {
+          "raw": "the",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "raw": "palace",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "raw": "and",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "raw": "it",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "raw": "like",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "raw": "your",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "raw": "worship",
+          "start": 2.22,
+          "end": 2.56
+        }
+      ],
+      "expected_tokens": [
+        "Shepherd.",
+        "To",
+        "the",
+        "palace,",
+        "an",
+        "it",
+        "like",
+        "your",
+        "worship."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          9,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shepherd",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "shepherd",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.72,
+          "end": 1.2,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.2,
+          "end": 1.3,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "palace",
+          "start": 1.3,
+          "end": 1.64,
+          "key": "palace",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.64,
+          "end": 1.84,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.84,
+          "end": 1.92,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.92,
+          "end": 2.06,
+          "key": "like",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.06,
+          "end": 2.22,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "worship",
+          "start": 2.22,
+          "end": 2.56,
+          "key": "worship",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Shepherd.",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "To",
+          "start": 0.72,
+          "end": 1.2
+        },
+        {
+          "text": "the",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "text": "palace,",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "text": "an",
+          "start": 1.64,
+          "end": 1.74
+        },
+        {
+          "text": "it",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "text": "like",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "text": "your",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "text": "worship.",
+          "start": 2.22,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.18316302634775639
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ff491c8546a229ddbf714aef32a790e4429ecb082c8d712677a7698fc3752739",
+  "selected_reasons": []
+}

@@ -1,0 +1,645 @@
+{
+  "complete": true,
+  "signature": "7b4c8f3496c1b9650d1d378afdd0342c47b5734af76c9a8d86d7c1b8b2603135",
+  "attempts": [
+    {
+      "asr_seconds": 0.4208386139944196,
+      "alignment_seconds": 0.0007179579697549343,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leader. Show then to all the land, unhappy one, The trophy of this deed that thou hast done!",
+        "hotwords": "Leader, Show"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leader, Show then to all the land, unhappy one, The trophy of this deed that thou hast",
+          "start": 0.05,
+          "end": 5.53,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " Show",
+              "start": 1.27,
+              "end": 1.51,
+              "probability": 0.043487548828125
+            },
+            {
+              "text": " then",
+              "start": 1.51,
+              "end": 1.71,
+              "probability": 0.58154296875
+            },
+            {
+              "text": " to",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " all",
+              "start": 1.89,
+              "end": 2.03,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 2.03,
+              "end": 2.15,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " land,",
+              "start": 2.15,
+              "end": 2.49,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " unhappy",
+              "start": 2.81,
+              "end": 3.07,
+              "probability": 0.658203125
+            },
+            {
+              "text": " one,",
+              "start": 3.07,
+              "end": 3.47,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " The",
+              "start": 3.83,
+              "end": 3.93,
+              "probability": 0.59375
+            },
+            {
+              "text": " trophy",
+              "start": 3.93,
+              "end": 4.15,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " of",
+              "start": 4.15,
+              "end": 4.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this",
+              "start": 4.39,
+              "end": 4.57,
+              "probability": 0.994140625
+            },
+            {
+              "text": " deed",
+              "start": 4.57,
+              "end": 4.81,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " that",
+              "start": 4.81,
+              "end": 5.05,
+              "probability": 0.970703125
+            },
+            {
+              "text": " thou",
+              "start": 5.05,
+              "end": 5.21,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " hast",
+              "start": 5.21,
+              "end": 5.53,
+              "probability": 0.9814453125
+            }
+          ]
+        },
+        {
+          "text": " done!",
+          "start": 5.53,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " done!",
+              "start": 5.53,
+              "end": 5.91,
+              "probability": 0.5361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Show",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "raw": "then",
+          "start": 1.51,
+          "end": 1.71
+        },
+        {
+          "raw": "to",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "all",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "raw": "the",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "raw": "land,",
+          "start": 2.15,
+          "end": 2.49
+        },
+        {
+          "raw": "unhappy",
+          "start": 2.81,
+          "end": 3.07
+        },
+        {
+          "raw": "one,",
+          "start": 3.07,
+          "end": 3.47
+        },
+        {
+          "raw": "The",
+          "start": 3.83,
+          "end": 3.93
+        },
+        {
+          "raw": "trophy",
+          "start": 3.93,
+          "end": 4.15
+        },
+        {
+          "raw": "of",
+          "start": 4.15,
+          "end": 4.39
+        },
+        {
+          "raw": "this",
+          "start": 4.39,
+          "end": 4.57
+        },
+        {
+          "raw": "deed",
+          "start": 4.57,
+          "end": 4.81
+        },
+        {
+          "raw": "that",
+          "start": 4.81,
+          "end": 5.05
+        },
+        {
+          "raw": "thou",
+          "start": 5.05,
+          "end": 5.21
+        },
+        {
+          "raw": "hast",
+          "start": 5.21,
+          "end": 5.53
+        },
+        {
+          "raw": "done!",
+          "start": 5.53,
+          "end": 5.91
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "Show",
+        "then",
+        "to",
+        "all",
+        "the",
+        "land,",
+        "unhappy",
+        "one,",
+        "The",
+        "trophy",
+        "of",
+        "this",
+        "deed",
+        "that",
+        "thou",
+        "hast",
+        "done!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leader,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "leader",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Show",
+          "start": 1.27,
+          "end": 1.51,
+          "key": "show",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.51,
+          "end": 1.71,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.71,
+          "end": 1.89,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.89,
+          "end": 2.03,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.03,
+          "end": 2.15,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "land,",
+          "start": 2.15,
+          "end": 2.49,
+          "key": "land",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "unhappy",
+          "start": 2.81,
+          "end": 3.07,
+          "key": "unhappy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "one,",
+          "start": 3.07,
+          "end": 3.47,
+          "key": "one",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.83,
+          "end": 3.93,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "trophy",
+          "start": 3.93,
+          "end": 4.15,
+          "key": "trophy",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.15,
+          "end": 4.39,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.39,
+          "end": 4.57,
+          "key": "this",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "deed",
+          "start": 4.57,
+          "end": 4.81,
+          "key": "deed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.81,
+          "end": 5.05,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 5.05,
+          "end": 5.21,
+          "key": "thou",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 5.21,
+          "end": 5.53,
+          "key": "hast",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "done!",
+          "start": 5.53,
+          "end": 5.91,
+          "key": "done",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Show",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "text": "then",
+          "start": 1.51,
+          "end": 1.71
+        },
+        {
+          "text": "to",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "text": "all",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "text": "the",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "text": "land,",
+          "start": 2.15,
+          "end": 2.49
+        },
+        {
+          "text": "unhappy",
+          "start": 2.81,
+          "end": 3.07
+        },
+        {
+          "text": "one,",
+          "start": 3.07,
+          "end": 3.47
+        },
+        {
+          "text": "The",
+          "start": 3.83,
+          "end": 3.93
+        },
+        {
+          "text": "trophy",
+          "start": 3.93,
+          "end": 4.15
+        },
+        {
+          "text": "of",
+          "start": 4.15,
+          "end": 4.39
+        },
+        {
+          "text": "this",
+          "start": 4.39,
+          "end": 4.57
+        },
+        {
+          "text": "deed",
+          "start": 4.57,
+          "end": 4.81
+        },
+        {
+          "text": "that",
+          "start": 4.81,
+          "end": 5.05
+        },
+        {
+          "text": "thou",
+          "start": 5.05,
+          "end": 5.21
+        },
+        {
+          "text": "hast",
+          "start": 5.21,
+          "end": 5.53
+        },
+        {
+          "text": "done!",
+          "start": 5.53,
+          "end": 5.91
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.421881410991773
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f3ea99778af394a222fd386753afcb6db4cae1b640a1b0dd774d4ef40f7ecd70",
+  "selected_reasons": []
+}

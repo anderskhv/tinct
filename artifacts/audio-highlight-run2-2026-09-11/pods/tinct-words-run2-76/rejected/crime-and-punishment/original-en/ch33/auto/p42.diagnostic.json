@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "48e6018cdc9c6dfef9e0c3877ed6154022db6cedc057deda601b3b1bb0f7887b",
+  "attempts": [
+    {
+      "asr_seconds": 0.12052471190690994,
+      "alignment_seconds": 0.0002778968773782253,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Raskolnikov thought a minute.",
+        "hotwords": "Raskolnikov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Raskolnikov thought a minute.",
+          "start": 0.72,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " Raskolnikov",
+              "start": 0.72,
+              "end": 1.12,
+              "probability": 0.832958984375
+            },
+            {
+              "text": " thought",
+              "start": 1.12,
+              "end": 1.32,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " a",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.990234375
+            },
+            {
+              "text": " minute.",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Raskolnikov",
+          "start": 0.72,
+          "end": 1.12
+        },
+        {
+          "raw": "thought",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "raw": "a",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "minute.",
+          "start": 1.42,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "Raskolnikov",
+        "thought",
+        "a",
+        "minute."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Raskolnikov",
+          "start": 0.72,
+          "end": 1.12,
+          "key": "raskolnikov",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 1.12,
+          "end": 1.32,
+          "key": "thought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "minute.",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "minute",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Raskolnikov",
+          "start": 0.72,
+          "end": 1.12
+        },
+        {
+          "text": "thought",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "text": "a",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "text": "minute.",
+          "start": 1.42,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12091095000505447
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "192408320216223c8369904cbfa5212738e412611fca32f4fc5ffa36aacd8487",
+  "selected_reasons": []
+}

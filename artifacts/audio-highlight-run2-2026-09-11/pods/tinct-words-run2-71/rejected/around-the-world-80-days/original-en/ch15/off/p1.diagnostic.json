@@ -1,0 +1,651 @@
+{
+  "complete": true,
+  "signature": "6d045d2342115740d620e8f3e9f04e918a0beadae6731ecf619279236d7feec3",
+  "attempts": [
+    {
+      "asr_seconds": 0.25759462360292673,
+      "alignment_seconds": 0.0005279984325170517,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Just as he was leaving the station a policeman came up to him and said, Mr. Filia's fog.",
+          "start": 0.05,
+          "end": 5.87,
+          "words": [
+            {
+              "text": " Just",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " as",
+              "start": 0.59,
+              "end": 0.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 0.77,
+              "end": 0.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 0.87,
+              "end": 0.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " leaving",
+              "start": 0.99,
+              "end": 1.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " station",
+              "start": 1.43,
+              "end": 1.87,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 1.87,
+              "end": 2.35,
+              "probability": 0.365234375
+            },
+            {
+              "text": " policeman",
+              "start": 2.35,
+              "end": 2.71,
+              "probability": 0.958984375
+            },
+            {
+              "text": " came",
+              "start": 2.71,
+              "end": 3.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " up",
+              "start": 3.09,
+              "end": 3.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 3.25,
+              "end": 3.41,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him",
+              "start": 3.41,
+              "end": 3.65,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 3.65,
+              "end": 3.89,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " said,",
+              "start": 3.89,
+              "end": 4.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Mr.",
+              "start": 4.27,
+              "end": 5.05,
+              "probability": 0.1910400390625
+            },
+            {
+              "text": " Filia's",
+              "start": 5.25,
+              "end": 5.57,
+              "probability": 0.7906087239583334
+            },
+            {
+              "text": " fog.",
+              "start": 5.57,
+              "end": 5.87,
+              "probability": 0.87255859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Just",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "as",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "raw": "he",
+          "start": 0.77,
+          "end": 0.87
+        },
+        {
+          "raw": "was",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "raw": "leaving",
+          "start": 0.99,
+          "end": 1.23
+        },
+        {
+          "raw": "the",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "station",
+          "start": 1.43,
+          "end": 1.87
+        },
+        {
+          "raw": "a",
+          "start": 1.87,
+          "end": 2.35
+        },
+        {
+          "raw": "policeman",
+          "start": 2.35,
+          "end": 2.71
+        },
+        {
+          "raw": "came",
+          "start": 2.71,
+          "end": 3.09
+        },
+        {
+          "raw": "up",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "raw": "to",
+          "start": 3.25,
+          "end": 3.41
+        },
+        {
+          "raw": "him",
+          "start": 3.41,
+          "end": 3.65
+        },
+        {
+          "raw": "and",
+          "start": 3.65,
+          "end": 3.89
+        },
+        {
+          "raw": "said,",
+          "start": 3.89,
+          "end": 4.23
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.27,
+          "end": 5.05
+        },
+        {
+          "raw": "Filia's",
+          "start": 5.25,
+          "end": 5.57
+        },
+        {
+          "raw": "fog.",
+          "start": 5.57,
+          "end": 5.87
+        }
+      ],
+      "expected_tokens": [
+        "Just",
+        "as",
+        "he",
+        "was",
+        "leaving",
+        "the",
+        "station",
+        "a",
+        "policeman",
+        "came",
+        "up",
+        "to",
+        "him,",
+        "and",
+        "said,",
+        "\"Mr.",
+        "Phileas",
+        "Fogg?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          18,
+          16,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          18,
+          16,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Just",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "just",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 0.59,
+          "end": 0.77,
+          "key": "as",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.77,
+          "end": 0.87,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.87,
+          "end": 0.99,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "leaving",
+          "start": 0.99,
+          "end": 1.23,
+          "key": "leaving",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "station",
+          "start": 1.43,
+          "end": 1.87,
+          "key": "station",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.87,
+          "end": 2.35,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "policeman",
+          "start": 2.35,
+          "end": 2.71,
+          "key": "policeman",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 2.71,
+          "end": 3.09,
+          "key": "came",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 3.09,
+          "end": 3.25,
+          "key": "up",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.25,
+          "end": 3.41,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.41,
+          "end": 3.65,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.65,
+          "end": 3.89,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 3.89,
+          "end": 4.23,
+          "key": "said",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.27,
+          "end": 5.05,
+          "key": "mr",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Filia's",
+          "start": 5.25,
+          "end": 5.57,
+          "key": "filias",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "fog.",
+          "start": 5.57,
+          "end": 5.87,
+          "key": "fog",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Just",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "as",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "text": "he",
+          "start": 0.77,
+          "end": 0.87
+        },
+        {
+          "text": "was",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "text": "leaving",
+          "start": 0.99,
+          "end": 1.23
+        },
+        {
+          "text": "the",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "station",
+          "start": 1.43,
+          "end": 1.87
+        },
+        {
+          "text": "a",
+          "start": 1.87,
+          "end": 2.35
+        },
+        {
+          "text": "policeman",
+          "start": 2.35,
+          "end": 2.71
+        },
+        {
+          "text": "came",
+          "start": 2.71,
+          "end": 3.09
+        },
+        {
+          "text": "up",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "text": "to",
+          "start": 3.25,
+          "end": 3.41
+        },
+        {
+          "text": "him,",
+          "start": 3.41,
+          "end": 3.65
+        },
+        {
+          "text": "and",
+          "start": 3.65,
+          "end": 3.89
+        },
+        {
+          "text": "said,",
+          "start": 3.89,
+          "end": 4.23
+        },
+        {
+          "text": "\"Mr.",
+          "start": 4.27,
+          "end": 5.05
+        },
+        {
+          "text": "Phileas",
+          "start": 5.05,
+          "end": 5.46
+        },
+        {
+          "text": "Fogg?\"",
+          "start": 5.46,
+          "end": 5.665
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.25834914296865463
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8c11f93f59b9847ddadff216b3eb5b3a1ccc39fab00466733ae3f4ac13bf969d",
+  "selected_reasons": []
+}

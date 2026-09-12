@@ -1,0 +1,324 @@
+{
+  "complete": true,
+  "signature": "f33b8ca4f400f2df5af9f59c06fe829f1055a36d68dc209e6ca1d61276a0e0cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.20946180541068316,
+      "alignment_seconds": 0.0002618292346596718,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Come along said Zasimov nodding to Razimihin",
+          "start": 0.05,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " Come",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.1051025390625
+            },
+            {
+              "text": " along",
+              "start": 0.55,
+              "end": 0.99,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " said",
+              "start": 0.99,
+              "end": 1.49,
+              "probability": 0.3408203125
+            },
+            {
+              "text": " Zasimov",
+              "start": 1.49,
+              "end": 2.05,
+              "probability": 0.6307373046875
+            },
+            {
+              "text": " nodding",
+              "start": 2.05,
+              "end": 2.55,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " to",
+              "start": 2.55,
+              "end": 2.77,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Razimihin",
+              "start": 2.77,
+              "end": 3.47,
+              "probability": 0.68463134765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Come",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "along",
+          "start": 0.55,
+          "end": 0.99
+        },
+        {
+          "raw": "said",
+          "start": 0.99,
+          "end": 1.49
+        },
+        {
+          "raw": "Zasimov",
+          "start": 1.49,
+          "end": 2.05
+        },
+        {
+          "raw": "nodding",
+          "start": 2.05,
+          "end": 2.55
+        },
+        {
+          "raw": "to",
+          "start": 2.55,
+          "end": 2.77
+        },
+        {
+          "raw": "Razimihin",
+          "start": 2.77,
+          "end": 3.47
+        }
+      ],
+      "expected_tokens": [
+        "\"Come",
+        "along,\"",
+        "said",
+        "Zossimov,",
+        "nodding",
+        "to",
+        "Razumihin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Come",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "come",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "along",
+          "start": 0.55,
+          "end": 0.99,
+          "key": "along",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.99,
+          "end": 1.49,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Zasimov",
+          "start": 1.49,
+          "end": 2.05,
+          "key": "zasimov",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "nodding",
+          "start": 2.05,
+          "end": 2.55,
+          "key": "nodding",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.55,
+          "end": 2.77,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Razimihin",
+          "start": 2.77,
+          "end": 3.47,
+          "key": "razimihin",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Come",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "along,\"",
+          "start": 0.55,
+          "end": 0.99
+        },
+        {
+          "text": "said",
+          "start": 0.99,
+          "end": 1.49
+        },
+        {
+          "text": "Zossimov,",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "text": "nodding",
+          "start": 2.05,
+          "end": 2.55
+        },
+        {
+          "text": "to",
+          "start": 2.55,
+          "end": 2.77
+        },
+        {
+          "text": "Razumihin.",
+          "start": 2.77,
+          "end": 3.12
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20982066728174686
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2c58adeceba8b3a5fc443bf88db580072f6917bc01ba129263d5252e9db46d01",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

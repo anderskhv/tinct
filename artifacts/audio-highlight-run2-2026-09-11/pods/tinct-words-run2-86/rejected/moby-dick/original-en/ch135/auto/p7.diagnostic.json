@@ -1,0 +1,645 @@
+{
+  "complete": true,
+  "signature": "7252a7ad6662228d6f541344491dfe818f56b7ff1acc05d27f667dc9a65e34f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.2999465875327587,
+      "alignment_seconds": 0.00046037882566452026,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Stand by to sway me up!\" cried Ahab, advancing to the hempen basket. \"We should meet him soon.\"",
+        "hotwords": "Stand, Ahab, We"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stand by to sway me up! cried Ahab, advancing to the hempen basket.",
+          "start": 0.11,
+          "end": 4.43,
+          "words": [
+            {
+              "text": " Stand",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.1478271484375
+            },
+            {
+              "text": " by",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " to",
+              "start": 0.87,
+              "end": 1.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sway",
+              "start": 1.03,
+              "end": 1.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " up!",
+              "start": 1.43,
+              "end": 1.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " cried",
+              "start": 2.29,
+              "end": 2.29,
+              "probability": 0.939453125
+            },
+            {
+              "text": " Ahab,",
+              "start": 2.29,
+              "end": 2.73,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " advancing",
+              "start": 2.91,
+              "end": 3.29,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " to",
+              "start": 3.29,
+              "end": 3.61,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 3.61,
+              "end": 3.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hempen",
+              "start": 3.71,
+              "end": 4.03,
+              "probability": 0.949462890625
+            },
+            {
+              "text": " basket.",
+              "start": 4.03,
+              "end": 4.43,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " We should meet him soon.",
+          "start": 5.13,
+          "end": 6.05,
+          "words": [
+            {
+              "text": " We",
+              "start": 5.13,
+              "end": 5.25,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " should",
+              "start": 5.25,
+              "end": 5.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " meet",
+              "start": 5.39,
+              "end": 5.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him",
+              "start": 5.55,
+              "end": 5.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " soon.",
+              "start": 5.77,
+              "end": 6.05,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stand",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "by",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "to",
+          "start": 0.87,
+          "end": 1.03
+        },
+        {
+          "raw": "sway",
+          "start": 1.03,
+          "end": 1.25
+        },
+        {
+          "raw": "me",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "up!",
+          "start": 1.43,
+          "end": 1.77
+        },
+        {
+          "raw": "cried",
+          "start": 2.29,
+          "end": 2.29
+        },
+        {
+          "raw": "Ahab,",
+          "start": 2.29,
+          "end": 2.73
+        },
+        {
+          "raw": "advancing",
+          "start": 2.91,
+          "end": 3.29
+        },
+        {
+          "raw": "to",
+          "start": 3.29,
+          "end": 3.61
+        },
+        {
+          "raw": "the",
+          "start": 3.61,
+          "end": 3.71
+        },
+        {
+          "raw": "hempen",
+          "start": 3.71,
+          "end": 4.03
+        },
+        {
+          "raw": "basket.",
+          "start": 4.03,
+          "end": 4.43
+        },
+        {
+          "raw": "We",
+          "start": 5.13,
+          "end": 5.25
+        },
+        {
+          "raw": "should",
+          "start": 5.25,
+          "end": 5.39
+        },
+        {
+          "raw": "meet",
+          "start": 5.39,
+          "end": 5.55
+        },
+        {
+          "raw": "him",
+          "start": 5.55,
+          "end": 5.77
+        },
+        {
+          "raw": "soon.",
+          "start": 5.77,
+          "end": 6.05
+        }
+      ],
+      "expected_tokens": [
+        "\"Stand",
+        "by",
+        "to",
+        "sway",
+        "me",
+        "up!\"",
+        "cried",
+        "Ahab,",
+        "advancing",
+        "to",
+        "the",
+        "hempen",
+        "basket.",
+        "\"We",
+        "should",
+        "meet",
+        "him",
+        "soon.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Stand",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "stand",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 0.65,
+          "end": 0.87,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.87,
+          "end": 1.03,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sway",
+          "start": 1.03,
+          "end": 1.25,
+          "key": "sway",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "up!",
+          "start": 1.43,
+          "end": 1.77,
+          "key": "up",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.29,
+          "end": 2.29,
+          "key": "cried",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ahab,",
+          "start": 2.29,
+          "end": 2.73,
+          "key": "ahab",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "advancing",
+          "start": 2.91,
+          "end": 3.29,
+          "key": "advancing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.29,
+          "end": 3.61,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.61,
+          "end": 3.71,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "hempen",
+          "start": 3.71,
+          "end": 4.03,
+          "key": "hempen",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "basket.",
+          "start": 4.03,
+          "end": 4.43,
+          "key": "basket",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 5.13,
+          "end": 5.25,
+          "key": "we",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 5.25,
+          "end": 5.39,
+          "key": "should",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "meet",
+          "start": 5.39,
+          "end": 5.55,
+          "key": "meet",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.55,
+          "end": 5.77,
+          "key": "him",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "soon.",
+          "start": 5.77,
+          "end": 6.05,
+          "key": "soon",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Stand",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "by",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "text": "to",
+          "start": 0.87,
+          "end": 1.03
+        },
+        {
+          "text": "sway",
+          "start": 1.03,
+          "end": 1.25
+        },
+        {
+          "text": "me",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "up!\"",
+          "start": 1.43,
+          "end": 1.77
+        },
+        {
+          "text": "cried",
+          "start": 2.29,
+          "end": 2.29
+        },
+        {
+          "text": "Ahab,",
+          "start": 2.29,
+          "end": 2.73
+        },
+        {
+          "text": "advancing",
+          "start": 2.91,
+          "end": 3.29
+        },
+        {
+          "text": "to",
+          "start": 3.29,
+          "end": 3.61
+        },
+        {
+          "text": "the",
+          "start": 3.61,
+          "end": 3.71
+        },
+        {
+          "text": "hempen",
+          "start": 3.71,
+          "end": 4.03
+        },
+        {
+          "text": "basket.",
+          "start": 4.03,
+          "end": 4.43
+        },
+        {
+          "text": "\"We",
+          "start": 5.13,
+          "end": 5.25
+        },
+        {
+          "text": "should",
+          "start": 5.25,
+          "end": 5.39
+        },
+        {
+          "text": "meet",
+          "start": 5.39,
+          "end": 5.55
+        },
+        {
+          "text": "him",
+          "start": 5.55,
+          "end": 5.77
+        },
+        {
+          "text": "soon.\"",
+          "start": 5.77,
+          "end": 6.05
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3005935363471508
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "59ffc7bf3897e3f98b830badfb43b9efceed8b6369dd8066daad19bdfecd0980",
+  "selected_reasons": []
+}

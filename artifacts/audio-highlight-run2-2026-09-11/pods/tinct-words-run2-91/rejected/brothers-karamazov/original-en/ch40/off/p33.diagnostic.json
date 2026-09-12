@@ -1,0 +1,586 @@
+{
+  "complete": true,
+  "signature": "c847f8f455e6975885f43d95def98797baa0b42fb7e57ff8a77041d33b0393e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.33108349796384573,
+      "alignment_seconds": 0.00023583415895700455,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bravo,\" I cried, clapping my hands.",
+          "start": 0.61,
+          "end": 2.51,
+          "words": [
+            {
+              "text": " Bravo,\"",
+              "start": 0.61,
+              "end": 1.09,
+              "probability": 0.3021240234375
+            },
+            {
+              "text": " I",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.990234375
+            },
+            {
+              "text": " cried,",
+              "start": 1.27,
+              "end": 1.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " clapping",
+              "start": 1.75,
+              "end": 1.99,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " my",
+              "start": 1.99,
+              "end": 2.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hands.",
+              "start": 2.21,
+              "end": 2.51,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " I agree with you there too.",
+          "start": 3.19,
+          "end": 4.39,
+          "words": [
+            {
+              "text": " I",
+              "start": 3.19,
+              "end": 3.37,
+              "probability": 0.01030731201171875
+            },
+            {
+              "text": " agree",
+              "start": 3.37,
+              "end": 3.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " with",
+              "start": 3.61,
+              "end": 3.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 3.79,
+              "end": 3.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " there",
+              "start": 3.93,
+              "end": 4.13,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " too.",
+              "start": 4.13,
+              "end": 4.39,
+              "probability": 0.54541015625
+            }
+          ]
+        },
+        {
+          "text": " I have deserved it.",
+          "start": 4.65,
+          "end": 5.49,
+          "words": [
+            {
+              "text": " I",
+              "start": 4.65,
+              "end": 4.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " have",
+              "start": 4.73,
+              "end": 4.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " deserved",
+              "start": 4.87,
+              "end": 5.21,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " it.",
+              "start": 5.21,
+              "end": 5.49,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bravo,\"",
+          "start": 0.61,
+          "end": 1.09
+        },
+        {
+          "raw": "I",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "cried,",
+          "start": 1.27,
+          "end": 1.55
+        },
+        {
+          "raw": "clapping",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "raw": "my",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "raw": "hands.",
+          "start": 2.21,
+          "end": 2.51
+        },
+        {
+          "raw": "I",
+          "start": 3.19,
+          "end": 3.37
+        },
+        {
+          "raw": "agree",
+          "start": 3.37,
+          "end": 3.61
+        },
+        {
+          "raw": "with",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "raw": "you",
+          "start": 3.79,
+          "end": 3.93
+        },
+        {
+          "raw": "there",
+          "start": 3.93,
+          "end": 4.13
+        },
+        {
+          "raw": "too.",
+          "start": 4.13,
+          "end": 4.39
+        },
+        {
+          "raw": "I",
+          "start": 4.65,
+          "end": 4.73
+        },
+        {
+          "raw": "have",
+          "start": 4.73,
+          "end": 4.87
+        },
+        {
+          "raw": "deserved",
+          "start": 4.87,
+          "end": 5.21
+        },
+        {
+          "raw": "it.",
+          "start": 5.21,
+          "end": 5.49
+        }
+      ],
+      "expected_tokens": [
+        "\"Bravo,\"",
+        "I",
+        "cried,",
+        "clapping",
+        "my",
+        "hands.",
+        "\"I",
+        "agree",
+        "with",
+        "you",
+        "there",
+        "too.",
+        "I",
+        "have",
+        "deserved",
+        "it!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bravo,\"",
+          "start": 0.61,
+          "end": 1.09,
+          "key": "bravo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.09,
+          "end": 1.27,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cried,",
+          "start": 1.27,
+          "end": 1.55,
+          "key": "cried",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "clapping",
+          "start": 1.75,
+          "end": 1.99,
+          "key": "clapping",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.99,
+          "end": 2.21,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hands.",
+          "start": 2.21,
+          "end": 2.51,
+          "key": "hands",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.19,
+          "end": 3.37,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "agree",
+          "start": 3.37,
+          "end": 3.61,
+          "key": "agree",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.61,
+          "end": 3.79,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.79,
+          "end": 3.93,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 3.93,
+          "end": 4.13,
+          "key": "there",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 4.13,
+          "end": 4.39,
+          "key": "too",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.65,
+          "end": 4.73,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.73,
+          "end": 4.87,
+          "key": "have",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "deserved",
+          "start": 4.87,
+          "end": 5.21,
+          "key": "deserved",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 5.21,
+          "end": 5.49,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Bravo,\"",
+          "start": 0.61,
+          "end": 1.09
+        },
+        {
+          "text": "I",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "text": "cried,",
+          "start": 1.27,
+          "end": 1.55
+        },
+        {
+          "text": "clapping",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "text": "my",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "text": "hands.",
+          "start": 2.21,
+          "end": 2.51
+        },
+        {
+          "text": "\"I",
+          "start": 3.19,
+          "end": 3.37
+        },
+        {
+          "text": "agree",
+          "start": 3.37,
+          "end": 3.61
+        },
+        {
+          "text": "with",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "text": "you",
+          "start": 3.79,
+          "end": 3.93
+        },
+        {
+          "text": "there",
+          "start": 3.93,
+          "end": 4.13
+        },
+        {
+          "text": "too.",
+          "start": 4.13,
+          "end": 4.39
+        },
+        {
+          "text": "I",
+          "start": 4.65,
+          "end": 4.73
+        },
+        {
+          "text": "have",
+          "start": 4.73,
+          "end": 4.87
+        },
+        {
+          "text": "deserved",
+          "start": 4.87,
+          "end": 5.21
+        },
+        {
+          "text": "it!\"",
+          "start": 5.21,
+          "end": 5.49
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3314168434590101
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4aedfb0c5d46da1f935fb71f91e18cd0402d1fa3eb46b84e79d986cca6a549c9",
+  "selected_reasons": []
+}

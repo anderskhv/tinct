@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "bbc35d12925afc11ee3c2e525eebcaec634ea569575f8943b1d79fa639668afb",
+  "attempts": [
+    {
+      "asr_seconds": 0.32077838480472565,
+      "alignment_seconds": 0.0006740987300872803,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Toby. Send for money, knight; if thou hast her not i' th' end, call me cut.",
+        "hotwords": "Sir, Toby, Send"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Toby, Send for money, knight. If thou hast her not i' th' end, call me cut.",
+          "start": 0.05,
+          "end": 5.37,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " Toby,",
+              "start": 0.53,
+              "end": 0.87,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " Send",
+              "start": 1.33,
+              "end": 1.61,
+              "probability": 0.0322265625
+            },
+            {
+              "text": " for",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " money,",
+              "start": 1.79,
+              "end": 2.01,
+              "probability": 0.63037109375
+            },
+            {
+              "text": " knight.",
+              "start": 2.13,
+              "end": 2.37,
+              "probability": 0.227294921875
+            },
+            {
+              "text": " If",
+              "start": 2.77,
+              "end": 2.87,
+              "probability": 0.947265625
+            },
+            {
+              "text": " thou",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " hast",
+              "start": 3.03,
+              "end": 3.29,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " her",
+              "start": 3.29,
+              "end": 3.45,
+              "probability": 0.0906982421875
+            },
+            {
+              "text": " not",
+              "start": 3.45,
+              "end": 3.59,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " i'",
+              "start": 3.59,
+              "end": 3.81,
+              "probability": 0.07525634765625
+            },
+            {
+              "text": " th'",
+              "start": 3.81,
+              "end": 4.15,
+              "probability": 0.71826171875
+            },
+            {
+              "text": " end,",
+              "start": 4.15,
+              "end": 4.69,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " call",
+              "start": 4.83,
+              "end": 4.93,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " me",
+              "start": 4.93,
+              "end": 5.09,
+              "probability": 0.994140625
+            },
+            {
+              "text": " cut.",
+              "start": 5.09,
+              "end": 5.37,
+              "probability": 0.94580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "raw": "Send",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "raw": "for",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "money,",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "raw": "knight.",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "raw": "If",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "raw": "thou",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "hast",
+          "start": 3.03,
+          "end": 3.29
+        },
+        {
+          "raw": "her",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "raw": "not",
+          "start": 3.45,
+          "end": 3.59
+        },
+        {
+          "raw": "i'",
+          "start": 3.59,
+          "end": 3.81
+        },
+        {
+          "raw": "th'",
+          "start": 3.81,
+          "end": 4.15
+        },
+        {
+          "raw": "end,",
+          "start": 4.15,
+          "end": 4.69
+        },
+        {
+          "raw": "call",
+          "start": 4.83,
+          "end": 4.93
+        },
+        {
+          "raw": "me",
+          "start": 4.93,
+          "end": 5.09
+        },
+        {
+          "raw": "cut.",
+          "start": 5.09,
+          "end": 5.37
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "Send",
+        "for",
+        "money,",
+        "knight;",
+        "if",
+        "thou",
+        "hast",
+        "her",
+        "not",
+        "i'",
+        "th'",
+        "end,",
+        "call",
+        "me",
+        "cut."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.53,
+          "end": 0.87,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Send",
+          "start": 1.33,
+          "end": 1.61,
+          "key": "send",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "money,",
+          "start": 1.79,
+          "end": 2.01,
+          "key": "money",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "knight.",
+          "start": 2.13,
+          "end": 2.37,
+          "key": "knight",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 2.77,
+          "end": 2.87,
+          "key": "if",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "thou",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 3.03,
+          "end": 3.29,
+          "key": "hast",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.29,
+          "end": 3.45,
+          "key": "her",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.45,
+          "end": 3.59,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "i'",
+          "start": 3.59,
+          "end": 3.81,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 3.81,
+          "end": 4.15,
+          "key": "th",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "end,",
+          "start": 4.15,
+          "end": 4.69,
+          "key": "end",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 4.83,
+          "end": 4.93,
+          "key": "call",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.93,
+          "end": 5.09,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "cut.",
+          "start": 5.09,
+          "end": 5.37,
+          "key": "cut",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Toby.",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "text": "Send",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "text": "for",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "money,",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "text": "knight;",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "text": "if",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "text": "thou",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "text": "hast",
+          "start": 3.03,
+          "end": 3.29
+        },
+        {
+          "text": "her",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "text": "not",
+          "start": 3.45,
+          "end": 3.59
+        },
+        {
+          "text": "i'",
+          "start": 3.59,
+          "end": 3.81
+        },
+        {
+          "text": "th'",
+          "start": 3.81,
+          "end": 4.15
+        },
+        {
+          "text": "end,",
+          "start": 4.15,
+          "end": 4.69
+        },
+        {
+          "text": "call",
+          "start": 4.83,
+          "end": 4.93
+        },
+        {
+          "text": "me",
+          "start": 4.93,
+          "end": 5.09
+        },
+        {
+          "text": "cut.",
+          "start": 5.09,
+          "end": 5.37
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32174452766776085
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3c5881fe9a7886dc93725312c74dde0d0b464931cf6fba8c6c3076ba3a341c54",
+  "selected_reasons": []
+}

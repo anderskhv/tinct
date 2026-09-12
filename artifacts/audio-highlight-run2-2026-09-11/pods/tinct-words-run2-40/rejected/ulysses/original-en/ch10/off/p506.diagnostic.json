@@ -1,0 +1,653 @@
+{
+  "complete": true,
+  "signature": "f970daa06608ea575e9394138f8bb33b1fb67aac0cffe1d34420ca63f14a499c",
+  "attempts": [
+    {
+      "asr_seconds": 0.3430395550094545,
+      "alignment_seconds": 0.0005342820659279823,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I'm sorry,\" he said.",
+          "start": 0.11,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " I'm",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.5928955078125
+            },
+            {
+              "text": " sorry,\"",
+              "start": 0.61,
+              "end": 1.13,
+              "probability": 0.7138671875
+            },
+            {
+              "text": " he",
+              "start": 1.13,
+              "end": 1.25,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " said.",
+              "start": 1.25,
+              "end": 1.55,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Shakespeare is the happy hunting ground of all minds that have lost their balance.",
+          "start": 2.19,
+          "end": 5.81,
+          "words": [
+            {
+              "text": " Shakespeare",
+              "start": 2.19,
+              "end": 2.53,
+              "probability": 0.66455078125
+            },
+            {
+              "text": " is",
+              "start": 2.53,
+              "end": 2.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 2.81,
+              "end": 2.97,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " happy",
+              "start": 2.97,
+              "end": 3.25,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " hunting",
+              "start": 3.25,
+              "end": 3.55,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " ground",
+              "start": 3.55,
+              "end": 3.81,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " of",
+              "start": 3.81,
+              "end": 3.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " all",
+              "start": 3.97,
+              "end": 4.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " minds",
+              "start": 4.23,
+              "end": 4.61,
+              "probability": 0.875
+            },
+            {
+              "text": " that",
+              "start": 4.61,
+              "end": 4.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " have",
+              "start": 4.85,
+              "end": 4.97,
+              "probability": 0.990234375
+            },
+            {
+              "text": " lost",
+              "start": 4.97,
+              "end": 5.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 5.23,
+              "end": 5.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " balance.",
+              "start": 5.47,
+              "end": 5.81,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I'm",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "sorry,\"",
+          "start": 0.61,
+          "end": 1.13
+        },
+        {
+          "raw": "he",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "raw": "said.",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "raw": "Shakespeare",
+          "start": 2.19,
+          "end": 2.53
+        },
+        {
+          "raw": "is",
+          "start": 2.53,
+          "end": 2.81
+        },
+        {
+          "raw": "the",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "raw": "happy",
+          "start": 2.97,
+          "end": 3.25
+        },
+        {
+          "raw": "hunting",
+          "start": 3.25,
+          "end": 3.55
+        },
+        {
+          "raw": "ground",
+          "start": 3.55,
+          "end": 3.81
+        },
+        {
+          "raw": "of",
+          "start": 3.81,
+          "end": 3.97
+        },
+        {
+          "raw": "all",
+          "start": 3.97,
+          "end": 4.23
+        },
+        {
+          "raw": "minds",
+          "start": 4.23,
+          "end": 4.61
+        },
+        {
+          "raw": "that",
+          "start": 4.61,
+          "end": 4.85
+        },
+        {
+          "raw": "have",
+          "start": 4.85,
+          "end": 4.97
+        },
+        {
+          "raw": "lost",
+          "start": 4.97,
+          "end": 5.23
+        },
+        {
+          "raw": "their",
+          "start": 5.23,
+          "end": 5.47
+        },
+        {
+          "raw": "balance.",
+          "start": 5.47,
+          "end": 5.81
+        }
+      ],
+      "expected_tokens": [
+        "—I'm",
+        "sorry,",
+        "he",
+        "said.",
+        "Shakespeare",
+        "is",
+        "the",
+        "happy",
+        "huntingground",
+        "of",
+        "all",
+        "minds",
+        "that",
+        "have",
+        "lost",
+        "their",
+        "balance."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          17,
+          10,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I'm",
+          "start": 0.11,
+          "end": 0.61,
+          "key": "im",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sorry,\"",
+          "start": 0.61,
+          "end": 1.13,
+          "key": "sorry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.13,
+          "end": 1.25,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.25,
+          "end": 1.55,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Shakespeare",
+          "start": 2.19,
+          "end": 2.53,
+          "key": "shakespeare",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.53,
+          "end": 2.81,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.81,
+          "end": 2.97,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "happy",
+          "start": 2.97,
+          "end": 3.25,
+          "key": "happy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hunting",
+          "start": 3.25,
+          "end": 3.55,
+          "key": "hunting",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ground",
+          "start": 3.55,
+          "end": 3.81,
+          "key": "ground",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.81,
+          "end": 3.97,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.97,
+          "end": 4.23,
+          "key": "all",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "minds",
+          "start": 4.23,
+          "end": 4.61,
+          "key": "minds",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.61,
+          "end": 4.85,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.85,
+          "end": 4.97,
+          "key": "have",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "lost",
+          "start": 4.97,
+          "end": 5.23,
+          "key": "lost",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 5.23,
+          "end": 5.47,
+          "key": "their",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "balance.",
+          "start": 5.47,
+          "end": 5.81,
+          "key": "balance",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I'm",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "text": "sorry,",
+          "start": 0.61,
+          "end": 1.13
+        },
+        {
+          "text": "he",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "text": "said.",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "text": "Shakespeare",
+          "start": 2.19,
+          "end": 2.53
+        },
+        {
+          "text": "is",
+          "start": 2.53,
+          "end": 2.81
+        },
+        {
+          "text": "the",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "text": "happy",
+          "start": 2.97,
+          "end": 3.25
+        },
+        {
+          "text": "huntingground",
+          "start": 3.25,
+          "end": 3.53
+        },
+        {
+          "text": "of",
+          "start": 3.81,
+          "end": 3.97
+        },
+        {
+          "text": "all",
+          "start": 3.97,
+          "end": 4.23
+        },
+        {
+          "text": "minds",
+          "start": 4.23,
+          "end": 4.61
+        },
+        {
+          "text": "that",
+          "start": 4.61,
+          "end": 4.85
+        },
+        {
+          "text": "have",
+          "start": 4.85,
+          "end": 4.97
+        },
+        {
+          "text": "lost",
+          "start": 4.97,
+          "end": 5.23
+        },
+        {
+          "text": "their",
+          "start": 5.23,
+          "end": 5.47
+        },
+        {
+          "text": "balance.",
+          "start": 5.47,
+          "end": 5.81
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.34377799928188324
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "16c34bed999fe46dcd0e82c1481a6ea58e759bbef18018534f66448e1cfe1d9f",
+  "selected_reasons": []
+}

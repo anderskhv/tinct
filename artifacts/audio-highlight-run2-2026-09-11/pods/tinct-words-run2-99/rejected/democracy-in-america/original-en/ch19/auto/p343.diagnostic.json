@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "54b7e315c969b96da8fc315779254498a8a2c973dd3cd406c95b9b1b97f3d1fc",
+  "attempts": [
+    {
+      "asr_seconds": 0.27132992818951607,
+      "alignment_seconds": 0.000353008508682251,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Reflection On The Causes Of The Commercial Prosperity Of The Of The United States",
+        "hotwords": "Reflection, On, The, Causes, Of, Commercial, Prosperity, United, States"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Reflection On The Causes Of The Commercial Prosperity Of The Of The United States",
+          "start": 0.05,
+          "end": 5.01,
+          "words": [
+            {
+              "text": " Reflection",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.645751953125
+            },
+            {
+              "text": " On",
+              "start": 0.95,
+              "end": 1.39,
+              "probability": 0.0055084228515625
+            },
+            {
+              "text": " The",
+              "start": 1.39,
+              "end": 1.57,
+              "probability": 0.382568359375
+            },
+            {
+              "text": " Causes",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Of",
+              "start": 1.69,
+              "end": 2.07,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " The",
+              "start": 2.07,
+              "end": 2.19,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Commercial",
+              "start": 2.19,
+              "end": 2.55,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Prosperity",
+              "start": 2.55,
+              "end": 3.41,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Of",
+              "start": 3.41,
+              "end": 3.89,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " The",
+              "start": 3.89,
+              "end": 3.99,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Of",
+              "start": 3.99,
+              "end": 4.17,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " The",
+              "start": 4.17,
+              "end": 4.29,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " United",
+              "start": 4.29,
+              "end": 4.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " States",
+              "start": 4.57,
+              "end": 5.01,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Reflection",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "On",
+          "start": 0.95,
+          "end": 1.39
+        },
+        {
+          "raw": "The",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "raw": "Causes",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "Of",
+          "start": 1.69,
+          "end": 2.07
+        },
+        {
+          "raw": "The",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "raw": "Commercial",
+          "start": 2.19,
+          "end": 2.55
+        },
+        {
+          "raw": "Prosperity",
+          "start": 2.55,
+          "end": 3.41
+        },
+        {
+          "raw": "Of",
+          "start": 3.41,
+          "end": 3.89
+        },
+        {
+          "raw": "The",
+          "start": 3.89,
+          "end": 3.99
+        },
+        {
+          "raw": "Of",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "raw": "The",
+          "start": 4.17,
+          "end": 4.29
+        },
+        {
+          "raw": "United",
+          "start": 4.29,
+          "end": 4.57
+        },
+        {
+          "raw": "States",
+          "start": 4.57,
+          "end": 5.01
+        }
+      ],
+      "expected_tokens": [
+        "Reflection",
+        "On",
+        "The",
+        "Causes",
+        "Of",
+        "The",
+        "Commercial",
+        "Prosperity",
+        "Of",
+        "The",
+        "Of",
+        "The",
+        "United",
+        "States"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Reflection",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "reflection",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "On",
+          "start": 0.95,
+          "end": 1.39,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.39,
+          "end": 1.57,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Causes",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "causes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 1.69,
+          "end": 2.07,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.07,
+          "end": 2.19,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Commercial",
+          "start": 2.19,
+          "end": 2.55,
+          "key": "commercial",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Prosperity",
+          "start": 2.55,
+          "end": 3.41,
+          "key": "prosperity",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 3.41,
+          "end": 3.89,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.89,
+          "end": 3.99,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 3.99,
+          "end": 4.17,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.17,
+          "end": 4.29,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "United",
+          "start": 4.29,
+          "end": 4.57,
+          "key": "united",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "States",
+          "start": 4.57,
+          "end": 5.01,
+          "key": "states",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Reflection",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "On",
+          "start": 0.95,
+          "end": 1.39
+        },
+        {
+          "text": "The",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "text": "Causes",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "Of",
+          "start": 1.69,
+          "end": 2.07
+        },
+        {
+          "text": "The",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "text": "Commercial",
+          "start": 2.19,
+          "end": 2.55
+        },
+        {
+          "text": "Prosperity",
+          "start": 2.55,
+          "end": 3.41
+        },
+        {
+          "text": "Of",
+          "start": 3.41,
+          "end": 3.89
+        },
+        {
+          "text": "The",
+          "start": 3.89,
+          "end": 3.99
+        },
+        {
+          "text": "Of",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "text": "The",
+          "start": 4.17,
+          "end": 4.29
+        },
+        {
+          "text": "United",
+          "start": 4.29,
+          "end": 4.57
+        },
+        {
+          "text": "States",
+          "start": 4.57,
+          "end": 5.01
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27182620391249657
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0982b7fb92d2fb707f865552bda6b959edad84ca49ac3dd32e0c632873812637",
+  "selected_reasons": []
+}

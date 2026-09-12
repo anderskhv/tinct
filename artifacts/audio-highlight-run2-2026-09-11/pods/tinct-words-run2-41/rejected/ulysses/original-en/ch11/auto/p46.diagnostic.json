@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "75b476145f82aac241302f8ae099105a43579725166a960cb80bb5ec41116838",
+  "attempts": [
+    {
+      "asr_seconds": 0.19803314888849854,
+      "alignment_seconds": 0.00020788190886378288,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "By bronze, by gold, in oceangreen of shadow. Bloom. Old Bloom.",
+        "hotwords": "Bloom, Old"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " By bronze, by gold, in oceangreen of shadow. Bloom. Old Bloom.",
+          "start": 0.08,
+          "end": 4.38,
+          "words": [
+            {
+              "text": " By",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.59326171875
+            },
+            {
+              "text": " bronze,",
+              "start": 0.54,
+              "end": 0.94,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " by",
+              "start": 1.14,
+              "end": 1.22,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " gold,",
+              "start": 1.22,
+              "end": 1.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 1.66,
+              "end": 1.76,
+              "probability": 0.7255859375
+            },
+            {
+              "text": " oceangreen",
+              "start": 1.76,
+              "end": 2.28,
+              "probability": 0.6043295860290527
+            },
+            {
+              "text": " of",
+              "start": 2.28,
+              "end": 2.44,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " shadow.",
+              "start": 2.44,
+              "end": 2.78,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Bloom.",
+              "start": 3.32,
+              "end": 3.42,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " Old",
+              "start": 3.9,
+              "end": 4.08,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " Bloom.",
+              "start": 4.08,
+              "end": 4.38,
+              "probability": 0.38916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "By",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "bronze,",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "raw": "by",
+          "start": 1.14,
+          "end": 1.22
+        },
+        {
+          "raw": "gold,",
+          "start": 1.22,
+          "end": 1.52
+        },
+        {
+          "raw": "in",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "raw": "oceangreen",
+          "start": 1.76,
+          "end": 2.28
+        },
+        {
+          "raw": "of",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "raw": "shadow.",
+          "start": 2.44,
+          "end": 2.78
+        },
+        {
+          "raw": "Bloom.",
+          "start": 3.32,
+          "end": 3.42
+        },
+        {
+          "raw": "Old",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "raw": "Bloom.",
+          "start": 4.08,
+          "end": 4.38
+        }
+      ],
+      "expected_tokens": [
+        "By",
+        "bronze,",
+        "by",
+        "gold,",
+        "in",
+        "oceangreen",
+        "of",
+        "shadow.",
+        "Bloom.",
+        "Old",
+        "Bloom."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "By",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "by",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bronze,",
+          "start": 0.54,
+          "end": 0.94,
+          "key": "bronze",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.14,
+          "end": 1.22,
+          "key": "by",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gold,",
+          "start": 1.22,
+          "end": 1.52,
+          "key": "gold",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.66,
+          "end": 1.76,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "oceangreen",
+          "start": 1.76,
+          "end": 2.28,
+          "key": "oceangreen",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.28,
+          "end": 2.44,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shadow.",
+          "start": 2.44,
+          "end": 2.78,
+          "key": "shadow",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Bloom.",
+          "start": 3.32,
+          "end": 3.42,
+          "key": "bloom",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Old",
+          "start": 3.9,
+          "end": 4.08,
+          "key": "old",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Bloom.",
+          "start": 4.08,
+          "end": 4.38,
+          "key": "bloom",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "By",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "bronze,",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "text": "by",
+          "start": 1.14,
+          "end": 1.22
+        },
+        {
+          "text": "gold,",
+          "start": 1.22,
+          "end": 1.52
+        },
+        {
+          "text": "in",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "text": "oceangreen",
+          "start": 1.76,
+          "end": 2.28
+        },
+        {
+          "text": "of",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "text": "shadow.",
+          "start": 2.44,
+          "end": 2.78
+        },
+        {
+          "text": "Bloom.",
+          "start": 3.32,
+          "end": 3.42
+        },
+        {
+          "text": "Old",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "text": "Bloom.",
+          "start": 4.08,
+          "end": 4.38
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19832007866352797
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f9e1827ef2fe73fc916f873710dc6d24749de8cf7fc5c94d552ea466de2f7a3b",
+  "selected_reasons": []
+}

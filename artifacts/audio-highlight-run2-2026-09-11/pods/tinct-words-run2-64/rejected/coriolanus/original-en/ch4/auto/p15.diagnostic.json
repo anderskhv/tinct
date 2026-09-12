@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "eb77020609284d94e6c0dc9a29ff698a3a752c2404c2408eeed6e41395d77d36",
+  "attempts": [
+    {
+      "asr_seconds": 0.228272738866508,
+      "alignment_seconds": 0.0003006560727953911,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter two Senators with others on the walls of Corioles.",
+        "hotwords": "Enter, Senators, Corioles"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter two Senators with others on the walls of Corioles.",
+          "start": 0.08,
+          "end": 3.78,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " two",
+              "start": 0.66,
+              "end": 1.02,
+              "probability": 0.116943359375
+            },
+            {
+              "text": " Senators",
+              "start": 1.02,
+              "end": 1.66,
+              "probability": 0.0633544921875
+            },
+            {
+              "text": " with",
+              "start": 1.66,
+              "end": 2.06,
+              "probability": 0.978515625
+            },
+            {
+              "text": " others",
+              "start": 2.06,
+              "end": 2.28,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " on",
+              "start": 2.28,
+              "end": 2.6,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 2.6,
+              "end": 2.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " walls",
+              "start": 2.7,
+              "end": 2.92,
+              "probability": 0.96484375
+            },
+            {
+              "text": " of",
+              "start": 2.92,
+              "end": 3.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Corioles.",
+              "start": 3.14,
+              "end": 3.78,
+              "probability": 0.747314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "two",
+          "start": 0.66,
+          "end": 1.02
+        },
+        {
+          "raw": "Senators",
+          "start": 1.02,
+          "end": 1.66
+        },
+        {
+          "raw": "with",
+          "start": 1.66,
+          "end": 2.06
+        },
+        {
+          "raw": "others",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "raw": "on",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "raw": "the",
+          "start": 2.6,
+          "end": 2.7
+        },
+        {
+          "raw": "walls",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "raw": "of",
+          "start": 2.92,
+          "end": 3.14
+        },
+        {
+          "raw": "Corioles.",
+          "start": 3.14,
+          "end": 3.78
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "two",
+        "Senators",
+        "with",
+        "others",
+        "on",
+        "the",
+        "walls",
+        "of",
+        "Corioles."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 0.66,
+          "end": 1.02,
+          "key": "two",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Senators",
+          "start": 1.02,
+          "end": 1.66,
+          "key": "senators",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.66,
+          "end": 2.06,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 2.06,
+          "end": 2.28,
+          "key": "others",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.28,
+          "end": 2.6,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.6,
+          "end": 2.7,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "walls",
+          "start": 2.7,
+          "end": 2.92,
+          "key": "walls",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.92,
+          "end": 3.14,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Corioles.",
+          "start": 3.14,
+          "end": 3.78,
+          "key": "corioles",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "two",
+          "start": 0.66,
+          "end": 1.02
+        },
+        {
+          "text": "Senators",
+          "start": 1.02,
+          "end": 1.66
+        },
+        {
+          "text": "with",
+          "start": 1.66,
+          "end": 2.06
+        },
+        {
+          "text": "others",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "text": "on",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "text": "the",
+          "start": 2.6,
+          "end": 2.7
+        },
+        {
+          "text": "walls",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "text": "of",
+          "start": 2.92,
+          "end": 3.14
+        },
+        {
+          "text": "Corioles.",
+          "start": 3.14,
+          "end": 3.78
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2287016650661826
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ac6c625fa1ed957be6384c69bca790fb3acc3d854946368a86a439a09b5a1242",
+  "selected_reasons": []
+}

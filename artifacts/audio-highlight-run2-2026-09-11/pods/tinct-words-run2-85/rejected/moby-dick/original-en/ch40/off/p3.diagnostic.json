@@ -1,0 +1,671 @@
+{
+  "complete": true,
+  "signature": "53bf102b3d1daf1c74c67a91da21add817de0d2ad322f9e6d58d297a133db014",
+  "attempts": [
+    {
+      "asr_seconds": 0.3600033079273999,
+      "alignment_seconds": 0.0006409734487533569,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " One SD Nantucket sailor oh boys don't be sentimental. It's bad for the digestion take a tonic follow me",
+          "start": 0.05,
+          "end": 7.79,
+          "words": [
+            {
+              "text": " One",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.42724609375
+            },
+            {
+              "text": " SD",
+              "start": 0.67,
+              "end": 1.17,
+              "probability": 0.875
+            },
+            {
+              "text": " Nantucket",
+              "start": 1.17,
+              "end": 1.71,
+              "probability": 0.9777018229166666
+            },
+            {
+              "text": " sailor",
+              "start": 1.71,
+              "end": 2.05,
+              "probability": 0.7578125
+            },
+            {
+              "text": " oh",
+              "start": 2.05,
+              "end": 3.01,
+              "probability": 0.05230712890625
+            },
+            {
+              "text": " boys",
+              "start": 3.01,
+              "end": 3.41,
+              "probability": 0.78125
+            },
+            {
+              "text": " don't",
+              "start": 3.41,
+              "end": 3.87,
+              "probability": 0.779052734375
+            },
+            {
+              "text": " be",
+              "start": 3.87,
+              "end": 4.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sentimental.",
+              "start": 4.01,
+              "end": 4.43,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " It's",
+              "start": 4.43,
+              "end": 4.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bad",
+              "start": 4.95,
+              "end": 5.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 5.17,
+              "end": 5.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 5.37,
+              "end": 5.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " digestion",
+              "start": 5.47,
+              "end": 5.93,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " take",
+              "start": 5.93,
+              "end": 6.65,
+              "probability": 0.4140625
+            },
+            {
+              "text": " a",
+              "start": 6.65,
+              "end": 6.79,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " tonic",
+              "start": 6.79,
+              "end": 7.23,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " follow",
+              "start": 7.23,
+              "end": 7.45,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " me",
+              "start": 7.45,
+              "end": 7.79,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "One",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "SD",
+          "start": 0.67,
+          "end": 1.17
+        },
+        {
+          "raw": "Nantucket",
+          "start": 1.17,
+          "end": 1.71
+        },
+        {
+          "raw": "sailor",
+          "start": 1.71,
+          "end": 2.05
+        },
+        {
+          "raw": "oh",
+          "start": 2.05,
+          "end": 3.01
+        },
+        {
+          "raw": "boys",
+          "start": 3.01,
+          "end": 3.41
+        },
+        {
+          "raw": "don't",
+          "start": 3.41,
+          "end": 3.87
+        },
+        {
+          "raw": "be",
+          "start": 3.87,
+          "end": 4.01
+        },
+        {
+          "raw": "sentimental.",
+          "start": 4.01,
+          "end": 4.43
+        },
+        {
+          "raw": "It's",
+          "start": 4.43,
+          "end": 4.95
+        },
+        {
+          "raw": "bad",
+          "start": 4.95,
+          "end": 5.17
+        },
+        {
+          "raw": "for",
+          "start": 5.17,
+          "end": 5.37
+        },
+        {
+          "raw": "the",
+          "start": 5.37,
+          "end": 5.47
+        },
+        {
+          "raw": "digestion",
+          "start": 5.47,
+          "end": 5.93
+        },
+        {
+          "raw": "take",
+          "start": 5.93,
+          "end": 6.65
+        },
+        {
+          "raw": "a",
+          "start": 6.65,
+          "end": 6.79
+        },
+        {
+          "raw": "tonic",
+          "start": 6.79,
+          "end": 7.23
+        },
+        {
+          "raw": "follow",
+          "start": 7.23,
+          "end": 7.45
+        },
+        {
+          "raw": "me",
+          "start": 7.45,
+          "end": 7.79
+        }
+      ],
+      "expected_tokens": [
+        "1ST",
+        "Nantucket",
+        "Sailor.",
+        "Oh,",
+        "boys,",
+        "don't",
+        "be",
+        "sentimental;",
+        "it's",
+        "bad",
+        "for",
+        "the",
+        "digestion!",
+        "Take",
+        "a",
+        "tonic,",
+        "follow",
+        "me!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          18,
+          2,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "One",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "one",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "SD",
+          "start": 0.67,
+          "end": 1.17,
+          "key": "sd",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Nantucket",
+          "start": 1.17,
+          "end": 1.71,
+          "key": "nantucket",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sailor",
+          "start": 1.71,
+          "end": 2.05,
+          "key": "sailor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 2.05,
+          "end": 3.01,
+          "key": "oh",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "boys",
+          "start": 3.01,
+          "end": 3.41,
+          "key": "boys",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 3.41,
+          "end": 3.87,
+          "key": "dont",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.87,
+          "end": 4.01,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sentimental.",
+          "start": 4.01,
+          "end": 4.43,
+          "key": "sentimental",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 4.43,
+          "end": 4.95,
+          "key": "its",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bad",
+          "start": 4.95,
+          "end": 5.17,
+          "key": "bad",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.17,
+          "end": 5.37,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.37,
+          "end": 5.47,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "digestion",
+          "start": 5.47,
+          "end": 5.93,
+          "key": "digestion",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 5.93,
+          "end": 6.65,
+          "key": "take",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.65,
+          "end": 6.79,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "tonic",
+          "start": 6.79,
+          "end": 7.23,
+          "key": "tonic",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "follow",
+          "start": 7.23,
+          "end": 7.45,
+          "key": "follow",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 7.45,
+          "end": 7.79,
+          "key": "me",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "1ST",
+          "start": 0.0,
+          "end": 0.585
+        },
+        {
+          "text": "Nantucket",
+          "start": 1.17,
+          "end": 1.71
+        },
+        {
+          "text": "Sailor.",
+          "start": 1.71,
+          "end": 2.05
+        },
+        {
+          "text": "Oh,",
+          "start": 2.05,
+          "end": 3.01
+        },
+        {
+          "text": "boys,",
+          "start": 3.01,
+          "end": 3.41
+        },
+        {
+          "text": "don't",
+          "start": 3.41,
+          "end": 3.87
+        },
+        {
+          "text": "be",
+          "start": 3.87,
+          "end": 4.01
+        },
+        {
+          "text": "sentimental;",
+          "start": 4.01,
+          "end": 4.43
+        },
+        {
+          "text": "it's",
+          "start": 4.43,
+          "end": 4.95
+        },
+        {
+          "text": "bad",
+          "start": 4.95,
+          "end": 5.17
+        },
+        {
+          "text": "for",
+          "start": 5.17,
+          "end": 5.37
+        },
+        {
+          "text": "the",
+          "start": 5.37,
+          "end": 5.47
+        },
+        {
+          "text": "digestion!",
+          "start": 5.47,
+          "end": 5.93
+        },
+        {
+          "text": "Take",
+          "start": 5.93,
+          "end": 6.65
+        },
+        {
+          "text": "a",
+          "start": 6.65,
+          "end": 6.79
+        },
+        {
+          "text": "tonic,",
+          "start": 6.79,
+          "end": 7.23
+        },
+        {
+          "text": "follow",
+          "start": 7.23,
+          "end": 7.45
+        },
+        {
+          "text": "me!",
+          "start": 7.45,
+          "end": 7.79
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.3608965058811009
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5f69b19cbc775007eb18b3a1fc2326787ebf407b129bdadb088453f29a5e0964",
+  "selected_reasons": []
+}

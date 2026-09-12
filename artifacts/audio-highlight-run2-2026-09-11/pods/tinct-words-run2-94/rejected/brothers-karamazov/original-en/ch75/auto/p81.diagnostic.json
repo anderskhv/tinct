@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "e2a3dcb368943935e957fbc1902e9f8a1b0e08f1153aa70acefaea4cb1603b27",
+  "attempts": [
+    {
+      "asr_seconds": 0.2896216157823801,
+      "alignment_seconds": 0.0005700625479221344,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He drew a deep breath, looking angrily at Alyosha before his answer came.",
+        "hotwords": "He, Alyosha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He drew a deep breath, looking angrily at Alyosha before his answer came.",
+          "start": 0.05,
+          "end": 4.71,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " drew",
+              "start": 0.49,
+              "end": 0.67,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 0.67,
+              "end": 0.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " deep",
+              "start": 0.87,
+              "end": 1.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " breath,",
+              "start": 1.07,
+              "end": 1.53,
+              "probability": 0.990234375
+            },
+            {
+              "text": " looking",
+              "start": 1.97,
+              "end": 2.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " angrily",
+              "start": 2.21,
+              "end": 2.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " at",
+              "start": 2.65,
+              "end": 2.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Alyosha",
+              "start": 2.91,
+              "end": 3.53,
+              "probability": 0.9415690104166666
+            },
+            {
+              "text": " before",
+              "start": 3.53,
+              "end": 3.83,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " his",
+              "start": 3.83,
+              "end": 4.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " answer",
+              "start": 4.03,
+              "end": 4.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " came.",
+              "start": 4.33,
+              "end": 4.71,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "drew",
+          "start": 0.49,
+          "end": 0.67
+        },
+        {
+          "raw": "a",
+          "start": 0.67,
+          "end": 0.87
+        },
+        {
+          "raw": "deep",
+          "start": 0.87,
+          "end": 1.07
+        },
+        {
+          "raw": "breath,",
+          "start": 1.07,
+          "end": 1.53
+        },
+        {
+          "raw": "looking",
+          "start": 1.97,
+          "end": 2.21
+        },
+        {
+          "raw": "angrily",
+          "start": 2.21,
+          "end": 2.65
+        },
+        {
+          "raw": "at",
+          "start": 2.65,
+          "end": 2.91
+        },
+        {
+          "raw": "Alyosha",
+          "start": 2.91,
+          "end": 3.53
+        },
+        {
+          "raw": "before",
+          "start": 3.53,
+          "end": 3.83
+        },
+        {
+          "raw": "his",
+          "start": 3.83,
+          "end": 4.03
+        },
+        {
+          "raw": "answer",
+          "start": 4.03,
+          "end": 4.33
+        },
+        {
+          "raw": "came.",
+          "start": 4.33,
+          "end": 4.71
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "drew",
+        "a",
+        "deep",
+        "breath,",
+        "looking",
+        "angrily",
+        "at",
+        "Alyosha",
+        "before",
+        "his",
+        "answer",
+        "came."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "drew",
+          "start": 0.49,
+          "end": 0.67,
+          "key": "drew",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.67,
+          "end": 0.87,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "deep",
+          "start": 0.87,
+          "end": 1.07,
+          "key": "deep",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "breath,",
+          "start": 1.07,
+          "end": 1.53,
+          "key": "breath",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 1.97,
+          "end": 2.21,
+          "key": "looking",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "angrily",
+          "start": 2.21,
+          "end": 2.65,
+          "key": "angrily",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.65,
+          "end": 2.91,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 2.91,
+          "end": 3.53,
+          "key": "alyosha",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 3.53,
+          "end": 3.83,
+          "key": "before",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.83,
+          "end": 4.03,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 4.03,
+          "end": 4.33,
+          "key": "answer",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "came.",
+          "start": 4.33,
+          "end": 4.71,
+          "key": "came",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "drew",
+          "start": 0.49,
+          "end": 0.67
+        },
+        {
+          "text": "a",
+          "start": 0.67,
+          "end": 0.87
+        },
+        {
+          "text": "deep",
+          "start": 0.87,
+          "end": 1.07
+        },
+        {
+          "text": "breath,",
+          "start": 1.07,
+          "end": 1.53
+        },
+        {
+          "text": "looking",
+          "start": 1.97,
+          "end": 2.21
+        },
+        {
+          "text": "angrily",
+          "start": 2.21,
+          "end": 2.65
+        },
+        {
+          "text": "at",
+          "start": 2.65,
+          "end": 2.91
+        },
+        {
+          "text": "Alyosha",
+          "start": 2.91,
+          "end": 3.53
+        },
+        {
+          "text": "before",
+          "start": 3.53,
+          "end": 3.83
+        },
+        {
+          "text": "his",
+          "start": 3.83,
+          "end": 4.03
+        },
+        {
+          "text": "answer",
+          "start": 4.03,
+          "end": 4.33
+        },
+        {
+          "text": "came.",
+          "start": 4.33,
+          "end": 4.71
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29043163172900677
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c78285f1bdab5347b21f59773efb7900c5b77a023e681acff549a756bf64b96d",
+  "selected_reasons": []
+}

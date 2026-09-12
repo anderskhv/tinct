@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "9014c34c953e12d2759d9cee9e0944e09d32c96165a7d00e6a1137d8a166dd5c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1407044231891632,
+      "alignment_seconds": 0.0003565847873687744,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, is it a science?",
+          "start": 0.02,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " is",
+              "start": 0.98,
+              "end": 1.06,
+              "probability": 0.95703125
+            },
+            {
+              "text": " it",
+              "start": 1.06,
+              "end": 1.14,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 1.14,
+              "end": 1.26,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " science?",
+              "start": 1.26,
+              "end": 1.5,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "is",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "raw": "it",
+          "start": 1.06,
+          "end": 1.14
+        },
+        {
+          "raw": "a",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "raw": "science?",
+          "start": 1.26,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes;",
+        "is",
+        "it",
+        "a",
+        "science?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.98,
+          "end": 1.06,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.06,
+          "end": 1.14,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.14,
+          "end": 1.26,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "science?",
+          "start": 1.26,
+          "end": 1.5,
+          "key": "science",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes;",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "is",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "text": "it",
+          "start": 1.06,
+          "end": 1.14
+        },
+        {
+          "text": "a",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "text": "science?\"",
+          "start": 1.26,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14120463095605373
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d1d7a89c442a0214890e2bb49b099fead8f4af8e362278b344f8176faaf43a8a",
+  "selected_reasons": []
+}

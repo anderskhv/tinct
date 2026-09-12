@@ -1,0 +1,618 @@
+{
+  "complete": true,
+  "signature": "24f8a3c4b8a4b36343588ffb2705feb85a0ba4688bf055937a38a5cbc4d057c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.29901799699291587,
+      "alignment_seconds": 0.0007676769746467471,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Messenger, one can forgive thee, yet his no fair thing maids to rejoice in a man's suffering.",
+          "start": 0.05,
+          "end": 6.07,
+          "words": [
+            {
+              "text": " Messenger,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.76708984375
+            },
+            {
+              "text": " one",
+              "start": 1.29,
+              "end": 1.53,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " can",
+              "start": 1.53,
+              "end": 1.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " forgive",
+              "start": 1.69,
+              "end": 1.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thee,",
+              "start": 1.99,
+              "end": 2.31,
+              "probability": 0.98828125
+            },
+            {
+              "text": " yet",
+              "start": 2.71,
+              "end": 2.83,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " his",
+              "start": 2.83,
+              "end": 3.01,
+              "probability": 0.0478515625
+            },
+            {
+              "text": " no",
+              "start": 3.01,
+              "end": 3.21,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " fair",
+              "start": 3.21,
+              "end": 3.43,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " thing",
+              "start": 3.43,
+              "end": 3.73,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " maids",
+              "start": 3.73,
+              "end": 4.49,
+              "probability": 0.919921875
+            },
+            {
+              "text": " to",
+              "start": 4.49,
+              "end": 4.65,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " rejoice",
+              "start": 4.65,
+              "end": 4.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 4.97,
+              "end": 5.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 5.19,
+              "end": 5.29,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " man's",
+              "start": 5.29,
+              "end": 5.73,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " suffering.",
+              "start": 5.73,
+              "end": 6.07,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "one",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "raw": "can",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "raw": "forgive",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "raw": "thee,",
+          "start": 1.99,
+          "end": 2.31
+        },
+        {
+          "raw": "yet",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "raw": "his",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "raw": "no",
+          "start": 3.01,
+          "end": 3.21
+        },
+        {
+          "raw": "fair",
+          "start": 3.21,
+          "end": 3.43
+        },
+        {
+          "raw": "thing",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "raw": "maids",
+          "start": 3.73,
+          "end": 4.49
+        },
+        {
+          "raw": "to",
+          "start": 4.49,
+          "end": 4.65
+        },
+        {
+          "raw": "rejoice",
+          "start": 4.65,
+          "end": 4.97
+        },
+        {
+          "raw": "in",
+          "start": 4.97,
+          "end": 5.19
+        },
+        {
+          "raw": "a",
+          "start": 5.19,
+          "end": 5.29
+        },
+        {
+          "raw": "man's",
+          "start": 5.29,
+          "end": 5.73
+        },
+        {
+          "raw": "suffering.",
+          "start": 5.73,
+          "end": 6.07
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "One",
+        "can",
+        "forgive",
+        "thee!--Yet",
+        "'tis",
+        "no",
+        "fair",
+        "thing,",
+        "Maids,",
+        "to",
+        "rejoice",
+        "in",
+        "a",
+        "man's",
+        "suffering."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          16,
+          6,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.29,
+          "end": 1.53,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.53,
+          "end": 1.69,
+          "key": "can",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "forgive",
+          "start": 1.69,
+          "end": 1.99,
+          "key": "forgive",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thee, yet",
+          "start": 1.99,
+          "end": 2.83,
+          "key": "theeyet",
+          "pieces": [
+            4,
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.83,
+          "end": 3.01,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.01,
+          "end": 3.21,
+          "key": "no",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 3.21,
+          "end": 3.43,
+          "key": "fair",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 3.43,
+          "end": 3.73,
+          "key": "thing",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "maids",
+          "start": 3.73,
+          "end": 4.49,
+          "key": "maids",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.49,
+          "end": 4.65,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "rejoice",
+          "start": 4.65,
+          "end": 4.97,
+          "key": "rejoice",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.97,
+          "end": 5.19,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.19,
+          "end": 5.29,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "man's",
+          "start": 5.29,
+          "end": 5.73,
+          "key": "mans",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "suffering.",
+          "start": 5.73,
+          "end": 6.07,
+          "key": "suffering",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "thee!--Yet",
+          "heard": "thee, yet",
+          "heard_indexes": [
+            4,
+            5
+          ],
+          "start": 1.99,
+          "end": 2.83
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "One",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "text": "can",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "text": "forgive",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "text": "thee!--Yet",
+          "start": 1.99,
+          "end": 2.83
+        },
+        {
+          "text": "'tis",
+          "start": 2.83,
+          "end": 2.92
+        },
+        {
+          "text": "no",
+          "start": 3.01,
+          "end": 3.21
+        },
+        {
+          "text": "fair",
+          "start": 3.21,
+          "end": 3.43
+        },
+        {
+          "text": "thing,",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "text": "Maids,",
+          "start": 3.73,
+          "end": 4.49
+        },
+        {
+          "text": "to",
+          "start": 4.49,
+          "end": 4.65
+        },
+        {
+          "text": "rejoice",
+          "start": 4.65,
+          "end": 4.97
+        },
+        {
+          "text": "in",
+          "start": 4.97,
+          "end": 5.19
+        },
+        {
+          "text": "a",
+          "start": 5.19,
+          "end": 5.29
+        },
+        {
+          "text": "man's",
+          "start": 5.29,
+          "end": 5.73
+        },
+        {
+          "text": "suffering.",
+          "start": 5.73,
+          "end": 6.07
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.3000460430048406
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4289aebb428cc66826c06665a2ae0590f9e1742dae705613e8b37521a77b3a03",
+  "selected_reasons": []
+}

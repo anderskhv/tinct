@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "7000a1625854133415b0e741160e1900fad00dc1e68a1882a3478814ac6a95f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.14822769723832607,
+      "alignment_seconds": 0.0003581307828426361,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cloughton, his garment.",
+          "start": 0.0,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " Cloughton,",
+              "start": 0.0,
+              "end": 0.84,
+              "probability": 0.5218505859375
+            },
+            {
+              "text": " his",
+              "start": 1.08,
+              "end": 1.24,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " garment.",
+              "start": 1.24,
+              "end": 1.6,
+              "probability": 0.9296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cloughton,",
+          "start": 0.0,
+          "end": 0.84
+        },
+        {
+          "raw": "his",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "raw": "garment.",
+          "start": 1.24,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "Cloten.",
+        "'His",
+        "garment'!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cloughton,",
+          "start": 0.0,
+          "end": 0.84,
+          "key": "cloughton",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.08,
+          "end": 1.24,
+          "key": "his",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "garment.",
+          "start": 1.24,
+          "end": 1.6,
+          "key": "garment",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cloten.",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "text": "'His",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "text": "garment'!",
+          "start": 1.24,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1486956626176834
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b69d51728f59e27f12759a2e8b0c534d121c8a28d727ac80f71541218e410afc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

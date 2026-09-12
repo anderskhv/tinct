@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "f5d780051d8afa793da16b123978671399632f6fabe866f16d90a376ea0f22ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.2321691308170557,
+      "alignment_seconds": 0.0004260074347257614,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " May I look out of the window? He asked Nikolay Parfenevich suddenly",
+          "start": 0.05,
+          "end": 4.05,
+          "words": [
+            {
+              "text": " May",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.17236328125
+            },
+            {
+              "text": " I",
+              "start": 0.59,
+              "end": 0.71,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " look",
+              "start": 0.71,
+              "end": 0.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " out",
+              "start": 0.83,
+              "end": 0.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 0.99,
+              "end": 1.07,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " the",
+              "start": 1.07,
+              "end": 1.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " window?",
+              "start": 1.17,
+              "end": 1.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He",
+              "start": 2.13,
+              "end": 2.15,
+              "probability": 0.482421875
+            },
+            {
+              "text": " asked",
+              "start": 2.15,
+              "end": 2.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Nikolay",
+              "start": 2.49,
+              "end": 2.95,
+              "probability": 0.641845703125
+            },
+            {
+              "text": " Parfenevich",
+              "start": 2.95,
+              "end": 3.59,
+              "probability": 0.5887451171875
+            },
+            {
+              "text": " suddenly",
+              "start": 3.59,
+              "end": 4.05,
+              "probability": 0.84619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "May",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "I",
+          "start": 0.59,
+          "end": 0.71
+        },
+        {
+          "raw": "look",
+          "start": 0.71,
+          "end": 0.83
+        },
+        {
+          "raw": "out",
+          "start": 0.83,
+          "end": 0.99
+        },
+        {
+          "raw": "of",
+          "start": 0.99,
+          "end": 1.07
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "raw": "window?",
+          "start": 1.17,
+          "end": 1.55
+        },
+        {
+          "raw": "He",
+          "start": 2.13,
+          "end": 2.15
+        },
+        {
+          "raw": "asked",
+          "start": 2.15,
+          "end": 2.49
+        },
+        {
+          "raw": "Nikolay",
+          "start": 2.49,
+          "end": 2.95
+        },
+        {
+          "raw": "Parfenevich",
+          "start": 2.95,
+          "end": 3.59
+        },
+        {
+          "raw": "suddenly",
+          "start": 3.59,
+          "end": 4.05
+        }
+      ],
+      "expected_tokens": [
+        "\"May",
+        "I",
+        "look",
+        "out",
+        "of",
+        "the",
+        "window?\"",
+        "he",
+        "asked",
+        "Nikolay",
+        "Parfenovitch,",
+        "suddenly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "May",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "may",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.59,
+          "end": 0.71,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 0.71,
+          "end": 0.83,
+          "key": "look",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 0.83,
+          "end": 0.99,
+          "key": "out",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.99,
+          "end": 1.07,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.17,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "window?",
+          "start": 1.17,
+          "end": 1.55,
+          "key": "window",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.13,
+          "end": 2.15,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.15,
+          "end": 2.49,
+          "key": "asked",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Nikolay",
+          "start": 2.49,
+          "end": 2.95,
+          "key": "nikolay",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Parfenevich",
+          "start": 2.95,
+          "end": 3.59,
+          "key": "parfenevich",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 3.59,
+          "end": 4.05,
+          "key": "suddenly",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"May",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "I",
+          "start": 0.59,
+          "end": 0.71
+        },
+        {
+          "text": "look",
+          "start": 0.71,
+          "end": 0.83
+        },
+        {
+          "text": "out",
+          "start": 0.83,
+          "end": 0.99
+        },
+        {
+          "text": "of",
+          "start": 0.99,
+          "end": 1.07
+        },
+        {
+          "text": "the",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "text": "window?\"",
+          "start": 1.17,
+          "end": 1.55
+        },
+        {
+          "text": "he",
+          "start": 2.13,
+          "end": 2.15
+        },
+        {
+          "text": "asked",
+          "start": 2.15,
+          "end": 2.49
+        },
+        {
+          "text": "Nikolay",
+          "start": 2.49,
+          "end": 2.95
+        },
+        {
+          "text": "Parfenovitch,",
+          "start": 2.95,
+          "end": 3.27
+        },
+        {
+          "text": "suddenly.",
+          "start": 3.59,
+          "end": 4.05
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.23275047168135643
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "659a430d034df3964bc6a19908592ea5f24f9fa47e91649af6643c713eb60c6c",
+  "selected_reasons": []
+}

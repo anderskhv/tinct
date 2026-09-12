@@ -1,0 +1,601 @@
+{
+  "complete": true,
+  "signature": "a0d008f19c453425cfb406bcddc05f5f5b40c710e6310c2c823214380b04dc8e",
+  "attempts": [
+    {
+      "asr_seconds": 0.37007935158908367,
+      "alignment_seconds": 0.0011653192341327667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gracious you, indeed, mum,\" returned Flopsin, very red in the face.",
+          "start": 0.05,
+          "end": 4.53,
+          "words": [
+            {
+              "text": " Gracious",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.52862548828125
+            },
+            {
+              "text": " you,",
+              "start": 0.83,
+              "end": 1.13,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " indeed,",
+              "start": 1.25,
+              "end": 1.51,
+              "probability": 0.98828125
+            },
+            {
+              "text": " mum,\"",
+              "start": 1.77,
+              "end": 2.57,
+              "probability": 0.3485107421875
+            },
+            {
+              "text": " returned",
+              "start": 2.57,
+              "end": 2.93,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Flopsin,",
+              "start": 2.93,
+              "end": 3.49,
+              "probability": 0.72216796875
+            },
+            {
+              "text": " very",
+              "start": 3.57,
+              "end": 3.79,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " red",
+              "start": 3.79,
+              "end": 4.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 4.05,
+              "end": 4.19,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 4.19,
+              "end": 4.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " face.",
+              "start": 4.27,
+              "end": 4.53,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " What have you got there?",
+          "start": 5.11,
+          "end": 5.87,
+          "words": [
+            {
+              "text": " What",
+              "start": 5.11,
+              "end": 5.21,
+              "probability": 0.10882568359375
+            },
+            {
+              "text": " have",
+              "start": 5.21,
+              "end": 5.31,
+              "probability": 0.98046875
+            },
+            {
+              "text": " you",
+              "start": 5.31,
+              "end": 5.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " got",
+              "start": 5.41,
+              "end": 5.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " there?",
+              "start": 5.61,
+              "end": 5.87,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gracious",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "you,",
+          "start": 0.83,
+          "end": 1.13
+        },
+        {
+          "raw": "indeed,",
+          "start": 1.25,
+          "end": 1.51
+        },
+        {
+          "raw": "mum,\"",
+          "start": 1.77,
+          "end": 2.57
+        },
+        {
+          "raw": "returned",
+          "start": 2.57,
+          "end": 2.93
+        },
+        {
+          "raw": "Flopsin,",
+          "start": 2.93,
+          "end": 3.49
+        },
+        {
+          "raw": "very",
+          "start": 3.57,
+          "end": 3.79
+        },
+        {
+          "raw": "red",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "raw": "in",
+          "start": 4.05,
+          "end": 4.19
+        },
+        {
+          "raw": "the",
+          "start": 4.19,
+          "end": 4.27
+        },
+        {
+          "raw": "face.",
+          "start": 4.27,
+          "end": 4.53
+        },
+        {
+          "raw": "What",
+          "start": 5.11,
+          "end": 5.21
+        },
+        {
+          "raw": "have",
+          "start": 5.21,
+          "end": 5.31
+        },
+        {
+          "raw": "you",
+          "start": 5.31,
+          "end": 5.41
+        },
+        {
+          "raw": "got",
+          "start": 5.41,
+          "end": 5.61
+        },
+        {
+          "raw": "there?",
+          "start": 5.61,
+          "end": 5.87
+        }
+      ],
+      "expected_tokens": [
+        "\"Gracious",
+        "you,",
+        "indeed,",
+        "Mum!\"",
+        "returned",
+        "Flopson,",
+        "very",
+        "red",
+        "in",
+        "the",
+        "face;",
+        "\"what",
+        "have",
+        "you",
+        "got",
+        "there?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          16,
+          6,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gracious",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "gracious",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 0.83,
+          "end": 1.13,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "indeed,",
+          "start": 1.25,
+          "end": 1.51,
+          "key": "indeed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mum,\"",
+          "start": 1.77,
+          "end": 2.57,
+          "key": "mum",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "returned",
+          "start": 2.57,
+          "end": 2.93,
+          "key": "returned",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Flopsin,",
+          "start": 2.93,
+          "end": 3.49,
+          "key": "flopsin",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 3.57,
+          "end": 3.79,
+          "key": "very",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "red",
+          "start": 3.79,
+          "end": 4.05,
+          "key": "red",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.05,
+          "end": 4.19,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.19,
+          "end": 4.27,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "face.",
+          "start": 4.27,
+          "end": 4.53,
+          "key": "face",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 5.11,
+          "end": 5.21,
+          "key": "what",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.21,
+          "end": 5.31,
+          "key": "have",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.31,
+          "end": 5.41,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 5.41,
+          "end": 5.61,
+          "key": "got",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "there?",
+          "start": 5.61,
+          "end": 5.87,
+          "key": "there",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Gracious",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "you,",
+          "start": 0.83,
+          "end": 1.13
+        },
+        {
+          "text": "indeed,",
+          "start": 1.25,
+          "end": 1.51
+        },
+        {
+          "text": "Mum!\"",
+          "start": 1.77,
+          "end": 2.57
+        },
+        {
+          "text": "returned",
+          "start": 2.57,
+          "end": 2.93
+        },
+        {
+          "text": "Flopson,",
+          "start": 2.93,
+          "end": 3.25
+        },
+        {
+          "text": "very",
+          "start": 3.57,
+          "end": 3.79
+        },
+        {
+          "text": "red",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "text": "in",
+          "start": 4.05,
+          "end": 4.19
+        },
+        {
+          "text": "the",
+          "start": 4.19,
+          "end": 4.27
+        },
+        {
+          "text": "face;",
+          "start": 4.27,
+          "end": 4.53
+        },
+        {
+          "text": "\"what",
+          "start": 5.11,
+          "end": 5.21
+        },
+        {
+          "text": "have",
+          "start": 5.21,
+          "end": 5.31
+        },
+        {
+          "text": "you",
+          "start": 5.31,
+          "end": 5.41
+        },
+        {
+          "text": "got",
+          "start": 5.41,
+          "end": 5.61
+        },
+        {
+          "text": "there?\"",
+          "start": 5.61,
+          "end": 5.87
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.37172588519752026
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "654b28eae4dc52a37d722ac61136a73a632d4054de775d1298c26a6d3ba029ce",
+  "selected_reasons": []
+}

@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "842e89392ab9a8b9f7f5e7e6bb82bff6dc305d291f7595cb703cd8f6324e1550",
+  "attempts": [
+    {
+      "asr_seconds": 0.09464590903371572,
+      "alignment_seconds": 0.00010949099669232965,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hello there, Central.",
+          "start": 0.05,
+          "end": 1.27,
+          "words": [
+            {
+              "text": " Hello",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " there,",
+              "start": 0.63,
+              "end": 0.87,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " Central.",
+              "start": 0.89,
+              "end": 1.27,
+              "probability": 0.7646484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hello",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "there,",
+          "start": 0.63,
+          "end": 0.87
+        },
+        {
+          "raw": "Central.",
+          "start": 0.89,
+          "end": 1.27
+        }
+      ],
+      "expected_tokens": [
+        "Hello",
+        "There,",
+        "Central!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hello",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "hello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 0.63,
+          "end": 0.87,
+          "key": "there",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Central.",
+          "start": 0.89,
+          "end": 1.27,
+          "key": "central",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hello",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "There,",
+          "start": 0.63,
+          "end": 0.87
+        },
+        {
+          "text": "Central!",
+          "start": 0.89,
+          "end": 1.27
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09479538002051413
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e465df1e0ea52739b5d4bb7245d7ab287322860cefffe43a73a6ad91e2775e6b",
+  "selected_reasons": []
+}

@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "bf5be83976e63df394c24457f80231f03a21de48f5939b629f04ab6c22d0c344",
+  "attempts": [
+    {
+      "asr_seconds": 0.168458953499794,
+      "alignment_seconds": 0.00034449994564056396,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Benvolio, then she hath sworn that she will still live chaste.",
+          "start": 0.08,
+          "end": 3.6,
+          "words": [
+            {
+              "text": " Benvolio,",
+              "start": 0.08,
+              "end": 1.02,
+              "probability": 0.9070638020833334
+            },
+            {
+              "text": " then",
+              "start": 1.38,
+              "end": 1.64,
+              "probability": 0.875
+            },
+            {
+              "text": " she",
+              "start": 1.64,
+              "end": 1.8,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " hath",
+              "start": 1.8,
+              "end": 1.92,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " sworn",
+              "start": 1.92,
+              "end": 2.22,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " that",
+              "start": 2.22,
+              "end": 2.38,
+              "probability": 0.970703125
+            },
+            {
+              "text": " she",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " will",
+              "start": 2.54,
+              "end": 2.66,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " still",
+              "start": 2.66,
+              "end": 2.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " live",
+              "start": 2.9,
+              "end": 3.14,
+              "probability": 0.994140625
+            },
+            {
+              "text": " chaste.",
+              "start": 3.14,
+              "end": 3.6,
+              "probability": 0.85986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.08,
+          "end": 1.02
+        },
+        {
+          "raw": "then",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "raw": "she",
+          "start": 1.64,
+          "end": 1.8
+        },
+        {
+          "raw": "hath",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "raw": "sworn",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "raw": "that",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "raw": "she",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "will",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "raw": "still",
+          "start": 2.66,
+          "end": 2.9
+        },
+        {
+          "raw": "live",
+          "start": 2.9,
+          "end": 3.14
+        },
+        {
+          "raw": "chaste.",
+          "start": 3.14,
+          "end": 3.6
+        }
+      ],
+      "expected_tokens": [
+        "Benvolio.",
+        "Then",
+        "she",
+        "hath",
+        "sworn",
+        "that",
+        "she",
+        "will",
+        "still",
+        "live",
+        "chaste?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.08,
+          "end": 1.02,
+          "key": "benvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.38,
+          "end": 1.64,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.64,
+          "end": 1.8,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.8,
+          "end": 1.92,
+          "key": "hath",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sworn",
+          "start": 1.92,
+          "end": 2.22,
+          "key": "sworn",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.22,
+          "end": 2.38,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.38,
+          "end": 2.54,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.54,
+          "end": 2.66,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 2.66,
+          "end": 2.9,
+          "key": "still",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 2.9,
+          "end": 3.14,
+          "key": "live",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "chaste.",
+          "start": 3.14,
+          "end": 3.6,
+          "key": "chaste",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Benvolio.",
+          "start": 0.08,
+          "end": 1.02
+        },
+        {
+          "text": "Then",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "text": "she",
+          "start": 1.64,
+          "end": 1.8
+        },
+        {
+          "text": "hath",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "text": "sworn",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "text": "that",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "text": "she",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "will",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "text": "still",
+          "start": 2.66,
+          "end": 2.9
+        },
+        {
+          "text": "live",
+          "start": 2.9,
+          "end": 3.14
+        },
+        {
+          "text": "chaste?",
+          "start": 3.14,
+          "end": 3.6
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16892986465245485
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9c27d904d27290e094fe52f513041c20775f384d94216c5c0fd2a50a2318ccaf",
+  "selected_reasons": []
+}

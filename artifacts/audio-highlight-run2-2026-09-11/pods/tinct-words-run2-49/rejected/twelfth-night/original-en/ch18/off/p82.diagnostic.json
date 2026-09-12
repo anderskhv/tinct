@@ -1,0 +1,728 @@
+{
+  "complete": true,
+  "signature": "e19d78016d36247179d3f8dc57c6d6d6683c65ba867493fd789bc10ff61937c3",
+  "attempts": [
+    {
+      "asr_seconds": 0.350081954151392,
+      "alignment_seconds": 0.00074777752161026,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir Toby, that's all one. Has hurt me and there's T.H. and aunt. Sott did see dick surgeon Sott.",
+          "start": 0.02,
+          "end": 6.66,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " Toby,",
+              "start": 0.54,
+              "end": 0.86,
+              "probability": 0.75927734375
+            },
+            {
+              "text": " that's",
+              "start": 1.06,
+              "end": 1.44,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " all",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " one.",
+              "start": 1.58,
+              "end": 1.84,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " Has",
+              "start": 2.28,
+              "end": 2.4,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " hurt",
+              "start": 2.4,
+              "end": 2.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 2.64,
+              "end": 2.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 2.8,
+              "end": 2.94,
+              "probability": 0.822265625
+            },
+            {
+              "text": " there's",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " T",
+              "start": 3.18,
+              "end": 3.34,
+              "probability": 0.41943359375
+            },
+            {
+              "text": ".H.",
+              "start": 3.34,
+              "end": 3.62,
+              "probability": 0.796875
+            },
+            {
+              "text": " and",
+              "start": 3.8,
+              "end": 3.86,
+              "probability": 0.884765625
+            },
+            {
+              "text": " aunt.",
+              "start": 3.86,
+              "end": 4.16,
+              "probability": 0.467529296875
+            },
+            {
+              "text": " Sott",
+              "start": 4.9,
+              "end": 5.0,
+              "probability": 0.5467529296875
+            },
+            {
+              "text": " did",
+              "start": 5.0,
+              "end": 5.26,
+              "probability": 0.892578125
+            },
+            {
+              "text": " see",
+              "start": 5.26,
+              "end": 5.6,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " dick",
+              "start": 5.6,
+              "end": 5.84,
+              "probability": 0.5556640625
+            },
+            {
+              "text": " surgeon",
+              "start": 5.84,
+              "end": 6.14,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " Sott.",
+              "start": 6.14,
+              "end": 6.66,
+              "probability": 0.921142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.54,
+          "end": 0.86
+        },
+        {
+          "raw": "that's",
+          "start": 1.06,
+          "end": 1.44
+        },
+        {
+          "raw": "all",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "one.",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "raw": "Has",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "raw": "hurt",
+          "start": 2.4,
+          "end": 2.64
+        },
+        {
+          "raw": "me",
+          "start": 2.64,
+          "end": 2.8
+        },
+        {
+          "raw": "and",
+          "start": 2.8,
+          "end": 2.94
+        },
+        {
+          "raw": "there's",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "raw": "T",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "raw": ".H.",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "raw": "and",
+          "start": 3.8,
+          "end": 3.86
+        },
+        {
+          "raw": "aunt.",
+          "start": 3.86,
+          "end": 4.16
+        },
+        {
+          "raw": "Sott",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "raw": "did",
+          "start": 5.0,
+          "end": 5.26
+        },
+        {
+          "raw": "see",
+          "start": 5.26,
+          "end": 5.6
+        },
+        {
+          "raw": "dick",
+          "start": 5.6,
+          "end": 5.84
+        },
+        {
+          "raw": "surgeon",
+          "start": 5.84,
+          "end": 6.14
+        },
+        {
+          "raw": "Sott.",
+          "start": 6.14,
+          "end": 6.66
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "That's",
+        "all",
+        "one;",
+        "'has",
+        "hurt",
+        "me,",
+        "and",
+        "there's",
+        "th'",
+        "end",
+        "on't.",
+        "Sot,",
+        "didst",
+        "see",
+        "Dick",
+        "Surgeon,",
+        "sot?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          15,
+          10,
+          16
+        ],
+        [
+          "equal",
+          15,
+          18,
+          16,
+          19
+        ],
+        [
+          "replace",
+          18,
+          19,
+          19,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          15,
+          10,
+          16
+        ],
+        [
+          "replace",
+          18,
+          19,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.54,
+          "end": 0.86,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.06,
+          "end": 1.44,
+          "key": "thats",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "one.",
+          "start": 1.58,
+          "end": 1.84,
+          "key": "one",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Has",
+          "start": 2.28,
+          "end": 2.4,
+          "key": "has",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hurt",
+          "start": 2.4,
+          "end": 2.64,
+          "key": "hurt",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.64,
+          "end": 2.8,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.8,
+          "end": 2.94,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 2.94,
+          "end": 3.18,
+          "key": "theres",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 3.18,
+          "end": 3.34,
+          "key": "t",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": ".H.",
+          "start": 3.34,
+          "end": 3.62,
+          "key": "h",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.8,
+          "end": 3.86,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "aunt.",
+          "start": 3.86,
+          "end": 4.16,
+          "key": "aunt",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Sott",
+          "start": 4.9,
+          "end": 5.0,
+          "key": "sott",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 5.0,
+          "end": 5.26,
+          "key": "did",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 5.26,
+          "end": 5.6,
+          "key": "see",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "dick",
+          "start": 5.6,
+          "end": 5.84,
+          "key": "dick",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "surgeon",
+          "start": 5.84,
+          "end": 6.14,
+          "key": "surgeon",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Sott.",
+          "start": 6.14,
+          "end": 6.66,
+          "key": "sott",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "Toby.",
+          "start": 0.54,
+          "end": 0.86
+        },
+        {
+          "text": "That's",
+          "start": 1.06,
+          "end": 1.44
+        },
+        {
+          "text": "all",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "one;",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "text": "'has",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "text": "hurt",
+          "start": 2.4,
+          "end": 2.64
+        },
+        {
+          "text": "me,",
+          "start": 2.64,
+          "end": 2.8
+        },
+        {
+          "text": "and",
+          "start": 2.8,
+          "end": 2.94
+        },
+        {
+          "text": "there's",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "text": "th'",
+          "start": 3.18,
+          "end": 4.22
+        },
+        {
+          "text": "end",
+          "start": 4.22,
+          "end": 4.74
+        },
+        {
+          "text": "on't.",
+          "start": 4.74,
+          "end": 5.0
+        },
+        {
+          "text": "Sot,",
+          "start": 5.0,
+          "end": 5.13
+        },
+        {
+          "text": "didst",
+          "start": 5.13,
+          "end": 5.195
+        },
+        {
+          "text": "see",
+          "start": 5.26,
+          "end": 5.6
+        },
+        {
+          "text": "Dick",
+          "start": 5.6,
+          "end": 5.84
+        },
+        {
+          "text": "Surgeon,",
+          "start": 5.84,
+          "end": 6.14
+        },
+        {
+          "text": "sot?",
+          "start": 6.14,
+          "end": 6.4
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 13
+      },
+      "match_ratio": 0.6842105263157895,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.35117072612047195
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "23bd30bc4e00f8ba5b4d32a95c0462ca77e496b5b3c2b060c21ad3e7c14fe0e8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

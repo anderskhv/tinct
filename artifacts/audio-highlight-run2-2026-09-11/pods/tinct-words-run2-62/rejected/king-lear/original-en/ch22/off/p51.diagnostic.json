@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "6a6495c089bbe2c3eaa3239d013921235d009d0132a62c9ea9881ea109774066",
+  "attempts": [
+    {
+      "asr_seconds": 0.1020515114068985,
+      "alignment_seconds": 0.00015468895435333252,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gloucester, were all the letters sons I could not see one.",
+          "start": 0.05,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " Gloucester,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " were",
+              "start": 1.33,
+              "end": 1.41,
+              "probability": 0.56298828125
+            },
+            {
+              "text": " all",
+              "start": 1.41,
+              "end": 1.59,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 1.59,
+              "end": 1.71,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " letters",
+              "start": 1.71,
+              "end": 1.95,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " sons",
+              "start": 1.95,
+              "end": 2.27,
+              "probability": 0.401611328125
+            },
+            {
+              "text": " I",
+              "start": 2.27,
+              "end": 2.59,
+              "probability": 0.57373046875
+            },
+            {
+              "text": " could",
+              "start": 2.59,
+              "end": 2.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 2.69,
+              "end": 2.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " see",
+              "start": 2.83,
+              "end": 3.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " one.",
+              "start": 3.07,
+              "end": 3.33,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "were",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "raw": "all",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "raw": "the",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "raw": "letters",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "raw": "sons",
+          "start": 1.95,
+          "end": 2.27
+        },
+        {
+          "raw": "I",
+          "start": 2.27,
+          "end": 2.59
+        },
+        {
+          "raw": "could",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "raw": "not",
+          "start": 2.69,
+          "end": 2.83
+        },
+        {
+          "raw": "see",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "raw": "one.",
+          "start": 3.07,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "Were",
+        "all",
+        "the",
+        "letters",
+        "suns,",
+        "I",
+        "could",
+        "not",
+        "see",
+        "one."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          11,
+          6,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.33,
+          "end": 1.41,
+          "key": "were",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.41,
+          "end": 1.59,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.59,
+          "end": 1.71,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "letters",
+          "start": 1.71,
+          "end": 1.95,
+          "key": "letters",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sons",
+          "start": 1.95,
+          "end": 2.27,
+          "key": "sons",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.27,
+          "end": 2.59,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 2.59,
+          "end": 2.69,
+          "key": "could",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.69,
+          "end": 2.83,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.83,
+          "end": 3.07,
+          "key": "see",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "one.",
+          "start": 3.07,
+          "end": 3.33,
+          "key": "one",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Were",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "text": "all",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "text": "the",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "text": "letters",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "text": "suns,",
+          "start": 1.95,
+          "end": 2.11
+        },
+        {
+          "text": "I",
+          "start": 2.27,
+          "end": 2.59
+        },
+        {
+          "text": "could",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "text": "not",
+          "start": 2.69,
+          "end": 2.83
+        },
+        {
+          "text": "see",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "text": "one.",
+          "start": 3.07,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.10226353630423546
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3911c6a0c3a19a877c820d5b4ae316f7bb5feb8bc8ddd8251ab9e7aadf774f62",
+  "selected_reasons": []
+}

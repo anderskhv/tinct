@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "5d49353bbdbfb5817435504983788c08429b009137b31472906bade57cd93f40",
+  "attempts": [
+    {
+      "asr_seconds": 0.14782391674816608,
+      "alignment_seconds": 0.0003959117457270622,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gaidreus, what I could freet.",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Gaidreus,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.451171875
+            },
+            {
+              "text": " what",
+              "start": 1.23,
+              "end": 1.35,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " I",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " could",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " freet.",
+              "start": 1.61,
+              "end": 1.93,
+              "probability": 0.48468017578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gaidreus,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "what",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "raw": "I",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "could",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "freet.",
+          "start": 1.61,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "Guiderius.",
+        "Would",
+        "I",
+        "could",
+        "free't!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gaidreus,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "gaidreus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.23,
+          "end": 1.35,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "could",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "freet.",
+          "start": 1.61,
+          "end": 1.93,
+          "key": "freet",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guiderius.",
+          "start": 0.0,
+          "end": 0.675
+        },
+        {
+          "text": "Would",
+          "start": 0.675,
+          "end": 1.013
+        },
+        {
+          "text": "I",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "could",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "free't!",
+          "start": 1.61,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14836106915026903
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "250c97f5e3151b5d8a17b9c8af54738f6c75bb970d88bee8e053084343404ed1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

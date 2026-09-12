@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "dd6df236a08b85b5a249586c3ad6f4b3049b9ab3d07a53269ded55b4e52ae99c",
+  "attempts": [
+    {
+      "asr_seconds": 0.26548278145492077,
+      "alignment_seconds": 0.0003901161253452301,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Why is it all over with you? You said so just now,\" Alyosha interposed.",
+        "hotwords": "Why, Alyosha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why is it all over with you? You said so just now,\" Alyosha interposed.",
+          "start": 0.05,
+          "end": 4.59,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.433349609375
+            },
+            {
+              "text": " is",
+              "start": 0.59,
+              "end": 0.73,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " it",
+              "start": 0.73,
+              "end": 0.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " all",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " over",
+              "start": 0.97,
+              "end": 1.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 1.17,
+              "end": 1.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you?",
+              "start": 1.33,
+              "end": 1.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " You",
+              "start": 1.95,
+              "end": 2.09,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " said",
+              "start": 2.09,
+              "end": 2.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so",
+              "start": 2.29,
+              "end": 2.51,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " just",
+              "start": 2.51,
+              "end": 2.67,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " now,\"",
+              "start": 2.67,
+              "end": 3.61,
+              "probability": 0.5153656005859375
+            },
+            {
+              "text": " Alyosha",
+              "start": 3.61,
+              "end": 3.97,
+              "probability": 0.9358723958333334
+            },
+            {
+              "text": " interposed.",
+              "start": 3.97,
+              "end": 4.59,
+              "probability": 0.988525390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "is",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "raw": "it",
+          "start": 0.73,
+          "end": 0.83
+        },
+        {
+          "raw": "all",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "over",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "raw": "with",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "raw": "you?",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "raw": "You",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "raw": "said",
+          "start": 2.09,
+          "end": 2.29
+        },
+        {
+          "raw": "so",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "raw": "just",
+          "start": 2.51,
+          "end": 2.67
+        },
+        {
+          "raw": "now,\"",
+          "start": 2.67,
+          "end": 3.61
+        },
+        {
+          "raw": "Alyosha",
+          "start": 3.61,
+          "end": 3.97
+        },
+        {
+          "raw": "interposed.",
+          "start": 3.97,
+          "end": 4.59
+        }
+      ],
+      "expected_tokens": [
+        "\"Why",
+        "is",
+        "it",
+        "all",
+        "over",
+        "with",
+        "you?",
+        "You",
+        "said",
+        "so",
+        "just",
+        "now,\"",
+        "Alyosha",
+        "interposed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.59,
+          "end": 0.73,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.73,
+          "end": 0.83,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.83,
+          "end": 0.97,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 0.97,
+          "end": 1.17,
+          "key": "over",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.17,
+          "end": 1.33,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 1.33,
+          "end": 1.57,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.95,
+          "end": 2.09,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.09,
+          "end": 2.29,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.29,
+          "end": 2.51,
+          "key": "so",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.51,
+          "end": 2.67,
+          "key": "just",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "now,\"",
+          "start": 2.67,
+          "end": 3.61,
+          "key": "now",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 3.61,
+          "end": 3.97,
+          "key": "alyosha",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "interposed.",
+          "start": 3.97,
+          "end": 4.59,
+          "key": "interposed",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "is",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "text": "it",
+          "start": 0.73,
+          "end": 0.83
+        },
+        {
+          "text": "all",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "over",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "text": "with",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "text": "you?",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "text": "You",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "text": "said",
+          "start": 2.09,
+          "end": 2.29
+        },
+        {
+          "text": "so",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "text": "just",
+          "start": 2.51,
+          "end": 2.67
+        },
+        {
+          "text": "now,\"",
+          "start": 2.67,
+          "end": 3.61
+        },
+        {
+          "text": "Alyosha",
+          "start": 3.61,
+          "end": 3.97
+        },
+        {
+          "text": "interposed.",
+          "start": 3.97,
+          "end": 4.59
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2660177871584892
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "750aa434c894af1547e7326b92ca2a0a3381cfabff47d541ad51a69f20e22611",
+  "selected_reasons": []
+}

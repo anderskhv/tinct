@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "ba4969c8c1d6913ce2df3d41e84e28d2ae15ec6ce30e7859028bc52d71818f4b",
+  "attempts": [
+    {
+      "asr_seconds": 0.115158419997897,
+      "alignment_seconds": 0.00022465799702331424,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Canidius, will I know the man?",
+          "start": 0.58,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " Canidius,",
+              "start": 0.58,
+              "end": 0.94,
+              "probability": 0.5746256510416666
+            },
+            {
+              "text": " will",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " I",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " know",
+              "start": 1.46,
+              "end": 1.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " man?",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Canidius,",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "raw": "will",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "know",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "man?",
+          "start": 1.7,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "Canidius.",
+        "Well",
+        "I",
+        "know",
+        "the",
+        "man."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Canidius,",
+          "start": 0.58,
+          "end": 0.94,
+          "key": "canidius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.22,
+          "end": 1.36,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.46,
+          "end": 1.58,
+          "key": "know",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "man?",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "man",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Canidius.",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "text": "Well",
+          "start": 0.94,
+          "end": 1.15
+        },
+        {
+          "text": "I",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "know",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "text": "the",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "man.",
+          "start": 1.7,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11545805999776348
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "55cb45dde606e3db4848e10cf8c38e275599be867e54b3d2994dbf9975868dba",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

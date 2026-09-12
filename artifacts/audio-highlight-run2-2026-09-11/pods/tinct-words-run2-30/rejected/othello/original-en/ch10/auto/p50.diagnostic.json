@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "6074ec2504908b04cad6e66bb429df195e6d154ed2d74421864c81468ad67ec9",
+  "attempts": [
+    {
+      "asr_seconds": 0.09466427378356457,
+      "alignment_seconds": 9.673973545432091e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. How?",
+        "hotwords": "Othello, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, How.",
+          "start": 0.02,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.44135602315266925
+            },
+            {
+              "text": " How.",
+              "start": 1.02,
+              "end": 1.28,
+              "probability": 0.051177978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "How.",
+          "start": 1.02,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "How?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How.",
+          "start": 1.02,
+          "end": 1.28,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "How?",
+          "start": 1.02,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09479351388290524
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fc58b969c0d1aa738dcee71dff07861f77d8fbf47d0de67093fe37480abd1ad5",
+  "selected_reasons": []
+}

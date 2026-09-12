@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "379c580e67d2b28ab7850e6b6df7faf7e6be2ce120c5675ea39b869143869cac",
+  "attempts": [
+    {
+      "asr_seconds": 0.34704624582082033,
+      "alignment_seconds": 0.0003948826342821121,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Tybalt. What, art thou drawn among these heartless hinds? Turn thee Benvolio, look upon thy death.",
+        "hotwords": "Tybalt, What, Turn, Benvolio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Tybalt, What, art thou drawn among these heartless hinds? Turn thee Benvolio, look upon thy death.",
+          "start": 0.0,
+          "end": 5.98,
+          "words": [
+            {
+              "text": " Tybalt,",
+              "start": 0.0,
+              "end": 0.84,
+              "probability": 0.8899739583333334
+            },
+            {
+              "text": " What,",
+              "start": 1.2,
+              "end": 1.42,
+              "probability": 0.052154541015625
+            },
+            {
+              "text": " art",
+              "start": 1.46,
+              "end": 1.72,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " thou",
+              "start": 1.72,
+              "end": 1.94,
+              "probability": 0.5732421875
+            },
+            {
+              "text": " drawn",
+              "start": 1.94,
+              "end": 2.18,
+              "probability": 0.49169921875
+            },
+            {
+              "text": " among",
+              "start": 2.18,
+              "end": 2.4,
+              "probability": 0.79638671875
+            },
+            {
+              "text": " these",
+              "start": 2.4,
+              "end": 2.64,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " heartless",
+              "start": 2.64,
+              "end": 3.06,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " hinds?",
+              "start": 3.06,
+              "end": 4.02,
+              "probability": 0.674072265625
+            },
+            {
+              "text": " Turn",
+              "start": 4.2,
+              "end": 4.24,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " thee",
+              "start": 4.24,
+              "end": 4.38,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " Benvolio,",
+              "start": 4.38,
+              "end": 5.0,
+              "probability": 0.7596028645833334
+            },
+            {
+              "text": " look",
+              "start": 5.18,
+              "end": 5.26,
+              "probability": 0.900390625
+            },
+            {
+              "text": " upon",
+              "start": 5.26,
+              "end": 5.52,
+              "probability": 0.990234375
+            },
+            {
+              "text": " thy",
+              "start": 5.52,
+              "end": 5.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " death.",
+              "start": 5.72,
+              "end": 5.98,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tybalt,",
+          "start": 0.0,
+          "end": 0.84
+        },
+        {
+          "raw": "What,",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "raw": "art",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "raw": "thou",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "raw": "drawn",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "raw": "among",
+          "start": 2.18,
+          "end": 2.4
+        },
+        {
+          "raw": "these",
+          "start": 2.4,
+          "end": 2.64
+        },
+        {
+          "raw": "heartless",
+          "start": 2.64,
+          "end": 3.06
+        },
+        {
+          "raw": "hinds?",
+          "start": 3.06,
+          "end": 4.02
+        },
+        {
+          "raw": "Turn",
+          "start": 4.2,
+          "end": 4.24
+        },
+        {
+          "raw": "thee",
+          "start": 4.24,
+          "end": 4.38
+        },
+        {
+          "raw": "Benvolio,",
+          "start": 4.38,
+          "end": 5.0
+        },
+        {
+          "raw": "look",
+          "start": 5.18,
+          "end": 5.26
+        },
+        {
+          "raw": "upon",
+          "start": 5.26,
+          "end": 5.52
+        },
+        {
+          "raw": "thy",
+          "start": 5.52,
+          "end": 5.72
+        },
+        {
+          "raw": "death.",
+          "start": 5.72,
+          "end": 5.98
+        }
+      ],
+      "expected_tokens": [
+        "Tybalt.",
+        "What,",
+        "art",
+        "thou",
+        "drawn",
+        "among",
+        "these",
+        "heartless",
+        "hinds?",
+        "Turn",
+        "thee",
+        "Benvolio,",
+        "look",
+        "upon",
+        "thy",
+        "death."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tybalt,",
+          "start": 0.0,
+          "end": 0.84,
+          "key": "tybalt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 1.2,
+          "end": 1.42,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 1.46,
+          "end": 1.72,
+          "key": "art",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.72,
+          "end": 1.94,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "drawn",
+          "start": 1.94,
+          "end": 2.18,
+          "key": "drawn",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "among",
+          "start": 2.18,
+          "end": 2.4,
+          "key": "among",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 2.4,
+          "end": 2.64,
+          "key": "these",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "heartless",
+          "start": 2.64,
+          "end": 3.06,
+          "key": "heartless",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hinds?",
+          "start": 3.06,
+          "end": 4.02,
+          "key": "hinds",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Turn",
+          "start": 4.2,
+          "end": 4.24,
+          "key": "turn",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.24,
+          "end": 4.38,
+          "key": "thee",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Benvolio,",
+          "start": 4.38,
+          "end": 5.0,
+          "key": "benvolio",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 5.18,
+          "end": 5.26,
+          "key": "look",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 5.26,
+          "end": 5.52,
+          "key": "upon",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 5.52,
+          "end": 5.72,
+          "key": "thy",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "death.",
+          "start": 5.72,
+          "end": 5.98,
+          "key": "death",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tybalt.",
+          "start": 0.0,
+          "end": 0.84
+        },
+        {
+          "text": "What,",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "text": "art",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "text": "thou",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "text": "drawn",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "text": "among",
+          "start": 2.18,
+          "end": 2.4
+        },
+        {
+          "text": "these",
+          "start": 2.4,
+          "end": 2.64
+        },
+        {
+          "text": "heartless",
+          "start": 2.64,
+          "end": 3.06
+        },
+        {
+          "text": "hinds?",
+          "start": 3.06,
+          "end": 4.02
+        },
+        {
+          "text": "Turn",
+          "start": 4.2,
+          "end": 4.24
+        },
+        {
+          "text": "thee",
+          "start": 4.24,
+          "end": 4.38
+        },
+        {
+          "text": "Benvolio,",
+          "start": 4.38,
+          "end": 5.0
+        },
+        {
+          "text": "look",
+          "start": 5.18,
+          "end": 5.26
+        },
+        {
+          "text": "upon",
+          "start": 5.26,
+          "end": 5.52
+        },
+        {
+          "text": "thy",
+          "start": 5.52,
+          "end": 5.72
+        },
+        {
+          "text": "death.",
+          "start": 5.72,
+          "end": 5.98
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3476166371256113
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1b22e9b72dcbf1c06322731ce54cdd87bf6c934387c81c7c42ad4001fa0fb30e",
+  "selected_reasons": []
+}

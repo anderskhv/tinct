@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "6aeff81611606f70af1ffb3f4a1f1510f47efd73fe077e431e273b511d486b50",
+  "attempts": [
+    {
+      "asr_seconds": 0.3098040334880352,
+      "alignment_seconds": 0.00045958906412124634,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"They are going to have salmon, too,\" the boy who had discovered about Troy observed in a loud voice.",
+        "hotwords": "They, Troy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They are going to have salmon, too,\" the boy who had discovered about Troy observed in a loud voice.",
+          "start": 0.08,
+          "end": 5.9,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " are",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " going",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 0.82,
+              "end": 0.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " have",
+              "start": 0.96,
+              "end": 1.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " salmon,",
+              "start": 1.1,
+              "end": 1.46,
+              "probability": 0.74658203125
+            },
+            {
+              "text": " too,\"",
+              "start": 1.76,
+              "end": 2.66,
+              "probability": 0.5364990234375
+            },
+            {
+              "text": " the",
+              "start": 2.66,
+              "end": 2.74,
+              "probability": 0.982421875
+            },
+            {
+              "text": " boy",
+              "start": 2.74,
+              "end": 2.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " who",
+              "start": 2.94,
+              "end": 3.1,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " had",
+              "start": 3.1,
+              "end": 3.18,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " discovered",
+              "start": 3.18,
+              "end": 3.58,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " about",
+              "start": 3.58,
+              "end": 3.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Troy",
+              "start": 3.92,
+              "end": 4.28,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " observed",
+              "start": 4.28,
+              "end": 4.9,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " in",
+              "start": 4.9,
+              "end": 5.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 5.14,
+              "end": 5.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " loud",
+              "start": 5.26,
+              "end": 5.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " voice.",
+              "start": 5.48,
+              "end": 5.9,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "are",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "going",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "to",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "raw": "have",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "raw": "salmon,",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "raw": "too,\"",
+          "start": 1.76,
+          "end": 2.66
+        },
+        {
+          "raw": "the",
+          "start": 2.66,
+          "end": 2.74
+        },
+        {
+          "raw": "boy",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "raw": "who",
+          "start": 2.94,
+          "end": 3.1
+        },
+        {
+          "raw": "had",
+          "start": 3.1,
+          "end": 3.18
+        },
+        {
+          "raw": "discovered",
+          "start": 3.18,
+          "end": 3.58
+        },
+        {
+          "raw": "about",
+          "start": 3.58,
+          "end": 3.92
+        },
+        {
+          "raw": "Troy",
+          "start": 3.92,
+          "end": 4.28
+        },
+        {
+          "raw": "observed",
+          "start": 4.28,
+          "end": 4.9
+        },
+        {
+          "raw": "in",
+          "start": 4.9,
+          "end": 5.14
+        },
+        {
+          "raw": "a",
+          "start": 5.14,
+          "end": 5.26
+        },
+        {
+          "raw": "loud",
+          "start": 5.26,
+          "end": 5.48
+        },
+        {
+          "raw": "voice.",
+          "start": 5.48,
+          "end": 5.9
+        }
+      ],
+      "expected_tokens": [
+        "\"They",
+        "are",
+        "going",
+        "to",
+        "have",
+        "salmon,",
+        "too,\"",
+        "the",
+        "boy",
+        "who",
+        "had",
+        "discovered",
+        "about",
+        "Troy",
+        "observed",
+        "in",
+        "a",
+        "loud",
+        "voice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 0.66,
+          "end": 0.82,
+          "key": "going",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.82,
+          "end": 0.96,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.96,
+          "end": 1.1,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "salmon,",
+          "start": 1.1,
+          "end": 1.46,
+          "key": "salmon",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "too,\"",
+          "start": 1.76,
+          "end": 2.66,
+          "key": "too",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.66,
+          "end": 2.74,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 2.74,
+          "end": 2.94,
+          "key": "boy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 2.94,
+          "end": 3.1,
+          "key": "who",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.1,
+          "end": 3.18,
+          "key": "had",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "discovered",
+          "start": 3.18,
+          "end": 3.58,
+          "key": "discovered",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 3.58,
+          "end": 3.92,
+          "key": "about",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Troy",
+          "start": 3.92,
+          "end": 4.28,
+          "key": "troy",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "observed",
+          "start": 4.28,
+          "end": 4.9,
+          "key": "observed",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.9,
+          "end": 5.14,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.14,
+          "end": 5.26,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "loud",
+          "start": 5.26,
+          "end": 5.48,
+          "key": "loud",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "voice.",
+          "start": 5.48,
+          "end": 5.9,
+          "key": "voice",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"They",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "are",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "going",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "to",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "text": "have",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "text": "salmon,",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "text": "too,\"",
+          "start": 1.76,
+          "end": 2.66
+        },
+        {
+          "text": "the",
+          "start": 2.66,
+          "end": 2.74
+        },
+        {
+          "text": "boy",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "text": "who",
+          "start": 2.94,
+          "end": 3.1
+        },
+        {
+          "text": "had",
+          "start": 3.1,
+          "end": 3.18
+        },
+        {
+          "text": "discovered",
+          "start": 3.18,
+          "end": 3.58
+        },
+        {
+          "text": "about",
+          "start": 3.58,
+          "end": 3.92
+        },
+        {
+          "text": "Troy",
+          "start": 3.92,
+          "end": 4.28
+        },
+        {
+          "text": "observed",
+          "start": 4.28,
+          "end": 4.9
+        },
+        {
+          "text": "in",
+          "start": 4.9,
+          "end": 5.14
+        },
+        {
+          "text": "a",
+          "start": 5.14,
+          "end": 5.26
+        },
+        {
+          "text": "loud",
+          "start": 5.26,
+          "end": 5.48
+        },
+        {
+          "text": "voice.",
+          "start": 5.48,
+          "end": 5.9
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3104685805737972
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0df5bafbc48b43dd1a7213b7a010f409a3f951c8693758cb09a41746730a75d0",
+  "selected_reasons": []
+}

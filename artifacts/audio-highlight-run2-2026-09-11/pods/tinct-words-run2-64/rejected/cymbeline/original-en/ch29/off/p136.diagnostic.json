@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "fee426cc867ac7edd6b6a73896360802fe46c7de52192716183464e925ad6488",
+  "attempts": [
+    {
+      "asr_seconds": 0.314595059491694,
+      "alignment_seconds": 0.00044964347034692764,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Imogen, you are my father too, and did relieve me to see this gracious season.",
+          "start": 0.05,
+          "end": 5.01,
+          "words": [
+            {
+              "text": " Imogen,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " you",
+              "start": 1.27,
+              "end": 1.55,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " are",
+              "start": 1.55,
+              "end": 1.69,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " my",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " father",
+              "start": 1.87,
+              "end": 2.11,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " too,",
+              "start": 2.11,
+              "end": 2.47,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " and",
+              "start": 2.81,
+              "end": 2.91,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " did",
+              "start": 2.91,
+              "end": 3.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " relieve",
+              "start": 3.05,
+              "end": 3.37,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " me",
+              "start": 3.37,
+              "end": 3.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 3.59,
+              "end": 3.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " see",
+              "start": 3.73,
+              "end": 3.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 3.89,
+              "end": 4.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gracious",
+              "start": 4.13,
+              "end": 4.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " season.",
+              "start": 4.53,
+              "end": 5.01,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imogen,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "you",
+          "start": 1.27,
+          "end": 1.55
+        },
+        {
+          "raw": "are",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "raw": "my",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "father",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "raw": "too,",
+          "start": 2.11,
+          "end": 2.47
+        },
+        {
+          "raw": "and",
+          "start": 2.81,
+          "end": 2.91
+        },
+        {
+          "raw": "did",
+          "start": 2.91,
+          "end": 3.05
+        },
+        {
+          "raw": "relieve",
+          "start": 3.05,
+          "end": 3.37
+        },
+        {
+          "raw": "me",
+          "start": 3.37,
+          "end": 3.59
+        },
+        {
+          "raw": "to",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "raw": "see",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "raw": "this",
+          "start": 3.89,
+          "end": 4.13
+        },
+        {
+          "raw": "gracious",
+          "start": 4.13,
+          "end": 4.53
+        },
+        {
+          "raw": "season.",
+          "start": 4.53,
+          "end": 5.01
+        }
+      ],
+      "expected_tokens": [
+        "Imogen.",
+        "You",
+        "are",
+        "my",
+        "father",
+        "too,",
+        "and",
+        "did",
+        "relieve",
+        "me",
+        "To",
+        "see",
+        "this",
+        "gracious",
+        "season."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imogen,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "imogen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.27,
+          "end": 1.55,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.55,
+          "end": 1.69,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 1.87,
+          "end": 2.11,
+          "key": "father",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 2.11,
+          "end": 2.47,
+          "key": "too",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.81,
+          "end": 2.91,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 2.91,
+          "end": 3.05,
+          "key": "did",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "relieve",
+          "start": 3.05,
+          "end": 3.37,
+          "key": "relieve",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.37,
+          "end": 3.59,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.59,
+          "end": 3.73,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.73,
+          "end": 3.89,
+          "key": "see",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.89,
+          "end": 4.13,
+          "key": "this",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "gracious",
+          "start": 4.13,
+          "end": 4.53,
+          "key": "gracious",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "season.",
+          "start": 4.53,
+          "end": 5.01,
+          "key": "season",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imogen.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "You",
+          "start": 1.27,
+          "end": 1.55
+        },
+        {
+          "text": "are",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "text": "my",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "father",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "text": "too,",
+          "start": 2.11,
+          "end": 2.47
+        },
+        {
+          "text": "and",
+          "start": 2.81,
+          "end": 2.91
+        },
+        {
+          "text": "did",
+          "start": 2.91,
+          "end": 3.05
+        },
+        {
+          "text": "relieve",
+          "start": 3.05,
+          "end": 3.37
+        },
+        {
+          "text": "me",
+          "start": 3.37,
+          "end": 3.59
+        },
+        {
+          "text": "To",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "text": "see",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "text": "this",
+          "start": 3.89,
+          "end": 4.13
+        },
+        {
+          "text": "gracious",
+          "start": 4.13,
+          "end": 4.53
+        },
+        {
+          "text": "season.",
+          "start": 4.53,
+          "end": 5.01
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31523673236370087
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "74b18b3c92171aa9a0a6fc9245a0f8c14879c3a0e1fb7f0f3daae752e0f76d92",
+  "selected_reasons": []
+}

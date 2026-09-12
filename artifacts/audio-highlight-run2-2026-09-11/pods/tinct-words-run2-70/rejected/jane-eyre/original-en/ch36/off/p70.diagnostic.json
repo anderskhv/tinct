@@ -1,0 +1,555 @@
+{
+  "complete": true,
+  "signature": "7226aff5e5c72ef93776d567b19e0ac9925a86e722d7d664848cd23eb6e13af1",
+  "attempts": [
+    {
+      "asr_seconds": 0.3216576159466058,
+      "alignment_seconds": 0.0008412739261984825,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He is stone blind, he said at last. Yes, he is stone blind is Mr. Edward",
+          "start": 0.05,
+          "end": 5.41,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.254638671875
+            },
+            {
+              "text": " is",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " stone",
+              "start": 0.67,
+              "end": 0.93,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " blind,",
+              "start": 0.93,
+              "end": 1.41,
+              "probability": 0.6875
+            },
+            {
+              "text": " he",
+              "start": 1.75,
+              "end": 1.89,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " said",
+              "start": 1.89,
+              "end": 2.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 2.07,
+              "end": 2.19,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " last.",
+              "start": 2.19,
+              "end": 2.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Yes,",
+              "start": 3.25,
+              "end": 3.43,
+              "probability": 0.955078125
+            },
+            {
+              "text": " he",
+              "start": 3.75,
+              "end": 3.83,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " is",
+              "start": 3.83,
+              "end": 3.95,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " stone",
+              "start": 3.95,
+              "end": 4.21,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " blind",
+              "start": 4.21,
+              "end": 4.59,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " is",
+              "start": 4.59,
+              "end": 4.81,
+              "probability": 0.51025390625
+            },
+            {
+              "text": " Mr.",
+              "start": 4.81,
+              "end": 5.07,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " Edward",
+              "start": 5.41,
+              "end": 5.41,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "is",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "stone",
+          "start": 0.67,
+          "end": 0.93
+        },
+        {
+          "raw": "blind,",
+          "start": 0.93,
+          "end": 1.41
+        },
+        {
+          "raw": "he",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "raw": "said",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "raw": "at",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "raw": "last.",
+          "start": 2.19,
+          "end": 2.55
+        },
+        {
+          "raw": "Yes,",
+          "start": 3.25,
+          "end": 3.43
+        },
+        {
+          "raw": "he",
+          "start": 3.75,
+          "end": 3.83
+        },
+        {
+          "raw": "is",
+          "start": 3.83,
+          "end": 3.95
+        },
+        {
+          "raw": "stone",
+          "start": 3.95,
+          "end": 4.21
+        },
+        {
+          "raw": "blind",
+          "start": 4.21,
+          "end": 4.59
+        },
+        {
+          "raw": "is",
+          "start": 4.59,
+          "end": 4.81
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.81,
+          "end": 5.07
+        },
+        {
+          "raw": "Edward",
+          "start": 5.41,
+          "end": 5.41
+        }
+      ],
+      "expected_tokens": [
+        "\"He",
+        "is",
+        "stone-blind,\"",
+        "he",
+        "said",
+        "at",
+        "last.",
+        "\"Yes,",
+        "he",
+        "is",
+        "stone-blind,",
+        "is",
+        "Mr.",
+        "Edward.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.55,
+          "end": 0.67,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stone blind,",
+          "start": 0.67,
+          "end": 1.41,
+          "key": "stoneblind",
+          "pieces": [
+            2,
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.75,
+          "end": 1.89,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.89,
+          "end": 2.07,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.07,
+          "end": 2.19,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "last.",
+          "start": 2.19,
+          "end": 2.55,
+          "key": "last",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 3.25,
+          "end": 3.43,
+          "key": "yes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.75,
+          "end": 3.83,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.83,
+          "end": 3.95,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "stone blind",
+          "start": 3.95,
+          "end": 4.59,
+          "key": "stoneblind",
+          "pieces": [
+            11,
+            12
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.59,
+          "end": 4.81,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.81,
+          "end": 5.07,
+          "key": "mr",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Edward",
+          "start": 5.41,
+          "end": 5.41,
+          "key": "edward",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 2,
+          "text": "stone-blind,\"",
+          "heard": "stone blind,",
+          "heard_indexes": [
+            2,
+            3
+          ],
+          "start": 0.67,
+          "end": 1.41
+        },
+        {
+          "expected_index": 10,
+          "text": "stone-blind,",
+          "heard": "stone blind",
+          "heard_indexes": [
+            11,
+            12
+          ],
+          "start": 3.95,
+          "end": 4.59
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"He",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "is",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "stone-blind,\"",
+          "start": 0.67,
+          "end": 1.41
+        },
+        {
+          "text": "he",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "text": "said",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "text": "at",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "text": "last.",
+          "start": 2.19,
+          "end": 2.55
+        },
+        {
+          "text": "\"Yes,",
+          "start": 3.25,
+          "end": 3.43
+        },
+        {
+          "text": "he",
+          "start": 3.75,
+          "end": 3.83
+        },
+        {
+          "text": "is",
+          "start": 3.83,
+          "end": 3.95
+        },
+        {
+          "text": "stone-blind,",
+          "start": 3.95,
+          "end": 4.59
+        },
+        {
+          "text": "is",
+          "start": 4.59,
+          "end": 4.81
+        },
+        {
+          "text": "Mr.",
+          "start": 4.81,
+          "end": 5.07
+        },
+        {
+          "text": "Edward.\"",
+          "start": 5.41,
+          "end": 5.41
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3227721881121397
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1650967a0706a56b496d3e183f3af0c6866402393d64927ea83c73a7d05efc22",
+  "selected_reasons": []
+}

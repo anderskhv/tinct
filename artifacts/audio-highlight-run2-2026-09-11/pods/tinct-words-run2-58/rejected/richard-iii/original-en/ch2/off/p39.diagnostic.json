@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "d05bf65194f74087da36f2643a5d4c70eb4bfeada60475040fff86ae8bfab2e5",
+  "attempts": [
+    {
+      "asr_seconds": 0.13132197503000498,
+      "alignment_seconds": 0.000298183411359787,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richard, your bedchamber.",
+          "start": 0.05,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " your",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.9609375
+            },
+            {
+              "text": " bedchamber.",
+              "start": 1.25,
+              "end": 1.87,
+              "probability": 0.8203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "your",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "bedchamber.",
+          "start": 1.25,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Your",
+        "bed-chamber."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bedchamber.",
+          "start": 1.25,
+          "end": 1.87,
+          "key": "bedchamber",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Your",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "bed-chamber.",
+          "start": 1.25,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13172762002795935
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "225c1c9bda7976fb9b85787f26a89b57067b4816fe95b927dacab901ed86321a",
+  "selected_reasons": []
+}

@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "1ea08b94f4277d965843b0c45b76c3724f31c213db7189a2c185797ef1f749d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.19346147123724222,
+      "alignment_seconds": 0.00038146786391735077,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, look how he makes to Caesar mark him.",
+          "start": 0.08,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.987548828125
+            },
+            {
+              "text": " look",
+              "start": 1.3,
+              "end": 1.38,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " how",
+              "start": 1.38,
+              "end": 1.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " he",
+              "start": 1.52,
+              "end": 1.62,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " makes",
+              "start": 1.62,
+              "end": 1.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 1.8,
+              "end": 1.98,
+              "probability": 0.486572265625
+            },
+            {
+              "text": " Caesar",
+              "start": 1.98,
+              "end": 2.3,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " mark",
+              "start": 2.3,
+              "end": 2.72,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " him.",
+              "start": 2.72,
+              "end": 3.02,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "look",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "raw": "how",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "raw": "he",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "raw": "makes",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "raw": "to",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "raw": "Caesar",
+          "start": 1.98,
+          "end": 2.3
+        },
+        {
+          "raw": "mark",
+          "start": 2.3,
+          "end": 2.72
+        },
+        {
+          "raw": "him.",
+          "start": 2.72,
+          "end": 3.02
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Look",
+        "how",
+        "he",
+        "makes",
+        "to",
+        "Caesar:",
+        "mark",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.3,
+          "end": 1.38,
+          "key": "look",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.38,
+          "end": 1.52,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.52,
+          "end": 1.62,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "makes",
+          "start": 1.62,
+          "end": 1.8,
+          "key": "makes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.8,
+          "end": 1.98,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 1.98,
+          "end": 2.3,
+          "key": "caesar",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mark",
+          "start": 2.3,
+          "end": 2.72,
+          "key": "mark",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 2.72,
+          "end": 3.02,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "Look",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "text": "how",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "text": "he",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "text": "makes",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "text": "to",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "text": "Caesar:",
+          "start": 1.98,
+          "end": 2.3
+        },
+        {
+          "text": "mark",
+          "start": 2.3,
+          "end": 2.72
+        },
+        {
+          "text": "him.",
+          "start": 2.72,
+          "end": 3.02
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19399002473801374
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9f83f88a89a1363eaffb801d6fbe70f3f62fcb1f4461cebeecfcf54de67eab97",
+  "selected_reasons": []
+}

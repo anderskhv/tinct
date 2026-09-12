@@ -1,0 +1,866 @@
+{
+  "complete": true,
+  "signature": "3e215df1731711ea2874f4f2982e00acd1df3a67fcad7db263efd825f4333ccd",
+  "attempts": [
+    {
+      "asr_seconds": 0.3762185168452561,
+      "alignment_seconds": 0.0007189312018454075,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The lackey, by the door of Dylan's auction rooms, shook his handbell twice again and",
+          "start": 0.02,
+          "end": 5.42,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " lackey,",
+              "start": 0.5,
+              "end": 0.92,
+              "probability": 0.5047607421875
+            },
+            {
+              "text": " by",
+              "start": 1.04,
+              "end": 1.22,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " door",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Dylan's",
+              "start": 1.7,
+              "end": 2.12,
+              "probability": 0.795654296875
+            },
+            {
+              "text": " auction",
+              "start": 2.12,
+              "end": 2.42,
+              "probability": 0.978515625
+            },
+            {
+              "text": " rooms,",
+              "start": 2.42,
+              "end": 2.9,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " shook",
+              "start": 3.2,
+              "end": 3.42,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " his",
+              "start": 3.42,
+              "end": 3.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " handbell",
+              "start": 3.62,
+              "end": 4.08,
+              "probability": 0.706298828125
+            },
+            {
+              "text": " twice",
+              "start": 4.08,
+              "end": 4.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " again",
+              "start": 4.38,
+              "end": 4.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 4.82,
+              "end": 5.42,
+              "probability": 0.5693359375
+            }
+          ]
+        },
+        {
+          "text": " viewed himself in the chalked mirror of the cabinet.",
+          "start": 5.42,
+          "end": 7.6,
+          "words": [
+            {
+              "text": " viewed",
+              "start": 5.42,
+              "end": 5.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " himself",
+              "start": 5.66,
+              "end": 6.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 6.02,
+              "end": 6.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 6.22,
+              "end": 6.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " chalked",
+              "start": 6.34,
+              "end": 6.76,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " mirror",
+              "start": 6.76,
+              "end": 6.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 6.98,
+              "end": 7.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 7.2,
+              "end": 7.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " cabinet.",
+              "start": 7.3,
+              "end": 7.6,
+              "probability": 0.849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "lackey,",
+          "start": 0.5,
+          "end": 0.92
+        },
+        {
+          "raw": "by",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "door",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "of",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "Dylan's",
+          "start": 1.7,
+          "end": 2.12
+        },
+        {
+          "raw": "auction",
+          "start": 2.12,
+          "end": 2.42
+        },
+        {
+          "raw": "rooms,",
+          "start": 2.42,
+          "end": 2.9
+        },
+        {
+          "raw": "shook",
+          "start": 3.2,
+          "end": 3.42
+        },
+        {
+          "raw": "his",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "raw": "handbell",
+          "start": 3.62,
+          "end": 4.08
+        },
+        {
+          "raw": "twice",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "raw": "again",
+          "start": 4.38,
+          "end": 4.82
+        },
+        {
+          "raw": "and",
+          "start": 4.82,
+          "end": 5.42
+        },
+        {
+          "raw": "viewed",
+          "start": 5.42,
+          "end": 5.66
+        },
+        {
+          "raw": "himself",
+          "start": 5.66,
+          "end": 6.02
+        },
+        {
+          "raw": "in",
+          "start": 6.02,
+          "end": 6.22
+        },
+        {
+          "raw": "the",
+          "start": 6.22,
+          "end": 6.34
+        },
+        {
+          "raw": "chalked",
+          "start": 6.34,
+          "end": 6.76
+        },
+        {
+          "raw": "mirror",
+          "start": 6.76,
+          "end": 6.98
+        },
+        {
+          "raw": "of",
+          "start": 6.98,
+          "end": 7.2
+        },
+        {
+          "raw": "the",
+          "start": 7.2,
+          "end": 7.3
+        },
+        {
+          "raw": "cabinet.",
+          "start": 7.3,
+          "end": 7.6
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "lacquey",
+        "by",
+        "the",
+        "door",
+        "of",
+        "Dillon's",
+        "auctionrooms",
+        "shook",
+        "his",
+        "handbell",
+        "twice",
+        "again",
+        "and",
+        "viewed",
+        "himself",
+        "in",
+        "the",
+        "chalked",
+        "mirror",
+        "of",
+        "the",
+        "cabinet."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ],
+        [
+          "replace",
+          6,
+          8,
+          6,
+          9
+        ],
+        [
+          "equal",
+          8,
+          23,
+          9,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          6,
+          8,
+          6,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lackey,",
+          "start": 0.5,
+          "end": 0.92,
+          "key": "lackey",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.04,
+          "end": 1.22,
+          "key": "by",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "door",
+          "start": 1.34,
+          "end": 1.52,
+          "key": "door",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.52,
+          "end": 1.7,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Dylan's",
+          "start": 1.7,
+          "end": 2.12,
+          "key": "dylans",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "auction",
+          "start": 2.12,
+          "end": 2.42,
+          "key": "auction",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "rooms,",
+          "start": 2.42,
+          "end": 2.9,
+          "key": "rooms",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shook",
+          "start": 3.2,
+          "end": 3.42,
+          "key": "shook",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.42,
+          "end": 3.62,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "handbell",
+          "start": 3.62,
+          "end": 4.08,
+          "key": "handbell",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "twice",
+          "start": 4.08,
+          "end": 4.38,
+          "key": "twice",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 4.38,
+          "end": 4.82,
+          "key": "again",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.82,
+          "end": 5.42,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "viewed",
+          "start": 5.42,
+          "end": 5.66,
+          "key": "viewed",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 5.66,
+          "end": 6.02,
+          "key": "himself",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.02,
+          "end": 6.22,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.22,
+          "end": 6.34,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "chalked",
+          "start": 6.34,
+          "end": 6.76,
+          "key": "chalked",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "mirror",
+          "start": 6.76,
+          "end": 6.98,
+          "key": "mirror",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.98,
+          "end": 7.2,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.2,
+          "end": 7.3,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "cabinet.",
+          "start": 7.3,
+          "end": 7.6,
+          "key": "cabinet",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "lacquey",
+          "start": 0.5,
+          "end": 0.77
+        },
+        {
+          "text": "by",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "text": "the",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "door",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "text": "of",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "Dillon's",
+          "start": 1.7,
+          "end": 2.45
+        },
+        {
+          "text": "auctionrooms",
+          "start": 2.45,
+          "end": 2.825
+        },
+        {
+          "text": "shook",
+          "start": 3.2,
+          "end": 3.42
+        },
+        {
+          "text": "his",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "text": "handbell",
+          "start": 3.62,
+          "end": 4.08
+        },
+        {
+          "text": "twice",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "text": "again",
+          "start": 4.38,
+          "end": 4.82
+        },
+        {
+          "text": "and",
+          "start": 4.82,
+          "end": 5.42
+        },
+        {
+          "text": "viewed",
+          "start": 5.42,
+          "end": 5.66
+        },
+        {
+          "text": "himself",
+          "start": 5.66,
+          "end": 6.02
+        },
+        {
+          "text": "in",
+          "start": 6.02,
+          "end": 6.22
+        },
+        {
+          "text": "the",
+          "start": 6.22,
+          "end": 6.34
+        },
+        {
+          "text": "chalked",
+          "start": 6.34,
+          "end": 6.76
+        },
+        {
+          "text": "mirror",
+          "start": 6.76,
+          "end": 6.98
+        },
+        {
+          "text": "of",
+          "start": 6.98,
+          "end": 7.2
+        },
+        {
+          "text": "the",
+          "start": 7.2,
+          "end": 7.3
+        },
+        {
+          "text": "cabinet.",
+          "start": 7.3,
+          "end": 7.6
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 24,
+        "matched_words": 20
+      },
+      "match_ratio": 0.8695652173913043,
+      "rejection_reasons": [],
+      "seconds": 0.3772307522594929
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e839ff3335b9778a780bb4e8e7125abf5324c95cea574890ce22346a0217ad20",
+  "selected_reasons": []
+}

@@ -1,0 +1,679 @@
+{
+  "complete": true,
+  "signature": "a0154f9f254f25778cfd78be48da7802fa61f8c2e5f24b5c7bac2004c0b94dd5",
+  "attempts": [
+    {
+      "asr_seconds": 0.1984642744064331,
+      "alignment_seconds": 0.0003393031656742096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Kissing her. Exit Queen Elizabeth._]",
+        "hotwords": "Exit, Queen, Elizabeth._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " kissing her. Exit, Queen Elizabeth._",
+          "start": 0.02,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " kissing",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.13671875
+            },
+            {
+              "text": " her.",
+              "start": 0.6,
+              "end": 0.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Exit,",
+              "start": 1.5,
+              "end": 1.5,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Queen",
+              "start": 1.56,
+              "end": 1.78,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Elizabeth._",
+              "start": 1.78,
+              "end": 2.22,
+              "probability": 0.490478515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "kissing",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "her.",
+          "start": 0.6,
+          "end": 0.9
+        },
+        {
+          "raw": "Exit,",
+          "start": 1.5,
+          "end": 1.5
+        },
+        {
+          "raw": "Queen",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "raw": "Elizabeth._",
+          "start": 1.78,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "[_Kissing",
+        "her.",
+        "Exit",
+        "Queen",
+        "Elizabeth._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "kissing",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "kissing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 0.6,
+          "end": 0.9,
+          "key": "her",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Exit,",
+          "start": 1.5,
+          "end": 1.5,
+          "key": "exit",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Queen",
+          "start": 1.56,
+          "end": 1.78,
+          "key": "queen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Elizabeth._",
+          "start": 1.78,
+          "end": 2.22,
+          "key": "elizabeth_",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Kissing",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "her.",
+          "start": 0.6,
+          "end": 0.9
+        },
+        {
+          "text": "Exit",
+          "start": 1.5,
+          "end": 1.5
+        },
+        {
+          "text": "Queen",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "text": "Elizabeth._]",
+          "start": 1.78,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19893952831625938
+    },
+    {
+      "asr_seconds": 0.2089259959757328,
+      "alignment_seconds": 0.00038526207208633423,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Exit, Queen, Elizabeth._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Kissing her, Exit, Queen, Elizabeth._",
+          "start": 0.02,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " Kissing",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.816650390625
+            },
+            {
+              "text": " her,",
+              "start": 0.74,
+              "end": 0.9,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " Exit,",
+              "start": 1.5,
+              "end": 1.5,
+              "probability": 0.2083740234375
+            },
+            {
+              "text": " Queen,",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Elizabeth._",
+              "start": 1.88,
+              "end": 2.08,
+              "probability": 0.4931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kissing",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "her,",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "raw": "Exit,",
+          "start": 1.5,
+          "end": 1.5
+        },
+        {
+          "raw": "Queen,",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "Elizabeth._",
+          "start": 1.88,
+          "end": 2.08
+        }
+      ],
+      "expected_tokens": [
+        "[_Kissing",
+        "her.",
+        "Exit",
+        "Queen",
+        "Elizabeth._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kissing",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "kissing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "her,",
+          "start": 0.74,
+          "end": 0.9,
+          "key": "her",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Exit,",
+          "start": 1.5,
+          "end": 1.5,
+          "key": "exit",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Queen,",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "queen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Elizabeth._",
+          "start": 1.88,
+          "end": 2.08,
+          "key": "elizabeth_",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Kissing",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "her.",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "text": "Exit",
+          "start": 1.5,
+          "end": 1.5
+        },
+        {
+          "text": "Queen",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "Elizabeth._]",
+          "start": 1.78,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20943542197346687
+    },
+    {
+      "asr_seconds": 0.19669827446341515,
+      "alignment_seconds": 0.0003617294132709503,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kissing her. Exit Queen Elizabeth.",
+          "start": 0.02,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " Kissing",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.816650390625
+            },
+            {
+              "text": " her.",
+              "start": 0.74,
+              "end": 0.9,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " Exit",
+              "start": 1.48,
+              "end": 1.48,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Queen",
+              "start": 1.48,
+              "end": 1.76,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " Elizabeth.",
+              "start": 1.76,
+              "end": 2.16,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kissing",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "her.",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "raw": "Exit",
+          "start": 1.48,
+          "end": 1.48
+        },
+        {
+          "raw": "Queen",
+          "start": 1.48,
+          "end": 1.76
+        },
+        {
+          "raw": "Elizabeth.",
+          "start": 1.76,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "[_Kissing",
+        "her.",
+        "Exit",
+        "Queen",
+        "Elizabeth._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kissing",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "kissing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 0.74,
+          "end": 0.9,
+          "key": "her",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Exit",
+          "start": 1.48,
+          "end": 1.48,
+          "key": "exit",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Queen",
+          "start": 1.48,
+          "end": 1.76,
+          "key": "queen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Elizabeth.",
+          "start": 1.76,
+          "end": 2.16,
+          "key": "elizabeth",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Kissing",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "her.",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "text": "Exit",
+          "start": 1.48,
+          "end": 1.48
+        },
+        {
+          "text": "Queen",
+          "start": 1.48,
+          "end": 1.76
+        },
+        {
+          "text": "Elizabeth._]",
+          "start": 1.76,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19718220084905624
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c3f20e4a81dd89a123c95c09a1cd47581f4f9f49fbd8d7d49e4bcb068d8d7f89",
+  "selected_reasons": []
+}

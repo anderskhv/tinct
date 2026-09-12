@@ -1,0 +1,870 @@
+{
+  "complete": true,
+  "signature": "287c3f0acf489121f80d86ddef84640fea5881b70f7641dd485646e800143f17",
+  "attempts": [
+    {
+      "asr_seconds": 0.3188484460115433,
+      "alignment_seconds": 0.0005481531843543053,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The hours wore on. Ahab now shut up within his cabin. Anon, pacing the deck, with the same intense bigotry of purpose in his aspect.",
+          "start": 0.02,
+          "end": 8.88,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.865234375
+            },
+            {
+              "text": " hours",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.9140625
+            },
+            {
+              "text": " wore",
+              "start": 0.8,
+              "end": 1.1,
+              "probability": 0.96875
+            },
+            {
+              "text": " on.",
+              "start": 1.1,
+              "end": 1.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Ahab",
+              "start": 2.14,
+              "end": 2.28,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " now",
+              "start": 2.28,
+              "end": 2.5,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " shut",
+              "start": 2.5,
+              "end": 2.74,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " up",
+              "start": 2.74,
+              "end": 2.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " within",
+              "start": 2.9,
+              "end": 3.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " his",
+              "start": 3.08,
+              "end": 3.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cabin.",
+              "start": 3.26,
+              "end": 3.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Anon,",
+              "start": 4.24,
+              "end": 4.58,
+              "probability": 0.5906982421875
+            },
+            {
+              "text": " pacing",
+              "start": 4.84,
+              "end": 5.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 5.12,
+              "end": 5.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " deck,",
+              "start": 5.34,
+              "end": 5.58,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " with",
+              "start": 5.82,
+              "end": 5.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 5.96,
+              "end": 6.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " same",
+              "start": 6.14,
+              "end": 6.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " intense",
+              "start": 6.38,
+              "end": 6.9,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " bigotry",
+              "start": 6.9,
+              "end": 7.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 7.28,
+              "end": 7.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " purpose",
+              "start": 7.66,
+              "end": 7.94,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 7.94,
+              "end": 8.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 8.26,
+              "end": 8.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " aspect.",
+              "start": 8.38,
+              "end": 8.88,
+              "probability": 0.95458984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "hours",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "wore",
+          "start": 0.8,
+          "end": 1.1
+        },
+        {
+          "raw": "on.",
+          "start": 1.1,
+          "end": 1.52
+        },
+        {
+          "raw": "Ahab",
+          "start": 2.14,
+          "end": 2.28
+        },
+        {
+          "raw": "now",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "raw": "shut",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "raw": "up",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "raw": "within",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "raw": "his",
+          "start": 3.08,
+          "end": 3.26
+        },
+        {
+          "raw": "cabin.",
+          "start": 3.26,
+          "end": 3.6
+        },
+        {
+          "raw": "Anon,",
+          "start": 4.24,
+          "end": 4.58
+        },
+        {
+          "raw": "pacing",
+          "start": 4.84,
+          "end": 5.12
+        },
+        {
+          "raw": "the",
+          "start": 5.12,
+          "end": 5.34
+        },
+        {
+          "raw": "deck,",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "raw": "with",
+          "start": 5.82,
+          "end": 5.96
+        },
+        {
+          "raw": "the",
+          "start": 5.96,
+          "end": 6.14
+        },
+        {
+          "raw": "same",
+          "start": 6.14,
+          "end": 6.38
+        },
+        {
+          "raw": "intense",
+          "start": 6.38,
+          "end": 6.9
+        },
+        {
+          "raw": "bigotry",
+          "start": 6.9,
+          "end": 7.28
+        },
+        {
+          "raw": "of",
+          "start": 7.28,
+          "end": 7.66
+        },
+        {
+          "raw": "purpose",
+          "start": 7.66,
+          "end": 7.94
+        },
+        {
+          "raw": "in",
+          "start": 7.94,
+          "end": 8.26
+        },
+        {
+          "raw": "his",
+          "start": 8.26,
+          "end": 8.38
+        },
+        {
+          "raw": "aspect.",
+          "start": 8.38,
+          "end": 8.88
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "hours",
+        "wore",
+        "on;—Ahab",
+        "now",
+        "shut",
+        "up",
+        "within",
+        "his",
+        "cabin;",
+        "anon,",
+        "pacing",
+        "the",
+        "deck,",
+        "with",
+        "the",
+        "same",
+        "intense",
+        "bigotry",
+        "of",
+        "purpose",
+        "in",
+        "his",
+        "aspect."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          24,
+          5,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hours",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "hours",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wore",
+          "start": 0.8,
+          "end": 1.1,
+          "key": "wore",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 1.1,
+          "end": 1.52,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Ahab",
+          "start": 2.14,
+          "end": 2.28,
+          "key": "ahab",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 2.28,
+          "end": 2.5,
+          "key": "now",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "shut",
+          "start": 2.5,
+          "end": 2.74,
+          "key": "shut",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.74,
+          "end": 2.9,
+          "key": "up",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 2.9,
+          "end": 3.08,
+          "key": "within",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.08,
+          "end": 3.26,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "cabin.",
+          "start": 3.26,
+          "end": 3.6,
+          "key": "cabin",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Anon,",
+          "start": 4.24,
+          "end": 4.58,
+          "key": "anon",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "pacing",
+          "start": 4.84,
+          "end": 5.12,
+          "key": "pacing",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.12,
+          "end": 5.34,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "deck,",
+          "start": 5.34,
+          "end": 5.58,
+          "key": "deck",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.82,
+          "end": 5.96,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.96,
+          "end": 6.14,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 6.14,
+          "end": 6.38,
+          "key": "same",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "intense",
+          "start": 6.38,
+          "end": 6.9,
+          "key": "intense",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "bigotry",
+          "start": 6.9,
+          "end": 7.28,
+          "key": "bigotry",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.28,
+          "end": 7.66,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "purpose",
+          "start": 7.66,
+          "end": 7.94,
+          "key": "purpose",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.94,
+          "end": 8.26,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 8.26,
+          "end": 8.38,
+          "key": "his",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "aspect.",
+          "start": 8.38,
+          "end": 8.88,
+          "key": "aspect",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "hours",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "wore",
+          "start": 0.8,
+          "end": 1.1
+        },
+        {
+          "text": "on;—Ahab",
+          "start": 1.1,
+          "end": 1.69
+        },
+        {
+          "text": "now",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "text": "shut",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "text": "up",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "text": "within",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "text": "his",
+          "start": 3.08,
+          "end": 3.26
+        },
+        {
+          "text": "cabin;",
+          "start": 3.26,
+          "end": 3.6
+        },
+        {
+          "text": "anon,",
+          "start": 4.24,
+          "end": 4.58
+        },
+        {
+          "text": "pacing",
+          "start": 4.84,
+          "end": 5.12
+        },
+        {
+          "text": "the",
+          "start": 5.12,
+          "end": 5.34
+        },
+        {
+          "text": "deck,",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "text": "with",
+          "start": 5.82,
+          "end": 5.96
+        },
+        {
+          "text": "the",
+          "start": 5.96,
+          "end": 6.14
+        },
+        {
+          "text": "same",
+          "start": 6.14,
+          "end": 6.38
+        },
+        {
+          "text": "intense",
+          "start": 6.38,
+          "end": 6.9
+        },
+        {
+          "text": "bigotry",
+          "start": 6.9,
+          "end": 7.28
+        },
+        {
+          "text": "of",
+          "start": 7.28,
+          "end": 7.66
+        },
+        {
+          "text": "purpose",
+          "start": 7.66,
+          "end": 7.94
+        },
+        {
+          "text": "in",
+          "start": 7.94,
+          "end": 8.26
+        },
+        {
+          "text": "his",
+          "start": 8.26,
+          "end": 8.38
+        },
+        {
+          "text": "aspect.",
+          "start": 8.38,
+          "end": 8.88
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 25,
+        "matched_words": 23
+      },
+      "match_ratio": 0.9583333333333334,
+      "rejection_reasons": [],
+      "seconds": 0.31963383220136166
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2f1c0854b8f55e304ec3a3b158540e03894d6edbee6a411509b04cfa7e9da039",
+  "selected_reasons": []
+}

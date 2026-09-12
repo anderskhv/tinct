@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "d4d63bdd0789368d3eac961857d43d44b74e1f98eab5bba248eba08afa216958",
+  "attempts": [
+    {
+      "asr_seconds": 0.1157800629734993,
+      "alignment_seconds": 0.0001755598932504654,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Music.]",
+        "hotwords": "Music"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Music",
+          "start": 0.05,
+          "end": 0.79,
+          "words": [
+            {
+              "text": " Music",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.75048828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Music",
+          "start": 0.05,
+          "end": 0.79
+        }
+      ],
+      "expected_tokens": [
+        "[Music.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Music",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "music",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Music.]",
+          "start": 0.05,
+          "end": 0.79
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11601029336452484
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8d8c6ff7bb9e61608b42ecb2cb417ecb4b38befe6871ea2ead174fec0002b9d3",
+  "selected_reasons": []
+}

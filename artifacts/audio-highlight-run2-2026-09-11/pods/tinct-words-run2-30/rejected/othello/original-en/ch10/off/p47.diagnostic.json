@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "2a486b7eb80b0c95bdcd254ab89977539016a4c871bc68718cf039855d89d242",
+  "attempts": [
+    {
+      "asr_seconds": 0.11673166882246733,
+      "alignment_seconds": 0.00012267986312508583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona. Heaven bless us.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Distimona.",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.570556640625
+            },
+            {
+              "text": " Heaven",
+              "start": 1.41,
+              "end": 1.49,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " bless",
+              "start": 1.49,
+              "end": 1.83,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " us.",
+              "start": 1.83,
+              "end": 2.11,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "Heaven",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "raw": "bless",
+          "start": 1.49,
+          "end": 1.83
+        },
+        {
+          "raw": "us.",
+          "start": 1.83,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Heaven",
+        "bless",
+        "us!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona.",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Heaven",
+          "start": 1.41,
+          "end": 1.49,
+          "key": "heaven",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bless",
+          "start": 1.49,
+          "end": 1.83,
+          "key": "bless",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 1.83,
+          "end": 2.11,
+          "key": "us",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.705
+        },
+        {
+          "text": "Heaven",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "text": "bless",
+          "start": 1.49,
+          "end": 1.83
+        },
+        {
+          "text": "us!",
+          "start": 1.83,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11689374875277281
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6f81a24a2b76794189f8f5b60c30423046a3d18cc09160e0b5a3b54f15465272",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "0465b56f19deae5717e5fe72628331a1cfc19ed47ff808d09864385e0d21abb6",
+  "attempts": [
+    {
+      "asr_seconds": 0.16187326796352863,
+      "alignment_seconds": 0.00017655780538916588,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lodovico. Where is this rash and most unfortunate man?",
+        "hotwords": "Lodovico, Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lodovico, Where is this rash and most unfortunate man?",
+          "start": 0.05,
+          "end": 3.65,
+          "words": [
+            {
+              "text": " Lodovico,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.4242045084635417
+            },
+            {
+              "text": " Where",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.038848876953125
+            },
+            {
+              "text": " is",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.274658203125
+            },
+            {
+              "text": " this",
+              "start": 1.75,
+              "end": 1.87,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " rash",
+              "start": 1.87,
+              "end": 2.23,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " and",
+              "start": 2.23,
+              "end": 2.47,
+              "probability": 0.955078125
+            },
+            {
+              "text": " most",
+              "start": 2.47,
+              "end": 2.65,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " unfortunate",
+              "start": 2.65,
+              "end": 3.27,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " man?",
+              "start": 3.27,
+              "end": 3.65,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lodovico,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "Where",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "is",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "this",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "raw": "rash",
+          "start": 1.87,
+          "end": 2.23
+        },
+        {
+          "raw": "and",
+          "start": 2.23,
+          "end": 2.47
+        },
+        {
+          "raw": "most",
+          "start": 2.47,
+          "end": 2.65
+        },
+        {
+          "raw": "unfortunate",
+          "start": 2.65,
+          "end": 3.27
+        },
+        {
+          "raw": "man?",
+          "start": 3.27,
+          "end": 3.65
+        }
+      ],
+      "expected_tokens": [
+        "Lodovico.",
+        "Where",
+        "is",
+        "this",
+        "rash",
+        "and",
+        "most",
+        "unfortunate",
+        "man?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lodovico,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "lodovico",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.75,
+          "end": 1.87,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rash",
+          "start": 1.87,
+          "end": 2.23,
+          "key": "rash",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.23,
+          "end": 2.47,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.47,
+          "end": 2.65,
+          "key": "most",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "unfortunate",
+          "start": 2.65,
+          "end": 3.27,
+          "key": "unfortunate",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "man?",
+          "start": 3.27,
+          "end": 3.65,
+          "key": "man",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lodovico.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "Where",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "is",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "this",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "text": "rash",
+          "start": 1.87,
+          "end": 2.23
+        },
+        {
+          "text": "and",
+          "start": 2.23,
+          "end": 2.47
+        },
+        {
+          "text": "most",
+          "start": 2.47,
+          "end": 2.65
+        },
+        {
+          "text": "unfortunate",
+          "start": 2.65,
+          "end": 3.27
+        },
+        {
+          "text": "man?",
+          "start": 3.27,
+          "end": 3.65
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1621080250479281
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2e2dc29793a279b0199303c4b97a7fae193f000bdec5cbc7fabe1cfa442009c2",
+  "selected_reasons": []
+}

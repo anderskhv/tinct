@@ -1,0 +1,704 @@
+{
+  "complete": true,
+  "signature": "2df10326ca43294e09f3f9706ffb8d180baaaec84184fd64f91075343514f550",
+  "attempts": [
+    {
+      "asr_seconds": 0.29933988815173507,
+      "alignment_seconds": 0.0005289725959300995,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He slid in a disc for himself and watched it shoot Wobble Ogle's stop for turn now on",
+          "start": 0.02,
+          "end": 6.12,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.921875
+            },
+            {
+              "text": " slid",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 0.74,
+              "end": 0.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 0.88,
+              "end": 0.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " disc",
+              "start": 0.98,
+              "end": 1.14,
+              "probability": 0.638671875
+            },
+            {
+              "text": " for",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " himself",
+              "start": 1.32,
+              "end": 1.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 1.7,
+              "end": 2.38,
+              "probability": 0.77783203125
+            },
+            {
+              "text": " watched",
+              "start": 2.38,
+              "end": 2.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it",
+              "start": 2.62,
+              "end": 2.84,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " shoot",
+              "start": 2.84,
+              "end": 3.12,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Wobble",
+              "start": 3.12,
+              "end": 3.66,
+              "probability": 0.7913411458333334
+            },
+            {
+              "text": " Ogle's",
+              "start": 3.66,
+              "end": 4.18,
+              "probability": 0.762451171875
+            },
+            {
+              "text": " stop",
+              "start": 4.18,
+              "end": 4.42,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " for",
+              "start": 4.42,
+              "end": 5.08,
+              "probability": 0.2393798828125
+            },
+            {
+              "text": " turn",
+              "start": 5.08,
+              "end": 5.6,
+              "probability": 0.62646484375
+            },
+            {
+              "text": " now",
+              "start": 5.6,
+              "end": 5.82,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " on",
+              "start": 5.82,
+              "end": 6.12,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "slid",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "in",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "raw": "a",
+          "start": 0.88,
+          "end": 0.98
+        },
+        {
+          "raw": "disc",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "raw": "for",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "raw": "himself",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "raw": "and",
+          "start": 1.7,
+          "end": 2.38
+        },
+        {
+          "raw": "watched",
+          "start": 2.38,
+          "end": 2.62
+        },
+        {
+          "raw": "it",
+          "start": 2.62,
+          "end": 2.84
+        },
+        {
+          "raw": "shoot",
+          "start": 2.84,
+          "end": 3.12
+        },
+        {
+          "raw": "Wobble",
+          "start": 3.12,
+          "end": 3.66
+        },
+        {
+          "raw": "Ogle's",
+          "start": 3.66,
+          "end": 4.18
+        },
+        {
+          "raw": "stop",
+          "start": 4.18,
+          "end": 4.42
+        },
+        {
+          "raw": "for",
+          "start": 4.42,
+          "end": 5.08
+        },
+        {
+          "raw": "turn",
+          "start": 5.08,
+          "end": 5.6
+        },
+        {
+          "raw": "now",
+          "start": 5.6,
+          "end": 5.82
+        },
+        {
+          "raw": "on",
+          "start": 5.82,
+          "end": 6.12
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "slid",
+        "in",
+        "a",
+        "disk",
+        "for",
+        "himself:",
+        "and",
+        "watched",
+        "it",
+        "shoot,",
+        "wobble,",
+        "ogle,",
+        "stop:",
+        "four.",
+        "Turn",
+        "Now",
+        "On."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          12,
+          5,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          18,
+          15,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "slid",
+          "start": 0.5,
+          "end": 0.74,
+          "key": "slid",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.74,
+          "end": 0.88,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.88,
+          "end": 0.98,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "disc",
+          "start": 0.98,
+          "end": 1.14,
+          "key": "disc",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.14,
+          "end": 1.32,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 1.32,
+          "end": 1.7,
+          "key": "himself",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.7,
+          "end": 2.38,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "watched",
+          "start": 2.38,
+          "end": 2.62,
+          "key": "watched",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.62,
+          "end": 2.84,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "shoot",
+          "start": 2.84,
+          "end": 3.12,
+          "key": "shoot",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Wobble",
+          "start": 3.12,
+          "end": 3.66,
+          "key": "wobble",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Ogle's",
+          "start": 3.66,
+          "end": 4.18,
+          "key": "ogles",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "stop",
+          "start": 4.18,
+          "end": 4.42,
+          "key": "stop",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.42,
+          "end": 5.08,
+          "key": "for",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 5.08,
+          "end": 5.6,
+          "key": "turn",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 5.6,
+          "end": 5.82,
+          "key": "now",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.82,
+          "end": 6.12,
+          "key": "on",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "slid",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "in",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "text": "a",
+          "start": 0.88,
+          "end": 0.98
+        },
+        {
+          "text": "disk",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "text": "for",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "text": "himself:",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "text": "and",
+          "start": 1.7,
+          "end": 2.38
+        },
+        {
+          "text": "watched",
+          "start": 2.38,
+          "end": 2.62
+        },
+        {
+          "text": "it",
+          "start": 2.62,
+          "end": 2.84
+        },
+        {
+          "text": "shoot,",
+          "start": 2.84,
+          "end": 3.12
+        },
+        {
+          "text": "wobble,",
+          "start": 3.12,
+          "end": 3.66
+        },
+        {
+          "text": "ogle,",
+          "start": 3.66,
+          "end": 3.92
+        },
+        {
+          "text": "stop:",
+          "start": 4.18,
+          "end": 4.42
+        },
+        {
+          "text": "four.",
+          "start": 4.42,
+          "end": 4.75
+        },
+        {
+          "text": "Turn",
+          "start": 5.08,
+          "end": 5.6
+        },
+        {
+          "text": "Now",
+          "start": 5.6,
+          "end": 5.82
+        },
+        {
+          "text": "On.",
+          "start": 5.82,
+          "end": 6.12
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.30007687397301197
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3d45604033707c83bcf80b2fe67882add2731c11ff600575be74b43ea6796e7a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

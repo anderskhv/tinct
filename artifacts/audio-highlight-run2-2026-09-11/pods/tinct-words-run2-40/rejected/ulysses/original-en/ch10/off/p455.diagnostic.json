@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "29ed749888c479e18537deefc0199b1d8504e6ebc920c209b006ed73f5167ffc",
+  "attempts": [
+    {
+      "asr_seconds": 0.19910625601187348,
+      "alignment_seconds": 0.00023861369118094444,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Boyd Martin Cunningham said shortly touch me not",
+          "start": 0.05,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " Boyd",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.52001953125
+            },
+            {
+              "text": " Martin",
+              "start": 0.71,
+              "end": 1.25,
+              "probability": 0.265380859375
+            },
+            {
+              "text": " Cunningham",
+              "start": 1.25,
+              "end": 1.59,
+              "probability": 0.984375
+            },
+            {
+              "text": " said",
+              "start": 1.59,
+              "end": 1.87,
+              "probability": 0.9609375
+            },
+            {
+              "text": " shortly",
+              "start": 1.87,
+              "end": 2.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " touch",
+              "start": 2.33,
+              "end": 2.79,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " me",
+              "start": 2.79,
+              "end": 3.03,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " not",
+              "start": 3.03,
+              "end": 3.33,
+              "probability": 0.857421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boyd",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Martin",
+          "start": 0.71,
+          "end": 1.25
+        },
+        {
+          "raw": "Cunningham",
+          "start": 1.25,
+          "end": 1.59
+        },
+        {
+          "raw": "said",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "raw": "shortly",
+          "start": 1.87,
+          "end": 2.33
+        },
+        {
+          "raw": "touch",
+          "start": 2.33,
+          "end": 2.79
+        },
+        {
+          "raw": "me",
+          "start": 2.79,
+          "end": 3.03
+        },
+        {
+          "raw": "not",
+          "start": 3.03,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "—Boyd?",
+        "Martin",
+        "Cunningham",
+        "said",
+        "shortly.",
+        "Touch",
+        "me",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boyd",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "boyd",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Martin",
+          "start": 0.71,
+          "end": 1.25,
+          "key": "martin",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cunningham",
+          "start": 1.25,
+          "end": 1.59,
+          "key": "cunningham",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.59,
+          "end": 1.87,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shortly",
+          "start": 1.87,
+          "end": 2.33,
+          "key": "shortly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "touch",
+          "start": 2.33,
+          "end": 2.79,
+          "key": "touch",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.79,
+          "end": 3.03,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.03,
+          "end": 3.33,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Boyd?",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Martin",
+          "start": 0.71,
+          "end": 1.25
+        },
+        {
+          "text": "Cunningham",
+          "start": 1.25,
+          "end": 1.59
+        },
+        {
+          "text": "said",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "text": "shortly.",
+          "start": 1.87,
+          "end": 2.33
+        },
+        {
+          "text": "Touch",
+          "start": 2.33,
+          "end": 2.79
+        },
+        {
+          "text": "me",
+          "start": 2.79,
+          "end": 3.03
+        },
+        {
+          "text": "not.",
+          "start": 3.03,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19943320099264383
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5f263a4d39f14ba1bbb7c27a8a4544d4ee1ceddafd5760ac4d68c62b280a35a4",
+  "selected_reasons": []
+}

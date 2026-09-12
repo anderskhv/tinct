@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "6f6a86667b39c5a6f267aa01c6542e6badd1190cab9a0cd59d1221d8e6d41b7f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2191363386809826,
+      "alignment_seconds": 0.0005357395857572556,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, go go, you question with a wicked tongue.",
+          "start": 0.05,
+          "end": 2.99,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " go",
+              "start": 1.13,
+              "end": 1.37,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " go,",
+              "start": 1.37,
+              "end": 1.61,
+              "probability": 0.62890625
+            },
+            {
+              "text": " you",
+              "start": 1.81,
+              "end": 1.87,
+              "probability": 0.994140625
+            },
+            {
+              "text": " question",
+              "start": 1.87,
+              "end": 2.13,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " with",
+              "start": 2.13,
+              "end": 2.37,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " a",
+              "start": 2.37,
+              "end": 2.45,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " wicked",
+              "start": 2.45,
+              "end": 2.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " tongue.",
+              "start": 2.65,
+              "end": 2.99,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "go",
+          "start": 1.13,
+          "end": 1.37
+        },
+        {
+          "raw": "go,",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "raw": "you",
+          "start": 1.81,
+          "end": 1.87
+        },
+        {
+          "raw": "question",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "raw": "with",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "raw": "a",
+          "start": 2.37,
+          "end": 2.45
+        },
+        {
+          "raw": "wicked",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "raw": "tongue.",
+          "start": 2.65,
+          "end": 2.99
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Go,",
+        "go,",
+        "you",
+        "question",
+        "with",
+        "a",
+        "wicked",
+        "tongue."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.13,
+          "end": 1.37,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go,",
+          "start": 1.37,
+          "end": 1.61,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.81,
+          "end": 1.87,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "question",
+          "start": 1.87,
+          "end": 2.13,
+          "key": "question",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.13,
+          "end": 2.37,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.37,
+          "end": 2.45,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wicked",
+          "start": 2.45,
+          "end": 2.65,
+          "key": "wicked",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tongue.",
+          "start": 2.65,
+          "end": 2.99,
+          "key": "tongue",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Go,",
+          "start": 1.13,
+          "end": 1.37
+        },
+        {
+          "text": "go,",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "text": "you",
+          "start": 1.81,
+          "end": 1.87
+        },
+        {
+          "text": "question",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "text": "with",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "text": "a",
+          "start": 2.37,
+          "end": 2.45
+        },
+        {
+          "text": "wicked",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "text": "tongue.",
+          "start": 2.65,
+          "end": 2.99
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21985828317701817
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "80644a47e07e7ad9869af387cffcf19c68c98b8571c3a611d5daf5f4b1644fcc",
+  "selected_reasons": []
+}

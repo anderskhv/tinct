@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "b1b7e663017bf0b7eb407bd0262f34d90f46143cae4472f2d7c35f60f2246443",
+  "attempts": [
+    {
+      "asr_seconds": 0.17040080204606056,
+      "alignment_seconds": 0.00042937323451042175,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I am not thinking of the offense to my mother.",
+          "start": 0.08,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " am",
+              "start": 0.54,
+              "end": 0.64,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " not",
+              "start": 0.64,
+              "end": 0.84,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " thinking",
+              "start": 0.84,
+              "end": 1.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 1.1,
+              "end": 1.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.34,
+              "end": 1.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " offense",
+              "start": 1.44,
+              "end": 1.74,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " to",
+              "start": 1.74,
+              "end": 2.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 2.0,
+              "end": 2.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mother.",
+              "start": 2.1,
+              "end": 2.34,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "am",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "raw": "not",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "raw": "thinking",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "raw": "of",
+          "start": 1.1,
+          "end": 1.34
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "raw": "offense",
+          "start": 1.44,
+          "end": 1.74
+        },
+        {
+          "raw": "to",
+          "start": 1.74,
+          "end": 2.0
+        },
+        {
+          "raw": "my",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "raw": "mother.",
+          "start": 2.1,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "—I",
+        "am",
+        "not",
+        "thinking",
+        "of",
+        "the",
+        "offence",
+        "to",
+        "my",
+        "mother."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          10,
+          7,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.54,
+          "end": 0.64,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.64,
+          "end": 0.84,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thinking",
+          "start": 0.84,
+          "end": 1.1,
+          "key": "thinking",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.1,
+          "end": 1.34,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.44,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "offense",
+          "start": 1.44,
+          "end": 1.74,
+          "key": "offense",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.74,
+          "end": 2.0,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.0,
+          "end": 2.1,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mother.",
+          "start": 2.1,
+          "end": 2.34,
+          "key": "mother",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "am",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "text": "not",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "text": "thinking",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "text": "of",
+          "start": 1.1,
+          "end": 1.34
+        },
+        {
+          "text": "the",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "text": "offence",
+          "start": 1.44,
+          "end": 1.59
+        },
+        {
+          "text": "to",
+          "start": 1.74,
+          "end": 2.0
+        },
+        {
+          "text": "my",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "text": "mother.",
+          "start": 2.1,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.17098847031593323
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "504d18656dbdb8d20544c06f5bb6b9ae37abf9fd6bfd77223fdf47650f58c9ea",
+  "selected_reasons": []
+}

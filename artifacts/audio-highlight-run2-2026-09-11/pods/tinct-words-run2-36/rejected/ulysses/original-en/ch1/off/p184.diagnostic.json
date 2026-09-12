@@ -1,0 +1,486 @@
+{
+  "complete": true,
+  "signature": "328246b092ec5a1229d7e44efc173f1e8b555dd03d8a51035cac0f7a5d3316bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.22217727452516556,
+      "alignment_seconds": 0.0006449446082115173,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It is indeed, ma'am,\" Buck Mulligan said, pouring milk into their cups.",
+          "start": 0.08,
+          "end": 4.44,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.476806640625
+            },
+            {
+              "text": " is",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " indeed,",
+              "start": 0.66,
+              "end": 1.1,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " ma",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.599609375
+            },
+            {
+              "text": "'am,\"",
+              "start": 1.72,
+              "end": 2.24,
+              "probability": 0.8173014322916666
+            },
+            {
+              "text": " Buck",
+              "start": 2.24,
+              "end": 2.28,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " Mulligan",
+              "start": 2.28,
+              "end": 2.64,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " said,",
+              "start": 2.64,
+              "end": 3.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pouring",
+              "start": 3.26,
+              "end": 3.48,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " milk",
+              "start": 3.48,
+              "end": 3.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " into",
+              "start": 3.76,
+              "end": 3.96,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " their",
+              "start": 3.96,
+              "end": 4.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cups.",
+              "start": 4.14,
+              "end": 4.44,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "is",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "indeed,",
+          "start": 0.66,
+          "end": 1.1
+        },
+        {
+          "raw": "ma",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "'am,\"",
+          "start": 1.72,
+          "end": 2.24
+        },
+        {
+          "raw": "Buck",
+          "start": 2.24,
+          "end": 2.28
+        },
+        {
+          "raw": "Mulligan",
+          "start": 2.28,
+          "end": 2.64
+        },
+        {
+          "raw": "said,",
+          "start": 2.64,
+          "end": 3.02
+        },
+        {
+          "raw": "pouring",
+          "start": 3.26,
+          "end": 3.48
+        },
+        {
+          "raw": "milk",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "raw": "into",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "raw": "their",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "raw": "cups.",
+          "start": 4.14,
+          "end": 4.44
+        }
+      ],
+      "expected_tokens": [
+        "—It",
+        "is",
+        "indeed,",
+        "ma'am,",
+        "Buck",
+        "Mulligan",
+        "said,",
+        "pouring",
+        "milk",
+        "into",
+        "their",
+        "cups."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          12,
+          5,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "indeed,",
+          "start": 0.66,
+          "end": 1.1,
+          "key": "indeed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "ma",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'am,\"",
+          "start": 1.72,
+          "end": 2.24,
+          "key": "am",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Buck",
+          "start": 2.24,
+          "end": 2.28,
+          "key": "buck",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Mulligan",
+          "start": 2.28,
+          "end": 2.64,
+          "key": "mulligan",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 2.64,
+          "end": 3.02,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pouring",
+          "start": 3.26,
+          "end": 3.48,
+          "key": "pouring",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "milk",
+          "start": 3.48,
+          "end": 3.76,
+          "key": "milk",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 3.76,
+          "end": 3.96,
+          "key": "into",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 3.96,
+          "end": 4.14,
+          "key": "their",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "cups.",
+          "start": 4.14,
+          "end": 4.44,
+          "key": "cups",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—It",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "is",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "indeed,",
+          "start": 0.66,
+          "end": 1.1
+        },
+        {
+          "text": "ma'am,",
+          "start": 1.1,
+          "end": 1.67
+        },
+        {
+          "text": "Buck",
+          "start": 2.24,
+          "end": 2.28
+        },
+        {
+          "text": "Mulligan",
+          "start": 2.28,
+          "end": 2.64
+        },
+        {
+          "text": "said,",
+          "start": 2.64,
+          "end": 3.02
+        },
+        {
+          "text": "pouring",
+          "start": 3.26,
+          "end": 3.48
+        },
+        {
+          "text": "milk",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "text": "into",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "text": "their",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "text": "cups.",
+          "start": 4.14,
+          "end": 4.44
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.22306116297841072
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b2273fc44062d0f69264ee8d52ce19bb6e6107cec7b1fc9c8fe26d5c8d432cd1",
+  "selected_reasons": []
+}

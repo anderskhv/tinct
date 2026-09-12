@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "2480f853eb9bd6f7d968f3b5890e26c6609fb48965a2eb5067b02b10ad1eef61",
+  "attempts": [
+    {
+      "asr_seconds": 0.07917375024408102,
+      "alignment_seconds": 7.839594036340714e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Done.",
+        "hotwords": "Done"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Done.",
+          "start": 0.05,
+          "end": 0.59,
+          "words": [
+            {
+              "text": " Done.",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.83837890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Done.",
+          "start": 0.05,
+          "end": 0.59
+        }
+      ],
+      "expected_tokens": [
+        "Done."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Done.",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "done",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Done.",
+          "start": 0.05,
+          "end": 0.59
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07927627023309469
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "57a3ef111a86d891f88a3898c738ecde8051a669ef29d30ef891422c36c96bc1",
+  "selected_reasons": []
+}

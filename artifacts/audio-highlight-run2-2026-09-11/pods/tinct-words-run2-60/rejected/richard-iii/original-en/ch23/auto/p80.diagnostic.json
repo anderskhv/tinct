@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "0af434ec7d5e5a3b8f4874304c6363414653be8214daa45f5fdfa518eb05c141",
+  "attempts": [
+    {
+      "asr_seconds": 0.1915401890873909,
+      "alignment_seconds": 0.0003521144390106201,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Let fall thy lance. Despair and die!",
+        "hotwords": "Let, Despair"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Let fall thy lance. Despair and die!",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Let",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " fall",
+              "start": 0.55,
+              "end": 0.77,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " thy",
+              "start": 0.77,
+              "end": 0.91,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " lance.",
+              "start": 0.91,
+              "end": 1.39,
+              "probability": 0.698974609375
+            },
+            {
+              "text": " Despair",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " and",
+              "start": 1.89,
+              "end": 2.11,
+              "probability": 0.96875
+            },
+            {
+              "text": " die!",
+              "start": 2.11,
+              "end": 2.37,
+              "probability": 0.90380859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Let",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "fall",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "raw": "thy",
+          "start": 0.77,
+          "end": 0.91
+        },
+        {
+          "raw": "lance.",
+          "start": 0.91,
+          "end": 1.39
+        },
+        {
+          "raw": "Despair",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "raw": "and",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "raw": "die!",
+          "start": 2.11,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "Let",
+        "fall",
+        "thy",
+        "lance.",
+        "Despair",
+        "and",
+        "die!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Let",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "let",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fall",
+          "start": 0.55,
+          "end": 0.77,
+          "key": "fall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 0.77,
+          "end": 0.91,
+          "key": "thy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lance.",
+          "start": 0.91,
+          "end": 1.39,
+          "key": "lance",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Despair",
+          "start": 1.63,
+          "end": 1.89,
+          "key": "despair",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.89,
+          "end": 2.11,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "die!",
+          "start": 2.11,
+          "end": 2.37,
+          "key": "die",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Let",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "fall",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "text": "thy",
+          "start": 0.77,
+          "end": 0.91
+        },
+        {
+          "text": "lance.",
+          "start": 0.91,
+          "end": 1.39
+        },
+        {
+          "text": "Despair",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "text": "and",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "text": "die!",
+          "start": 2.11,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19202957674860954
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "04575da571d445c2d02078b048351e5acedac669bc3775454b42df4e6d0125eb",
+  "selected_reasons": []
+}

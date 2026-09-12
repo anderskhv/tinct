@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "80f075e26cc9cd333dfbdb0355b7649a00c893d230e83f482580bdfc3ae84519",
+  "attempts": [
+    {
+      "asr_seconds": 0.16080141067504883,
+      "alignment_seconds": 0.00037882477045059204,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Malvolio. Do you know what you say?",
+        "hotwords": "Malvolio, Do"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Malvolio, Do you know what you say?",
+          "start": 0.65,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Malvolio,",
+              "start": 0.65,
+              "end": 0.97,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " Do",
+              "start": 1.27,
+              "end": 1.43,
+              "probability": 0.006984710693359375
+            },
+            {
+              "text": " you",
+              "start": 1.43,
+              "end": 1.51,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " know",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " what",
+              "start": 1.61,
+              "end": 1.73,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " you",
+              "start": 1.73,
+              "end": 1.85,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " say?",
+              "start": 1.85,
+              "end": 2.07,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.65,
+          "end": 0.97
+        },
+        {
+          "raw": "Do",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "raw": "you",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "raw": "know",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "what",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "raw": "you",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "raw": "say?",
+          "start": 1.85,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "Do",
+        "you",
+        "know",
+        "what",
+        "you",
+        "say?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.65,
+          "end": 0.97,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 1.27,
+          "end": 1.43,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.43,
+          "end": 1.51,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "know",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.61,
+          "end": 1.73,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.73,
+          "end": 1.85,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "say?",
+          "start": 1.85,
+          "end": 2.07,
+          "key": "say",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.65,
+          "end": 0.97
+        },
+        {
+          "text": "Do",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "text": "you",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "text": "know",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "what",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "text": "you",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "text": "say?",
+          "start": 1.85,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16131383553147316
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aa916a30d57f0702564ef186a77ed190382ac7dde7b58de17c065d6120f248b0",
+  "selected_reasons": []
+}

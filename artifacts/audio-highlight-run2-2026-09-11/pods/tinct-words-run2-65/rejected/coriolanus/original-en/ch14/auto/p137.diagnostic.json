@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "c697d95edd5f5779a596649271f35d11f547367cd0bcb27b2d0f6e3d68fcec85",
+  "attempts": [
+    {
+      "asr_seconds": 0.0827091196551919,
+      "alignment_seconds": 0.00010870303958654404,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_A noise within._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A noise within.",
+          "start": 0.08,
+          "end": 1.06,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.60107421875
+            },
+            {
+              "text": " noise",
+              "start": 0.52,
+              "end": 0.72,
+              "probability": 0.677734375
+            },
+            {
+              "text": " within.",
+              "start": 0.72,
+              "end": 1.06,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "noise",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "raw": "within.",
+          "start": 0.72,
+          "end": 1.06
+        }
+      ],
+      "expected_tokens": [
+        "[_A",
+        "noise",
+        "within._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "noise",
+          "start": 0.52,
+          "end": 0.72,
+          "key": "noise",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "within.",
+          "start": 0.72,
+          "end": 1.06,
+          "key": "within",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_A",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "noise",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "text": "within._]",
+          "start": 0.72,
+          "end": 1.06
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08285176381468773
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "38561cd02628d1ac97168bea038faf82dcfe43d4c5fd9ef4898698cfe9bfc1c0",
+  "selected_reasons": []
+}

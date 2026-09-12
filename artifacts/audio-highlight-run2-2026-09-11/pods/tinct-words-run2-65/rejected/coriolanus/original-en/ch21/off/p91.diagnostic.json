@@ -1,0 +1,266 @@
+{
+  "complete": true,
+  "signature": "e88703309c58deb6b58a545cf3b2000b82c9067f4bcc1e8fa747e68288951d33",
+  "attempts": [
+    {
+      "asr_seconds": 0.1280931239016354,
+      "alignment_seconds": 0.00024886708706617355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First serving man directitude. What's that?",
+          "start": 0.08,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " serving",
+              "start": 0.64,
+              "end": 0.96,
+              "probability": 0.68212890625
+            },
+            {
+              "text": " man",
+              "start": 0.96,
+              "end": 1.28,
+              "probability": 0.376953125
+            },
+            {
+              "text": " directitude.",
+              "start": 1.28,
+              "end": 2.04,
+              "probability": 0.53369140625
+            },
+            {
+              "text": " What's",
+              "start": 2.04,
+              "end": 2.6,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " that?",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "serving",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "raw": "man",
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "raw": "directitude.",
+          "start": 1.28,
+          "end": 2.04
+        },
+        {
+          "raw": "What's",
+          "start": 2.04,
+          "end": 2.6
+        },
+        {
+          "raw": "that?",
+          "start": 2.6,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Servingman.",
+        "Directitude?",
+        "What's",
+        "that?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          5,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "serving",
+          "start": 0.64,
+          "end": 0.96,
+          "key": "serving",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 0.96,
+          "end": 1.28,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "directitude.",
+          "start": 1.28,
+          "end": 2.04,
+          "key": "directitude",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 2.04,
+          "end": 2.6,
+          "key": "whats",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 2.6,
+          "end": 2.86,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Servingman.",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "text": "Directitude?",
+          "start": 1.28,
+          "end": 2.04
+        },
+        {
+          "text": "What's",
+          "start": 2.04,
+          "end": 2.6
+        },
+        {
+          "text": "that?",
+          "start": 2.6,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12842674413695931
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f38351f742f38aa69d9ca7daf7f9b933f7846952ad92ef470d03e95366b52d44",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

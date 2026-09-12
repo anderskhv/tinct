@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "066a607031de8b6942e4e9f94b0135e89c6660c748d43e468e0d883636a5431c",
+  "attempts": [
+    {
+      "asr_seconds": 0.4336814978159964,
+      "alignment_seconds": 0.00042167725041508675,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Who says I?",
+          "start": 0.05,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.900390625
+            },
+            {
+              "text": " says",
+              "start": 0.61,
+              "end": 0.97,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " I?",
+              "start": 0.97,
+              "end": 1.25,
+              "probability": 0.818359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "says",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "raw": "I?",
+          "start": 0.97,
+          "end": 1.25
+        }
+      ],
+      "expected_tokens": [
+        "—Who?",
+        "says",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 0.61,
+          "end": 0.97,
+          "key": "says",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I?",
+          "start": 0.97,
+          "end": 1.25,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Who?",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "says",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "text": "I.",
+          "start": 0.97,
+          "end": 1.25
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4342435537837446
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1b167437d575257e3972a3ff7a62064a377b90f7caff14ebceb152404598df7e",
+  "selected_reasons": []
+}

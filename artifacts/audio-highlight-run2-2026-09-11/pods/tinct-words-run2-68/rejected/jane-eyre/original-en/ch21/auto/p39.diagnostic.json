@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "93a210cbc1e95074ad18bb07052fa393805743c0f5c7453c76b9647718ababaa",
+  "attempts": [
+    {
+      "asr_seconds": 0.22578852996230125,
+      "alignment_seconds": 0.0004512108862400055,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Because I was poor, and burdensome, and she disliked me.\"",
+        "hotwords": "Because, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Because, I was poor, and burdensome, and she disliked me.",
+          "start": 0.02,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " Because,",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.43310546875
+            },
+            {
+              "text": " I",
+              "start": 0.72,
+              "end": 0.72,
+              "probability": 0.96875
+            },
+            {
+              "text": " was",
+              "start": 0.72,
+              "end": 0.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " poor,",
+              "start": 0.88,
+              "end": 1.2,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " and",
+              "start": 1.44,
+              "end": 1.48,
+              "probability": 0.978515625
+            },
+            {
+              "text": " burdensome,",
+              "start": 1.48,
+              "end": 2.08,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " and",
+              "start": 2.4,
+              "end": 2.5,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " she",
+              "start": 2.5,
+              "end": 2.64,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " disliked",
+              "start": 2.64,
+              "end": 3.02,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " me.",
+              "start": 3.02,
+              "end": 3.34,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Because,",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "I",
+          "start": 0.72,
+          "end": 0.72
+        },
+        {
+          "raw": "was",
+          "start": 0.72,
+          "end": 0.88
+        },
+        {
+          "raw": "poor,",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "raw": "and",
+          "start": 1.44,
+          "end": 1.48
+        },
+        {
+          "raw": "burdensome,",
+          "start": 1.48,
+          "end": 2.08
+        },
+        {
+          "raw": "and",
+          "start": 2.4,
+          "end": 2.5
+        },
+        {
+          "raw": "she",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "raw": "disliked",
+          "start": 2.64,
+          "end": 3.02
+        },
+        {
+          "raw": "me.",
+          "start": 3.02,
+          "end": 3.34
+        }
+      ],
+      "expected_tokens": [
+        "\"Because",
+        "I",
+        "was",
+        "poor,",
+        "and",
+        "burdensome,",
+        "and",
+        "she",
+        "disliked",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Because,",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "because",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.72,
+          "end": 0.72,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.72,
+          "end": 0.88,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "poor,",
+          "start": 0.88,
+          "end": 1.2,
+          "key": "poor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.44,
+          "end": 1.48,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "burdensome,",
+          "start": 1.48,
+          "end": 2.08,
+          "key": "burdensome",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.4,
+          "end": 2.5,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.5,
+          "end": 2.64,
+          "key": "she",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "disliked",
+          "start": 2.64,
+          "end": 3.02,
+          "key": "disliked",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 3.02,
+          "end": 3.34,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Because",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "I",
+          "start": 0.72,
+          "end": 0.72
+        },
+        {
+          "text": "was",
+          "start": 0.72,
+          "end": 0.88
+        },
+        {
+          "text": "poor,",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "text": "and",
+          "start": 1.44,
+          "end": 1.48
+        },
+        {
+          "text": "burdensome,",
+          "start": 1.48,
+          "end": 2.08
+        },
+        {
+          "text": "and",
+          "start": 2.4,
+          "end": 2.5
+        },
+        {
+          "text": "she",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "text": "disliked",
+          "start": 2.64,
+          "end": 3.02
+        },
+        {
+          "text": "me.\"",
+          "start": 3.02,
+          "end": 3.34
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22643810883164406
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a42c92472cec59b6fa13ec741ae0189a2fd89eb65cce6ff950d08478fa7f79bd",
+  "selected_reasons": []
+}

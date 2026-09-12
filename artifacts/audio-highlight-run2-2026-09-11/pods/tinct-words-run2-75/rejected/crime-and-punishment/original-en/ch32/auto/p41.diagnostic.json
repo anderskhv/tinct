@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "149d48b62de68ea588e037b4df98fa6a76eae24b2b82176bfaf6ac2d2ad2ac88",
+  "attempts": [
+    {
+      "asr_seconds": 0.17197106406092644,
+      "alignment_seconds": 0.0003985688090324402,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, and you didn't know? hm...\"",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, and you didn't know? hm...",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.8359375
+            },
+            {
+              "text": " and",
+              "start": 0.73,
+              "end": 0.81,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " you",
+              "start": 0.81,
+              "end": 0.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " didn't",
+              "start": 0.91,
+              "end": 1.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " know?",
+              "start": 1.13,
+              "end": 1.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hm...",
+              "start": 1.87,
+              "end": 2.35,
+              "probability": 0.11599318186442058
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "and",
+          "start": 0.73,
+          "end": 0.81
+        },
+        {
+          "raw": "you",
+          "start": 0.81,
+          "end": 0.91
+        },
+        {
+          "raw": "didn't",
+          "start": 0.91,
+          "end": 1.13
+        },
+        {
+          "raw": "know?",
+          "start": 1.13,
+          "end": 1.39
+        },
+        {
+          "raw": "hm...",
+          "start": 1.87,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "and",
+        "you",
+        "didn't",
+        "know?",
+        "hm...\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.73,
+          "end": 0.81,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.81,
+          "end": 0.91,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "didn't",
+          "start": 0.91,
+          "end": 1.13,
+          "key": "didnt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "know?",
+          "start": 1.13,
+          "end": 1.39,
+          "key": "know",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hm...",
+          "start": 1.87,
+          "end": 2.35,
+          "key": "hm",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "and",
+          "start": 0.73,
+          "end": 0.81
+        },
+        {
+          "text": "you",
+          "start": 0.81,
+          "end": 0.91
+        },
+        {
+          "text": "didn't",
+          "start": 0.91,
+          "end": 1.13
+        },
+        {
+          "text": "know?",
+          "start": 1.13,
+          "end": 1.39
+        },
+        {
+          "text": "hm...\"",
+          "start": 1.87,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1725236140191555
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a60ca66d6b664f8b10ed325e5d3efc81e0098a95e37ae9050857991946bc2114",
+  "selected_reasons": []
+}

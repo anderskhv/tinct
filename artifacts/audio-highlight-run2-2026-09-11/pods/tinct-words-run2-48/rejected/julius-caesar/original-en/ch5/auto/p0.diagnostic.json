@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "79e3dd15f1ee257044fe7bcec3587a324aae3eb16ddd36c727d19cdac24fcb54",
+  "attempts": [
+    {
+      "asr_seconds": 0.19328908901661634,
+      "alignment_seconds": 0.0001757051795721054,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Thunder and lightning. Enter Caesar, in his nightgown.",
+        "hotwords": "Thunder, Enter, Caesar"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thunder and lightning. Enter Caesar, in his nightgown.",
+          "start": 0.08,
+          "end": 3.46,
+          "words": [
+            {
+              "text": " Thunder",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.916015625
+            },
+            {
+              "text": " and",
+              "start": 0.68,
+              "end": 0.92,
+              "probability": 0.96875
+            },
+            {
+              "text": " lightning.",
+              "start": 0.92,
+              "end": 1.3,
+              "probability": 0.806640625
+            },
+            {
+              "text": " Enter",
+              "start": 1.88,
+              "end": 2.12,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Caesar,",
+              "start": 2.12,
+              "end": 2.5,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " in",
+              "start": 2.72,
+              "end": 2.8,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " his",
+              "start": 2.8,
+              "end": 2.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " nightgown.",
+              "start": 2.92,
+              "end": 3.46,
+              "probability": 0.9694010416666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thunder",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "and",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "raw": "lightning.",
+          "start": 0.92,
+          "end": 1.3
+        },
+        {
+          "raw": "Enter",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "raw": "Caesar,",
+          "start": 2.12,
+          "end": 2.5
+        },
+        {
+          "raw": "in",
+          "start": 2.72,
+          "end": 2.8
+        },
+        {
+          "raw": "his",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "raw": "nightgown.",
+          "start": 2.92,
+          "end": 3.46
+        }
+      ],
+      "expected_tokens": [
+        "Thunder",
+        "and",
+        "lightning.",
+        "Enter",
+        "Caesar,",
+        "in",
+        "his",
+        "nightgown."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thunder",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "thunder",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.68,
+          "end": 0.92,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lightning.",
+          "start": 0.92,
+          "end": 1.3,
+          "key": "lightning",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 1.88,
+          "end": 2.12,
+          "key": "enter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Caesar,",
+          "start": 2.12,
+          "end": 2.5,
+          "key": "caesar",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.72,
+          "end": 2.8,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.8,
+          "end": 2.92,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "nightgown.",
+          "start": 2.92,
+          "end": 3.46,
+          "key": "nightgown",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Thunder",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "and",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "text": "lightning.",
+          "start": 0.92,
+          "end": 1.3
+        },
+        {
+          "text": "Enter",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "text": "Caesar,",
+          "start": 2.12,
+          "end": 2.5
+        },
+        {
+          "text": "in",
+          "start": 2.72,
+          "end": 2.8
+        },
+        {
+          "text": "his",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "text": "nightgown.",
+          "start": 2.92,
+          "end": 3.46
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19353842549026012
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ab819ab46ff1890f95389f21b537fcea099baab7e44cbfb7a56826039b0f8c74",
+  "selected_reasons": []
+}

@@ -1,0 +1,1843 @@
+{
+  "complete": true,
+  "signature": "15d1623e56a6747160960071dd17d2634324511098b6af573d912f59d387842c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2938864603638649,
+      "alignment_seconds": 0.000393938273191452,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Viola. And I, most jocund, apt, and willingly, To do you rest, a thousand deaths would die.",
+        "hotwords": "Viola, I, To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Viola, I, most jocund, apt, and willingly, To do you rest, a thousand deaths would die.",
+          "start": 0.05,
+          "end": 5.63,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.770263671875
+            },
+            {
+              "text": " I,",
+              "start": 1.25,
+              "end": 1.41,
+              "probability": 0.0031757354736328125
+            },
+            {
+              "text": " most",
+              "start": 1.59,
+              "end": 1.71,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " jocund,",
+              "start": 1.71,
+              "end": 2.23,
+              "probability": 0.4132436116536458
+            },
+            {
+              "text": " apt,",
+              "start": 2.53,
+              "end": 2.61,
+              "probability": 0.974609375
+            },
+            {
+              "text": " and",
+              "start": 2.79,
+              "end": 2.79,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " willingly,",
+              "start": 2.79,
+              "end": 3.09,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " To",
+              "start": 3.39,
+              "end": 3.43,
+              "probability": 0.1337890625
+            },
+            {
+              "text": " do",
+              "start": 3.43,
+              "end": 3.53,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " you",
+              "start": 3.53,
+              "end": 3.65,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " rest,",
+              "start": 3.65,
+              "end": 3.95,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " a",
+              "start": 4.33,
+              "end": 4.41,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " thousand",
+              "start": 4.41,
+              "end": 4.77,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " deaths",
+              "start": 4.77,
+              "end": 5.13,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " would",
+              "start": 5.13,
+              "end": 5.35,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " die.",
+              "start": 5.35,
+              "end": 5.63,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "I,",
+          "start": 1.25,
+          "end": 1.41
+        },
+        {
+          "raw": "most",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "raw": "jocund,",
+          "start": 1.71,
+          "end": 2.23
+        },
+        {
+          "raw": "apt,",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "raw": "and",
+          "start": 2.79,
+          "end": 2.79
+        },
+        {
+          "raw": "willingly,",
+          "start": 2.79,
+          "end": 3.09
+        },
+        {
+          "raw": "To",
+          "start": 3.39,
+          "end": 3.43
+        },
+        {
+          "raw": "do",
+          "start": 3.43,
+          "end": 3.53
+        },
+        {
+          "raw": "you",
+          "start": 3.53,
+          "end": 3.65
+        },
+        {
+          "raw": "rest,",
+          "start": 3.65,
+          "end": 3.95
+        },
+        {
+          "raw": "a",
+          "start": 4.33,
+          "end": 4.41
+        },
+        {
+          "raw": "thousand",
+          "start": 4.41,
+          "end": 4.77
+        },
+        {
+          "raw": "deaths",
+          "start": 4.77,
+          "end": 5.13
+        },
+        {
+          "raw": "would",
+          "start": 5.13,
+          "end": 5.35
+        },
+        {
+          "raw": "die.",
+          "start": 5.35,
+          "end": 5.63
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "And",
+        "I,",
+        "most",
+        "jocund,",
+        "apt,",
+        "and",
+        "willingly,",
+        "To",
+        "do",
+        "you",
+        "rest,",
+        "a",
+        "thousand",
+        "deaths",
+        "would",
+        "die."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          17,
+          1,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 1.25,
+          "end": 1.41,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.59,
+          "end": 1.71,
+          "key": "most",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "jocund,",
+          "start": 1.71,
+          "end": 2.23,
+          "key": "jocund",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "apt,",
+          "start": 2.53,
+          "end": 2.61,
+          "key": "apt",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.79,
+          "end": 2.79,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "willingly,",
+          "start": 2.79,
+          "end": 3.09,
+          "key": "willingly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 3.39,
+          "end": 3.43,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.43,
+          "end": 3.53,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.53,
+          "end": 3.65,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "rest,",
+          "start": 3.65,
+          "end": 3.95,
+          "key": "rest",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.33,
+          "end": 4.41,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 4.41,
+          "end": 4.77,
+          "key": "thousand",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "deaths",
+          "start": 4.77,
+          "end": 5.13,
+          "key": "deaths",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 5.13,
+          "end": 5.35,
+          "key": "would",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "die.",
+          "start": 5.35,
+          "end": 5.63,
+          "key": "die",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "And",
+          "start": 0.95,
+          "end": 1.1
+        },
+        {
+          "text": "I,",
+          "start": 1.25,
+          "end": 1.41
+        },
+        {
+          "text": "most",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "text": "jocund,",
+          "start": 1.71,
+          "end": 2.23
+        },
+        {
+          "text": "apt,",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "text": "and",
+          "start": 2.79,
+          "end": 2.79
+        },
+        {
+          "text": "willingly,",
+          "start": 2.79,
+          "end": 3.09
+        },
+        {
+          "text": "To",
+          "start": 3.39,
+          "end": 3.43
+        },
+        {
+          "text": "do",
+          "start": 3.43,
+          "end": 3.53
+        },
+        {
+          "text": "you",
+          "start": 3.53,
+          "end": 3.65
+        },
+        {
+          "text": "rest,",
+          "start": 3.65,
+          "end": 3.95
+        },
+        {
+          "text": "a",
+          "start": 4.33,
+          "end": 4.41
+        },
+        {
+          "text": "thousand",
+          "start": 4.41,
+          "end": 4.77
+        },
+        {
+          "text": "deaths",
+          "start": 4.77,
+          "end": 5.13
+        },
+        {
+          "text": "would",
+          "start": 5.13,
+          "end": 5.35
+        },
+        {
+          "text": "die.",
+          "start": 5.35,
+          "end": 5.63
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.29443227127194405
+    },
+    {
+      "asr_seconds": 0.273037675768137,
+      "alignment_seconds": 0.00020490959286689758,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Viola, I, To"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Viola and I most jockened apt and willingly to do you rest a thousand deaths would die",
+          "start": 0.05,
+          "end": 5.67,
+          "words": [
+            {
+              "text": " Viola",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.770263671875
+            },
+            {
+              "text": " and",
+              "start": 0.95,
+              "end": 1.41,
+              "probability": 0.47314453125
+            },
+            {
+              "text": " I",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " most",
+              "start": 1.53,
+              "end": 1.75,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " jockened",
+              "start": 1.75,
+              "end": 2.27,
+              "probability": 0.7439778645833334
+            },
+            {
+              "text": " apt",
+              "start": 2.27,
+              "end": 2.61,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " and",
+              "start": 2.61,
+              "end": 2.79,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " willingly",
+              "start": 2.79,
+              "end": 3.09,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 3.09,
+              "end": 3.43,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " do",
+              "start": 3.43,
+              "end": 3.55,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " you",
+              "start": 3.55,
+              "end": 3.65,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " rest",
+              "start": 3.65,
+              "end": 4.01,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " a",
+              "start": 4.01,
+              "end": 4.39,
+              "probability": 0.943359375
+            },
+            {
+              "text": " thousand",
+              "start": 4.39,
+              "end": 4.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " deaths",
+              "start": 4.79,
+              "end": 5.17,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " would",
+              "start": 5.17,
+              "end": 5.35,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " die",
+              "start": 5.35,
+              "end": 5.67,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "and",
+          "start": 0.95,
+          "end": 1.41
+        },
+        {
+          "raw": "I",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "most",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "raw": "jockened",
+          "start": 1.75,
+          "end": 2.27
+        },
+        {
+          "raw": "apt",
+          "start": 2.27,
+          "end": 2.61
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "raw": "willingly",
+          "start": 2.79,
+          "end": 3.09
+        },
+        {
+          "raw": "to",
+          "start": 3.09,
+          "end": 3.43
+        },
+        {
+          "raw": "do",
+          "start": 3.43,
+          "end": 3.55
+        },
+        {
+          "raw": "you",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "raw": "rest",
+          "start": 3.65,
+          "end": 4.01
+        },
+        {
+          "raw": "a",
+          "start": 4.01,
+          "end": 4.39
+        },
+        {
+          "raw": "thousand",
+          "start": 4.39,
+          "end": 4.79
+        },
+        {
+          "raw": "deaths",
+          "start": 4.79,
+          "end": 5.17
+        },
+        {
+          "raw": "would",
+          "start": 5.17,
+          "end": 5.35
+        },
+        {
+          "raw": "die",
+          "start": 5.35,
+          "end": 5.67
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "And",
+        "I,",
+        "most",
+        "jocund,",
+        "apt,",
+        "and",
+        "willingly,",
+        "To",
+        "do",
+        "you",
+        "rest,",
+        "a",
+        "thousand",
+        "deaths",
+        "would",
+        "die."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          17,
+          5,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.95,
+          "end": 1.41,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.53,
+          "end": 1.75,
+          "key": "most",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "jockened",
+          "start": 1.75,
+          "end": 2.27,
+          "key": "jockened",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "apt",
+          "start": 2.27,
+          "end": 2.61,
+          "key": "apt",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.79,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "willingly",
+          "start": 2.79,
+          "end": 3.09,
+          "key": "willingly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.09,
+          "end": 3.43,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.43,
+          "end": 3.55,
+          "key": "do",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.55,
+          "end": 3.65,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "rest",
+          "start": 3.65,
+          "end": 4.01,
+          "key": "rest",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.01,
+          "end": 4.39,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 4.39,
+          "end": 4.79,
+          "key": "thousand",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "deaths",
+          "start": 4.79,
+          "end": 5.17,
+          "key": "deaths",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 5.17,
+          "end": 5.35,
+          "key": "would",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "die",
+          "start": 5.35,
+          "end": 5.67,
+          "key": "die",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "And",
+          "start": 0.95,
+          "end": 1.41
+        },
+        {
+          "text": "I,",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "most",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "text": "jocund,",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "text": "apt,",
+          "start": 2.27,
+          "end": 2.61
+        },
+        {
+          "text": "and",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "text": "willingly,",
+          "start": 2.79,
+          "end": 3.09
+        },
+        {
+          "text": "To",
+          "start": 3.09,
+          "end": 3.43
+        },
+        {
+          "text": "do",
+          "start": 3.43,
+          "end": 3.55
+        },
+        {
+          "text": "you",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "text": "rest,",
+          "start": 3.65,
+          "end": 4.01
+        },
+        {
+          "text": "a",
+          "start": 4.01,
+          "end": 4.39
+        },
+        {
+          "text": "thousand",
+          "start": 4.39,
+          "end": 4.79
+        },
+        {
+          "text": "deaths",
+          "start": 4.79,
+          "end": 5.17
+        },
+        {
+          "text": "would",
+          "start": 5.17,
+          "end": 5.35
+        },
+        {
+          "text": "die.",
+          "start": 5.35,
+          "end": 5.67
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.27333249151706696
+    },
+    {
+      "asr_seconds": 0.22122380137443542,
+      "alignment_seconds": 0.00024227797985076904,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Viola and I most jockened apt and willingly to do you rest a thousand deaths would die",
+          "start": 0.05,
+          "end": 5.67,
+          "words": [
+            {
+              "text": " Viola",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.770263671875
+            },
+            {
+              "text": " and",
+              "start": 0.95,
+              "end": 1.41,
+              "probability": 0.47314453125
+            },
+            {
+              "text": " I",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " most",
+              "start": 1.53,
+              "end": 1.75,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " jockened",
+              "start": 1.75,
+              "end": 2.27,
+              "probability": 0.7439778645833334
+            },
+            {
+              "text": " apt",
+              "start": 2.27,
+              "end": 2.61,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " and",
+              "start": 2.61,
+              "end": 2.79,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " willingly",
+              "start": 2.79,
+              "end": 3.09,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 3.09,
+              "end": 3.43,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " do",
+              "start": 3.43,
+              "end": 3.55,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " you",
+              "start": 3.55,
+              "end": 3.65,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " rest",
+              "start": 3.65,
+              "end": 4.01,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " a",
+              "start": 4.01,
+              "end": 4.39,
+              "probability": 0.943359375
+            },
+            {
+              "text": " thousand",
+              "start": 4.39,
+              "end": 4.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " deaths",
+              "start": 4.79,
+              "end": 5.17,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " would",
+              "start": 5.17,
+              "end": 5.35,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " die",
+              "start": 5.35,
+              "end": 5.67,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "and",
+          "start": 0.95,
+          "end": 1.41
+        },
+        {
+          "raw": "I",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "most",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "raw": "jockened",
+          "start": 1.75,
+          "end": 2.27
+        },
+        {
+          "raw": "apt",
+          "start": 2.27,
+          "end": 2.61
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "raw": "willingly",
+          "start": 2.79,
+          "end": 3.09
+        },
+        {
+          "raw": "to",
+          "start": 3.09,
+          "end": 3.43
+        },
+        {
+          "raw": "do",
+          "start": 3.43,
+          "end": 3.55
+        },
+        {
+          "raw": "you",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "raw": "rest",
+          "start": 3.65,
+          "end": 4.01
+        },
+        {
+          "raw": "a",
+          "start": 4.01,
+          "end": 4.39
+        },
+        {
+          "raw": "thousand",
+          "start": 4.39,
+          "end": 4.79
+        },
+        {
+          "raw": "deaths",
+          "start": 4.79,
+          "end": 5.17
+        },
+        {
+          "raw": "would",
+          "start": 5.17,
+          "end": 5.35
+        },
+        {
+          "raw": "die",
+          "start": 5.35,
+          "end": 5.67
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "And",
+        "I,",
+        "most",
+        "jocund,",
+        "apt,",
+        "and",
+        "willingly,",
+        "To",
+        "do",
+        "you",
+        "rest,",
+        "a",
+        "thousand",
+        "deaths",
+        "would",
+        "die."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          17,
+          5,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.95,
+          "end": 1.41,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.53,
+          "end": 1.75,
+          "key": "most",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "jockened",
+          "start": 1.75,
+          "end": 2.27,
+          "key": "jockened",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "apt",
+          "start": 2.27,
+          "end": 2.61,
+          "key": "apt",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.79,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "willingly",
+          "start": 2.79,
+          "end": 3.09,
+          "key": "willingly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.09,
+          "end": 3.43,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.43,
+          "end": 3.55,
+          "key": "do",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.55,
+          "end": 3.65,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "rest",
+          "start": 3.65,
+          "end": 4.01,
+          "key": "rest",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.01,
+          "end": 4.39,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 4.39,
+          "end": 4.79,
+          "key": "thousand",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "deaths",
+          "start": 4.79,
+          "end": 5.17,
+          "key": "deaths",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 5.17,
+          "end": 5.35,
+          "key": "would",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "die",
+          "start": 5.35,
+          "end": 5.67,
+          "key": "die",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "And",
+          "start": 0.95,
+          "end": 1.41
+        },
+        {
+          "text": "I,",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "most",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "text": "jocund,",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "text": "apt,",
+          "start": 2.27,
+          "end": 2.61
+        },
+        {
+          "text": "and",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "text": "willingly,",
+          "start": 2.79,
+          "end": 3.09
+        },
+        {
+          "text": "To",
+          "start": 3.09,
+          "end": 3.43
+        },
+        {
+          "text": "do",
+          "start": 3.43,
+          "end": 3.55
+        },
+        {
+          "text": "you",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "text": "rest,",
+          "start": 3.65,
+          "end": 4.01
+        },
+        {
+          "text": "a",
+          "start": 4.01,
+          "end": 4.39
+        },
+        {
+          "text": "thousand",
+          "start": 4.39,
+          "end": 4.79
+        },
+        {
+          "text": "deaths",
+          "start": 4.79,
+          "end": 5.17
+        },
+        {
+          "text": "would",
+          "start": 5.17,
+          "end": 5.35
+        },
+        {
+          "text": "die.",
+          "start": 5.35,
+          "end": 5.67
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.22156323865056038
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eaa392590e3ae46677130426f3ccb94e33d3f03e61c46b5b7616857f88f2818a",
+  "selected_reasons": []
+}

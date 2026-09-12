@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "949aa860d6673d403bcee6323131d95f708abfc03889239849319be20b6aef9b",
+  "attempts": [
+    {
+      "asr_seconds": 0.17485851049423218,
+      "alignment_seconds": 0.0003715790808200836,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Guildenstern. Faith, her privates we.",
+        "hotwords": "Guildenstern, Faith"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Guildenstern, Faith, her privates we.",
+          "start": 0.08,
+          "end": 2.56,
+          "words": [
+            {
+              "text": " Guildenstern,",
+              "start": 0.08,
+              "end": 1.1,
+              "probability": 0.85406494140625
+            },
+            {
+              "text": " Faith,",
+              "start": 1.62,
+              "end": 1.7,
+              "probability": 0.521484375
+            },
+            {
+              "text": " her",
+              "start": 1.92,
+              "end": 1.98,
+              "probability": 0.79150390625
+            },
+            {
+              "text": " privates",
+              "start": 1.98,
+              "end": 2.36,
+              "probability": 0.5132980346679688
+            },
+            {
+              "text": " we.",
+              "start": 2.36,
+              "end": 2.56,
+              "probability": 0.5263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guildenstern,",
+          "start": 0.08,
+          "end": 1.1
+        },
+        {
+          "raw": "Faith,",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "raw": "her",
+          "start": 1.92,
+          "end": 1.98
+        },
+        {
+          "raw": "privates",
+          "start": 1.98,
+          "end": 2.36
+        },
+        {
+          "raw": "we.",
+          "start": 2.36,
+          "end": 2.56
+        }
+      ],
+      "expected_tokens": [
+        "Guildenstern.",
+        "Faith,",
+        "her",
+        "privates",
+        "we."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guildenstern,",
+          "start": 0.08,
+          "end": 1.1,
+          "key": "guildenstern",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Faith,",
+          "start": 1.62,
+          "end": 1.7,
+          "key": "faith",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.92,
+          "end": 1.98,
+          "key": "her",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "privates",
+          "start": 1.98,
+          "end": 2.36,
+          "key": "privates",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "we.",
+          "start": 2.36,
+          "end": 2.56,
+          "key": "we",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guildenstern.",
+          "start": 0.08,
+          "end": 1.1
+        },
+        {
+          "text": "Faith,",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "text": "her",
+          "start": 1.92,
+          "end": 1.98
+        },
+        {
+          "text": "privates",
+          "start": 1.98,
+          "end": 2.36
+        },
+        {
+          "text": "we.",
+          "start": 2.36,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17535853199660778
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d1743ecba8112212279c0a3c8317ad4364d36dcd93514bc193d37f3cee0b98ad",
+  "selected_reasons": []
+}

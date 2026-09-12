@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "e9410c524a0b977fc5373c920ccb060e1c572aab2c78354757f92c086cfe8d4d",
+  "attempts": [
+    {
+      "asr_seconds": 0.10894757800269872,
+      "alignment_seconds": 0.00024630900588817894,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Watch. What man is this?",
+        "hotwords": "Second, Watch, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second, Watch, What Man Is This?",
+          "start": 0.08,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Second,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.73583984375
+            },
+            {
+              "text": " Watch,",
+              "start": 0.88,
+              "end": 1.02,
+              "probability": 0.05224609375
+            },
+            {
+              "text": " What",
+              "start": 1.4,
+              "end": 1.5,
+              "probability": 0.35595703125
+            },
+            {
+              "text": " Man",
+              "start": 1.5,
+              "end": 1.68,
+              "probability": 0.56396484375
+            },
+            {
+              "text": " Is",
+              "start": 1.68,
+              "end": 1.88,
+              "probability": 0.6015625
+            },
+            {
+              "text": " This?",
+              "start": 1.88,
+              "end": 2.12,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Watch,",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "raw": "What",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "raw": "Man",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "raw": "Is",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "raw": "This?",
+          "start": 1.88,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Watch.",
+        "What",
+        "man",
+        "is",
+        "this?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Watch,",
+          "start": 0.88,
+          "end": 1.02,
+          "key": "watch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.4,
+          "end": 1.5,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Man",
+          "start": 1.5,
+          "end": 1.68,
+          "key": "man",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 1.68,
+          "end": 1.88,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "This?",
+          "start": 1.88,
+          "end": 2.12,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Watch.",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "text": "What",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "text": "man",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "text": "is",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "text": "this?",
+          "start": 1.88,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10928684999817051
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2d500abbc2e1a82f6f687a5f9fd85af1e068b6f465ba0ee2ba48ea0baa14f7ff",
+  "selected_reasons": []
+}

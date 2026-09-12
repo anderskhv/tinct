@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "e276838b45b6828fd3a3dc853ec5d494527438b84ea647d6eab78ac8902161e5",
+  "attempts": [
+    {
+      "asr_seconds": 0.10968360863626003,
+      "alignment_seconds": 0.00010676216334104538,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I Chimo",
+          "start": 0.02,
+          "end": 0.94,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.341552734375
+            },
+            {
+              "text": " Chimo",
+              "start": 0.56,
+              "end": 0.94,
+              "probability": 0.223175048828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "Chimo",
+          "start": 0.56,
+          "end": 0.94
+        }
+      ],
+      "expected_tokens": [
+        "Iachimo."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Chimo",
+          "start": 0.56,
+          "end": 0.94,
+          "key": "chimo",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iachimo.",
+          "start": 0.0,
+          "end": 0.47
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10983641818165779
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bc62adf44d7dc0caec042fa5286a9da6b1ea2403cc600a245d77bd056b0e6422",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "9cb2484da6d1c33bbb2064725a2343857dbb5310312e40276c22962f73fc0e53",
+  "attempts": [
+    {
+      "asr_seconds": 0.19105150923132896,
+      "alignment_seconds": 0.00044072791934013367,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"She came here by herself, sat there and talked to me.\"",
+        "hotwords": "She"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She came here by herself, sat there and talked to me.",
+          "start": 0.0,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " came",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " here",
+              "start": 0.68,
+              "end": 0.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " by",
+              "start": 0.88,
+              "end": 1.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " herself,",
+              "start": 1.04,
+              "end": 1.5,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " sat",
+              "start": 1.7,
+              "end": 2.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " there",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.2,
+              "end": 2.36,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " talked",
+              "start": 2.36,
+              "end": 2.56,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " to",
+              "start": 2.56,
+              "end": 2.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me.",
+              "start": 2.76,
+              "end": 2.94,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "came",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "here",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "raw": "by",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "raw": "herself,",
+          "start": 1.04,
+          "end": 1.5
+        },
+        {
+          "raw": "sat",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "raw": "there",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "and",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "raw": "talked",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "raw": "to",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "raw": "me.",
+          "start": 2.76,
+          "end": 2.94
+        }
+      ],
+      "expected_tokens": [
+        "\"She",
+        "came",
+        "here",
+        "by",
+        "herself,",
+        "sat",
+        "there",
+        "and",
+        "talked",
+        "to",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "came",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 0.68,
+          "end": 0.88,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 0.88,
+          "end": 1.04,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "herself,",
+          "start": 1.04,
+          "end": 1.5,
+          "key": "herself",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 1.7,
+          "end": 2.0,
+          "key": "sat",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "there",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.2,
+          "end": 2.36,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "talked",
+          "start": 2.36,
+          "end": 2.56,
+          "key": "talked",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.56,
+          "end": 2.76,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.76,
+          "end": 2.94,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"She",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "came",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "here",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "text": "by",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "text": "herself,",
+          "start": 1.04,
+          "end": 1.5
+        },
+        {
+          "text": "sat",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "text": "there",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "and",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "text": "talked",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "text": "to",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "text": "me.\"",
+          "start": 2.76,
+          "end": 2.94
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19165872037410736
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "28e1629b608db058ddfaa8ecab598b7d001c4f60be41ec66c45de63b7d24b73a",
+  "selected_reasons": []
+}

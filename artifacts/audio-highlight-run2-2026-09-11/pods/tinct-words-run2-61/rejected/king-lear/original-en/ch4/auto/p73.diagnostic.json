@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "127f49816952e702afa0acdc823f78313a5f0c121059c8ea80dc4b463f623c83",
+  "attempts": [
+    {
+      "asr_seconds": 0.20786367543041706,
+      "alignment_seconds": 0.0003984197974205017,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. A pestilent gall to me!",
+        "hotwords": "Lear, A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, A pestilent gall to me!",
+          "start": 0.02,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.6689453125
+            },
+            {
+              "text": " A",
+              "start": 1.04,
+              "end": 1.12,
+              "probability": 0.005886077880859375
+            },
+            {
+              "text": " pestilent",
+              "start": 1.12,
+              "end": 1.58,
+              "probability": 0.7898763020833334
+            },
+            {
+              "text": " gall",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " to",
+              "start": 1.78,
+              "end": 1.98,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " me!",
+              "start": 1.98,
+              "end": 2.2,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "A",
+          "start": 1.04,
+          "end": 1.12
+        },
+        {
+          "raw": "pestilent",
+          "start": 1.12,
+          "end": 1.58
+        },
+        {
+          "raw": "gall",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "to",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "raw": "me!",
+          "start": 1.98,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "A",
+        "pestilent",
+        "gall",
+        "to",
+        "me!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.04,
+          "end": 1.12,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pestilent",
+          "start": 1.12,
+          "end": 1.58,
+          "key": "pestilent",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gall",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "gall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.78,
+          "end": 1.98,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me!",
+          "start": 1.98,
+          "end": 2.2,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "A",
+          "start": 1.04,
+          "end": 1.12
+        },
+        {
+          "text": "pestilent",
+          "start": 1.12,
+          "end": 1.58
+        },
+        {
+          "text": "gall",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "to",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "text": "me!",
+          "start": 1.98,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2084180098026991
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2926464b95a78a96f649a43f6a4bbbe2759984a90a8b1467900692ffbe3731bc",
+  "selected_reasons": []
+}

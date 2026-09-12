@@ -1,0 +1,2555 @@
+{
+  "complete": true,
+  "signature": "14342707144ce9dbe315f850c149527964488e0b967e1beec92f3a68c3e10b7f",
+  "attempts": [
+    {
+      "asr_seconds": 0.7554637156426907,
+      "alignment_seconds": 0.001362338662147522,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In a corner lay a package so insignificant-looking that it had been overlooked, and when she herself had found it she had kept it as a relic. It contained a dozen small white handkerchiefs. She seized them joyfully and ran to the table. She began to arrange them upon the red table-cover, patting and coaxing them into shape with the narrow lace edge curling outward, her Magic working its spells for her as she did it.",
+        "hotwords": "In, Magic"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In a corner lay a package so insignificant-looking that it had been overlooked, and when she herself had found it she had kept it as a relic.",
+          "start": 0.05,
+          "end": 7.43,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.875
+            },
+            {
+              "text": " a",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " corner",
+              "start": 0.63,
+              "end": 0.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lay",
+              "start": 0.89,
+              "end": 1.19,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " a",
+              "start": 1.19,
+              "end": 1.49,
+              "probability": 0.485107421875
+            },
+            {
+              "text": " package",
+              "start": 1.49,
+              "end": 1.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " so",
+              "start": 1.85,
+              "end": 2.21,
+              "probability": 0.994140625
+            },
+            {
+              "text": " insignificant",
+              "start": 2.21,
+              "end": 2.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": "-looking",
+              "start": 2.77,
+              "end": 3.17,
+              "probability": 0.6864013671875
+            },
+            {
+              "text": " that",
+              "start": 3.17,
+              "end": 3.41,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " it",
+              "start": 3.41,
+              "end": 3.51,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " had",
+              "start": 3.51,
+              "end": 3.59,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " been",
+              "start": 3.59,
+              "end": 3.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " overlooked,",
+              "start": 3.73,
+              "end": 4.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 4.73,
+              "end": 4.93,
+              "probability": 0.994140625
+            },
+            {
+              "text": " when",
+              "start": 4.93,
+              "end": 5.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " she",
+              "start": 5.05,
+              "end": 5.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " herself",
+              "start": 5.21,
+              "end": 5.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " had",
+              "start": 5.49,
+              "end": 5.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " found",
+              "start": 5.71,
+              "end": 5.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 5.97,
+              "end": 6.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " she",
+              "start": 6.19,
+              "end": 6.35,
+              "probability": 0.4365234375
+            },
+            {
+              "text": " had",
+              "start": 6.35,
+              "end": 6.47,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " kept",
+              "start": 6.47,
+              "end": 6.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 6.67,
+              "end": 6.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " as",
+              "start": 6.87,
+              "end": 7.01,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 7.01,
+              "end": 7.15,
+              "probability": 0.9921875
+            },
+            {
+              "text": " relic.",
+              "start": 7.15,
+              "end": 7.43,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " It contained a dozen small white handkerchiefs. She seized them joyfully and ran to the table.",
+          "start": 8.09,
+          "end": 13.45,
+          "words": [
+            {
+              "text": " It",
+              "start": 8.09,
+              "end": 8.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " contained",
+              "start": 8.25,
+              "end": 8.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 8.61,
+              "end": 8.83,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " dozen",
+              "start": 8.83,
+              "end": 9.07,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " small",
+              "start": 9.07,
+              "end": 9.59,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " white",
+              "start": 9.59,
+              "end": 9.87,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " handkerchiefs.",
+              "start": 9.87,
+              "end": 10.73,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " She",
+              "start": 11.07,
+              "end": 11.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " seized",
+              "start": 11.29,
+              "end": 11.61,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " them",
+              "start": 11.61,
+              "end": 11.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " joyfully",
+              "start": 11.87,
+              "end": 12.33,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " and",
+              "start": 12.33,
+              "end": 12.67,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " ran",
+              "start": 12.67,
+              "end": 12.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 12.89,
+              "end": 13.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 13.07,
+              "end": 13.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " table.",
+              "start": 13.17,
+              "end": 13.45,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " She began to arrange them upon the red table-cover, patting and coaxing them into shape with the narrow lace edge curling outward, her Magic working its spells for her as she did it.",
+          "start": 14.13,
+          "end": 23.77,
+          "words": [
+            {
+              "text": " She",
+              "start": 14.13,
+              "end": 14.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " began",
+              "start": 14.29,
+              "end": 14.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 14.55,
+              "end": 14.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " arrange",
+              "start": 14.71,
+              "end": 15.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them",
+              "start": 15.03,
+              "end": 15.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " upon",
+              "start": 15.29,
+              "end": 15.53,
+              "probability": 0.986328125
+            },
+            {
+              "text": " the",
+              "start": 15.53,
+              "end": 15.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " red",
+              "start": 15.67,
+              "end": 15.85,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " table",
+              "start": 15.85,
+              "end": 16.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": "-cover,",
+              "start": 16.19,
+              "end": 16.49,
+              "probability": 0.518280029296875
+            },
+            {
+              "text": " patting",
+              "start": 17.13,
+              "end": 17.39,
+              "probability": 0.6629638671875
+            },
+            {
+              "text": " and",
+              "start": 17.39,
+              "end": 17.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " coaxing",
+              "start": 17.59,
+              "end": 18.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 18.03,
+              "end": 18.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " into",
+              "start": 18.13,
+              "end": 18.33,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " shape",
+              "start": 18.33,
+              "end": 18.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 18.71,
+              "end": 18.93,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " the",
+              "start": 18.93,
+              "end": 19.09,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " narrow",
+              "start": 19.09,
+              "end": 19.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lace",
+              "start": 19.41,
+              "end": 19.71,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " edge",
+              "start": 19.71,
+              "end": 20.07,
+              "probability": 0.5166015625
+            },
+            {
+              "text": " curling",
+              "start": 20.07,
+              "end": 20.55,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " outward,",
+              "start": 20.55,
+              "end": 20.91,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " her",
+              "start": 21.37,
+              "end": 21.53,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Magic",
+              "start": 21.53,
+              "end": 21.85,
+              "probability": 0.0013647079467773438
+            },
+            {
+              "text": " working",
+              "start": 21.85,
+              "end": 22.23,
+              "probability": 0.98046875
+            },
+            {
+              "text": " its",
+              "start": 22.23,
+              "end": 22.39,
+              "probability": 0.73291015625
+            },
+            {
+              "text": " spells",
+              "start": 22.39,
+              "end": 22.67,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " for",
+              "start": 22.67,
+              "end": 22.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " her",
+              "start": 22.93,
+              "end": 23.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 23.11,
+              "end": 23.27,
+              "probability": 0.98828125
+            },
+            {
+              "text": " she",
+              "start": 23.27,
+              "end": 23.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " did",
+              "start": 23.43,
+              "end": 23.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it.",
+              "start": 23.57,
+              "end": 23.77,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "a",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "corner",
+          "start": 0.63,
+          "end": 0.89
+        },
+        {
+          "raw": "lay",
+          "start": 0.89,
+          "end": 1.19
+        },
+        {
+          "raw": "a",
+          "start": 1.19,
+          "end": 1.49
+        },
+        {
+          "raw": "package",
+          "start": 1.49,
+          "end": 1.85
+        },
+        {
+          "raw": "so",
+          "start": 1.85,
+          "end": 2.21
+        },
+        {
+          "raw": "insignificant",
+          "start": 2.21,
+          "end": 2.77
+        },
+        {
+          "raw": "-looking",
+          "start": 2.77,
+          "end": 3.17
+        },
+        {
+          "raw": "that",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "raw": "it",
+          "start": 3.41,
+          "end": 3.51
+        },
+        {
+          "raw": "had",
+          "start": 3.51,
+          "end": 3.59
+        },
+        {
+          "raw": "been",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "raw": "overlooked,",
+          "start": 3.73,
+          "end": 4.23
+        },
+        {
+          "raw": "and",
+          "start": 4.73,
+          "end": 4.93
+        },
+        {
+          "raw": "when",
+          "start": 4.93,
+          "end": 5.05
+        },
+        {
+          "raw": "she",
+          "start": 5.05,
+          "end": 5.21
+        },
+        {
+          "raw": "herself",
+          "start": 5.21,
+          "end": 5.49
+        },
+        {
+          "raw": "had",
+          "start": 5.49,
+          "end": 5.71
+        },
+        {
+          "raw": "found",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "raw": "it",
+          "start": 5.97,
+          "end": 6.19
+        },
+        {
+          "raw": "she",
+          "start": 6.19,
+          "end": 6.35
+        },
+        {
+          "raw": "had",
+          "start": 6.35,
+          "end": 6.47
+        },
+        {
+          "raw": "kept",
+          "start": 6.47,
+          "end": 6.67
+        },
+        {
+          "raw": "it",
+          "start": 6.67,
+          "end": 6.87
+        },
+        {
+          "raw": "as",
+          "start": 6.87,
+          "end": 7.01
+        },
+        {
+          "raw": "a",
+          "start": 7.01,
+          "end": 7.15
+        },
+        {
+          "raw": "relic.",
+          "start": 7.15,
+          "end": 7.43
+        },
+        {
+          "raw": "It",
+          "start": 8.09,
+          "end": 8.25
+        },
+        {
+          "raw": "contained",
+          "start": 8.25,
+          "end": 8.61
+        },
+        {
+          "raw": "a",
+          "start": 8.61,
+          "end": 8.83
+        },
+        {
+          "raw": "dozen",
+          "start": 8.83,
+          "end": 9.07
+        },
+        {
+          "raw": "small",
+          "start": 9.07,
+          "end": 9.59
+        },
+        {
+          "raw": "white",
+          "start": 9.59,
+          "end": 9.87
+        },
+        {
+          "raw": "handkerchiefs.",
+          "start": 9.87,
+          "end": 10.73
+        },
+        {
+          "raw": "She",
+          "start": 11.07,
+          "end": 11.29
+        },
+        {
+          "raw": "seized",
+          "start": 11.29,
+          "end": 11.61
+        },
+        {
+          "raw": "them",
+          "start": 11.61,
+          "end": 11.87
+        },
+        {
+          "raw": "joyfully",
+          "start": 11.87,
+          "end": 12.33
+        },
+        {
+          "raw": "and",
+          "start": 12.33,
+          "end": 12.67
+        },
+        {
+          "raw": "ran",
+          "start": 12.67,
+          "end": 12.89
+        },
+        {
+          "raw": "to",
+          "start": 12.89,
+          "end": 13.07
+        },
+        {
+          "raw": "the",
+          "start": 13.07,
+          "end": 13.17
+        },
+        {
+          "raw": "table.",
+          "start": 13.17,
+          "end": 13.45
+        },
+        {
+          "raw": "She",
+          "start": 14.13,
+          "end": 14.29
+        },
+        {
+          "raw": "began",
+          "start": 14.29,
+          "end": 14.55
+        },
+        {
+          "raw": "to",
+          "start": 14.55,
+          "end": 14.71
+        },
+        {
+          "raw": "arrange",
+          "start": 14.71,
+          "end": 15.03
+        },
+        {
+          "raw": "them",
+          "start": 15.03,
+          "end": 15.29
+        },
+        {
+          "raw": "upon",
+          "start": 15.29,
+          "end": 15.53
+        },
+        {
+          "raw": "the",
+          "start": 15.53,
+          "end": 15.67
+        },
+        {
+          "raw": "red",
+          "start": 15.67,
+          "end": 15.85
+        },
+        {
+          "raw": "table",
+          "start": 15.85,
+          "end": 16.19
+        },
+        {
+          "raw": "-cover,",
+          "start": 16.19,
+          "end": 16.49
+        },
+        {
+          "raw": "patting",
+          "start": 17.13,
+          "end": 17.39
+        },
+        {
+          "raw": "and",
+          "start": 17.39,
+          "end": 17.59
+        },
+        {
+          "raw": "coaxing",
+          "start": 17.59,
+          "end": 18.03
+        },
+        {
+          "raw": "them",
+          "start": 18.03,
+          "end": 18.13
+        },
+        {
+          "raw": "into",
+          "start": 18.13,
+          "end": 18.33
+        },
+        {
+          "raw": "shape",
+          "start": 18.33,
+          "end": 18.71
+        },
+        {
+          "raw": "with",
+          "start": 18.71,
+          "end": 18.93
+        },
+        {
+          "raw": "the",
+          "start": 18.93,
+          "end": 19.09
+        },
+        {
+          "raw": "narrow",
+          "start": 19.09,
+          "end": 19.41
+        },
+        {
+          "raw": "lace",
+          "start": 19.41,
+          "end": 19.71
+        },
+        {
+          "raw": "edge",
+          "start": 19.71,
+          "end": 20.07
+        },
+        {
+          "raw": "curling",
+          "start": 20.07,
+          "end": 20.55
+        },
+        {
+          "raw": "outward,",
+          "start": 20.55,
+          "end": 20.91
+        },
+        {
+          "raw": "her",
+          "start": 21.37,
+          "end": 21.53
+        },
+        {
+          "raw": "Magic",
+          "start": 21.53,
+          "end": 21.85
+        },
+        {
+          "raw": "working",
+          "start": 21.85,
+          "end": 22.23
+        },
+        {
+          "raw": "its",
+          "start": 22.23,
+          "end": 22.39
+        },
+        {
+          "raw": "spells",
+          "start": 22.39,
+          "end": 22.67
+        },
+        {
+          "raw": "for",
+          "start": 22.67,
+          "end": 22.93
+        },
+        {
+          "raw": "her",
+          "start": 22.93,
+          "end": 23.11
+        },
+        {
+          "raw": "as",
+          "start": 23.11,
+          "end": 23.27
+        },
+        {
+          "raw": "she",
+          "start": 23.27,
+          "end": 23.43
+        },
+        {
+          "raw": "did",
+          "start": 23.43,
+          "end": 23.57
+        },
+        {
+          "raw": "it.",
+          "start": 23.57,
+          "end": 23.77
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "a",
+        "corner",
+        "lay",
+        "a",
+        "package",
+        "so",
+        "insignificant-looking",
+        "that",
+        "it",
+        "had",
+        "been",
+        "overlooked,",
+        "and",
+        "when",
+        "she",
+        "herself",
+        "had",
+        "found",
+        "it",
+        "she",
+        "had",
+        "kept",
+        "it",
+        "as",
+        "a",
+        "relic.",
+        "It",
+        "contained",
+        "a",
+        "dozen",
+        "small",
+        "white",
+        "handkerchiefs.",
+        "She",
+        "seized",
+        "them",
+        "joyfully",
+        "and",
+        "ran",
+        "to",
+        "the",
+        "table.",
+        "She",
+        "began",
+        "to",
+        "arrange",
+        "them",
+        "upon",
+        "the",
+        "red",
+        "table-cover,",
+        "patting",
+        "and",
+        "coaxing",
+        "them",
+        "into",
+        "shape",
+        "with",
+        "the",
+        "narrow",
+        "lace",
+        "edge",
+        "curling",
+        "outward,",
+        "her",
+        "Magic",
+        "working",
+        "its",
+        "spells",
+        "for",
+        "her",
+        "as",
+        "she",
+        "did",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          76,
+          0,
+          76
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "corner",
+          "start": 0.63,
+          "end": 0.89,
+          "key": "corner",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 0.89,
+          "end": 1.19,
+          "key": "lay",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.19,
+          "end": 1.49,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "package",
+          "start": 1.49,
+          "end": 1.85,
+          "key": "package",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.85,
+          "end": 2.21,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "insignificant -looking",
+          "start": 2.21,
+          "end": 3.17,
+          "key": "insignificantlooking",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.17,
+          "end": 3.41,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.41,
+          "end": 3.51,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.51,
+          "end": 3.59,
+          "key": "had",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 3.59,
+          "end": 3.73,
+          "key": "been",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "overlooked,",
+          "start": 3.73,
+          "end": 4.23,
+          "key": "overlooked",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.73,
+          "end": 4.93,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.93,
+          "end": 5.05,
+          "key": "when",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 5.05,
+          "end": 5.21,
+          "key": "she",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "herself",
+          "start": 5.21,
+          "end": 5.49,
+          "key": "herself",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 5.49,
+          "end": 5.71,
+          "key": "had",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 5.71,
+          "end": 5.97,
+          "key": "found",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.97,
+          "end": 6.19,
+          "key": "it",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 6.19,
+          "end": 6.35,
+          "key": "she",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 6.35,
+          "end": 6.47,
+          "key": "had",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "kept",
+          "start": 6.47,
+          "end": 6.67,
+          "key": "kept",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.67,
+          "end": 6.87,
+          "key": "it",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.87,
+          "end": 7.01,
+          "key": "as",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.01,
+          "end": 7.15,
+          "key": "a",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "relic.",
+          "start": 7.15,
+          "end": 7.43,
+          "key": "relic",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 8.09,
+          "end": 8.25,
+          "key": "it",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "contained",
+          "start": 8.25,
+          "end": 8.61,
+          "key": "contained",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.61,
+          "end": 8.83,
+          "key": "a",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "dozen",
+          "start": 8.83,
+          "end": 9.07,
+          "key": "dozen",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "small",
+          "start": 9.07,
+          "end": 9.59,
+          "key": "small",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "white",
+          "start": 9.59,
+          "end": 9.87,
+          "key": "white",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "handkerchiefs.",
+          "start": 9.87,
+          "end": 10.73,
+          "key": "handkerchiefs",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 11.07,
+          "end": 11.29,
+          "key": "she",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "seized",
+          "start": 11.29,
+          "end": 11.61,
+          "key": "seized",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 11.61,
+          "end": 11.87,
+          "key": "them",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "joyfully",
+          "start": 11.87,
+          "end": 12.33,
+          "key": "joyfully",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.33,
+          "end": 12.67,
+          "key": "and",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "ran",
+          "start": 12.67,
+          "end": 12.89,
+          "key": "ran",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.89,
+          "end": 13.07,
+          "key": "to",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.07,
+          "end": 13.17,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "table.",
+          "start": 13.17,
+          "end": 13.45,
+          "key": "table",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 14.13,
+          "end": 14.29,
+          "key": "she",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 14.29,
+          "end": 14.55,
+          "key": "began",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.55,
+          "end": 14.71,
+          "key": "to",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "arrange",
+          "start": 14.71,
+          "end": 15.03,
+          "key": "arrange",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 15.03,
+          "end": 15.29,
+          "key": "them",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 15.29,
+          "end": 15.53,
+          "key": "upon",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.53,
+          "end": 15.67,
+          "key": "the",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "red",
+          "start": 15.67,
+          "end": 15.85,
+          "key": "red",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "table -cover,",
+          "start": 15.85,
+          "end": 16.49,
+          "key": "tablecover",
+          "pieces": [
+            52,
+            53
+          ]
+        },
+        {
+          "raw": "patting",
+          "start": 17.13,
+          "end": 17.39,
+          "key": "patting",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.39,
+          "end": 17.59,
+          "key": "and",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "coaxing",
+          "start": 17.59,
+          "end": 18.03,
+          "key": "coaxing",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 18.03,
+          "end": 18.13,
+          "key": "them",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 18.13,
+          "end": 18.33,
+          "key": "into",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "shape",
+          "start": 18.33,
+          "end": 18.71,
+          "key": "shape",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 18.71,
+          "end": 18.93,
+          "key": "with",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.93,
+          "end": 19.09,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "narrow",
+          "start": 19.09,
+          "end": 19.41,
+          "key": "narrow",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "lace",
+          "start": 19.41,
+          "end": 19.71,
+          "key": "lace",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "edge",
+          "start": 19.71,
+          "end": 20.07,
+          "key": "edge",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "curling",
+          "start": 20.07,
+          "end": 20.55,
+          "key": "curling",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "outward,",
+          "start": 20.55,
+          "end": 20.91,
+          "key": "outward",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 21.37,
+          "end": 21.53,
+          "key": "her",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "Magic",
+          "start": 21.53,
+          "end": 21.85,
+          "key": "magic",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "working",
+          "start": 21.85,
+          "end": 22.23,
+          "key": "working",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 22.23,
+          "end": 22.39,
+          "key": "its",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "spells",
+          "start": 22.39,
+          "end": 22.67,
+          "key": "spells",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 22.67,
+          "end": 22.93,
+          "key": "for",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 22.93,
+          "end": 23.11,
+          "key": "her",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 23.11,
+          "end": 23.27,
+          "key": "as",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 23.27,
+          "end": 23.43,
+          "key": "she",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 23.43,
+          "end": 23.57,
+          "key": "did",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 23.57,
+          "end": 23.77,
+          "key": "it",
+          "pieces": [
+            77
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "insignificant-looking",
+          "heard": "insignificant -looking",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 2.21,
+          "end": 3.17
+        },
+        {
+          "expected_index": 51,
+          "text": "table-cover,",
+          "heard": "table -cover,",
+          "heard_indexes": [
+            52,
+            53
+          ],
+          "start": 15.85,
+          "end": 16.49
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "a",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "corner",
+          "start": 0.63,
+          "end": 0.89
+        },
+        {
+          "text": "lay",
+          "start": 0.89,
+          "end": 1.19
+        },
+        {
+          "text": "a",
+          "start": 1.19,
+          "end": 1.49
+        },
+        {
+          "text": "package",
+          "start": 1.49,
+          "end": 1.85
+        },
+        {
+          "text": "so",
+          "start": 1.85,
+          "end": 2.21
+        },
+        {
+          "text": "insignificant-looking",
+          "start": 2.21,
+          "end": 3.17
+        },
+        {
+          "text": "that",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "text": "it",
+          "start": 3.41,
+          "end": 3.51
+        },
+        {
+          "text": "had",
+          "start": 3.51,
+          "end": 3.59
+        },
+        {
+          "text": "been",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "text": "overlooked,",
+          "start": 3.73,
+          "end": 4.23
+        },
+        {
+          "text": "and",
+          "start": 4.73,
+          "end": 4.93
+        },
+        {
+          "text": "when",
+          "start": 4.93,
+          "end": 5.05
+        },
+        {
+          "text": "she",
+          "start": 5.05,
+          "end": 5.21
+        },
+        {
+          "text": "herself",
+          "start": 5.21,
+          "end": 5.49
+        },
+        {
+          "text": "had",
+          "start": 5.49,
+          "end": 5.71
+        },
+        {
+          "text": "found",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "text": "it",
+          "start": 5.97,
+          "end": 6.19
+        },
+        {
+          "text": "she",
+          "start": 6.19,
+          "end": 6.35
+        },
+        {
+          "text": "had",
+          "start": 6.35,
+          "end": 6.47
+        },
+        {
+          "text": "kept",
+          "start": 6.47,
+          "end": 6.67
+        },
+        {
+          "text": "it",
+          "start": 6.67,
+          "end": 6.87
+        },
+        {
+          "text": "as",
+          "start": 6.87,
+          "end": 7.01
+        },
+        {
+          "text": "a",
+          "start": 7.01,
+          "end": 7.15
+        },
+        {
+          "text": "relic.",
+          "start": 7.15,
+          "end": 7.43
+        },
+        {
+          "text": "It",
+          "start": 8.09,
+          "end": 8.25
+        },
+        {
+          "text": "contained",
+          "start": 8.25,
+          "end": 8.61
+        },
+        {
+          "text": "a",
+          "start": 8.61,
+          "end": 8.83
+        },
+        {
+          "text": "dozen",
+          "start": 8.83,
+          "end": 9.07
+        },
+        {
+          "text": "small",
+          "start": 9.07,
+          "end": 9.59
+        },
+        {
+          "text": "white",
+          "start": 9.59,
+          "end": 9.87
+        },
+        {
+          "text": "handkerchiefs.",
+          "start": 9.87,
+          "end": 10.73
+        },
+        {
+          "text": "She",
+          "start": 11.07,
+          "end": 11.29
+        },
+        {
+          "text": "seized",
+          "start": 11.29,
+          "end": 11.61
+        },
+        {
+          "text": "them",
+          "start": 11.61,
+          "end": 11.87
+        },
+        {
+          "text": "joyfully",
+          "start": 11.87,
+          "end": 12.33
+        },
+        {
+          "text": "and",
+          "start": 12.33,
+          "end": 12.67
+        },
+        {
+          "text": "ran",
+          "start": 12.67,
+          "end": 12.89
+        },
+        {
+          "text": "to",
+          "start": 12.89,
+          "end": 13.07
+        },
+        {
+          "text": "the",
+          "start": 13.07,
+          "end": 13.17
+        },
+        {
+          "text": "table.",
+          "start": 13.17,
+          "end": 13.45
+        },
+        {
+          "text": "She",
+          "start": 14.13,
+          "end": 14.29
+        },
+        {
+          "text": "began",
+          "start": 14.29,
+          "end": 14.55
+        },
+        {
+          "text": "to",
+          "start": 14.55,
+          "end": 14.71
+        },
+        {
+          "text": "arrange",
+          "start": 14.71,
+          "end": 15.03
+        },
+        {
+          "text": "them",
+          "start": 15.03,
+          "end": 15.29
+        },
+        {
+          "text": "upon",
+          "start": 15.29,
+          "end": 15.53
+        },
+        {
+          "text": "the",
+          "start": 15.53,
+          "end": 15.67
+        },
+        {
+          "text": "red",
+          "start": 15.67,
+          "end": 15.85
+        },
+        {
+          "text": "table-cover,",
+          "start": 15.85,
+          "end": 16.49
+        },
+        {
+          "text": "patting",
+          "start": 17.13,
+          "end": 17.39
+        },
+        {
+          "text": "and",
+          "start": 17.39,
+          "end": 17.59
+        },
+        {
+          "text": "coaxing",
+          "start": 17.59,
+          "end": 18.03
+        },
+        {
+          "text": "them",
+          "start": 18.03,
+          "end": 18.13
+        },
+        {
+          "text": "into",
+          "start": 18.13,
+          "end": 18.33
+        },
+        {
+          "text": "shape",
+          "start": 18.33,
+          "end": 18.71
+        },
+        {
+          "text": "with",
+          "start": 18.71,
+          "end": 18.93
+        },
+        {
+          "text": "the",
+          "start": 18.93,
+          "end": 19.09
+        },
+        {
+          "text": "narrow",
+          "start": 19.09,
+          "end": 19.41
+        },
+        {
+          "text": "lace",
+          "start": 19.41,
+          "end": 19.71
+        },
+        {
+          "text": "edge",
+          "start": 19.71,
+          "end": 20.07
+        },
+        {
+          "text": "curling",
+          "start": 20.07,
+          "end": 20.55
+        },
+        {
+          "text": "outward,",
+          "start": 20.55,
+          "end": 20.91
+        },
+        {
+          "text": "her",
+          "start": 21.37,
+          "end": 21.53
+        },
+        {
+          "text": "Magic",
+          "start": 21.53,
+          "end": 21.85
+        },
+        {
+          "text": "working",
+          "start": 21.85,
+          "end": 22.23
+        },
+        {
+          "text": "its",
+          "start": 22.23,
+          "end": 22.39
+        },
+        {
+          "text": "spells",
+          "start": 22.39,
+          "end": 22.67
+        },
+        {
+          "text": "for",
+          "start": 22.67,
+          "end": 22.93
+        },
+        {
+          "text": "her",
+          "start": 22.93,
+          "end": 23.11
+        },
+        {
+          "text": "as",
+          "start": 23.11,
+          "end": 23.27
+        },
+        {
+          "text": "she",
+          "start": 23.27,
+          "end": 23.43
+        },
+        {
+          "text": "did",
+          "start": 23.43,
+          "end": 23.57
+        },
+        {
+          "text": "it.",
+          "start": 23.57,
+          "end": 23.77
+        }
+      ],
+      "stats": {
+        "expected_words": 76,
+        "heard_words": 76,
+        "matched_words": 76
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7574241980910301
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "55fd878cea4dc9ee274c8f6d01d46148707baaf39dec739b48e8f87827f3604b",
+  "selected_reasons": []
+}

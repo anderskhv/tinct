@@ -1,0 +1,479 @@
+{
+  "complete": true,
+  "signature": "1a2f9f724a587dc3f1c5385c387b505788dd10f2d87b1d211a0b2cca1ec67c09",
+  "attempts": [
+    {
+      "asr_seconds": 0.22207816317677498,
+      "alignment_seconds": 0.0005641579627990723,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Now I am sure you can get on your feet. He said try",
+          "start": 0.34,
+          "end": 3.12,
+          "words": [
+            {
+              "text": " Now",
+              "start": 0.34,
+              "end": 0.58,
+              "probability": 0.310546875
+            },
+            {
+              "text": " I",
+              "start": 0.58,
+              "end": 0.72,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " am",
+              "start": 0.72,
+              "end": 0.8,
+              "probability": 0.6572265625
+            },
+            {
+              "text": " sure",
+              "start": 0.8,
+              "end": 0.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 0.92,
+              "end": 1.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " can",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " get",
+              "start": 1.14,
+              "end": 1.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " your",
+              "start": 1.38,
+              "end": 1.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " feet.",
+              "start": 1.5,
+              "end": 1.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He",
+              "start": 2.12,
+              "end": 2.2,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " said",
+              "start": 2.2,
+              "end": 2.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " try",
+              "start": 2.5,
+              "end": 3.12,
+              "probability": 0.6572265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now",
+          "start": 0.34,
+          "end": 0.58
+        },
+        {
+          "raw": "I",
+          "start": 0.58,
+          "end": 0.72
+        },
+        {
+          "raw": "am",
+          "start": 0.72,
+          "end": 0.8
+        },
+        {
+          "raw": "sure",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "raw": "you",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "raw": "can",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "get",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "raw": "on",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "your",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "raw": "feet.",
+          "start": 1.5,
+          "end": 1.8
+        },
+        {
+          "raw": "He",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "raw": "said",
+          "start": 2.2,
+          "end": 2.5
+        },
+        {
+          "raw": "try",
+          "start": 2.5,
+          "end": 3.12
+        }
+      ],
+      "expected_tokens": [
+        "\"Now",
+        "I",
+        "am",
+        "sure",
+        "you",
+        "can",
+        "get",
+        "on",
+        "your",
+        "feet,\"",
+        "he",
+        "said—\"try.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Now",
+          "start": 0.34,
+          "end": 0.58,
+          "key": "now",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.58,
+          "end": 0.72,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.72,
+          "end": 0.8,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sure",
+          "start": 0.8,
+          "end": 0.92,
+          "key": "sure",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.92,
+          "end": 1.04,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "can",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 1.14,
+          "end": 1.26,
+          "key": "get",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.38,
+          "end": 1.5,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "feet.",
+          "start": 1.5,
+          "end": 1.8,
+          "key": "feet",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.12,
+          "end": 2.2,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.2,
+          "end": 2.5,
+          "key": "said",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "try",
+          "start": 2.5,
+          "end": 3.12,
+          "key": "try",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Now",
+          "start": 0.34,
+          "end": 0.58
+        },
+        {
+          "text": "I",
+          "start": 0.58,
+          "end": 0.72
+        },
+        {
+          "text": "am",
+          "start": 0.72,
+          "end": 0.8
+        },
+        {
+          "text": "sure",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "text": "you",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "text": "can",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "get",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "text": "on",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "your",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "text": "feet,\"",
+          "start": 1.5,
+          "end": 1.8
+        },
+        {
+          "text": "he",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "text": "said—\"try.\"",
+          "start": 2.2,
+          "end": 2.66
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.22292646393179893
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7d7e69391665e38928070b304efb5c200c1c963609174a898008cfd22ae9ddb0",
+  "selected_reasons": []
+}

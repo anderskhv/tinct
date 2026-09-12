@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "c0347d84c9ee98e082990f6f8b6b61c9ae868f68efe8984656aae66e06b28e61",
+  "attempts": [
+    {
+      "asr_seconds": 0.19492804299807176,
+      "alignment_seconds": 0.0003697729844134301,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Aside to Agrippa_.] He were the worse for that were he a horse;",
+        "hotwords": "Agrippa_"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " aside to Agrippa, he were the worse for that were he a horse.",
+          "start": 0.05,
+          "end": 3.43,
+          "words": [
+            {
+              "text": " aside",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.06597900390625
+            },
+            {
+              "text": " to",
+              "start": 0.69,
+              "end": 0.95,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Agrippa,",
+              "start": 0.95,
+              "end": 1.57,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " he",
+              "start": 1.89,
+              "end": 2.07,
+              "probability": 0.94921875
+            },
+            {
+              "text": " were",
+              "start": 2.07,
+              "end": 2.17,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " the",
+              "start": 2.17,
+              "end": 2.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " worse",
+              "start": 2.27,
+              "end": 2.45,
+              "probability": 0.1866455078125
+            },
+            {
+              "text": " for",
+              "start": 2.45,
+              "end": 2.67,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " that",
+              "start": 2.67,
+              "end": 2.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " were",
+              "start": 2.79,
+              "end": 2.89,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " he",
+              "start": 2.89,
+              "end": 3.05,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " a",
+              "start": 3.05,
+              "end": 3.17,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " horse.",
+              "start": 3.17,
+              "end": 3.43,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "aside",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "to",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "raw": "Agrippa,",
+          "start": 0.95,
+          "end": 1.57
+        },
+        {
+          "raw": "he",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "raw": "were",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "raw": "the",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "raw": "worse",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "raw": "for",
+          "start": 2.45,
+          "end": 2.67
+        },
+        {
+          "raw": "that",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "raw": "were",
+          "start": 2.79,
+          "end": 2.89
+        },
+        {
+          "raw": "he",
+          "start": 2.89,
+          "end": 3.05
+        },
+        {
+          "raw": "a",
+          "start": 3.05,
+          "end": 3.17
+        },
+        {
+          "raw": "horse.",
+          "start": 3.17,
+          "end": 3.43
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside",
+        "to",
+        "Agrippa_.]",
+        "He",
+        "were",
+        "the",
+        "worse",
+        "for",
+        "that",
+        "were",
+        "he",
+        "a",
+        "horse;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "aside",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.69,
+          "end": 0.95,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Agrippa,",
+          "start": 0.95,
+          "end": 1.57,
+          "key": "agrippa",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.89,
+          "end": 2.07,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.07,
+          "end": 2.17,
+          "key": "were",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.17,
+          "end": 2.27,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "worse",
+          "start": 2.27,
+          "end": 2.45,
+          "key": "worse",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.45,
+          "end": 2.67,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.67,
+          "end": 2.79,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.79,
+          "end": 2.89,
+          "key": "were",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.89,
+          "end": 3.05,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.05,
+          "end": 3.17,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "horse.",
+          "start": 3.17,
+          "end": 3.43,
+          "key": "horse",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "to",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "text": "Agrippa_.]",
+          "start": 0.95,
+          "end": 1.57
+        },
+        {
+          "text": "He",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "text": "were",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "text": "the",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "text": "worse",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "text": "for",
+          "start": 2.45,
+          "end": 2.67
+        },
+        {
+          "text": "that",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "text": "were",
+          "start": 2.79,
+          "end": 2.89
+        },
+        {
+          "text": "he",
+          "start": 2.89,
+          "end": 3.05
+        },
+        {
+          "text": "a",
+          "start": 3.05,
+          "end": 3.17
+        },
+        {
+          "text": "horse;",
+          "start": 3.17,
+          "end": 3.43
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19544553101877682
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cb64cb00faf0833bacf5a250322ebec984425546002b6b73df4e8e34bb88a23e",
+  "selected_reasons": []
+}

@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "d2690fcb502aed5c08453e9198f04a01a225df3864ba1009fca385624afefd4d",
+  "attempts": [
+    {
+      "asr_seconds": 0.09425889898557216,
+      "alignment_seconds": 0.00022052900749258697,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Passing now.",
+          "start": 0.05,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " Passing",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.8828125
+            },
+            {
+              "text": " now.",
+              "start": 0.71,
+              "end": 1.05,
+              "probability": 0.84521484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Passing",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "now.",
+          "start": 0.71,
+          "end": 1.05
+        }
+      ],
+      "expected_tokens": [
+        "Passing",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Passing",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "passing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 0.71,
+          "end": 1.05,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Passing",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "now.",
+          "start": 0.71,
+          "end": 1.05
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09455840900773183
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b6f7632acd89dabc686a28b5e3031f439ebfa8e5b944adeb2aaaf10fd915b2f8",
+  "selected_reasons": []
+}

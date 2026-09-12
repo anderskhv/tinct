@@ -1,0 +1,4358 @@
+{
+  "complete": true,
+  "signature": "10efb07ff9be5239ebd24362ed7eb6e0620abae3fe2dfdc0761aec1b4a04aaa0",
+  "attempts": [
+    {
+      "asr_seconds": 0.4972485350444913,
+      "alignment_seconds": 0.0008881310932338238,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"As I exclaimed 'Jane! Jane! Jane!' a voice—I cannot tell whence the voice came, but I know whose voice it was—replied, 'I am coming: wait for me;' and a moment after, went whispering on the wind the words—'Where are you?'",
+        "hotwords": "As, I, Jane"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " As I exclaimed, Jane! Jane! Jane! a voice—I cannot tell whence the voice came, but I know",
+          "start": 0.08,
+          "end": 6.12,
+          "words": [
+            {
+              "text": " As",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.6318359375
+            },
+            {
+              "text": " I",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " exclaimed,",
+              "start": 0.68,
+              "end": 1.18,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Jane!",
+              "start": 1.66,
+              "end": 1.66,
+              "probability": 0.13720703125
+            },
+            {
+              "text": " Jane!",
+              "start": 2.2,
+              "end": 2.2,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Jane!",
+              "start": 2.54,
+              "end": 2.68,
+              "probability": 0.9921875
+            },
+            {
+              "text": " a",
+              "start": 3.34,
+              "end": 3.48,
+              "probability": 0.0684814453125
+            },
+            {
+              "text": " voice—I",
+              "start": 3.48,
+              "end": 4.08,
+              "probability": 0.62445068359375
+            },
+            {
+              "text": " cannot",
+              "start": 4.08,
+              "end": 4.28,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " tell",
+              "start": 4.28,
+              "end": 4.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " whence",
+              "start": 4.64,
+              "end": 4.86,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " the",
+              "start": 4.86,
+              "end": 5.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " voice",
+              "start": 5.04,
+              "end": 5.24,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " came,",
+              "start": 5.24,
+              "end": 5.56,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " but",
+              "start": 5.74,
+              "end": 5.82,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " I",
+              "start": 5.82,
+              "end": 5.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " know",
+              "start": 5.94,
+              "end": 6.12,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " whose voice it was—replied, I am coming, wait for me, and a moment after, went whispering",
+          "start": 6.12,
+          "end": 11.22,
+          "words": [
+            {
+              "text": " whose",
+              "start": 6.12,
+              "end": 6.32,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " voice",
+              "start": 6.32,
+              "end": 6.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it",
+              "start": 6.58,
+              "end": 6.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " was—replied,",
+              "start": 6.74,
+              "end": 7.8,
+              "probability": 0.771240234375
+            },
+            {
+              "text": " I",
+              "start": 7.98,
+              "end": 8.14,
+              "probability": 0.135009765625
+            },
+            {
+              "text": " am",
+              "start": 8.14,
+              "end": 8.28,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " coming,",
+              "start": 8.28,
+              "end": 8.6,
+              "probability": 0.9765625
+            },
+            {
+              "text": " wait",
+              "start": 8.78,
+              "end": 8.88,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " for",
+              "start": 8.88,
+              "end": 9.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me,",
+              "start": 9.12,
+              "end": 9.34,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 9.5,
+              "end": 9.96,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " a",
+              "start": 9.96,
+              "end": 10.06,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " moment",
+              "start": 10.06,
+              "end": 10.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " after,",
+              "start": 10.22,
+              "end": 10.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " went",
+              "start": 10.74,
+              "end": 10.86,
+              "probability": 0.85546875
+            },
+            {
+              "text": " whispering",
+              "start": 10.86,
+              "end": 11.22,
+              "probability": 0.9921875
+            }
+          ]
+        },
+        {
+          "text": " on the wind the words—'Where are you?'",
+          "start": 11.22,
+          "end": 13.34,
+          "words": [
+            {
+              "text": " on",
+              "start": 11.22,
+              "end": 11.44,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 11.44,
+              "end": 11.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wind",
+              "start": 11.56,
+              "end": 11.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 11.72,
+              "end": 11.88,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " words—",
+              "start": 11.88,
+              "end": 12.62,
+              "probability": 0.5058403015136719
+            },
+            {
+              "text": "'Where",
+              "start": 12.62,
+              "end": 12.72,
+              "probability": 0.41956329345703125
+            },
+            {
+              "text": " are",
+              "start": 12.72,
+              "end": 12.9,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " you?'",
+              "start": 12.9,
+              "end": 13.34,
+              "probability": 0.91650390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "As",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "I",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "exclaimed,",
+          "start": 0.68,
+          "end": 1.18
+        },
+        {
+          "raw": "Jane!",
+          "start": 1.66,
+          "end": 1.66
+        },
+        {
+          "raw": "Jane!",
+          "start": 2.2,
+          "end": 2.2
+        },
+        {
+          "raw": "Jane!",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "raw": "a",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "raw": "voice—I",
+          "start": 3.48,
+          "end": 4.08
+        },
+        {
+          "raw": "cannot",
+          "start": 4.08,
+          "end": 4.28
+        },
+        {
+          "raw": "tell",
+          "start": 4.28,
+          "end": 4.64
+        },
+        {
+          "raw": "whence",
+          "start": 4.64,
+          "end": 4.86
+        },
+        {
+          "raw": "the",
+          "start": 4.86,
+          "end": 5.04
+        },
+        {
+          "raw": "voice",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "raw": "came,",
+          "start": 5.24,
+          "end": 5.56
+        },
+        {
+          "raw": "but",
+          "start": 5.74,
+          "end": 5.82
+        },
+        {
+          "raw": "I",
+          "start": 5.82,
+          "end": 5.94
+        },
+        {
+          "raw": "know",
+          "start": 5.94,
+          "end": 6.12
+        },
+        {
+          "raw": "whose",
+          "start": 6.12,
+          "end": 6.32
+        },
+        {
+          "raw": "voice",
+          "start": 6.32,
+          "end": 6.58
+        },
+        {
+          "raw": "it",
+          "start": 6.58,
+          "end": 6.74
+        },
+        {
+          "raw": "was—replied,",
+          "start": 6.74,
+          "end": 7.8
+        },
+        {
+          "raw": "I",
+          "start": 7.98,
+          "end": 8.14
+        },
+        {
+          "raw": "am",
+          "start": 8.14,
+          "end": 8.28
+        },
+        {
+          "raw": "coming,",
+          "start": 8.28,
+          "end": 8.6
+        },
+        {
+          "raw": "wait",
+          "start": 8.78,
+          "end": 8.88
+        },
+        {
+          "raw": "for",
+          "start": 8.88,
+          "end": 9.12
+        },
+        {
+          "raw": "me,",
+          "start": 9.12,
+          "end": 9.34
+        },
+        {
+          "raw": "and",
+          "start": 9.5,
+          "end": 9.96
+        },
+        {
+          "raw": "a",
+          "start": 9.96,
+          "end": 10.06
+        },
+        {
+          "raw": "moment",
+          "start": 10.06,
+          "end": 10.22
+        },
+        {
+          "raw": "after,",
+          "start": 10.22,
+          "end": 10.64
+        },
+        {
+          "raw": "went",
+          "start": 10.74,
+          "end": 10.86
+        },
+        {
+          "raw": "whispering",
+          "start": 10.86,
+          "end": 11.22
+        },
+        {
+          "raw": "on",
+          "start": 11.22,
+          "end": 11.44
+        },
+        {
+          "raw": "the",
+          "start": 11.44,
+          "end": 11.56
+        },
+        {
+          "raw": "wind",
+          "start": 11.56,
+          "end": 11.72
+        },
+        {
+          "raw": "the",
+          "start": 11.72,
+          "end": 11.88
+        },
+        {
+          "raw": "words—",
+          "start": 11.88,
+          "end": 12.62
+        },
+        {
+          "raw": "'Where",
+          "start": 12.62,
+          "end": 12.72
+        },
+        {
+          "raw": "are",
+          "start": 12.72,
+          "end": 12.9
+        },
+        {
+          "raw": "you?'",
+          "start": 12.9,
+          "end": 13.34
+        }
+      ],
+      "expected_tokens": [
+        "\"As",
+        "I",
+        "exclaimed",
+        "'Jane!",
+        "Jane!",
+        "Jane!'",
+        "a",
+        "voice—I",
+        "cannot",
+        "tell",
+        "whence",
+        "the",
+        "voice",
+        "came,",
+        "but",
+        "I",
+        "know",
+        "whose",
+        "voice",
+        "it",
+        "was—replied,",
+        "'I",
+        "am",
+        "coming:",
+        "wait",
+        "for",
+        "me;'",
+        "and",
+        "a",
+        "moment",
+        "after,",
+        "went",
+        "whispering",
+        "on",
+        "the",
+        "wind",
+        "the",
+        "words—'Where",
+        "are",
+        "you?'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          37,
+          0,
+          37
+        ],
+        [
+          "replace",
+          37,
+          38,
+          37,
+          39
+        ],
+        [
+          "equal",
+          38,
+          40,
+          39,
+          41
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          37,
+          38,
+          37,
+          39
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "As",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "as",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "exclaimed,",
+          "start": 0.68,
+          "end": 1.18,
+          "key": "exclaimed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Jane!",
+          "start": 1.66,
+          "end": 1.66,
+          "key": "jane",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Jane!",
+          "start": 2.2,
+          "end": 2.2,
+          "key": "jane",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Jane!",
+          "start": 2.54,
+          "end": 2.68,
+          "key": "jane",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.34,
+          "end": 3.48,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "voice—I",
+          "start": 3.48,
+          "end": 4.08,
+          "key": "voicei",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 4.08,
+          "end": 4.28,
+          "key": "cannot",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 4.28,
+          "end": 4.64,
+          "key": "tell",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "whence",
+          "start": 4.64,
+          "end": 4.86,
+          "key": "whence",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.86,
+          "end": 5.04,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 5.04,
+          "end": 5.24,
+          "key": "voice",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "came,",
+          "start": 5.24,
+          "end": 5.56,
+          "key": "came",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.74,
+          "end": 5.82,
+          "key": "but",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.82,
+          "end": 5.94,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 5.94,
+          "end": 6.12,
+          "key": "know",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "whose",
+          "start": 6.12,
+          "end": 6.32,
+          "key": "whose",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 6.32,
+          "end": 6.58,
+          "key": "voice",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.58,
+          "end": 6.74,
+          "key": "it",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "was—replied,",
+          "start": 6.74,
+          "end": 7.8,
+          "key": "wasreplied",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.98,
+          "end": 8.14,
+          "key": "i",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 8.14,
+          "end": 8.28,
+          "key": "am",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "coming,",
+          "start": 8.28,
+          "end": 8.6,
+          "key": "coming",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 8.78,
+          "end": 8.88,
+          "key": "wait",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.88,
+          "end": 9.12,
+          "key": "for",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 9.12,
+          "end": 9.34,
+          "key": "me",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.5,
+          "end": 9.96,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.96,
+          "end": 10.06,
+          "key": "a",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "moment",
+          "start": 10.06,
+          "end": 10.22,
+          "key": "moment",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "after,",
+          "start": 10.22,
+          "end": 10.64,
+          "key": "after",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 10.74,
+          "end": 10.86,
+          "key": "went",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "whispering",
+          "start": 10.86,
+          "end": 11.22,
+          "key": "whispering",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 11.22,
+          "end": 11.44,
+          "key": "on",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.44,
+          "end": 11.56,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "wind",
+          "start": 11.56,
+          "end": 11.72,
+          "key": "wind",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.72,
+          "end": 11.88,
+          "key": "the",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "words—",
+          "start": 11.88,
+          "end": 12.62,
+          "key": "words",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "'Where",
+          "start": 12.62,
+          "end": 12.72,
+          "key": "where",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 12.72,
+          "end": 12.9,
+          "key": "are",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "you?'",
+          "start": 12.9,
+          "end": 13.34,
+          "key": "you",
+          "pieces": [
+            40
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"As",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "I",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "exclaimed",
+          "start": 0.68,
+          "end": 1.18
+        },
+        {
+          "text": "'Jane!",
+          "start": 1.66,
+          "end": 1.66
+        },
+        {
+          "text": "Jane!",
+          "start": 2.2,
+          "end": 2.2
+        },
+        {
+          "text": "Jane!'",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "text": "a",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "text": "voice—I",
+          "start": 3.48,
+          "end": 4.08
+        },
+        {
+          "text": "cannot",
+          "start": 4.08,
+          "end": 4.28
+        },
+        {
+          "text": "tell",
+          "start": 4.28,
+          "end": 4.64
+        },
+        {
+          "text": "whence",
+          "start": 4.64,
+          "end": 4.86
+        },
+        {
+          "text": "the",
+          "start": 4.86,
+          "end": 5.04
+        },
+        {
+          "text": "voice",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "text": "came,",
+          "start": 5.24,
+          "end": 5.56
+        },
+        {
+          "text": "but",
+          "start": 5.74,
+          "end": 5.82
+        },
+        {
+          "text": "I",
+          "start": 5.82,
+          "end": 5.94
+        },
+        {
+          "text": "know",
+          "start": 5.94,
+          "end": 6.12
+        },
+        {
+          "text": "whose",
+          "start": 6.12,
+          "end": 6.32
+        },
+        {
+          "text": "voice",
+          "start": 6.32,
+          "end": 6.58
+        },
+        {
+          "text": "it",
+          "start": 6.58,
+          "end": 6.74
+        },
+        {
+          "text": "was—replied,",
+          "start": 6.74,
+          "end": 7.8
+        },
+        {
+          "text": "'I",
+          "start": 7.98,
+          "end": 8.14
+        },
+        {
+          "text": "am",
+          "start": 8.14,
+          "end": 8.28
+        },
+        {
+          "text": "coming:",
+          "start": 8.28,
+          "end": 8.6
+        },
+        {
+          "text": "wait",
+          "start": 8.78,
+          "end": 8.88
+        },
+        {
+          "text": "for",
+          "start": 8.88,
+          "end": 9.12
+        },
+        {
+          "text": "me;'",
+          "start": 9.12,
+          "end": 9.34
+        },
+        {
+          "text": "and",
+          "start": 9.5,
+          "end": 9.96
+        },
+        {
+          "text": "a",
+          "start": 9.96,
+          "end": 10.06
+        },
+        {
+          "text": "moment",
+          "start": 10.06,
+          "end": 10.22
+        },
+        {
+          "text": "after,",
+          "start": 10.22,
+          "end": 10.64
+        },
+        {
+          "text": "went",
+          "start": 10.74,
+          "end": 10.86
+        },
+        {
+          "text": "whispering",
+          "start": 10.86,
+          "end": 11.22
+        },
+        {
+          "text": "on",
+          "start": 11.22,
+          "end": 11.44
+        },
+        {
+          "text": "the",
+          "start": 11.44,
+          "end": 11.56
+        },
+        {
+          "text": "wind",
+          "start": 11.56,
+          "end": 11.72
+        },
+        {
+          "text": "the",
+          "start": 11.72,
+          "end": 11.88
+        },
+        {
+          "text": "words—'Where",
+          "start": 11.88,
+          "end": 12.3
+        },
+        {
+          "text": "are",
+          "start": 12.72,
+          "end": 12.9
+        },
+        {
+          "text": "you?'",
+          "start": 12.9,
+          "end": 13.34
+        }
+      ],
+      "stats": {
+        "expected_words": 40,
+        "heard_words": 41,
+        "matched_words": 39
+      },
+      "match_ratio": 0.975,
+      "rejection_reasons": [],
+      "seconds": 0.4985230870079249
+    },
+    {
+      "asr_seconds": 0.4596039089374244,
+      "alignment_seconds": 0.0009363079443573952,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "As, I, Jane"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " As I exclaimed Jane Jane Jane a voice I cannot tell whence the voice came",
+          "start": 0.08,
+          "end": 5.56,
+          "words": [
+            {
+              "text": " As",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " I",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " exclaimed",
+              "start": 0.68,
+              "end": 1.16,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Jane",
+              "start": 1.16,
+              "end": 1.68,
+              "probability": 0.09893798828125
+            },
+            {
+              "text": " Jane",
+              "start": 1.68,
+              "end": 2.28,
+              "probability": 0.321533203125
+            },
+            {
+              "text": " Jane",
+              "start": 2.28,
+              "end": 2.68,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " a",
+              "start": 2.68,
+              "end": 3.48,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " voice",
+              "start": 3.48,
+              "end": 3.76,
+              "probability": 0.93359375
+            },
+            {
+              "text": " I",
+              "start": 3.76,
+              "end": 4.06,
+              "probability": 0.85546875
+            },
+            {
+              "text": " cannot",
+              "start": 4.06,
+              "end": 4.24,
+              "probability": 0.990234375
+            },
+            {
+              "text": " tell",
+              "start": 4.24,
+              "end": 4.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " whence",
+              "start": 4.64,
+              "end": 4.86,
+              "probability": 0.50634765625
+            },
+            {
+              "text": " the",
+              "start": 4.86,
+              "end": 5.04,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " voice",
+              "start": 5.04,
+              "end": 5.24,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " came",
+              "start": 5.24,
+              "end": 5.56,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " But I know whose voice it was replied. I am coming wait for me and a moment after went whispering on the wind the words",
+          "start": 5.56,
+          "end": 12.3,
+          "words": [
+            {
+              "text": " But",
+              "start": 5.56,
+              "end": 5.8,
+              "probability": 0.337646484375
+            },
+            {
+              "text": " I",
+              "start": 5.8,
+              "end": 5.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " know",
+              "start": 5.92,
+              "end": 6.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " whose",
+              "start": 6.12,
+              "end": 6.32,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " voice",
+              "start": 6.32,
+              "end": 6.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 6.58,
+              "end": 6.74,
+              "probability": 0.96875
+            },
+            {
+              "text": " was",
+              "start": 6.74,
+              "end": 7.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " replied.",
+              "start": 7.08,
+              "end": 7.62,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " I",
+              "start": 7.92,
+              "end": 8.14,
+              "probability": 0.978515625
+            },
+            {
+              "text": " am",
+              "start": 8.14,
+              "end": 8.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " coming",
+              "start": 8.26,
+              "end": 8.62,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " wait",
+              "start": 8.62,
+              "end": 8.88,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " for",
+              "start": 8.88,
+              "end": 9.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 9.1,
+              "end": 9.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 9.4,
+              "end": 9.96,
+              "probability": 0.67236328125
+            },
+            {
+              "text": " a",
+              "start": 9.96,
+              "end": 10.04,
+              "probability": 0.958984375
+            },
+            {
+              "text": " moment",
+              "start": 10.04,
+              "end": 10.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " after",
+              "start": 10.22,
+              "end": 10.64,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " went",
+              "start": 10.64,
+              "end": 10.84,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " whispering",
+              "start": 10.84,
+              "end": 11.22,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " on",
+              "start": 11.22,
+              "end": 11.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 11.44,
+              "end": 11.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wind",
+              "start": 11.56,
+              "end": 11.74,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " the",
+              "start": 11.74,
+              "end": 11.88,
+              "probability": 0.94921875
+            },
+            {
+              "text": " words",
+              "start": 11.88,
+              "end": 12.3,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Where are you?",
+          "start": 12.3,
+          "end": 13.16,
+          "words": [
+            {
+              "text": " Where",
+              "start": 12.3,
+              "end": 12.72,
+              "probability": 0.634765625
+            },
+            {
+              "text": " are",
+              "start": 12.72,
+              "end": 12.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you?",
+              "start": 12.88,
+              "end": 13.16,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "As",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "I",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "exclaimed",
+          "start": 0.68,
+          "end": 1.16
+        },
+        {
+          "raw": "Jane",
+          "start": 1.16,
+          "end": 1.68
+        },
+        {
+          "raw": "Jane",
+          "start": 1.68,
+          "end": 2.28
+        },
+        {
+          "raw": "Jane",
+          "start": 2.28,
+          "end": 2.68
+        },
+        {
+          "raw": "a",
+          "start": 2.68,
+          "end": 3.48
+        },
+        {
+          "raw": "voice",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "raw": "I",
+          "start": 3.76,
+          "end": 4.06
+        },
+        {
+          "raw": "cannot",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "raw": "tell",
+          "start": 4.24,
+          "end": 4.64
+        },
+        {
+          "raw": "whence",
+          "start": 4.64,
+          "end": 4.86
+        },
+        {
+          "raw": "the",
+          "start": 4.86,
+          "end": 5.04
+        },
+        {
+          "raw": "voice",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "raw": "came",
+          "start": 5.24,
+          "end": 5.56
+        },
+        {
+          "raw": "But",
+          "start": 5.56,
+          "end": 5.8
+        },
+        {
+          "raw": "I",
+          "start": 5.8,
+          "end": 5.92
+        },
+        {
+          "raw": "know",
+          "start": 5.92,
+          "end": 6.12
+        },
+        {
+          "raw": "whose",
+          "start": 6.12,
+          "end": 6.32
+        },
+        {
+          "raw": "voice",
+          "start": 6.32,
+          "end": 6.58
+        },
+        {
+          "raw": "it",
+          "start": 6.58,
+          "end": 6.74
+        },
+        {
+          "raw": "was",
+          "start": 6.74,
+          "end": 7.08
+        },
+        {
+          "raw": "replied.",
+          "start": 7.08,
+          "end": 7.62
+        },
+        {
+          "raw": "I",
+          "start": 7.92,
+          "end": 8.14
+        },
+        {
+          "raw": "am",
+          "start": 8.14,
+          "end": 8.26
+        },
+        {
+          "raw": "coming",
+          "start": 8.26,
+          "end": 8.62
+        },
+        {
+          "raw": "wait",
+          "start": 8.62,
+          "end": 8.88
+        },
+        {
+          "raw": "for",
+          "start": 8.88,
+          "end": 9.1
+        },
+        {
+          "raw": "me",
+          "start": 9.1,
+          "end": 9.4
+        },
+        {
+          "raw": "and",
+          "start": 9.4,
+          "end": 9.96
+        },
+        {
+          "raw": "a",
+          "start": 9.96,
+          "end": 10.04
+        },
+        {
+          "raw": "moment",
+          "start": 10.04,
+          "end": 10.22
+        },
+        {
+          "raw": "after",
+          "start": 10.22,
+          "end": 10.64
+        },
+        {
+          "raw": "went",
+          "start": 10.64,
+          "end": 10.84
+        },
+        {
+          "raw": "whispering",
+          "start": 10.84,
+          "end": 11.22
+        },
+        {
+          "raw": "on",
+          "start": 11.22,
+          "end": 11.44
+        },
+        {
+          "raw": "the",
+          "start": 11.44,
+          "end": 11.56
+        },
+        {
+          "raw": "wind",
+          "start": 11.56,
+          "end": 11.74
+        },
+        {
+          "raw": "the",
+          "start": 11.74,
+          "end": 11.88
+        },
+        {
+          "raw": "words",
+          "start": 11.88,
+          "end": 12.3
+        },
+        {
+          "raw": "Where",
+          "start": 12.3,
+          "end": 12.72
+        },
+        {
+          "raw": "are",
+          "start": 12.72,
+          "end": 12.88
+        },
+        {
+          "raw": "you?",
+          "start": 12.88,
+          "end": 13.16
+        }
+      ],
+      "expected_tokens": [
+        "\"As",
+        "I",
+        "exclaimed",
+        "'Jane!",
+        "Jane!",
+        "Jane!'",
+        "a",
+        "voice—I",
+        "cannot",
+        "tell",
+        "whence",
+        "the",
+        "voice",
+        "came,",
+        "but",
+        "I",
+        "know",
+        "whose",
+        "voice",
+        "it",
+        "was—replied,",
+        "'I",
+        "am",
+        "coming:",
+        "wait",
+        "for",
+        "me;'",
+        "and",
+        "a",
+        "moment",
+        "after,",
+        "went",
+        "whispering",
+        "on",
+        "the",
+        "wind",
+        "the",
+        "words—'Where",
+        "are",
+        "you?'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          20,
+          9,
+          21
+        ],
+        [
+          "replace",
+          20,
+          21,
+          21,
+          23
+        ],
+        [
+          "equal",
+          21,
+          37,
+          23,
+          39
+        ],
+        [
+          "replace",
+          37,
+          38,
+          39,
+          41
+        ],
+        [
+          "equal",
+          38,
+          40,
+          41,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "replace",
+          20,
+          21,
+          21,
+          23
+        ],
+        [
+          "replace",
+          37,
+          38,
+          39,
+          41
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "As",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "as",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 0.68,
+          "end": 1.16,
+          "key": "exclaimed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Jane",
+          "start": 1.16,
+          "end": 1.68,
+          "key": "jane",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Jane",
+          "start": 1.68,
+          "end": 2.28,
+          "key": "jane",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Jane",
+          "start": 2.28,
+          "end": 2.68,
+          "key": "jane",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.68,
+          "end": 3.48,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 3.48,
+          "end": 3.76,
+          "key": "voice",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.76,
+          "end": 4.06,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 4.06,
+          "end": 4.24,
+          "key": "cannot",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 4.24,
+          "end": 4.64,
+          "key": "tell",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "whence",
+          "start": 4.64,
+          "end": 4.86,
+          "key": "whence",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.86,
+          "end": 5.04,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 5.04,
+          "end": 5.24,
+          "key": "voice",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 5.24,
+          "end": 5.56,
+          "key": "came",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 5.56,
+          "end": 5.8,
+          "key": "but",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.8,
+          "end": 5.92,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 5.92,
+          "end": 6.12,
+          "key": "know",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "whose",
+          "start": 6.12,
+          "end": 6.32,
+          "key": "whose",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 6.32,
+          "end": 6.58,
+          "key": "voice",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.58,
+          "end": 6.74,
+          "key": "it",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 6.74,
+          "end": 7.08,
+          "key": "was",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "replied.",
+          "start": 7.08,
+          "end": 7.62,
+          "key": "replied",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.92,
+          "end": 8.14,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 8.14,
+          "end": 8.26,
+          "key": "am",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "coming",
+          "start": 8.26,
+          "end": 8.62,
+          "key": "coming",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 8.62,
+          "end": 8.88,
+          "key": "wait",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.88,
+          "end": 9.1,
+          "key": "for",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 9.1,
+          "end": 9.4,
+          "key": "me",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.4,
+          "end": 9.96,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.96,
+          "end": 10.04,
+          "key": "a",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "moment",
+          "start": 10.04,
+          "end": 10.22,
+          "key": "moment",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 10.22,
+          "end": 10.64,
+          "key": "after",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 10.64,
+          "end": 10.84,
+          "key": "went",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "whispering",
+          "start": 10.84,
+          "end": 11.22,
+          "key": "whispering",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 11.22,
+          "end": 11.44,
+          "key": "on",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.44,
+          "end": 11.56,
+          "key": "the",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "wind",
+          "start": 11.56,
+          "end": 11.74,
+          "key": "wind",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.74,
+          "end": 11.88,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 11.88,
+          "end": 12.3,
+          "key": "words",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 12.3,
+          "end": 12.72,
+          "key": "where",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 12.72,
+          "end": 12.88,
+          "key": "are",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 12.88,
+          "end": 13.16,
+          "key": "you",
+          "pieces": [
+            42
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"As",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "I",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "exclaimed",
+          "start": 0.68,
+          "end": 1.16
+        },
+        {
+          "text": "'Jane!",
+          "start": 1.16,
+          "end": 1.68
+        },
+        {
+          "text": "Jane!",
+          "start": 1.68,
+          "end": 2.28
+        },
+        {
+          "text": "Jane!'",
+          "start": 2.28,
+          "end": 2.68
+        },
+        {
+          "text": "a",
+          "start": 2.68,
+          "end": 3.48
+        },
+        {
+          "text": "voice—I",
+          "start": 3.48,
+          "end": 3.77
+        },
+        {
+          "text": "cannot",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "text": "tell",
+          "start": 4.24,
+          "end": 4.64
+        },
+        {
+          "text": "whence",
+          "start": 4.64,
+          "end": 4.86
+        },
+        {
+          "text": "the",
+          "start": 4.86,
+          "end": 5.04
+        },
+        {
+          "text": "voice",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "text": "came,",
+          "start": 5.24,
+          "end": 5.56
+        },
+        {
+          "text": "but",
+          "start": 5.56,
+          "end": 5.8
+        },
+        {
+          "text": "I",
+          "start": 5.8,
+          "end": 5.92
+        },
+        {
+          "text": "know",
+          "start": 5.92,
+          "end": 6.12
+        },
+        {
+          "text": "whose",
+          "start": 6.12,
+          "end": 6.32
+        },
+        {
+          "text": "voice",
+          "start": 6.32,
+          "end": 6.58
+        },
+        {
+          "text": "it",
+          "start": 6.58,
+          "end": 6.74
+        },
+        {
+          "text": "was—replied,",
+          "start": 6.74,
+          "end": 7.33
+        },
+        {
+          "text": "'I",
+          "start": 7.92,
+          "end": 8.14
+        },
+        {
+          "text": "am",
+          "start": 8.14,
+          "end": 8.26
+        },
+        {
+          "text": "coming:",
+          "start": 8.26,
+          "end": 8.62
+        },
+        {
+          "text": "wait",
+          "start": 8.62,
+          "end": 8.88
+        },
+        {
+          "text": "for",
+          "start": 8.88,
+          "end": 9.1
+        },
+        {
+          "text": "me;'",
+          "start": 9.1,
+          "end": 9.4
+        },
+        {
+          "text": "and",
+          "start": 9.4,
+          "end": 9.96
+        },
+        {
+          "text": "a",
+          "start": 9.96,
+          "end": 10.04
+        },
+        {
+          "text": "moment",
+          "start": 10.04,
+          "end": 10.22
+        },
+        {
+          "text": "after,",
+          "start": 10.22,
+          "end": 10.64
+        },
+        {
+          "text": "went",
+          "start": 10.64,
+          "end": 10.84
+        },
+        {
+          "text": "whispering",
+          "start": 10.84,
+          "end": 11.22
+        },
+        {
+          "text": "on",
+          "start": 11.22,
+          "end": 11.44
+        },
+        {
+          "text": "the",
+          "start": 11.44,
+          "end": 11.56
+        },
+        {
+          "text": "wind",
+          "start": 11.56,
+          "end": 11.74
+        },
+        {
+          "text": "the",
+          "start": 11.74,
+          "end": 11.88
+        },
+        {
+          "text": "words—'Where",
+          "start": 11.88,
+          "end": 12.3
+        },
+        {
+          "text": "are",
+          "start": 12.72,
+          "end": 12.88
+        },
+        {
+          "text": "you?'",
+          "start": 12.88,
+          "end": 13.16
+        }
+      ],
+      "stats": {
+        "expected_words": 40,
+        "heard_words": 43,
+        "matched_words": 37
+      },
+      "match_ratio": 0.925,
+      "rejection_reasons": [],
+      "seconds": 0.4609446709509939
+    },
+    {
+      "asr_seconds": 0.5145784211345017,
+      "alignment_seconds": 0.0010310988873243332,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " As I exclaimed, Jane, Jane, Jane, a voice, I cannot tell once the voice came, but I know",
+          "start": 0.08,
+          "end": 6.12,
+          "words": [
+            {
+              "text": " As",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.6318359375
+            },
+            {
+              "text": " I",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " exclaimed,",
+              "start": 0.68,
+              "end": 1.16,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Jane,",
+              "start": 1.66,
+              "end": 1.66,
+              "probability": 0.13720703125
+            },
+            {
+              "text": " Jane,",
+              "start": 2.26,
+              "end": 2.26,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Jane,",
+              "start": 2.54,
+              "end": 2.7,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " a",
+              "start": 3.46,
+              "end": 3.48,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " voice,",
+              "start": 3.48,
+              "end": 3.76,
+              "probability": 0.990234375
+            },
+            {
+              "text": " I",
+              "start": 4.04,
+              "end": 4.08,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " cannot",
+              "start": 4.08,
+              "end": 4.26,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " tell",
+              "start": 4.26,
+              "end": 4.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " once",
+              "start": 4.64,
+              "end": 4.86,
+              "probability": 0.383544921875
+            },
+            {
+              "text": " the",
+              "start": 4.86,
+              "end": 5.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " voice",
+              "start": 5.04,
+              "end": 5.24,
+              "probability": 0.99609375
+            },
+            {
+              "text": " came,",
+              "start": 5.24,
+              "end": 5.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " but",
+              "start": 5.74,
+              "end": 5.82,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I",
+              "start": 5.82,
+              "end": 5.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " know",
+              "start": 5.94,
+              "end": 6.12,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " whose voice it was, replied, I am coming, wait for me.",
+          "start": 6.12,
+          "end": 9.34,
+          "words": [
+            {
+              "text": " whose",
+              "start": 6.12,
+              "end": 6.32,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " voice",
+              "start": 6.32,
+              "end": 6.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 6.58,
+              "end": 6.74,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " was,",
+              "start": 6.74,
+              "end": 7.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " replied,",
+              "start": 7.26,
+              "end": 7.62,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I",
+              "start": 8.04,
+              "end": 8.14,
+              "probability": 0.71728515625
+            },
+            {
+              "text": " am",
+              "start": 8.14,
+              "end": 8.28,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " coming,",
+              "start": 8.28,
+              "end": 8.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wait",
+              "start": 8.78,
+              "end": 8.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " for",
+              "start": 8.88,
+              "end": 9.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me.",
+              "start": 9.12,
+              "end": 9.34,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " And a moment after went whispering on the wind the words, where are you?",
+          "start": 9.88,
+          "end": 13.14,
+          "words": [
+            {
+              "text": " And",
+              "start": 9.88,
+              "end": 9.96,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 9.96,
+              "end": 10.08,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " moment",
+              "start": 10.08,
+              "end": 10.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " after",
+              "start": 10.24,
+              "end": 10.64,
+              "probability": 0.9921875
+            },
+            {
+              "text": " went",
+              "start": 10.64,
+              "end": 10.84,
+              "probability": 0.7119140625
+            },
+            {
+              "text": " whispering",
+              "start": 10.84,
+              "end": 11.22,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " on",
+              "start": 11.22,
+              "end": 11.44,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 11.44,
+              "end": 11.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wind",
+              "start": 11.56,
+              "end": 11.74,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " the",
+              "start": 11.74,
+              "end": 11.88,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " words,",
+              "start": 11.88,
+              "end": 12.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " where",
+              "start": 12.62,
+              "end": 12.72,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " are",
+              "start": 12.72,
+              "end": 12.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you?",
+              "start": 12.9,
+              "end": 13.14,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "As",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "I",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "exclaimed,",
+          "start": 0.68,
+          "end": 1.16
+        },
+        {
+          "raw": "Jane,",
+          "start": 1.66,
+          "end": 1.66
+        },
+        {
+          "raw": "Jane,",
+          "start": 2.26,
+          "end": 2.26
+        },
+        {
+          "raw": "Jane,",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "raw": "a",
+          "start": 3.46,
+          "end": 3.48
+        },
+        {
+          "raw": "voice,",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "raw": "I",
+          "start": 4.04,
+          "end": 4.08
+        },
+        {
+          "raw": "cannot",
+          "start": 4.08,
+          "end": 4.26
+        },
+        {
+          "raw": "tell",
+          "start": 4.26,
+          "end": 4.64
+        },
+        {
+          "raw": "once",
+          "start": 4.64,
+          "end": 4.86
+        },
+        {
+          "raw": "the",
+          "start": 4.86,
+          "end": 5.04
+        },
+        {
+          "raw": "voice",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "raw": "came,",
+          "start": 5.24,
+          "end": 5.56
+        },
+        {
+          "raw": "but",
+          "start": 5.74,
+          "end": 5.82
+        },
+        {
+          "raw": "I",
+          "start": 5.82,
+          "end": 5.94
+        },
+        {
+          "raw": "know",
+          "start": 5.94,
+          "end": 6.12
+        },
+        {
+          "raw": "whose",
+          "start": 6.12,
+          "end": 6.32
+        },
+        {
+          "raw": "voice",
+          "start": 6.32,
+          "end": 6.58
+        },
+        {
+          "raw": "it",
+          "start": 6.58,
+          "end": 6.74
+        },
+        {
+          "raw": "was,",
+          "start": 6.74,
+          "end": 7.08
+        },
+        {
+          "raw": "replied,",
+          "start": 7.26,
+          "end": 7.62
+        },
+        {
+          "raw": "I",
+          "start": 8.04,
+          "end": 8.14
+        },
+        {
+          "raw": "am",
+          "start": 8.14,
+          "end": 8.28
+        },
+        {
+          "raw": "coming,",
+          "start": 8.28,
+          "end": 8.62
+        },
+        {
+          "raw": "wait",
+          "start": 8.78,
+          "end": 8.88
+        },
+        {
+          "raw": "for",
+          "start": 8.88,
+          "end": 9.12
+        },
+        {
+          "raw": "me.",
+          "start": 9.12,
+          "end": 9.34
+        },
+        {
+          "raw": "And",
+          "start": 9.88,
+          "end": 9.96
+        },
+        {
+          "raw": "a",
+          "start": 9.96,
+          "end": 10.08
+        },
+        {
+          "raw": "moment",
+          "start": 10.08,
+          "end": 10.24
+        },
+        {
+          "raw": "after",
+          "start": 10.24,
+          "end": 10.64
+        },
+        {
+          "raw": "went",
+          "start": 10.64,
+          "end": 10.84
+        },
+        {
+          "raw": "whispering",
+          "start": 10.84,
+          "end": 11.22
+        },
+        {
+          "raw": "on",
+          "start": 11.22,
+          "end": 11.44
+        },
+        {
+          "raw": "the",
+          "start": 11.44,
+          "end": 11.56
+        },
+        {
+          "raw": "wind",
+          "start": 11.56,
+          "end": 11.74
+        },
+        {
+          "raw": "the",
+          "start": 11.74,
+          "end": 11.88
+        },
+        {
+          "raw": "words,",
+          "start": 11.88,
+          "end": 12.28
+        },
+        {
+          "raw": "where",
+          "start": 12.62,
+          "end": 12.72
+        },
+        {
+          "raw": "are",
+          "start": 12.72,
+          "end": 12.9
+        },
+        {
+          "raw": "you?",
+          "start": 12.9,
+          "end": 13.14
+        }
+      ],
+      "expected_tokens": [
+        "\"As",
+        "I",
+        "exclaimed",
+        "'Jane!",
+        "Jane!",
+        "Jane!'",
+        "a",
+        "voice—I",
+        "cannot",
+        "tell",
+        "whence",
+        "the",
+        "voice",
+        "came,",
+        "but",
+        "I",
+        "know",
+        "whose",
+        "voice",
+        "it",
+        "was—replied,",
+        "'I",
+        "am",
+        "coming:",
+        "wait",
+        "for",
+        "me;'",
+        "and",
+        "a",
+        "moment",
+        "after,",
+        "went",
+        "whispering",
+        "on",
+        "the",
+        "wind",
+        "the",
+        "words—'Where",
+        "are",
+        "you?'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          10,
+          9,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          12
+        ],
+        [
+          "equal",
+          11,
+          20,
+          12,
+          21
+        ],
+        [
+          "replace",
+          20,
+          21,
+          21,
+          23
+        ],
+        [
+          "equal",
+          21,
+          37,
+          23,
+          39
+        ],
+        [
+          "replace",
+          37,
+          38,
+          39,
+          41
+        ],
+        [
+          "equal",
+          38,
+          40,
+          41,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          12
+        ],
+        [
+          "replace",
+          20,
+          21,
+          21,
+          23
+        ],
+        [
+          "replace",
+          37,
+          38,
+          39,
+          41
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "As",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "as",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "exclaimed,",
+          "start": 0.68,
+          "end": 1.16,
+          "key": "exclaimed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Jane,",
+          "start": 1.66,
+          "end": 1.66,
+          "key": "jane",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Jane,",
+          "start": 2.26,
+          "end": 2.26,
+          "key": "jane",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Jane,",
+          "start": 2.54,
+          "end": 2.7,
+          "key": "jane",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.46,
+          "end": 3.48,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "voice,",
+          "start": 3.48,
+          "end": 3.76,
+          "key": "voice",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.04,
+          "end": 4.08,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 4.08,
+          "end": 4.26,
+          "key": "cannot",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 4.26,
+          "end": 4.64,
+          "key": "tell",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 4.64,
+          "end": 4.86,
+          "key": "once",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.86,
+          "end": 5.04,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 5.04,
+          "end": 5.24,
+          "key": "voice",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "came,",
+          "start": 5.24,
+          "end": 5.56,
+          "key": "came",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.74,
+          "end": 5.82,
+          "key": "but",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.82,
+          "end": 5.94,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 5.94,
+          "end": 6.12,
+          "key": "know",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "whose",
+          "start": 6.12,
+          "end": 6.32,
+          "key": "whose",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 6.32,
+          "end": 6.58,
+          "key": "voice",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.58,
+          "end": 6.74,
+          "key": "it",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "was,",
+          "start": 6.74,
+          "end": 7.08,
+          "key": "was",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "replied,",
+          "start": 7.26,
+          "end": 7.62,
+          "key": "replied",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.04,
+          "end": 8.14,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 8.14,
+          "end": 8.28,
+          "key": "am",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "coming,",
+          "start": 8.28,
+          "end": 8.62,
+          "key": "coming",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 8.78,
+          "end": 8.88,
+          "key": "wait",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.88,
+          "end": 9.12,
+          "key": "for",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 9.12,
+          "end": 9.34,
+          "key": "me",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 9.88,
+          "end": 9.96,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.96,
+          "end": 10.08,
+          "key": "a",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "moment",
+          "start": 10.08,
+          "end": 10.24,
+          "key": "moment",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 10.24,
+          "end": 10.64,
+          "key": "after",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 10.64,
+          "end": 10.84,
+          "key": "went",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "whispering",
+          "start": 10.84,
+          "end": 11.22,
+          "key": "whispering",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 11.22,
+          "end": 11.44,
+          "key": "on",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.44,
+          "end": 11.56,
+          "key": "the",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "wind",
+          "start": 11.56,
+          "end": 11.74,
+          "key": "wind",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.74,
+          "end": 11.88,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "words,",
+          "start": 11.88,
+          "end": 12.28,
+          "key": "words",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 12.62,
+          "end": 12.72,
+          "key": "where",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 12.72,
+          "end": 12.9,
+          "key": "are",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 12.9,
+          "end": 13.14,
+          "key": "you",
+          "pieces": [
+            42
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"As",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "I",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "exclaimed",
+          "start": 0.68,
+          "end": 1.16
+        },
+        {
+          "text": "'Jane!",
+          "start": 1.66,
+          "end": 1.66
+        },
+        {
+          "text": "Jane!",
+          "start": 2.26,
+          "end": 2.26
+        },
+        {
+          "text": "Jane!'",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "text": "a",
+          "start": 3.46,
+          "end": 3.48
+        },
+        {
+          "text": "voice—I",
+          "start": 3.48,
+          "end": 3.78
+        },
+        {
+          "text": "cannot",
+          "start": 4.08,
+          "end": 4.26
+        },
+        {
+          "text": "tell",
+          "start": 4.26,
+          "end": 4.64
+        },
+        {
+          "text": "whence",
+          "start": 4.64,
+          "end": 4.75
+        },
+        {
+          "text": "the",
+          "start": 4.86,
+          "end": 5.04
+        },
+        {
+          "text": "voice",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "text": "came,",
+          "start": 5.24,
+          "end": 5.56
+        },
+        {
+          "text": "but",
+          "start": 5.74,
+          "end": 5.82
+        },
+        {
+          "text": "I",
+          "start": 5.82,
+          "end": 5.94
+        },
+        {
+          "text": "know",
+          "start": 5.94,
+          "end": 6.12
+        },
+        {
+          "text": "whose",
+          "start": 6.12,
+          "end": 6.32
+        },
+        {
+          "text": "voice",
+          "start": 6.32,
+          "end": 6.58
+        },
+        {
+          "text": "it",
+          "start": 6.58,
+          "end": 6.74
+        },
+        {
+          "text": "was—replied,",
+          "start": 6.74,
+          "end": 7.39
+        },
+        {
+          "text": "'I",
+          "start": 8.04,
+          "end": 8.14
+        },
+        {
+          "text": "am",
+          "start": 8.14,
+          "end": 8.28
+        },
+        {
+          "text": "coming:",
+          "start": 8.28,
+          "end": 8.62
+        },
+        {
+          "text": "wait",
+          "start": 8.78,
+          "end": 8.88
+        },
+        {
+          "text": "for",
+          "start": 8.88,
+          "end": 9.12
+        },
+        {
+          "text": "me;'",
+          "start": 9.12,
+          "end": 9.34
+        },
+        {
+          "text": "and",
+          "start": 9.88,
+          "end": 9.96
+        },
+        {
+          "text": "a",
+          "start": 9.96,
+          "end": 10.08
+        },
+        {
+          "text": "moment",
+          "start": 10.08,
+          "end": 10.24
+        },
+        {
+          "text": "after,",
+          "start": 10.24,
+          "end": 10.64
+        },
+        {
+          "text": "went",
+          "start": 10.64,
+          "end": 10.84
+        },
+        {
+          "text": "whispering",
+          "start": 10.84,
+          "end": 11.22
+        },
+        {
+          "text": "on",
+          "start": 11.22,
+          "end": 11.44
+        },
+        {
+          "text": "the",
+          "start": 11.44,
+          "end": 11.56
+        },
+        {
+          "text": "wind",
+          "start": 11.56,
+          "end": 11.74
+        },
+        {
+          "text": "the",
+          "start": 11.74,
+          "end": 11.88
+        },
+        {
+          "text": "words—'Where",
+          "start": 11.88,
+          "end": 12.3
+        },
+        {
+          "text": "are",
+          "start": 12.72,
+          "end": 12.9
+        },
+        {
+          "text": "you?'",
+          "start": 12.9,
+          "end": 13.14
+        }
+      ],
+      "stats": {
+        "expected_words": 40,
+        "heard_words": 43,
+        "matched_words": 36
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.5160505471285433
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2fbc37f81effd78d9518fc37fd8819a7cc7a1ed3b6fdbfb32de049988484aea3",
+  "selected_reasons": []
+}

@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "b0586890b91d555f16fa69f5c31c5342cfa1f43b8d70fba9c213ed39c1fb57b6",
+  "attempts": [
+    {
+      "asr_seconds": 0.1961840509902686,
+      "alignment_seconds": 0.0004921499639749527,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Agavi, I have forgotten something else I could.",
+          "start": 0.05,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " Agavi,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.6337890625
+            },
+            {
+              "text": " I",
+              "start": 1.03,
+              "end": 1.33,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " have",
+              "start": 1.33,
+              "end": 1.41,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " forgotten",
+              "start": 1.41,
+              "end": 1.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " something",
+              "start": 1.73,
+              "end": 2.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " else",
+              "start": 2.11,
+              "end": 2.41,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " I",
+              "start": 2.41,
+              "end": 2.63,
+              "probability": 0.9765625
+            },
+            {
+              "text": " could.",
+              "start": 2.63,
+              "end": 2.87,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agavi,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "I",
+          "start": 1.03,
+          "end": 1.33
+        },
+        {
+          "raw": "have",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "raw": "forgotten",
+          "start": 1.41,
+          "end": 1.73
+        },
+        {
+          "raw": "something",
+          "start": 1.73,
+          "end": 2.11
+        },
+        {
+          "raw": "else",
+          "start": 2.11,
+          "end": 2.41
+        },
+        {
+          "raw": "I",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "raw": "could.",
+          "start": 2.63,
+          "end": 2.87
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "I",
+        "have",
+        "forgotten",
+        "something;",
+        "else",
+        "I",
+        "could."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agavi,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "agavi",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.03,
+          "end": 1.33,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.33,
+          "end": 1.41,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "forgotten",
+          "start": 1.41,
+          "end": 1.73,
+          "key": "forgotten",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 1.73,
+          "end": 2.11,
+          "key": "something",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "else",
+          "start": 2.11,
+          "end": 2.41,
+          "key": "else",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.41,
+          "end": 2.63,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "could.",
+          "start": 2.63,
+          "end": 2.87,
+          "key": "could",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.0,
+          "end": 0.515
+        },
+        {
+          "text": "I",
+          "start": 1.03,
+          "end": 1.33
+        },
+        {
+          "text": "have",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "text": "forgotten",
+          "start": 1.41,
+          "end": 1.73
+        },
+        {
+          "text": "something;",
+          "start": 1.73,
+          "end": 2.11
+        },
+        {
+          "text": "else",
+          "start": 2.11,
+          "end": 2.41
+        },
+        {
+          "text": "I",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "text": "could.",
+          "start": 2.63,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.1968500050716102
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "12bff4bbc6583a995a366e97f7a71e21906b8d5362ae88c7ac9c793c715acad4",
+  "selected_reasons": []
+}

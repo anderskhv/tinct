@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "3220b313582632798bb9c367ad1040de6ede3ef1f1e1ca74b1a2894fa6fe38f6",
+  "attempts": [
+    {
+      "asr_seconds": 0.21375692915171385,
+      "alignment_seconds": 0.0003689667209982872,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He then retired, and closed the door.",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He then retired, and closed the door.",
+          "start": 0.05,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " then",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " retired,",
+              "start": 0.67,
+              "end": 1.15,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " closed",
+              "start": 1.67,
+              "end": 1.89,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 1.89,
+              "end": 2.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " door.",
+              "start": 2.11,
+              "end": 2.31,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "then",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "retired,",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "raw": "and",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "closed",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "raw": "the",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "raw": "door.",
+          "start": 2.11,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "then",
+        "retired,",
+        "and",
+        "closed",
+        "the",
+        "door."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 0.51,
+          "end": 0.67,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "retired,",
+          "start": 0.67,
+          "end": 1.15,
+          "key": "retired",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.55,
+          "end": 1.67,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "closed",
+          "start": 1.67,
+          "end": 1.89,
+          "key": "closed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.89,
+          "end": 2.11,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "door.",
+          "start": 2.11,
+          "end": 2.31,
+          "key": "door",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "then",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "text": "retired,",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "text": "and",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "closed",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "text": "the",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "text": "door.",
+          "start": 2.11,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2142699845135212
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6c14ddcded3b9f9e6b24c4f8001f42925ed21713e6b1bed16621ea05b1f52efa",
+  "selected_reasons": []
+}

@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "8d3432e45106966da4e8c312a4e969c127d1b21f2f03235d140b315fd8c7b44d",
+  "attempts": [
+    {
+      "asr_seconds": 0.16129489988088608,
+      "alignment_seconds": 0.0003536343574523926,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Don't mind me a bit, Becky!\" cried Ermengarde.",
+        "hotwords": "Don't, Becky, Ermengarde"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don't mind me a bit, Becky! cried Ermengarde.",
+          "start": 0.02,
+          "end": 2.72,
+          "words": [
+            {
+              "text": " Don't",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.627685546875
+            },
+            {
+              "text": " mind",
+              "start": 0.62,
+              "end": 0.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 0.7,
+              "end": 0.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 0.86,
+              "end": 0.94,
+              "probability": 0.990234375
+            },
+            {
+              "text": " bit,",
+              "start": 0.94,
+              "end": 1.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Becky!",
+              "start": 1.22,
+              "end": 1.48,
+              "probability": 0.970703125
+            },
+            {
+              "text": " cried",
+              "start": 1.98,
+              "end": 2.12,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " Ermengarde.",
+              "start": 2.12,
+              "end": 2.72,
+              "probability": 0.53155517578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don't",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "mind",
+          "start": 0.62,
+          "end": 0.7
+        },
+        {
+          "raw": "me",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "raw": "a",
+          "start": 0.86,
+          "end": 0.94
+        },
+        {
+          "raw": "bit,",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "raw": "Becky!",
+          "start": 1.22,
+          "end": 1.48
+        },
+        {
+          "raw": "cried",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "raw": "Ermengarde.",
+          "start": 2.12,
+          "end": 2.72
+        }
+      ],
+      "expected_tokens": [
+        "\"Don't",
+        "mind",
+        "me",
+        "a",
+        "bit,",
+        "Becky!\"",
+        "cried",
+        "Ermengarde."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don't",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "dont",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 0.62,
+          "end": 0.7,
+          "key": "mind",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.7,
+          "end": 0.86,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.86,
+          "end": 0.94,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bit,",
+          "start": 0.94,
+          "end": 1.1,
+          "key": "bit",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Becky!",
+          "start": 1.22,
+          "end": 1.48,
+          "key": "becky",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.98,
+          "end": 2.12,
+          "key": "cried",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ermengarde.",
+          "start": 2.12,
+          "end": 2.72,
+          "key": "ermengarde",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Don't",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "mind",
+          "start": 0.62,
+          "end": 0.7
+        },
+        {
+          "text": "me",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "text": "a",
+          "start": 0.86,
+          "end": 0.94
+        },
+        {
+          "text": "bit,",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "text": "Becky!\"",
+          "start": 1.22,
+          "end": 1.48
+        },
+        {
+          "text": "cried",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "text": "Ermengarde.",
+          "start": 2.12,
+          "end": 2.72
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1617719754576683
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "613342a207b4407df7d18283e9c2dd47d00df87ba30904b2418434bb178ea705",
+  "selected_reasons": []
+}

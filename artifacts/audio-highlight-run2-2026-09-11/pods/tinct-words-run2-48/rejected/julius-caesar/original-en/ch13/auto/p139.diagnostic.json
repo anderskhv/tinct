@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "4164398400c8630f67c496deb0e9d44eb1214488c8e2308f764ca27f2ba08141",
+  "attempts": [
+    {
+      "asr_seconds": 0.1038475725799799,
+      "alignment_seconds": 0.0001668594777584076,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Servants lie down._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Servants lie down.",
+          "start": 0.08,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " Servants",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.886962890625
+            },
+            {
+              "text": " lie",
+              "start": 0.8,
+              "end": 1.0,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " down.",
+              "start": 1.0,
+              "end": 1.38,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Servants",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "lie",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "raw": "down.",
+          "start": 1.0,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "[_Servants",
+        "lie",
+        "down._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Servants",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "servants",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lie",
+          "start": 0.8,
+          "end": 1.0,
+          "key": "lie",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "down.",
+          "start": 1.0,
+          "end": 1.38,
+          "key": "down",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Servants",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "lie",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "text": "down._]",
+          "start": 1.0,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10406846925616264
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fcfadff22552bf43d851598c717f139bfe59c8f882d103befa64ea5cc28fb7a6",
+  "selected_reasons": []
+}

@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "f82a60a4c5d23d7222c9f2c345b72c27d11493212f775b9769e2b1f46542c7c7",
+  "attempts": [
+    {
+      "asr_seconds": 0.3625320219434798,
+      "alignment_seconds": 0.0005989531055092812,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Murderer. Spoke like a tall man that respects thy reputation. Come, shall we fall to work?",
+        "hotwords": "Second, Murderer, Spoke, Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second Murderer, Spoke like a tall man that respects thy reputation. Come, shall we fall to work?",
+          "start": 0.08,
+          "end": 6.4,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.39599609375
+            },
+            {
+              "text": " Murderer,",
+              "start": 0.7,
+              "end": 1.22,
+              "probability": 0.703857421875
+            },
+            {
+              "text": " Spoke",
+              "start": 1.86,
+              "end": 1.98,
+              "probability": 0.6888427734375
+            },
+            {
+              "text": " like",
+              "start": 1.98,
+              "end": 2.12,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " a",
+              "start": 2.12,
+              "end": 2.26,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " tall",
+              "start": 2.26,
+              "end": 2.5,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " man",
+              "start": 2.5,
+              "end": 2.8,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " that",
+              "start": 2.8,
+              "end": 3.06,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " respects",
+              "start": 3.06,
+              "end": 3.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " thy",
+              "start": 3.38,
+              "end": 3.7,
+              "probability": 0.884765625
+            },
+            {
+              "text": " reputation.",
+              "start": 3.7,
+              "end": 4.2,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Come,",
+              "start": 5.1,
+              "end": 5.28,
+              "probability": 0.9765625
+            },
+            {
+              "text": " shall",
+              "start": 5.62,
+              "end": 5.7,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " we",
+              "start": 5.7,
+              "end": 5.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fall",
+              "start": 5.84,
+              "end": 6.0,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " to",
+              "start": 6.0,
+              "end": 6.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " work?",
+              "start": 6.18,
+              "end": 6.4,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.7,
+          "end": 1.22
+        },
+        {
+          "raw": "Spoke",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "raw": "like",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "raw": "a",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "raw": "tall",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "raw": "man",
+          "start": 2.5,
+          "end": 2.8
+        },
+        {
+          "raw": "that",
+          "start": 2.8,
+          "end": 3.06
+        },
+        {
+          "raw": "respects",
+          "start": 3.06,
+          "end": 3.38
+        },
+        {
+          "raw": "thy",
+          "start": 3.38,
+          "end": 3.7
+        },
+        {
+          "raw": "reputation.",
+          "start": 3.7,
+          "end": 4.2
+        },
+        {
+          "raw": "Come,",
+          "start": 5.1,
+          "end": 5.28
+        },
+        {
+          "raw": "shall",
+          "start": 5.62,
+          "end": 5.7
+        },
+        {
+          "raw": "we",
+          "start": 5.7,
+          "end": 5.84
+        },
+        {
+          "raw": "fall",
+          "start": 5.84,
+          "end": 6.0
+        },
+        {
+          "raw": "to",
+          "start": 6.0,
+          "end": 6.18
+        },
+        {
+          "raw": "work?",
+          "start": 6.18,
+          "end": 6.4
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Murderer.",
+        "Spoke",
+        "like",
+        "a",
+        "tall",
+        "man",
+        "that",
+        "respects",
+        "thy",
+        "reputation.",
+        "Come,",
+        "shall",
+        "we",
+        "fall",
+        "to",
+        "work?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.7,
+          "end": 1.22,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Spoke",
+          "start": 1.86,
+          "end": 1.98,
+          "key": "spoke",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.98,
+          "end": 2.12,
+          "key": "like",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.12,
+          "end": 2.26,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tall",
+          "start": 2.26,
+          "end": 2.5,
+          "key": "tall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.5,
+          "end": 2.8,
+          "key": "man",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.8,
+          "end": 3.06,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "respects",
+          "start": 3.06,
+          "end": 3.38,
+          "key": "respects",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 3.38,
+          "end": 3.7,
+          "key": "thy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "reputation.",
+          "start": 3.7,
+          "end": 4.2,
+          "key": "reputation",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 5.1,
+          "end": 5.28,
+          "key": "come",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 5.62,
+          "end": 5.7,
+          "key": "shall",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 5.7,
+          "end": 5.84,
+          "key": "we",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fall",
+          "start": 5.84,
+          "end": 6.0,
+          "key": "fall",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.0,
+          "end": 6.18,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "work?",
+          "start": 6.18,
+          "end": 6.4,
+          "key": "work",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.7,
+          "end": 1.22
+        },
+        {
+          "text": "Spoke",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "text": "like",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "text": "a",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "text": "tall",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "text": "man",
+          "start": 2.5,
+          "end": 2.8
+        },
+        {
+          "text": "that",
+          "start": 2.8,
+          "end": 3.06
+        },
+        {
+          "text": "respects",
+          "start": 3.06,
+          "end": 3.38
+        },
+        {
+          "text": "thy",
+          "start": 3.38,
+          "end": 3.7
+        },
+        {
+          "text": "reputation.",
+          "start": 3.7,
+          "end": 4.2
+        },
+        {
+          "text": "Come,",
+          "start": 5.1,
+          "end": 5.28
+        },
+        {
+          "text": "shall",
+          "start": 5.62,
+          "end": 5.7
+        },
+        {
+          "text": "we",
+          "start": 5.7,
+          "end": 5.84
+        },
+        {
+          "text": "fall",
+          "start": 5.84,
+          "end": 6.0
+        },
+        {
+          "text": "to",
+          "start": 6.0,
+          "end": 6.18
+        },
+        {
+          "text": "work?",
+          "start": 6.18,
+          "end": 6.4
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36338991788215935
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "39150ecb69b7aef2420ab3bdefaa9cc82b84f63739bf932e1ed5106485394671",
+  "selected_reasons": []
+}

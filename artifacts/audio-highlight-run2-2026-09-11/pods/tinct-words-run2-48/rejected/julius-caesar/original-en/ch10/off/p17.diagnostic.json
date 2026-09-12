@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "0bc6833070ec219ec6ce97f920170e6e4d49842745e68ca790d1124d7e39e21d",
+  "attempts": [
+    {
+      "asr_seconds": 0.18865969311445951,
+      "alignment_seconds": 0.00031970348209142685,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cinna, briefly, I dwell by the capital.",
+          "start": 0.08,
+          "end": 2.54,
+          "words": [
+            {
+              "text": " Cinna,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.5762125651041666
+            },
+            {
+              "text": " briefly,",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " I",
+              "start": 1.58,
+              "end": 1.66,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " dwell",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " by",
+              "start": 1.84,
+              "end": 2.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.04,
+              "end": 2.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " capital.",
+              "start": 2.18,
+              "end": 2.54,
+              "probability": 0.61865234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cinna,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "briefly,",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "I",
+          "start": 1.58,
+          "end": 1.66
+        },
+        {
+          "raw": "dwell",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "by",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "raw": "capital.",
+          "start": 2.18,
+          "end": 2.54
+        }
+      ],
+      "expected_tokens": [
+        "Cinna.",
+        "Briefly,",
+        "I",
+        "dwell",
+        "by",
+        "the",
+        "Capitol."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cinna,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "cinna",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "briefly,",
+          "start": 1.08,
+          "end": 1.26,
+          "key": "briefly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.58,
+          "end": 1.66,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dwell",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "dwell",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.84,
+          "end": 2.04,
+          "key": "by",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.18,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "capital.",
+          "start": 2.18,
+          "end": 2.54,
+          "key": "capital",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cinna.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "Briefly,",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "text": "I",
+          "start": 1.58,
+          "end": 1.66
+        },
+        {
+          "text": "dwell",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "by",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "text": "the",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "text": "Capitol.",
+          "start": 2.18,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.18909792508929968
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "533d5cb1fdfad066d6a8fd89af7f5fabe870b320713c135f87ca5262bcc6e861",
+  "selected_reasons": []
+}

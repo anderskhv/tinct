@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "d0e29a287c9696d3ccb32ead74c6c8e0788d19950fa93c33d8951da2d8e94bd2",
+  "attempts": [
+    {
+      "asr_seconds": 0.20323306694626808,
+      "alignment_seconds": 0.00031940266489982605,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, and most chirigingly.",
+          "start": 0.08,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " and",
+              "start": 1.42,
+              "end": 1.52,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " most",
+              "start": 1.52,
+              "end": 1.74,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " chirigingly.",
+              "start": 1.74,
+              "end": 2.36,
+              "probability": 0.465057373046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "and",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "raw": "most",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "raw": "chirigingly.",
+          "start": 1.74,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "And",
+        "most",
+        "chirurgeonly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.42,
+          "end": 1.52,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.52,
+          "end": 1.74,
+          "key": "most",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "chirigingly.",
+          "start": 1.74,
+          "end": 2.36,
+          "key": "chirigingly",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "And",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "text": "most",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "text": "chirurgeonly.",
+          "start": 1.74,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2036648951470852
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0011d069f5aaf2d9ede964a18127f17b6dd7246c781db3a42743dade22fa4fbe",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

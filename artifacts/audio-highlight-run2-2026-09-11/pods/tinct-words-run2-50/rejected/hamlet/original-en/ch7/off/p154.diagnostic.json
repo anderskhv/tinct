@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "1de076b6a361aebba21bfb4f12a0c940da1b6433513ae900545324e0db2f5348",
+  "attempts": [
+    {
+      "asr_seconds": 0.14885172061622143,
+      "alignment_seconds": 0.00025545619428157806,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Polonius, upon my honor.",
+          "start": 0.05,
+          "end": 1.99,
+          "words": [
+            {
+              "text": " Polonius,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.7660319010416666
+            },
+            {
+              "text": " upon",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.8173828125
+            },
+            {
+              "text": " my",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " honor.",
+              "start": 1.69,
+              "end": 1.99,
+              "probability": 0.84521484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polonius,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "upon",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "my",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "honor.",
+          "start": 1.69,
+          "end": 1.99
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "Upon",
+        "my",
+        "honour."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polonius,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "polonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.27,
+          "end": 1.49,
+          "key": "upon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.49,
+          "end": 1.69,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "honor.",
+          "start": 1.69,
+          "end": 1.99,
+          "key": "honor",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Upon",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "text": "my",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "honour.",
+          "start": 1.69,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14922508411109447
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3947648993df40bca04549b04559b87a745eeb3959439e172665f73f983998b9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

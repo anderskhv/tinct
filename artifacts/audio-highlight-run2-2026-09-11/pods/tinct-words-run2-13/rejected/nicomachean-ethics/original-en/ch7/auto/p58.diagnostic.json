@@ -1,0 +1,1179 @@
+{
+  "complete": true,
+  "signature": "c11b1ff3c5644a0bed41828496b1a1baa606fbb6350aa832104aff0ee8c95432",
+  "attempts": [
+    {
+      "asr_seconds": 0.4869744898751378,
+      "alignment_seconds": 0.001070256344974041,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And so since this kind of Imperfect Self-Control is more unjust, it is also more disgraceful than that in respect of Anger, and is simply Imperfect Self-Control, and Vice in a certain sense.",
+        "hotwords": "Imperfect, Self-Control, Anger, Vice"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And so since this kind of Imperfect Self-Control is more unjust, it is also more disgraceful",
+          "start": 0.11,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.69970703125
+            },
+            {
+              "text": " so",
+              "start": 0.53,
+              "end": 0.75,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " since",
+              "start": 0.75,
+              "end": 0.95,
+              "probability": 0.405517578125
+            },
+            {
+              "text": " this",
+              "start": 0.95,
+              "end": 1.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " kind",
+              "start": 1.23,
+              "end": 1.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Imperfect",
+              "start": 1.59,
+              "end": 2.11,
+              "probability": 0.503204345703125
+            },
+            {
+              "text": " Self",
+              "start": 2.11,
+              "end": 2.41,
+              "probability": 0.60302734375
+            },
+            {
+              "text": "-Control",
+              "start": 2.41,
+              "end": 2.85,
+              "probability": 0.669921875
+            },
+            {
+              "text": " is",
+              "start": 2.85,
+              "end": 3.13,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " more",
+              "start": 3.13,
+              "end": 3.37,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " unjust,",
+              "start": 3.37,
+              "end": 3.83,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " it",
+              "start": 4.39,
+              "end": 4.55,
+              "probability": 0.94921875
+            },
+            {
+              "text": " is",
+              "start": 4.55,
+              "end": 4.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " also",
+              "start": 4.65,
+              "end": 4.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " more",
+              "start": 4.95,
+              "end": 5.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " disgraceful",
+              "start": 5.21,
+              "end": 5.91,
+              "probability": 0.984619140625
+            }
+          ]
+        },
+        {
+          "text": " than that in respect of Anger, and is simply Imperfect Self-Control, and Vice in a certain",
+          "start": 5.91,
+          "end": 11.39,
+          "words": [
+            {
+              "text": " than",
+              "start": 5.91,
+              "end": 6.07,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " that",
+              "start": 6.07,
+              "end": 6.29,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in",
+              "start": 6.29,
+              "end": 6.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " respect",
+              "start": 6.45,
+              "end": 6.77,
+              "probability": 0.98046875
+            },
+            {
+              "text": " of",
+              "start": 6.77,
+              "end": 7.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Anger,",
+              "start": 7.03,
+              "end": 7.25,
+              "probability": 0.052703857421875
+            },
+            {
+              "text": " and",
+              "start": 7.83,
+              "end": 7.93,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " is",
+              "start": 7.93,
+              "end": 8.07,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " simply",
+              "start": 8.07,
+              "end": 8.35,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Imperfect",
+              "start": 8.35,
+              "end": 8.99,
+              "probability": 0.982666015625
+            },
+            {
+              "text": " Self",
+              "start": 8.99,
+              "end": 9.33,
+              "probability": 0.96142578125
+            },
+            {
+              "text": "-Control,",
+              "start": 9.33,
+              "end": 9.83,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " and",
+              "start": 10.47,
+              "end": 10.49,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " Vice",
+              "start": 10.49,
+              "end": 10.75,
+              "probability": 0.446044921875
+            },
+            {
+              "text": " in",
+              "start": 10.75,
+              "end": 11.05,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " a",
+              "start": 11.05,
+              "end": 11.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " certain",
+              "start": 11.19,
+              "end": 11.39,
+              "probability": 0.82470703125
+            }
+          ]
+        },
+        {
+          "text": " sense.",
+          "start": 11.39,
+          "end": 11.75,
+          "words": [
+            {
+              "text": " sense.",
+              "start": 11.39,
+              "end": 11.75,
+              "probability": 0.8837890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "so",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "raw": "since",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "raw": "this",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "raw": "kind",
+          "start": 1.23,
+          "end": 1.45
+        },
+        {
+          "raw": "of",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "Imperfect",
+          "start": 1.59,
+          "end": 2.11
+        },
+        {
+          "raw": "Self",
+          "start": 2.11,
+          "end": 2.41
+        },
+        {
+          "raw": "-Control",
+          "start": 2.41,
+          "end": 2.85
+        },
+        {
+          "raw": "is",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "raw": "more",
+          "start": 3.13,
+          "end": 3.37
+        },
+        {
+          "raw": "unjust,",
+          "start": 3.37,
+          "end": 3.83
+        },
+        {
+          "raw": "it",
+          "start": 4.39,
+          "end": 4.55
+        },
+        {
+          "raw": "is",
+          "start": 4.55,
+          "end": 4.65
+        },
+        {
+          "raw": "also",
+          "start": 4.65,
+          "end": 4.95
+        },
+        {
+          "raw": "more",
+          "start": 4.95,
+          "end": 5.21
+        },
+        {
+          "raw": "disgraceful",
+          "start": 5.21,
+          "end": 5.91
+        },
+        {
+          "raw": "than",
+          "start": 5.91,
+          "end": 6.07
+        },
+        {
+          "raw": "that",
+          "start": 6.07,
+          "end": 6.29
+        },
+        {
+          "raw": "in",
+          "start": 6.29,
+          "end": 6.45
+        },
+        {
+          "raw": "respect",
+          "start": 6.45,
+          "end": 6.77
+        },
+        {
+          "raw": "of",
+          "start": 6.77,
+          "end": 7.03
+        },
+        {
+          "raw": "Anger,",
+          "start": 7.03,
+          "end": 7.25
+        },
+        {
+          "raw": "and",
+          "start": 7.83,
+          "end": 7.93
+        },
+        {
+          "raw": "is",
+          "start": 7.93,
+          "end": 8.07
+        },
+        {
+          "raw": "simply",
+          "start": 8.07,
+          "end": 8.35
+        },
+        {
+          "raw": "Imperfect",
+          "start": 8.35,
+          "end": 8.99
+        },
+        {
+          "raw": "Self",
+          "start": 8.99,
+          "end": 9.33
+        },
+        {
+          "raw": "-Control,",
+          "start": 9.33,
+          "end": 9.83
+        },
+        {
+          "raw": "and",
+          "start": 10.47,
+          "end": 10.49
+        },
+        {
+          "raw": "Vice",
+          "start": 10.49,
+          "end": 10.75
+        },
+        {
+          "raw": "in",
+          "start": 10.75,
+          "end": 11.05
+        },
+        {
+          "raw": "a",
+          "start": 11.05,
+          "end": 11.19
+        },
+        {
+          "raw": "certain",
+          "start": 11.19,
+          "end": 11.39
+        },
+        {
+          "raw": "sense.",
+          "start": 11.39,
+          "end": 11.75
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "so",
+        "since",
+        "this",
+        "kind",
+        "of",
+        "Imperfect",
+        "Self-Control",
+        "is",
+        "more",
+        "unjust,",
+        "it",
+        "is",
+        "also",
+        "more",
+        "disgraceful",
+        "than",
+        "that",
+        "in",
+        "respect",
+        "of",
+        "Anger,",
+        "and",
+        "is",
+        "simply",
+        "Imperfect",
+        "Self-Control,",
+        "and",
+        "Vice",
+        "in",
+        "a",
+        "certain",
+        "sense."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          33,
+          0,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.53,
+          "end": 0.75,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 0.75,
+          "end": 0.95,
+          "key": "since",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.95,
+          "end": 1.23,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 1.23,
+          "end": 1.45,
+          "key": "kind",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Imperfect",
+          "start": 1.59,
+          "end": 2.11,
+          "key": "imperfect",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Self -Control",
+          "start": 2.11,
+          "end": 2.85,
+          "key": "selfcontrol",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.85,
+          "end": 3.13,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 3.13,
+          "end": 3.37,
+          "key": "more",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "unjust,",
+          "start": 3.37,
+          "end": 3.83,
+          "key": "unjust",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.39,
+          "end": 4.55,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.55,
+          "end": 4.65,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "also",
+          "start": 4.65,
+          "end": 4.95,
+          "key": "also",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 4.95,
+          "end": 5.21,
+          "key": "more",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "disgraceful",
+          "start": 5.21,
+          "end": 5.91,
+          "key": "disgraceful",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 5.91,
+          "end": 6.07,
+          "key": "than",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.07,
+          "end": 6.29,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.29,
+          "end": 6.45,
+          "key": "in",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "respect",
+          "start": 6.45,
+          "end": 6.77,
+          "key": "respect",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.77,
+          "end": 7.03,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Anger,",
+          "start": 7.03,
+          "end": 7.25,
+          "key": "anger",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.83,
+          "end": 7.93,
+          "key": "and",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.93,
+          "end": 8.07,
+          "key": "is",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "simply",
+          "start": 8.07,
+          "end": 8.35,
+          "key": "simply",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Imperfect",
+          "start": 8.35,
+          "end": 8.99,
+          "key": "imperfect",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Self -Control,",
+          "start": 8.99,
+          "end": 9.83,
+          "key": "selfcontrol",
+          "pieces": [
+            27,
+            28
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.47,
+          "end": 10.49,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Vice",
+          "start": 10.49,
+          "end": 10.75,
+          "key": "vice",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.75,
+          "end": 11.05,
+          "key": "in",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.05,
+          "end": 11.19,
+          "key": "a",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "certain",
+          "start": 11.19,
+          "end": 11.39,
+          "key": "certain",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "sense.",
+          "start": 11.39,
+          "end": 11.75,
+          "key": "sense",
+          "pieces": [
+            34
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "Self-Control",
+          "heard": "Self -Control",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 2.11,
+          "end": 2.85
+        },
+        {
+          "expected_index": 26,
+          "text": "Self-Control,",
+          "heard": "Self -Control,",
+          "heard_indexes": [
+            27,
+            28
+          ],
+          "start": 8.99,
+          "end": 9.83
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "so",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "text": "since",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "text": "this",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "text": "kind",
+          "start": 1.23,
+          "end": 1.45
+        },
+        {
+          "text": "of",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "Imperfect",
+          "start": 1.59,
+          "end": 2.11
+        },
+        {
+          "text": "Self-Control",
+          "start": 2.11,
+          "end": 2.85
+        },
+        {
+          "text": "is",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "text": "more",
+          "start": 3.13,
+          "end": 3.37
+        },
+        {
+          "text": "unjust,",
+          "start": 3.37,
+          "end": 3.83
+        },
+        {
+          "text": "it",
+          "start": 4.39,
+          "end": 4.55
+        },
+        {
+          "text": "is",
+          "start": 4.55,
+          "end": 4.65
+        },
+        {
+          "text": "also",
+          "start": 4.65,
+          "end": 4.95
+        },
+        {
+          "text": "more",
+          "start": 4.95,
+          "end": 5.21
+        },
+        {
+          "text": "disgraceful",
+          "start": 5.21,
+          "end": 5.91
+        },
+        {
+          "text": "than",
+          "start": 5.91,
+          "end": 6.07
+        },
+        {
+          "text": "that",
+          "start": 6.07,
+          "end": 6.29
+        },
+        {
+          "text": "in",
+          "start": 6.29,
+          "end": 6.45
+        },
+        {
+          "text": "respect",
+          "start": 6.45,
+          "end": 6.77
+        },
+        {
+          "text": "of",
+          "start": 6.77,
+          "end": 7.03
+        },
+        {
+          "text": "Anger,",
+          "start": 7.03,
+          "end": 7.25
+        },
+        {
+          "text": "and",
+          "start": 7.83,
+          "end": 7.93
+        },
+        {
+          "text": "is",
+          "start": 7.93,
+          "end": 8.07
+        },
+        {
+          "text": "simply",
+          "start": 8.07,
+          "end": 8.35
+        },
+        {
+          "text": "Imperfect",
+          "start": 8.35,
+          "end": 8.99
+        },
+        {
+          "text": "Self-Control,",
+          "start": 8.99,
+          "end": 9.83
+        },
+        {
+          "text": "and",
+          "start": 10.47,
+          "end": 10.49
+        },
+        {
+          "text": "Vice",
+          "start": 10.49,
+          "end": 10.75
+        },
+        {
+          "text": "in",
+          "start": 10.75,
+          "end": 11.05
+        },
+        {
+          "text": "a",
+          "start": 11.05,
+          "end": 11.19
+        },
+        {
+          "text": "certain",
+          "start": 11.19,
+          "end": 11.39
+        },
+        {
+          "text": "sense.",
+          "start": 11.39,
+          "end": 11.75
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 33,
+        "matched_words": 33
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4884512238204479
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0274bdeabf3f7b01830498a6c22499a79c6d6aef11271fd354588478d86d4bfe",
+  "selected_reasons": []
+}

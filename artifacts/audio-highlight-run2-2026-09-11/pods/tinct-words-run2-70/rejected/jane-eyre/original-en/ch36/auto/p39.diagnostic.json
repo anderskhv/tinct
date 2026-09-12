@@ -1,0 +1,4124 @@
+{
+  "complete": true,
+  "signature": "8eafffd717fe503dbad1a2a383b55874b45b03524998e2c4141377c981c8191b",
+  "attempts": [
+    {
+      "asr_seconds": 0.47607773006893694,
+      "alignment_seconds": 0.0009238279890269041,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"They guessed, ma'am: they guessed. Indeed, I should say it was ascertained beyond a doubt. You are not perhaps aware,\" he continued, edging his chair a little nearer the table, and speaking low, \"that there was a lady—a—a lunatic, kept in the house?\"",
+        "hotwords": "Indeed, I, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They guessed, ma'am, they guessed. Indeed, I should say it was ascertained beyond a doubt.",
+          "start": 0.02,
+          "end": 4.98,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.1810302734375
+            },
+            {
+              "text": " guessed,",
+              "start": 0.54,
+              "end": 0.84,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " ma",
+              "start": 1.04,
+              "end": 1.2,
+              "probability": 0.82861328125
+            },
+            {
+              "text": "'am,",
+              "start": 1.2,
+              "end": 1.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " they",
+              "start": 1.52,
+              "end": 1.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " guessed.",
+              "start": 1.62,
+              "end": 1.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Indeed,",
+              "start": 2.46,
+              "end": 2.78,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " I",
+              "start": 2.92,
+              "end": 3.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " should",
+              "start": 3.02,
+              "end": 3.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " say",
+              "start": 3.16,
+              "end": 3.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 3.44,
+              "end": 3.56,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " was",
+              "start": 3.56,
+              "end": 3.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ascertained",
+              "start": 3.66,
+              "end": 4.3,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " beyond",
+              "start": 4.3,
+              "end": 4.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 4.58,
+              "end": 4.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " doubt.",
+              "start": 4.78,
+              "end": 4.98,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " You are not perhaps aware,\" he continued, edging his chair a little nearer the table,",
+          "start": 5.5,
+          "end": 9.92,
+          "words": [
+            {
+              "text": " You",
+              "start": 5.5,
+              "end": 5.64,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " are",
+              "start": 5.64,
+              "end": 5.74,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 5.74,
+              "end": 5.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " perhaps",
+              "start": 5.9,
+              "end": 6.26,
+              "probability": 0.888671875
+            },
+            {
+              "text": " aware,\"",
+              "start": 6.26,
+              "end": 7.08,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " he",
+              "start": 7.08,
+              "end": 7.28,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " continued,",
+              "start": 7.28,
+              "end": 7.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " edging",
+              "start": 8.14,
+              "end": 8.44,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " his",
+              "start": 8.44,
+              "end": 8.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " chair",
+              "start": 8.6,
+              "end": 8.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 8.88,
+              "end": 9.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " little",
+              "start": 9.06,
+              "end": 9.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nearer",
+              "start": 9.18,
+              "end": 9.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 9.48,
+              "end": 9.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " table,",
+              "start": 9.66,
+              "end": 9.92,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " and speaking low, that there was a lady—a—a lunatic, kept in the house.",
+          "start": 10.1,
+          "end": 14.36,
+          "words": [
+            {
+              "text": " and",
+              "start": 10.1,
+              "end": 10.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " speaking",
+              "start": 10.18,
+              "end": 10.5,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " low,",
+              "start": 10.5,
+              "end": 10.88,
+              "probability": 0.9921875
+            },
+            {
+              "text": " that",
+              "start": 11.14,
+              "end": 11.28,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " there",
+              "start": 11.28,
+              "end": 11.44,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " was",
+              "start": 11.44,
+              "end": 11.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 11.58,
+              "end": 11.74,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " lady—a—a",
+              "start": 11.74,
+              "end": 13.06,
+              "probability": 0.6570817470550537
+            },
+            {
+              "text": " lunatic,",
+              "start": 13.06,
+              "end": 13.46,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " kept",
+              "start": 13.64,
+              "end": 13.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " in",
+              "start": 13.82,
+              "end": 14.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 14.02,
+              "end": 14.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " house.",
+              "start": 14.08,
+              "end": 14.36,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "guessed,",
+          "start": 0.54,
+          "end": 0.84
+        },
+        {
+          "raw": "ma",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "raw": "'am,",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "raw": "they",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "raw": "guessed.",
+          "start": 1.62,
+          "end": 1.98
+        },
+        {
+          "raw": "Indeed,",
+          "start": 2.46,
+          "end": 2.78
+        },
+        {
+          "raw": "I",
+          "start": 2.92,
+          "end": 3.02
+        },
+        {
+          "raw": "should",
+          "start": 3.02,
+          "end": 3.16
+        },
+        {
+          "raw": "say",
+          "start": 3.16,
+          "end": 3.44
+        },
+        {
+          "raw": "it",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "raw": "was",
+          "start": 3.56,
+          "end": 3.66
+        },
+        {
+          "raw": "ascertained",
+          "start": 3.66,
+          "end": 4.3
+        },
+        {
+          "raw": "beyond",
+          "start": 4.3,
+          "end": 4.58
+        },
+        {
+          "raw": "a",
+          "start": 4.58,
+          "end": 4.78
+        },
+        {
+          "raw": "doubt.",
+          "start": 4.78,
+          "end": 4.98
+        },
+        {
+          "raw": "You",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "raw": "are",
+          "start": 5.64,
+          "end": 5.74
+        },
+        {
+          "raw": "not",
+          "start": 5.74,
+          "end": 5.9
+        },
+        {
+          "raw": "perhaps",
+          "start": 5.9,
+          "end": 6.26
+        },
+        {
+          "raw": "aware,\"",
+          "start": 6.26,
+          "end": 7.08
+        },
+        {
+          "raw": "he",
+          "start": 7.08,
+          "end": 7.28
+        },
+        {
+          "raw": "continued,",
+          "start": 7.28,
+          "end": 7.8
+        },
+        {
+          "raw": "edging",
+          "start": 8.14,
+          "end": 8.44
+        },
+        {
+          "raw": "his",
+          "start": 8.44,
+          "end": 8.6
+        },
+        {
+          "raw": "chair",
+          "start": 8.6,
+          "end": 8.88
+        },
+        {
+          "raw": "a",
+          "start": 8.88,
+          "end": 9.06
+        },
+        {
+          "raw": "little",
+          "start": 9.06,
+          "end": 9.18
+        },
+        {
+          "raw": "nearer",
+          "start": 9.18,
+          "end": 9.48
+        },
+        {
+          "raw": "the",
+          "start": 9.48,
+          "end": 9.66
+        },
+        {
+          "raw": "table,",
+          "start": 9.66,
+          "end": 9.92
+        },
+        {
+          "raw": "and",
+          "start": 10.1,
+          "end": 10.18
+        },
+        {
+          "raw": "speaking",
+          "start": 10.18,
+          "end": 10.5
+        },
+        {
+          "raw": "low,",
+          "start": 10.5,
+          "end": 10.88
+        },
+        {
+          "raw": "that",
+          "start": 11.14,
+          "end": 11.28
+        },
+        {
+          "raw": "there",
+          "start": 11.28,
+          "end": 11.44
+        },
+        {
+          "raw": "was",
+          "start": 11.44,
+          "end": 11.58
+        },
+        {
+          "raw": "a",
+          "start": 11.58,
+          "end": 11.74
+        },
+        {
+          "raw": "lady—a—a",
+          "start": 11.74,
+          "end": 13.06
+        },
+        {
+          "raw": "lunatic,",
+          "start": 13.06,
+          "end": 13.46
+        },
+        {
+          "raw": "kept",
+          "start": 13.64,
+          "end": 13.82
+        },
+        {
+          "raw": "in",
+          "start": 13.82,
+          "end": 14.02
+        },
+        {
+          "raw": "the",
+          "start": 14.02,
+          "end": 14.08
+        },
+        {
+          "raw": "house.",
+          "start": 14.08,
+          "end": 14.36
+        }
+      ],
+      "expected_tokens": [
+        "\"They",
+        "guessed,",
+        "ma'am:",
+        "they",
+        "guessed.",
+        "Indeed,",
+        "I",
+        "should",
+        "say",
+        "it",
+        "was",
+        "ascertained",
+        "beyond",
+        "a",
+        "doubt.",
+        "You",
+        "are",
+        "not",
+        "perhaps",
+        "aware,\"",
+        "he",
+        "continued,",
+        "edging",
+        "his",
+        "chair",
+        "a",
+        "little",
+        "nearer",
+        "the",
+        "table,",
+        "and",
+        "speaking",
+        "low,",
+        "\"that",
+        "there",
+        "was",
+        "a",
+        "lady—a—a",
+        "lunatic,",
+        "kept",
+        "in",
+        "the",
+        "house?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          43,
+          4,
+          44
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "guessed,",
+          "start": 0.54,
+          "end": 0.84,
+          "key": "guessed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 1.04,
+          "end": 1.2,
+          "key": "ma",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'am,",
+          "start": 1.2,
+          "end": 1.36,
+          "key": "am",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.52,
+          "end": 1.62,
+          "key": "they",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "guessed.",
+          "start": 1.62,
+          "end": 1.98,
+          "key": "guessed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Indeed,",
+          "start": 2.46,
+          "end": 2.78,
+          "key": "indeed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.92,
+          "end": 3.02,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 3.02,
+          "end": 3.16,
+          "key": "should",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 3.16,
+          "end": 3.44,
+          "key": "say",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.44,
+          "end": 3.56,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.56,
+          "end": 3.66,
+          "key": "was",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ascertained",
+          "start": 3.66,
+          "end": 4.3,
+          "key": "ascertained",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "beyond",
+          "start": 4.3,
+          "end": 4.58,
+          "key": "beyond",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.58,
+          "end": 4.78,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "doubt.",
+          "start": 4.78,
+          "end": 4.98,
+          "key": "doubt",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 5.5,
+          "end": 5.64,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.64,
+          "end": 5.74,
+          "key": "are",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.74,
+          "end": 5.9,
+          "key": "not",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "perhaps",
+          "start": 5.9,
+          "end": 6.26,
+          "key": "perhaps",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "aware,\"",
+          "start": 6.26,
+          "end": 7.08,
+          "key": "aware",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.08,
+          "end": 7.28,
+          "key": "he",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "continued,",
+          "start": 7.28,
+          "end": 7.8,
+          "key": "continued",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "edging",
+          "start": 8.14,
+          "end": 8.44,
+          "key": "edging",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 8.44,
+          "end": 8.6,
+          "key": "his",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "chair",
+          "start": 8.6,
+          "end": 8.88,
+          "key": "chair",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.88,
+          "end": 9.06,
+          "key": "a",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 9.06,
+          "end": 9.18,
+          "key": "little",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "nearer",
+          "start": 9.18,
+          "end": 9.48,
+          "key": "nearer",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.48,
+          "end": 9.66,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "table,",
+          "start": 9.66,
+          "end": 9.92,
+          "key": "table",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.1,
+          "end": 10.18,
+          "key": "and",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "speaking",
+          "start": 10.18,
+          "end": 10.5,
+          "key": "speaking",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "low,",
+          "start": 10.5,
+          "end": 10.88,
+          "key": "low",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 11.14,
+          "end": 11.28,
+          "key": "that",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 11.28,
+          "end": 11.44,
+          "key": "there",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 11.44,
+          "end": 11.58,
+          "key": "was",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.58,
+          "end": 11.74,
+          "key": "a",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "lady—a—a",
+          "start": 11.74,
+          "end": 13.06,
+          "key": "ladyaa",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "lunatic,",
+          "start": 13.06,
+          "end": 13.46,
+          "key": "lunatic",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "kept",
+          "start": 13.64,
+          "end": 13.82,
+          "key": "kept",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.82,
+          "end": 14.02,
+          "key": "in",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.02,
+          "end": 14.08,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "house.",
+          "start": 14.08,
+          "end": 14.36,
+          "key": "house",
+          "pieces": [
+            43
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"They",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "guessed,",
+          "start": 0.54,
+          "end": 0.84
+        },
+        {
+          "text": "ma'am:",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "text": "they",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "text": "guessed.",
+          "start": 1.62,
+          "end": 1.98
+        },
+        {
+          "text": "Indeed,",
+          "start": 2.46,
+          "end": 2.78
+        },
+        {
+          "text": "I",
+          "start": 2.92,
+          "end": 3.02
+        },
+        {
+          "text": "should",
+          "start": 3.02,
+          "end": 3.16
+        },
+        {
+          "text": "say",
+          "start": 3.16,
+          "end": 3.44
+        },
+        {
+          "text": "it",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "text": "was",
+          "start": 3.56,
+          "end": 3.66
+        },
+        {
+          "text": "ascertained",
+          "start": 3.66,
+          "end": 4.3
+        },
+        {
+          "text": "beyond",
+          "start": 4.3,
+          "end": 4.58
+        },
+        {
+          "text": "a",
+          "start": 4.58,
+          "end": 4.78
+        },
+        {
+          "text": "doubt.",
+          "start": 4.78,
+          "end": 4.98
+        },
+        {
+          "text": "You",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "text": "are",
+          "start": 5.64,
+          "end": 5.74
+        },
+        {
+          "text": "not",
+          "start": 5.74,
+          "end": 5.9
+        },
+        {
+          "text": "perhaps",
+          "start": 5.9,
+          "end": 6.26
+        },
+        {
+          "text": "aware,\"",
+          "start": 6.26,
+          "end": 7.08
+        },
+        {
+          "text": "he",
+          "start": 7.08,
+          "end": 7.28
+        },
+        {
+          "text": "continued,",
+          "start": 7.28,
+          "end": 7.8
+        },
+        {
+          "text": "edging",
+          "start": 8.14,
+          "end": 8.44
+        },
+        {
+          "text": "his",
+          "start": 8.44,
+          "end": 8.6
+        },
+        {
+          "text": "chair",
+          "start": 8.6,
+          "end": 8.88
+        },
+        {
+          "text": "a",
+          "start": 8.88,
+          "end": 9.06
+        },
+        {
+          "text": "little",
+          "start": 9.06,
+          "end": 9.18
+        },
+        {
+          "text": "nearer",
+          "start": 9.18,
+          "end": 9.48
+        },
+        {
+          "text": "the",
+          "start": 9.48,
+          "end": 9.66
+        },
+        {
+          "text": "table,",
+          "start": 9.66,
+          "end": 9.92
+        },
+        {
+          "text": "and",
+          "start": 10.1,
+          "end": 10.18
+        },
+        {
+          "text": "speaking",
+          "start": 10.18,
+          "end": 10.5
+        },
+        {
+          "text": "low,",
+          "start": 10.5,
+          "end": 10.88
+        },
+        {
+          "text": "\"that",
+          "start": 11.14,
+          "end": 11.28
+        },
+        {
+          "text": "there",
+          "start": 11.28,
+          "end": 11.44
+        },
+        {
+          "text": "was",
+          "start": 11.44,
+          "end": 11.58
+        },
+        {
+          "text": "a",
+          "start": 11.58,
+          "end": 11.74
+        },
+        {
+          "text": "lady—a—a",
+          "start": 11.74,
+          "end": 13.06
+        },
+        {
+          "text": "lunatic,",
+          "start": 13.06,
+          "end": 13.46
+        },
+        {
+          "text": "kept",
+          "start": 13.64,
+          "end": 13.82
+        },
+        {
+          "text": "in",
+          "start": 13.82,
+          "end": 14.02
+        },
+        {
+          "text": "the",
+          "start": 14.02,
+          "end": 14.08
+        },
+        {
+          "text": "house?\"",
+          "start": 14.08,
+          "end": 14.36
+        }
+      ],
+      "stats": {
+        "expected_words": 43,
+        "heard_words": 44,
+        "matched_words": 42
+      },
+      "match_ratio": 0.9767441860465116,
+      "rejection_reasons": [],
+      "seconds": 0.47744729998521507
+    },
+    {
+      "asr_seconds": 0.4065822921693325,
+      "alignment_seconds": 0.0006500161252915859,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Indeed, I, You"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " are not perhaps aware,\" he continued, edging his chair a little nearer the table and speaking low that there was a lady—a lunatic kept in the house.",
+          "start": 4.66,
+          "end": 14.4,
+          "words": [
+            {
+              "text": " are",
+              "start": 4.66,
+              "end": 5.26,
+              "probability": 2.682209014892578e-06
+            },
+            {
+              "text": " not",
+              "start": 5.26,
+              "end": 5.86,
+              "probability": 0.273193359375
+            },
+            {
+              "text": " perhaps",
+              "start": 5.86,
+              "end": 6.24,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " aware,\"",
+              "start": 6.24,
+              "end": 7.12,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " he",
+              "start": 7.12,
+              "end": 7.26,
+              "probability": 0.984375
+            },
+            {
+              "text": " continued,",
+              "start": 7.26,
+              "end": 7.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " edging",
+              "start": 8.14,
+              "end": 8.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 8.44,
+              "end": 8.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " chair",
+              "start": 8.6,
+              "end": 8.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 8.88,
+              "end": 9.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " little",
+              "start": 9.06,
+              "end": 9.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nearer",
+              "start": 9.16,
+              "end": 9.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 9.5,
+              "end": 9.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " table",
+              "start": 9.66,
+              "end": 9.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 9.92,
+              "end": 10.18,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " speaking",
+              "start": 10.18,
+              "end": 10.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " low",
+              "start": 10.46,
+              "end": 10.88,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " that",
+              "start": 10.88,
+              "end": 11.28,
+              "probability": 0.80078125
+            },
+            {
+              "text": " there",
+              "start": 11.28,
+              "end": 11.44,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " was",
+              "start": 11.44,
+              "end": 11.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 11.58,
+              "end": 11.74,
+              "probability": 0.986328125
+            },
+            {
+              "text": " lady—a",
+              "start": 11.74,
+              "end": 12.86,
+              "probability": 0.7540690104166666
+            },
+            {
+              "text": " lunatic",
+              "start": 12.86,
+              "end": 13.46,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " kept",
+              "start": 13.46,
+              "end": 13.82,
+              "probability": 0.08367919921875
+            },
+            {
+              "text": " in",
+              "start": 13.82,
+              "end": 14.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 14.02,
+              "end": 14.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " house.",
+              "start": 14.08,
+              "end": 14.4,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "are",
+          "start": 4.66,
+          "end": 5.26
+        },
+        {
+          "raw": "not",
+          "start": 5.26,
+          "end": 5.86
+        },
+        {
+          "raw": "perhaps",
+          "start": 5.86,
+          "end": 6.24
+        },
+        {
+          "raw": "aware,\"",
+          "start": 6.24,
+          "end": 7.12
+        },
+        {
+          "raw": "he",
+          "start": 7.12,
+          "end": 7.26
+        },
+        {
+          "raw": "continued,",
+          "start": 7.26,
+          "end": 7.82
+        },
+        {
+          "raw": "edging",
+          "start": 8.14,
+          "end": 8.44
+        },
+        {
+          "raw": "his",
+          "start": 8.44,
+          "end": 8.6
+        },
+        {
+          "raw": "chair",
+          "start": 8.6,
+          "end": 8.88
+        },
+        {
+          "raw": "a",
+          "start": 8.88,
+          "end": 9.06
+        },
+        {
+          "raw": "little",
+          "start": 9.06,
+          "end": 9.16
+        },
+        {
+          "raw": "nearer",
+          "start": 9.16,
+          "end": 9.5
+        },
+        {
+          "raw": "the",
+          "start": 9.5,
+          "end": 9.66
+        },
+        {
+          "raw": "table",
+          "start": 9.66,
+          "end": 9.92
+        },
+        {
+          "raw": "and",
+          "start": 9.92,
+          "end": 10.18
+        },
+        {
+          "raw": "speaking",
+          "start": 10.18,
+          "end": 10.46
+        },
+        {
+          "raw": "low",
+          "start": 10.46,
+          "end": 10.88
+        },
+        {
+          "raw": "that",
+          "start": 10.88,
+          "end": 11.28
+        },
+        {
+          "raw": "there",
+          "start": 11.28,
+          "end": 11.44
+        },
+        {
+          "raw": "was",
+          "start": 11.44,
+          "end": 11.58
+        },
+        {
+          "raw": "a",
+          "start": 11.58,
+          "end": 11.74
+        },
+        {
+          "raw": "lady—a",
+          "start": 11.74,
+          "end": 12.86
+        },
+        {
+          "raw": "lunatic",
+          "start": 12.86,
+          "end": 13.46
+        },
+        {
+          "raw": "kept",
+          "start": 13.46,
+          "end": 13.82
+        },
+        {
+          "raw": "in",
+          "start": 13.82,
+          "end": 14.02
+        },
+        {
+          "raw": "the",
+          "start": 14.02,
+          "end": 14.08
+        },
+        {
+          "raw": "house.",
+          "start": 14.08,
+          "end": 14.4
+        }
+      ],
+      "expected_tokens": [
+        "\"They",
+        "guessed,",
+        "ma'am:",
+        "they",
+        "guessed.",
+        "Indeed,",
+        "I",
+        "should",
+        "say",
+        "it",
+        "was",
+        "ascertained",
+        "beyond",
+        "a",
+        "doubt.",
+        "You",
+        "are",
+        "not",
+        "perhaps",
+        "aware,\"",
+        "he",
+        "continued,",
+        "edging",
+        "his",
+        "chair",
+        "a",
+        "little",
+        "nearer",
+        "the",
+        "table,",
+        "and",
+        "speaking",
+        "low,",
+        "\"that",
+        "there",
+        "was",
+        "a",
+        "lady—a—a",
+        "lunatic,",
+        "kept",
+        "in",
+        "the",
+        "house?\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          16,
+          0,
+          0
+        ],
+        [
+          "equal",
+          16,
+          37,
+          0,
+          21
+        ],
+        [
+          "replace",
+          37,
+          38,
+          21,
+          22
+        ],
+        [
+          "equal",
+          38,
+          43,
+          22,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          16,
+          0,
+          0
+        ],
+        [
+          "replace",
+          37,
+          38,
+          21,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "are",
+          "start": 4.66,
+          "end": 5.26,
+          "key": "are",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.26,
+          "end": 5.86,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "perhaps",
+          "start": 5.86,
+          "end": 6.24,
+          "key": "perhaps",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "aware,\"",
+          "start": 6.24,
+          "end": 7.12,
+          "key": "aware",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.12,
+          "end": 7.26,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "continued,",
+          "start": 7.26,
+          "end": 7.82,
+          "key": "continued",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "edging",
+          "start": 8.14,
+          "end": 8.44,
+          "key": "edging",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 8.44,
+          "end": 8.6,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "chair",
+          "start": 8.6,
+          "end": 8.88,
+          "key": "chair",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.88,
+          "end": 9.06,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 9.06,
+          "end": 9.16,
+          "key": "little",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "nearer",
+          "start": 9.16,
+          "end": 9.5,
+          "key": "nearer",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.5,
+          "end": 9.66,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "table",
+          "start": 9.66,
+          "end": 9.92,
+          "key": "table",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.92,
+          "end": 10.18,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "speaking",
+          "start": 10.18,
+          "end": 10.46,
+          "key": "speaking",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "low",
+          "start": 10.46,
+          "end": 10.88,
+          "key": "low",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 10.88,
+          "end": 11.28,
+          "key": "that",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 11.28,
+          "end": 11.44,
+          "key": "there",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 11.44,
+          "end": 11.58,
+          "key": "was",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.58,
+          "end": 11.74,
+          "key": "a",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "lady—a",
+          "start": 11.74,
+          "end": 12.86,
+          "key": "ladya",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "lunatic",
+          "start": 12.86,
+          "end": 13.46,
+          "key": "lunatic",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "kept",
+          "start": 13.46,
+          "end": 13.82,
+          "key": "kept",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.82,
+          "end": 14.02,
+          "key": "in",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.02,
+          "end": 14.08,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "house.",
+          "start": 14.08,
+          "end": 14.4,
+          "key": "house",
+          "pieces": [
+            26
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"They",
+          "start": 0.0,
+          "end": 2.33
+        },
+        {
+          "text": "guessed,",
+          "start": 2.33,
+          "end": 3.495
+        },
+        {
+          "text": "ma'am:",
+          "start": 3.495,
+          "end": 4.078
+        },
+        {
+          "text": "they",
+          "start": 4.078,
+          "end": 4.369
+        },
+        {
+          "text": "guessed.",
+          "start": 4.369,
+          "end": 4.514
+        },
+        {
+          "text": "Indeed,",
+          "start": 4.514,
+          "end": 4.587
+        },
+        {
+          "text": "I",
+          "start": 4.587,
+          "end": 4.623
+        },
+        {
+          "text": "should",
+          "start": 4.623,
+          "end": 4.642
+        },
+        {
+          "text": "say",
+          "start": 4.642,
+          "end": 4.651
+        },
+        {
+          "text": "it",
+          "start": 4.651,
+          "end": 4.655
+        },
+        {
+          "text": "was",
+          "start": 4.655,
+          "end": 4.658
+        },
+        {
+          "text": "ascertained",
+          "start": 4.658,
+          "end": 4.659
+        },
+        {
+          "text": "beyond",
+          "start": 4.659,
+          "end": 4.659
+        },
+        {
+          "text": "a",
+          "start": 4.659,
+          "end": 4.659
+        },
+        {
+          "text": "doubt.",
+          "start": 4.659,
+          "end": 4.659
+        },
+        {
+          "text": "You",
+          "start": 4.659,
+          "end": 4.659
+        },
+        {
+          "text": "are",
+          "start": 4.66,
+          "end": 5.26
+        },
+        {
+          "text": "not",
+          "start": 5.26,
+          "end": 5.86
+        },
+        {
+          "text": "perhaps",
+          "start": 5.86,
+          "end": 6.24
+        },
+        {
+          "text": "aware,\"",
+          "start": 6.24,
+          "end": 7.12
+        },
+        {
+          "text": "he",
+          "start": 7.12,
+          "end": 7.26
+        },
+        {
+          "text": "continued,",
+          "start": 7.26,
+          "end": 7.82
+        },
+        {
+          "text": "edging",
+          "start": 8.14,
+          "end": 8.44
+        },
+        {
+          "text": "his",
+          "start": 8.44,
+          "end": 8.6
+        },
+        {
+          "text": "chair",
+          "start": 8.6,
+          "end": 8.88
+        },
+        {
+          "text": "a",
+          "start": 8.88,
+          "end": 9.06
+        },
+        {
+          "text": "little",
+          "start": 9.06,
+          "end": 9.16
+        },
+        {
+          "text": "nearer",
+          "start": 9.16,
+          "end": 9.5
+        },
+        {
+          "text": "the",
+          "start": 9.5,
+          "end": 9.66
+        },
+        {
+          "text": "table,",
+          "start": 9.66,
+          "end": 9.92
+        },
+        {
+          "text": "and",
+          "start": 9.92,
+          "end": 10.18
+        },
+        {
+          "text": "speaking",
+          "start": 10.18,
+          "end": 10.46
+        },
+        {
+          "text": "low,",
+          "start": 10.46,
+          "end": 10.88
+        },
+        {
+          "text": "\"that",
+          "start": 10.88,
+          "end": 11.28
+        },
+        {
+          "text": "there",
+          "start": 11.28,
+          "end": 11.44
+        },
+        {
+          "text": "was",
+          "start": 11.44,
+          "end": 11.58
+        },
+        {
+          "text": "a",
+          "start": 11.58,
+          "end": 11.74
+        },
+        {
+          "text": "lady—a—a",
+          "start": 11.74,
+          "end": 12.3
+        },
+        {
+          "text": "lunatic,",
+          "start": 12.86,
+          "end": 13.46
+        },
+        {
+          "text": "kept",
+          "start": 13.46,
+          "end": 13.82
+        },
+        {
+          "text": "in",
+          "start": 13.82,
+          "end": 14.02
+        },
+        {
+          "text": "the",
+          "start": 14.02,
+          "end": 14.08
+        },
+        {
+          "text": "house?\"",
+          "start": 14.08,
+          "end": 14.4
+        }
+      ],
+      "stats": {
+        "expected_words": 43,
+        "heard_words": 27,
+        "matched_words": 26
+      },
+      "match_ratio": 0.6046511627906976,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.40744086005724967
+    },
+    {
+      "asr_seconds": 0.5033839449752122,
+      "alignment_seconds": 0.0007279759738594294,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " They guessed, ma'am, they guessed. Indeed, I should say it was ascertained beyond a doubt.",
+          "start": 0.02,
+          "end": 4.98,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.183349609375
+            },
+            {
+              "text": " guessed,",
+              "start": 0.54,
+              "end": 0.84,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " ma",
+              "start": 1.04,
+              "end": 1.2,
+              "probability": 0.82958984375
+            },
+            {
+              "text": "'am,",
+              "start": 1.2,
+              "end": 1.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " they",
+              "start": 1.52,
+              "end": 1.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " guessed.",
+              "start": 1.62,
+              "end": 1.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Indeed,",
+              "start": 2.46,
+              "end": 2.78,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " I",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " should",
+              "start": 3.02,
+              "end": 3.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " say",
+              "start": 3.16,
+              "end": 3.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 3.44,
+              "end": 3.56,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " was",
+              "start": 3.56,
+              "end": 3.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ascertained",
+              "start": 3.66,
+              "end": 4.3,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " beyond",
+              "start": 4.3,
+              "end": 4.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 4.58,
+              "end": 4.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " doubt.",
+              "start": 4.78,
+              "end": 4.98,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " You are not perhaps aware,\" he continued, edging his chair a little nearer the table",
+          "start": 5.5,
+          "end": 9.92,
+          "words": [
+            {
+              "text": " You",
+              "start": 5.5,
+              "end": 5.64,
+              "probability": 0.7578125
+            },
+            {
+              "text": " are",
+              "start": 5.64,
+              "end": 5.74,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 5.74,
+              "end": 5.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " perhaps",
+              "start": 5.9,
+              "end": 6.26,
+              "probability": 0.888671875
+            },
+            {
+              "text": " aware,\"",
+              "start": 6.26,
+              "end": 7.08,
+              "probability": 0.880859375
+            },
+            {
+              "text": " he",
+              "start": 7.08,
+              "end": 7.28,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " continued,",
+              "start": 7.28,
+              "end": 7.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " edging",
+              "start": 8.14,
+              "end": 8.44,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " his",
+              "start": 8.44,
+              "end": 8.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " chair",
+              "start": 8.6,
+              "end": 8.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 8.88,
+              "end": 9.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " little",
+              "start": 9.06,
+              "end": 9.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nearer",
+              "start": 9.18,
+              "end": 9.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 9.48,
+              "end": 9.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " table",
+              "start": 9.66,
+              "end": 9.92,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " and speaking low that there was a lady—a lunatic—kept in the house.",
+          "start": 9.92,
+          "end": 14.38,
+          "words": [
+            {
+              "text": " and",
+              "start": 9.92,
+              "end": 10.18,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " speaking",
+              "start": 10.18,
+              "end": 10.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " low",
+              "start": 10.48,
+              "end": 10.88,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " that",
+              "start": 10.88,
+              "end": 11.28,
+              "probability": 0.78759765625
+            },
+            {
+              "text": " there",
+              "start": 11.28,
+              "end": 11.44,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " was",
+              "start": 11.44,
+              "end": 11.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 11.58,
+              "end": 11.74,
+              "probability": 0.9921875
+            },
+            {
+              "text": " lady—a",
+              "start": 11.74,
+              "end": 12.86,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " lunatic—kept",
+              "start": 12.86,
+              "end": 13.82,
+              "probability": 0.935791015625
+            },
+            {
+              "text": " in",
+              "start": 13.82,
+              "end": 14.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 14.02,
+              "end": 14.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " house.",
+              "start": 14.08,
+              "end": 14.38,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "guessed,",
+          "start": 0.54,
+          "end": 0.84
+        },
+        {
+          "raw": "ma",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "raw": "'am,",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "raw": "they",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "raw": "guessed.",
+          "start": 1.62,
+          "end": 1.98
+        },
+        {
+          "raw": "Indeed,",
+          "start": 2.46,
+          "end": 2.78
+        },
+        {
+          "raw": "I",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "should",
+          "start": 3.02,
+          "end": 3.16
+        },
+        {
+          "raw": "say",
+          "start": 3.16,
+          "end": 3.44
+        },
+        {
+          "raw": "it",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "raw": "was",
+          "start": 3.56,
+          "end": 3.66
+        },
+        {
+          "raw": "ascertained",
+          "start": 3.66,
+          "end": 4.3
+        },
+        {
+          "raw": "beyond",
+          "start": 4.3,
+          "end": 4.58
+        },
+        {
+          "raw": "a",
+          "start": 4.58,
+          "end": 4.78
+        },
+        {
+          "raw": "doubt.",
+          "start": 4.78,
+          "end": 4.98
+        },
+        {
+          "raw": "You",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "raw": "are",
+          "start": 5.64,
+          "end": 5.74
+        },
+        {
+          "raw": "not",
+          "start": 5.74,
+          "end": 5.9
+        },
+        {
+          "raw": "perhaps",
+          "start": 5.9,
+          "end": 6.26
+        },
+        {
+          "raw": "aware,\"",
+          "start": 6.26,
+          "end": 7.08
+        },
+        {
+          "raw": "he",
+          "start": 7.08,
+          "end": 7.28
+        },
+        {
+          "raw": "continued,",
+          "start": 7.28,
+          "end": 7.8
+        },
+        {
+          "raw": "edging",
+          "start": 8.14,
+          "end": 8.44
+        },
+        {
+          "raw": "his",
+          "start": 8.44,
+          "end": 8.6
+        },
+        {
+          "raw": "chair",
+          "start": 8.6,
+          "end": 8.88
+        },
+        {
+          "raw": "a",
+          "start": 8.88,
+          "end": 9.06
+        },
+        {
+          "raw": "little",
+          "start": 9.06,
+          "end": 9.18
+        },
+        {
+          "raw": "nearer",
+          "start": 9.18,
+          "end": 9.48
+        },
+        {
+          "raw": "the",
+          "start": 9.48,
+          "end": 9.66
+        },
+        {
+          "raw": "table",
+          "start": 9.66,
+          "end": 9.92
+        },
+        {
+          "raw": "and",
+          "start": 9.92,
+          "end": 10.18
+        },
+        {
+          "raw": "speaking",
+          "start": 10.18,
+          "end": 10.48
+        },
+        {
+          "raw": "low",
+          "start": 10.48,
+          "end": 10.88
+        },
+        {
+          "raw": "that",
+          "start": 10.88,
+          "end": 11.28
+        },
+        {
+          "raw": "there",
+          "start": 11.28,
+          "end": 11.44
+        },
+        {
+          "raw": "was",
+          "start": 11.44,
+          "end": 11.58
+        },
+        {
+          "raw": "a",
+          "start": 11.58,
+          "end": 11.74
+        },
+        {
+          "raw": "lady—a",
+          "start": 11.74,
+          "end": 12.86
+        },
+        {
+          "raw": "lunatic—kept",
+          "start": 12.86,
+          "end": 13.82
+        },
+        {
+          "raw": "in",
+          "start": 13.82,
+          "end": 14.02
+        },
+        {
+          "raw": "the",
+          "start": 14.02,
+          "end": 14.08
+        },
+        {
+          "raw": "house.",
+          "start": 14.08,
+          "end": 14.38
+        }
+      ],
+      "expected_tokens": [
+        "\"They",
+        "guessed,",
+        "ma'am:",
+        "they",
+        "guessed.",
+        "Indeed,",
+        "I",
+        "should",
+        "say",
+        "it",
+        "was",
+        "ascertained",
+        "beyond",
+        "a",
+        "doubt.",
+        "You",
+        "are",
+        "not",
+        "perhaps",
+        "aware,\"",
+        "he",
+        "continued,",
+        "edging",
+        "his",
+        "chair",
+        "a",
+        "little",
+        "nearer",
+        "the",
+        "table,",
+        "and",
+        "speaking",
+        "low,",
+        "\"that",
+        "there",
+        "was",
+        "a",
+        "lady—a—a",
+        "lunatic,",
+        "kept",
+        "in",
+        "the",
+        "house?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          37,
+          4,
+          38
+        ],
+        [
+          "replace",
+          37,
+          40,
+          38,
+          40
+        ],
+        [
+          "equal",
+          40,
+          43,
+          40,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          37,
+          40,
+          38,
+          40
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "guessed,",
+          "start": 0.54,
+          "end": 0.84,
+          "key": "guessed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 1.04,
+          "end": 1.2,
+          "key": "ma",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'am,",
+          "start": 1.2,
+          "end": 1.36,
+          "key": "am",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.52,
+          "end": 1.62,
+          "key": "they",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "guessed.",
+          "start": 1.62,
+          "end": 1.98,
+          "key": "guessed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Indeed,",
+          "start": 2.46,
+          "end": 2.78,
+          "key": "indeed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 3.02,
+          "end": 3.16,
+          "key": "should",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 3.16,
+          "end": 3.44,
+          "key": "say",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.44,
+          "end": 3.56,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.56,
+          "end": 3.66,
+          "key": "was",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ascertained",
+          "start": 3.66,
+          "end": 4.3,
+          "key": "ascertained",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "beyond",
+          "start": 4.3,
+          "end": 4.58,
+          "key": "beyond",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.58,
+          "end": 4.78,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "doubt.",
+          "start": 4.78,
+          "end": 4.98,
+          "key": "doubt",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 5.5,
+          "end": 5.64,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.64,
+          "end": 5.74,
+          "key": "are",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.74,
+          "end": 5.9,
+          "key": "not",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "perhaps",
+          "start": 5.9,
+          "end": 6.26,
+          "key": "perhaps",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "aware,\"",
+          "start": 6.26,
+          "end": 7.08,
+          "key": "aware",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.08,
+          "end": 7.28,
+          "key": "he",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "continued,",
+          "start": 7.28,
+          "end": 7.8,
+          "key": "continued",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "edging",
+          "start": 8.14,
+          "end": 8.44,
+          "key": "edging",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 8.44,
+          "end": 8.6,
+          "key": "his",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "chair",
+          "start": 8.6,
+          "end": 8.88,
+          "key": "chair",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.88,
+          "end": 9.06,
+          "key": "a",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 9.06,
+          "end": 9.18,
+          "key": "little",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "nearer",
+          "start": 9.18,
+          "end": 9.48,
+          "key": "nearer",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.48,
+          "end": 9.66,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "table",
+          "start": 9.66,
+          "end": 9.92,
+          "key": "table",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.92,
+          "end": 10.18,
+          "key": "and",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "speaking",
+          "start": 10.18,
+          "end": 10.48,
+          "key": "speaking",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "low",
+          "start": 10.48,
+          "end": 10.88,
+          "key": "low",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 10.88,
+          "end": 11.28,
+          "key": "that",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 11.28,
+          "end": 11.44,
+          "key": "there",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 11.44,
+          "end": 11.58,
+          "key": "was",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.58,
+          "end": 11.74,
+          "key": "a",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "lady—a",
+          "start": 11.74,
+          "end": 12.86,
+          "key": "ladya",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "lunatic—kept",
+          "start": 12.86,
+          "end": 13.82,
+          "key": "lunatickept",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.82,
+          "end": 14.02,
+          "key": "in",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.02,
+          "end": 14.08,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "house.",
+          "start": 14.08,
+          "end": 14.38,
+          "key": "house",
+          "pieces": [
+            42
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"They",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "guessed,",
+          "start": 0.54,
+          "end": 0.84
+        },
+        {
+          "text": "ma'am:",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "text": "they",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "text": "guessed.",
+          "start": 1.62,
+          "end": 1.98
+        },
+        {
+          "text": "Indeed,",
+          "start": 2.46,
+          "end": 2.78
+        },
+        {
+          "text": "I",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "should",
+          "start": 3.02,
+          "end": 3.16
+        },
+        {
+          "text": "say",
+          "start": 3.16,
+          "end": 3.44
+        },
+        {
+          "text": "it",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "text": "was",
+          "start": 3.56,
+          "end": 3.66
+        },
+        {
+          "text": "ascertained",
+          "start": 3.66,
+          "end": 4.3
+        },
+        {
+          "text": "beyond",
+          "start": 4.3,
+          "end": 4.58
+        },
+        {
+          "text": "a",
+          "start": 4.58,
+          "end": 4.78
+        },
+        {
+          "text": "doubt.",
+          "start": 4.78,
+          "end": 4.98
+        },
+        {
+          "text": "You",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "text": "are",
+          "start": 5.64,
+          "end": 5.74
+        },
+        {
+          "text": "not",
+          "start": 5.74,
+          "end": 5.9
+        },
+        {
+          "text": "perhaps",
+          "start": 5.9,
+          "end": 6.26
+        },
+        {
+          "text": "aware,\"",
+          "start": 6.26,
+          "end": 7.08
+        },
+        {
+          "text": "he",
+          "start": 7.08,
+          "end": 7.28
+        },
+        {
+          "text": "continued,",
+          "start": 7.28,
+          "end": 7.8
+        },
+        {
+          "text": "edging",
+          "start": 8.14,
+          "end": 8.44
+        },
+        {
+          "text": "his",
+          "start": 8.44,
+          "end": 8.6
+        },
+        {
+          "text": "chair",
+          "start": 8.6,
+          "end": 8.88
+        },
+        {
+          "text": "a",
+          "start": 8.88,
+          "end": 9.06
+        },
+        {
+          "text": "little",
+          "start": 9.06,
+          "end": 9.18
+        },
+        {
+          "text": "nearer",
+          "start": 9.18,
+          "end": 9.48
+        },
+        {
+          "text": "the",
+          "start": 9.48,
+          "end": 9.66
+        },
+        {
+          "text": "table,",
+          "start": 9.66,
+          "end": 9.92
+        },
+        {
+          "text": "and",
+          "start": 9.92,
+          "end": 10.18
+        },
+        {
+          "text": "speaking",
+          "start": 10.18,
+          "end": 10.48
+        },
+        {
+          "text": "low,",
+          "start": 10.48,
+          "end": 10.88
+        },
+        {
+          "text": "\"that",
+          "start": 10.88,
+          "end": 11.28
+        },
+        {
+          "text": "there",
+          "start": 11.28,
+          "end": 11.44
+        },
+        {
+          "text": "was",
+          "start": 11.44,
+          "end": 11.58
+        },
+        {
+          "text": "a",
+          "start": 11.58,
+          "end": 11.74
+        },
+        {
+          "text": "lady—a—a",
+          "start": 11.74,
+          "end": 12.78
+        },
+        {
+          "text": "lunatic,",
+          "start": 12.78,
+          "end": 13.3
+        },
+        {
+          "text": "kept",
+          "start": 13.3,
+          "end": 13.56
+        },
+        {
+          "text": "in",
+          "start": 13.82,
+          "end": 14.02
+        },
+        {
+          "text": "the",
+          "start": 14.02,
+          "end": 14.08
+        },
+        {
+          "text": "house?\"",
+          "start": 14.08,
+          "end": 14.38
+        }
+      ],
+      "stats": {
+        "expected_words": 43,
+        "heard_words": 43,
+        "matched_words": 39
+      },
+      "match_ratio": 0.9069767441860465,
+      "rejection_reasons": [],
+      "seconds": 0.5044464238453656
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f2354500188854e7b16a2cab37576b8abda15817a5f5f255ead03889ed65e6db",
+  "selected_reasons": []
+}

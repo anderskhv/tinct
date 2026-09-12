@@ -1,0 +1,2426 @@
+{
+  "complete": true,
+  "signature": "97ddc6b79941bc05020ac3b036d3588411ca9303c61235ab16e33e4aa4228346",
+  "attempts": [
+    {
+      "asr_seconds": 0.7228497969917953,
+      "alignment_seconds": 0.0008807610720396042,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Eve, now expect great tidings, which perhaps Of us will soon determine, or impose New laws to be observed; for I descry, From yonder blazing cloud that veils the hill, One of the heavenly host; and, by his gait, None of the meanest; some great Potentate Or of the Thrones above; such majesty Invests him coming! yet not terrible, That I should fear; nor sociably mild, As Raphael, that I should much confide;",
+        "hotwords": "Eve, New, I, From, One, None, Potentate, Thrones, Invests, As, Raphael"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Eve, now expect great tidings, which perhaps Of us will soon determine, or impose New laws",
+          "start": 0.05,
+          "end": 5.59,
+          "words": [
+            {
+              "text": " Eve,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " now",
+              "start": 0.87,
+              "end": 1.01,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " expect",
+              "start": 1.01,
+              "end": 1.39,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " great",
+              "start": 1.39,
+              "end": 1.73,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " tidings,",
+              "start": 1.73,
+              "end": 2.27,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " which",
+              "start": 2.59,
+              "end": 2.75,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " perhaps",
+              "start": 2.75,
+              "end": 3.05,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " Of",
+              "start": 3.05,
+              "end": 3.25,
+              "probability": 0.0002758502960205078
+            },
+            {
+              "text": " us",
+              "start": 3.25,
+              "end": 3.39,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " will",
+              "start": 3.39,
+              "end": 3.57,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " soon",
+              "start": 3.57,
+              "end": 3.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " determine,",
+              "start": 3.79,
+              "end": 4.27,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " or",
+              "start": 4.57,
+              "end": 4.65,
+              "probability": 0.77734375
+            },
+            {
+              "text": " impose",
+              "start": 4.65,
+              "end": 5.01,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " New",
+              "start": 5.01,
+              "end": 5.29,
+              "probability": 0.337158203125
+            },
+            {
+              "text": " laws",
+              "start": 5.29,
+              "end": 5.59,
+              "probability": 0.96435546875
+            }
+          ]
+        },
+        {
+          "text": " To be observed, for I descry, From yonder blazing cloud that veils the hill,",
+          "start": 5.59,
+          "end": 10.27,
+          "words": [
+            {
+              "text": " To",
+              "start": 5.59,
+              "end": 5.81,
+              "probability": 0.0002703666687011719
+            },
+            {
+              "text": " be",
+              "start": 5.81,
+              "end": 5.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " observed,",
+              "start": 5.93,
+              "end": 6.35,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " for",
+              "start": 6.89,
+              "end": 7.07,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " I",
+              "start": 7.07,
+              "end": 7.29,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " descry,",
+              "start": 7.29,
+              "end": 7.81,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " From",
+              "start": 7.89,
+              "end": 8.07,
+              "probability": 0.0634765625
+            },
+            {
+              "text": " yonder",
+              "start": 8.07,
+              "end": 8.47,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " blazing",
+              "start": 8.47,
+              "end": 8.91,
+              "probability": 0.7880859375
+            },
+            {
+              "text": " cloud",
+              "start": 8.91,
+              "end": 9.25,
+              "probability": 0.94921875
+            },
+            {
+              "text": " that",
+              "start": 9.25,
+              "end": 9.47,
+              "probability": 0.568359375
+            },
+            {
+              "text": " veils",
+              "start": 9.47,
+              "end": 9.83,
+              "probability": 0.933837890625
+            },
+            {
+              "text": " the",
+              "start": 9.83,
+              "end": 10.03,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " hill,",
+              "start": 10.03,
+              "end": 10.27,
+              "probability": 0.9248046875
+            }
+          ]
+        },
+        {
+          "text": " One of the heavenly host, and by his gait, None of the meanest, some great Potentate",
+          "start": 10.73,
+          "end": 15.37,
+          "words": [
+            {
+              "text": " One",
+              "start": 10.73,
+              "end": 10.81,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " of",
+              "start": 10.81,
+              "end": 10.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 10.91,
+              "end": 11.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " heavenly",
+              "start": 11.01,
+              "end": 11.29,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " host,",
+              "start": 11.29,
+              "end": 11.65,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " and",
+              "start": 12.19,
+              "end": 12.45,
+              "probability": 0.783203125
+            },
+            {
+              "text": " by",
+              "start": 12.45,
+              "end": 12.59,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " his",
+              "start": 12.59,
+              "end": 12.75,
+              "probability": 0.72900390625
+            },
+            {
+              "text": " gait,",
+              "start": 12.75,
+              "end": 13.05,
+              "probability": 0.6864013671875
+            },
+            {
+              "text": " None",
+              "start": 13.19,
+              "end": 13.25,
+              "probability": 0.67724609375
+            },
+            {
+              "text": " of",
+              "start": 13.25,
+              "end": 13.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 13.39,
+              "end": 13.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " meanest,",
+              "start": 13.49,
+              "end": 13.95,
+              "probability": 0.974853515625
+            },
+            {
+              "text": " some",
+              "start": 14.31,
+              "end": 14.51,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " great",
+              "start": 14.51,
+              "end": 14.79,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Potentate",
+              "start": 14.79,
+              "end": 15.37,
+              "probability": 0.6652170817057291
+            }
+          ]
+        },
+        {
+          "text": " Or of the Thrones above, such majesty Invests him coming, yet not terrible, That I should",
+          "start": 15.37,
+          "end": 21.07,
+          "words": [
+            {
+              "text": " Or",
+              "start": 15.37,
+              "end": 15.59,
+              "probability": 0.01334381103515625
+            },
+            {
+              "text": " of",
+              "start": 15.59,
+              "end": 15.73,
+              "probability": 0.962890625
+            },
+            {
+              "text": " the",
+              "start": 15.73,
+              "end": 15.89,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Thrones",
+              "start": 15.89,
+              "end": 16.11,
+              "probability": 0.036529541015625
+            },
+            {
+              "text": " above,",
+              "start": 16.11,
+              "end": 16.57,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " such",
+              "start": 17.13,
+              "end": 17.33,
+              "probability": 0.64111328125
+            },
+            {
+              "text": " majesty",
+              "start": 17.33,
+              "end": 17.89,
+              "probability": 0.505859375
+            },
+            {
+              "text": " Invests",
+              "start": 17.89,
+              "end": 18.37,
+              "probability": 0.4918212890625
+            },
+            {
+              "text": " him",
+              "start": 18.37,
+              "end": 18.55,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " coming,",
+              "start": 18.55,
+              "end": 18.89,
+              "probability": 0.994140625
+            },
+            {
+              "text": " yet",
+              "start": 19.57,
+              "end": 19.75,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " not",
+              "start": 19.75,
+              "end": 20.01,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " terrible,",
+              "start": 20.01,
+              "end": 20.45,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " That",
+              "start": 20.69,
+              "end": 20.79,
+              "probability": 0.361083984375
+            },
+            {
+              "text": " I",
+              "start": 20.79,
+              "end": 20.93,
+              "probability": 0.94140625
+            },
+            {
+              "text": " should",
+              "start": 20.93,
+              "end": 21.07,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " fear, nor sociably mild, As Raphael, that I should much confide.",
+          "start": 21.07,
+          "end": 25.15,
+          "words": [
+            {
+              "text": " fear,",
+              "start": 21.07,
+              "end": 21.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " nor",
+              "start": 21.95,
+              "end": 22.07,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " sociably",
+              "start": 22.07,
+              "end": 22.59,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " mild,",
+              "start": 22.59,
+              "end": 22.95,
+              "probability": 0.923828125
+            },
+            {
+              "text": " As",
+              "start": 23.25,
+              "end": 23.31,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " Raphael,",
+              "start": 23.31,
+              "end": 23.73,
+              "probability": 0.1966552734375
+            },
+            {
+              "text": " that",
+              "start": 23.95,
+              "end": 24.07,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " I",
+              "start": 24.07,
+              "end": 24.21,
+              "probability": 0.9921875
+            },
+            {
+              "text": " should",
+              "start": 24.21,
+              "end": 24.35,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " much",
+              "start": 24.35,
+              "end": 24.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " confide.",
+              "start": 24.55,
+              "end": 25.15,
+              "probability": 0.995849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Eve,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "now",
+          "start": 0.87,
+          "end": 1.01
+        },
+        {
+          "raw": "expect",
+          "start": 1.01,
+          "end": 1.39
+        },
+        {
+          "raw": "great",
+          "start": 1.39,
+          "end": 1.73
+        },
+        {
+          "raw": "tidings,",
+          "start": 1.73,
+          "end": 2.27
+        },
+        {
+          "raw": "which",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "raw": "perhaps",
+          "start": 2.75,
+          "end": 3.05
+        },
+        {
+          "raw": "Of",
+          "start": 3.05,
+          "end": 3.25
+        },
+        {
+          "raw": "us",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "raw": "will",
+          "start": 3.39,
+          "end": 3.57
+        },
+        {
+          "raw": "soon",
+          "start": 3.57,
+          "end": 3.79
+        },
+        {
+          "raw": "determine,",
+          "start": 3.79,
+          "end": 4.27
+        },
+        {
+          "raw": "or",
+          "start": 4.57,
+          "end": 4.65
+        },
+        {
+          "raw": "impose",
+          "start": 4.65,
+          "end": 5.01
+        },
+        {
+          "raw": "New",
+          "start": 5.01,
+          "end": 5.29
+        },
+        {
+          "raw": "laws",
+          "start": 5.29,
+          "end": 5.59
+        },
+        {
+          "raw": "To",
+          "start": 5.59,
+          "end": 5.81
+        },
+        {
+          "raw": "be",
+          "start": 5.81,
+          "end": 5.93
+        },
+        {
+          "raw": "observed,",
+          "start": 5.93,
+          "end": 6.35
+        },
+        {
+          "raw": "for",
+          "start": 6.89,
+          "end": 7.07
+        },
+        {
+          "raw": "I",
+          "start": 7.07,
+          "end": 7.29
+        },
+        {
+          "raw": "descry,",
+          "start": 7.29,
+          "end": 7.81
+        },
+        {
+          "raw": "From",
+          "start": 7.89,
+          "end": 8.07
+        },
+        {
+          "raw": "yonder",
+          "start": 8.07,
+          "end": 8.47
+        },
+        {
+          "raw": "blazing",
+          "start": 8.47,
+          "end": 8.91
+        },
+        {
+          "raw": "cloud",
+          "start": 8.91,
+          "end": 9.25
+        },
+        {
+          "raw": "that",
+          "start": 9.25,
+          "end": 9.47
+        },
+        {
+          "raw": "veils",
+          "start": 9.47,
+          "end": 9.83
+        },
+        {
+          "raw": "the",
+          "start": 9.83,
+          "end": 10.03
+        },
+        {
+          "raw": "hill,",
+          "start": 10.03,
+          "end": 10.27
+        },
+        {
+          "raw": "One",
+          "start": 10.73,
+          "end": 10.81
+        },
+        {
+          "raw": "of",
+          "start": 10.81,
+          "end": 10.91
+        },
+        {
+          "raw": "the",
+          "start": 10.91,
+          "end": 11.01
+        },
+        {
+          "raw": "heavenly",
+          "start": 11.01,
+          "end": 11.29
+        },
+        {
+          "raw": "host,",
+          "start": 11.29,
+          "end": 11.65
+        },
+        {
+          "raw": "and",
+          "start": 12.19,
+          "end": 12.45
+        },
+        {
+          "raw": "by",
+          "start": 12.45,
+          "end": 12.59
+        },
+        {
+          "raw": "his",
+          "start": 12.59,
+          "end": 12.75
+        },
+        {
+          "raw": "gait,",
+          "start": 12.75,
+          "end": 13.05
+        },
+        {
+          "raw": "None",
+          "start": 13.19,
+          "end": 13.25
+        },
+        {
+          "raw": "of",
+          "start": 13.25,
+          "end": 13.39
+        },
+        {
+          "raw": "the",
+          "start": 13.39,
+          "end": 13.49
+        },
+        {
+          "raw": "meanest,",
+          "start": 13.49,
+          "end": 13.95
+        },
+        {
+          "raw": "some",
+          "start": 14.31,
+          "end": 14.51
+        },
+        {
+          "raw": "great",
+          "start": 14.51,
+          "end": 14.79
+        },
+        {
+          "raw": "Potentate",
+          "start": 14.79,
+          "end": 15.37
+        },
+        {
+          "raw": "Or",
+          "start": 15.37,
+          "end": 15.59
+        },
+        {
+          "raw": "of",
+          "start": 15.59,
+          "end": 15.73
+        },
+        {
+          "raw": "the",
+          "start": 15.73,
+          "end": 15.89
+        },
+        {
+          "raw": "Thrones",
+          "start": 15.89,
+          "end": 16.11
+        },
+        {
+          "raw": "above,",
+          "start": 16.11,
+          "end": 16.57
+        },
+        {
+          "raw": "such",
+          "start": 17.13,
+          "end": 17.33
+        },
+        {
+          "raw": "majesty",
+          "start": 17.33,
+          "end": 17.89
+        },
+        {
+          "raw": "Invests",
+          "start": 17.89,
+          "end": 18.37
+        },
+        {
+          "raw": "him",
+          "start": 18.37,
+          "end": 18.55
+        },
+        {
+          "raw": "coming,",
+          "start": 18.55,
+          "end": 18.89
+        },
+        {
+          "raw": "yet",
+          "start": 19.57,
+          "end": 19.75
+        },
+        {
+          "raw": "not",
+          "start": 19.75,
+          "end": 20.01
+        },
+        {
+          "raw": "terrible,",
+          "start": 20.01,
+          "end": 20.45
+        },
+        {
+          "raw": "That",
+          "start": 20.69,
+          "end": 20.79
+        },
+        {
+          "raw": "I",
+          "start": 20.79,
+          "end": 20.93
+        },
+        {
+          "raw": "should",
+          "start": 20.93,
+          "end": 21.07
+        },
+        {
+          "raw": "fear,",
+          "start": 21.07,
+          "end": 21.47
+        },
+        {
+          "raw": "nor",
+          "start": 21.95,
+          "end": 22.07
+        },
+        {
+          "raw": "sociably",
+          "start": 22.07,
+          "end": 22.59
+        },
+        {
+          "raw": "mild,",
+          "start": 22.59,
+          "end": 22.95
+        },
+        {
+          "raw": "As",
+          "start": 23.25,
+          "end": 23.31
+        },
+        {
+          "raw": "Raphael,",
+          "start": 23.31,
+          "end": 23.73
+        },
+        {
+          "raw": "that",
+          "start": 23.95,
+          "end": 24.07
+        },
+        {
+          "raw": "I",
+          "start": 24.07,
+          "end": 24.21
+        },
+        {
+          "raw": "should",
+          "start": 24.21,
+          "end": 24.35
+        },
+        {
+          "raw": "much",
+          "start": 24.35,
+          "end": 24.55
+        },
+        {
+          "raw": "confide.",
+          "start": 24.55,
+          "end": 25.15
+        }
+      ],
+      "expected_tokens": [
+        "Eve,",
+        "now",
+        "expect",
+        "great",
+        "tidings,",
+        "which",
+        "perhaps",
+        "Of",
+        "us",
+        "will",
+        "soon",
+        "determine,",
+        "or",
+        "impose",
+        "New",
+        "laws",
+        "to",
+        "be",
+        "observed;",
+        "for",
+        "I",
+        "descry,",
+        "From",
+        "yonder",
+        "blazing",
+        "cloud",
+        "that",
+        "veils",
+        "the",
+        "hill,",
+        "One",
+        "of",
+        "the",
+        "heavenly",
+        "host;",
+        "and,",
+        "by",
+        "his",
+        "gait,",
+        "None",
+        "of",
+        "the",
+        "meanest;",
+        "some",
+        "great",
+        "Potentate",
+        "Or",
+        "of",
+        "the",
+        "Thrones",
+        "above;",
+        "such",
+        "majesty",
+        "Invests",
+        "him",
+        "coming!",
+        "yet",
+        "not",
+        "terrible,",
+        "That",
+        "I",
+        "should",
+        "fear;",
+        "nor",
+        "sociably",
+        "mild,",
+        "As",
+        "Raphael,",
+        "that",
+        "I",
+        "should",
+        "much",
+        "confide;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          73,
+          0,
+          73
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Eve,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "eve",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.87,
+          "end": 1.01,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "expect",
+          "start": 1.01,
+          "end": 1.39,
+          "key": "expect",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 1.39,
+          "end": 1.73,
+          "key": "great",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tidings,",
+          "start": 1.73,
+          "end": 2.27,
+          "key": "tidings",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 2.59,
+          "end": 2.75,
+          "key": "which",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "perhaps",
+          "start": 2.75,
+          "end": 3.05,
+          "key": "perhaps",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 3.05,
+          "end": 3.25,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 3.25,
+          "end": 3.39,
+          "key": "us",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.39,
+          "end": 3.57,
+          "key": "will",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "soon",
+          "start": 3.57,
+          "end": 3.79,
+          "key": "soon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "determine,",
+          "start": 3.79,
+          "end": 4.27,
+          "key": "determine",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 4.57,
+          "end": 4.65,
+          "key": "or",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "impose",
+          "start": 4.65,
+          "end": 5.01,
+          "key": "impose",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "New",
+          "start": 5.01,
+          "end": 5.29,
+          "key": "new",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "laws",
+          "start": 5.29,
+          "end": 5.59,
+          "key": "laws",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 5.59,
+          "end": 5.81,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.81,
+          "end": 5.93,
+          "key": "be",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "observed,",
+          "start": 5.93,
+          "end": 6.35,
+          "key": "observed",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 6.89,
+          "end": 7.07,
+          "key": "for",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.07,
+          "end": 7.29,
+          "key": "i",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "descry,",
+          "start": 7.29,
+          "end": 7.81,
+          "key": "descry",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "From",
+          "start": 7.89,
+          "end": 8.07,
+          "key": "from",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "yonder",
+          "start": 8.07,
+          "end": 8.47,
+          "key": "yonder",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "blazing",
+          "start": 8.47,
+          "end": 8.91,
+          "key": "blazing",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "cloud",
+          "start": 8.91,
+          "end": 9.25,
+          "key": "cloud",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 9.25,
+          "end": 9.47,
+          "key": "that",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "veils",
+          "start": 9.47,
+          "end": 9.83,
+          "key": "veils",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.83,
+          "end": 10.03,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "hill,",
+          "start": 10.03,
+          "end": 10.27,
+          "key": "hill",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "One",
+          "start": 10.73,
+          "end": 10.81,
+          "key": "one",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.81,
+          "end": 10.91,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.91,
+          "end": 11.01,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "heavenly",
+          "start": 11.01,
+          "end": 11.29,
+          "key": "heavenly",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "host,",
+          "start": 11.29,
+          "end": 11.65,
+          "key": "host",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.19,
+          "end": 12.45,
+          "key": "and",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 12.45,
+          "end": 12.59,
+          "key": "by",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 12.59,
+          "end": 12.75,
+          "key": "his",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "gait,",
+          "start": 12.75,
+          "end": 13.05,
+          "key": "gait",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "None",
+          "start": 13.19,
+          "end": 13.25,
+          "key": "none",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.25,
+          "end": 13.39,
+          "key": "of",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.39,
+          "end": 13.49,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "meanest,",
+          "start": 13.49,
+          "end": 13.95,
+          "key": "meanest",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 14.31,
+          "end": 14.51,
+          "key": "some",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 14.51,
+          "end": 14.79,
+          "key": "great",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Potentate",
+          "start": 14.79,
+          "end": 15.37,
+          "key": "potentate",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 15.37,
+          "end": 15.59,
+          "key": "or",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 15.59,
+          "end": 15.73,
+          "key": "of",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.73,
+          "end": 15.89,
+          "key": "the",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Thrones",
+          "start": 15.89,
+          "end": 16.11,
+          "key": "thrones",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "above,",
+          "start": 16.11,
+          "end": 16.57,
+          "key": "above",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 17.13,
+          "end": 17.33,
+          "key": "such",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "majesty",
+          "start": 17.33,
+          "end": 17.89,
+          "key": "majesty",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Invests",
+          "start": 17.89,
+          "end": 18.37,
+          "key": "invests",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 18.37,
+          "end": 18.55,
+          "key": "him",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "coming,",
+          "start": 18.55,
+          "end": 18.89,
+          "key": "coming",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 19.57,
+          "end": 19.75,
+          "key": "yet",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 19.75,
+          "end": 20.01,
+          "key": "not",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "terrible,",
+          "start": 20.01,
+          "end": 20.45,
+          "key": "terrible",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 20.69,
+          "end": 20.79,
+          "key": "that",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 20.79,
+          "end": 20.93,
+          "key": "i",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 20.93,
+          "end": 21.07,
+          "key": "should",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "fear,",
+          "start": 21.07,
+          "end": 21.47,
+          "key": "fear",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 21.95,
+          "end": 22.07,
+          "key": "nor",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "sociably",
+          "start": 22.07,
+          "end": 22.59,
+          "key": "sociably",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "mild,",
+          "start": 22.59,
+          "end": 22.95,
+          "key": "mild",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 23.25,
+          "end": 23.31,
+          "key": "as",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "Raphael,",
+          "start": 23.31,
+          "end": 23.73,
+          "key": "raphael",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 23.95,
+          "end": 24.07,
+          "key": "that",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 24.07,
+          "end": 24.21,
+          "key": "i",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 24.21,
+          "end": 24.35,
+          "key": "should",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 24.35,
+          "end": 24.55,
+          "key": "much",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "confide.",
+          "start": 24.55,
+          "end": 25.15,
+          "key": "confide",
+          "pieces": [
+            72
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Eve,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "now",
+          "start": 0.87,
+          "end": 1.01
+        },
+        {
+          "text": "expect",
+          "start": 1.01,
+          "end": 1.39
+        },
+        {
+          "text": "great",
+          "start": 1.39,
+          "end": 1.73
+        },
+        {
+          "text": "tidings,",
+          "start": 1.73,
+          "end": 2.27
+        },
+        {
+          "text": "which",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "text": "perhaps",
+          "start": 2.75,
+          "end": 3.05
+        },
+        {
+          "text": "Of",
+          "start": 3.05,
+          "end": 3.25
+        },
+        {
+          "text": "us",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "text": "will",
+          "start": 3.39,
+          "end": 3.57
+        },
+        {
+          "text": "soon",
+          "start": 3.57,
+          "end": 3.79
+        },
+        {
+          "text": "determine,",
+          "start": 3.79,
+          "end": 4.27
+        },
+        {
+          "text": "or",
+          "start": 4.57,
+          "end": 4.65
+        },
+        {
+          "text": "impose",
+          "start": 4.65,
+          "end": 5.01
+        },
+        {
+          "text": "New",
+          "start": 5.01,
+          "end": 5.29
+        },
+        {
+          "text": "laws",
+          "start": 5.29,
+          "end": 5.59
+        },
+        {
+          "text": "to",
+          "start": 5.59,
+          "end": 5.81
+        },
+        {
+          "text": "be",
+          "start": 5.81,
+          "end": 5.93
+        },
+        {
+          "text": "observed;",
+          "start": 5.93,
+          "end": 6.35
+        },
+        {
+          "text": "for",
+          "start": 6.89,
+          "end": 7.07
+        },
+        {
+          "text": "I",
+          "start": 7.07,
+          "end": 7.29
+        },
+        {
+          "text": "descry,",
+          "start": 7.29,
+          "end": 7.81
+        },
+        {
+          "text": "From",
+          "start": 7.89,
+          "end": 8.07
+        },
+        {
+          "text": "yonder",
+          "start": 8.07,
+          "end": 8.47
+        },
+        {
+          "text": "blazing",
+          "start": 8.47,
+          "end": 8.91
+        },
+        {
+          "text": "cloud",
+          "start": 8.91,
+          "end": 9.25
+        },
+        {
+          "text": "that",
+          "start": 9.25,
+          "end": 9.47
+        },
+        {
+          "text": "veils",
+          "start": 9.47,
+          "end": 9.83
+        },
+        {
+          "text": "the",
+          "start": 9.83,
+          "end": 10.03
+        },
+        {
+          "text": "hill,",
+          "start": 10.03,
+          "end": 10.27
+        },
+        {
+          "text": "One",
+          "start": 10.73,
+          "end": 10.81
+        },
+        {
+          "text": "of",
+          "start": 10.81,
+          "end": 10.91
+        },
+        {
+          "text": "the",
+          "start": 10.91,
+          "end": 11.01
+        },
+        {
+          "text": "heavenly",
+          "start": 11.01,
+          "end": 11.29
+        },
+        {
+          "text": "host;",
+          "start": 11.29,
+          "end": 11.65
+        },
+        {
+          "text": "and,",
+          "start": 12.19,
+          "end": 12.45
+        },
+        {
+          "text": "by",
+          "start": 12.45,
+          "end": 12.59
+        },
+        {
+          "text": "his",
+          "start": 12.59,
+          "end": 12.75
+        },
+        {
+          "text": "gait,",
+          "start": 12.75,
+          "end": 13.05
+        },
+        {
+          "text": "None",
+          "start": 13.19,
+          "end": 13.25
+        },
+        {
+          "text": "of",
+          "start": 13.25,
+          "end": 13.39
+        },
+        {
+          "text": "the",
+          "start": 13.39,
+          "end": 13.49
+        },
+        {
+          "text": "meanest;",
+          "start": 13.49,
+          "end": 13.95
+        },
+        {
+          "text": "some",
+          "start": 14.31,
+          "end": 14.51
+        },
+        {
+          "text": "great",
+          "start": 14.51,
+          "end": 14.79
+        },
+        {
+          "text": "Potentate",
+          "start": 14.79,
+          "end": 15.37
+        },
+        {
+          "text": "Or",
+          "start": 15.37,
+          "end": 15.59
+        },
+        {
+          "text": "of",
+          "start": 15.59,
+          "end": 15.73
+        },
+        {
+          "text": "the",
+          "start": 15.73,
+          "end": 15.89
+        },
+        {
+          "text": "Thrones",
+          "start": 15.89,
+          "end": 16.11
+        },
+        {
+          "text": "above;",
+          "start": 16.11,
+          "end": 16.57
+        },
+        {
+          "text": "such",
+          "start": 17.13,
+          "end": 17.33
+        },
+        {
+          "text": "majesty",
+          "start": 17.33,
+          "end": 17.89
+        },
+        {
+          "text": "Invests",
+          "start": 17.89,
+          "end": 18.37
+        },
+        {
+          "text": "him",
+          "start": 18.37,
+          "end": 18.55
+        },
+        {
+          "text": "coming!",
+          "start": 18.55,
+          "end": 18.89
+        },
+        {
+          "text": "yet",
+          "start": 19.57,
+          "end": 19.75
+        },
+        {
+          "text": "not",
+          "start": 19.75,
+          "end": 20.01
+        },
+        {
+          "text": "terrible,",
+          "start": 20.01,
+          "end": 20.45
+        },
+        {
+          "text": "That",
+          "start": 20.69,
+          "end": 20.79
+        },
+        {
+          "text": "I",
+          "start": 20.79,
+          "end": 20.93
+        },
+        {
+          "text": "should",
+          "start": 20.93,
+          "end": 21.07
+        },
+        {
+          "text": "fear;",
+          "start": 21.07,
+          "end": 21.47
+        },
+        {
+          "text": "nor",
+          "start": 21.95,
+          "end": 22.07
+        },
+        {
+          "text": "sociably",
+          "start": 22.07,
+          "end": 22.59
+        },
+        {
+          "text": "mild,",
+          "start": 22.59,
+          "end": 22.95
+        },
+        {
+          "text": "As",
+          "start": 23.25,
+          "end": 23.31
+        },
+        {
+          "text": "Raphael,",
+          "start": 23.31,
+          "end": 23.73
+        },
+        {
+          "text": "that",
+          "start": 23.95,
+          "end": 24.07
+        },
+        {
+          "text": "I",
+          "start": 24.07,
+          "end": 24.21
+        },
+        {
+          "text": "should",
+          "start": 24.21,
+          "end": 24.35
+        },
+        {
+          "text": "much",
+          "start": 24.35,
+          "end": 24.55
+        },
+        {
+          "text": "confide;",
+          "start": 24.55,
+          "end": 25.15
+        }
+      ],
+      "stats": {
+        "expected_words": 73,
+        "heard_words": 73,
+        "matched_words": 73
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7241383790969849
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "54ea5202567d4073b0f18fd549790a51ed17f1d503a1813c848fca69658ad6bf",
+  "selected_reasons": []
+}

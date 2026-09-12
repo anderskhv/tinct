@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "cca819da2aeb33713530d97e39337d0b108c619c43fe96795ca92e0b44abde6c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1996668390929699,
+      "alignment_seconds": 0.00025222543627023697,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First, which? Lesser the Macbeth and greater.",
+          "start": 0.05,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.77734375
+            },
+            {
+              "text": " which?",
+              "start": 0.85,
+              "end": 0.93,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " Lesser",
+              "start": 1.53,
+              "end": 1.73,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 1.73,
+              "end": 1.81,
+              "probability": 0.498291015625
+            },
+            {
+              "text": " Macbeth",
+              "start": 1.81,
+              "end": 2.21,
+              "probability": 0.9173177083333334
+            },
+            {
+              "text": " and",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " greater.",
+              "start": 2.39,
+              "end": 2.63,
+              "probability": 0.94921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "which?",
+          "start": 0.85,
+          "end": 0.93
+        },
+        {
+          "raw": "Lesser",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "raw": "the",
+          "start": 1.73,
+          "end": 1.81
+        },
+        {
+          "raw": "Macbeth",
+          "start": 1.81,
+          "end": 2.21
+        },
+        {
+          "raw": "and",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "greater.",
+          "start": 2.39,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Witch.",
+        "Lesser",
+        "than",
+        "Macbeth,",
+        "and",
+        "greater."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "which?",
+          "start": 0.85,
+          "end": 0.93,
+          "key": "which",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lesser",
+          "start": 1.53,
+          "end": 1.73,
+          "key": "lesser",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.73,
+          "end": 1.81,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Macbeth",
+          "start": 1.81,
+          "end": 2.21,
+          "key": "macbeth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "greater.",
+          "start": 2.39,
+          "end": 2.63,
+          "key": "greater",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Witch.",
+          "start": 0.67,
+          "end": 1.1
+        },
+        {
+          "text": "Lesser",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "text": "than",
+          "start": 1.73,
+          "end": 1.77
+        },
+        {
+          "text": "Macbeth,",
+          "start": 1.81,
+          "end": 2.21
+        },
+        {
+          "text": "and",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "greater.",
+          "start": 2.39,
+          "end": 2.63
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20001205895096064
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eeee1822ade67a548c9243af5d43051106ea5e8e13e8eb4786f42c22e3ee13cd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

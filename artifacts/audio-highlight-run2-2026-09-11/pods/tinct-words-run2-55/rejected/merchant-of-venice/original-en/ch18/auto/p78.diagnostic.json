@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "6db89e823458200f195c3fbf2cedc9922a1468098fa50a2e53be951a78166a96",
+  "attempts": [
+    {
+      "asr_seconds": 0.29792977310717106,
+      "alignment_seconds": 0.0008371220901608467,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Portia. Have by some surgeon, Shylock, on your charge, To stop his wounds, lest he do bleed to death.",
+        "hotwords": "Portia, Have, Shylock"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Portia, Have by some surgeon, Shylock, on your charge, To stop his wounds, lest he do bleed to death.",
+          "start": 0.05,
+          "end": 6.39,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.59130859375
+            },
+            {
+              "text": " Have",
+              "start": 1.15,
+              "end": 1.41,
+              "probability": 0.01337432861328125
+            },
+            {
+              "text": " by",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " some",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.98828125
+            },
+            {
+              "text": " surgeon,",
+              "start": 1.75,
+              "end": 2.17,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Shylock,",
+              "start": 2.55,
+              "end": 2.85,
+              "probability": 0.9342447916666666
+            },
+            {
+              "text": " on",
+              "start": 2.85,
+              "end": 2.99,
+              "probability": 0.94921875
+            },
+            {
+              "text": " your",
+              "start": 2.99,
+              "end": 3.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " charge,",
+              "start": 3.13,
+              "end": 3.39,
+              "probability": 0.990234375
+            },
+            {
+              "text": " To",
+              "start": 3.67,
+              "end": 3.75,
+              "probability": 0.50048828125
+            },
+            {
+              "text": " stop",
+              "start": 3.75,
+              "end": 3.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 3.99,
+              "end": 4.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " wounds,",
+              "start": 4.19,
+              "end": 4.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " lest",
+              "start": 5.09,
+              "end": 5.23,
+              "probability": 0.68701171875
+            },
+            {
+              "text": " he",
+              "start": 5.23,
+              "end": 5.43,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " do",
+              "start": 5.43,
+              "end": 5.61,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " bleed",
+              "start": 5.61,
+              "end": 5.91,
+              "probability": 0.974609375
+            },
+            {
+              "text": " to",
+              "start": 5.91,
+              "end": 6.13,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " death.",
+              "start": 6.13,
+              "end": 6.39,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Have",
+          "start": 1.15,
+          "end": 1.41
+        },
+        {
+          "raw": "by",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "some",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "surgeon,",
+          "start": 1.75,
+          "end": 2.17
+        },
+        {
+          "raw": "Shylock,",
+          "start": 2.55,
+          "end": 2.85
+        },
+        {
+          "raw": "on",
+          "start": 2.85,
+          "end": 2.99
+        },
+        {
+          "raw": "your",
+          "start": 2.99,
+          "end": 3.13
+        },
+        {
+          "raw": "charge,",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "raw": "To",
+          "start": 3.67,
+          "end": 3.75
+        },
+        {
+          "raw": "stop",
+          "start": 3.75,
+          "end": 3.99
+        },
+        {
+          "raw": "his",
+          "start": 3.99,
+          "end": 4.19
+        },
+        {
+          "raw": "wounds,",
+          "start": 4.19,
+          "end": 4.69
+        },
+        {
+          "raw": "lest",
+          "start": 5.09,
+          "end": 5.23
+        },
+        {
+          "raw": "he",
+          "start": 5.23,
+          "end": 5.43
+        },
+        {
+          "raw": "do",
+          "start": 5.43,
+          "end": 5.61
+        },
+        {
+          "raw": "bleed",
+          "start": 5.61,
+          "end": 5.91
+        },
+        {
+          "raw": "to",
+          "start": 5.91,
+          "end": 6.13
+        },
+        {
+          "raw": "death.",
+          "start": 6.13,
+          "end": 6.39
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "Have",
+        "by",
+        "some",
+        "surgeon,",
+        "Shylock,",
+        "on",
+        "your",
+        "charge,",
+        "To",
+        "stop",
+        "his",
+        "wounds,",
+        "lest",
+        "he",
+        "do",
+        "bleed",
+        "to",
+        "death."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 1.15,
+          "end": 1.41,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "by",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 1.57,
+          "end": 1.75,
+          "key": "some",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "surgeon,",
+          "start": 1.75,
+          "end": 2.17,
+          "key": "surgeon",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Shylock,",
+          "start": 2.55,
+          "end": 2.85,
+          "key": "shylock",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.85,
+          "end": 2.99,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.99,
+          "end": 3.13,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "charge,",
+          "start": 3.13,
+          "end": 3.39,
+          "key": "charge",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 3.67,
+          "end": 3.75,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "stop",
+          "start": 3.75,
+          "end": 3.99,
+          "key": "stop",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.99,
+          "end": 4.19,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "wounds,",
+          "start": 4.19,
+          "end": 4.69,
+          "key": "wounds",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "lest",
+          "start": 5.09,
+          "end": 5.23,
+          "key": "lest",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.23,
+          "end": 5.43,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 5.43,
+          "end": 5.61,
+          "key": "do",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "bleed",
+          "start": 5.61,
+          "end": 5.91,
+          "key": "bleed",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.91,
+          "end": 6.13,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "death.",
+          "start": 6.13,
+          "end": 6.39,
+          "key": "death",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Have",
+          "start": 1.15,
+          "end": 1.41
+        },
+        {
+          "text": "by",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "some",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "surgeon,",
+          "start": 1.75,
+          "end": 2.17
+        },
+        {
+          "text": "Shylock,",
+          "start": 2.55,
+          "end": 2.85
+        },
+        {
+          "text": "on",
+          "start": 2.85,
+          "end": 2.99
+        },
+        {
+          "text": "your",
+          "start": 2.99,
+          "end": 3.13
+        },
+        {
+          "text": "charge,",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "text": "To",
+          "start": 3.67,
+          "end": 3.75
+        },
+        {
+          "text": "stop",
+          "start": 3.75,
+          "end": 3.99
+        },
+        {
+          "text": "his",
+          "start": 3.99,
+          "end": 4.19
+        },
+        {
+          "text": "wounds,",
+          "start": 4.19,
+          "end": 4.69
+        },
+        {
+          "text": "lest",
+          "start": 5.09,
+          "end": 5.23
+        },
+        {
+          "text": "he",
+          "start": 5.23,
+          "end": 5.43
+        },
+        {
+          "text": "do",
+          "start": 5.43,
+          "end": 5.61
+        },
+        {
+          "text": "bleed",
+          "start": 5.61,
+          "end": 5.91
+        },
+        {
+          "text": "to",
+          "start": 5.91,
+          "end": 6.13
+        },
+        {
+          "text": "death.",
+          "start": 6.13,
+          "end": 6.39
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.299189954996109
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8bcc9ffb044e2a978d47406dbcf8a45ca9d2c4e4c1e80916f05dfd6e92f909af",
+  "selected_reasons": []
+}

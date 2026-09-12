@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "592791d8c73a88a9494d2f49b0a9651bc08bbf4b4c7890b68312da3a4eb20206",
+  "attempts": [
+    {
+      "asr_seconds": 0.185700214933604,
+      "alignment_seconds": 0.0002932990901172161,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Coriolanus. Stand fast! We have as many friends as enemies.",
+        "hotwords": "Coriolanus, Stand, We"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, Stand fast! We have as many friends as enemies.",
+          "start": 0.05,
+          "end": 3.93,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.05,
+              "end": 1.13,
+              "probability": 0.6853841145833334
+            },
+            {
+              "text": " Stand",
+              "start": 1.61,
+              "end": 1.71,
+              "probability": 0.08001708984375
+            },
+            {
+              "text": " fast!",
+              "start": 1.71,
+              "end": 2.09,
+              "probability": 0.6318359375
+            },
+            {
+              "text": " We",
+              "start": 2.61,
+              "end": 2.71,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " have",
+              "start": 2.71,
+              "end": 2.85,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " as",
+              "start": 2.85,
+              "end": 2.95,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " many",
+              "start": 2.95,
+              "end": 3.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " friends",
+              "start": 3.13,
+              "end": 3.41,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " as",
+              "start": 3.41,
+              "end": 3.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " enemies.",
+              "start": 3.65,
+              "end": 3.93,
+              "probability": 0.974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.05,
+          "end": 1.13
+        },
+        {
+          "raw": "Stand",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "raw": "fast!",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "raw": "We",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "raw": "have",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "raw": "as",
+          "start": 2.85,
+          "end": 2.95
+        },
+        {
+          "raw": "many",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "raw": "friends",
+          "start": 3.13,
+          "end": 3.41
+        },
+        {
+          "raw": "as",
+          "start": 3.41,
+          "end": 3.65
+        },
+        {
+          "raw": "enemies.",
+          "start": 3.65,
+          "end": 3.93
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "Stand",
+        "fast!",
+        "We",
+        "have",
+        "as",
+        "many",
+        "friends",
+        "as",
+        "enemies."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.05,
+          "end": 1.13,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Stand",
+          "start": 1.61,
+          "end": 1.71,
+          "key": "stand",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fast!",
+          "start": 1.71,
+          "end": 2.09,
+          "key": "fast",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 2.61,
+          "end": 2.71,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.71,
+          "end": 2.85,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.85,
+          "end": 2.95,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 2.95,
+          "end": 3.13,
+          "key": "many",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "friends",
+          "start": 3.13,
+          "end": 3.41,
+          "key": "friends",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.41,
+          "end": 3.65,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "enemies.",
+          "start": 3.65,
+          "end": 3.93,
+          "key": "enemies",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.05,
+          "end": 1.13
+        },
+        {
+          "text": "Stand",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "text": "fast!",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "text": "We",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "text": "have",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "text": "as",
+          "start": 2.85,
+          "end": 2.95
+        },
+        {
+          "text": "many",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "text": "friends",
+          "start": 3.13,
+          "end": 3.41
+        },
+        {
+          "text": "as",
+          "start": 3.41,
+          "end": 3.65
+        },
+        {
+          "text": "enemies.",
+          "start": 3.65,
+          "end": 3.93
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18612092779949307
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "60f0c8a8f0420a16f1bf6bc2918eb1da149f6b93f2b43d960485a927eac254f3",
+  "selected_reasons": []
+}

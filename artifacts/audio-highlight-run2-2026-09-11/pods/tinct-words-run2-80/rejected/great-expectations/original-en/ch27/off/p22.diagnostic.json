@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "b93473cce9dd848f74b6ca3ffd2e26dd3be92627ee1620e762d20661f1746d93",
+  "attempts": [
+    {
+      "asr_seconds": 0.2598302811384201,
+      "alignment_seconds": 0.0004569999873638153,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Were you at his performance Joe I inquired",
+          "start": 0.02,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " Were",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " you",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 0.7,
+              "end": 0.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " his",
+              "start": 0.82,
+              "end": 0.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " performance",
+              "start": 0.96,
+              "end": 1.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Joe",
+              "start": 1.42,
+              "end": 1.8,
+              "probability": 0.3466796875
+            },
+            {
+              "text": " I",
+              "start": 1.8,
+              "end": 2.34,
+              "probability": 0.281494140625
+            },
+            {
+              "text": " inquired",
+              "start": 2.34,
+              "end": 2.68,
+              "probability": 0.97607421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Were",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "at",
+          "start": 0.7,
+          "end": 0.82
+        },
+        {
+          "raw": "his",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "raw": "performance",
+          "start": 0.96,
+          "end": 1.42
+        },
+        {
+          "raw": "Joe",
+          "start": 1.42,
+          "end": 1.8
+        },
+        {
+          "raw": "I",
+          "start": 1.8,
+          "end": 2.34
+        },
+        {
+          "raw": "inquired",
+          "start": 2.34,
+          "end": 2.68
+        }
+      ],
+      "expected_tokens": [
+        "\"Were",
+        "you",
+        "at",
+        "his",
+        "performance,",
+        "Joe?\"",
+        "I",
+        "inquired."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Were",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "were",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.7,
+          "end": 0.82,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.82,
+          "end": 0.96,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "performance",
+          "start": 0.96,
+          "end": 1.42,
+          "key": "performance",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Joe",
+          "start": 1.42,
+          "end": 1.8,
+          "key": "joe",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.8,
+          "end": 2.34,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "inquired",
+          "start": 2.34,
+          "end": 2.68,
+          "key": "inquired",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Were",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "you",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "at",
+          "start": 0.7,
+          "end": 0.82
+        },
+        {
+          "text": "his",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "text": "performance,",
+          "start": 0.96,
+          "end": 1.42
+        },
+        {
+          "text": "Joe?\"",
+          "start": 1.42,
+          "end": 1.8
+        },
+        {
+          "text": "I",
+          "start": 1.8,
+          "end": 2.34
+        },
+        {
+          "text": "inquired.",
+          "start": 2.34,
+          "end": 2.68
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26045520417392254
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "01ed9dc075f99cc825c19102b594989a969fb3379c5f5bdf036fc7ee585e44ca",
+  "selected_reasons": []
+}

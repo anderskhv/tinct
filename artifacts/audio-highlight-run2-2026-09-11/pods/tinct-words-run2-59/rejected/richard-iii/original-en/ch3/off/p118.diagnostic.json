@@ -1,0 +1,646 @@
+{
+  "complete": true,
+  "signature": "db0698689c0a63e1ec1fa0124488884eb6c69be3e7e457905a030042e711e56b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3426496419124305,
+      "alignment_seconds": 0.0005047200247645378,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cat Espy, madam, his majesty doth call for you, and for your grace and you, my gracious",
+          "start": 0.0,
+          "end": 5.54,
+          "words": [
+            {
+              "text": " Cat",
+              "start": 0.0,
+              "end": 0.58,
+              "probability": 0.131591796875
+            },
+            {
+              "text": " Espy,",
+              "start": 0.58,
+              "end": 1.04,
+              "probability": 0.5386962890625
+            },
+            {
+              "text": " madam,",
+              "start": 1.54,
+              "end": 1.84,
+              "probability": 0.7034912109375
+            },
+            {
+              "text": " his",
+              "start": 2.1,
+              "end": 2.18,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " majesty",
+              "start": 2.18,
+              "end": 2.58,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " doth",
+              "start": 2.58,
+              "end": 2.88,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " call",
+              "start": 2.88,
+              "end": 3.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 3.1,
+              "end": 3.3,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you,",
+              "start": 3.3,
+              "end": 3.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 3.7,
+              "end": 3.82,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " for",
+              "start": 3.82,
+              "end": 3.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " your",
+              "start": 3.94,
+              "end": 4.08,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " grace",
+              "start": 4.08,
+              "end": 4.38,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " and",
+              "start": 4.38,
+              "end": 4.66,
+              "probability": 0.7109375
+            },
+            {
+              "text": " you,",
+              "start": 4.66,
+              "end": 4.92,
+              "probability": 0.984375
+            },
+            {
+              "text": " my",
+              "start": 4.98,
+              "end": 5.14,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " gracious",
+              "start": 5.14,
+              "end": 5.54,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " lords.",
+          "start": 5.54,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " lords.",
+              "start": 5.54,
+              "end": 5.92,
+              "probability": 0.75244140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cat",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "raw": "Espy,",
+          "start": 0.58,
+          "end": 1.04
+        },
+        {
+          "raw": "madam,",
+          "start": 1.54,
+          "end": 1.84
+        },
+        {
+          "raw": "his",
+          "start": 2.1,
+          "end": 2.18
+        },
+        {
+          "raw": "majesty",
+          "start": 2.18,
+          "end": 2.58
+        },
+        {
+          "raw": "doth",
+          "start": 2.58,
+          "end": 2.88
+        },
+        {
+          "raw": "call",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "raw": "for",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "raw": "you,",
+          "start": 3.3,
+          "end": 3.48
+        },
+        {
+          "raw": "and",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "raw": "for",
+          "start": 3.82,
+          "end": 3.94
+        },
+        {
+          "raw": "your",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "raw": "grace",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "raw": "and",
+          "start": 4.38,
+          "end": 4.66
+        },
+        {
+          "raw": "you,",
+          "start": 4.66,
+          "end": 4.92
+        },
+        {
+          "raw": "my",
+          "start": 4.98,
+          "end": 5.14
+        },
+        {
+          "raw": "gracious",
+          "start": 5.14,
+          "end": 5.54
+        },
+        {
+          "raw": "lords.",
+          "start": 5.54,
+          "end": 5.92
+        }
+      ],
+      "expected_tokens": [
+        "Catesby.",
+        "Madam,",
+        "his",
+        "Majesty",
+        "doth",
+        "call",
+        "for",
+        "you,",
+        "And",
+        "for",
+        "your",
+        "Grace,",
+        "and",
+        "you,",
+        "my",
+        "gracious",
+        "lords."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          17,
+          2,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cat",
+          "start": 0.0,
+          "end": 0.58,
+          "key": "cat",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Espy,",
+          "start": 0.58,
+          "end": 1.04,
+          "key": "espy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "madam,",
+          "start": 1.54,
+          "end": 1.84,
+          "key": "madam",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.1,
+          "end": 2.18,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "majesty",
+          "start": 2.18,
+          "end": 2.58,
+          "key": "majesty",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 2.58,
+          "end": 2.88,
+          "key": "doth",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 2.88,
+          "end": 3.1,
+          "key": "call",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.1,
+          "end": 3.3,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 3.3,
+          "end": 3.48,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.7,
+          "end": 3.82,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.82,
+          "end": 3.94,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.94,
+          "end": 4.08,
+          "key": "your",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "grace",
+          "start": 4.08,
+          "end": 4.38,
+          "key": "grace",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.38,
+          "end": 4.66,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 4.66,
+          "end": 4.92,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.98,
+          "end": 5.14,
+          "key": "my",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "gracious",
+          "start": 5.14,
+          "end": 5.54,
+          "key": "gracious",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "lords.",
+          "start": 5.54,
+          "end": 5.92,
+          "key": "lords",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Catesby.",
+          "start": 0.0,
+          "end": 0.77
+        },
+        {
+          "text": "Madam,",
+          "start": 1.54,
+          "end": 1.84
+        },
+        {
+          "text": "his",
+          "start": 2.1,
+          "end": 2.18
+        },
+        {
+          "text": "Majesty",
+          "start": 2.18,
+          "end": 2.58
+        },
+        {
+          "text": "doth",
+          "start": 2.58,
+          "end": 2.88
+        },
+        {
+          "text": "call",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "text": "for",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "text": "you,",
+          "start": 3.3,
+          "end": 3.48
+        },
+        {
+          "text": "And",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "text": "for",
+          "start": 3.82,
+          "end": 3.94
+        },
+        {
+          "text": "your",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "text": "Grace,",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "text": "and",
+          "start": 4.38,
+          "end": 4.66
+        },
+        {
+          "text": "you,",
+          "start": 4.66,
+          "end": 4.92
+        },
+        {
+          "text": "my",
+          "start": 4.98,
+          "end": 5.14
+        },
+        {
+          "text": "gracious",
+          "start": 5.14,
+          "end": 5.54
+        },
+        {
+          "text": "lords.",
+          "start": 5.54,
+          "end": 5.92
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.34336485201492906
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "63bd65f03f0d688083ceea83fcb92c2478176ba1a4410695742fbc80f8ee6518",
+  "selected_reasons": []
+}

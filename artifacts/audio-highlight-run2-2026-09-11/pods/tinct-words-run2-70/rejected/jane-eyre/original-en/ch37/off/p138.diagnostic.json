@@ -1,0 +1,390 @@
+{
+  "complete": true,
+  "signature": "81e78de1e9f238043e7de8b89a24a6ba81d0b28e34b1fbbdc387b1285d4ebb87",
+  "attempts": [
+    {
+      "asr_seconds": 0.2280054099392146,
+      "alignment_seconds": 0.0005820868536829948,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aside damn him to me. Did you like him Jane?",
+          "start": 0.21,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 0.21,
+              "end": 0.81,
+              "probability": 0.286376953125
+            },
+            {
+              "text": " damn",
+              "start": 0.81,
+              "end": 1.45,
+              "probability": 0.403076171875
+            },
+            {
+              "text": " him",
+              "start": 1.45,
+              "end": 1.73,
+              "probability": 0.98828125
+            },
+            {
+              "text": " to",
+              "start": 1.73,
+              "end": 2.07,
+              "probability": 0.93359375
+            },
+            {
+              "text": " me.",
+              "start": 2.07,
+              "end": 2.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Did",
+              "start": 2.33,
+              "end": 2.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 2.73,
+              "end": 2.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " like",
+              "start": 2.89,
+              "end": 3.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 3.07,
+              "end": 3.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Jane?",
+              "start": 3.27,
+              "end": 3.53,
+              "probability": 0.80712890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside",
+          "start": 0.21,
+          "end": 0.81
+        },
+        {
+          "raw": "damn",
+          "start": 0.81,
+          "end": 1.45
+        },
+        {
+          "raw": "him",
+          "start": 1.45,
+          "end": 1.73
+        },
+        {
+          "raw": "to",
+          "start": 1.73,
+          "end": 2.07
+        },
+        {
+          "raw": "me.",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "raw": "Did",
+          "start": 2.33,
+          "end": 2.73
+        },
+        {
+          "raw": "you",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "raw": "like",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "raw": "him",
+          "start": 3.07,
+          "end": 3.27
+        },
+        {
+          "raw": "Jane?",
+          "start": 3.27,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "(Aside.)",
+        "\"Damn",
+        "him!\"—(To",
+        "me.)",
+        "\"Did",
+        "you",
+        "like",
+        "him,",
+        "Jane?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          9,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside",
+          "start": 0.21,
+          "end": 0.81,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "damn",
+          "start": 0.81,
+          "end": 1.45,
+          "key": "damn",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.45,
+          "end": 1.73,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.73,
+          "end": 2.07,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.07,
+          "end": 2.33,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 2.33,
+          "end": 2.73,
+          "key": "did",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.73,
+          "end": 2.89,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 2.89,
+          "end": 3.07,
+          "key": "like",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.07,
+          "end": 3.27,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Jane?",
+          "start": 3.27,
+          "end": 3.53,
+          "key": "jane",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "(Aside.)",
+          "start": 0.21,
+          "end": 0.81
+        },
+        {
+          "text": "\"Damn",
+          "start": 0.81,
+          "end": 1.45
+        },
+        {
+          "text": "him!\"—(To",
+          "start": 1.45,
+          "end": 1.76
+        },
+        {
+          "text": "me.)",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "text": "\"Did",
+          "start": 2.33,
+          "end": 2.73
+        },
+        {
+          "text": "you",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "text": "like",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "text": "him,",
+          "start": 3.07,
+          "end": 3.27
+        },
+        {
+          "text": "Jane?\"",
+          "start": 3.27,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2287834109738469
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "40de8d899652dff4796d638b1cdc294c1654f1674d460481fa663726a33d6da2",
+  "selected_reasons": []
+}

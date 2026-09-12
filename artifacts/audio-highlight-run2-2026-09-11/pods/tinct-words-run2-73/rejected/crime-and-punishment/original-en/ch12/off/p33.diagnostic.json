@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "8a592e03613bd3a2af2eb85b2b67625180b332caf05f60da1837f2a9dee027cf",
+  "attempts": [
+    {
+      "asr_seconds": 0.22824760992079973,
+      "alignment_seconds": 0.0004582097753882408,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Very near here, in Bakhlyev's house.",
+          "start": 0.08,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.759765625
+            },
+            {
+              "text": " near",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " here,",
+              "start": 0.84,
+              "end": 1.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 1.46,
+              "end": 1.54,
+              "probability": 0.984375
+            },
+            {
+              "text": " Bakhlyev's",
+              "start": 1.54,
+              "end": 2.14,
+              "probability": 0.4772216796875
+            },
+            {
+              "text": " house.",
+              "start": 2.14,
+              "end": 2.36,
+              "probability": 0.95361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "near",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "here,",
+          "start": 0.84,
+          "end": 1.16
+        },
+        {
+          "raw": "in",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "raw": "Bakhlyev's",
+          "start": 1.54,
+          "end": 2.14
+        },
+        {
+          "raw": "house.",
+          "start": 2.14,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "\"Very",
+        "near",
+        "here,",
+        "in",
+        "Bakaleyev's",
+        "house.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Very",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "very",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "near",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 0.84,
+          "end": 1.16,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.46,
+          "end": 1.54,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Bakhlyev's",
+          "start": 1.54,
+          "end": 2.14,
+          "key": "bakhlyevs",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "house.",
+          "start": 2.14,
+          "end": 2.36,
+          "key": "house",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Very",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "near",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "text": "here,",
+          "start": 0.84,
+          "end": 1.16
+        },
+        {
+          "text": "in",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "text": "Bakaleyev's",
+          "start": 1.54,
+          "end": 1.84
+        },
+        {
+          "text": "house.\"",
+          "start": 2.14,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22884622775018215
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ed8b529c53076c3b8ac60f59523ccbe4900f7f97e8000e6fbe15d42481c38786",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

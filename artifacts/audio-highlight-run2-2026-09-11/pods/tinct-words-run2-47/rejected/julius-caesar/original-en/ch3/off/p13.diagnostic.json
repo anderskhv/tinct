@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "33b5cab7c5866d606e9741660b2cbd3392d7ab8a138f5786ac72403fbaf45947",
+  "attempts": [
+    {
+      "asr_seconds": 0.22386826502042823,
+      "alignment_seconds": 0.00035634898813441396,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassius, Casca by your voice.",
+          "start": 0.05,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " Casca",
+              "start": 1.37,
+              "end": 1.53,
+              "probability": 0.583740234375
+            },
+            {
+              "text": " by",
+              "start": 1.53,
+              "end": 1.71,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " your",
+              "start": 1.71,
+              "end": 1.85,
+              "probability": 0.755859375
+            },
+            {
+              "text": " voice.",
+              "start": 1.85,
+              "end": 2.13,
+              "probability": 0.974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Casca",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "raw": "by",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "raw": "your",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "raw": "voice.",
+          "start": 1.85,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Casca,",
+        "by",
+        "your",
+        "voice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Casca",
+          "start": 1.37,
+          "end": 1.53,
+          "key": "casca",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.53,
+          "end": 1.71,
+          "key": "by",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.71,
+          "end": 1.85,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "voice.",
+          "start": 1.85,
+          "end": 2.13,
+          "key": "voice",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Casca,",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "text": "by",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "text": "your",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "text": "voice.",
+          "start": 1.85,
+          "end": 2.13
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22435717200278305
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e7648e14fe473ba02e167ebb3dde48e1c15c0f80f79e4c67019edc42126e6b1e",
+  "selected_reasons": []
+}

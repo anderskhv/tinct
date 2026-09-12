@@ -1,0 +1,777 @@
+{
+  "complete": true,
+  "signature": "efb8c7981777db80cf526cdf0c1403e1bc1e9f3e0cfabe845893f13ec91917f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.35804859548807144,
+      "alignment_seconds": 0.0005821725353598595,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, I am sorry for thee.",
+          "start": 0.08,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.750244140625
+            },
+            {
+              "text": " I",
+              "start": 1.06,
+              "end": 1.22,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " am",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " sorry",
+              "start": 1.38,
+              "end": 1.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " for",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thee.",
+              "start": 1.88,
+              "end": 2.1,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " By thine own tongue thou art condemned and must endure our law.",
+          "start": 2.7,
+          "end": 5.76,
+          "words": [
+            {
+              "text": " By",
+              "start": 2.7,
+              "end": 2.76,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " thine",
+              "start": 2.76,
+              "end": 2.94,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " own",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " tongue",
+              "start": 3.18,
+              "end": 3.44,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thou",
+              "start": 3.44,
+              "end": 3.6,
+              "probability": 0.96484375
+            },
+            {
+              "text": " art",
+              "start": 3.6,
+              "end": 3.86,
+              "probability": 0.9921875
+            },
+            {
+              "text": " condemned",
+              "start": 3.86,
+              "end": 4.24,
+              "probability": 0.978515625
+            },
+            {
+              "text": " and",
+              "start": 4.24,
+              "end": 4.66,
+              "probability": 0.40478515625
+            },
+            {
+              "text": " must",
+              "start": 4.66,
+              "end": 4.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " endure",
+              "start": 4.86,
+              "end": 5.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " our",
+              "start": 5.26,
+              "end": 5.44,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " law.",
+              "start": 5.44,
+              "end": 5.76,
+              "probability": 0.96484375
+            }
+          ]
+        },
+        {
+          "text": " Thou it dead.",
+          "start": 6.36,
+          "end": 6.84,
+          "words": [
+            {
+              "text": " Thou",
+              "start": 6.36,
+              "end": 6.38,
+              "probability": 0.5888671875
+            },
+            {
+              "text": " it",
+              "start": 6.38,
+              "end": 6.56,
+              "probability": 0.6865234375
+            },
+            {
+              "text": " dead.",
+              "start": 6.56,
+              "end": 6.84,
+              "probability": 0.96630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "I",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "raw": "am",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "sorry",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "raw": "for",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "thee.",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "raw": "By",
+          "start": 2.7,
+          "end": 2.76
+        },
+        {
+          "raw": "thine",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "raw": "own",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "raw": "tongue",
+          "start": 3.18,
+          "end": 3.44
+        },
+        {
+          "raw": "thou",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "raw": "art",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "raw": "condemned",
+          "start": 3.86,
+          "end": 4.24
+        },
+        {
+          "raw": "and",
+          "start": 4.24,
+          "end": 4.66
+        },
+        {
+          "raw": "must",
+          "start": 4.66,
+          "end": 4.86
+        },
+        {
+          "raw": "endure",
+          "start": 4.86,
+          "end": 5.26
+        },
+        {
+          "raw": "our",
+          "start": 5.26,
+          "end": 5.44
+        },
+        {
+          "raw": "law.",
+          "start": 5.44,
+          "end": 5.76
+        },
+        {
+          "raw": "Thou",
+          "start": 6.36,
+          "end": 6.38
+        },
+        {
+          "raw": "it",
+          "start": 6.38,
+          "end": 6.56
+        },
+        {
+          "raw": "dead.",
+          "start": 6.56,
+          "end": 6.84
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "I",
+        "am",
+        "sorry",
+        "for",
+        "thee.",
+        "By",
+        "thine",
+        "own",
+        "tongue",
+        "thou",
+        "art",
+        "condemn'd,",
+        "and",
+        "must",
+        "Endure",
+        "our",
+        "law.",
+        "Thou'rt",
+        "dead."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          18,
+          13,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          20
+        ],
+        [
+          "equal",
+          19,
+          20,
+          20,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.06,
+          "end": 1.22,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sorry",
+          "start": 1.38,
+          "end": 1.64,
+          "key": "sorry",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 1.88,
+          "end": 2.1,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 2.7,
+          "end": 2.76,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 2.76,
+          "end": 2.94,
+          "key": "thine",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 2.94,
+          "end": 3.18,
+          "key": "own",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tongue",
+          "start": 3.18,
+          "end": 3.44,
+          "key": "tongue",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.44,
+          "end": 3.6,
+          "key": "thou",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 3.6,
+          "end": 3.86,
+          "key": "art",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "condemned",
+          "start": 3.86,
+          "end": 4.24,
+          "key": "condemned",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.24,
+          "end": 4.66,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 4.66,
+          "end": 4.86,
+          "key": "must",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "endure",
+          "start": 4.86,
+          "end": 5.26,
+          "key": "endure",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 5.26,
+          "end": 5.44,
+          "key": "our",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "law.",
+          "start": 5.44,
+          "end": 5.76,
+          "key": "law",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 6.36,
+          "end": 6.38,
+          "key": "thou",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.38,
+          "end": 6.56,
+          "key": "it",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "dead.",
+          "start": 6.56,
+          "end": 6.84,
+          "key": "dead",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "I",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "text": "am",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "text": "sorry",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "text": "for",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "text": "thee.",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "text": "By",
+          "start": 2.7,
+          "end": 2.76
+        },
+        {
+          "text": "thine",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "text": "own",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "text": "tongue",
+          "start": 3.18,
+          "end": 3.44
+        },
+        {
+          "text": "thou",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "text": "art",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "text": "condemn'd,",
+          "start": 3.86,
+          "end": 4.05
+        },
+        {
+          "text": "and",
+          "start": 4.24,
+          "end": 4.66
+        },
+        {
+          "text": "must",
+          "start": 4.66,
+          "end": 4.86
+        },
+        {
+          "text": "Endure",
+          "start": 4.86,
+          "end": 5.26
+        },
+        {
+          "text": "our",
+          "start": 5.26,
+          "end": 5.44
+        },
+        {
+          "text": "law.",
+          "start": 5.44,
+          "end": 5.76
+        },
+        {
+          "text": "Thou'rt",
+          "start": 5.76,
+          "end": 6.16
+        },
+        {
+          "text": "dead.",
+          "start": 6.56,
+          "end": 6.84
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.35883080773055553
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6f27bb1c539ccefd566f1eac8c93224d84650b70b3b6053f4b3ee218c9a64113",
+  "selected_reasons": []
+}

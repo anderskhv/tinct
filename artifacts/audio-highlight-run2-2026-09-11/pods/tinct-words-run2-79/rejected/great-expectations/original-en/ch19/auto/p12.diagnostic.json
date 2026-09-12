@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "4fd891fd8cd6e83195f24f5eb962fd06b8ca7a613d38ef3ff34a0095ed14fb2a",
+  "attempts": [
+    {
+      "asr_seconds": 0.14926127903163433,
+      "alignment_seconds": 0.0003304579295217991,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Have you though?\" said Joe. \"Astonishing!\"",
+        "hotwords": "Have, Joe, Astonishing"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Have you though?\" said Joe. Astonishing.",
+          "start": 0.05,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " Have",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.59375
+            },
+            {
+              "text": " you",
+              "start": 0.55,
+              "end": 0.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " though?\"",
+              "start": 0.69,
+              "end": 1.03,
+              "probability": 0.4789886474609375
+            },
+            {
+              "text": " said",
+              "start": 1.03,
+              "end": 1.31,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " Joe.",
+              "start": 1.31,
+              "end": 1.61,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " Astonishing.",
+              "start": 2.21,
+              "end": 2.55,
+              "probability": 0.947998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Have",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "you",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "raw": "though?\"",
+          "start": 0.69,
+          "end": 1.03
+        },
+        {
+          "raw": "said",
+          "start": 1.03,
+          "end": 1.31
+        },
+        {
+          "raw": "Joe.",
+          "start": 1.31,
+          "end": 1.61
+        },
+        {
+          "raw": "Astonishing.",
+          "start": 2.21,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "\"Have",
+        "you",
+        "though?\"",
+        "said",
+        "Joe.",
+        "\"Astonishing!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Have",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "have",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.55,
+          "end": 0.69,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "though?\"",
+          "start": 0.69,
+          "end": 1.03,
+          "key": "though",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.03,
+          "end": 1.31,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Joe.",
+          "start": 1.31,
+          "end": 1.61,
+          "key": "joe",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Astonishing.",
+          "start": 2.21,
+          "end": 2.55,
+          "key": "astonishing",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Have",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "you",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "text": "though?\"",
+          "start": 0.69,
+          "end": 1.03
+        },
+        {
+          "text": "said",
+          "start": 1.03,
+          "end": 1.31
+        },
+        {
+          "text": "Joe.",
+          "start": 1.31,
+          "end": 1.61
+        },
+        {
+          "text": "\"Astonishing!\"",
+          "start": 2.21,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14970703097060323
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d8bc22335df8e73e139ec6ccb5b289784e81c3e295b8b33723d912e15eae1eea",
+  "selected_reasons": []
+}

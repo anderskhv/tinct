@@ -1,0 +1,835 @@
+{
+  "complete": true,
+  "signature": "2145a420cae8f312c7b2b18b376fc1c62d4116dd748004d995df799712b28e1b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3707931390963495,
+      "alignment_seconds": 0.0005217390134930611,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bronze gazed far sideways. Mirror there. Is that best side of her face? They",
+          "start": 0.05,
+          "end": 5.41,
+          "words": [
+            {
+              "text": " Bronze",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.537109375
+            },
+            {
+              "text": " gazed",
+              "start": 0.69,
+              "end": 1.07,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " far",
+              "start": 1.07,
+              "end": 1.47,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " sideways.",
+              "start": 1.47,
+              "end": 2.01,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Mirror",
+              "start": 2.67,
+              "end": 2.73,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " there.",
+              "start": 2.73,
+              "end": 3.05,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Is",
+              "start": 3.53,
+              "end": 3.61,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " that",
+              "start": 3.61,
+              "end": 3.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " best",
+              "start": 3.81,
+              "end": 4.01,
+              "probability": 0.91796875
+            },
+            {
+              "text": " side",
+              "start": 4.01,
+              "end": 4.29,
+              "probability": 0.349853515625
+            },
+            {
+              "text": " of",
+              "start": 4.29,
+              "end": 4.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 4.43,
+              "end": 4.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " face?",
+              "start": 4.55,
+              "end": 4.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " They",
+              "start": 5.29,
+              "end": 5.41,
+              "probability": 0.98681640625
+            }
+          ]
+        },
+        {
+          "text": " always know. Knock at the door. Last tip to titivate.",
+          "start": 5.41,
+          "end": 8.55,
+          "words": [
+            {
+              "text": " always",
+              "start": 5.41,
+              "end": 5.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " know.",
+              "start": 5.71,
+              "end": 6.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Knock",
+              "start": 6.61,
+              "end": 6.69,
+              "probability": 0.9296875
+            },
+            {
+              "text": " at",
+              "start": 6.69,
+              "end": 6.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 6.85,
+              "end": 6.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " door.",
+              "start": 6.93,
+              "end": 7.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Last",
+              "start": 7.51,
+              "end": 7.65,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " tip",
+              "start": 7.65,
+              "end": 7.89,
+              "probability": 0.96875
+            },
+            {
+              "text": " to",
+              "start": 7.89,
+              "end": 8.07,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " titivate.",
+              "start": 8.07,
+              "end": 8.55,
+              "probability": 0.9591471354166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bronze",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "gazed",
+          "start": 0.69,
+          "end": 1.07
+        },
+        {
+          "raw": "far",
+          "start": 1.07,
+          "end": 1.47
+        },
+        {
+          "raw": "sideways.",
+          "start": 1.47,
+          "end": 2.01
+        },
+        {
+          "raw": "Mirror",
+          "start": 2.67,
+          "end": 2.73
+        },
+        {
+          "raw": "there.",
+          "start": 2.73,
+          "end": 3.05
+        },
+        {
+          "raw": "Is",
+          "start": 3.53,
+          "end": 3.61
+        },
+        {
+          "raw": "that",
+          "start": 3.61,
+          "end": 3.81
+        },
+        {
+          "raw": "best",
+          "start": 3.81,
+          "end": 4.01
+        },
+        {
+          "raw": "side",
+          "start": 4.01,
+          "end": 4.29
+        },
+        {
+          "raw": "of",
+          "start": 4.29,
+          "end": 4.43
+        },
+        {
+          "raw": "her",
+          "start": 4.43,
+          "end": 4.55
+        },
+        {
+          "raw": "face?",
+          "start": 4.55,
+          "end": 4.81
+        },
+        {
+          "raw": "They",
+          "start": 5.29,
+          "end": 5.41
+        },
+        {
+          "raw": "always",
+          "start": 5.41,
+          "end": 5.71
+        },
+        {
+          "raw": "know.",
+          "start": 5.71,
+          "end": 6.05
+        },
+        {
+          "raw": "Knock",
+          "start": 6.61,
+          "end": 6.69
+        },
+        {
+          "raw": "at",
+          "start": 6.69,
+          "end": 6.85
+        },
+        {
+          "raw": "the",
+          "start": 6.85,
+          "end": 6.93
+        },
+        {
+          "raw": "door.",
+          "start": 6.93,
+          "end": 7.17
+        },
+        {
+          "raw": "Last",
+          "start": 7.51,
+          "end": 7.65
+        },
+        {
+          "raw": "tip",
+          "start": 7.65,
+          "end": 7.89
+        },
+        {
+          "raw": "to",
+          "start": 7.89,
+          "end": 8.07
+        },
+        {
+          "raw": "titivate.",
+          "start": 8.07,
+          "end": 8.55
+        }
+      ],
+      "expected_tokens": [
+        "Bronze",
+        "gazed",
+        "far",
+        "sideways.",
+        "Mirror",
+        "there.",
+        "Is",
+        "that",
+        "best",
+        "side",
+        "of",
+        "her",
+        "face?",
+        "They",
+        "always",
+        "know.",
+        "Knock",
+        "at",
+        "the",
+        "door.",
+        "Last",
+        "tip",
+        "to",
+        "titivate."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bronze",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "bronze",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gazed",
+          "start": 0.69,
+          "end": 1.07,
+          "key": "gazed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 1.07,
+          "end": 1.47,
+          "key": "far",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sideways.",
+          "start": 1.47,
+          "end": 2.01,
+          "key": "sideways",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mirror",
+          "start": 2.67,
+          "end": 2.73,
+          "key": "mirror",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 2.73,
+          "end": 3.05,
+          "key": "there",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 3.53,
+          "end": 3.61,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.61,
+          "end": 3.81,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 3.81,
+          "end": 4.01,
+          "key": "best",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 4.01,
+          "end": 4.29,
+          "key": "side",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.29,
+          "end": 4.43,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.43,
+          "end": 4.55,
+          "key": "her",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "face?",
+          "start": 4.55,
+          "end": 4.81,
+          "key": "face",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 5.29,
+          "end": 5.41,
+          "key": "they",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 5.41,
+          "end": 5.71,
+          "key": "always",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "know.",
+          "start": 5.71,
+          "end": 6.05,
+          "key": "know",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Knock",
+          "start": 6.61,
+          "end": 6.69,
+          "key": "knock",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 6.69,
+          "end": 6.85,
+          "key": "at",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.85,
+          "end": 6.93,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "door.",
+          "start": 6.93,
+          "end": 7.17,
+          "key": "door",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Last",
+          "start": 7.51,
+          "end": 7.65,
+          "key": "last",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "tip",
+          "start": 7.65,
+          "end": 7.89,
+          "key": "tip",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.89,
+          "end": 8.07,
+          "key": "to",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "titivate.",
+          "start": 8.07,
+          "end": 8.55,
+          "key": "titivate",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bronze",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "gazed",
+          "start": 0.69,
+          "end": 1.07
+        },
+        {
+          "text": "far",
+          "start": 1.07,
+          "end": 1.47
+        },
+        {
+          "text": "sideways.",
+          "start": 1.47,
+          "end": 2.01
+        },
+        {
+          "text": "Mirror",
+          "start": 2.67,
+          "end": 2.73
+        },
+        {
+          "text": "there.",
+          "start": 2.73,
+          "end": 3.05
+        },
+        {
+          "text": "Is",
+          "start": 3.53,
+          "end": 3.61
+        },
+        {
+          "text": "that",
+          "start": 3.61,
+          "end": 3.81
+        },
+        {
+          "text": "best",
+          "start": 3.81,
+          "end": 4.01
+        },
+        {
+          "text": "side",
+          "start": 4.01,
+          "end": 4.29
+        },
+        {
+          "text": "of",
+          "start": 4.29,
+          "end": 4.43
+        },
+        {
+          "text": "her",
+          "start": 4.43,
+          "end": 4.55
+        },
+        {
+          "text": "face?",
+          "start": 4.55,
+          "end": 4.81
+        },
+        {
+          "text": "They",
+          "start": 5.29,
+          "end": 5.41
+        },
+        {
+          "text": "always",
+          "start": 5.41,
+          "end": 5.71
+        },
+        {
+          "text": "know.",
+          "start": 5.71,
+          "end": 6.05
+        },
+        {
+          "text": "Knock",
+          "start": 6.61,
+          "end": 6.69
+        },
+        {
+          "text": "at",
+          "start": 6.69,
+          "end": 6.85
+        },
+        {
+          "text": "the",
+          "start": 6.85,
+          "end": 6.93
+        },
+        {
+          "text": "door.",
+          "start": 6.93,
+          "end": 7.17
+        },
+        {
+          "text": "Last",
+          "start": 7.51,
+          "end": 7.65
+        },
+        {
+          "text": "tip",
+          "start": 7.65,
+          "end": 7.89
+        },
+        {
+          "text": "to",
+          "start": 7.89,
+          "end": 8.07
+        },
+        {
+          "text": "titivate.",
+          "start": 8.07,
+          "end": 8.55
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37151547335088253
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2d639b6eac097bd9776dc7d02872a9a43a7b502293e5d3e156e604636f17b8c7",
+  "selected_reasons": []
+}

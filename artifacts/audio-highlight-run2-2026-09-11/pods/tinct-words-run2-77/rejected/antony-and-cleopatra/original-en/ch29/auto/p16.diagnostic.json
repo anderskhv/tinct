@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "87584a5f2072820aab7d0db46157c2c4d4afb03e93c254bdb5a103d7f003dc30",
+  "attempts": [
+    {
+      "asr_seconds": 0.11897513197618537,
+      "alignment_seconds": 0.00017627599299885333,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Shout. Trumpets flourish._]",
+        "hotwords": "Trumpets"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shout. Trumpets flourish.",
+          "start": 0.11,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Shout.",
+              "start": 0.11,
+              "end": 0.81,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " Trumpets",
+              "start": 1.07,
+              "end": 1.27,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " flourish.",
+              "start": 1.27,
+              "end": 1.63,
+              "probability": 0.935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shout.",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "raw": "Trumpets",
+          "start": 1.07,
+          "end": 1.27
+        },
+        {
+          "raw": "flourish.",
+          "start": 1.27,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "[_Shout.",
+        "Trumpets",
+        "flourish._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shout.",
+          "start": 0.11,
+          "end": 0.81,
+          "key": "shout",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Trumpets",
+          "start": 1.07,
+          "end": 1.27,
+          "key": "trumpets",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "flourish.",
+          "start": 1.27,
+          "end": 1.63,
+          "key": "flourish",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Shout.",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "text": "Trumpets",
+          "start": 1.07,
+          "end": 1.27
+        },
+        {
+          "text": "flourish._]",
+          "start": 1.27,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11921176998293959
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "73600799cf22696432c78d3454666ae0cb1f8dd8d6d88ccd322f1e8e64f9a726",
+  "selected_reasons": []
+}

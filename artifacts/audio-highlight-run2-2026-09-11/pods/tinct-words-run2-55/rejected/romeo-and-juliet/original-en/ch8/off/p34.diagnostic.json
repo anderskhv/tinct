@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "ff88299d88cf7178365a6f1e5c0ec9be5c1f5a0217311f3e16339de02c8dbd10",
+  "attempts": [
+    {
+      "asr_seconds": 0.2230239361524582,
+      "alignment_seconds": 0.0002447851002216339,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Romeo, wouldst thou withdraw it, for what purpose love?",
+          "start": 0.05,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Romeo,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " wouldst",
+              "start": 1.19,
+              "end": 1.49,
+              "probability": 0.911376953125
+            },
+            {
+              "text": " thou",
+              "start": 1.49,
+              "end": 1.73,
+              "probability": 0.455078125
+            },
+            {
+              "text": " withdraw",
+              "start": 1.73,
+              "end": 2.07,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " it,",
+              "start": 2.07,
+              "end": 2.37,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " for",
+              "start": 2.57,
+              "end": 2.63,
+              "probability": 0.953125
+            },
+            {
+              "text": " what",
+              "start": 2.63,
+              "end": 2.81,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " purpose",
+              "start": 2.81,
+              "end": 3.15,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " love?",
+              "start": 3.15,
+              "end": 3.53,
+              "probability": 0.7529296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Romeo,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "wouldst",
+          "start": 1.19,
+          "end": 1.49
+        },
+        {
+          "raw": "thou",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "raw": "withdraw",
+          "start": 1.73,
+          "end": 2.07
+        },
+        {
+          "raw": "it,",
+          "start": 2.07,
+          "end": 2.37
+        },
+        {
+          "raw": "for",
+          "start": 2.57,
+          "end": 2.63
+        },
+        {
+          "raw": "what",
+          "start": 2.63,
+          "end": 2.81
+        },
+        {
+          "raw": "purpose",
+          "start": 2.81,
+          "end": 3.15
+        },
+        {
+          "raw": "love?",
+          "start": 3.15,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "Romeo.",
+        "Would'st",
+        "thou",
+        "withdraw",
+        "it?",
+        "For",
+        "what",
+        "purpose,",
+        "love?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Romeo,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "romeo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wouldst",
+          "start": 1.19,
+          "end": 1.49,
+          "key": "wouldst",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.49,
+          "end": 1.73,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "withdraw",
+          "start": 1.73,
+          "end": 2.07,
+          "key": "withdraw",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 2.07,
+          "end": 2.37,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.57,
+          "end": 2.63,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.63,
+          "end": 2.81,
+          "key": "what",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "purpose",
+          "start": 2.81,
+          "end": 3.15,
+          "key": "purpose",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "love?",
+          "start": 3.15,
+          "end": 3.53,
+          "key": "love",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Romeo.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Would'st",
+          "start": 1.19,
+          "end": 1.49
+        },
+        {
+          "text": "thou",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "text": "withdraw",
+          "start": 1.73,
+          "end": 2.07
+        },
+        {
+          "text": "it?",
+          "start": 2.07,
+          "end": 2.37
+        },
+        {
+          "text": "For",
+          "start": 2.57,
+          "end": 2.63
+        },
+        {
+          "text": "what",
+          "start": 2.63,
+          "end": 2.81
+        },
+        {
+          "text": "purpose,",
+          "start": 2.81,
+          "end": 3.15
+        },
+        {
+          "text": "love?",
+          "start": 3.15,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2233607117086649
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c5c916f24e5a95234bf9c73365fb3cf81d5d76a3486f37f646de70e63b7ec9e6",
+  "selected_reasons": []
+}

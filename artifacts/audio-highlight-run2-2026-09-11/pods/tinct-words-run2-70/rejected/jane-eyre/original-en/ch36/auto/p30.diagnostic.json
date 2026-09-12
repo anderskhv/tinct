@@ -1,0 +1,875 @@
+{
+  "complete": true,
+  "signature": "951525791a4003a8837e06653204702f849d88b83f2ca6ced2d67a81f92c5da3",
+  "attempts": [
+    {
+      "asr_seconds": 0.15728434990160167,
+      "alignment_seconds": 0.0004089709836989641,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, ma'am; I lived there once.\"",
+        "hotwords": "Yes, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, ma'am, I lived there once.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.861328125
+            },
+            {
+              "text": " ma",
+              "start": 0.83,
+              "end": 0.89,
+              "probability": 0.88330078125
+            },
+            {
+              "text": "'am,",
+              "start": 0.89,
+              "end": 1.03,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " I",
+              "start": 1.33,
+              "end": 1.41,
+              "probability": 0.994140625
+            },
+            {
+              "text": " lived",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " there",
+              "start": 1.57,
+              "end": 1.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " once.",
+              "start": 1.81,
+              "end": 2.07,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "ma",
+          "start": 0.83,
+          "end": 0.89
+        },
+        {
+          "raw": "'am,",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "raw": "I",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "raw": "lived",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "there",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "raw": "once.",
+          "start": 1.81,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "ma'am;",
+        "I",
+        "lived",
+        "there",
+        "once.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          6,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 0.83,
+          "end": 0.89,
+          "key": "ma",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'am,",
+          "start": 0.89,
+          "end": 1.03,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.33,
+          "end": 1.41,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lived",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "lived",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.57,
+          "end": 1.81,
+          "key": "there",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "once.",
+          "start": 1.81,
+          "end": 2.07,
+          "key": "once",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "ma'am;",
+          "start": 0.63,
+          "end": 0.98
+        },
+        {
+          "text": "I",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "text": "lived",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "there",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "text": "once.\"",
+          "start": 1.81,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1578440680168569
+    },
+    {
+      "asr_seconds": 0.18776661483570933,
+      "alignment_seconds": 0.00029290514066815376,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Yes, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Yes, ma'am I lived there once",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.861328125
+            },
+            {
+              "text": " ma",
+              "start": 0.83,
+              "end": 0.89,
+              "probability": 0.88330078125
+            },
+            {
+              "text": "'am",
+              "start": 0.89,
+              "end": 1.03,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " I",
+              "start": 1.03,
+              "end": 1.41,
+              "probability": 0.0240325927734375
+            },
+            {
+              "text": " lived",
+              "start": 1.41,
+              "end": 1.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " there",
+              "start": 1.59,
+              "end": 1.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " once",
+              "start": 1.81,
+              "end": 2.07,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "ma",
+          "start": 0.83,
+          "end": 0.89
+        },
+        {
+          "raw": "'am",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "raw": "I",
+          "start": 1.03,
+          "end": 1.41
+        },
+        {
+          "raw": "lived",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "raw": "there",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "raw": "once",
+          "start": 1.81,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "ma'am;",
+        "I",
+        "lived",
+        "there",
+        "once.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          6,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 0.83,
+          "end": 0.89,
+          "key": "ma",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'am",
+          "start": 0.89,
+          "end": 1.03,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.03,
+          "end": 1.41,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lived",
+          "start": 1.41,
+          "end": 1.59,
+          "key": "lived",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.59,
+          "end": 1.81,
+          "key": "there",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 1.81,
+          "end": 2.07,
+          "key": "once",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "ma'am;",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "text": "I",
+          "start": 1.03,
+          "end": 1.41
+        },
+        {
+          "text": "lived",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "text": "there",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "text": "once.\"",
+          "start": 1.81,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1881642509251833
+    },
+    {
+      "asr_seconds": 0.21234491397626698,
+      "alignment_seconds": 0.0003182920627295971,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, ma'am. I lived there once.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.861328125
+            },
+            {
+              "text": " ma",
+              "start": 0.83,
+              "end": 0.89,
+              "probability": 0.88330078125
+            },
+            {
+              "text": "'am.",
+              "start": 0.89,
+              "end": 1.03,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " I",
+              "start": 1.31,
+              "end": 1.41,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " lived",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.99609375
+            },
+            {
+              "text": " there",
+              "start": 1.57,
+              "end": 1.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " once.",
+              "start": 1.81,
+              "end": 2.07,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "ma",
+          "start": 0.83,
+          "end": 0.89
+        },
+        {
+          "raw": "'am.",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "raw": "I",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "raw": "lived",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "there",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "raw": "once.",
+          "start": 1.81,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "ma'am;",
+        "I",
+        "lived",
+        "there",
+        "once.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          6,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 0.83,
+          "end": 0.89,
+          "key": "ma",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'am.",
+          "start": 0.89,
+          "end": 1.03,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.31,
+          "end": 1.41,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lived",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "lived",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.57,
+          "end": 1.81,
+          "key": "there",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "once.",
+          "start": 1.81,
+          "end": 2.07,
+          "key": "once",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "ma'am;",
+          "start": 0.63,
+          "end": 0.97
+        },
+        {
+          "text": "I",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "text": "lived",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "there",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "text": "once.\"",
+          "start": 1.81,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2127792441751808
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "954a6a8e206d067871f47e7fa2f39e728dbfbbbf89451c386305b90b1b135b54",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

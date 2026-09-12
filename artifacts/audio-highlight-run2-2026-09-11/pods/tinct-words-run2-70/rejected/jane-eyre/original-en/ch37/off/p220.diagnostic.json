@@ -1,0 +1,326 @@
+{
+  "complete": true,
+  "signature": "edeac160a74b22e76e40c2ddf4efa018ef5f76d8f07d9ef2ad50d274e9ca9d25",
+  "attempts": [
+    {
+      "asr_seconds": 0.2428489839658141,
+      "alignment_seconds": 0.00046130805276334286,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Choose then sir her who loves you best",
+          "start": 0.08,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " Choose",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " then",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " sir",
+              "start": 0.88,
+              "end": 1.18,
+              "probability": 0.47998046875
+            },
+            {
+              "text": " her",
+              "start": 1.18,
+              "end": 1.64,
+              "probability": 0.2056884765625
+            },
+            {
+              "text": " who",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " loves",
+              "start": 1.76,
+              "end": 1.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 1.96,
+              "end": 2.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " best",
+              "start": 2.1,
+              "end": 2.34,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Choose",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "then",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "raw": "sir",
+          "start": 0.88,
+          "end": 1.18
+        },
+        {
+          "raw": "her",
+          "start": 1.18,
+          "end": 1.64
+        },
+        {
+          "raw": "who",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "loves",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "raw": "you",
+          "start": 1.96,
+          "end": 2.1
+        },
+        {
+          "raw": "best",
+          "start": 2.1,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "\"Choose",
+        "then,",
+        "sir—_her",
+        "who",
+        "loves",
+        "you",
+        "best_.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          7,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Choose",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "choose",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 0.6,
+          "end": 0.88,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir",
+          "start": 0.88,
+          "end": 1.18,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.18,
+          "end": 1.64,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "who",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "loves",
+          "start": 1.76,
+          "end": 1.96,
+          "key": "loves",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.96,
+          "end": 2.1,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 2.1,
+          "end": 2.34,
+          "key": "best",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Choose",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "then,",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "text": "sir—_her",
+          "start": 0.88,
+          "end": 1.26
+        },
+        {
+          "text": "who",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "loves",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "text": "you",
+          "start": 1.96,
+          "end": 2.1
+        },
+        {
+          "text": "best_.\"",
+          "start": 2.1,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.24347911914810538
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "69d873c44e254b1d8378eb5706f9bddbd7712b92383275a694f81dab74b26439",
+  "selected_reasons": []
+}

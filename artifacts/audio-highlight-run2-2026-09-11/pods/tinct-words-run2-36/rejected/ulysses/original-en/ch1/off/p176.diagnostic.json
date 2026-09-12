@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "6cadb4829bc27a1fe5f8b7d25c5b8f5849adcc567f2c3cc01a469fd477ebd0dd",
+  "attempts": [
+    {
+      "asr_seconds": 0.1767384596168995,
+      "alignment_seconds": 0.00037306174635887146,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " An old woman came forward and stood by Stephen's elbow.",
+          "start": 0.05,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " An",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " old",
+              "start": 0.49,
+              "end": 0.71,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " woman",
+              "start": 0.71,
+              "end": 0.95,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " came",
+              "start": 0.95,
+              "end": 1.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " forward",
+              "start": 1.23,
+              "end": 1.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 1.67,
+              "end": 2.19,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " stood",
+              "start": 2.19,
+              "end": 2.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " by",
+              "start": 2.39,
+              "end": 2.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Stephen's",
+              "start": 2.65,
+              "end": 3.17,
+              "probability": 0.739990234375
+            },
+            {
+              "text": " elbow.",
+              "start": 3.17,
+              "end": 3.39,
+              "probability": 0.96875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "An",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "old",
+          "start": 0.49,
+          "end": 0.71
+        },
+        {
+          "raw": "woman",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "raw": "came",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "raw": "forward",
+          "start": 1.23,
+          "end": 1.67
+        },
+        {
+          "raw": "and",
+          "start": 1.67,
+          "end": 2.19
+        },
+        {
+          "raw": "stood",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "raw": "by",
+          "start": 2.39,
+          "end": 2.65
+        },
+        {
+          "raw": "Stephen's",
+          "start": 2.65,
+          "end": 3.17
+        },
+        {
+          "raw": "elbow.",
+          "start": 3.17,
+          "end": 3.39
+        }
+      ],
+      "expected_tokens": [
+        "An",
+        "old",
+        "woman",
+        "came",
+        "forward",
+        "and",
+        "stood",
+        "by",
+        "Stephen's",
+        "elbow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "An",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "an",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 0.49,
+          "end": 0.71,
+          "key": "old",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "woman",
+          "start": 0.71,
+          "end": 0.95,
+          "key": "woman",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 0.95,
+          "end": 1.23,
+          "key": "came",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "forward",
+          "start": 1.23,
+          "end": 1.67,
+          "key": "forward",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.67,
+          "end": 2.19,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "stood",
+          "start": 2.19,
+          "end": 2.39,
+          "key": "stood",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.39,
+          "end": 2.65,
+          "key": "by",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Stephen's",
+          "start": 2.65,
+          "end": 3.17,
+          "key": "stephens",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "elbow.",
+          "start": 3.17,
+          "end": 3.39,
+          "key": "elbow",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "An",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "old",
+          "start": 0.49,
+          "end": 0.71
+        },
+        {
+          "text": "woman",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "text": "came",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "text": "forward",
+          "start": 1.23,
+          "end": 1.67
+        },
+        {
+          "text": "and",
+          "start": 1.67,
+          "end": 2.19
+        },
+        {
+          "text": "stood",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "text": "by",
+          "start": 2.39,
+          "end": 2.65
+        },
+        {
+          "text": "Stephen's",
+          "start": 2.65,
+          "end": 3.17
+        },
+        {
+          "text": "elbow.",
+          "start": 3.17,
+          "end": 3.39
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1772640161216259
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c3d9f22d6d9b22f68085a7dfdbb38b0d3cdad507bb2063bb7d9e4233ac25d1e0",
+  "selected_reasons": []
+}

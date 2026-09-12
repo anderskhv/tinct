@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "5b422073a94b49207c9d08ab6f5605f7bcd5e9c463e8cfcdc03b2a6fb4b82f40",
+  "attempts": [
+    {
+      "asr_seconds": 0.17247805499937385,
+      "alignment_seconds": 0.00018381699919700623,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First soldier walk. Let's see if other watchmen do hear what we do",
+          "start": 0.05,
+          "end": 4.31,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " soldier",
+              "start": 0.61,
+              "end": 1.07,
+              "probability": 0.853515625
+            },
+            {
+              "text": " walk.",
+              "start": 1.07,
+              "end": 1.79,
+              "probability": 0.50390625
+            },
+            {
+              "text": " Let's",
+              "start": 2.35,
+              "end": 2.51,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " see",
+              "start": 2.51,
+              "end": 2.61,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " if",
+              "start": 2.61,
+              "end": 2.71,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " other",
+              "start": 2.71,
+              "end": 2.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " watchmen",
+              "start": 2.87,
+              "end": 3.29,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " do",
+              "start": 3.29,
+              "end": 3.49,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " hear",
+              "start": 3.49,
+              "end": 3.71,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " what",
+              "start": 3.71,
+              "end": 3.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " we",
+              "start": 3.85,
+              "end": 3.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " do",
+              "start": 3.99,
+              "end": 4.31,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "soldier",
+          "start": 0.61,
+          "end": 1.07
+        },
+        {
+          "raw": "walk.",
+          "start": 1.07,
+          "end": 1.79
+        },
+        {
+          "raw": "Let's",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "raw": "see",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "raw": "if",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "raw": "other",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "raw": "watchmen",
+          "start": 2.87,
+          "end": 3.29
+        },
+        {
+          "raw": "do",
+          "start": 3.29,
+          "end": 3.49
+        },
+        {
+          "raw": "hear",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "raw": "what",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "raw": "we",
+          "start": 3.85,
+          "end": 3.99
+        },
+        {
+          "raw": "do",
+          "start": 3.99,
+          "end": 4.31
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Soldier.",
+        "Walk.",
+        "Let's",
+        "see",
+        "if",
+        "other",
+        "watchmen",
+        "Do",
+        "hear",
+        "what",
+        "we",
+        "do."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soldier",
+          "start": 0.61,
+          "end": 1.07,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "walk.",
+          "start": 1.07,
+          "end": 1.79,
+          "key": "walk",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Let's",
+          "start": 2.35,
+          "end": 2.51,
+          "key": "lets",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.51,
+          "end": 2.61,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.61,
+          "end": 2.71,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 2.71,
+          "end": 2.87,
+          "key": "other",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "watchmen",
+          "start": 2.87,
+          "end": 3.29,
+          "key": "watchmen",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.29,
+          "end": 3.49,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 3.49,
+          "end": 3.71,
+          "key": "hear",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.71,
+          "end": 3.85,
+          "key": "what",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.85,
+          "end": 3.99,
+          "key": "we",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.99,
+          "end": 4.31,
+          "key": "do",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.61,
+          "end": 1.07
+        },
+        {
+          "text": "Walk.",
+          "start": 1.07,
+          "end": 1.79
+        },
+        {
+          "text": "Let's",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "text": "see",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "text": "if",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "text": "other",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "text": "watchmen",
+          "start": 2.87,
+          "end": 3.29
+        },
+        {
+          "text": "Do",
+          "start": 3.29,
+          "end": 3.49
+        },
+        {
+          "text": "hear",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "text": "what",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "text": "we",
+          "start": 3.85,
+          "end": 3.99
+        },
+        {
+          "text": "do.",
+          "start": 3.99,
+          "end": 4.31
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17273059400031343
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8aa195750d33c3c6821ecddfc1de67c77dbbf4145d225d320ff69b1a5323728a",
+  "selected_reasons": []
+}

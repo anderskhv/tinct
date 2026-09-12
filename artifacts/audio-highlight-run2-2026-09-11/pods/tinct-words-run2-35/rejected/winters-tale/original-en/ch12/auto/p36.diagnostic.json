@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "eb87ec1ab247d42c8122d4bb3327a0cb2c1c978e8a34c07e6423811c34ecdef9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2951429672539234,
+      "alignment_seconds": 0.0005847886204719543,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dorcas. Mopsa must be your mistress: marry, garlic, to mend her kissing with!",
+        "hotwords": "Dorcas, Mopsa"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dorcas, Mopsa must be your mistress, marry, garlic, to mend her kissing with!",
+          "start": 0.08,
+          "end": 5.04,
+          "words": [
+            {
+              "text": " Dorcas,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.5030517578125
+            },
+            {
+              "text": " Mopsa",
+              "start": 1.48,
+              "end": 1.8,
+              "probability": 0.6240234375
+            },
+            {
+              "text": " must",
+              "start": 1.8,
+              "end": 1.94,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " be",
+              "start": 1.94,
+              "end": 2.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 2.16,
+              "end": 2.3,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " mistress,",
+              "start": 2.3,
+              "end": 2.66,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " marry,",
+              "start": 3.34,
+              "end": 3.46,
+              "probability": 0.48876953125
+            },
+            {
+              "text": " garlic,",
+              "start": 3.52,
+              "end": 3.92,
+              "probability": 0.3056640625
+            },
+            {
+              "text": " to",
+              "start": 4.16,
+              "end": 4.18,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " mend",
+              "start": 4.18,
+              "end": 4.32,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " her",
+              "start": 4.32,
+              "end": 4.48,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " kissing",
+              "start": 4.48,
+              "end": 4.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with!",
+              "start": 4.72,
+              "end": 5.04,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dorcas,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "Mopsa",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "raw": "must",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "raw": "be",
+          "start": 1.94,
+          "end": 2.16
+        },
+        {
+          "raw": "your",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "raw": "mistress,",
+          "start": 2.3,
+          "end": 2.66
+        },
+        {
+          "raw": "marry,",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "raw": "garlic,",
+          "start": 3.52,
+          "end": 3.92
+        },
+        {
+          "raw": "to",
+          "start": 4.16,
+          "end": 4.18
+        },
+        {
+          "raw": "mend",
+          "start": 4.18,
+          "end": 4.32
+        },
+        {
+          "raw": "her",
+          "start": 4.32,
+          "end": 4.48
+        },
+        {
+          "raw": "kissing",
+          "start": 4.48,
+          "end": 4.72
+        },
+        {
+          "raw": "with!",
+          "start": 4.72,
+          "end": 5.04
+        }
+      ],
+      "expected_tokens": [
+        "Dorcas.",
+        "Mopsa",
+        "must",
+        "be",
+        "your",
+        "mistress:",
+        "marry,",
+        "garlic,",
+        "to",
+        "mend",
+        "her",
+        "kissing",
+        "with!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dorcas,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "dorcas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mopsa",
+          "start": 1.48,
+          "end": 1.8,
+          "key": "mopsa",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.8,
+          "end": 1.94,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.94,
+          "end": 2.16,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.16,
+          "end": 2.3,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mistress,",
+          "start": 2.3,
+          "end": 2.66,
+          "key": "mistress",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "marry,",
+          "start": 3.34,
+          "end": 3.46,
+          "key": "marry",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "garlic,",
+          "start": 3.52,
+          "end": 3.92,
+          "key": "garlic",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.16,
+          "end": 4.18,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mend",
+          "start": 4.18,
+          "end": 4.32,
+          "key": "mend",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.32,
+          "end": 4.48,
+          "key": "her",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "kissing",
+          "start": 4.48,
+          "end": 4.72,
+          "key": "kissing",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "with!",
+          "start": 4.72,
+          "end": 5.04,
+          "key": "with",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dorcas.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "Mopsa",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "text": "must",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "text": "be",
+          "start": 1.94,
+          "end": 2.16
+        },
+        {
+          "text": "your",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "text": "mistress:",
+          "start": 2.3,
+          "end": 2.66
+        },
+        {
+          "text": "marry,",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "text": "garlic,",
+          "start": 3.52,
+          "end": 3.92
+        },
+        {
+          "text": "to",
+          "start": 4.16,
+          "end": 4.18
+        },
+        {
+          "text": "mend",
+          "start": 4.18,
+          "end": 4.32
+        },
+        {
+          "text": "her",
+          "start": 4.32,
+          "end": 4.48
+        },
+        {
+          "text": "kissing",
+          "start": 4.48,
+          "end": 4.72
+        },
+        {
+          "text": "with!",
+          "start": 4.72,
+          "end": 5.04
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29596958309412
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8828752e28967b31f78ef591c9a9ae0bbea083e76ae4aea63d3a3b5a0ce06068",
+  "selected_reasons": []
+}

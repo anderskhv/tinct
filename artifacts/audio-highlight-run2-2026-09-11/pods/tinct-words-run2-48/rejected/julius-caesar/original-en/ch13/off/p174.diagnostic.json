@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "1efba75f9e7456d5ad2d785e3b16558707aaa8f5898e8a4c853eb7a2fa0cd564",
+  "attempts": [
+    {
+      "asr_seconds": 0.1966317156329751,
+      "alignment_seconds": 0.00012719258666038513,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Claudius, nor I my lord.",
+          "start": 0.52,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Claudius,",
+              "start": 0.52,
+              "end": 0.96,
+              "probability": 0.951904296875
+            },
+            {
+              "text": " nor",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " I",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.810546875
+            },
+            {
+              "text": " my",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 0.767578125
+            },
+            {
+              "text": " lord.",
+              "start": 1.64,
+              "end": 1.86,
+              "probability": 0.79248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Claudius,",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "raw": "nor",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "my",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "raw": "lord.",
+          "start": 1.64,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "Claudius.",
+        "Nor",
+        "I,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Claudius,",
+          "start": 0.52,
+          "end": 0.96,
+          "key": "claudius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "nor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.5,
+          "end": 1.64,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.64,
+          "end": 1.86,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Claudius.",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "text": "Nor",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "I,",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "my",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "lord.",
+          "start": 1.64,
+          "end": 1.86
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19679807126522064
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dfc68d7be721357cca9a542e60f5a692173b588a0808ef4f5b46d46262d0de2a",
+  "selected_reasons": []
+}

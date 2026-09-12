@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "d5eeff88c71f3df4a8e3d98ca4f487218ebd12baf4c65b8354c272d61fdd7a49",
+  "attempts": [
+    {
+      "asr_seconds": 0.12669454514980316,
+      "alignment_seconds": 0.00013262033462524414,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edgar. Chill pick your teeth, zir. Come! No matter vor your foins.",
+        "hotwords": "Edgar, Chill, Come, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edgar, Chill pick your teeth, zir. Come! No matter vor your foins.",
+          "start": 0.05,
+          "end": 4.33,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " Chill",
+              "start": 1.03,
+              "end": 1.13,
+              "probability": 0.0318603515625
+            },
+            {
+              "text": " pick",
+              "start": 1.13,
+              "end": 1.31,
+              "probability": 0.4482421875
+            },
+            {
+              "text": " your",
+              "start": 1.31,
+              "end": 1.47,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " teeth,",
+              "start": 1.47,
+              "end": 1.71,
+              "probability": 0.990234375
+            },
+            {
+              "text": " zir.",
+              "start": 1.87,
+              "end": 2.13,
+              "probability": 0.0644378662109375
+            },
+            {
+              "text": " Come!",
+              "start": 2.53,
+              "end": 2.75,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " No",
+              "start": 3.19,
+              "end": 3.37,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " matter",
+              "start": 3.37,
+              "end": 3.57,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " vor",
+              "start": 3.57,
+              "end": 3.79,
+              "probability": 0.34033203125
+            },
+            {
+              "text": " your",
+              "start": 3.79,
+              "end": 3.97,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " foins.",
+              "start": 3.97,
+              "end": 4.33,
+              "probability": 0.94384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Chill",
+          "start": 1.03,
+          "end": 1.13
+        },
+        {
+          "raw": "pick",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "raw": "your",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "raw": "teeth,",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "raw": "zir.",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "raw": "Come!",
+          "start": 2.53,
+          "end": 2.75
+        },
+        {
+          "raw": "No",
+          "start": 3.19,
+          "end": 3.37
+        },
+        {
+          "raw": "matter",
+          "start": 3.37,
+          "end": 3.57
+        },
+        {
+          "raw": "vor",
+          "start": 3.57,
+          "end": 3.79
+        },
+        {
+          "raw": "your",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "raw": "foins.",
+          "start": 3.97,
+          "end": 4.33
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "Chill",
+        "pick",
+        "your",
+        "teeth,",
+        "zir.",
+        "Come!",
+        "No",
+        "matter",
+        "vor",
+        "your",
+        "foins."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Chill",
+          "start": 1.03,
+          "end": 1.13,
+          "key": "chill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pick",
+          "start": 1.13,
+          "end": 1.31,
+          "key": "pick",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.31,
+          "end": 1.47,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "teeth,",
+          "start": 1.47,
+          "end": 1.71,
+          "key": "teeth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "zir.",
+          "start": 1.87,
+          "end": 2.13,
+          "key": "zir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Come!",
+          "start": 2.53,
+          "end": 2.75,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 3.19,
+          "end": 3.37,
+          "key": "no",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 3.37,
+          "end": 3.57,
+          "key": "matter",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "vor",
+          "start": 3.57,
+          "end": 3.79,
+          "key": "vor",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.79,
+          "end": 3.97,
+          "key": "your",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "foins.",
+          "start": 3.97,
+          "end": 4.33,
+          "key": "foins",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Chill",
+          "start": 1.03,
+          "end": 1.13
+        },
+        {
+          "text": "pick",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "text": "your",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "text": "teeth,",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "text": "zir.",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "text": "Come!",
+          "start": 2.53,
+          "end": 2.75
+        },
+        {
+          "text": "No",
+          "start": 3.19,
+          "end": 3.37
+        },
+        {
+          "text": "matter",
+          "start": 3.37,
+          "end": 3.57
+        },
+        {
+          "text": "vor",
+          "start": 3.57,
+          "end": 3.79
+        },
+        {
+          "text": "your",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "text": "foins.",
+          "start": 3.97,
+          "end": 4.33
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12687667086720467
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a866dd60c6c5f5509894bb9eba4fb4981ebad412e4b41ee5b70481557121225e",
+  "selected_reasons": []
+}

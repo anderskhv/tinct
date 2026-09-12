@@ -1,0 +1,303 @@
+{
+  "complete": true,
+  "signature": "0cc22bb712aa035fccba6eaffad57fe9103a003c574ee1a38243e8abc1d01972",
+  "attempts": [
+    {
+      "asr_seconds": 0.20767970092128962,
+      "alignment_seconds": 0.0004460640484467149,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A Gavi, gathering out of the feast.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.386474609375
+            },
+            {
+              "text": " Gavi,",
+              "start": 0.51,
+              "end": 0.83,
+              "probability": 0.8056640625
+            },
+            {
+              "text": " gathering",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " out",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.6650390625
+            },
+            {
+              "text": " of",
+              "start": 1.69,
+              "end": 1.81,
+              "probability": 0.978515625
+            },
+            {
+              "text": " the",
+              "start": 1.81,
+              "end": 1.91,
+              "probability": 0.98046875
+            },
+            {
+              "text": " feast.",
+              "start": 1.91,
+              "end": 2.11,
+              "probability": 0.9111328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "Gavi,",
+          "start": 0.51,
+          "end": 0.83
+        },
+        {
+          "raw": "gathering",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "out",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "raw": "of",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "raw": "the",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "raw": "feast.",
+          "start": 1.91,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "Gather",
+        "ye",
+        "now",
+        "to",
+        "the",
+        "feast!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gavi,",
+          "start": 0.51,
+          "end": 0.83,
+          "key": "gavi",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gathering",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "gathering",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.45,
+          "end": 1.69,
+          "key": "out",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.69,
+          "end": 1.81,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.81,
+          "end": 1.91,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "feast.",
+          "start": 1.91,
+          "end": 2.11,
+          "key": "feast",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.0,
+          "end": 0.905
+        },
+        {
+          "text": "Gather",
+          "start": 0.905,
+          "end": 1.357
+        },
+        {
+          "text": "ye",
+          "start": 1.357,
+          "end": 1.583
+        },
+        {
+          "text": "now",
+          "start": 1.583,
+          "end": 1.696
+        },
+        {
+          "text": "to",
+          "start": 1.696,
+          "end": 1.753
+        },
+        {
+          "text": "the",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "text": "feast!",
+          "start": 1.91,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 2
+      },
+      "match_ratio": 0.2857142857142857,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20828249491751194
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "78e84c803c1c15df99b522f3ee37b2406f828d7995be5fed8f7afe0653613781",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

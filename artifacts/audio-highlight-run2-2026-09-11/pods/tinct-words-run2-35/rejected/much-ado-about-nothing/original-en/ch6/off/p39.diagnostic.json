@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "9a248f355f3a2c6595e5f11613e825bd2b8eea2a3bd4b3b9795657a0bc6ebb24",
+  "attempts": [
+    {
+      "asr_seconds": 0.1281028427183628,
+      "alignment_seconds": 0.00021487660706043243,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Benedict.",
+          "start": 0.0,
+          "end": 0.74,
+          "words": [
+            {
+              "text": " Benedict.",
+              "start": 0.0,
+              "end": 0.74,
+              "probability": 0.521484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Benedict.",
+          "start": 0.0,
+          "end": 0.74
+        }
+      ],
+      "expected_tokens": [
+        "Benedick."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Benedict.",
+          "start": 0.0,
+          "end": 0.74,
+          "key": "benedict",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Benedick.",
+          "start": 0.0,
+          "end": 0.37
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1283920519053936
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "48d584b14a0e6f3ea702f4ef0ce1f5538ed7fe0dd2d4d91e148192d316059caa",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

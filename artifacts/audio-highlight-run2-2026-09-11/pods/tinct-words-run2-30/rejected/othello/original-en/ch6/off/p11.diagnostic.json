@@ -1,0 +1,498 @@
+{
+  "complete": true,
+  "signature": "d9875062240ef629ee9ac6e77542ae1da62c8394ba21d0b2f78cdaee23d56165",
+  "attempts": [
+    {
+      "asr_seconds": 0.188315249979496,
+      "alignment_seconds": 0.0002299291081726551,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yago, what an eye she has.",
+          "start": 0.05,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Yago,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.24359130859375
+            },
+            {
+              "text": " what",
+              "start": 1.13,
+              "end": 1.33,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " an",
+              "start": 1.33,
+              "end": 1.43,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " eye",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " she",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " has.",
+              "start": 1.75,
+              "end": 2.17,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " Methinks it sounds a parley to provocation.",
+          "start": 2.63,
+          "end": 4.27,
+          "words": [
+            {
+              "text": " Methinks",
+              "start": 2.63,
+              "end": 2.87,
+              "probability": 0.697509765625
+            },
+            {
+              "text": " it",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.984375
+            },
+            {
+              "text": " sounds",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " a",
+              "start": 3.25,
+              "end": 3.39,
+              "probability": 0.763671875
+            },
+            {
+              "text": " parley",
+              "start": 3.39,
+              "end": 3.69,
+              "probability": 0.815673828125
+            },
+            {
+              "text": " to",
+              "start": 3.69,
+              "end": 3.85,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " provocation.",
+              "start": 3.85,
+              "end": 4.27,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yago,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "what",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "raw": "an",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "raw": "eye",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "she",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "has.",
+          "start": 1.75,
+          "end": 2.17
+        },
+        {
+          "raw": "Methinks",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "raw": "it",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "sounds",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "raw": "a",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "raw": "parley",
+          "start": 3.39,
+          "end": 3.69
+        },
+        {
+          "raw": "to",
+          "start": 3.69,
+          "end": 3.85
+        },
+        {
+          "raw": "provocation.",
+          "start": 3.85,
+          "end": 4.27
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "What",
+        "an",
+        "eye",
+        "she",
+        "has!",
+        "methinks",
+        "it",
+        "sounds",
+        "a",
+        "parley",
+        "to",
+        "provocation."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          13,
+          1,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yago,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "yago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.13,
+          "end": 1.33,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.33,
+          "end": 1.43,
+          "key": "an",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "eye",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "eye",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.57,
+          "end": 1.75,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "has.",
+          "start": 1.75,
+          "end": 2.17,
+          "key": "has",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Methinks",
+          "start": 2.63,
+          "end": 2.87,
+          "key": "methinks",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sounds",
+          "start": 3.03,
+          "end": 3.25,
+          "key": "sounds",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.25,
+          "end": 3.39,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "parley",
+          "start": 3.39,
+          "end": 3.69,
+          "key": "parley",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.69,
+          "end": 3.85,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "provocation.",
+          "start": 3.85,
+          "end": 4.27,
+          "key": "provocation",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.565
+        },
+        {
+          "text": "What",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "text": "an",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "text": "eye",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "she",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "has!",
+          "start": 1.75,
+          "end": 2.17
+        },
+        {
+          "text": "methinks",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "text": "it",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "text": "sounds",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "text": "a",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "text": "parley",
+          "start": 3.39,
+          "end": 3.69
+        },
+        {
+          "text": "to",
+          "start": 3.69,
+          "end": 3.85
+        },
+        {
+          "text": "provocation.",
+          "start": 3.85,
+          "end": 4.27
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.18863255763426423
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "60cf0c565c6838c3c98f828d4927715ae643ac12da17cbb92ef1c4507c139a97",
+  "selected_reasons": []
+}

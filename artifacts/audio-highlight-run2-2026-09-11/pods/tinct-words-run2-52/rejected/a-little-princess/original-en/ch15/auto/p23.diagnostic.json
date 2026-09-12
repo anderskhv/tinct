@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "c5d753f94f285c6cb6807f4ee2b16dae5d8114b8e78df7b5883c53889feacbee",
+  "attempts": [
+    {
+      "asr_seconds": 0.10290304943919182,
+      "alignment_seconds": 0.0002490878105163574,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No,\" answered Sara.",
+        "hotwords": "No, Sara"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, answered Sara.",
+          "start": 0.05,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.56787109375
+            },
+            {
+              "text": " answered",
+              "start": 1.05,
+              "end": 1.27,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Sara.",
+              "start": 1.27,
+              "end": 1.55,
+              "probability": 0.1871337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "answered",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "raw": "Sara.",
+          "start": 1.27,
+          "end": 1.55
+        }
+      ],
+      "expected_tokens": [
+        "\"No,\"",
+        "answered",
+        "Sara."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 1.05,
+          "end": 1.27,
+          "key": "answered",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sara.",
+          "start": 1.27,
+          "end": 1.55,
+          "key": "sara",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,\"",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "answered",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "text": "Sara.",
+          "start": 1.27,
+          "end": 1.55
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10324166715145111
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bbf7d3b360a6f88acc38df1b9bd527f80c7c99be0fabd279a99f27dccf794ce2",
+  "selected_reasons": []
+}

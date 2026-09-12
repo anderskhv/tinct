@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "3b44b30e532c96462cefc150bfd457895e00cb910f11e2349fb9db5cfa3592d2",
+  "attempts": [
+    {
+      "asr_seconds": 0.2076965942978859,
+      "alignment_seconds": 0.0004170946776866913,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gonzalo, well I have done, but yet...",
+          "start": 0.05,
+          "end": 2.89,
+          "words": [
+            {
+              "text": " Gonzalo,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.912109375
+            },
+            {
+              "text": " well",
+              "start": 1.13,
+              "end": 1.27,
+              "probability": 0.6513671875
+            },
+            {
+              "text": " I",
+              "start": 1.27,
+              "end": 1.39,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " have",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " done,",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 1.97,
+              "end": 2.07,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " yet...",
+              "start": 2.07,
+              "end": 2.89,
+              "probability": 0.7174072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "well",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "raw": "have",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "done,",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "but",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "raw": "yet...",
+          "start": 2.07,
+          "end": 2.89
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "Well,",
+        "I",
+        "have",
+        "done:",
+        "but",
+        "yet,--"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gonzalo,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "gonzalo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.13,
+          "end": 1.27,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.39,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.39,
+          "end": 1.49,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "done,",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "done",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.97,
+          "end": 2.07,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "yet...",
+          "start": 2.07,
+          "end": 2.89,
+          "key": "yet",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Well,",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "text": "I",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "text": "have",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "done:",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "but",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "text": "yet,--",
+          "start": 2.07,
+          "end": 2.89
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20827192813158035
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "330e3003d40e2ef86e01b2f0fbb3beb6da40f2a0cb1dd6153a60ba01cbc703fa",
+  "selected_reasons": []
+}

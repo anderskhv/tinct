@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "93f4835578d6d0f145d8aae0a633ac7e9ba4573b065319fb857544ec07c73a46",
+  "attempts": [
+    {
+      "asr_seconds": 0.26724022068083286,
+      "alignment_seconds": 0.0002039000391960144,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The marriage cannot go on: I declare the existence of an impediment.\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The marriage cannot go on. I declare the existence of an impediment.",
+          "start": 0.05,
+          "end": 4.19,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " marriage",
+              "start": 0.51,
+              "end": 0.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " cannot",
+              "start": 0.83,
+              "end": 1.21,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " go",
+              "start": 1.21,
+              "end": 1.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on.",
+              "start": 1.49,
+              "end": 1.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 2.27,
+              "end": 2.33,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " declare",
+              "start": 2.33,
+              "end": 2.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.59,
+              "end": 2.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " existence",
+              "start": 2.79,
+              "end": 3.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 3.19,
+              "end": 3.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " an",
+              "start": 3.55,
+              "end": 3.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " impediment.",
+              "start": 3.63,
+              "end": 4.19,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "marriage",
+          "start": 0.51,
+          "end": 0.83
+        },
+        {
+          "raw": "cannot",
+          "start": 0.83,
+          "end": 1.21
+        },
+        {
+          "raw": "go",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "raw": "on.",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "raw": "I",
+          "start": 2.27,
+          "end": 2.33
+        },
+        {
+          "raw": "declare",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "raw": "the",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "raw": "existence",
+          "start": 2.79,
+          "end": 3.19
+        },
+        {
+          "raw": "of",
+          "start": 3.19,
+          "end": 3.55
+        },
+        {
+          "raw": "an",
+          "start": 3.55,
+          "end": 3.63
+        },
+        {
+          "raw": "impediment.",
+          "start": 3.63,
+          "end": 4.19
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "marriage",
+        "cannot",
+        "go",
+        "on:",
+        "I",
+        "declare",
+        "the",
+        "existence",
+        "of",
+        "an",
+        "impediment.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "marriage",
+          "start": 0.51,
+          "end": 0.83,
+          "key": "marriage",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 0.83,
+          "end": 1.21,
+          "key": "cannot",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.21,
+          "end": 1.49,
+          "key": "go",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 1.49,
+          "end": 1.77,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.27,
+          "end": 2.33,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "declare",
+          "start": 2.33,
+          "end": 2.59,
+          "key": "declare",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.59,
+          "end": 2.79,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "existence",
+          "start": 2.79,
+          "end": 3.19,
+          "key": "existence",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.19,
+          "end": 3.55,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.55,
+          "end": 3.63,
+          "key": "an",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "impediment.",
+          "start": 3.63,
+          "end": 4.19,
+          "key": "impediment",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "marriage",
+          "start": 0.51,
+          "end": 0.83
+        },
+        {
+          "text": "cannot",
+          "start": 0.83,
+          "end": 1.21
+        },
+        {
+          "text": "go",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "text": "on:",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "text": "I",
+          "start": 2.27,
+          "end": 2.33
+        },
+        {
+          "text": "declare",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "text": "the",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "text": "existence",
+          "start": 2.79,
+          "end": 3.19
+        },
+        {
+          "text": "of",
+          "start": 3.19,
+          "end": 3.55
+        },
+        {
+          "text": "an",
+          "start": 3.55,
+          "end": 3.63
+        },
+        {
+          "text": "impediment.\"",
+          "start": 3.63,
+          "end": 4.19
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.267533908598125
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e5da421841f0eab6a66fe5d0caa2f22bf2e186d395412251bbc7413558b1c3a8",
+  "selected_reasons": []
+}

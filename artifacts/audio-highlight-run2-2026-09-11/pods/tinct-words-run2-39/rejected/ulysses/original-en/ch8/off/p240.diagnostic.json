@@ -1,0 +1,761 @@
+{
+  "complete": true,
+  "signature": "e346e9728b84a22542fc985d0b8568fa5ad20358ed6a81e5d113f80ecba377be",
+  "attempts": [
+    {
+      "asr_seconds": 0.33840691996738315,
+      "alignment_seconds": 0.00048494990915060043,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And here's himself and Pepper on him,\" Nocee Flynn said.",
+          "start": 0.02,
+          "end": 3.54,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.315185546875
+            },
+            {
+              "text": " here's",
+              "start": 0.52,
+              "end": 0.82,
+              "probability": 0.976806640625
+            },
+            {
+              "text": " himself",
+              "start": 0.82,
+              "end": 1.18,
+              "probability": 0.986328125
+            },
+            {
+              "text": " and",
+              "start": 1.18,
+              "end": 1.5,
+              "probability": 0.923828125
+            },
+            {
+              "text": " Pepper",
+              "start": 1.5,
+              "end": 1.72,
+              "probability": 0.71435546875
+            },
+            {
+              "text": " on",
+              "start": 1.72,
+              "end": 1.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " him,\"",
+              "start": 1.98,
+              "end": 2.68,
+              "probability": 0.697509765625
+            },
+            {
+              "text": " Nocee",
+              "start": 2.68,
+              "end": 3.14,
+              "probability": 0.4708658854166667
+            },
+            {
+              "text": " Flynn",
+              "start": 3.14,
+              "end": 3.2,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " said.",
+              "start": 3.2,
+              "end": 3.54,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Can you give us a good one for the gold cup?\"",
+          "start": 4.14,
+          "end": 5.94,
+          "words": [
+            {
+              "text": " Can",
+              "start": 4.14,
+              "end": 4.22,
+              "probability": 0.0338134765625
+            },
+            {
+              "text": " you",
+              "start": 4.22,
+              "end": 4.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " give",
+              "start": 4.34,
+              "end": 4.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " us",
+              "start": 4.46,
+              "end": 4.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 4.58,
+              "end": 4.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " good",
+              "start": 4.7,
+              "end": 4.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " one",
+              "start": 4.82,
+              "end": 5.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " for",
+              "start": 5.0,
+              "end": 5.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 5.18,
+              "end": 5.32,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " gold",
+              "start": 5.32,
+              "end": 5.5,
+              "probability": 0.51806640625
+            },
+            {
+              "text": " cup?\"",
+              "start": 5.5,
+              "end": 5.94,
+              "probability": 0.6243896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "here's",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "raw": "himself",
+          "start": 0.82,
+          "end": 1.18
+        },
+        {
+          "raw": "and",
+          "start": 1.18,
+          "end": 1.5
+        },
+        {
+          "raw": "Pepper",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "raw": "on",
+          "start": 1.72,
+          "end": 1.98
+        },
+        {
+          "raw": "him,\"",
+          "start": 1.98,
+          "end": 2.68
+        },
+        {
+          "raw": "Nocee",
+          "start": 2.68,
+          "end": 3.14
+        },
+        {
+          "raw": "Flynn",
+          "start": 3.14,
+          "end": 3.2
+        },
+        {
+          "raw": "said.",
+          "start": 3.2,
+          "end": 3.54
+        },
+        {
+          "raw": "Can",
+          "start": 4.14,
+          "end": 4.22
+        },
+        {
+          "raw": "you",
+          "start": 4.22,
+          "end": 4.34
+        },
+        {
+          "raw": "give",
+          "start": 4.34,
+          "end": 4.46
+        },
+        {
+          "raw": "us",
+          "start": 4.46,
+          "end": 4.58
+        },
+        {
+          "raw": "a",
+          "start": 4.58,
+          "end": 4.7
+        },
+        {
+          "raw": "good",
+          "start": 4.7,
+          "end": 4.82
+        },
+        {
+          "raw": "one",
+          "start": 4.82,
+          "end": 5.0
+        },
+        {
+          "raw": "for",
+          "start": 5.0,
+          "end": 5.18
+        },
+        {
+          "raw": "the",
+          "start": 5.18,
+          "end": 5.32
+        },
+        {
+          "raw": "gold",
+          "start": 5.32,
+          "end": 5.5
+        },
+        {
+          "raw": "cup?\"",
+          "start": 5.5,
+          "end": 5.94
+        }
+      ],
+      "expected_tokens": [
+        "—And",
+        "here's",
+        "himself",
+        "and",
+        "pepper",
+        "on",
+        "him,",
+        "Nosey",
+        "Flynn",
+        "said.",
+        "Can",
+        "you",
+        "give",
+        "us",
+        "a",
+        "good",
+        "one",
+        "for",
+        "the",
+        "Gold",
+        "cup?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          21,
+          8,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here's",
+          "start": 0.52,
+          "end": 0.82,
+          "key": "heres",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 0.82,
+          "end": 1.18,
+          "key": "himself",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.18,
+          "end": 1.5,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Pepper",
+          "start": 1.5,
+          "end": 1.72,
+          "key": "pepper",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.72,
+          "end": 1.98,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him,\"",
+          "start": 1.98,
+          "end": 2.68,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Nocee",
+          "start": 2.68,
+          "end": 3.14,
+          "key": "nocee",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Flynn",
+          "start": 3.14,
+          "end": 3.2,
+          "key": "flynn",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 3.2,
+          "end": 3.54,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Can",
+          "start": 4.14,
+          "end": 4.22,
+          "key": "can",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.22,
+          "end": 4.34,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 4.34,
+          "end": 4.46,
+          "key": "give",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 4.46,
+          "end": 4.58,
+          "key": "us",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.58,
+          "end": 4.7,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 4.7,
+          "end": 4.82,
+          "key": "good",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 4.82,
+          "end": 5.0,
+          "key": "one",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.0,
+          "end": 5.18,
+          "key": "for",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.18,
+          "end": 5.32,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "gold",
+          "start": 5.32,
+          "end": 5.5,
+          "key": "gold",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "cup?\"",
+          "start": 5.5,
+          "end": 5.94,
+          "key": "cup",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—And",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "here's",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "text": "himself",
+          "start": 0.82,
+          "end": 1.18
+        },
+        {
+          "text": "and",
+          "start": 1.18,
+          "end": 1.5
+        },
+        {
+          "text": "pepper",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "text": "on",
+          "start": 1.72,
+          "end": 1.98
+        },
+        {
+          "text": "him,",
+          "start": 1.98,
+          "end": 2.68
+        },
+        {
+          "text": "Nosey",
+          "start": 2.68,
+          "end": 2.91
+        },
+        {
+          "text": "Flynn",
+          "start": 3.14,
+          "end": 3.2
+        },
+        {
+          "text": "said.",
+          "start": 3.2,
+          "end": 3.54
+        },
+        {
+          "text": "Can",
+          "start": 4.14,
+          "end": 4.22
+        },
+        {
+          "text": "you",
+          "start": 4.22,
+          "end": 4.34
+        },
+        {
+          "text": "give",
+          "start": 4.34,
+          "end": 4.46
+        },
+        {
+          "text": "us",
+          "start": 4.46,
+          "end": 4.58
+        },
+        {
+          "text": "a",
+          "start": 4.58,
+          "end": 4.7
+        },
+        {
+          "text": "good",
+          "start": 4.7,
+          "end": 4.82
+        },
+        {
+          "text": "one",
+          "start": 4.82,
+          "end": 5.0
+        },
+        {
+          "text": "for",
+          "start": 5.0,
+          "end": 5.18
+        },
+        {
+          "text": "the",
+          "start": 5.18,
+          "end": 5.32
+        },
+        {
+          "text": "Gold",
+          "start": 5.32,
+          "end": 5.5
+        },
+        {
+          "text": "cup?",
+          "start": 5.5,
+          "end": 5.94
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.3390981941483915
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0d814866d8bc4746a32186b4964ab5c4de45304bd02e958627232227af37c1ca",
+  "selected_reasons": []
+}

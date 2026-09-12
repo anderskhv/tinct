@@ -1,0 +1,285 @@
+{
+  "complete": true,
+  "signature": "9fa38b882b575a47ca39362a8bb560d7fc76a3e671fbcca93559ff80e66c3a56",
+  "attempts": [
+    {
+      "asr_seconds": 0.14084575002198108,
+      "alignment_seconds": 0.0002518580004107207,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Music of the hautboys under the stage._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " music of the hautboys under the stage.",
+          "start": 0.05,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " music",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.2266845703125
+            },
+            {
+              "text": " of",
+              "start": 0.63,
+              "end": 0.85,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 0.85,
+              "end": 0.95,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " hautboys",
+              "start": 0.95,
+              "end": 1.37,
+              "probability": 0.09085744619369507
+            },
+            {
+              "text": " under",
+              "start": 1.37,
+              "end": 1.61,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " the",
+              "start": 1.61,
+              "end": 1.75,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " stage.",
+              "start": 1.75,
+              "end": 2.13,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "music",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "of",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "raw": "the",
+          "start": 0.85,
+          "end": 0.95
+        },
+        {
+          "raw": "hautboys",
+          "start": 0.95,
+          "end": 1.37
+        },
+        {
+          "raw": "under",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "raw": "the",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "raw": "stage.",
+          "start": 1.75,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "[_Music",
+        "of",
+        "the",
+        "hautboys",
+        "under",
+        "the",
+        "stage._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "music",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "music",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.63,
+          "end": 0.85,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.85,
+          "end": 0.95,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hautboys",
+          "start": 0.95,
+          "end": 1.37,
+          "key": "hautboys",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 1.37,
+          "end": 1.61,
+          "key": "under",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.61,
+          "end": 1.75,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "stage.",
+          "start": 1.75,
+          "end": 2.13,
+          "key": "stage",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Music",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "of",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "text": "the",
+          "start": 0.85,
+          "end": 0.95
+        },
+        {
+          "text": "hautboys",
+          "start": 0.95,
+          "end": 1.37
+        },
+        {
+          "text": "under",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "text": "the",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "text": "stage._]",
+          "start": 1.75,
+          "end": 2.13
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14119091202155687
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c6bbdb8e0ede7364576ed8e58cb8c407a2e12f66cf3056ff2e3aea10190fe293",
+  "selected_reasons": []
+}

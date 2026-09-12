@@ -1,0 +1,259 @@
+{
+  "complete": true,
+  "signature": "5b1486846a4bfc384178a2f047caf3593c86834639fff8228e1e20fbfce6b702",
+  "attempts": [
+    {
+      "asr_seconds": 0.11187075599445961,
+      "alignment_seconds": 0.00015849500778131187,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second servant, Lepidus is high-colored.",
+          "start": 0.08,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.85546875
+            },
+            {
+              "text": " servant,",
+              "start": 0.72,
+              "end": 1.1,
+              "probability": 0.796875
+            },
+            {
+              "text": " Lepidus",
+              "start": 1.66,
+              "end": 2.04,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " is",
+              "start": 2.04,
+              "end": 2.18,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " high",
+              "start": 2.18,
+              "end": 2.38,
+              "probability": 0.97412109375
+            },
+            {
+              "text": "-colored.",
+              "start": 2.38,
+              "end": 2.64,
+              "probability": 0.6817626953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "servant,",
+          "start": 0.72,
+          "end": 1.1
+        },
+        {
+          "raw": "Lepidus",
+          "start": 1.66,
+          "end": 2.04
+        },
+        {
+          "raw": "is",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "raw": "high",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "raw": "-colored.",
+          "start": 2.38,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Servant.",
+        "Lepidus",
+        "is",
+        "high-coloured."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "servant,",
+          "start": 0.72,
+          "end": 1.1,
+          "key": "servant",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lepidus",
+          "start": 1.66,
+          "end": 2.04,
+          "key": "lepidus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.04,
+          "end": 2.18,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "high",
+          "start": 2.18,
+          "end": 2.38,
+          "key": "high",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "-colored.",
+          "start": 2.38,
+          "end": 2.64,
+          "key": "colored",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Servant.",
+          "start": 0.72,
+          "end": 1.1
+        },
+        {
+          "text": "Lepidus",
+          "start": 1.66,
+          "end": 2.04
+        },
+        {
+          "text": "is",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "text": "high-coloured.",
+          "start": 2.18,
+          "end": 2.41
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11208580300444737
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d40fe66589b9ff1122ea9e4bcd55ff9c60fa7f810a9429be6614f7026205bfab",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

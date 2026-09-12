@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "5960c6c451e24451f6d9de2ca99b7b6b09b950cad7d19cb9f6e1e8c4cf90f18e",
+  "attempts": [
+    {
+      "asr_seconds": 0.3728758809156716,
+      "alignment_seconds": 0.0006333040073513985,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why there must have been water at the bottom a foot deep you can't dig a dry grave in Volkovo Cemetery",
+          "start": 0.05,
+          "end": 6.43,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " there",
+              "start": 0.67,
+              "end": 1.15,
+              "probability": 0.337158203125
+            },
+            {
+              "text": " must",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " have",
+              "start": 1.35,
+              "end": 1.53,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " been",
+              "start": 1.53,
+              "end": 1.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " water",
+              "start": 1.69,
+              "end": 1.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 2.15,
+              "end": 2.27,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bottom",
+              "start": 2.27,
+              "end": 2.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 2.51,
+              "end": 2.71,
+              "probability": 0.91796875
+            },
+            {
+              "text": " foot",
+              "start": 2.71,
+              "end": 2.93,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " deep",
+              "start": 2.93,
+              "end": 3.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 3.35,
+              "end": 3.95,
+              "probability": 0.6484375
+            },
+            {
+              "text": " can't",
+              "start": 3.95,
+              "end": 4.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dig",
+              "start": 4.29,
+              "end": 4.37,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " a",
+              "start": 4.37,
+              "end": 4.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dry",
+              "start": 4.49,
+              "end": 4.77,
+              "probability": 0.9921875
+            },
+            {
+              "text": " grave",
+              "start": 4.77,
+              "end": 5.17,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " in",
+              "start": 5.17,
+              "end": 5.43,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Volkovo",
+              "start": 5.43,
+              "end": 6.03,
+              "probability": 0.6329752604166666
+            },
+            {
+              "text": " Cemetery",
+              "start": 6.03,
+              "end": 6.43,
+              "probability": 0.810546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "there",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "raw": "must",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "have",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "raw": "been",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "raw": "water",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "raw": "at",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "the",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "raw": "bottom",
+          "start": 2.27,
+          "end": 2.51
+        },
+        {
+          "raw": "a",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "raw": "foot",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "raw": "deep",
+          "start": 2.93,
+          "end": 3.35
+        },
+        {
+          "raw": "you",
+          "start": 3.35,
+          "end": 3.95
+        },
+        {
+          "raw": "can't",
+          "start": 3.95,
+          "end": 4.29
+        },
+        {
+          "raw": "dig",
+          "start": 4.29,
+          "end": 4.37
+        },
+        {
+          "raw": "a",
+          "start": 4.37,
+          "end": 4.49
+        },
+        {
+          "raw": "dry",
+          "start": 4.49,
+          "end": 4.77
+        },
+        {
+          "raw": "grave",
+          "start": 4.77,
+          "end": 5.17
+        },
+        {
+          "raw": "in",
+          "start": 5.17,
+          "end": 5.43
+        },
+        {
+          "raw": "Volkovo",
+          "start": 5.43,
+          "end": 6.03
+        },
+        {
+          "raw": "Cemetery",
+          "start": 6.03,
+          "end": 6.43
+        }
+      ],
+      "expected_tokens": [
+        "\"Why,",
+        "there",
+        "must",
+        "have",
+        "been",
+        "water",
+        "at",
+        "the",
+        "bottom",
+        "a",
+        "foot",
+        "deep.",
+        "You",
+        "can't",
+        "dig",
+        "a",
+        "dry",
+        "grave",
+        "in",
+        "Volkovo",
+        "Cemetery.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 0.67,
+          "end": 1.15,
+          "key": "there",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.15,
+          "end": 1.35,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.35,
+          "end": 1.53,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.53,
+          "end": 1.69,
+          "key": "been",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "water",
+          "start": 1.69,
+          "end": 1.99,
+          "key": "water",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.15,
+          "end": 2.27,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bottom",
+          "start": 2.27,
+          "end": 2.51,
+          "key": "bottom",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.51,
+          "end": 2.71,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "foot",
+          "start": 2.71,
+          "end": 2.93,
+          "key": "foot",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "deep",
+          "start": 2.93,
+          "end": 3.35,
+          "key": "deep",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.35,
+          "end": 3.95,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "can't",
+          "start": 3.95,
+          "end": 4.29,
+          "key": "cant",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "dig",
+          "start": 4.29,
+          "end": 4.37,
+          "key": "dig",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.37,
+          "end": 4.49,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "dry",
+          "start": 4.49,
+          "end": 4.77,
+          "key": "dry",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "grave",
+          "start": 4.77,
+          "end": 5.17,
+          "key": "grave",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.17,
+          "end": 5.43,
+          "key": "in",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Volkovo",
+          "start": 5.43,
+          "end": 6.03,
+          "key": "volkovo",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Cemetery",
+          "start": 6.03,
+          "end": 6.43,
+          "key": "cemetery",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "there",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "text": "must",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "have",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "text": "been",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "text": "water",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "text": "at",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "text": "the",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "text": "bottom",
+          "start": 2.27,
+          "end": 2.51
+        },
+        {
+          "text": "a",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "text": "foot",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "text": "deep.",
+          "start": 2.93,
+          "end": 3.35
+        },
+        {
+          "text": "You",
+          "start": 3.35,
+          "end": 3.95
+        },
+        {
+          "text": "can't",
+          "start": 3.95,
+          "end": 4.29
+        },
+        {
+          "text": "dig",
+          "start": 4.29,
+          "end": 4.37
+        },
+        {
+          "text": "a",
+          "start": 4.37,
+          "end": 4.49
+        },
+        {
+          "text": "dry",
+          "start": 4.49,
+          "end": 4.77
+        },
+        {
+          "text": "grave",
+          "start": 4.77,
+          "end": 5.17
+        },
+        {
+          "text": "in",
+          "start": 5.17,
+          "end": 5.43
+        },
+        {
+          "text": "Volkovo",
+          "start": 5.43,
+          "end": 6.03
+        },
+        {
+          "text": "Cemetery.\"",
+          "start": 6.03,
+          "end": 6.43
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37383812200278044
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f27fb1cdea2c8f2b55ed69dd7ee67d8dcf3aa937a619a8e80cb80e6ab4d9dc8f",
+  "selected_reasons": []
+}

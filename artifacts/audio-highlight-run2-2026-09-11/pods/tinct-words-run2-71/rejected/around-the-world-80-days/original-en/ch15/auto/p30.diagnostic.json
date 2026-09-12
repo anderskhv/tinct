@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "232a941d5610109542c64733b9854f60a2430d9f6240c781e9e3df9c3de6d6a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.3333054333925247,
+      "alignment_seconds": 0.0004781065508723259,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Good,\" said the judge. \"You have been looked for, prisoners, for two days on the trains from Bombay.\"",
+        "hotwords": "Good, You, Bombay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Good, said the judge. You have been looked for, prisoners, for two days on the trains from Bombay.",
+          "start": 0.05,
+          "end": 5.51,
+          "words": [
+            {
+              "text": " Good,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.10693359375
+            },
+            {
+              "text": " said",
+              "start": 0.99,
+              "end": 1.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 1.27,
+              "end": 1.41,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " judge.",
+              "start": 1.41,
+              "end": 1.69,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " You",
+              "start": 2.31,
+              "end": 2.39,
+              "probability": 0.923828125
+            },
+            {
+              "text": " have",
+              "start": 2.39,
+              "end": 2.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " been",
+              "start": 2.47,
+              "end": 2.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " looked",
+              "start": 2.59,
+              "end": 2.81,
+              "probability": 0.970703125
+            },
+            {
+              "text": " for,",
+              "start": 2.81,
+              "end": 3.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " prisoners,",
+              "start": 3.23,
+              "end": 3.43,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " for",
+              "start": 3.77,
+              "end": 3.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " two",
+              "start": 3.89,
+              "end": 4.07,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " days",
+              "start": 4.07,
+              "end": 4.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 4.31,
+              "end": 4.49,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 4.49,
+              "end": 4.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " trains",
+              "start": 4.59,
+              "end": 4.89,
+              "probability": 0.990234375
+            },
+            {
+              "text": " from",
+              "start": 4.89,
+              "end": 5.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Bombay.",
+              "start": 5.19,
+              "end": 5.51,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "said",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "raw": "the",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "raw": "judge.",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "raw": "You",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "raw": "have",
+          "start": 2.39,
+          "end": 2.47
+        },
+        {
+          "raw": "been",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "raw": "looked",
+          "start": 2.59,
+          "end": 2.81
+        },
+        {
+          "raw": "for,",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "raw": "prisoners,",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "raw": "for",
+          "start": 3.77,
+          "end": 3.89
+        },
+        {
+          "raw": "two",
+          "start": 3.89,
+          "end": 4.07
+        },
+        {
+          "raw": "days",
+          "start": 4.07,
+          "end": 4.31
+        },
+        {
+          "raw": "on",
+          "start": 4.31,
+          "end": 4.49
+        },
+        {
+          "raw": "the",
+          "start": 4.49,
+          "end": 4.59
+        },
+        {
+          "raw": "trains",
+          "start": 4.59,
+          "end": 4.89
+        },
+        {
+          "raw": "from",
+          "start": 4.89,
+          "end": 5.19
+        },
+        {
+          "raw": "Bombay.",
+          "start": 5.19,
+          "end": 5.51
+        }
+      ],
+      "expected_tokens": [
+        "\"Good,\"",
+        "said",
+        "the",
+        "judge.",
+        "\"You",
+        "have",
+        "been",
+        "looked",
+        "for,",
+        "prisoners,",
+        "for",
+        "two",
+        "days",
+        "on",
+        "the",
+        "trains",
+        "from",
+        "Bombay.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Good,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "good",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.99,
+          "end": 1.27,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.27,
+          "end": 1.41,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "judge.",
+          "start": 1.41,
+          "end": 1.69,
+          "key": "judge",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.31,
+          "end": 2.39,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.39,
+          "end": 2.47,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.47,
+          "end": 2.59,
+          "key": "been",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 2.59,
+          "end": 2.81,
+          "key": "looked",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for,",
+          "start": 2.81,
+          "end": 3.05,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "prisoners,",
+          "start": 3.23,
+          "end": 3.43,
+          "key": "prisoners",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.77,
+          "end": 3.89,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 3.89,
+          "end": 4.07,
+          "key": "two",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "days",
+          "start": 4.07,
+          "end": 4.31,
+          "key": "days",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.31,
+          "end": 4.49,
+          "key": "on",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.49,
+          "end": 4.59,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "trains",
+          "start": 4.59,
+          "end": 4.89,
+          "key": "trains",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 4.89,
+          "end": 5.19,
+          "key": "from",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Bombay.",
+          "start": 5.19,
+          "end": 5.51,
+          "key": "bombay",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Good,\"",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "said",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "text": "the",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "text": "judge.",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "text": "\"You",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "text": "have",
+          "start": 2.39,
+          "end": 2.47
+        },
+        {
+          "text": "been",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "text": "looked",
+          "start": 2.59,
+          "end": 2.81
+        },
+        {
+          "text": "for,",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "text": "prisoners,",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "text": "for",
+          "start": 3.77,
+          "end": 3.89
+        },
+        {
+          "text": "two",
+          "start": 3.89,
+          "end": 4.07
+        },
+        {
+          "text": "days",
+          "start": 4.07,
+          "end": 4.31
+        },
+        {
+          "text": "on",
+          "start": 4.31,
+          "end": 4.49
+        },
+        {
+          "text": "the",
+          "start": 4.49,
+          "end": 4.59
+        },
+        {
+          "text": "trains",
+          "start": 4.59,
+          "end": 4.89
+        },
+        {
+          "text": "from",
+          "start": 4.89,
+          "end": 5.19
+        },
+        {
+          "text": "Bombay.\"",
+          "start": 5.19,
+          "end": 5.51
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3340815072879195
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "53529944c72e92abb4e170090d8d96e43b5990bc91cd76ed0fa1c1dfa0f9ae8f",
+  "selected_reasons": []
+}

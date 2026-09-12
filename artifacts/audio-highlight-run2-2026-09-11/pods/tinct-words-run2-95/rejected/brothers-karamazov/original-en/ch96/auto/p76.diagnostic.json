@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "787ccfc55c3252df59386a7a2f23a4f0800ea2cc20f60b3e8e174b6ab349bc96",
+  "attempts": [
+    {
+      "asr_seconds": 0.10853981599211693,
+      "alignment_seconds": 0.0002618543803691864,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The End",
+        "hotwords": "The, End"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The End",
+          "start": 0.05,
+          "end": 0.71,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.76611328125
+            },
+            {
+              "text": " End",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.62353515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "End",
+          "start": 0.53,
+          "end": 0.71
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "End"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "End",
+          "start": 0.53,
+          "end": 0.71,
+          "key": "end",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "End",
+          "start": 0.53,
+          "end": 0.71
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10889433696866035
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4ef9a6e7c1f0a80b0eafdebb036c2c13d2c202958d815020517fe55dcb2b7949",
+  "selected_reasons": []
+}

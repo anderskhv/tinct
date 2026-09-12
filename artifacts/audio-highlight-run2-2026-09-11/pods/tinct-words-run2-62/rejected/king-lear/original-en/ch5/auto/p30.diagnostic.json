@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "c39d15b20fe21855690ccd292a5be9bcc1a920c5b423e150c58fbd89137dcaf9",
+  "attempts": [
+    {
+      "asr_seconds": 0.09563614800572395,
+      "alignment_seconds": 0.00012055039405822754,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gentleman. Ready, my lord.",
+        "hotwords": "Gentleman, Ready"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gentleman, Ready, my lord.",
+          "start": 0.02,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " Gentleman,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.007129669189453125
+            },
+            {
+              "text": " Ready,",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.0308685302734375
+            },
+            {
+              "text": " my",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 0.50830078125
+            },
+            {
+              "text": " lord.",
+              "start": 1.72,
+              "end": 1.94,
+              "probability": 0.393310546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gentleman,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Ready,",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "raw": "my",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "lord.",
+          "start": 1.72,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "Gentleman.",
+        "Ready,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gentleman,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "gentleman",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ready,",
+          "start": 1.26,
+          "end": 1.48,
+          "key": "ready",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.62,
+          "end": 1.72,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.72,
+          "end": 1.94,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gentleman.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Ready,",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "text": "my",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "text": "lord.",
+          "start": 1.72,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09579990804195404
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7d93dfb86d67c046cc9f5dec9183582fd534bef1a855a5eef81a3a85dc7f3a5b",
+  "selected_reasons": []
+}

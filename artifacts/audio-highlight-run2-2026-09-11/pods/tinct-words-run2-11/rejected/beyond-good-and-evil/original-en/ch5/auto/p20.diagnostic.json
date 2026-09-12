@@ -1,0 +1,756 @@
+{
+  "complete": true,
+  "signature": "97751fb2dae66fed5bb5349bee9698b3e2e1cfb6671cd3be781d2d1ad9565548",
+  "attempts": [
+    {
+      "asr_seconds": 0.377137154340744,
+      "alignment_seconds": 0.0007078750059008598,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "83. Instinct--When the house is on fire one forgets even the dinner--Yes, but one recovers it from among the ashes.",
+        "hotwords": "Instinct--When"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 83. Instinct-When the house is on fire one forgets even the dinner-Yes, but one recovers",
+          "start": 0.02,
+          "end": 6.3,
+          "words": [
+            {
+              "text": " 83.",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " Instinct",
+              "start": 1.66,
+              "end": 2.08,
+              "probability": 0.968017578125
+            },
+            {
+              "text": "-When",
+              "start": 2.08,
+              "end": 2.28,
+              "probability": 0.06526386737823486
+            },
+            {
+              "text": " the",
+              "start": 2.28,
+              "end": 2.46,
+              "probability": 0.58837890625
+            },
+            {
+              "text": " house",
+              "start": 2.46,
+              "end": 2.64,
+              "probability": 0.642578125
+            },
+            {
+              "text": " is",
+              "start": 2.64,
+              "end": 2.9,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " on",
+              "start": 2.9,
+              "end": 3.08,
+              "probability": 0.990234375
+            },
+            {
+              "text": " fire",
+              "start": 3.08,
+              "end": 3.46,
+              "probability": 0.966796875
+            },
+            {
+              "text": " one",
+              "start": 3.46,
+              "end": 3.74,
+              "probability": 0.65283203125
+            },
+            {
+              "text": " forgets",
+              "start": 3.74,
+              "end": 4.22,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " even",
+              "start": 4.22,
+              "end": 4.44,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " the",
+              "start": 4.44,
+              "end": 4.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " dinner",
+              "start": 4.6,
+              "end": 4.78,
+              "probability": 0.9697265625
+            },
+            {
+              "text": "-Yes,",
+              "start": 4.78,
+              "end": 5.06,
+              "probability": 0.072509765625
+            },
+            {
+              "text": " but",
+              "start": 5.6,
+              "end": 5.72,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " one",
+              "start": 5.72,
+              "end": 5.92,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " recovers",
+              "start": 5.92,
+              "end": 6.3,
+              "probability": 0.98291015625
+            }
+          ]
+        },
+        {
+          "text": " it from among the ashes.",
+          "start": 6.3,
+          "end": 7.48,
+          "words": [
+            {
+              "text": " it",
+              "start": 6.3,
+              "end": 6.58,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " from",
+              "start": 6.58,
+              "end": 6.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " among",
+              "start": 6.74,
+              "end": 6.98,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " the",
+              "start": 6.98,
+              "end": 7.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " ashes.",
+              "start": 7.2,
+              "end": 7.48,
+              "probability": 0.83203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "83.",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "raw": "Instinct",
+          "start": 1.66,
+          "end": 2.08
+        },
+        {
+          "raw": "-When",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "raw": "the",
+          "start": 2.28,
+          "end": 2.46
+        },
+        {
+          "raw": "house",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "raw": "is",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "raw": "on",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "raw": "fire",
+          "start": 3.08,
+          "end": 3.46
+        },
+        {
+          "raw": "one",
+          "start": 3.46,
+          "end": 3.74
+        },
+        {
+          "raw": "forgets",
+          "start": 3.74,
+          "end": 4.22
+        },
+        {
+          "raw": "even",
+          "start": 4.22,
+          "end": 4.44
+        },
+        {
+          "raw": "the",
+          "start": 4.44,
+          "end": 4.6
+        },
+        {
+          "raw": "dinner",
+          "start": 4.6,
+          "end": 4.78
+        },
+        {
+          "raw": "-Yes,",
+          "start": 4.78,
+          "end": 5.06
+        },
+        {
+          "raw": "but",
+          "start": 5.6,
+          "end": 5.72
+        },
+        {
+          "raw": "one",
+          "start": 5.72,
+          "end": 5.92
+        },
+        {
+          "raw": "recovers",
+          "start": 5.92,
+          "end": 6.3
+        },
+        {
+          "raw": "it",
+          "start": 6.3,
+          "end": 6.58
+        },
+        {
+          "raw": "from",
+          "start": 6.58,
+          "end": 6.74
+        },
+        {
+          "raw": "among",
+          "start": 6.74,
+          "end": 6.98
+        },
+        {
+          "raw": "the",
+          "start": 6.98,
+          "end": 7.2
+        },
+        {
+          "raw": "ashes.",
+          "start": 7.2,
+          "end": 7.48
+        }
+      ],
+      "expected_tokens": [
+        "83.",
+        "Instinct--When",
+        "the",
+        "house",
+        "is",
+        "on",
+        "fire",
+        "one",
+        "forgets",
+        "even",
+        "the",
+        "dinner--Yes,",
+        "but",
+        "one",
+        "recovers",
+        "it",
+        "from",
+        "among",
+        "the",
+        "ashes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "83.",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "eightythree",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Instinct -When",
+          "start": 1.66,
+          "end": 2.28,
+          "key": "instinctwhen",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.28,
+          "end": 2.46,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 2.46,
+          "end": 2.64,
+          "key": "house",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.64,
+          "end": 2.9,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.9,
+          "end": 3.08,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fire",
+          "start": 3.08,
+          "end": 3.46,
+          "key": "fire",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 3.46,
+          "end": 3.74,
+          "key": "one",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "forgets",
+          "start": 3.74,
+          "end": 4.22,
+          "key": "forgets",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 4.22,
+          "end": 4.44,
+          "key": "even",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.44,
+          "end": 4.6,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dinner -Yes,",
+          "start": 4.6,
+          "end": 5.06,
+          "key": "dinneryes",
+          "pieces": [
+            12,
+            13
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.6,
+          "end": 5.72,
+          "key": "but",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 5.72,
+          "end": 5.92,
+          "key": "one",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "recovers",
+          "start": 5.92,
+          "end": 6.3,
+          "key": "recovers",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.3,
+          "end": 6.58,
+          "key": "it",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 6.58,
+          "end": 6.74,
+          "key": "from",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "among",
+          "start": 6.74,
+          "end": 6.98,
+          "key": "among",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.98,
+          "end": 7.2,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "ashes.",
+          "start": 7.2,
+          "end": 7.48,
+          "key": "ashes",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "Instinct--When",
+          "heard": "Instinct -When",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 1.66,
+          "end": 2.28
+        },
+        {
+          "expected_index": 11,
+          "text": "dinner--Yes,",
+          "heard": "dinner -Yes,",
+          "heard_indexes": [
+            12,
+            13
+          ],
+          "start": 4.6,
+          "end": 5.06
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "83.",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "text": "Instinct--When",
+          "start": 1.66,
+          "end": 2.28
+        },
+        {
+          "text": "the",
+          "start": 2.28,
+          "end": 2.46
+        },
+        {
+          "text": "house",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "text": "is",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "text": "on",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "text": "fire",
+          "start": 3.08,
+          "end": 3.46
+        },
+        {
+          "text": "one",
+          "start": 3.46,
+          "end": 3.74
+        },
+        {
+          "text": "forgets",
+          "start": 3.74,
+          "end": 4.22
+        },
+        {
+          "text": "even",
+          "start": 4.22,
+          "end": 4.44
+        },
+        {
+          "text": "the",
+          "start": 4.44,
+          "end": 4.6
+        },
+        {
+          "text": "dinner--Yes,",
+          "start": 4.6,
+          "end": 5.06
+        },
+        {
+          "text": "but",
+          "start": 5.6,
+          "end": 5.72
+        },
+        {
+          "text": "one",
+          "start": 5.72,
+          "end": 5.92
+        },
+        {
+          "text": "recovers",
+          "start": 5.92,
+          "end": 6.3
+        },
+        {
+          "text": "it",
+          "start": 6.3,
+          "end": 6.58
+        },
+        {
+          "text": "from",
+          "start": 6.58,
+          "end": 6.74
+        },
+        {
+          "text": "among",
+          "start": 6.74,
+          "end": 6.98
+        },
+        {
+          "text": "the",
+          "start": 6.98,
+          "end": 7.2
+        },
+        {
+          "text": "ashes.",
+          "start": 7.2,
+          "end": 7.48
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3780915830284357
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8f2c9fa4cff7d7b690d6612a6a98058cc5bc9f83d403dab4d8bbc106a847b0a0",
+  "selected_reasons": []
+}

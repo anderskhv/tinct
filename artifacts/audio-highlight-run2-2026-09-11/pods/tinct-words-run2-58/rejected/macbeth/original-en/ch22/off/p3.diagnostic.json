@@ -1,0 +1,390 @@
+{
+  "complete": true,
+  "signature": "0e505dbc445eb3a3bb3b3074e6a24e488edb0d4fdaead605ec26c633d6b02c5f",
+  "attempts": [
+    {
+      "asr_seconds": 0.23878507409244776,
+      "alignment_seconds": 0.00039794668555259705,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caithness, who knows if Donal Bane be with his brother.",
+          "start": 0.46,
+          "end": 3.14,
+          "words": [
+            {
+              "text": " Caithness,",
+              "start": 0.46,
+              "end": 0.9,
+              "probability": 0.6031494140625
+            },
+            {
+              "text": " who",
+              "start": 1.36,
+              "end": 1.42,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " knows",
+              "start": 1.42,
+              "end": 1.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " if",
+              "start": 1.64,
+              "end": 1.92,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Donal",
+              "start": 1.92,
+              "end": 2.26,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " Bane",
+              "start": 2.26,
+              "end": 2.4,
+              "probability": 0.53173828125
+            },
+            {
+              "text": " be",
+              "start": 2.4,
+              "end": 2.62,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " with",
+              "start": 2.62,
+              "end": 2.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 2.76,
+              "end": 2.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " brother.",
+              "start": 2.92,
+              "end": 3.14,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caithness,",
+          "start": 0.46,
+          "end": 0.9
+        },
+        {
+          "raw": "who",
+          "start": 1.36,
+          "end": 1.42
+        },
+        {
+          "raw": "knows",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "raw": "if",
+          "start": 1.64,
+          "end": 1.92
+        },
+        {
+          "raw": "Donal",
+          "start": 1.92,
+          "end": 2.26
+        },
+        {
+          "raw": "Bane",
+          "start": 2.26,
+          "end": 2.4
+        },
+        {
+          "raw": "be",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "raw": "with",
+          "start": 2.62,
+          "end": 2.76
+        },
+        {
+          "raw": "his",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "raw": "brother.",
+          "start": 2.92,
+          "end": 3.14
+        }
+      ],
+      "expected_tokens": [
+        "Caithness.",
+        "Who",
+        "knows",
+        "if",
+        "Donalbain",
+        "be",
+        "with",
+        "his",
+        "brother?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          9,
+          6,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caithness,",
+          "start": 0.46,
+          "end": 0.9,
+          "key": "caithness",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.36,
+          "end": 1.42,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 1.42,
+          "end": 1.64,
+          "key": "knows",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.64,
+          "end": 1.92,
+          "key": "if",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Donal",
+          "start": 1.92,
+          "end": 2.26,
+          "key": "donal",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Bane",
+          "start": 2.26,
+          "end": 2.4,
+          "key": "bane",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.4,
+          "end": 2.62,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.62,
+          "end": 2.76,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.76,
+          "end": 2.92,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "brother.",
+          "start": 2.92,
+          "end": 3.14,
+          "key": "brother",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caithness.",
+          "start": 0.46,
+          "end": 0.9
+        },
+        {
+          "text": "Who",
+          "start": 1.36,
+          "end": 1.42
+        },
+        {
+          "text": "knows",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "text": "if",
+          "start": 1.64,
+          "end": 1.92
+        },
+        {
+          "text": "Donalbain",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "text": "be",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "text": "with",
+          "start": 2.62,
+          "end": 2.76
+        },
+        {
+          "text": "his",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "text": "brother?",
+          "start": 2.92,
+          "end": 3.14
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.23933816142380238
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9a6bcc3d73f32cc51e7948b3842c441ee9e7cf8def99a7e626f3ef2737733050",
+  "selected_reasons": []
+}

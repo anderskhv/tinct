@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "ad9e93913ba080d9bdeae5c8f1405ddd3c28f399d54ee019d1b93a7b5dddab8e",
+  "attempts": [
+    {
+      "asr_seconds": 0.16958255087956786,
+      "alignment_seconds": 0.0003434857353568077,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What's that? Martin Cunningham said.",
+          "start": 0.02,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " What's",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.56903076171875
+            },
+            {
+              "text": " that?",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Martin",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " Cunningham",
+              "start": 1.46,
+              "end": 1.82,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " said.",
+              "start": 1.82,
+              "end": 2.24,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What's",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "that?",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "raw": "Martin",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "Cunningham",
+          "start": 1.46,
+          "end": 1.82
+        },
+        {
+          "raw": "said.",
+          "start": 1.82,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "—What's",
+        "that?",
+        "Martin",
+        "Cunningham",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What's",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "whats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 0.66,
+          "end": 0.98,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Martin",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "martin",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cunningham",
+          "start": 1.46,
+          "end": 1.82,
+          "key": "cunningham",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.82,
+          "end": 2.24,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—What's",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "that?",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "text": "Martin",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "Cunningham",
+          "start": 1.46,
+          "end": 1.82
+        },
+        {
+          "text": "said.",
+          "start": 1.82,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17004354624077678
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b5d84ab04bb6ac25e90ccc8e6e081fcac71f89881e023bcff7639c69344dbc59",
+  "selected_reasons": []
+}

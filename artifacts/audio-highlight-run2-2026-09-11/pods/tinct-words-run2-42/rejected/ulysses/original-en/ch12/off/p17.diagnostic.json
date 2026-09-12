@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "b7c52f60a8dd081a2f0cccdf7ee4ff55475a84b5dd95a608821c8543efaf9422",
+  "attempts": [
+    {
+      "asr_seconds": 0.43977948976680636,
+      "alignment_seconds": 0.0004998110234737396,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Come around to Barney Kiernan's says Joe. I want to see the citizen",
+          "start": 0.05,
+          "end": 4.03,
+          "words": [
+            {
+              "text": " Come",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.418701171875
+            },
+            {
+              "text": " around",
+              "start": 0.53,
+              "end": 0.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 0.77,
+              "end": 0.95,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Barney",
+              "start": 0.95,
+              "end": 1.25,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Kiernan's",
+              "start": 1.25,
+              "end": 1.95,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " says",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.65576171875
+            },
+            {
+              "text": " Joe.",
+              "start": 2.07,
+              "end": 2.43,
+              "probability": 0.798828125
+            },
+            {
+              "text": " I",
+              "start": 2.73,
+              "end": 3.03,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " want",
+              "start": 3.03,
+              "end": 3.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 3.17,
+              "end": 3.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " see",
+              "start": 3.29,
+              "end": 3.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 3.43,
+              "end": 3.57,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " citizen",
+              "start": 3.57,
+              "end": 4.03,
+              "probability": 0.95361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Come",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "around",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "raw": "to",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "raw": "Barney",
+          "start": 0.95,
+          "end": 1.25
+        },
+        {
+          "raw": "Kiernan's",
+          "start": 1.25,
+          "end": 1.95
+        },
+        {
+          "raw": "says",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "Joe.",
+          "start": 2.07,
+          "end": 2.43
+        },
+        {
+          "raw": "I",
+          "start": 2.73,
+          "end": 3.03
+        },
+        {
+          "raw": "want",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "raw": "to",
+          "start": 3.17,
+          "end": 3.29
+        },
+        {
+          "raw": "see",
+          "start": 3.29,
+          "end": 3.43
+        },
+        {
+          "raw": "the",
+          "start": 3.43,
+          "end": 3.57
+        },
+        {
+          "raw": "citizen",
+          "start": 3.57,
+          "end": 4.03
+        }
+      ],
+      "expected_tokens": [
+        "—Come",
+        "around",
+        "to",
+        "Barney",
+        "Kiernan's,",
+        "says",
+        "Joe.",
+        "I",
+        "want",
+        "to",
+        "see",
+        "the",
+        "citizen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Come",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "come",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "around",
+          "start": 0.53,
+          "end": 0.77,
+          "key": "around",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.77,
+          "end": 0.95,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Barney",
+          "start": 0.95,
+          "end": 1.25,
+          "key": "barney",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Kiernan's",
+          "start": 1.25,
+          "end": 1.95,
+          "key": "kiernans",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "says",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Joe.",
+          "start": 2.07,
+          "end": 2.43,
+          "key": "joe",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.73,
+          "end": 3.03,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 3.03,
+          "end": 3.17,
+          "key": "want",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.17,
+          "end": 3.29,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.29,
+          "end": 3.43,
+          "key": "see",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.43,
+          "end": 3.57,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "citizen",
+          "start": 3.57,
+          "end": 4.03,
+          "key": "citizen",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Come",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "around",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "text": "to",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "text": "Barney",
+          "start": 0.95,
+          "end": 1.25
+        },
+        {
+          "text": "Kiernan's,",
+          "start": 1.25,
+          "end": 1.95
+        },
+        {
+          "text": "says",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "text": "Joe.",
+          "start": 2.07,
+          "end": 2.43
+        },
+        {
+          "text": "I",
+          "start": 2.73,
+          "end": 3.03
+        },
+        {
+          "text": "want",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "text": "to",
+          "start": 3.17,
+          "end": 3.29
+        },
+        {
+          "text": "see",
+          "start": 3.29,
+          "end": 3.43
+        },
+        {
+          "text": "the",
+          "start": 3.43,
+          "end": 3.57
+        },
+        {
+          "text": "citizen.",
+          "start": 3.57,
+          "end": 4.03
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4404936279170215
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1812bfb400c673fb7da85f89b09b9124eb590f07d4af98fd75564c4c83136a16",
+  "selected_reasons": []
+}

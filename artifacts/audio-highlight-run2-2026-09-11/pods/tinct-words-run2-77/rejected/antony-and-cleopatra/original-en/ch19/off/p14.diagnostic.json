@@ -1,0 +1,898 @@
+{
+  "complete": true,
+  "signature": "e869906b99bb00601130bbfa951175c4f961abc50277e25fb71d38efd50db863",
+  "attempts": [
+    {
+      "asr_seconds": 0.3207495120004751,
+      "alignment_seconds": 0.00047281599836423993,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, a good rebuke, which might have well become the best of men to taunt at slackness.",
+          "start": 0.05,
+          "end": 5.13,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.929931640625
+            },
+            {
+              "text": " a",
+              "start": 1.01,
+              "end": 1.11,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " good",
+              "start": 1.11,
+              "end": 1.29,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " rebuke,",
+              "start": 1.29,
+              "end": 1.67,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " which",
+              "start": 2.17,
+              "end": 2.33,
+              "probability": 0.994140625
+            },
+            {
+              "text": " might",
+              "start": 2.33,
+              "end": 2.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " have",
+              "start": 2.49,
+              "end": 2.61,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " well",
+              "start": 2.61,
+              "end": 2.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " become",
+              "start": 2.79,
+              "end": 3.13,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " the",
+              "start": 3.13,
+              "end": 3.33,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " best",
+              "start": 3.33,
+              "end": 3.53,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " of",
+              "start": 3.53,
+              "end": 3.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " men",
+              "start": 3.69,
+              "end": 3.85,
+              "probability": 0.986328125
+            },
+            {
+              "text": " to",
+              "start": 3.85,
+              "end": 4.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " taunt",
+              "start": 4.03,
+              "end": 4.25,
+              "probability": 0.990234375
+            },
+            {
+              "text": " at",
+              "start": 4.25,
+              "end": 4.45,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " slackness.",
+              "start": 4.45,
+              "end": 5.13,
+              "probability": 0.78076171875
+            }
+          ]
+        },
+        {
+          "text": " Canidius, we will fight with him by sea.",
+          "start": 5.95,
+          "end": 8.07,
+          "words": [
+            {
+              "text": " Canidius,",
+              "start": 5.95,
+              "end": 6.35,
+              "probability": 0.7942708333333334
+            },
+            {
+              "text": " we",
+              "start": 6.69,
+              "end": 6.83,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " will",
+              "start": 6.83,
+              "end": 6.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fight",
+              "start": 6.99,
+              "end": 7.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 7.21,
+              "end": 7.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him",
+              "start": 7.39,
+              "end": 7.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " by",
+              "start": 7.53,
+              "end": 7.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sea.",
+              "start": 7.73,
+              "end": 8.07,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "a",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "raw": "good",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "raw": "rebuke,",
+          "start": 1.29,
+          "end": 1.67
+        },
+        {
+          "raw": "which",
+          "start": 2.17,
+          "end": 2.33
+        },
+        {
+          "raw": "might",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "raw": "have",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "raw": "well",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "raw": "become",
+          "start": 2.79,
+          "end": 3.13
+        },
+        {
+          "raw": "the",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "raw": "best",
+          "start": 3.33,
+          "end": 3.53
+        },
+        {
+          "raw": "of",
+          "start": 3.53,
+          "end": 3.69
+        },
+        {
+          "raw": "men",
+          "start": 3.69,
+          "end": 3.85
+        },
+        {
+          "raw": "to",
+          "start": 3.85,
+          "end": 4.03
+        },
+        {
+          "raw": "taunt",
+          "start": 4.03,
+          "end": 4.25
+        },
+        {
+          "raw": "at",
+          "start": 4.25,
+          "end": 4.45
+        },
+        {
+          "raw": "slackness.",
+          "start": 4.45,
+          "end": 5.13
+        },
+        {
+          "raw": "Canidius,",
+          "start": 5.95,
+          "end": 6.35
+        },
+        {
+          "raw": "we",
+          "start": 6.69,
+          "end": 6.83
+        },
+        {
+          "raw": "will",
+          "start": 6.83,
+          "end": 6.99
+        },
+        {
+          "raw": "fight",
+          "start": 6.99,
+          "end": 7.21
+        },
+        {
+          "raw": "with",
+          "start": 7.21,
+          "end": 7.39
+        },
+        {
+          "raw": "him",
+          "start": 7.39,
+          "end": 7.53
+        },
+        {
+          "raw": "by",
+          "start": 7.53,
+          "end": 7.73
+        },
+        {
+          "raw": "sea.",
+          "start": 7.73,
+          "end": 8.07
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "A",
+        "good",
+        "rebuke,",
+        "Which",
+        "might",
+        "have",
+        "well",
+        "becomed",
+        "the",
+        "best",
+        "of",
+        "men",
+        "To",
+        "taunt",
+        "at",
+        "slackness.—Canidius,",
+        "we",
+        "Will",
+        "fight",
+        "with",
+        "him",
+        "by",
+        "sea."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          16,
+          9,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "equal",
+          17,
+          24,
+          18,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.01,
+          "end": 1.11,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.11,
+          "end": 1.29,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rebuke,",
+          "start": 1.29,
+          "end": 1.67,
+          "key": "rebuke",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 2.17,
+          "end": 2.33,
+          "key": "which",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 2.33,
+          "end": 2.49,
+          "key": "might",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.49,
+          "end": 2.61,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 2.61,
+          "end": 2.79,
+          "key": "well",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "become",
+          "start": 2.79,
+          "end": 3.13,
+          "key": "become",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.13,
+          "end": 3.33,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 3.33,
+          "end": 3.53,
+          "key": "best",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.53,
+          "end": 3.69,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 3.69,
+          "end": 3.85,
+          "key": "men",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.85,
+          "end": 4.03,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "taunt",
+          "start": 4.03,
+          "end": 4.25,
+          "key": "taunt",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.25,
+          "end": 4.45,
+          "key": "at",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "slackness.",
+          "start": 4.45,
+          "end": 5.13,
+          "key": "slackness",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Canidius,",
+          "start": 5.95,
+          "end": 6.35,
+          "key": "canidius",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 6.69,
+          "end": 6.83,
+          "key": "we",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 6.83,
+          "end": 6.99,
+          "key": "will",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "fight",
+          "start": 6.99,
+          "end": 7.21,
+          "key": "fight",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.21,
+          "end": 7.39,
+          "key": "with",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 7.39,
+          "end": 7.53,
+          "key": "him",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 7.53,
+          "end": 7.73,
+          "key": "by",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "sea.",
+          "start": 7.73,
+          "end": 8.07,
+          "key": "sea",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "A",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "text": "good",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "text": "rebuke,",
+          "start": 1.29,
+          "end": 1.67
+        },
+        {
+          "text": "Which",
+          "start": 2.17,
+          "end": 2.33
+        },
+        {
+          "text": "might",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "text": "have",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "text": "well",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "text": "becomed",
+          "start": 2.79,
+          "end": 2.96
+        },
+        {
+          "text": "the",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "text": "best",
+          "start": 3.33,
+          "end": 3.53
+        },
+        {
+          "text": "of",
+          "start": 3.53,
+          "end": 3.69
+        },
+        {
+          "text": "men",
+          "start": 3.69,
+          "end": 3.85
+        },
+        {
+          "text": "To",
+          "start": 3.85,
+          "end": 4.03
+        },
+        {
+          "text": "taunt",
+          "start": 4.03,
+          "end": 4.25
+        },
+        {
+          "text": "at",
+          "start": 4.25,
+          "end": 4.45
+        },
+        {
+          "text": "slackness.—Canidius,",
+          "start": 4.45,
+          "end": 5.57
+        },
+        {
+          "text": "we",
+          "start": 6.69,
+          "end": 6.83
+        },
+        {
+          "text": "Will",
+          "start": 6.83,
+          "end": 6.99
+        },
+        {
+          "text": "fight",
+          "start": 6.99,
+          "end": 7.21
+        },
+        {
+          "text": "with",
+          "start": 7.21,
+          "end": 7.39
+        },
+        {
+          "text": "him",
+          "start": 7.39,
+          "end": 7.53
+        },
+        {
+          "text": "by",
+          "start": 7.53,
+          "end": 7.73
+        },
+        {
+          "text": "sea.",
+          "start": 7.73,
+          "end": 8.07
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 25,
+        "matched_words": 22
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.3214141450007446
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2f735095d9b0de22a4d29922c3392c01dcc1f2e7b33c00eb38eb06d8287f4fd2",
+  "selected_reasons": []
+}

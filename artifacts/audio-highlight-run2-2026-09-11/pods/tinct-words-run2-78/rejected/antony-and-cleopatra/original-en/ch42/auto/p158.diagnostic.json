@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "2e71e1411b46ee3cbcd1fc7ddd0aeabced79a65c7624eb0ce94844d6badb1bea",
+  "attempts": [
+    {
+      "asr_seconds": 0.1976641407236457,
+      "alignment_seconds": 0.00039460696280002594,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Charmian. Too slow a messenger.",
+        "hotwords": "Charmian, Too"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Charmian, Too slow a messenger.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Charmian,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.6961669921875
+            },
+            {
+              "text": " Too",
+              "start": 1.31,
+              "end": 1.39,
+              "probability": 0.056243896484375
+            },
+            {
+              "text": " slow",
+              "start": 1.39,
+              "end": 1.67,
+              "probability": 0.10626220703125
+            },
+            {
+              "text": " a",
+              "start": 1.67,
+              "end": 1.81,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " messenger.",
+              "start": 1.81,
+              "end": 2.11,
+              "probability": 0.95849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmian,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Too",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "raw": "slow",
+          "start": 1.39,
+          "end": 1.67
+        },
+        {
+          "raw": "a",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "raw": "messenger.",
+          "start": 1.81,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "Too",
+        "slow",
+        "a",
+        "messenger."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmian,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "charmian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Too",
+          "start": 1.31,
+          "end": 1.39,
+          "key": "too",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "slow",
+          "start": 1.39,
+          "end": 1.67,
+          "key": "slow",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.67,
+          "end": 1.81,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "messenger.",
+          "start": 1.81,
+          "end": 2.11,
+          "key": "messenger",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Too",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "text": "slow",
+          "start": 1.39,
+          "end": 1.67
+        },
+        {
+          "text": "a",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "text": "messenger.",
+          "start": 1.81,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19818434678018093
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3395556ac4edd466a3bf9bd7be37f3c1257cda55b61c4ee0a48488ede3c5ab22",
+  "selected_reasons": []
+}

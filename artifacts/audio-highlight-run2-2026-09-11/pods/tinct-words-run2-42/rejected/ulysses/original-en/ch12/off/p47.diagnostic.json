@@ -1,0 +1,549 @@
+{
+  "complete": true,
+  "signature": "2aa7a3f242a7d2ff6d4937d4a0dcce0c1d7bcd8cac7dff87e48aa92888a70de3",
+  "attempts": [
+    {
+      "asr_seconds": 0.26204136991873384,
+      "alignment_seconds": 0.0005615591071546078,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Never better, Echara, says he. What, Gary, are we going to win? A.",
+          "start": 0.02,
+          "end": 4.3,
+          "words": [
+            {
+              "text": " Never",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.3212890625
+            },
+            {
+              "text": " better,",
+              "start": 0.66,
+              "end": 0.94,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " Echara,",
+              "start": 1.04,
+              "end": 1.42,
+              "probability": 0.6701253255208334
+            },
+            {
+              "text": " says",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he.",
+              "start": 1.68,
+              "end": 1.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " What,",
+              "start": 2.36,
+              "end": 2.44,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " Gary,",
+              "start": 2.5,
+              "end": 2.66,
+              "probability": 0.947265625
+            },
+            {
+              "text": " are",
+              "start": 3.04,
+              "end": 3.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " we",
+              "start": 3.1,
+              "end": 3.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " going",
+              "start": 3.2,
+              "end": 3.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 3.36,
+              "end": 3.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " win?",
+              "start": 3.5,
+              "end": 3.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " A.",
+              "start": 4.28,
+              "end": 4.3,
+              "probability": 0.5263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Never",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "better,",
+          "start": 0.66,
+          "end": 0.94
+        },
+        {
+          "raw": "Echara,",
+          "start": 1.04,
+          "end": 1.42
+        },
+        {
+          "raw": "says",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "he.",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "raw": "What,",
+          "start": 2.36,
+          "end": 2.44
+        },
+        {
+          "raw": "Gary,",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "raw": "are",
+          "start": 3.04,
+          "end": 3.1
+        },
+        {
+          "raw": "we",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "raw": "going",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "raw": "to",
+          "start": 3.36,
+          "end": 3.5
+        },
+        {
+          "raw": "win?",
+          "start": 3.5,
+          "end": 3.68
+        },
+        {
+          "raw": "A.",
+          "start": 4.28,
+          "end": 4.3
+        }
+      ],
+      "expected_tokens": [
+        "—Never",
+        "better,",
+        "_a",
+        "chara_,",
+        "says",
+        "he.",
+        "What",
+        "Garry?",
+        "Are",
+        "we",
+        "going",
+        "to",
+        "win?",
+        "Eh?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "equal",
+          4,
+          7,
+          3,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          7
+        ],
+        [
+          "equal",
+          8,
+          13,
+          7,
+          12
+        ],
+        [
+          "replace",
+          13,
+          14,
+          12,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          7
+        ],
+        [
+          "replace",
+          13,
+          14,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Never",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "never",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "better,",
+          "start": 0.66,
+          "end": 0.94,
+          "key": "better",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Echara,",
+          "start": 1.04,
+          "end": 1.42,
+          "key": "echara",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.44,
+          "end": 1.68,
+          "key": "says",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 1.68,
+          "end": 1.94,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 2.36,
+          "end": 2.44,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Gary,",
+          "start": 2.5,
+          "end": 2.66,
+          "key": "gary",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.04,
+          "end": 3.1,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.1,
+          "end": 3.2,
+          "key": "we",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 3.2,
+          "end": 3.36,
+          "key": "going",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.36,
+          "end": 3.5,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "win?",
+          "start": 3.5,
+          "end": 3.68,
+          "key": "win",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "A.",
+          "start": 4.28,
+          "end": 4.3,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Never",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "better,",
+          "start": 0.66,
+          "end": 0.94
+        },
+        {
+          "text": "_a",
+          "start": 0.94,
+          "end": 1.19
+        },
+        {
+          "text": "chara_,",
+          "start": 1.19,
+          "end": 1.315
+        },
+        {
+          "text": "says",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "he.",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "text": "What",
+          "start": 2.36,
+          "end": 2.44
+        },
+        {
+          "text": "Garry?",
+          "start": 2.44,
+          "end": 2.74
+        },
+        {
+          "text": "Are",
+          "start": 3.04,
+          "end": 3.1
+        },
+        {
+          "text": "we",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "text": "going",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "text": "to",
+          "start": 3.36,
+          "end": 3.5
+        },
+        {
+          "text": "win?",
+          "start": 3.5,
+          "end": 3.68
+        },
+        {
+          "text": "Eh?",
+          "start": 3.68,
+          "end": 3.99
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.26280671916902065
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8e916809912e273e4f1f885ab5eb2dc26c8d90dc17b21bebe77e5d8b34f39077",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

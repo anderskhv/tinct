@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "8058a8ff883a555504db1de2f6094c4dbb853c092ab758f9d3fd4af727432401",
+  "attempts": [
+    {
+      "asr_seconds": 0.23834802908822894,
+      "alignment_seconds": 0.00041153980419039726,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Messenger. He stays upon your will.",
+        "hotwords": "Second, Messenger, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second Messenger, He stays upon your will.",
+          "start": 0.08,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.744140625
+            },
+            {
+              "text": " Messenger,",
+              "start": 0.7,
+              "end": 1.12,
+              "probability": 0.28759765625
+            },
+            {
+              "text": " He",
+              "start": 1.6,
+              "end": 1.7,
+              "probability": 0.10003662109375
+            },
+            {
+              "text": " stays",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.5244140625
+            },
+            {
+              "text": " upon",
+              "start": 1.92,
+              "end": 2.24,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " your",
+              "start": 2.24,
+              "end": 2.42,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " will.",
+              "start": 2.42,
+              "end": 2.64,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Messenger,",
+          "start": 0.7,
+          "end": 1.12
+        },
+        {
+          "raw": "He",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "raw": "stays",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "upon",
+          "start": 1.92,
+          "end": 2.24
+        },
+        {
+          "raw": "your",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "raw": "will.",
+          "start": 2.42,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Messenger.",
+        "He",
+        "stays",
+        "upon",
+        "your",
+        "will."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Messenger,",
+          "start": 0.7,
+          "end": 1.12,
+          "key": "messenger",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.6,
+          "end": 1.7,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stays",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "stays",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.92,
+          "end": 2.24,
+          "key": "upon",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.24,
+          "end": 2.42,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "will.",
+          "start": 2.42,
+          "end": 2.64,
+          "key": "will",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Messenger.",
+          "start": 0.7,
+          "end": 1.12
+        },
+        {
+          "text": "He",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "text": "stays",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "upon",
+          "start": 1.92,
+          "end": 2.24
+        },
+        {
+          "text": "your",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "text": "will.",
+          "start": 2.42,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2389150052331388
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "693acb395db70451197e1f43a0c257fbbfd59d04b0b54edad6b8519ebf786457",
+  "selected_reasons": []
+}

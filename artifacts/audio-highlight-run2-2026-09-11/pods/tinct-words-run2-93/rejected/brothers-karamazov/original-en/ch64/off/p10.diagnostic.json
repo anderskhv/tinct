@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "d14e6dad43fcaa12774508719909e25f0768121634cf08faa483d7b95182f71f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1137755773961544,
+      "alignment_seconds": 0.0003285165876150131,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nastia was exasperated.",
+          "start": 0.05,
+          "end": 1.99,
+          "words": [
+            {
+              "text": " Nastia",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.8658854166666666
+            },
+            {
+              "text": " was",
+              "start": 0.95,
+              "end": 1.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " exasperated.",
+              "start": 1.11,
+              "end": 1.99,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nastia",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "was",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "raw": "exasperated.",
+          "start": 1.11,
+          "end": 1.99
+        }
+      ],
+      "expected_tokens": [
+        "Nastya",
+        "was",
+        "exasperated."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nastia",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "nastia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.95,
+          "end": 1.11,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "exasperated.",
+          "start": 1.11,
+          "end": 1.99,
+          "key": "exasperated",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Nastya",
+          "start": 0.0,
+          "end": 0.475
+        },
+        {
+          "text": "was",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "text": "exasperated.",
+          "start": 1.11,
+          "end": 1.99
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11421474255621433
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a9fd7d458ecaab78dadb13f3bd3f27e479e3464370195e0570a20b857247423d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

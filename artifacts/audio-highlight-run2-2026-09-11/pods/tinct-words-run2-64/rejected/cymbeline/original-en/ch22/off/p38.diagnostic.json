@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "41e2ac2916eb1f366451f59f7e2f1c4fb0b3688e19a106ecad0755e9702049b1",
+  "attempts": [
+    {
+      "asr_seconds": 0.12467388436198235,
+      "alignment_seconds": 0.0002575051039457321,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Cloten.",
+          "start": 0.02,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " Cloten.",
+              "start": 0.66,
+              "end": 1.18,
+              "probability": 0.5241292317708334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Cloten.",
+          "start": 0.66,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Cloten."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cloten.",
+          "start": 0.66,
+          "end": 1.18,
+          "key": "cloten",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Cloten.",
+          "start": 0.66,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12502558063715696
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ed415f2508312c6f259b27db47101aee60bbb684c5e780365f0d2d49e2ffd75f",
+  "selected_reasons": []
+}

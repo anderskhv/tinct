@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "8d872c37771113107da2815dd72555d95edee28a36e3e1e8220f35d0ea037fb5",
+  "attempts": [
+    {
+      "asr_seconds": 0.12336268799845129,
+      "alignment_seconds": 0.00018150097457692027,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Are we late? Mr Power asked.",
+        "hotwords": "Are, Mr, Power"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Are we late? Mr Power asked.",
+          "start": 0.05,
+          "end": 2.21,
+          "words": [
+            {
+              "text": " Are",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.210693359375
+            },
+            {
+              "text": " we",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " late?",
+              "start": 0.63,
+              "end": 0.93,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Mr",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Power",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.235107421875
+            },
+            {
+              "text": " asked.",
+              "start": 1.71,
+              "end": 2.21,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Are",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "we",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "late?",
+          "start": 0.63,
+          "end": 0.93
+        },
+        {
+          "raw": "Mr",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "Power",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "asked.",
+          "start": 1.71,
+          "end": 2.21
+        }
+      ],
+      "expected_tokens": [
+        "—Are",
+        "we",
+        "late?",
+        "Mr",
+        "Power",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Are",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "are",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "late?",
+          "start": 0.63,
+          "end": 0.93,
+          "key": "late",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mr",
+          "start": 1.31,
+          "end": 1.45,
+          "key": "mr",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Power",
+          "start": 1.45,
+          "end": 1.71,
+          "key": "power",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 1.71,
+          "end": 2.21,
+          "key": "asked",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Are",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "we",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "late?",
+          "start": 0.63,
+          "end": 0.93
+        },
+        {
+          "text": "Mr",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "text": "Power",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "text": "asked.",
+          "start": 1.71,
+          "end": 2.21
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12360432901186869
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1b4c4fb2b95d7749d41c574e031d7faf31ea1b23ade30d6337fc7e8f94b43b9e",
+  "selected_reasons": []
+}

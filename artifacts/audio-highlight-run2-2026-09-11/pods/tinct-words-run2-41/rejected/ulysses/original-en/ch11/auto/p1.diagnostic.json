@@ -1,0 +1,596 @@
+{
+  "complete": true,
+  "signature": "8df04d70af56b22f42deea4a700d54b64a20ad90863cc3341060c51c236322c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1909668492153287,
+      "alignment_seconds": 0.00027586380019783974,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Imperthnthn thnthnthn.",
+        "hotwords": "Imperthnthn"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Imperthnthn thnthn thnthn.",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " Imperthnthn",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.3169484853744507
+            },
+            {
+              "text": " thnthn",
+              "start": 1.09,
+              "end": 2.11,
+              "probability": 0.4710102081298828
+            },
+            {
+              "text": " thnthn.",
+              "start": 2.11,
+              "end": 2.73,
+              "probability": 0.637939453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imperthnthn",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "raw": "thnthn",
+          "start": 1.09,
+          "end": 2.11
+        },
+        {
+          "raw": "thnthn.",
+          "start": 2.11,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "Imperthnthn",
+        "thnthnthn."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imperthnthn",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "imperthnthn",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thnthn",
+          "start": 1.09,
+          "end": 2.11,
+          "key": "thnthn",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thnthn.",
+          "start": 2.11,
+          "end": 2.73,
+          "key": "thnthn",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imperthnthn",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "text": "thnthnthn.",
+          "start": 1.09,
+          "end": 1.91
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19133954914286733
+    },
+    {
+      "asr_seconds": 0.21084571396932006,
+      "alignment_seconds": 0.00028188666328787804,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Imperthnthn"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " T-H-N-T-H-N-T-H-N",
+          "start": 0.97,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " T",
+              "start": 0.97,
+              "end": 1.25,
+              "probability": 7.510185241699219e-05
+            },
+            {
+              "text": "-H",
+              "start": 1.25,
+              "end": 1.53,
+              "probability": 0.58746337890625
+            },
+            {
+              "text": "-N",
+              "start": 1.53,
+              "end": 1.69,
+              "probability": 0.927734375
+            },
+            {
+              "text": "-T",
+              "start": 1.69,
+              "end": 1.81,
+              "probability": 0.95263671875
+            },
+            {
+              "text": "-H",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.93115234375
+            },
+            {
+              "text": "-N",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.98583984375
+            },
+            {
+              "text": "-T",
+              "start": 2.07,
+              "end": 2.11,
+              "probability": 0.9033203125
+            },
+            {
+              "text": "-H",
+              "start": 2.11,
+              "end": 2.25,
+              "probability": 0.875
+            },
+            {
+              "text": "-N",
+              "start": 2.25,
+              "end": 2.55,
+              "probability": 0.97265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "T",
+          "start": 0.97,
+          "end": 1.25
+        },
+        {
+          "raw": "-H",
+          "start": 1.25,
+          "end": 1.53
+        },
+        {
+          "raw": "-N",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "raw": "-T",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "raw": "-H",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "-N",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "-T",
+          "start": 2.07,
+          "end": 2.11
+        },
+        {
+          "raw": "-H",
+          "start": 2.11,
+          "end": 2.25
+        },
+        {
+          "raw": "-N",
+          "start": 2.25,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "Imperthnthn",
+        "thnthnthn."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "T",
+          "start": 0.97,
+          "end": 1.25,
+          "key": "t",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "-H",
+          "start": 1.25,
+          "end": 1.53,
+          "key": "h",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "-N",
+          "start": 1.53,
+          "end": 1.69,
+          "key": "n",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-T",
+          "start": 1.69,
+          "end": 1.81,
+          "key": "t",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "-H",
+          "start": 1.81,
+          "end": 1.95,
+          "key": "h",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "-N",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "n",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "-T",
+          "start": 2.07,
+          "end": 2.11,
+          "key": "t",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "-H",
+          "start": 2.11,
+          "end": 2.25,
+          "key": "h",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "-N",
+          "start": 2.25,
+          "end": 2.55,
+          "key": "n",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imperthnthn",
+          "start": 0.0,
+          "end": 1.275
+        },
+        {
+          "text": "thnthnthn.",
+          "start": 1.275,
+          "end": 1.912
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 9,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21127369301393628
+    },
+    {
+      "asr_seconds": 0.1969552249647677,
+      "alignment_seconds": 0.00021114014089107513,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Imperthethin, THN, THN, THN.",
+          "start": 0.05,
+          "end": 2.53,
+          "words": [
+            {
+              "text": " Imperthethin,",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.51278076171875
+            },
+            {
+              "text": " THN,",
+              "start": 1.27,
+              "end": 1.69,
+              "probability": 0.4847412109375
+            },
+            {
+              "text": " THN,",
+              "start": 1.83,
+              "end": 2.09,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " THN.",
+              "start": 2.09,
+              "end": 2.53,
+              "probability": 0.981201171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imperthethin,",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "raw": "THN,",
+          "start": 1.27,
+          "end": 1.69
+        },
+        {
+          "raw": "THN,",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "raw": "THN.",
+          "start": 2.09,
+          "end": 2.53
+        }
+      ],
+      "expected_tokens": [
+        "Imperthnthn",
+        "thnthnthn."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imperthethin,",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "imperthethin",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "THN,",
+          "start": 1.27,
+          "end": 1.69,
+          "key": "thn",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "THN,",
+          "start": 1.83,
+          "end": 2.09,
+          "key": "thn",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "THN.",
+          "start": 2.09,
+          "end": 2.53,
+          "key": "thn",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imperthnthn",
+          "start": 0.0,
+          "end": 1.265
+        },
+        {
+          "text": "thnthnthn.",
+          "start": 1.265,
+          "end": 1.897
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1972567979246378
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dbdfa462db022ecdb11466f18b674ad859088e4134ed83d3f335df7bb1a5cde2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

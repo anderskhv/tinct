@@ -1,0 +1,3301 @@
+{
+  "complete": true,
+  "signature": "9b3026c48b13b4690ee359d5969569201024d46e547bb6041ece8cb5c0e48f9f",
+  "attempts": [
+    {
+      "asr_seconds": 1.1713447887450457,
+      "alignment_seconds": 0.0010620076209306717,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Democratic republics extend the practice of currying favor with the many, and they introduce it into a greater number of classes at once: this is one of the most serious reproaches that can be addressed to them. In democratic States organized on the principles of the American republics, this is more especially the case, where the authority of the majority is so absolute and so irresistible that a man must give up his rights as a citizen, and almost abjure his quality as a human being, if te intends to stray from the track which it lays down.",
+        "hotwords": "In, States, American"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In, States, American Democratic republics extend the practice of currying favor with the many,",
+          "start": 0.05,
+          "end": 4.45,
+          "words": [
+            {
+              "text": " In,",
+              "start": 0.05,
+              "end": 1.11,
+              "probability": 0.00774383544921875
+            },
+            {
+              "text": " States,",
+              "start": 1.11,
+              "end": 1.11,
+              "probability": 4.291534423828125e-06
+            },
+            {
+              "text": " American",
+              "start": 1.11,
+              "end": 1.11,
+              "probability": 0.00029754638671875
+            },
+            {
+              "text": " Democratic",
+              "start": 1.11,
+              "end": 1.11,
+              "probability": 0.00031495094299316406
+            },
+            {
+              "text": " republics",
+              "start": 1.11,
+              "end": 1.73,
+              "probability": 0.4824485778808594
+            },
+            {
+              "text": " extend",
+              "start": 1.73,
+              "end": 2.19,
+              "probability": 0.36474609375
+            },
+            {
+              "text": " the",
+              "start": 2.19,
+              "end": 2.47,
+              "probability": 0.9609375
+            },
+            {
+              "text": " practice",
+              "start": 2.47,
+              "end": 2.85,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " of",
+              "start": 2.85,
+              "end": 3.03,
+              "probability": 0.966796875
+            },
+            {
+              "text": " currying",
+              "start": 3.03,
+              "end": 3.45,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " favor",
+              "start": 3.45,
+              "end": 3.79,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " with",
+              "start": 3.79,
+              "end": 4.05,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " the",
+              "start": 4.05,
+              "end": 4.17,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " many,",
+              "start": 4.17,
+              "end": 4.45,
+              "probability": 0.97021484375
+            }
+          ]
+        },
+        {
+          "text": " and they introduce it into a greater number of classes at once, this is one of the most serious reproaches that can be addressed to them.",
+          "start": 5.07,
+          "end": 12.85,
+          "words": [
+            {
+              "text": " and",
+              "start": 5.07,
+              "end": 5.07,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " they",
+              "start": 5.07,
+              "end": 5.19,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " introduce",
+              "start": 5.19,
+              "end": 5.61,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " it",
+              "start": 5.61,
+              "end": 5.89,
+              "probability": 0.984375
+            },
+            {
+              "text": " into",
+              "start": 5.89,
+              "end": 6.07,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " a",
+              "start": 6.07,
+              "end": 6.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " greater",
+              "start": 6.23,
+              "end": 6.57,
+              "probability": 0.994140625
+            },
+            {
+              "text": " number",
+              "start": 6.57,
+              "end": 6.87,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 6.87,
+              "end": 7.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " classes",
+              "start": 7.07,
+              "end": 7.45,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " at",
+              "start": 7.45,
+              "end": 7.65,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " once,",
+              "start": 7.65,
+              "end": 8.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this",
+              "start": 8.89,
+              "end": 8.89,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " is",
+              "start": 8.89,
+              "end": 9.15,
+              "probability": 0.986328125
+            },
+            {
+              "text": " one",
+              "start": 9.15,
+              "end": 9.31,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 9.31,
+              "end": 9.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 9.41,
+              "end": 9.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " most",
+              "start": 9.49,
+              "end": 9.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " serious",
+              "start": 9.73,
+              "end": 10.27,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " reproaches",
+              "start": 10.27,
+              "end": 10.95,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " that",
+              "start": 10.95,
+              "end": 11.29,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " can",
+              "start": 11.29,
+              "end": 11.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 11.43,
+              "end": 11.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " addressed",
+              "start": 11.57,
+              "end": 11.91,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 11.91,
+              "end": 12.27,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " them.",
+              "start": 12.27,
+              "end": 12.85,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " In democratic States organized on the principles of the American republics, this is more especially the case,",
+          "start": 13.05,
+          "end": 19.63,
+          "words": [
+            {
+              "text": " In",
+              "start": 13.05,
+              "end": 13.65,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " democratic",
+              "start": 13.65,
+              "end": 13.95,
+              "probability": 0.2705078125
+            },
+            {
+              "text": " States",
+              "start": 13.95,
+              "end": 14.63,
+              "probability": 0.2149658203125
+            },
+            {
+              "text": " organized",
+              "start": 14.63,
+              "end": 15.21,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " on",
+              "start": 15.21,
+              "end": 15.53,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 15.53,
+              "end": 15.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " principles",
+              "start": 15.65,
+              "end": 15.99,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " of",
+              "start": 15.99,
+              "end": 16.27,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 16.27,
+              "end": 16.41,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " American",
+              "start": 16.41,
+              "end": 16.85,
+              "probability": 0.9921875
+            },
+            {
+              "text": " republics,",
+              "start": 16.85,
+              "end": 17.87,
+              "probability": 0.876220703125
+            },
+            {
+              "text": " this",
+              "start": 18.09,
+              "end": 18.13,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " is",
+              "start": 18.13,
+              "end": 18.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " more",
+              "start": 18.29,
+              "end": 18.53,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " especially",
+              "start": 18.53,
+              "end": 19.07,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " the",
+              "start": 19.07,
+              "end": 19.31,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " case,",
+              "start": 19.31,
+              "end": 19.63,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " where the authority of the majority is so absolute and so irresistible that a man must give up his rights as a citizen,",
+          "start": 20.15,
+          "end": 27.29,
+          "words": [
+            {
+              "text": " where",
+              "start": 20.15,
+              "end": 20.21,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " the",
+              "start": 20.21,
+              "end": 20.35,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " authority",
+              "start": 20.35,
+              "end": 20.81,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " of",
+              "start": 20.81,
+              "end": 21.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 21.01,
+              "end": 21.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " majority",
+              "start": 21.11,
+              "end": 21.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 21.55,
+              "end": 21.85,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " so",
+              "start": 21.85,
+              "end": 22.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " absolute",
+              "start": 22.15,
+              "end": 22.79,
+              "probability": 0.990234375
+            },
+            {
+              "text": " and",
+              "start": 22.79,
+              "end": 23.29,
+              "probability": 0.84765625
+            },
+            {
+              "text": " so",
+              "start": 23.29,
+              "end": 23.61,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " irresistible",
+              "start": 23.61,
+              "end": 24.23,
+              "probability": 0.994140625
+            },
+            {
+              "text": " that",
+              "start": 24.23,
+              "end": 24.97,
+              "probability": 0.71484375
+            },
+            {
+              "text": " a",
+              "start": 24.97,
+              "end": 25.09,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " man",
+              "start": 25.09,
+              "end": 25.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " must",
+              "start": 25.33,
+              "end": 25.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " give",
+              "start": 25.61,
+              "end": 25.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " up",
+              "start": 25.87,
+              "end": 26.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 26.01,
+              "end": 26.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rights",
+              "start": 26.17,
+              "end": 26.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " as",
+              "start": 26.53,
+              "end": 26.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 26.77,
+              "end": 26.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " citizen,",
+              "start": 26.91,
+              "end": 27.29,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " and almost abjure his quality as a human being, if te intends to stray from the track which it lays down.",
+          "start": 27.29,
+          "end": 34.03,
+          "words": [
+            {
+              "text": " and",
+              "start": 27.29,
+              "end": 27.99,
+              "probability": 0.37646484375
+            },
+            {
+              "text": " almost",
+              "start": 27.99,
+              "end": 28.39,
+              "probability": 0.986328125
+            },
+            {
+              "text": " abjure",
+              "start": 28.39,
+              "end": 28.85,
+              "probability": 0.9484049479166666
+            },
+            {
+              "text": " his",
+              "start": 28.85,
+              "end": 29.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " quality",
+              "start": 29.03,
+              "end": 29.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 29.37,
+              "end": 29.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 29.67,
+              "end": 29.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " human",
+              "start": 29.79,
+              "end": 30.03,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " being,",
+              "start": 30.03,
+              "end": 30.47,
+              "probability": 0.994140625
+            },
+            {
+              "text": " if",
+              "start": 30.89,
+              "end": 31.07,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " te",
+              "start": 31.07,
+              "end": 31.31,
+              "probability": 0.00716400146484375
+            },
+            {
+              "text": " intends",
+              "start": 31.31,
+              "end": 31.73,
+              "probability": 0.049163818359375
+            },
+            {
+              "text": " to",
+              "start": 31.73,
+              "end": 32.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " stray",
+              "start": 32.03,
+              "end": 32.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " from",
+              "start": 32.29,
+              "end": 32.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 32.55,
+              "end": 32.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " track",
+              "start": 32.69,
+              "end": 32.99,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " which",
+              "start": 32.99,
+              "end": 33.21,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " it",
+              "start": 33.21,
+              "end": 33.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lays",
+              "start": 33.37,
+              "end": 33.59,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " down.",
+              "start": 33.59,
+              "end": 34.03,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In,",
+          "start": 0.05,
+          "end": 1.11
+        },
+        {
+          "raw": "States,",
+          "start": 1.11,
+          "end": 1.11
+        },
+        {
+          "raw": "American",
+          "start": 1.11,
+          "end": 1.11
+        },
+        {
+          "raw": "Democratic",
+          "start": 1.11,
+          "end": 1.11
+        },
+        {
+          "raw": "republics",
+          "start": 1.11,
+          "end": 1.73
+        },
+        {
+          "raw": "extend",
+          "start": 1.73,
+          "end": 2.19
+        },
+        {
+          "raw": "the",
+          "start": 2.19,
+          "end": 2.47
+        },
+        {
+          "raw": "practice",
+          "start": 2.47,
+          "end": 2.85
+        },
+        {
+          "raw": "of",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "raw": "currying",
+          "start": 3.03,
+          "end": 3.45
+        },
+        {
+          "raw": "favor",
+          "start": 3.45,
+          "end": 3.79
+        },
+        {
+          "raw": "with",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "raw": "the",
+          "start": 4.05,
+          "end": 4.17
+        },
+        {
+          "raw": "many,",
+          "start": 4.17,
+          "end": 4.45
+        },
+        {
+          "raw": "and",
+          "start": 5.07,
+          "end": 5.07
+        },
+        {
+          "raw": "they",
+          "start": 5.07,
+          "end": 5.19
+        },
+        {
+          "raw": "introduce",
+          "start": 5.19,
+          "end": 5.61
+        },
+        {
+          "raw": "it",
+          "start": 5.61,
+          "end": 5.89
+        },
+        {
+          "raw": "into",
+          "start": 5.89,
+          "end": 6.07
+        },
+        {
+          "raw": "a",
+          "start": 6.07,
+          "end": 6.23
+        },
+        {
+          "raw": "greater",
+          "start": 6.23,
+          "end": 6.57
+        },
+        {
+          "raw": "number",
+          "start": 6.57,
+          "end": 6.87
+        },
+        {
+          "raw": "of",
+          "start": 6.87,
+          "end": 7.07
+        },
+        {
+          "raw": "classes",
+          "start": 7.07,
+          "end": 7.45
+        },
+        {
+          "raw": "at",
+          "start": 7.45,
+          "end": 7.65
+        },
+        {
+          "raw": "once,",
+          "start": 7.65,
+          "end": 8.01
+        },
+        {
+          "raw": "this",
+          "start": 8.89,
+          "end": 8.89
+        },
+        {
+          "raw": "is",
+          "start": 8.89,
+          "end": 9.15
+        },
+        {
+          "raw": "one",
+          "start": 9.15,
+          "end": 9.31
+        },
+        {
+          "raw": "of",
+          "start": 9.31,
+          "end": 9.41
+        },
+        {
+          "raw": "the",
+          "start": 9.41,
+          "end": 9.49
+        },
+        {
+          "raw": "most",
+          "start": 9.49,
+          "end": 9.73
+        },
+        {
+          "raw": "serious",
+          "start": 9.73,
+          "end": 10.27
+        },
+        {
+          "raw": "reproaches",
+          "start": 10.27,
+          "end": 10.95
+        },
+        {
+          "raw": "that",
+          "start": 10.95,
+          "end": 11.29
+        },
+        {
+          "raw": "can",
+          "start": 11.29,
+          "end": 11.43
+        },
+        {
+          "raw": "be",
+          "start": 11.43,
+          "end": 11.57
+        },
+        {
+          "raw": "addressed",
+          "start": 11.57,
+          "end": 11.91
+        },
+        {
+          "raw": "to",
+          "start": 11.91,
+          "end": 12.27
+        },
+        {
+          "raw": "them.",
+          "start": 12.27,
+          "end": 12.85
+        },
+        {
+          "raw": "In",
+          "start": 13.05,
+          "end": 13.65
+        },
+        {
+          "raw": "democratic",
+          "start": 13.65,
+          "end": 13.95
+        },
+        {
+          "raw": "States",
+          "start": 13.95,
+          "end": 14.63
+        },
+        {
+          "raw": "organized",
+          "start": 14.63,
+          "end": 15.21
+        },
+        {
+          "raw": "on",
+          "start": 15.21,
+          "end": 15.53
+        },
+        {
+          "raw": "the",
+          "start": 15.53,
+          "end": 15.65
+        },
+        {
+          "raw": "principles",
+          "start": 15.65,
+          "end": 15.99
+        },
+        {
+          "raw": "of",
+          "start": 15.99,
+          "end": 16.27
+        },
+        {
+          "raw": "the",
+          "start": 16.27,
+          "end": 16.41
+        },
+        {
+          "raw": "American",
+          "start": 16.41,
+          "end": 16.85
+        },
+        {
+          "raw": "republics,",
+          "start": 16.85,
+          "end": 17.87
+        },
+        {
+          "raw": "this",
+          "start": 18.09,
+          "end": 18.13
+        },
+        {
+          "raw": "is",
+          "start": 18.13,
+          "end": 18.29
+        },
+        {
+          "raw": "more",
+          "start": 18.29,
+          "end": 18.53
+        },
+        {
+          "raw": "especially",
+          "start": 18.53,
+          "end": 19.07
+        },
+        {
+          "raw": "the",
+          "start": 19.07,
+          "end": 19.31
+        },
+        {
+          "raw": "case,",
+          "start": 19.31,
+          "end": 19.63
+        },
+        {
+          "raw": "where",
+          "start": 20.15,
+          "end": 20.21
+        },
+        {
+          "raw": "the",
+          "start": 20.21,
+          "end": 20.35
+        },
+        {
+          "raw": "authority",
+          "start": 20.35,
+          "end": 20.81
+        },
+        {
+          "raw": "of",
+          "start": 20.81,
+          "end": 21.01
+        },
+        {
+          "raw": "the",
+          "start": 21.01,
+          "end": 21.11
+        },
+        {
+          "raw": "majority",
+          "start": 21.11,
+          "end": 21.55
+        },
+        {
+          "raw": "is",
+          "start": 21.55,
+          "end": 21.85
+        },
+        {
+          "raw": "so",
+          "start": 21.85,
+          "end": 22.15
+        },
+        {
+          "raw": "absolute",
+          "start": 22.15,
+          "end": 22.79
+        },
+        {
+          "raw": "and",
+          "start": 22.79,
+          "end": 23.29
+        },
+        {
+          "raw": "so",
+          "start": 23.29,
+          "end": 23.61
+        },
+        {
+          "raw": "irresistible",
+          "start": 23.61,
+          "end": 24.23
+        },
+        {
+          "raw": "that",
+          "start": 24.23,
+          "end": 24.97
+        },
+        {
+          "raw": "a",
+          "start": 24.97,
+          "end": 25.09
+        },
+        {
+          "raw": "man",
+          "start": 25.09,
+          "end": 25.33
+        },
+        {
+          "raw": "must",
+          "start": 25.33,
+          "end": 25.61
+        },
+        {
+          "raw": "give",
+          "start": 25.61,
+          "end": 25.87
+        },
+        {
+          "raw": "up",
+          "start": 25.87,
+          "end": 26.01
+        },
+        {
+          "raw": "his",
+          "start": 26.01,
+          "end": 26.17
+        },
+        {
+          "raw": "rights",
+          "start": 26.17,
+          "end": 26.53
+        },
+        {
+          "raw": "as",
+          "start": 26.53,
+          "end": 26.77
+        },
+        {
+          "raw": "a",
+          "start": 26.77,
+          "end": 26.91
+        },
+        {
+          "raw": "citizen,",
+          "start": 26.91,
+          "end": 27.29
+        },
+        {
+          "raw": "and",
+          "start": 27.29,
+          "end": 27.99
+        },
+        {
+          "raw": "almost",
+          "start": 27.99,
+          "end": 28.39
+        },
+        {
+          "raw": "abjure",
+          "start": 28.39,
+          "end": 28.85
+        },
+        {
+          "raw": "his",
+          "start": 28.85,
+          "end": 29.03
+        },
+        {
+          "raw": "quality",
+          "start": 29.03,
+          "end": 29.37
+        },
+        {
+          "raw": "as",
+          "start": 29.37,
+          "end": 29.67
+        },
+        {
+          "raw": "a",
+          "start": 29.67,
+          "end": 29.79
+        },
+        {
+          "raw": "human",
+          "start": 29.79,
+          "end": 30.03
+        },
+        {
+          "raw": "being,",
+          "start": 30.03,
+          "end": 30.47
+        },
+        {
+          "raw": "if",
+          "start": 30.89,
+          "end": 31.07
+        },
+        {
+          "raw": "te",
+          "start": 31.07,
+          "end": 31.31
+        },
+        {
+          "raw": "intends",
+          "start": 31.31,
+          "end": 31.73
+        },
+        {
+          "raw": "to",
+          "start": 31.73,
+          "end": 32.03
+        },
+        {
+          "raw": "stray",
+          "start": 32.03,
+          "end": 32.29
+        },
+        {
+          "raw": "from",
+          "start": 32.29,
+          "end": 32.55
+        },
+        {
+          "raw": "the",
+          "start": 32.55,
+          "end": 32.69
+        },
+        {
+          "raw": "track",
+          "start": 32.69,
+          "end": 32.99
+        },
+        {
+          "raw": "which",
+          "start": 32.99,
+          "end": 33.21
+        },
+        {
+          "raw": "it",
+          "start": 33.21,
+          "end": 33.37
+        },
+        {
+          "raw": "lays",
+          "start": 33.37,
+          "end": 33.59
+        },
+        {
+          "raw": "down.",
+          "start": 33.59,
+          "end": 34.03
+        }
+      ],
+      "expected_tokens": [
+        "Democratic",
+        "republics",
+        "extend",
+        "the",
+        "practice",
+        "of",
+        "currying",
+        "favor",
+        "with",
+        "the",
+        "many,",
+        "and",
+        "they",
+        "introduce",
+        "it",
+        "into",
+        "a",
+        "greater",
+        "number",
+        "of",
+        "classes",
+        "at",
+        "once:",
+        "this",
+        "is",
+        "one",
+        "of",
+        "the",
+        "most",
+        "serious",
+        "reproaches",
+        "that",
+        "can",
+        "be",
+        "addressed",
+        "to",
+        "them.",
+        "In",
+        "democratic",
+        "States",
+        "organized",
+        "on",
+        "the",
+        "principles",
+        "of",
+        "the",
+        "American",
+        "republics,",
+        "this",
+        "is",
+        "more",
+        "especially",
+        "the",
+        "case,",
+        "where",
+        "the",
+        "authority",
+        "of",
+        "the",
+        "majority",
+        "is",
+        "so",
+        "absolute",
+        "and",
+        "so",
+        "irresistible",
+        "that",
+        "a",
+        "man",
+        "must",
+        "give",
+        "up",
+        "his",
+        "rights",
+        "as",
+        "a",
+        "citizen,",
+        "and",
+        "almost",
+        "abjure",
+        "his",
+        "quality",
+        "as",
+        "a",
+        "human",
+        "being,",
+        "if",
+        "te",
+        "intends",
+        "to",
+        "stray",
+        "from",
+        "the",
+        "track",
+        "which",
+        "it",
+        "lays",
+        "down."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          "equal",
+          0,
+          98,
+          3,
+          101
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 100
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In,",
+          "start": 0.05,
+          "end": 1.11,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "States,",
+          "start": 1.11,
+          "end": 1.11,
+          "key": "states",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "American",
+          "start": 1.11,
+          "end": 1.11,
+          "key": "american",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Democratic",
+          "start": 1.11,
+          "end": 1.11,
+          "key": "democratic",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "republics",
+          "start": 1.11,
+          "end": 1.73,
+          "key": "republics",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "extend",
+          "start": 1.73,
+          "end": 2.19,
+          "key": "extend",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.19,
+          "end": 2.47,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "practice",
+          "start": 2.47,
+          "end": 2.85,
+          "key": "practice",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.85,
+          "end": 3.03,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "currying",
+          "start": 3.03,
+          "end": 3.45,
+          "key": "currying",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "favor",
+          "start": 3.45,
+          "end": 3.79,
+          "key": "favor",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.79,
+          "end": 4.05,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.05,
+          "end": 4.17,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "many,",
+          "start": 4.17,
+          "end": 4.45,
+          "key": "many",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.07,
+          "end": 5.07,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 5.07,
+          "end": 5.19,
+          "key": "they",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "introduce",
+          "start": 5.19,
+          "end": 5.61,
+          "key": "introduce",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.61,
+          "end": 5.89,
+          "key": "it",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 5.89,
+          "end": 6.07,
+          "key": "into",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.07,
+          "end": 6.23,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "greater",
+          "start": 6.23,
+          "end": 6.57,
+          "key": "greater",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "number",
+          "start": 6.57,
+          "end": 6.87,
+          "key": "number",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.87,
+          "end": 7.07,
+          "key": "of",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "classes",
+          "start": 7.07,
+          "end": 7.45,
+          "key": "classes",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 7.45,
+          "end": 7.65,
+          "key": "at",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "once,",
+          "start": 7.65,
+          "end": 8.01,
+          "key": "once",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 8.89,
+          "end": 8.89,
+          "key": "this",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 8.89,
+          "end": 9.15,
+          "key": "is",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 9.15,
+          "end": 9.31,
+          "key": "one",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.31,
+          "end": 9.41,
+          "key": "of",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.41,
+          "end": 9.49,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 9.49,
+          "end": 9.73,
+          "key": "most",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "serious",
+          "start": 9.73,
+          "end": 10.27,
+          "key": "serious",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "reproaches",
+          "start": 10.27,
+          "end": 10.95,
+          "key": "reproaches",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 10.95,
+          "end": 11.29,
+          "key": "that",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 11.29,
+          "end": 11.43,
+          "key": "can",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 11.43,
+          "end": 11.57,
+          "key": "be",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "addressed",
+          "start": 11.57,
+          "end": 11.91,
+          "key": "addressed",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.91,
+          "end": 12.27,
+          "key": "to",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 12.27,
+          "end": 12.85,
+          "key": "them",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 13.05,
+          "end": 13.65,
+          "key": "in",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "democratic",
+          "start": 13.65,
+          "end": 13.95,
+          "key": "democratic",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "States",
+          "start": 13.95,
+          "end": 14.63,
+          "key": "states",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "organized",
+          "start": 14.63,
+          "end": 15.21,
+          "key": "organized",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 15.21,
+          "end": 15.53,
+          "key": "on",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.53,
+          "end": 15.65,
+          "key": "the",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "principles",
+          "start": 15.65,
+          "end": 15.99,
+          "key": "principles",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 15.99,
+          "end": 16.27,
+          "key": "of",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.27,
+          "end": 16.41,
+          "key": "the",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "American",
+          "start": 16.41,
+          "end": 16.85,
+          "key": "american",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "republics,",
+          "start": 16.85,
+          "end": 17.87,
+          "key": "republics",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 18.09,
+          "end": 18.13,
+          "key": "this",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 18.13,
+          "end": 18.29,
+          "key": "is",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 18.29,
+          "end": 18.53,
+          "key": "more",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "especially",
+          "start": 18.53,
+          "end": 19.07,
+          "key": "especially",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.07,
+          "end": 19.31,
+          "key": "the",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "case,",
+          "start": 19.31,
+          "end": 19.63,
+          "key": "case",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 20.15,
+          "end": 20.21,
+          "key": "where",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.21,
+          "end": 20.35,
+          "key": "the",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "authority",
+          "start": 20.35,
+          "end": 20.81,
+          "key": "authority",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 20.81,
+          "end": 21.01,
+          "key": "of",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.01,
+          "end": 21.11,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "majority",
+          "start": 21.11,
+          "end": 21.55,
+          "key": "majority",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 21.55,
+          "end": 21.85,
+          "key": "is",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 21.85,
+          "end": 22.15,
+          "key": "so",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "absolute",
+          "start": 22.15,
+          "end": 22.79,
+          "key": "absolute",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.79,
+          "end": 23.29,
+          "key": "and",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 23.29,
+          "end": 23.61,
+          "key": "so",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "irresistible",
+          "start": 23.61,
+          "end": 24.23,
+          "key": "irresistible",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 24.23,
+          "end": 24.97,
+          "key": "that",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 24.97,
+          "end": 25.09,
+          "key": "a",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 25.09,
+          "end": 25.33,
+          "key": "man",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 25.33,
+          "end": 25.61,
+          "key": "must",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 25.61,
+          "end": 25.87,
+          "key": "give",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 25.87,
+          "end": 26.01,
+          "key": "up",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 26.01,
+          "end": 26.17,
+          "key": "his",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "rights",
+          "start": 26.17,
+          "end": 26.53,
+          "key": "rights",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 26.53,
+          "end": 26.77,
+          "key": "as",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 26.77,
+          "end": 26.91,
+          "key": "a",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "citizen,",
+          "start": 26.91,
+          "end": 27.29,
+          "key": "citizen",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 27.29,
+          "end": 27.99,
+          "key": "and",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 27.99,
+          "end": 28.39,
+          "key": "almost",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "abjure",
+          "start": 28.39,
+          "end": 28.85,
+          "key": "abjure",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 28.85,
+          "end": 29.03,
+          "key": "his",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "quality",
+          "start": 29.03,
+          "end": 29.37,
+          "key": "quality",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 29.37,
+          "end": 29.67,
+          "key": "as",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 29.67,
+          "end": 29.79,
+          "key": "a",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "human",
+          "start": 29.79,
+          "end": 30.03,
+          "key": "human",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "being,",
+          "start": 30.03,
+          "end": 30.47,
+          "key": "being",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 30.89,
+          "end": 31.07,
+          "key": "if",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "te",
+          "start": 31.07,
+          "end": 31.31,
+          "key": "te",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "intends",
+          "start": 31.31,
+          "end": 31.73,
+          "key": "intends",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 31.73,
+          "end": 32.03,
+          "key": "to",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "stray",
+          "start": 32.03,
+          "end": 32.29,
+          "key": "stray",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 32.29,
+          "end": 32.55,
+          "key": "from",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 32.55,
+          "end": 32.69,
+          "key": "the",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "track",
+          "start": 32.69,
+          "end": 32.99,
+          "key": "track",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 32.99,
+          "end": 33.21,
+          "key": "which",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 33.21,
+          "end": 33.37,
+          "key": "it",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "lays",
+          "start": 33.37,
+          "end": 33.59,
+          "key": "lays",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "down.",
+          "start": 33.59,
+          "end": 34.03,
+          "key": "down",
+          "pieces": [
+            100
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Democratic",
+          "start": 1.11,
+          "end": 1.11
+        },
+        {
+          "text": "republics",
+          "start": 1.11,
+          "end": 1.73
+        },
+        {
+          "text": "extend",
+          "start": 1.73,
+          "end": 2.19
+        },
+        {
+          "text": "the",
+          "start": 2.19,
+          "end": 2.47
+        },
+        {
+          "text": "practice",
+          "start": 2.47,
+          "end": 2.85
+        },
+        {
+          "text": "of",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "text": "currying",
+          "start": 3.03,
+          "end": 3.45
+        },
+        {
+          "text": "favor",
+          "start": 3.45,
+          "end": 3.79
+        },
+        {
+          "text": "with",
+          "start": 3.79,
+          "end": 4.05
+        },
+        {
+          "text": "the",
+          "start": 4.05,
+          "end": 4.17
+        },
+        {
+          "text": "many,",
+          "start": 4.17,
+          "end": 4.45
+        },
+        {
+          "text": "and",
+          "start": 5.07,
+          "end": 5.07
+        },
+        {
+          "text": "they",
+          "start": 5.07,
+          "end": 5.19
+        },
+        {
+          "text": "introduce",
+          "start": 5.19,
+          "end": 5.61
+        },
+        {
+          "text": "it",
+          "start": 5.61,
+          "end": 5.89
+        },
+        {
+          "text": "into",
+          "start": 5.89,
+          "end": 6.07
+        },
+        {
+          "text": "a",
+          "start": 6.07,
+          "end": 6.23
+        },
+        {
+          "text": "greater",
+          "start": 6.23,
+          "end": 6.57
+        },
+        {
+          "text": "number",
+          "start": 6.57,
+          "end": 6.87
+        },
+        {
+          "text": "of",
+          "start": 6.87,
+          "end": 7.07
+        },
+        {
+          "text": "classes",
+          "start": 7.07,
+          "end": 7.45
+        },
+        {
+          "text": "at",
+          "start": 7.45,
+          "end": 7.65
+        },
+        {
+          "text": "once:",
+          "start": 7.65,
+          "end": 8.01
+        },
+        {
+          "text": "this",
+          "start": 8.89,
+          "end": 8.89
+        },
+        {
+          "text": "is",
+          "start": 8.89,
+          "end": 9.15
+        },
+        {
+          "text": "one",
+          "start": 9.15,
+          "end": 9.31
+        },
+        {
+          "text": "of",
+          "start": 9.31,
+          "end": 9.41
+        },
+        {
+          "text": "the",
+          "start": 9.41,
+          "end": 9.49
+        },
+        {
+          "text": "most",
+          "start": 9.49,
+          "end": 9.73
+        },
+        {
+          "text": "serious",
+          "start": 9.73,
+          "end": 10.27
+        },
+        {
+          "text": "reproaches",
+          "start": 10.27,
+          "end": 10.95
+        },
+        {
+          "text": "that",
+          "start": 10.95,
+          "end": 11.29
+        },
+        {
+          "text": "can",
+          "start": 11.29,
+          "end": 11.43
+        },
+        {
+          "text": "be",
+          "start": 11.43,
+          "end": 11.57
+        },
+        {
+          "text": "addressed",
+          "start": 11.57,
+          "end": 11.91
+        },
+        {
+          "text": "to",
+          "start": 11.91,
+          "end": 12.27
+        },
+        {
+          "text": "them.",
+          "start": 12.27,
+          "end": 12.85
+        },
+        {
+          "text": "In",
+          "start": 13.05,
+          "end": 13.65
+        },
+        {
+          "text": "democratic",
+          "start": 13.65,
+          "end": 13.95
+        },
+        {
+          "text": "States",
+          "start": 13.95,
+          "end": 14.63
+        },
+        {
+          "text": "organized",
+          "start": 14.63,
+          "end": 15.21
+        },
+        {
+          "text": "on",
+          "start": 15.21,
+          "end": 15.53
+        },
+        {
+          "text": "the",
+          "start": 15.53,
+          "end": 15.65
+        },
+        {
+          "text": "principles",
+          "start": 15.65,
+          "end": 15.99
+        },
+        {
+          "text": "of",
+          "start": 15.99,
+          "end": 16.27
+        },
+        {
+          "text": "the",
+          "start": 16.27,
+          "end": 16.41
+        },
+        {
+          "text": "American",
+          "start": 16.41,
+          "end": 16.85
+        },
+        {
+          "text": "republics,",
+          "start": 16.85,
+          "end": 17.87
+        },
+        {
+          "text": "this",
+          "start": 18.09,
+          "end": 18.13
+        },
+        {
+          "text": "is",
+          "start": 18.13,
+          "end": 18.29
+        },
+        {
+          "text": "more",
+          "start": 18.29,
+          "end": 18.53
+        },
+        {
+          "text": "especially",
+          "start": 18.53,
+          "end": 19.07
+        },
+        {
+          "text": "the",
+          "start": 19.07,
+          "end": 19.31
+        },
+        {
+          "text": "case,",
+          "start": 19.31,
+          "end": 19.63
+        },
+        {
+          "text": "where",
+          "start": 20.15,
+          "end": 20.21
+        },
+        {
+          "text": "the",
+          "start": 20.21,
+          "end": 20.35
+        },
+        {
+          "text": "authority",
+          "start": 20.35,
+          "end": 20.81
+        },
+        {
+          "text": "of",
+          "start": 20.81,
+          "end": 21.01
+        },
+        {
+          "text": "the",
+          "start": 21.01,
+          "end": 21.11
+        },
+        {
+          "text": "majority",
+          "start": 21.11,
+          "end": 21.55
+        },
+        {
+          "text": "is",
+          "start": 21.55,
+          "end": 21.85
+        },
+        {
+          "text": "so",
+          "start": 21.85,
+          "end": 22.15
+        },
+        {
+          "text": "absolute",
+          "start": 22.15,
+          "end": 22.79
+        },
+        {
+          "text": "and",
+          "start": 22.79,
+          "end": 23.29
+        },
+        {
+          "text": "so",
+          "start": 23.29,
+          "end": 23.61
+        },
+        {
+          "text": "irresistible",
+          "start": 23.61,
+          "end": 24.23
+        },
+        {
+          "text": "that",
+          "start": 24.23,
+          "end": 24.97
+        },
+        {
+          "text": "a",
+          "start": 24.97,
+          "end": 25.09
+        },
+        {
+          "text": "man",
+          "start": 25.09,
+          "end": 25.33
+        },
+        {
+          "text": "must",
+          "start": 25.33,
+          "end": 25.61
+        },
+        {
+          "text": "give",
+          "start": 25.61,
+          "end": 25.87
+        },
+        {
+          "text": "up",
+          "start": 25.87,
+          "end": 26.01
+        },
+        {
+          "text": "his",
+          "start": 26.01,
+          "end": 26.17
+        },
+        {
+          "text": "rights",
+          "start": 26.17,
+          "end": 26.53
+        },
+        {
+          "text": "as",
+          "start": 26.53,
+          "end": 26.77
+        },
+        {
+          "text": "a",
+          "start": 26.77,
+          "end": 26.91
+        },
+        {
+          "text": "citizen,",
+          "start": 26.91,
+          "end": 27.29
+        },
+        {
+          "text": "and",
+          "start": 27.29,
+          "end": 27.99
+        },
+        {
+          "text": "almost",
+          "start": 27.99,
+          "end": 28.39
+        },
+        {
+          "text": "abjure",
+          "start": 28.39,
+          "end": 28.85
+        },
+        {
+          "text": "his",
+          "start": 28.85,
+          "end": 29.03
+        },
+        {
+          "text": "quality",
+          "start": 29.03,
+          "end": 29.37
+        },
+        {
+          "text": "as",
+          "start": 29.37,
+          "end": 29.67
+        },
+        {
+          "text": "a",
+          "start": 29.67,
+          "end": 29.79
+        },
+        {
+          "text": "human",
+          "start": 29.79,
+          "end": 30.03
+        },
+        {
+          "text": "being,",
+          "start": 30.03,
+          "end": 30.47
+        },
+        {
+          "text": "if",
+          "start": 30.89,
+          "end": 31.07
+        },
+        {
+          "text": "te",
+          "start": 31.07,
+          "end": 31.31
+        },
+        {
+          "text": "intends",
+          "start": 31.31,
+          "end": 31.73
+        },
+        {
+          "text": "to",
+          "start": 31.73,
+          "end": 32.03
+        },
+        {
+          "text": "stray",
+          "start": 32.03,
+          "end": 32.29
+        },
+        {
+          "text": "from",
+          "start": 32.29,
+          "end": 32.55
+        },
+        {
+          "text": "the",
+          "start": 32.55,
+          "end": 32.69
+        },
+        {
+          "text": "track",
+          "start": 32.69,
+          "end": 32.99
+        },
+        {
+          "text": "which",
+          "start": 32.99,
+          "end": 33.21
+        },
+        {
+          "text": "it",
+          "start": 33.21,
+          "end": 33.37
+        },
+        {
+          "text": "lays",
+          "start": 33.37,
+          "end": 33.59
+        },
+        {
+          "text": "down.",
+          "start": 33.59,
+          "end": 34.03
+        }
+      ],
+      "stats": {
+        "expected_words": 98,
+        "heard_words": 101,
+        "matched_words": 98
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.1728643607348204
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fa9c68f6806ffd449cd8319540c7e9929cf55a77ae7954ec11c69733f4937046",
+  "selected_reasons": []
+}

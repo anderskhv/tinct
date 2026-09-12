@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "b5898a3a59de7f5b277d66f1486010fddeda42c354bb2a7bb49b07649aed2404",
+  "attempts": [
+    {
+      "asr_seconds": 0.31018494511954486,
+      "alignment_seconds": 0.0005636329296976328,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Stanley. But now the Duke of Buckingham and I Are come from visiting his Majesty.",
+        "hotwords": "Stanley, But, Duke, Buckingham, I, Are, Majesty"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stanley, But now the Duke of Buckingham and I Are come from visiting his Majesty.",
+          "start": 0.08,
+          "end": 4.84,
+          "words": [
+            {
+              "text": " Stanley,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.5966796875
+            },
+            {
+              "text": " But",
+              "start": 1.32,
+              "end": 1.54,
+              "probability": 0.0265960693359375
+            },
+            {
+              "text": " now",
+              "start": 1.54,
+              "end": 1.74,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " Duke",
+              "start": 1.9,
+              "end": 2.1,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " of",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Buckingham",
+              "start": 2.3,
+              "end": 2.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 2.68,
+              "end": 2.96,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " I",
+              "start": 2.96,
+              "end": 3.16,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Are",
+              "start": 3.16,
+              "end": 3.34,
+              "probability": 0.09527587890625
+            },
+            {
+              "text": " come",
+              "start": 3.34,
+              "end": 3.58,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " from",
+              "start": 3.58,
+              "end": 3.84,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " visiting",
+              "start": 3.84,
+              "end": 4.16,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " his",
+              "start": 4.16,
+              "end": 4.44,
+              "probability": 0.391845703125
+            },
+            {
+              "text": " Majesty.",
+              "start": 4.44,
+              "end": 4.84,
+              "probability": 0.38818359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stanley,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "But",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "raw": "now",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "raw": "the",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "Duke",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "raw": "of",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "Buckingham",
+          "start": 2.3,
+          "end": 2.68
+        },
+        {
+          "raw": "and",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "raw": "I",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "raw": "Are",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "raw": "come",
+          "start": 3.34,
+          "end": 3.58
+        },
+        {
+          "raw": "from",
+          "start": 3.58,
+          "end": 3.84
+        },
+        {
+          "raw": "visiting",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "raw": "his",
+          "start": 4.16,
+          "end": 4.44
+        },
+        {
+          "raw": "Majesty.",
+          "start": 4.44,
+          "end": 4.84
+        }
+      ],
+      "expected_tokens": [
+        "Stanley.",
+        "But",
+        "now",
+        "the",
+        "Duke",
+        "of",
+        "Buckingham",
+        "and",
+        "I",
+        "Are",
+        "come",
+        "from",
+        "visiting",
+        "his",
+        "Majesty."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Stanley,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "stanley",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.32,
+          "end": 1.54,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 1.54,
+          "end": 1.74,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Duke",
+          "start": 1.9,
+          "end": 2.1,
+          "key": "duke",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.1,
+          "end": 2.3,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Buckingham",
+          "start": 2.3,
+          "end": 2.68,
+          "key": "buckingham",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.68,
+          "end": 2.96,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.96,
+          "end": 3.16,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 3.16,
+          "end": 3.34,
+          "key": "are",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 3.34,
+          "end": 3.58,
+          "key": "come",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.58,
+          "end": 3.84,
+          "key": "from",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "visiting",
+          "start": 3.84,
+          "end": 4.16,
+          "key": "visiting",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.16,
+          "end": 4.44,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Majesty.",
+          "start": 4.44,
+          "end": 4.84,
+          "key": "majesty",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Stanley.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "But",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "text": "now",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "text": "the",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "Duke",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "text": "of",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "Buckingham",
+          "start": 2.3,
+          "end": 2.68
+        },
+        {
+          "text": "and",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "text": "I",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "text": "Are",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "text": "come",
+          "start": 3.34,
+          "end": 3.58
+        },
+        {
+          "text": "from",
+          "start": 3.58,
+          "end": 3.84
+        },
+        {
+          "text": "visiting",
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "text": "his",
+          "start": 4.16,
+          "end": 4.44
+        },
+        {
+          "text": "Majesty.",
+          "start": 4.44,
+          "end": 4.84
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3109806531574577
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "54d2cec3f9b54c6d2fc0d7800a1ad2f08e14e6d57b7940ef7041c0cb0719ba99",
+  "selected_reasons": []
+}

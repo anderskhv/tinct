@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "9f9a19775f2fc24391ce438d11b07241c157320ee4fe251cd5df5b13d5155ff4",
+  "attempts": [
+    {
+      "asr_seconds": 0.15442777518182993,
+      "alignment_seconds": 0.0003380700945854187,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kindly refrain from shouting.",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " Kindly",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.698974609375
+            },
+            {
+              "text": " refrain",
+              "start": 0.77,
+              "end": 1.09,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " from",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " shouting.",
+              "start": 1.35,
+              "end": 1.67,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kindly",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "refrain",
+          "start": 0.77,
+          "end": 1.09
+        },
+        {
+          "raw": "from",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "raw": "shouting.",
+          "start": 1.35,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "\"Kindly",
+        "refrain",
+        "from",
+        "shouting!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kindly",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "kindly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "refrain",
+          "start": 0.77,
+          "end": 1.09,
+          "key": "refrain",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "from",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shouting.",
+          "start": 1.35,
+          "end": 1.67,
+          "key": "shouting",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Kindly",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "refrain",
+          "start": 0.77,
+          "end": 1.09
+        },
+        {
+          "text": "from",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "text": "shouting!\"",
+          "start": 1.35,
+          "end": 1.67
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15489226672798395
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c3d1f22f01cf4e2c7f3bfd61872ca02c47045c5d4ebcefe2f2e180fa5ec5dc93",
+  "selected_reasons": []
+}

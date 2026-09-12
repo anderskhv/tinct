@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "19aaf6c230bba715c54071632a759f33e3d45b7ef1477db8c72405e357b0f778",
+  "attempts": [
+    {
+      "asr_seconds": 0.21615346198086627,
+      "alignment_seconds": 0.0002795809996314347,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Mrkgnao! the cat cried.",
+        "hotwords": "Mrkgnao"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mrkgnao, the cat cried.",
+          "start": 0.08,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " Mrkgnao,",
+              "start": 0.08,
+              "end": 1.14,
+              "probability": 0.1622825562953949
+            },
+            {
+              "text": " the",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " cat",
+              "start": 1.38,
+              "end": 1.6,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " cried.",
+              "start": 1.6,
+              "end": 1.94,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mrkgnao,",
+          "start": 0.08,
+          "end": 1.14
+        },
+        {
+          "raw": "the",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "cat",
+          "start": 1.38,
+          "end": 1.6
+        },
+        {
+          "raw": "cried.",
+          "start": 1.6,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "—Mrkgnao!",
+        "the",
+        "cat",
+        "cried."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mrkgnao,",
+          "start": 0.08,
+          "end": 1.14,
+          "key": "mrkgnao",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cat",
+          "start": 1.38,
+          "end": 1.6,
+          "key": "cat",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cried.",
+          "start": 1.6,
+          "end": 1.94,
+          "key": "cried",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Mrkgnao!",
+          "start": 0.08,
+          "end": 1.14
+        },
+        {
+          "text": "the",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "cat",
+          "start": 1.38,
+          "end": 1.6
+        },
+        {
+          "text": "cried.",
+          "start": 1.6,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21653061799588613
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "16395eeceb2b0c126308dc71255e36e7eee44626530c9558c43c1e235477da22",
+  "selected_reasons": []
+}

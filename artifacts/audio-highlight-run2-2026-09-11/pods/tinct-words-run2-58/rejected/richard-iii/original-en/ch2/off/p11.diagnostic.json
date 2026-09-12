@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "43e4b0b8f68b4c659687e7b1209c328fffa3474a79a2c22447b6547aefb87044",
+  "attempts": [
+    {
+      "asr_seconds": 0.11636682879179716,
+      "alignment_seconds": 0.0003258148208260536,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richard, sweet saint for charity be not so cursed.",
+          "start": 0.02,
+          "end": 3.26,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.775390625
+            },
+            {
+              "text": " sweet",
+              "start": 1.4,
+              "end": 1.46,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " saint",
+              "start": 1.46,
+              "end": 1.8,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " for",
+              "start": 1.8,
+              "end": 2.04,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " charity",
+              "start": 2.04,
+              "end": 2.4,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " be",
+              "start": 2.4,
+              "end": 2.58,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " not",
+              "start": 2.58,
+              "end": 2.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " so",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " cursed.",
+              "start": 2.92,
+              "end": 3.26,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "sweet",
+          "start": 1.4,
+          "end": 1.46
+        },
+        {
+          "raw": "saint",
+          "start": 1.46,
+          "end": 1.8
+        },
+        {
+          "raw": "for",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "raw": "charity",
+          "start": 2.04,
+          "end": 2.4
+        },
+        {
+          "raw": "be",
+          "start": 2.4,
+          "end": 2.58
+        },
+        {
+          "raw": "not",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "raw": "so",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "cursed.",
+          "start": 2.92,
+          "end": 3.26
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Sweet",
+        "saint,",
+        "for",
+        "charity,",
+        "be",
+        "not",
+        "so",
+        "curst."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 1.4,
+          "end": 1.46,
+          "key": "sweet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "saint",
+          "start": 1.46,
+          "end": 1.8,
+          "key": "saint",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.8,
+          "end": 2.04,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "charity",
+          "start": 2.04,
+          "end": 2.4,
+          "key": "charity",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.4,
+          "end": 2.58,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.58,
+          "end": 2.74,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cursed.",
+          "start": 2.92,
+          "end": 3.26,
+          "key": "cursed",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "Sweet",
+          "start": 1.4,
+          "end": 1.46
+        },
+        {
+          "text": "saint,",
+          "start": 1.46,
+          "end": 1.8
+        },
+        {
+          "text": "for",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "text": "charity,",
+          "start": 2.04,
+          "end": 2.4
+        },
+        {
+          "text": "be",
+          "start": 2.4,
+          "end": 2.58
+        },
+        {
+          "text": "not",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "text": "so",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "curst.",
+          "start": 2.92,
+          "end": 3.09
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.11681889556348324
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bb6a4888e2ade92a180e10e6f08f429ba1e3bc0826776a5de241802b56b629d7",
+  "selected_reasons": []
+}

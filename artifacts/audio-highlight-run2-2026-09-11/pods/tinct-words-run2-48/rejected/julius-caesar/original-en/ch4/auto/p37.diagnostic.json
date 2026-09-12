@@ -1,0 +1,1150 @@
+{
+  "complete": true,
+  "signature": "eb8b2387f33a170e48f4811eec4fe1df7272b3b98e5107762f9e747e5b3412a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.4168774951249361,
+      "alignment_seconds": 0.0007243352010846138,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassius. Yes, every man of them; and no man here But honours you; and everyone doth wish You had but that opinion of yourself Which every noble Roman bears of you. This is Trebonius.",
+        "hotwords": "Cassius, Yes, Which, Roman, This, Trebonius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassius. Yes, every man of them. And no man here But honours you. And everyone doth wish You had but that opinion of yourself Which every noble Roman bears of you. This is Trebonius.",
+          "start": 0.02,
+          "end": 12.28,
+          "words": [
+            {
+              "text": " Cassius.",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.941650390625
+            },
+            {
+              "text": " Yes,",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.8984375
+            },
+            {
+              "text": " every",
+              "start": 2.04,
+              "end": 2.24,
+              "probability": 0.9921875
+            },
+            {
+              "text": " man",
+              "start": 2.24,
+              "end": 2.5,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 2.5,
+              "end": 2.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them.",
+              "start": 2.64,
+              "end": 2.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " And",
+              "start": 3.2,
+              "end": 3.28,
+              "probability": 0.94140625
+            },
+            {
+              "text": " no",
+              "start": 3.28,
+              "end": 3.48,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " man",
+              "start": 3.48,
+              "end": 3.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " here",
+              "start": 3.76,
+              "end": 4.08,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " But",
+              "start": 4.08,
+              "end": 4.3,
+              "probability": 0.0004868507385253906
+            },
+            {
+              "text": " honours",
+              "start": 4.3,
+              "end": 4.7,
+              "probability": 0.541900634765625
+            },
+            {
+              "text": " you.",
+              "start": 4.7,
+              "end": 4.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " And",
+              "start": 5.44,
+              "end": 5.54,
+              "probability": 0.984375
+            },
+            {
+              "text": " everyone",
+              "start": 5.54,
+              "end": 5.98,
+              "probability": 0.3203125
+            },
+            {
+              "text": " doth",
+              "start": 5.98,
+              "end": 6.2,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " wish",
+              "start": 6.2,
+              "end": 6.44,
+              "probability": 0.853515625
+            },
+            {
+              "text": " You",
+              "start": 6.44,
+              "end": 6.68,
+              "probability": 0.1834716796875
+            },
+            {
+              "text": " had",
+              "start": 6.68,
+              "end": 6.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " but",
+              "start": 6.94,
+              "end": 7.12,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " that",
+              "start": 7.12,
+              "end": 7.34,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " opinion",
+              "start": 7.34,
+              "end": 7.66,
+              "probability": 0.86328125
+            },
+            {
+              "text": " of",
+              "start": 7.66,
+              "end": 7.92,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " yourself",
+              "start": 7.92,
+              "end": 8.22,
+              "probability": 0.322998046875
+            },
+            {
+              "text": " Which",
+              "start": 8.22,
+              "end": 8.5,
+              "probability": 0.798828125
+            },
+            {
+              "text": " every",
+              "start": 8.5,
+              "end": 8.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " noble",
+              "start": 8.9,
+              "end": 9.28,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Roman",
+              "start": 9.28,
+              "end": 9.66,
+              "probability": 0.74365234375
+            },
+            {
+              "text": " bears",
+              "start": 9.66,
+              "end": 10.04,
+              "probability": 0.6240234375
+            },
+            {
+              "text": " of",
+              "start": 10.04,
+              "end": 10.3,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " you.",
+              "start": 10.3,
+              "end": 10.52,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " This",
+              "start": 11.02,
+              "end": 11.32,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " is",
+              "start": 11.32,
+              "end": 11.58,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Trebonius.",
+              "start": 11.58,
+              "end": 12.28,
+              "probability": 0.8486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "raw": "every",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "raw": "man",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "raw": "them.",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "raw": "And",
+          "start": 3.2,
+          "end": 3.28
+        },
+        {
+          "raw": "no",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "raw": "man",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "raw": "here",
+          "start": 3.76,
+          "end": 4.08
+        },
+        {
+          "raw": "But",
+          "start": 4.08,
+          "end": 4.3
+        },
+        {
+          "raw": "honours",
+          "start": 4.3,
+          "end": 4.7
+        },
+        {
+          "raw": "you.",
+          "start": 4.7,
+          "end": 4.96
+        },
+        {
+          "raw": "And",
+          "start": 5.44,
+          "end": 5.54
+        },
+        {
+          "raw": "everyone",
+          "start": 5.54,
+          "end": 5.98
+        },
+        {
+          "raw": "doth",
+          "start": 5.98,
+          "end": 6.2
+        },
+        {
+          "raw": "wish",
+          "start": 6.2,
+          "end": 6.44
+        },
+        {
+          "raw": "You",
+          "start": 6.44,
+          "end": 6.68
+        },
+        {
+          "raw": "had",
+          "start": 6.68,
+          "end": 6.94
+        },
+        {
+          "raw": "but",
+          "start": 6.94,
+          "end": 7.12
+        },
+        {
+          "raw": "that",
+          "start": 7.12,
+          "end": 7.34
+        },
+        {
+          "raw": "opinion",
+          "start": 7.34,
+          "end": 7.66
+        },
+        {
+          "raw": "of",
+          "start": 7.66,
+          "end": 7.92
+        },
+        {
+          "raw": "yourself",
+          "start": 7.92,
+          "end": 8.22
+        },
+        {
+          "raw": "Which",
+          "start": 8.22,
+          "end": 8.5
+        },
+        {
+          "raw": "every",
+          "start": 8.5,
+          "end": 8.9
+        },
+        {
+          "raw": "noble",
+          "start": 8.9,
+          "end": 9.28
+        },
+        {
+          "raw": "Roman",
+          "start": 9.28,
+          "end": 9.66
+        },
+        {
+          "raw": "bears",
+          "start": 9.66,
+          "end": 10.04
+        },
+        {
+          "raw": "of",
+          "start": 10.04,
+          "end": 10.3
+        },
+        {
+          "raw": "you.",
+          "start": 10.3,
+          "end": 10.52
+        },
+        {
+          "raw": "This",
+          "start": 11.02,
+          "end": 11.32
+        },
+        {
+          "raw": "is",
+          "start": 11.32,
+          "end": 11.58
+        },
+        {
+          "raw": "Trebonius.",
+          "start": 11.58,
+          "end": 12.28
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Yes,",
+        "every",
+        "man",
+        "of",
+        "them;",
+        "and",
+        "no",
+        "man",
+        "here",
+        "But",
+        "honours",
+        "you;",
+        "and",
+        "everyone",
+        "doth",
+        "wish",
+        "You",
+        "had",
+        "but",
+        "that",
+        "opinion",
+        "of",
+        "yourself",
+        "Which",
+        "every",
+        "noble",
+        "Roman",
+        "bears",
+        "of",
+        "you.",
+        "This",
+        "is",
+        "Trebonius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          34,
+          0,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius.",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.48,
+          "end": 1.7,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 2.04,
+          "end": 2.24,
+          "key": "every",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.24,
+          "end": 2.5,
+          "key": "man",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.64,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 2.64,
+          "end": 2.84,
+          "key": "them",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.2,
+          "end": 3.28,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.28,
+          "end": 3.48,
+          "key": "no",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 3.48,
+          "end": 3.76,
+          "key": "man",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 3.76,
+          "end": 4.08,
+          "key": "here",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 4.08,
+          "end": 4.3,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "honours",
+          "start": 4.3,
+          "end": 4.7,
+          "key": "honours",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 4.7,
+          "end": 4.96,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.44,
+          "end": 5.54,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "everyone",
+          "start": 5.54,
+          "end": 5.98,
+          "key": "everyone",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 5.98,
+          "end": 6.2,
+          "key": "doth",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 6.2,
+          "end": 6.44,
+          "key": "wish",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 6.44,
+          "end": 6.68,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 6.68,
+          "end": 6.94,
+          "key": "had",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 6.94,
+          "end": 7.12,
+          "key": "but",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.12,
+          "end": 7.34,
+          "key": "that",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "opinion",
+          "start": 7.34,
+          "end": 7.66,
+          "key": "opinion",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.66,
+          "end": 7.92,
+          "key": "of",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 7.92,
+          "end": 8.22,
+          "key": "yourself",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 8.22,
+          "end": 8.5,
+          "key": "which",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 8.5,
+          "end": 8.9,
+          "key": "every",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 8.9,
+          "end": 9.28,
+          "key": "noble",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Roman",
+          "start": 9.28,
+          "end": 9.66,
+          "key": "roman",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "bears",
+          "start": 9.66,
+          "end": 10.04,
+          "key": "bears",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.04,
+          "end": 10.3,
+          "key": "of",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 10.3,
+          "end": 10.52,
+          "key": "you",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 11.02,
+          "end": 11.32,
+          "key": "this",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 11.32,
+          "end": 11.58,
+          "key": "is",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Trebonius.",
+          "start": 11.58,
+          "end": 12.28,
+          "key": "trebonius",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "Yes,",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "text": "every",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "text": "man",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "text": "of",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "text": "them;",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "text": "and",
+          "start": 3.2,
+          "end": 3.28
+        },
+        {
+          "text": "no",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "text": "man",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "text": "here",
+          "start": 3.76,
+          "end": 4.08
+        },
+        {
+          "text": "But",
+          "start": 4.08,
+          "end": 4.3
+        },
+        {
+          "text": "honours",
+          "start": 4.3,
+          "end": 4.7
+        },
+        {
+          "text": "you;",
+          "start": 4.7,
+          "end": 4.96
+        },
+        {
+          "text": "and",
+          "start": 5.44,
+          "end": 5.54
+        },
+        {
+          "text": "everyone",
+          "start": 5.54,
+          "end": 5.98
+        },
+        {
+          "text": "doth",
+          "start": 5.98,
+          "end": 6.2
+        },
+        {
+          "text": "wish",
+          "start": 6.2,
+          "end": 6.44
+        },
+        {
+          "text": "You",
+          "start": 6.44,
+          "end": 6.68
+        },
+        {
+          "text": "had",
+          "start": 6.68,
+          "end": 6.94
+        },
+        {
+          "text": "but",
+          "start": 6.94,
+          "end": 7.12
+        },
+        {
+          "text": "that",
+          "start": 7.12,
+          "end": 7.34
+        },
+        {
+          "text": "opinion",
+          "start": 7.34,
+          "end": 7.66
+        },
+        {
+          "text": "of",
+          "start": 7.66,
+          "end": 7.92
+        },
+        {
+          "text": "yourself",
+          "start": 7.92,
+          "end": 8.22
+        },
+        {
+          "text": "Which",
+          "start": 8.22,
+          "end": 8.5
+        },
+        {
+          "text": "every",
+          "start": 8.5,
+          "end": 8.9
+        },
+        {
+          "text": "noble",
+          "start": 8.9,
+          "end": 9.28
+        },
+        {
+          "text": "Roman",
+          "start": 9.28,
+          "end": 9.66
+        },
+        {
+          "text": "bears",
+          "start": 9.66,
+          "end": 10.04
+        },
+        {
+          "text": "of",
+          "start": 10.04,
+          "end": 10.3
+        },
+        {
+          "text": "you.",
+          "start": 10.3,
+          "end": 10.52
+        },
+        {
+          "text": "This",
+          "start": 11.02,
+          "end": 11.32
+        },
+        {
+          "text": "is",
+          "start": 11.32,
+          "end": 11.58
+        },
+        {
+          "text": "Trebonius.",
+          "start": 11.58,
+          "end": 12.28
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 34,
+        "matched_words": 34
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4179297834634781
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "83f0ae1ac6b04fb052aff365200830bb0ac75ea019a12f79787dfde6b403682c",
+  "selected_reasons": []
+}

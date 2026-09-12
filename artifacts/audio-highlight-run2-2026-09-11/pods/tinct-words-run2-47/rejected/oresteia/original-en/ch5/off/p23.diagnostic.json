@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "2b310a02e17bb71869d26da9b4e919406696b20aef0a1b4791d3606691f60b6c",
+  "attempts": [
+    {
+      "asr_seconds": 0.3050071019970346,
+      "alignment_seconds": 0.00045622000470757484,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Harald, tease fairly said, thus speaks a noble dame nor speaks amiss when truth informs the",
+          "start": 0.05,
+          "end": 6.23,
+          "words": [
+            {
+              "text": " Harald,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.49957275390625
+            },
+            {
+              "text": " tease",
+              "start": 1.53,
+              "end": 1.53,
+              "probability": 0.1649169921875
+            },
+            {
+              "text": " fairly",
+              "start": 1.53,
+              "end": 1.85,
+              "probability": 0.939453125
+            },
+            {
+              "text": " said,",
+              "start": 1.85,
+              "end": 2.25,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " thus",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.5068359375
+            },
+            {
+              "text": " speaks",
+              "start": 2.87,
+              "end": 3.15,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " a",
+              "start": 3.15,
+              "end": 3.35,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " noble",
+              "start": 3.35,
+              "end": 3.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dame",
+              "start": 3.65,
+              "end": 4.09,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " nor",
+              "start": 4.09,
+              "end": 4.31,
+              "probability": 0.6142578125
+            },
+            {
+              "text": " speaks",
+              "start": 4.31,
+              "end": 4.61,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " amiss",
+              "start": 4.61,
+              "end": 5.01,
+              "probability": 0.866943359375
+            },
+            {
+              "text": " when",
+              "start": 5.01,
+              "end": 5.23,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " truth",
+              "start": 5.23,
+              "end": 5.51,
+              "probability": 0.955078125
+            },
+            {
+              "text": " informs",
+              "start": 5.51,
+              "end": 6.03,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 6.03,
+              "end": 6.23,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " boast.",
+          "start": 6.23,
+          "end": 6.53,
+          "words": [
+            {
+              "text": " boast.",
+              "start": 6.23,
+              "end": 6.53,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Harald,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "tease",
+          "start": 1.53,
+          "end": 1.53
+        },
+        {
+          "raw": "fairly",
+          "start": 1.53,
+          "end": 1.85
+        },
+        {
+          "raw": "said,",
+          "start": 1.85,
+          "end": 2.25
+        },
+        {
+          "raw": "thus",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "speaks",
+          "start": 2.87,
+          "end": 3.15
+        },
+        {
+          "raw": "a",
+          "start": 3.15,
+          "end": 3.35
+        },
+        {
+          "raw": "noble",
+          "start": 3.35,
+          "end": 3.65
+        },
+        {
+          "raw": "dame",
+          "start": 3.65,
+          "end": 4.09
+        },
+        {
+          "raw": "nor",
+          "start": 4.09,
+          "end": 4.31
+        },
+        {
+          "raw": "speaks",
+          "start": 4.31,
+          "end": 4.61
+        },
+        {
+          "raw": "amiss",
+          "start": 4.61,
+          "end": 5.01
+        },
+        {
+          "raw": "when",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "raw": "truth",
+          "start": 5.23,
+          "end": 5.51
+        },
+        {
+          "raw": "informs",
+          "start": 5.51,
+          "end": 6.03
+        },
+        {
+          "raw": "the",
+          "start": 6.03,
+          "end": 6.23
+        },
+        {
+          "raw": "boast.",
+          "start": 6.23,
+          "end": 6.53
+        }
+      ],
+      "expected_tokens": [
+        "Herald.",
+        "'Tis",
+        "fairly",
+        "said:",
+        "thus",
+        "speaks",
+        "a",
+        "noble",
+        "dame,",
+        "Nor",
+        "speaks",
+        "amiss,",
+        "when",
+        "truth",
+        "informs",
+        "the",
+        "boast."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          17,
+          2,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Harald,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "harald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 1.53,
+          "end": 1.53,
+          "key": "tease",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fairly",
+          "start": 1.53,
+          "end": 1.85,
+          "key": "fairly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.85,
+          "end": 2.25,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "thus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "speaks",
+          "start": 2.87,
+          "end": 3.15,
+          "key": "speaks",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.15,
+          "end": 3.35,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 3.35,
+          "end": 3.65,
+          "key": "noble",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dame",
+          "start": 3.65,
+          "end": 4.09,
+          "key": "dame",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 4.09,
+          "end": 4.31,
+          "key": "nor",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "speaks",
+          "start": 4.31,
+          "end": 4.61,
+          "key": "speaks",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "amiss",
+          "start": 4.61,
+          "end": 5.01,
+          "key": "amiss",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 5.01,
+          "end": 5.23,
+          "key": "when",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "truth",
+          "start": 5.23,
+          "end": 5.51,
+          "key": "truth",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "informs",
+          "start": 5.51,
+          "end": 6.03,
+          "key": "informs",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.03,
+          "end": 6.23,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "boast.",
+          "start": 6.23,
+          "end": 6.53,
+          "key": "boast",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Herald.",
+          "start": 0.0,
+          "end": 0.765
+        },
+        {
+          "text": "'Tis",
+          "start": 0.765,
+          "end": 1.147
+        },
+        {
+          "text": "fairly",
+          "start": 1.53,
+          "end": 1.85
+        },
+        {
+          "text": "said:",
+          "start": 1.85,
+          "end": 2.25
+        },
+        {
+          "text": "thus",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "text": "speaks",
+          "start": 2.87,
+          "end": 3.15
+        },
+        {
+          "text": "a",
+          "start": 3.15,
+          "end": 3.35
+        },
+        {
+          "text": "noble",
+          "start": 3.35,
+          "end": 3.65
+        },
+        {
+          "text": "dame,",
+          "start": 3.65,
+          "end": 4.09
+        },
+        {
+          "text": "Nor",
+          "start": 4.09,
+          "end": 4.31
+        },
+        {
+          "text": "speaks",
+          "start": 4.31,
+          "end": 4.61
+        },
+        {
+          "text": "amiss,",
+          "start": 4.61,
+          "end": 5.01
+        },
+        {
+          "text": "when",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "text": "truth",
+          "start": 5.23,
+          "end": 5.51
+        },
+        {
+          "text": "informs",
+          "start": 5.51,
+          "end": 6.03
+        },
+        {
+          "text": "the",
+          "start": 6.03,
+          "end": 6.23
+        },
+        {
+          "text": "boast.",
+          "start": 6.23,
+          "end": 6.53
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.30564360198331997
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "354563f71880e4af4f719e2672e0f14aadb9dbd52c2b6c3172907a00a821c294",
+  "selected_reasons": []
+}

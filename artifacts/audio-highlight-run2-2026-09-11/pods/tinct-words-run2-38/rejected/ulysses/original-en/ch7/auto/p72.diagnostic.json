@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "56b3eeb126dc7a0cda09f7d7e7fb919eb650aedec8f76b9619d4f70f457b482f",
+  "attempts": [
+    {
+      "asr_seconds": 0.14043824502732605,
+      "alignment_seconds": 0.0002530519850552082,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The foreman moved his scratching hand to his lower ribs and scratched there quietly.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The foreman moved his scratching hand to his lower ribs and scratched there quietly.",
+          "start": 0.02,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " foreman",
+              "start": 0.5,
+              "end": 0.82,
+              "probability": 0.921142578125
+            },
+            {
+              "text": " moved",
+              "start": 0.82,
+              "end": 1.12,
+              "probability": 0.99609375
+            },
+            {
+              "text": " his",
+              "start": 1.12,
+              "end": 1.3,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " scratching",
+              "start": 1.3,
+              "end": 1.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hand",
+              "start": 1.68,
+              "end": 2.02,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " to",
+              "start": 2.02,
+              "end": 2.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 2.24,
+              "end": 2.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lower",
+              "start": 2.38,
+              "end": 2.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ribs",
+              "start": 2.62,
+              "end": 3.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 3.04,
+              "end": 3.56,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " scratched",
+              "start": 3.56,
+              "end": 3.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " there",
+              "start": 3.92,
+              "end": 4.22,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " quietly.",
+              "start": 4.22,
+              "end": 4.64,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "foreman",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "raw": "moved",
+          "start": 0.82,
+          "end": 1.12
+        },
+        {
+          "raw": "his",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "raw": "scratching",
+          "start": 1.3,
+          "end": 1.68
+        },
+        {
+          "raw": "hand",
+          "start": 1.68,
+          "end": 2.02
+        },
+        {
+          "raw": "to",
+          "start": 2.02,
+          "end": 2.24
+        },
+        {
+          "raw": "his",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "raw": "lower",
+          "start": 2.38,
+          "end": 2.62
+        },
+        {
+          "raw": "ribs",
+          "start": 2.62,
+          "end": 3.04
+        },
+        {
+          "raw": "and",
+          "start": 3.04,
+          "end": 3.56
+        },
+        {
+          "raw": "scratched",
+          "start": 3.56,
+          "end": 3.92
+        },
+        {
+          "raw": "there",
+          "start": 3.92,
+          "end": 4.22
+        },
+        {
+          "raw": "quietly.",
+          "start": 4.22,
+          "end": 4.64
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "foreman",
+        "moved",
+        "his",
+        "scratching",
+        "hand",
+        "to",
+        "his",
+        "lower",
+        "ribs",
+        "and",
+        "scratched",
+        "there",
+        "quietly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "foreman",
+          "start": 0.5,
+          "end": 0.82,
+          "key": "foreman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "moved",
+          "start": 0.82,
+          "end": 1.12,
+          "key": "moved",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.12,
+          "end": 1.3,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "scratching",
+          "start": 1.3,
+          "end": 1.68,
+          "key": "scratching",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 1.68,
+          "end": 2.02,
+          "key": "hand",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.02,
+          "end": 2.24,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.24,
+          "end": 2.38,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lower",
+          "start": 2.38,
+          "end": 2.62,
+          "key": "lower",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ribs",
+          "start": 2.62,
+          "end": 3.04,
+          "key": "ribs",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.04,
+          "end": 3.56,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "scratched",
+          "start": 3.56,
+          "end": 3.92,
+          "key": "scratched",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 3.92,
+          "end": 4.22,
+          "key": "there",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "quietly.",
+          "start": 4.22,
+          "end": 4.64,
+          "key": "quietly",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "foreman",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "text": "moved",
+          "start": 0.82,
+          "end": 1.12
+        },
+        {
+          "text": "his",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "text": "scratching",
+          "start": 1.3,
+          "end": 1.68
+        },
+        {
+          "text": "hand",
+          "start": 1.68,
+          "end": 2.02
+        },
+        {
+          "text": "to",
+          "start": 2.02,
+          "end": 2.24
+        },
+        {
+          "text": "his",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "text": "lower",
+          "start": 2.38,
+          "end": 2.62
+        },
+        {
+          "text": "ribs",
+          "start": 2.62,
+          "end": 3.04
+        },
+        {
+          "text": "and",
+          "start": 3.04,
+          "end": 3.56
+        },
+        {
+          "text": "scratched",
+          "start": 3.56,
+          "end": 3.92
+        },
+        {
+          "text": "there",
+          "start": 3.92,
+          "end": 4.22
+        },
+        {
+          "text": "quietly.",
+          "start": 4.22,
+          "end": 4.64
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14079533703625202
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "df91ed759baeaab957749930cbea22f6e454129e867b13fd158dd4833850fb0d",
+  "selected_reasons": []
+}

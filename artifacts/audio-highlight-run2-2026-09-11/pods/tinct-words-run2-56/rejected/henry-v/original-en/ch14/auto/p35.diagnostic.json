@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "e33bf746acc18db7b0be4e4d68b825e133531e905e7e5ca97d710d0bbb1f92de",
+  "attempts": [
+    {
+      "asr_seconds": 0.18500528763979673,
+      "alignment_seconds": 0.0002638036385178566,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Henry. It sorts well with your fierceness.",
+        "hotwords": "King, Henry, It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Henry, It sorts well with your fierceness.",
+          "start": 0.05,
+          "end": 2.77,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.837890625
+            },
+            {
+              "text": " Henry,",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " It",
+              "start": 1.27,
+              "end": 1.51,
+              "probability": 0.01557159423828125
+            },
+            {
+              "text": " sorts",
+              "start": 1.51,
+              "end": 1.69,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " well",
+              "start": 1.69,
+              "end": 1.99,
+              "probability": 0.986328125
+            },
+            {
+              "text": " with",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " your",
+              "start": 2.15,
+              "end": 2.27,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " fierceness.",
+              "start": 2.27,
+              "end": 2.77,
+              "probability": 0.96728515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "It",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "raw": "sorts",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "raw": "well",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "raw": "with",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "your",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "raw": "fierceness.",
+          "start": 2.27,
+          "end": 2.77
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "It",
+        "sorts",
+        "well",
+        "with",
+        "your",
+        "fierceness."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 1.27,
+          "end": 1.51,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sorts",
+          "start": 1.51,
+          "end": 1.69,
+          "key": "sorts",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.69,
+          "end": 1.99,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.15,
+          "end": 2.27,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fierceness.",
+          "start": 2.27,
+          "end": 2.77,
+          "key": "fierceness",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Henry.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "It",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "text": "sorts",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "well",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "text": "with",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "text": "your",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "text": "fierceness.",
+          "start": 2.27,
+          "end": 2.77
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1853824034333229
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "32ef6f21c99a550cbdbe5e6c35e910d6506a0700784a4fdd90aa12e485a8bc76",
+  "selected_reasons": []
+}

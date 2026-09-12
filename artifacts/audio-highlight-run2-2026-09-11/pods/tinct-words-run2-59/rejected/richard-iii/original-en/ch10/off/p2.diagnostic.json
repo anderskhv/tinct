@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "ee9a2ce4ccb22474cdb7e13474523ea7c6052b0c4030a83ede9e784feff7b1c7",
+  "attempts": [
+    {
+      "asr_seconds": 0.14750334597192705,
+      "alignment_seconds": 0.00024484796449542046,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Knocking",
+          "start": 0.02,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " Knocking",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.83203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Knocking",
+          "start": 0.02,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "[_Knocking._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Knocking",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "knocking",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Knocking._]",
+          "start": 0.02,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1478235200047493
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a0cf5ec09df72c400e773dccb0ad4572c30c8248d1b56bcb62e0945b179894a2",
+  "selected_reasons": []
+}

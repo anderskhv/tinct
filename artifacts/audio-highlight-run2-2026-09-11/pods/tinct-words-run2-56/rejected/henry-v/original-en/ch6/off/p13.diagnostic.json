@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "468ea1d9783e71e6e6ec8656b7cd964040082c44bf61ca5c4c1908786698ad5d",
+  "attempts": [
+    {
+      "asr_seconds": 0.14452182594686747,
+      "alignment_seconds": 0.00018262304365634918,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " French king from our brother of England",
+          "start": 0.08,
+          "end": 2.28,
+          "words": [
+            {
+              "text": " French",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.7236328125
+            },
+            {
+              "text": " king",
+              "start": 0.66,
+              "end": 1.08,
+              "probability": 0.291748046875
+            },
+            {
+              "text": " from",
+              "start": 1.08,
+              "end": 1.54,
+              "probability": 0.6923828125
+            },
+            {
+              "text": " our",
+              "start": 1.54,
+              "end": 1.7,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " brother",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " of",
+              "start": 1.92,
+              "end": 2.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " England",
+              "start": 2.08,
+              "end": 2.28,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "French",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "king",
+          "start": 0.66,
+          "end": 1.08
+        },
+        {
+          "raw": "from",
+          "start": 1.08,
+          "end": 1.54
+        },
+        {
+          "raw": "our",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "raw": "brother",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "of",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "raw": "England",
+          "start": 2.08,
+          "end": 2.28
+        }
+      ],
+      "expected_tokens": [
+        "French",
+        "King.",
+        "From",
+        "our",
+        "brother",
+        "of",
+        "England?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "French",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "french",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "king",
+          "start": 0.66,
+          "end": 1.08,
+          "key": "king",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.08,
+          "end": 1.54,
+          "key": "from",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.54,
+          "end": 1.7,
+          "key": "our",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "brother",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "brother",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.92,
+          "end": 2.08,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "England",
+          "start": 2.08,
+          "end": 2.28,
+          "key": "england",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "French",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "King.",
+          "start": 0.66,
+          "end": 1.08
+        },
+        {
+          "text": "From",
+          "start": 1.08,
+          "end": 1.54
+        },
+        {
+          "text": "our",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "text": "brother",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "of",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "text": "England?",
+          "start": 2.08,
+          "end": 2.28
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1447732513770461
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4d24d28e1b1fbe73ba3aef94a59d99846d991da8ef2f2d4ff2236ad1926f2400",
+  "selected_reasons": []
+}

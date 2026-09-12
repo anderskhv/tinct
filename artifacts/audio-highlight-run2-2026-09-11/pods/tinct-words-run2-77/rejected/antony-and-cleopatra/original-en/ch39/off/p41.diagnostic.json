@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "2058913e3647f72166bfb84461541be081bd46acbf31eb65be0b72a5f51c1105",
+  "attempts": [
+    {
+      "asr_seconds": 0.10121675100526772,
+      "alignment_seconds": 0.00011558400001376867,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " falling on his sword.",
+          "start": 0.08,
+          "end": 1.24,
+          "words": [
+            {
+              "text": " falling",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " on",
+              "start": 0.62,
+              "end": 0.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 0.82,
+              "end": 0.94,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " sword.",
+              "start": 0.94,
+              "end": 1.24,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "falling",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "on",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "raw": "his",
+          "start": 0.82,
+          "end": 0.94
+        },
+        {
+          "raw": "sword.",
+          "start": 0.94,
+          "end": 1.24
+        }
+      ],
+      "expected_tokens": [
+        "[_Falling",
+        "on",
+        "his",
+        "sword._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "falling",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "falling",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 0.62,
+          "end": 0.82,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.82,
+          "end": 0.94,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sword.",
+          "start": 0.94,
+          "end": 1.24,
+          "key": "sword",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Falling",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "on",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "text": "his",
+          "start": 0.82,
+          "end": 0.94
+        },
+        {
+          "text": "sword._]",
+          "start": 0.94,
+          "end": 1.24
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10136954599875025
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c80582ceec9701a8d81cb9dc5a4251419326bd68d9fce4229402e35b50047d65",
+  "selected_reasons": []
+}

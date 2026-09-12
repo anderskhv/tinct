@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "cc8306c989df599a4f1b259e2b7aaa17d04f9804ea266de32f436d7aaa5fa225",
+  "attempts": [
+    {
+      "asr_seconds": 0.15485549508593976,
+      "alignment_seconds": 0.00025745597667992115,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What, Mr. Bloom asked.",
+          "start": 0.02,
+          "end": 1.9,
+          "words": [
+            {
+              "text": " What,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.1092529296875
+            },
+            {
+              "text": " Mr.",
+              "start": 1.08,
+              "end": 1.22,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Bloom",
+              "start": 1.46,
+              "end": 1.46,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " asked.",
+              "start": 1.46,
+              "end": 1.9,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "raw": "Bloom",
+          "start": 1.46,
+          "end": 1.46
+        },
+        {
+          "raw": "asked.",
+          "start": 1.46,
+          "end": 1.9
+        }
+      ],
+      "expected_tokens": [
+        "—What?",
+        "Mr",
+        "Bloom",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.08,
+          "end": 1.22,
+          "key": "mr",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Bloom",
+          "start": 1.46,
+          "end": 1.46,
+          "key": "bloom",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 1.46,
+          "end": 1.9,
+          "key": "asked",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—What?",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "Mr",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "text": "Bloom",
+          "start": 1.46,
+          "end": 1.46
+        },
+        {
+          "text": "asked.",
+          "start": 1.46,
+          "end": 1.9
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15519471396692097
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9f983da1cb55bb3524450df63d5fbd8793919b08c163be7face678483210c43b",
+  "selected_reasons": []
+}

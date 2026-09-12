@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "cff1af94b8562e84992f3de044639eedad6751c2f3ec6cc5b07818694b1b6d10",
+  "attempts": [
+    {
+      "asr_seconds": 0.23269231244921684,
+      "alignment_seconds": 0.0004518730565905571,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"She must be Made to learn,\" her father said to Miss Minchin.",
+        "hotwords": "She, Made, Miss, Minchin"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She must be made to learn,\" her father said to Miss Minchin.",
+          "start": 0.08,
+          "end": 3.5,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.6611328125
+            },
+            {
+              "text": " must",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " made",
+              "start": 0.94,
+              "end": 1.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.12,
+              "end": 1.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " learn,\"",
+              "start": 1.3,
+              "end": 2.14,
+              "probability": 0.55462646484375
+            },
+            {
+              "text": " her",
+              "start": 2.14,
+              "end": 2.22,
+              "probability": 0.98828125
+            },
+            {
+              "text": " father",
+              "start": 2.22,
+              "end": 2.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " said",
+              "start": 2.48,
+              "end": 2.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.78,
+              "end": 2.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Miss",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.654296875
+            },
+            {
+              "text": " Minchin.",
+              "start": 3.1,
+              "end": 3.5,
+              "probability": 0.779052734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "must",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "be",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "made",
+          "start": 0.94,
+          "end": 1.12
+        },
+        {
+          "raw": "to",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "raw": "learn,\"",
+          "start": 1.3,
+          "end": 2.14
+        },
+        {
+          "raw": "her",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "raw": "father",
+          "start": 2.22,
+          "end": 2.48
+        },
+        {
+          "raw": "said",
+          "start": 2.48,
+          "end": 2.78
+        },
+        {
+          "raw": "to",
+          "start": 2.78,
+          "end": 2.96
+        },
+        {
+          "raw": "Miss",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "Minchin.",
+          "start": 3.1,
+          "end": 3.5
+        }
+      ],
+      "expected_tokens": [
+        "\"She",
+        "must",
+        "be",
+        "Made",
+        "to",
+        "learn,\"",
+        "her",
+        "father",
+        "said",
+        "to",
+        "Miss",
+        "Minchin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "must",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.7,
+          "end": 0.94,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 0.94,
+          "end": 1.12,
+          "key": "made",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.12,
+          "end": 1.3,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "learn,\"",
+          "start": 1.3,
+          "end": 2.14,
+          "key": "learn",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.14,
+          "end": 2.22,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 2.22,
+          "end": 2.48,
+          "key": "father",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.48,
+          "end": 2.78,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.78,
+          "end": 2.96,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 2.96,
+          "end": 3.1,
+          "key": "miss",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Minchin.",
+          "start": 3.1,
+          "end": 3.5,
+          "key": "minchin",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"She",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "must",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "be",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "text": "Made",
+          "start": 0.94,
+          "end": 1.12
+        },
+        {
+          "text": "to",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "text": "learn,\"",
+          "start": 1.3,
+          "end": 2.14
+        },
+        {
+          "text": "her",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "text": "father",
+          "start": 2.22,
+          "end": 2.48
+        },
+        {
+          "text": "said",
+          "start": 2.48,
+          "end": 2.78
+        },
+        {
+          "text": "to",
+          "start": 2.78,
+          "end": 2.96
+        },
+        {
+          "text": "Miss",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "Minchin.",
+          "start": 3.1,
+          "end": 3.5
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2333234827965498
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0b53ed1e63dedfb8e3fc4819f3810019815f390bfa99b18e1666dc785dd4fef7",
+  "selected_reasons": []
+}

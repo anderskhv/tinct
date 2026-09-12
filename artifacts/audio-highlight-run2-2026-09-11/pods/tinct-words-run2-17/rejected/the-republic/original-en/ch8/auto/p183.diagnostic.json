@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "e566b129ba337692b4c079b9c5c2fdccbc21b849326982b7bf0fbf9e26b885e8",
+  "attempts": [
+    {
+      "asr_seconds": 0.10928249638527632,
+      "alignment_seconds": 0.0001948196440935135,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, often.",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, often.",
+          "start": 0.02,
+          "end": 1.12,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.865234375
+            },
+            {
+              "text": " often.",
+              "start": 0.74,
+              "end": 1.12,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "often.",
+          "start": 0.74,
+          "end": 1.12
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "often."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "often.",
+          "start": 0.74,
+          "end": 1.12,
+          "key": "often",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "often.",
+          "start": 0.74,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10953315254300833
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "abfa7290c8345ac48951e48a1853cb6747a2df47c8960f4b9d14af84334b3bf3",
+  "selected_reasons": []
+}

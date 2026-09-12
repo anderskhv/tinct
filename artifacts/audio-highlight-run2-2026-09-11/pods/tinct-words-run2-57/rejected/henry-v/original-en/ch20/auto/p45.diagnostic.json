@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "4ef0e3b25cc30e9cd9e08ddc61648825870996fa762995d47452225d34190d78",
+  "attempts": [
+    {
+      "asr_seconds": 0.1867939371149987,
+      "alignment_seconds": 0.000408482039347291,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Henry. Then keep thy vow, sirrah, when thou meet'st the fellow.",
+        "hotwords": "King, Henry, Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King, Henry, Then keep thy vow, sirrah, when thou meet'st the fellow.",
+          "start": 0.05,
+          "end": 3.79,
+          "words": [
+            {
+              "text": " King,",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.66064453125
+            },
+            {
+              "text": " Henry,",
+              "start": 0.87,
+              "end": 0.95,
+              "probability": 0.9453125
+            },
+            {
+              "text": " Then",
+              "start": 1.47,
+              "end": 1.65,
+              "probability": 0.03668212890625
+            },
+            {
+              "text": " keep",
+              "start": 1.65,
+              "end": 1.87,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " thy",
+              "start": 1.87,
+              "end": 2.05,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " vow,",
+              "start": 2.05,
+              "end": 2.29,
+              "probability": 0.685546875
+            },
+            {
+              "text": " sirrah,",
+              "start": 2.43,
+              "end": 2.73,
+              "probability": 0.42449951171875
+            },
+            {
+              "text": " when",
+              "start": 2.81,
+              "end": 2.89,
+              "probability": 0.204833984375
+            },
+            {
+              "text": " thou",
+              "start": 2.89,
+              "end": 3.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " meet'st",
+              "start": 3.07,
+              "end": 3.45,
+              "probability": 0.662109375
+            },
+            {
+              "text": " the",
+              "start": 3.45,
+              "end": 3.53,
+              "probability": 0.1175537109375
+            },
+            {
+              "text": " fellow.",
+              "start": 3.53,
+              "end": 3.79,
+              "probability": 0.70947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.87,
+          "end": 0.95
+        },
+        {
+          "raw": "Then",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "raw": "keep",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "raw": "thy",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "raw": "vow,",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "raw": "sirrah,",
+          "start": 2.43,
+          "end": 2.73
+        },
+        {
+          "raw": "when",
+          "start": 2.81,
+          "end": 2.89
+        },
+        {
+          "raw": "thou",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "raw": "meet'st",
+          "start": 3.07,
+          "end": 3.45
+        },
+        {
+          "raw": "the",
+          "start": 3.45,
+          "end": 3.53
+        },
+        {
+          "raw": "fellow.",
+          "start": 3.53,
+          "end": 3.79
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "Then",
+        "keep",
+        "thy",
+        "vow,",
+        "sirrah,",
+        "when",
+        "thou",
+        "meet'st",
+        "the",
+        "fellow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.87,
+          "end": 0.95,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 1.47,
+          "end": 1.65,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 1.65,
+          "end": 1.87,
+          "key": "keep",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.87,
+          "end": 2.05,
+          "key": "thy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "vow,",
+          "start": 2.05,
+          "end": 2.29,
+          "key": "vow",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sirrah,",
+          "start": 2.43,
+          "end": 2.73,
+          "key": "sirrah",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 2.81,
+          "end": 2.89,
+          "key": "when",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.89,
+          "end": 3.07,
+          "key": "thou",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "meet'st",
+          "start": 3.07,
+          "end": 3.45,
+          "key": "meetst",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.45,
+          "end": 3.53,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "fellow.",
+          "start": 3.53,
+          "end": 3.79,
+          "key": "fellow",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Henry.",
+          "start": 0.87,
+          "end": 0.95
+        },
+        {
+          "text": "Then",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "text": "keep",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "text": "thy",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "text": "vow,",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "text": "sirrah,",
+          "start": 2.43,
+          "end": 2.73
+        },
+        {
+          "text": "when",
+          "start": 2.81,
+          "end": 2.89
+        },
+        {
+          "text": "thou",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "text": "meet'st",
+          "start": 3.07,
+          "end": 3.45
+        },
+        {
+          "text": "the",
+          "start": 3.45,
+          "end": 3.53
+        },
+        {
+          "text": "fellow.",
+          "start": 3.53,
+          "end": 3.79
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1873540091328323
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a04ab489045ce8556a8b512042566dc532ce1440ef87db3f90856f7f4cb78d87",
+  "selected_reasons": []
+}

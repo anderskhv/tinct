@@ -1,0 +1,690 @@
+{
+  "complete": true,
+  "signature": "f1c9b32a1e5061c95e323fe09944eb6c928251c731cdfb4b439481b56d28d549",
+  "attempts": [
+    {
+      "asr_seconds": 0.31555219693109393,
+      "alignment_seconds": 0.0005311840213835239,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caddisby, tease a vile thing to die, my gracious lord, when men are unprepared and look not",
+          "start": 0.52,
+          "end": 5.94,
+          "words": [
+            {
+              "text": " Caddisby,",
+              "start": 0.52,
+              "end": 1.0,
+              "probability": 0.39215087890625
+            },
+            {
+              "text": " tease",
+              "start": 1.4,
+              "end": 1.64,
+              "probability": 0.70556640625
+            },
+            {
+              "text": " a",
+              "start": 1.64,
+              "end": 1.82,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " vile",
+              "start": 1.82,
+              "end": 2.06,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " thing",
+              "start": 2.06,
+              "end": 2.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 2.38,
+              "end": 2.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " die,",
+              "start": 2.56,
+              "end": 2.86,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " my",
+              "start": 3.1,
+              "end": 3.18,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " gracious",
+              "start": 3.18,
+              "end": 3.6,
+              "probability": 0.982421875
+            },
+            {
+              "text": " lord,",
+              "start": 3.6,
+              "end": 3.96,
+              "probability": 0.67236328125
+            },
+            {
+              "text": " when",
+              "start": 4.42,
+              "end": 4.52,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " men",
+              "start": 4.52,
+              "end": 4.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " are",
+              "start": 4.68,
+              "end": 4.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " unprepared",
+              "start": 4.82,
+              "end": 5.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 5.28,
+              "end": 5.58,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " look",
+              "start": 5.58,
+              "end": 5.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 5.74,
+              "end": 5.94,
+              "probability": 0.94775390625
+            }
+          ]
+        },
+        {
+          "text": " for it.",
+          "start": 5.94,
+          "end": 6.38,
+          "words": [
+            {
+              "text": " for",
+              "start": 5.94,
+              "end": 6.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it.",
+              "start": 6.16,
+              "end": 6.38,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caddisby,",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "raw": "tease",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "raw": "a",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "raw": "vile",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "raw": "thing",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "raw": "die,",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "raw": "my",
+          "start": 3.1,
+          "end": 3.18
+        },
+        {
+          "raw": "gracious",
+          "start": 3.18,
+          "end": 3.6
+        },
+        {
+          "raw": "lord,",
+          "start": 3.6,
+          "end": 3.96
+        },
+        {
+          "raw": "when",
+          "start": 4.42,
+          "end": 4.52
+        },
+        {
+          "raw": "men",
+          "start": 4.52,
+          "end": 4.68
+        },
+        {
+          "raw": "are",
+          "start": 4.68,
+          "end": 4.82
+        },
+        {
+          "raw": "unprepared",
+          "start": 4.82,
+          "end": 5.28
+        },
+        {
+          "raw": "and",
+          "start": 5.28,
+          "end": 5.58
+        },
+        {
+          "raw": "look",
+          "start": 5.58,
+          "end": 5.74
+        },
+        {
+          "raw": "not",
+          "start": 5.74,
+          "end": 5.94
+        },
+        {
+          "raw": "for",
+          "start": 5.94,
+          "end": 6.16
+        },
+        {
+          "raw": "it.",
+          "start": 6.16,
+          "end": 6.38
+        }
+      ],
+      "expected_tokens": [
+        "Catesby.",
+        "'Tis",
+        "a",
+        "vile",
+        "thing",
+        "to",
+        "die,",
+        "my",
+        "gracious",
+        "lord,",
+        "When",
+        "men",
+        "are",
+        "unprepared",
+        "and",
+        "look",
+        "not",
+        "for",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          19,
+          2,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caddisby,",
+          "start": 0.52,
+          "end": 1.0,
+          "key": "caddisby",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 1.4,
+          "end": 1.64,
+          "key": "tease",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.64,
+          "end": 1.82,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "vile",
+          "start": 1.82,
+          "end": 2.06,
+          "key": "vile",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 2.06,
+          "end": 2.38,
+          "key": "thing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.56,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "die,",
+          "start": 2.56,
+          "end": 2.86,
+          "key": "die",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.1,
+          "end": 3.18,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "gracious",
+          "start": 3.18,
+          "end": 3.6,
+          "key": "gracious",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 3.6,
+          "end": 3.96,
+          "key": "lord",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.42,
+          "end": 4.52,
+          "key": "when",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 4.52,
+          "end": 4.68,
+          "key": "men",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.68,
+          "end": 4.82,
+          "key": "are",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "unprepared",
+          "start": 4.82,
+          "end": 5.28,
+          "key": "unprepared",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.28,
+          "end": 5.58,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 5.58,
+          "end": 5.74,
+          "key": "look",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.74,
+          "end": 5.94,
+          "key": "not",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.94,
+          "end": 6.16,
+          "key": "for",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 6.16,
+          "end": 6.38,
+          "key": "it",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Catesby.",
+          "start": 0.0,
+          "end": 0.82
+        },
+        {
+          "text": "'Tis",
+          "start": 0.82,
+          "end": 1.23
+        },
+        {
+          "text": "a",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "text": "vile",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "text": "thing",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "text": "to",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "text": "die,",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "text": "my",
+          "start": 3.1,
+          "end": 3.18
+        },
+        {
+          "text": "gracious",
+          "start": 3.18,
+          "end": 3.6
+        },
+        {
+          "text": "lord,",
+          "start": 3.6,
+          "end": 3.96
+        },
+        {
+          "text": "When",
+          "start": 4.42,
+          "end": 4.52
+        },
+        {
+          "text": "men",
+          "start": 4.52,
+          "end": 4.68
+        },
+        {
+          "text": "are",
+          "start": 4.68,
+          "end": 4.82
+        },
+        {
+          "text": "unprepared",
+          "start": 4.82,
+          "end": 5.28
+        },
+        {
+          "text": "and",
+          "start": 5.28,
+          "end": 5.58
+        },
+        {
+          "text": "look",
+          "start": 5.58,
+          "end": 5.74
+        },
+        {
+          "text": "not",
+          "start": 5.74,
+          "end": 5.94
+        },
+        {
+          "text": "for",
+          "start": 5.94,
+          "end": 6.16
+        },
+        {
+          "text": "it.",
+          "start": 6.16,
+          "end": 6.38
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8947368421052632,
+      "rejection_reasons": [],
+      "seconds": 0.3163251399528235
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "db6eb1ceb20e136e701e27a466909d6daf68804cd5fa31bdce7e8cea2076960e",
+  "selected_reasons": []
+}

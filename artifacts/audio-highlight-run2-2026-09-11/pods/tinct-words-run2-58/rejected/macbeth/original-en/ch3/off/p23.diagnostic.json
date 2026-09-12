@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "2fe11dc4c4ce8f55235c86620394a68925ff70d74e9b213b5ee501334bacc72b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1302949795499444,
+      "alignment_seconds": 0.00030463095754384995,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second Witch, Hail.",
+          "start": 0.08,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.66455078125
+            },
+            {
+              "text": " Witch,",
+              "start": 0.7,
+              "end": 1.0,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " Hail.",
+              "start": 1.42,
+              "end": 1.5,
+              "probability": 0.6865234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "raw": "Hail.",
+          "start": 1.42,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Witch.",
+        "Hail!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.7,
+          "end": 1.0,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Hail.",
+          "start": 1.42,
+          "end": 1.5,
+          "key": "hail",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Witch.",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "text": "Hail!",
+          "start": 1.42,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13070685975253582
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f6925060928cec5b3d85b75576193142dc33aa3eb73772799f4b26390f979533",
+  "selected_reasons": []
+}

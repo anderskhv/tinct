@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "e77d0010551b8310a25c26e65b490dbdc69b9a918923c92298c1d434cb1085c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.19979479699395597,
+      "alignment_seconds": 0.0002614909317344427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh my darling, God bless you and reward you.",
+          "start": 0.02,
+          "end": 2.84,
+          "words": [
+            {
+              "text": " Oh",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.6005859375
+            },
+            {
+              "text": " my",
+              "start": 0.56,
+              "end": 0.7,
+              "probability": 0.640625
+            },
+            {
+              "text": " darling,",
+              "start": 0.7,
+              "end": 1.08,
+              "probability": 0.96875
+            },
+            {
+              "text": " God",
+              "start": 1.46,
+              "end": 1.7,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " bless",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " you",
+              "start": 1.92,
+              "end": 2.14,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " and",
+              "start": 2.14,
+              "end": 2.24,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " reward",
+              "start": 2.24,
+              "end": 2.54,
+              "probability": 0.96484375
+            },
+            {
+              "text": " you.",
+              "start": 2.54,
+              "end": 2.84,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "my",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "raw": "darling,",
+          "start": 0.7,
+          "end": 1.08
+        },
+        {
+          "raw": "God",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "raw": "bless",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "you",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "raw": "and",
+          "start": 2.14,
+          "end": 2.24
+        },
+        {
+          "raw": "reward",
+          "start": 2.24,
+          "end": 2.54
+        },
+        {
+          "raw": "you.",
+          "start": 2.54,
+          "end": 2.84
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh!",
+        "my",
+        "darling!",
+        "God",
+        "bless",
+        "you",
+        "and",
+        "reward",
+        "you!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.56,
+          "end": 0.7,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "darling,",
+          "start": 0.7,
+          "end": 1.08,
+          "key": "darling",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 1.46,
+          "end": 1.7,
+          "key": "god",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bless",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "bless",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.92,
+          "end": 2.14,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.14,
+          "end": 2.24,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "reward",
+          "start": 2.24,
+          "end": 2.54,
+          "key": "reward",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.54,
+          "end": 2.84,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh!",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "my",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "text": "darling!",
+          "start": 0.7,
+          "end": 1.08
+        },
+        {
+          "text": "God",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "text": "bless",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "you",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "text": "and",
+          "start": 2.14,
+          "end": 2.24
+        },
+        {
+          "text": "reward",
+          "start": 2.24,
+          "end": 2.54
+        },
+        {
+          "text": "you!\"",
+          "start": 2.54,
+          "end": 2.84
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2001530439592898
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "08ef6ad523eadac72c44c376f4d34c9bf935468ca3327efa9787f105dd505394",
+  "selected_reasons": []
+}

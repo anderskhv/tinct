@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "468674f735dc8e49e07a846de7eef48f7fac8278897a227ac65729b85273d0bc",
+  "attempts": [
+    {
+      "asr_seconds": 0.1890048123896122,
+      "alignment_seconds": 0.0004463791847229004,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. Would not a pair of these have bred, sir?",
+        "hotwords": "Clown, Would"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, Would not a pair of these have bred, sir?",
+          "start": 0.42,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.42,
+              "end": 0.7,
+              "probability": 0.4970703125
+            },
+            {
+              "text": " Would",
+              "start": 1.18,
+              "end": 1.26,
+              "probability": 0.017486572265625
+            },
+            {
+              "text": " not",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " a",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " pair",
+              "start": 1.52,
+              "end": 1.64,
+              "probability": 0.978515625
+            },
+            {
+              "text": " of",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.98828125
+            },
+            {
+              "text": " these",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.98828125
+            },
+            {
+              "text": " have",
+              "start": 1.92,
+              "end": 2.12,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " bred,",
+              "start": 2.12,
+              "end": 2.36,
+              "probability": 0.0171051025390625
+            },
+            {
+              "text": " sir?",
+              "start": 2.58,
+              "end": 2.68,
+              "probability": 0.70458984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.42,
+          "end": 0.7
+        },
+        {
+          "raw": "Would",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "raw": "not",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "a",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "pair",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "raw": "of",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "these",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "have",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "raw": "bred,",
+          "start": 2.12,
+          "end": 2.36
+        },
+        {
+          "raw": "sir?",
+          "start": 2.58,
+          "end": 2.68
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Would",
+        "not",
+        "a",
+        "pair",
+        "of",
+        "these",
+        "have",
+        "bred,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.42,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Would",
+          "start": 1.18,
+          "end": 1.26,
+          "key": "would",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pair",
+          "start": 1.52,
+          "end": 1.64,
+          "key": "pair",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 1.78,
+          "end": 1.92,
+          "key": "these",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.92,
+          "end": 2.12,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bred,",
+          "start": 2.12,
+          "end": 2.36,
+          "key": "bred",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 2.58,
+          "end": 2.68,
+          "key": "sir",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.42,
+          "end": 0.7
+        },
+        {
+          "text": "Would",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "text": "not",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "a",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "pair",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "text": "of",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "these",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "have",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "text": "bred,",
+          "start": 2.12,
+          "end": 2.36
+        },
+        {
+          "text": "sir?",
+          "start": 2.58,
+          "end": 2.68
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18962404131889343
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c9322e00853aee4b487d552d6c8c1857cd202bcdb666bfe5a9c32dc365293d24",
+  "selected_reasons": []
+}

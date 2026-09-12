@@ -1,0 +1,219 @@
+{
+  "complete": true,
+  "signature": "d1694fd021f98f0435bfc5ad8802d20277a1c1c16e44075c3e38a271afbcaf75",
+  "attempts": [
+    {
+      "asr_seconds": 0.0812711650505662,
+      "alignment_seconds": 0.0001913490705192089,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Take me this workout",
+          "start": 0.05,
+          "end": 1.19,
+          "words": [
+            {
+              "text": " Take",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " me",
+              "start": 0.55,
+              "end": 0.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this",
+              "start": 0.69,
+              "end": 0.85,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " workout",
+              "start": 0.85,
+              "end": 1.19,
+              "probability": 0.69140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Take",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "me",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "raw": "this",
+          "start": 0.69,
+          "end": 0.85
+        },
+        {
+          "raw": "workout",
+          "start": 0.85,
+          "end": 1.19
+        }
+      ],
+      "expected_tokens": [
+        "[Take",
+        "me",
+        "this",
+        "work",
+        "out.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Take",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "take",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.55,
+          "end": 0.69,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.69,
+          "end": 0.85,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "workout",
+          "start": 0.85,
+          "end": 1.19,
+          "key": "workout",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Take",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "me",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "text": "this",
+          "start": 0.69,
+          "end": 0.85
+        },
+        {
+          "text": "work",
+          "start": 0.85,
+          "end": 1.02
+        },
+        {
+          "text": "out.]",
+          "start": 1.02,
+          "end": 1.105
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08152117300778627
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8484b184062dc8877fb0b12a49e8d988802337380bb141e357f222c01e3dbb66",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

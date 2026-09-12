@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "3147e89f0c9393f21bdbb0dff987f3827e567c594c226f354326b02117e0b88c",
+  "attempts": [
+    {
+      "asr_seconds": 0.22981078550219536,
+      "alignment_seconds": 0.0004939399659633636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Portia, I pray you let me look upon the bond.",
+          "start": 0.51,
+          "end": 2.65,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.51,
+              "end": 0.83,
+              "probability": 0.72119140625
+            },
+            {
+              "text": " I",
+              "start": 1.13,
+              "end": 1.29,
+              "probability": 0.9921875
+            },
+            {
+              "text": " pray",
+              "start": 1.29,
+              "end": 1.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " let",
+              "start": 1.61,
+              "end": 1.73,
+              "probability": 0.990234375
+            },
+            {
+              "text": " me",
+              "start": 1.73,
+              "end": 1.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " look",
+              "start": 1.85,
+              "end": 2.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " upon",
+              "start": 2.01,
+              "end": 2.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.21,
+              "end": 2.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bond.",
+              "start": 2.37,
+              "end": 2.65,
+              "probability": 0.89501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.51,
+          "end": 0.83
+        },
+        {
+          "raw": "I",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "raw": "pray",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "raw": "you",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "let",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "raw": "me",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "raw": "look",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "raw": "upon",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "raw": "the",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "raw": "bond.",
+          "start": 2.37,
+          "end": 2.65
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "I",
+        "pray",
+        "you",
+        "let",
+        "me",
+        "look",
+        "upon",
+        "the",
+        "bond."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.51,
+          "end": 0.83,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.13,
+          "end": 1.29,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.29,
+          "end": 1.45,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.61,
+          "end": 1.73,
+          "key": "let",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.73,
+          "end": 1.85,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.85,
+          "end": 2.01,
+          "key": "look",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.01,
+          "end": 2.21,
+          "key": "upon",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.21,
+          "end": 2.37,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "bond.",
+          "start": 2.37,
+          "end": 2.65,
+          "key": "bond",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.51,
+          "end": 0.83
+        },
+        {
+          "text": "I",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "text": "pray",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "text": "you",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "let",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "text": "me",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "text": "look",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "text": "upon",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "text": "the",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "text": "bond.",
+          "start": 2.37,
+          "end": 2.65
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23050908651202917
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1c892156fbf5110f5a6d1014591c8c37669afb8c96ad5bf5fbab4d696fcd0a21",
+  "selected_reasons": []
+}

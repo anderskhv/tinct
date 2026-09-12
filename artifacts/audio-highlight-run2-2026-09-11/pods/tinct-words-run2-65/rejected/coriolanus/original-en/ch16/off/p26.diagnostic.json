@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "dc697f5c1456171bc80c512643718ce45eee6a570aaa31f99f684609975ece0d",
+  "attempts": [
+    {
+      "asr_seconds": 0.12962594768032432,
+      "alignment_seconds": 0.00021534692496061325,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sesinius, draw near ye people.",
+          "start": 0.08,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Sesinius,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.4879150390625
+            },
+            {
+              "text": " draw",
+              "start": 1.56,
+              "end": 1.58,
+              "probability": 0.69775390625
+            },
+            {
+              "text": " near",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ye",
+              "start": 1.82,
+              "end": 2.0,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " people.",
+              "start": 2.0,
+              "end": 2.36,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "draw",
+          "start": 1.56,
+          "end": 1.58
+        },
+        {
+          "raw": "near",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "ye",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "raw": "people.",
+          "start": 2.0,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "Draw",
+        "near,",
+        "ye",
+        "people."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "sesinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "draw",
+          "start": 1.56,
+          "end": 1.58,
+          "key": "draw",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "near",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 1.82,
+          "end": 2.0,
+          "key": "ye",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "people.",
+          "start": 2.0,
+          "end": 2.36,
+          "key": "people",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "text": "Draw",
+          "start": 1.56,
+          "end": 1.58
+        },
+        {
+          "text": "near,",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "ye",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "text": "people.",
+          "start": 2.0,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1299160267226398
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "20778dea4f4b2bc99fe76afa8e3c12f69ab9e25eccb627fb0fb53c31f64a7668",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

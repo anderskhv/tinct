@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "3303baf2cce420e736501f666c6c7e6028af14349d13446badf042dcb60417c5",
+  "attempts": [
+    {
+      "asr_seconds": 0.3093600059801247,
+      "alignment_seconds": 0.00045437298831529915,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, what means this shouting? I do fear the people choose Caesar for their king.",
+          "start": 0.05,
+          "end": 4.91,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.953857421875
+            },
+            {
+              "text": " what",
+              "start": 1.19,
+              "end": 1.33,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " means",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " this",
+              "start": 1.55,
+              "end": 1.79,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " shouting?",
+              "start": 1.79,
+              "end": 2.09,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " I",
+              "start": 2.67,
+              "end": 2.81,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " do",
+              "start": 2.81,
+              "end": 2.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " fear",
+              "start": 2.95,
+              "end": 3.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.15,
+              "end": 3.33,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " people",
+              "start": 3.33,
+              "end": 3.53,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " choose",
+              "start": 3.53,
+              "end": 3.93,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Caesar",
+              "start": 3.93,
+              "end": 4.27,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " for",
+              "start": 4.27,
+              "end": 4.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " their",
+              "start": 4.53,
+              "end": 4.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " king.",
+              "start": 4.67,
+              "end": 4.91,
+              "probability": 0.85205078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "what",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "raw": "means",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "this",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "raw": "shouting?",
+          "start": 1.79,
+          "end": 2.09
+        },
+        {
+          "raw": "I",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "raw": "do",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "raw": "fear",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "raw": "the",
+          "start": 3.15,
+          "end": 3.33
+        },
+        {
+          "raw": "people",
+          "start": 3.33,
+          "end": 3.53
+        },
+        {
+          "raw": "choose",
+          "start": 3.53,
+          "end": 3.93
+        },
+        {
+          "raw": "Caesar",
+          "start": 3.93,
+          "end": 4.27
+        },
+        {
+          "raw": "for",
+          "start": 4.27,
+          "end": 4.53
+        },
+        {
+          "raw": "their",
+          "start": 4.53,
+          "end": 4.67
+        },
+        {
+          "raw": "king.",
+          "start": 4.67,
+          "end": 4.91
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "What",
+        "means",
+        "this",
+        "shouting?",
+        "I",
+        "do",
+        "fear",
+        "the",
+        "people",
+        "Choose",
+        "Caesar",
+        "for",
+        "their",
+        "king."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.19,
+          "end": 1.33,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 1.33,
+          "end": 1.55,
+          "key": "means",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.55,
+          "end": 1.79,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shouting?",
+          "start": 1.79,
+          "end": 2.09,
+          "key": "shouting",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.67,
+          "end": 2.81,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.81,
+          "end": 2.95,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fear",
+          "start": 2.95,
+          "end": 3.15,
+          "key": "fear",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.15,
+          "end": 3.33,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "people",
+          "start": 3.33,
+          "end": 3.53,
+          "key": "people",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "choose",
+          "start": 3.53,
+          "end": 3.93,
+          "key": "choose",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 3.93,
+          "end": 4.27,
+          "key": "caesar",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.27,
+          "end": 4.53,
+          "key": "for",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.53,
+          "end": 4.67,
+          "key": "their",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "king.",
+          "start": 4.67,
+          "end": 4.91,
+          "key": "king",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "What",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "text": "means",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "this",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "text": "shouting?",
+          "start": 1.79,
+          "end": 2.09
+        },
+        {
+          "text": "I",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "text": "do",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "text": "fear",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "text": "the",
+          "start": 3.15,
+          "end": 3.33
+        },
+        {
+          "text": "people",
+          "start": 3.33,
+          "end": 3.53
+        },
+        {
+          "text": "Choose",
+          "start": 3.53,
+          "end": 3.93
+        },
+        {
+          "text": "Caesar",
+          "start": 3.93,
+          "end": 4.27
+        },
+        {
+          "text": "for",
+          "start": 4.27,
+          "end": 4.53
+        },
+        {
+          "text": "their",
+          "start": 4.53,
+          "end": 4.67
+        },
+        {
+          "text": "king.",
+          "start": 4.67,
+          "end": 4.91
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31000660598510876
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "79e141bfcf6bd6c3e94d25a10a5949505c611581748e428039c6e90cd14e299c",
+  "selected_reasons": []
+}

@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "1034fe00f7deb822b08f86089f262d2395a873c2dd7bc756cf938862ad0cadcb",
+  "attempts": [
+    {
+      "asr_seconds": 0.15839655231684446,
+      "alignment_seconds": 0.00012601912021636963,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassius, shall I entreat a word?",
+          "start": 0.49,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.49,
+              "end": 0.91,
+              "probability": 0.949951171875
+            },
+            {
+              "text": " shall",
+              "start": 1.33,
+              "end": 1.37,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " I",
+              "start": 1.37,
+              "end": 1.47,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " entreat",
+              "start": 1.47,
+              "end": 1.71,
+              "probability": 0.892333984375
+            },
+            {
+              "text": " a",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " word?",
+              "start": 1.87,
+              "end": 2.05,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.49,
+          "end": 0.91
+        },
+        {
+          "raw": "shall",
+          "start": 1.33,
+          "end": 1.37
+        },
+        {
+          "raw": "I",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "raw": "entreat",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "raw": "a",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "word?",
+          "start": 1.87,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Shall",
+        "I",
+        "entreat",
+        "a",
+        "word?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.49,
+          "end": 0.91,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.33,
+          "end": 1.37,
+          "key": "shall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.37,
+          "end": 1.47,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "entreat",
+          "start": 1.47,
+          "end": 1.71,
+          "key": "entreat",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "word?",
+          "start": 1.87,
+          "end": 2.05,
+          "key": "word",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.49,
+          "end": 0.91
+        },
+        {
+          "text": "Shall",
+          "start": 1.33,
+          "end": 1.37
+        },
+        {
+          "text": "I",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "text": "entreat",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "text": "a",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "word?",
+          "start": 1.87,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15856823790818453
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3ac65fb8b50bd35ba18a429b4b90d18d617aaac0c2a5ae34b7af1cfd97da36f6",
+  "selected_reasons": []
+}

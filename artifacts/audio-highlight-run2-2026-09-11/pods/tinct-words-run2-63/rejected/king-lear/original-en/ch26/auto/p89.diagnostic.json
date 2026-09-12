@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "91557d573a2ef9771a17e8d877f0ea760c2cace4bd1d68cc7017a5beb15a30d2",
+  "attempts": [
+    {
+      "asr_seconds": 0.15553090162575245,
+      "alignment_seconds": 0.00029140710830688477,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Albany. Speak, man.",
+        "hotwords": "Albany, Speak"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Albany, Speak, man.",
+          "start": 0.05,
+          "end": 1.71,
+          "words": [
+            {
+              "text": " Albany,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.9296875
+            },
+            {
+              "text": " Speak,",
+              "start": 1.29,
+              "end": 1.33,
+              "probability": 0.2388916015625
+            },
+            {
+              "text": " man.",
+              "start": 1.43,
+              "end": 1.71,
+              "probability": 0.014862060546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Albany,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Speak,",
+          "start": 1.29,
+          "end": 1.33
+        },
+        {
+          "raw": "man.",
+          "start": 1.43,
+          "end": 1.71
+        }
+      ],
+      "expected_tokens": [
+        "Albany.",
+        "Speak,",
+        "man."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Albany,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "albany",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Speak,",
+          "start": 1.29,
+          "end": 1.33,
+          "key": "speak",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 1.43,
+          "end": 1.71,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Albany.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Speak,",
+          "start": 1.29,
+          "end": 1.33
+        },
+        {
+          "text": "man.",
+          "start": 1.43,
+          "end": 1.71
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15592698566615582
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "02050c704d7607c9a5e0bbd6ff753bba8d14f0952552d8196589aa45f9132c60",
+  "selected_reasons": []
+}

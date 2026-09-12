@@ -1,0 +1,93 @@
+{
+  "complete": true,
+  "signature": "10b21c8f0d4f6749c4f309a8782bb0915195c05ea769d2a7b81b2b5801de7851",
+  "attempts": [
+    {
+      "asr_seconds": 0.11092132143676281,
+      "alignment_seconds": 0.00023337174206972122,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Kneels._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kneels.",
+          "start": 0.08,
+          "end": 0.88,
+          "words": [
+            {
+              "text": " Kneels.",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.5240885416666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kneels.",
+          "start": 0.08,
+          "end": 0.88
+        }
+      ],
+      "expected_tokens": [
+        "[_Kneels._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kneels.",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "kneels",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Kneels._]",
+          "start": 0.08,
+          "end": 0.88
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11122386064380407
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1375ac211358c00097e73434e87a8586ae2e1f153ff42eef8406cc02784f5eef",
+  "selected_reasons": []
+}

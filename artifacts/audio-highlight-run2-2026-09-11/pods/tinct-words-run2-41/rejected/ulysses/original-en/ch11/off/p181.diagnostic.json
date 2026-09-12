@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "db2496594dd884549c27664f3a72e8afb6e370076d4579f270ef39317098c7c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.12332661217078567,
+      "alignment_seconds": 0.00021636812016367912,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " DRIE",
+          "start": 0.02,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " DRIE",
+              "start": 0.02,
+              "end": 1.0,
+              "probability": 0.5851236979166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "DRIE",
+          "start": 0.02,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "Dry."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "DRIE",
+          "start": 0.02,
+          "end": 1.0,
+          "key": "drie",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dry.",
+          "start": 0.0,
+          "end": 0.5
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12361086811870337
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3cc4fce6e3380d79bda9f4d40e7c6d524a2ae59ab2c50793035afdd7646b80d1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

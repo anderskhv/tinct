@@ -1,0 +1,438 @@
+{
+  "complete": true,
+  "signature": "081d89c729fb4f02e20442eb55a7ef6f97706b35687d2d7f43c65cca6e2a55d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1833067800034769,
+      "alignment_seconds": 0.00030934400274418294,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Brutus._]",
+        "hotwords": "Brutus._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " exit Brutus._",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.0325927734375
+            },
+            {
+              "text": " Brutus._",
+              "start": 0.65,
+              "end": 1.69,
+              "probability": 0.6471354166666666
+            }
+          ]
+        },
+        {
+          "text": " exit Brutus._",
+          "start": 1.69,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " exit",
+              "start": 1.69,
+              "end": 1.79,
+              "probability": 1.9311904907226562e-05
+            },
+            {
+              "text": " Brutus._",
+              "start": 1.79,
+              "end": 1.79,
+              "probability": 0.031416197617848717
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Brutus._",
+          "start": 0.65,
+          "end": 1.69
+        },
+        {
+          "raw": "exit",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "raw": "Brutus._",
+          "start": 1.79,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Brutus._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Brutus._",
+          "start": 0.65,
+          "end": 1.69,
+          "key": "brutus_",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "exit",
+          "start": 1.69,
+          "end": 1.79,
+          "key": "exit",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Brutus._",
+          "start": 1.79,
+          "end": 1.79,
+          "key": "brutus_",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Brutus._]",
+          "start": 0.65,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18374517202028073
+    },
+    {
+      "asr_seconds": 0.13740565499756485,
+      "alignment_seconds": 0.0003141750057693571,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Brutus._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Brutus._",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " Brutus._",
+              "start": 0.65,
+              "end": 1.73,
+              "probability": 0.6477864583333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Brutus._",
+          "start": 0.65,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Brutus._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Brutus._",
+          "start": 0.65,
+          "end": 1.73,
+          "key": "brutus_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Brutus._]",
+          "start": 0.65,
+          "end": 1.19
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1378101849986706
+    },
+    {
+      "asr_seconds": 0.12397721901652403,
+      "alignment_seconds": 0.0002599300059955567,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Brutus.",
+          "start": 0.05,
+          "end": 1.21,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " Brutus.",
+              "start": 0.65,
+              "end": 1.21,
+              "probability": 0.9716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Brutus.",
+          "start": 0.65,
+          "end": 1.21
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Brutus._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Brutus.",
+          "start": 0.65,
+          "end": 1.21,
+          "key": "brutus",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Brutus._]",
+          "start": 0.65,
+          "end": 1.21
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1243290150014218
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c284d41375fb9137a88b838fc0acc970a554226d70fa1d31cee29595e6bc10a8",
+  "selected_reasons": []
+}

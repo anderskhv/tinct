@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "53b79439c8da8b6a7cee9d0a1bdbee6c4c576fd10390d95f74d514aebec0b2bc",
+  "attempts": [
+    {
+      "asr_seconds": 0.26165343914180994,
+      "alignment_seconds": 0.00012572016566991806,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antipholus Of Syracuse. Egeon, art thou not? or else his ghost?",
+        "hotwords": "Antipholus, Of, Syracuse, Egeon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antipholus, Of, Syracuse, Egeon, art thou not? or else his ghost?",
+          "start": 0.58,
+          "end": 4.22,
+          "words": [
+            {
+              "text": " Antipholus,",
+              "start": 0.58,
+              "end": 1.06,
+              "probability": 0.6294131278991699
+            },
+            {
+              "text": " Of,",
+              "start": 1.18,
+              "end": 1.18,
+              "probability": 0.00688934326171875
+            },
+            {
+              "text": " Syracuse,",
+              "start": 1.36,
+              "end": 1.64,
+              "probability": 0.73388671875
+            },
+            {
+              "text": " Egeon,",
+              "start": 2.34,
+              "end": 2.46,
+              "probability": 0.02333831787109375
+            },
+            {
+              "text": " art",
+              "start": 2.46,
+              "end": 2.74,
+              "probability": 0.321533203125
+            },
+            {
+              "text": " thou",
+              "start": 2.74,
+              "end": 2.94,
+              "probability": 0.58056640625
+            },
+            {
+              "text": " not?",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.95703125
+            },
+            {
+              "text": " or",
+              "start": 3.54,
+              "end": 3.6,
+              "probability": 0.327392578125
+            },
+            {
+              "text": " else",
+              "start": 3.6,
+              "end": 3.8,
+              "probability": 0.76025390625
+            },
+            {
+              "text": " his",
+              "start": 3.8,
+              "end": 3.98,
+              "probability": 0.54345703125
+            },
+            {
+              "text": " ghost?",
+              "start": 3.98,
+              "end": 4.22,
+              "probability": 0.7373046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antipholus,",
+          "start": 0.58,
+          "end": 1.06
+        },
+        {
+          "raw": "Of,",
+          "start": 1.18,
+          "end": 1.18
+        },
+        {
+          "raw": "Syracuse,",
+          "start": 1.36,
+          "end": 1.64
+        },
+        {
+          "raw": "Egeon,",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "raw": "art",
+          "start": 2.46,
+          "end": 2.74
+        },
+        {
+          "raw": "thou",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "raw": "not?",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "raw": "or",
+          "start": 3.54,
+          "end": 3.6
+        },
+        {
+          "raw": "else",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "raw": "his",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "raw": "ghost?",
+          "start": 3.98,
+          "end": 4.22
+        }
+      ],
+      "expected_tokens": [
+        "Antipholus",
+        "Of",
+        "Syracuse.",
+        "Egeon,",
+        "art",
+        "thou",
+        "not?",
+        "or",
+        "else",
+        "his",
+        "ghost?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antipholus,",
+          "start": 0.58,
+          "end": 1.06,
+          "key": "antipholus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Of,",
+          "start": 1.18,
+          "end": 1.18,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Syracuse,",
+          "start": 1.36,
+          "end": 1.64,
+          "key": "syracuse",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Egeon,",
+          "start": 2.34,
+          "end": 2.46,
+          "key": "egeon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 2.46,
+          "end": 2.74,
+          "key": "art",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.74,
+          "end": 2.94,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not?",
+          "start": 2.94,
+          "end": 3.18,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 3.54,
+          "end": 3.6,
+          "key": "or",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "else",
+          "start": 3.6,
+          "end": 3.8,
+          "key": "else",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.8,
+          "end": 3.98,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ghost?",
+          "start": 3.98,
+          "end": 4.22,
+          "key": "ghost",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antipholus",
+          "start": 0.58,
+          "end": 1.06
+        },
+        {
+          "text": "Of",
+          "start": 1.18,
+          "end": 1.18
+        },
+        {
+          "text": "Syracuse.",
+          "start": 1.36,
+          "end": 1.64
+        },
+        {
+          "text": "Egeon,",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "text": "art",
+          "start": 2.46,
+          "end": 2.74
+        },
+        {
+          "text": "thou",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "text": "not?",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "text": "or",
+          "start": 3.54,
+          "end": 3.6
+        },
+        {
+          "text": "else",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "text": "his",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "text": "ghost?",
+          "start": 3.98,
+          "end": 4.22
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2618232863023877
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1af32d77359415e86273bf59afb66259259ee81d64c3e72a4bf8899f877e42a9",
+  "selected_reasons": []
+}

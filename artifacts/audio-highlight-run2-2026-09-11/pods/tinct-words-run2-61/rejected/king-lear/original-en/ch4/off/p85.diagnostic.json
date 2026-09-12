@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "aec8e9a38ff84e299ab2d3be3499c1d37f5909f0173419faf3a172dbcfe4ae1d",
+  "attempts": [
+    {
+      "asr_seconds": 0.16423439607024193,
+      "alignment_seconds": 0.00027666613459587097,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, no lad teach me.",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.66259765625
+            },
+            {
+              "text": " no",
+              "start": 1.01,
+              "end": 1.11,
+              "probability": 0.7568359375
+            },
+            {
+              "text": " lad",
+              "start": 1.11,
+              "end": 1.31,
+              "probability": 0.48046875
+            },
+            {
+              "text": " teach",
+              "start": 1.31,
+              "end": 1.55,
+              "probability": 0.57763671875
+            },
+            {
+              "text": " me.",
+              "start": 1.55,
+              "end": 1.85,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "no",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "raw": "lad",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "raw": "teach",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "raw": "me.",
+          "start": 1.55,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "No,",
+        "lad;",
+        "teach",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.01,
+          "end": 1.11,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lad",
+          "start": 1.11,
+          "end": 1.31,
+          "key": "lad",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "teach",
+          "start": 1.31,
+          "end": 1.55,
+          "key": "teach",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 1.55,
+          "end": 1.85,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "No,",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "text": "lad;",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "text": "teach",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "text": "me.",
+          "start": 1.55,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16461946070194244
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e73d4e29830eeefc501a76bbe9916f39893d71eafda401320f346a2b4097e6ef",
+  "selected_reasons": []
+}

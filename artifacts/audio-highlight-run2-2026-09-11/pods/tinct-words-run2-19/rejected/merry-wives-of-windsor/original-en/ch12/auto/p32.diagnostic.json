@@ -1,0 +1,857 @@
+{
+  "complete": true,
+  "signature": "2735582e4945500c5a66256cb69a1719ad4d72c99bd2d8aa8a812140b2eaab3b",
+  "attempts": [
+    {
+      "asr_seconds": 0.19699492957443,
+      "alignment_seconds": 0.00042240042239427567,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fal._ Very ill-favouredly, Master Brook.",
+        "hotwords": "Very, Master, Brook"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Host, that is, he will make the amends.",
+          "start": 0.42,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.42,
+              "end": 0.74,
+              "probability": 0.5498046875
+            },
+            {
+              "text": " that",
+              "start": 1.12,
+              "end": 1.22,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " is,",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 1.5,
+              "end": 1.58,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " will",
+              "start": 1.58,
+              "end": 1.68,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " make",
+              "start": 1.68,
+              "end": 1.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 1.82,
+              "end": 2.0,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " amends.",
+              "start": 2.0,
+              "end": 2.44,
+              "probability": 0.956787109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.42,
+          "end": 0.74
+        },
+        {
+          "raw": "that",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "raw": "is,",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "he",
+          "start": 1.5,
+          "end": 1.58
+        },
+        {
+          "raw": "will",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "raw": "make",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "raw": "the",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "raw": "amends.",
+          "start": 2.0,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Very",
+        "ill-favouredly,",
+        "Master",
+        "Brook."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.42,
+          "end": 0.74,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.12,
+          "end": 1.22,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.5,
+          "end": 1.58,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.58,
+          "end": 1.68,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.68,
+          "end": 1.82,
+          "key": "make",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.82,
+          "end": 2.0,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "amends.",
+          "start": 2.0,
+          "end": 2.44,
+          "key": "amends",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 1.22
+        },
+        {
+          "text": "Very",
+          "start": 1.22,
+          "end": 1.83
+        },
+        {
+          "text": "ill-favouredly,",
+          "start": 1.83,
+          "end": 2.135
+        },
+        {
+          "text": "Master",
+          "start": 2.135,
+          "end": 2.287
+        },
+        {
+          "text": "Brook.",
+          "start": 2.287,
+          "end": 2.364
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 8,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19758793991059065
+    },
+    {
+      "asr_seconds": 0.18307287525385618,
+      "alignment_seconds": 0.0004620896652340889,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Very, Master, Brook"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Host that is he will make the amends",
+          "start": 0.08,
+          "end": 2.46,
+          "words": [
+            {
+              "text": " Host",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.5498046875
+            },
+            {
+              "text": " that",
+              "start": 0.72,
+              "end": 1.22,
+              "probability": 0.2452392578125
+            },
+            {
+              "text": " is",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " he",
+              "start": 1.38,
+              "end": 1.58,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " will",
+              "start": 1.58,
+              "end": 1.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " make",
+              "start": 1.66,
+              "end": 1.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.82,
+              "end": 2.0,
+              "probability": 0.9921875
+            },
+            {
+              "text": " amends",
+              "start": 2.0,
+              "end": 2.46,
+              "probability": 0.921142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "that",
+          "start": 0.72,
+          "end": 1.22
+        },
+        {
+          "raw": "is",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "he",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "raw": "will",
+          "start": 1.58,
+          "end": 1.66
+        },
+        {
+          "raw": "make",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "raw": "the",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "raw": "amends",
+          "start": 2.0,
+          "end": 2.46
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Very",
+        "ill-favouredly,",
+        "Master",
+        "Brook."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.72,
+          "end": 1.22,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.38,
+          "end": 1.58,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.58,
+          "end": 1.66,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.66,
+          "end": 1.82,
+          "key": "make",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.82,
+          "end": 2.0,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "amends",
+          "start": 2.0,
+          "end": 2.46,
+          "key": "amends",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 1.23
+        },
+        {
+          "text": "Very",
+          "start": 1.23,
+          "end": 1.845
+        },
+        {
+          "text": "ill-favouredly,",
+          "start": 1.845,
+          "end": 2.152
+        },
+        {
+          "text": "Master",
+          "start": 2.152,
+          "end": 2.306
+        },
+        {
+          "text": "Brook.",
+          "start": 2.306,
+          "end": 2.383
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 8,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18370551243424416
+    },
+    {
+      "asr_seconds": 0.19254331197589636,
+      "alignment_seconds": 0.0004261089488863945,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Host that is he will make the amends",
+          "start": 0.08,
+          "end": 2.46,
+          "words": [
+            {
+              "text": " Host",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.5498046875
+            },
+            {
+              "text": " that",
+              "start": 0.72,
+              "end": 1.22,
+              "probability": 0.2452392578125
+            },
+            {
+              "text": " is",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " he",
+              "start": 1.38,
+              "end": 1.58,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " will",
+              "start": 1.58,
+              "end": 1.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " make",
+              "start": 1.66,
+              "end": 1.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.82,
+              "end": 2.0,
+              "probability": 0.9921875
+            },
+            {
+              "text": " amends",
+              "start": 2.0,
+              "end": 2.46,
+              "probability": 0.921142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "that",
+          "start": 0.72,
+          "end": 1.22
+        },
+        {
+          "raw": "is",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "he",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "raw": "will",
+          "start": 1.58,
+          "end": 1.66
+        },
+        {
+          "raw": "make",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "raw": "the",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "raw": "amends",
+          "start": 2.0,
+          "end": 2.46
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Very",
+        "ill-favouredly,",
+        "Master",
+        "Brook."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.72,
+          "end": 1.22,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.38,
+          "end": 1.58,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.58,
+          "end": 1.66,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.66,
+          "end": 1.82,
+          "key": "make",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.82,
+          "end": 2.0,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "amends",
+          "start": 2.0,
+          "end": 2.46,
+          "key": "amends",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 1.23
+        },
+        {
+          "text": "Very",
+          "start": 1.23,
+          "end": 1.845
+        },
+        {
+          "text": "ill-favouredly,",
+          "start": 1.845,
+          "end": 2.152
+        },
+        {
+          "text": "Master",
+          "start": 2.152,
+          "end": 2.306
+        },
+        {
+          "text": "Brook.",
+          "start": 2.306,
+          "end": 2.383
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 8,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19313778262585402
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b587e57f6ff98ac2e2f8a2f37c5a47f44619d10a68eef4ae8bd7e93f7b5eb57c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

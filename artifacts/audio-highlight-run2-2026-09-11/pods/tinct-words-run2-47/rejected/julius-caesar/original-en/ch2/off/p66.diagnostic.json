@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "327b84bbcad4b87c16931dc3cd332b31aff891887d5864bd371b117119f63b2a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1662491520110052,
+      "alignment_seconds": 0.00035347300581634045,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Casca, why for that too?",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Casca,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.623291015625
+            },
+            {
+              "text": " why",
+              "start": 1.11,
+              "end": 1.27,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " for",
+              "start": 1.27,
+              "end": 1.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " that",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " too?",
+              "start": 1.61,
+              "end": 1.89,
+              "probability": 0.79541015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Casca,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "why",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "raw": "for",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "raw": "that",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "too?",
+          "start": 1.61,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "Casca.",
+        "Why,",
+        "for",
+        "that",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Casca,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "casca",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.11,
+          "end": 1.27,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.27,
+          "end": 1.43,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "too?",
+          "start": 1.61,
+          "end": 1.89,
+          "key": "too",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Casca.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Why,",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "text": "for",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "text": "that",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "too.",
+          "start": 1.61,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1667257210065145
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e08a485cf1031659a9cdbea9cfc0db93e7be1d24d98e1a15de734bb94e295649",
+  "selected_reasons": []
+}

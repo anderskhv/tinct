@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "d36e989606c61d9f515e12ba84a28e76a79086c615615a577cccba3aad6a856f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2169482633471489,
+      "alignment_seconds": 0.00039409659802913666,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. Lay it by too: another.",
+        "hotwords": "Clown, Lay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, Lay it by too, another.",
+          "start": 0.08,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.68115234375
+            },
+            {
+              "text": " Lay",
+              "start": 1.1,
+              "end": 1.12,
+              "probability": 0.0225372314453125
+            },
+            {
+              "text": " it",
+              "start": 1.12,
+              "end": 1.2,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " by",
+              "start": 1.2,
+              "end": 1.36,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " too,",
+              "start": 1.36,
+              "end": 1.64,
+              "probability": 0.0018949508666992188
+            },
+            {
+              "text": " another.",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.87353515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Lay",
+          "start": 1.1,
+          "end": 1.12
+        },
+        {
+          "raw": "it",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "raw": "by",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "raw": "too,",
+          "start": 1.36,
+          "end": 1.64
+        },
+        {
+          "raw": "another.",
+          "start": 1.94,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Lay",
+        "it",
+        "by",
+        "too:",
+        "another."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lay",
+          "start": 1.1,
+          "end": 1.12,
+          "key": "lay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.12,
+          "end": 1.2,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.2,
+          "end": 1.36,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 1.36,
+          "end": 1.64,
+          "key": "too",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "another.",
+          "start": 1.94,
+          "end": 2.14,
+          "key": "another",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Lay",
+          "start": 1.1,
+          "end": 1.12
+        },
+        {
+          "text": "it",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "text": "by",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "text": "too:",
+          "start": 1.36,
+          "end": 1.64
+        },
+        {
+          "text": "another.",
+          "start": 1.94,
+          "end": 2.14
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21748041361570358
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "411f43d4ce3edf147df913a2fecee14aaf03ca7fa5a1ce1145750d438b553155",
+  "selected_reasons": []
+}

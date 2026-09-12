@@ -1,0 +1,1707 @@
+{
+  "complete": true,
+  "signature": "2fe5a8915fd8aac21bc5ed607001c005119ba7b2bd546a59f93baad502761b31",
+  "attempts": [
+    {
+      "asr_seconds": 0.5854925327003002,
+      "alignment_seconds": 0.00070982426404953,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen Margaret. Forbear to sleep the night, and fast the days; Compare dead happiness with living woe; Think that thy babes were sweeter than they were, And he that slew them fouler than he is. Bettering thy loss makes the bad-causer worse. Revolving this will teach thee how to curse.",
+        "hotwords": "Queen, Margaret, Forbear, Compare, Think, Bettering, Revolving"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen Margaret, Forbear to sleep the night, and fast the days, Compare dead happiness with",
+          "start": 0.02,
+          "end": 5.6,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.64208984375
+            },
+            {
+              "text": " Margaret,",
+              "start": 0.58,
+              "end": 1.04,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " Forbear",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.137237548828125
+            },
+            {
+              "text": " to",
+              "start": 1.88,
+              "end": 2.06,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " sleep",
+              "start": 2.06,
+              "end": 2.28,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 2.28,
+              "end": 2.46,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " night,",
+              "start": 2.46,
+              "end": 2.7,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " and",
+              "start": 2.88,
+              "end": 2.98,
+              "probability": 0.6220703125
+            },
+            {
+              "text": " fast",
+              "start": 2.98,
+              "end": 3.2,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " the",
+              "start": 3.2,
+              "end": 3.44,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " days,",
+              "start": 3.44,
+              "end": 3.8,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Compare",
+              "start": 4.5,
+              "end": 4.5,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " dead",
+              "start": 4.5,
+              "end": 4.86,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " happiness",
+              "start": 4.86,
+              "end": 5.36,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " with",
+              "start": 5.36,
+              "end": 5.6,
+              "probability": 0.94482421875
+            }
+          ]
+        },
+        {
+          "text": " living woe. Think that thy babes were sweeter than they were, And he that slew them fouler",
+          "start": 5.6,
+          "end": 10.62,
+          "words": [
+            {
+              "text": " living",
+              "start": 5.6,
+              "end": 5.9,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " woe.",
+              "start": 5.9,
+              "end": 6.22,
+              "probability": 0.975830078125
+            },
+            {
+              "text": " Think",
+              "start": 6.78,
+              "end": 6.9,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " that",
+              "start": 6.9,
+              "end": 7.06,
+              "probability": 0.95703125
+            },
+            {
+              "text": " thy",
+              "start": 7.06,
+              "end": 7.2,
+              "probability": 0.966796875
+            },
+            {
+              "text": " babes",
+              "start": 7.2,
+              "end": 7.7,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " were",
+              "start": 7.7,
+              "end": 7.82,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " sweeter",
+              "start": 7.82,
+              "end": 8.26,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " than",
+              "start": 8.26,
+              "end": 8.42,
+              "probability": 0.52099609375
+            },
+            {
+              "text": " they",
+              "start": 8.42,
+              "end": 8.6,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " were,",
+              "start": 8.6,
+              "end": 8.9,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " And",
+              "start": 9.22,
+              "end": 9.34,
+              "probability": 0.9453125
+            },
+            {
+              "text": " he",
+              "start": 9.34,
+              "end": 9.5,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " that",
+              "start": 9.5,
+              "end": 9.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " slew",
+              "start": 9.66,
+              "end": 9.96,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " them",
+              "start": 9.96,
+              "end": 10.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " fouler",
+              "start": 10.2,
+              "end": 10.62,
+              "probability": 0.4779510498046875
+            }
+          ]
+        },
+        {
+          "text": " than he is. Bettering thy loss makes the bad-causer worse. Revolving this will teach thee how to",
+          "start": 10.62,
+          "end": 16.68,
+          "words": [
+            {
+              "text": " than",
+              "start": 10.62,
+              "end": 10.78,
+              "probability": 0.9921875
+            },
+            {
+              "text": " he",
+              "start": 10.78,
+              "end": 10.96,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " is.",
+              "start": 10.96,
+              "end": 11.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Bettering",
+              "start": 12.1,
+              "end": 12.48,
+              "probability": 0.82763671875
+            },
+            {
+              "text": " thy",
+              "start": 12.48,
+              "end": 12.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " loss",
+              "start": 12.64,
+              "end": 13.02,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " makes",
+              "start": 13.02,
+              "end": 13.24,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " the",
+              "start": 13.24,
+              "end": 13.5,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " bad",
+              "start": 13.5,
+              "end": 13.72,
+              "probability": 0.9853515625
+            },
+            {
+              "text": "-causer",
+              "start": 13.72,
+              "end": 14.06,
+              "probability": 0.5649820963541666
+            },
+            {
+              "text": " worse.",
+              "start": 14.06,
+              "end": 14.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Revolving",
+              "start": 15.1,
+              "end": 15.42,
+              "probability": 0.9609375
+            },
+            {
+              "text": " this",
+              "start": 15.42,
+              "end": 15.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will",
+              "start": 15.66,
+              "end": 15.9,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " teach",
+              "start": 15.9,
+              "end": 16.12,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " thee",
+              "start": 16.12,
+              "end": 16.38,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " how",
+              "start": 16.38,
+              "end": 16.56,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 16.56,
+              "end": 16.68,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " curse.",
+          "start": 16.68,
+          "end": 17.0,
+          "words": [
+            {
+              "text": " curse.",
+              "start": 16.68,
+              "end": 17.0,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "Margaret,",
+          "start": 0.58,
+          "end": 1.04
+        },
+        {
+          "raw": "Forbear",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "to",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "raw": "sleep",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "raw": "the",
+          "start": 2.28,
+          "end": 2.46
+        },
+        {
+          "raw": "night,",
+          "start": 2.46,
+          "end": 2.7
+        },
+        {
+          "raw": "and",
+          "start": 2.88,
+          "end": 2.98
+        },
+        {
+          "raw": "fast",
+          "start": 2.98,
+          "end": 3.2
+        },
+        {
+          "raw": "the",
+          "start": 3.2,
+          "end": 3.44
+        },
+        {
+          "raw": "days,",
+          "start": 3.44,
+          "end": 3.8
+        },
+        {
+          "raw": "Compare",
+          "start": 4.5,
+          "end": 4.5
+        },
+        {
+          "raw": "dead",
+          "start": 4.5,
+          "end": 4.86
+        },
+        {
+          "raw": "happiness",
+          "start": 4.86,
+          "end": 5.36
+        },
+        {
+          "raw": "with",
+          "start": 5.36,
+          "end": 5.6
+        },
+        {
+          "raw": "living",
+          "start": 5.6,
+          "end": 5.9
+        },
+        {
+          "raw": "woe.",
+          "start": 5.9,
+          "end": 6.22
+        },
+        {
+          "raw": "Think",
+          "start": 6.78,
+          "end": 6.9
+        },
+        {
+          "raw": "that",
+          "start": 6.9,
+          "end": 7.06
+        },
+        {
+          "raw": "thy",
+          "start": 7.06,
+          "end": 7.2
+        },
+        {
+          "raw": "babes",
+          "start": 7.2,
+          "end": 7.7
+        },
+        {
+          "raw": "were",
+          "start": 7.7,
+          "end": 7.82
+        },
+        {
+          "raw": "sweeter",
+          "start": 7.82,
+          "end": 8.26
+        },
+        {
+          "raw": "than",
+          "start": 8.26,
+          "end": 8.42
+        },
+        {
+          "raw": "they",
+          "start": 8.42,
+          "end": 8.6
+        },
+        {
+          "raw": "were,",
+          "start": 8.6,
+          "end": 8.9
+        },
+        {
+          "raw": "And",
+          "start": 9.22,
+          "end": 9.34
+        },
+        {
+          "raw": "he",
+          "start": 9.34,
+          "end": 9.5
+        },
+        {
+          "raw": "that",
+          "start": 9.5,
+          "end": 9.66
+        },
+        {
+          "raw": "slew",
+          "start": 9.66,
+          "end": 9.96
+        },
+        {
+          "raw": "them",
+          "start": 9.96,
+          "end": 10.2
+        },
+        {
+          "raw": "fouler",
+          "start": 10.2,
+          "end": 10.62
+        },
+        {
+          "raw": "than",
+          "start": 10.62,
+          "end": 10.78
+        },
+        {
+          "raw": "he",
+          "start": 10.78,
+          "end": 10.96
+        },
+        {
+          "raw": "is.",
+          "start": 10.96,
+          "end": 11.36
+        },
+        {
+          "raw": "Bettering",
+          "start": 12.1,
+          "end": 12.48
+        },
+        {
+          "raw": "thy",
+          "start": 12.48,
+          "end": 12.64
+        },
+        {
+          "raw": "loss",
+          "start": 12.64,
+          "end": 13.02
+        },
+        {
+          "raw": "makes",
+          "start": 13.02,
+          "end": 13.24
+        },
+        {
+          "raw": "the",
+          "start": 13.24,
+          "end": 13.5
+        },
+        {
+          "raw": "bad",
+          "start": 13.5,
+          "end": 13.72
+        },
+        {
+          "raw": "-causer",
+          "start": 13.72,
+          "end": 14.06
+        },
+        {
+          "raw": "worse.",
+          "start": 14.06,
+          "end": 14.42
+        },
+        {
+          "raw": "Revolving",
+          "start": 15.1,
+          "end": 15.42
+        },
+        {
+          "raw": "this",
+          "start": 15.42,
+          "end": 15.66
+        },
+        {
+          "raw": "will",
+          "start": 15.66,
+          "end": 15.9
+        },
+        {
+          "raw": "teach",
+          "start": 15.9,
+          "end": 16.12
+        },
+        {
+          "raw": "thee",
+          "start": 16.12,
+          "end": 16.38
+        },
+        {
+          "raw": "how",
+          "start": 16.38,
+          "end": 16.56
+        },
+        {
+          "raw": "to",
+          "start": 16.56,
+          "end": 16.68
+        },
+        {
+          "raw": "curse.",
+          "start": 16.68,
+          "end": 17.0
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Margaret.",
+        "Forbear",
+        "to",
+        "sleep",
+        "the",
+        "night,",
+        "and",
+        "fast",
+        "the",
+        "days;",
+        "Compare",
+        "dead",
+        "happiness",
+        "with",
+        "living",
+        "woe;",
+        "Think",
+        "that",
+        "thy",
+        "babes",
+        "were",
+        "sweeter",
+        "than",
+        "they",
+        "were,",
+        "And",
+        "he",
+        "that",
+        "slew",
+        "them",
+        "fouler",
+        "than",
+        "he",
+        "is.",
+        "Bettering",
+        "thy",
+        "loss",
+        "makes",
+        "the",
+        "bad-causer",
+        "worse.",
+        "Revolving",
+        "this",
+        "will",
+        "teach",
+        "thee",
+        "how",
+        "to",
+        "curse."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          50,
+          0,
+          50
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Margaret,",
+          "start": 0.58,
+          "end": 1.04,
+          "key": "margaret",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Forbear",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "forbear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.88,
+          "end": 2.06,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sleep",
+          "start": 2.06,
+          "end": 2.28,
+          "key": "sleep",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.28,
+          "end": 2.46,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "night,",
+          "start": 2.46,
+          "end": 2.7,
+          "key": "night",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.88,
+          "end": 2.98,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fast",
+          "start": 2.98,
+          "end": 3.2,
+          "key": "fast",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.2,
+          "end": 3.44,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "days,",
+          "start": 3.44,
+          "end": 3.8,
+          "key": "days",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Compare",
+          "start": 4.5,
+          "end": 4.5,
+          "key": "compare",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 4.5,
+          "end": 4.86,
+          "key": "dead",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "happiness",
+          "start": 4.86,
+          "end": 5.36,
+          "key": "happiness",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.36,
+          "end": 5.6,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "living",
+          "start": 5.6,
+          "end": 5.9,
+          "key": "living",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "woe.",
+          "start": 5.9,
+          "end": 6.22,
+          "key": "woe",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Think",
+          "start": 6.78,
+          "end": 6.9,
+          "key": "think",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.9,
+          "end": 7.06,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 7.06,
+          "end": 7.2,
+          "key": "thy",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "babes",
+          "start": 7.2,
+          "end": 7.7,
+          "key": "babes",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 7.7,
+          "end": 7.82,
+          "key": "were",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "sweeter",
+          "start": 7.82,
+          "end": 8.26,
+          "key": "sweeter",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 8.26,
+          "end": 8.42,
+          "key": "than",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 8.42,
+          "end": 8.6,
+          "key": "they",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "were,",
+          "start": 8.6,
+          "end": 8.9,
+          "key": "were",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 9.22,
+          "end": 9.34,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 9.34,
+          "end": 9.5,
+          "key": "he",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 9.5,
+          "end": 9.66,
+          "key": "that",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "slew",
+          "start": 9.66,
+          "end": 9.96,
+          "key": "slew",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 9.96,
+          "end": 10.2,
+          "key": "them",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "fouler",
+          "start": 10.2,
+          "end": 10.62,
+          "key": "fouler",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 10.62,
+          "end": 10.78,
+          "key": "than",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.78,
+          "end": 10.96,
+          "key": "he",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "is.",
+          "start": 10.96,
+          "end": 11.36,
+          "key": "is",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Bettering",
+          "start": 12.1,
+          "end": 12.48,
+          "key": "bettering",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 12.48,
+          "end": 12.64,
+          "key": "thy",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "loss",
+          "start": 12.64,
+          "end": 13.02,
+          "key": "loss",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "makes",
+          "start": 13.02,
+          "end": 13.24,
+          "key": "makes",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.24,
+          "end": 13.5,
+          "key": "the",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "bad -causer",
+          "start": 13.5,
+          "end": 14.06,
+          "key": "badcauser",
+          "pieces": [
+            40,
+            41
+          ]
+        },
+        {
+          "raw": "worse.",
+          "start": 14.06,
+          "end": 14.42,
+          "key": "worse",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Revolving",
+          "start": 15.1,
+          "end": 15.42,
+          "key": "revolving",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 15.42,
+          "end": 15.66,
+          "key": "this",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 15.66,
+          "end": 15.9,
+          "key": "will",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "teach",
+          "start": 15.9,
+          "end": 16.12,
+          "key": "teach",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 16.12,
+          "end": 16.38,
+          "key": "thee",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 16.38,
+          "end": 16.56,
+          "key": "how",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.56,
+          "end": 16.68,
+          "key": "to",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "curse.",
+          "start": 16.68,
+          "end": 17.0,
+          "key": "curse",
+          "pieces": [
+            50
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 40,
+          "text": "bad-causer",
+          "heard": "bad -causer",
+          "heard_indexes": [
+            40,
+            41
+          ],
+          "start": 13.5,
+          "end": 14.06
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "Margaret.",
+          "start": 0.58,
+          "end": 1.04
+        },
+        {
+          "text": "Forbear",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "text": "to",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "text": "sleep",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "text": "the",
+          "start": 2.28,
+          "end": 2.46
+        },
+        {
+          "text": "night,",
+          "start": 2.46,
+          "end": 2.7
+        },
+        {
+          "text": "and",
+          "start": 2.88,
+          "end": 2.98
+        },
+        {
+          "text": "fast",
+          "start": 2.98,
+          "end": 3.2
+        },
+        {
+          "text": "the",
+          "start": 3.2,
+          "end": 3.44
+        },
+        {
+          "text": "days;",
+          "start": 3.44,
+          "end": 3.8
+        },
+        {
+          "text": "Compare",
+          "start": 4.5,
+          "end": 4.5
+        },
+        {
+          "text": "dead",
+          "start": 4.5,
+          "end": 4.86
+        },
+        {
+          "text": "happiness",
+          "start": 4.86,
+          "end": 5.36
+        },
+        {
+          "text": "with",
+          "start": 5.36,
+          "end": 5.6
+        },
+        {
+          "text": "living",
+          "start": 5.6,
+          "end": 5.9
+        },
+        {
+          "text": "woe;",
+          "start": 5.9,
+          "end": 6.22
+        },
+        {
+          "text": "Think",
+          "start": 6.78,
+          "end": 6.9
+        },
+        {
+          "text": "that",
+          "start": 6.9,
+          "end": 7.06
+        },
+        {
+          "text": "thy",
+          "start": 7.06,
+          "end": 7.2
+        },
+        {
+          "text": "babes",
+          "start": 7.2,
+          "end": 7.7
+        },
+        {
+          "text": "were",
+          "start": 7.7,
+          "end": 7.82
+        },
+        {
+          "text": "sweeter",
+          "start": 7.82,
+          "end": 8.26
+        },
+        {
+          "text": "than",
+          "start": 8.26,
+          "end": 8.42
+        },
+        {
+          "text": "they",
+          "start": 8.42,
+          "end": 8.6
+        },
+        {
+          "text": "were,",
+          "start": 8.6,
+          "end": 8.9
+        },
+        {
+          "text": "And",
+          "start": 9.22,
+          "end": 9.34
+        },
+        {
+          "text": "he",
+          "start": 9.34,
+          "end": 9.5
+        },
+        {
+          "text": "that",
+          "start": 9.5,
+          "end": 9.66
+        },
+        {
+          "text": "slew",
+          "start": 9.66,
+          "end": 9.96
+        },
+        {
+          "text": "them",
+          "start": 9.96,
+          "end": 10.2
+        },
+        {
+          "text": "fouler",
+          "start": 10.2,
+          "end": 10.62
+        },
+        {
+          "text": "than",
+          "start": 10.62,
+          "end": 10.78
+        },
+        {
+          "text": "he",
+          "start": 10.78,
+          "end": 10.96
+        },
+        {
+          "text": "is.",
+          "start": 10.96,
+          "end": 11.36
+        },
+        {
+          "text": "Bettering",
+          "start": 12.1,
+          "end": 12.48
+        },
+        {
+          "text": "thy",
+          "start": 12.48,
+          "end": 12.64
+        },
+        {
+          "text": "loss",
+          "start": 12.64,
+          "end": 13.02
+        },
+        {
+          "text": "makes",
+          "start": 13.02,
+          "end": 13.24
+        },
+        {
+          "text": "the",
+          "start": 13.24,
+          "end": 13.5
+        },
+        {
+          "text": "bad-causer",
+          "start": 13.5,
+          "end": 14.06
+        },
+        {
+          "text": "worse.",
+          "start": 14.06,
+          "end": 14.42
+        },
+        {
+          "text": "Revolving",
+          "start": 15.1,
+          "end": 15.42
+        },
+        {
+          "text": "this",
+          "start": 15.42,
+          "end": 15.66
+        },
+        {
+          "text": "will",
+          "start": 15.66,
+          "end": 15.9
+        },
+        {
+          "text": "teach",
+          "start": 15.9,
+          "end": 16.12
+        },
+        {
+          "text": "thee",
+          "start": 16.12,
+          "end": 16.38
+        },
+        {
+          "text": "how",
+          "start": 16.38,
+          "end": 16.56
+        },
+        {
+          "text": "to",
+          "start": 16.56,
+          "end": 16.68
+        },
+        {
+          "text": "curse.",
+          "start": 16.68,
+          "end": 17.0
+        }
+      ],
+      "stats": {
+        "expected_words": 50,
+        "heard_words": 50,
+        "matched_words": 50
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5864735245704651
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1ba0eb61593842de8545e29741c6b7f77d2212bf7a778e0ca04ff3d0c917e644",
+  "selected_reasons": []
+}

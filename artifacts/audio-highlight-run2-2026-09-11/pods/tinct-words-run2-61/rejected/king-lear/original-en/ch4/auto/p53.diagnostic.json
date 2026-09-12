@@ -1,0 +1,125 @@
+{
+  "complete": true,
+  "signature": "a7611d37afc0c6885e6b591d205abf59ad4869aa00a28b5580d3e89dd5f3f620",
+  "attempts": [
+    {
+      "asr_seconds": 0.13556814938783646,
+      "alignment_seconds": 0.00026969239115715027,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Striking him._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Striking him.",
+          "start": 0.11,
+          "end": 1.03,
+          "words": [
+            {
+              "text": " Striking",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.56256103515625
+            },
+            {
+              "text": " him.",
+              "start": 0.83,
+              "end": 1.03,
+              "probability": 0.88671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Striking",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "him.",
+          "start": 0.83,
+          "end": 1.03
+        }
+      ],
+      "expected_tokens": [
+        "[_Striking",
+        "him._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Striking",
+          "start": 0.11,
+          "end": 0.83,
+          "key": "striking",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 0.83,
+          "end": 1.03,
+          "key": "him",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Striking",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "him._]",
+          "start": 0.83,
+          "end": 1.03
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13593051210045815
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "68d00ea6b43994f8d2a2a0ea67cf5173c8d88299fb50308fe893df37090e29fd",
+  "selected_reasons": []
+}

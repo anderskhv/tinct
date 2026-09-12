@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "c20906c30422710db6dba18e04b15b31f8b899eaae0693c43904063e976e841e",
+  "attempts": [
+    {
+      "asr_seconds": 0.13475849901442416,
+      "alignment_seconds": 0.00023310698452405632,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " M.K. now.",
+          "start": 0.05,
+          "end": 0.91,
+          "words": [
+            {
+              "text": " M",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.12213134765625
+            },
+            {
+              "text": ".K.",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.6539306640625
+            },
+            {
+              "text": " now.",
+              "start": 0.73,
+              "end": 0.91,
+              "probability": 0.45703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "M",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": ".K.",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "now.",
+          "start": 0.73,
+          "end": 0.91
+        }
+      ],
+      "expected_tokens": [
+        "—Mkgnao!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "M",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "m",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".K.",
+          "start": 0.55,
+          "end": 0.71,
+          "key": "k",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 0.73,
+          "end": 0.91,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Mkgnao!",
+          "start": 0.0,
+          "end": 0.455
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1350978990085423
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6bca41f8e679e855c302f78e12084a72b5b28c32e121eaa24c58e4b3ddf94374",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

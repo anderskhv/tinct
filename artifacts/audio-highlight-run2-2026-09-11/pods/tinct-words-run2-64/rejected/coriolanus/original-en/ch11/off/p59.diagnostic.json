@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "8e3cf70f47dd8145033e4ca60cbb6e70865384ce4cf4082a21afebccd7d13a5f",
+  "attempts": [
+    {
+      "asr_seconds": 0.12217778991907835,
+      "alignment_seconds": 0.0003441888839006424,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A shout and flourish.",
+          "start": 0.11,
+          "end": 1.27,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.11,
+              "end": 0.51,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " shout",
+              "start": 0.51,
+              "end": 0.73,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " and",
+              "start": 0.73,
+              "end": 0.93,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " flourish.",
+              "start": 0.93,
+              "end": 1.27,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.11,
+          "end": 0.51
+        },
+        {
+          "raw": "shout",
+          "start": 0.51,
+          "end": 0.73
+        },
+        {
+          "raw": "and",
+          "start": 0.73,
+          "end": 0.93
+        },
+        {
+          "raw": "flourish.",
+          "start": 0.93,
+          "end": 1.27
+        }
+      ],
+      "expected_tokens": [
+        "[_A",
+        "shout",
+        "and",
+        "flourish_.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.11,
+          "end": 0.51,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shout",
+          "start": 0.51,
+          "end": 0.73,
+          "key": "shout",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.73,
+          "end": 0.93,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "flourish.",
+          "start": 0.93,
+          "end": 1.27,
+          "key": "flourish",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_A",
+          "start": 0.11,
+          "end": 0.51
+        },
+        {
+          "text": "shout",
+          "start": 0.51,
+          "end": 0.73
+        },
+        {
+          "text": "and",
+          "start": 0.73,
+          "end": 0.93
+        },
+        {
+          "text": "flourish_.]",
+          "start": 0.93,
+          "end": 1.27
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12262490764260292
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3f716737738df9450c7fd81f9d72c21819aa2473c7d46322822215e1838a5c5e",
+  "selected_reasons": []
+}

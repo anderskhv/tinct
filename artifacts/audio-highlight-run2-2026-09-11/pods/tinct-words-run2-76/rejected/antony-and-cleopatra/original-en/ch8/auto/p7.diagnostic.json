@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "7b4b25de6ba3782e82b313daf5ec4755a9dcca71aac3fea85b0f57cafd40213f",
+  "attempts": [
+    {
+      "asr_seconds": 0.11885282211005688,
+      "alignment_seconds": 0.00034366175532341003,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Soothsayer.",
+        "hotwords": "Enter, Soothsayer"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Soothsayer.",
+          "start": 0.08,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Soothsayer.",
+              "start": 0.66,
+              "end": 1.26,
+              "probability": 0.787353515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Soothsayer.",
+          "start": 0.66,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Soothsayer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Soothsayer.",
+          "start": 0.66,
+          "end": 1.26,
+          "key": "soothsayer",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Soothsayer.",
+          "start": 0.66,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11929960874840617
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "017280de3ddaa0c16219ff3afaae424bd03e3c7041722736e27ef3287e647726",
+  "selected_reasons": []
+}

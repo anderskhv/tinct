@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "3d3e8b6249f16569f12e6d38efdc5bc4a2aa8c7c2aaf5536cec19558f5d8d190",
+  "attempts": [
+    {
+      "asr_seconds": 0.12442887015640736,
+      "alignment_seconds": 0.00025806762278079987,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, do.",
+          "start": 0.02,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.6279296875
+            },
+            {
+              "text": " do.",
+              "start": 0.94,
+              "end": 1.18,
+              "probability": 0.55078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "do.",
+          "start": 0.94,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Do."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do.",
+          "start": 0.94,
+          "end": 1.18,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Do.",
+          "start": 0.94,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12478169426321983
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d9ae4289356afc08170d734a06f5151498aad3538b29bd7e4dc5ecb9fba405e7",
+  "selected_reasons": []
+}

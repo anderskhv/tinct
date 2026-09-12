@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "6eddd1c9534fabce8451d61c9c658035b7a88c50dee433a9f7b8bdb5b6c69908",
+  "attempts": [
+    {
+      "asr_seconds": 0.21799908485263586,
+      "alignment_seconds": 0.0003002490848302841,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Cleopatra, Charmian and Iras.",
+        "hotwords": "Enter, Cleopatra, Charmian, Iras"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Cleopatra, Charmian and Iras.",
+          "start": 0.11,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " Cleopatra,",
+              "start": 0.65,
+              "end": 1.35,
+              "probability": 0.9513346354166666
+            },
+            {
+              "text": " Charmian",
+              "start": 1.85,
+              "end": 2.11,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " and",
+              "start": 2.11,
+              "end": 2.29,
+              "probability": 0.52685546875
+            },
+            {
+              "text": " Iras.",
+              "start": 2.29,
+              "end": 2.75,
+              "probability": 0.25972557067871094
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Cleopatra,",
+          "start": 0.65,
+          "end": 1.35
+        },
+        {
+          "raw": "Charmian",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "raw": "and",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "raw": "Iras.",
+          "start": 2.29,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Cleopatra,",
+        "Charmian",
+        "and",
+        "Iras."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cleopatra,",
+          "start": 0.65,
+          "end": 1.35,
+          "key": "cleopatra",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Charmian",
+          "start": 1.85,
+          "end": 2.11,
+          "key": "charmian",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.11,
+          "end": 2.29,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Iras.",
+          "start": 2.29,
+          "end": 2.75,
+          "key": "iras",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Cleopatra,",
+          "start": 0.65,
+          "end": 1.35
+        },
+        {
+          "text": "Charmian",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "text": "and",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "text": "Iras.",
+          "start": 2.29,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21841840259730816
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "71d66c80f6e3e9693d03d407686cb25ec0bb8376afff7bd0ef67055d99597436",
+  "selected_reasons": []
+}

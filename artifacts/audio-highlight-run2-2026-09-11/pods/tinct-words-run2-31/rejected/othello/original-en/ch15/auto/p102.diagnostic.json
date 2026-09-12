@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "bc14bce46c998169ef59a690fee1752f034a77aa7778fdf03f99bc59911bbf68",
+  "attempts": [
+    {
+      "asr_seconds": 0.2487006331793964,
+      "alignment_seconds": 0.00040480587631464005,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Emilia. O mistress, villainy hath made mocks with love! My husband say that she was false?",
+        "hotwords": "Emilia, O, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia, O mistress, villainy hath made mocks with love! My husband say that she was false?",
+          "start": 0.05,
+          "end": 5.61,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.57989501953125
+            },
+            {
+              "text": " O",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.41259765625
+            },
+            {
+              "text": " mistress,",
+              "start": 1.49,
+              "end": 1.75,
+              "probability": 0.76171875
+            },
+            {
+              "text": " villainy",
+              "start": 2.25,
+              "end": 2.55,
+              "probability": 0.809814453125
+            },
+            {
+              "text": " hath",
+              "start": 2.55,
+              "end": 2.65,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " made",
+              "start": 2.65,
+              "end": 2.89,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " mocks",
+              "start": 2.89,
+              "end": 3.17,
+              "probability": 0.939453125
+            },
+            {
+              "text": " with",
+              "start": 3.17,
+              "end": 3.35,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " love!",
+              "start": 3.35,
+              "end": 3.63,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " My",
+              "start": 4.21,
+              "end": 4.33,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " husband",
+              "start": 4.33,
+              "end": 4.57,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " say",
+              "start": 4.57,
+              "end": 4.89,
+              "probability": 0.982421875
+            },
+            {
+              "text": " that",
+              "start": 4.89,
+              "end": 5.03,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " she",
+              "start": 5.03,
+              "end": 5.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 5.19,
+              "end": 5.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " false?",
+              "start": 5.35,
+              "end": 5.61,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "O",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "mistress,",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "raw": "villainy",
+          "start": 2.25,
+          "end": 2.55
+        },
+        {
+          "raw": "hath",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "raw": "made",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "raw": "mocks",
+          "start": 2.89,
+          "end": 3.17
+        },
+        {
+          "raw": "with",
+          "start": 3.17,
+          "end": 3.35
+        },
+        {
+          "raw": "love!",
+          "start": 3.35,
+          "end": 3.63
+        },
+        {
+          "raw": "My",
+          "start": 4.21,
+          "end": 4.33
+        },
+        {
+          "raw": "husband",
+          "start": 4.33,
+          "end": 4.57
+        },
+        {
+          "raw": "say",
+          "start": 4.57,
+          "end": 4.89
+        },
+        {
+          "raw": "that",
+          "start": 4.89,
+          "end": 5.03
+        },
+        {
+          "raw": "she",
+          "start": 5.03,
+          "end": 5.19
+        },
+        {
+          "raw": "was",
+          "start": 5.19,
+          "end": 5.35
+        },
+        {
+          "raw": "false?",
+          "start": 5.35,
+          "end": 5.61
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "O",
+        "mistress,",
+        "villainy",
+        "hath",
+        "made",
+        "mocks",
+        "with",
+        "love!",
+        "My",
+        "husband",
+        "say",
+        "that",
+        "she",
+        "was",
+        "false?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mistress,",
+          "start": 1.49,
+          "end": 1.75,
+          "key": "mistress",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "villainy",
+          "start": 2.25,
+          "end": 2.55,
+          "key": "villainy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 2.55,
+          "end": 2.65,
+          "key": "hath",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 2.65,
+          "end": 2.89,
+          "key": "made",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mocks",
+          "start": 2.89,
+          "end": 3.17,
+          "key": "mocks",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.17,
+          "end": 3.35,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "love!",
+          "start": 3.35,
+          "end": 3.63,
+          "key": "love",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 4.21,
+          "end": 4.33,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "husband",
+          "start": 4.33,
+          "end": 4.57,
+          "key": "husband",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 4.57,
+          "end": 4.89,
+          "key": "say",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.89,
+          "end": 5.03,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 5.03,
+          "end": 5.19,
+          "key": "she",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.19,
+          "end": 5.35,
+          "key": "was",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "false?",
+          "start": 5.35,
+          "end": 5.61,
+          "key": "false",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "O",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "mistress,",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "text": "villainy",
+          "start": 2.25,
+          "end": 2.55
+        },
+        {
+          "text": "hath",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "text": "made",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "text": "mocks",
+          "start": 2.89,
+          "end": 3.17
+        },
+        {
+          "text": "with",
+          "start": 3.17,
+          "end": 3.35
+        },
+        {
+          "text": "love!",
+          "start": 3.35,
+          "end": 3.63
+        },
+        {
+          "text": "My",
+          "start": 4.21,
+          "end": 4.33
+        },
+        {
+          "text": "husband",
+          "start": 4.33,
+          "end": 4.57
+        },
+        {
+          "text": "say",
+          "start": 4.57,
+          "end": 4.89
+        },
+        {
+          "text": "that",
+          "start": 4.89,
+          "end": 5.03
+        },
+        {
+          "text": "she",
+          "start": 5.03,
+          "end": 5.19
+        },
+        {
+          "text": "was",
+          "start": 5.19,
+          "end": 5.35
+        },
+        {
+          "text": "false?",
+          "start": 5.35,
+          "end": 5.61
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2492908569984138
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fe97012514568bfc761fe2d406b5a38950ffc7f8c4d536c56c0f34e9371de659",
+  "selected_reasons": []
+}

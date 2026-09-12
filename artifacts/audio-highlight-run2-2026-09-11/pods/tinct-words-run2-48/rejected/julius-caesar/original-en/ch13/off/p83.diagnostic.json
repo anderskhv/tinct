@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "422eea5dfce24e787884232967faa70aeb7dddf9da9a358cc7a8ddb3cd02ef01",
+  "attempts": [
+    {
+      "asr_seconds": 0.09541574772447348,
+      "alignment_seconds": 8.973293006420135e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Drinks",
+          "start": 0.05,
+          "end": 0.87,
+          "words": [
+            {
+              "text": " Drinks",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.809814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Drinks",
+          "start": 0.05,
+          "end": 0.87
+        }
+      ],
+      "expected_tokens": [
+        "[_Drinks._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Drinks",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "drinks",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Drinks._]",
+          "start": 0.05,
+          "end": 0.87
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0955313565209508
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "29d048c2c3035f0d45c99fcefd148b21c4acba1d15a4c203657ff38dc730a9b2",
+  "selected_reasons": []
+}

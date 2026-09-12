@@ -1,0 +1,823 @@
+{
+  "complete": true,
+  "signature": "deb44c0afee3062764744d0fd8a0326889a3da50529e7f1dc53a365fa94f0b04",
+  "attempts": [
+    {
+      "asr_seconds": 0.2334707877598703,
+      "alignment_seconds": 0.00028082774952054024,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Montano, if that the Turkish fleet be not en-sheltered and embayed they are drowned.",
+          "start": 0.05,
+          "end": 5.39,
+          "words": [
+            {
+              "text": " Montano,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.6585693359375
+            },
+            {
+              "text": " if",
+              "start": 1.43,
+              "end": 1.73,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " that",
+              "start": 1.73,
+              "end": 1.95,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 1.95,
+              "end": 2.09,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Turkish",
+              "start": 2.09,
+              "end": 2.37,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " fleet",
+              "start": 2.37,
+              "end": 2.73,
+              "probability": 0.984375
+            },
+            {
+              "text": " be",
+              "start": 2.73,
+              "end": 2.93,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 2.93,
+              "end": 3.15,
+              "probability": 0.974609375
+            },
+            {
+              "text": " en",
+              "start": 3.15,
+              "end": 3.35,
+              "probability": 0.6884765625
+            },
+            {
+              "text": "-sheltered",
+              "start": 3.35,
+              "end": 3.83,
+              "probability": 0.76019287109375
+            },
+            {
+              "text": " and",
+              "start": 3.83,
+              "end": 4.17,
+              "probability": 0.86328125
+            },
+            {
+              "text": " embayed",
+              "start": 4.17,
+              "end": 4.69,
+              "probability": 0.654052734375
+            },
+            {
+              "text": " they",
+              "start": 4.69,
+              "end": 4.87,
+              "probability": 0.66357421875
+            },
+            {
+              "text": " are",
+              "start": 4.87,
+              "end": 5.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " drowned.",
+              "start": 5.03,
+              "end": 5.39,
+              "probability": 0.98681640625
+            }
+          ]
+        },
+        {
+          "text": " It is impossible to bear it out.",
+          "start": 6.07,
+          "end": 7.73,
+          "words": [
+            {
+              "text": " It",
+              "start": 6.07,
+              "end": 6.17,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " is",
+              "start": 6.17,
+              "end": 6.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " impossible",
+              "start": 6.31,
+              "end": 6.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 6.71,
+              "end": 7.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bear",
+              "start": 7.15,
+              "end": 7.33,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " it",
+              "start": 7.33,
+              "end": 7.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out.",
+              "start": 7.47,
+              "end": 7.73,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Montano,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "if",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "raw": "that",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "raw": "the",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "raw": "Turkish",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "raw": "fleet",
+          "start": 2.37,
+          "end": 2.73
+        },
+        {
+          "raw": "be",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "raw": "not",
+          "start": 2.93,
+          "end": 3.15
+        },
+        {
+          "raw": "en",
+          "start": 3.15,
+          "end": 3.35
+        },
+        {
+          "raw": "-sheltered",
+          "start": 3.35,
+          "end": 3.83
+        },
+        {
+          "raw": "and",
+          "start": 3.83,
+          "end": 4.17
+        },
+        {
+          "raw": "embayed",
+          "start": 4.17,
+          "end": 4.69
+        },
+        {
+          "raw": "they",
+          "start": 4.69,
+          "end": 4.87
+        },
+        {
+          "raw": "are",
+          "start": 4.87,
+          "end": 5.03
+        },
+        {
+          "raw": "drowned.",
+          "start": 5.03,
+          "end": 5.39
+        },
+        {
+          "raw": "It",
+          "start": 6.07,
+          "end": 6.17
+        },
+        {
+          "raw": "is",
+          "start": 6.17,
+          "end": 6.31
+        },
+        {
+          "raw": "impossible",
+          "start": 6.31,
+          "end": 6.71
+        },
+        {
+          "raw": "to",
+          "start": 6.71,
+          "end": 7.15
+        },
+        {
+          "raw": "bear",
+          "start": 7.15,
+          "end": 7.33
+        },
+        {
+          "raw": "it",
+          "start": 7.33,
+          "end": 7.47
+        },
+        {
+          "raw": "out.",
+          "start": 7.47,
+          "end": 7.73
+        }
+      ],
+      "expected_tokens": [
+        "Montano.",
+        "If",
+        "that",
+        "the",
+        "Turkish",
+        "fleet",
+        "Be",
+        "not",
+        "enshelter'd,",
+        "and",
+        "embay'd,",
+        "they",
+        "are",
+        "drown'd.",
+        "It",
+        "is",
+        "impossible",
+        "to",
+        "bear",
+        "it",
+        "out."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          10,
+          10,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          12
+        ],
+        [
+          "equal",
+          11,
+          13,
+          12,
+          14
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ],
+        [
+          "equal",
+          14,
+          21,
+          15,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          12
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Montano,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "montano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.43,
+          "end": 1.73,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.73,
+          "end": 1.95,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.95,
+          "end": 2.09,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Turkish",
+          "start": 2.09,
+          "end": 2.37,
+          "key": "turkish",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fleet",
+          "start": 2.37,
+          "end": 2.73,
+          "key": "fleet",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.73,
+          "end": 2.93,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.93,
+          "end": 3.15,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "en",
+          "start": 3.15,
+          "end": 3.35,
+          "key": "en",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "-sheltered",
+          "start": 3.35,
+          "end": 3.83,
+          "key": "sheltered",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.83,
+          "end": 4.17,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "embayed",
+          "start": 4.17,
+          "end": 4.69,
+          "key": "embayed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.69,
+          "end": 4.87,
+          "key": "they",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.87,
+          "end": 5.03,
+          "key": "are",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "drowned.",
+          "start": 5.03,
+          "end": 5.39,
+          "key": "drowned",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 6.07,
+          "end": 6.17,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.17,
+          "end": 6.31,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "impossible",
+          "start": 6.31,
+          "end": 6.71,
+          "key": "impossible",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.71,
+          "end": 7.15,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 7.15,
+          "end": 7.33,
+          "key": "bear",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 7.33,
+          "end": 7.47,
+          "key": "it",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 7.47,
+          "end": 7.73,
+          "key": "out",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Montano.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "If",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "text": "that",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "text": "the",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "text": "Turkish",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "text": "fleet",
+          "start": 2.37,
+          "end": 2.73
+        },
+        {
+          "text": "Be",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "text": "not",
+          "start": 2.93,
+          "end": 3.15
+        },
+        {
+          "text": "enshelter'd,",
+          "start": 3.15,
+          "end": 3.49
+        },
+        {
+          "text": "and",
+          "start": 3.83,
+          "end": 4.17
+        },
+        {
+          "text": "embay'd,",
+          "start": 4.17,
+          "end": 4.43
+        },
+        {
+          "text": "they",
+          "start": 4.69,
+          "end": 4.87
+        },
+        {
+          "text": "are",
+          "start": 4.87,
+          "end": 5.03
+        },
+        {
+          "text": "drown'd.",
+          "start": 5.03,
+          "end": 5.55
+        },
+        {
+          "text": "It",
+          "start": 6.07,
+          "end": 6.17
+        },
+        {
+          "text": "is",
+          "start": 6.17,
+          "end": 6.31
+        },
+        {
+          "text": "impossible",
+          "start": 6.31,
+          "end": 6.71
+        },
+        {
+          "text": "to",
+          "start": 6.71,
+          "end": 7.15
+        },
+        {
+          "text": "bear",
+          "start": 7.15,
+          "end": 7.33
+        },
+        {
+          "text": "it",
+          "start": 7.33,
+          "end": 7.47
+        },
+        {
+          "text": "out.",
+          "start": 7.47,
+          "end": 7.73
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 18
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.23384587606415153
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "287639946c47c620f8aaa50560186198e9890bf12925d6ef647e111a76f7c2c1",
+  "selected_reasons": []
+}

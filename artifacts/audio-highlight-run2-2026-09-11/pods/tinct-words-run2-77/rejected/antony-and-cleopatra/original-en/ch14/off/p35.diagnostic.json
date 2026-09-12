@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "52606af2b7df8a721d4ee854fb8d40ae680d6780c4349b45068f422090af8718",
+  "attempts": [
+    {
+      "asr_seconds": 0.08531546598533168,
+      "alignment_seconds": 9.411299834027886e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In Auberbus.",
+          "start": 0.02,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.51220703125
+            },
+            {
+              "text": " Auberbus.",
+              "start": 0.54,
+              "end": 1.0,
+              "probability": 0.3281453450520833
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "Auberbus.",
+          "start": 0.54,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Auberbus.",
+          "start": 0.54,
+          "end": 1.0,
+          "key": "auberbus",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.0,
+          "end": 0.5
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08544373998302035
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a79b092c86f563c826b6d9a02b74496287097423d01f15ead4452675ec057675",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

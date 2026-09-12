@@ -1,0 +1,227 @@
+{
+  "complete": true,
+  "signature": "9b5e1c31ae54ace18beca6eba1e4e74007b80f45e771053a483ecef8bb2089a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.20422257855534554,
+      "alignment_seconds": 0.00029886793345212936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dolly Bella gentle madam. No",
+          "start": 0.08,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Dolly",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " Bella",
+              "start": 0.7,
+              "end": 1.0,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " gentle",
+              "start": 1.0,
+              "end": 1.6,
+              "probability": 0.212890625
+            },
+            {
+              "text": " madam.",
+              "start": 1.6,
+              "end": 2.12,
+              "probability": 0.819580078125
+            },
+            {
+              "text": " No",
+              "start": 2.12,
+              "end": 2.36,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dolly",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Bella",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "raw": "gentle",
+          "start": 1.0,
+          "end": 1.6
+        },
+        {
+          "raw": "madam.",
+          "start": 1.6,
+          "end": 2.12
+        },
+        {
+          "raw": "No",
+          "start": 2.12,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "Dolabella.",
+        "Gentle",
+        "madam,",
+        "no."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          4,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dolly",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "dolly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bella",
+          "start": 0.7,
+          "end": 1.0,
+          "key": "bella",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gentle",
+          "start": 1.0,
+          "end": 1.6,
+          "key": "gentle",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "madam.",
+          "start": 1.6,
+          "end": 2.12,
+          "key": "madam",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 2.12,
+          "end": 2.36,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dolabella.",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "Gentle",
+          "start": 1.0,
+          "end": 1.6
+        },
+        {
+          "text": "madam,",
+          "start": 1.6,
+          "end": 2.12
+        },
+        {
+          "text": "no.",
+          "start": 2.12,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2046309858560562
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "805198d557275e35faccefe582e6cb2572d449e3d69920acd9e4afc7977283ad",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "complete": true,
+  "signature": "dc13265f5c9e0612532f00abb9c5583194c68ebca0f875a77c180a1911e80a87",
+  "attempts": [
+    {
+      "asr_seconds": 0.09449758799746633,
+      "alignment_seconds": 0.00013874104479327798,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " House of Key ES",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " House",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.73291015625
+            },
+            {
+              "text": " of",
+              "start": 0.63,
+              "end": 0.79,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " Key",
+              "start": 0.79,
+              "end": 1.05,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " ES",
+              "start": 1.05,
+              "end": 1.67,
+              "probability": 0.34326171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "House",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "of",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "raw": "Key",
+          "start": 0.79,
+          "end": 1.05
+        },
+        {
+          "raw": "ES",
+          "start": 1.05,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "House",
+        "Of",
+        "Key(E)S"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "House",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "house",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.63,
+          "end": 0.79,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Key",
+          "start": 0.79,
+          "end": 1.05,
+          "key": "key",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ES",
+          "start": 1.05,
+          "end": 1.67,
+          "key": "es",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "House",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Of",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "Key(E)S",
+          "start": 0.79,
+          "end": 1.23
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0946968289790675
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e2ec9fbdf2292dc89f33f8251fd1315898219236ba408d24612609214afd768e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

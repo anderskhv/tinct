@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "257521da717ce366c9cd8fd48454124d45b98f9cff265d55bad8bf3a2adeb2c4",
+  "attempts": [
+    {
+      "asr_seconds": 0.28939064405858517,
+      "alignment_seconds": 0.0004331800155341625,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Spanish Sailor (_meeting him_). Knife thee heartily! big frame, small spirit!",
+        "hotwords": "Spanish, Sailor, Knife"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Spanish, Sailor, Meeting him! Knife thee heartily! big frame, small spirit!",
+          "start": 0.11,
+          "end": 4.77,
+          "words": [
+            {
+              "text": " Spanish,",
+              "start": 0.11,
+              "end": 0.69,
+              "probability": 0.75732421875
+            },
+            {
+              "text": " Sailor,",
+              "start": 1.01,
+              "end": 1.09,
+              "probability": 0.23681640625
+            },
+            {
+              "text": " Meeting",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " him!",
+              "start": 1.43,
+              "end": 1.81,
+              "probability": 0.5908203125
+            },
+            {
+              "text": " Knife",
+              "start": 2.29,
+              "end": 2.37,
+              "probability": 0.5546875
+            },
+            {
+              "text": " thee",
+              "start": 2.37,
+              "end": 2.51,
+              "probability": 0.0657958984375
+            },
+            {
+              "text": " heartily!",
+              "start": 2.51,
+              "end": 2.93,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " big",
+              "start": 3.39,
+              "end": 3.49,
+              "probability": 0.0305938720703125
+            },
+            {
+              "text": " frame,",
+              "start": 3.49,
+              "end": 3.89,
+              "probability": 0.857421875
+            },
+            {
+              "text": " small",
+              "start": 4.13,
+              "end": 4.33,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " spirit!",
+              "start": 4.33,
+              "end": 4.77,
+              "probability": 0.9560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Spanish,",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "raw": "Sailor,",
+          "start": 1.01,
+          "end": 1.09
+        },
+        {
+          "raw": "Meeting",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "him!",
+          "start": 1.43,
+          "end": 1.81
+        },
+        {
+          "raw": "Knife",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "raw": "thee",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "raw": "heartily!",
+          "start": 2.51,
+          "end": 2.93
+        },
+        {
+          "raw": "big",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "raw": "frame,",
+          "start": 3.49,
+          "end": 3.89
+        },
+        {
+          "raw": "small",
+          "start": 4.13,
+          "end": 4.33
+        },
+        {
+          "raw": "spirit!",
+          "start": 4.33,
+          "end": 4.77
+        }
+      ],
+      "expected_tokens": [
+        "Spanish",
+        "Sailor",
+        "(_meeting",
+        "him_).",
+        "Knife",
+        "thee",
+        "heartily!",
+        "big",
+        "frame,",
+        "small",
+        "spirit!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Spanish,",
+          "start": 0.11,
+          "end": 0.69,
+          "key": "spanish",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sailor,",
+          "start": 1.01,
+          "end": 1.09,
+          "key": "sailor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Meeting",
+          "start": 1.31,
+          "end": 1.43,
+          "key": "meeting",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him!",
+          "start": 1.43,
+          "end": 1.81,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Knife",
+          "start": 2.29,
+          "end": 2.37,
+          "key": "knife",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.37,
+          "end": 2.51,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heartily!",
+          "start": 2.51,
+          "end": 2.93,
+          "key": "heartily",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "big",
+          "start": 3.39,
+          "end": 3.49,
+          "key": "big",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "frame,",
+          "start": 3.49,
+          "end": 3.89,
+          "key": "frame",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "small",
+          "start": 4.13,
+          "end": 4.33,
+          "key": "small",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "spirit!",
+          "start": 4.33,
+          "end": 4.77,
+          "key": "spirit",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Spanish",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "text": "Sailor",
+          "start": 1.01,
+          "end": 1.09
+        },
+        {
+          "text": "(_meeting",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "him_).",
+          "start": 1.43,
+          "end": 1.81
+        },
+        {
+          "text": "Knife",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "text": "thee",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "text": "heartily!",
+          "start": 2.51,
+          "end": 2.93
+        },
+        {
+          "text": "big",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "text": "frame,",
+          "start": 3.49,
+          "end": 3.89
+        },
+        {
+          "text": "small",
+          "start": 4.13,
+          "end": 4.33
+        },
+        {
+          "text": "spirit!",
+          "start": 4.33,
+          "end": 4.77
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2899921191856265
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "91aed553a5acac0c0ca998bfc16799745c851c52f5583ecfcafe87349092133f",
+  "selected_reasons": []
+}

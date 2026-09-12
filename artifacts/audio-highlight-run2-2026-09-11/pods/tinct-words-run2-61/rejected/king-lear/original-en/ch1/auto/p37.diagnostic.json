@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "4d8717e6f5b389beae9d52b673d2243cdffe4963ef4a3ff1706d586133d03d11",
+  "attempts": [
+    {
+      "asr_seconds": 0.18100028485059738,
+      "alignment_seconds": 0.0003969091922044754,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. But goes thy heart with this?",
+        "hotwords": "Lear, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, But goes thy heart with this?",
+          "start": 0.02,
+          "end": 2.26,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.53662109375
+            },
+            {
+              "text": " But",
+              "start": 1.02,
+              "end": 1.18,
+              "probability": 0.0275115966796875
+            },
+            {
+              "text": " goes",
+              "start": 1.18,
+              "end": 1.4,
+              "probability": 0.55810546875
+            },
+            {
+              "text": " thy",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.97265625
+            },
+            {
+              "text": " heart",
+              "start": 1.6,
+              "end": 1.82,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " with",
+              "start": 1.82,
+              "end": 2.0,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " this?",
+              "start": 2.0,
+              "end": 2.26,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "But",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "raw": "goes",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "raw": "thy",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "heart",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "raw": "with",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "raw": "this?",
+          "start": 2.0,
+          "end": 2.26
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "But",
+        "goes",
+        "thy",
+        "heart",
+        "with",
+        "this?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.02,
+          "end": 1.18,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "goes",
+          "start": 1.18,
+          "end": 1.4,
+          "key": "goes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "thy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 1.6,
+          "end": 1.82,
+          "key": "heart",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.82,
+          "end": 2.0,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this?",
+          "start": 2.0,
+          "end": 2.26,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "But",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "text": "goes",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "text": "thy",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "heart",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "text": "with",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "text": "this?",
+          "start": 2.0,
+          "end": 2.26
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18153678253293037
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1349b51a8b5e90e39ba79a9e059b05f7150acd64b9b0b0a67f6b04edbcf8c2c8",
+  "selected_reasons": []
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "2ee6a64a7cc158eb2769453330740297488dabebd980f1a5dfef0d825104e7ad",
+  "attempts": [
+    {
+      "asr_seconds": 0.21011095121502876,
+      "alignment_seconds": 0.0003884304314851761,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Tell me,\" Alyosha asked anxiously, \"did you send for that person?\"",
+        "hotwords": "Tell, Alyosha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Tell me, Alyosha asked anxiously, did you send for that person?",
+          "start": 0.08,
+          "end": 4.28,
+          "words": [
+            {
+              "text": " Tell",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.2005615234375
+            },
+            {
+              "text": " me,",
+              "start": 0.58,
+              "end": 0.84,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Alyosha",
+              "start": 1.26,
+              "end": 1.7,
+              "probability": 0.9650065104166666
+            },
+            {
+              "text": " asked",
+              "start": 1.7,
+              "end": 2.0,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " anxiously,",
+              "start": 2.0,
+              "end": 2.62,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " did",
+              "start": 2.96,
+              "end": 3.2,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " you",
+              "start": 3.2,
+              "end": 3.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " send",
+              "start": 3.36,
+              "end": 3.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 3.56,
+              "end": 3.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 3.74,
+              "end": 3.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " person?",
+              "start": 3.92,
+              "end": 4.28,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tell",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "me,",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "raw": "Alyosha",
+          "start": 1.26,
+          "end": 1.7
+        },
+        {
+          "raw": "asked",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "raw": "anxiously,",
+          "start": 2.0,
+          "end": 2.62
+        },
+        {
+          "raw": "did",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "raw": "you",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "raw": "send",
+          "start": 3.36,
+          "end": 3.56
+        },
+        {
+          "raw": "for",
+          "start": 3.56,
+          "end": 3.74
+        },
+        {
+          "raw": "that",
+          "start": 3.74,
+          "end": 3.92
+        },
+        {
+          "raw": "person?",
+          "start": 3.92,
+          "end": 4.28
+        }
+      ],
+      "expected_tokens": [
+        "\"Tell",
+        "me,\"",
+        "Alyosha",
+        "asked",
+        "anxiously,",
+        "\"did",
+        "you",
+        "send",
+        "for",
+        "that",
+        "person?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tell",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "tell",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 0.58,
+          "end": 0.84,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 1.26,
+          "end": 1.7,
+          "key": "alyosha",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.7,
+          "end": 2.0,
+          "key": "asked",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "anxiously,",
+          "start": 2.0,
+          "end": 2.62,
+          "key": "anxiously",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 2.96,
+          "end": 3.2,
+          "key": "did",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.2,
+          "end": 3.36,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 3.36,
+          "end": 3.56,
+          "key": "send",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.56,
+          "end": 3.74,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.74,
+          "end": 3.92,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "person?",
+          "start": 3.92,
+          "end": 4.28,
+          "key": "person",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Tell",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "me,\"",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "text": "Alyosha",
+          "start": 1.26,
+          "end": 1.7
+        },
+        {
+          "text": "asked",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "text": "anxiously,",
+          "start": 2.0,
+          "end": 2.62
+        },
+        {
+          "text": "\"did",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "text": "you",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "text": "send",
+          "start": 3.36,
+          "end": 3.56
+        },
+        {
+          "text": "for",
+          "start": 3.56,
+          "end": 3.74
+        },
+        {
+          "text": "that",
+          "start": 3.74,
+          "end": 3.92
+        },
+        {
+          "text": "person?\"",
+          "start": 3.92,
+          "end": 4.28
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2106440383940935
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "88734524fc64a615138b5134074160da4c80f601a8024c1fa660206d17fb40ac",
+  "selected_reasons": []
+}

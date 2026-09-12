@@ -1,0 +1,488 @@
+{
+  "complete": true,
+  "signature": "b5879941551eef88e5fa61402adc376fe11f85a17f91a2cbdef92478f557243d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2538037374615669,
+      "alignment_seconds": 0.0004777386784553528,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Don't talk of Alyosha! How dare you, you flunkey!\" Ivan laughed again.",
+        "hotwords": "Don't, Alyosha, How, Ivan"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don't talk of Alyosha! How dare you, you flunkey!\" Ivan laughed again.",
+          "start": 0.02,
+          "end": 4.26,
+          "words": [
+            {
+              "text": " Don't",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " talk",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 0.8,
+              "end": 0.92,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " Alyosha!",
+              "start": 0.92,
+              "end": 1.5,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " How",
+              "start": 1.78,
+              "end": 1.86,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " dare",
+              "start": 1.86,
+              "end": 2.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you,",
+              "start": 2.04,
+              "end": 2.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 2.32,
+              "end": 2.38,
+              "probability": 0.994140625
+            },
+            {
+              "text": " flunkey",
+              "start": 2.38,
+              "end": 2.82,
+              "probability": 0.5733744303385416
+            },
+            {
+              "text": "!\"",
+              "start": 2.82,
+              "end": 3.52,
+              "probability": 0.0546875
+            },
+            {
+              "text": " Ivan",
+              "start": 3.52,
+              "end": 3.54,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " laughed",
+              "start": 3.54,
+              "end": 3.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " again.",
+              "start": 3.86,
+              "end": 4.26,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don't",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "talk",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "of",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "raw": "Alyosha!",
+          "start": 0.92,
+          "end": 1.5
+        },
+        {
+          "raw": "How",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "raw": "dare",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "raw": "you,",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "raw": "you",
+          "start": 2.32,
+          "end": 2.38
+        },
+        {
+          "raw": "flunkey",
+          "start": 2.38,
+          "end": 2.82
+        },
+        {
+          "raw": "!\"",
+          "start": 2.82,
+          "end": 3.52
+        },
+        {
+          "raw": "Ivan",
+          "start": 3.52,
+          "end": 3.54
+        },
+        {
+          "raw": "laughed",
+          "start": 3.54,
+          "end": 3.86
+        },
+        {
+          "raw": "again.",
+          "start": 3.86,
+          "end": 4.26
+        }
+      ],
+      "expected_tokens": [
+        "\"Don't",
+        "talk",
+        "of",
+        "Alyosha!",
+        "How",
+        "dare",
+        "you,",
+        "you",
+        "flunkey!\"",
+        "Ivan",
+        "laughed",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "insert",
+          9,
+          9,
+          9,
+          10
+        ],
+        [
+          "equal",
+          9,
+          12,
+          10,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          9,
+          9,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don't",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "dont",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "talk",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.8,
+          "end": 0.92,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Alyosha!",
+          "start": 0.92,
+          "end": 1.5,
+          "key": "alyosha",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.78,
+          "end": 1.86,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dare",
+          "start": 1.86,
+          "end": 2.04,
+          "key": "dare",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 2.04,
+          "end": 2.22,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.32,
+          "end": 2.38,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "flunkey",
+          "start": 2.38,
+          "end": 2.82,
+          "key": "flunkey",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 2.82,
+          "end": 3.52,
+          "key": "",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Ivan",
+          "start": 3.52,
+          "end": 3.54,
+          "key": "ivan",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "laughed",
+          "start": 3.54,
+          "end": 3.86,
+          "key": "laughed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 3.86,
+          "end": 4.26,
+          "key": "again",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Don't",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "talk",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "of",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "text": "Alyosha!",
+          "start": 0.92,
+          "end": 1.5
+        },
+        {
+          "text": "How",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "text": "dare",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "text": "you,",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "text": "you",
+          "start": 2.32,
+          "end": 2.38
+        },
+        {
+          "text": "flunkey!\"",
+          "start": 2.38,
+          "end": 2.82
+        },
+        {
+          "text": "Ivan",
+          "start": 3.52,
+          "end": 3.54
+        },
+        {
+          "text": "laughed",
+          "start": 3.54,
+          "end": 3.86
+        },
+        {
+          "text": "again.",
+          "start": 3.86,
+          "end": 4.26
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25446952134370804
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8b6f5beca83f37c7c0e9ffcaa1a81f6535c74fa282c818a5956ff503ee42abf0",
+  "selected_reasons": []
+}

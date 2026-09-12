@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "aa759bb51dede74711d2927c96b8fe8eeedc0882539321cd4d2547bf7e6ce32b",
+  "attempts": [
+    {
+      "asr_seconds": 0.09740497451275587,
+      "alignment_seconds": 0.0001484481617808342,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Anything but well.",
+        "hotwords": "Anything"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anything but well.",
+          "start": 0.02,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " Anything",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.6181640625
+            },
+            {
+              "text": " but",
+              "start": 0.68,
+              "end": 0.92,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " well.",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.927734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anything",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "but",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "raw": "well.",
+          "start": 0.92,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "Anything",
+        "but",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anything",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "anything",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 0.68,
+          "end": 0.92,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 0.92,
+          "end": 1.2,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Anything",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "but",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "text": "well.",
+          "start": 0.92,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09760494530200958
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66fd423bbb97d4a4935553748b146578ea78aa921a79a2830d646fcf92e02ff3",
+  "selected_reasons": []
+}

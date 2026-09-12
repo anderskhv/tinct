@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "c89ff6c551713fb5fb5305e058725f0b5d66e9f23dcbae20cb9ae03a2a99e7e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.33706711800186895,
+      "alignment_seconds": 0.0004795260028913617,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Silius. Thou hast, Ventidius, that Without the which a soldier and his sword Grants scarce distinction. Thou wilt write to Antony?",
+        "hotwords": "Silius, Thou, Ventidius, Without, Grants, Antony"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Silius, Thou hast, Ventidius, That, Without the which a soldier and his sword Grants scarce distinction. Thou wilt write to Antony?",
+          "start": 0.08,
+          "end": 8.42,
+          "words": [
+            {
+              "text": " Silius,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.65869140625
+            },
+            {
+              "text": " Thou",
+              "start": 1.4,
+              "end": 1.44,
+              "probability": 0.05902099609375
+            },
+            {
+              "text": " hast,",
+              "start": 1.44,
+              "end": 1.94,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " Ventidius,",
+              "start": 2.14,
+              "end": 2.72,
+              "probability": 0.6907552083333334
+            },
+            {
+              "text": " That,",
+              "start": 3.12,
+              "end": 3.24,
+              "probability": 0.404052734375
+            },
+            {
+              "text": " Without",
+              "start": 3.3,
+              "end": 3.5,
+              "probability": 0.023590087890625
+            },
+            {
+              "text": " the",
+              "start": 3.5,
+              "end": 3.68,
+              "probability": 0.95703125
+            },
+            {
+              "text": " which",
+              "start": 3.68,
+              "end": 3.78,
+              "probability": 0.2496337890625
+            },
+            {
+              "text": " a",
+              "start": 3.78,
+              "end": 3.98,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " soldier",
+              "start": 3.98,
+              "end": 4.28,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " and",
+              "start": 4.28,
+              "end": 4.56,
+              "probability": 0.818359375
+            },
+            {
+              "text": " his",
+              "start": 4.56,
+              "end": 4.7,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " sword",
+              "start": 4.7,
+              "end": 5.02,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Grants",
+              "start": 5.02,
+              "end": 5.38,
+              "probability": 0.277099609375
+            },
+            {
+              "text": " scarce",
+              "start": 5.38,
+              "end": 5.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " distinction.",
+              "start": 5.8,
+              "end": 6.38,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Thou",
+              "start": 7.16,
+              "end": 7.32,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " wilt",
+              "start": 7.32,
+              "end": 7.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " write",
+              "start": 7.62,
+              "end": 7.86,
+              "probability": 0.0220489501953125
+            },
+            {
+              "text": " to",
+              "start": 7.86,
+              "end": 8.02,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Antony?",
+              "start": 8.02,
+              "end": 8.42,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Silius,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "Thou",
+          "start": 1.4,
+          "end": 1.44
+        },
+        {
+          "raw": "hast,",
+          "start": 1.44,
+          "end": 1.94
+        },
+        {
+          "raw": "Ventidius,",
+          "start": 2.14,
+          "end": 2.72
+        },
+        {
+          "raw": "That,",
+          "start": 3.12,
+          "end": 3.24
+        },
+        {
+          "raw": "Without",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "raw": "the",
+          "start": 3.5,
+          "end": 3.68
+        },
+        {
+          "raw": "which",
+          "start": 3.68,
+          "end": 3.78
+        },
+        {
+          "raw": "a",
+          "start": 3.78,
+          "end": 3.98
+        },
+        {
+          "raw": "soldier",
+          "start": 3.98,
+          "end": 4.28
+        },
+        {
+          "raw": "and",
+          "start": 4.28,
+          "end": 4.56
+        },
+        {
+          "raw": "his",
+          "start": 4.56,
+          "end": 4.7
+        },
+        {
+          "raw": "sword",
+          "start": 4.7,
+          "end": 5.02
+        },
+        {
+          "raw": "Grants",
+          "start": 5.02,
+          "end": 5.38
+        },
+        {
+          "raw": "scarce",
+          "start": 5.38,
+          "end": 5.8
+        },
+        {
+          "raw": "distinction.",
+          "start": 5.8,
+          "end": 6.38
+        },
+        {
+          "raw": "Thou",
+          "start": 7.16,
+          "end": 7.32
+        },
+        {
+          "raw": "wilt",
+          "start": 7.32,
+          "end": 7.62
+        },
+        {
+          "raw": "write",
+          "start": 7.62,
+          "end": 7.86
+        },
+        {
+          "raw": "to",
+          "start": 7.86,
+          "end": 8.02
+        },
+        {
+          "raw": "Antony?",
+          "start": 8.02,
+          "end": 8.42
+        }
+      ],
+      "expected_tokens": [
+        "Silius.",
+        "Thou",
+        "hast,",
+        "Ventidius,",
+        "that",
+        "Without",
+        "the",
+        "which",
+        "a",
+        "soldier",
+        "and",
+        "his",
+        "sword",
+        "Grants",
+        "scarce",
+        "distinction.",
+        "Thou",
+        "wilt",
+        "write",
+        "to",
+        "Antony?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Silius,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "silius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 1.4,
+          "end": 1.44,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hast,",
+          "start": 1.44,
+          "end": 1.94,
+          "key": "hast",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ventidius,",
+          "start": 2.14,
+          "end": 2.72,
+          "key": "ventidius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "That,",
+          "start": 3.12,
+          "end": 3.24,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Without",
+          "start": 3.3,
+          "end": 3.5,
+          "key": "without",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.5,
+          "end": 3.68,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.68,
+          "end": 3.78,
+          "key": "which",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.78,
+          "end": 3.98,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "soldier",
+          "start": 3.98,
+          "end": 4.28,
+          "key": "soldier",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.28,
+          "end": 4.56,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.56,
+          "end": 4.7,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sword",
+          "start": 4.7,
+          "end": 5.02,
+          "key": "sword",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Grants",
+          "start": 5.02,
+          "end": 5.38,
+          "key": "grants",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "scarce",
+          "start": 5.38,
+          "end": 5.8,
+          "key": "scarce",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "distinction.",
+          "start": 5.8,
+          "end": 6.38,
+          "key": "distinction",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 7.16,
+          "end": 7.32,
+          "key": "thou",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "wilt",
+          "start": 7.32,
+          "end": 7.62,
+          "key": "wilt",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "write",
+          "start": 7.62,
+          "end": 7.86,
+          "key": "write",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.86,
+          "end": 8.02,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Antony?",
+          "start": 8.02,
+          "end": 8.42,
+          "key": "antony",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Silius.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "Thou",
+          "start": 1.4,
+          "end": 1.44
+        },
+        {
+          "text": "hast,",
+          "start": 1.44,
+          "end": 1.94
+        },
+        {
+          "text": "Ventidius,",
+          "start": 2.14,
+          "end": 2.72
+        },
+        {
+          "text": "that",
+          "start": 3.12,
+          "end": 3.24
+        },
+        {
+          "text": "Without",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "text": "the",
+          "start": 3.5,
+          "end": 3.68
+        },
+        {
+          "text": "which",
+          "start": 3.68,
+          "end": 3.78
+        },
+        {
+          "text": "a",
+          "start": 3.78,
+          "end": 3.98
+        },
+        {
+          "text": "soldier",
+          "start": 3.98,
+          "end": 4.28
+        },
+        {
+          "text": "and",
+          "start": 4.28,
+          "end": 4.56
+        },
+        {
+          "text": "his",
+          "start": 4.56,
+          "end": 4.7
+        },
+        {
+          "text": "sword",
+          "start": 4.7,
+          "end": 5.02
+        },
+        {
+          "text": "Grants",
+          "start": 5.02,
+          "end": 5.38
+        },
+        {
+          "text": "scarce",
+          "start": 5.38,
+          "end": 5.8
+        },
+        {
+          "text": "distinction.",
+          "start": 5.8,
+          "end": 6.38
+        },
+        {
+          "text": "Thou",
+          "start": 7.16,
+          "end": 7.32
+        },
+        {
+          "text": "wilt",
+          "start": 7.32,
+          "end": 7.62
+        },
+        {
+          "text": "write",
+          "start": 7.62,
+          "end": 7.86
+        },
+        {
+          "text": "to",
+          "start": 7.86,
+          "end": 8.02
+        },
+        {
+          "text": "Antony?",
+          "start": 8.02,
+          "end": 8.42
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.337765472009778
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "90e093c59971cc77c1411377673a8d844a6641af94aba3bb855b7b4ed244b02e",
+  "selected_reasons": []
+}

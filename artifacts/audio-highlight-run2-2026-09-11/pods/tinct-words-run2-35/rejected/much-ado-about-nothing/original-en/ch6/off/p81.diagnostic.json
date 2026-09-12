@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "53c762b7ef2878e167bedc716edd089dc1bf651fa1f8edddda28dae45a8488a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.21923098899424076,
+      "alignment_seconds": 0.00045206956565380096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don Pedro he doth indeed show some sparks that are like wit",
+          "start": 0.05,
+          "end": 3.79,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " Pedro",
+              "start": 0.61,
+              "end": 0.99,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " he",
+              "start": 0.99,
+              "end": 1.63,
+              "probability": 0.1953125
+            },
+            {
+              "text": " doth",
+              "start": 1.63,
+              "end": 1.85,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " indeed",
+              "start": 1.85,
+              "end": 2.15,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " show",
+              "start": 2.15,
+              "end": 2.47,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " some",
+              "start": 2.47,
+              "end": 2.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sparks",
+              "start": 2.69,
+              "end": 3.09,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " that",
+              "start": 3.09,
+              "end": 3.27,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " are",
+              "start": 3.27,
+              "end": 3.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " like",
+              "start": 3.35,
+              "end": 3.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wit",
+              "start": 3.51,
+              "end": 3.79,
+              "probability": 0.9228515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Pedro",
+          "start": 0.61,
+          "end": 0.99
+        },
+        {
+          "raw": "he",
+          "start": 0.99,
+          "end": 1.63
+        },
+        {
+          "raw": "doth",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "raw": "indeed",
+          "start": 1.85,
+          "end": 2.15
+        },
+        {
+          "raw": "show",
+          "start": 2.15,
+          "end": 2.47
+        },
+        {
+          "raw": "some",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "raw": "sparks",
+          "start": 2.69,
+          "end": 3.09
+        },
+        {
+          "raw": "that",
+          "start": 3.09,
+          "end": 3.27
+        },
+        {
+          "raw": "are",
+          "start": 3.27,
+          "end": 3.35
+        },
+        {
+          "raw": "like",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "raw": "wit",
+          "start": 3.51,
+          "end": 3.79
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "He",
+        "doth",
+        "indeed",
+        "show",
+        "some",
+        "sparks",
+        "that",
+        "are",
+        "like",
+        "wit."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro",
+          "start": 0.61,
+          "end": 0.99,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.99,
+          "end": 1.63,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 1.63,
+          "end": 1.85,
+          "key": "doth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "indeed",
+          "start": 1.85,
+          "end": 2.15,
+          "key": "indeed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 2.15,
+          "end": 2.47,
+          "key": "show",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 2.47,
+          "end": 2.69,
+          "key": "some",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sparks",
+          "start": 2.69,
+          "end": 3.09,
+          "key": "sparks",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.09,
+          "end": 3.27,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.27,
+          "end": 3.35,
+          "key": "are",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.35,
+          "end": 3.51,
+          "key": "like",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "wit",
+          "start": 3.51,
+          "end": 3.79,
+          "key": "wit",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.61,
+          "end": 0.99
+        },
+        {
+          "text": "He",
+          "start": 0.99,
+          "end": 1.63
+        },
+        {
+          "text": "doth",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "text": "indeed",
+          "start": 1.85,
+          "end": 2.15
+        },
+        {
+          "text": "show",
+          "start": 2.15,
+          "end": 2.47
+        },
+        {
+          "text": "some",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "text": "sparks",
+          "start": 2.69,
+          "end": 3.09
+        },
+        {
+          "text": "that",
+          "start": 3.09,
+          "end": 3.27
+        },
+        {
+          "text": "are",
+          "start": 3.27,
+          "end": 3.35
+        },
+        {
+          "text": "like",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "text": "wit.",
+          "start": 3.51,
+          "end": 3.79
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21986096911132336
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f7917d6c69838de35f1256fc877145a9c06eb72b22e9080168736a1520a7312e",
+  "selected_reasons": []
+}

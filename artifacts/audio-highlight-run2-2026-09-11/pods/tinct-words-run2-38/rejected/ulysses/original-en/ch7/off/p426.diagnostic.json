@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "3337bffead7c8423b15fbb6aef06db937a3388268b3984b953c105ed813062dc",
+  "attempts": [
+    {
+      "asr_seconds": 0.08464815298793837,
+      "alignment_seconds": 0.000109821034129709,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " From The Fathers",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " From",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.6923828125
+            },
+            {
+              "text": " The",
+              "start": 0.49,
+              "end": 0.63,
+              "probability": 0.3994140625
+            },
+            {
+              "text": " Fathers",
+              "start": 0.63,
+              "end": 0.97,
+              "probability": 0.82275390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "From",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "The",
+          "start": 0.49,
+          "end": 0.63
+        },
+        {
+          "raw": "Fathers",
+          "start": 0.63,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "From",
+        "The",
+        "Fathers"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "From",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "from",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 0.49,
+          "end": 0.63,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Fathers",
+          "start": 0.63,
+          "end": 0.97,
+          "key": "fathers",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "From",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "The",
+          "start": 0.49,
+          "end": 0.63
+        },
+        {
+          "text": "Fathers",
+          "start": 0.63,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08479850401636213
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1fe5cb396af263bade8b6f69b847ff5aa1db7f6a49a094213836e4901cfeb39e",
+  "selected_reasons": []
+}

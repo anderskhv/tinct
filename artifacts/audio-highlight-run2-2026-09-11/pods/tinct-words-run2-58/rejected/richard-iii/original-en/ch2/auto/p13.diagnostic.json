@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "24580beb2d0b57c2f6fd7ab4f747fe89d987aff637e91d2c6e50a975b784c766",
+  "attempts": [
+    {
+      "asr_seconds": 0.22464493475854397,
+      "alignment_seconds": 0.0004747547209262848,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Richard. Lady, you know no rules of charity, Which renders good for bad, blessings for curses.",
+        "hotwords": "Richard, Lady, Which"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Richard, Lady, you know no rules of charity, Which renders good for bad, blessings for curses.",
+          "start": 0.05,
+          "end": 6.03,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.395263671875
+            },
+            {
+              "text": " Lady,",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.32421875
+            },
+            {
+              "text": " you",
+              "start": 1.85,
+              "end": 1.91,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " know",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " no",
+              "start": 2.05,
+              "end": 2.33,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " rules",
+              "start": 2.33,
+              "end": 2.57,
+              "probability": 0.880859375
+            },
+            {
+              "text": " of",
+              "start": 2.57,
+              "end": 2.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " charity,",
+              "start": 2.79,
+              "end": 3.21,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " Which",
+              "start": 3.47,
+              "end": 3.57,
+              "probability": 0.08203125
+            },
+            {
+              "text": " renders",
+              "start": 3.57,
+              "end": 3.85,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " good",
+              "start": 3.85,
+              "end": 4.13,
+              "probability": 0.990234375
+            },
+            {
+              "text": " for",
+              "start": 4.13,
+              "end": 4.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bad,",
+              "start": 4.33,
+              "end": 4.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " blessings",
+              "start": 5.11,
+              "end": 5.27,
+              "probability": 0.2369384765625
+            },
+            {
+              "text": " for",
+              "start": 5.27,
+              "end": 5.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " curses.",
+              "start": 5.67,
+              "end": 6.03,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Lady,",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "you",
+          "start": 1.85,
+          "end": 1.91
+        },
+        {
+          "raw": "know",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "no",
+          "start": 2.05,
+          "end": 2.33
+        },
+        {
+          "raw": "rules",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "raw": "of",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "raw": "charity,",
+          "start": 2.79,
+          "end": 3.21
+        },
+        {
+          "raw": "Which",
+          "start": 3.47,
+          "end": 3.57
+        },
+        {
+          "raw": "renders",
+          "start": 3.57,
+          "end": 3.85
+        },
+        {
+          "raw": "good",
+          "start": 3.85,
+          "end": 4.13
+        },
+        {
+          "raw": "for",
+          "start": 4.13,
+          "end": 4.33
+        },
+        {
+          "raw": "bad,",
+          "start": 4.33,
+          "end": 4.67
+        },
+        {
+          "raw": "blessings",
+          "start": 5.11,
+          "end": 5.27
+        },
+        {
+          "raw": "for",
+          "start": 5.27,
+          "end": 5.67
+        },
+        {
+          "raw": "curses.",
+          "start": 5.67,
+          "end": 6.03
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Lady,",
+        "you",
+        "know",
+        "no",
+        "rules",
+        "of",
+        "charity,",
+        "Which",
+        "renders",
+        "good",
+        "for",
+        "bad,",
+        "blessings",
+        "for",
+        "curses."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lady,",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "lady",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.85,
+          "end": 1.91,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "know",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.05,
+          "end": 2.33,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "rules",
+          "start": 2.33,
+          "end": 2.57,
+          "key": "rules",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.57,
+          "end": 2.79,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "charity,",
+          "start": 2.79,
+          "end": 3.21,
+          "key": "charity",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 3.47,
+          "end": 3.57,
+          "key": "which",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "renders",
+          "start": 3.57,
+          "end": 3.85,
+          "key": "renders",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.85,
+          "end": 4.13,
+          "key": "good",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.13,
+          "end": 4.33,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "bad,",
+          "start": 4.33,
+          "end": 4.67,
+          "key": "bad",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "blessings",
+          "start": 5.11,
+          "end": 5.27,
+          "key": "blessings",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.27,
+          "end": 5.67,
+          "key": "for",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "curses.",
+          "start": 5.67,
+          "end": 6.03,
+          "key": "curses",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Lady,",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "you",
+          "start": 1.85,
+          "end": 1.91
+        },
+        {
+          "text": "know",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "text": "no",
+          "start": 2.05,
+          "end": 2.33
+        },
+        {
+          "text": "rules",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "text": "of",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "text": "charity,",
+          "start": 2.79,
+          "end": 3.21
+        },
+        {
+          "text": "Which",
+          "start": 3.47,
+          "end": 3.57
+        },
+        {
+          "text": "renders",
+          "start": 3.57,
+          "end": 3.85
+        },
+        {
+          "text": "good",
+          "start": 3.85,
+          "end": 4.13
+        },
+        {
+          "text": "for",
+          "start": 4.13,
+          "end": 4.33
+        },
+        {
+          "text": "bad,",
+          "start": 4.33,
+          "end": 4.67
+        },
+        {
+          "text": "blessings",
+          "start": 5.11,
+          "end": 5.27
+        },
+        {
+          "text": "for",
+          "start": 5.27,
+          "end": 5.67
+        },
+        {
+          "text": "curses.",
+          "start": 5.67,
+          "end": 6.03
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22531902696937323
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dae4b2366d4504b7e0e0c9eae44e2045ab92f618fc0f0e8a353435856c16fbf5",
+  "selected_reasons": []
+}

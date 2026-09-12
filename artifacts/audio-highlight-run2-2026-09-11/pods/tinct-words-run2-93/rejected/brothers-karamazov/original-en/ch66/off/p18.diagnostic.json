@@ -1,0 +1,537 @@
+{
+  "complete": true,
+  "signature": "bb99aa36073866f96cdba2e2096424341cb5325d32ee306e507b71044b432168",
+  "attempts": [
+    {
+      "asr_seconds": 0.3141348287463188,
+      "alignment_seconds": 0.00047209858894348145,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I understand you, Karamazov.",
+          "start": 0.02,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.2080078125
+            },
+            {
+              "text": " understand",
+              "start": 0.56,
+              "end": 1.0,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " you,",
+              "start": 1.0,
+              "end": 1.3,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Karamazov.",
+              "start": 1.5,
+              "end": 1.98,
+              "probability": 0.8678385416666666
+            }
+          ]
+        },
+        {
+          "text": " I see you understand human nature,\" Kalia added with feeling.",
+          "start": 2.5,
+          "end": 5.76,
+          "words": [
+            {
+              "text": " I",
+              "start": 2.5,
+              "end": 2.6,
+              "probability": 0.990234375
+            },
+            {
+              "text": " see",
+              "start": 2.6,
+              "end": 2.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 2.78,
+              "end": 2.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " understand",
+              "start": 2.92,
+              "end": 3.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " human",
+              "start": 3.36,
+              "end": 3.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " nature,\"",
+              "start": 3.7,
+              "end": 4.74,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " Kalia",
+              "start": 4.74,
+              "end": 4.86,
+              "probability": 0.630615234375
+            },
+            {
+              "text": " added",
+              "start": 4.86,
+              "end": 5.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 5.2,
+              "end": 5.48,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " feeling.",
+              "start": 5.48,
+              "end": 5.76,
+              "probability": 0.9716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "understand",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "raw": "you,",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "raw": "Karamazov.",
+          "start": 1.5,
+          "end": 1.98
+        },
+        {
+          "raw": "I",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "raw": "see",
+          "start": 2.6,
+          "end": 2.78
+        },
+        {
+          "raw": "you",
+          "start": 2.78,
+          "end": 2.92
+        },
+        {
+          "raw": "understand",
+          "start": 2.92,
+          "end": 3.36
+        },
+        {
+          "raw": "human",
+          "start": 3.36,
+          "end": 3.7
+        },
+        {
+          "raw": "nature,\"",
+          "start": 3.7,
+          "end": 4.74
+        },
+        {
+          "raw": "Kalia",
+          "start": 4.74,
+          "end": 4.86
+        },
+        {
+          "raw": "added",
+          "start": 4.86,
+          "end": 5.2
+        },
+        {
+          "raw": "with",
+          "start": 5.2,
+          "end": 5.48
+        },
+        {
+          "raw": "feeling.",
+          "start": 5.48,
+          "end": 5.76
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "understand",
+        "you,",
+        "Karamazov.",
+        "I",
+        "see",
+        "you",
+        "understand",
+        "human",
+        "nature,\"",
+        "Kolya",
+        "added,",
+        "with",
+        "feeling."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          14,
+          11,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 0.56,
+          "end": 1.0,
+          "key": "understand",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.0,
+          "end": 1.3,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Karamazov.",
+          "start": 1.5,
+          "end": 1.98,
+          "key": "karamazov",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.5,
+          "end": 2.6,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.6,
+          "end": 2.78,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.78,
+          "end": 2.92,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 2.92,
+          "end": 3.36,
+          "key": "understand",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "human",
+          "start": 3.36,
+          "end": 3.7,
+          "key": "human",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "nature,\"",
+          "start": 3.7,
+          "end": 4.74,
+          "key": "nature",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Kalia",
+          "start": 4.74,
+          "end": 4.86,
+          "key": "kalia",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "added",
+          "start": 4.86,
+          "end": 5.2,
+          "key": "added",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.2,
+          "end": 5.48,
+          "key": "with",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "feeling.",
+          "start": 5.48,
+          "end": 5.76,
+          "key": "feeling",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "understand",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "text": "you,",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "text": "Karamazov.",
+          "start": 1.5,
+          "end": 1.98
+        },
+        {
+          "text": "I",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "text": "see",
+          "start": 2.6,
+          "end": 2.78
+        },
+        {
+          "text": "you",
+          "start": 2.78,
+          "end": 2.92
+        },
+        {
+          "text": "understand",
+          "start": 2.92,
+          "end": 3.36
+        },
+        {
+          "text": "human",
+          "start": 3.36,
+          "end": 3.7
+        },
+        {
+          "text": "nature,\"",
+          "start": 3.7,
+          "end": 4.74
+        },
+        {
+          "text": "Kolya",
+          "start": 4.74,
+          "end": 4.8
+        },
+        {
+          "text": "added,",
+          "start": 4.86,
+          "end": 5.2
+        },
+        {
+          "text": "with",
+          "start": 5.2,
+          "end": 5.48
+        },
+        {
+          "text": "feeling.",
+          "start": 5.48,
+          "end": 5.76
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.3147774748504162
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0f6b868824a042d5bb66bd62dbe24a6df9bfae41bd3f6093155705b87fd7d126",
+  "selected_reasons": []
+}

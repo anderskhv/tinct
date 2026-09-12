@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "fb7b7f5ac5fad5320ba4ebde6272bee4b5969656af25f1ded085ecb2f01ccbf4",
+  "attempts": [
+    {
+      "asr_seconds": 0.13291645795106888,
+      "alignment_seconds": 0.00028790906071662903,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Guiderius. Hail, heaven!",
+        "hotwords": "Guiderius, Hail"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Guiderius, Hail, heaven!",
+          "start": 0.05,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Guiderius,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.31067148844401044
+            },
+            {
+              "text": " Hail,",
+              "start": 1.37,
+              "end": 1.49,
+              "probability": 0.6328125
+            },
+            {
+              "text": " heaven!",
+              "start": 1.63,
+              "end": 1.87,
+              "probability": 0.0421142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "Hail,",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "raw": "heaven!",
+          "start": 1.63,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "Guiderius.",
+        "Hail,",
+        "heaven!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "guiderius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hail,",
+          "start": 1.37,
+          "end": 1.49,
+          "key": "hail",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "heaven!",
+          "start": 1.63,
+          "end": 1.87,
+          "key": "heaven",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guiderius.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "Hail,",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "text": "heaven!",
+          "start": 1.63,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13331071473658085
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "95edc418f9200712391639b08ba3aef72c8f330c41f8fb47a09267638c2e48dc",
+  "selected_reasons": []
+}

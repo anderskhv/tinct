@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "dff7e5c693ef028a9374021b86fbaafbd3f6cdb042c2faf7bcc8c8e1f3bd3167",
+  "attempts": [
+    {
+      "asr_seconds": 0.1172195766121149,
+      "alignment_seconds": 0.000316091813147068,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"He tells me so.\"",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He tells me so.",
+          "start": 0.05,
+          "end": 1.21,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " tells",
+              "start": 0.51,
+              "end": 0.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 0.73,
+              "end": 0.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " so.",
+              "start": 0.95,
+              "end": 1.21,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "tells",
+          "start": 0.51,
+          "end": 0.73
+        },
+        {
+          "raw": "me",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "raw": "so.",
+          "start": 0.95,
+          "end": 1.21
+        }
+      ],
+      "expected_tokens": [
+        "\"He",
+        "tells",
+        "me",
+        "so.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tells",
+          "start": 0.51,
+          "end": 0.73,
+          "key": "tells",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.73,
+          "end": 0.95,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 0.95,
+          "end": 1.21,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "tells",
+          "start": 0.51,
+          "end": 0.73
+        },
+        {
+          "text": "me",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "text": "so.\"",
+          "start": 0.95,
+          "end": 1.21
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1176599320024252
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "32d7cbd2d165dcdb1e75776db89760728aaadc8fc25c1b2205cd8db6eef97eba",
+  "selected_reasons": []
+}

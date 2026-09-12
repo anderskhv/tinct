@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "1da7e19253cb42c91a9eeeb933bd26a494f75c475f1a44fb02875c52eb017947",
+  "attempts": [
+    {
+      "asr_seconds": 0.1518171657808125,
+      "alignment_seconds": 0.00014334870502352715,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Emilia, what ho, my lord, my lord!",
+          "start": 0.43,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.43,
+              "end": 0.79,
+              "probability": 0.629638671875
+            },
+            {
+              "text": " what",
+              "start": 1.27,
+              "end": 1.33,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " ho,",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.63720703125
+            },
+            {
+              "text": " my",
+              "start": 1.63,
+              "end": 1.73,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " lord,",
+              "start": 1.73,
+              "end": 1.91,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " my",
+              "start": 2.03,
+              "end": 2.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " lord!",
+              "start": 2.11,
+              "end": 2.35,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.43,
+          "end": 0.79
+        },
+        {
+          "raw": "what",
+          "start": 1.27,
+          "end": 1.33
+        },
+        {
+          "raw": "ho,",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "my",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "raw": "lord,",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "raw": "my",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "raw": "lord!",
+          "start": 2.11,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "What,",
+        "ho!",
+        "my",
+        "lord,",
+        "my",
+        "lord!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.43,
+          "end": 0.79,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.27,
+          "end": 1.33,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ho,",
+          "start": 1.33,
+          "end": 1.55,
+          "key": "ho",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.63,
+          "end": 1.73,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.73,
+          "end": 1.91,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.03,
+          "end": 2.11,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lord!",
+          "start": 2.11,
+          "end": 2.35,
+          "key": "lord",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.43,
+          "end": 0.79
+        },
+        {
+          "text": "What,",
+          "start": 1.27,
+          "end": 1.33
+        },
+        {
+          "text": "ho!",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "my",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "text": "lord,",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "text": "my",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "text": "lord!",
+          "start": 2.11,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.152010144200176
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "060bff629685bc0c768b59b86ddb94213d7198ea8929e4bfceb3293b6e3e572c",
+  "selected_reasons": []
+}

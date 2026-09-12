@@ -1,0 +1,305 @@
+{
+  "complete": true,
+  "signature": "3b35ddc4a4171e588621cd29c234428a5f1dc1fa44ed4b1b58a249cbab56bd70",
+  "attempts": [
+    {
+      "asr_seconds": 0.12928463891148567,
+      "alignment_seconds": 0.0002670180983841419,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Patricia, I would they were a bed.",
+          "start": 0.14,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " Patricia,",
+              "start": 0.14,
+              "end": 0.7,
+              "probability": 0.203125
+            },
+            {
+              "text": " I",
+              "start": 1.16,
+              "end": 1.34,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " would",
+              "start": 1.34,
+              "end": 1.44,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " they",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.74560546875
+            },
+            {
+              "text": " were",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.974609375
+            },
+            {
+              "text": " a",
+              "start": 1.72,
+              "end": 1.82,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " bed.",
+              "start": 1.82,
+              "end": 2.04,
+              "probability": 0.90576171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Patricia,",
+          "start": 0.14,
+          "end": 0.7
+        },
+        {
+          "raw": "I",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "raw": "would",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "raw": "they",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "were",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "a",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "raw": "bed.",
+          "start": 1.82,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "Patrician.",
+        "I",
+        "would",
+        "they",
+        "were",
+        "abed!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Patricia,",
+          "start": 0.14,
+          "end": 0.7,
+          "key": "patricia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.16,
+          "end": 1.34,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.34,
+          "end": 1.44,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "were",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.72,
+          "end": 1.82,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bed.",
+          "start": 1.82,
+          "end": 2.04,
+          "key": "bed",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Patrician.",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "I",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "text": "would",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "text": "they",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "were",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "abed!",
+          "start": 1.72,
+          "end": 1.88
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12964604003354907
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b81d0f63937067b3ed144a667b0ab8e004a78d00ab93dcd70fd98f1ee01ef1e3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "7b764d924d1dbc0034f55afde7ef994ad8962f0cf61968477c4f32dadd6bb4be",
+  "attempts": [
+    {
+      "asr_seconds": 0.2170598292723298,
+      "alignment_seconds": 0.000495001208037138,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Charmian. Out, fool! I forgive thee for a witch.",
+        "hotwords": "Charmian, Out, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Charmian, Out, fool! I forgive thee for a witch.",
+          "start": 0.49,
+          "end": 2.97,
+          "words": [
+            {
+              "text": " Charmian,",
+              "start": 0.49,
+              "end": 0.85,
+              "probability": 0.668212890625
+            },
+            {
+              "text": " Out,",
+              "start": 1.17,
+              "end": 1.25,
+              "probability": 0.171142578125
+            },
+            {
+              "text": " fool!",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.341552734375
+            },
+            {
+              "text": " I",
+              "start": 2.01,
+              "end": 2.09,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " forgive",
+              "start": 2.09,
+              "end": 2.33,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " thee",
+              "start": 2.33,
+              "end": 2.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 2.51,
+              "end": 2.65,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " a",
+              "start": 2.65,
+              "end": 2.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " witch.",
+              "start": 2.75,
+              "end": 2.97,
+              "probability": 0.931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmian,",
+          "start": 0.49,
+          "end": 0.85
+        },
+        {
+          "raw": "Out,",
+          "start": 1.17,
+          "end": 1.25
+        },
+        {
+          "raw": "fool!",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "I",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "raw": "forgive",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "raw": "thee",
+          "start": 2.33,
+          "end": 2.51
+        },
+        {
+          "raw": "for",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "raw": "a",
+          "start": 2.65,
+          "end": 2.75
+        },
+        {
+          "raw": "witch.",
+          "start": 2.75,
+          "end": 2.97
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "Out,",
+        "fool!",
+        "I",
+        "forgive",
+        "thee",
+        "for",
+        "a",
+        "witch."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmian,",
+          "start": 0.49,
+          "end": 0.85,
+          "key": "charmian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Out,",
+          "start": 1.17,
+          "end": 1.25,
+          "key": "out",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fool!",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "fool",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.01,
+          "end": 2.09,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "forgive",
+          "start": 2.09,
+          "end": 2.33,
+          "key": "forgive",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.33,
+          "end": 2.51,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.51,
+          "end": 2.65,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.65,
+          "end": 2.75,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "witch.",
+          "start": 2.75,
+          "end": 2.97,
+          "key": "witch",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.49,
+          "end": 0.85
+        },
+        {
+          "text": "Out,",
+          "start": 1.17,
+          "end": 1.25
+        },
+        {
+          "text": "fool!",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "I",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "text": "forgive",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "text": "thee",
+          "start": 2.33,
+          "end": 2.51
+        },
+        {
+          "text": "for",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "text": "a",
+          "start": 2.65,
+          "end": 2.75
+        },
+        {
+          "text": "witch.",
+          "start": 2.75,
+          "end": 2.97
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21787445712834597
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6b283f2857d9eaf726de1ce0366d8fac1532d66c4382cc3ef06db106094eade9",
+  "selected_reasons": []
+}

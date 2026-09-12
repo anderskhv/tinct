@@ -1,0 +1,1010 @@
+{
+  "complete": true,
+  "signature": "5554d3d61588f7a8b1455797e088ad7d54af594bb7349fccb70e69c64603f269",
+  "attempts": [
+    {
+      "asr_seconds": 0.25138489063829184,
+      "alignment_seconds": 0.000251030083745718,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exeunt Antipholus of Syracuse and Dromio of Syracuse._]",
+        "hotwords": "Antipholus, Syracuse, Dromio, Syracuse._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Xeunt Antipholus of Syracuse, Dromio of Syracuse._",
+          "start": 0.05,
+          "end": 4.67,
+          "words": [
+            {
+              "text": " Xeunt",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.3001607259114583
+            },
+            {
+              "text": " Antipholus",
+              "start": 0.85,
+              "end": 1.57,
+              "probability": 0.4776463508605957
+            },
+            {
+              "text": " of",
+              "start": 1.57,
+              "end": 1.71,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Syracuse,",
+              "start": 1.71,
+              "end": 2.17,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Dromio",
+              "start": 2.71,
+              "end": 3.23,
+              "probability": 0.5897350311279297
+            },
+            {
+              "text": " of",
+              "start": 3.23,
+              "end": 3.43,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Syracuse._",
+              "start": 3.43,
+              "end": 4.67,
+              "probability": 0.4907227158546448
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Xeunt",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Antipholus",
+          "start": 0.85,
+          "end": 1.57
+        },
+        {
+          "raw": "of",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "raw": "Syracuse,",
+          "start": 1.71,
+          "end": 2.17
+        },
+        {
+          "raw": "Dromio",
+          "start": 2.71,
+          "end": 3.23
+        },
+        {
+          "raw": "of",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "raw": "Syracuse._",
+          "start": 3.43,
+          "end": 4.67
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Antipholus",
+        "of",
+        "Syracuse",
+        "and",
+        "Dromio",
+        "of",
+        "Syracuse._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "delete",
+          4,
+          5,
+          4,
+          4
+        ],
+        [
+          "equal",
+          5,
+          7,
+          4,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          4,
+          5,
+          4,
+          4
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Xeunt",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "xeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Antipholus",
+          "start": 0.85,
+          "end": 1.57,
+          "key": "antipholus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.57,
+          "end": 1.71,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Syracuse,",
+          "start": 1.71,
+          "end": 2.17,
+          "key": "syracuse",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Dromio",
+          "start": 2.71,
+          "end": 3.23,
+          "key": "dromio",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.23,
+          "end": 3.43,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Syracuse._",
+          "start": 3.43,
+          "end": 4.67,
+          "key": "syracuse_",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.425
+        },
+        {
+          "text": "Antipholus",
+          "start": 0.85,
+          "end": 1.57
+        },
+        {
+          "text": "of",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "text": "Syracuse",
+          "start": 1.71,
+          "end": 2.17
+        },
+        {
+          "text": "and",
+          "start": 2.17,
+          "end": 2.44
+        },
+        {
+          "text": "Dromio",
+          "start": 2.71,
+          "end": 3.23
+        },
+        {
+          "text": "of",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "text": "Syracuse._]",
+          "start": 3.43,
+          "end": 4.05
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2517126267775893
+    },
+    {
+      "asr_seconds": 0.22760522505268455,
+      "alignment_seconds": 0.00023948214948177338,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Antipholus, Syracuse, Dromio, Syracuse._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exeunt Antipholus of Syracuse, Dromio of Syracuse._",
+          "start": 0.05,
+          "end": 4.67,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.6064453125
+            },
+            {
+              "text": " Antipholus",
+              "start": 0.87,
+              "end": 1.57,
+              "probability": 0.48290157318115234
+            },
+            {
+              "text": " of",
+              "start": 1.57,
+              "end": 1.71,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Syracuse,",
+              "start": 1.71,
+              "end": 2.17,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " Dromio",
+              "start": 2.71,
+              "end": 3.23,
+              "probability": 0.5913766225179037
+            },
+            {
+              "text": " of",
+              "start": 3.23,
+              "end": 3.43,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Syracuse._",
+              "start": 3.43,
+              "end": 4.67,
+              "probability": 0.4921875596046448
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Antipholus",
+          "start": 0.87,
+          "end": 1.57
+        },
+        {
+          "raw": "of",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "raw": "Syracuse,",
+          "start": 1.71,
+          "end": 2.17
+        },
+        {
+          "raw": "Dromio",
+          "start": 2.71,
+          "end": 3.23
+        },
+        {
+          "raw": "of",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "raw": "Syracuse._",
+          "start": 3.43,
+          "end": 4.67
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Antipholus",
+        "of",
+        "Syracuse",
+        "and",
+        "Dromio",
+        "of",
+        "Syracuse._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "delete",
+          4,
+          5,
+          4,
+          4
+        ],
+        [
+          "equal",
+          5,
+          7,
+          4,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          4,
+          5,
+          4,
+          4
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Antipholus",
+          "start": 0.87,
+          "end": 1.57,
+          "key": "antipholus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.57,
+          "end": 1.71,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Syracuse,",
+          "start": 1.71,
+          "end": 2.17,
+          "key": "syracuse",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Dromio",
+          "start": 2.71,
+          "end": 3.23,
+          "key": "dromio",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.23,
+          "end": 3.43,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Syracuse._",
+          "start": 3.43,
+          "end": 4.67,
+          "key": "syracuse_",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Antipholus",
+          "start": 0.87,
+          "end": 1.57
+        },
+        {
+          "text": "of",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "text": "Syracuse",
+          "start": 1.71,
+          "end": 2.17
+        },
+        {
+          "text": "and",
+          "start": 2.17,
+          "end": 2.44
+        },
+        {
+          "text": "Dromio",
+          "start": 2.71,
+          "end": 3.23
+        },
+        {
+          "text": "of",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "text": "Syracuse._]",
+          "start": 3.43,
+          "end": 4.05
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22791834874078631
+    },
+    {
+      "asr_seconds": 0.1842799298465252,
+      "alignment_seconds": 0.0001784898340702057,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt antifolus of Syracuse, andromio of Syracuse.",
+          "start": 0.05,
+          "end": 3.85,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.6064453125
+            },
+            {
+              "text": " antifolus",
+              "start": 0.87,
+              "end": 1.57,
+              "probability": 0.8013916015625
+            },
+            {
+              "text": " of",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Syracuse,",
+              "start": 1.69,
+              "end": 2.17,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " andromio",
+              "start": 2.71,
+              "end": 3.23,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " of",
+              "start": 3.23,
+              "end": 3.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Syracuse.",
+              "start": 3.43,
+              "end": 3.85,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "antifolus",
+          "start": 0.87,
+          "end": 1.57
+        },
+        {
+          "raw": "of",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "Syracuse,",
+          "start": 1.69,
+          "end": 2.17
+        },
+        {
+          "raw": "andromio",
+          "start": 2.71,
+          "end": 3.23
+        },
+        {
+          "raw": "of",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "raw": "Syracuse.",
+          "start": 3.43,
+          "end": 3.85
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Antipholus",
+        "of",
+        "Syracuse",
+        "and",
+        "Dromio",
+        "of",
+        "Syracuse._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          5
+        ],
+        [
+          "equal",
+          6,
+          8,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "antifolus",
+          "start": 0.87,
+          "end": 1.57,
+          "key": "antifolus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Syracuse,",
+          "start": 1.69,
+          "end": 2.17,
+          "key": "syracuse",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "andromio",
+          "start": 2.71,
+          "end": 3.23,
+          "key": "andromio",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.23,
+          "end": 3.43,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Syracuse.",
+          "start": 3.43,
+          "end": 3.85,
+          "key": "syracuse",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Antipholus",
+          "start": 0.87,
+          "end": 1.22
+        },
+        {
+          "text": "of",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "Syracuse",
+          "start": 1.69,
+          "end": 2.17
+        },
+        {
+          "text": "and",
+          "start": 2.17,
+          "end": 2.7
+        },
+        {
+          "text": "Dromio",
+          "start": 2.7,
+          "end": 2.965
+        },
+        {
+          "text": "of",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "text": "Syracuse._]",
+          "start": 3.43,
+          "end": 3.85
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18451137002557516
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "8c5dc0610f6c8b63fbb690cf084489367e13d427ca889b249b1a5d784e8818cd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

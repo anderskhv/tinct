@@ -1,0 +1,640 @@
+{
+  "complete": true,
+  "signature": "1d28793845e279cb4f507a3ae4ffe1403d0b28cf5efad7a029cbcef5d275fe09",
+  "attempts": [
+    {
+      "asr_seconds": 0.2792793959379196,
+      "alignment_seconds": 0.00047517940402030945,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Flulan. Captain McMorris, I think. Look you. Under your correction, there is not many of your nation.",
+          "start": 0.53,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " Flulan.",
+              "start": 0.53,
+              "end": 0.93,
+              "probability": 0.3731282552083333
+            },
+            {
+              "text": " Captain",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " McMorris,",
+              "start": 1.73,
+              "end": 2.31,
+              "probability": 0.921875
+            },
+            {
+              "text": " I",
+              "start": 2.45,
+              "end": 2.49,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " think.",
+              "start": 2.49,
+              "end": 2.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Look",
+              "start": 2.93,
+              "end": 3.01,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " you.",
+              "start": 3.01,
+              "end": 3.25,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Under",
+              "start": 3.67,
+              "end": 3.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " your",
+              "start": 3.77,
+              "end": 3.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " correction,",
+              "start": 3.95,
+              "end": 4.35,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " there",
+              "start": 4.61,
+              "end": 4.67,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " is",
+              "start": 4.67,
+              "end": 4.79,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " not",
+              "start": 4.79,
+              "end": 5.01,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " many",
+              "start": 5.01,
+              "end": 5.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 5.19,
+              "end": 5.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 5.35,
+              "end": 5.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nation.",
+              "start": 5.45,
+              "end": 5.73,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Flulan.",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "raw": "Captain",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "McMorris,",
+          "start": 1.73,
+          "end": 2.31
+        },
+        {
+          "raw": "I",
+          "start": 2.45,
+          "end": 2.49
+        },
+        {
+          "raw": "think.",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "raw": "Look",
+          "start": 2.93,
+          "end": 3.01
+        },
+        {
+          "raw": "you.",
+          "start": 3.01,
+          "end": 3.25
+        },
+        {
+          "raw": "Under",
+          "start": 3.67,
+          "end": 3.77
+        },
+        {
+          "raw": "your",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "raw": "correction,",
+          "start": 3.95,
+          "end": 4.35
+        },
+        {
+          "raw": "there",
+          "start": 4.61,
+          "end": 4.67
+        },
+        {
+          "raw": "is",
+          "start": 4.67,
+          "end": 4.79
+        },
+        {
+          "raw": "not",
+          "start": 4.79,
+          "end": 5.01
+        },
+        {
+          "raw": "many",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "raw": "of",
+          "start": 5.19,
+          "end": 5.35
+        },
+        {
+          "raw": "your",
+          "start": 5.35,
+          "end": 5.45
+        },
+        {
+          "raw": "nation.",
+          "start": 5.45,
+          "end": 5.73
+        }
+      ],
+      "expected_tokens": [
+        "Fluellen.",
+        "Captain",
+        "Macmorris,",
+        "I",
+        "think,",
+        "look",
+        "you,",
+        "under",
+        "your",
+        "correction,",
+        "there",
+        "is",
+        "not",
+        "many",
+        "of",
+        "your",
+        "nation—"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          17,
+          3,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Flulan.",
+          "start": 0.53,
+          "end": 0.93,
+          "key": "flulan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Captain",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "captain",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "McMorris,",
+          "start": 1.73,
+          "end": 2.31,
+          "key": "mcmorris",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.45,
+          "end": 2.49,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think.",
+          "start": 2.49,
+          "end": 2.73,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 2.93,
+          "end": 3.01,
+          "key": "look",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 3.01,
+          "end": 3.25,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Under",
+          "start": 3.67,
+          "end": 3.77,
+          "key": "under",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.77,
+          "end": 3.95,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "correction,",
+          "start": 3.95,
+          "end": 4.35,
+          "key": "correction",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 4.61,
+          "end": 4.67,
+          "key": "there",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.67,
+          "end": 4.79,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.79,
+          "end": 5.01,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 5.01,
+          "end": 5.19,
+          "key": "many",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.19,
+          "end": 5.35,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.35,
+          "end": 5.45,
+          "key": "your",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "nation.",
+          "start": 5.45,
+          "end": 5.73,
+          "key": "nation",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fluellen.",
+          "start": 0.0,
+          "end": 0.785
+        },
+        {
+          "text": "Captain",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "Macmorris,",
+          "start": 1.73,
+          "end": 2.09
+        },
+        {
+          "text": "I",
+          "start": 2.45,
+          "end": 2.49
+        },
+        {
+          "text": "think,",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "text": "look",
+          "start": 2.93,
+          "end": 3.01
+        },
+        {
+          "text": "you,",
+          "start": 3.01,
+          "end": 3.25
+        },
+        {
+          "text": "under",
+          "start": 3.67,
+          "end": 3.77
+        },
+        {
+          "text": "your",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "text": "correction,",
+          "start": 3.95,
+          "end": 4.35
+        },
+        {
+          "text": "there",
+          "start": 4.61,
+          "end": 4.67
+        },
+        {
+          "text": "is",
+          "start": 4.67,
+          "end": 4.79
+        },
+        {
+          "text": "not",
+          "start": 4.79,
+          "end": 5.01
+        },
+        {
+          "text": "many",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "text": "of",
+          "start": 5.19,
+          "end": 5.35
+        },
+        {
+          "text": "your",
+          "start": 5.35,
+          "end": 5.45
+        },
+        {
+          "text": "nation—",
+          "start": 5.45,
+          "end": 5.73
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.2799204094335437
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "025e9bfa4c11fff80c9d6915fbb01bf16f99df7055411eaa3880dd2aebe7147a",
+  "selected_reasons": []
+}

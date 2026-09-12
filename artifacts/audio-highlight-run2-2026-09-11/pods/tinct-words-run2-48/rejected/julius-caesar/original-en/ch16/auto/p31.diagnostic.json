@@ -1,0 +1,1156 @@
+{
+  "complete": true,
+  "signature": "3aaac920b703212e931d3daf40e2ddb047d8c3c9e69832b5f7ea47c6b443229f",
+  "attempts": [
+    {
+      "asr_seconds": 0.24817361403256655,
+      "alignment_seconds": 0.00015376321971416473,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Titinius. All disconsolate, With Pindarus his bondman, on this hill.",
+        "hotwords": "Titinius, All, With, Pindarus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Titinius, All, With, Pindarus his bondman, on this hill.",
+          "start": 0.02,
+          "end": 4.5,
+          "words": [
+            {
+              "text": " Titinius,",
+              "start": 0.02,
+              "end": 1.0,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " All,",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.0191802978515625
+            },
+            {
+              "text": " With,",
+              "start": 2.06,
+              "end": 2.34,
+              "probability": 4.088878631591797e-05
+            },
+            {
+              "text": " Pindarus",
+              "start": 2.34,
+              "end": 3.26,
+              "probability": 0.3642171223958333
+            },
+            {
+              "text": " his",
+              "start": 3.26,
+              "end": 3.46,
+              "probability": 0.04339599609375
+            },
+            {
+              "text": " bondman,",
+              "start": 3.46,
+              "end": 3.88,
+              "probability": 0.69677734375
+            },
+            {
+              "text": " on",
+              "start": 4.04,
+              "end": 4.04,
+              "probability": 0.61376953125
+            },
+            {
+              "text": " this",
+              "start": 4.04,
+              "end": 4.22,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " hill.",
+              "start": 4.22,
+              "end": 4.5,
+              "probability": 0.92822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Titinius,",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "raw": "All,",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "With,",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "raw": "Pindarus",
+          "start": 2.34,
+          "end": 3.26
+        },
+        {
+          "raw": "his",
+          "start": 3.26,
+          "end": 3.46
+        },
+        {
+          "raw": "bondman,",
+          "start": 3.46,
+          "end": 3.88
+        },
+        {
+          "raw": "on",
+          "start": 4.04,
+          "end": 4.04
+        },
+        {
+          "raw": "this",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "raw": "hill.",
+          "start": 4.22,
+          "end": 4.5
+        }
+      ],
+      "expected_tokens": [
+        "Titinius.",
+        "All",
+        "disconsolate,",
+        "With",
+        "Pindarus",
+        "his",
+        "bondman,",
+        "on",
+        "this",
+        "hill."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "delete",
+          2,
+          3,
+          2,
+          2
+        ],
+        [
+          "equal",
+          3,
+          10,
+          2,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          2,
+          3,
+          2,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Titinius,",
+          "start": 0.02,
+          "end": 1.0,
+          "key": "titinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "All,",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "With,",
+          "start": 2.06,
+          "end": 2.34,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Pindarus",
+          "start": 2.34,
+          "end": 3.26,
+          "key": "pindarus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.26,
+          "end": 3.46,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bondman,",
+          "start": 3.46,
+          "end": 3.88,
+          "key": "bondman",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.04,
+          "end": 4.04,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.04,
+          "end": 4.22,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hill.",
+          "start": 4.22,
+          "end": 4.5,
+          "key": "hill",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Titinius.",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "text": "All",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "text": "disconsolate,",
+          "start": 1.72,
+          "end": 1.89
+        },
+        {
+          "text": "With",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "text": "Pindarus",
+          "start": 2.34,
+          "end": 3.26
+        },
+        {
+          "text": "his",
+          "start": 3.26,
+          "end": 3.46
+        },
+        {
+          "text": "bondman,",
+          "start": 3.46,
+          "end": 3.88
+        },
+        {
+          "text": "on",
+          "start": 4.04,
+          "end": 4.04
+        },
+        {
+          "text": "this",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "text": "hill.",
+          "start": 4.22,
+          "end": 4.5
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.24837988801300526
+    },
+    {
+      "asr_seconds": 0.9991405624896288,
+      "alignment_seconds": 0.00018819328397512436,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Titinius, All, With, Pindarus"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Titinius, All, With, Pindarus, His, Bondmen, On, This, Hill",
+          "start": 0.6,
+          "end": 4.48,
+          "words": [
+            {
+              "text": " Titinius,",
+              "start": 0.6,
+              "end": 1.0,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " All,",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.0191802978515625
+            },
+            {
+              "text": " With,",
+              "start": 2.06,
+              "end": 2.34,
+              "probability": 4.088878631591797e-05
+            },
+            {
+              "text": " Pindarus,",
+              "start": 2.34,
+              "end": 3.26,
+              "probability": 0.3642171223958333
+            },
+            {
+              "text": " His,",
+              "start": 3.46,
+              "end": 3.46,
+              "probability": 0.273193359375
+            },
+            {
+              "text": " Bondmen,",
+              "start": 3.68,
+              "end": 3.9,
+              "probability": 0.3341064453125
+            },
+            {
+              "text": " On,",
+              "start": 3.98,
+              "end": 4.06,
+              "probability": 0.67236328125
+            },
+            {
+              "text": " This,",
+              "start": 4.14,
+              "end": 4.2,
+              "probability": 0.83984375
+            },
+            {
+              "text": " Hill",
+              "start": 4.38,
+              "end": 4.48,
+              "probability": 0.93505859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Titinius,",
+          "start": 0.6,
+          "end": 1.0
+        },
+        {
+          "raw": "All,",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "With,",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "raw": "Pindarus,",
+          "start": 2.34,
+          "end": 3.26
+        },
+        {
+          "raw": "His,",
+          "start": 3.46,
+          "end": 3.46
+        },
+        {
+          "raw": "Bondmen,",
+          "start": 3.68,
+          "end": 3.9
+        },
+        {
+          "raw": "On,",
+          "start": 3.98,
+          "end": 4.06
+        },
+        {
+          "raw": "This,",
+          "start": 4.14,
+          "end": 4.2
+        },
+        {
+          "raw": "Hill",
+          "start": 4.38,
+          "end": 4.48
+        }
+      ],
+      "expected_tokens": [
+        "Titinius.",
+        "All",
+        "disconsolate,",
+        "With",
+        "Pindarus",
+        "his",
+        "bondman,",
+        "on",
+        "this",
+        "hill."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "delete",
+          2,
+          3,
+          2,
+          2
+        ],
+        [
+          "equal",
+          3,
+          6,
+          2,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          6
+        ],
+        [
+          "equal",
+          7,
+          10,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          2,
+          3,
+          2,
+          2
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Titinius,",
+          "start": 0.6,
+          "end": 1.0,
+          "key": "titinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "All,",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "With,",
+          "start": 2.06,
+          "end": 2.34,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Pindarus,",
+          "start": 2.34,
+          "end": 3.26,
+          "key": "pindarus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "His,",
+          "start": 3.46,
+          "end": 3.46,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Bondmen,",
+          "start": 3.68,
+          "end": 3.9,
+          "key": "bondmen",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "On,",
+          "start": 3.98,
+          "end": 4.06,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "This,",
+          "start": 4.14,
+          "end": 4.2,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Hill",
+          "start": 4.38,
+          "end": 4.48,
+          "key": "hill",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Titinius.",
+          "start": 0.6,
+          "end": 1.0
+        },
+        {
+          "text": "All",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "text": "disconsolate,",
+          "start": 1.72,
+          "end": 1.89
+        },
+        {
+          "text": "With",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "text": "Pindarus",
+          "start": 2.34,
+          "end": 3.26
+        },
+        {
+          "text": "his",
+          "start": 3.46,
+          "end": 3.46
+        },
+        {
+          "text": "bondman,",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "text": "on",
+          "start": 3.98,
+          "end": 4.06
+        },
+        {
+          "text": "this",
+          "start": 4.14,
+          "end": 4.2
+        },
+        {
+          "text": "hill.",
+          "start": 4.38,
+          "end": 4.48
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.9993879646062851
+    },
+    {
+      "asr_seconds": 0.1722075343132019,
+      "alignment_seconds": 0.0005365991964936256,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Titinius, all disconsolate with Pindaris's bondmen on this hill.",
+          "start": 0.02,
+          "end": 4.46,
+          "words": [
+            {
+              "text": " Titinius,",
+              "start": 0.02,
+              "end": 1.0,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " all",
+              "start": 1.54,
+              "end": 1.72,
+              "probability": 0.96875
+            },
+            {
+              "text": " disconsolate",
+              "start": 1.72,
+              "end": 2.4,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " with",
+              "start": 2.4,
+              "end": 2.76,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " Pindaris's",
+              "start": 2.76,
+              "end": 3.48,
+              "probability": 0.602996826171875
+            },
+            {
+              "text": " bondmen",
+              "start": 3.48,
+              "end": 3.88,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " on",
+              "start": 3.88,
+              "end": 4.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this",
+              "start": 4.06,
+              "end": 4.22,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hill.",
+              "start": 4.22,
+              "end": 4.46,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Titinius,",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "raw": "all",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "raw": "disconsolate",
+          "start": 1.72,
+          "end": 2.4
+        },
+        {
+          "raw": "with",
+          "start": 2.4,
+          "end": 2.76
+        },
+        {
+          "raw": "Pindaris's",
+          "start": 2.76,
+          "end": 3.48
+        },
+        {
+          "raw": "bondmen",
+          "start": 3.48,
+          "end": 3.88
+        },
+        {
+          "raw": "on",
+          "start": 3.88,
+          "end": 4.06
+        },
+        {
+          "raw": "this",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "raw": "hill.",
+          "start": 4.22,
+          "end": 4.46
+        }
+      ],
+      "expected_tokens": [
+        "Titinius.",
+        "All",
+        "disconsolate,",
+        "With",
+        "Pindarus",
+        "his",
+        "bondman,",
+        "on",
+        "this",
+        "hill."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          7,
+          4,
+          6
+        ],
+        [
+          "equal",
+          7,
+          10,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          7,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Titinius,",
+          "start": 0.02,
+          "end": 1.0,
+          "key": "titinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.54,
+          "end": 1.72,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "disconsolate",
+          "start": 1.72,
+          "end": 2.4,
+          "key": "disconsolate",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.4,
+          "end": 2.76,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Pindaris's",
+          "start": 2.76,
+          "end": 3.48,
+          "key": "pindariss",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bondmen",
+          "start": 3.48,
+          "end": 3.88,
+          "key": "bondmen",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.88,
+          "end": 4.06,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.06,
+          "end": 4.22,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hill.",
+          "start": 4.22,
+          "end": 4.46,
+          "key": "hill",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Titinius.",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "text": "All",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "text": "disconsolate,",
+          "start": 1.72,
+          "end": 2.4
+        },
+        {
+          "text": "With",
+          "start": 2.4,
+          "end": 2.76
+        },
+        {
+          "text": "Pindarus",
+          "start": 2.76,
+          "end": 3.32
+        },
+        {
+          "text": "his",
+          "start": 3.32,
+          "end": 3.6
+        },
+        {
+          "text": "bondman,",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "text": "on",
+          "start": 3.88,
+          "end": 4.06
+        },
+        {
+          "text": "this",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "text": "hill.",
+          "start": 4.22,
+          "end": 4.46
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17292670905590057
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d9d764b6285a37bbd71f694b644c0383ee0e6a5fdb4863cbe5646f9f7d4cceef",
+  "selected_reasons": []
+}

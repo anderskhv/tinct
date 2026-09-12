@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "231495bfe1328935b3ebcd3a5ea2bdc998a6d838298c5ceb84e68b44821ebde5",
+  "attempts": [
+    {
+      "asr_seconds": 0.15313652716577053,
+      "alignment_seconds": 0.00026822183281183243,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And look where Publius has come to fetch me.",
+          "start": 0.08,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.62890625
+            },
+            {
+              "text": " look",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.986328125
+            },
+            {
+              "text": " where",
+              "start": 0.68,
+              "end": 0.9,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Publius",
+              "start": 0.9,
+              "end": 1.32,
+              "probability": 0.9357096354166666
+            },
+            {
+              "text": " has",
+              "start": 1.32,
+              "end": 1.5,
+              "probability": 0.5830078125
+            },
+            {
+              "text": " come",
+              "start": 1.5,
+              "end": 1.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fetch",
+              "start": 1.88,
+              "end": 2.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me.",
+              "start": 2.06,
+              "end": 2.36,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "look",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "where",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "raw": "Publius",
+          "start": 0.9,
+          "end": 1.32
+        },
+        {
+          "raw": "has",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "raw": "come",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "raw": "to",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "fetch",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "raw": "me.",
+          "start": 2.06,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "look",
+        "where",
+        "Publius",
+        "is",
+        "come",
+        "to",
+        "fetch",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          9,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "look",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 0.68,
+          "end": 0.9,
+          "key": "where",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Publius",
+          "start": 0.9,
+          "end": 1.32,
+          "key": "publius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.32,
+          "end": 1.5,
+          "key": "has",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.5,
+          "end": 1.72,
+          "key": "come",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fetch",
+          "start": 1.88,
+          "end": 2.06,
+          "key": "fetch",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.06,
+          "end": 2.36,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "look",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "where",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "text": "Publius",
+          "start": 0.9,
+          "end": 1.32
+        },
+        {
+          "text": "is",
+          "start": 1.32,
+          "end": 1.41
+        },
+        {
+          "text": "come",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "text": "to",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "fetch",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "text": "me.",
+          "start": 2.06,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.1535072596743703
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "abb9bee94fb6ae246c1806e424bb85c7e00fab46487c276a367c56db7c0a9167",
+  "selected_reasons": []
+}

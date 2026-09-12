@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "97e3c2208746a793d04f6f8c84ad77a6d551c21749177e0e56872db9e9739342",
+  "attempts": [
+    {
+      "asr_seconds": 0.2754996931180358,
+      "alignment_seconds": 0.0005476241931319237,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iras. Finish, good lady. The bright day is done, And we are for the dark.",
+        "hotwords": "Iras, Finish, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iras, Finish, Good Lady. The bright day is done, And we are for the dark.",
+          "start": 0.53,
+          "end": 4.47,
+          "words": [
+            {
+              "text": " Iras,",
+              "start": 0.53,
+              "end": 0.93,
+              "probability": 0.30945587158203125
+            },
+            {
+              "text": " Finish,",
+              "start": 1.05,
+              "end": 1.31,
+              "probability": 0.0433349609375
+            },
+            {
+              "text": " Good",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " Lady.",
+              "start": 1.65,
+              "end": 1.97,
+              "probability": 0.83203125
+            },
+            {
+              "text": " The",
+              "start": 2.55,
+              "end": 2.63,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " bright",
+              "start": 2.63,
+              "end": 2.83,
+              "probability": 0.6337890625
+            },
+            {
+              "text": " day",
+              "start": 2.83,
+              "end": 3.05,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " is",
+              "start": 3.05,
+              "end": 3.25,
+              "probability": 0.994140625
+            },
+            {
+              "text": " done,",
+              "start": 3.25,
+              "end": 3.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " And",
+              "start": 3.69,
+              "end": 3.73,
+              "probability": 0.018463134765625
+            },
+            {
+              "text": " we",
+              "start": 3.73,
+              "end": 3.89,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " are",
+              "start": 3.89,
+              "end": 4.01,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " for",
+              "start": 4.01,
+              "end": 4.13,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 4.13,
+              "end": 4.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " dark.",
+              "start": 4.25,
+              "end": 4.47,
+              "probability": 0.89501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iras,",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "raw": "Finish,",
+          "start": 1.05,
+          "end": 1.31
+        },
+        {
+          "raw": "Good",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "Lady.",
+          "start": 1.65,
+          "end": 1.97
+        },
+        {
+          "raw": "The",
+          "start": 2.55,
+          "end": 2.63
+        },
+        {
+          "raw": "bright",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "raw": "day",
+          "start": 2.83,
+          "end": 3.05
+        },
+        {
+          "raw": "is",
+          "start": 3.05,
+          "end": 3.25
+        },
+        {
+          "raw": "done,",
+          "start": 3.25,
+          "end": 3.49
+        },
+        {
+          "raw": "And",
+          "start": 3.69,
+          "end": 3.73
+        },
+        {
+          "raw": "we",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "raw": "are",
+          "start": 3.89,
+          "end": 4.01
+        },
+        {
+          "raw": "for",
+          "start": 4.01,
+          "end": 4.13
+        },
+        {
+          "raw": "the",
+          "start": 4.13,
+          "end": 4.25
+        },
+        {
+          "raw": "dark.",
+          "start": 4.25,
+          "end": 4.47
+        }
+      ],
+      "expected_tokens": [
+        "Iras.",
+        "Finish,",
+        "good",
+        "lady.",
+        "The",
+        "bright",
+        "day",
+        "is",
+        "done,",
+        "And",
+        "we",
+        "are",
+        "for",
+        "the",
+        "dark."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iras,",
+          "start": 0.53,
+          "end": 0.93,
+          "key": "iras",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Finish,",
+          "start": 1.05,
+          "end": 1.31,
+          "key": "finish",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lady.",
+          "start": 1.65,
+          "end": 1.97,
+          "key": "lady",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.55,
+          "end": 2.63,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bright",
+          "start": 2.63,
+          "end": 2.83,
+          "key": "bright",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 2.83,
+          "end": 3.05,
+          "key": "day",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.05,
+          "end": 3.25,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "done,",
+          "start": 3.25,
+          "end": 3.49,
+          "key": "done",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.69,
+          "end": 3.73,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.73,
+          "end": 3.89,
+          "key": "we",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.89,
+          "end": 4.01,
+          "key": "are",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.01,
+          "end": 4.13,
+          "key": "for",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.13,
+          "end": 4.25,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "dark.",
+          "start": 4.25,
+          "end": 4.47,
+          "key": "dark",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iras.",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "text": "Finish,",
+          "start": 1.05,
+          "end": 1.31
+        },
+        {
+          "text": "good",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "lady.",
+          "start": 1.65,
+          "end": 1.97
+        },
+        {
+          "text": "The",
+          "start": 2.55,
+          "end": 2.63
+        },
+        {
+          "text": "bright",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "text": "day",
+          "start": 2.83,
+          "end": 3.05
+        },
+        {
+          "text": "is",
+          "start": 3.05,
+          "end": 3.25
+        },
+        {
+          "text": "done,",
+          "start": 3.25,
+          "end": 3.49
+        },
+        {
+          "text": "And",
+          "start": 3.69,
+          "end": 3.73
+        },
+        {
+          "text": "we",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "text": "are",
+          "start": 3.89,
+          "end": 4.01
+        },
+        {
+          "text": "for",
+          "start": 4.01,
+          "end": 4.13
+        },
+        {
+          "text": "the",
+          "start": 4.13,
+          "end": 4.25
+        },
+        {
+          "text": "dark.",
+          "start": 4.25,
+          "end": 4.47
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2762673459947109
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6b68d101dc7ddd7bb19f4172ea2c676f52550d9e05778bcd155552f88d0111f0",
+  "selected_reasons": []
+}

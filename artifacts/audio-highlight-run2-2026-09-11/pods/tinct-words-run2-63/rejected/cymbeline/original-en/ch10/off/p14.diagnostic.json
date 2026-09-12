@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "8bd6b277487b190ddbc70d81fb373e90788b97c105b0ff639bbb756a218e5198",
+  "attempts": [
+    {
+      "asr_seconds": 0.14217215590178967,
+      "alignment_seconds": 0.0003231596201658249,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Cymbeline and Queen.",
+          "start": 0.11,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " Cymbeline",
+              "start": 0.65,
+              "end": 1.09,
+              "probability": 0.6910807291666666
+            },
+            {
+              "text": " and",
+              "start": 1.09,
+              "end": 1.31,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " Queen.",
+              "start": 1.31,
+              "end": 1.57,
+              "probability": 0.916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Cymbeline",
+          "start": 0.65,
+          "end": 1.09
+        },
+        {
+          "raw": "and",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "raw": "Queen.",
+          "start": 1.31,
+          "end": 1.57
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Cymbeline",
+        "and",
+        "Queen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cymbeline",
+          "start": 0.65,
+          "end": 1.09,
+          "key": "cymbeline",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.09,
+          "end": 1.31,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Queen.",
+          "start": 1.31,
+          "end": 1.57,
+          "key": "queen",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Cymbeline",
+          "start": 0.65,
+          "end": 1.09
+        },
+        {
+          "text": "and",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "text": "Queen.",
+          "start": 1.31,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14261510781943798
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "acc5d5f1f25ccaf641dd74457d6e0f714766aa3cfc9586f19801d5bd968a3796",
+  "selected_reasons": []
+}

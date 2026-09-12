@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "629e957b2e678a313504957a3580b40d8040cc7ac0b37ac3600d28a4ae59be28",
+  "attempts": [
+    {
+      "asr_seconds": 0.11990261729806662,
+      "alignment_seconds": 0.0034463945776224136,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First soldier look sir",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " soldier",
+              "start": 0.61,
+              "end": 1.05,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " look",
+              "start": 1.05,
+              "end": 1.51,
+              "probability": 0.12396240234375
+            },
+            {
+              "text": " sir",
+              "start": 1.51,
+              "end": 1.83,
+              "probability": 0.79248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "soldier",
+          "start": 0.61,
+          "end": 1.05
+        },
+        {
+          "raw": "look",
+          "start": 1.05,
+          "end": 1.51
+        },
+        {
+          "raw": "sir",
+          "start": 1.51,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Soldier.",
+        "Look,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soldier",
+          "start": 0.61,
+          "end": 1.05,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.05,
+          "end": 1.51,
+          "key": "look",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir",
+          "start": 1.51,
+          "end": 1.83,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.61,
+          "end": 1.05
+        },
+        {
+          "text": "Look,",
+          "start": 1.05,
+          "end": 1.51
+        },
+        {
+          "text": "sir.",
+          "start": 1.51,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12346209399402142
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b9c83616f3b4e6138a26294c89a4448ef8747645159d2d3ce7b6e6ebee155f3e",
+  "selected_reasons": []
+}

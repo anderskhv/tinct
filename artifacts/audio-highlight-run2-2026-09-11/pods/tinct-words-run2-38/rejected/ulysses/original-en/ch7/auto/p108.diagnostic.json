@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "7e42a5789c8bb4fae04c08c5d47126ba309d5f8a2431296dc9cfbd7af9d806a4",
+  "attempts": [
+    {
+      "asr_seconds": 0.16380228695925325,
+      "alignment_seconds": 0.0002112420042976737,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—The ghost walks, professor MacHugh murmured softly, biscuitfully to the dusty windowpane.",
+        "hotwords": "MacHugh"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The ghost walks, professor MacHugh murmured softly, biscuitfully to the dusty windowpane.",
+          "start": 0.02,
+          "end": 5.94,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " ghost",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " walks,",
+              "start": 0.74,
+              "end": 1.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " professor",
+              "start": 1.96,
+              "end": 1.96,
+              "probability": 0.06939697265625
+            },
+            {
+              "text": " MacHugh",
+              "start": 1.96,
+              "end": 2.52,
+              "probability": 0.5316874186197916
+            },
+            {
+              "text": " murmured",
+              "start": 2.52,
+              "end": 2.9,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " softly,",
+              "start": 2.9,
+              "end": 3.44,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " biscuitfully",
+              "start": 3.94,
+              "end": 4.58,
+              "probability": 0.6241461435953776
+            },
+            {
+              "text": " to",
+              "start": 4.58,
+              "end": 4.76,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 4.76,
+              "end": 4.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " dusty",
+              "start": 4.86,
+              "end": 5.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " windowpane.",
+              "start": 5.18,
+              "end": 5.94,
+              "probability": 0.7810872395833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "ghost",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "walks,",
+          "start": 0.74,
+          "end": 1.24
+        },
+        {
+          "raw": "professor",
+          "start": 1.96,
+          "end": 1.96
+        },
+        {
+          "raw": "MacHugh",
+          "start": 1.96,
+          "end": 2.52
+        },
+        {
+          "raw": "murmured",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "raw": "softly,",
+          "start": 2.9,
+          "end": 3.44
+        },
+        {
+          "raw": "biscuitfully",
+          "start": 3.94,
+          "end": 4.58
+        },
+        {
+          "raw": "to",
+          "start": 4.58,
+          "end": 4.76
+        },
+        {
+          "raw": "the",
+          "start": 4.76,
+          "end": 4.86
+        },
+        {
+          "raw": "dusty",
+          "start": 4.86,
+          "end": 5.18
+        },
+        {
+          "raw": "windowpane.",
+          "start": 5.18,
+          "end": 5.94
+        }
+      ],
+      "expected_tokens": [
+        "—The",
+        "ghost",
+        "walks,",
+        "professor",
+        "MacHugh",
+        "murmured",
+        "softly,",
+        "biscuitfully",
+        "to",
+        "the",
+        "dusty",
+        "windowpane."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ghost",
+          "start": 0.5,
+          "end": 0.74,
+          "key": "ghost",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "walks,",
+          "start": 0.74,
+          "end": 1.24,
+          "key": "walks",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "professor",
+          "start": 1.96,
+          "end": 1.96,
+          "key": "professor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "MacHugh",
+          "start": 1.96,
+          "end": 2.52,
+          "key": "machugh",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "murmured",
+          "start": 2.52,
+          "end": 2.9,
+          "key": "murmured",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "softly,",
+          "start": 2.9,
+          "end": 3.44,
+          "key": "softly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "biscuitfully",
+          "start": 3.94,
+          "end": 4.58,
+          "key": "biscuitfully",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.58,
+          "end": 4.76,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.76,
+          "end": 4.86,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dusty",
+          "start": 4.86,
+          "end": 5.18,
+          "key": "dusty",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "windowpane.",
+          "start": 5.18,
+          "end": 5.94,
+          "key": "windowpane",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "ghost",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "walks,",
+          "start": 0.74,
+          "end": 1.24
+        },
+        {
+          "text": "professor",
+          "start": 1.96,
+          "end": 1.96
+        },
+        {
+          "text": "MacHugh",
+          "start": 1.96,
+          "end": 2.52
+        },
+        {
+          "text": "murmured",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "text": "softly,",
+          "start": 2.9,
+          "end": 3.44
+        },
+        {
+          "text": "biscuitfully",
+          "start": 3.94,
+          "end": 4.58
+        },
+        {
+          "text": "to",
+          "start": 4.58,
+          "end": 4.76
+        },
+        {
+          "text": "the",
+          "start": 4.76,
+          "end": 4.86
+        },
+        {
+          "text": "dusty",
+          "start": 4.86,
+          "end": 5.18
+        },
+        {
+          "text": "windowpane.",
+          "start": 5.18,
+          "end": 5.94
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1640943679958582
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d6d224f10bf7762198f897f9e3986fb31301bcb33d1af7a9ade39863f058ff81",
+  "selected_reasons": []
+}

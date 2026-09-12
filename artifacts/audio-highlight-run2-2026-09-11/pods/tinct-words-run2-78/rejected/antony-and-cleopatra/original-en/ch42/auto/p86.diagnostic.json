@@ -1,0 +1,501 @@
+{
+  "complete": true,
+  "signature": "3b2f96accb8f0f023670c45c5231a9a03a602e0678b45c8f1cad6d5a7833872e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1344243623316288,
+      "alignment_seconds": 0.00035044923424720764,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Whispers to Charmian._]",
+        "hotwords": "Charmian._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Wispers to Charmian._",
+          "start": 0.02,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " Wispers",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.4848429361979167
+            },
+            {
+              "text": " to",
+              "start": 0.82,
+              "end": 0.98,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Charmian._",
+              "start": 0.98,
+              "end": 2.08,
+              "probability": 0.5787760615348816
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Wispers",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "to",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "raw": "Charmian._",
+          "start": 0.98,
+          "end": 2.08
+        }
+      ],
+      "expected_tokens": [
+        "[_Whispers",
+        "to",
+        "Charmian._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Wispers",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "wispers",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.82,
+          "end": 0.98,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Charmian._",
+          "start": 0.98,
+          "end": 2.08,
+          "key": "charmian_",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Whispers",
+          "start": 0.0,
+          "end": 0.41
+        },
+        {
+          "text": "to",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "text": "Charmian._]",
+          "start": 0.98,
+          "end": 1.53
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13487996067851782
+    },
+    {
+      "asr_seconds": 0.13551946263760328,
+      "alignment_seconds": 0.00014877505600452423,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Charmian._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Whispers to Charmian._",
+          "start": 0.02,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " Whispers",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " to",
+              "start": 0.76,
+              "end": 0.96,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Charmian._",
+              "start": 0.96,
+              "end": 2.08,
+              "probability": 0.606933613618215
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Whispers",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "raw": "Charmian._",
+          "start": 0.96,
+          "end": 2.08
+        }
+      ],
+      "expected_tokens": [
+        "[_Whispers",
+        "to",
+        "Charmian._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Whispers",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "whispers",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.96,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Charmian._",
+          "start": 0.96,
+          "end": 2.08,
+          "key": "charmian_",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Whispers",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "to",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "text": "Charmian._]",
+          "start": 0.96,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13571540359407663
+    },
+    {
+      "asr_seconds": 0.12275748327374458,
+      "alignment_seconds": 0.00014859624207019806,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Whispers to Charmian.",
+          "start": 0.02,
+          "end": 1.44,
+          "words": [
+            {
+              "text": " Whispers",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " to",
+              "start": 0.74,
+              "end": 0.96,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Charmian.",
+              "start": 0.96,
+              "end": 1.44,
+              "probability": 0.910400390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Whispers",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "to",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "raw": "Charmian.",
+          "start": 0.96,
+          "end": 1.44
+        }
+      ],
+      "expected_tokens": [
+        "[_Whispers",
+        "to",
+        "Charmian._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Whispers",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "whispers",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.74,
+          "end": 0.96,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Charmian.",
+          "start": 0.96,
+          "end": 1.44,
+          "key": "charmian",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Whispers",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "to",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "text": "Charmian._]",
+          "start": 0.96,
+          "end": 1.44
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12295512668788433
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1b88d384232f963f287bef9ba5b09b2fe4ed3d5b77766d0dea53d223d719e003",
+  "selected_reasons": []
+}

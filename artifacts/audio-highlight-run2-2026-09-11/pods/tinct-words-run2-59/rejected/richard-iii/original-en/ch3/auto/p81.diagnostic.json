@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "38181ff193bebfef4d229a6015c8252677fc7e130325e578a79064aaa0b755a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.11011299584060907,
+      "alignment_seconds": 0.00021574413403868675,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Richard. Margaret.",
+        "hotwords": "Richard, Margaret"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Richard, Margaret.",
+          "start": 0.02,
+          "end": 1.46,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " Margaret.",
+              "start": 1.18,
+              "end": 1.46,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Margaret.",
+          "start": 1.18,
+          "end": 1.46
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Margaret."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Margaret.",
+          "start": 1.18,
+          "end": 1.46,
+          "key": "margaret",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Margaret.",
+          "start": 1.18,
+          "end": 1.46
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11040152283385396
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e15c1b985bbcd2595c774989de1494af601e173fcb83817d659f00ed7ce3ce60",
+  "selected_reasons": []
+}

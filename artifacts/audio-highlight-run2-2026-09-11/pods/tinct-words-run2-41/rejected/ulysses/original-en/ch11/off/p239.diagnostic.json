@@ -1,0 +1,409 @@
+{
+  "complete": true,
+  "signature": "41a783adb7ec988547d3dabfbaacec86bef9713ac07bd90790a7799c1218646c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2236973219551146,
+      "alignment_seconds": 0.0004379730671644211,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, oh, jerked Lenihan, gasping at each stretch.",
+          "start": 0.34,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.34,
+              "end": 0.66,
+              "probability": 0.1893310546875
+            },
+            {
+              "text": " oh,",
+              "start": 0.86,
+              "end": 0.94,
+              "probability": 0.880859375
+            },
+            {
+              "text": " jerked",
+              "start": 1.12,
+              "end": 1.32,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " Lenihan,",
+              "start": 1.32,
+              "end": 1.66,
+              "probability": 0.7849934895833334
+            },
+            {
+              "text": " gasping",
+              "start": 1.7,
+              "end": 2.06,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " at",
+              "start": 2.06,
+              "end": 2.16,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " each",
+              "start": 2.16,
+              "end": 2.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stretch.",
+              "start": 2.32,
+              "end": 2.68,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Oh.",
+          "start": 3.14,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " Oh.",
+              "start": 3.14,
+              "end": 3.32,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.34,
+          "end": 0.66
+        },
+        {
+          "raw": "oh,",
+          "start": 0.86,
+          "end": 0.94
+        },
+        {
+          "raw": "jerked",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "raw": "Lenihan,",
+          "start": 1.32,
+          "end": 1.66
+        },
+        {
+          "raw": "gasping",
+          "start": 1.7,
+          "end": 2.06
+        },
+        {
+          "raw": "at",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "raw": "each",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "raw": "stretch.",
+          "start": 2.32,
+          "end": 2.68
+        },
+        {
+          "raw": "Oh.",
+          "start": 3.14,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "—O!",
+        "O!",
+        "jerked",
+        "Lenehan,",
+        "gasping",
+        "at",
+        "each",
+        "stretch.",
+        "O!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.34,
+          "end": 0.66,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh,",
+          "start": 0.86,
+          "end": 0.94,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "jerked",
+          "start": 1.12,
+          "end": 1.32,
+          "key": "jerked",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lenihan,",
+          "start": 1.32,
+          "end": 1.66,
+          "key": "lenihan",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gasping",
+          "start": 1.7,
+          "end": 2.06,
+          "key": "gasping",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.06,
+          "end": 2.16,
+          "key": "at",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 2.16,
+          "end": 2.32,
+          "key": "each",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "stretch.",
+          "start": 2.32,
+          "end": 2.68,
+          "key": "stretch",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Oh.",
+          "start": 3.14,
+          "end": 3.32,
+          "key": "oh",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—O!",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "O!",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "text": "jerked",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "text": "Lenehan,",
+          "start": 1.32,
+          "end": 1.51
+        },
+        {
+          "text": "gasping",
+          "start": 1.7,
+          "end": 2.06
+        },
+        {
+          "text": "at",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "text": "each",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "text": "stretch.",
+          "start": 2.32,
+          "end": 2.68
+        },
+        {
+          "text": "O!",
+          "start": 2.68,
+          "end": 3.0
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 5
+      },
+      "match_ratio": 0.5555555555555556,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22426391299813986
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "27f9f277683e45074f080675bfc3b56d7af19c116cea334f3373ab675dbf550d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

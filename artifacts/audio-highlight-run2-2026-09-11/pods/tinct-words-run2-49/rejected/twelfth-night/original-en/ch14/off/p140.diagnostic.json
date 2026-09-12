@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "d90df9f5e469fdc551524812a244b5da0d853d645f52bd491863deadb09ff199",
+  "attempts": [
+    {
+      "asr_seconds": 0.10449362173676491,
+      "alignment_seconds": 0.00024431943893432617,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir Andrew.",
+          "start": 0.08,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " Andrew.",
+              "start": 0.58,
+              "end": 0.9,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "Andrew.",
+          "start": 0.58,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Andrew."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Andrew.",
+          "start": 0.58,
+          "end": 0.9,
+          "key": "andrew",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "Andrew.",
+          "start": 0.58,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1048274040222168
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "371dc44cf552d8741ad9e64528067b4311b8b690c7c7ab76aff77213325e50ed",
+  "selected_reasons": []
+}

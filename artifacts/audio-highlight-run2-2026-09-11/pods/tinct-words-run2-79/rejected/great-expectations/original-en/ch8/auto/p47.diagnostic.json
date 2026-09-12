@@ -1,0 +1,645 @@
+{
+  "complete": true,
+  "signature": "d2eab92aaae58af90d8686347d4c1c7e894eecb22bcb48c1be84312016c5a6b8",
+  "attempts": [
+    {
+      "asr_seconds": 0.3625239417888224,
+      "alignment_seconds": 0.0006249230355024338,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I am tired,\" said Miss Havisham. \"I want diversion, and I have done with men and women. Play.\"",
+        "hotwords": "I, Miss, Havisham, Play"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I am tired,\" said Miss Havisham.",
+          "start": 0.02,
+          "end": 2.46,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.0821533203125
+            },
+            {
+              "text": " am",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.966796875
+            },
+            {
+              "text": " tired,\"",
+              "start": 0.68,
+              "end": 1.36,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " said",
+              "start": 1.36,
+              "end": 1.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Miss",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.873046875
+            },
+            {
+              "text": " Havisham.",
+              "start": 1.92,
+              "end": 2.46,
+              "probability": 0.9578450520833334
+            }
+          ]
+        },
+        {
+          "text": " I want diversion, and I have done with men and women. Play.",
+          "start": 2.46,
+          "end": 6.1,
+          "words": [
+            {
+              "text": " I",
+              "start": 2.46,
+              "end": 3.12,
+              "probability": 0.83984375
+            },
+            {
+              "text": " want",
+              "start": 3.12,
+              "end": 3.32,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " diversion,",
+              "start": 3.32,
+              "end": 3.76,
+              "probability": 0.9296875
+            },
+            {
+              "text": " and",
+              "start": 4.04,
+              "end": 4.06,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 4.06,
+              "end": 4.18,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have",
+              "start": 4.18,
+              "end": 4.3,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " done",
+              "start": 4.3,
+              "end": 4.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 4.44,
+              "end": 4.62,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " men",
+              "start": 4.62,
+              "end": 4.88,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 4.88,
+              "end": 5.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " women.",
+              "start": 5.08,
+              "end": 5.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Play.",
+              "start": 5.86,
+              "end": 6.1,
+              "probability": 0.94091796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "am",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "tired,\"",
+          "start": 0.68,
+          "end": 1.36
+        },
+        {
+          "raw": "said",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "raw": "Miss",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "Havisham.",
+          "start": 1.92,
+          "end": 2.46
+        },
+        {
+          "raw": "I",
+          "start": 2.46,
+          "end": 3.12
+        },
+        {
+          "raw": "want",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "raw": "diversion,",
+          "start": 3.32,
+          "end": 3.76
+        },
+        {
+          "raw": "and",
+          "start": 4.04,
+          "end": 4.06
+        },
+        {
+          "raw": "I",
+          "start": 4.06,
+          "end": 4.18
+        },
+        {
+          "raw": "have",
+          "start": 4.18,
+          "end": 4.3
+        },
+        {
+          "raw": "done",
+          "start": 4.3,
+          "end": 4.44
+        },
+        {
+          "raw": "with",
+          "start": 4.44,
+          "end": 4.62
+        },
+        {
+          "raw": "men",
+          "start": 4.62,
+          "end": 4.88
+        },
+        {
+          "raw": "and",
+          "start": 4.88,
+          "end": 5.08
+        },
+        {
+          "raw": "women.",
+          "start": 5.08,
+          "end": 5.34
+        },
+        {
+          "raw": "Play.",
+          "start": 5.86,
+          "end": 6.1
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "am",
+        "tired,\"",
+        "said",
+        "Miss",
+        "Havisham.",
+        "\"I",
+        "want",
+        "diversion,",
+        "and",
+        "I",
+        "have",
+        "done",
+        "with",
+        "men",
+        "and",
+        "women.",
+        "Play.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tired,\"",
+          "start": 0.68,
+          "end": 1.36,
+          "key": "tired",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.36,
+          "end": 1.7,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "miss",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Havisham.",
+          "start": 1.92,
+          "end": 2.46,
+          "key": "havisham",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.46,
+          "end": 3.12,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 3.12,
+          "end": 3.32,
+          "key": "want",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "diversion,",
+          "start": 3.32,
+          "end": 3.76,
+          "key": "diversion",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.04,
+          "end": 4.06,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.06,
+          "end": 4.18,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.18,
+          "end": 4.3,
+          "key": "have",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 4.3,
+          "end": 4.44,
+          "key": "done",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.44,
+          "end": 4.62,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 4.62,
+          "end": 4.88,
+          "key": "men",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.88,
+          "end": 5.08,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "women.",
+          "start": 5.08,
+          "end": 5.34,
+          "key": "women",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Play.",
+          "start": 5.86,
+          "end": 6.1,
+          "key": "play",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "am",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "tired,\"",
+          "start": 0.68,
+          "end": 1.36
+        },
+        {
+          "text": "said",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "text": "Miss",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "Havisham.",
+          "start": 1.92,
+          "end": 2.46
+        },
+        {
+          "text": "\"I",
+          "start": 2.46,
+          "end": 3.12
+        },
+        {
+          "text": "want",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "text": "diversion,",
+          "start": 3.32,
+          "end": 3.76
+        },
+        {
+          "text": "and",
+          "start": 4.04,
+          "end": 4.06
+        },
+        {
+          "text": "I",
+          "start": 4.06,
+          "end": 4.18
+        },
+        {
+          "text": "have",
+          "start": 4.18,
+          "end": 4.3
+        },
+        {
+          "text": "done",
+          "start": 4.3,
+          "end": 4.44
+        },
+        {
+          "text": "with",
+          "start": 4.44,
+          "end": 4.62
+        },
+        {
+          "text": "men",
+          "start": 4.62,
+          "end": 4.88
+        },
+        {
+          "text": "and",
+          "start": 4.88,
+          "end": 5.08
+        },
+        {
+          "text": "women.",
+          "start": 5.08,
+          "end": 5.34
+        },
+        {
+          "text": "Play.\"",
+          "start": 5.86,
+          "end": 6.1
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3633984397165477
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "00533642f2af02d1bb94255f2ace5bd0f416138c31b67fb26beeb958dd33c20d",
+  "selected_reasons": []
+}

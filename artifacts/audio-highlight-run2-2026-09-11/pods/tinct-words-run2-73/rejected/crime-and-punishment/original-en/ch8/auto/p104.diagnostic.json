@@ -1,0 +1,2469 @@
+{
+  "complete": true,
+  "signature": "b646e3280b928763e6c9ca71578c760a3ff344c1019a695f1e87a4e471933e39",
+  "attempts": [
+    {
+      "asr_seconds": 0.6163967223837972,
+      "alignment_seconds": 0.0009857919067144394,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It is for the recovery of money on an I O U, a writ. You must either pay it, with all expenses, costs and so on, or give a written declaration when you can pay it, and at the same time an undertaking not to leave the capital without payment, and nor to sell or conceal your property. The creditor is at liberty to sell your property, and proceed against you according to the law.\"",
+        "hotwords": "I, O, U"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It is for the recovery of money on an I O U, a writ. You must either pay it, with all expenses, costs and so on, or give a written declaration when you can pay it, and at the same time an undertaking not to leave the capital without payment, and nor to sell or conceal your property.",
+          "start": 0.08,
+          "end": 17.42,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " is",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " for",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 0.8,
+              "end": 0.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " recovery",
+              "start": 0.9,
+              "end": 1.22,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 1.22,
+              "end": 1.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " money",
+              "start": 1.54,
+              "end": 1.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " on",
+              "start": 1.76,
+              "end": 2.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " an",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " I",
+              "start": 2.16,
+              "end": 2.34,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " O",
+              "start": 2.34,
+              "end": 2.54,
+              "probability": 0.01611328125
+            },
+            {
+              "text": " U,",
+              "start": 2.54,
+              "end": 2.86,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " a",
+              "start": 3.26,
+              "end": 3.36,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " writ.",
+              "start": 3.36,
+              "end": 3.56,
+              "probability": 0.65478515625
+            },
+            {
+              "text": " You",
+              "start": 4.24,
+              "end": 4.36,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " must",
+              "start": 4.36,
+              "end": 4.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " either",
+              "start": 4.5,
+              "end": 4.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pay",
+              "start": 4.78,
+              "end": 5.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it,",
+              "start": 5.1,
+              "end": 5.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 5.56,
+              "end": 5.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " all",
+              "start": 5.68,
+              "end": 5.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " expenses,",
+              "start": 5.9,
+              "end": 6.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " costs",
+              "start": 7.02,
+              "end": 7.3,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 7.3,
+              "end": 7.6,
+              "probability": 0.53857421875
+            },
+            {
+              "text": " so",
+              "start": 7.6,
+              "end": 7.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on,",
+              "start": 7.8,
+              "end": 8.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " or",
+              "start": 8.54,
+              "end": 8.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " give",
+              "start": 8.64,
+              "end": 8.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 8.8,
+              "end": 8.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " written",
+              "start": 8.96,
+              "end": 9.18,
+              "probability": 0.63232421875
+            },
+            {
+              "text": " declaration",
+              "start": 9.18,
+              "end": 9.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " when",
+              "start": 9.7,
+              "end": 10.02,
+              "probability": 0.98828125
+            },
+            {
+              "text": " you",
+              "start": 10.02,
+              "end": 10.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " can",
+              "start": 10.14,
+              "end": 10.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pay",
+              "start": 10.28,
+              "end": 10.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it,",
+              "start": 10.52,
+              "end": 10.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 11.14,
+              "end": 11.28,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " at",
+              "start": 11.28,
+              "end": 11.38,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " the",
+              "start": 11.38,
+              "end": 11.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " same",
+              "start": 11.52,
+              "end": 11.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " time",
+              "start": 11.72,
+              "end": 12.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " an",
+              "start": 12.14,
+              "end": 12.38,
+              "probability": 0.8046875
+            },
+            {
+              "text": " undertaking",
+              "start": 12.38,
+              "end": 12.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 12.78,
+              "end": 13.14,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " to",
+              "start": 13.14,
+              "end": 13.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " leave",
+              "start": 13.34,
+              "end": 13.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 13.5,
+              "end": 13.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " capital",
+              "start": 13.68,
+              "end": 14.06,
+              "probability": 0.89453125
+            },
+            {
+              "text": " without",
+              "start": 14.06,
+              "end": 14.4,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " payment,",
+              "start": 14.4,
+              "end": 14.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 15.32,
+              "end": 15.46,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " nor",
+              "start": 15.46,
+              "end": 15.64,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " to",
+              "start": 15.64,
+              "end": 15.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sell",
+              "start": 15.84,
+              "end": 16.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " or",
+              "start": 16.12,
+              "end": 16.38,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " conceal",
+              "start": 16.38,
+              "end": 16.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 16.74,
+              "end": 17.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " property.",
+              "start": 17.0,
+              "end": 17.42,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " The creditor is at liberty to sell your property, and proceed against you according to the law.",
+          "start": 18.14,
+          "end": 22.86,
+          "words": [
+            {
+              "text": " The",
+              "start": 18.14,
+              "end": 18.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " creditor",
+              "start": 18.38,
+              "end": 18.58,
+              "probability": 0.98046875
+            },
+            {
+              "text": " is",
+              "start": 18.58,
+              "end": 18.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 18.92,
+              "end": 19.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " liberty",
+              "start": 19.04,
+              "end": 19.24,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 19.24,
+              "end": 19.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sell",
+              "start": 19.58,
+              "end": 19.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " your",
+              "start": 19.76,
+              "end": 19.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " property,",
+              "start": 19.96,
+              "end": 20.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 20.78,
+              "end": 20.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " proceed",
+              "start": 20.96,
+              "end": 21.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " against",
+              "start": 21.3,
+              "end": 21.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 21.58,
+              "end": 21.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " according",
+              "start": 21.88,
+              "end": 22.18,
+              "probability": 0.974609375
+            },
+            {
+              "text": " to",
+              "start": 22.18,
+              "end": 22.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 22.48,
+              "end": 22.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " law.",
+              "start": 22.6,
+              "end": 22.86,
+              "probability": 0.9482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "is",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "for",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "the",
+          "start": 0.8,
+          "end": 0.9
+        },
+        {
+          "raw": "recovery",
+          "start": 0.9,
+          "end": 1.22
+        },
+        {
+          "raw": "of",
+          "start": 1.22,
+          "end": 1.54
+        },
+        {
+          "raw": "money",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "raw": "on",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "raw": "an",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "raw": "I",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "raw": "O",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "raw": "U,",
+          "start": 2.54,
+          "end": 2.86
+        },
+        {
+          "raw": "a",
+          "start": 3.26,
+          "end": 3.36
+        },
+        {
+          "raw": "writ.",
+          "start": 3.36,
+          "end": 3.56
+        },
+        {
+          "raw": "You",
+          "start": 4.24,
+          "end": 4.36
+        },
+        {
+          "raw": "must",
+          "start": 4.36,
+          "end": 4.5
+        },
+        {
+          "raw": "either",
+          "start": 4.5,
+          "end": 4.78
+        },
+        {
+          "raw": "pay",
+          "start": 4.78,
+          "end": 5.1
+        },
+        {
+          "raw": "it,",
+          "start": 5.1,
+          "end": 5.34
+        },
+        {
+          "raw": "with",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "raw": "all",
+          "start": 5.68,
+          "end": 5.9
+        },
+        {
+          "raw": "expenses,",
+          "start": 5.9,
+          "end": 6.48
+        },
+        {
+          "raw": "costs",
+          "start": 7.02,
+          "end": 7.3
+        },
+        {
+          "raw": "and",
+          "start": 7.3,
+          "end": 7.6
+        },
+        {
+          "raw": "so",
+          "start": 7.6,
+          "end": 7.8
+        },
+        {
+          "raw": "on,",
+          "start": 7.8,
+          "end": 8.18
+        },
+        {
+          "raw": "or",
+          "start": 8.54,
+          "end": 8.64
+        },
+        {
+          "raw": "give",
+          "start": 8.64,
+          "end": 8.8
+        },
+        {
+          "raw": "a",
+          "start": 8.8,
+          "end": 8.96
+        },
+        {
+          "raw": "written",
+          "start": 8.96,
+          "end": 9.18
+        },
+        {
+          "raw": "declaration",
+          "start": 9.18,
+          "end": 9.7
+        },
+        {
+          "raw": "when",
+          "start": 9.7,
+          "end": 10.02
+        },
+        {
+          "raw": "you",
+          "start": 10.02,
+          "end": 10.14
+        },
+        {
+          "raw": "can",
+          "start": 10.14,
+          "end": 10.28
+        },
+        {
+          "raw": "pay",
+          "start": 10.28,
+          "end": 10.52
+        },
+        {
+          "raw": "it,",
+          "start": 10.52,
+          "end": 10.8
+        },
+        {
+          "raw": "and",
+          "start": 11.14,
+          "end": 11.28
+        },
+        {
+          "raw": "at",
+          "start": 11.28,
+          "end": 11.38
+        },
+        {
+          "raw": "the",
+          "start": 11.38,
+          "end": 11.52
+        },
+        {
+          "raw": "same",
+          "start": 11.52,
+          "end": 11.72
+        },
+        {
+          "raw": "time",
+          "start": 11.72,
+          "end": 12.14
+        },
+        {
+          "raw": "an",
+          "start": 12.14,
+          "end": 12.38
+        },
+        {
+          "raw": "undertaking",
+          "start": 12.38,
+          "end": 12.78
+        },
+        {
+          "raw": "not",
+          "start": 12.78,
+          "end": 13.14
+        },
+        {
+          "raw": "to",
+          "start": 13.14,
+          "end": 13.34
+        },
+        {
+          "raw": "leave",
+          "start": 13.34,
+          "end": 13.5
+        },
+        {
+          "raw": "the",
+          "start": 13.5,
+          "end": 13.68
+        },
+        {
+          "raw": "capital",
+          "start": 13.68,
+          "end": 14.06
+        },
+        {
+          "raw": "without",
+          "start": 14.06,
+          "end": 14.4
+        },
+        {
+          "raw": "payment,",
+          "start": 14.4,
+          "end": 14.84
+        },
+        {
+          "raw": "and",
+          "start": 15.32,
+          "end": 15.46
+        },
+        {
+          "raw": "nor",
+          "start": 15.46,
+          "end": 15.64
+        },
+        {
+          "raw": "to",
+          "start": 15.64,
+          "end": 15.84
+        },
+        {
+          "raw": "sell",
+          "start": 15.84,
+          "end": 16.12
+        },
+        {
+          "raw": "or",
+          "start": 16.12,
+          "end": 16.38
+        },
+        {
+          "raw": "conceal",
+          "start": 16.38,
+          "end": 16.74
+        },
+        {
+          "raw": "your",
+          "start": 16.74,
+          "end": 17.0
+        },
+        {
+          "raw": "property.",
+          "start": 17.0,
+          "end": 17.42
+        },
+        {
+          "raw": "The",
+          "start": 18.14,
+          "end": 18.38
+        },
+        {
+          "raw": "creditor",
+          "start": 18.38,
+          "end": 18.58
+        },
+        {
+          "raw": "is",
+          "start": 18.58,
+          "end": 18.92
+        },
+        {
+          "raw": "at",
+          "start": 18.92,
+          "end": 19.04
+        },
+        {
+          "raw": "liberty",
+          "start": 19.04,
+          "end": 19.24
+        },
+        {
+          "raw": "to",
+          "start": 19.24,
+          "end": 19.58
+        },
+        {
+          "raw": "sell",
+          "start": 19.58,
+          "end": 19.76
+        },
+        {
+          "raw": "your",
+          "start": 19.76,
+          "end": 19.96
+        },
+        {
+          "raw": "property,",
+          "start": 19.96,
+          "end": 20.4
+        },
+        {
+          "raw": "and",
+          "start": 20.78,
+          "end": 20.96
+        },
+        {
+          "raw": "proceed",
+          "start": 20.96,
+          "end": 21.3
+        },
+        {
+          "raw": "against",
+          "start": 21.3,
+          "end": 21.58
+        },
+        {
+          "raw": "you",
+          "start": 21.58,
+          "end": 21.88
+        },
+        {
+          "raw": "according",
+          "start": 21.88,
+          "end": 22.18
+        },
+        {
+          "raw": "to",
+          "start": 22.18,
+          "end": 22.48
+        },
+        {
+          "raw": "the",
+          "start": 22.48,
+          "end": 22.6
+        },
+        {
+          "raw": "law.",
+          "start": 22.6,
+          "end": 22.86
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "is",
+        "for",
+        "the",
+        "recovery",
+        "of",
+        "money",
+        "on",
+        "an",
+        "I",
+        "O",
+        "U,",
+        "a",
+        "writ.",
+        "You",
+        "must",
+        "either",
+        "pay",
+        "it,",
+        "with",
+        "all",
+        "expenses,",
+        "costs",
+        "and",
+        "so",
+        "on,",
+        "or",
+        "give",
+        "a",
+        "written",
+        "declaration",
+        "when",
+        "you",
+        "can",
+        "pay",
+        "it,",
+        "and",
+        "at",
+        "the",
+        "same",
+        "time",
+        "an",
+        "undertaking",
+        "not",
+        "to",
+        "leave",
+        "the",
+        "capital",
+        "without",
+        "payment,",
+        "and",
+        "nor",
+        "to",
+        "sell",
+        "or",
+        "conceal",
+        "your",
+        "property.",
+        "The",
+        "creditor",
+        "is",
+        "at",
+        "liberty",
+        "to",
+        "sell",
+        "your",
+        "property,",
+        "and",
+        "proceed",
+        "against",
+        "you",
+        "according",
+        "to",
+        "the",
+        "law.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          75,
+          0,
+          75
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.8,
+          "end": 0.9,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "recovery",
+          "start": 0.9,
+          "end": 1.22,
+          "key": "recovery",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.22,
+          "end": 1.54,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "money",
+          "start": 1.54,
+          "end": 1.76,
+          "key": "money",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.76,
+          "end": 2.0,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.0,
+          "end": 2.16,
+          "key": "an",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.16,
+          "end": 2.34,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 2.34,
+          "end": 2.54,
+          "key": "o",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "U,",
+          "start": 2.54,
+          "end": 2.86,
+          "key": "u",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.26,
+          "end": 3.36,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "writ.",
+          "start": 3.36,
+          "end": 3.56,
+          "key": "writ",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 4.24,
+          "end": 4.36,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 4.36,
+          "end": 4.5,
+          "key": "must",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "either",
+          "start": 4.5,
+          "end": 4.78,
+          "key": "either",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pay",
+          "start": 4.78,
+          "end": 5.1,
+          "key": "pay",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 5.1,
+          "end": 5.34,
+          "key": "it",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.56,
+          "end": 5.68,
+          "key": "with",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 5.68,
+          "end": 5.9,
+          "key": "all",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "expenses,",
+          "start": 5.9,
+          "end": 6.48,
+          "key": "expenses",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "costs",
+          "start": 7.02,
+          "end": 7.3,
+          "key": "costs",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.3,
+          "end": 7.6,
+          "key": "and",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 7.6,
+          "end": 7.8,
+          "key": "so",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 7.8,
+          "end": 8.18,
+          "key": "on",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 8.54,
+          "end": 8.64,
+          "key": "or",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 8.64,
+          "end": 8.8,
+          "key": "give",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.8,
+          "end": 8.96,
+          "key": "a",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "written",
+          "start": 8.96,
+          "end": 9.18,
+          "key": "written",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "declaration",
+          "start": 9.18,
+          "end": 9.7,
+          "key": "declaration",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 9.7,
+          "end": 10.02,
+          "key": "when",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 10.02,
+          "end": 10.14,
+          "key": "you",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 10.14,
+          "end": 10.28,
+          "key": "can",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "pay",
+          "start": 10.28,
+          "end": 10.52,
+          "key": "pay",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 10.52,
+          "end": 10.8,
+          "key": "it",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.14,
+          "end": 11.28,
+          "key": "and",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 11.28,
+          "end": 11.38,
+          "key": "at",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.38,
+          "end": 11.52,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 11.52,
+          "end": 11.72,
+          "key": "same",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 11.72,
+          "end": 12.14,
+          "key": "time",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 12.14,
+          "end": 12.38,
+          "key": "an",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "undertaking",
+          "start": 12.38,
+          "end": 12.78,
+          "key": "undertaking",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 12.78,
+          "end": 13.14,
+          "key": "not",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.14,
+          "end": 13.34,
+          "key": "to",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 13.34,
+          "end": 13.5,
+          "key": "leave",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.5,
+          "end": 13.68,
+          "key": "the",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "capital",
+          "start": 13.68,
+          "end": 14.06,
+          "key": "capital",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 14.06,
+          "end": 14.4,
+          "key": "without",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "payment,",
+          "start": 14.4,
+          "end": 14.84,
+          "key": "payment",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 15.32,
+          "end": 15.46,
+          "key": "and",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 15.46,
+          "end": 15.64,
+          "key": "nor",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.64,
+          "end": 15.84,
+          "key": "to",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "sell",
+          "start": 15.84,
+          "end": 16.12,
+          "key": "sell",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 16.12,
+          "end": 16.38,
+          "key": "or",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "conceal",
+          "start": 16.38,
+          "end": 16.74,
+          "key": "conceal",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 16.74,
+          "end": 17.0,
+          "key": "your",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "property.",
+          "start": 17.0,
+          "end": 17.42,
+          "key": "property",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 18.14,
+          "end": 18.38,
+          "key": "the",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "creditor",
+          "start": 18.38,
+          "end": 18.58,
+          "key": "creditor",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 18.58,
+          "end": 18.92,
+          "key": "is",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 18.92,
+          "end": 19.04,
+          "key": "at",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "liberty",
+          "start": 19.04,
+          "end": 19.24,
+          "key": "liberty",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 19.24,
+          "end": 19.58,
+          "key": "to",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "sell",
+          "start": 19.58,
+          "end": 19.76,
+          "key": "sell",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 19.76,
+          "end": 19.96,
+          "key": "your",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "property,",
+          "start": 19.96,
+          "end": 20.4,
+          "key": "property",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 20.78,
+          "end": 20.96,
+          "key": "and",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "proceed",
+          "start": 20.96,
+          "end": 21.3,
+          "key": "proceed",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 21.3,
+          "end": 21.58,
+          "key": "against",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 21.58,
+          "end": 21.88,
+          "key": "you",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "according",
+          "start": 21.88,
+          "end": 22.18,
+          "key": "according",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 22.18,
+          "end": 22.48,
+          "key": "to",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.48,
+          "end": 22.6,
+          "key": "the",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "law.",
+          "start": 22.6,
+          "end": 22.86,
+          "key": "law",
+          "pieces": [
+            74
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "is",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "for",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "the",
+          "start": 0.8,
+          "end": 0.9
+        },
+        {
+          "text": "recovery",
+          "start": 0.9,
+          "end": 1.22
+        },
+        {
+          "text": "of",
+          "start": 1.22,
+          "end": 1.54
+        },
+        {
+          "text": "money",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "text": "on",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "text": "an",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "text": "I",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "text": "O",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "text": "U,",
+          "start": 2.54,
+          "end": 2.86
+        },
+        {
+          "text": "a",
+          "start": 3.26,
+          "end": 3.36
+        },
+        {
+          "text": "writ.",
+          "start": 3.36,
+          "end": 3.56
+        },
+        {
+          "text": "You",
+          "start": 4.24,
+          "end": 4.36
+        },
+        {
+          "text": "must",
+          "start": 4.36,
+          "end": 4.5
+        },
+        {
+          "text": "either",
+          "start": 4.5,
+          "end": 4.78
+        },
+        {
+          "text": "pay",
+          "start": 4.78,
+          "end": 5.1
+        },
+        {
+          "text": "it,",
+          "start": 5.1,
+          "end": 5.34
+        },
+        {
+          "text": "with",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "text": "all",
+          "start": 5.68,
+          "end": 5.9
+        },
+        {
+          "text": "expenses,",
+          "start": 5.9,
+          "end": 6.48
+        },
+        {
+          "text": "costs",
+          "start": 7.02,
+          "end": 7.3
+        },
+        {
+          "text": "and",
+          "start": 7.3,
+          "end": 7.6
+        },
+        {
+          "text": "so",
+          "start": 7.6,
+          "end": 7.8
+        },
+        {
+          "text": "on,",
+          "start": 7.8,
+          "end": 8.18
+        },
+        {
+          "text": "or",
+          "start": 8.54,
+          "end": 8.64
+        },
+        {
+          "text": "give",
+          "start": 8.64,
+          "end": 8.8
+        },
+        {
+          "text": "a",
+          "start": 8.8,
+          "end": 8.96
+        },
+        {
+          "text": "written",
+          "start": 8.96,
+          "end": 9.18
+        },
+        {
+          "text": "declaration",
+          "start": 9.18,
+          "end": 9.7
+        },
+        {
+          "text": "when",
+          "start": 9.7,
+          "end": 10.02
+        },
+        {
+          "text": "you",
+          "start": 10.02,
+          "end": 10.14
+        },
+        {
+          "text": "can",
+          "start": 10.14,
+          "end": 10.28
+        },
+        {
+          "text": "pay",
+          "start": 10.28,
+          "end": 10.52
+        },
+        {
+          "text": "it,",
+          "start": 10.52,
+          "end": 10.8
+        },
+        {
+          "text": "and",
+          "start": 11.14,
+          "end": 11.28
+        },
+        {
+          "text": "at",
+          "start": 11.28,
+          "end": 11.38
+        },
+        {
+          "text": "the",
+          "start": 11.38,
+          "end": 11.52
+        },
+        {
+          "text": "same",
+          "start": 11.52,
+          "end": 11.72
+        },
+        {
+          "text": "time",
+          "start": 11.72,
+          "end": 12.14
+        },
+        {
+          "text": "an",
+          "start": 12.14,
+          "end": 12.38
+        },
+        {
+          "text": "undertaking",
+          "start": 12.38,
+          "end": 12.78
+        },
+        {
+          "text": "not",
+          "start": 12.78,
+          "end": 13.14
+        },
+        {
+          "text": "to",
+          "start": 13.14,
+          "end": 13.34
+        },
+        {
+          "text": "leave",
+          "start": 13.34,
+          "end": 13.5
+        },
+        {
+          "text": "the",
+          "start": 13.5,
+          "end": 13.68
+        },
+        {
+          "text": "capital",
+          "start": 13.68,
+          "end": 14.06
+        },
+        {
+          "text": "without",
+          "start": 14.06,
+          "end": 14.4
+        },
+        {
+          "text": "payment,",
+          "start": 14.4,
+          "end": 14.84
+        },
+        {
+          "text": "and",
+          "start": 15.32,
+          "end": 15.46
+        },
+        {
+          "text": "nor",
+          "start": 15.46,
+          "end": 15.64
+        },
+        {
+          "text": "to",
+          "start": 15.64,
+          "end": 15.84
+        },
+        {
+          "text": "sell",
+          "start": 15.84,
+          "end": 16.12
+        },
+        {
+          "text": "or",
+          "start": 16.12,
+          "end": 16.38
+        },
+        {
+          "text": "conceal",
+          "start": 16.38,
+          "end": 16.74
+        },
+        {
+          "text": "your",
+          "start": 16.74,
+          "end": 17.0
+        },
+        {
+          "text": "property.",
+          "start": 17.0,
+          "end": 17.42
+        },
+        {
+          "text": "The",
+          "start": 18.14,
+          "end": 18.38
+        },
+        {
+          "text": "creditor",
+          "start": 18.38,
+          "end": 18.58
+        },
+        {
+          "text": "is",
+          "start": 18.58,
+          "end": 18.92
+        },
+        {
+          "text": "at",
+          "start": 18.92,
+          "end": 19.04
+        },
+        {
+          "text": "liberty",
+          "start": 19.04,
+          "end": 19.24
+        },
+        {
+          "text": "to",
+          "start": 19.24,
+          "end": 19.58
+        },
+        {
+          "text": "sell",
+          "start": 19.58,
+          "end": 19.76
+        },
+        {
+          "text": "your",
+          "start": 19.76,
+          "end": 19.96
+        },
+        {
+          "text": "property,",
+          "start": 19.96,
+          "end": 20.4
+        },
+        {
+          "text": "and",
+          "start": 20.78,
+          "end": 20.96
+        },
+        {
+          "text": "proceed",
+          "start": 20.96,
+          "end": 21.3
+        },
+        {
+          "text": "against",
+          "start": 21.3,
+          "end": 21.58
+        },
+        {
+          "text": "you",
+          "start": 21.58,
+          "end": 21.88
+        },
+        {
+          "text": "according",
+          "start": 21.88,
+          "end": 22.18
+        },
+        {
+          "text": "to",
+          "start": 22.18,
+          "end": 22.48
+        },
+        {
+          "text": "the",
+          "start": 22.48,
+          "end": 22.6
+        },
+        {
+          "text": "law.\"",
+          "start": 22.6,
+          "end": 22.86
+        }
+      ],
+      "stats": {
+        "expected_words": 75,
+        "heard_words": 75,
+        "matched_words": 75
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6178731331601739
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "55a9ec4f6ff2422c09e0e9f5fb248b35b025c23a389611d61104fc6b1dac14fe",
+  "selected_reasons": []
+}

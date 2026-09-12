@@ -1,0 +1,805 @@
+{
+  "complete": true,
+  "signature": "8871acc1a5419b11d7732e06b8d7b7b750d4bac2530a04b6398908ee959de6fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.42713215108960867,
+      "alignment_seconds": 0.0007004830986261368,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"My dear Dmitri Fyodorovitch,\" said Trifon Borissovitch, \"make them give you back the money you lost. It's as good as stolen from you.\"",
+        "hotwords": "My, Dmitri, Fyodorovitch, Trifon, Borissovitch, It's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " My dear Dmitri Fyodorovitch, said Trifon Borissovitch,",
+          "start": 0.05,
+          "end": 4.17,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.34228515625
+            },
+            {
+              "text": " dear",
+              "start": 0.59,
+              "end": 0.91,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Dmitri",
+              "start": 0.91,
+              "end": 1.51,
+              "probability": 0.5743408203125
+            },
+            {
+              "text": " Fyodorovitch,",
+              "start": 1.51,
+              "end": 2.59,
+              "probability": 0.701416015625
+            },
+            {
+              "text": " said",
+              "start": 2.83,
+              "end": 2.95,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Trifon",
+              "start": 2.95,
+              "end": 3.49,
+              "probability": 0.7433268229166666
+            },
+            {
+              "text": " Borissovitch,",
+              "start": 3.49,
+              "end": 4.17,
+              "probability": 0.5301331480344137
+            }
+          ]
+        },
+        {
+          "text": " Make them give you back the money you lost. It's as good as stolen from you.",
+          "start": 4.65,
+          "end": 8.37,
+          "words": [
+            {
+              "text": " Make",
+              "start": 4.65,
+              "end": 4.77,
+              "probability": 0.0672607421875
+            },
+            {
+              "text": " them",
+              "start": 4.77,
+              "end": 4.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " give",
+              "start": 4.95,
+              "end": 5.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 5.13,
+              "end": 5.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " back",
+              "start": 5.25,
+              "end": 5.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 5.45,
+              "end": 5.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " money",
+              "start": 5.65,
+              "end": 5.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 5.83,
+              "end": 6.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " lost.",
+              "start": 6.07,
+              "end": 6.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " It's",
+              "start": 6.93,
+              "end": 7.07,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " as",
+              "start": 7.07,
+              "end": 7.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " good",
+              "start": 7.19,
+              "end": 7.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " as",
+              "start": 7.27,
+              "end": 7.43,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " stolen",
+              "start": 7.43,
+              "end": 7.71,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " from",
+              "start": 7.71,
+              "end": 8.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you.",
+              "start": 8.07,
+              "end": 8.37,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "dear",
+          "start": 0.59,
+          "end": 0.91
+        },
+        {
+          "raw": "Dmitri",
+          "start": 0.91,
+          "end": 1.51
+        },
+        {
+          "raw": "Fyodorovitch,",
+          "start": 1.51,
+          "end": 2.59
+        },
+        {
+          "raw": "said",
+          "start": 2.83,
+          "end": 2.95
+        },
+        {
+          "raw": "Trifon",
+          "start": 2.95,
+          "end": 3.49
+        },
+        {
+          "raw": "Borissovitch,",
+          "start": 3.49,
+          "end": 4.17
+        },
+        {
+          "raw": "Make",
+          "start": 4.65,
+          "end": 4.77
+        },
+        {
+          "raw": "them",
+          "start": 4.77,
+          "end": 4.95
+        },
+        {
+          "raw": "give",
+          "start": 4.95,
+          "end": 5.13
+        },
+        {
+          "raw": "you",
+          "start": 5.13,
+          "end": 5.25
+        },
+        {
+          "raw": "back",
+          "start": 5.25,
+          "end": 5.45
+        },
+        {
+          "raw": "the",
+          "start": 5.45,
+          "end": 5.65
+        },
+        {
+          "raw": "money",
+          "start": 5.65,
+          "end": 5.83
+        },
+        {
+          "raw": "you",
+          "start": 5.83,
+          "end": 6.07
+        },
+        {
+          "raw": "lost.",
+          "start": 6.07,
+          "end": 6.45
+        },
+        {
+          "raw": "It's",
+          "start": 6.93,
+          "end": 7.07
+        },
+        {
+          "raw": "as",
+          "start": 7.07,
+          "end": 7.19
+        },
+        {
+          "raw": "good",
+          "start": 7.19,
+          "end": 7.27
+        },
+        {
+          "raw": "as",
+          "start": 7.27,
+          "end": 7.43
+        },
+        {
+          "raw": "stolen",
+          "start": 7.43,
+          "end": 7.71
+        },
+        {
+          "raw": "from",
+          "start": 7.71,
+          "end": 8.07
+        },
+        {
+          "raw": "you.",
+          "start": 8.07,
+          "end": 8.37
+        }
+      ],
+      "expected_tokens": [
+        "\"My",
+        "dear",
+        "Dmitri",
+        "Fyodorovitch,\"",
+        "said",
+        "Trifon",
+        "Borissovitch,",
+        "\"make",
+        "them",
+        "give",
+        "you",
+        "back",
+        "the",
+        "money",
+        "you",
+        "lost.",
+        "It's",
+        "as",
+        "good",
+        "as",
+        "stolen",
+        "from",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 0.59,
+          "end": 0.91,
+          "key": "dear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dmitri",
+          "start": 0.91,
+          "end": 1.51,
+          "key": "dmitri",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Fyodorovitch,",
+          "start": 1.51,
+          "end": 2.59,
+          "key": "fyodorovitch",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.83,
+          "end": 2.95,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Trifon",
+          "start": 2.95,
+          "end": 3.49,
+          "key": "trifon",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Borissovitch,",
+          "start": 3.49,
+          "end": 4.17,
+          "key": "borissovitch",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Make",
+          "start": 4.65,
+          "end": 4.77,
+          "key": "make",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.77,
+          "end": 4.95,
+          "key": "them",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 4.95,
+          "end": 5.13,
+          "key": "give",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.13,
+          "end": 5.25,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 5.25,
+          "end": 5.45,
+          "key": "back",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.45,
+          "end": 5.65,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "money",
+          "start": 5.65,
+          "end": 5.83,
+          "key": "money",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.83,
+          "end": 6.07,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "lost.",
+          "start": 6.07,
+          "end": 6.45,
+          "key": "lost",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 6.93,
+          "end": 7.07,
+          "key": "its",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 7.07,
+          "end": 7.19,
+          "key": "as",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 7.19,
+          "end": 7.27,
+          "key": "good",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 7.27,
+          "end": 7.43,
+          "key": "as",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "stolen",
+          "start": 7.43,
+          "end": 7.71,
+          "key": "stolen",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 7.71,
+          "end": 8.07,
+          "key": "from",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 8.07,
+          "end": 8.37,
+          "key": "you",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"My",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "dear",
+          "start": 0.59,
+          "end": 0.91
+        },
+        {
+          "text": "Dmitri",
+          "start": 0.91,
+          "end": 1.51
+        },
+        {
+          "text": "Fyodorovitch,\"",
+          "start": 1.51,
+          "end": 2.59
+        },
+        {
+          "text": "said",
+          "start": 2.83,
+          "end": 2.95
+        },
+        {
+          "text": "Trifon",
+          "start": 2.95,
+          "end": 3.49
+        },
+        {
+          "text": "Borissovitch,",
+          "start": 3.49,
+          "end": 4.17
+        },
+        {
+          "text": "\"make",
+          "start": 4.65,
+          "end": 4.77
+        },
+        {
+          "text": "them",
+          "start": 4.77,
+          "end": 4.95
+        },
+        {
+          "text": "give",
+          "start": 4.95,
+          "end": 5.13
+        },
+        {
+          "text": "you",
+          "start": 5.13,
+          "end": 5.25
+        },
+        {
+          "text": "back",
+          "start": 5.25,
+          "end": 5.45
+        },
+        {
+          "text": "the",
+          "start": 5.45,
+          "end": 5.65
+        },
+        {
+          "text": "money",
+          "start": 5.65,
+          "end": 5.83
+        },
+        {
+          "text": "you",
+          "start": 5.83,
+          "end": 6.07
+        },
+        {
+          "text": "lost.",
+          "start": 6.07,
+          "end": 6.45
+        },
+        {
+          "text": "It's",
+          "start": 6.93,
+          "end": 7.07
+        },
+        {
+          "text": "as",
+          "start": 7.07,
+          "end": 7.19
+        },
+        {
+          "text": "good",
+          "start": 7.19,
+          "end": 7.27
+        },
+        {
+          "text": "as",
+          "start": 7.27,
+          "end": 7.43
+        },
+        {
+          "text": "stolen",
+          "start": 7.43,
+          "end": 7.71
+        },
+        {
+          "text": "from",
+          "start": 7.71,
+          "end": 8.07
+        },
+        {
+          "text": "you.\"",
+          "start": 8.07,
+          "end": 8.37
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 23,
+        "matched_words": 23
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.42811106890439987
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6d4e2925a050c8f200fee659fa963126603767eaaeed9ff6a59199b4e2bd27aa",
+  "selected_reasons": []
+}

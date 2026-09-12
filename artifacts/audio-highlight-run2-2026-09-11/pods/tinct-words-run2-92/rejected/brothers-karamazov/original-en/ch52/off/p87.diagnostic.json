@@ -1,0 +1,505 @@
+{
+  "complete": true,
+  "signature": "48c405878742101ddd27866d3d8716ffd7ecc8a2079e826bb81fa2b77a67cf6b",
+  "attempts": [
+    {
+      "asr_seconds": 0.31781797111034393,
+      "alignment_seconds": 0.0004901532083749771,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All three drank.",
+          "start": 0.05,
+          "end": 1.23,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.86328125
+            },
+            {
+              "text": " three",
+              "start": 0.63,
+              "end": 0.87,
+              "probability": 0.97265625
+            },
+            {
+              "text": " drank.",
+              "start": 0.87,
+              "end": 1.23,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Midia seized the bottle and again poured out three glasses.",
+          "start": 1.91,
+          "end": 4.47,
+          "words": [
+            {
+              "text": " Midia",
+              "start": 1.91,
+              "end": 2.07,
+              "probability": 0.740478515625
+            },
+            {
+              "text": " seized",
+              "start": 2.07,
+              "end": 2.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.35,
+              "end": 2.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bottle",
+              "start": 2.55,
+              "end": 2.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.81,
+              "end": 3.03,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " again",
+              "start": 3.03,
+              "end": 3.27,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " poured",
+              "start": 3.27,
+              "end": 3.57,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " out",
+              "start": 3.57,
+              "end": 3.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " three",
+              "start": 3.77,
+              "end": 4.05,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " glasses.",
+              "start": 4.05,
+              "end": 4.47,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "three",
+          "start": 0.63,
+          "end": 0.87
+        },
+        {
+          "raw": "drank.",
+          "start": 0.87,
+          "end": 1.23
+        },
+        {
+          "raw": "Midia",
+          "start": 1.91,
+          "end": 2.07
+        },
+        {
+          "raw": "seized",
+          "start": 2.07,
+          "end": 2.35
+        },
+        {
+          "raw": "the",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "raw": "bottle",
+          "start": 2.55,
+          "end": 2.81
+        },
+        {
+          "raw": "and",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "raw": "again",
+          "start": 3.03,
+          "end": 3.27
+        },
+        {
+          "raw": "poured",
+          "start": 3.27,
+          "end": 3.57
+        },
+        {
+          "raw": "out",
+          "start": 3.57,
+          "end": 3.77
+        },
+        {
+          "raw": "three",
+          "start": 3.77,
+          "end": 4.05
+        },
+        {
+          "raw": "glasses.",
+          "start": 4.05,
+          "end": 4.47
+        }
+      ],
+      "expected_tokens": [
+        "All",
+        "three",
+        "drank.",
+        "Mitya",
+        "seized",
+        "the",
+        "bottle",
+        "and",
+        "again",
+        "poured",
+        "out",
+        "three",
+        "glasses."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          13,
+          4,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 0.63,
+          "end": 0.87,
+          "key": "three",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "drank.",
+          "start": 0.87,
+          "end": 1.23,
+          "key": "drank",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Midia",
+          "start": 1.91,
+          "end": 2.07,
+          "key": "midia",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "seized",
+          "start": 2.07,
+          "end": 2.35,
+          "key": "seized",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.35,
+          "end": 2.55,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bottle",
+          "start": 2.55,
+          "end": 2.81,
+          "key": "bottle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.81,
+          "end": 3.03,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 3.03,
+          "end": 3.27,
+          "key": "again",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "poured",
+          "start": 3.27,
+          "end": 3.57,
+          "key": "poured",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 3.57,
+          "end": 3.77,
+          "key": "out",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 3.77,
+          "end": 4.05,
+          "key": "three",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "glasses.",
+          "start": 4.05,
+          "end": 4.47,
+          "key": "glasses",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "three",
+          "start": 0.63,
+          "end": 0.87
+        },
+        {
+          "text": "drank.",
+          "start": 0.87,
+          "end": 1.23
+        },
+        {
+          "text": "Mitya",
+          "start": 1.23,
+          "end": 1.65
+        },
+        {
+          "text": "seized",
+          "start": 2.07,
+          "end": 2.35
+        },
+        {
+          "text": "the",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "text": "bottle",
+          "start": 2.55,
+          "end": 2.81
+        },
+        {
+          "text": "and",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "text": "again",
+          "start": 3.03,
+          "end": 3.27
+        },
+        {
+          "text": "poured",
+          "start": 3.27,
+          "end": 3.57
+        },
+        {
+          "text": "out",
+          "start": 3.57,
+          "end": 3.77
+        },
+        {
+          "text": "three",
+          "start": 3.77,
+          "end": 4.05
+        },
+        {
+          "text": "glasses.",
+          "start": 4.05,
+          "end": 4.47
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.318503231741488
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e57994df4f864e0c6b6769c2a853bf8bcf9e02bd8b4b9f0136294d007c996236",
+  "selected_reasons": []
+}

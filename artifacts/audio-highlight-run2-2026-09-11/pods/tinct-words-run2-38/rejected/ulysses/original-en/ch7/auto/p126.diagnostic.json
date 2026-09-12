@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "68589825421e78d1046d147c88285ac27feabecc732c600fd084eca6da394fb5",
+  "attempts": [
+    {
+      "asr_seconds": 0.10806333395885304,
+      "alignment_seconds": 0.00016949098790064454,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Dan Dawson's land Mr Dedalus said.",
+        "hotwords": "Dan, Dawson's, Mr, Dedalus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dan Dawson's land Mr Dedalus said.",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Dan",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " Dawson's",
+              "start": 0.61,
+              "end": 1.15,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " land",
+              "start": 1.15,
+              "end": 1.39,
+              "probability": 0.66650390625
+            },
+            {
+              "text": " Mr",
+              "start": 1.39,
+              "end": 1.69,
+              "probability": 0.298828125
+            },
+            {
+              "text": " Dedalus",
+              "start": 1.69,
+              "end": 2.09,
+              "probability": 0.1323394775390625
+            },
+            {
+              "text": " said.",
+              "start": 2.09,
+              "end": 2.43,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dan",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Dawson's",
+          "start": 0.61,
+          "end": 1.15
+        },
+        {
+          "raw": "land",
+          "start": 1.15,
+          "end": 1.39
+        },
+        {
+          "raw": "Mr",
+          "start": 1.39,
+          "end": 1.69
+        },
+        {
+          "raw": "Dedalus",
+          "start": 1.69,
+          "end": 2.09
+        },
+        {
+          "raw": "said.",
+          "start": 2.09,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "—Dan",
+        "Dawson's",
+        "land",
+        "Mr",
+        "Dedalus",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dan",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "dan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dawson's",
+          "start": 0.61,
+          "end": 1.15,
+          "key": "dawsons",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "land",
+          "start": 1.15,
+          "end": 1.39,
+          "key": "land",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mr",
+          "start": 1.39,
+          "end": 1.69,
+          "key": "mr",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Dedalus",
+          "start": 1.69,
+          "end": 2.09,
+          "key": "dedalus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.09,
+          "end": 2.43,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Dan",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Dawson's",
+          "start": 0.61,
+          "end": 1.15
+        },
+        {
+          "text": "land",
+          "start": 1.15,
+          "end": 1.39
+        },
+        {
+          "text": "Mr",
+          "start": 1.39,
+          "end": 1.69
+        },
+        {
+          "text": "Dedalus",
+          "start": 1.69,
+          "end": 2.09
+        },
+        {
+          "text": "said.",
+          "start": 2.09,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10829058499075472
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "71dd65bb657a403274be4593d9c611e7a10c793320c151e3f6ee5fb3ed4d7ec9",
+  "selected_reasons": []
+}

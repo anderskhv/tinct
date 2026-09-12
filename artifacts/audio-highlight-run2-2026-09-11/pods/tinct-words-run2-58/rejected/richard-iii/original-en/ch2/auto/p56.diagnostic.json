@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "4328bc2b2ec07c50e89c8ca56366117e56d2dacae98d5d23eca39f92024bfc68",
+  "attempts": [
+    {
+      "asr_seconds": 0.12095493637025356,
+      "alignment_seconds": 0.00019502732902765274,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Anne. Name him.",
+        "hotwords": "Anne, Name"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anne, Name him.",
+          "start": 0.02,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " Anne,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.0692138671875
+            },
+            {
+              "text": " Name",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.005168914794921875
+            },
+            {
+              "text": " him.",
+              "start": 1.16,
+              "end": 1.4,
+              "probability": 0.6318359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Name",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "raw": "him.",
+          "start": 1.16,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "Anne.",
+        "Name",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "anne",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Name",
+          "start": 0.96,
+          "end": 1.16,
+          "key": "name",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.16,
+          "end": 1.4,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Anne.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Name",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "text": "him.",
+          "start": 1.16,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12122161965817213
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ef538dd4225eea0aea099831d94fc8204afe4454aba4fdda4ec39195dde5bd23",
+  "selected_reasons": []
+}

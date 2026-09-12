@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "f68d5883585a2490f006eedf4ad96ad78978bfdb4e4dcf64b2d24a1a5785d667",
+  "attempts": [
+    {
+      "asr_seconds": 0.12688562786206603,
+      "alignment_seconds": 0.00023523718118667603,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menenius. What, what? His choler?",
+        "hotwords": "Menenius, His"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menenius. What, what? His choler?",
+          "start": 0.55,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Menenius.",
+              "start": 0.55,
+              "end": 0.99,
+              "probability": 0.6195475260416666
+            },
+            {
+              "text": " What,",
+              "start": 1.31,
+              "end": 1.37,
+              "probability": 0.802734375
+            },
+            {
+              "text": " what?",
+              "start": 1.53,
+              "end": 1.55,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " His",
+              "start": 1.77,
+              "end": 1.87,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " choler?",
+              "start": 1.87,
+              "end": 2.19,
+              "probability": 0.017869949340820312
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius.",
+          "start": 0.55,
+          "end": 0.99
+        },
+        {
+          "raw": "What,",
+          "start": 1.31,
+          "end": 1.37
+        },
+        {
+          "raw": "what?",
+          "start": 1.53,
+          "end": 1.55
+        },
+        {
+          "raw": "His",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "raw": "choler?",
+          "start": 1.87,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "What,",
+        "what?",
+        "His",
+        "choler?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius.",
+          "start": 0.55,
+          "end": 0.99,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 1.31,
+          "end": 1.37,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what?",
+          "start": 1.53,
+          "end": 1.55,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 1.77,
+          "end": 1.87,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "choler?",
+          "start": 1.87,
+          "end": 2.19,
+          "key": "choler",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.55,
+          "end": 0.99
+        },
+        {
+          "text": "What,",
+          "start": 1.31,
+          "end": 1.37
+        },
+        {
+          "text": "what?",
+          "start": 1.53,
+          "end": 1.55
+        },
+        {
+          "text": "His",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "text": "choler?",
+          "start": 1.87,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12720299791544676
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cba401ef5ce78c27af195ed86b1aec73683fa7286ecd0eb7456cf8848dcab738",
+  "selected_reasons": []
+}

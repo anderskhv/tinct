@@ -1,0 +1,416 @@
+{
+  "complete": true,
+  "signature": "f7dc5c8ab77518cfd552cc1ac3b5b6a56ad29545fbf1aa18d8bad4fbd11c1fd6",
+  "attempts": [
+    {
+      "asr_seconds": 0.10606271028518677,
+      "alignment_seconds": 0.0001666136085987091,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Edgar, oh matter and impertancy mixed, reason and madness.",
+          "start": 0.05,
+          "end": 4.05,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " oh",
+              "start": 1.23,
+              "end": 1.27,
+              "probability": 0.60986328125
+            },
+            {
+              "text": " matter",
+              "start": 1.27,
+              "end": 1.57,
+              "probability": 0.65478515625
+            },
+            {
+              "text": " and",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.8984375
+            },
+            {
+              "text": " impertancy",
+              "start": 1.75,
+              "end": 2.23,
+              "probability": 0.5928141276041666
+            },
+            {
+              "text": " mixed,",
+              "start": 2.23,
+              "end": 2.67,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " reason",
+              "start": 3.21,
+              "end": 3.39,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " and",
+              "start": 3.39,
+              "end": 3.61,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " madness.",
+              "start": 3.61,
+              "end": 4.05,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "oh",
+          "start": 1.23,
+          "end": 1.27
+        },
+        {
+          "raw": "matter",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "raw": "and",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "impertancy",
+          "start": 1.75,
+          "end": 2.23
+        },
+        {
+          "raw": "mixed,",
+          "start": 2.23,
+          "end": 2.67
+        },
+        {
+          "raw": "reason",
+          "start": 3.21,
+          "end": 3.39
+        },
+        {
+          "raw": "and",
+          "start": 3.39,
+          "end": 3.61
+        },
+        {
+          "raw": "madness.",
+          "start": 3.61,
+          "end": 4.05
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "O,",
+        "matter",
+        "and",
+        "impertinency",
+        "mix'd!",
+        "Reason",
+        "in",
+        "madness!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "equal",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.23,
+          "end": 1.27,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 1.27,
+          "end": 1.57,
+          "key": "matter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.57,
+          "end": 1.75,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "impertancy",
+          "start": 1.75,
+          "end": 2.23,
+          "key": "impertancy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mixed,",
+          "start": 2.23,
+          "end": 2.67,
+          "key": "mixed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 3.21,
+          "end": 3.39,
+          "key": "reason",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.39,
+          "end": 3.61,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "madness.",
+          "start": 3.61,
+          "end": 4.05,
+          "key": "madness",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "O,",
+          "start": 0.67,
+          "end": 0.97
+        },
+        {
+          "text": "matter",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "text": "and",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "impertinency",
+          "start": 1.75,
+          "end": 2.48
+        },
+        {
+          "text": "mix'd!",
+          "start": 2.48,
+          "end": 2.845
+        },
+        {
+          "text": "Reason",
+          "start": 3.21,
+          "end": 3.39
+        },
+        {
+          "text": "in",
+          "start": 3.39,
+          "end": 3.5
+        },
+        {
+          "text": "madness!",
+          "start": 3.61,
+          "end": 4.05
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 5
+      },
+      "match_ratio": 0.5555555555555556,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10627773404121399
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "51be7c0b0d9faf3bf92f4b83fb14db384467b796b1d2920df2e682ce3186494c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

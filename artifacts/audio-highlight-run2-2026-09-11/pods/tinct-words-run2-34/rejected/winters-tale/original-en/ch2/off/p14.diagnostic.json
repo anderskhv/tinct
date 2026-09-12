@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "3151f31291bb21cf4654ed0d38c448bbfcfe0e9c7917c220a2fc7847ab302cdc",
+  "attempts": [
+    {
+      "asr_seconds": 0.24630162864923477,
+      "alignment_seconds": 0.00026253610849380493,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To polyxenes, yet of your royal presence I'll adventure.",
+          "start": 0.02,
+          "end": 3.52,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.78076171875
+            },
+            {
+              "text": " polyxenes,",
+              "start": 0.5,
+              "end": 1.22,
+              "probability": 0.4879557291666667
+            },
+            {
+              "text": " yet",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " of",
+              "start": 1.9,
+              "end": 2.02,
+              "probability": 0.958984375
+            },
+            {
+              "text": " your",
+              "start": 2.02,
+              "end": 2.12,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " royal",
+              "start": 2.12,
+              "end": 2.42,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " presence",
+              "start": 2.42,
+              "end": 2.82,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I'll",
+              "start": 2.82,
+              "end": 3.14,
+              "probability": 0.872314453125
+            },
+            {
+              "text": " adventure.",
+              "start": 3.14,
+              "end": 3.52,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "polyxenes,",
+          "start": 0.5,
+          "end": 1.22
+        },
+        {
+          "raw": "yet",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "of",
+          "start": 1.9,
+          "end": 2.02
+        },
+        {
+          "raw": "your",
+          "start": 2.02,
+          "end": 2.12
+        },
+        {
+          "raw": "royal",
+          "start": 2.12,
+          "end": 2.42
+        },
+        {
+          "raw": "presence",
+          "start": 2.42,
+          "end": 2.82
+        },
+        {
+          "raw": "I'll",
+          "start": 2.82,
+          "end": 3.14
+        },
+        {
+          "raw": "adventure.",
+          "start": 3.14,
+          "end": 3.52
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Polixenes._]",
+        "Yet",
+        "of",
+        "your",
+        "royal",
+        "presence",
+        "I'll",
+        "adventure"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          9,
+          2,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "polyxenes,",
+          "start": 0.5,
+          "end": 1.22,
+          "key": "polyxenes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "yet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.9,
+          "end": 2.02,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.02,
+          "end": 2.12,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "royal",
+          "start": 2.12,
+          "end": 2.42,
+          "key": "royal",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "presence",
+          "start": 2.42,
+          "end": 2.82,
+          "key": "presence",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.82,
+          "end": 3.14,
+          "key": "ill",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "adventure.",
+          "start": 3.14,
+          "end": 3.52,
+          "key": "adventure",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Polixenes._]",
+          "start": 0.5,
+          "end": 1.09
+        },
+        {
+          "text": "Yet",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "text": "of",
+          "start": 1.9,
+          "end": 2.02
+        },
+        {
+          "text": "your",
+          "start": 2.02,
+          "end": 2.12
+        },
+        {
+          "text": "royal",
+          "start": 2.12,
+          "end": 2.42
+        },
+        {
+          "text": "presence",
+          "start": 2.42,
+          "end": 2.82
+        },
+        {
+          "text": "I'll",
+          "start": 2.82,
+          "end": 3.14
+        },
+        {
+          "text": "adventure",
+          "start": 3.14,
+          "end": 3.52
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2466500662267208
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3fde580f5b03fd73504a5861e4d1119202aba45a6e40dc3d48f35417c524c6ee",
+  "selected_reasons": []
+}

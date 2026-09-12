@@ -1,0 +1,808 @@
+{
+  "complete": true,
+  "signature": "7f285d3e737f77782c38fcd81e7634b95cc17d5dace89734a277bf6f9861a28b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1284253489866387,
+      "alignment_seconds": 0.00016735601820982993,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exeunt Pompey, Caesar, Antony and Attendants._]",
+        "hotwords": "Pompey, Caesar, Antony, Attendants._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt Pompey, Caesar, Antony and Attendants._",
+          "start": 0.05,
+          "end": 3.77,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.4850565592447917
+            },
+            {
+              "text": " Pompey,",
+              "start": 0.79,
+              "end": 1.33,
+              "probability": 0.928955078125
+            },
+            {
+              "text": " Caesar,",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " Antony",
+              "start": 2.21,
+              "end": 2.49,
+              "probability": 0.819580078125
+            },
+            {
+              "text": " and",
+              "start": 2.49,
+              "end": 2.65,
+              "probability": 0.50341796875
+            },
+            {
+              "text": " Attendants._",
+              "start": 2.65,
+              "end": 3.77,
+              "probability": 0.37023929754892987
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Pompey,",
+          "start": 0.79,
+          "end": 1.33
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "Antony",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "raw": "and",
+          "start": 2.49,
+          "end": 2.65
+        },
+        {
+          "raw": "Attendants._",
+          "start": 2.65,
+          "end": 3.77
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Pompey,",
+        "Caesar,",
+        "Antony",
+        "and",
+        "Attendants._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pompey,",
+          "start": 0.79,
+          "end": 1.33,
+          "key": "pompey",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "caesar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Antony",
+          "start": 2.21,
+          "end": 2.49,
+          "key": "antony",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.49,
+          "end": 2.65,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Attendants._",
+          "start": 2.65,
+          "end": 3.77,
+          "key": "attendants_",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Pompey,",
+          "start": 0.79,
+          "end": 1.33
+        },
+        {
+          "text": "Caesar,",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "Antony",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "text": "and",
+          "start": 2.49,
+          "end": 2.65
+        },
+        {
+          "text": "Attendants._]",
+          "start": 2.65,
+          "end": 3.21
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12864954699762166
+    },
+    {
+      "asr_seconds": 0.13287532300455496,
+      "alignment_seconds": 0.00018521700985729694,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Pompey, Caesar, Antony, Attendants._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exhumed Pompey, Caesar, Antony, and Attendants._",
+          "start": 0.05,
+          "end": 3.77,
+          "words": [
+            {
+              "text": " Exhumed",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.37005615234375
+            },
+            {
+              "text": " Pompey,",
+              "start": 0.81,
+              "end": 1.33,
+              "probability": 0.949462890625
+            },
+            {
+              "text": " Caesar,",
+              "start": 1.63,
+              "end": 1.79,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " Antony,",
+              "start": 2.23,
+              "end": 2.49,
+              "probability": 0.864990234375
+            },
+            {
+              "text": " and",
+              "start": 2.63,
+              "end": 2.67,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Attendants._",
+              "start": 2.67,
+              "end": 3.77,
+              "probability": 0.3611654043197632
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exhumed",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Pompey,",
+          "start": 0.81,
+          "end": 1.33
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "raw": "Antony,",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "raw": "and",
+          "start": 2.63,
+          "end": 2.67
+        },
+        {
+          "raw": "Attendants._",
+          "start": 2.67,
+          "end": 3.77
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Pompey,",
+        "Caesar,",
+        "Antony",
+        "and",
+        "Attendants._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exhumed",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "exhumed",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pompey,",
+          "start": 0.81,
+          "end": 1.33,
+          "key": "pompey",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.63,
+          "end": 1.79,
+          "key": "caesar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Antony,",
+          "start": 2.23,
+          "end": 2.49,
+          "key": "antony",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.63,
+          "end": 2.67,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Attendants._",
+          "start": 2.67,
+          "end": 3.77,
+          "key": "attendants_",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.405
+        },
+        {
+          "text": "Pompey,",
+          "start": 0.81,
+          "end": 1.33
+        },
+        {
+          "text": "Caesar,",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "text": "Antony",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "text": "and",
+          "start": 2.63,
+          "end": 2.67
+        },
+        {
+          "text": "Attendants._]",
+          "start": 2.67,
+          "end": 3.22
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13311987201450393
+    },
+    {
+      "asr_seconds": 0.12885391400777735,
+      "alignment_seconds": 0.00016357499407604337,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt Pompey, Caesar, Antony, and Attendance.",
+          "start": 0.05,
+          "end": 3.27,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.4850565592447917
+            },
+            {
+              "text": " Pompey,",
+              "start": 0.79,
+              "end": 1.33,
+              "probability": 0.928955078125
+            },
+            {
+              "text": " Caesar,",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " Antony,",
+              "start": 2.21,
+              "end": 2.49,
+              "probability": 0.819580078125
+            },
+            {
+              "text": " and",
+              "start": 2.63,
+              "end": 2.67,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Attendance.",
+              "start": 2.67,
+              "end": 3.27,
+              "probability": 0.7423095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Pompey,",
+          "start": 0.79,
+          "end": 1.33
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "Antony,",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "raw": "and",
+          "start": 2.63,
+          "end": 2.67
+        },
+        {
+          "raw": "Attendance.",
+          "start": 2.67,
+          "end": 3.27
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Pompey,",
+        "Caesar,",
+        "Antony",
+        "and",
+        "Attendants._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pompey,",
+          "start": 0.79,
+          "end": 1.33,
+          "key": "pompey",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "caesar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Antony,",
+          "start": 2.21,
+          "end": 2.49,
+          "key": "antony",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.63,
+          "end": 2.67,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Attendance.",
+          "start": 2.67,
+          "end": 3.27,
+          "key": "attendance",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Pompey,",
+          "start": 0.79,
+          "end": 1.33
+        },
+        {
+          "text": "Caesar,",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "Antony",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "text": "and",
+          "start": 2.63,
+          "end": 2.67
+        },
+        {
+          "text": "Attendants._]",
+          "start": 2.67,
+          "end": 2.97
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12907310100854374
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8ef3861be61c49ec7d568b5885911c154c6d59ae61607b3bf5e1ab45b187f0cb",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

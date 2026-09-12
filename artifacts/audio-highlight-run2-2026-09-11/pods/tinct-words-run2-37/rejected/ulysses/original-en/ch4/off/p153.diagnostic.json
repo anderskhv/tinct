@@ -1,0 +1,601 @@
+{
+  "complete": true,
+  "signature": "b04a0c9aa51dba9e3d9051324d631d9a3644deb418b134128460b5d22d71f768",
+  "attempts": [
+    {
+      "asr_seconds": 0.3637877469882369,
+      "alignment_seconds": 0.0004306049959268421,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A paper, he liked to read it's stool.",
+          "start": 0.02,
+          "end": 2.32,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.798828125
+            },
+            {
+              "text": " paper,",
+              "start": 0.5,
+              "end": 0.82,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " he",
+              "start": 1.2,
+              "end": 1.34,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " liked",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " to",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " read",
+              "start": 1.7,
+              "end": 1.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it's",
+              "start": 1.84,
+              "end": 2.06,
+              "probability": 0.54150390625
+            },
+            {
+              "text": " stool.",
+              "start": 2.06,
+              "end": 2.32,
+              "probability": 0.97412109375
+            }
+          ]
+        },
+        {
+          "text": " Hope no ape comes knocking just as I'm.",
+          "start": 2.9,
+          "end": 4.94,
+          "words": [
+            {
+              "text": " Hope",
+              "start": 2.9,
+              "end": 3.06,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " no",
+              "start": 3.06,
+              "end": 3.26,
+              "probability": 0.966796875
+            },
+            {
+              "text": " ape",
+              "start": 3.26,
+              "end": 3.48,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " comes",
+              "start": 3.48,
+              "end": 3.76,
+              "probability": 0.994140625
+            },
+            {
+              "text": " knocking",
+              "start": 3.76,
+              "end": 4.14,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " just",
+              "start": 4.14,
+              "end": 4.4,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " as",
+              "start": 4.4,
+              "end": 4.62,
+              "probability": 0.984375
+            },
+            {
+              "text": " I'm.",
+              "start": 4.62,
+              "end": 4.94,
+              "probability": 0.8994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "paper,",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "raw": "he",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "raw": "liked",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "to",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "read",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "raw": "it's",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "raw": "stool.",
+          "start": 2.06,
+          "end": 2.32
+        },
+        {
+          "raw": "Hope",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "raw": "no",
+          "start": 3.06,
+          "end": 3.26
+        },
+        {
+          "raw": "ape",
+          "start": 3.26,
+          "end": 3.48
+        },
+        {
+          "raw": "comes",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "raw": "knocking",
+          "start": 3.76,
+          "end": 4.14
+        },
+        {
+          "raw": "just",
+          "start": 4.14,
+          "end": 4.4
+        },
+        {
+          "raw": "as",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "raw": "I'm.",
+          "start": 4.62,
+          "end": 4.94
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "paper.",
+        "He",
+        "liked",
+        "to",
+        "read",
+        "at",
+        "stool.",
+        "Hope",
+        "no",
+        "ape",
+        "comes",
+        "knocking",
+        "just",
+        "as",
+        "I'm."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          16,
+          7,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "paper,",
+          "start": 0.5,
+          "end": 0.82,
+          "key": "paper",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.2,
+          "end": 1.34,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "liked",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "liked",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.5,
+          "end": 1.7,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 1.7,
+          "end": 1.84,
+          "key": "read",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 1.84,
+          "end": 2.06,
+          "key": "its",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "stool.",
+          "start": 2.06,
+          "end": 2.32,
+          "key": "stool",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Hope",
+          "start": 2.9,
+          "end": 3.06,
+          "key": "hope",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.06,
+          "end": 3.26,
+          "key": "no",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ape",
+          "start": 3.26,
+          "end": 3.48,
+          "key": "ape",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 3.48,
+          "end": 3.76,
+          "key": "comes",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "knocking",
+          "start": 3.76,
+          "end": 4.14,
+          "key": "knocking",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 4.14,
+          "end": 4.4,
+          "key": "just",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.4,
+          "end": 4.62,
+          "key": "as",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I'm.",
+          "start": 4.62,
+          "end": 4.94,
+          "key": "im",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "paper.",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "text": "He",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "text": "liked",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "to",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "text": "read",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "text": "at",
+          "start": 1.84,
+          "end": 1.95
+        },
+        {
+          "text": "stool.",
+          "start": 2.06,
+          "end": 2.32
+        },
+        {
+          "text": "Hope",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "text": "no",
+          "start": 3.06,
+          "end": 3.26
+        },
+        {
+          "text": "ape",
+          "start": 3.26,
+          "end": 3.48
+        },
+        {
+          "text": "comes",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "text": "knocking",
+          "start": 3.76,
+          "end": 4.14
+        },
+        {
+          "text": "just",
+          "start": 4.14,
+          "end": 4.4
+        },
+        {
+          "text": "as",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "text": "I'm.",
+          "start": 4.62,
+          "end": 4.94
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.3643824199971277
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c057b311b823e3507af20dce56d04746263540a80f79061b8d320158f07d65b9",
+  "selected_reasons": []
+}

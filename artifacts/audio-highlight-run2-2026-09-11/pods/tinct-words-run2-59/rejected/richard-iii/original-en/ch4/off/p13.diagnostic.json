@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "d4d0975b86c7668d4660f24ca3daec05d60da9f2a66fd48690a3f1e9d4bc23bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.14570844313129783,
+      "alignment_seconds": 0.0003953368868678808,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter break and bury the lieutenant",
+          "start": 0.14,
+          "end": 1.8,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.66,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " break",
+              "start": 0.66,
+              "end": 0.92,
+              "probability": 0.26025390625
+            },
+            {
+              "text": " and",
+              "start": 0.92,
+              "end": 1.08,
+              "probability": 0.822265625
+            },
+            {
+              "text": " bury",
+              "start": 1.08,
+              "end": 1.28,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " the",
+              "start": 1.28,
+              "end": 1.48,
+              "probability": 0.96484375
+            },
+            {
+              "text": " lieutenant",
+              "start": 1.48,
+              "end": 1.8,
+              "probability": 0.79736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "raw": "break",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "raw": "and",
+          "start": 0.92,
+          "end": 1.08
+        },
+        {
+          "raw": "bury",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "raw": "the",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "raw": "lieutenant",
+          "start": 1.48,
+          "end": 1.8
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Brakenbury",
+        "the",
+        "Lieutenant."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          4
+        ],
+        [
+          "equal",
+          2,
+          4,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "break",
+          "start": 0.66,
+          "end": 0.92,
+          "key": "break",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.92,
+          "end": 1.08,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bury",
+          "start": 1.08,
+          "end": 1.28,
+          "key": "bury",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.28,
+          "end": 1.48,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lieutenant",
+          "start": 1.48,
+          "end": 1.8,
+          "key": "lieutenant",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "text": "Brakenbury",
+          "start": 0.66,
+          "end": 0.97
+        },
+        {
+          "text": "the",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "text": "Lieutenant.",
+          "start": 1.48,
+          "end": 1.8
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14624277292750776
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "09c4b4c43a279eafc07dd339812e7cdc32ed713fd7345827f5fb4c04c9ba5661",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

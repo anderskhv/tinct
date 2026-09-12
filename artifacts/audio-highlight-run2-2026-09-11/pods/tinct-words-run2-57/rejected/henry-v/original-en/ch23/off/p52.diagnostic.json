@@ -1,0 +1,303 @@
+{
+  "complete": true,
+  "signature": "3fb7a8dfa19ede3d683d3a2c3ad08f052e50f4333ed3fe6f063abd113d90ecd6",
+  "attempts": [
+    {
+      "asr_seconds": 0.20112625788897276,
+      "alignment_seconds": 0.0004065039101988077,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alice, your majestic and tend-better quemois.",
+          "start": 0.18,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " Alice,",
+              "start": 0.18,
+              "end": 0.78,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " your",
+              "start": 1.16,
+              "end": 1.28,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " majestic",
+              "start": 1.28,
+              "end": 1.6,
+              "probability": 0.6416015625
+            },
+            {
+              "text": " and",
+              "start": 1.6,
+              "end": 1.92,
+              "probability": 0.7109375
+            },
+            {
+              "text": " tend",
+              "start": 1.92,
+              "end": 2.18,
+              "probability": 0.43896484375
+            },
+            {
+              "text": "-better",
+              "start": 2.18,
+              "end": 2.48,
+              "probability": 0.6661376953125
+            },
+            {
+              "text": " quemois.",
+              "start": 2.48,
+              "end": 3.02,
+              "probability": 0.6066080729166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alice,",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "raw": "your",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "raw": "majestic",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "raw": "and",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "raw": "tend",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "raw": "-better",
+          "start": 2.18,
+          "end": 2.48
+        },
+        {
+          "raw": "quemois.",
+          "start": 2.48,
+          "end": 3.02
+        }
+      ],
+      "expected_tokens": [
+        "Alice.",
+        "Your",
+        "Majestee",
+        "_entend_",
+        "bettre",
+        "_que",
+        "moi_."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          7,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          7,
+          2,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alice,",
+          "start": 0.18,
+          "end": 0.78,
+          "key": "alice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.16,
+          "end": 1.28,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "majestic",
+          "start": 1.28,
+          "end": 1.6,
+          "key": "majestic",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.6,
+          "end": 1.92,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tend",
+          "start": 1.92,
+          "end": 2.18,
+          "key": "tend",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "-better",
+          "start": 2.18,
+          "end": 2.48,
+          "key": "better",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "quemois.",
+          "start": 2.48,
+          "end": 3.02,
+          "key": "quemois",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alice.",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "text": "Your",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "text": "Majestee",
+          "start": 1.28,
+          "end": 2.15
+        },
+        {
+          "text": "_entend_",
+          "start": 2.15,
+          "end": 2.585
+        },
+        {
+          "text": "bettre",
+          "start": 2.585,
+          "end": 2.803
+        },
+        {
+          "text": "_que",
+          "start": 2.803,
+          "end": 2.912
+        },
+        {
+          "text": "moi_.",
+          "start": 2.912,
+          "end": 2.966
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 2
+      },
+      "match_ratio": 0.2857142857142857,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20167050999589264
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "25d25664e2305164593933c272ce9a33880196d0df6729f945f6046e64c8f0e8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

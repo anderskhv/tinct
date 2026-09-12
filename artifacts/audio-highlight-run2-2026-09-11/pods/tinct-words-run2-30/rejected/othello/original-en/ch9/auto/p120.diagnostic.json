@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "45a75fe064d61d5951b04883323d1927d38edccae92f9d225baf889ac08a8c0e",
+  "attempts": [
+    {
+      "asr_seconds": 0.09109255112707615,
+      "alignment_seconds": 9.567011147737503e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. What handkerchief?",
+        "hotwords": "Iago, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, What handkerchief?",
+          "start": 0.05,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.32717132568359375
+            },
+            {
+              "text": " What",
+              "start": 1.11,
+              "end": 1.15,
+              "probability": 0.0643310546875
+            },
+            {
+              "text": " handkerchief?",
+              "start": 1.15,
+              "end": 1.57,
+              "probability": 0.6909586588541666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "What",
+          "start": 1.11,
+          "end": 1.15
+        },
+        {
+          "raw": "handkerchief?",
+          "start": 1.15,
+          "end": 1.57
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "What",
+        "handkerchief?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.11,
+          "end": 1.15,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "handkerchief?",
+          "start": 1.15,
+          "end": 1.57,
+          "key": "handkerchief",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "What",
+          "start": 1.11,
+          "end": 1.15
+        },
+        {
+          "text": "handkerchief?",
+          "start": 1.15,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09122203104197979
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "945e8694a40ddbdbbcedd1b1865816fa4a2c93f176291b549ed71c49eddaefbc",
+  "selected_reasons": []
+}

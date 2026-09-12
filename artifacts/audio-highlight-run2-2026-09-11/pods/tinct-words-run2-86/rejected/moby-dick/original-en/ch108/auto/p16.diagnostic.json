@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "a4daaa00ecc6d886da4473683d2e2827fe71cf5d1e062b5cd63febfc92f5dd82",
+  "attempts": [
+    {
+      "asr_seconds": 0.2697651982307434,
+      "alignment_seconds": 0.0003085508942604065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "'Tis but indifferent architecture to make a blind dome; here's one. No, no, no; I must have a lantern.",
+        "hotwords": "Tis, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Tis but indifferent architecture to make a blind dome. Here's one. No, no, no. I must have a lantern.",
+          "start": 0.08,
+          "end": 6.76,
+          "words": [
+            {
+              "text": " Tis",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.0560302734375
+            },
+            {
+              "text": " but",
+              "start": 0.74,
+              "end": 0.88,
+              "probability": 0.6396484375
+            },
+            {
+              "text": " indifferent",
+              "start": 0.88,
+              "end": 1.32,
+              "probability": 0.578125
+            },
+            {
+              "text": " architecture",
+              "start": 1.32,
+              "end": 1.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 1.9,
+              "end": 2.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " make",
+              "start": 2.22,
+              "end": 2.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 2.34,
+              "end": 2.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " blind",
+              "start": 2.46,
+              "end": 2.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dome.",
+              "start": 2.8,
+              "end": 3.26,
+              "probability": 0.953125
+            },
+            {
+              "text": " Here's",
+              "start": 3.46,
+              "end": 3.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " one.",
+              "start": 3.88,
+              "end": 4.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " No,",
+              "start": 4.78,
+              "end": 5.04,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " no,",
+              "start": 5.06,
+              "end": 5.28,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " no.",
+              "start": 5.34,
+              "end": 5.54,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 5.82,
+              "end": 5.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " must",
+              "start": 5.96,
+              "end": 6.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 6.12,
+              "end": 6.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 6.32,
+              "end": 6.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lantern.",
+              "start": 6.44,
+              "end": 6.76,
+              "probability": 0.974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tis",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "but",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "raw": "indifferent",
+          "start": 0.88,
+          "end": 1.32
+        },
+        {
+          "raw": "architecture",
+          "start": 1.32,
+          "end": 1.9
+        },
+        {
+          "raw": "to",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "raw": "make",
+          "start": 2.22,
+          "end": 2.34
+        },
+        {
+          "raw": "a",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "raw": "blind",
+          "start": 2.46,
+          "end": 2.8
+        },
+        {
+          "raw": "dome.",
+          "start": 2.8,
+          "end": 3.26
+        },
+        {
+          "raw": "Here's",
+          "start": 3.46,
+          "end": 3.88
+        },
+        {
+          "raw": "one.",
+          "start": 3.88,
+          "end": 4.12
+        },
+        {
+          "raw": "No,",
+          "start": 4.78,
+          "end": 5.04
+        },
+        {
+          "raw": "no,",
+          "start": 5.06,
+          "end": 5.28
+        },
+        {
+          "raw": "no.",
+          "start": 5.34,
+          "end": 5.54
+        },
+        {
+          "raw": "I",
+          "start": 5.82,
+          "end": 5.96
+        },
+        {
+          "raw": "must",
+          "start": 5.96,
+          "end": 6.12
+        },
+        {
+          "raw": "have",
+          "start": 6.12,
+          "end": 6.32
+        },
+        {
+          "raw": "a",
+          "start": 6.32,
+          "end": 6.44
+        },
+        {
+          "raw": "lantern.",
+          "start": 6.44,
+          "end": 6.76
+        }
+      ],
+      "expected_tokens": [
+        "'Tis",
+        "but",
+        "indifferent",
+        "architecture",
+        "to",
+        "make",
+        "a",
+        "blind",
+        "dome;",
+        "here's",
+        "one.",
+        "No,",
+        "no,",
+        "no;",
+        "I",
+        "must",
+        "have",
+        "a",
+        "lantern."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tis",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "tis",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 0.74,
+          "end": 0.88,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "indifferent",
+          "start": 0.88,
+          "end": 1.32,
+          "key": "indifferent",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "architecture",
+          "start": 1.32,
+          "end": 1.9,
+          "key": "architecture",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.9,
+          "end": 2.22,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 2.22,
+          "end": 2.34,
+          "key": "make",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.34,
+          "end": 2.46,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "blind",
+          "start": 2.46,
+          "end": 2.8,
+          "key": "blind",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dome.",
+          "start": 2.8,
+          "end": 3.26,
+          "key": "dome",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Here's",
+          "start": 3.46,
+          "end": 3.88,
+          "key": "heres",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "one.",
+          "start": 3.88,
+          "end": 4.12,
+          "key": "one",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 4.78,
+          "end": 5.04,
+          "key": "no",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 5.06,
+          "end": 5.28,
+          "key": "no",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "no.",
+          "start": 5.34,
+          "end": 5.54,
+          "key": "no",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.82,
+          "end": 5.96,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 5.96,
+          "end": 6.12,
+          "key": "must",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.12,
+          "end": 6.32,
+          "key": "have",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.32,
+          "end": 6.44,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "lantern.",
+          "start": 6.44,
+          "end": 6.76,
+          "key": "lantern",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "'Tis",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "but",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "text": "indifferent",
+          "start": 0.88,
+          "end": 1.32
+        },
+        {
+          "text": "architecture",
+          "start": 1.32,
+          "end": 1.9
+        },
+        {
+          "text": "to",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "text": "make",
+          "start": 2.22,
+          "end": 2.34
+        },
+        {
+          "text": "a",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "text": "blind",
+          "start": 2.46,
+          "end": 2.8
+        },
+        {
+          "text": "dome;",
+          "start": 2.8,
+          "end": 3.26
+        },
+        {
+          "text": "here's",
+          "start": 3.46,
+          "end": 3.88
+        },
+        {
+          "text": "one.",
+          "start": 3.88,
+          "end": 4.12
+        },
+        {
+          "text": "No,",
+          "start": 4.78,
+          "end": 5.04
+        },
+        {
+          "text": "no,",
+          "start": 5.06,
+          "end": 5.28
+        },
+        {
+          "text": "no;",
+          "start": 5.34,
+          "end": 5.54
+        },
+        {
+          "text": "I",
+          "start": 5.82,
+          "end": 5.96
+        },
+        {
+          "text": "must",
+          "start": 5.96,
+          "end": 6.12
+        },
+        {
+          "text": "have",
+          "start": 6.12,
+          "end": 6.32
+        },
+        {
+          "text": "a",
+          "start": 6.32,
+          "end": 6.44
+        },
+        {
+          "text": "lantern.",
+          "start": 6.44,
+          "end": 6.76
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.270208016037941
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4ca9e89c253a470d4b9376c7a2e889ca3ec0ffdf6449f60e90f0aab657f15c96",
+  "selected_reasons": []
+}

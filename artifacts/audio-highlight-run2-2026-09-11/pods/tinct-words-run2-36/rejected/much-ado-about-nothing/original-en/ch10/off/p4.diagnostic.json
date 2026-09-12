@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "0412d4359fc9f96d98260cc645d0512386eec5fb5683f249d6cd886e6a6a2552",
+  "attempts": [
+    {
+      "asr_seconds": 0.1370912417769432,
+      "alignment_seconds": 0.0003572627902030945,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ursula, well.",
+          "start": 0.02,
+          "end": 1.3,
+          "words": [
+            {
+              "text": " Ursula,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " well.",
+              "start": 1.04,
+              "end": 1.3,
+              "probability": 0.91943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ursula,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "well.",
+          "start": 1.04,
+          "end": 1.3
+        }
+      ],
+      "expected_tokens": [
+        "Ursula.",
+        "Well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ursula,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "ursula",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.04,
+          "end": 1.3,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ursula.",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "Well.",
+          "start": 1.04,
+          "end": 1.3
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13757389038801193
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "687fef5068a2b4f1f6167a4cb119909af5bbee0cc055c95fcee71da9fa9fb8e3",
+  "selected_reasons": []
+}

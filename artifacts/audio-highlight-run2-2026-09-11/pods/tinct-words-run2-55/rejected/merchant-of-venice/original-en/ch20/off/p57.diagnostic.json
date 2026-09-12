@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "1a75ff0bcc222bc64051ffe9b163a275367cceabd78d01281fb49a7fb6140406",
+  "attempts": [
+    {
+      "asr_seconds": 0.18899501580744982,
+      "alignment_seconds": 0.0002816570922732353,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, no more than I am well acquitted of.",
+          "start": 0.11,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.79,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " no",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.978515625
+            },
+            {
+              "text": " more",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 1.75,
+              "end": 1.87,
+              "probability": 0.98828125
+            },
+            {
+              "text": " I",
+              "start": 1.87,
+              "end": 1.99,
+              "probability": 0.982421875
+            },
+            {
+              "text": " am",
+              "start": 1.99,
+              "end": 2.09,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " well",
+              "start": 2.09,
+              "end": 2.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " acquitted",
+              "start": 2.27,
+              "end": 2.55,
+              "probability": 0.6142578125
+            },
+            {
+              "text": " of.",
+              "start": 2.55,
+              "end": 2.83,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "raw": "no",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "more",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "than",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "raw": "I",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "raw": "am",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "raw": "well",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "raw": "acquitted",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "raw": "of.",
+          "start": 2.55,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "No",
+        "more",
+        "than",
+        "I",
+        "am",
+        "well",
+        "acquitted",
+        "of."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.79,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "more",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 1.75,
+          "end": 1.87,
+          "key": "than",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.87,
+          "end": 1.99,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.99,
+          "end": 2.09,
+          "key": "am",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 2.09,
+          "end": 2.27,
+          "key": "well",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "acquitted",
+          "start": 2.27,
+          "end": 2.55,
+          "key": "acquitted",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of.",
+          "start": 2.55,
+          "end": 2.83,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "text": "No",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "more",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "than",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "text": "I",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "text": "am",
+          "start": 1.99,
+          "end": 2.09
+        },
+        {
+          "text": "well",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "text": "acquitted",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "text": "of.",
+          "start": 2.55,
+          "end": 2.83
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18938862718641758
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c32cf2f351a608a287c76df29ebcae8d50295beed33098a55ed8fb419a567144",
+  "selected_reasons": []
+}

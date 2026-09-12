@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "448bc746e539f974c22e9445be3a9ad1260d41eb6146998c68a533775ce530ea",
+  "attempts": [
+    {
+      "asr_seconds": 0.32168329507112503,
+      "alignment_seconds": 0.0006367554888129234,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You mean there isn't such an expression as 'on a higher footing'; but that doesn't matter because—\"",
+        "hotwords": "You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You mean there isn't such an expression as \"'on a higher footing'; but that doesn't matter because—\"",
+          "start": 0.05,
+          "end": 5.57,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.921875
+            },
+            {
+              "text": " mean",
+              "start": 0.55,
+              "end": 0.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " there",
+              "start": 0.73,
+              "end": 0.95,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " isn't",
+              "start": 0.95,
+              "end": 1.29,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " such",
+              "start": 1.29,
+              "end": 1.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " an",
+              "start": 1.41,
+              "end": 1.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " expression",
+              "start": 1.55,
+              "end": 1.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " as",
+              "start": 1.99,
+              "end": 2.39,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " \"'on",
+              "start": 2.39,
+              "end": 2.75,
+              "probability": 0.39161816239356995
+            },
+            {
+              "text": " a",
+              "start": 2.75,
+              "end": 2.87,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " higher",
+              "start": 2.87,
+              "end": 3.13,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " footing';",
+              "start": 3.13,
+              "end": 3.49,
+              "probability": 0.49973011016845703
+            },
+            {
+              "text": " but",
+              "start": 3.49,
+              "end": 4.21,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " that",
+              "start": 4.21,
+              "end": 4.43,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " doesn't",
+              "start": 4.43,
+              "end": 4.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " matter",
+              "start": 4.77,
+              "end": 4.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " because—\"",
+              "start": 4.97,
+              "end": 5.57,
+              "probability": 0.4989166259765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "mean",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "raw": "there",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "raw": "isn't",
+          "start": 0.95,
+          "end": 1.29
+        },
+        {
+          "raw": "such",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "raw": "an",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "raw": "expression",
+          "start": 1.55,
+          "end": 1.99
+        },
+        {
+          "raw": "as",
+          "start": 1.99,
+          "end": 2.39
+        },
+        {
+          "raw": "\"'on",
+          "start": 2.39,
+          "end": 2.75
+        },
+        {
+          "raw": "a",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "raw": "higher",
+          "start": 2.87,
+          "end": 3.13
+        },
+        {
+          "raw": "footing';",
+          "start": 3.13,
+          "end": 3.49
+        },
+        {
+          "raw": "but",
+          "start": 3.49,
+          "end": 4.21
+        },
+        {
+          "raw": "that",
+          "start": 4.21,
+          "end": 4.43
+        },
+        {
+          "raw": "doesn't",
+          "start": 4.43,
+          "end": 4.77
+        },
+        {
+          "raw": "matter",
+          "start": 4.77,
+          "end": 4.97
+        },
+        {
+          "raw": "because—\"",
+          "start": 4.97,
+          "end": 5.57
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "mean",
+        "there",
+        "isn't",
+        "such",
+        "an",
+        "expression",
+        "as",
+        "'on",
+        "a",
+        "higher",
+        "footing';",
+        "but",
+        "that",
+        "doesn't",
+        "matter",
+        "because—\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 0.55,
+          "end": 0.73,
+          "key": "mean",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 0.73,
+          "end": 0.95,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "isn't",
+          "start": 0.95,
+          "end": 1.29,
+          "key": "isnt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 1.29,
+          "end": 1.41,
+          "key": "such",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.41,
+          "end": 1.55,
+          "key": "an",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "expression",
+          "start": 1.55,
+          "end": 1.99,
+          "key": "expression",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.99,
+          "end": 2.39,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "\"'on",
+          "start": 2.39,
+          "end": 2.75,
+          "key": "on",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.75,
+          "end": 2.87,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "higher",
+          "start": 2.87,
+          "end": 3.13,
+          "key": "higher",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "footing';",
+          "start": 3.13,
+          "end": 3.49,
+          "key": "footing",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.49,
+          "end": 4.21,
+          "key": "but",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.21,
+          "end": 4.43,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "doesn't",
+          "start": 4.43,
+          "end": 4.77,
+          "key": "doesnt",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 4.77,
+          "end": 4.97,
+          "key": "matter",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "because—\"",
+          "start": 4.97,
+          "end": 5.57,
+          "key": "because",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "mean",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "text": "there",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "text": "isn't",
+          "start": 0.95,
+          "end": 1.29
+        },
+        {
+          "text": "such",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "text": "an",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "text": "expression",
+          "start": 1.55,
+          "end": 1.99
+        },
+        {
+          "text": "as",
+          "start": 1.99,
+          "end": 2.39
+        },
+        {
+          "text": "'on",
+          "start": 2.39,
+          "end": 2.75
+        },
+        {
+          "text": "a",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "text": "higher",
+          "start": 2.87,
+          "end": 3.13
+        },
+        {
+          "text": "footing';",
+          "start": 3.13,
+          "end": 3.49
+        },
+        {
+          "text": "but",
+          "start": 3.49,
+          "end": 4.21
+        },
+        {
+          "text": "that",
+          "start": 4.21,
+          "end": 4.43
+        },
+        {
+          "text": "doesn't",
+          "start": 4.43,
+          "end": 4.77
+        },
+        {
+          "text": "matter",
+          "start": 4.77,
+          "end": 4.97
+        },
+        {
+          "text": "because—\"",
+          "start": 4.97,
+          "end": 5.57
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3225732399150729
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f165b0fd82031efff5a4a1e1b7edc8ed45817fe0b955ba46fae445abe6048370",
+  "selected_reasons": []
+}

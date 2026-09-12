@@ -1,0 +1,613 @@
+{
+  "complete": true,
+  "signature": "65428127583f66c1de090f0e42b4f5cc4fbd0798d06797bf59ad5b9fd3491951",
+  "attempts": [
+    {
+      "asr_seconds": 0.38543922919780016,
+      "alignment_seconds": 0.0007040593773126602,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Agraefna Alexandrovna, the innkeeper understood at once, looking sharply into Midia's face.",
+          "start": 0.08,
+          "end": 5.78,
+          "words": [
+            {
+              "text": " Agraefna",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.751708984375
+            },
+            {
+              "text": " Alexandrovna,",
+              "start": 0.92,
+              "end": 1.9,
+              "probability": 0.9498697916666666
+            },
+            {
+              "text": " the",
+              "start": 2.22,
+              "end": 2.44,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " innkeeper",
+              "start": 2.44,
+              "end": 2.84,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " understood",
+              "start": 2.84,
+              "end": 3.4,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " at",
+              "start": 3.4,
+              "end": 3.56,
+              "probability": 0.98828125
+            },
+            {
+              "text": " once,",
+              "start": 3.56,
+              "end": 3.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " looking",
+              "start": 4.16,
+              "end": 4.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sharply",
+              "start": 4.36,
+              "end": 4.8,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " into",
+              "start": 4.8,
+              "end": 5.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Midia's",
+              "start": 5.12,
+              "end": 5.56,
+              "probability": 0.6961263020833334
+            },
+            {
+              "text": " face.",
+              "start": 5.56,
+              "end": 5.78,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " She's here, too.",
+          "start": 6.48,
+          "end": 7.28,
+          "words": [
+            {
+              "text": " She's",
+              "start": 6.48,
+              "end": 6.72,
+              "probability": 0.986083984375
+            },
+            {
+              "text": " here,",
+              "start": 6.72,
+              "end": 6.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " too.",
+              "start": 7.12,
+              "end": 7.28,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agraefna",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "Alexandrovna,",
+          "start": 0.92,
+          "end": 1.9
+        },
+        {
+          "raw": "the",
+          "start": 2.22,
+          "end": 2.44
+        },
+        {
+          "raw": "innkeeper",
+          "start": 2.44,
+          "end": 2.84
+        },
+        {
+          "raw": "understood",
+          "start": 2.84,
+          "end": 3.4
+        },
+        {
+          "raw": "at",
+          "start": 3.4,
+          "end": 3.56
+        },
+        {
+          "raw": "once,",
+          "start": 3.56,
+          "end": 3.9
+        },
+        {
+          "raw": "looking",
+          "start": 4.16,
+          "end": 4.36
+        },
+        {
+          "raw": "sharply",
+          "start": 4.36,
+          "end": 4.8
+        },
+        {
+          "raw": "into",
+          "start": 4.8,
+          "end": 5.12
+        },
+        {
+          "raw": "Midia's",
+          "start": 5.12,
+          "end": 5.56
+        },
+        {
+          "raw": "face.",
+          "start": 5.56,
+          "end": 5.78
+        },
+        {
+          "raw": "She's",
+          "start": 6.48,
+          "end": 6.72
+        },
+        {
+          "raw": "here,",
+          "start": 6.72,
+          "end": 6.94
+        },
+        {
+          "raw": "too.",
+          "start": 7.12,
+          "end": 7.28
+        }
+      ],
+      "expected_tokens": [
+        "\"Agrafena",
+        "Alexandrovna?\"",
+        "The",
+        "inn-keeper",
+        "understood",
+        "at",
+        "once,",
+        "looking",
+        "sharply",
+        "into",
+        "Mitya's",
+        "face.",
+        "\"She's",
+        "here,",
+        "too",
+        "...\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          10,
+          1,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          15,
+          11,
+          15
+        ],
+        [
+          "delete",
+          15,
+          16,
+          15,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "delete",
+          15,
+          16,
+          15,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agraefna",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "agraefna",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alexandrovna,",
+          "start": 0.92,
+          "end": 1.9,
+          "key": "alexandrovna",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.22,
+          "end": 2.44,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "innkeeper",
+          "start": 2.44,
+          "end": 2.84,
+          "key": "innkeeper",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "understood",
+          "start": 2.84,
+          "end": 3.4,
+          "key": "understood",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.4,
+          "end": 3.56,
+          "key": "at",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "once,",
+          "start": 3.56,
+          "end": 3.9,
+          "key": "once",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 4.16,
+          "end": 4.36,
+          "key": "looking",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sharply",
+          "start": 4.36,
+          "end": 4.8,
+          "key": "sharply",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 4.8,
+          "end": 5.12,
+          "key": "into",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Midia's",
+          "start": 5.12,
+          "end": 5.56,
+          "key": "midias",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "face.",
+          "start": 5.56,
+          "end": 5.78,
+          "key": "face",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "She's",
+          "start": 6.48,
+          "end": 6.72,
+          "key": "shes",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 6.72,
+          "end": 6.94,
+          "key": "here",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 7.12,
+          "end": 7.28,
+          "key": "too",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Agrafena",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "Alexandrovna?\"",
+          "start": 0.92,
+          "end": 1.9
+        },
+        {
+          "text": "The",
+          "start": 2.22,
+          "end": 2.44
+        },
+        {
+          "text": "inn-keeper",
+          "start": 2.44,
+          "end": 2.84
+        },
+        {
+          "text": "understood",
+          "start": 2.84,
+          "end": 3.4
+        },
+        {
+          "text": "at",
+          "start": 3.4,
+          "end": 3.56
+        },
+        {
+          "text": "once,",
+          "start": 3.56,
+          "end": 3.9
+        },
+        {
+          "text": "looking",
+          "start": 4.16,
+          "end": 4.36
+        },
+        {
+          "text": "sharply",
+          "start": 4.36,
+          "end": 4.8
+        },
+        {
+          "text": "into",
+          "start": 4.8,
+          "end": 5.12
+        },
+        {
+          "text": "Mitya's",
+          "start": 5.12,
+          "end": 5.34
+        },
+        {
+          "text": "face.",
+          "start": 5.56,
+          "end": 5.78
+        },
+        {
+          "text": "\"She's",
+          "start": 6.48,
+          "end": 6.72
+        },
+        {
+          "text": "here,",
+          "start": 6.72,
+          "end": 6.94
+        },
+        {
+          "text": "too",
+          "start": 7.12,
+          "end": 7.28
+        },
+        {
+          "text": "...\"",
+          "start": 7.28,
+          "end": 7.28
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8125,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.38638556469231844
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0da5ff746783d8e183eb21f0efc01df7da213f4ff56674e25255ca4e05422d72",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

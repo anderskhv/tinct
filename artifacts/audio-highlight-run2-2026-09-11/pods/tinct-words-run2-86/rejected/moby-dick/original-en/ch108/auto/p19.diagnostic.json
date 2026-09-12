@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "9ee17f6f3c004bd47f537b327c488425ce6aca93209c22a27198526ebba46b16",
+  "attempts": [
+    {
+      "asr_seconds": 0.17842382937669754,
+      "alignment_seconds": 0.0003487244248390198,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I thought, sir, that you spoke to carpenter.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I thought, sir, that you spoke to carpenter.",
+          "start": 0.08,
+          "end": 2.5,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.748046875
+            },
+            {
+              "text": " thought,",
+              "start": 0.54,
+              "end": 0.76,
+              "probability": 0.990234375
+            },
+            {
+              "text": " sir,",
+              "start": 1.02,
+              "end": 1.02,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " that",
+              "start": 1.34,
+              "end": 1.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 1.48,
+              "end": 1.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " spoke",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 1.88,
+              "end": 2.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " carpenter.",
+              "start": 2.1,
+              "end": 2.5,
+              "probability": 0.5147552490234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "thought,",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "raw": "sir,",
+          "start": 1.02,
+          "end": 1.02
+        },
+        {
+          "raw": "that",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "raw": "you",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "raw": "spoke",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "to",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "raw": "carpenter.",
+          "start": 2.1,
+          "end": 2.5
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "thought,",
+        "sir,",
+        "that",
+        "you",
+        "spoke",
+        "to",
+        "carpenter."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thought,",
+          "start": 0.54,
+          "end": 0.76,
+          "key": "thought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.02,
+          "end": 1.02,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.34,
+          "end": 1.48,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.48,
+          "end": 1.64,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "spoke",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "spoke",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.88,
+          "end": 2.1,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "carpenter.",
+          "start": 2.1,
+          "end": 2.5,
+          "key": "carpenter",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "thought,",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "text": "sir,",
+          "start": 1.02,
+          "end": 1.02
+        },
+        {
+          "text": "that",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "text": "you",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "text": "spoke",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "text": "to",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "text": "carpenter.",
+          "start": 2.1,
+          "end": 2.5
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17899100482463837
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d567fc064c1b26f3c901f3c01d4fc9395644e174992fa1147187f204ca4602c7",
+  "selected_reasons": []
+}

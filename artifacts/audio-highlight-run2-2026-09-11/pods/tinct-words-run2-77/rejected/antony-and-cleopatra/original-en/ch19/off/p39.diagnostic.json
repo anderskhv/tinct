@@ -1,0 +1,643 @@
+{
+  "complete": true,
+  "signature": "fec941fe4782cf9530e017929177230ccd500772d3e425abbaf30395ad9c0173",
+  "attempts": [
+    {
+      "asr_seconds": 0.24073511001188308,
+      "alignment_seconds": 0.00036532297963276505,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Soldier, while he was yet in Rome, his power went out in such distractions as beguiled",
+          "start": 0.08,
+          "end": 5.44,
+          "words": [
+            {
+              "text": " Soldier,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.2457275390625
+            },
+            {
+              "text": " while",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.9453125
+            },
+            {
+              "text": " he",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " was",
+              "start": 1.7,
+              "end": 1.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " yet",
+              "start": 1.8,
+              "end": 2.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 2.0,
+              "end": 2.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Rome,",
+              "start": 2.14,
+              "end": 2.42,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " his",
+              "start": 2.84,
+              "end": 2.92,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " power",
+              "start": 2.92,
+              "end": 3.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " went",
+              "start": 3.24,
+              "end": 3.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " out",
+              "start": 3.48,
+              "end": 3.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 3.68,
+              "end": 3.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " such",
+              "start": 3.82,
+              "end": 4.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " distractions",
+              "start": 4.02,
+              "end": 4.62,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " as",
+              "start": 4.62,
+              "end": 5.0,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " beguiled",
+              "start": 5.0,
+              "end": 5.44,
+              "probability": 0.9928385416666666
+            }
+          ]
+        },
+        {
+          "text": " all spies.",
+          "start": 5.44,
+          "end": 6.02,
+          "words": [
+            {
+              "text": " all",
+              "start": 5.44,
+              "end": 5.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " spies.",
+              "start": 5.66,
+              "end": 6.02,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soldier,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "while",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "he",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "was",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "raw": "yet",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "raw": "in",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "raw": "Rome,",
+          "start": 2.14,
+          "end": 2.42
+        },
+        {
+          "raw": "his",
+          "start": 2.84,
+          "end": 2.92
+        },
+        {
+          "raw": "power",
+          "start": 2.92,
+          "end": 3.24
+        },
+        {
+          "raw": "went",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "raw": "out",
+          "start": 3.48,
+          "end": 3.68
+        },
+        {
+          "raw": "in",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "raw": "such",
+          "start": 3.82,
+          "end": 4.02
+        },
+        {
+          "raw": "distractions",
+          "start": 4.02,
+          "end": 4.62
+        },
+        {
+          "raw": "as",
+          "start": 4.62,
+          "end": 5.0
+        },
+        {
+          "raw": "beguiled",
+          "start": 5.0,
+          "end": 5.44
+        },
+        {
+          "raw": "all",
+          "start": 5.44,
+          "end": 5.66
+        },
+        {
+          "raw": "spies.",
+          "start": 5.66,
+          "end": 6.02
+        }
+      ],
+      "expected_tokens": [
+        "Soldier.",
+        "While",
+        "he",
+        "was",
+        "yet",
+        "in",
+        "Rome,",
+        "His",
+        "power",
+        "went",
+        "out",
+        "in",
+        "such",
+        "distractions",
+        "as",
+        "Beguiled",
+        "all",
+        "spies."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soldier,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "soldier",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 1.42,
+          "end": 1.58,
+          "key": "while",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.7,
+          "end": 1.8,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 1.8,
+          "end": 2.0,
+          "key": "yet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.0,
+          "end": 2.14,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Rome,",
+          "start": 2.14,
+          "end": 2.42,
+          "key": "rome",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.84,
+          "end": 2.92,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "power",
+          "start": 2.92,
+          "end": 3.24,
+          "key": "power",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 3.24,
+          "end": 3.48,
+          "key": "went",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 3.48,
+          "end": 3.68,
+          "key": "out",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.68,
+          "end": 3.82,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 3.82,
+          "end": 4.02,
+          "key": "such",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "distractions",
+          "start": 4.02,
+          "end": 4.62,
+          "key": "distractions",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.62,
+          "end": 5.0,
+          "key": "as",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "beguiled",
+          "start": 5.0,
+          "end": 5.44,
+          "key": "beguiled",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 5.44,
+          "end": 5.66,
+          "key": "all",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "spies.",
+          "start": 5.66,
+          "end": 6.02,
+          "key": "spies",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Soldier.",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "While",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "he",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "was",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "text": "yet",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "text": "in",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "text": "Rome,",
+          "start": 2.14,
+          "end": 2.42
+        },
+        {
+          "text": "His",
+          "start": 2.84,
+          "end": 2.92
+        },
+        {
+          "text": "power",
+          "start": 2.92,
+          "end": 3.24
+        },
+        {
+          "text": "went",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "text": "out",
+          "start": 3.48,
+          "end": 3.68
+        },
+        {
+          "text": "in",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "text": "such",
+          "start": 3.82,
+          "end": 4.02
+        },
+        {
+          "text": "distractions",
+          "start": 4.02,
+          "end": 4.62
+        },
+        {
+          "text": "as",
+          "start": 4.62,
+          "end": 5.0
+        },
+        {
+          "text": "Beguiled",
+          "start": 5.0,
+          "end": 5.44
+        },
+        {
+          "text": "all",
+          "start": 5.44,
+          "end": 5.66
+        },
+        {
+          "text": "spies.",
+          "start": 5.66,
+          "end": 6.02
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2412486780085601
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "651cee87bebc9c8f4a0ca6779565d0e432fdcd1ce79200fcbf3fd663c7c95c95",
+  "selected_reasons": []
+}

@@ -1,0 +1,390 @@
+{
+  "complete": true,
+  "signature": "7bbe4fd4ca92ebb4cdfb2833fa029b6e00b5fc3027376f376e23bdc4e1dd05ee",
+  "attempts": [
+    {
+      "asr_seconds": 0.1999426018446684,
+      "alignment_seconds": 0.0004704901948571205,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nonsense, she returned. Nonsense. This will pass in no time.",
+          "start": 0.08,
+          "end": 4.52,
+          "words": [
+            {
+              "text": " Nonsense,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.665771484375
+            },
+            {
+              "text": " she",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.984375
+            },
+            {
+              "text": " returned.",
+              "start": 1.42,
+              "end": 1.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Nonsense.",
+              "start": 2.42,
+              "end": 2.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " This",
+              "start": 3.24,
+              "end": 3.34,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " will",
+              "start": 3.34,
+              "end": 3.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pass",
+              "start": 3.5,
+              "end": 3.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 3.78,
+              "end": 3.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " no",
+              "start": 3.96,
+              "end": 4.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " time.",
+              "start": 4.14,
+              "end": 4.52,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nonsense,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "she",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "returned.",
+          "start": 1.42,
+          "end": 1.82
+        },
+        {
+          "raw": "Nonsense.",
+          "start": 2.42,
+          "end": 2.64
+        },
+        {
+          "raw": "This",
+          "start": 3.24,
+          "end": 3.34
+        },
+        {
+          "raw": "will",
+          "start": 3.34,
+          "end": 3.5
+        },
+        {
+          "raw": "pass",
+          "start": 3.5,
+          "end": 3.78
+        },
+        {
+          "raw": "in",
+          "start": 3.78,
+          "end": 3.96
+        },
+        {
+          "raw": "no",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "raw": "time.",
+          "start": 4.14,
+          "end": 4.52
+        }
+      ],
+      "expected_tokens": [
+        "\"Nonsense,\"",
+        "she",
+        "returned,—\"nonsense.",
+        "This",
+        "will",
+        "pass",
+        "in",
+        "no",
+        "time.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          9,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nonsense,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "nonsense",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "returned.",
+          "start": 1.42,
+          "end": 1.82,
+          "key": "returned",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Nonsense.",
+          "start": 2.42,
+          "end": 2.64,
+          "key": "nonsense",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 3.24,
+          "end": 3.34,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.34,
+          "end": 3.5,
+          "key": "will",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pass",
+          "start": 3.5,
+          "end": 3.78,
+          "key": "pass",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.78,
+          "end": 3.96,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.96,
+          "end": 4.14,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 4.14,
+          "end": 4.52,
+          "key": "time",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Nonsense,\"",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "she",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "returned,—\"nonsense.",
+          "start": 1.42,
+          "end": 2.33
+        },
+        {
+          "text": "This",
+          "start": 3.24,
+          "end": 3.34
+        },
+        {
+          "text": "will",
+          "start": 3.34,
+          "end": 3.5
+        },
+        {
+          "text": "pass",
+          "start": 3.5,
+          "end": 3.78
+        },
+        {
+          "text": "in",
+          "start": 3.78,
+          "end": 3.96
+        },
+        {
+          "text": "no",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "text": "time.\"",
+          "start": 4.14,
+          "end": 4.52
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.20057906024158
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "440753efe53c7d29c57125566c747acde90277f4dbf13bfcb68dd870c80dccfe",
+  "selected_reasons": []
+}

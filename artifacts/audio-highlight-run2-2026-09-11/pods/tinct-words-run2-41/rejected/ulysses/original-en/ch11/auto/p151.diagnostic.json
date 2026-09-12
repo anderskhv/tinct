@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "c615c2086575c0edb6fad199dfdb96c857407234fe7764ba59a6cbfce4512835",
+  "attempts": [
+    {
+      "asr_seconds": 0.2313223290257156,
+      "alignment_seconds": 0.00021647801622748375,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—With the greatest alacrity, miss Douce agreed.",
+        "hotwords": "With, Douce"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " With the greatest alacrity, miss Douce agreed.",
+          "start": 0.02,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " With",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.89453125
+            },
+            {
+              "text": " the",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " greatest",
+              "start": 0.7,
+              "end": 1.02,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " alacrity,",
+              "start": 1.02,
+              "end": 1.66,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " miss",
+              "start": 2.02,
+              "end": 2.06,
+              "probability": 0.0093994140625
+            },
+            {
+              "text": " Douce",
+              "start": 2.06,
+              "end": 2.36,
+              "probability": 0.4853401184082031
+            },
+            {
+              "text": " agreed.",
+              "start": 2.36,
+              "end": 2.68,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "With",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "greatest",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "raw": "alacrity,",
+          "start": 1.02,
+          "end": 1.66
+        },
+        {
+          "raw": "miss",
+          "start": 2.02,
+          "end": 2.06
+        },
+        {
+          "raw": "Douce",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "raw": "agreed.",
+          "start": 2.36,
+          "end": 2.68
+        }
+      ],
+      "expected_tokens": [
+        "—With",
+        "the",
+        "greatest",
+        "alacrity,",
+        "miss",
+        "Douce",
+        "agreed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "With",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "with",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "greatest",
+          "start": 0.7,
+          "end": 1.02,
+          "key": "greatest",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "alacrity,",
+          "start": 1.02,
+          "end": 1.66,
+          "key": "alacrity",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "miss",
+          "start": 2.02,
+          "end": 2.06,
+          "key": "miss",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Douce",
+          "start": 2.06,
+          "end": 2.36,
+          "key": "douce",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "agreed.",
+          "start": 2.36,
+          "end": 2.68,
+          "key": "agreed",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—With",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "the",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "greatest",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "text": "alacrity,",
+          "start": 1.02,
+          "end": 1.66
+        },
+        {
+          "text": "miss",
+          "start": 2.02,
+          "end": 2.06
+        },
+        {
+          "text": "Douce",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "text": "agreed.",
+          "start": 2.36,
+          "end": 2.68
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23162824800238013
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d5f2f5ec831df85443902c311a6871f74ccc67787f6d9e26cf1e091b55ccf636",
+  "selected_reasons": []
+}

@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "5875500ab74d7c55ea9222a4c3061eb87771f0638a785114e9397a470d613c64",
+  "attempts": [
+    {
+      "asr_seconds": 0.18101412896066904,
+      "alignment_seconds": 0.00027906615287065506,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Juliet, if they do see thee, they will murder thee.",
+          "start": 0.08,
+          "end": 3.24,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " if",
+              "start": 1.28,
+              "end": 1.46,
+              "probability": 0.947265625
+            },
+            {
+              "text": " they",
+              "start": 1.46,
+              "end": 1.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " do",
+              "start": 1.62,
+              "end": 1.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " see",
+              "start": 1.76,
+              "end": 2.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thee,",
+              "start": 2.0,
+              "end": 2.22,
+              "probability": 0.990234375
+            },
+            {
+              "text": " they",
+              "start": 2.44,
+              "end": 2.5,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " will",
+              "start": 2.5,
+              "end": 2.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " murder",
+              "start": 2.66,
+              "end": 2.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thee.",
+              "start": 2.92,
+              "end": 3.24,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "if",
+          "start": 1.28,
+          "end": 1.46
+        },
+        {
+          "raw": "they",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "raw": "do",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "raw": "see",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "raw": "thee,",
+          "start": 2.0,
+          "end": 2.22
+        },
+        {
+          "raw": "they",
+          "start": 2.44,
+          "end": 2.5
+        },
+        {
+          "raw": "will",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "raw": "murder",
+          "start": 2.66,
+          "end": 2.92
+        },
+        {
+          "raw": "thee.",
+          "start": 2.92,
+          "end": 3.24
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "If",
+        "they",
+        "do",
+        "see",
+        "thee,",
+        "they",
+        "will",
+        "murder",
+        "thee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.28,
+          "end": 1.46,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.46,
+          "end": 1.62,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.62,
+          "end": 1.76,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.76,
+          "end": 2.0,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 2.0,
+          "end": 2.22,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 2.44,
+          "end": 2.5,
+          "key": "they",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.5,
+          "end": 2.66,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "murder",
+          "start": 2.66,
+          "end": 2.92,
+          "key": "murder",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 2.92,
+          "end": 3.24,
+          "key": "thee",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "If",
+          "start": 1.28,
+          "end": 1.46
+        },
+        {
+          "text": "they",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "text": "do",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "text": "see",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "text": "thee,",
+          "start": 2.0,
+          "end": 2.22
+        },
+        {
+          "text": "they",
+          "start": 2.44,
+          "end": 2.5
+        },
+        {
+          "text": "will",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "text": "murder",
+          "start": 2.66,
+          "end": 2.92
+        },
+        {
+          "text": "thee.",
+          "start": 2.92,
+          "end": 3.24
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1814227970317006
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0bf4d950cadd361796b6dde28ff4fc513974a7843332282ca2a64d6361565d61",
+  "selected_reasons": []
+}

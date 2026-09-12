@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "af35366fcc80f43873ac98706a1bc74787fa05bedb91094e88a71d6e012c42e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.08400733902817592,
+      "alignment_seconds": 0.00015388004248961806,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A distant voice.",
+          "start": 0.08,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.69677734375
+            },
+            {
+              "text": " distant",
+              "start": 0.52,
+              "end": 0.76,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " voice.",
+              "start": 0.76,
+              "end": 1.22,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "distant",
+          "start": 0.52,
+          "end": 0.76
+        },
+        {
+          "raw": "voice.",
+          "start": 0.76,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "Distant",
+        "Voice"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "distant",
+          "start": 0.52,
+          "end": 0.76,
+          "key": "distant",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "voice.",
+          "start": 0.76,
+          "end": 1.22,
+          "key": "voice",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "Distant",
+          "start": 0.52,
+          "end": 0.76
+        },
+        {
+          "text": "Voice",
+          "start": 0.76,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08420700102578849
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c5133ec0ccf308ed61058ed850c586795c84e2b21f614629f791394b6c8c98f8",
+  "selected_reasons": []
+}

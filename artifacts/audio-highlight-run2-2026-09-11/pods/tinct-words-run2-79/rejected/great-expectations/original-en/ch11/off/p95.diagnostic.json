@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "8c637a02813fd8449bf20e95197a09a03231161c0e12e24a678db66184550205",
+  "attempts": [
+    {
+      "asr_seconds": 0.2594102816656232,
+      "alignment_seconds": 0.000711844302713871,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I was going to wish her many happy returns when she lifted her stick.",
+          "start": 0.08,
+          "end": 3.86,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " was",
+              "start": 0.54,
+              "end": 0.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " going",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 0.8,
+              "end": 0.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wish",
+              "start": 0.94,
+              "end": 1.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " many",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " happy",
+              "start": 1.42,
+              "end": 1.74,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " returns",
+              "start": 1.74,
+              "end": 2.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " when",
+              "start": 2.26,
+              "end": 2.92,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " she",
+              "start": 2.92,
+              "end": 3.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lifted",
+              "start": 3.1,
+              "end": 3.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 3.36,
+              "end": 3.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stick.",
+              "start": 3.56,
+              "end": 3.86,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "was",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "raw": "going",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "to",
+          "start": 0.8,
+          "end": 0.94
+        },
+        {
+          "raw": "wish",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "raw": "her",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "many",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "happy",
+          "start": 1.42,
+          "end": 1.74
+        },
+        {
+          "raw": "returns",
+          "start": 1.74,
+          "end": 2.26
+        },
+        {
+          "raw": "when",
+          "start": 2.26,
+          "end": 2.92
+        },
+        {
+          "raw": "she",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "raw": "lifted",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "raw": "her",
+          "start": 3.36,
+          "end": 3.56
+        },
+        {
+          "raw": "stick.",
+          "start": 3.56,
+          "end": 3.86
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "was",
+        "going",
+        "to",
+        "wish",
+        "her",
+        "many",
+        "happy",
+        "returns,",
+        "when",
+        "she",
+        "lifted",
+        "her",
+        "stick."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.54,
+          "end": 0.64,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "going",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.8,
+          "end": 0.94,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 0.94,
+          "end": 1.1,
+          "key": "wish",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "many",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "happy",
+          "start": 1.42,
+          "end": 1.74,
+          "key": "happy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "returns",
+          "start": 1.74,
+          "end": 2.26,
+          "key": "returns",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 2.26,
+          "end": 2.92,
+          "key": "when",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.92,
+          "end": 3.1,
+          "key": "she",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lifted",
+          "start": 3.1,
+          "end": 3.36,
+          "key": "lifted",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.36,
+          "end": 3.56,
+          "key": "her",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "stick.",
+          "start": 3.56,
+          "end": 3.86,
+          "key": "stick",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "was",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "text": "going",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "to",
+          "start": 0.8,
+          "end": 0.94
+        },
+        {
+          "text": "wish",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "text": "her",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "many",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "happy",
+          "start": 1.42,
+          "end": 1.74
+        },
+        {
+          "text": "returns,",
+          "start": 1.74,
+          "end": 2.26
+        },
+        {
+          "text": "when",
+          "start": 2.26,
+          "end": 2.92
+        },
+        {
+          "text": "she",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "text": "lifted",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "text": "her",
+          "start": 3.36,
+          "end": 3.56
+        },
+        {
+          "text": "stick.",
+          "start": 3.56,
+          "end": 3.86
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2604116378352046
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "28ab835f826d33cce158fd186605d5a5a8e16e3557b8ff2d85f11ac5d254587d",
+  "selected_reasons": []
+}

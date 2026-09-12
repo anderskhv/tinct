@@ -1,0 +1,1788 @@
+{
+  "complete": true,
+  "signature": "7928a49fedf30d96bc1d9a65e07b417ada8a8eaa532c27c62b25da328faf47d9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2459569121710956,
+      "alignment_seconds": 0.00041113607585430145,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. Cousin, there's fall'n between him and my lord An unkind breach, but you shall make all well.",
+        "hotwords": "Desdemona, Cousin, An"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, Cousin, there's fall'n between him and my lord An unkind breach, but you shall make all well.",
+          "start": 0.65,
+          "end": 6.51,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.65,
+              "end": 1.09,
+              "probability": 0.6616795857747396
+            },
+            {
+              "text": " Cousin,",
+              "start": 1.77,
+              "end": 2.07,
+              "probability": 0.54290771484375
+            },
+            {
+              "text": " there's",
+              "start": 2.27,
+              "end": 2.45,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " fall",
+              "start": 2.45,
+              "end": 2.63,
+              "probability": 0.0093536376953125
+            },
+            {
+              "text": "'n",
+              "start": 2.63,
+              "end": 2.77,
+              "probability": 0.539398193359375
+            },
+            {
+              "text": " between",
+              "start": 2.77,
+              "end": 2.97,
+              "probability": 0.6767578125
+            },
+            {
+              "text": " him",
+              "start": 2.97,
+              "end": 3.21,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " and",
+              "start": 3.21,
+              "end": 3.35,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " my",
+              "start": 3.35,
+              "end": 3.55,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " lord",
+              "start": 3.55,
+              "end": 3.79,
+              "probability": 0.56591796875
+            },
+            {
+              "text": " An",
+              "start": 3.79,
+              "end": 4.03,
+              "probability": 0.172119140625
+            },
+            {
+              "text": " unkind",
+              "start": 4.03,
+              "end": 4.59,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " breach,",
+              "start": 4.59,
+              "end": 4.93,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " but",
+              "start": 5.43,
+              "end": 5.57,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " you",
+              "start": 5.57,
+              "end": 5.69,
+              "probability": 0.94140625
+            },
+            {
+              "text": " shall",
+              "start": 5.69,
+              "end": 5.83,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " make",
+              "start": 5.83,
+              "end": 5.99,
+              "probability": 0.9921875
+            },
+            {
+              "text": " all",
+              "start": 5.99,
+              "end": 6.21,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " well.",
+              "start": 6.21,
+              "end": 6.51,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.65,
+          "end": 1.09
+        },
+        {
+          "raw": "Cousin,",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "raw": "there's",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "raw": "fall",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "raw": "'n",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "raw": "between",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "raw": "him",
+          "start": 2.97,
+          "end": 3.21
+        },
+        {
+          "raw": "and",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "raw": "my",
+          "start": 3.35,
+          "end": 3.55
+        },
+        {
+          "raw": "lord",
+          "start": 3.55,
+          "end": 3.79
+        },
+        {
+          "raw": "An",
+          "start": 3.79,
+          "end": 4.03
+        },
+        {
+          "raw": "unkind",
+          "start": 4.03,
+          "end": 4.59
+        },
+        {
+          "raw": "breach,",
+          "start": 4.59,
+          "end": 4.93
+        },
+        {
+          "raw": "but",
+          "start": 5.43,
+          "end": 5.57
+        },
+        {
+          "raw": "you",
+          "start": 5.57,
+          "end": 5.69
+        },
+        {
+          "raw": "shall",
+          "start": 5.69,
+          "end": 5.83
+        },
+        {
+          "raw": "make",
+          "start": 5.83,
+          "end": 5.99
+        },
+        {
+          "raw": "all",
+          "start": 5.99,
+          "end": 6.21
+        },
+        {
+          "raw": "well.",
+          "start": 6.21,
+          "end": 6.51
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Cousin,",
+        "there's",
+        "fall'n",
+        "between",
+        "him",
+        "and",
+        "my",
+        "lord",
+        "An",
+        "unkind",
+        "breach,",
+        "but",
+        "you",
+        "shall",
+        "make",
+        "all",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          18,
+          5,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.65,
+          "end": 1.09,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cousin,",
+          "start": 1.77,
+          "end": 2.07,
+          "key": "cousin",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 2.27,
+          "end": 2.45,
+          "key": "theres",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fall",
+          "start": 2.45,
+          "end": 2.63,
+          "key": "fall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'n",
+          "start": 2.63,
+          "end": 2.77,
+          "key": "n",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 2.77,
+          "end": 2.97,
+          "key": "between",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.97,
+          "end": 3.21,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.21,
+          "end": 3.35,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.35,
+          "end": 3.55,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 3.55,
+          "end": 3.79,
+          "key": "lord",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "An",
+          "start": 3.79,
+          "end": 4.03,
+          "key": "an",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "unkind",
+          "start": 4.03,
+          "end": 4.59,
+          "key": "unkind",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "breach,",
+          "start": 4.59,
+          "end": 4.93,
+          "key": "breach",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.43,
+          "end": 5.57,
+          "key": "but",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.57,
+          "end": 5.69,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 5.69,
+          "end": 5.83,
+          "key": "shall",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 5.83,
+          "end": 5.99,
+          "key": "make",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 5.99,
+          "end": 6.21,
+          "key": "all",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 6.21,
+          "end": 6.51,
+          "key": "well",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.65,
+          "end": 1.09
+        },
+        {
+          "text": "Cousin,",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "text": "there's",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "text": "fall'n",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "text": "between",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "text": "him",
+          "start": 2.97,
+          "end": 3.21
+        },
+        {
+          "text": "and",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "text": "my",
+          "start": 3.35,
+          "end": 3.55
+        },
+        {
+          "text": "lord",
+          "start": 3.55,
+          "end": 3.79
+        },
+        {
+          "text": "An",
+          "start": 3.79,
+          "end": 4.03
+        },
+        {
+          "text": "unkind",
+          "start": 4.03,
+          "end": 4.59
+        },
+        {
+          "text": "breach,",
+          "start": 4.59,
+          "end": 4.93
+        },
+        {
+          "text": "but",
+          "start": 5.43,
+          "end": 5.57
+        },
+        {
+          "text": "you",
+          "start": 5.57,
+          "end": 5.69
+        },
+        {
+          "text": "shall",
+          "start": 5.69,
+          "end": 5.83
+        },
+        {
+          "text": "make",
+          "start": 5.83,
+          "end": 5.99
+        },
+        {
+          "text": "all",
+          "start": 5.99,
+          "end": 6.21
+        },
+        {
+          "text": "well.",
+          "start": 6.21,
+          "end": 6.51
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.24659528536722064
+    },
+    {
+      "asr_seconds": 0.20931635703891516,
+      "alignment_seconds": 0.0002243276685476303,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Desdemona, Cousin, An"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " unkind breach, but you shall make all well.",
+          "start": 3.99,
+          "end": 6.51,
+          "words": [
+            {
+              "text": " unkind",
+              "start": 3.99,
+              "end": 4.51,
+              "probability": 0.4973238408565521
+            },
+            {
+              "text": " breach,",
+              "start": 4.51,
+              "end": 4.93,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " but",
+              "start": 5.47,
+              "end": 5.55,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " you",
+              "start": 5.55,
+              "end": 5.69,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " shall",
+              "start": 5.69,
+              "end": 5.83,
+              "probability": 0.96484375
+            },
+            {
+              "text": " make",
+              "start": 5.83,
+              "end": 5.99,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " all",
+              "start": 5.99,
+              "end": 6.21,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " well.",
+              "start": 6.21,
+              "end": 6.51,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "unkind",
+          "start": 3.99,
+          "end": 4.51
+        },
+        {
+          "raw": "breach,",
+          "start": 4.51,
+          "end": 4.93
+        },
+        {
+          "raw": "but",
+          "start": 5.47,
+          "end": 5.55
+        },
+        {
+          "raw": "you",
+          "start": 5.55,
+          "end": 5.69
+        },
+        {
+          "raw": "shall",
+          "start": 5.69,
+          "end": 5.83
+        },
+        {
+          "raw": "make",
+          "start": 5.83,
+          "end": 5.99
+        },
+        {
+          "raw": "all",
+          "start": 5.99,
+          "end": 6.21
+        },
+        {
+          "raw": "well.",
+          "start": 6.21,
+          "end": 6.51
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Cousin,",
+        "there's",
+        "fall'n",
+        "between",
+        "him",
+        "and",
+        "my",
+        "lord",
+        "An",
+        "unkind",
+        "breach,",
+        "but",
+        "you",
+        "shall",
+        "make",
+        "all",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          10,
+          0,
+          0
+        ],
+        [
+          "equal",
+          10,
+          18,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          10,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "unkind",
+          "start": 3.99,
+          "end": 4.51,
+          "key": "unkind",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "breach,",
+          "start": 4.51,
+          "end": 4.93,
+          "key": "breach",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.47,
+          "end": 5.55,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.55,
+          "end": 5.69,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 5.69,
+          "end": 5.83,
+          "key": "shall",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 5.83,
+          "end": 5.99,
+          "key": "make",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 5.99,
+          "end": 6.21,
+          "key": "all",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 6.21,
+          "end": 6.51,
+          "key": "well",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 1.995
+        },
+        {
+          "text": "Cousin,",
+          "start": 1.995,
+          "end": 2.993
+        },
+        {
+          "text": "there's",
+          "start": 2.993,
+          "end": 3.492
+        },
+        {
+          "text": "fall'n",
+          "start": 3.492,
+          "end": 3.741
+        },
+        {
+          "text": "between",
+          "start": 3.741,
+          "end": 3.865
+        },
+        {
+          "text": "him",
+          "start": 3.865,
+          "end": 3.928
+        },
+        {
+          "text": "and",
+          "start": 3.928,
+          "end": 3.959
+        },
+        {
+          "text": "my",
+          "start": 3.959,
+          "end": 3.974
+        },
+        {
+          "text": "lord",
+          "start": 3.974,
+          "end": 3.982
+        },
+        {
+          "text": "An",
+          "start": 3.982,
+          "end": 3.986
+        },
+        {
+          "text": "unkind",
+          "start": 3.99,
+          "end": 4.51
+        },
+        {
+          "text": "breach,",
+          "start": 4.51,
+          "end": 4.93
+        },
+        {
+          "text": "but",
+          "start": 5.47,
+          "end": 5.55
+        },
+        {
+          "text": "you",
+          "start": 5.55,
+          "end": 5.69
+        },
+        {
+          "text": "shall",
+          "start": 5.69,
+          "end": 5.83
+        },
+        {
+          "text": "make",
+          "start": 5.83,
+          "end": 5.99
+        },
+        {
+          "text": "all",
+          "start": 5.99,
+          "end": 6.21
+        },
+        {
+          "text": "well.",
+          "start": 6.21,
+          "end": 6.51
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 0.4444444444444444,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20959634380415082
+    },
+    {
+      "asr_seconds": 0.2576531362719834,
+      "alignment_seconds": 0.0004456262104213238,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, cousin there's fallen between him and my lord an unkind breach, but you shall make all well",
+          "start": 0.59,
+          "end": 6.59,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.59,
+              "end": 1.07,
+              "probability": 0.687255859375
+            },
+            {
+              "text": " cousin",
+              "start": 1.79,
+              "end": 1.91,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " there's",
+              "start": 1.91,
+              "end": 2.45,
+              "probability": 0.6680908203125
+            },
+            {
+              "text": " fallen",
+              "start": 2.45,
+              "end": 2.65,
+              "probability": 0.890625
+            },
+            {
+              "text": " between",
+              "start": 2.65,
+              "end": 2.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " him",
+              "start": 2.97,
+              "end": 3.23,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " and",
+              "start": 3.23,
+              "end": 3.35,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " my",
+              "start": 3.35,
+              "end": 3.55,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " lord",
+              "start": 3.55,
+              "end": 3.81,
+              "probability": 0.66845703125
+            },
+            {
+              "text": " an",
+              "start": 3.81,
+              "end": 4.01,
+              "probability": 0.7080078125
+            },
+            {
+              "text": " unkind",
+              "start": 4.01,
+              "end": 4.59,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " breach,",
+              "start": 4.59,
+              "end": 4.95,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " but",
+              "start": 4.97,
+              "end": 5.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 5.57,
+              "end": 5.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shall",
+              "start": 5.69,
+              "end": 5.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " make",
+              "start": 5.83,
+              "end": 5.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " all",
+              "start": 5.99,
+              "end": 6.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " well",
+              "start": 6.21,
+              "end": 6.59,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.59,
+          "end": 1.07
+        },
+        {
+          "raw": "cousin",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "raw": "there's",
+          "start": 1.91,
+          "end": 2.45
+        },
+        {
+          "raw": "fallen",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "raw": "between",
+          "start": 2.65,
+          "end": 2.97
+        },
+        {
+          "raw": "him",
+          "start": 2.97,
+          "end": 3.23
+        },
+        {
+          "raw": "and",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "raw": "my",
+          "start": 3.35,
+          "end": 3.55
+        },
+        {
+          "raw": "lord",
+          "start": 3.55,
+          "end": 3.81
+        },
+        {
+          "raw": "an",
+          "start": 3.81,
+          "end": 4.01
+        },
+        {
+          "raw": "unkind",
+          "start": 4.01,
+          "end": 4.59
+        },
+        {
+          "raw": "breach,",
+          "start": 4.59,
+          "end": 4.95
+        },
+        {
+          "raw": "but",
+          "start": 4.97,
+          "end": 5.57
+        },
+        {
+          "raw": "you",
+          "start": 5.57,
+          "end": 5.69
+        },
+        {
+          "raw": "shall",
+          "start": 5.69,
+          "end": 5.83
+        },
+        {
+          "raw": "make",
+          "start": 5.83,
+          "end": 5.99
+        },
+        {
+          "raw": "all",
+          "start": 5.99,
+          "end": 6.21
+        },
+        {
+          "raw": "well",
+          "start": 6.21,
+          "end": 6.59
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Cousin,",
+        "there's",
+        "fall'n",
+        "between",
+        "him",
+        "and",
+        "my",
+        "lord",
+        "An",
+        "unkind",
+        "breach,",
+        "but",
+        "you",
+        "shall",
+        "make",
+        "all",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          18,
+          4,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.59,
+          "end": 1.07,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cousin",
+          "start": 1.79,
+          "end": 1.91,
+          "key": "cousin",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 1.91,
+          "end": 2.45,
+          "key": "theres",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fallen",
+          "start": 2.45,
+          "end": 2.65,
+          "key": "fallen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 2.65,
+          "end": 2.97,
+          "key": "between",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.97,
+          "end": 3.23,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.23,
+          "end": 3.35,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.35,
+          "end": 3.55,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 3.55,
+          "end": 3.81,
+          "key": "lord",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.81,
+          "end": 4.01,
+          "key": "an",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "unkind",
+          "start": 4.01,
+          "end": 4.59,
+          "key": "unkind",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "breach,",
+          "start": 4.59,
+          "end": 4.95,
+          "key": "breach",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.97,
+          "end": 5.57,
+          "key": "but",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.57,
+          "end": 5.69,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 5.69,
+          "end": 5.83,
+          "key": "shall",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 5.83,
+          "end": 5.99,
+          "key": "make",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 5.99,
+          "end": 6.21,
+          "key": "all",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 6.21,
+          "end": 6.59,
+          "key": "well",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.895
+        },
+        {
+          "text": "Cousin,",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "text": "there's",
+          "start": 1.91,
+          "end": 2.45
+        },
+        {
+          "text": "fall'n",
+          "start": 2.45,
+          "end": 2.55
+        },
+        {
+          "text": "between",
+          "start": 2.65,
+          "end": 2.97
+        },
+        {
+          "text": "him",
+          "start": 2.97,
+          "end": 3.23
+        },
+        {
+          "text": "and",
+          "start": 3.23,
+          "end": 3.35
+        },
+        {
+          "text": "my",
+          "start": 3.35,
+          "end": 3.55
+        },
+        {
+          "text": "lord",
+          "start": 3.55,
+          "end": 3.81
+        },
+        {
+          "text": "An",
+          "start": 3.81,
+          "end": 4.01
+        },
+        {
+          "text": "unkind",
+          "start": 4.01,
+          "end": 4.59
+        },
+        {
+          "text": "breach,",
+          "start": 4.59,
+          "end": 4.95
+        },
+        {
+          "text": "but",
+          "start": 4.97,
+          "end": 5.57
+        },
+        {
+          "text": "you",
+          "start": 5.57,
+          "end": 5.69
+        },
+        {
+          "text": "shall",
+          "start": 5.69,
+          "end": 5.83
+        },
+        {
+          "text": "make",
+          "start": 5.83,
+          "end": 5.99
+        },
+        {
+          "text": "all",
+          "start": 5.99,
+          "end": 6.21
+        },
+        {
+          "text": "well.",
+          "start": 6.21,
+          "end": 6.59
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2582775200717151
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f36d742fa69b0093998cd8450b07a20268d1fa9e74972135064c6123adde6515",
+  "selected_reasons": []
+}

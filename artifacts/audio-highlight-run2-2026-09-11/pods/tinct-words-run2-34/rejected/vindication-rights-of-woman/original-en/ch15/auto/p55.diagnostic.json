@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "ce2e4ecccca9a77b10910fe4106e3716bd23fbed9f200bd6827f5619828d46ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.2425234690308571,
+      "alignment_seconds": 0.00016243383288383484,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Matter too soft a lasting mark to bear, And best distinguish'd by black, brown, or fair.\"",
+        "hotwords": "Matter, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Matter too soft a lasting mark to bear, And best distinguish'd by black, brown, or fair.",
+          "start": 0.02,
+          "end": 5.74,
+          "words": [
+            {
+              "text": " Matter",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " too",
+              "start": 0.66,
+              "end": 1.04,
+              "probability": 0.50830078125
+            },
+            {
+              "text": " soft",
+              "start": 1.04,
+              "end": 1.4,
+              "probability": 0.404541015625
+            },
+            {
+              "text": " a",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " lasting",
+              "start": 1.54,
+              "end": 1.88,
+              "probability": 0.98828125
+            },
+            {
+              "text": " mark",
+              "start": 1.88,
+              "end": 2.12,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " to",
+              "start": 2.12,
+              "end": 2.32,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bear,",
+              "start": 2.32,
+              "end": 2.58,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " And",
+              "start": 3.18,
+              "end": 3.22,
+              "probability": 0.039794921875
+            },
+            {
+              "text": " best",
+              "start": 3.22,
+              "end": 3.42,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " distinguish'd",
+              "start": 3.42,
+              "end": 4.12,
+              "probability": 0.4299757480621338
+            },
+            {
+              "text": " by",
+              "start": 4.12,
+              "end": 4.22,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " black,",
+              "start": 4.22,
+              "end": 4.6,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " brown,",
+              "start": 5.06,
+              "end": 5.12,
+              "probability": 0.953125
+            },
+            {
+              "text": " or",
+              "start": 5.4,
+              "end": 5.48,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " fair.",
+              "start": 5.48,
+              "end": 5.74,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Matter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "too",
+          "start": 0.66,
+          "end": 1.04
+        },
+        {
+          "raw": "soft",
+          "start": 1.04,
+          "end": 1.4
+        },
+        {
+          "raw": "a",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "raw": "lasting",
+          "start": 1.54,
+          "end": 1.88
+        },
+        {
+          "raw": "mark",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "raw": "to",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "raw": "bear,",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "raw": "And",
+          "start": 3.18,
+          "end": 3.22
+        },
+        {
+          "raw": "best",
+          "start": 3.22,
+          "end": 3.42
+        },
+        {
+          "raw": "distinguish'd",
+          "start": 3.42,
+          "end": 4.12
+        },
+        {
+          "raw": "by",
+          "start": 4.12,
+          "end": 4.22
+        },
+        {
+          "raw": "black,",
+          "start": 4.22,
+          "end": 4.6
+        },
+        {
+          "raw": "brown,",
+          "start": 5.06,
+          "end": 5.12
+        },
+        {
+          "raw": "or",
+          "start": 5.4,
+          "end": 5.48
+        },
+        {
+          "raw": "fair.",
+          "start": 5.48,
+          "end": 5.74
+        }
+      ],
+      "expected_tokens": [
+        "\"Matter",
+        "too",
+        "soft",
+        "a",
+        "lasting",
+        "mark",
+        "to",
+        "bear,",
+        "And",
+        "best",
+        "distinguish'd",
+        "by",
+        "black,",
+        "brown,",
+        "or",
+        "fair.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Matter",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "matter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 0.66,
+          "end": 1.04,
+          "key": "too",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "soft",
+          "start": 1.04,
+          "end": 1.4,
+          "key": "soft",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.4,
+          "end": 1.54,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lasting",
+          "start": 1.54,
+          "end": 1.88,
+          "key": "lasting",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mark",
+          "start": 1.88,
+          "end": 2.12,
+          "key": "mark",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.12,
+          "end": 2.32,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bear,",
+          "start": 2.32,
+          "end": 2.58,
+          "key": "bear",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.18,
+          "end": 3.22,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 3.22,
+          "end": 3.42,
+          "key": "best",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "distinguish'd",
+          "start": 3.42,
+          "end": 4.12,
+          "key": "distinguishd",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.12,
+          "end": 4.22,
+          "key": "by",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "black,",
+          "start": 4.22,
+          "end": 4.6,
+          "key": "black",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "brown,",
+          "start": 5.06,
+          "end": 5.12,
+          "key": "brown",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 5.4,
+          "end": 5.48,
+          "key": "or",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "fair.",
+          "start": 5.48,
+          "end": 5.74,
+          "key": "fair",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Matter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "too",
+          "start": 0.66,
+          "end": 1.04
+        },
+        {
+          "text": "soft",
+          "start": 1.04,
+          "end": 1.4
+        },
+        {
+          "text": "a",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "text": "lasting",
+          "start": 1.54,
+          "end": 1.88
+        },
+        {
+          "text": "mark",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "text": "to",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "text": "bear,",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "text": "And",
+          "start": 3.18,
+          "end": 3.22
+        },
+        {
+          "text": "best",
+          "start": 3.22,
+          "end": 3.42
+        },
+        {
+          "text": "distinguish'd",
+          "start": 3.42,
+          "end": 4.12
+        },
+        {
+          "text": "by",
+          "start": 4.12,
+          "end": 4.22
+        },
+        {
+          "text": "black,",
+          "start": 4.22,
+          "end": 4.6
+        },
+        {
+          "text": "brown,",
+          "start": 5.06,
+          "end": 5.12
+        },
+        {
+          "text": "or",
+          "start": 5.4,
+          "end": 5.48
+        },
+        {
+          "text": "fair.\"",
+          "start": 5.48,
+          "end": 5.74
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2427426092326641
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0ccf93b6bd7b28a411c37faf8ac6858d5a52767573f9193e8e85c2935b8376b1",
+  "selected_reasons": []
+}

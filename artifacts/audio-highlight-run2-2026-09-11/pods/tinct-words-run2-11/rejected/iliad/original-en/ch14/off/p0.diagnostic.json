@@ -1,0 +1,701 @@
+{
+  "complete": true,
+  "signature": "f76205f88ffd5d2c6c7446d403fdac974b74558450f792f5cfc0d0ebe428c0df",
+  "attempts": [
+    {
+      "asr_seconds": 0.3497359147295356,
+      "alignment_seconds": 0.0002770340070128441,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Agamemnon proposes that the Achaeans should sail home, and is rebuked by Ulysses.",
+          "start": 0.11,
+          "end": 5.33,
+          "words": [
+            {
+              "text": " Agamemnon",
+              "start": 0.11,
+              "end": 1.03,
+              "probability": 0.9696044921875
+            },
+            {
+              "text": " proposes",
+              "start": 1.03,
+              "end": 1.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 1.45,
+              "end": 1.85,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Achaeans",
+              "start": 2.03,
+              "end": 2.41,
+              "probability": 0.9440104166666666
+            },
+            {
+              "text": " should",
+              "start": 2.41,
+              "end": 2.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sail",
+              "start": 2.63,
+              "end": 2.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " home,",
+              "start": 2.89,
+              "end": 3.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 3.75,
+              "end": 3.91,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 3.91,
+              "end": 4.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " rebuked",
+              "start": 4.03,
+              "end": 4.45,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " by",
+              "start": 4.45,
+              "end": 4.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Ulysses.",
+              "start": 4.69,
+              "end": 5.33,
+              "probability": 0.97705078125
+            }
+          ]
+        },
+        {
+          "text": " Juno beguiles Jupiter.",
+          "start": 5.99,
+          "end": 7.03,
+          "words": [
+            {
+              "text": " Juno",
+              "start": 5.99,
+              "end": 6.09,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " beguiles",
+              "start": 6.09,
+              "end": 6.65,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " Jupiter.",
+              "start": 6.65,
+              "end": 7.03,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Hector is wounded.",
+          "start": 7.65,
+          "end": 8.37,
+          "words": [
+            {
+              "text": " Hector",
+              "start": 7.65,
+              "end": 7.81,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " is",
+              "start": 7.81,
+              "end": 8.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wounded.",
+              "start": 8.07,
+              "end": 8.37,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agamemnon",
+          "start": 0.11,
+          "end": 1.03
+        },
+        {
+          "raw": "proposes",
+          "start": 1.03,
+          "end": 1.45
+        },
+        {
+          "raw": "that",
+          "start": 1.45,
+          "end": 1.85
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "Achaeans",
+          "start": 2.03,
+          "end": 2.41
+        },
+        {
+          "raw": "should",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "raw": "sail",
+          "start": 2.63,
+          "end": 2.89
+        },
+        {
+          "raw": "home,",
+          "start": 2.89,
+          "end": 3.35
+        },
+        {
+          "raw": "and",
+          "start": 3.75,
+          "end": 3.91
+        },
+        {
+          "raw": "is",
+          "start": 3.91,
+          "end": 4.03
+        },
+        {
+          "raw": "rebuked",
+          "start": 4.03,
+          "end": 4.45
+        },
+        {
+          "raw": "by",
+          "start": 4.45,
+          "end": 4.69
+        },
+        {
+          "raw": "Ulysses.",
+          "start": 4.69,
+          "end": 5.33
+        },
+        {
+          "raw": "Juno",
+          "start": 5.99,
+          "end": 6.09
+        },
+        {
+          "raw": "beguiles",
+          "start": 6.09,
+          "end": 6.65
+        },
+        {
+          "raw": "Jupiter.",
+          "start": 6.65,
+          "end": 7.03
+        },
+        {
+          "raw": "Hector",
+          "start": 7.65,
+          "end": 7.81
+        },
+        {
+          "raw": "is",
+          "start": 7.81,
+          "end": 8.07
+        },
+        {
+          "raw": "wounded.",
+          "start": 8.07,
+          "end": 8.37
+        }
+      ],
+      "expected_tokens": [
+        "Agamemnon",
+        "proposes",
+        "that",
+        "the",
+        "Achaeans",
+        "should",
+        "sail",
+        "home,",
+        "and",
+        "is",
+        "rebuked",
+        "by",
+        "Ulysses—Juno",
+        "beguiles",
+        "Jupiter—Hector",
+        "is",
+        "wounded."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          14,
+          14,
+          15
+        ],
+        [
+          "replace",
+          14,
+          15,
+          15,
+          17
+        ],
+        [
+          "equal",
+          15,
+          17,
+          17,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          15,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agamemnon",
+          "start": 0.11,
+          "end": 1.03,
+          "key": "agamemnon",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "proposes",
+          "start": 1.03,
+          "end": 1.45,
+          "key": "proposes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.45,
+          "end": 1.85,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 2.03,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Achaeans",
+          "start": 2.03,
+          "end": 2.41,
+          "key": "achaeans",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 2.41,
+          "end": 2.63,
+          "key": "should",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sail",
+          "start": 2.63,
+          "end": 2.89,
+          "key": "sail",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "home,",
+          "start": 2.89,
+          "end": 3.35,
+          "key": "home",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.75,
+          "end": 3.91,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.91,
+          "end": 4.03,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "rebuked",
+          "start": 4.03,
+          "end": 4.45,
+          "key": "rebuked",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.45,
+          "end": 4.69,
+          "key": "by",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Ulysses.",
+          "start": 4.69,
+          "end": 5.33,
+          "key": "ulysses",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Juno",
+          "start": 5.99,
+          "end": 6.09,
+          "key": "juno",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "beguiles",
+          "start": 6.09,
+          "end": 6.65,
+          "key": "beguiles",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Jupiter.",
+          "start": 6.65,
+          "end": 7.03,
+          "key": "jupiter",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Hector",
+          "start": 7.65,
+          "end": 7.81,
+          "key": "hector",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.81,
+          "end": 8.07,
+          "key": "is",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "wounded.",
+          "start": 8.07,
+          "end": 8.37,
+          "key": "wounded",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agamemnon",
+          "start": 0.11,
+          "end": 1.03
+        },
+        {
+          "text": "proposes",
+          "start": 1.03,
+          "end": 1.45
+        },
+        {
+          "text": "that",
+          "start": 1.45,
+          "end": 1.85
+        },
+        {
+          "text": "the",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "Achaeans",
+          "start": 2.03,
+          "end": 2.41
+        },
+        {
+          "text": "should",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "text": "sail",
+          "start": 2.63,
+          "end": 2.89
+        },
+        {
+          "text": "home,",
+          "start": 2.89,
+          "end": 3.35
+        },
+        {
+          "text": "and",
+          "start": 3.75,
+          "end": 3.91
+        },
+        {
+          "text": "is",
+          "start": 3.91,
+          "end": 4.03
+        },
+        {
+          "text": "rebuked",
+          "start": 4.03,
+          "end": 4.45
+        },
+        {
+          "text": "by",
+          "start": 4.45,
+          "end": 4.69
+        },
+        {
+          "text": "Ulysses—Juno",
+          "start": 4.69,
+          "end": 5.39
+        },
+        {
+          "text": "beguiles",
+          "start": 6.09,
+          "end": 6.65
+        },
+        {
+          "text": "Jupiter—Hector",
+          "start": 6.65,
+          "end": 7.23
+        },
+        {
+          "text": "is",
+          "start": 7.81,
+          "end": 8.07
+        },
+        {
+          "text": "wounded.",
+          "start": 8.07,
+          "end": 8.37
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 19,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.35011162143200636
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e6a64ee396fb93de6916cbb0045224c420c2d14e5262cc6446072a8a7be59d3f",
+  "selected_reasons": []
+}

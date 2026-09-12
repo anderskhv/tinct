@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "9372a7870f5cb25fc15544b5745b4aaca8ce760277ab8aade3c14b8fa64c4af5",
+  "attempts": [
+    {
+      "asr_seconds": 0.16348492400720716,
+      "alignment_seconds": 0.0002546468749642372,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, the people are incensed against him.",
+          "start": 0.05,
+          "end": 2.79,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " the",
+              "start": 1.19,
+              "end": 1.33,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " people",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.98828125
+            },
+            {
+              "text": " are",
+              "start": 1.55,
+              "end": 1.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " incensed",
+              "start": 1.77,
+              "end": 2.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " against",
+              "start": 2.21,
+              "end": 2.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him.",
+              "start": 2.47,
+              "end": 2.79,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "the",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "raw": "people",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "are",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "raw": "incensed",
+          "start": 1.77,
+          "end": 2.21
+        },
+        {
+          "raw": "against",
+          "start": 2.21,
+          "end": 2.47
+        },
+        {
+          "raw": "him.",
+          "start": 2.47,
+          "end": 2.79
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "The",
+        "people",
+        "are",
+        "incensed",
+        "against",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.19,
+          "end": 1.33,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "people",
+          "start": 1.33,
+          "end": 1.55,
+          "key": "people",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.55,
+          "end": 1.77,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "incensed",
+          "start": 1.77,
+          "end": 2.21,
+          "key": "incensed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 2.21,
+          "end": 2.47,
+          "key": "against",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 2.47,
+          "end": 2.79,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "The",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "text": "people",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "are",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "text": "incensed",
+          "start": 1.77,
+          "end": 2.21
+        },
+        {
+          "text": "against",
+          "start": 2.21,
+          "end": 2.47
+        },
+        {
+          "text": "him.",
+          "start": 2.47,
+          "end": 2.79
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16383337415754795
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1e6673c0158949a20671e524e13ebdc709b73ba255e42a6f27b6058e02fa46a8",
+  "selected_reasons": []
+}

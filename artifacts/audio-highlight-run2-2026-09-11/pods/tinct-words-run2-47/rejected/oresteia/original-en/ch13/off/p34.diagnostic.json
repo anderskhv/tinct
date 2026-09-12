@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "7c1a3543ce6f63d9ef42576b2f25a941a4dd4b375c55c422e166eab4e7ee290b",
+  "attempts": [
+    {
+      "asr_seconds": 0.21733517898246646,
+      "alignment_seconds": 0.0005139780114404857,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Chorus, like to what locks and whos, instruct me that.",
+          "start": 0.08,
+          "end": 3.5,
+          "words": [
+            {
+              "text": " Chorus,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.683837890625
+            },
+            {
+              "text": " like",
+              "start": 1.18,
+              "end": 1.26,
+              "probability": 0.9609375
+            },
+            {
+              "text": " to",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " what",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.98828125
+            },
+            {
+              "text": " locks",
+              "start": 1.52,
+              "end": 1.78,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " and",
+              "start": 1.78,
+              "end": 2.0,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " whos,",
+              "start": 2.0,
+              "end": 2.36,
+              "probability": 0.7110595703125
+            },
+            {
+              "text": " instruct",
+              "start": 2.74,
+              "end": 2.98,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " me",
+              "start": 2.98,
+              "end": 3.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that.",
+              "start": 3.22,
+              "end": 3.5,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chorus,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "like",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "raw": "to",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "what",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "locks",
+          "start": 1.52,
+          "end": 1.78
+        },
+        {
+          "raw": "and",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "raw": "whos,",
+          "start": 2.0,
+          "end": 2.36
+        },
+        {
+          "raw": "instruct",
+          "start": 2.74,
+          "end": 2.98
+        },
+        {
+          "raw": "me",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "raw": "that.",
+          "start": 3.22,
+          "end": 3.5
+        }
+      ],
+      "expected_tokens": [
+        "Chorus.",
+        "Like",
+        "to",
+        "what",
+        "locks",
+        "and",
+        "whose?",
+        "instruct",
+        "me",
+        "that."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          10,
+          7,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chorus,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "chorus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.18,
+          "end": 1.26,
+          "key": "like",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "locks",
+          "start": 1.52,
+          "end": 1.78,
+          "key": "locks",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.78,
+          "end": 2.0,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "whos,",
+          "start": 2.0,
+          "end": 2.36,
+          "key": "whos",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "instruct",
+          "start": 2.74,
+          "end": 2.98,
+          "key": "instruct",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.98,
+          "end": 3.22,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 3.22,
+          "end": 3.5,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Chorus.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "Like",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "text": "to",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "what",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "locks",
+          "start": 1.52,
+          "end": 1.78
+        },
+        {
+          "text": "and",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "text": "whose?",
+          "start": 2.0,
+          "end": 2.37
+        },
+        {
+          "text": "instruct",
+          "start": 2.74,
+          "end": 2.98
+        },
+        {
+          "text": "me",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "text": "that.",
+          "start": 3.22,
+          "end": 3.5
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.21803962599369697
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a0deb6509ab2e8d2197fcb5ada7cbc45b4a2f1e1efec71af6f886397981e4f9e",
+  "selected_reasons": []
+}

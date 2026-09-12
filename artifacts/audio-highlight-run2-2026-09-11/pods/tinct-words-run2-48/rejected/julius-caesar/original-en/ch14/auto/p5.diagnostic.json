@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "f934639a4f14492a6306c04566e8f3389085c9a58f401fc3766135abe67155ba",
+  "attempts": [
+    {
+      "asr_seconds": 0.3032537139952183,
+      "alignment_seconds": 0.00034171994775533676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. Octavius, lead your battle softly on Upon the left hand of the even field.",
+        "hotwords": "Antony, Octavius, Upon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, Octavius, lead your battle softly on Upon the left hand of the even field.",
+          "start": 0.05,
+          "end": 5.47,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.890625
+            },
+            {
+              "text": " Octavius,",
+              "start": 1.41,
+              "end": 2.05,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " lead",
+              "start": 2.53,
+              "end": 2.61,
+              "probability": 0.984375
+            },
+            {
+              "text": " your",
+              "start": 2.61,
+              "end": 2.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " battle",
+              "start": 2.77,
+              "end": 3.03,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " softly",
+              "start": 3.03,
+              "end": 3.47,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " on",
+              "start": 3.47,
+              "end": 3.75,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Upon",
+              "start": 3.75,
+              "end": 4.01,
+              "probability": 0.0020008087158203125
+            },
+            {
+              "text": " the",
+              "start": 4.01,
+              "end": 4.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " left",
+              "start": 4.17,
+              "end": 4.33,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " hand",
+              "start": 4.33,
+              "end": 4.65,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " of",
+              "start": 4.65,
+              "end": 4.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.77,
+              "end": 4.91,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " even",
+              "start": 4.91,
+              "end": 5.11,
+              "probability": 0.66064453125
+            },
+            {
+              "text": " field.",
+              "start": 5.11,
+              "end": 5.47,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Octavius,",
+          "start": 1.41,
+          "end": 2.05
+        },
+        {
+          "raw": "lead",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "raw": "your",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "raw": "battle",
+          "start": 2.77,
+          "end": 3.03
+        },
+        {
+          "raw": "softly",
+          "start": 3.03,
+          "end": 3.47
+        },
+        {
+          "raw": "on",
+          "start": 3.47,
+          "end": 3.75
+        },
+        {
+          "raw": "Upon",
+          "start": 3.75,
+          "end": 4.01
+        },
+        {
+          "raw": "the",
+          "start": 4.01,
+          "end": 4.17
+        },
+        {
+          "raw": "left",
+          "start": 4.17,
+          "end": 4.33
+        },
+        {
+          "raw": "hand",
+          "start": 4.33,
+          "end": 4.65
+        },
+        {
+          "raw": "of",
+          "start": 4.65,
+          "end": 4.77
+        },
+        {
+          "raw": "the",
+          "start": 4.77,
+          "end": 4.91
+        },
+        {
+          "raw": "even",
+          "start": 4.91,
+          "end": 5.11
+        },
+        {
+          "raw": "field.",
+          "start": 5.11,
+          "end": 5.47
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Octavius,",
+        "lead",
+        "your",
+        "battle",
+        "softly",
+        "on",
+        "Upon",
+        "the",
+        "left",
+        "hand",
+        "of",
+        "the",
+        "even",
+        "field."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Octavius,",
+          "start": 1.41,
+          "end": 2.05,
+          "key": "octavius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lead",
+          "start": 2.53,
+          "end": 2.61,
+          "key": "lead",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.61,
+          "end": 2.77,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "battle",
+          "start": 2.77,
+          "end": 3.03,
+          "key": "battle",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "softly",
+          "start": 3.03,
+          "end": 3.47,
+          "key": "softly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.47,
+          "end": 3.75,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 3.75,
+          "end": 4.01,
+          "key": "upon",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.01,
+          "end": 4.17,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "left",
+          "start": 4.17,
+          "end": 4.33,
+          "key": "left",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 4.33,
+          "end": 4.65,
+          "key": "hand",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.65,
+          "end": 4.77,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.77,
+          "end": 4.91,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 4.91,
+          "end": 5.11,
+          "key": "even",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "field.",
+          "start": 5.11,
+          "end": 5.47,
+          "key": "field",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Octavius,",
+          "start": 1.41,
+          "end": 2.05
+        },
+        {
+          "text": "lead",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "text": "your",
+          "start": 2.61,
+          "end": 2.77
+        },
+        {
+          "text": "battle",
+          "start": 2.77,
+          "end": 3.03
+        },
+        {
+          "text": "softly",
+          "start": 3.03,
+          "end": 3.47
+        },
+        {
+          "text": "on",
+          "start": 3.47,
+          "end": 3.75
+        },
+        {
+          "text": "Upon",
+          "start": 3.75,
+          "end": 4.01
+        },
+        {
+          "text": "the",
+          "start": 4.01,
+          "end": 4.17
+        },
+        {
+          "text": "left",
+          "start": 4.17,
+          "end": 4.33
+        },
+        {
+          "text": "hand",
+          "start": 4.33,
+          "end": 4.65
+        },
+        {
+          "text": "of",
+          "start": 4.65,
+          "end": 4.77
+        },
+        {
+          "text": "the",
+          "start": 4.77,
+          "end": 4.91
+        },
+        {
+          "text": "even",
+          "start": 4.91,
+          "end": 5.11
+        },
+        {
+          "text": "field.",
+          "start": 5.11,
+          "end": 5.47
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3037417270243168
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3fd027f46605f630a2380622cb4fe6840638087131d5f0e8242f3f8c0a6ee3de",
+  "selected_reasons": []
+}

@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "17f938a5c0aee3576a69c192b88054efcb5660c91350a5b94e9511ba8398a9e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.15918915392830968,
+      "alignment_seconds": 0.000403095968067646,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Katherine, I cannot tell what is that.",
+          "start": 0.05,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " Katherine,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.263916015625
+            },
+            {
+              "text": " I",
+              "start": 1.21,
+              "end": 1.45,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " cannot",
+              "start": 1.45,
+              "end": 1.57,
+              "probability": 0.953125
+            },
+            {
+              "text": " tell",
+              "start": 1.57,
+              "end": 1.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " what",
+              "start": 1.93,
+              "end": 2.13,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " is",
+              "start": 2.13,
+              "end": 2.31,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " that.",
+              "start": 2.31,
+              "end": 2.59,
+              "probability": 0.64453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katherine,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "I",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "raw": "cannot",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "raw": "tell",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "raw": "what",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "raw": "is",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "raw": "that.",
+          "start": 2.31,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "I",
+        "cannot",
+        "tell",
+        "wat",
+        "is",
+        "dat."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katherine,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "katherine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.21,
+          "end": 1.45,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 1.45,
+          "end": 1.57,
+          "key": "cannot",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 1.57,
+          "end": 1.93,
+          "key": "tell",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.93,
+          "end": 2.13,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.13,
+          "end": 2.31,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 2.31,
+          "end": 2.59,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.0,
+          "end": 0.605
+        },
+        {
+          "text": "I",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "text": "cannot",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "text": "tell",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "text": "wat",
+          "start": 1.93,
+          "end": 2.03
+        },
+        {
+          "text": "is",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "text": "dat.",
+          "start": 2.31,
+          "end": 2.45
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 4
+      },
+      "match_ratio": 0.5714285714285714,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15974111296236515
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b475ffa853d0b0dea7badc38c2e9bcdc9a62ff2af3967541b122cdb371a1bcc8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

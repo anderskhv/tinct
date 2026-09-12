@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "b174c3bf18c3af9f1d3456d09d8b8537c7ae560307a9ee41af41b6e41f605c1c",
+  "attempts": [
+    {
+      "asr_seconds": 0.12860942259430885,
+      "alignment_seconds": 0.0003527216613292694,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Duke. What dost thou know?",
+        "hotwords": "Duke, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, What dost thou know?",
+          "start": 0.02,
+          "end": 1.76,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.837890625
+            },
+            {
+              "text": " What",
+              "start": 1.0,
+              "end": 1.12,
+              "probability": 0.0218353271484375
+            },
+            {
+              "text": " dost",
+              "start": 1.12,
+              "end": 1.32,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " thou",
+              "start": 1.32,
+              "end": 1.5,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " know?",
+              "start": 1.5,
+              "end": 1.76,
+              "probability": 0.89453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "What",
+          "start": 1.0,
+          "end": 1.12
+        },
+        {
+          "raw": "dost",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "raw": "thou",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "raw": "know?",
+          "start": 1.5,
+          "end": 1.76
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "What",
+        "dost",
+        "thou",
+        "know?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.0,
+          "end": 1.12,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 1.12,
+          "end": 1.32,
+          "key": "dost",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.32,
+          "end": 1.5,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "know?",
+          "start": 1.5,
+          "end": 1.76,
+          "key": "know",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "What",
+          "start": 1.0,
+          "end": 1.12
+        },
+        {
+          "text": "dost",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "text": "thou",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "text": "know?",
+          "start": 1.5,
+          "end": 1.76
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12910018488764763
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8e6968697822cc8fab6bda5de8c8638dde12c3800a91fafd20056aaa20a5acad",
+  "selected_reasons": []
+}

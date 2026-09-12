@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "96c49dff4ca6da7d69181b573cf20f739409a98f9831e84e64a0eb024ab7b7d3",
+  "attempts": [
+    {
+      "asr_seconds": 1.6292294671293348,
+      "alignment_seconds": 0.0002218929585069418,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Daily.\"",
+        "hotwords": "Daily"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Daily.",
+          "start": 0.05,
+          "end": 0.63,
+          "words": [
+            {
+              "text": " Daily.",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.25634765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Daily.",
+          "start": 0.05,
+          "end": 0.63
+        }
+      ],
+      "expected_tokens": [
+        "\"Daily.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Daily.",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "daily",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Daily.\"",
+          "start": 0.05,
+          "end": 0.63
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.6295295429881662
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eb6fa6cdcfb68e7ad24879be92770d9b1f436eebaeeb8dc6d4056ab4c1905757",
+  "selected_reasons": []
+}

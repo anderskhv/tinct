@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "cd19b7dc09dc1273efef0911f07497315d44afd6faee5d75ed412ec518d8f8c2",
+  "attempts": [
+    {
+      "asr_seconds": 0.22332382993772626,
+      "alignment_seconds": 0.0004934868775308132,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Murderer. Zounds, he dies! I had forgot the reward.",
+        "hotwords": "Second, Murderer, Zounds, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second Murderer, Zounds, he dies! I had forgot the reward.",
+          "start": 0.08,
+          "end": 3.96,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.57080078125
+            },
+            {
+              "text": " Murderer,",
+              "start": 0.7,
+              "end": 1.2,
+              "probability": 0.53192138671875
+            },
+            {
+              "text": " Zounds,",
+              "start": 1.78,
+              "end": 1.98,
+              "probability": 0.40606689453125
+            },
+            {
+              "text": " he",
+              "start": 2.14,
+              "end": 2.18,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " dies!",
+              "start": 2.18,
+              "end": 2.44,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 2.94,
+              "end": 3.08,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " had",
+              "start": 3.08,
+              "end": 3.16,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " forgot",
+              "start": 3.16,
+              "end": 3.42,
+              "probability": 0.94140625
+            },
+            {
+              "text": " the",
+              "start": 3.42,
+              "end": 3.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " reward.",
+              "start": 3.62,
+              "end": 3.96,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.7,
+          "end": 1.2
+        },
+        {
+          "raw": "Zounds,",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "raw": "he",
+          "start": 2.14,
+          "end": 2.18
+        },
+        {
+          "raw": "dies!",
+          "start": 2.18,
+          "end": 2.44
+        },
+        {
+          "raw": "I",
+          "start": 2.94,
+          "end": 3.08
+        },
+        {
+          "raw": "had",
+          "start": 3.08,
+          "end": 3.16
+        },
+        {
+          "raw": "forgot",
+          "start": 3.16,
+          "end": 3.42
+        },
+        {
+          "raw": "the",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "raw": "reward.",
+          "start": 3.62,
+          "end": 3.96
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Murderer.",
+        "Zounds,",
+        "he",
+        "dies!",
+        "I",
+        "had",
+        "forgot",
+        "the",
+        "reward."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.7,
+          "end": 1.2,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Zounds,",
+          "start": 1.78,
+          "end": 1.98,
+          "key": "zounds",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.14,
+          "end": 2.18,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dies!",
+          "start": 2.18,
+          "end": 2.44,
+          "key": "dies",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.94,
+          "end": 3.08,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.08,
+          "end": 3.16,
+          "key": "had",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "forgot",
+          "start": 3.16,
+          "end": 3.42,
+          "key": "forgot",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.42,
+          "end": 3.62,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "reward.",
+          "start": 3.62,
+          "end": 3.96,
+          "key": "reward",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.7,
+          "end": 1.2
+        },
+        {
+          "text": "Zounds,",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "text": "he",
+          "start": 2.14,
+          "end": 2.18
+        },
+        {
+          "text": "dies!",
+          "start": 2.18,
+          "end": 2.44
+        },
+        {
+          "text": "I",
+          "start": 2.94,
+          "end": 3.08
+        },
+        {
+          "text": "had",
+          "start": 3.08,
+          "end": 3.16
+        },
+        {
+          "text": "forgot",
+          "start": 3.16,
+          "end": 3.42
+        },
+        {
+          "text": "the",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "text": "reward.",
+          "start": 3.62,
+          "end": 3.96
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2240115099120885
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5eacb58aa8bb533c3e0a97967b4cbe5a851f70f5e5ece8f12dff0ac8d43c550a",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "10b8914e0bafb23ec3c9cb27f320f0777b24948de4d180059e7ccac95afcf151",
+  "attempts": [
+    {
+      "asr_seconds": 0.1838044449687004,
+      "alignment_seconds": 0.00035995617508888245,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"At Gateshead; in ——shire.\"",
+        "hotwords": "At, Gateshead"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " At, Gateshead. In ——shire.",
+          "start": 0.08,
+          "end": 1.8,
+          "words": [
+            {
+              "text": " At,",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.29248046875
+            },
+            {
+              "text": " Gateshead.",
+              "start": 0.64,
+              "end": 1.04,
+              "probability": 0.830322265625
+            },
+            {
+              "text": " In",
+              "start": 1.32,
+              "end": 1.36,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " ——shire.",
+              "start": 1.36,
+              "end": 1.8,
+              "probability": 0.0036393404006958008
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "At,",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "Gateshead.",
+          "start": 0.64,
+          "end": 1.04
+        },
+        {
+          "raw": "In",
+          "start": 1.32,
+          "end": 1.36
+        },
+        {
+          "raw": "——shire.",
+          "start": 1.36,
+          "end": 1.8
+        }
+      ],
+      "expected_tokens": [
+        "\"At",
+        "Gateshead;",
+        "in",
+        "——shire.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "At,",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "at",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gateshead.",
+          "start": 0.64,
+          "end": 1.04,
+          "key": "gateshead",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 1.32,
+          "end": 1.36,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "——shire.",
+          "start": 1.36,
+          "end": 1.8,
+          "key": "shire",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"At",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "Gateshead;",
+          "start": 0.64,
+          "end": 1.04
+        },
+        {
+          "text": "in",
+          "start": 1.32,
+          "end": 1.36
+        },
+        {
+          "text": "——shire.\"",
+          "start": 1.36,
+          "end": 1.8
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18427976965904236
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0bfaeac3360da4099070db6a37350aa8c75553cc10a72fb59a4f00d551fb1e7e",
+  "selected_reasons": []
+}

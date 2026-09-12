@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "08b40e62ccdc4d881bf2b05e9136610173896334dfa24b3cc502f9c7581d7689",
+  "attempts": [
+    {
+      "asr_seconds": 0.20095651783049107,
+      "alignment_seconds": 0.00037029432132840157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Very, he stared, the lower register for choice.",
+          "start": 0.05,
+          "end": 2.99,
+          "words": [
+            {
+              "text": " Very,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.2298583984375
+            },
+            {
+              "text": " he",
+              "start": 0.87,
+              "end": 0.95,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " stared,",
+              "start": 0.95,
+              "end": 1.27,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 1.71,
+              "end": 1.81,
+              "probability": 0.953125
+            },
+            {
+              "text": " lower",
+              "start": 1.81,
+              "end": 2.07,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " register",
+              "start": 2.07,
+              "end": 2.41,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " for",
+              "start": 2.41,
+              "end": 2.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " choice.",
+              "start": 2.73,
+              "end": 2.99,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "he",
+          "start": 0.87,
+          "end": 0.95
+        },
+        {
+          "raw": "stared,",
+          "start": 0.95,
+          "end": 1.27
+        },
+        {
+          "raw": "the",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "raw": "lower",
+          "start": 1.81,
+          "end": 2.07
+        },
+        {
+          "raw": "register",
+          "start": 2.07,
+          "end": 2.41
+        },
+        {
+          "raw": "for",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "raw": "choice.",
+          "start": 2.73,
+          "end": 2.99
+        }
+      ],
+      "expected_tokens": [
+        "—Very,",
+        "he",
+        "stared.",
+        "The",
+        "lower",
+        "register,",
+        "for",
+        "choice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Very,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "very",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.87,
+          "end": 0.95,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stared,",
+          "start": 0.95,
+          "end": 1.27,
+          "key": "stared",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.71,
+          "end": 1.81,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lower",
+          "start": 1.81,
+          "end": 2.07,
+          "key": "lower",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "register",
+          "start": 2.07,
+          "end": 2.41,
+          "key": "register",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.41,
+          "end": 2.73,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "choice.",
+          "start": 2.73,
+          "end": 2.99,
+          "key": "choice",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Very,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "he",
+          "start": 0.87,
+          "end": 0.95
+        },
+        {
+          "text": "stared.",
+          "start": 0.95,
+          "end": 1.27
+        },
+        {
+          "text": "The",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "text": "lower",
+          "start": 1.81,
+          "end": 2.07
+        },
+        {
+          "text": "register,",
+          "start": 2.07,
+          "end": 2.41
+        },
+        {
+          "text": "for",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "text": "choice.",
+          "start": 2.73,
+          "end": 2.99
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20146263670176268
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b3ab684e17d44860cd11005c550f9bcf3bec825d82e109b1cded5c54935d3cc2",
+  "selected_reasons": []
+}

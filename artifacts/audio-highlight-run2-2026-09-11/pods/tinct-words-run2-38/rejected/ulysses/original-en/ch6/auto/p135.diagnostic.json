@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "c95fe5ef108899e810dd0bc616288a10dd6d9e29df95957d91d7bd711762d41c",
+  "attempts": [
+    {
+      "asr_seconds": 0.14744066598359495,
+      "alignment_seconds": 0.0002152009983547032,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—O, he did, Martin Cunningham affirmed. Like a hero. A silver florin.",
+        "hotwords": "O, Martin, Cunningham, Like"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " O, he did, Martin Cunningham affirmed. Like a hero. A silver florin.",
+          "start": 0.08,
+          "end": 4.74,
+          "words": [
+            {
+              "text": " O,",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.005970001220703125
+            },
+            {
+              "text": " he",
+              "start": 0.66,
+              "end": 0.72,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " did,",
+              "start": 0.72,
+              "end": 0.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Martin",
+              "start": 1.14,
+              "end": 1.34,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " Cunningham",
+              "start": 1.34,
+              "end": 1.74,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " affirmed.",
+              "start": 1.74,
+              "end": 2.2,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " Like",
+              "start": 2.72,
+              "end": 2.82,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " a",
+              "start": 2.82,
+              "end": 2.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hero.",
+              "start": 2.94,
+              "end": 3.24,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " A",
+              "start": 3.74,
+              "end": 3.82,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " silver",
+              "start": 3.82,
+              "end": 4.16,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " florin.",
+              "start": 4.16,
+              "end": 4.74,
+              "probability": 0.8170572916666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O,",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "he",
+          "start": 0.66,
+          "end": 0.72
+        },
+        {
+          "raw": "did,",
+          "start": 0.72,
+          "end": 0.96
+        },
+        {
+          "raw": "Martin",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "raw": "Cunningham",
+          "start": 1.34,
+          "end": 1.74
+        },
+        {
+          "raw": "affirmed.",
+          "start": 1.74,
+          "end": 2.2
+        },
+        {
+          "raw": "Like",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "raw": "a",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "raw": "hero.",
+          "start": 2.94,
+          "end": 3.24
+        },
+        {
+          "raw": "A",
+          "start": 3.74,
+          "end": 3.82
+        },
+        {
+          "raw": "silver",
+          "start": 3.82,
+          "end": 4.16
+        },
+        {
+          "raw": "florin.",
+          "start": 4.16,
+          "end": 4.74
+        }
+      ],
+      "expected_tokens": [
+        "—O,",
+        "he",
+        "did,",
+        "Martin",
+        "Cunningham",
+        "affirmed.",
+        "Like",
+        "a",
+        "hero.",
+        "A",
+        "silver",
+        "florin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "O,",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "o",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.66,
+          "end": 0.72,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did,",
+          "start": 0.72,
+          "end": 0.96,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Martin",
+          "start": 1.14,
+          "end": 1.34,
+          "key": "martin",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Cunningham",
+          "start": 1.34,
+          "end": 1.74,
+          "key": "cunningham",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "affirmed.",
+          "start": 1.74,
+          "end": 2.2,
+          "key": "affirmed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Like",
+          "start": 2.72,
+          "end": 2.82,
+          "key": "like",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.82,
+          "end": 2.94,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hero.",
+          "start": 2.94,
+          "end": 3.24,
+          "key": "hero",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 3.74,
+          "end": 3.82,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "silver",
+          "start": 3.82,
+          "end": 4.16,
+          "key": "silver",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "florin.",
+          "start": 4.16,
+          "end": 4.74,
+          "key": "florin",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—O,",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "he",
+          "start": 0.66,
+          "end": 0.72
+        },
+        {
+          "text": "did,",
+          "start": 0.72,
+          "end": 0.96
+        },
+        {
+          "text": "Martin",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "text": "Cunningham",
+          "start": 1.34,
+          "end": 1.74
+        },
+        {
+          "text": "affirmed.",
+          "start": 1.74,
+          "end": 2.2
+        },
+        {
+          "text": "Like",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "text": "a",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "text": "hero.",
+          "start": 2.94,
+          "end": 3.24
+        },
+        {
+          "text": "A",
+          "start": 3.74,
+          "end": 3.82
+        },
+        {
+          "text": "silver",
+          "start": 3.82,
+          "end": 4.16
+        },
+        {
+          "text": "florin.",
+          "start": 4.16,
+          "end": 4.74
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1477402769960463
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4833ad1d22314db1376d99210b685694f887cc748a7e1e0e072942a15c025a66",
+  "selected_reasons": []
+}

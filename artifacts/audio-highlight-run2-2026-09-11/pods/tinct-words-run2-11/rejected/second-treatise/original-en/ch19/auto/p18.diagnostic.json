@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "1e73dfff01be1c4a80eb05de81d3b61a9f6a0bae7d704cdb81a3c6fb55e648f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2585624884814024,
+      "alignment_seconds": 0.00045671407133340836,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But it will be said, this hypothesis lays a ferment for frequent rebellion. To which I answer,",
+        "hotwords": "But, To, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But it will be said, this hypothesis lays a ferment for frequent rebellion. To which I answer,",
+          "start": 0.02,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " it",
+              "start": 0.48,
+              "end": 0.54,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " will",
+              "start": 0.54,
+              "end": 0.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 0.64,
+              "end": 0.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " said,",
+              "start": 0.82,
+              "end": 1.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " this",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.9453125
+            },
+            {
+              "text": " hypothesis",
+              "start": 1.74,
+              "end": 2.26,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " lays",
+              "start": 2.26,
+              "end": 2.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 2.74,
+              "end": 2.94,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " ferment",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " for",
+              "start": 3.18,
+              "end": 3.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " frequent",
+              "start": 3.5,
+              "end": 3.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " rebellion.",
+              "start": 3.88,
+              "end": 4.44,
+              "probability": 0.990234375
+            },
+            {
+              "text": " To",
+              "start": 5.04,
+              "end": 5.2,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " which",
+              "start": 5.2,
+              "end": 5.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 5.34,
+              "end": 5.56,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " answer,",
+              "start": 5.56,
+              "end": 5.92,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "it",
+          "start": 0.48,
+          "end": 0.54
+        },
+        {
+          "raw": "will",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "raw": "be",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "raw": "said,",
+          "start": 0.82,
+          "end": 1.16
+        },
+        {
+          "raw": "this",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "raw": "hypothesis",
+          "start": 1.74,
+          "end": 2.26
+        },
+        {
+          "raw": "lays",
+          "start": 2.26,
+          "end": 2.74
+        },
+        {
+          "raw": "a",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "raw": "ferment",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "raw": "for",
+          "start": 3.18,
+          "end": 3.5
+        },
+        {
+          "raw": "frequent",
+          "start": 3.5,
+          "end": 3.88
+        },
+        {
+          "raw": "rebellion.",
+          "start": 3.88,
+          "end": 4.44
+        },
+        {
+          "raw": "To",
+          "start": 5.04,
+          "end": 5.2
+        },
+        {
+          "raw": "which",
+          "start": 5.2,
+          "end": 5.34
+        },
+        {
+          "raw": "I",
+          "start": 5.34,
+          "end": 5.56
+        },
+        {
+          "raw": "answer,",
+          "start": 5.56,
+          "end": 5.92
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "it",
+        "will",
+        "be",
+        "said,",
+        "this",
+        "hypothesis",
+        "lays",
+        "a",
+        "ferment",
+        "for",
+        "frequent",
+        "rebellion.",
+        "To",
+        "which",
+        "I",
+        "answer,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.48,
+          "end": 0.54,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.54,
+          "end": 0.64,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.64,
+          "end": 0.82,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 0.82,
+          "end": 1.16,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.5,
+          "end": 1.74,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hypothesis",
+          "start": 1.74,
+          "end": 2.26,
+          "key": "hypothesis",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lays",
+          "start": 2.26,
+          "end": 2.74,
+          "key": "lays",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.74,
+          "end": 2.94,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ferment",
+          "start": 2.94,
+          "end": 3.18,
+          "key": "ferment",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.18,
+          "end": 3.5,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "frequent",
+          "start": 3.5,
+          "end": 3.88,
+          "key": "frequent",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "rebellion.",
+          "start": 3.88,
+          "end": 4.44,
+          "key": "rebellion",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 5.04,
+          "end": 5.2,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 5.2,
+          "end": 5.34,
+          "key": "which",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.34,
+          "end": 5.56,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "answer,",
+          "start": 5.56,
+          "end": 5.92,
+          "key": "answer",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "it",
+          "start": 0.48,
+          "end": 0.54
+        },
+        {
+          "text": "will",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "text": "be",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "text": "said,",
+          "start": 0.82,
+          "end": 1.16
+        },
+        {
+          "text": "this",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "text": "hypothesis",
+          "start": 1.74,
+          "end": 2.26
+        },
+        {
+          "text": "lays",
+          "start": 2.26,
+          "end": 2.74
+        },
+        {
+          "text": "a",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "text": "ferment",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "text": "for",
+          "start": 3.18,
+          "end": 3.5
+        },
+        {
+          "text": "frequent",
+          "start": 3.5,
+          "end": 3.88
+        },
+        {
+          "text": "rebellion.",
+          "start": 3.88,
+          "end": 4.44
+        },
+        {
+          "text": "To",
+          "start": 5.04,
+          "end": 5.2
+        },
+        {
+          "text": "which",
+          "start": 5.2,
+          "end": 5.34
+        },
+        {
+          "text": "I",
+          "start": 5.34,
+          "end": 5.56
+        },
+        {
+          "text": "answer,",
+          "start": 5.56,
+          "end": 5.92
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.259212838485837
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6a655f0532eb554be8a0375cfe4d5394f7d990d66b226e52110b9dd8f0c5f9be",
+  "selected_reasons": []
+}

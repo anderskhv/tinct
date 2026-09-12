@@ -1,0 +1,351 @@
+{
+  "complete": true,
+  "signature": "7513217e2ccbe1c145f763bd5bae821f90cc47a1299365e2553c34ca43789781",
+  "attempts": [
+    {
+      "asr_seconds": 0.13320129178464413,
+      "alignment_seconds": 0.00012549664825201035,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Notes, M3.",
+          "start": 0.02,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Notes,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " M3.",
+              "start": 1.16,
+              "end": 1.62,
+              "probability": 0.722900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Notes,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "M3.",
+          "start": 1.16,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Notes,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "notes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "M3.",
+          "start": 1.16,
+          "end": 1.62,
+          "key": "m3",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit._",
+          "start": 0.0,
+          "end": 0.81
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13337422721087933
+    },
+    {
+      "asr_seconds": 0.1255400963127613,
+      "alignment_seconds": 0.00012398697435855865,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Notes, M3.",
+          "start": 0.02,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Notes,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " M3.",
+              "start": 1.16,
+              "end": 1.62,
+              "probability": 0.722900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Notes,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "M3.",
+          "start": 1.16,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Notes,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "notes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "M3.",
+          "start": 1.16,
+          "end": 1.62,
+          "key": "m3",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit._",
+          "start": 0.0,
+          "end": 0.81
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12570945639163256
+    },
+    {
+      "asr_seconds": 0.11755081452429295,
+      "alignment_seconds": 0.00012478604912757874,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Notes, M3.",
+          "start": 0.02,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Notes,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " M3.",
+              "start": 1.16,
+              "end": 1.62,
+              "probability": 0.722900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Notes,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "M3.",
+          "start": 1.16,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Notes,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "notes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "M3.",
+          "start": 1.16,
+          "end": 1.62,
+          "key": "m3",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit._",
+          "start": 0.0,
+          "end": 0.81
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11772057879716158
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1804a92550ace727fb1374e2fbca35f7e932b8be5711ee45fbe106b4d416c98a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

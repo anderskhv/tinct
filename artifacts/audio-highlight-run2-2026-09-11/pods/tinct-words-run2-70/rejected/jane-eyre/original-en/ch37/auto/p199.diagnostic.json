@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "1e1dcaf969551d7370aa72c1e627f7d09f3df1212381e00f21c311b4341a477b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1267572590149939,
+      "alignment_seconds": 0.0002943570725619793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Who is that?\"",
+        "hotwords": "Who"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Who is that?",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " is",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.970703125
+            },
+            {
+              "text": " that?",
+              "start": 0.67,
+              "end": 0.97,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "that?",
+          "start": 0.67,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "\"Who",
+        "is",
+        "that?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 0.67,
+          "end": 0.97,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Who",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "is",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "that?\"",
+          "start": 0.67,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12716160900890827
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f4a4ee575021624ba06b64ffcfd372a47084602a2c62b9ef773847f4195738bf",
+  "selected_reasons": []
+}

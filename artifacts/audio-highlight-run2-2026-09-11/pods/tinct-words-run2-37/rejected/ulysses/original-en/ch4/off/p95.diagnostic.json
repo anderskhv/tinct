@@ -1,0 +1,349 @@
+{
+  "complete": true,
+  "signature": "f897ec4cbb8d98d89f7caf16a173e3dbc1fbad294b37fb47bd33a6ce34d36202",
+  "attempts": [
+    {
+      "asr_seconds": 0.1754153549845796,
+      "alignment_seconds": 0.00037312498898245394,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, Boyland, she said. He's bringing the program.",
+          "start": 0.08,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.156494140625
+            },
+            {
+              "text": " Boyland,",
+              "start": 0.72,
+              "end": 0.98,
+              "probability": 0.5660400390625
+            },
+            {
+              "text": " she",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " said.",
+              "start": 1.2,
+              "end": 1.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He's",
+              "start": 1.88,
+              "end": 2.04,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " bringing",
+              "start": 2.04,
+              "end": 2.2,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 2.2,
+              "end": 2.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " program.",
+              "start": 2.4,
+              "end": 2.78,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "Boyland,",
+          "start": 0.72,
+          "end": 0.98
+        },
+        {
+          "raw": "she",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "said.",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "raw": "He's",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "raw": "bringing",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "raw": "the",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "raw": "program.",
+          "start": 2.4,
+          "end": 2.78
+        }
+      ],
+      "expected_tokens": [
+        "—O,",
+        "Boylan,",
+        "she",
+        "said.",
+        "He's",
+        "bringing",
+        "the",
+        "programme."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          7,
+          2,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Boyland,",
+          "start": 0.72,
+          "end": 0.98,
+          "key": "boyland",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.06,
+          "end": 1.2,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.2,
+          "end": 1.5,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 1.88,
+          "end": 2.04,
+          "key": "hes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bringing",
+          "start": 2.04,
+          "end": 2.2,
+          "key": "bringing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.2,
+          "end": 2.4,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "program.",
+          "start": 2.4,
+          "end": 2.78,
+          "key": "program",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—O,",
+          "start": 0.0,
+          "end": 0.53
+        },
+        {
+          "text": "Boylan,",
+          "start": 0.53,
+          "end": 0.795
+        },
+        {
+          "text": "she",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "said.",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "text": "He's",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "text": "bringing",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "text": "the",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "text": "programme.",
+          "start": 2.4,
+          "end": 2.59
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17592095499276184
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8a6a2a80368e38e7e2252ad5e9c0e125a4e92b6cb37696517dbcb06c26f52aca",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

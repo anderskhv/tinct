@@ -1,0 +1,636 @@
+{
+  "complete": true,
+  "signature": "6f47d45f24e5efd9866344bc48afcd5e1b8bd8b517d874476b75bcd05777d4ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.36324704624712467,
+      "alignment_seconds": 0.0007105637341737747,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Soothsayer, Madam, not yet. I go to take my stand to see him pass on to the Capitol.",
+          "start": 0.56,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " Soothsayer,",
+              "start": 0.56,
+              "end": 1.0,
+              "probability": 0.7014567057291666
+            },
+            {
+              "text": " Madam,",
+              "start": 1.6,
+              "end": 1.94,
+              "probability": 0.58868408203125
+            },
+            {
+              "text": " not",
+              "start": 2.22,
+              "end": 2.3,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " yet.",
+              "start": 2.3,
+              "end": 2.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 3.24,
+              "end": 3.36,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " go",
+              "start": 3.36,
+              "end": 3.48,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " to",
+              "start": 3.48,
+              "end": 3.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " take",
+              "start": 3.6,
+              "end": 3.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 3.74,
+              "end": 3.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stand",
+              "start": 3.96,
+              "end": 4.34,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 4.34,
+              "end": 4.56,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " see",
+              "start": 4.56,
+              "end": 4.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 4.7,
+              "end": 4.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pass",
+              "start": 4.88,
+              "end": 5.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 5.18,
+              "end": 5.4,
+              "probability": 0.6982421875
+            },
+            {
+              "text": " to",
+              "start": 5.4,
+              "end": 5.52,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 5.52,
+              "end": 5.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Capitol.",
+              "start": 5.64,
+              "end": 5.92,
+              "probability": 0.6142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soothsayer,",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.6,
+          "end": 1.94
+        },
+        {
+          "raw": "not",
+          "start": 2.22,
+          "end": 2.3
+        },
+        {
+          "raw": "yet.",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "raw": "I",
+          "start": 3.24,
+          "end": 3.36
+        },
+        {
+          "raw": "go",
+          "start": 3.36,
+          "end": 3.48
+        },
+        {
+          "raw": "to",
+          "start": 3.48,
+          "end": 3.6
+        },
+        {
+          "raw": "take",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "raw": "my",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "raw": "stand",
+          "start": 3.96,
+          "end": 4.34
+        },
+        {
+          "raw": "to",
+          "start": 4.34,
+          "end": 4.56
+        },
+        {
+          "raw": "see",
+          "start": 4.56,
+          "end": 4.7
+        },
+        {
+          "raw": "him",
+          "start": 4.7,
+          "end": 4.88
+        },
+        {
+          "raw": "pass",
+          "start": 4.88,
+          "end": 5.18
+        },
+        {
+          "raw": "on",
+          "start": 5.18,
+          "end": 5.4
+        },
+        {
+          "raw": "to",
+          "start": 5.4,
+          "end": 5.52
+        },
+        {
+          "raw": "the",
+          "start": 5.52,
+          "end": 5.64
+        },
+        {
+          "raw": "Capitol.",
+          "start": 5.64,
+          "end": 5.92
+        }
+      ],
+      "expected_tokens": [
+        "Soothsayer.",
+        "Madam,",
+        "not",
+        "yet.",
+        "I",
+        "go",
+        "to",
+        "take",
+        "my",
+        "stand,",
+        "To",
+        "see",
+        "him",
+        "pass",
+        "on",
+        "to",
+        "the",
+        "Capitol."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soothsayer,",
+          "start": 0.56,
+          "end": 1.0,
+          "key": "soothsayer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.6,
+          "end": 1.94,
+          "key": "madam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.22,
+          "end": 2.3,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "yet.",
+          "start": 2.3,
+          "end": 2.6,
+          "key": "yet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.24,
+          "end": 3.36,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 3.36,
+          "end": 3.48,
+          "key": "go",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.48,
+          "end": 3.6,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 3.6,
+          "end": 3.74,
+          "key": "take",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.74,
+          "end": 3.96,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 3.96,
+          "end": 4.34,
+          "key": "stand",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.34,
+          "end": 4.56,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 4.56,
+          "end": 4.7,
+          "key": "see",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.7,
+          "end": 4.88,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pass",
+          "start": 4.88,
+          "end": 5.18,
+          "key": "pass",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.18,
+          "end": 5.4,
+          "key": "on",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.4,
+          "end": 5.52,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.52,
+          "end": 5.64,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Capitol.",
+          "start": 5.64,
+          "end": 5.92,
+          "key": "capitol",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Soothsayer.",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "text": "Madam,",
+          "start": 1.6,
+          "end": 1.94
+        },
+        {
+          "text": "not",
+          "start": 2.22,
+          "end": 2.3
+        },
+        {
+          "text": "yet.",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "text": "I",
+          "start": 3.24,
+          "end": 3.36
+        },
+        {
+          "text": "go",
+          "start": 3.36,
+          "end": 3.48
+        },
+        {
+          "text": "to",
+          "start": 3.48,
+          "end": 3.6
+        },
+        {
+          "text": "take",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "text": "my",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "text": "stand,",
+          "start": 3.96,
+          "end": 4.34
+        },
+        {
+          "text": "To",
+          "start": 4.34,
+          "end": 4.56
+        },
+        {
+          "text": "see",
+          "start": 4.56,
+          "end": 4.7
+        },
+        {
+          "text": "him",
+          "start": 4.7,
+          "end": 4.88
+        },
+        {
+          "text": "pass",
+          "start": 4.88,
+          "end": 5.18
+        },
+        {
+          "text": "on",
+          "start": 5.18,
+          "end": 5.4
+        },
+        {
+          "text": "to",
+          "start": 5.4,
+          "end": 5.52
+        },
+        {
+          "text": "the",
+          "start": 5.52,
+          "end": 5.64
+        },
+        {
+          "text": "Capitol.",
+          "start": 5.64,
+          "end": 5.92
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3642575843259692
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9c8f1464c72466b02f029c243bcbfaf742017ad951c78ff4b3b8b462af075d07",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "5071dcf56ad4e8bbdc22cf2edff247b901991d51f59c30c096480d70f994afa4",
+  "attempts": [
+    {
+      "asr_seconds": 0.1271586106158793,
+      "alignment_seconds": 0.00020741811022162437,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Emilia. I will not.",
+        "hotwords": "Emilia, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia, I will not.",
+          "start": 0.05,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.535858154296875
+            },
+            {
+              "text": " I",
+              "start": 1.05,
+              "end": 1.17,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " will",
+              "start": 1.17,
+              "end": 1.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not.",
+              "start": 1.29,
+              "end": 1.57,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "I",
+          "start": 1.05,
+          "end": 1.17
+        },
+        {
+          "raw": "will",
+          "start": 1.17,
+          "end": 1.29
+        },
+        {
+          "raw": "not.",
+          "start": 1.29,
+          "end": 1.57
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "I",
+        "will",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.05,
+          "end": 1.17,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.17,
+          "end": 1.29,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 1.29,
+          "end": 1.57,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "I",
+          "start": 1.05,
+          "end": 1.17
+        },
+        {
+          "text": "will",
+          "start": 1.17,
+          "end": 1.29
+        },
+        {
+          "text": "not.",
+          "start": 1.29,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12743950774893165
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "deeeb777c138499b142b586ff655f38926d162f201365073c41369a0dd23ca14",
+  "selected_reasons": []
+}

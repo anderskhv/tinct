@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "9202a940b31680e5c22a20ed259ab96b727646ba2eb77da3f1f4d65d29cb0059",
+  "attempts": [
+    {
+      "asr_seconds": 0.28711196407675743,
+      "alignment_seconds": 0.00042387843132019043,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In the United States, in 1830, the population of the two races stood as follows:—",
+        "hotwords": "United, States"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In the United States, in 1830, the population of the two races stood as follows.",
+          "start": 0.14,
+          "end": 5.52,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.14,
+              "end": 0.54,
+              "probability": 0.896484375
+            },
+            {
+              "text": " the",
+              "start": 0.54,
+              "end": 0.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " United",
+              "start": 0.62,
+              "end": 0.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " States,",
+              "start": 0.86,
+              "end": 1.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 1.8,
+              "end": 1.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " 1830,",
+              "start": 1.9,
+              "end": 2.58,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 3.28,
+              "end": 3.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " population",
+              "start": 3.32,
+              "end": 3.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 3.76,
+              "end": 4.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.06,
+              "end": 4.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " two",
+              "start": 4.16,
+              "end": 4.34,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " races",
+              "start": 4.34,
+              "end": 4.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " stood",
+              "start": 4.72,
+              "end": 4.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 4.98,
+              "end": 5.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " follows.",
+              "start": 5.16,
+              "end": 5.52,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.14,
+          "end": 0.54
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.62
+        },
+        {
+          "raw": "United",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "raw": "States,",
+          "start": 0.86,
+          "end": 1.46
+        },
+        {
+          "raw": "in",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "raw": "1830,",
+          "start": 1.9,
+          "end": 2.58
+        },
+        {
+          "raw": "the",
+          "start": 3.28,
+          "end": 3.32
+        },
+        {
+          "raw": "population",
+          "start": 3.32,
+          "end": 3.76
+        },
+        {
+          "raw": "of",
+          "start": 3.76,
+          "end": 4.06
+        },
+        {
+          "raw": "the",
+          "start": 4.06,
+          "end": 4.16
+        },
+        {
+          "raw": "two",
+          "start": 4.16,
+          "end": 4.34
+        },
+        {
+          "raw": "races",
+          "start": 4.34,
+          "end": 4.72
+        },
+        {
+          "raw": "stood",
+          "start": 4.72,
+          "end": 4.98
+        },
+        {
+          "raw": "as",
+          "start": 4.98,
+          "end": 5.16
+        },
+        {
+          "raw": "follows.",
+          "start": 5.16,
+          "end": 5.52
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "the",
+        "United",
+        "States,",
+        "in",
+        "1830,",
+        "the",
+        "population",
+        "of",
+        "the",
+        "two",
+        "races",
+        "stood",
+        "as",
+        "follows:—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.14,
+          "end": 0.54,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.62,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "United",
+          "start": 0.62,
+          "end": 0.86,
+          "key": "united",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "States,",
+          "start": 0.86,
+          "end": 1.46,
+          "key": "states",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.8,
+          "end": 1.9,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "1830,",
+          "start": 1.9,
+          "end": 2.58,
+          "key": "1830",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.28,
+          "end": 3.32,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "population",
+          "start": 3.32,
+          "end": 3.76,
+          "key": "population",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.76,
+          "end": 4.06,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.06,
+          "end": 4.16,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 4.16,
+          "end": 4.34,
+          "key": "two",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "races",
+          "start": 4.34,
+          "end": 4.72,
+          "key": "races",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "stood",
+          "start": 4.72,
+          "end": 4.98,
+          "key": "stood",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.98,
+          "end": 5.16,
+          "key": "as",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "follows.",
+          "start": 5.16,
+          "end": 5.52,
+          "key": "follows",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.14,
+          "end": 0.54
+        },
+        {
+          "text": "the",
+          "start": 0.54,
+          "end": 0.62
+        },
+        {
+          "text": "United",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "text": "States,",
+          "start": 0.86,
+          "end": 1.46
+        },
+        {
+          "text": "in",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "text": "1830,",
+          "start": 1.9,
+          "end": 2.58
+        },
+        {
+          "text": "the",
+          "start": 3.28,
+          "end": 3.32
+        },
+        {
+          "text": "population",
+          "start": 3.32,
+          "end": 3.76
+        },
+        {
+          "text": "of",
+          "start": 3.76,
+          "end": 4.06
+        },
+        {
+          "text": "the",
+          "start": 4.06,
+          "end": 4.16
+        },
+        {
+          "text": "two",
+          "start": 4.16,
+          "end": 4.34
+        },
+        {
+          "text": "races",
+          "start": 4.34,
+          "end": 4.72
+        },
+        {
+          "text": "stood",
+          "start": 4.72,
+          "end": 4.98
+        },
+        {
+          "text": "as",
+          "start": 4.98,
+          "end": 5.16
+        },
+        {
+          "text": "follows:—",
+          "start": 5.16,
+          "end": 5.52
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2877025939524174
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66c293fa5134fa39535627d723f207257b426f82d52e017552f9aafa111bb67f",
+  "selected_reasons": []
+}

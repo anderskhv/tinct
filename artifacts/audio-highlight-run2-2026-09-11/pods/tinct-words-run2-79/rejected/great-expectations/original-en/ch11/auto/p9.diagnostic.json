@@ -1,0 +1,421 @@
+{
+  "complete": true,
+  "signature": "9e0cc08327f575f8aa1b4f7ac5c9a195c10c07a9a03491b92154daf494ac8bf2",
+  "attempts": [
+    {
+      "asr_seconds": 0.2586927181109786,
+      "alignment_seconds": 0.0005369419232010841,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Cousin Raymond,\" observed another lady, \"we are to love our neighbour.\"",
+        "hotwords": "Cousin, Raymond"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cousin Raymond, observed another lady,",
+          "start": 0.08,
+          "end": 2.58,
+          "words": [
+            {
+              "text": " Cousin",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.6246337890625
+            },
+            {
+              "text": " Raymond,",
+              "start": 0.76,
+              "end": 1.1,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " observed",
+              "start": 1.6,
+              "end": 1.88,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " another",
+              "start": 1.88,
+              "end": 2.24,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " lady,",
+              "start": 2.24,
+              "end": 2.58,
+              "probability": 0.986328125
+            }
+          ]
+        },
+        {
+          "text": " we are to love our neighbour.",
+          "start": 3.06,
+          "end": 3.96,
+          "words": [
+            {
+              "text": " we",
+              "start": 3.06,
+              "end": 3.16,
+              "probability": 0.798828125
+            },
+            {
+              "text": " are",
+              "start": 3.16,
+              "end": 3.28,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 3.28,
+              "end": 3.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " love",
+              "start": 3.4,
+              "end": 3.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " our",
+              "start": 3.56,
+              "end": 3.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " neighbour.",
+              "start": 3.72,
+              "end": 3.96,
+              "probability": 0.052642822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cousin",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "Raymond,",
+          "start": 0.76,
+          "end": 1.1
+        },
+        {
+          "raw": "observed",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "raw": "another",
+          "start": 1.88,
+          "end": 2.24
+        },
+        {
+          "raw": "lady,",
+          "start": 2.24,
+          "end": 2.58
+        },
+        {
+          "raw": "we",
+          "start": 3.06,
+          "end": 3.16
+        },
+        {
+          "raw": "are",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "raw": "to",
+          "start": 3.28,
+          "end": 3.4
+        },
+        {
+          "raw": "love",
+          "start": 3.4,
+          "end": 3.56
+        },
+        {
+          "raw": "our",
+          "start": 3.56,
+          "end": 3.72
+        },
+        {
+          "raw": "neighbour.",
+          "start": 3.72,
+          "end": 3.96
+        }
+      ],
+      "expected_tokens": [
+        "\"Cousin",
+        "Raymond,\"",
+        "observed",
+        "another",
+        "lady,",
+        "\"we",
+        "are",
+        "to",
+        "love",
+        "our",
+        "neighbour.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cousin",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "cousin",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Raymond,",
+          "start": 0.76,
+          "end": 1.1,
+          "key": "raymond",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "observed",
+          "start": 1.6,
+          "end": 1.88,
+          "key": "observed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 1.88,
+          "end": 2.24,
+          "key": "another",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lady,",
+          "start": 2.24,
+          "end": 2.58,
+          "key": "lady",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.06,
+          "end": 3.16,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.16,
+          "end": 3.28,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.28,
+          "end": 3.4,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 3.4,
+          "end": 3.56,
+          "key": "love",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 3.56,
+          "end": 3.72,
+          "key": "our",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "neighbour.",
+          "start": 3.72,
+          "end": 3.96,
+          "key": "neighbour",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Cousin",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "Raymond,\"",
+          "start": 0.76,
+          "end": 1.1
+        },
+        {
+          "text": "observed",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "text": "another",
+          "start": 1.88,
+          "end": 2.24
+        },
+        {
+          "text": "lady,",
+          "start": 2.24,
+          "end": 2.58
+        },
+        {
+          "text": "\"we",
+          "start": 3.06,
+          "end": 3.16
+        },
+        {
+          "text": "are",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "text": "to",
+          "start": 3.28,
+          "end": 3.4
+        },
+        {
+          "text": "love",
+          "start": 3.4,
+          "end": 3.56
+        },
+        {
+          "text": "our",
+          "start": 3.56,
+          "end": 3.72
+        },
+        {
+          "text": "neighbour.\"",
+          "start": 3.72,
+          "end": 3.96
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2594783566892147
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "766230a2984cc6da470f5b8de459e297b0eca97841b850740875f5ff7d0b1768",
+  "selected_reasons": []
+}

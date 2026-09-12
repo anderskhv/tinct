@@ -1,0 +1,1622 @@
+{
+  "complete": true,
+  "signature": "e8f5e6e97999301728cbfb4b8a3a16ca1c3b579c44fcb627f4b2e851ede4ae98",
+  "attempts": [
+    {
+      "asr_seconds": 0.5772357145324349,
+      "alignment_seconds": 0.0006636437028646469,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "So I turned at the door: I saw a robed and veiled figure, so unlike my usual self that it seemed almost the image of a stranger. \"Jane!\" called a voice, and I hastened down. I was received at the foot of the stairs by Mr. Rochester.",
+        "hotwords": "I, Jane, Mr, Rochester"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " So I turned at the door. I saw a robed and veiled figure, so unlike my usual self that",
+          "start": 0.05,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " So",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.8671875
+            },
+            {
+              "text": " I",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " turned",
+              "start": 0.65,
+              "end": 0.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 0.91,
+              "end": 1.07,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 1.07,
+              "end": 1.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " door.",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " saw",
+              "start": 1.99,
+              "end": 2.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " robed",
+              "start": 2.35,
+              "end": 2.79,
+              "probability": 0.912841796875
+            },
+            {
+              "text": " and",
+              "start": 2.79,
+              "end": 2.91,
+              "probability": 0.921875
+            },
+            {
+              "text": " veiled",
+              "start": 2.91,
+              "end": 3.21,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " figure,",
+              "start": 3.21,
+              "end": 3.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " so",
+              "start": 4.01,
+              "end": 4.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " unlike",
+              "start": 4.31,
+              "end": 4.69,
+              "probability": 0.98046875
+            },
+            {
+              "text": " my",
+              "start": 4.69,
+              "end": 4.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " usual",
+              "start": 4.99,
+              "end": 5.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " self",
+              "start": 5.31,
+              "end": 5.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 5.67,
+              "end": 5.91,
+              "probability": 0.89697265625
+            }
+          ]
+        },
+        {
+          "text": " it seemed almost the image of a stranger.",
+          "start": 5.91,
+          "end": 7.93,
+          "words": [
+            {
+              "text": " it",
+              "start": 5.91,
+              "end": 6.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " seemed",
+              "start": 6.03,
+              "end": 6.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " almost",
+              "start": 6.29,
+              "end": 6.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.71,
+              "end": 6.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " image",
+              "start": 6.97,
+              "end": 7.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 7.25,
+              "end": 7.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 7.47,
+              "end": 7.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stranger.",
+              "start": 7.61,
+              "end": 7.93,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Jane!\" called a voice, and I hastened down. I was received at the foot of the stairs by Mr. Rochester.",
+          "start": 8.53,
+          "end": 14.97,
+          "words": [
+            {
+              "text": " Jane",
+              "start": 8.53,
+              "end": 9.13,
+              "probability": 0.237548828125
+            },
+            {
+              "text": "!\"",
+              "start": 9.13,
+              "end": 9.63,
+              "probability": 0.387939453125
+            },
+            {
+              "text": " called",
+              "start": 9.63,
+              "end": 9.93,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " a",
+              "start": 9.93,
+              "end": 10.07,
+              "probability": 0.994140625
+            },
+            {
+              "text": " voice,",
+              "start": 10.07,
+              "end": 10.39,
+              "probability": 0.990234375
+            },
+            {
+              "text": " and",
+              "start": 10.69,
+              "end": 10.85,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " I",
+              "start": 10.85,
+              "end": 10.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hastened",
+              "start": 10.97,
+              "end": 11.35,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " down.",
+              "start": 11.35,
+              "end": 11.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 12.25,
+              "end": 12.45,
+              "probability": 0.9765625
+            },
+            {
+              "text": " was",
+              "start": 12.45,
+              "end": 12.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " received",
+              "start": 12.57,
+              "end": 12.93,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " at",
+              "start": 12.93,
+              "end": 13.13,
+              "probability": 0.982421875
+            },
+            {
+              "text": " the",
+              "start": 13.13,
+              "end": 13.23,
+              "probability": 0.978515625
+            },
+            {
+              "text": " foot",
+              "start": 13.23,
+              "end": 13.35,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " of",
+              "start": 13.35,
+              "end": 13.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 13.47,
+              "end": 13.59,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " stairs",
+              "start": 13.59,
+              "end": 13.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " by",
+              "start": 13.91,
+              "end": 14.23,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Mr.",
+              "start": 14.23,
+              "end": 14.53,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Rochester.",
+              "start": 14.79,
+              "end": 14.97,
+              "probability": 0.91650390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "So",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "I",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "turned",
+          "start": 0.65,
+          "end": 0.91
+        },
+        {
+          "raw": "at",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "raw": "door.",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "I",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "saw",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "raw": "a",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "robed",
+          "start": 2.35,
+          "end": 2.79
+        },
+        {
+          "raw": "and",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "raw": "veiled",
+          "start": 2.91,
+          "end": 3.21
+        },
+        {
+          "raw": "figure,",
+          "start": 3.21,
+          "end": 3.71
+        },
+        {
+          "raw": "so",
+          "start": 4.01,
+          "end": 4.31
+        },
+        {
+          "raw": "unlike",
+          "start": 4.31,
+          "end": 4.69
+        },
+        {
+          "raw": "my",
+          "start": 4.69,
+          "end": 4.99
+        },
+        {
+          "raw": "usual",
+          "start": 4.99,
+          "end": 5.31
+        },
+        {
+          "raw": "self",
+          "start": 5.31,
+          "end": 5.67
+        },
+        {
+          "raw": "that",
+          "start": 5.67,
+          "end": 5.91
+        },
+        {
+          "raw": "it",
+          "start": 5.91,
+          "end": 6.03
+        },
+        {
+          "raw": "seemed",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "raw": "almost",
+          "start": 6.29,
+          "end": 6.71
+        },
+        {
+          "raw": "the",
+          "start": 6.71,
+          "end": 6.97
+        },
+        {
+          "raw": "image",
+          "start": 6.97,
+          "end": 7.25
+        },
+        {
+          "raw": "of",
+          "start": 7.25,
+          "end": 7.47
+        },
+        {
+          "raw": "a",
+          "start": 7.47,
+          "end": 7.61
+        },
+        {
+          "raw": "stranger.",
+          "start": 7.61,
+          "end": 7.93
+        },
+        {
+          "raw": "Jane",
+          "start": 8.53,
+          "end": 9.13
+        },
+        {
+          "raw": "!\"",
+          "start": 9.13,
+          "end": 9.63
+        },
+        {
+          "raw": "called",
+          "start": 9.63,
+          "end": 9.93
+        },
+        {
+          "raw": "a",
+          "start": 9.93,
+          "end": 10.07
+        },
+        {
+          "raw": "voice,",
+          "start": 10.07,
+          "end": 10.39
+        },
+        {
+          "raw": "and",
+          "start": 10.69,
+          "end": 10.85
+        },
+        {
+          "raw": "I",
+          "start": 10.85,
+          "end": 10.97
+        },
+        {
+          "raw": "hastened",
+          "start": 10.97,
+          "end": 11.35
+        },
+        {
+          "raw": "down.",
+          "start": 11.35,
+          "end": 11.65
+        },
+        {
+          "raw": "I",
+          "start": 12.25,
+          "end": 12.45
+        },
+        {
+          "raw": "was",
+          "start": 12.45,
+          "end": 12.57
+        },
+        {
+          "raw": "received",
+          "start": 12.57,
+          "end": 12.93
+        },
+        {
+          "raw": "at",
+          "start": 12.93,
+          "end": 13.13
+        },
+        {
+          "raw": "the",
+          "start": 13.13,
+          "end": 13.23
+        },
+        {
+          "raw": "foot",
+          "start": 13.23,
+          "end": 13.35
+        },
+        {
+          "raw": "of",
+          "start": 13.35,
+          "end": 13.47
+        },
+        {
+          "raw": "the",
+          "start": 13.47,
+          "end": 13.59
+        },
+        {
+          "raw": "stairs",
+          "start": 13.59,
+          "end": 13.91
+        },
+        {
+          "raw": "by",
+          "start": 13.91,
+          "end": 14.23
+        },
+        {
+          "raw": "Mr.",
+          "start": 14.23,
+          "end": 14.53
+        },
+        {
+          "raw": "Rochester.",
+          "start": 14.79,
+          "end": 14.97
+        }
+      ],
+      "expected_tokens": [
+        "So",
+        "I",
+        "turned",
+        "at",
+        "the",
+        "door:",
+        "I",
+        "saw",
+        "a",
+        "robed",
+        "and",
+        "veiled",
+        "figure,",
+        "so",
+        "unlike",
+        "my",
+        "usual",
+        "self",
+        "that",
+        "it",
+        "seemed",
+        "almost",
+        "the",
+        "image",
+        "of",
+        "a",
+        "stranger.",
+        "\"Jane!\"",
+        "called",
+        "a",
+        "voice,",
+        "and",
+        "I",
+        "hastened",
+        "down.",
+        "I",
+        "was",
+        "received",
+        "at",
+        "the",
+        "foot",
+        "of",
+        "the",
+        "stairs",
+        "by",
+        "Mr.",
+        "Rochester."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ],
+        [
+          "insert",
+          28,
+          28,
+          28,
+          29
+        ],
+        [
+          "equal",
+          28,
+          47,
+          29,
+          48
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          28,
+          28,
+          28,
+          29
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "So",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "so",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 0.65,
+          "end": 0.91,
+          "key": "turned",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.91,
+          "end": 1.07,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.19,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "door.",
+          "start": 1.19,
+          "end": 1.45,
+          "key": "door",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.85,
+          "end": 1.99,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 1.99,
+          "end": 2.17,
+          "key": "saw",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "robed",
+          "start": 2.35,
+          "end": 2.79,
+          "key": "robed",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.79,
+          "end": 2.91,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "veiled",
+          "start": 2.91,
+          "end": 3.21,
+          "key": "veiled",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "figure,",
+          "start": 3.21,
+          "end": 3.71,
+          "key": "figure",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.01,
+          "end": 4.31,
+          "key": "so",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "unlike",
+          "start": 4.31,
+          "end": 4.69,
+          "key": "unlike",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.69,
+          "end": 4.99,
+          "key": "my",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "usual",
+          "start": 4.99,
+          "end": 5.31,
+          "key": "usual",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "self",
+          "start": 5.31,
+          "end": 5.67,
+          "key": "self",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.67,
+          "end": 5.91,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.91,
+          "end": 6.03,
+          "key": "it",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 6.03,
+          "end": 6.29,
+          "key": "seemed",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 6.29,
+          "end": 6.71,
+          "key": "almost",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.71,
+          "end": 6.97,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "image",
+          "start": 6.97,
+          "end": 7.25,
+          "key": "image",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.25,
+          "end": 7.47,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.47,
+          "end": 7.61,
+          "key": "a",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "stranger.",
+          "start": 7.61,
+          "end": 7.93,
+          "key": "stranger",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Jane",
+          "start": 8.53,
+          "end": 9.13,
+          "key": "jane",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 9.13,
+          "end": 9.63,
+          "key": "",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "called",
+          "start": 9.63,
+          "end": 9.93,
+          "key": "called",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.93,
+          "end": 10.07,
+          "key": "a",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "voice,",
+          "start": 10.07,
+          "end": 10.39,
+          "key": "voice",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.69,
+          "end": 10.85,
+          "key": "and",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.85,
+          "end": 10.97,
+          "key": "i",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "hastened",
+          "start": 10.97,
+          "end": 11.35,
+          "key": "hastened",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "down.",
+          "start": 11.35,
+          "end": 11.65,
+          "key": "down",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 12.25,
+          "end": 12.45,
+          "key": "i",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 12.45,
+          "end": 12.57,
+          "key": "was",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "received",
+          "start": 12.57,
+          "end": 12.93,
+          "key": "received",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 12.93,
+          "end": 13.13,
+          "key": "at",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.13,
+          "end": 13.23,
+          "key": "the",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "foot",
+          "start": 13.23,
+          "end": 13.35,
+          "key": "foot",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.35,
+          "end": 13.47,
+          "key": "of",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.47,
+          "end": 13.59,
+          "key": "the",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "stairs",
+          "start": 13.59,
+          "end": 13.91,
+          "key": "stairs",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 13.91,
+          "end": 14.23,
+          "key": "by",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 14.23,
+          "end": 14.53,
+          "key": "mr",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Rochester.",
+          "start": 14.79,
+          "end": 14.97,
+          "key": "rochester",
+          "pieces": [
+            47
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "So",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "I",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "turned",
+          "start": 0.65,
+          "end": 0.91
+        },
+        {
+          "text": "at",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "text": "the",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "text": "door:",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "I",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "saw",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "text": "a",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "text": "robed",
+          "start": 2.35,
+          "end": 2.79
+        },
+        {
+          "text": "and",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "text": "veiled",
+          "start": 2.91,
+          "end": 3.21
+        },
+        {
+          "text": "figure,",
+          "start": 3.21,
+          "end": 3.71
+        },
+        {
+          "text": "so",
+          "start": 4.01,
+          "end": 4.31
+        },
+        {
+          "text": "unlike",
+          "start": 4.31,
+          "end": 4.69
+        },
+        {
+          "text": "my",
+          "start": 4.69,
+          "end": 4.99
+        },
+        {
+          "text": "usual",
+          "start": 4.99,
+          "end": 5.31
+        },
+        {
+          "text": "self",
+          "start": 5.31,
+          "end": 5.67
+        },
+        {
+          "text": "that",
+          "start": 5.67,
+          "end": 5.91
+        },
+        {
+          "text": "it",
+          "start": 5.91,
+          "end": 6.03
+        },
+        {
+          "text": "seemed",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "text": "almost",
+          "start": 6.29,
+          "end": 6.71
+        },
+        {
+          "text": "the",
+          "start": 6.71,
+          "end": 6.97
+        },
+        {
+          "text": "image",
+          "start": 6.97,
+          "end": 7.25
+        },
+        {
+          "text": "of",
+          "start": 7.25,
+          "end": 7.47
+        },
+        {
+          "text": "a",
+          "start": 7.47,
+          "end": 7.61
+        },
+        {
+          "text": "stranger.",
+          "start": 7.61,
+          "end": 7.93
+        },
+        {
+          "text": "\"Jane!\"",
+          "start": 8.53,
+          "end": 9.13
+        },
+        {
+          "text": "called",
+          "start": 9.63,
+          "end": 9.93
+        },
+        {
+          "text": "a",
+          "start": 9.93,
+          "end": 10.07
+        },
+        {
+          "text": "voice,",
+          "start": 10.07,
+          "end": 10.39
+        },
+        {
+          "text": "and",
+          "start": 10.69,
+          "end": 10.85
+        },
+        {
+          "text": "I",
+          "start": 10.85,
+          "end": 10.97
+        },
+        {
+          "text": "hastened",
+          "start": 10.97,
+          "end": 11.35
+        },
+        {
+          "text": "down.",
+          "start": 11.35,
+          "end": 11.65
+        },
+        {
+          "text": "I",
+          "start": 12.25,
+          "end": 12.45
+        },
+        {
+          "text": "was",
+          "start": 12.45,
+          "end": 12.57
+        },
+        {
+          "text": "received",
+          "start": 12.57,
+          "end": 12.93
+        },
+        {
+          "text": "at",
+          "start": 12.93,
+          "end": 13.13
+        },
+        {
+          "text": "the",
+          "start": 13.13,
+          "end": 13.23
+        },
+        {
+          "text": "foot",
+          "start": 13.23,
+          "end": 13.35
+        },
+        {
+          "text": "of",
+          "start": 13.35,
+          "end": 13.47
+        },
+        {
+          "text": "the",
+          "start": 13.47,
+          "end": 13.59
+        },
+        {
+          "text": "stairs",
+          "start": 13.59,
+          "end": 13.91
+        },
+        {
+          "text": "by",
+          "start": 13.91,
+          "end": 14.23
+        },
+        {
+          "text": "Mr.",
+          "start": 14.23,
+          "end": 14.53
+        },
+        {
+          "text": "Rochester.",
+          "start": 14.79,
+          "end": 14.97
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 48,
+        "matched_words": 47
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5782073494046926
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2027082392d87b6594f1f57ec35b2ac0001e9a062604405cfadf7c033bd8c6a4",
+  "selected_reasons": []
+}

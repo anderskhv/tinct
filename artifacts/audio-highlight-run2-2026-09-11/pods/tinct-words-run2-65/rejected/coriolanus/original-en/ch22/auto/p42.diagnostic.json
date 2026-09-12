@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "6ad3468c82b4511d10446282b071e5e79a30b48ec1a27da24a6fa23c8054943d",
+  "attempts": [
+    {
+      "asr_seconds": 0.23706451430916786,
+      "alignment_seconds": 0.0002527083270251751,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Raised only that the weaker sort may wish Good Martius home again.",
+        "hotwords": "Brutus, Raised, Good, Martius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, Raised only that the weaker sort may wish Good Martius home again.",
+          "start": 0.05,
+          "end": 4.57,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " Raised",
+              "start": 1.35,
+              "end": 1.71,
+              "probability": 0.5011177062988281
+            },
+            {
+              "text": " only",
+              "start": 1.71,
+              "end": 1.95,
+              "probability": 0.966796875
+            },
+            {
+              "text": " that",
+              "start": 1.95,
+              "end": 2.17,
+              "probability": 0.984375
+            },
+            {
+              "text": " the",
+              "start": 2.17,
+              "end": 2.29,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " weaker",
+              "start": 2.29,
+              "end": 2.51,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " sort",
+              "start": 2.51,
+              "end": 2.85,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " may",
+              "start": 2.85,
+              "end": 3.07,
+              "probability": 0.5595703125
+            },
+            {
+              "text": " wish",
+              "start": 3.07,
+              "end": 3.29,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " Good",
+              "start": 3.29,
+              "end": 3.49,
+              "probability": 0.29736328125
+            },
+            {
+              "text": " Martius",
+              "start": 3.49,
+              "end": 3.95,
+              "probability": 0.45074462890625
+            },
+            {
+              "text": " home",
+              "start": 3.95,
+              "end": 4.23,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " again.",
+              "start": 4.23,
+              "end": 4.57,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "Raised",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "raw": "only",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "raw": "that",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "raw": "the",
+          "start": 2.17,
+          "end": 2.29
+        },
+        {
+          "raw": "weaker",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "raw": "sort",
+          "start": 2.51,
+          "end": 2.85
+        },
+        {
+          "raw": "may",
+          "start": 2.85,
+          "end": 3.07
+        },
+        {
+          "raw": "wish",
+          "start": 3.07,
+          "end": 3.29
+        },
+        {
+          "raw": "Good",
+          "start": 3.29,
+          "end": 3.49
+        },
+        {
+          "raw": "Martius",
+          "start": 3.49,
+          "end": 3.95
+        },
+        {
+          "raw": "home",
+          "start": 3.95,
+          "end": 4.23
+        },
+        {
+          "raw": "again.",
+          "start": 4.23,
+          "end": 4.57
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Raised",
+        "only",
+        "that",
+        "the",
+        "weaker",
+        "sort",
+        "may",
+        "wish",
+        "Good",
+        "Martius",
+        "home",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Raised",
+          "start": 1.35,
+          "end": 1.71,
+          "key": "raised",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 1.71,
+          "end": 1.95,
+          "key": "only",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.95,
+          "end": 2.17,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.17,
+          "end": 2.29,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "weaker",
+          "start": 2.29,
+          "end": 2.51,
+          "key": "weaker",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 2.51,
+          "end": 2.85,
+          "key": "sort",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 2.85,
+          "end": 3.07,
+          "key": "may",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 3.07,
+          "end": 3.29,
+          "key": "wish",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 3.29,
+          "end": 3.49,
+          "key": "good",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Martius",
+          "start": 3.49,
+          "end": 3.95,
+          "key": "martius",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "home",
+          "start": 3.95,
+          "end": 4.23,
+          "key": "home",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 4.23,
+          "end": 4.57,
+          "key": "again",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Raised",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "text": "only",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "text": "that",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "text": "the",
+          "start": 2.17,
+          "end": 2.29
+        },
+        {
+          "text": "weaker",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "text": "sort",
+          "start": 2.51,
+          "end": 2.85
+        },
+        {
+          "text": "may",
+          "start": 2.85,
+          "end": 3.07
+        },
+        {
+          "text": "wish",
+          "start": 3.07,
+          "end": 3.29
+        },
+        {
+          "text": "Good",
+          "start": 3.29,
+          "end": 3.49
+        },
+        {
+          "text": "Martius",
+          "start": 3.49,
+          "end": 3.95
+        },
+        {
+          "text": "home",
+          "start": 3.95,
+          "end": 4.23
+        },
+        {
+          "text": "again.",
+          "start": 4.23,
+          "end": 4.57
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23741690535098314
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2180db6ba0fd264acab42ee27250aa74c70417cd56ee687279be7fa57b82aff7",
+  "selected_reasons": []
+}

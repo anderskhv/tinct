@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "c12e2f8d2bef99af724dd4119250caac1f511e4fa4ccd42ce96b139211cb6aaa",
+  "attempts": [
+    {
+      "asr_seconds": 0.1886815195903182,
+      "alignment_seconds": 0.0004595033824443817,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caithness. Who knows if Donalbain be with his brother?",
+        "hotwords": "Caithness, Who, Donalbain"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caithness, Who Knows If Donalbain Be With His Brother?",
+          "start": 0.46,
+          "end": 3.14,
+          "words": [
+            {
+              "text": " Caithness,",
+              "start": 0.46,
+              "end": 0.9,
+              "probability": 0.6031494140625
+            },
+            {
+              "text": " Who",
+              "start": 1.36,
+              "end": 1.42,
+              "probability": 0.00627899169921875
+            },
+            {
+              "text": " Knows",
+              "start": 1.42,
+              "end": 1.74,
+              "probability": 0.61029052734375
+            },
+            {
+              "text": " If",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.52685546875
+            },
+            {
+              "text": " Donalbain",
+              "start": 1.9,
+              "end": 2.44,
+              "probability": 0.5246047973632812
+            },
+            {
+              "text": " Be",
+              "start": 2.44,
+              "end": 2.6,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " With",
+              "start": 2.6,
+              "end": 2.76,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " His",
+              "start": 2.76,
+              "end": 2.92,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Brother?",
+              "start": 2.92,
+              "end": 3.14,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caithness,",
+          "start": 0.46,
+          "end": 0.9
+        },
+        {
+          "raw": "Who",
+          "start": 1.36,
+          "end": 1.42
+        },
+        {
+          "raw": "Knows",
+          "start": 1.42,
+          "end": 1.74
+        },
+        {
+          "raw": "If",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "Donalbain",
+          "start": 1.9,
+          "end": 2.44
+        },
+        {
+          "raw": "Be",
+          "start": 2.44,
+          "end": 2.6
+        },
+        {
+          "raw": "With",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "raw": "His",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "raw": "Brother?",
+          "start": 2.92,
+          "end": 3.14
+        }
+      ],
+      "expected_tokens": [
+        "Caithness.",
+        "Who",
+        "knows",
+        "if",
+        "Donalbain",
+        "be",
+        "with",
+        "his",
+        "brother?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caithness,",
+          "start": 0.46,
+          "end": 0.9,
+          "key": "caithness",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 1.36,
+          "end": 1.42,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Knows",
+          "start": 1.42,
+          "end": 1.74,
+          "key": "knows",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "if",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Donalbain",
+          "start": 1.9,
+          "end": 2.44,
+          "key": "donalbain",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 2.44,
+          "end": 2.6,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 2.6,
+          "end": 2.76,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 2.76,
+          "end": 2.92,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Brother?",
+          "start": 2.92,
+          "end": 3.14,
+          "key": "brother",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caithness.",
+          "start": 0.46,
+          "end": 0.9
+        },
+        {
+          "text": "Who",
+          "start": 1.36,
+          "end": 1.42
+        },
+        {
+          "text": "knows",
+          "start": 1.42,
+          "end": 1.74
+        },
+        {
+          "text": "if",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "Donalbain",
+          "start": 1.9,
+          "end": 2.44
+        },
+        {
+          "text": "be",
+          "start": 2.44,
+          "end": 2.6
+        },
+        {
+          "text": "with",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "text": "his",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "text": "brother?",
+          "start": 2.92,
+          "end": 3.14
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18932044692337513
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9a6bcc3d73f32cc51e7948b3842c441ee9e7cf8def99a7e626f3ef2737733050",
+  "selected_reasons": []
+}

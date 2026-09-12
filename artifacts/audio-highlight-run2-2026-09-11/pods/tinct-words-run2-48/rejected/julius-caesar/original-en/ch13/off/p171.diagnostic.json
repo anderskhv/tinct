@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "bbdaf14e75eed60a4e2a3400b2094b8a776f7ddc6262cd78872e4714e9d88bed",
+  "attempts": [
+    {
+      "asr_seconds": 0.18781592324376106,
+      "alignment_seconds": 0.00014519691467285156,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Varro, Claudius, did we, my lord?",
+          "start": 0.5,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Varro,",
+              "start": 0.5,
+              "end": 0.9,
+              "probability": 0.752197265625
+            },
+            {
+              "text": " Claudius,",
+              "start": 1.1,
+              "end": 1.44,
+              "probability": 0.971435546875
+            },
+            {
+              "text": " did",
+              "start": 1.78,
+              "end": 1.86,
+              "probability": 0.955078125
+            },
+            {
+              "text": " we,",
+              "start": 1.86,
+              "end": 1.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " my",
+              "start": 2.08,
+              "end": 2.16,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " lord?",
+              "start": 2.16,
+              "end": 2.36,
+              "probability": 0.86767578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Varro,",
+          "start": 0.5,
+          "end": 0.9
+        },
+        {
+          "raw": "Claudius,",
+          "start": 1.1,
+          "end": 1.44
+        },
+        {
+          "raw": "did",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "raw": "we,",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "raw": "my",
+          "start": 2.08,
+          "end": 2.16
+        },
+        {
+          "raw": "lord?",
+          "start": 2.16,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "Varro.",
+        "Claudius.",
+        "Did",
+        "we,",
+        "my",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Varro,",
+          "start": 0.5,
+          "end": 0.9,
+          "key": "varro",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Claudius,",
+          "start": 1.1,
+          "end": 1.44,
+          "key": "claudius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.78,
+          "end": 1.86,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we,",
+          "start": 1.86,
+          "end": 1.98,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.08,
+          "end": 2.16,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lord?",
+          "start": 2.16,
+          "end": 2.36,
+          "key": "lord",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Varro.",
+          "start": 0.5,
+          "end": 0.9
+        },
+        {
+          "text": "Claudius.",
+          "start": 1.1,
+          "end": 1.44
+        },
+        {
+          "text": "Did",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "text": "we,",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "text": "my",
+          "start": 2.08,
+          "end": 2.16
+        },
+        {
+          "text": "lord?",
+          "start": 2.16,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18800832983106375
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4c57ac9dea16df27e768e4b6dabf6d5821fa9ddb724320492d3814dd1e94b05f",
+  "selected_reasons": []
+}

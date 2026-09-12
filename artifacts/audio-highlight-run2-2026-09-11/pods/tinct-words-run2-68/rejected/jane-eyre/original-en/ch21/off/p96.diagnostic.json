@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "f47041565124ac6faa76ab266811576d9dfade9b1b1c4151be072dec15d8acc0",
+  "attempts": [
+    {
+      "asr_seconds": 0.1448531523346901,
+      "alignment_seconds": 0.00040861964225769043,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The same if you like, sir.",
+          "start": 0.02,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " same",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.984375
+            },
+            {
+              "text": " if",
+              "start": 0.78,
+              "end": 1.08,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " you",
+              "start": 1.08,
+              "end": 1.2,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " like,",
+              "start": 1.2,
+              "end": 1.4,
+              "probability": 0.978515625
+            },
+            {
+              "text": " sir.",
+              "start": 1.62,
+              "end": 1.62,
+              "probability": 0.810546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "same",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "if",
+          "start": 0.78,
+          "end": 1.08
+        },
+        {
+          "raw": "you",
+          "start": 1.08,
+          "end": 1.2
+        },
+        {
+          "raw": "like,",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "raw": "sir.",
+          "start": 1.62,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "same,",
+        "if",
+        "you",
+        "like,",
+        "sir.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "same",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 0.78,
+          "end": 1.08,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.08,
+          "end": 1.2,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "like,",
+          "start": 1.2,
+          "end": 1.4,
+          "key": "like",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.62,
+          "end": 1.62,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "same,",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "if",
+          "start": 0.78,
+          "end": 1.08
+        },
+        {
+          "text": "you",
+          "start": 1.08,
+          "end": 1.2
+        },
+        {
+          "text": "like,",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "text": "sir.\"",
+          "start": 1.62,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14539986476302147
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f9914872e5c0ff788b263eb51a903541aa825aea2800825b8367e40bc28e0d2e",
+  "selected_reasons": []
+}

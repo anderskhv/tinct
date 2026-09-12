@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "6f0211707230dd7951dec5dac6d8a72f9b1e3a146b9631a2ce26ebcc1db049fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.24953141435980797,
+      "alignment_seconds": 0.0005450695753097534,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Why do you ask about what could not happen?\" said Sonia reluctantly.",
+        "hotwords": "Why, Sonia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why do you ask about what could not happen? said Sonia reluctantly.",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.15185546875
+            },
+            {
+              "text": " do",
+              "start": 0.55,
+              "end": 0.65,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 0.65,
+              "end": 0.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ask",
+              "start": 0.77,
+              "end": 0.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " about",
+              "start": 0.99,
+              "end": 1.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " what",
+              "start": 1.19,
+              "end": 1.39,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " could",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " happen?",
+              "start": 1.67,
+              "end": 2.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " said",
+              "start": 2.61,
+              "end": 2.71,
+              "probability": 0.7578125
+            },
+            {
+              "text": " Sonia",
+              "start": 2.71,
+              "end": 3.07,
+              "probability": 0.277587890625
+            },
+            {
+              "text": " reluctantly.",
+              "start": 3.07,
+              "end": 3.63,
+              "probability": 0.962890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "do",
+          "start": 0.55,
+          "end": 0.65
+        },
+        {
+          "raw": "you",
+          "start": 0.65,
+          "end": 0.77
+        },
+        {
+          "raw": "ask",
+          "start": 0.77,
+          "end": 0.99
+        },
+        {
+          "raw": "about",
+          "start": 0.99,
+          "end": 1.19
+        },
+        {
+          "raw": "what",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "raw": "could",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "not",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "happen?",
+          "start": 1.67,
+          "end": 2.13
+        },
+        {
+          "raw": "said",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "raw": "Sonia",
+          "start": 2.71,
+          "end": 3.07
+        },
+        {
+          "raw": "reluctantly.",
+          "start": 3.07,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "\"Why",
+        "do",
+        "you",
+        "ask",
+        "about",
+        "what",
+        "could",
+        "not",
+        "happen?\"",
+        "said",
+        "Sonia",
+        "reluctantly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.55,
+          "end": 0.65,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.65,
+          "end": 0.77,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 0.77,
+          "end": 0.99,
+          "key": "ask",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 0.99,
+          "end": 1.19,
+          "key": "about",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.19,
+          "end": 1.39,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "could",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "happen?",
+          "start": 1.67,
+          "end": 2.13,
+          "key": "happen",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.61,
+          "end": 2.71,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Sonia",
+          "start": 2.71,
+          "end": 3.07,
+          "key": "sonia",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "reluctantly.",
+          "start": 3.07,
+          "end": 3.63,
+          "key": "reluctantly",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "do",
+          "start": 0.55,
+          "end": 0.65
+        },
+        {
+          "text": "you",
+          "start": 0.65,
+          "end": 0.77
+        },
+        {
+          "text": "ask",
+          "start": 0.77,
+          "end": 0.99
+        },
+        {
+          "text": "about",
+          "start": 0.99,
+          "end": 1.19
+        },
+        {
+          "text": "what",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "text": "could",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "not",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "text": "happen?\"",
+          "start": 1.67,
+          "end": 2.13
+        },
+        {
+          "text": "said",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "text": "Sonia",
+          "start": 2.71,
+          "end": 3.07
+        },
+        {
+          "text": "reluctantly.",
+          "start": 3.07,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25030195340514183
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7e44720eacea5e68d21044a38d7442143c2b44df0be1805c6029c660e34b79e6",
+  "selected_reasons": []
+}

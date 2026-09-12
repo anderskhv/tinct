@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "06702be5e4c1cc3e0bde75f790da0f33243e6a1101511c4f1b51997334d9f868",
+  "attempts": [
+    {
+      "asr_seconds": 0.21738786110654473,
+      "alignment_seconds": 0.00022349413484334946,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " By when his eyes, the sweets of sin, sweet are the sweets.",
+          "start": 0.05,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " By",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.5625
+            },
+            {
+              "text": " when",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " his",
+              "start": 0.71,
+              "end": 0.85,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " eyes,",
+              "start": 0.85,
+              "end": 1.17,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 1.55,
+              "end": 1.65,
+              "probability": 0.978515625
+            },
+            {
+              "text": " sweets",
+              "start": 1.65,
+              "end": 1.83,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " of",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sin,",
+              "start": 2.03,
+              "end": 2.31,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " sweet",
+              "start": 2.81,
+              "end": 2.87,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " are",
+              "start": 2.87,
+              "end": 3.01,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " the",
+              "start": 3.01,
+              "end": 3.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sweets.",
+              "start": 3.13,
+              "end": 3.41,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "By",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "when",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "his",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "raw": "eyes,",
+          "start": 0.85,
+          "end": 1.17
+        },
+        {
+          "raw": "the",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "raw": "sweets",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "raw": "of",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "sin,",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "raw": "sweet",
+          "start": 2.81,
+          "end": 2.87
+        },
+        {
+          "raw": "are",
+          "start": 2.87,
+          "end": 3.01
+        },
+        {
+          "raw": "the",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "raw": "sweets.",
+          "start": 3.13,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "By",
+        "went",
+        "his",
+        "eyes.",
+        "The",
+        "sweets",
+        "of",
+        "sin.",
+        "Sweet",
+        "are",
+        "the",
+        "sweets."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          12,
+          2,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "By",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "by",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 0.53,
+          "end": 0.71,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.71,
+          "end": 0.85,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "eyes,",
+          "start": 0.85,
+          "end": 1.17,
+          "key": "eyes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.55,
+          "end": 1.65,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sweets",
+          "start": 1.65,
+          "end": 1.83,
+          "key": "sweets",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.83,
+          "end": 2.03,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sin,",
+          "start": 2.03,
+          "end": 2.31,
+          "key": "sin",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 2.81,
+          "end": 2.87,
+          "key": "sweet",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.87,
+          "end": 3.01,
+          "key": "are",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.01,
+          "end": 3.13,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sweets.",
+          "start": 3.13,
+          "end": 3.41,
+          "key": "sweets",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "By",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "went",
+          "start": 0.53,
+          "end": 0.62
+        },
+        {
+          "text": "his",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "text": "eyes.",
+          "start": 0.85,
+          "end": 1.17
+        },
+        {
+          "text": "The",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "text": "sweets",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "text": "of",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "sin.",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "text": "Sweet",
+          "start": 2.81,
+          "end": 2.87
+        },
+        {
+          "text": "are",
+          "start": 2.87,
+          "end": 3.01
+        },
+        {
+          "text": "the",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "text": "sweets.",
+          "start": 3.13,
+          "end": 3.41
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.2177597521804273
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e49b6c2aa93a125beb6e66975f380f02eddaa28b1fd265adcda78d85abfcd0a9",
+  "selected_reasons": []
+}

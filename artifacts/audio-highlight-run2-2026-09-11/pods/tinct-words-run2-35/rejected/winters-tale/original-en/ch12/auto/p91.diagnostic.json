@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "52a155d628dcfe8746a53a598f38f017845d993c2901dc12c5943aee3209ac06",
+  "attempts": [
+    {
+      "asr_seconds": 0.13157304003834724,
+      "alignment_seconds": 0.00025646016001701355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dorcas. _Whither?_",
+        "hotwords": "Dorcas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dorcas Whither.",
+          "start": 0.08,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Dorcas",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.47802734375
+            },
+            {
+              "text": " Whither.",
+              "start": 0.82,
+              "end": 1.28,
+              "probability": 0.54833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dorcas",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "Whither.",
+          "start": 0.82,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "Dorcas.",
+        "_Whither?_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dorcas",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "dorcas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Whither.",
+          "start": 0.82,
+          "end": 1.28,
+          "key": "whither",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dorcas.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "_Whither?_",
+          "start": 0.82,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13191511668264866
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fd5908a61b6fac31d1fa383cfdc8a3611ea5c09936e3466fb20bc09837c8b0cc",
+  "selected_reasons": []
+}

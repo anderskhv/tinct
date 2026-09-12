@@ -1,0 +1,3240 @@
+{
+  "complete": true,
+  "signature": "79a331ed0d2e5f84320c7075bb47bb364226f16659d55bf18f4034dede74bdb2",
+  "attempts": [
+    {
+      "asr_seconds": 1.0255173444747925,
+      "alignment_seconds": 0.003077194094657898,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In the Southern States the more immediate wants of life are always supplied; the inhabitants of those parts are not busied in the material cares of life, which are always provided for by others; and their imagination is diverted to more captivating and less definite objects. The American of the South is fond of grandeur, luxury, and renown, of gayety, of pleasure, and above all of idleness; nothing obliges him to exert himself in order to subsist; and as he has no necessary occupations, he gives way to indolence, and does not even attempt what would be useful.",
+        "hotwords": "Southern, States, American, South"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In the Southern States the more immediate wants of life are always supplied, the inhabitants",
+          "start": 0.05,
+          "end": 5.87,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.1361083984375
+            },
+            {
+              "text": " the",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.96875
+            },
+            {
+              "text": " Southern",
+              "start": 0.63,
+              "end": 0.93,
+              "probability": 0.5380859375
+            },
+            {
+              "text": " States",
+              "start": 0.93,
+              "end": 1.45,
+              "probability": 0.390869140625
+            },
+            {
+              "text": " the",
+              "start": 1.45,
+              "end": 1.91,
+              "probability": 0.1141357421875
+            },
+            {
+              "text": " more",
+              "start": 1.91,
+              "end": 2.13,
+              "probability": 0.9921875
+            },
+            {
+              "text": " immediate",
+              "start": 2.13,
+              "end": 2.53,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " wants",
+              "start": 2.53,
+              "end": 2.89,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " of",
+              "start": 2.89,
+              "end": 3.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " life",
+              "start": 3.11,
+              "end": 3.37,
+              "probability": 0.990234375
+            },
+            {
+              "text": " are",
+              "start": 3.37,
+              "end": 3.65,
+              "probability": 0.9921875
+            },
+            {
+              "text": " always",
+              "start": 3.65,
+              "end": 4.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " supplied,",
+              "start": 4.07,
+              "end": 4.57,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 5.31,
+              "end": 5.41,
+              "probability": 0.94921875
+            },
+            {
+              "text": " inhabitants",
+              "start": 5.41,
+              "end": 5.87,
+              "probability": 0.98828125
+            }
+          ]
+        },
+        {
+          "text": " of those parts are not busied in the material cares of life, which are always provided for",
+          "start": 5.87,
+          "end": 11.05,
+          "words": [
+            {
+              "text": " of",
+              "start": 5.87,
+              "end": 6.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " those",
+              "start": 6.19,
+              "end": 6.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " parts",
+              "start": 6.39,
+              "end": 6.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " are",
+              "start": 6.71,
+              "end": 6.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 6.93,
+              "end": 7.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " busied",
+              "start": 7.13,
+              "end": 7.55,
+              "probability": 0.944580078125
+            },
+            {
+              "text": " in",
+              "start": 7.55,
+              "end": 7.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 7.73,
+              "end": 7.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " material",
+              "start": 7.83,
+              "end": 8.25,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " cares",
+              "start": 8.25,
+              "end": 8.61,
+              "probability": 0.982421875
+            },
+            {
+              "text": " of",
+              "start": 8.61,
+              "end": 8.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " life,",
+              "start": 8.85,
+              "end": 9.15,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " which",
+              "start": 9.61,
+              "end": 9.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " are",
+              "start": 9.79,
+              "end": 9.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " always",
+              "start": 9.95,
+              "end": 10.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " provided",
+              "start": 10.33,
+              "end": 10.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 10.81,
+              "end": 11.05,
+              "probability": 0.97021484375
+            }
+          ]
+        },
+        {
+          "text": " by others, and their imagination is diverted to more captivating and less definite objects.",
+          "start": 11.05,
+          "end": 16.51,
+          "words": [
+            {
+              "text": " by",
+              "start": 11.05,
+              "end": 11.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " others,",
+              "start": 11.25,
+              "end": 11.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 12.11,
+              "end": 12.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " their",
+              "start": 12.35,
+              "end": 12.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " imagination",
+              "start": 12.49,
+              "end": 13.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 13.01,
+              "end": 13.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " diverted",
+              "start": 13.49,
+              "end": 13.81,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 13.81,
+              "end": 14.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " more",
+              "start": 14.09,
+              "end": 14.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " captivating",
+              "start": 14.29,
+              "end": 14.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 14.93,
+              "end": 15.27,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " less",
+              "start": 15.27,
+              "end": 15.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " definite",
+              "start": 15.51,
+              "end": 15.91,
+              "probability": 0.953125
+            },
+            {
+              "text": " objects.",
+              "start": 15.91,
+              "end": 16.51,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " The American of the South is fond of grandeur, luxury, and renown, of gayety, of pleasure,",
+          "start": 17.41,
+          "end": 23.51,
+          "words": [
+            {
+              "text": " The",
+              "start": 17.41,
+              "end": 17.63,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " American",
+              "start": 17.63,
+              "end": 17.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 17.99,
+              "end": 18.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 18.21,
+              "end": 18.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " South",
+              "start": 18.37,
+              "end": 18.57,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " is",
+              "start": 18.57,
+              "end": 18.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " fond",
+              "start": 18.85,
+              "end": 19.19,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 19.19,
+              "end": 19.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " grandeur,",
+              "start": 19.45,
+              "end": 20.03,
+              "probability": 0.965087890625
+            },
+            {
+              "text": " luxury,",
+              "start": 20.37,
+              "end": 20.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 20.97,
+              "end": 21.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " renown,",
+              "start": 21.03,
+              "end": 21.43,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " of",
+              "start": 22.01,
+              "end": 22.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gayety,",
+              "start": 22.15,
+              "end": 22.69,
+              "probability": 0.350738525390625
+            },
+            {
+              "text": " of",
+              "start": 22.97,
+              "end": 23.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " pleasure,",
+              "start": 23.11,
+              "end": 23.51,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " and above all of idleness, nothing obliges him to exert himself in order to subsist,",
+          "start": 23.99,
+          "end": 29.07,
+          "words": [
+            {
+              "text": " and",
+              "start": 23.99,
+              "end": 24.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " above",
+              "start": 24.11,
+              "end": 24.35,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " all",
+              "start": 24.35,
+              "end": 24.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 24.63,
+              "end": 24.77,
+              "probability": 0.966796875
+            },
+            {
+              "text": " idleness,",
+              "start": 24.77,
+              "end": 25.17,
+              "probability": 0.994140625
+            },
+            {
+              "text": " nothing",
+              "start": 25.99,
+              "end": 26.33,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " obliges",
+              "start": 26.33,
+              "end": 26.85,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " him",
+              "start": 26.85,
+              "end": 26.97,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " to",
+              "start": 26.97,
+              "end": 27.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " exert",
+              "start": 27.15,
+              "end": 27.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " himself",
+              "start": 27.47,
+              "end": 27.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 27.87,
+              "end": 28.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " order",
+              "start": 28.11,
+              "end": 28.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 28.33,
+              "end": 28.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " subsist,",
+              "start": 28.59,
+              "end": 29.07,
+              "probability": 0.962158203125
+            }
+          ]
+        },
+        {
+          "text": " and as he has no necessary occupations, he gives way to indolence, and does not even",
+          "start": 29.07,
+          "end": 34.57,
+          "words": [
+            {
+              "text": " and",
+              "start": 29.07,
+              "end": 29.83,
+              "probability": 0.467529296875
+            },
+            {
+              "text": " as",
+              "start": 29.83,
+              "end": 29.99,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " he",
+              "start": 29.99,
+              "end": 30.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " has",
+              "start": 30.13,
+              "end": 30.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " no",
+              "start": 30.29,
+              "end": 30.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " necessary",
+              "start": 30.55,
+              "end": 30.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " occupations,",
+              "start": 30.99,
+              "end": 31.83,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " he",
+              "start": 32.35,
+              "end": 32.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " gives",
+              "start": 32.57,
+              "end": 32.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " way",
+              "start": 32.75,
+              "end": 32.97,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 32.97,
+              "end": 33.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " indolence,",
+              "start": 33.17,
+              "end": 33.67,
+              "probability": 0.9827473958333334
+            },
+            {
+              "text": " and",
+              "start": 33.85,
+              "end": 34.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " does",
+              "start": 34.03,
+              "end": 34.15,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " not",
+              "start": 34.15,
+              "end": 34.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " even",
+              "start": 34.35,
+              "end": 34.57,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " attempt what would be useful.",
+          "start": 34.57,
+          "end": 35.83,
+          "words": [
+            {
+              "text": " attempt",
+              "start": 34.57,
+              "end": 34.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 34.95,
+              "end": 35.21,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " would",
+              "start": 35.21,
+              "end": 35.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 35.33,
+              "end": 35.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " useful.",
+              "start": 35.47,
+              "end": 35.83,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "Southern",
+          "start": 0.63,
+          "end": 0.93
+        },
+        {
+          "raw": "States",
+          "start": 0.93,
+          "end": 1.45
+        },
+        {
+          "raw": "the",
+          "start": 1.45,
+          "end": 1.91
+        },
+        {
+          "raw": "more",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "raw": "immediate",
+          "start": 2.13,
+          "end": 2.53
+        },
+        {
+          "raw": "wants",
+          "start": 2.53,
+          "end": 2.89
+        },
+        {
+          "raw": "of",
+          "start": 2.89,
+          "end": 3.11
+        },
+        {
+          "raw": "life",
+          "start": 3.11,
+          "end": 3.37
+        },
+        {
+          "raw": "are",
+          "start": 3.37,
+          "end": 3.65
+        },
+        {
+          "raw": "always",
+          "start": 3.65,
+          "end": 4.07
+        },
+        {
+          "raw": "supplied,",
+          "start": 4.07,
+          "end": 4.57
+        },
+        {
+          "raw": "the",
+          "start": 5.31,
+          "end": 5.41
+        },
+        {
+          "raw": "inhabitants",
+          "start": 5.41,
+          "end": 5.87
+        },
+        {
+          "raw": "of",
+          "start": 5.87,
+          "end": 6.19
+        },
+        {
+          "raw": "those",
+          "start": 6.19,
+          "end": 6.39
+        },
+        {
+          "raw": "parts",
+          "start": 6.39,
+          "end": 6.71
+        },
+        {
+          "raw": "are",
+          "start": 6.71,
+          "end": 6.93
+        },
+        {
+          "raw": "not",
+          "start": 6.93,
+          "end": 7.13
+        },
+        {
+          "raw": "busied",
+          "start": 7.13,
+          "end": 7.55
+        },
+        {
+          "raw": "in",
+          "start": 7.55,
+          "end": 7.73
+        },
+        {
+          "raw": "the",
+          "start": 7.73,
+          "end": 7.83
+        },
+        {
+          "raw": "material",
+          "start": 7.83,
+          "end": 8.25
+        },
+        {
+          "raw": "cares",
+          "start": 8.25,
+          "end": 8.61
+        },
+        {
+          "raw": "of",
+          "start": 8.61,
+          "end": 8.85
+        },
+        {
+          "raw": "life,",
+          "start": 8.85,
+          "end": 9.15
+        },
+        {
+          "raw": "which",
+          "start": 9.61,
+          "end": 9.79
+        },
+        {
+          "raw": "are",
+          "start": 9.79,
+          "end": 9.95
+        },
+        {
+          "raw": "always",
+          "start": 9.95,
+          "end": 10.33
+        },
+        {
+          "raw": "provided",
+          "start": 10.33,
+          "end": 10.81
+        },
+        {
+          "raw": "for",
+          "start": 10.81,
+          "end": 11.05
+        },
+        {
+          "raw": "by",
+          "start": 11.05,
+          "end": 11.25
+        },
+        {
+          "raw": "others,",
+          "start": 11.25,
+          "end": 11.53
+        },
+        {
+          "raw": "and",
+          "start": 12.11,
+          "end": 12.35
+        },
+        {
+          "raw": "their",
+          "start": 12.35,
+          "end": 12.49
+        },
+        {
+          "raw": "imagination",
+          "start": 12.49,
+          "end": 13.01
+        },
+        {
+          "raw": "is",
+          "start": 13.01,
+          "end": 13.49
+        },
+        {
+          "raw": "diverted",
+          "start": 13.49,
+          "end": 13.81
+        },
+        {
+          "raw": "to",
+          "start": 13.81,
+          "end": 14.09
+        },
+        {
+          "raw": "more",
+          "start": 14.09,
+          "end": 14.29
+        },
+        {
+          "raw": "captivating",
+          "start": 14.29,
+          "end": 14.93
+        },
+        {
+          "raw": "and",
+          "start": 14.93,
+          "end": 15.27
+        },
+        {
+          "raw": "less",
+          "start": 15.27,
+          "end": 15.51
+        },
+        {
+          "raw": "definite",
+          "start": 15.51,
+          "end": 15.91
+        },
+        {
+          "raw": "objects.",
+          "start": 15.91,
+          "end": 16.51
+        },
+        {
+          "raw": "The",
+          "start": 17.41,
+          "end": 17.63
+        },
+        {
+          "raw": "American",
+          "start": 17.63,
+          "end": 17.99
+        },
+        {
+          "raw": "of",
+          "start": 17.99,
+          "end": 18.21
+        },
+        {
+          "raw": "the",
+          "start": 18.21,
+          "end": 18.37
+        },
+        {
+          "raw": "South",
+          "start": 18.37,
+          "end": 18.57
+        },
+        {
+          "raw": "is",
+          "start": 18.57,
+          "end": 18.85
+        },
+        {
+          "raw": "fond",
+          "start": 18.85,
+          "end": 19.19
+        },
+        {
+          "raw": "of",
+          "start": 19.19,
+          "end": 19.45
+        },
+        {
+          "raw": "grandeur,",
+          "start": 19.45,
+          "end": 20.03
+        },
+        {
+          "raw": "luxury,",
+          "start": 20.37,
+          "end": 20.65
+        },
+        {
+          "raw": "and",
+          "start": 20.97,
+          "end": 21.03
+        },
+        {
+          "raw": "renown,",
+          "start": 21.03,
+          "end": 21.43
+        },
+        {
+          "raw": "of",
+          "start": 22.01,
+          "end": 22.15
+        },
+        {
+          "raw": "gayety,",
+          "start": 22.15,
+          "end": 22.69
+        },
+        {
+          "raw": "of",
+          "start": 22.97,
+          "end": 23.11
+        },
+        {
+          "raw": "pleasure,",
+          "start": 23.11,
+          "end": 23.51
+        },
+        {
+          "raw": "and",
+          "start": 23.99,
+          "end": 24.11
+        },
+        {
+          "raw": "above",
+          "start": 24.11,
+          "end": 24.35
+        },
+        {
+          "raw": "all",
+          "start": 24.35,
+          "end": 24.63
+        },
+        {
+          "raw": "of",
+          "start": 24.63,
+          "end": 24.77
+        },
+        {
+          "raw": "idleness,",
+          "start": 24.77,
+          "end": 25.17
+        },
+        {
+          "raw": "nothing",
+          "start": 25.99,
+          "end": 26.33
+        },
+        {
+          "raw": "obliges",
+          "start": 26.33,
+          "end": 26.85
+        },
+        {
+          "raw": "him",
+          "start": 26.85,
+          "end": 26.97
+        },
+        {
+          "raw": "to",
+          "start": 26.97,
+          "end": 27.15
+        },
+        {
+          "raw": "exert",
+          "start": 27.15,
+          "end": 27.47
+        },
+        {
+          "raw": "himself",
+          "start": 27.47,
+          "end": 27.87
+        },
+        {
+          "raw": "in",
+          "start": 27.87,
+          "end": 28.11
+        },
+        {
+          "raw": "order",
+          "start": 28.11,
+          "end": 28.33
+        },
+        {
+          "raw": "to",
+          "start": 28.33,
+          "end": 28.59
+        },
+        {
+          "raw": "subsist,",
+          "start": 28.59,
+          "end": 29.07
+        },
+        {
+          "raw": "and",
+          "start": 29.07,
+          "end": 29.83
+        },
+        {
+          "raw": "as",
+          "start": 29.83,
+          "end": 29.99
+        },
+        {
+          "raw": "he",
+          "start": 29.99,
+          "end": 30.13
+        },
+        {
+          "raw": "has",
+          "start": 30.13,
+          "end": 30.29
+        },
+        {
+          "raw": "no",
+          "start": 30.29,
+          "end": 30.55
+        },
+        {
+          "raw": "necessary",
+          "start": 30.55,
+          "end": 30.99
+        },
+        {
+          "raw": "occupations,",
+          "start": 30.99,
+          "end": 31.83
+        },
+        {
+          "raw": "he",
+          "start": 32.35,
+          "end": 32.57
+        },
+        {
+          "raw": "gives",
+          "start": 32.57,
+          "end": 32.75
+        },
+        {
+          "raw": "way",
+          "start": 32.75,
+          "end": 32.97
+        },
+        {
+          "raw": "to",
+          "start": 32.97,
+          "end": 33.17
+        },
+        {
+          "raw": "indolence,",
+          "start": 33.17,
+          "end": 33.67
+        },
+        {
+          "raw": "and",
+          "start": 33.85,
+          "end": 34.03
+        },
+        {
+          "raw": "does",
+          "start": 34.03,
+          "end": 34.15
+        },
+        {
+          "raw": "not",
+          "start": 34.15,
+          "end": 34.35
+        },
+        {
+          "raw": "even",
+          "start": 34.35,
+          "end": 34.57
+        },
+        {
+          "raw": "attempt",
+          "start": 34.57,
+          "end": 34.95
+        },
+        {
+          "raw": "what",
+          "start": 34.95,
+          "end": 35.21
+        },
+        {
+          "raw": "would",
+          "start": 35.21,
+          "end": 35.33
+        },
+        {
+          "raw": "be",
+          "start": 35.33,
+          "end": 35.47
+        },
+        {
+          "raw": "useful.",
+          "start": 35.47,
+          "end": 35.83
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "the",
+        "Southern",
+        "States",
+        "the",
+        "more",
+        "immediate",
+        "wants",
+        "of",
+        "life",
+        "are",
+        "always",
+        "supplied;",
+        "the",
+        "inhabitants",
+        "of",
+        "those",
+        "parts",
+        "are",
+        "not",
+        "busied",
+        "in",
+        "the",
+        "material",
+        "cares",
+        "of",
+        "life,",
+        "which",
+        "are",
+        "always",
+        "provided",
+        "for",
+        "by",
+        "others;",
+        "and",
+        "their",
+        "imagination",
+        "is",
+        "diverted",
+        "to",
+        "more",
+        "captivating",
+        "and",
+        "less",
+        "definite",
+        "objects.",
+        "The",
+        "American",
+        "of",
+        "the",
+        "South",
+        "is",
+        "fond",
+        "of",
+        "grandeur,",
+        "luxury,",
+        "and",
+        "renown,",
+        "of",
+        "gayety,",
+        "of",
+        "pleasure,",
+        "and",
+        "above",
+        "all",
+        "of",
+        "idleness;",
+        "nothing",
+        "obliges",
+        "him",
+        "to",
+        "exert",
+        "himself",
+        "in",
+        "order",
+        "to",
+        "subsist;",
+        "and",
+        "as",
+        "he",
+        "has",
+        "no",
+        "necessary",
+        "occupations,",
+        "he",
+        "gives",
+        "way",
+        "to",
+        "indolence,",
+        "and",
+        "does",
+        "not",
+        "even",
+        "attempt",
+        "what",
+        "would",
+        "be",
+        "useful."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          98,
+          0,
+          98
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Southern",
+          "start": 0.63,
+          "end": 0.93,
+          "key": "southern",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "States",
+          "start": 0.93,
+          "end": 1.45,
+          "key": "states",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.45,
+          "end": 1.91,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.91,
+          "end": 2.13,
+          "key": "more",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "immediate",
+          "start": 2.13,
+          "end": 2.53,
+          "key": "immediate",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wants",
+          "start": 2.53,
+          "end": 2.89,
+          "key": "wants",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.89,
+          "end": 3.11,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 3.11,
+          "end": 3.37,
+          "key": "life",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.37,
+          "end": 3.65,
+          "key": "are",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 3.65,
+          "end": 4.07,
+          "key": "always",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "supplied,",
+          "start": 4.07,
+          "end": 4.57,
+          "key": "supplied",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.31,
+          "end": 5.41,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "inhabitants",
+          "start": 5.41,
+          "end": 5.87,
+          "key": "inhabitants",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.87,
+          "end": 6.19,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 6.19,
+          "end": 6.39,
+          "key": "those",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "parts",
+          "start": 6.39,
+          "end": 6.71,
+          "key": "parts",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 6.71,
+          "end": 6.93,
+          "key": "are",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.93,
+          "end": 7.13,
+          "key": "not",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "busied",
+          "start": 7.13,
+          "end": 7.55,
+          "key": "busied",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.55,
+          "end": 7.73,
+          "key": "in",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.73,
+          "end": 7.83,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "material",
+          "start": 7.83,
+          "end": 8.25,
+          "key": "material",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "cares",
+          "start": 8.25,
+          "end": 8.61,
+          "key": "cares",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.61,
+          "end": 8.85,
+          "key": "of",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "life,",
+          "start": 8.85,
+          "end": 9.15,
+          "key": "life",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 9.61,
+          "end": 9.79,
+          "key": "which",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 9.79,
+          "end": 9.95,
+          "key": "are",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 9.95,
+          "end": 10.33,
+          "key": "always",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "provided",
+          "start": 10.33,
+          "end": 10.81,
+          "key": "provided",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 10.81,
+          "end": 11.05,
+          "key": "for",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 11.05,
+          "end": 11.25,
+          "key": "by",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "others,",
+          "start": 11.25,
+          "end": 11.53,
+          "key": "others",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.11,
+          "end": 12.35,
+          "key": "and",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 12.35,
+          "end": 12.49,
+          "key": "their",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "imagination",
+          "start": 12.49,
+          "end": 13.01,
+          "key": "imagination",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 13.01,
+          "end": 13.49,
+          "key": "is",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "diverted",
+          "start": 13.49,
+          "end": 13.81,
+          "key": "diverted",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.81,
+          "end": 14.09,
+          "key": "to",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 14.09,
+          "end": 14.29,
+          "key": "more",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "captivating",
+          "start": 14.29,
+          "end": 14.93,
+          "key": "captivating",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.93,
+          "end": 15.27,
+          "key": "and",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "less",
+          "start": 15.27,
+          "end": 15.51,
+          "key": "less",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "definite",
+          "start": 15.51,
+          "end": 15.91,
+          "key": "definite",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "objects.",
+          "start": 15.91,
+          "end": 16.51,
+          "key": "objects",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 17.41,
+          "end": 17.63,
+          "key": "the",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "American",
+          "start": 17.63,
+          "end": 17.99,
+          "key": "american",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 17.99,
+          "end": 18.21,
+          "key": "of",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.21,
+          "end": 18.37,
+          "key": "the",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "South",
+          "start": 18.37,
+          "end": 18.57,
+          "key": "south",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 18.57,
+          "end": 18.85,
+          "key": "is",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "fond",
+          "start": 18.85,
+          "end": 19.19,
+          "key": "fond",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 19.19,
+          "end": 19.45,
+          "key": "of",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "grandeur,",
+          "start": 19.45,
+          "end": 20.03,
+          "key": "grandeur",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "luxury,",
+          "start": 20.37,
+          "end": 20.65,
+          "key": "luxury",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 20.97,
+          "end": 21.03,
+          "key": "and",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "renown,",
+          "start": 21.03,
+          "end": 21.43,
+          "key": "renown",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 22.01,
+          "end": 22.15,
+          "key": "of",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "gayety,",
+          "start": 22.15,
+          "end": 22.69,
+          "key": "gayety",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 22.97,
+          "end": 23.11,
+          "key": "of",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "pleasure,",
+          "start": 23.11,
+          "end": 23.51,
+          "key": "pleasure",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 23.99,
+          "end": 24.11,
+          "key": "and",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "above",
+          "start": 24.11,
+          "end": 24.35,
+          "key": "above",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 24.35,
+          "end": 24.63,
+          "key": "all",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 24.63,
+          "end": 24.77,
+          "key": "of",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "idleness,",
+          "start": 24.77,
+          "end": 25.17,
+          "key": "idleness",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 25.99,
+          "end": 26.33,
+          "key": "nothing",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "obliges",
+          "start": 26.33,
+          "end": 26.85,
+          "key": "obliges",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 26.85,
+          "end": 26.97,
+          "key": "him",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 26.97,
+          "end": 27.15,
+          "key": "to",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "exert",
+          "start": 27.15,
+          "end": 27.47,
+          "key": "exert",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 27.47,
+          "end": 27.87,
+          "key": "himself",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 27.87,
+          "end": 28.11,
+          "key": "in",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "order",
+          "start": 28.11,
+          "end": 28.33,
+          "key": "order",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 28.33,
+          "end": 28.59,
+          "key": "to",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "subsist,",
+          "start": 28.59,
+          "end": 29.07,
+          "key": "subsist",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 29.07,
+          "end": 29.83,
+          "key": "and",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 29.83,
+          "end": 29.99,
+          "key": "as",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 29.99,
+          "end": 30.13,
+          "key": "he",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 30.13,
+          "end": 30.29,
+          "key": "has",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 30.29,
+          "end": 30.55,
+          "key": "no",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "necessary",
+          "start": 30.55,
+          "end": 30.99,
+          "key": "necessary",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "occupations,",
+          "start": 30.99,
+          "end": 31.83,
+          "key": "occupations",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 32.35,
+          "end": 32.57,
+          "key": "he",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "gives",
+          "start": 32.57,
+          "end": 32.75,
+          "key": "gives",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 32.75,
+          "end": 32.97,
+          "key": "way",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 32.97,
+          "end": 33.17,
+          "key": "to",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "indolence,",
+          "start": 33.17,
+          "end": 33.67,
+          "key": "indolence",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 33.85,
+          "end": 34.03,
+          "key": "and",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 34.03,
+          "end": 34.15,
+          "key": "does",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 34.15,
+          "end": 34.35,
+          "key": "not",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 34.35,
+          "end": 34.57,
+          "key": "even",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "attempt",
+          "start": 34.57,
+          "end": 34.95,
+          "key": "attempt",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 34.95,
+          "end": 35.21,
+          "key": "what",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 35.21,
+          "end": 35.33,
+          "key": "would",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 35.33,
+          "end": 35.47,
+          "key": "be",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "useful.",
+          "start": 35.47,
+          "end": 35.83,
+          "key": "useful",
+          "pieces": [
+            97
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "the",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "Southern",
+          "start": 0.63,
+          "end": 0.93
+        },
+        {
+          "text": "States",
+          "start": 0.93,
+          "end": 1.45
+        },
+        {
+          "text": "the",
+          "start": 1.45,
+          "end": 1.91
+        },
+        {
+          "text": "more",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "text": "immediate",
+          "start": 2.13,
+          "end": 2.53
+        },
+        {
+          "text": "wants",
+          "start": 2.53,
+          "end": 2.89
+        },
+        {
+          "text": "of",
+          "start": 2.89,
+          "end": 3.11
+        },
+        {
+          "text": "life",
+          "start": 3.11,
+          "end": 3.37
+        },
+        {
+          "text": "are",
+          "start": 3.37,
+          "end": 3.65
+        },
+        {
+          "text": "always",
+          "start": 3.65,
+          "end": 4.07
+        },
+        {
+          "text": "supplied;",
+          "start": 4.07,
+          "end": 4.57
+        },
+        {
+          "text": "the",
+          "start": 5.31,
+          "end": 5.41
+        },
+        {
+          "text": "inhabitants",
+          "start": 5.41,
+          "end": 5.87
+        },
+        {
+          "text": "of",
+          "start": 5.87,
+          "end": 6.19
+        },
+        {
+          "text": "those",
+          "start": 6.19,
+          "end": 6.39
+        },
+        {
+          "text": "parts",
+          "start": 6.39,
+          "end": 6.71
+        },
+        {
+          "text": "are",
+          "start": 6.71,
+          "end": 6.93
+        },
+        {
+          "text": "not",
+          "start": 6.93,
+          "end": 7.13
+        },
+        {
+          "text": "busied",
+          "start": 7.13,
+          "end": 7.55
+        },
+        {
+          "text": "in",
+          "start": 7.55,
+          "end": 7.73
+        },
+        {
+          "text": "the",
+          "start": 7.73,
+          "end": 7.83
+        },
+        {
+          "text": "material",
+          "start": 7.83,
+          "end": 8.25
+        },
+        {
+          "text": "cares",
+          "start": 8.25,
+          "end": 8.61
+        },
+        {
+          "text": "of",
+          "start": 8.61,
+          "end": 8.85
+        },
+        {
+          "text": "life,",
+          "start": 8.85,
+          "end": 9.15
+        },
+        {
+          "text": "which",
+          "start": 9.61,
+          "end": 9.79
+        },
+        {
+          "text": "are",
+          "start": 9.79,
+          "end": 9.95
+        },
+        {
+          "text": "always",
+          "start": 9.95,
+          "end": 10.33
+        },
+        {
+          "text": "provided",
+          "start": 10.33,
+          "end": 10.81
+        },
+        {
+          "text": "for",
+          "start": 10.81,
+          "end": 11.05
+        },
+        {
+          "text": "by",
+          "start": 11.05,
+          "end": 11.25
+        },
+        {
+          "text": "others;",
+          "start": 11.25,
+          "end": 11.53
+        },
+        {
+          "text": "and",
+          "start": 12.11,
+          "end": 12.35
+        },
+        {
+          "text": "their",
+          "start": 12.35,
+          "end": 12.49
+        },
+        {
+          "text": "imagination",
+          "start": 12.49,
+          "end": 13.01
+        },
+        {
+          "text": "is",
+          "start": 13.01,
+          "end": 13.49
+        },
+        {
+          "text": "diverted",
+          "start": 13.49,
+          "end": 13.81
+        },
+        {
+          "text": "to",
+          "start": 13.81,
+          "end": 14.09
+        },
+        {
+          "text": "more",
+          "start": 14.09,
+          "end": 14.29
+        },
+        {
+          "text": "captivating",
+          "start": 14.29,
+          "end": 14.93
+        },
+        {
+          "text": "and",
+          "start": 14.93,
+          "end": 15.27
+        },
+        {
+          "text": "less",
+          "start": 15.27,
+          "end": 15.51
+        },
+        {
+          "text": "definite",
+          "start": 15.51,
+          "end": 15.91
+        },
+        {
+          "text": "objects.",
+          "start": 15.91,
+          "end": 16.51
+        },
+        {
+          "text": "The",
+          "start": 17.41,
+          "end": 17.63
+        },
+        {
+          "text": "American",
+          "start": 17.63,
+          "end": 17.99
+        },
+        {
+          "text": "of",
+          "start": 17.99,
+          "end": 18.21
+        },
+        {
+          "text": "the",
+          "start": 18.21,
+          "end": 18.37
+        },
+        {
+          "text": "South",
+          "start": 18.37,
+          "end": 18.57
+        },
+        {
+          "text": "is",
+          "start": 18.57,
+          "end": 18.85
+        },
+        {
+          "text": "fond",
+          "start": 18.85,
+          "end": 19.19
+        },
+        {
+          "text": "of",
+          "start": 19.19,
+          "end": 19.45
+        },
+        {
+          "text": "grandeur,",
+          "start": 19.45,
+          "end": 20.03
+        },
+        {
+          "text": "luxury,",
+          "start": 20.37,
+          "end": 20.65
+        },
+        {
+          "text": "and",
+          "start": 20.97,
+          "end": 21.03
+        },
+        {
+          "text": "renown,",
+          "start": 21.03,
+          "end": 21.43
+        },
+        {
+          "text": "of",
+          "start": 22.01,
+          "end": 22.15
+        },
+        {
+          "text": "gayety,",
+          "start": 22.15,
+          "end": 22.69
+        },
+        {
+          "text": "of",
+          "start": 22.97,
+          "end": 23.11
+        },
+        {
+          "text": "pleasure,",
+          "start": 23.11,
+          "end": 23.51
+        },
+        {
+          "text": "and",
+          "start": 23.99,
+          "end": 24.11
+        },
+        {
+          "text": "above",
+          "start": 24.11,
+          "end": 24.35
+        },
+        {
+          "text": "all",
+          "start": 24.35,
+          "end": 24.63
+        },
+        {
+          "text": "of",
+          "start": 24.63,
+          "end": 24.77
+        },
+        {
+          "text": "idleness;",
+          "start": 24.77,
+          "end": 25.17
+        },
+        {
+          "text": "nothing",
+          "start": 25.99,
+          "end": 26.33
+        },
+        {
+          "text": "obliges",
+          "start": 26.33,
+          "end": 26.85
+        },
+        {
+          "text": "him",
+          "start": 26.85,
+          "end": 26.97
+        },
+        {
+          "text": "to",
+          "start": 26.97,
+          "end": 27.15
+        },
+        {
+          "text": "exert",
+          "start": 27.15,
+          "end": 27.47
+        },
+        {
+          "text": "himself",
+          "start": 27.47,
+          "end": 27.87
+        },
+        {
+          "text": "in",
+          "start": 27.87,
+          "end": 28.11
+        },
+        {
+          "text": "order",
+          "start": 28.11,
+          "end": 28.33
+        },
+        {
+          "text": "to",
+          "start": 28.33,
+          "end": 28.59
+        },
+        {
+          "text": "subsist;",
+          "start": 28.59,
+          "end": 29.07
+        },
+        {
+          "text": "and",
+          "start": 29.07,
+          "end": 29.83
+        },
+        {
+          "text": "as",
+          "start": 29.83,
+          "end": 29.99
+        },
+        {
+          "text": "he",
+          "start": 29.99,
+          "end": 30.13
+        },
+        {
+          "text": "has",
+          "start": 30.13,
+          "end": 30.29
+        },
+        {
+          "text": "no",
+          "start": 30.29,
+          "end": 30.55
+        },
+        {
+          "text": "necessary",
+          "start": 30.55,
+          "end": 30.99
+        },
+        {
+          "text": "occupations,",
+          "start": 30.99,
+          "end": 31.83
+        },
+        {
+          "text": "he",
+          "start": 32.35,
+          "end": 32.57
+        },
+        {
+          "text": "gives",
+          "start": 32.57,
+          "end": 32.75
+        },
+        {
+          "text": "way",
+          "start": 32.75,
+          "end": 32.97
+        },
+        {
+          "text": "to",
+          "start": 32.97,
+          "end": 33.17
+        },
+        {
+          "text": "indolence,",
+          "start": 33.17,
+          "end": 33.67
+        },
+        {
+          "text": "and",
+          "start": 33.85,
+          "end": 34.03
+        },
+        {
+          "text": "does",
+          "start": 34.03,
+          "end": 34.15
+        },
+        {
+          "text": "not",
+          "start": 34.15,
+          "end": 34.35
+        },
+        {
+          "text": "even",
+          "start": 34.35,
+          "end": 34.57
+        },
+        {
+          "text": "attempt",
+          "start": 34.57,
+          "end": 34.95
+        },
+        {
+          "text": "what",
+          "start": 34.95,
+          "end": 35.21
+        },
+        {
+          "text": "would",
+          "start": 35.21,
+          "end": 35.33
+        },
+        {
+          "text": "be",
+          "start": 35.33,
+          "end": 35.47
+        },
+        {
+          "text": "useful.",
+          "start": 35.47,
+          "end": 35.83
+        }
+      ],
+      "stats": {
+        "expected_words": 98,
+        "heard_words": 98,
+        "matched_words": 98
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.0299895741045475
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2b881b1af21f544347287404116772ce2df3bf648bc25fded9d7a66ef55a1b75",
+  "selected_reasons": []
+}

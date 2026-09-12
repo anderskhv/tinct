@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "0595f992313eeaf000a7b706be7f2634d9400fae6ba11a54d2d03397f52b34ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.07820754125714302,
+      "alignment_seconds": 8.277222514152527e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gloucester. Ay, my good lord.",
+        "hotwords": "Gloucester, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gloucester, Ay, my good lord.",
+          "start": 0.02,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " Gloucester,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.910400390625
+            },
+            {
+              "text": " Ay,",
+              "start": 1.26,
+              "end": 1.36,
+              "probability": 0.0006012916564941406
+            },
+            {
+              "text": " my",
+              "start": 1.5,
+              "end": 1.5,
+              "probability": 0.853515625
+            },
+            {
+              "text": " good",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " lord.",
+              "start": 1.7,
+              "end": 1.94,
+              "probability": 0.5439453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "raw": "my",
+          "start": 1.5,
+          "end": 1.5
+        },
+        {
+          "raw": "good",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "lord.",
+          "start": 1.7,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "Ay,",
+        "my",
+        "good",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.26,
+          "end": 1.36,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.5,
+          "end": 1.5,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.5,
+          "end": 1.7,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.7,
+          "end": 1.94,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Ay,",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "text": "my",
+          "start": 1.5,
+          "end": 1.5
+        },
+        {
+          "text": "good",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "text": "lord.",
+          "start": 1.7,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07831891998648643
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "35ea5c3754f1b539daa20a05589a3da025dcf842d1c15794b326fceba8afb767",
+  "selected_reasons": []
+}

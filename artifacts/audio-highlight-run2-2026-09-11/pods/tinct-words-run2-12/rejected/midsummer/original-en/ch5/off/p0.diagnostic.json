@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "fae26bf7017e9ba2c856bc69da45cd1d7fd59fb6ad775abfb39649069880a586",
+  "attempts": [
+    {
+      "asr_seconds": 0.12567337905056775,
+      "alignment_seconds": 0.000270807184278965,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The queen of fairies still lying asleep.",
+          "start": 0.02,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.74072265625
+            },
+            {
+              "text": " queen",
+              "start": 0.48,
+              "end": 0.66,
+              "probability": 0.39697265625
+            },
+            {
+              "text": " of",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.994140625
+            },
+            {
+              "text": " fairies",
+              "start": 0.78,
+              "end": 1.12,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " still",
+              "start": 1.12,
+              "end": 1.36,
+              "probability": 0.857421875
+            },
+            {
+              "text": " lying",
+              "start": 1.36,
+              "end": 1.68,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " asleep.",
+              "start": 1.68,
+              "end": 2.04,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "queen",
+          "start": 0.48,
+          "end": 0.66
+        },
+        {
+          "raw": "of",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "fairies",
+          "start": 0.78,
+          "end": 1.12
+        },
+        {
+          "raw": "still",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "raw": "lying",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "raw": "asleep.",
+          "start": 1.68,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "[The",
+        "Queen",
+        "of",
+        "Fairies",
+        "still",
+        "lying",
+        "asleep.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "queen",
+          "start": 0.48,
+          "end": 0.66,
+          "key": "queen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.66,
+          "end": 0.78,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fairies",
+          "start": 0.78,
+          "end": 1.12,
+          "key": "fairies",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 1.12,
+          "end": 1.36,
+          "key": "still",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lying",
+          "start": 1.36,
+          "end": 1.68,
+          "key": "lying",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "asleep.",
+          "start": 1.68,
+          "end": 2.04,
+          "key": "asleep",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "Queen",
+          "start": 0.48,
+          "end": 0.66
+        },
+        {
+          "text": "of",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "Fairies",
+          "start": 0.78,
+          "end": 1.12
+        },
+        {
+          "text": "still",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "text": "lying",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "text": "asleep.]",
+          "start": 1.68,
+          "end": 2.04
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12605006503872573
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8cc732a4cb2b6cfaba2f83b69f76d34f837e1ba9b80551fb13d7fb0959052ca5",
+  "selected_reasons": []
+}

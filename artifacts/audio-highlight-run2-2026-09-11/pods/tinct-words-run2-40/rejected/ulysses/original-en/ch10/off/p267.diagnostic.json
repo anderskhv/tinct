@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "b9dc079fc6fb45193cba65ee7c820458909a0cdefdb698a2afbe7b907d2d5d3d",
+  "attempts": [
+    {
+      "asr_seconds": 0.19890588615089655,
+      "alignment_seconds": 0.0004221550188958645,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That I had he said pushing it by",
+          "start": 0.05,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.2298583984375
+            },
+            {
+              "text": " I",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " had",
+              "start": 0.63,
+              "end": 0.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 0.95,
+              "end": 1.29,
+              "probability": 0.37158203125
+            },
+            {
+              "text": " said",
+              "start": 1.29,
+              "end": 1.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pushing",
+              "start": 1.55,
+              "end": 1.91,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " it",
+              "start": 1.91,
+              "end": 2.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " by",
+              "start": 2.09,
+              "end": 2.31,
+              "probability": 0.966796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "I",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "had",
+          "start": 0.63,
+          "end": 0.95
+        },
+        {
+          "raw": "he",
+          "start": 0.95,
+          "end": 1.29
+        },
+        {
+          "raw": "said",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "raw": "pushing",
+          "start": 1.55,
+          "end": 1.91
+        },
+        {
+          "raw": "it",
+          "start": 1.91,
+          "end": 2.09
+        },
+        {
+          "raw": "by",
+          "start": 2.09,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "—That",
+        "I",
+        "had,",
+        "he",
+        "said,",
+        "pushing",
+        "it",
+        "by."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.63,
+          "end": 0.95,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.95,
+          "end": 1.29,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.29,
+          "end": 1.55,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pushing",
+          "start": 1.55,
+          "end": 1.91,
+          "key": "pushing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.91,
+          "end": 2.09,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.09,
+          "end": 2.31,
+          "key": "by",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—That",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "I",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "had,",
+          "start": 0.63,
+          "end": 0.95
+        },
+        {
+          "text": "he",
+          "start": 0.95,
+          "end": 1.29
+        },
+        {
+          "text": "said,",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "text": "pushing",
+          "start": 1.55,
+          "end": 1.91
+        },
+        {
+          "text": "it",
+          "start": 1.91,
+          "end": 2.09
+        },
+        {
+          "text": "by.",
+          "start": 2.09,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19951304886490107
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "15108017edd0e0e1e2b409baf400c0ddf8bb215290dbdef28be33e4732491661",
+  "selected_reasons": []
+}

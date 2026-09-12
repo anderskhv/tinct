@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "18d04717d0caf74eb73c1181e00e1ed30963ab4aee900a67821194a0465e5067",
+  "attempts": [
+    {
+      "asr_seconds": 0.21552987396717072,
+      "alignment_seconds": 0.0004888493567705154,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Albany, she is not well. Convey her to my tent.",
+          "start": 0.05,
+          "end": 3.03,
+          "words": [
+            {
+              "text": " Albany,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.943359375
+            },
+            {
+              "text": " she",
+              "start": 1.09,
+              "end": 1.15,
+              "probability": 0.978515625
+            },
+            {
+              "text": " is",
+              "start": 1.15,
+              "end": 1.25,
+              "probability": 0.82763671875
+            },
+            {
+              "text": " not",
+              "start": 1.25,
+              "end": 1.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " well.",
+              "start": 1.41,
+              "end": 1.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Convey",
+              "start": 2.15,
+              "end": 2.37,
+              "probability": 0.966064453125
+            },
+            {
+              "text": " her",
+              "start": 2.37,
+              "end": 2.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 2.51,
+              "end": 2.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 2.63,
+              "end": 2.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tent.",
+              "start": 2.77,
+              "end": 3.03,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Albany,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "she",
+          "start": 1.09,
+          "end": 1.15
+        },
+        {
+          "raw": "is",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "raw": "not",
+          "start": 1.25,
+          "end": 1.41
+        },
+        {
+          "raw": "well.",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "raw": "Convey",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "raw": "her",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "raw": "to",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "raw": "my",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "raw": "tent.",
+          "start": 2.77,
+          "end": 3.03
+        }
+      ],
+      "expected_tokens": [
+        "Albany.",
+        "She",
+        "is",
+        "not",
+        "well.",
+        "Convey",
+        "her",
+        "to",
+        "my",
+        "tent."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Albany,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "albany",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.09,
+          "end": 1.15,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.15,
+          "end": 1.25,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.25,
+          "end": 1.41,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.41,
+          "end": 1.65,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Convey",
+          "start": 2.15,
+          "end": 2.37,
+          "key": "convey",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.37,
+          "end": 2.51,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.51,
+          "end": 2.63,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.63,
+          "end": 2.77,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tent.",
+          "start": 2.77,
+          "end": 3.03,
+          "key": "tent",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Albany.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "She",
+          "start": 1.09,
+          "end": 1.15
+        },
+        {
+          "text": "is",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "text": "not",
+          "start": 1.25,
+          "end": 1.41
+        },
+        {
+          "text": "well.",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "text": "Convey",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "text": "her",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "text": "to",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "text": "my",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "text": "tent.",
+          "start": 2.77,
+          "end": 3.03
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21622578240931034
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fbaf26e42025195d0230eaf0e3b9d1e16b82d67980c0e2da69b3a2243557649f",
+  "selected_reasons": []
+}

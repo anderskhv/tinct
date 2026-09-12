@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "e45ebafcf25bdc0549c5461d89b7a87c45738180db30cae3e7cb7939ae2e5fe2",
+  "attempts": [
+    {
+      "asr_seconds": 0.20092083141207695,
+      "alignment_seconds": 0.0003346838057041168,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Don Pedro. I will not hear you.",
+        "hotwords": "Don, Pedro, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don, Pedro, I will not hear you.",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Don,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.70849609375
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.83,
+              "end": 0.95,
+              "probability": 0.986328125
+            },
+            {
+              "text": " I",
+              "start": 1.33,
+              "end": 1.51,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " will",
+              "start": 1.51,
+              "end": 1.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 1.59,
+              "end": 1.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hear",
+              "start": 1.73,
+              "end": 1.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you.",
+              "start": 1.91,
+              "end": 2.15,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.83,
+          "end": 0.95
+        },
+        {
+          "raw": "I",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "raw": "will",
+          "start": 1.51,
+          "end": 1.59
+        },
+        {
+          "raw": "not",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "raw": "hear",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "raw": "you.",
+          "start": 1.91,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "I",
+        "will",
+        "not",
+        "hear",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.83,
+          "end": 0.95,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.33,
+          "end": 1.51,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.51,
+          "end": 1.59,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.59,
+          "end": 1.73,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 1.73,
+          "end": 1.91,
+          "key": "hear",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.91,
+          "end": 2.15,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.83,
+          "end": 0.95
+        },
+        {
+          "text": "I",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "text": "will",
+          "start": 1.51,
+          "end": 1.59
+        },
+        {
+          "text": "not",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "text": "hear",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "text": "you.",
+          "start": 1.91,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2013910822570324
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "81fe8a7dd84104ed4167eb657eeeb1d5785589df0ed42d7a349bcce23e6724f8",
+  "selected_reasons": []
+}

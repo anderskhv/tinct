@@ -1,0 +1,263 @@
+{
+  "complete": true,
+  "signature": "be23599b63c005f46cb028dbe757d9050c34c48e521904387d508db86594e6b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.15807779505848885,
+      "alignment_seconds": 0.00046901730820536613,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Asterisk, a religious sect translators note.",
+          "start": 0.14,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " Asterisk,",
+              "start": 0.14,
+              "end": 1.02,
+              "probability": 0.6473388671875
+            },
+            {
+              "text": " a",
+              "start": 1.18,
+              "end": 1.26,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " religious",
+              "start": 1.26,
+              "end": 1.54,
+              "probability": 0.884765625
+            },
+            {
+              "text": " sect",
+              "start": 1.54,
+              "end": 1.9,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " translators",
+              "start": 1.9,
+              "end": 2.56,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " note.",
+              "start": 2.56,
+              "end": 2.9,
+              "probability": 0.91748046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk,",
+          "start": 0.14,
+          "end": 1.02
+        },
+        {
+          "raw": "a",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "raw": "religious",
+          "start": 1.26,
+          "end": 1.54
+        },
+        {
+          "raw": "sect",
+          "start": 1.54,
+          "end": 1.9
+        },
+        {
+          "raw": "translators",
+          "start": 1.9,
+          "end": 2.56
+        },
+        {
+          "raw": "note.",
+          "start": 2.56,
+          "end": 2.9
+        }
+      ],
+      "expected_tokens": [
+        "[*]",
+        "A",
+        "religious",
+        "sect.--Translator'S",
+        "Note."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk,",
+          "start": 0.14,
+          "end": 1.02,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.18,
+          "end": 1.26,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "religious",
+          "start": 1.26,
+          "end": 1.54,
+          "key": "religious",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sect translators",
+          "start": 1.54,
+          "end": 2.56,
+          "key": "secttranslators",
+          "pieces": [
+            3,
+            4
+          ]
+        },
+        {
+          "raw": "note.",
+          "start": 2.56,
+          "end": 2.9,
+          "key": "note",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 3,
+          "text": "sect.--Translator'S",
+          "heard": "sect translators",
+          "heard_indexes": [
+            3,
+            4
+          ],
+          "start": 1.54,
+          "end": 2.56
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "[*]",
+          "start": 0.0,
+          "end": 0.59
+        },
+        {
+          "text": "A",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "text": "religious",
+          "start": 1.26,
+          "end": 1.54
+        },
+        {
+          "text": "sect.--Translator'S",
+          "start": 1.54,
+          "end": 2.56
+        },
+        {
+          "text": "Note.",
+          "start": 2.56,
+          "end": 2.9
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15867384569719434
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bc791bab9ddcd02b768277a40c110c03e07abb9a75359285e1b377fa306f8011",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

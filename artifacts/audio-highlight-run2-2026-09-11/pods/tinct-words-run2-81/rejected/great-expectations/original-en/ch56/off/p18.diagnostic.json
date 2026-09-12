@@ -1,0 +1,556 @@
+{
+  "complete": true,
+  "signature": "5c4d4c21383607d1c3d8dc03c82db97c21435c1182831868f90785d87c1f97c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.3324966700747609,
+      "alignment_seconds": 0.0006515970453619957,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Thank you dear boy. Thank you. God bless you. You've never deserted me dear boy",
+          "start": 0.08,
+          "end": 4.56,
+          "words": [
+            {
+              "text": " Thank",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.9375
+            },
+            {
+              "text": " you",
+              "start": 0.56,
+              "end": 0.74,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " dear",
+              "start": 0.74,
+              "end": 0.88,
+              "probability": 0.44970703125
+            },
+            {
+              "text": " boy.",
+              "start": 0.88,
+              "end": 1.16,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Thank",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you.",
+              "start": 1.44,
+              "end": 1.7,
+              "probability": 0.974609375
+            },
+            {
+              "text": " God",
+              "start": 1.92,
+              "end": 2.12,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " bless",
+              "start": 2.12,
+              "end": 2.36,
+              "probability": 0.970703125
+            },
+            {
+              "text": " you.",
+              "start": 2.36,
+              "end": 2.66,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " You've",
+              "start": 2.94,
+              "end": 3.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " never",
+              "start": 3.2,
+              "end": 3.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " deserted",
+              "start": 3.4,
+              "end": 3.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 3.8,
+              "end": 4.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " dear",
+              "start": 4.06,
+              "end": 4.22,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " boy",
+              "start": 4.22,
+              "end": 4.56,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thank",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "you",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "raw": "dear",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "raw": "boy.",
+          "start": 0.88,
+          "end": 1.16
+        },
+        {
+          "raw": "Thank",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "you.",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "raw": "God",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "raw": "bless",
+          "start": 2.12,
+          "end": 2.36
+        },
+        {
+          "raw": "you.",
+          "start": 2.36,
+          "end": 2.66
+        },
+        {
+          "raw": "You've",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "raw": "never",
+          "start": 3.2,
+          "end": 3.4
+        },
+        {
+          "raw": "deserted",
+          "start": 3.4,
+          "end": 3.8
+        },
+        {
+          "raw": "me",
+          "start": 3.8,
+          "end": 4.06
+        },
+        {
+          "raw": "dear",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "raw": "boy",
+          "start": 4.22,
+          "end": 4.56
+        }
+      ],
+      "expected_tokens": [
+        "\"Thank'ee",
+        "dear",
+        "boy,",
+        "thank'ee.",
+        "God",
+        "bless",
+        "you!",
+        "You've",
+        "never",
+        "deserted",
+        "me,",
+        "dear",
+        "boy.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          3,
+          4,
+          4,
+          6
+        ],
+        [
+          "equal",
+          4,
+          13,
+          6,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thank",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "thank",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.56,
+          "end": 0.74,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 0.74,
+          "end": 0.88,
+          "key": "dear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "boy.",
+          "start": 0.88,
+          "end": 1.16,
+          "key": "boy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Thank",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "thank",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.44,
+          "end": 1.7,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 1.92,
+          "end": 2.12,
+          "key": "god",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bless",
+          "start": 2.12,
+          "end": 2.36,
+          "key": "bless",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.36,
+          "end": 2.66,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "You've",
+          "start": 2.94,
+          "end": 3.2,
+          "key": "youve",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 3.2,
+          "end": 3.4,
+          "key": "never",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "deserted",
+          "start": 3.4,
+          "end": 3.8,
+          "key": "deserted",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.8,
+          "end": 4.06,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 4.06,
+          "end": 4.22,
+          "key": "dear",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 4.22,
+          "end": 4.56,
+          "key": "boy",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Thank'ee",
+          "start": 0.0,
+          "end": 0.37
+        },
+        {
+          "text": "dear",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "text": "boy,",
+          "start": 0.88,
+          "end": 1.16
+        },
+        {
+          "text": "thank'ee.",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "text": "God",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "text": "bless",
+          "start": 2.12,
+          "end": 2.36
+        },
+        {
+          "text": "you!",
+          "start": 2.36,
+          "end": 2.66
+        },
+        {
+          "text": "You've",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "text": "never",
+          "start": 3.2,
+          "end": 3.4
+        },
+        {
+          "text": "deserted",
+          "start": 3.4,
+          "end": 3.8
+        },
+        {
+          "text": "me,",
+          "start": 3.8,
+          "end": 4.06
+        },
+        {
+          "text": "dear",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "text": "boy.\"",
+          "start": 4.22,
+          "end": 4.56
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 15,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3334053587168455
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9d5e1a5dbb928c182f52701286361f0836aad15aefee08ade81844b95b2ce169",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

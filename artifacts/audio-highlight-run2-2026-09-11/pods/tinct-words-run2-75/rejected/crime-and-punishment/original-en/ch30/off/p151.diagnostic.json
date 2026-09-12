@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "13c529cff172bff42271b85c379ba714c2e1d830130a37e32de7a0c953da4308",
+  "attempts": [
+    {
+      "asr_seconds": 0.1639605537056923,
+      "alignment_seconds": 0.0006161518394947052,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A haughty smile appeared on his lips.",
+          "start": 0.08,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " haughty",
+              "start": 0.5,
+              "end": 0.76,
+              "probability": 0.8492838541666666
+            },
+            {
+              "text": " smile",
+              "start": 0.76,
+              "end": 1.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " appeared",
+              "start": 1.1,
+              "end": 1.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 1.42,
+              "end": 1.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 1.62,
+              "end": 1.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lips.",
+              "start": 1.76,
+              "end": 2.02,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "haughty",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "raw": "smile",
+          "start": 0.76,
+          "end": 1.1
+        },
+        {
+          "raw": "appeared",
+          "start": 1.1,
+          "end": 1.42
+        },
+        {
+          "raw": "on",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "raw": "his",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "raw": "lips.",
+          "start": 1.76,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "haughty",
+        "smile",
+        "appeared",
+        "on",
+        "his",
+        "lips."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "haughty",
+          "start": 0.5,
+          "end": 0.76,
+          "key": "haughty",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "smile",
+          "start": 0.76,
+          "end": 1.1,
+          "key": "smile",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "appeared",
+          "start": 1.1,
+          "end": 1.42,
+          "key": "appeared",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.42,
+          "end": 1.62,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.62,
+          "end": 1.76,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lips.",
+          "start": 1.76,
+          "end": 2.02,
+          "key": "lips",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "haughty",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "text": "smile",
+          "start": 0.76,
+          "end": 1.1
+        },
+        {
+          "text": "appeared",
+          "start": 1.1,
+          "end": 1.42
+        },
+        {
+          "text": "on",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "text": "his",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "text": "lips.",
+          "start": 1.76,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16482006385922432
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3a03214718f4c2fdb5b9dcbabd816502ca45d3328b6b4a76c180c18445c3fcbf",
+  "selected_reasons": []
+}

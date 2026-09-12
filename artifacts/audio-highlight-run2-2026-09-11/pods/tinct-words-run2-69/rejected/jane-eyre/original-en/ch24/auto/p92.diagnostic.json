@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "5127ce0f8823cdfeeab7c8e632e826d10fab641ed77cfc467d2c40cc884ad059",
+  "attempts": [
+    {
+      "asr_seconds": 0.19902958814054728,
+      "alignment_seconds": 0.00017602648586034775,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I was growing truly irritated: happily, Adèle ran in.",
+        "hotwords": "I, Adèle"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I was growing truly irritated. Happily, Adèle ran in.",
+          "start": 0.08,
+          "end": 3.76,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " was",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " growing",
+              "start": 0.62,
+              "end": 0.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " truly",
+              "start": 0.96,
+              "end": 1.36,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " irritated.",
+              "start": 1.36,
+              "end": 1.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Happily,",
+              "start": 2.58,
+              "end": 2.88,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Adèle",
+              "start": 3.06,
+              "end": 3.3,
+              "probability": 0.6647415161132812
+            },
+            {
+              "text": " ran",
+              "start": 3.3,
+              "end": 3.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in.",
+              "start": 3.5,
+              "end": 3.76,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "was",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "growing",
+          "start": 0.62,
+          "end": 0.96
+        },
+        {
+          "raw": "truly",
+          "start": 0.96,
+          "end": 1.36
+        },
+        {
+          "raw": "irritated.",
+          "start": 1.36,
+          "end": 1.94
+        },
+        {
+          "raw": "Happily,",
+          "start": 2.58,
+          "end": 2.88
+        },
+        {
+          "raw": "Adèle",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "raw": "ran",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "raw": "in.",
+          "start": 3.5,
+          "end": 3.76
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "was",
+        "growing",
+        "truly",
+        "irritated:",
+        "happily,",
+        "Adèle",
+        "ran",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "growing",
+          "start": 0.62,
+          "end": 0.96,
+          "key": "growing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "truly",
+          "start": 0.96,
+          "end": 1.36,
+          "key": "truly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "irritated.",
+          "start": 1.36,
+          "end": 1.94,
+          "key": "irritated",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Happily,",
+          "start": 2.58,
+          "end": 2.88,
+          "key": "happily",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Adèle",
+          "start": 3.06,
+          "end": 3.3,
+          "key": "adèle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ran",
+          "start": 3.3,
+          "end": 3.5,
+          "key": "ran",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 3.5,
+          "end": 3.76,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "was",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "growing",
+          "start": 0.62,
+          "end": 0.96
+        },
+        {
+          "text": "truly",
+          "start": 0.96,
+          "end": 1.36
+        },
+        {
+          "text": "irritated:",
+          "start": 1.36,
+          "end": 1.94
+        },
+        {
+          "text": "happily,",
+          "start": 2.58,
+          "end": 2.88
+        },
+        {
+          "text": "Adèle",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "text": "ran",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "text": "in.",
+          "start": 3.5,
+          "end": 3.76
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.199263752438128
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ffe259b134c7e34645c26910f93967319108913532c2e6870d75e8a279c8202e",
+  "selected_reasons": []
+}

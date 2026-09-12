@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "59250a01ff314f4235a8a20f62b6f0b314fcd7ea4883c1557fcc6a3d43da986b",
+  "attempts": [
+    {
+      "asr_seconds": 0.12784227076917887,
+      "alignment_seconds": 0.00017123902216553688,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Within.] A sail, a sail, a sail!",
+        "hotwords": "Within"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Within A sail, a sail, a sail!",
+          "start": 0.05,
+          "end": 2.41,
+          "words": [
+            {
+              "text": " Within",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.47412109375
+            },
+            {
+              "text": " A",
+              "start": 0.77,
+              "end": 1.29,
+              "probability": 0.0469970703125
+            },
+            {
+              "text": " sail,",
+              "start": 1.29,
+              "end": 1.51,
+              "probability": 0.0027008056640625
+            },
+            {
+              "text": " a",
+              "start": 1.67,
+              "end": 1.67,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " sail,",
+              "start": 1.67,
+              "end": 1.87,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " a",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.98828125
+            },
+            {
+              "text": " sail!",
+              "start": 2.09,
+              "end": 2.41,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Within",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "A",
+          "start": 0.77,
+          "end": 1.29
+        },
+        {
+          "raw": "sail,",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "raw": "a",
+          "start": 1.67,
+          "end": 1.67
+        },
+        {
+          "raw": "sail,",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "raw": "a",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "raw": "sail!",
+          "start": 2.09,
+          "end": 2.41
+        }
+      ],
+      "expected_tokens": [
+        "[Within.]",
+        "A",
+        "sail,",
+        "a",
+        "sail,",
+        "a",
+        "sail!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Within",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "within",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 0.77,
+          "end": 1.29,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sail,",
+          "start": 1.29,
+          "end": 1.51,
+          "key": "sail",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.67,
+          "end": 1.67,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sail,",
+          "start": 1.67,
+          "end": 1.87,
+          "key": "sail",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.87,
+          "end": 2.09,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sail!",
+          "start": 2.09,
+          "end": 2.41,
+          "key": "sail",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Within.]",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "A",
+          "start": 0.77,
+          "end": 1.29
+        },
+        {
+          "text": "sail,",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "text": "a",
+          "start": 1.67,
+          "end": 1.67
+        },
+        {
+          "text": "sail,",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "text": "a",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "text": "sail!",
+          "start": 2.09,
+          "end": 2.41
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12806935980916023
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4f3e5de7a76416cfc869257d6cdba871046b4decbe230e4d7bcf2bd4e181a378",
+  "selected_reasons": []
+}

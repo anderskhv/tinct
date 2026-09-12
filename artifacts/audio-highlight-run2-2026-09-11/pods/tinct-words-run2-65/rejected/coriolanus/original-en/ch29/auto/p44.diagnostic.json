@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "3f2b93fa6f28d51b48b705ebb10633831881a2f571342c5a7b2955b6880431e9",
+  "attempts": [
+    {
+      "asr_seconds": 0.13984883483499289,
+      "alignment_seconds": 0.00022483710199594498,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All Conspirators. Let him die for't.",
+        "hotwords": "All, Conspirators, Let"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All, Conspirators, Let him die for't.",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " Conspirators,",
+              "start": 0.73,
+              "end": 1.25,
+              "probability": 0.7272542317708334
+            },
+            {
+              "text": " Let",
+              "start": 1.77,
+              "end": 1.85,
+              "probability": 0.046630859375
+            },
+            {
+              "text": " him",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.74560546875
+            },
+            {
+              "text": " die",
+              "start": 1.99,
+              "end": 2.19,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " for't.",
+              "start": 2.19,
+              "end": 2.73,
+              "probability": 0.11122512817382812
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Conspirators,",
+          "start": 0.73,
+          "end": 1.25
+        },
+        {
+          "raw": "Let",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "raw": "him",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "die",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "raw": "for't.",
+          "start": 2.19,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "All",
+        "Conspirators.",
+        "Let",
+        "him",
+        "die",
+        "for't."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Conspirators,",
+          "start": 0.73,
+          "end": 1.25,
+          "key": "conspirators",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 1.77,
+          "end": 1.85,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.85,
+          "end": 1.99,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "die",
+          "start": 1.99,
+          "end": 2.19,
+          "key": "die",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for't.",
+          "start": 2.19,
+          "end": 2.73,
+          "key": "fort",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Conspirators.",
+          "start": 0.73,
+          "end": 1.25
+        },
+        {
+          "text": "Let",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "text": "him",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "die",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "text": "for't.",
+          "start": 2.19,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14015683392062783
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "84aadf1fe3021872aea9ba5164ba26c49dea3710af144572ce59de2850b7f5d9",
+  "selected_reasons": []
+}

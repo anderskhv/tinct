@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "5cc4b452a3063528e1b920608c3b6c04a9f52d85714eda33b7548d654f0450c4",
+  "attempts": [
+    {
+      "asr_seconds": 0.2341096755117178,
+      "alignment_seconds": 0.000444287434220314,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Show us the powder too. She drawled with a smile of entreaty",
+          "start": 0.08,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " Show",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.66796875
+            },
+            {
+              "text": " us",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.986328125
+            },
+            {
+              "text": " the",
+              "start": 0.76,
+              "end": 0.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " powder",
+              "start": 0.92,
+              "end": 1.18,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " too.",
+              "start": 1.18,
+              "end": 1.56,
+              "probability": 0.58203125
+            },
+            {
+              "text": " She",
+              "start": 2.1,
+              "end": 2.16,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " drawled",
+              "start": 2.16,
+              "end": 2.54,
+              "probability": 0.892822265625
+            },
+            {
+              "text": " with",
+              "start": 2.54,
+              "end": 2.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 2.64,
+              "end": 2.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " smile",
+              "start": 2.76,
+              "end": 3.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 3.06,
+              "end": 3.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " entreaty",
+              "start": 3.26,
+              "end": 3.92,
+              "probability": 0.9381510416666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Show",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "us",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "the",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "raw": "powder",
+          "start": 0.92,
+          "end": 1.18
+        },
+        {
+          "raw": "too.",
+          "start": 1.18,
+          "end": 1.56
+        },
+        {
+          "raw": "She",
+          "start": 2.1,
+          "end": 2.16
+        },
+        {
+          "raw": "drawled",
+          "start": 2.16,
+          "end": 2.54
+        },
+        {
+          "raw": "with",
+          "start": 2.54,
+          "end": 2.64
+        },
+        {
+          "raw": "a",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "raw": "smile",
+          "start": 2.76,
+          "end": 3.06
+        },
+        {
+          "raw": "of",
+          "start": 3.06,
+          "end": 3.26
+        },
+        {
+          "raw": "entreaty",
+          "start": 3.26,
+          "end": 3.92
+        }
+      ],
+      "expected_tokens": [
+        "\"Show",
+        "us",
+        "the",
+        "powder,",
+        "too,\"",
+        "she",
+        "drawled",
+        "with",
+        "a",
+        "smile",
+        "of",
+        "entreaty."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Show",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "show",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 0.6,
+          "end": 0.76,
+          "key": "us",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.76,
+          "end": 0.92,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "powder",
+          "start": 0.92,
+          "end": 1.18,
+          "key": "powder",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 1.18,
+          "end": 1.56,
+          "key": "too",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 2.1,
+          "end": 2.16,
+          "key": "she",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "drawled",
+          "start": 2.16,
+          "end": 2.54,
+          "key": "drawled",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.54,
+          "end": 2.64,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.64,
+          "end": 2.76,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "smile",
+          "start": 2.76,
+          "end": 3.06,
+          "key": "smile",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.06,
+          "end": 3.26,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "entreaty",
+          "start": 3.26,
+          "end": 3.92,
+          "key": "entreaty",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Show",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "us",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "the",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "text": "powder,",
+          "start": 0.92,
+          "end": 1.18
+        },
+        {
+          "text": "too,\"",
+          "start": 1.18,
+          "end": 1.56
+        },
+        {
+          "text": "she",
+          "start": 2.1,
+          "end": 2.16
+        },
+        {
+          "text": "drawled",
+          "start": 2.16,
+          "end": 2.54
+        },
+        {
+          "text": "with",
+          "start": 2.54,
+          "end": 2.64
+        },
+        {
+          "text": "a",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "text": "smile",
+          "start": 2.76,
+          "end": 3.06
+        },
+        {
+          "text": "of",
+          "start": 3.06,
+          "end": 3.26
+        },
+        {
+          "text": "entreaty.",
+          "start": 3.26,
+          "end": 3.92
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2347307689487934
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4f3628199689a3398a4e310fa132e8b32b555557e2533c7f1e1b4089cfcc2f71",
+  "selected_reasons": []
+}

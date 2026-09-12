@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "8d5d6874b82bc161cedbca1e76d3ff07a0609e1d7403255645a255679039c352",
+  "attempts": [
+    {
+      "asr_seconds": 0.31171039305627346,
+      "alignment_seconds": 0.000673023983836174,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Henry. Do not you wear your dagger in your cap that day, lest he knock that about yours.",
+        "hotwords": "King, Henry, Do"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Henry, Do not you wear your dagger in your cap that day, lest he knock that about yours.",
+          "start": 0.0,
+          "end": 5.4,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.0,
+              "end": 0.56,
+              "probability": 0.60791015625
+            },
+            {
+              "text": " Henry,",
+              "start": 0.56,
+              "end": 0.92,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Do",
+              "start": 1.52,
+              "end": 1.64,
+              "probability": 0.01282501220703125
+            },
+            {
+              "text": " not",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " you",
+              "start": 1.78,
+              "end": 1.96,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " wear",
+              "start": 1.96,
+              "end": 2.14,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " your",
+              "start": 2.14,
+              "end": 2.34,
+              "probability": 0.966796875
+            },
+            {
+              "text": " dagger",
+              "start": 2.34,
+              "end": 2.62,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " in",
+              "start": 2.62,
+              "end": 2.8,
+              "probability": 0.90234375
+            },
+            {
+              "text": " your",
+              "start": 2.8,
+              "end": 2.94,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " cap",
+              "start": 2.94,
+              "end": 3.16,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " that",
+              "start": 3.16,
+              "end": 3.42,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " day,",
+              "start": 3.42,
+              "end": 3.8,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " lest",
+              "start": 4.1,
+              "end": 4.2,
+              "probability": 0.457763671875
+            },
+            {
+              "text": " he",
+              "start": 4.2,
+              "end": 4.38,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " knock",
+              "start": 4.38,
+              "end": 4.58,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " that",
+              "start": 4.58,
+              "end": 4.8,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " about",
+              "start": 4.8,
+              "end": 5.04,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " yours.",
+              "start": 5.04,
+              "end": 5.4,
+              "probability": 0.96533203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "raw": "Do",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "raw": "not",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "you",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "raw": "wear",
+          "start": 1.96,
+          "end": 2.14
+        },
+        {
+          "raw": "your",
+          "start": 2.14,
+          "end": 2.34
+        },
+        {
+          "raw": "dagger",
+          "start": 2.34,
+          "end": 2.62
+        },
+        {
+          "raw": "in",
+          "start": 2.62,
+          "end": 2.8
+        },
+        {
+          "raw": "your",
+          "start": 2.8,
+          "end": 2.94
+        },
+        {
+          "raw": "cap",
+          "start": 2.94,
+          "end": 3.16
+        },
+        {
+          "raw": "that",
+          "start": 3.16,
+          "end": 3.42
+        },
+        {
+          "raw": "day,",
+          "start": 3.42,
+          "end": 3.8
+        },
+        {
+          "raw": "lest",
+          "start": 4.1,
+          "end": 4.2
+        },
+        {
+          "raw": "he",
+          "start": 4.2,
+          "end": 4.38
+        },
+        {
+          "raw": "knock",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "raw": "that",
+          "start": 4.58,
+          "end": 4.8
+        },
+        {
+          "raw": "about",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "raw": "yours.",
+          "start": 5.04,
+          "end": 5.4
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "Do",
+        "not",
+        "you",
+        "wear",
+        "your",
+        "dagger",
+        "in",
+        "your",
+        "cap",
+        "that",
+        "day,",
+        "lest",
+        "he",
+        "knock",
+        "that",
+        "about",
+        "yours."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.56,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.56,
+          "end": 0.92,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 1.52,
+          "end": 1.64,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.78,
+          "end": 1.96,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 1.96,
+          "end": 2.14,
+          "key": "wear",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.14,
+          "end": 2.34,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dagger",
+          "start": 2.34,
+          "end": 2.62,
+          "key": "dagger",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.62,
+          "end": 2.8,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.8,
+          "end": 2.94,
+          "key": "your",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "cap",
+          "start": 2.94,
+          "end": 3.16,
+          "key": "cap",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.16,
+          "end": 3.42,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "day,",
+          "start": 3.42,
+          "end": 3.8,
+          "key": "day",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "lest",
+          "start": 4.1,
+          "end": 4.2,
+          "key": "lest",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.2,
+          "end": 4.38,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "knock",
+          "start": 4.38,
+          "end": 4.58,
+          "key": "knock",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.58,
+          "end": 4.8,
+          "key": "that",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 4.8,
+          "end": 5.04,
+          "key": "about",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "yours.",
+          "start": 5.04,
+          "end": 5.4,
+          "key": "yours",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "Henry.",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "text": "Do",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "text": "not",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "you",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "text": "wear",
+          "start": 1.96,
+          "end": 2.14
+        },
+        {
+          "text": "your",
+          "start": 2.14,
+          "end": 2.34
+        },
+        {
+          "text": "dagger",
+          "start": 2.34,
+          "end": 2.62
+        },
+        {
+          "text": "in",
+          "start": 2.62,
+          "end": 2.8
+        },
+        {
+          "text": "your",
+          "start": 2.8,
+          "end": 2.94
+        },
+        {
+          "text": "cap",
+          "start": 2.94,
+          "end": 3.16
+        },
+        {
+          "text": "that",
+          "start": 3.16,
+          "end": 3.42
+        },
+        {
+          "text": "day,",
+          "start": 3.42,
+          "end": 3.8
+        },
+        {
+          "text": "lest",
+          "start": 4.1,
+          "end": 4.2
+        },
+        {
+          "text": "he",
+          "start": 4.2,
+          "end": 4.38
+        },
+        {
+          "text": "knock",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "text": "that",
+          "start": 4.58,
+          "end": 4.8
+        },
+        {
+          "text": "about",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "text": "yours.",
+          "start": 5.04,
+          "end": 5.4
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31266710814088583
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "be0ca4314ff893ef347390c2fda37e2180d62e3ff3e6b3aa3af9956e18cfb82c",
+  "selected_reasons": []
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "de90636492471a50aeb12a21fdc8a4ad170f643b3d51659c54b300eef7386567",
+  "attempts": [
+    {
+      "asr_seconds": 0.10843981569632888,
+      "alignment_seconds": 0.00021058600395917892,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus lay hands upon him.",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Brutus",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " lay",
+              "start": 0.95,
+              "end": 1.35,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " hands",
+              "start": 1.35,
+              "end": 1.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " upon",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him.",
+              "start": 1.89,
+              "end": 2.15,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "lay",
+          "start": 0.95,
+          "end": 1.35
+        },
+        {
+          "raw": "hands",
+          "start": 1.35,
+          "end": 1.63
+        },
+        {
+          "raw": "upon",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "raw": "him.",
+          "start": 1.89,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Lay",
+        "hands",
+        "upon",
+        "him!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 0.95,
+          "end": 1.35,
+          "key": "lay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 1.35,
+          "end": 1.63,
+          "key": "hands",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.63,
+          "end": 1.89,
+          "key": "upon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.89,
+          "end": 2.15,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Lay",
+          "start": 0.95,
+          "end": 1.35
+        },
+        {
+          "text": "hands",
+          "start": 1.35,
+          "end": 1.63
+        },
+        {
+          "text": "upon",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "text": "him!",
+          "start": 1.89,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10874539474025369
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8c3ea0ddb37b6744fbdc000cb709a554b208e4d9339d2f5edfc7ef46a74156b7",
+  "selected_reasons": []
+}

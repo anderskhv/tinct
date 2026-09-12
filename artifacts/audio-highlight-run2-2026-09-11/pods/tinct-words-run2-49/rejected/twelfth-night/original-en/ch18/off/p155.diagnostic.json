@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "420e93f87aa86ec6e79cc81fe839d61265e9a0467fa1bdacf742744df533f127",
+  "attempts": [
+    {
+      "asr_seconds": 0.09053896740078926,
+      "alignment_seconds": 0.00012274086475372314,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " clown sings",
+          "start": 0.05,
+          "end": 0.93,
+          "words": [
+            {
+              "text": " clown",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.2091064453125
+            },
+            {
+              "text": " sings",
+              "start": 0.59,
+              "end": 0.93,
+              "probability": 0.916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "clown",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "sings",
+          "start": 0.59,
+          "end": 0.93
+        }
+      ],
+      "expected_tokens": [
+        "Clown",
+        "sings."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "clown",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sings",
+          "start": 0.59,
+          "end": 0.93,
+          "key": "sings",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "sings.",
+          "start": 0.59,
+          "end": 0.93
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09070293977856636
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3a4665da7edc3f283f29155f521ee09857b12147b8b1bdbd18607a0057fa4f78",
+  "selected_reasons": []
+}

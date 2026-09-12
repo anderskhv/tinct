@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "4ff2452890f2c814282d0f3b844fd37e4cec85d9dd270fe2c20176498f6011e4",
+  "attempts": [
+    {
+      "asr_seconds": 0.13616520911455154,
+      "alignment_seconds": 0.000409124419093132,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "We'll come to you after hunting.",
+        "hotwords": "We'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We'll come to you after hunting.",
+          "start": 0.02,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " We'll",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.6644287109375
+            },
+            {
+              "text": " come",
+              "start": 0.56,
+              "end": 0.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 0.72,
+              "end": 0.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 0.9,
+              "end": 1.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " after",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.9921875
+            },
+            {
+              "text": " hunting.",
+              "start": 1.32,
+              "end": 1.66,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We'll",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "come",
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "raw": "to",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "raw": "you",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "raw": "after",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "raw": "hunting.",
+          "start": 1.32,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "We'll",
+        "come",
+        "to",
+        "you",
+        "after",
+        "hunting."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We'll",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 0.56,
+          "end": 0.72,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.72,
+          "end": 0.9,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.9,
+          "end": 1.04,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "after",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hunting.",
+          "start": 1.32,
+          "end": 1.66,
+          "key": "hunting",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "We'll",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "come",
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "text": "to",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "text": "you",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "text": "after",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "text": "hunting.",
+          "start": 1.32,
+          "end": 1.66
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13671301491558552
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cae64fc6840b25382ecff6fcc73c8479ce0f3f2269c43cca1221e610872801a9",
+  "selected_reasons": []
+}

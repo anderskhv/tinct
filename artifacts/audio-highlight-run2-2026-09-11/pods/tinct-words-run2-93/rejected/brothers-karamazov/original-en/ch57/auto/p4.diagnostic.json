@@ -1,0 +1,5361 @@
+{
+  "complete": true,
+  "signature": "d3ac5bd3bd01c2698840fc63d3ceb3fefd7ed5748f0bc0031edc719bdbc1a601",
+  "attempts": [
+    {
+      "asr_seconds": 0.5941129475831985,
+      "alignment_seconds": 0.0005413591861724854,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Excellent! Thank you. But before we proceed to listen to your communication, will you allow me to inquire as to another little fact of great interest to us? I mean the ten roubles you borrowed yesterday at about five o'clock on the security of your pistols, from your friend, Pyotr Ilyitch Perhotin.\"",
+        "hotwords": "Excellent, Thank, But, I, Pyotr, Ilyitch, Perhotin"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thank you. But before we proceed to listen to your communication, will you allow me to inquire as to another little fact of great interest to us? I mean the ten roubles you borrowed yesterday at about five o'clock on the security of your pistols, from your friend, Pyotr Ilyitch Perhotin.",
+          "start": 0.05,
+          "end": 17.91,
+          "words": [
+            {
+              "text": " Thank",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.0135040283203125
+            },
+            {
+              "text": " you.",
+              "start": 0.71,
+              "end": 1.59,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " But",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " before",
+              "start": 2.23,
+              "end": 2.53,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " we",
+              "start": 2.53,
+              "end": 2.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " proceed",
+              "start": 2.73,
+              "end": 3.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " listen",
+              "start": 3.25,
+              "end": 3.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 3.43,
+              "end": 3.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 3.67,
+              "end": 3.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " communication,",
+              "start": 3.79,
+              "end": 4.33,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " will",
+              "start": 5.03,
+              "end": 5.09,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " you",
+              "start": 5.09,
+              "end": 5.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " allow",
+              "start": 5.23,
+              "end": 5.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 5.51,
+              "end": 5.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 5.73,
+              "end": 5.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " inquire",
+              "start": 5.87,
+              "end": 6.33,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " as",
+              "start": 6.33,
+              "end": 6.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 6.65,
+              "end": 6.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " another",
+              "start": 6.81,
+              "end": 7.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " little",
+              "start": 7.13,
+              "end": 7.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fact",
+              "start": 7.43,
+              "end": 7.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 7.75,
+              "end": 7.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " great",
+              "start": 7.95,
+              "end": 8.21,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " interest",
+              "start": 8.21,
+              "end": 8.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 8.53,
+              "end": 8.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " us?",
+              "start": 8.79,
+              "end": 9.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 9.61,
+              "end": 9.85,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " mean",
+              "start": 9.85,
+              "end": 9.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 9.99,
+              "end": 10.17,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " ten",
+              "start": 10.17,
+              "end": 10.41,
+              "probability": 0.677734375
+            },
+            {
+              "text": " roubles",
+              "start": 10.41,
+              "end": 10.81,
+              "probability": 0.6036376953125
+            },
+            {
+              "text": " you",
+              "start": 10.81,
+              "end": 11.07,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " borrowed",
+              "start": 11.07,
+              "end": 11.43,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " yesterday",
+              "start": 11.43,
+              "end": 11.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " at",
+              "start": 11.95,
+              "end": 12.31,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " about",
+              "start": 12.31,
+              "end": 12.51,
+              "probability": 0.99609375
+            },
+            {
+              "text": " five",
+              "start": 12.51,
+              "end": 12.89,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " o",
+              "start": 12.89,
+              "end": 13.01,
+              "probability": 0.99072265625
+            },
+            {
+              "text": "'clock",
+              "start": 13.01,
+              "end": 13.27,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " on",
+              "start": 13.27,
+              "end": 13.53,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 13.53,
+              "end": 13.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " security",
+              "start": 13.63,
+              "end": 13.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 13.99,
+              "end": 14.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 14.23,
+              "end": 14.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pistols,",
+              "start": 14.35,
+              "end": 14.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " from",
+              "start": 15.25,
+              "end": 15.39,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " your",
+              "start": 15.39,
+              "end": 15.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " friend,",
+              "start": 15.55,
+              "end": 16.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Pyotr",
+              "start": 16.53,
+              "end": 16.91,
+              "probability": 0.70703125
+            },
+            {
+              "text": " Ilyitch",
+              "start": 16.91,
+              "end": 17.33,
+              "probability": 0.29833221435546875
+            },
+            {
+              "text": " Perhotin.",
+              "start": 17.33,
+              "end": 17.91,
+              "probability": 0.41224416097005206
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thank",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "you.",
+          "start": 0.71,
+          "end": 1.59
+        },
+        {
+          "raw": "But",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "before",
+          "start": 2.23,
+          "end": 2.53
+        },
+        {
+          "raw": "we",
+          "start": 2.53,
+          "end": 2.73
+        },
+        {
+          "raw": "proceed",
+          "start": 2.73,
+          "end": 3.03
+        },
+        {
+          "raw": "to",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "raw": "listen",
+          "start": 3.25,
+          "end": 3.43
+        },
+        {
+          "raw": "to",
+          "start": 3.43,
+          "end": 3.67
+        },
+        {
+          "raw": "your",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "raw": "communication,",
+          "start": 3.79,
+          "end": 4.33
+        },
+        {
+          "raw": "will",
+          "start": 5.03,
+          "end": 5.09
+        },
+        {
+          "raw": "you",
+          "start": 5.09,
+          "end": 5.23
+        },
+        {
+          "raw": "allow",
+          "start": 5.23,
+          "end": 5.51
+        },
+        {
+          "raw": "me",
+          "start": 5.51,
+          "end": 5.73
+        },
+        {
+          "raw": "to",
+          "start": 5.73,
+          "end": 5.87
+        },
+        {
+          "raw": "inquire",
+          "start": 5.87,
+          "end": 6.33
+        },
+        {
+          "raw": "as",
+          "start": 6.33,
+          "end": 6.65
+        },
+        {
+          "raw": "to",
+          "start": 6.65,
+          "end": 6.81
+        },
+        {
+          "raw": "another",
+          "start": 6.81,
+          "end": 7.13
+        },
+        {
+          "raw": "little",
+          "start": 7.13,
+          "end": 7.43
+        },
+        {
+          "raw": "fact",
+          "start": 7.43,
+          "end": 7.75
+        },
+        {
+          "raw": "of",
+          "start": 7.75,
+          "end": 7.95
+        },
+        {
+          "raw": "great",
+          "start": 7.95,
+          "end": 8.21
+        },
+        {
+          "raw": "interest",
+          "start": 8.21,
+          "end": 8.53
+        },
+        {
+          "raw": "to",
+          "start": 8.53,
+          "end": 8.79
+        },
+        {
+          "raw": "us?",
+          "start": 8.79,
+          "end": 9.03
+        },
+        {
+          "raw": "I",
+          "start": 9.61,
+          "end": 9.85
+        },
+        {
+          "raw": "mean",
+          "start": 9.85,
+          "end": 9.99
+        },
+        {
+          "raw": "the",
+          "start": 9.99,
+          "end": 10.17
+        },
+        {
+          "raw": "ten",
+          "start": 10.17,
+          "end": 10.41
+        },
+        {
+          "raw": "roubles",
+          "start": 10.41,
+          "end": 10.81
+        },
+        {
+          "raw": "you",
+          "start": 10.81,
+          "end": 11.07
+        },
+        {
+          "raw": "borrowed",
+          "start": 11.07,
+          "end": 11.43
+        },
+        {
+          "raw": "yesterday",
+          "start": 11.43,
+          "end": 11.95
+        },
+        {
+          "raw": "at",
+          "start": 11.95,
+          "end": 12.31
+        },
+        {
+          "raw": "about",
+          "start": 12.31,
+          "end": 12.51
+        },
+        {
+          "raw": "five",
+          "start": 12.51,
+          "end": 12.89
+        },
+        {
+          "raw": "o",
+          "start": 12.89,
+          "end": 13.01
+        },
+        {
+          "raw": "'clock",
+          "start": 13.01,
+          "end": 13.27
+        },
+        {
+          "raw": "on",
+          "start": 13.27,
+          "end": 13.53
+        },
+        {
+          "raw": "the",
+          "start": 13.53,
+          "end": 13.63
+        },
+        {
+          "raw": "security",
+          "start": 13.63,
+          "end": 13.99
+        },
+        {
+          "raw": "of",
+          "start": 13.99,
+          "end": 14.23
+        },
+        {
+          "raw": "your",
+          "start": 14.23,
+          "end": 14.35
+        },
+        {
+          "raw": "pistols,",
+          "start": 14.35,
+          "end": 14.71
+        },
+        {
+          "raw": "from",
+          "start": 15.25,
+          "end": 15.39
+        },
+        {
+          "raw": "your",
+          "start": 15.39,
+          "end": 15.55
+        },
+        {
+          "raw": "friend,",
+          "start": 15.55,
+          "end": 16.01
+        },
+        {
+          "raw": "Pyotr",
+          "start": 16.53,
+          "end": 16.91
+        },
+        {
+          "raw": "Ilyitch",
+          "start": 16.91,
+          "end": 17.33
+        },
+        {
+          "raw": "Perhotin.",
+          "start": 17.33,
+          "end": 17.91
+        }
+      ],
+      "expected_tokens": [
+        "\"Excellent!",
+        "Thank",
+        "you.",
+        "But",
+        "before",
+        "we",
+        "proceed",
+        "to",
+        "listen",
+        "to",
+        "your",
+        "communication,",
+        "will",
+        "you",
+        "allow",
+        "me",
+        "to",
+        "inquire",
+        "as",
+        "to",
+        "another",
+        "little",
+        "fact",
+        "of",
+        "great",
+        "interest",
+        "to",
+        "us?",
+        "I",
+        "mean",
+        "the",
+        "ten",
+        "roubles",
+        "you",
+        "borrowed",
+        "yesterday",
+        "at",
+        "about",
+        "five",
+        "o'clock",
+        "on",
+        "the",
+        "security",
+        "of",
+        "your",
+        "pistols,",
+        "from",
+        "your",
+        "friend,",
+        "Pyotr",
+        "Ilyitch",
+        "Perhotin.\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          39,
+          0,
+          38
+        ],
+        [
+          "replace",
+          39,
+          40,
+          38,
+          40
+        ],
+        [
+          "equal",
+          40,
+          52,
+          40,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          39,
+          40,
+          38,
+          40
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thank",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "thank",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 0.71,
+          "end": 1.59,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 2.23,
+          "end": 2.53,
+          "key": "before",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.53,
+          "end": 2.73,
+          "key": "we",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "proceed",
+          "start": 2.73,
+          "end": 3.03,
+          "key": "proceed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.03,
+          "end": 3.25,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "listen",
+          "start": 3.25,
+          "end": 3.43,
+          "key": "listen",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.43,
+          "end": 3.67,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.67,
+          "end": 3.79,
+          "key": "your",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "communication,",
+          "start": 3.79,
+          "end": 4.33,
+          "key": "communication",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.03,
+          "end": 5.09,
+          "key": "will",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.09,
+          "end": 5.23,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "allow",
+          "start": 5.23,
+          "end": 5.51,
+          "key": "allow",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.51,
+          "end": 5.73,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.73,
+          "end": 5.87,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "inquire",
+          "start": 5.87,
+          "end": 6.33,
+          "key": "inquire",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.33,
+          "end": 6.65,
+          "key": "as",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.65,
+          "end": 6.81,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 6.81,
+          "end": 7.13,
+          "key": "another",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 7.13,
+          "end": 7.43,
+          "key": "little",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "fact",
+          "start": 7.43,
+          "end": 7.75,
+          "key": "fact",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.75,
+          "end": 7.95,
+          "key": "of",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 7.95,
+          "end": 8.21,
+          "key": "great",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "interest",
+          "start": 8.21,
+          "end": 8.53,
+          "key": "interest",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.53,
+          "end": 8.79,
+          "key": "to",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "us?",
+          "start": 8.79,
+          "end": 9.03,
+          "key": "us",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.61,
+          "end": 9.85,
+          "key": "i",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 9.85,
+          "end": 9.99,
+          "key": "mean",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.99,
+          "end": 10.17,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "ten",
+          "start": 10.17,
+          "end": 10.41,
+          "key": "ten",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "roubles",
+          "start": 10.41,
+          "end": 10.81,
+          "key": "roubles",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 10.81,
+          "end": 11.07,
+          "key": "you",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "borrowed",
+          "start": 11.07,
+          "end": 11.43,
+          "key": "borrowed",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "yesterday",
+          "start": 11.43,
+          "end": 11.95,
+          "key": "yesterday",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 11.95,
+          "end": 12.31,
+          "key": "at",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 12.31,
+          "end": 12.51,
+          "key": "about",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "five",
+          "start": 12.51,
+          "end": 12.89,
+          "key": "five",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 12.89,
+          "end": 13.01,
+          "key": "o",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "'clock",
+          "start": 13.01,
+          "end": 13.27,
+          "key": "clock",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 13.27,
+          "end": 13.53,
+          "key": "on",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.53,
+          "end": 13.63,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "security",
+          "start": 13.63,
+          "end": 13.99,
+          "key": "security",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.99,
+          "end": 14.23,
+          "key": "of",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 14.23,
+          "end": 14.35,
+          "key": "your",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "pistols,",
+          "start": 14.35,
+          "end": 14.71,
+          "key": "pistols",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 15.25,
+          "end": 15.39,
+          "key": "from",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 15.39,
+          "end": 15.55,
+          "key": "your",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "friend,",
+          "start": 15.55,
+          "end": 16.01,
+          "key": "friend",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Pyotr",
+          "start": 16.53,
+          "end": 16.91,
+          "key": "pyotr",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Ilyitch",
+          "start": 16.91,
+          "end": 17.33,
+          "key": "ilyitch",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Perhotin.",
+          "start": 17.33,
+          "end": 17.91,
+          "key": "perhotin",
+          "pieces": [
+            51
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Excellent!",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "Thank",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "you.",
+          "start": 0.71,
+          "end": 1.59
+        },
+        {
+          "text": "But",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "before",
+          "start": 2.23,
+          "end": 2.53
+        },
+        {
+          "text": "we",
+          "start": 2.53,
+          "end": 2.73
+        },
+        {
+          "text": "proceed",
+          "start": 2.73,
+          "end": 3.03
+        },
+        {
+          "text": "to",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "text": "listen",
+          "start": 3.25,
+          "end": 3.43
+        },
+        {
+          "text": "to",
+          "start": 3.43,
+          "end": 3.67
+        },
+        {
+          "text": "your",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "text": "communication,",
+          "start": 3.79,
+          "end": 4.33
+        },
+        {
+          "text": "will",
+          "start": 5.03,
+          "end": 5.09
+        },
+        {
+          "text": "you",
+          "start": 5.09,
+          "end": 5.23
+        },
+        {
+          "text": "allow",
+          "start": 5.23,
+          "end": 5.51
+        },
+        {
+          "text": "me",
+          "start": 5.51,
+          "end": 5.73
+        },
+        {
+          "text": "to",
+          "start": 5.73,
+          "end": 5.87
+        },
+        {
+          "text": "inquire",
+          "start": 5.87,
+          "end": 6.33
+        },
+        {
+          "text": "as",
+          "start": 6.33,
+          "end": 6.65
+        },
+        {
+          "text": "to",
+          "start": 6.65,
+          "end": 6.81
+        },
+        {
+          "text": "another",
+          "start": 6.81,
+          "end": 7.13
+        },
+        {
+          "text": "little",
+          "start": 7.13,
+          "end": 7.43
+        },
+        {
+          "text": "fact",
+          "start": 7.43,
+          "end": 7.75
+        },
+        {
+          "text": "of",
+          "start": 7.75,
+          "end": 7.95
+        },
+        {
+          "text": "great",
+          "start": 7.95,
+          "end": 8.21
+        },
+        {
+          "text": "interest",
+          "start": 8.21,
+          "end": 8.53
+        },
+        {
+          "text": "to",
+          "start": 8.53,
+          "end": 8.79
+        },
+        {
+          "text": "us?",
+          "start": 8.79,
+          "end": 9.03
+        },
+        {
+          "text": "I",
+          "start": 9.61,
+          "end": 9.85
+        },
+        {
+          "text": "mean",
+          "start": 9.85,
+          "end": 9.99
+        },
+        {
+          "text": "the",
+          "start": 9.99,
+          "end": 10.17
+        },
+        {
+          "text": "ten",
+          "start": 10.17,
+          "end": 10.41
+        },
+        {
+          "text": "roubles",
+          "start": 10.41,
+          "end": 10.81
+        },
+        {
+          "text": "you",
+          "start": 10.81,
+          "end": 11.07
+        },
+        {
+          "text": "borrowed",
+          "start": 11.07,
+          "end": 11.43
+        },
+        {
+          "text": "yesterday",
+          "start": 11.43,
+          "end": 11.95
+        },
+        {
+          "text": "at",
+          "start": 11.95,
+          "end": 12.31
+        },
+        {
+          "text": "about",
+          "start": 12.31,
+          "end": 12.51
+        },
+        {
+          "text": "five",
+          "start": 12.51,
+          "end": 12.89
+        },
+        {
+          "text": "o'clock",
+          "start": 12.89,
+          "end": 13.08
+        },
+        {
+          "text": "on",
+          "start": 13.27,
+          "end": 13.53
+        },
+        {
+          "text": "the",
+          "start": 13.53,
+          "end": 13.63
+        },
+        {
+          "text": "security",
+          "start": 13.63,
+          "end": 13.99
+        },
+        {
+          "text": "of",
+          "start": 13.99,
+          "end": 14.23
+        },
+        {
+          "text": "your",
+          "start": 14.23,
+          "end": 14.35
+        },
+        {
+          "text": "pistols,",
+          "start": 14.35,
+          "end": 14.71
+        },
+        {
+          "text": "from",
+          "start": 15.25,
+          "end": 15.39
+        },
+        {
+          "text": "your",
+          "start": 15.39,
+          "end": 15.55
+        },
+        {
+          "text": "friend,",
+          "start": 15.55,
+          "end": 16.01
+        },
+        {
+          "text": "Pyotr",
+          "start": 16.53,
+          "end": 16.91
+        },
+        {
+          "text": "Ilyitch",
+          "start": 16.91,
+          "end": 17.33
+        },
+        {
+          "text": "Perhotin.\"",
+          "start": 17.33,
+          "end": 17.91
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 52,
+        "matched_words": 50
+      },
+      "match_ratio": 0.9615384615384616,
+      "rejection_reasons": [],
+      "seconds": 0.5948861297219992
+    },
+    {
+      "asr_seconds": 0.5040413178503513,
+      "alignment_seconds": 0.000868355855345726,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Excellent, Thank, But, I, Pyotr, Ilyitch, Perhotin"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Excellent, Thank you, But, before we proceed to listen to your communication, will you allow me to inquire as to another little fact of great interest to us?",
+          "start": 0.05,
+          "end": 9.03,
+          "words": [
+            {
+              "text": " Excellent,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.4912109375
+            },
+            {
+              "text": " Thank",
+              "start": 1.07,
+              "end": 1.29,
+              "probability": 0.01202392578125
+            },
+            {
+              "text": " you,",
+              "start": 1.29,
+              "end": 1.63,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " But,",
+              "start": 2.01,
+              "end": 2.25,
+              "probability": 0.0828857421875
+            },
+            {
+              "text": " before",
+              "start": 2.51,
+              "end": 2.51,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " we",
+              "start": 2.51,
+              "end": 2.73,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " proceed",
+              "start": 2.73,
+              "end": 3.03,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " to",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.9921875
+            },
+            {
+              "text": " listen",
+              "start": 3.25,
+              "end": 3.41,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " to",
+              "start": 3.41,
+              "end": 3.67,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " your",
+              "start": 3.67,
+              "end": 3.79,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " communication,",
+              "start": 3.79,
+              "end": 4.31,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " will",
+              "start": 5.01,
+              "end": 5.09,
+              "probability": 0.73681640625
+            },
+            {
+              "text": " you",
+              "start": 5.09,
+              "end": 5.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " allow",
+              "start": 5.23,
+              "end": 5.51,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " me",
+              "start": 5.51,
+              "end": 5.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 5.75,
+              "end": 5.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " inquire",
+              "start": 5.87,
+              "end": 6.33,
+              "probability": 0.8984375
+            },
+            {
+              "text": " as",
+              "start": 6.33,
+              "end": 6.65,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " to",
+              "start": 6.65,
+              "end": 6.81,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " another",
+              "start": 6.81,
+              "end": 7.13,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " little",
+              "start": 7.13,
+              "end": 7.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " fact",
+              "start": 7.43,
+              "end": 7.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 7.75,
+              "end": 7.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " great",
+              "start": 7.95,
+              "end": 8.21,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " interest",
+              "start": 8.21,
+              "end": 8.53,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 8.53,
+              "end": 8.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " us?",
+              "start": 8.79,
+              "end": 9.03,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " I mean the ten rubles you borrowed yesterday at about five o'clock on the security of your pistols, from your friend, Pyotr Ilyitch Perhotin",
+          "start": 9.59,
+          "end": 17.91,
+          "words": [
+            {
+              "text": " I",
+              "start": 9.59,
+              "end": 9.85,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " mean",
+              "start": 9.85,
+              "end": 9.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 9.99,
+              "end": 10.17,
+              "probability": 0.8828125
+            },
+            {
+              "text": " ten",
+              "start": 10.17,
+              "end": 10.41,
+              "probability": 0.67041015625
+            },
+            {
+              "text": " rubles",
+              "start": 10.41,
+              "end": 10.85,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " you",
+              "start": 10.85,
+              "end": 11.07,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " borrowed",
+              "start": 11.07,
+              "end": 11.43,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " yesterday",
+              "start": 11.43,
+              "end": 11.95,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " at",
+              "start": 11.95,
+              "end": 12.31,
+              "probability": 0.880859375
+            },
+            {
+              "text": " about",
+              "start": 12.31,
+              "end": 12.51,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " five",
+              "start": 12.51,
+              "end": 12.89,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " o",
+              "start": 12.89,
+              "end": 13.01,
+              "probability": 0.98779296875
+            },
+            {
+              "text": "'clock",
+              "start": 13.01,
+              "end": 13.25,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " on",
+              "start": 13.25,
+              "end": 13.53,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " the",
+              "start": 13.53,
+              "end": 13.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " security",
+              "start": 13.63,
+              "end": 13.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 13.97,
+              "end": 14.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 14.23,
+              "end": 14.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " pistols,",
+              "start": 14.35,
+              "end": 14.71,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " from",
+              "start": 15.25,
+              "end": 15.39,
+              "probability": 0.931640625
+            },
+            {
+              "text": " your",
+              "start": 15.39,
+              "end": 15.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " friend,",
+              "start": 15.55,
+              "end": 15.99,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Pyotr",
+              "start": 16.53,
+              "end": 16.91,
+              "probability": 0.6973063151041666
+            },
+            {
+              "text": " Ilyitch",
+              "start": 16.91,
+              "end": 17.31,
+              "probability": 0.2991008758544922
+            },
+            {
+              "text": " Perhotin",
+              "start": 17.31,
+              "end": 17.91,
+              "probability": 0.41848500569661456
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Excellent,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Thank",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "raw": "you,",
+          "start": 1.29,
+          "end": 1.63
+        },
+        {
+          "raw": "But,",
+          "start": 2.01,
+          "end": 2.25
+        },
+        {
+          "raw": "before",
+          "start": 2.51,
+          "end": 2.51
+        },
+        {
+          "raw": "we",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "raw": "proceed",
+          "start": 2.73,
+          "end": 3.03
+        },
+        {
+          "raw": "to",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "raw": "listen",
+          "start": 3.25,
+          "end": 3.41
+        },
+        {
+          "raw": "to",
+          "start": 3.41,
+          "end": 3.67
+        },
+        {
+          "raw": "your",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "raw": "communication,",
+          "start": 3.79,
+          "end": 4.31
+        },
+        {
+          "raw": "will",
+          "start": 5.01,
+          "end": 5.09
+        },
+        {
+          "raw": "you",
+          "start": 5.09,
+          "end": 5.23
+        },
+        {
+          "raw": "allow",
+          "start": 5.23,
+          "end": 5.51
+        },
+        {
+          "raw": "me",
+          "start": 5.51,
+          "end": 5.75
+        },
+        {
+          "raw": "to",
+          "start": 5.75,
+          "end": 5.87
+        },
+        {
+          "raw": "inquire",
+          "start": 5.87,
+          "end": 6.33
+        },
+        {
+          "raw": "as",
+          "start": 6.33,
+          "end": 6.65
+        },
+        {
+          "raw": "to",
+          "start": 6.65,
+          "end": 6.81
+        },
+        {
+          "raw": "another",
+          "start": 6.81,
+          "end": 7.13
+        },
+        {
+          "raw": "little",
+          "start": 7.13,
+          "end": 7.43
+        },
+        {
+          "raw": "fact",
+          "start": 7.43,
+          "end": 7.75
+        },
+        {
+          "raw": "of",
+          "start": 7.75,
+          "end": 7.95
+        },
+        {
+          "raw": "great",
+          "start": 7.95,
+          "end": 8.21
+        },
+        {
+          "raw": "interest",
+          "start": 8.21,
+          "end": 8.53
+        },
+        {
+          "raw": "to",
+          "start": 8.53,
+          "end": 8.79
+        },
+        {
+          "raw": "us?",
+          "start": 8.79,
+          "end": 9.03
+        },
+        {
+          "raw": "I",
+          "start": 9.59,
+          "end": 9.85
+        },
+        {
+          "raw": "mean",
+          "start": 9.85,
+          "end": 9.99
+        },
+        {
+          "raw": "the",
+          "start": 9.99,
+          "end": 10.17
+        },
+        {
+          "raw": "ten",
+          "start": 10.17,
+          "end": 10.41
+        },
+        {
+          "raw": "rubles",
+          "start": 10.41,
+          "end": 10.85
+        },
+        {
+          "raw": "you",
+          "start": 10.85,
+          "end": 11.07
+        },
+        {
+          "raw": "borrowed",
+          "start": 11.07,
+          "end": 11.43
+        },
+        {
+          "raw": "yesterday",
+          "start": 11.43,
+          "end": 11.95
+        },
+        {
+          "raw": "at",
+          "start": 11.95,
+          "end": 12.31
+        },
+        {
+          "raw": "about",
+          "start": 12.31,
+          "end": 12.51
+        },
+        {
+          "raw": "five",
+          "start": 12.51,
+          "end": 12.89
+        },
+        {
+          "raw": "o",
+          "start": 12.89,
+          "end": 13.01
+        },
+        {
+          "raw": "'clock",
+          "start": 13.01,
+          "end": 13.25
+        },
+        {
+          "raw": "on",
+          "start": 13.25,
+          "end": 13.53
+        },
+        {
+          "raw": "the",
+          "start": 13.53,
+          "end": 13.63
+        },
+        {
+          "raw": "security",
+          "start": 13.63,
+          "end": 13.97
+        },
+        {
+          "raw": "of",
+          "start": 13.97,
+          "end": 14.23
+        },
+        {
+          "raw": "your",
+          "start": 14.23,
+          "end": 14.35
+        },
+        {
+          "raw": "pistols,",
+          "start": 14.35,
+          "end": 14.71
+        },
+        {
+          "raw": "from",
+          "start": 15.25,
+          "end": 15.39
+        },
+        {
+          "raw": "your",
+          "start": 15.39,
+          "end": 15.55
+        },
+        {
+          "raw": "friend,",
+          "start": 15.55,
+          "end": 15.99
+        },
+        {
+          "raw": "Pyotr",
+          "start": 16.53,
+          "end": 16.91
+        },
+        {
+          "raw": "Ilyitch",
+          "start": 16.91,
+          "end": 17.31
+        },
+        {
+          "raw": "Perhotin",
+          "start": 17.31,
+          "end": 17.91
+        }
+      ],
+      "expected_tokens": [
+        "\"Excellent!",
+        "Thank",
+        "you.",
+        "But",
+        "before",
+        "we",
+        "proceed",
+        "to",
+        "listen",
+        "to",
+        "your",
+        "communication,",
+        "will",
+        "you",
+        "allow",
+        "me",
+        "to",
+        "inquire",
+        "as",
+        "to",
+        "another",
+        "little",
+        "fact",
+        "of",
+        "great",
+        "interest",
+        "to",
+        "us?",
+        "I",
+        "mean",
+        "the",
+        "ten",
+        "roubles",
+        "you",
+        "borrowed",
+        "yesterday",
+        "at",
+        "about",
+        "five",
+        "o'clock",
+        "on",
+        "the",
+        "security",
+        "of",
+        "your",
+        "pistols,",
+        "from",
+        "your",
+        "friend,",
+        "Pyotr",
+        "Ilyitch",
+        "Perhotin.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          33
+        ],
+        [
+          "equal",
+          33,
+          39,
+          33,
+          39
+        ],
+        [
+          "replace",
+          39,
+          40,
+          39,
+          41
+        ],
+        [
+          "equal",
+          40,
+          52,
+          41,
+          53
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          32,
+          33,
+          32,
+          33
+        ],
+        [
+          "replace",
+          39,
+          40,
+          39,
+          41
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Excellent,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "excellent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thank",
+          "start": 1.07,
+          "end": 1.29,
+          "key": "thank",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.29,
+          "end": 1.63,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "But,",
+          "start": 2.01,
+          "end": 2.25,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 2.51,
+          "end": 2.51,
+          "key": "before",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.51,
+          "end": 2.73,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "proceed",
+          "start": 2.73,
+          "end": 3.03,
+          "key": "proceed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.03,
+          "end": 3.25,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "listen",
+          "start": 3.25,
+          "end": 3.41,
+          "key": "listen",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.41,
+          "end": 3.67,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.67,
+          "end": 3.79,
+          "key": "your",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "communication,",
+          "start": 3.79,
+          "end": 4.31,
+          "key": "communication",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.01,
+          "end": 5.09,
+          "key": "will",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.09,
+          "end": 5.23,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "allow",
+          "start": 5.23,
+          "end": 5.51,
+          "key": "allow",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.51,
+          "end": 5.75,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.75,
+          "end": 5.87,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "inquire",
+          "start": 5.87,
+          "end": 6.33,
+          "key": "inquire",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.33,
+          "end": 6.65,
+          "key": "as",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.65,
+          "end": 6.81,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 6.81,
+          "end": 7.13,
+          "key": "another",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 7.13,
+          "end": 7.43,
+          "key": "little",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "fact",
+          "start": 7.43,
+          "end": 7.75,
+          "key": "fact",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.75,
+          "end": 7.95,
+          "key": "of",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 7.95,
+          "end": 8.21,
+          "key": "great",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "interest",
+          "start": 8.21,
+          "end": 8.53,
+          "key": "interest",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.53,
+          "end": 8.79,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "us?",
+          "start": 8.79,
+          "end": 9.03,
+          "key": "us",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.59,
+          "end": 9.85,
+          "key": "i",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 9.85,
+          "end": 9.99,
+          "key": "mean",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.99,
+          "end": 10.17,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "ten",
+          "start": 10.17,
+          "end": 10.41,
+          "key": "ten",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "rubles",
+          "start": 10.41,
+          "end": 10.85,
+          "key": "rubles",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 10.85,
+          "end": 11.07,
+          "key": "you",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "borrowed",
+          "start": 11.07,
+          "end": 11.43,
+          "key": "borrowed",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "yesterday",
+          "start": 11.43,
+          "end": 11.95,
+          "key": "yesterday",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 11.95,
+          "end": 12.31,
+          "key": "at",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 12.31,
+          "end": 12.51,
+          "key": "about",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "five",
+          "start": 12.51,
+          "end": 12.89,
+          "key": "five",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 12.89,
+          "end": 13.01,
+          "key": "o",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "'clock",
+          "start": 13.01,
+          "end": 13.25,
+          "key": "clock",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 13.25,
+          "end": 13.53,
+          "key": "on",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.53,
+          "end": 13.63,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "security",
+          "start": 13.63,
+          "end": 13.97,
+          "key": "security",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.97,
+          "end": 14.23,
+          "key": "of",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 14.23,
+          "end": 14.35,
+          "key": "your",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "pistols,",
+          "start": 14.35,
+          "end": 14.71,
+          "key": "pistols",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 15.25,
+          "end": 15.39,
+          "key": "from",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 15.39,
+          "end": 15.55,
+          "key": "your",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "friend,",
+          "start": 15.55,
+          "end": 15.99,
+          "key": "friend",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Pyotr",
+          "start": 16.53,
+          "end": 16.91,
+          "key": "pyotr",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Ilyitch",
+          "start": 16.91,
+          "end": 17.31,
+          "key": "ilyitch",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Perhotin",
+          "start": 17.31,
+          "end": 17.91,
+          "key": "perhotin",
+          "pieces": [
+            52
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Excellent!",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Thank",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "text": "you.",
+          "start": 1.29,
+          "end": 1.63
+        },
+        {
+          "text": "But",
+          "start": 2.01,
+          "end": 2.25
+        },
+        {
+          "text": "before",
+          "start": 2.51,
+          "end": 2.51
+        },
+        {
+          "text": "we",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "text": "proceed",
+          "start": 2.73,
+          "end": 3.03
+        },
+        {
+          "text": "to",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "text": "listen",
+          "start": 3.25,
+          "end": 3.41
+        },
+        {
+          "text": "to",
+          "start": 3.41,
+          "end": 3.67
+        },
+        {
+          "text": "your",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "text": "communication,",
+          "start": 3.79,
+          "end": 4.31
+        },
+        {
+          "text": "will",
+          "start": 5.01,
+          "end": 5.09
+        },
+        {
+          "text": "you",
+          "start": 5.09,
+          "end": 5.23
+        },
+        {
+          "text": "allow",
+          "start": 5.23,
+          "end": 5.51
+        },
+        {
+          "text": "me",
+          "start": 5.51,
+          "end": 5.75
+        },
+        {
+          "text": "to",
+          "start": 5.75,
+          "end": 5.87
+        },
+        {
+          "text": "inquire",
+          "start": 5.87,
+          "end": 6.33
+        },
+        {
+          "text": "as",
+          "start": 6.33,
+          "end": 6.65
+        },
+        {
+          "text": "to",
+          "start": 6.65,
+          "end": 6.81
+        },
+        {
+          "text": "another",
+          "start": 6.81,
+          "end": 7.13
+        },
+        {
+          "text": "little",
+          "start": 7.13,
+          "end": 7.43
+        },
+        {
+          "text": "fact",
+          "start": 7.43,
+          "end": 7.75
+        },
+        {
+          "text": "of",
+          "start": 7.75,
+          "end": 7.95
+        },
+        {
+          "text": "great",
+          "start": 7.95,
+          "end": 8.21
+        },
+        {
+          "text": "interest",
+          "start": 8.21,
+          "end": 8.53
+        },
+        {
+          "text": "to",
+          "start": 8.53,
+          "end": 8.79
+        },
+        {
+          "text": "us?",
+          "start": 8.79,
+          "end": 9.03
+        },
+        {
+          "text": "I",
+          "start": 9.59,
+          "end": 9.85
+        },
+        {
+          "text": "mean",
+          "start": 9.85,
+          "end": 9.99
+        },
+        {
+          "text": "the",
+          "start": 9.99,
+          "end": 10.17
+        },
+        {
+          "text": "ten",
+          "start": 10.17,
+          "end": 10.41
+        },
+        {
+          "text": "roubles",
+          "start": 10.41,
+          "end": 10.63
+        },
+        {
+          "text": "you",
+          "start": 10.85,
+          "end": 11.07
+        },
+        {
+          "text": "borrowed",
+          "start": 11.07,
+          "end": 11.43
+        },
+        {
+          "text": "yesterday",
+          "start": 11.43,
+          "end": 11.95
+        },
+        {
+          "text": "at",
+          "start": 11.95,
+          "end": 12.31
+        },
+        {
+          "text": "about",
+          "start": 12.31,
+          "end": 12.51
+        },
+        {
+          "text": "five",
+          "start": 12.51,
+          "end": 12.89
+        },
+        {
+          "text": "o'clock",
+          "start": 12.89,
+          "end": 13.07
+        },
+        {
+          "text": "on",
+          "start": 13.25,
+          "end": 13.53
+        },
+        {
+          "text": "the",
+          "start": 13.53,
+          "end": 13.63
+        },
+        {
+          "text": "security",
+          "start": 13.63,
+          "end": 13.97
+        },
+        {
+          "text": "of",
+          "start": 13.97,
+          "end": 14.23
+        },
+        {
+          "text": "your",
+          "start": 14.23,
+          "end": 14.35
+        },
+        {
+          "text": "pistols,",
+          "start": 14.35,
+          "end": 14.71
+        },
+        {
+          "text": "from",
+          "start": 15.25,
+          "end": 15.39
+        },
+        {
+          "text": "your",
+          "start": 15.39,
+          "end": 15.55
+        },
+        {
+          "text": "friend,",
+          "start": 15.55,
+          "end": 15.99
+        },
+        {
+          "text": "Pyotr",
+          "start": 16.53,
+          "end": 16.91
+        },
+        {
+          "text": "Ilyitch",
+          "start": 16.91,
+          "end": 17.31
+        },
+        {
+          "text": "Perhotin.\"",
+          "start": 17.31,
+          "end": 17.91
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 53,
+        "matched_words": 50
+      },
+      "match_ratio": 0.9615384615384616,
+      "rejection_reasons": [],
+      "seconds": 0.5052826944738626
+    },
+    {
+      "asr_seconds": 0.719761323183775,
+      "alignment_seconds": 0.0010679028928279877,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Excellent, thank you. But before we proceed to listen to your communication, will you",
+          "start": 0.05,
+          "end": 5.23,
+          "words": [
+            {
+              "text": " Excellent,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.4912109375
+            },
+            {
+              "text": " thank",
+              "start": 1.07,
+              "end": 1.29,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " you.",
+              "start": 1.29,
+              "end": 1.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " But",
+              "start": 2.13,
+              "end": 2.25,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " before",
+              "start": 2.25,
+              "end": 2.53,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " we",
+              "start": 2.53,
+              "end": 2.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " proceed",
+              "start": 2.73,
+              "end": 3.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " listen",
+              "start": 3.25,
+              "end": 3.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 3.43,
+              "end": 3.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 3.67,
+              "end": 3.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " communication,",
+              "start": 3.79,
+              "end": 4.33,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " will",
+              "start": 5.01,
+              "end": 5.09,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " you",
+              "start": 5.09,
+              "end": 5.23,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " allow me to inquire as to another little fact of great interest to us? I mean the ten rubles",
+          "start": 5.23,
+          "end": 10.85,
+          "words": [
+            {
+              "text": " allow",
+              "start": 5.23,
+              "end": 5.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me",
+              "start": 5.51,
+              "end": 5.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 5.75,
+              "end": 5.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " inquire",
+              "start": 5.87,
+              "end": 6.33,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " as",
+              "start": 6.33,
+              "end": 6.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 6.65,
+              "end": 6.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " another",
+              "start": 6.81,
+              "end": 7.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " little",
+              "start": 7.13,
+              "end": 7.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fact",
+              "start": 7.43,
+              "end": 7.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 7.75,
+              "end": 7.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " great",
+              "start": 7.95,
+              "end": 8.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " interest",
+              "start": 8.21,
+              "end": 8.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 8.53,
+              "end": 8.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " us?",
+              "start": 8.79,
+              "end": 9.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 9.61,
+              "end": 9.85,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " mean",
+              "start": 9.85,
+              "end": 9.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 9.99,
+              "end": 10.17,
+              "probability": 0.939453125
+            },
+            {
+              "text": " ten",
+              "start": 10.17,
+              "end": 10.41,
+              "probability": 0.66259765625
+            },
+            {
+              "text": " rubles",
+              "start": 10.41,
+              "end": 10.85,
+              "probability": 0.818115234375
+            }
+          ]
+        },
+        {
+          "text": " you borrowed yesterday at about five o'clock on the security of your pistols, from your",
+          "start": 10.85,
+          "end": 15.55,
+          "words": [
+            {
+              "text": " you",
+              "start": 10.85,
+              "end": 11.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " borrowed",
+              "start": 11.07,
+              "end": 11.43,
+              "probability": 0.98828125
+            },
+            {
+              "text": " yesterday",
+              "start": 11.43,
+              "end": 11.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " at",
+              "start": 11.95,
+              "end": 12.31,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " about",
+              "start": 12.31,
+              "end": 12.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " five",
+              "start": 12.51,
+              "end": 12.89,
+              "probability": 0.806640625
+            },
+            {
+              "text": " o",
+              "start": 12.89,
+              "end": 13.01,
+              "probability": 0.99267578125
+            },
+            {
+              "text": "'clock",
+              "start": 13.01,
+              "end": 13.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " on",
+              "start": 13.25,
+              "end": 13.53,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 13.53,
+              "end": 13.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " security",
+              "start": 13.63,
+              "end": 13.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 13.99,
+              "end": 14.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 14.23,
+              "end": 14.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pistols,",
+              "start": 14.35,
+              "end": 14.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " from",
+              "start": 15.23,
+              "end": 15.39,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " your",
+              "start": 15.39,
+              "end": 15.55,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " friend, Pyotr Ilyich Perhatin.",
+          "start": 15.55,
+          "end": 17.91,
+          "words": [
+            {
+              "text": " friend,",
+              "start": 15.55,
+              "end": 16.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Pyotr",
+              "start": 16.51,
+              "end": 16.91,
+              "probability": 0.7034098307291666
+            },
+            {
+              "text": " Ilyich",
+              "start": 16.91,
+              "end": 17.31,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " Perhatin.",
+              "start": 17.31,
+              "end": 17.91,
+              "probability": 0.5287272135416666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Excellent,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "thank",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "raw": "you.",
+          "start": 1.29,
+          "end": 1.65
+        },
+        {
+          "raw": "But",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "raw": "before",
+          "start": 2.25,
+          "end": 2.53
+        },
+        {
+          "raw": "we",
+          "start": 2.53,
+          "end": 2.73
+        },
+        {
+          "raw": "proceed",
+          "start": 2.73,
+          "end": 3.03
+        },
+        {
+          "raw": "to",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "raw": "listen",
+          "start": 3.25,
+          "end": 3.43
+        },
+        {
+          "raw": "to",
+          "start": 3.43,
+          "end": 3.67
+        },
+        {
+          "raw": "your",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "raw": "communication,",
+          "start": 3.79,
+          "end": 4.33
+        },
+        {
+          "raw": "will",
+          "start": 5.01,
+          "end": 5.09
+        },
+        {
+          "raw": "you",
+          "start": 5.09,
+          "end": 5.23
+        },
+        {
+          "raw": "allow",
+          "start": 5.23,
+          "end": 5.51
+        },
+        {
+          "raw": "me",
+          "start": 5.51,
+          "end": 5.75
+        },
+        {
+          "raw": "to",
+          "start": 5.75,
+          "end": 5.87
+        },
+        {
+          "raw": "inquire",
+          "start": 5.87,
+          "end": 6.33
+        },
+        {
+          "raw": "as",
+          "start": 6.33,
+          "end": 6.65
+        },
+        {
+          "raw": "to",
+          "start": 6.65,
+          "end": 6.81
+        },
+        {
+          "raw": "another",
+          "start": 6.81,
+          "end": 7.13
+        },
+        {
+          "raw": "little",
+          "start": 7.13,
+          "end": 7.43
+        },
+        {
+          "raw": "fact",
+          "start": 7.43,
+          "end": 7.75
+        },
+        {
+          "raw": "of",
+          "start": 7.75,
+          "end": 7.95
+        },
+        {
+          "raw": "great",
+          "start": 7.95,
+          "end": 8.21
+        },
+        {
+          "raw": "interest",
+          "start": 8.21,
+          "end": 8.53
+        },
+        {
+          "raw": "to",
+          "start": 8.53,
+          "end": 8.79
+        },
+        {
+          "raw": "us?",
+          "start": 8.79,
+          "end": 9.03
+        },
+        {
+          "raw": "I",
+          "start": 9.61,
+          "end": 9.85
+        },
+        {
+          "raw": "mean",
+          "start": 9.85,
+          "end": 9.99
+        },
+        {
+          "raw": "the",
+          "start": 9.99,
+          "end": 10.17
+        },
+        {
+          "raw": "ten",
+          "start": 10.17,
+          "end": 10.41
+        },
+        {
+          "raw": "rubles",
+          "start": 10.41,
+          "end": 10.85
+        },
+        {
+          "raw": "you",
+          "start": 10.85,
+          "end": 11.07
+        },
+        {
+          "raw": "borrowed",
+          "start": 11.07,
+          "end": 11.43
+        },
+        {
+          "raw": "yesterday",
+          "start": 11.43,
+          "end": 11.95
+        },
+        {
+          "raw": "at",
+          "start": 11.95,
+          "end": 12.31
+        },
+        {
+          "raw": "about",
+          "start": 12.31,
+          "end": 12.51
+        },
+        {
+          "raw": "five",
+          "start": 12.51,
+          "end": 12.89
+        },
+        {
+          "raw": "o",
+          "start": 12.89,
+          "end": 13.01
+        },
+        {
+          "raw": "'clock",
+          "start": 13.01,
+          "end": 13.25
+        },
+        {
+          "raw": "on",
+          "start": 13.25,
+          "end": 13.53
+        },
+        {
+          "raw": "the",
+          "start": 13.53,
+          "end": 13.63
+        },
+        {
+          "raw": "security",
+          "start": 13.63,
+          "end": 13.99
+        },
+        {
+          "raw": "of",
+          "start": 13.99,
+          "end": 14.23
+        },
+        {
+          "raw": "your",
+          "start": 14.23,
+          "end": 14.35
+        },
+        {
+          "raw": "pistols,",
+          "start": 14.35,
+          "end": 14.71
+        },
+        {
+          "raw": "from",
+          "start": 15.23,
+          "end": 15.39
+        },
+        {
+          "raw": "your",
+          "start": 15.39,
+          "end": 15.55
+        },
+        {
+          "raw": "friend,",
+          "start": 15.55,
+          "end": 16.01
+        },
+        {
+          "raw": "Pyotr",
+          "start": 16.51,
+          "end": 16.91
+        },
+        {
+          "raw": "Ilyich",
+          "start": 16.91,
+          "end": 17.31
+        },
+        {
+          "raw": "Perhatin.",
+          "start": 17.31,
+          "end": 17.91
+        }
+      ],
+      "expected_tokens": [
+        "\"Excellent!",
+        "Thank",
+        "you.",
+        "But",
+        "before",
+        "we",
+        "proceed",
+        "to",
+        "listen",
+        "to",
+        "your",
+        "communication,",
+        "will",
+        "you",
+        "allow",
+        "me",
+        "to",
+        "inquire",
+        "as",
+        "to",
+        "another",
+        "little",
+        "fact",
+        "of",
+        "great",
+        "interest",
+        "to",
+        "us?",
+        "I",
+        "mean",
+        "the",
+        "ten",
+        "roubles",
+        "you",
+        "borrowed",
+        "yesterday",
+        "at",
+        "about",
+        "five",
+        "o'clock",
+        "on",
+        "the",
+        "security",
+        "of",
+        "your",
+        "pistols,",
+        "from",
+        "your",
+        "friend,",
+        "Pyotr",
+        "Ilyitch",
+        "Perhotin.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          33
+        ],
+        [
+          "equal",
+          33,
+          39,
+          33,
+          39
+        ],
+        [
+          "replace",
+          39,
+          40,
+          39,
+          41
+        ],
+        [
+          "equal",
+          40,
+          50,
+          41,
+          51
+        ],
+        [
+          "replace",
+          50,
+          52,
+          51,
+          53
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          32,
+          33,
+          32,
+          33
+        ],
+        [
+          "replace",
+          39,
+          40,
+          39,
+          41
+        ],
+        [
+          "replace",
+          50,
+          52,
+          51,
+          53
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Excellent,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "excellent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 1.07,
+          "end": 1.29,
+          "key": "thank",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.29,
+          "end": 1.65,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 2.13,
+          "end": 2.25,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 2.25,
+          "end": 2.53,
+          "key": "before",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.53,
+          "end": 2.73,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "proceed",
+          "start": 2.73,
+          "end": 3.03,
+          "key": "proceed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.03,
+          "end": 3.25,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "listen",
+          "start": 3.25,
+          "end": 3.43,
+          "key": "listen",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.43,
+          "end": 3.67,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.67,
+          "end": 3.79,
+          "key": "your",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "communication,",
+          "start": 3.79,
+          "end": 4.33,
+          "key": "communication",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.01,
+          "end": 5.09,
+          "key": "will",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.09,
+          "end": 5.23,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "allow",
+          "start": 5.23,
+          "end": 5.51,
+          "key": "allow",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.51,
+          "end": 5.75,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.75,
+          "end": 5.87,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "inquire",
+          "start": 5.87,
+          "end": 6.33,
+          "key": "inquire",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.33,
+          "end": 6.65,
+          "key": "as",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.65,
+          "end": 6.81,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 6.81,
+          "end": 7.13,
+          "key": "another",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 7.13,
+          "end": 7.43,
+          "key": "little",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "fact",
+          "start": 7.43,
+          "end": 7.75,
+          "key": "fact",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.75,
+          "end": 7.95,
+          "key": "of",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 7.95,
+          "end": 8.21,
+          "key": "great",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "interest",
+          "start": 8.21,
+          "end": 8.53,
+          "key": "interest",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.53,
+          "end": 8.79,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "us?",
+          "start": 8.79,
+          "end": 9.03,
+          "key": "us",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.61,
+          "end": 9.85,
+          "key": "i",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 9.85,
+          "end": 9.99,
+          "key": "mean",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.99,
+          "end": 10.17,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "ten",
+          "start": 10.17,
+          "end": 10.41,
+          "key": "ten",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "rubles",
+          "start": 10.41,
+          "end": 10.85,
+          "key": "rubles",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 10.85,
+          "end": 11.07,
+          "key": "you",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "borrowed",
+          "start": 11.07,
+          "end": 11.43,
+          "key": "borrowed",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "yesterday",
+          "start": 11.43,
+          "end": 11.95,
+          "key": "yesterday",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 11.95,
+          "end": 12.31,
+          "key": "at",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 12.31,
+          "end": 12.51,
+          "key": "about",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "five",
+          "start": 12.51,
+          "end": 12.89,
+          "key": "five",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 12.89,
+          "end": 13.01,
+          "key": "o",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "'clock",
+          "start": 13.01,
+          "end": 13.25,
+          "key": "clock",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 13.25,
+          "end": 13.53,
+          "key": "on",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.53,
+          "end": 13.63,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "security",
+          "start": 13.63,
+          "end": 13.99,
+          "key": "security",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.99,
+          "end": 14.23,
+          "key": "of",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 14.23,
+          "end": 14.35,
+          "key": "your",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "pistols,",
+          "start": 14.35,
+          "end": 14.71,
+          "key": "pistols",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 15.23,
+          "end": 15.39,
+          "key": "from",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 15.39,
+          "end": 15.55,
+          "key": "your",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "friend,",
+          "start": 15.55,
+          "end": 16.01,
+          "key": "friend",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Pyotr",
+          "start": 16.51,
+          "end": 16.91,
+          "key": "pyotr",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Ilyich",
+          "start": 16.91,
+          "end": 17.31,
+          "key": "ilyich",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Perhatin.",
+          "start": 17.31,
+          "end": 17.91,
+          "key": "perhatin",
+          "pieces": [
+            52
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Excellent!",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Thank",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "text": "you.",
+          "start": 1.29,
+          "end": 1.65
+        },
+        {
+          "text": "But",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "text": "before",
+          "start": 2.25,
+          "end": 2.53
+        },
+        {
+          "text": "we",
+          "start": 2.53,
+          "end": 2.73
+        },
+        {
+          "text": "proceed",
+          "start": 2.73,
+          "end": 3.03
+        },
+        {
+          "text": "to",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "text": "listen",
+          "start": 3.25,
+          "end": 3.43
+        },
+        {
+          "text": "to",
+          "start": 3.43,
+          "end": 3.67
+        },
+        {
+          "text": "your",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "text": "communication,",
+          "start": 3.79,
+          "end": 4.33
+        },
+        {
+          "text": "will",
+          "start": 5.01,
+          "end": 5.09
+        },
+        {
+          "text": "you",
+          "start": 5.09,
+          "end": 5.23
+        },
+        {
+          "text": "allow",
+          "start": 5.23,
+          "end": 5.51
+        },
+        {
+          "text": "me",
+          "start": 5.51,
+          "end": 5.75
+        },
+        {
+          "text": "to",
+          "start": 5.75,
+          "end": 5.87
+        },
+        {
+          "text": "inquire",
+          "start": 5.87,
+          "end": 6.33
+        },
+        {
+          "text": "as",
+          "start": 6.33,
+          "end": 6.65
+        },
+        {
+          "text": "to",
+          "start": 6.65,
+          "end": 6.81
+        },
+        {
+          "text": "another",
+          "start": 6.81,
+          "end": 7.13
+        },
+        {
+          "text": "little",
+          "start": 7.13,
+          "end": 7.43
+        },
+        {
+          "text": "fact",
+          "start": 7.43,
+          "end": 7.75
+        },
+        {
+          "text": "of",
+          "start": 7.75,
+          "end": 7.95
+        },
+        {
+          "text": "great",
+          "start": 7.95,
+          "end": 8.21
+        },
+        {
+          "text": "interest",
+          "start": 8.21,
+          "end": 8.53
+        },
+        {
+          "text": "to",
+          "start": 8.53,
+          "end": 8.79
+        },
+        {
+          "text": "us?",
+          "start": 8.79,
+          "end": 9.03
+        },
+        {
+          "text": "I",
+          "start": 9.61,
+          "end": 9.85
+        },
+        {
+          "text": "mean",
+          "start": 9.85,
+          "end": 9.99
+        },
+        {
+          "text": "the",
+          "start": 9.99,
+          "end": 10.17
+        },
+        {
+          "text": "ten",
+          "start": 10.17,
+          "end": 10.41
+        },
+        {
+          "text": "roubles",
+          "start": 10.41,
+          "end": 10.63
+        },
+        {
+          "text": "you",
+          "start": 10.85,
+          "end": 11.07
+        },
+        {
+          "text": "borrowed",
+          "start": 11.07,
+          "end": 11.43
+        },
+        {
+          "text": "yesterday",
+          "start": 11.43,
+          "end": 11.95
+        },
+        {
+          "text": "at",
+          "start": 11.95,
+          "end": 12.31
+        },
+        {
+          "text": "about",
+          "start": 12.31,
+          "end": 12.51
+        },
+        {
+          "text": "five",
+          "start": 12.51,
+          "end": 12.89
+        },
+        {
+          "text": "o'clock",
+          "start": 12.89,
+          "end": 13.07
+        },
+        {
+          "text": "on",
+          "start": 13.25,
+          "end": 13.53
+        },
+        {
+          "text": "the",
+          "start": 13.53,
+          "end": 13.63
+        },
+        {
+          "text": "security",
+          "start": 13.63,
+          "end": 13.99
+        },
+        {
+          "text": "of",
+          "start": 13.99,
+          "end": 14.23
+        },
+        {
+          "text": "your",
+          "start": 14.23,
+          "end": 14.35
+        },
+        {
+          "text": "pistols,",
+          "start": 14.35,
+          "end": 14.71
+        },
+        {
+          "text": "from",
+          "start": 15.23,
+          "end": 15.39
+        },
+        {
+          "text": "your",
+          "start": 15.39,
+          "end": 15.55
+        },
+        {
+          "text": "friend,",
+          "start": 15.55,
+          "end": 16.01
+        },
+        {
+          "text": "Pyotr",
+          "start": 16.51,
+          "end": 16.91
+        },
+        {
+          "text": "Ilyitch",
+          "start": 16.91,
+          "end": 17.41
+        },
+        {
+          "text": "Perhotin.\"",
+          "start": 17.41,
+          "end": 17.66
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 53,
+        "matched_words": 48
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.7212821897119284
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0bd16541396e940258a5c78dc6e9998664b427dd388487c6583ffff46e79f5c9",
+  "selected_reasons": []
+}

@@ -1,0 +1,408 @@
+{
+  "complete": true,
+  "signature": "7ebc2592be60025e2b05b520dc14072fec087db5ad36acec3f846de2eb0f18a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.20691243396140635,
+      "alignment_seconds": 0.0004021450877189636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I, Patty Leonard, said, a sucking bottle for the baby.",
+          "start": 0.08,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " I,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.5068359375
+            },
+            {
+              "text": " Patty",
+              "start": 0.78,
+              "end": 1.02,
+              "probability": 0.6357421875
+            },
+            {
+              "text": " Leonard,",
+              "start": 1.02,
+              "end": 1.24,
+              "probability": 0.93359375
+            },
+            {
+              "text": " said,",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 2.04,
+              "end": 2.16,
+              "probability": 0.3603515625
+            },
+            {
+              "text": " sucking",
+              "start": 2.16,
+              "end": 2.4,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " bottle",
+              "start": 2.4,
+              "end": 2.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 2.72,
+              "end": 2.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.96,
+              "end": 3.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " baby.",
+              "start": 3.08,
+              "end": 3.32,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Patty",
+          "start": 0.78,
+          "end": 1.02
+        },
+        {
+          "raw": "Leonard,",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "raw": "said,",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "a",
+          "start": 2.04,
+          "end": 2.16
+        },
+        {
+          "raw": "sucking",
+          "start": 2.16,
+          "end": 2.4
+        },
+        {
+          "raw": "bottle",
+          "start": 2.4,
+          "end": 2.72
+        },
+        {
+          "raw": "for",
+          "start": 2.72,
+          "end": 2.96
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.08
+        },
+        {
+          "raw": "baby.",
+          "start": 3.08,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "—Ay,",
+        "Paddy",
+        "Leonard",
+        "said.",
+        "A",
+        "suckingbottle",
+        "for",
+        "the",
+        "baby."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          9,
+          7,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Patty",
+          "start": 0.78,
+          "end": 1.02,
+          "key": "patty",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Leonard,",
+          "start": 1.02,
+          "end": 1.24,
+          "key": "leonard",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.04,
+          "end": 2.16,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sucking",
+          "start": 2.16,
+          "end": 2.4,
+          "key": "sucking",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bottle",
+          "start": 2.4,
+          "end": 2.72,
+          "key": "bottle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.72,
+          "end": 2.96,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.08,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "baby.",
+          "start": 3.08,
+          "end": 3.32,
+          "key": "baby",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Ay,",
+          "start": 0.0,
+          "end": 0.51
+        },
+        {
+          "text": "Paddy",
+          "start": 0.51,
+          "end": 0.765
+        },
+        {
+          "text": "Leonard",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "text": "said.",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "A",
+          "start": 2.04,
+          "end": 2.16
+        },
+        {
+          "text": "suckingbottle",
+          "start": 2.16,
+          "end": 2.44
+        },
+        {
+          "text": "for",
+          "start": 2.72,
+          "end": 2.96
+        },
+        {
+          "text": "the",
+          "start": 2.96,
+          "end": 3.08
+        },
+        {
+          "text": "baby.",
+          "start": 3.08,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20745416497811675
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2fc90ca902f0489fdc14b705fc33d9a4e96ff196398a4f250e8c490407bf4018",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

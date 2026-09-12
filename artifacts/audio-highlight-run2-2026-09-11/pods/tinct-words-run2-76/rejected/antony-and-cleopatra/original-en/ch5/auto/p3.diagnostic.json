@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "64dd7788d23238464049a683cd72d400716e2c3c4ee80170cc5c551b354b6835",
+  "attempts": [
+    {
+      "asr_seconds": 0.20403917785733938,
+      "alignment_seconds": 0.0004270719364285469,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. Ha, ha! Give me to drink mandragora.",
+        "hotwords": "Cleopatra, Give"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, Ha, ha! Give me to drink mandragora.",
+          "start": 0.54,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.54,
+              "end": 1.06,
+              "probability": 0.9625651041666666
+            },
+            {
+              "text": " Ha,",
+              "start": 1.56,
+              "end": 1.64,
+              "probability": 0.0224609375
+            },
+            {
+              "text": " ha!",
+              "start": 1.9,
+              "end": 1.9,
+              "probability": 0.55615234375
+            },
+            {
+              "text": " Give",
+              "start": 2.26,
+              "end": 2.34,
+              "probability": 0.865234375
+            },
+            {
+              "text": " me",
+              "start": 2.34,
+              "end": 2.44,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 2.44,
+              "end": 2.56,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " drink",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " mandragora.",
+              "start": 2.74,
+              "end": 3.42,
+              "probability": 0.42266845703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.54,
+          "end": 1.06
+        },
+        {
+          "raw": "Ha,",
+          "start": 1.56,
+          "end": 1.64
+        },
+        {
+          "raw": "ha!",
+          "start": 1.9,
+          "end": 1.9
+        },
+        {
+          "raw": "Give",
+          "start": 2.26,
+          "end": 2.34
+        },
+        {
+          "raw": "me",
+          "start": 2.34,
+          "end": 2.44
+        },
+        {
+          "raw": "to",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "raw": "drink",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "mandragora.",
+          "start": 2.74,
+          "end": 3.42
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Ha,",
+        "ha!",
+        "Give",
+        "me",
+        "to",
+        "drink",
+        "mandragora."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.54,
+          "end": 1.06,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ha,",
+          "start": 1.56,
+          "end": 1.64,
+          "key": "ha",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ha!",
+          "start": 1.9,
+          "end": 1.9,
+          "key": "ha",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Give",
+          "start": 2.26,
+          "end": 2.34,
+          "key": "give",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.34,
+          "end": 2.44,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.44,
+          "end": 2.56,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "drink",
+          "start": 2.56,
+          "end": 2.74,
+          "key": "drink",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mandragora.",
+          "start": 2.74,
+          "end": 3.42,
+          "key": "mandragora",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.54,
+          "end": 1.06
+        },
+        {
+          "text": "Ha,",
+          "start": 1.56,
+          "end": 1.64
+        },
+        {
+          "text": "ha!",
+          "start": 1.9,
+          "end": 1.9
+        },
+        {
+          "text": "Give",
+          "start": 2.26,
+          "end": 2.34
+        },
+        {
+          "text": "me",
+          "start": 2.34,
+          "end": 2.44
+        },
+        {
+          "text": "to",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "text": "drink",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "mandragora.",
+          "start": 2.74,
+          "end": 3.42
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20466411113739014
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "712f36865560b8af4ad4beb5118ae36e8977a844b814edc3b52ea3edbddbd929",
+  "selected_reasons": []
+}

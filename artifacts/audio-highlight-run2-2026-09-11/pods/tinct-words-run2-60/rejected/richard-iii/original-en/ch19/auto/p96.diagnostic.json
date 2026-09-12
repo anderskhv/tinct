@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "debbcce371fd32b23e18bdba2565ec1398efabff64da12b9ac8906126f9546d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.21325219050049782,
+      "alignment_seconds": 0.0004449225962162018,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen Elizabeth. Well, then, who dost thou mean shall be her king?",
+        "hotwords": "Queen, Elizabeth, Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen Elizabeth. Well, then, who dost thou mean shall be her king?",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " Elizabeth.",
+              "start": 0.59,
+              "end": 1.05,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Well,",
+              "start": 1.77,
+              "end": 1.79,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " then,",
+              "start": 1.95,
+              "end": 2.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " who",
+              "start": 2.27,
+              "end": 2.27,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " dost",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " thou",
+              "start": 2.49,
+              "end": 2.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " mean",
+              "start": 2.67,
+              "end": 2.91,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " shall",
+              "start": 2.91,
+              "end": 3.09,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " be",
+              "start": 3.09,
+              "end": 3.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 3.23,
+              "end": 3.39,
+              "probability": 0.994140625
+            },
+            {
+              "text": " king?",
+              "start": 3.39,
+              "end": 3.63,
+              "probability": 0.8935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "Elizabeth.",
+          "start": 0.59,
+          "end": 1.05
+        },
+        {
+          "raw": "Well,",
+          "start": 1.77,
+          "end": 1.79
+        },
+        {
+          "raw": "then,",
+          "start": 1.95,
+          "end": 2.03
+        },
+        {
+          "raw": "who",
+          "start": 2.27,
+          "end": 2.27
+        },
+        {
+          "raw": "dost",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "raw": "thou",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "raw": "mean",
+          "start": 2.67,
+          "end": 2.91
+        },
+        {
+          "raw": "shall",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "raw": "be",
+          "start": 3.09,
+          "end": 3.23
+        },
+        {
+          "raw": "her",
+          "start": 3.23,
+          "end": 3.39
+        },
+        {
+          "raw": "king?",
+          "start": 3.39,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "Well,",
+        "then,",
+        "who",
+        "dost",
+        "thou",
+        "mean",
+        "shall",
+        "be",
+        "her",
+        "king?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Elizabeth.",
+          "start": 0.59,
+          "end": 1.05,
+          "key": "elizabeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 1.77,
+          "end": 1.79,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 1.95,
+          "end": 2.03,
+          "key": "then",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 2.27,
+          "end": 2.27,
+          "key": "who",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 2.27,
+          "end": 2.49,
+          "key": "dost",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.49,
+          "end": 2.67,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 2.67,
+          "end": 2.91,
+          "key": "mean",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.91,
+          "end": 3.09,
+          "key": "shall",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.09,
+          "end": 3.23,
+          "key": "be",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.23,
+          "end": 3.39,
+          "key": "her",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "king?",
+          "start": 3.39,
+          "end": 3.63,
+          "key": "king",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.59,
+          "end": 1.05
+        },
+        {
+          "text": "Well,",
+          "start": 1.77,
+          "end": 1.79
+        },
+        {
+          "text": "then,",
+          "start": 1.95,
+          "end": 2.03
+        },
+        {
+          "text": "who",
+          "start": 2.27,
+          "end": 2.27
+        },
+        {
+          "text": "dost",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "text": "thou",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "text": "mean",
+          "start": 2.67,
+          "end": 2.91
+        },
+        {
+          "text": "shall",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "text": "be",
+          "start": 3.09,
+          "end": 3.23
+        },
+        {
+          "text": "her",
+          "start": 3.23,
+          "end": 3.39
+        },
+        {
+          "text": "king?",
+          "start": 3.39,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21387210860848427
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6017c498fb0bd55177853ae4ffece7b37e31a63bf4a03748ff259cbb6883403c",
+  "selected_reasons": []
+}

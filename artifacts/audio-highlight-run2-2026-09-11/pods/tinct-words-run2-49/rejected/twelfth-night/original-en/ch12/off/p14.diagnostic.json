@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "8b1b85c6ed76754ff375a9f330981c90e3182544a2072bef6e3faae36398aaa4",
+  "attempts": [
+    {
+      "asr_seconds": 0.19216464832425117,
+      "alignment_seconds": 0.00044751912355422974,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fabian, there is no way but this, Sir Andrew.",
+          "start": 0.08,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " Fabian,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.932373046875
+            },
+            {
+              "text": " there",
+              "start": 1.14,
+              "end": 1.38,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " is",
+              "start": 1.38,
+              "end": 1.48,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " no",
+              "start": 1.48,
+              "end": 1.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " way",
+              "start": 1.66,
+              "end": 1.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " but",
+              "start": 1.82,
+              "end": 1.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " this,",
+              "start": 1.98,
+              "end": 2.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Sir",
+              "start": 2.42,
+              "end": 2.44,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " Andrew.",
+              "start": 2.44,
+              "end": 2.8,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fabian,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "there",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "raw": "is",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "raw": "no",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "raw": "way",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "raw": "but",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "raw": "this,",
+          "start": 1.98,
+          "end": 2.22
+        },
+        {
+          "raw": "Sir",
+          "start": 2.42,
+          "end": 2.44
+        },
+        {
+          "raw": "Andrew.",
+          "start": 2.44,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "Fabian.",
+        "There",
+        "is",
+        "no",
+        "way",
+        "but",
+        "this,",
+        "Sir",
+        "Andrew."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fabian,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "fabian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.14,
+          "end": 1.38,
+          "key": "there",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.38,
+          "end": 1.48,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.48,
+          "end": 1.66,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 1.66,
+          "end": 1.82,
+          "key": "way",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.82,
+          "end": 1.98,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 1.98,
+          "end": 2.22,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 2.42,
+          "end": 2.44,
+          "key": "sir",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Andrew.",
+          "start": 2.44,
+          "end": 2.8,
+          "key": "andrew",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fabian.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "There",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "text": "is",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "text": "no",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "text": "way",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "text": "but",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "text": "this,",
+          "start": 1.98,
+          "end": 2.22
+        },
+        {
+          "text": "Sir",
+          "start": 2.42,
+          "end": 2.44
+        },
+        {
+          "text": "Andrew.",
+          "start": 2.44,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19280623272061348
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "06c7c204de3d28df6128f08c4c51efe9244e07e89f69cd9bc5709182d08e33cf",
+  "selected_reasons": []
+}

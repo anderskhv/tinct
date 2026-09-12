@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "5a493a885e36226a5e02ca21b27539ad40c0866e5c9b95f7a4869250086df89a",
+  "attempts": [
+    {
+      "asr_seconds": 0.10490752384066582,
+      "alignment_seconds": 0.0002523362636566162,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Charmian. Amen.",
+        "hotwords": "Charmian, Amen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Charmian, Amen.",
+          "start": 0.08,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Charmian,",
+              "start": 0.08,
+              "end": 0.96,
+              "probability": 0.640380859375
+            },
+            {
+              "text": " Amen.",
+              "start": 1.14,
+              "end": 1.28,
+              "probability": 0.65771484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmian,",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "raw": "Amen.",
+          "start": 1.14,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "Amen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmian,",
+          "start": 0.08,
+          "end": 0.96,
+          "key": "charmian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Amen.",
+          "start": 1.14,
+          "end": 1.28,
+          "key": "amen",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "text": "Amen.",
+          "start": 1.14,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10527314664795995
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a050c92dc09095f877e88e55b0bd0e78df9922fa63ec247715d4104b6fe35e69",
+  "selected_reasons": []
+}

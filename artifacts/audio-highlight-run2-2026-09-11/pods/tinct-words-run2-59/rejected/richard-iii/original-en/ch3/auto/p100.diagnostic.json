@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "d7e6334be12f4c25da9065b74adee94e36347a6e278beb5624cea7bdeb4d7af8",
+  "attempts": [
+    {
+      "asr_seconds": 0.19648985099047422,
+      "alignment_seconds": 0.00039797904901206493,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Buckingham. Peace, peace, for shame, if not for charity.",
+        "hotwords": "Buckingham"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Buckingham. Peace, peace, for shame, if not for charity.",
+          "start": 0.05,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Buckingham.",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.88671875
+            },
+            {
+              "text": " Peace,",
+              "start": 1.47,
+              "end": 1.55,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " peace,",
+              "start": 1.75,
+              "end": 1.85,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " for",
+              "start": 2.09,
+              "end": 2.13,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " shame,",
+              "start": 2.13,
+              "end": 2.43,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " if",
+              "start": 2.59,
+              "end": 2.67,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 2.67,
+              "end": 2.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 2.83,
+              "end": 3.01,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " charity.",
+              "start": 3.01,
+              "end": 3.37,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Peace,",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "raw": "peace,",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "raw": "for",
+          "start": 2.09,
+          "end": 2.13
+        },
+        {
+          "raw": "shame,",
+          "start": 2.13,
+          "end": 2.43
+        },
+        {
+          "raw": "if",
+          "start": 2.59,
+          "end": 2.67
+        },
+        {
+          "raw": "not",
+          "start": 2.67,
+          "end": 2.83
+        },
+        {
+          "raw": "for",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "raw": "charity.",
+          "start": 3.01,
+          "end": 3.37
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "Peace,",
+        "peace,",
+        "for",
+        "shame,",
+        "if",
+        "not",
+        "for",
+        "charity."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham.",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Peace,",
+          "start": 1.47,
+          "end": 1.55,
+          "key": "peace",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "peace,",
+          "start": 1.75,
+          "end": 1.85,
+          "key": "peace",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.09,
+          "end": 2.13,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shame,",
+          "start": 2.13,
+          "end": 2.43,
+          "key": "shame",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.59,
+          "end": 2.67,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.67,
+          "end": 2.83,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.83,
+          "end": 3.01,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "charity.",
+          "start": 3.01,
+          "end": 3.37,
+          "key": "charity",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Peace,",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "text": "peace,",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "text": "for",
+          "start": 2.09,
+          "end": 2.13
+        },
+        {
+          "text": "shame,",
+          "start": 2.13,
+          "end": 2.43
+        },
+        {
+          "text": "if",
+          "start": 2.59,
+          "end": 2.67
+        },
+        {
+          "text": "not",
+          "start": 2.67,
+          "end": 2.83
+        },
+        {
+          "text": "for",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "text": "charity.",
+          "start": 3.01,
+          "end": 3.37
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19703532312996686
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eea364de1a834de1fdd40d0f2a02049b8206186cb56f1a388b7720bf53533b81",
+  "selected_reasons": []
+}

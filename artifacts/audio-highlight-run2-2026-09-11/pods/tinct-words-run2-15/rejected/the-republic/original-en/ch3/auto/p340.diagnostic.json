@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "88035456f25b967f0a5b219d72b79c3c2f7d0b7e2e134c962f2b03631fe0af60",
+  "attempts": [
+    {
+      "asr_seconds": 0.30924565345048904,
+      "alignment_seconds": 0.0004358850419521332,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, he said, they do certainly give very strange and newfangled names to diseases.",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, he said, they do certainly give very strange and newfangled names to diseases.",
+          "start": 0.05,
+          "end": 5.15,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.151123046875
+            },
+            {
+              "text": " he",
+              "start": 0.89,
+              "end": 0.99,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " said,",
+              "start": 0.99,
+              "end": 1.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " they",
+              "start": 1.67,
+              "end": 1.89,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " do",
+              "start": 1.89,
+              "end": 2.03,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " certainly",
+              "start": 2.03,
+              "end": 2.33,
+              "probability": 0.9921875
+            },
+            {
+              "text": " give",
+              "start": 2.33,
+              "end": 2.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " very",
+              "start": 2.57,
+              "end": 2.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " strange",
+              "start": 2.89,
+              "end": 3.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 3.39,
+              "end": 3.65,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " newfangled",
+              "start": 3.65,
+              "end": 4.19,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " names",
+              "start": 4.19,
+              "end": 4.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 4.57,
+              "end": 4.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " diseases.",
+              "start": 4.79,
+              "end": 5.15,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "he",
+          "start": 0.89,
+          "end": 0.99
+        },
+        {
+          "raw": "said,",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "raw": "they",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "raw": "do",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "raw": "certainly",
+          "start": 2.03,
+          "end": 2.33
+        },
+        {
+          "raw": "give",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "raw": "very",
+          "start": 2.57,
+          "end": 2.89
+        },
+        {
+          "raw": "strange",
+          "start": 2.89,
+          "end": 3.39
+        },
+        {
+          "raw": "and",
+          "start": 3.39,
+          "end": 3.65
+        },
+        {
+          "raw": "newfangled",
+          "start": 3.65,
+          "end": 4.19
+        },
+        {
+          "raw": "names",
+          "start": 4.19,
+          "end": 4.57
+        },
+        {
+          "raw": "to",
+          "start": 4.57,
+          "end": 4.79
+        },
+        {
+          "raw": "diseases.",
+          "start": 4.79,
+          "end": 5.15
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "he",
+        "said,",
+        "they",
+        "do",
+        "certainly",
+        "give",
+        "very",
+        "strange",
+        "and",
+        "newfangled",
+        "names",
+        "to",
+        "diseases."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.89,
+          "end": 0.99,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 0.99,
+          "end": 1.27,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.67,
+          "end": 1.89,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.89,
+          "end": 2.03,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "certainly",
+          "start": 2.03,
+          "end": 2.33,
+          "key": "certainly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 2.33,
+          "end": 2.57,
+          "key": "give",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 2.57,
+          "end": 2.89,
+          "key": "very",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 2.89,
+          "end": 3.39,
+          "key": "strange",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.39,
+          "end": 3.65,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "newfangled",
+          "start": 3.65,
+          "end": 4.19,
+          "key": "newfangled",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "names",
+          "start": 4.19,
+          "end": 4.57,
+          "key": "names",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.57,
+          "end": 4.79,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "diseases.",
+          "start": 4.79,
+          "end": 5.15,
+          "key": "diseases",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "he",
+          "start": 0.89,
+          "end": 0.99
+        },
+        {
+          "text": "said,",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "text": "they",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "text": "do",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "text": "certainly",
+          "start": 2.03,
+          "end": 2.33
+        },
+        {
+          "text": "give",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "text": "very",
+          "start": 2.57,
+          "end": 2.89
+        },
+        {
+          "text": "strange",
+          "start": 2.89,
+          "end": 3.39
+        },
+        {
+          "text": "and",
+          "start": 3.39,
+          "end": 3.65
+        },
+        {
+          "text": "newfangled",
+          "start": 3.65,
+          "end": 4.19
+        },
+        {
+          "text": "names",
+          "start": 4.19,
+          "end": 4.57
+        },
+        {
+          "text": "to",
+          "start": 4.57,
+          "end": 4.79
+        },
+        {
+          "text": "diseases.",
+          "start": 4.79,
+          "end": 5.15
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30986370146274567
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b326a3f98c06515863efe5313d5dde2137344c3a4e897866a09ff911f4779853",
+  "selected_reasons": []
+}

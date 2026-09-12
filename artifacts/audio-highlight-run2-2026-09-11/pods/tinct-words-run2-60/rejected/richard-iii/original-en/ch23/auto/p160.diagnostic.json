@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "c4032dce99f6113bc1b50f4de973df00dd8a8ba2e7c45f65bfe63f47a75c1df8",
+  "attempts": [
+    {
+      "asr_seconds": 0.10378056764602661,
+      "alignment_seconds": 0.0002169087529182434,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter a Messenger.",
+        "hotwords": "Enter, Messenger"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter a Messenger.",
+          "start": 0.05,
+          "end": 1.11,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.931640625
+            },
+            {
+              "text": " a",
+              "start": 0.65,
+              "end": 0.79,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Messenger.",
+              "start": 0.79,
+              "end": 1.11,
+              "probability": 0.1566162109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "a",
+          "start": 0.65,
+          "end": 0.79
+        },
+        {
+          "raw": "Messenger.",
+          "start": 0.79,
+          "end": 1.11
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "a",
+        "Messenger."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.65,
+          "end": 0.79,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Messenger.",
+          "start": 0.79,
+          "end": 1.11,
+          "key": "messenger",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "a",
+          "start": 0.65,
+          "end": 0.79
+        },
+        {
+          "text": "Messenger.",
+          "start": 0.79,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1040976271033287
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2a39094f9e829142c190ba211143d994310408f0b6e05dce66afc86db469bab6",
+  "selected_reasons": []
+}

@@ -1,0 +1,3368 @@
+{
+  "complete": true,
+  "signature": "d7b9ec24957b6c9483fdd47252cf70a5118fe2f07cc7bc62b5da1a809c013332",
+  "attempts": [
+    {
+      "asr_seconds": 1.088771816343069,
+      "alignment_seconds": 0.0034413114190101624,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But sometimes the sovereign authority is composed of preorganized political bodies, by virtue of circumstances anterior to their union; and in this case the provincial governments assume the control, not only of those affairs which more peculiarly belong to their province, but of all, or of a part of the mixed affairs to which allusion has been made. For the confederate nations which were independent sovereign States before their union, and which still represent a very considerable share of the sovereign power, have only consented to cede to the general Government the exercise of those rights which are indispensable to the Union.",
+        "hotwords": "For, States, Government"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But sometimes the sovereign authority is composed of preorganized political bodies,",
+          "start": 0.14,
+          "end": 4.8,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.14,
+              "end": 0.46,
+              "probability": 0.29296875
+            },
+            {
+              "text": " sometimes",
+              "start": 0.46,
+              "end": 0.94,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " the",
+              "start": 0.94,
+              "end": 1.26,
+              "probability": 0.751953125
+            },
+            {
+              "text": " sovereign",
+              "start": 1.26,
+              "end": 1.6,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " authority",
+              "start": 1.6,
+              "end": 2.1,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " is",
+              "start": 2.1,
+              "end": 2.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " composed",
+              "start": 2.36,
+              "end": 2.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 2.74,
+              "end": 3.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " preorganized",
+              "start": 3.02,
+              "end": 3.64,
+              "probability": 0.862060546875
+            },
+            {
+              "text": " political",
+              "start": 3.64,
+              "end": 4.2,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " bodies,",
+              "start": 4.2,
+              "end": 4.8,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " by virtue of circumstances anterior to their union, and in this case the provincial governments",
+          "start": 5.3,
+          "end": 11.22,
+          "words": [
+            {
+              "text": " by",
+              "start": 5.3,
+              "end": 5.48,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " virtue",
+              "start": 5.48,
+              "end": 5.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 5.84,
+              "end": 6.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " circumstances",
+              "start": 6.1,
+              "end": 6.66,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " anterior",
+              "start": 6.66,
+              "end": 7.38,
+              "probability": 0.3876953125
+            },
+            {
+              "text": " to",
+              "start": 7.38,
+              "end": 7.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " their",
+              "start": 7.72,
+              "end": 7.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " union,",
+              "start": 7.86,
+              "end": 8.26,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " and",
+              "start": 8.94,
+              "end": 9.08,
+              "probability": 0.96484375
+            },
+            {
+              "text": " in",
+              "start": 9.08,
+              "end": 9.22,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " this",
+              "start": 9.22,
+              "end": 9.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " case",
+              "start": 9.44,
+              "end": 9.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 9.8,
+              "end": 10.38,
+              "probability": 0.354248046875
+            },
+            {
+              "text": " provincial",
+              "start": 10.38,
+              "end": 10.74,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " governments",
+              "start": 10.74,
+              "end": 11.22,
+              "probability": 0.97216796875
+            }
+          ]
+        },
+        {
+          "text": " assume the control, not only of those affairs which more peculiarly belong to their province,",
+          "start": 11.22,
+          "end": 16.58,
+          "words": [
+            {
+              "text": " assume",
+              "start": 11.22,
+              "end": 11.7,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " the",
+              "start": 11.7,
+              "end": 11.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " control,",
+              "start": 11.92,
+              "end": 12.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 12.94,
+              "end": 13.12,
+              "probability": 0.9921875
+            },
+            {
+              "text": " only",
+              "start": 13.12,
+              "end": 13.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 13.42,
+              "end": 13.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " those",
+              "start": 13.56,
+              "end": 13.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " affairs",
+              "start": 13.76,
+              "end": 14.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " which",
+              "start": 14.16,
+              "end": 14.44,
+              "probability": 0.951171875
+            },
+            {
+              "text": " more",
+              "start": 14.44,
+              "end": 14.64,
+              "probability": 0.9921875
+            },
+            {
+              "text": " peculiarly",
+              "start": 14.64,
+              "end": 15.46,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " belong",
+              "start": 15.46,
+              "end": 15.8,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " to",
+              "start": 15.8,
+              "end": 16.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " their",
+              "start": 16.02,
+              "end": 16.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " province,",
+              "start": 16.18,
+              "end": 16.58,
+              "probability": 0.986328125
+            }
+          ]
+        },
+        {
+          "text": " but of all, or of a part of the mixed affairs to which allusion has been made.",
+          "start": 17.08,
+          "end": 21.42,
+          "words": [
+            {
+              "text": " but",
+              "start": 17.08,
+              "end": 17.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 17.26,
+              "end": 17.36,
+              "probability": 0.99609375
+            },
+            {
+              "text": " all,",
+              "start": 17.36,
+              "end": 17.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " or",
+              "start": 18.18,
+              "end": 18.34,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 18.34,
+              "end": 18.46,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " a",
+              "start": 18.46,
+              "end": 18.56,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " part",
+              "start": 18.56,
+              "end": 18.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 18.74,
+              "end": 18.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 18.88,
+              "end": 18.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " mixed",
+              "start": 18.98,
+              "end": 19.24,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " affairs",
+              "start": 19.24,
+              "end": 19.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 19.66,
+              "end": 19.96,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " which",
+              "start": 19.96,
+              "end": 20.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " allusion",
+              "start": 20.1,
+              "end": 20.56,
+              "probability": 0.6744384765625
+            },
+            {
+              "text": " has",
+              "start": 20.56,
+              "end": 20.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " been",
+              "start": 20.8,
+              "end": 20.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " made.",
+              "start": 20.98,
+              "end": 21.42,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " For the confederate nations which were independent sovereign States before their union,",
+          "start": 22.3,
+          "end": 26.76,
+          "words": [
+            {
+              "text": " For",
+              "start": 22.3,
+              "end": 22.48,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " the",
+              "start": 22.48,
+              "end": 22.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " confederate",
+              "start": 22.64,
+              "end": 23.22,
+              "probability": 0.6923421223958334
+            },
+            {
+              "text": " nations",
+              "start": 23.22,
+              "end": 23.6,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " which",
+              "start": 23.6,
+              "end": 23.96,
+              "probability": 0.6689453125
+            },
+            {
+              "text": " were",
+              "start": 23.96,
+              "end": 24.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " independent",
+              "start": 24.18,
+              "end": 24.8,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " sovereign",
+              "start": 24.8,
+              "end": 25.24,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " States",
+              "start": 25.24,
+              "end": 25.66,
+              "probability": 0.0163421630859375
+            },
+            {
+              "text": " before",
+              "start": 25.66,
+              "end": 26.1,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " their",
+              "start": 26.1,
+              "end": 26.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " union,",
+              "start": 26.38,
+              "end": 26.76,
+              "probability": 0.81787109375
+            }
+          ]
+        },
+        {
+          "text": " and which still represent a very considerable share of the sovereign power, have only consented",
+          "start": 26.76,
+          "end": 32.52,
+          "words": [
+            {
+              "text": " and",
+              "start": 26.76,
+              "end": 27.16,
+              "probability": 0.50146484375
+            },
+            {
+              "text": " which",
+              "start": 27.16,
+              "end": 27.54,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " still",
+              "start": 27.54,
+              "end": 27.84,
+              "probability": 0.994140625
+            },
+            {
+              "text": " represent",
+              "start": 27.84,
+              "end": 28.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 28.36,
+              "end": 28.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " very",
+              "start": 28.64,
+              "end": 28.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " considerable",
+              "start": 28.9,
+              "end": 29.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " share",
+              "start": 29.52,
+              "end": 29.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 29.96,
+              "end": 30.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 30.18,
+              "end": 30.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sovereign",
+              "start": 30.32,
+              "end": 30.6,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " power,",
+              "start": 30.6,
+              "end": 31.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " have",
+              "start": 31.54,
+              "end": 31.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " only",
+              "start": 31.7,
+              "end": 32.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " consented",
+              "start": 32.02,
+              "end": 32.52,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " to cede to the general Government the exercise of those rights which are indispensable to the Union.",
+          "start": 32.52,
+          "end": 38.04,
+          "words": [
+            {
+              "text": " to",
+              "start": 32.52,
+              "end": 32.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cede",
+              "start": 32.76,
+              "end": 33.08,
+              "probability": 0.965087890625
+            },
+            {
+              "text": " to",
+              "start": 33.08,
+              "end": 33.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 33.22,
+              "end": 33.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " general",
+              "start": 33.34,
+              "end": 33.72,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " Government",
+              "start": 33.72,
+              "end": 34.2,
+              "probability": 0.00467681884765625
+            },
+            {
+              "text": " the",
+              "start": 34.2,
+              "end": 34.74,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " exercise",
+              "start": 34.74,
+              "end": 35.18,
+              "probability": 0.974609375
+            },
+            {
+              "text": " of",
+              "start": 35.18,
+              "end": 35.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " those",
+              "start": 35.58,
+              "end": 35.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rights",
+              "start": 35.8,
+              "end": 36.08,
+              "probability": 0.9140625
+            },
+            {
+              "text": " which",
+              "start": 36.08,
+              "end": 36.4,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " are",
+              "start": 36.4,
+              "end": 36.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " indispensable",
+              "start": 36.58,
+              "end": 37.14,
+              "probability": 0.990234375
+            },
+            {
+              "text": " to",
+              "start": 37.14,
+              "end": 37.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 37.6,
+              "end": 37.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Union.",
+              "start": 37.74,
+              "end": 38.04,
+              "probability": 0.833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.14,
+          "end": 0.46
+        },
+        {
+          "raw": "sometimes",
+          "start": 0.46,
+          "end": 0.94
+        },
+        {
+          "raw": "the",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "raw": "sovereign",
+          "start": 1.26,
+          "end": 1.6
+        },
+        {
+          "raw": "authority",
+          "start": 1.6,
+          "end": 2.1
+        },
+        {
+          "raw": "is",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "raw": "composed",
+          "start": 2.36,
+          "end": 2.74
+        },
+        {
+          "raw": "of",
+          "start": 2.74,
+          "end": 3.02
+        },
+        {
+          "raw": "preorganized",
+          "start": 3.02,
+          "end": 3.64
+        },
+        {
+          "raw": "political",
+          "start": 3.64,
+          "end": 4.2
+        },
+        {
+          "raw": "bodies,",
+          "start": 4.2,
+          "end": 4.8
+        },
+        {
+          "raw": "by",
+          "start": 5.3,
+          "end": 5.48
+        },
+        {
+          "raw": "virtue",
+          "start": 5.48,
+          "end": 5.84
+        },
+        {
+          "raw": "of",
+          "start": 5.84,
+          "end": 6.1
+        },
+        {
+          "raw": "circumstances",
+          "start": 6.1,
+          "end": 6.66
+        },
+        {
+          "raw": "anterior",
+          "start": 6.66,
+          "end": 7.38
+        },
+        {
+          "raw": "to",
+          "start": 7.38,
+          "end": 7.72
+        },
+        {
+          "raw": "their",
+          "start": 7.72,
+          "end": 7.86
+        },
+        {
+          "raw": "union,",
+          "start": 7.86,
+          "end": 8.26
+        },
+        {
+          "raw": "and",
+          "start": 8.94,
+          "end": 9.08
+        },
+        {
+          "raw": "in",
+          "start": 9.08,
+          "end": 9.22
+        },
+        {
+          "raw": "this",
+          "start": 9.22,
+          "end": 9.44
+        },
+        {
+          "raw": "case",
+          "start": 9.44,
+          "end": 9.8
+        },
+        {
+          "raw": "the",
+          "start": 9.8,
+          "end": 10.38
+        },
+        {
+          "raw": "provincial",
+          "start": 10.38,
+          "end": 10.74
+        },
+        {
+          "raw": "governments",
+          "start": 10.74,
+          "end": 11.22
+        },
+        {
+          "raw": "assume",
+          "start": 11.22,
+          "end": 11.7
+        },
+        {
+          "raw": "the",
+          "start": 11.7,
+          "end": 11.92
+        },
+        {
+          "raw": "control,",
+          "start": 11.92,
+          "end": 12.38
+        },
+        {
+          "raw": "not",
+          "start": 12.94,
+          "end": 13.12
+        },
+        {
+          "raw": "only",
+          "start": 13.12,
+          "end": 13.42
+        },
+        {
+          "raw": "of",
+          "start": 13.42,
+          "end": 13.56
+        },
+        {
+          "raw": "those",
+          "start": 13.56,
+          "end": 13.76
+        },
+        {
+          "raw": "affairs",
+          "start": 13.76,
+          "end": 14.16
+        },
+        {
+          "raw": "which",
+          "start": 14.16,
+          "end": 14.44
+        },
+        {
+          "raw": "more",
+          "start": 14.44,
+          "end": 14.64
+        },
+        {
+          "raw": "peculiarly",
+          "start": 14.64,
+          "end": 15.46
+        },
+        {
+          "raw": "belong",
+          "start": 15.46,
+          "end": 15.8
+        },
+        {
+          "raw": "to",
+          "start": 15.8,
+          "end": 16.02
+        },
+        {
+          "raw": "their",
+          "start": 16.02,
+          "end": 16.18
+        },
+        {
+          "raw": "province,",
+          "start": 16.18,
+          "end": 16.58
+        },
+        {
+          "raw": "but",
+          "start": 17.08,
+          "end": 17.26
+        },
+        {
+          "raw": "of",
+          "start": 17.26,
+          "end": 17.36
+        },
+        {
+          "raw": "all,",
+          "start": 17.36,
+          "end": 17.76
+        },
+        {
+          "raw": "or",
+          "start": 18.18,
+          "end": 18.34
+        },
+        {
+          "raw": "of",
+          "start": 18.34,
+          "end": 18.46
+        },
+        {
+          "raw": "a",
+          "start": 18.46,
+          "end": 18.56
+        },
+        {
+          "raw": "part",
+          "start": 18.56,
+          "end": 18.74
+        },
+        {
+          "raw": "of",
+          "start": 18.74,
+          "end": 18.88
+        },
+        {
+          "raw": "the",
+          "start": 18.88,
+          "end": 18.98
+        },
+        {
+          "raw": "mixed",
+          "start": 18.98,
+          "end": 19.24
+        },
+        {
+          "raw": "affairs",
+          "start": 19.24,
+          "end": 19.66
+        },
+        {
+          "raw": "to",
+          "start": 19.66,
+          "end": 19.96
+        },
+        {
+          "raw": "which",
+          "start": 19.96,
+          "end": 20.1
+        },
+        {
+          "raw": "allusion",
+          "start": 20.1,
+          "end": 20.56
+        },
+        {
+          "raw": "has",
+          "start": 20.56,
+          "end": 20.8
+        },
+        {
+          "raw": "been",
+          "start": 20.8,
+          "end": 20.98
+        },
+        {
+          "raw": "made.",
+          "start": 20.98,
+          "end": 21.42
+        },
+        {
+          "raw": "For",
+          "start": 22.3,
+          "end": 22.48
+        },
+        {
+          "raw": "the",
+          "start": 22.48,
+          "end": 22.64
+        },
+        {
+          "raw": "confederate",
+          "start": 22.64,
+          "end": 23.22
+        },
+        {
+          "raw": "nations",
+          "start": 23.22,
+          "end": 23.6
+        },
+        {
+          "raw": "which",
+          "start": 23.6,
+          "end": 23.96
+        },
+        {
+          "raw": "were",
+          "start": 23.96,
+          "end": 24.18
+        },
+        {
+          "raw": "independent",
+          "start": 24.18,
+          "end": 24.8
+        },
+        {
+          "raw": "sovereign",
+          "start": 24.8,
+          "end": 25.24
+        },
+        {
+          "raw": "States",
+          "start": 25.24,
+          "end": 25.66
+        },
+        {
+          "raw": "before",
+          "start": 25.66,
+          "end": 26.1
+        },
+        {
+          "raw": "their",
+          "start": 26.1,
+          "end": 26.38
+        },
+        {
+          "raw": "union,",
+          "start": 26.38,
+          "end": 26.76
+        },
+        {
+          "raw": "and",
+          "start": 26.76,
+          "end": 27.16
+        },
+        {
+          "raw": "which",
+          "start": 27.16,
+          "end": 27.54
+        },
+        {
+          "raw": "still",
+          "start": 27.54,
+          "end": 27.84
+        },
+        {
+          "raw": "represent",
+          "start": 27.84,
+          "end": 28.36
+        },
+        {
+          "raw": "a",
+          "start": 28.36,
+          "end": 28.64
+        },
+        {
+          "raw": "very",
+          "start": 28.64,
+          "end": 28.9
+        },
+        {
+          "raw": "considerable",
+          "start": 28.9,
+          "end": 29.52
+        },
+        {
+          "raw": "share",
+          "start": 29.52,
+          "end": 29.96
+        },
+        {
+          "raw": "of",
+          "start": 29.96,
+          "end": 30.18
+        },
+        {
+          "raw": "the",
+          "start": 30.18,
+          "end": 30.32
+        },
+        {
+          "raw": "sovereign",
+          "start": 30.32,
+          "end": 30.6
+        },
+        {
+          "raw": "power,",
+          "start": 30.6,
+          "end": 31.06
+        },
+        {
+          "raw": "have",
+          "start": 31.54,
+          "end": 31.7
+        },
+        {
+          "raw": "only",
+          "start": 31.7,
+          "end": 32.02
+        },
+        {
+          "raw": "consented",
+          "start": 32.02,
+          "end": 32.52
+        },
+        {
+          "raw": "to",
+          "start": 32.52,
+          "end": 32.76
+        },
+        {
+          "raw": "cede",
+          "start": 32.76,
+          "end": 33.08
+        },
+        {
+          "raw": "to",
+          "start": 33.08,
+          "end": 33.22
+        },
+        {
+          "raw": "the",
+          "start": 33.22,
+          "end": 33.34
+        },
+        {
+          "raw": "general",
+          "start": 33.34,
+          "end": 33.72
+        },
+        {
+          "raw": "Government",
+          "start": 33.72,
+          "end": 34.2
+        },
+        {
+          "raw": "the",
+          "start": 34.2,
+          "end": 34.74
+        },
+        {
+          "raw": "exercise",
+          "start": 34.74,
+          "end": 35.18
+        },
+        {
+          "raw": "of",
+          "start": 35.18,
+          "end": 35.58
+        },
+        {
+          "raw": "those",
+          "start": 35.58,
+          "end": 35.8
+        },
+        {
+          "raw": "rights",
+          "start": 35.8,
+          "end": 36.08
+        },
+        {
+          "raw": "which",
+          "start": 36.08,
+          "end": 36.4
+        },
+        {
+          "raw": "are",
+          "start": 36.4,
+          "end": 36.58
+        },
+        {
+          "raw": "indispensable",
+          "start": 36.58,
+          "end": 37.14
+        },
+        {
+          "raw": "to",
+          "start": 37.14,
+          "end": 37.6
+        },
+        {
+          "raw": "the",
+          "start": 37.6,
+          "end": 37.74
+        },
+        {
+          "raw": "Union.",
+          "start": 37.74,
+          "end": 38.04
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "sometimes",
+        "the",
+        "sovereign",
+        "authority",
+        "is",
+        "composed",
+        "of",
+        "preorganized",
+        "political",
+        "bodies,",
+        "by",
+        "virtue",
+        "of",
+        "circumstances",
+        "anterior",
+        "to",
+        "their",
+        "union;",
+        "and",
+        "in",
+        "this",
+        "case",
+        "the",
+        "provincial",
+        "governments",
+        "assume",
+        "the",
+        "control,",
+        "not",
+        "only",
+        "of",
+        "those",
+        "affairs",
+        "which",
+        "more",
+        "peculiarly",
+        "belong",
+        "to",
+        "their",
+        "province,",
+        "but",
+        "of",
+        "all,",
+        "or",
+        "of",
+        "a",
+        "part",
+        "of",
+        "the",
+        "mixed",
+        "affairs",
+        "to",
+        "which",
+        "allusion",
+        "has",
+        "been",
+        "made.",
+        "For",
+        "the",
+        "confederate",
+        "nations",
+        "which",
+        "were",
+        "independent",
+        "sovereign",
+        "States",
+        "before",
+        "their",
+        "union,",
+        "and",
+        "which",
+        "still",
+        "represent",
+        "a",
+        "very",
+        "considerable",
+        "share",
+        "of",
+        "the",
+        "sovereign",
+        "power,",
+        "have",
+        "only",
+        "consented",
+        "to",
+        "cede",
+        "to",
+        "the",
+        "general",
+        "Government",
+        "the",
+        "exercise",
+        "of",
+        "those",
+        "rights",
+        "which",
+        "are",
+        "indispensable",
+        "to",
+        "the",
+        "Union."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          102,
+          0,
+          102
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.14,
+          "end": 0.46,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sometimes",
+          "start": 0.46,
+          "end": 0.94,
+          "key": "sometimes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.94,
+          "end": 1.26,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sovereign",
+          "start": 1.26,
+          "end": 1.6,
+          "key": "sovereign",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "authority",
+          "start": 1.6,
+          "end": 2.1,
+          "key": "authority",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.1,
+          "end": 2.36,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "composed",
+          "start": 2.36,
+          "end": 2.74,
+          "key": "composed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.74,
+          "end": 3.02,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "preorganized",
+          "start": 3.02,
+          "end": 3.64,
+          "key": "preorganized",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "political",
+          "start": 3.64,
+          "end": 4.2,
+          "key": "political",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bodies,",
+          "start": 4.2,
+          "end": 4.8,
+          "key": "bodies",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 5.3,
+          "end": 5.48,
+          "key": "by",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "virtue",
+          "start": 5.48,
+          "end": 5.84,
+          "key": "virtue",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.84,
+          "end": 6.1,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "circumstances",
+          "start": 6.1,
+          "end": 6.66,
+          "key": "circumstances",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "anterior",
+          "start": 6.66,
+          "end": 7.38,
+          "key": "anterior",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.38,
+          "end": 7.72,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 7.72,
+          "end": 7.86,
+          "key": "their",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "union,",
+          "start": 7.86,
+          "end": 8.26,
+          "key": "union",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.94,
+          "end": 9.08,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.08,
+          "end": 9.22,
+          "key": "in",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 9.22,
+          "end": 9.44,
+          "key": "this",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "case",
+          "start": 9.44,
+          "end": 9.8,
+          "key": "case",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.8,
+          "end": 10.38,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "provincial",
+          "start": 10.38,
+          "end": 10.74,
+          "key": "provincial",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "governments",
+          "start": 10.74,
+          "end": 11.22,
+          "key": "governments",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "assume",
+          "start": 11.22,
+          "end": 11.7,
+          "key": "assume",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.7,
+          "end": 11.92,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "control,",
+          "start": 11.92,
+          "end": 12.38,
+          "key": "control",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 12.94,
+          "end": 13.12,
+          "key": "not",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 13.12,
+          "end": 13.42,
+          "key": "only",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.42,
+          "end": 13.56,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 13.56,
+          "end": 13.76,
+          "key": "those",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "affairs",
+          "start": 13.76,
+          "end": 14.16,
+          "key": "affairs",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 14.16,
+          "end": 14.44,
+          "key": "which",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 14.44,
+          "end": 14.64,
+          "key": "more",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "peculiarly",
+          "start": 14.64,
+          "end": 15.46,
+          "key": "peculiarly",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "belong",
+          "start": 15.46,
+          "end": 15.8,
+          "key": "belong",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.8,
+          "end": 16.02,
+          "key": "to",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 16.02,
+          "end": 16.18,
+          "key": "their",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "province,",
+          "start": 16.18,
+          "end": 16.58,
+          "key": "province",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 17.08,
+          "end": 17.26,
+          "key": "but",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 17.26,
+          "end": 17.36,
+          "key": "of",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "all,",
+          "start": 17.36,
+          "end": 17.76,
+          "key": "all",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 18.18,
+          "end": 18.34,
+          "key": "or",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 18.34,
+          "end": 18.46,
+          "key": "of",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 18.46,
+          "end": 18.56,
+          "key": "a",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 18.56,
+          "end": 18.74,
+          "key": "part",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 18.74,
+          "end": 18.88,
+          "key": "of",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.88,
+          "end": 18.98,
+          "key": "the",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "mixed",
+          "start": 18.98,
+          "end": 19.24,
+          "key": "mixed",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "affairs",
+          "start": 19.24,
+          "end": 19.66,
+          "key": "affairs",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 19.66,
+          "end": 19.96,
+          "key": "to",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 19.96,
+          "end": 20.1,
+          "key": "which",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "allusion",
+          "start": 20.1,
+          "end": 20.56,
+          "key": "allusion",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 20.56,
+          "end": 20.8,
+          "key": "has",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 20.8,
+          "end": 20.98,
+          "key": "been",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "made.",
+          "start": 20.98,
+          "end": 21.42,
+          "key": "made",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 22.3,
+          "end": 22.48,
+          "key": "for",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.48,
+          "end": 22.64,
+          "key": "the",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "confederate",
+          "start": 22.64,
+          "end": 23.22,
+          "key": "confederate",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "nations",
+          "start": 23.22,
+          "end": 23.6,
+          "key": "nations",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 23.6,
+          "end": 23.96,
+          "key": "which",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 23.96,
+          "end": 24.18,
+          "key": "were",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "independent",
+          "start": 24.18,
+          "end": 24.8,
+          "key": "independent",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "sovereign",
+          "start": 24.8,
+          "end": 25.24,
+          "key": "sovereign",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "States",
+          "start": 25.24,
+          "end": 25.66,
+          "key": "states",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 25.66,
+          "end": 26.1,
+          "key": "before",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 26.1,
+          "end": 26.38,
+          "key": "their",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "union,",
+          "start": 26.38,
+          "end": 26.76,
+          "key": "union",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 26.76,
+          "end": 27.16,
+          "key": "and",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 27.16,
+          "end": 27.54,
+          "key": "which",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 27.54,
+          "end": 27.84,
+          "key": "still",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "represent",
+          "start": 27.84,
+          "end": 28.36,
+          "key": "represent",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 28.36,
+          "end": 28.64,
+          "key": "a",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 28.64,
+          "end": 28.9,
+          "key": "very",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "considerable",
+          "start": 28.9,
+          "end": 29.52,
+          "key": "considerable",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "share",
+          "start": 29.52,
+          "end": 29.96,
+          "key": "share",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 29.96,
+          "end": 30.18,
+          "key": "of",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.18,
+          "end": 30.32,
+          "key": "the",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "sovereign",
+          "start": 30.32,
+          "end": 30.6,
+          "key": "sovereign",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "power,",
+          "start": 30.6,
+          "end": 31.06,
+          "key": "power",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 31.54,
+          "end": 31.7,
+          "key": "have",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 31.7,
+          "end": 32.02,
+          "key": "only",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "consented",
+          "start": 32.02,
+          "end": 32.52,
+          "key": "consented",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 32.52,
+          "end": 32.76,
+          "key": "to",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "cede",
+          "start": 32.76,
+          "end": 33.08,
+          "key": "cede",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 33.08,
+          "end": 33.22,
+          "key": "to",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 33.22,
+          "end": 33.34,
+          "key": "the",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "general",
+          "start": 33.34,
+          "end": 33.72,
+          "key": "general",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "Government",
+          "start": 33.72,
+          "end": 34.2,
+          "key": "government",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 34.2,
+          "end": 34.74,
+          "key": "the",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "exercise",
+          "start": 34.74,
+          "end": 35.18,
+          "key": "exercise",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 35.18,
+          "end": 35.58,
+          "key": "of",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 35.58,
+          "end": 35.8,
+          "key": "those",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "rights",
+          "start": 35.8,
+          "end": 36.08,
+          "key": "rights",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 36.08,
+          "end": 36.4,
+          "key": "which",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 36.4,
+          "end": 36.58,
+          "key": "are",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "indispensable",
+          "start": 36.58,
+          "end": 37.14,
+          "key": "indispensable",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 37.14,
+          "end": 37.6,
+          "key": "to",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 37.6,
+          "end": 37.74,
+          "key": "the",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "Union.",
+          "start": 37.74,
+          "end": 38.04,
+          "key": "union",
+          "pieces": [
+            101
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.14,
+          "end": 0.46
+        },
+        {
+          "text": "sometimes",
+          "start": 0.46,
+          "end": 0.94
+        },
+        {
+          "text": "the",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "text": "sovereign",
+          "start": 1.26,
+          "end": 1.6
+        },
+        {
+          "text": "authority",
+          "start": 1.6,
+          "end": 2.1
+        },
+        {
+          "text": "is",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "text": "composed",
+          "start": 2.36,
+          "end": 2.74
+        },
+        {
+          "text": "of",
+          "start": 2.74,
+          "end": 3.02
+        },
+        {
+          "text": "preorganized",
+          "start": 3.02,
+          "end": 3.64
+        },
+        {
+          "text": "political",
+          "start": 3.64,
+          "end": 4.2
+        },
+        {
+          "text": "bodies,",
+          "start": 4.2,
+          "end": 4.8
+        },
+        {
+          "text": "by",
+          "start": 5.3,
+          "end": 5.48
+        },
+        {
+          "text": "virtue",
+          "start": 5.48,
+          "end": 5.84
+        },
+        {
+          "text": "of",
+          "start": 5.84,
+          "end": 6.1
+        },
+        {
+          "text": "circumstances",
+          "start": 6.1,
+          "end": 6.66
+        },
+        {
+          "text": "anterior",
+          "start": 6.66,
+          "end": 7.38
+        },
+        {
+          "text": "to",
+          "start": 7.38,
+          "end": 7.72
+        },
+        {
+          "text": "their",
+          "start": 7.72,
+          "end": 7.86
+        },
+        {
+          "text": "union;",
+          "start": 7.86,
+          "end": 8.26
+        },
+        {
+          "text": "and",
+          "start": 8.94,
+          "end": 9.08
+        },
+        {
+          "text": "in",
+          "start": 9.08,
+          "end": 9.22
+        },
+        {
+          "text": "this",
+          "start": 9.22,
+          "end": 9.44
+        },
+        {
+          "text": "case",
+          "start": 9.44,
+          "end": 9.8
+        },
+        {
+          "text": "the",
+          "start": 9.8,
+          "end": 10.38
+        },
+        {
+          "text": "provincial",
+          "start": 10.38,
+          "end": 10.74
+        },
+        {
+          "text": "governments",
+          "start": 10.74,
+          "end": 11.22
+        },
+        {
+          "text": "assume",
+          "start": 11.22,
+          "end": 11.7
+        },
+        {
+          "text": "the",
+          "start": 11.7,
+          "end": 11.92
+        },
+        {
+          "text": "control,",
+          "start": 11.92,
+          "end": 12.38
+        },
+        {
+          "text": "not",
+          "start": 12.94,
+          "end": 13.12
+        },
+        {
+          "text": "only",
+          "start": 13.12,
+          "end": 13.42
+        },
+        {
+          "text": "of",
+          "start": 13.42,
+          "end": 13.56
+        },
+        {
+          "text": "those",
+          "start": 13.56,
+          "end": 13.76
+        },
+        {
+          "text": "affairs",
+          "start": 13.76,
+          "end": 14.16
+        },
+        {
+          "text": "which",
+          "start": 14.16,
+          "end": 14.44
+        },
+        {
+          "text": "more",
+          "start": 14.44,
+          "end": 14.64
+        },
+        {
+          "text": "peculiarly",
+          "start": 14.64,
+          "end": 15.46
+        },
+        {
+          "text": "belong",
+          "start": 15.46,
+          "end": 15.8
+        },
+        {
+          "text": "to",
+          "start": 15.8,
+          "end": 16.02
+        },
+        {
+          "text": "their",
+          "start": 16.02,
+          "end": 16.18
+        },
+        {
+          "text": "province,",
+          "start": 16.18,
+          "end": 16.58
+        },
+        {
+          "text": "but",
+          "start": 17.08,
+          "end": 17.26
+        },
+        {
+          "text": "of",
+          "start": 17.26,
+          "end": 17.36
+        },
+        {
+          "text": "all,",
+          "start": 17.36,
+          "end": 17.76
+        },
+        {
+          "text": "or",
+          "start": 18.18,
+          "end": 18.34
+        },
+        {
+          "text": "of",
+          "start": 18.34,
+          "end": 18.46
+        },
+        {
+          "text": "a",
+          "start": 18.46,
+          "end": 18.56
+        },
+        {
+          "text": "part",
+          "start": 18.56,
+          "end": 18.74
+        },
+        {
+          "text": "of",
+          "start": 18.74,
+          "end": 18.88
+        },
+        {
+          "text": "the",
+          "start": 18.88,
+          "end": 18.98
+        },
+        {
+          "text": "mixed",
+          "start": 18.98,
+          "end": 19.24
+        },
+        {
+          "text": "affairs",
+          "start": 19.24,
+          "end": 19.66
+        },
+        {
+          "text": "to",
+          "start": 19.66,
+          "end": 19.96
+        },
+        {
+          "text": "which",
+          "start": 19.96,
+          "end": 20.1
+        },
+        {
+          "text": "allusion",
+          "start": 20.1,
+          "end": 20.56
+        },
+        {
+          "text": "has",
+          "start": 20.56,
+          "end": 20.8
+        },
+        {
+          "text": "been",
+          "start": 20.8,
+          "end": 20.98
+        },
+        {
+          "text": "made.",
+          "start": 20.98,
+          "end": 21.42
+        },
+        {
+          "text": "For",
+          "start": 22.3,
+          "end": 22.48
+        },
+        {
+          "text": "the",
+          "start": 22.48,
+          "end": 22.64
+        },
+        {
+          "text": "confederate",
+          "start": 22.64,
+          "end": 23.22
+        },
+        {
+          "text": "nations",
+          "start": 23.22,
+          "end": 23.6
+        },
+        {
+          "text": "which",
+          "start": 23.6,
+          "end": 23.96
+        },
+        {
+          "text": "were",
+          "start": 23.96,
+          "end": 24.18
+        },
+        {
+          "text": "independent",
+          "start": 24.18,
+          "end": 24.8
+        },
+        {
+          "text": "sovereign",
+          "start": 24.8,
+          "end": 25.24
+        },
+        {
+          "text": "States",
+          "start": 25.24,
+          "end": 25.66
+        },
+        {
+          "text": "before",
+          "start": 25.66,
+          "end": 26.1
+        },
+        {
+          "text": "their",
+          "start": 26.1,
+          "end": 26.38
+        },
+        {
+          "text": "union,",
+          "start": 26.38,
+          "end": 26.76
+        },
+        {
+          "text": "and",
+          "start": 26.76,
+          "end": 27.16
+        },
+        {
+          "text": "which",
+          "start": 27.16,
+          "end": 27.54
+        },
+        {
+          "text": "still",
+          "start": 27.54,
+          "end": 27.84
+        },
+        {
+          "text": "represent",
+          "start": 27.84,
+          "end": 28.36
+        },
+        {
+          "text": "a",
+          "start": 28.36,
+          "end": 28.64
+        },
+        {
+          "text": "very",
+          "start": 28.64,
+          "end": 28.9
+        },
+        {
+          "text": "considerable",
+          "start": 28.9,
+          "end": 29.52
+        },
+        {
+          "text": "share",
+          "start": 29.52,
+          "end": 29.96
+        },
+        {
+          "text": "of",
+          "start": 29.96,
+          "end": 30.18
+        },
+        {
+          "text": "the",
+          "start": 30.18,
+          "end": 30.32
+        },
+        {
+          "text": "sovereign",
+          "start": 30.32,
+          "end": 30.6
+        },
+        {
+          "text": "power,",
+          "start": 30.6,
+          "end": 31.06
+        },
+        {
+          "text": "have",
+          "start": 31.54,
+          "end": 31.7
+        },
+        {
+          "text": "only",
+          "start": 31.7,
+          "end": 32.02
+        },
+        {
+          "text": "consented",
+          "start": 32.02,
+          "end": 32.52
+        },
+        {
+          "text": "to",
+          "start": 32.52,
+          "end": 32.76
+        },
+        {
+          "text": "cede",
+          "start": 32.76,
+          "end": 33.08
+        },
+        {
+          "text": "to",
+          "start": 33.08,
+          "end": 33.22
+        },
+        {
+          "text": "the",
+          "start": 33.22,
+          "end": 33.34
+        },
+        {
+          "text": "general",
+          "start": 33.34,
+          "end": 33.72
+        },
+        {
+          "text": "Government",
+          "start": 33.72,
+          "end": 34.2
+        },
+        {
+          "text": "the",
+          "start": 34.2,
+          "end": 34.74
+        },
+        {
+          "text": "exercise",
+          "start": 34.74,
+          "end": 35.18
+        },
+        {
+          "text": "of",
+          "start": 35.18,
+          "end": 35.58
+        },
+        {
+          "text": "those",
+          "start": 35.58,
+          "end": 35.8
+        },
+        {
+          "text": "rights",
+          "start": 35.8,
+          "end": 36.08
+        },
+        {
+          "text": "which",
+          "start": 36.08,
+          "end": 36.4
+        },
+        {
+          "text": "are",
+          "start": 36.4,
+          "end": 36.58
+        },
+        {
+          "text": "indispensable",
+          "start": 36.58,
+          "end": 37.14
+        },
+        {
+          "text": "to",
+          "start": 37.14,
+          "end": 37.6
+        },
+        {
+          "text": "the",
+          "start": 37.6,
+          "end": 37.74
+        },
+        {
+          "text": "Union.",
+          "start": 37.74,
+          "end": 38.04
+        }
+      ],
+      "stats": {
+        "expected_words": 102,
+        "heard_words": 102,
+        "matched_words": 102
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.0938114076852798
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b4f367530f03b74174b8f5eb1d45c8fe7168acc65af8cf375ca9bf3934159dc4",
+  "selected_reasons": []
+}

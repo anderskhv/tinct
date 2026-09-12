@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "eb8bf5dd6f8ac38a290ddc632a9fc4c1e0287f22ebf7a0f77951d08932122c59",
+  "attempts": [
+    {
+      "asr_seconds": 0.12686548475176096,
+      "alignment_seconds": 0.00016942806541919708,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Graciano, what is the matter?",
+          "start": 0.52,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " Graciano,",
+              "start": 0.52,
+              "end": 0.96,
+              "probability": 0.5887451171875
+            },
+            {
+              "text": " what",
+              "start": 1.32,
+              "end": 1.5,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " is",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " matter?",
+              "start": 1.74,
+              "end": 1.96,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Graciano,",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "raw": "what",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "raw": "is",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "matter?",
+          "start": 1.74,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "Gratiano.",
+        "What",
+        "is",
+        "the",
+        "matter?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Graciano,",
+          "start": 0.52,
+          "end": 0.96,
+          "key": "graciano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.32,
+          "end": 1.5,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "matter?",
+          "start": 1.74,
+          "end": 1.96,
+          "key": "matter",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gratiano.",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "What",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "text": "is",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "the",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "matter?",
+          "start": 1.74,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12708991300314665
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7253f1b3c1154bf95213d8c5a685a302101423e69ae7f0b2522c577ed3547c93",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,515 @@
+{
+  "complete": true,
+  "signature": "c45e172e60dbdd610c3a141fa3115d8335693a3ffc670d7ac533d88b26576e93",
+  "attempts": [
+    {
+      "asr_seconds": 0.31667516753077507,
+      "alignment_seconds": 0.0006838664412498474,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Toby. My lady's a Cataian, we are politicians, Malvolio's a Peg-a-Ramsey, and",
+        "hotwords": "Sir, Toby, My, Cataian, Malvolio's, Peg-a-Ramsey"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Toby. My lady's a Cataian, we are politicians, Malvolio's a Peg-a-Ramsey, and",
+          "start": 0.05,
+          "end": 5.59,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " Toby.",
+              "start": 0.53,
+              "end": 0.87,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " My",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " lady's",
+              "start": 1.59,
+              "end": 1.95,
+              "probability": 0.5924072265625
+            },
+            {
+              "text": " a",
+              "start": 1.95,
+              "end": 1.97,
+              "probability": 0.73681640625
+            },
+            {
+              "text": " Cataian,",
+              "start": 1.97,
+              "end": 2.43,
+              "probability": 0.020205179850260418
+            },
+            {
+              "text": " we",
+              "start": 2.59,
+              "end": 2.61,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " are",
+              "start": 2.61,
+              "end": 2.71,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " politicians,",
+              "start": 2.71,
+              "end": 3.25,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Malvolio's",
+              "start": 3.93,
+              "end": 4.53,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " a",
+              "start": 4.53,
+              "end": 4.57,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Peg",
+              "start": 4.57,
+              "end": 4.71,
+              "probability": 0.1595458984375
+            },
+            {
+              "text": "-a",
+              "start": 4.71,
+              "end": 4.83,
+              "probability": 0.22028350830078125
+            },
+            {
+              "text": "-Ramsey,",
+              "start": 4.83,
+              "end": 5.27,
+              "probability": 0.6199951171875
+            },
+            {
+              "text": " and",
+              "start": 5.43,
+              "end": 5.59,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Toby.",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "raw": "My",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "lady's",
+          "start": 1.59,
+          "end": 1.95
+        },
+        {
+          "raw": "a",
+          "start": 1.95,
+          "end": 1.97
+        },
+        {
+          "raw": "Cataian,",
+          "start": 1.97,
+          "end": 2.43
+        },
+        {
+          "raw": "we",
+          "start": 2.59,
+          "end": 2.61
+        },
+        {
+          "raw": "are",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "raw": "politicians,",
+          "start": 2.71,
+          "end": 3.25
+        },
+        {
+          "raw": "Malvolio's",
+          "start": 3.93,
+          "end": 4.53
+        },
+        {
+          "raw": "a",
+          "start": 4.53,
+          "end": 4.57
+        },
+        {
+          "raw": "Peg",
+          "start": 4.57,
+          "end": 4.71
+        },
+        {
+          "raw": "-a",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "raw": "-Ramsey,",
+          "start": 4.83,
+          "end": 5.27
+        },
+        {
+          "raw": "and",
+          "start": 5.43,
+          "end": 5.59
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "My",
+        "lady's",
+        "a",
+        "Cataian,",
+        "we",
+        "are",
+        "politicians,",
+        "Malvolio's",
+        "a",
+        "Peg-a-Ramsey,",
+        "and"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby.",
+          "start": 0.53,
+          "end": 0.87,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lady's",
+          "start": 1.59,
+          "end": 1.95,
+          "key": "ladys",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.95,
+          "end": 1.97,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Cataian,",
+          "start": 1.97,
+          "end": 2.43,
+          "key": "cataian",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.59,
+          "end": 2.61,
+          "key": "we",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.61,
+          "end": 2.71,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "politicians,",
+          "start": 2.71,
+          "end": 3.25,
+          "key": "politicians",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Malvolio's",
+          "start": 3.93,
+          "end": 4.53,
+          "key": "malvolios",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.53,
+          "end": 4.57,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Peg -a -Ramsey,",
+          "start": 4.57,
+          "end": 5.27,
+          "key": "pegaramsey",
+          "pieces": [
+            11,
+            12,
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.43,
+          "end": 5.59,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 11,
+          "text": "Peg-a-Ramsey,",
+          "heard": "Peg -a -Ramsey,",
+          "heard_indexes": [
+            11,
+            12,
+            13
+          ],
+          "start": 4.57,
+          "end": 5.27
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Toby.",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "text": "My",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "lady's",
+          "start": 1.59,
+          "end": 1.95
+        },
+        {
+          "text": "a",
+          "start": 1.95,
+          "end": 1.97
+        },
+        {
+          "text": "Cataian,",
+          "start": 1.97,
+          "end": 2.43
+        },
+        {
+          "text": "we",
+          "start": 2.59,
+          "end": 2.61
+        },
+        {
+          "text": "are",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "text": "politicians,",
+          "start": 2.71,
+          "end": 3.25
+        },
+        {
+          "text": "Malvolio's",
+          "start": 3.93,
+          "end": 4.53
+        },
+        {
+          "text": "a",
+          "start": 4.53,
+          "end": 4.57
+        },
+        {
+          "text": "Peg-a-Ramsey,",
+          "start": 4.57,
+          "end": 5.27
+        },
+        {
+          "text": "and",
+          "start": 5.43,
+          "end": 5.59
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31759365275502205
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c446744541a3c41eee3b100a3fc60a61ff41966656afcaeccf7282dd02655b0d",
+  "selected_reasons": []
+}

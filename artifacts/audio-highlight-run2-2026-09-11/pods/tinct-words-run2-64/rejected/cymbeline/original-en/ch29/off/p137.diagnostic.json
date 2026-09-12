@@ -1,0 +1,665 @@
+{
+  "complete": true,
+  "signature": "f437414b7f325a50b9385cf3bdb7a6b18c37aeae798f2970919185769c0e24a1",
+  "attempts": [
+    {
+      "asr_seconds": 0.3423833316192031,
+      "alignment_seconds": 0.0007596509531140327,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, all Orgids save these in bonds.",
+          "start": 0.0,
+          "end": 2.96,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.0,
+              "end": 0.84,
+              "probability": 0.7047526041666666
+            },
+            {
+              "text": " all",
+              "start": 1.24,
+              "end": 1.52,
+              "probability": 0.93359375
+            },
+            {
+              "text": " Orgids",
+              "start": 1.52,
+              "end": 1.9,
+              "probability": 0.638916015625
+            },
+            {
+              "text": " save",
+              "start": 1.9,
+              "end": 2.2,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " these",
+              "start": 2.2,
+              "end": 2.46,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " in",
+              "start": 2.46,
+              "end": 2.66,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " bonds.",
+              "start": 2.66,
+              "end": 2.96,
+              "probability": 0.9580078125
+            }
+          ]
+        },
+        {
+          "text": " Let them be joyful too, for they shall taste our comfort.",
+          "start": 3.76,
+          "end": 6.3,
+          "words": [
+            {
+              "text": " Let",
+              "start": 3.76,
+              "end": 3.84,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " them",
+              "start": 3.84,
+              "end": 3.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 3.98,
+              "end": 4.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " joyful",
+              "start": 4.14,
+              "end": 4.4,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " too,",
+              "start": 4.4,
+              "end": 4.8,
+              "probability": 0.6015625
+            },
+            {
+              "text": " for",
+              "start": 5.12,
+              "end": 5.18,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " they",
+              "start": 5.18,
+              "end": 5.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " shall",
+              "start": 5.32,
+              "end": 5.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " taste",
+              "start": 5.48,
+              "end": 5.72,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " our",
+              "start": 5.72,
+              "end": 5.96,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " comfort.",
+              "start": 5.96,
+              "end": 6.3,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.0,
+          "end": 0.84
+        },
+        {
+          "raw": "all",
+          "start": 1.24,
+          "end": 1.52
+        },
+        {
+          "raw": "Orgids",
+          "start": 1.52,
+          "end": 1.9
+        },
+        {
+          "raw": "save",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "raw": "these",
+          "start": 2.2,
+          "end": 2.46
+        },
+        {
+          "raw": "in",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "raw": "bonds.",
+          "start": 2.66,
+          "end": 2.96
+        },
+        {
+          "raw": "Let",
+          "start": 3.76,
+          "end": 3.84
+        },
+        {
+          "raw": "them",
+          "start": 3.84,
+          "end": 3.98
+        },
+        {
+          "raw": "be",
+          "start": 3.98,
+          "end": 4.14
+        },
+        {
+          "raw": "joyful",
+          "start": 4.14,
+          "end": 4.4
+        },
+        {
+          "raw": "too,",
+          "start": 4.4,
+          "end": 4.8
+        },
+        {
+          "raw": "for",
+          "start": 5.12,
+          "end": 5.18
+        },
+        {
+          "raw": "they",
+          "start": 5.18,
+          "end": 5.32
+        },
+        {
+          "raw": "shall",
+          "start": 5.32,
+          "end": 5.48
+        },
+        {
+          "raw": "taste",
+          "start": 5.48,
+          "end": 5.72
+        },
+        {
+          "raw": "our",
+          "start": 5.72,
+          "end": 5.96
+        },
+        {
+          "raw": "comfort.",
+          "start": 5.96,
+          "end": 6.3
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "All",
+        "o'erjoy'd",
+        "Save",
+        "these",
+        "in",
+        "bonds.",
+        "Let",
+        "them",
+        "be",
+        "joyful",
+        "too,",
+        "For",
+        "they",
+        "shall",
+        "taste",
+        "our",
+        "comfort."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          18,
+          3,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.0,
+          "end": 0.84,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.24,
+          "end": 1.52,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Orgids",
+          "start": 1.52,
+          "end": 1.9,
+          "key": "orgids",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "save",
+          "start": 1.9,
+          "end": 2.2,
+          "key": "save",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 2.2,
+          "end": 2.46,
+          "key": "these",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.46,
+          "end": 2.66,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bonds.",
+          "start": 2.66,
+          "end": 2.96,
+          "key": "bonds",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 3.76,
+          "end": 3.84,
+          "key": "let",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.84,
+          "end": 3.98,
+          "key": "them",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.98,
+          "end": 4.14,
+          "key": "be",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "joyful",
+          "start": 4.14,
+          "end": 4.4,
+          "key": "joyful",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 4.4,
+          "end": 4.8,
+          "key": "too",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.12,
+          "end": 5.18,
+          "key": "for",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 5.18,
+          "end": 5.32,
+          "key": "they",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 5.32,
+          "end": 5.48,
+          "key": "shall",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "taste",
+          "start": 5.48,
+          "end": 5.72,
+          "key": "taste",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 5.72,
+          "end": 5.96,
+          "key": "our",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "comfort.",
+          "start": 5.96,
+          "end": 6.3,
+          "key": "comfort",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.0,
+          "end": 0.84
+        },
+        {
+          "text": "All",
+          "start": 1.24,
+          "end": 1.52
+        },
+        {
+          "text": "o'erjoy'd",
+          "start": 1.52,
+          "end": 1.71
+        },
+        {
+          "text": "Save",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "text": "these",
+          "start": 2.2,
+          "end": 2.46
+        },
+        {
+          "text": "in",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "text": "bonds.",
+          "start": 2.66,
+          "end": 2.96
+        },
+        {
+          "text": "Let",
+          "start": 3.76,
+          "end": 3.84
+        },
+        {
+          "text": "them",
+          "start": 3.84,
+          "end": 3.98
+        },
+        {
+          "text": "be",
+          "start": 3.98,
+          "end": 4.14
+        },
+        {
+          "text": "joyful",
+          "start": 4.14,
+          "end": 4.4
+        },
+        {
+          "text": "too,",
+          "start": 4.4,
+          "end": 4.8
+        },
+        {
+          "text": "For",
+          "start": 5.12,
+          "end": 5.18
+        },
+        {
+          "text": "they",
+          "start": 5.18,
+          "end": 5.32
+        },
+        {
+          "text": "shall",
+          "start": 5.32,
+          "end": 5.48
+        },
+        {
+          "text": "taste",
+          "start": 5.48,
+          "end": 5.72
+        },
+        {
+          "text": "our",
+          "start": 5.72,
+          "end": 5.96
+        },
+        {
+          "text": "comfort.",
+          "start": 5.96,
+          "end": 6.3
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.3434247672557831
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d3b195f2dec1b06f447f3ade606d27c702925b5b2bb819eab877759fae971455",
+  "selected_reasons": []
+}

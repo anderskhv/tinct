@@ -1,0 +1,5821 @@
+{
+  "complete": true,
+  "signature": "7bc7744941494f8af9a2c33ccb3457e68aecd658c20116d09f82698eb609aa97",
+  "attempts": [
+    {
+      "asr_seconds": 0.5913751497864723,
+      "alignment_seconds": 0.0009102635085582733,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leontes. Satisfy? Th' entreaties of your mistress? Satisfy? Let that suffice. I have trusted thee, Camillo, With all the nearest things to my heart, as well My chamber-counsels, wherein, priest-like, thou Hast cleans'd my bosom; I from thee departed Thy penitent reform'd. But we have been Deceiv'd in thy integrity, deceiv'd In that which seems so.",
+        "hotwords": "Leontes, Satisfy, Th, Let, I, Camillo, With, Hast, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I have trusted thee, Camillo, With all the nearest things to my heart, as well",
+          "start": 5.95,
+          "end": 10.39,
+          "words": [
+            {
+              "text": " I",
+              "start": 5.95,
+              "end": 6.39,
+              "probability": 0.0011739730834960938
+            },
+            {
+              "text": " have",
+              "start": 6.39,
+              "end": 6.83,
+              "probability": 0.5283203125
+            },
+            {
+              "text": " trusted",
+              "start": 6.83,
+              "end": 7.17,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " thee,",
+              "start": 7.17,
+              "end": 7.57,
+              "probability": 0.599609375
+            },
+            {
+              "text": " Camillo,",
+              "start": 7.83,
+              "end": 8.13,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " With",
+              "start": 8.31,
+              "end": 8.37,
+              "probability": 0.0672607421875
+            },
+            {
+              "text": " all",
+              "start": 8.37,
+              "end": 8.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 8.59,
+              "end": 8.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " nearest",
+              "start": 8.75,
+              "end": 8.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " things",
+              "start": 8.97,
+              "end": 9.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 9.33,
+              "end": 9.55,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " my",
+              "start": 9.55,
+              "end": 9.71,
+              "probability": 0.9921875
+            },
+            {
+              "text": " heart,",
+              "start": 9.71,
+              "end": 9.95,
+              "probability": 0.994140625
+            },
+            {
+              "text": " as",
+              "start": 10.13,
+              "end": 10.19,
+              "probability": 0.0218658447265625
+            },
+            {
+              "text": " well",
+              "start": 10.19,
+              "end": 10.39,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " My chamber-counsels, wherein, priest-like, thou Hast cleans'd my bosom, I from thee departed",
+          "start": 10.39,
+          "end": 15.93,
+          "words": [
+            {
+              "text": " My",
+              "start": 10.39,
+              "end": 10.61,
+              "probability": 0.02716064453125
+            },
+            {
+              "text": " chamber",
+              "start": 10.61,
+              "end": 10.91,
+              "probability": 0.80615234375
+            },
+            {
+              "text": "-counsels,",
+              "start": 10.91,
+              "end": 11.53,
+              "probability": 0.6517333984375
+            },
+            {
+              "text": " wherein,",
+              "start": 11.79,
+              "end": 12.01,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " priest",
+              "start": 12.37,
+              "end": 12.49,
+              "probability": 0.927734375
+            },
+            {
+              "text": "-like,",
+              "start": 12.49,
+              "end": 12.85,
+              "probability": 0.69287109375
+            },
+            {
+              "text": " thou",
+              "start": 13.27,
+              "end": 13.29,
+              "probability": 0.1336669921875
+            },
+            {
+              "text": " Hast",
+              "start": 13.29,
+              "end": 13.69,
+              "probability": 0.0031414031982421875
+            },
+            {
+              "text": " cleans'd",
+              "start": 13.69,
+              "end": 14.29,
+              "probability": 0.503265380859375
+            },
+            {
+              "text": " my",
+              "start": 14.29,
+              "end": 14.41,
+              "probability": 0.34326171875
+            },
+            {
+              "text": " bosom,",
+              "start": 14.41,
+              "end": 14.85,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 15.21,
+              "end": 15.31,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " from",
+              "start": 15.31,
+              "end": 15.45,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " thee",
+              "start": 15.45,
+              "end": 15.57,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " departed",
+              "start": 15.57,
+              "end": 15.93,
+              "probability": 0.89697265625
+            }
+          ]
+        },
+        {
+          "text": " Thy penitent reform'd. But we have been Deceiv'd in thy integrity, deceiv'd in that which",
+          "start": 15.93,
+          "end": 21.11,
+          "words": [
+            {
+              "text": " Thy",
+              "start": 15.93,
+              "end": 16.23,
+              "probability": 0.4169921875
+            },
+            {
+              "text": " penitent",
+              "start": 16.23,
+              "end": 16.73,
+              "probability": 0.908447265625
+            },
+            {
+              "text": " reform'd.",
+              "start": 16.73,
+              "end": 17.49,
+              "probability": 0.58782958984375
+            },
+            {
+              "text": " But",
+              "start": 17.89,
+              "end": 18.13,
+              "probability": 0.982421875
+            },
+            {
+              "text": " we",
+              "start": 18.13,
+              "end": 18.25,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " have",
+              "start": 18.25,
+              "end": 18.37,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " been",
+              "start": 18.37,
+              "end": 18.53,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Deceiv'd",
+              "start": 18.53,
+              "end": 19.07,
+              "probability": 0.3109931945800781
+            },
+            {
+              "text": " in",
+              "start": 19.07,
+              "end": 19.17,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " thy",
+              "start": 19.17,
+              "end": 19.31,
+              "probability": 0.65283203125
+            },
+            {
+              "text": " integrity,",
+              "start": 19.31,
+              "end": 19.81,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " deceiv'd",
+              "start": 20.21,
+              "end": 20.63,
+              "probability": 0.6432854334513346
+            },
+            {
+              "text": " in",
+              "start": 20.63,
+              "end": 20.75,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " that",
+              "start": 20.75,
+              "end": 20.93,
+              "probability": 0.958984375
+            },
+            {
+              "text": " which",
+              "start": 20.93,
+              "end": 21.11,
+              "probability": 0.982421875
+            }
+          ]
+        },
+        {
+          "text": " seems so.",
+          "start": 21.11,
+          "end": 21.77,
+          "words": [
+            {
+              "text": " seems",
+              "start": 21.11,
+              "end": 21.37,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " so.",
+              "start": 21.37,
+              "end": 21.77,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 5.95,
+          "end": 6.39
+        },
+        {
+          "raw": "have",
+          "start": 6.39,
+          "end": 6.83
+        },
+        {
+          "raw": "trusted",
+          "start": 6.83,
+          "end": 7.17
+        },
+        {
+          "raw": "thee,",
+          "start": 7.17,
+          "end": 7.57
+        },
+        {
+          "raw": "Camillo,",
+          "start": 7.83,
+          "end": 8.13
+        },
+        {
+          "raw": "With",
+          "start": 8.31,
+          "end": 8.37
+        },
+        {
+          "raw": "all",
+          "start": 8.37,
+          "end": 8.59
+        },
+        {
+          "raw": "the",
+          "start": 8.59,
+          "end": 8.75
+        },
+        {
+          "raw": "nearest",
+          "start": 8.75,
+          "end": 8.97
+        },
+        {
+          "raw": "things",
+          "start": 8.97,
+          "end": 9.33
+        },
+        {
+          "raw": "to",
+          "start": 9.33,
+          "end": 9.55
+        },
+        {
+          "raw": "my",
+          "start": 9.55,
+          "end": 9.71
+        },
+        {
+          "raw": "heart,",
+          "start": 9.71,
+          "end": 9.95
+        },
+        {
+          "raw": "as",
+          "start": 10.13,
+          "end": 10.19
+        },
+        {
+          "raw": "well",
+          "start": 10.19,
+          "end": 10.39
+        },
+        {
+          "raw": "My",
+          "start": 10.39,
+          "end": 10.61
+        },
+        {
+          "raw": "chamber",
+          "start": 10.61,
+          "end": 10.91
+        },
+        {
+          "raw": "-counsels,",
+          "start": 10.91,
+          "end": 11.53
+        },
+        {
+          "raw": "wherein,",
+          "start": 11.79,
+          "end": 12.01
+        },
+        {
+          "raw": "priest",
+          "start": 12.37,
+          "end": 12.49
+        },
+        {
+          "raw": "-like,",
+          "start": 12.49,
+          "end": 12.85
+        },
+        {
+          "raw": "thou",
+          "start": 13.27,
+          "end": 13.29
+        },
+        {
+          "raw": "Hast",
+          "start": 13.29,
+          "end": 13.69
+        },
+        {
+          "raw": "cleans'd",
+          "start": 13.69,
+          "end": 14.29
+        },
+        {
+          "raw": "my",
+          "start": 14.29,
+          "end": 14.41
+        },
+        {
+          "raw": "bosom,",
+          "start": 14.41,
+          "end": 14.85
+        },
+        {
+          "raw": "I",
+          "start": 15.21,
+          "end": 15.31
+        },
+        {
+          "raw": "from",
+          "start": 15.31,
+          "end": 15.45
+        },
+        {
+          "raw": "thee",
+          "start": 15.45,
+          "end": 15.57
+        },
+        {
+          "raw": "departed",
+          "start": 15.57,
+          "end": 15.93
+        },
+        {
+          "raw": "Thy",
+          "start": 15.93,
+          "end": 16.23
+        },
+        {
+          "raw": "penitent",
+          "start": 16.23,
+          "end": 16.73
+        },
+        {
+          "raw": "reform'd.",
+          "start": 16.73,
+          "end": 17.49
+        },
+        {
+          "raw": "But",
+          "start": 17.89,
+          "end": 18.13
+        },
+        {
+          "raw": "we",
+          "start": 18.13,
+          "end": 18.25
+        },
+        {
+          "raw": "have",
+          "start": 18.25,
+          "end": 18.37
+        },
+        {
+          "raw": "been",
+          "start": 18.37,
+          "end": 18.53
+        },
+        {
+          "raw": "Deceiv'd",
+          "start": 18.53,
+          "end": 19.07
+        },
+        {
+          "raw": "in",
+          "start": 19.07,
+          "end": 19.17
+        },
+        {
+          "raw": "thy",
+          "start": 19.17,
+          "end": 19.31
+        },
+        {
+          "raw": "integrity,",
+          "start": 19.31,
+          "end": 19.81
+        },
+        {
+          "raw": "deceiv'd",
+          "start": 20.21,
+          "end": 20.63
+        },
+        {
+          "raw": "in",
+          "start": 20.63,
+          "end": 20.75
+        },
+        {
+          "raw": "that",
+          "start": 20.75,
+          "end": 20.93
+        },
+        {
+          "raw": "which",
+          "start": 20.93,
+          "end": 21.11
+        },
+        {
+          "raw": "seems",
+          "start": 21.11,
+          "end": 21.37
+        },
+        {
+          "raw": "so.",
+          "start": 21.37,
+          "end": 21.77
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "Satisfy?",
+        "Th'",
+        "entreaties",
+        "of",
+        "your",
+        "mistress?",
+        "Satisfy?",
+        "Let",
+        "that",
+        "suffice.",
+        "I",
+        "have",
+        "trusted",
+        "thee,",
+        "Camillo,",
+        "With",
+        "all",
+        "the",
+        "nearest",
+        "things",
+        "to",
+        "my",
+        "heart,",
+        "as",
+        "well",
+        "My",
+        "chamber-counsels,",
+        "wherein,",
+        "priest-like,",
+        "thou",
+        "Hast",
+        "cleans'd",
+        "my",
+        "bosom;",
+        "I",
+        "from",
+        "thee",
+        "departed",
+        "Thy",
+        "penitent",
+        "reform'd.",
+        "But",
+        "we",
+        "have",
+        "been",
+        "Deceiv'd",
+        "in",
+        "thy",
+        "integrity,",
+        "deceiv'd",
+        "In",
+        "that",
+        "which",
+        "seems",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          11,
+          0,
+          0
+        ],
+        [
+          "equal",
+          11,
+          56,
+          0,
+          45
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 44
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          11,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 5.95,
+          "end": 6.39,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.39,
+          "end": 6.83,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "trusted",
+          "start": 6.83,
+          "end": 7.17,
+          "key": "trusted",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 7.17,
+          "end": 7.57,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Camillo,",
+          "start": 7.83,
+          "end": 8.13,
+          "key": "camillo",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 8.31,
+          "end": 8.37,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 8.37,
+          "end": 8.59,
+          "key": "all",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.59,
+          "end": 8.75,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "nearest",
+          "start": 8.75,
+          "end": 8.97,
+          "key": "nearest",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 8.97,
+          "end": 9.33,
+          "key": "things",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.33,
+          "end": 9.55,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 9.55,
+          "end": 9.71,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "heart,",
+          "start": 9.71,
+          "end": 9.95,
+          "key": "heart",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 10.13,
+          "end": 10.19,
+          "key": "as",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 10.19,
+          "end": 10.39,
+          "key": "well",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 10.39,
+          "end": 10.61,
+          "key": "my",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "chamber -counsels,",
+          "start": 10.61,
+          "end": 11.53,
+          "key": "chambercounsels",
+          "pieces": [
+            16,
+            17
+          ]
+        },
+        {
+          "raw": "wherein,",
+          "start": 11.79,
+          "end": 12.01,
+          "key": "wherein",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "priest -like,",
+          "start": 12.37,
+          "end": 12.85,
+          "key": "priestlike",
+          "pieces": [
+            19,
+            20
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 13.27,
+          "end": 13.29,
+          "key": "thou",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Hast",
+          "start": 13.29,
+          "end": 13.69,
+          "key": "hast",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "cleans'd",
+          "start": 13.69,
+          "end": 14.29,
+          "key": "cleansd",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 14.29,
+          "end": 14.41,
+          "key": "my",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "bosom,",
+          "start": 14.41,
+          "end": 14.85,
+          "key": "bosom",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 15.21,
+          "end": 15.31,
+          "key": "i",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 15.31,
+          "end": 15.45,
+          "key": "from",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 15.45,
+          "end": 15.57,
+          "key": "thee",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "departed",
+          "start": 15.57,
+          "end": 15.93,
+          "key": "departed",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Thy",
+          "start": 15.93,
+          "end": 16.23,
+          "key": "thy",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "penitent",
+          "start": 16.23,
+          "end": 16.73,
+          "key": "penitent",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "reform'd.",
+          "start": 16.73,
+          "end": 17.49,
+          "key": "reformd",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 17.89,
+          "end": 18.13,
+          "key": "but",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 18.13,
+          "end": 18.25,
+          "key": "we",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 18.25,
+          "end": 18.37,
+          "key": "have",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 18.37,
+          "end": 18.53,
+          "key": "been",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Deceiv'd",
+          "start": 18.53,
+          "end": 19.07,
+          "key": "deceivd",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 19.07,
+          "end": 19.17,
+          "key": "in",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 19.17,
+          "end": 19.31,
+          "key": "thy",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "integrity,",
+          "start": 19.31,
+          "end": 19.81,
+          "key": "integrity",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "deceiv'd",
+          "start": 20.21,
+          "end": 20.63,
+          "key": "deceivd",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 20.63,
+          "end": 20.75,
+          "key": "in",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 20.75,
+          "end": 20.93,
+          "key": "that",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 20.93,
+          "end": 21.11,
+          "key": "which",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "seems",
+          "start": 21.11,
+          "end": 21.37,
+          "key": "seems",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 21.37,
+          "end": 21.77,
+          "key": "so",
+          "pieces": [
+            46
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 27,
+          "text": "chamber-counsels,",
+          "heard": "chamber -counsels,",
+          "heard_indexes": [
+            16,
+            17
+          ],
+          "start": 10.61,
+          "end": 11.53
+        },
+        {
+          "expected_index": 29,
+          "text": "priest-like,",
+          "heard": "priest -like,",
+          "heard_indexes": [
+            19,
+            20
+          ],
+          "start": 12.37,
+          "end": 12.85
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.0,
+          "end": 2.975
+        },
+        {
+          "text": "Satisfy?",
+          "start": 2.975,
+          "end": 4.463
+        },
+        {
+          "text": "Th'",
+          "start": 4.463,
+          "end": 5.207
+        },
+        {
+          "text": "entreaties",
+          "start": 5.207,
+          "end": 5.579
+        },
+        {
+          "text": "of",
+          "start": 5.579,
+          "end": 5.764
+        },
+        {
+          "text": "your",
+          "start": 5.764,
+          "end": 5.857
+        },
+        {
+          "text": "mistress?",
+          "start": 5.857,
+          "end": 5.904
+        },
+        {
+          "text": "Satisfy?",
+          "start": 5.904,
+          "end": 5.927
+        },
+        {
+          "text": "Let",
+          "start": 5.927,
+          "end": 5.938
+        },
+        {
+          "text": "that",
+          "start": 5.938,
+          "end": 5.944
+        },
+        {
+          "text": "suffice.",
+          "start": 5.944,
+          "end": 5.947
+        },
+        {
+          "text": "I",
+          "start": 5.95,
+          "end": 6.39
+        },
+        {
+          "text": "have",
+          "start": 6.39,
+          "end": 6.83
+        },
+        {
+          "text": "trusted",
+          "start": 6.83,
+          "end": 7.17
+        },
+        {
+          "text": "thee,",
+          "start": 7.17,
+          "end": 7.57
+        },
+        {
+          "text": "Camillo,",
+          "start": 7.83,
+          "end": 8.13
+        },
+        {
+          "text": "With",
+          "start": 8.31,
+          "end": 8.37
+        },
+        {
+          "text": "all",
+          "start": 8.37,
+          "end": 8.59
+        },
+        {
+          "text": "the",
+          "start": 8.59,
+          "end": 8.75
+        },
+        {
+          "text": "nearest",
+          "start": 8.75,
+          "end": 8.97
+        },
+        {
+          "text": "things",
+          "start": 8.97,
+          "end": 9.33
+        },
+        {
+          "text": "to",
+          "start": 9.33,
+          "end": 9.55
+        },
+        {
+          "text": "my",
+          "start": 9.55,
+          "end": 9.71
+        },
+        {
+          "text": "heart,",
+          "start": 9.71,
+          "end": 9.95
+        },
+        {
+          "text": "as",
+          "start": 10.13,
+          "end": 10.19
+        },
+        {
+          "text": "well",
+          "start": 10.19,
+          "end": 10.39
+        },
+        {
+          "text": "My",
+          "start": 10.39,
+          "end": 10.61
+        },
+        {
+          "text": "chamber-counsels,",
+          "start": 10.61,
+          "end": 11.53
+        },
+        {
+          "text": "wherein,",
+          "start": 11.79,
+          "end": 12.01
+        },
+        {
+          "text": "priest-like,",
+          "start": 12.37,
+          "end": 12.85
+        },
+        {
+          "text": "thou",
+          "start": 13.27,
+          "end": 13.29
+        },
+        {
+          "text": "Hast",
+          "start": 13.29,
+          "end": 13.69
+        },
+        {
+          "text": "cleans'd",
+          "start": 13.69,
+          "end": 14.29
+        },
+        {
+          "text": "my",
+          "start": 14.29,
+          "end": 14.41
+        },
+        {
+          "text": "bosom;",
+          "start": 14.41,
+          "end": 14.85
+        },
+        {
+          "text": "I",
+          "start": 15.21,
+          "end": 15.31
+        },
+        {
+          "text": "from",
+          "start": 15.31,
+          "end": 15.45
+        },
+        {
+          "text": "thee",
+          "start": 15.45,
+          "end": 15.57
+        },
+        {
+          "text": "departed",
+          "start": 15.57,
+          "end": 15.93
+        },
+        {
+          "text": "Thy",
+          "start": 15.93,
+          "end": 16.23
+        },
+        {
+          "text": "penitent",
+          "start": 16.23,
+          "end": 16.73
+        },
+        {
+          "text": "reform'd.",
+          "start": 16.73,
+          "end": 17.49
+        },
+        {
+          "text": "But",
+          "start": 17.89,
+          "end": 18.13
+        },
+        {
+          "text": "we",
+          "start": 18.13,
+          "end": 18.25
+        },
+        {
+          "text": "have",
+          "start": 18.25,
+          "end": 18.37
+        },
+        {
+          "text": "been",
+          "start": 18.37,
+          "end": 18.53
+        },
+        {
+          "text": "Deceiv'd",
+          "start": 18.53,
+          "end": 19.07
+        },
+        {
+          "text": "in",
+          "start": 19.07,
+          "end": 19.17
+        },
+        {
+          "text": "thy",
+          "start": 19.17,
+          "end": 19.31
+        },
+        {
+          "text": "integrity,",
+          "start": 19.31,
+          "end": 19.81
+        },
+        {
+          "text": "deceiv'd",
+          "start": 20.21,
+          "end": 20.63
+        },
+        {
+          "text": "In",
+          "start": 20.63,
+          "end": 20.75
+        },
+        {
+          "text": "that",
+          "start": 20.75,
+          "end": 20.93
+        },
+        {
+          "text": "which",
+          "start": 20.93,
+          "end": 21.11
+        },
+        {
+          "text": "seems",
+          "start": 21.11,
+          "end": 21.37
+        },
+        {
+          "text": "so.",
+          "start": 21.37,
+          "end": 21.77
+        }
+      ],
+      "stats": {
+        "expected_words": 56,
+        "heard_words": 45,
+        "matched_words": 45
+      },
+      "match_ratio": 0.8035714285714286,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.5925740376114845
+    },
+    {
+      "asr_seconds": 0.6200588252395391,
+      "alignment_seconds": 0.0007294490933418274,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Leontes, Satisfy, Th, Let, I, Camillo, With, Hast, But"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Leontes, Satisfy, Th, In Treaties of Your Mistress, Satisfy, Let, That Suffice, I Have",
+          "start": 0.05,
+          "end": 6.87,
+          "words": [
+            {
+              "text": " Leontes,",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 0.17476399739583334
+            },
+            {
+              "text": " Satisfy,",
+              "start": 1.17,
+              "end": 1.71,
+              "probability": 0.430267333984375
+            },
+            {
+              "text": " Th,",
+              "start": 2.23,
+              "end": 2.23,
+              "probability": 0.363037109375
+            },
+            {
+              "text": " In",
+              "start": 2.51,
+              "end": 2.57,
+              "probability": 0.1544189453125
+            },
+            {
+              "text": " Treaties",
+              "start": 2.57,
+              "end": 2.99,
+              "probability": 0.73486328125
+            },
+            {
+              "text": " of",
+              "start": 2.99,
+              "end": 3.09,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " Your",
+              "start": 3.09,
+              "end": 3.19,
+              "probability": 0.391845703125
+            },
+            {
+              "text": " Mistress,",
+              "start": 3.19,
+              "end": 3.53,
+              "probability": 0.62939453125
+            },
+            {
+              "text": " Satisfy,",
+              "start": 4.29,
+              "end": 4.83,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Let,",
+              "start": 5.17,
+              "end": 5.27,
+              "probability": 0.796875
+            },
+            {
+              "text": " That",
+              "start": 5.29,
+              "end": 5.59,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " Suffice,",
+              "start": 5.59,
+              "end": 6.01,
+              "probability": 0.958740234375
+            },
+            {
+              "text": " I",
+              "start": 6.55,
+              "end": 6.77,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Have",
+              "start": 6.77,
+              "end": 6.87,
+              "probability": 0.5986328125
+            }
+          ]
+        },
+        {
+          "text": " Trusted Thee, Camillo, With All the Nearest Things to My Heart, As Well My Chamber Councils,",
+          "start": 6.87,
+          "end": 11.63,
+          "words": [
+            {
+              "text": " Trusted",
+              "start": 6.87,
+              "end": 7.23,
+              "probability": 0.868896484375
+            },
+            {
+              "text": " Thee,",
+              "start": 7.23,
+              "end": 7.69,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " Camillo,",
+              "start": 7.83,
+              "end": 8.13,
+              "probability": 0.886474609375
+            },
+            {
+              "text": " With",
+              "start": 8.29,
+              "end": 8.37,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " All",
+              "start": 8.37,
+              "end": 8.59,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " the",
+              "start": 8.59,
+              "end": 8.77,
+              "probability": 0.53515625
+            },
+            {
+              "text": " Nearest",
+              "start": 8.77,
+              "end": 9.03,
+              "probability": 0.890380859375
+            },
+            {
+              "text": " Things",
+              "start": 9.03,
+              "end": 9.31,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " to",
+              "start": 9.31,
+              "end": 9.55,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " My",
+              "start": 9.55,
+              "end": 9.71,
+              "probability": 0.7890625
+            },
+            {
+              "text": " Heart,",
+              "start": 9.71,
+              "end": 9.95,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " As",
+              "start": 10.13,
+              "end": 10.21,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " Well",
+              "start": 10.21,
+              "end": 10.39,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " My",
+              "start": 10.39,
+              "end": 10.61,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " Chamber",
+              "start": 10.61,
+              "end": 10.93,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Councils,",
+              "start": 10.93,
+              "end": 11.63,
+              "probability": 0.909423828125
+            }
+          ]
+        },
+        {
+          "text": " Wherein, Priestlike, Thou Hast Cleansed My Busom, I from Thee Departed Thy Penitent Reformed,",
+          "start": 11.83,
+          "end": 17.31,
+          "words": [
+            {
+              "text": " Wherein,",
+              "start": 11.83,
+              "end": 12.17,
+              "probability": 0.932373046875
+            },
+            {
+              "text": " Priestlike,",
+              "start": 12.29,
+              "end": 12.81,
+              "probability": 0.678466796875
+            },
+            {
+              "text": " Thou",
+              "start": 13.23,
+              "end": 13.29,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " Hast",
+              "start": 13.29,
+              "end": 13.69,
+              "probability": 0.483642578125
+            },
+            {
+              "text": " Cleansed",
+              "start": 13.69,
+              "end": 14.27,
+              "probability": 0.7646484375
+            },
+            {
+              "text": " My",
+              "start": 14.27,
+              "end": 14.43,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " Busom,",
+              "start": 14.43,
+              "end": 14.83,
+              "probability": 0.5465087890625
+            },
+            {
+              "text": " I",
+              "start": 15.21,
+              "end": 15.31,
+              "probability": 0.986328125
+            },
+            {
+              "text": " from",
+              "start": 15.31,
+              "end": 15.45,
+              "probability": 0.3251953125
+            },
+            {
+              "text": " Thee",
+              "start": 15.45,
+              "end": 15.69,
+              "probability": 0.936279296875
+            },
+            {
+              "text": " Departed",
+              "start": 15.69,
+              "end": 15.97,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " Thy",
+              "start": 15.97,
+              "end": 16.23,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " Penitent",
+              "start": 16.23,
+              "end": 16.69,
+              "probability": 0.899658203125
+            },
+            {
+              "text": " Reformed,",
+              "start": 16.69,
+              "end": 17.31,
+              "probability": 0.934326171875
+            }
+          ]
+        },
+        {
+          "text": " But We Have Been Deceived in Thy Integrity, Deceived in That Which Seems So.",
+          "start": 17.97,
+          "end": 21.79,
+          "words": [
+            {
+              "text": " But",
+              "start": 17.97,
+              "end": 18.13,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " We",
+              "start": 18.13,
+              "end": 18.25,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " Have",
+              "start": 18.25,
+              "end": 18.35,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " Been",
+              "start": 18.35,
+              "end": 18.53,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Deceived",
+              "start": 18.53,
+              "end": 18.97,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " in",
+              "start": 18.97,
+              "end": 19.17,
+              "probability": 0.826171875
+            },
+            {
+              "text": " Thy",
+              "start": 19.17,
+              "end": 19.31,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " Integrity,",
+              "start": 19.31,
+              "end": 19.81,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Deceived",
+              "start": 20.23,
+              "end": 20.55,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " in",
+              "start": 20.55,
+              "end": 20.77,
+              "probability": 0.9765625
+            },
+            {
+              "text": " That",
+              "start": 20.77,
+              "end": 20.91,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Which",
+              "start": 20.91,
+              "end": 21.11,
+              "probability": 0.85546875
+            },
+            {
+              "text": " Seems",
+              "start": 21.11,
+              "end": 21.37,
+              "probability": 0.775390625
+            },
+            {
+              "text": " So.",
+              "start": 21.37,
+              "end": 21.79,
+              "probability": 0.92822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leontes,",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "raw": "Satisfy,",
+          "start": 1.17,
+          "end": 1.71
+        },
+        {
+          "raw": "Th,",
+          "start": 2.23,
+          "end": 2.23
+        },
+        {
+          "raw": "In",
+          "start": 2.51,
+          "end": 2.57
+        },
+        {
+          "raw": "Treaties",
+          "start": 2.57,
+          "end": 2.99
+        },
+        {
+          "raw": "of",
+          "start": 2.99,
+          "end": 3.09
+        },
+        {
+          "raw": "Your",
+          "start": 3.09,
+          "end": 3.19
+        },
+        {
+          "raw": "Mistress,",
+          "start": 3.19,
+          "end": 3.53
+        },
+        {
+          "raw": "Satisfy,",
+          "start": 4.29,
+          "end": 4.83
+        },
+        {
+          "raw": "Let,",
+          "start": 5.17,
+          "end": 5.27
+        },
+        {
+          "raw": "That",
+          "start": 5.29,
+          "end": 5.59
+        },
+        {
+          "raw": "Suffice,",
+          "start": 5.59,
+          "end": 6.01
+        },
+        {
+          "raw": "I",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "raw": "Have",
+          "start": 6.77,
+          "end": 6.87
+        },
+        {
+          "raw": "Trusted",
+          "start": 6.87,
+          "end": 7.23
+        },
+        {
+          "raw": "Thee,",
+          "start": 7.23,
+          "end": 7.69
+        },
+        {
+          "raw": "Camillo,",
+          "start": 7.83,
+          "end": 8.13
+        },
+        {
+          "raw": "With",
+          "start": 8.29,
+          "end": 8.37
+        },
+        {
+          "raw": "All",
+          "start": 8.37,
+          "end": 8.59
+        },
+        {
+          "raw": "the",
+          "start": 8.59,
+          "end": 8.77
+        },
+        {
+          "raw": "Nearest",
+          "start": 8.77,
+          "end": 9.03
+        },
+        {
+          "raw": "Things",
+          "start": 9.03,
+          "end": 9.31
+        },
+        {
+          "raw": "to",
+          "start": 9.31,
+          "end": 9.55
+        },
+        {
+          "raw": "My",
+          "start": 9.55,
+          "end": 9.71
+        },
+        {
+          "raw": "Heart,",
+          "start": 9.71,
+          "end": 9.95
+        },
+        {
+          "raw": "As",
+          "start": 10.13,
+          "end": 10.21
+        },
+        {
+          "raw": "Well",
+          "start": 10.21,
+          "end": 10.39
+        },
+        {
+          "raw": "My",
+          "start": 10.39,
+          "end": 10.61
+        },
+        {
+          "raw": "Chamber",
+          "start": 10.61,
+          "end": 10.93
+        },
+        {
+          "raw": "Councils,",
+          "start": 10.93,
+          "end": 11.63
+        },
+        {
+          "raw": "Wherein,",
+          "start": 11.83,
+          "end": 12.17
+        },
+        {
+          "raw": "Priestlike,",
+          "start": 12.29,
+          "end": 12.81
+        },
+        {
+          "raw": "Thou",
+          "start": 13.23,
+          "end": 13.29
+        },
+        {
+          "raw": "Hast",
+          "start": 13.29,
+          "end": 13.69
+        },
+        {
+          "raw": "Cleansed",
+          "start": 13.69,
+          "end": 14.27
+        },
+        {
+          "raw": "My",
+          "start": 14.27,
+          "end": 14.43
+        },
+        {
+          "raw": "Busom,",
+          "start": 14.43,
+          "end": 14.83
+        },
+        {
+          "raw": "I",
+          "start": 15.21,
+          "end": 15.31
+        },
+        {
+          "raw": "from",
+          "start": 15.31,
+          "end": 15.45
+        },
+        {
+          "raw": "Thee",
+          "start": 15.45,
+          "end": 15.69
+        },
+        {
+          "raw": "Departed",
+          "start": 15.69,
+          "end": 15.97
+        },
+        {
+          "raw": "Thy",
+          "start": 15.97,
+          "end": 16.23
+        },
+        {
+          "raw": "Penitent",
+          "start": 16.23,
+          "end": 16.69
+        },
+        {
+          "raw": "Reformed,",
+          "start": 16.69,
+          "end": 17.31
+        },
+        {
+          "raw": "But",
+          "start": 17.97,
+          "end": 18.13
+        },
+        {
+          "raw": "We",
+          "start": 18.13,
+          "end": 18.25
+        },
+        {
+          "raw": "Have",
+          "start": 18.25,
+          "end": 18.35
+        },
+        {
+          "raw": "Been",
+          "start": 18.35,
+          "end": 18.53
+        },
+        {
+          "raw": "Deceived",
+          "start": 18.53,
+          "end": 18.97
+        },
+        {
+          "raw": "in",
+          "start": 18.97,
+          "end": 19.17
+        },
+        {
+          "raw": "Thy",
+          "start": 19.17,
+          "end": 19.31
+        },
+        {
+          "raw": "Integrity,",
+          "start": 19.31,
+          "end": 19.81
+        },
+        {
+          "raw": "Deceived",
+          "start": 20.23,
+          "end": 20.55
+        },
+        {
+          "raw": "in",
+          "start": 20.55,
+          "end": 20.77
+        },
+        {
+          "raw": "That",
+          "start": 20.77,
+          "end": 20.91
+        },
+        {
+          "raw": "Which",
+          "start": 20.91,
+          "end": 21.11
+        },
+        {
+          "raw": "Seems",
+          "start": 21.11,
+          "end": 21.37
+        },
+        {
+          "raw": "So.",
+          "start": 21.37,
+          "end": 21.79
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "Satisfy?",
+        "Th'",
+        "entreaties",
+        "of",
+        "your",
+        "mistress?",
+        "Satisfy?",
+        "Let",
+        "that",
+        "suffice.",
+        "I",
+        "have",
+        "trusted",
+        "thee,",
+        "Camillo,",
+        "With",
+        "all",
+        "the",
+        "nearest",
+        "things",
+        "to",
+        "my",
+        "heart,",
+        "as",
+        "well",
+        "My",
+        "chamber-counsels,",
+        "wherein,",
+        "priest-like,",
+        "thou",
+        "Hast",
+        "cleans'd",
+        "my",
+        "bosom;",
+        "I",
+        "from",
+        "thee",
+        "departed",
+        "Thy",
+        "penitent",
+        "reform'd.",
+        "But",
+        "we",
+        "have",
+        "been",
+        "Deceiv'd",
+        "in",
+        "thy",
+        "integrity,",
+        "deceiv'd",
+        "In",
+        "that",
+        "which",
+        "seems",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          27,
+          5,
+          28
+        ],
+        [
+          "replace",
+          27,
+          28,
+          28,
+          30
+        ],
+        [
+          "equal",
+          28,
+          32,
+          30,
+          34
+        ],
+        [
+          "replace",
+          32,
+          33,
+          34,
+          35
+        ],
+        [
+          "equal",
+          33,
+          34,
+          35,
+          36
+        ],
+        [
+          "replace",
+          34,
+          35,
+          36,
+          37
+        ],
+        [
+          "equal",
+          35,
+          41,
+          37,
+          43
+        ],
+        [
+          "replace",
+          41,
+          42,
+          43,
+          44
+        ],
+        [
+          "equal",
+          42,
+          46,
+          44,
+          48
+        ],
+        [
+          "replace",
+          46,
+          47,
+          48,
+          49
+        ],
+        [
+          "equal",
+          47,
+          50,
+          49,
+          52
+        ],
+        [
+          "replace",
+          50,
+          51,
+          52,
+          53
+        ],
+        [
+          "equal",
+          51,
+          56,
+          53,
+          58
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          27,
+          28,
+          28,
+          30
+        ],
+        [
+          "replace",
+          32,
+          33,
+          34,
+          35
+        ],
+        [
+          "replace",
+          34,
+          35,
+          36,
+          37
+        ],
+        [
+          "replace",
+          41,
+          42,
+          43,
+          44
+        ],
+        [
+          "replace",
+          46,
+          47,
+          48,
+          49
+        ],
+        [
+          "replace",
+          50,
+          51,
+          52,
+          53
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leontes,",
+          "start": 0.05,
+          "end": 1.07,
+          "key": "leontes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Satisfy,",
+          "start": 1.17,
+          "end": 1.71,
+          "key": "satisfy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Th,",
+          "start": 2.23,
+          "end": 2.23,
+          "key": "th",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 2.51,
+          "end": 2.57,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Treaties",
+          "start": 2.57,
+          "end": 2.99,
+          "key": "treaties",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.99,
+          "end": 3.09,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 3.09,
+          "end": 3.19,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Mistress,",
+          "start": 3.19,
+          "end": 3.53,
+          "key": "mistress",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Satisfy,",
+          "start": 4.29,
+          "end": 4.83,
+          "key": "satisfy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Let,",
+          "start": 5.17,
+          "end": 5.27,
+          "key": "let",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 5.29,
+          "end": 5.59,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Suffice,",
+          "start": 5.59,
+          "end": 6.01,
+          "key": "suffice",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.55,
+          "end": 6.77,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 6.77,
+          "end": 6.87,
+          "key": "have",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Trusted",
+          "start": 6.87,
+          "end": 7.23,
+          "key": "trusted",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Thee,",
+          "start": 7.23,
+          "end": 7.69,
+          "key": "thee",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Camillo,",
+          "start": 7.83,
+          "end": 8.13,
+          "key": "camillo",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 8.29,
+          "end": 8.37,
+          "key": "with",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 8.37,
+          "end": 8.59,
+          "key": "all",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.59,
+          "end": 8.77,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Nearest",
+          "start": 8.77,
+          "end": 9.03,
+          "key": "nearest",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Things",
+          "start": 9.03,
+          "end": 9.31,
+          "key": "things",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.31,
+          "end": 9.55,
+          "key": "to",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 9.55,
+          "end": 9.71,
+          "key": "my",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Heart,",
+          "start": 9.71,
+          "end": 9.95,
+          "key": "heart",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 10.13,
+          "end": 10.21,
+          "key": "as",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Well",
+          "start": 10.21,
+          "end": 10.39,
+          "key": "well",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 10.39,
+          "end": 10.61,
+          "key": "my",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Chamber",
+          "start": 10.61,
+          "end": 10.93,
+          "key": "chamber",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Councils,",
+          "start": 10.93,
+          "end": 11.63,
+          "key": "councils",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Wherein,",
+          "start": 11.83,
+          "end": 12.17,
+          "key": "wherein",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Priestlike,",
+          "start": 12.29,
+          "end": 12.81,
+          "key": "priestlike",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 13.23,
+          "end": 13.29,
+          "key": "thou",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Hast",
+          "start": 13.29,
+          "end": 13.69,
+          "key": "hast",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Cleansed",
+          "start": 13.69,
+          "end": 14.27,
+          "key": "cleansed",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 14.27,
+          "end": 14.43,
+          "key": "my",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Busom,",
+          "start": 14.43,
+          "end": 14.83,
+          "key": "busom",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 15.21,
+          "end": 15.31,
+          "key": "i",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 15.31,
+          "end": 15.45,
+          "key": "from",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Thee",
+          "start": 15.45,
+          "end": 15.69,
+          "key": "thee",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Departed",
+          "start": 15.69,
+          "end": 15.97,
+          "key": "departed",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Thy",
+          "start": 15.97,
+          "end": 16.23,
+          "key": "thy",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Penitent",
+          "start": 16.23,
+          "end": 16.69,
+          "key": "penitent",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Reformed,",
+          "start": 16.69,
+          "end": 17.31,
+          "key": "reformed",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 17.97,
+          "end": 18.13,
+          "key": "but",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 18.13,
+          "end": 18.25,
+          "key": "we",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 18.25,
+          "end": 18.35,
+          "key": "have",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Been",
+          "start": 18.35,
+          "end": 18.53,
+          "key": "been",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Deceived",
+          "start": 18.53,
+          "end": 18.97,
+          "key": "deceived",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 18.97,
+          "end": 19.17,
+          "key": "in",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Thy",
+          "start": 19.17,
+          "end": 19.31,
+          "key": "thy",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Integrity,",
+          "start": 19.31,
+          "end": 19.81,
+          "key": "integrity",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Deceived",
+          "start": 20.23,
+          "end": 20.55,
+          "key": "deceived",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 20.55,
+          "end": 20.77,
+          "key": "in",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 20.77,
+          "end": 20.91,
+          "key": "that",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 20.91,
+          "end": 21.11,
+          "key": "which",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Seems",
+          "start": 21.11,
+          "end": 21.37,
+          "key": "seems",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "So.",
+          "start": 21.37,
+          "end": 21.79,
+          "key": "so",
+          "pieces": [
+            57
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "text": "Satisfy?",
+          "start": 1.17,
+          "end": 1.71
+        },
+        {
+          "text": "Th'",
+          "start": 2.23,
+          "end": 2.23
+        },
+        {
+          "text": "entreaties",
+          "start": 2.23,
+          "end": 2.61
+        },
+        {
+          "text": "of",
+          "start": 2.99,
+          "end": 3.09
+        },
+        {
+          "text": "your",
+          "start": 3.09,
+          "end": 3.19
+        },
+        {
+          "text": "mistress?",
+          "start": 3.19,
+          "end": 3.53
+        },
+        {
+          "text": "Satisfy?",
+          "start": 4.29,
+          "end": 4.83
+        },
+        {
+          "text": "Let",
+          "start": 5.17,
+          "end": 5.27
+        },
+        {
+          "text": "that",
+          "start": 5.29,
+          "end": 5.59
+        },
+        {
+          "text": "suffice.",
+          "start": 5.59,
+          "end": 6.01
+        },
+        {
+          "text": "I",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "text": "have",
+          "start": 6.77,
+          "end": 6.87
+        },
+        {
+          "text": "trusted",
+          "start": 6.87,
+          "end": 7.23
+        },
+        {
+          "text": "thee,",
+          "start": 7.23,
+          "end": 7.69
+        },
+        {
+          "text": "Camillo,",
+          "start": 7.83,
+          "end": 8.13
+        },
+        {
+          "text": "With",
+          "start": 8.29,
+          "end": 8.37
+        },
+        {
+          "text": "all",
+          "start": 8.37,
+          "end": 8.59
+        },
+        {
+          "text": "the",
+          "start": 8.59,
+          "end": 8.77
+        },
+        {
+          "text": "nearest",
+          "start": 8.77,
+          "end": 9.03
+        },
+        {
+          "text": "things",
+          "start": 9.03,
+          "end": 9.31
+        },
+        {
+          "text": "to",
+          "start": 9.31,
+          "end": 9.55
+        },
+        {
+          "text": "my",
+          "start": 9.55,
+          "end": 9.71
+        },
+        {
+          "text": "heart,",
+          "start": 9.71,
+          "end": 9.95
+        },
+        {
+          "text": "as",
+          "start": 10.13,
+          "end": 10.21
+        },
+        {
+          "text": "well",
+          "start": 10.21,
+          "end": 10.39
+        },
+        {
+          "text": "My",
+          "start": 10.39,
+          "end": 10.61
+        },
+        {
+          "text": "chamber-counsels,",
+          "start": 10.61,
+          "end": 11.22
+        },
+        {
+          "text": "wherein,",
+          "start": 11.83,
+          "end": 12.17
+        },
+        {
+          "text": "priest-like,",
+          "start": 12.29,
+          "end": 12.81
+        },
+        {
+          "text": "thou",
+          "start": 13.23,
+          "end": 13.29
+        },
+        {
+          "text": "Hast",
+          "start": 13.29,
+          "end": 13.69
+        },
+        {
+          "text": "cleans'd",
+          "start": 13.69,
+          "end": 13.98
+        },
+        {
+          "text": "my",
+          "start": 14.27,
+          "end": 14.43
+        },
+        {
+          "text": "bosom;",
+          "start": 14.43,
+          "end": 14.82
+        },
+        {
+          "text": "I",
+          "start": 15.21,
+          "end": 15.31
+        },
+        {
+          "text": "from",
+          "start": 15.31,
+          "end": 15.45
+        },
+        {
+          "text": "thee",
+          "start": 15.45,
+          "end": 15.69
+        },
+        {
+          "text": "departed",
+          "start": 15.69,
+          "end": 15.97
+        },
+        {
+          "text": "Thy",
+          "start": 15.97,
+          "end": 16.23
+        },
+        {
+          "text": "penitent",
+          "start": 16.23,
+          "end": 16.69
+        },
+        {
+          "text": "reform'd.",
+          "start": 16.69,
+          "end": 17.33
+        },
+        {
+          "text": "But",
+          "start": 17.97,
+          "end": 18.13
+        },
+        {
+          "text": "we",
+          "start": 18.13,
+          "end": 18.25
+        },
+        {
+          "text": "have",
+          "start": 18.25,
+          "end": 18.35
+        },
+        {
+          "text": "been",
+          "start": 18.35,
+          "end": 18.53
+        },
+        {
+          "text": "Deceiv'd",
+          "start": 18.53,
+          "end": 18.75
+        },
+        {
+          "text": "in",
+          "start": 18.97,
+          "end": 19.17
+        },
+        {
+          "text": "thy",
+          "start": 19.17,
+          "end": 19.31
+        },
+        {
+          "text": "integrity,",
+          "start": 19.31,
+          "end": 19.81
+        },
+        {
+          "text": "deceiv'd",
+          "start": 19.81,
+          "end": 20.18
+        },
+        {
+          "text": "In",
+          "start": 20.55,
+          "end": 20.77
+        },
+        {
+          "text": "that",
+          "start": 20.77,
+          "end": 20.91
+        },
+        {
+          "text": "which",
+          "start": 20.91,
+          "end": 21.11
+        },
+        {
+          "text": "seems",
+          "start": 21.11,
+          "end": 21.37
+        },
+        {
+          "text": "so.",
+          "start": 21.37,
+          "end": 21.79
+        }
+      ],
+      "stats": {
+        "expected_words": 56,
+        "heard_words": 58,
+        "matched_words": 49
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.6210806760936975
+    },
+    {
+      "asr_seconds": 0.5713749527931213,
+      "alignment_seconds": 0.000844612717628479,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leance, satisfy, th in treaties of your mistress.",
+          "start": 0.05,
+          "end": 3.51,
+          "words": [
+            {
+              "text": " Leance,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.32623291015625
+            },
+            {
+              "text": " satisfy,",
+              "start": 0.97,
+              "end": 1.51,
+              "probability": 0.81201171875
+            },
+            {
+              "text": " th",
+              "start": 1.95,
+              "end": 2.17,
+              "probability": 0.54833984375
+            },
+            {
+              "text": " in",
+              "start": 2.17,
+              "end": 2.57,
+              "probability": 0.56298828125
+            },
+            {
+              "text": " treaties",
+              "start": 2.57,
+              "end": 2.85,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " of",
+              "start": 2.85,
+              "end": 3.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 3.09,
+              "end": 3.17,
+              "probability": 0.990234375
+            },
+            {
+              "text": " mistress.",
+              "start": 3.17,
+              "end": 3.51,
+              "probability": 0.98681640625
+            }
+          ]
+        },
+        {
+          "text": " Satisfy?",
+          "start": 4.23,
+          "end": 4.79,
+          "words": [
+            {
+              "text": " Satisfy?",
+              "start": 4.23,
+              "end": 4.79,
+              "probability": 0.9677734375
+            }
+          ]
+        },
+        {
+          "text": " Let that suffice.",
+          "start": 5.17,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " Let",
+              "start": 5.17,
+              "end": 5.29,
+              "probability": 0.7412109375
+            },
+            {
+              "text": " that",
+              "start": 5.29,
+              "end": 5.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " suffice.",
+              "start": 5.53,
+              "end": 5.91,
+              "probability": 0.97509765625
+            }
+          ]
+        },
+        {
+          "text": " I have trusted thee, Camillo, with all the nearest things to my heart as well my chamber",
+          "start": 6.55,
+          "end": 10.93,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.55,
+              "end": 6.77,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " have",
+              "start": 6.77,
+              "end": 6.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " trusted",
+              "start": 6.87,
+              "end": 7.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thee,",
+              "start": 7.21,
+              "end": 7.59,
+              "probability": 0.8173828125
+            },
+            {
+              "text": " Camillo,",
+              "start": 7.83,
+              "end": 8.13,
+              "probability": 0.878662109375
+            },
+            {
+              "text": " with",
+              "start": 8.27,
+              "end": 8.37,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " all",
+              "start": 8.37,
+              "end": 8.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 8.59,
+              "end": 8.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " nearest",
+              "start": 8.75,
+              "end": 8.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " things",
+              "start": 8.99,
+              "end": 9.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 9.33,
+              "end": 9.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 9.55,
+              "end": 9.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " heart",
+              "start": 9.71,
+              "end": 9.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 9.95,
+              "end": 10.19,
+              "probability": 0.75341796875
+            },
+            {
+              "text": " well",
+              "start": 10.19,
+              "end": 10.39,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " my",
+              "start": 10.39,
+              "end": 10.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " chamber",
+              "start": 10.61,
+              "end": 10.93,
+              "probability": 0.892578125
+            }
+          ]
+        },
+        {
+          "text": " counsels, wherein, priestlike, thou hast cleansed my bosom, I from thee departed thy penitent",
+          "start": 10.93,
+          "end": 16.67,
+          "words": [
+            {
+              "text": " counsels,",
+              "start": 10.93,
+              "end": 11.69,
+              "probability": 0.7147216796875
+            },
+            {
+              "text": " wherein,",
+              "start": 11.79,
+              "end": 12.05,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " priestlike,",
+              "start": 12.33,
+              "end": 12.81,
+              "probability": 0.8056640625
+            },
+            {
+              "text": " thou",
+              "start": 13.23,
+              "end": 13.29,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " hast",
+              "start": 13.29,
+              "end": 13.69,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " cleansed",
+              "start": 13.69,
+              "end": 14.29,
+              "probability": 0.966064453125
+            },
+            {
+              "text": " my",
+              "start": 14.29,
+              "end": 14.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " bosom,",
+              "start": 14.43,
+              "end": 14.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 15.21,
+              "end": 15.31,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " from",
+              "start": 15.31,
+              "end": 15.45,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " thee",
+              "start": 15.45,
+              "end": 15.57,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " departed",
+              "start": 15.57,
+              "end": 15.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thy",
+              "start": 15.95,
+              "end": 16.23,
+              "probability": 0.9765625
+            },
+            {
+              "text": " penitent",
+              "start": 16.23,
+              "end": 16.67,
+              "probability": 0.969970703125
+            }
+          ]
+        },
+        {
+          "text": " reformed.",
+          "start": 16.67,
+          "end": 17.23,
+          "words": [
+            {
+              "text": " reformed.",
+              "start": 16.67,
+              "end": 17.23,
+              "probability": 0.904296875
+            }
+          ]
+        },
+        {
+          "text": " But we have been deceived in thy integrity, deceived in that which seems so.\"",
+          "start": 17.93,
+          "end": 22.35,
+          "words": [
+            {
+              "text": " But",
+              "start": 17.93,
+              "end": 18.13,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " we",
+              "start": 18.13,
+              "end": 18.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " have",
+              "start": 18.25,
+              "end": 18.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " been",
+              "start": 18.37,
+              "end": 18.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " deceived",
+              "start": 18.51,
+              "end": 18.91,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 18.91,
+              "end": 19.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thy",
+              "start": 19.17,
+              "end": 19.31,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " integrity,",
+              "start": 19.31,
+              "end": 19.85,
+              "probability": 0.98828125
+            },
+            {
+              "text": " deceived",
+              "start": 20.19,
+              "end": 20.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 20.49,
+              "end": 20.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 20.77,
+              "end": 20.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " which",
+              "start": 20.93,
+              "end": 21.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " seems",
+              "start": 21.09,
+              "end": 21.39,
+              "probability": 0.984375
+            },
+            {
+              "text": " so.\"",
+              "start": 21.39,
+              "end": 22.35,
+              "probability": 0.658935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leance,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "satisfy,",
+          "start": 0.97,
+          "end": 1.51
+        },
+        {
+          "raw": "th",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "raw": "in",
+          "start": 2.17,
+          "end": 2.57
+        },
+        {
+          "raw": "treaties",
+          "start": 2.57,
+          "end": 2.85
+        },
+        {
+          "raw": "of",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "raw": "your",
+          "start": 3.09,
+          "end": 3.17
+        },
+        {
+          "raw": "mistress.",
+          "start": 3.17,
+          "end": 3.51
+        },
+        {
+          "raw": "Satisfy?",
+          "start": 4.23,
+          "end": 4.79
+        },
+        {
+          "raw": "Let",
+          "start": 5.17,
+          "end": 5.29
+        },
+        {
+          "raw": "that",
+          "start": 5.29,
+          "end": 5.53
+        },
+        {
+          "raw": "suffice.",
+          "start": 5.53,
+          "end": 5.91
+        },
+        {
+          "raw": "I",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "raw": "have",
+          "start": 6.77,
+          "end": 6.87
+        },
+        {
+          "raw": "trusted",
+          "start": 6.87,
+          "end": 7.21
+        },
+        {
+          "raw": "thee,",
+          "start": 7.21,
+          "end": 7.59
+        },
+        {
+          "raw": "Camillo,",
+          "start": 7.83,
+          "end": 8.13
+        },
+        {
+          "raw": "with",
+          "start": 8.27,
+          "end": 8.37
+        },
+        {
+          "raw": "all",
+          "start": 8.37,
+          "end": 8.59
+        },
+        {
+          "raw": "the",
+          "start": 8.59,
+          "end": 8.75
+        },
+        {
+          "raw": "nearest",
+          "start": 8.75,
+          "end": 8.99
+        },
+        {
+          "raw": "things",
+          "start": 8.99,
+          "end": 9.33
+        },
+        {
+          "raw": "to",
+          "start": 9.33,
+          "end": 9.55
+        },
+        {
+          "raw": "my",
+          "start": 9.55,
+          "end": 9.71
+        },
+        {
+          "raw": "heart",
+          "start": 9.71,
+          "end": 9.95
+        },
+        {
+          "raw": "as",
+          "start": 9.95,
+          "end": 10.19
+        },
+        {
+          "raw": "well",
+          "start": 10.19,
+          "end": 10.39
+        },
+        {
+          "raw": "my",
+          "start": 10.39,
+          "end": 10.61
+        },
+        {
+          "raw": "chamber",
+          "start": 10.61,
+          "end": 10.93
+        },
+        {
+          "raw": "counsels,",
+          "start": 10.93,
+          "end": 11.69
+        },
+        {
+          "raw": "wherein,",
+          "start": 11.79,
+          "end": 12.05
+        },
+        {
+          "raw": "priestlike,",
+          "start": 12.33,
+          "end": 12.81
+        },
+        {
+          "raw": "thou",
+          "start": 13.23,
+          "end": 13.29
+        },
+        {
+          "raw": "hast",
+          "start": 13.29,
+          "end": 13.69
+        },
+        {
+          "raw": "cleansed",
+          "start": 13.69,
+          "end": 14.29
+        },
+        {
+          "raw": "my",
+          "start": 14.29,
+          "end": 14.43
+        },
+        {
+          "raw": "bosom,",
+          "start": 14.43,
+          "end": 14.83
+        },
+        {
+          "raw": "I",
+          "start": 15.21,
+          "end": 15.31
+        },
+        {
+          "raw": "from",
+          "start": 15.31,
+          "end": 15.45
+        },
+        {
+          "raw": "thee",
+          "start": 15.45,
+          "end": 15.57
+        },
+        {
+          "raw": "departed",
+          "start": 15.57,
+          "end": 15.95
+        },
+        {
+          "raw": "thy",
+          "start": 15.95,
+          "end": 16.23
+        },
+        {
+          "raw": "penitent",
+          "start": 16.23,
+          "end": 16.67
+        },
+        {
+          "raw": "reformed.",
+          "start": 16.67,
+          "end": 17.23
+        },
+        {
+          "raw": "But",
+          "start": 17.93,
+          "end": 18.13
+        },
+        {
+          "raw": "we",
+          "start": 18.13,
+          "end": 18.25
+        },
+        {
+          "raw": "have",
+          "start": 18.25,
+          "end": 18.37
+        },
+        {
+          "raw": "been",
+          "start": 18.37,
+          "end": 18.51
+        },
+        {
+          "raw": "deceived",
+          "start": 18.51,
+          "end": 18.91
+        },
+        {
+          "raw": "in",
+          "start": 18.91,
+          "end": 19.17
+        },
+        {
+          "raw": "thy",
+          "start": 19.17,
+          "end": 19.31
+        },
+        {
+          "raw": "integrity,",
+          "start": 19.31,
+          "end": 19.85
+        },
+        {
+          "raw": "deceived",
+          "start": 20.19,
+          "end": 20.49
+        },
+        {
+          "raw": "in",
+          "start": 20.49,
+          "end": 20.77
+        },
+        {
+          "raw": "that",
+          "start": 20.77,
+          "end": 20.93
+        },
+        {
+          "raw": "which",
+          "start": 20.93,
+          "end": 21.09
+        },
+        {
+          "raw": "seems",
+          "start": 21.09,
+          "end": 21.39
+        },
+        {
+          "raw": "so.\"",
+          "start": 21.39,
+          "end": 22.35
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "Satisfy?",
+        "Th'",
+        "entreaties",
+        "of",
+        "your",
+        "mistress?",
+        "Satisfy?",
+        "Let",
+        "that",
+        "suffice.",
+        "I",
+        "have",
+        "trusted",
+        "thee,",
+        "Camillo,",
+        "With",
+        "all",
+        "the",
+        "nearest",
+        "things",
+        "to",
+        "my",
+        "heart,",
+        "as",
+        "well",
+        "My",
+        "chamber-counsels,",
+        "wherein,",
+        "priest-like,",
+        "thou",
+        "Hast",
+        "cleans'd",
+        "my",
+        "bosom;",
+        "I",
+        "from",
+        "thee",
+        "departed",
+        "Thy",
+        "penitent",
+        "reform'd.",
+        "But",
+        "we",
+        "have",
+        "been",
+        "Deceiv'd",
+        "in",
+        "thy",
+        "integrity,",
+        "deceiv'd",
+        "In",
+        "that",
+        "which",
+        "seems",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          32,
+          5,
+          33
+        ],
+        [
+          "replace",
+          32,
+          33,
+          33,
+          34
+        ],
+        [
+          "equal",
+          33,
+          41,
+          34,
+          42
+        ],
+        [
+          "replace",
+          41,
+          42,
+          42,
+          43
+        ],
+        [
+          "equal",
+          42,
+          46,
+          43,
+          47
+        ],
+        [
+          "replace",
+          46,
+          47,
+          47,
+          48
+        ],
+        [
+          "equal",
+          47,
+          50,
+          48,
+          51
+        ],
+        [
+          "replace",
+          50,
+          51,
+          51,
+          52
+        ],
+        [
+          "equal",
+          51,
+          56,
+          52,
+          57
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          32,
+          33,
+          33,
+          34
+        ],
+        [
+          "replace",
+          41,
+          42,
+          42,
+          43
+        ],
+        [
+          "replace",
+          46,
+          47,
+          47,
+          48
+        ],
+        [
+          "replace",
+          50,
+          51,
+          51,
+          52
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leance,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "leance",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "satisfy,",
+          "start": 0.97,
+          "end": 1.51,
+          "key": "satisfy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "th",
+          "start": 1.95,
+          "end": 2.17,
+          "key": "th",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.17,
+          "end": 2.57,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "treaties",
+          "start": 2.57,
+          "end": 2.85,
+          "key": "treaties",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.85,
+          "end": 3.09,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.09,
+          "end": 3.17,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mistress.",
+          "start": 3.17,
+          "end": 3.51,
+          "key": "mistress",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Satisfy?",
+          "start": 4.23,
+          "end": 4.79,
+          "key": "satisfy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 5.17,
+          "end": 5.29,
+          "key": "let",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.29,
+          "end": 5.53,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "suffice.",
+          "start": 5.53,
+          "end": 5.91,
+          "key": "suffice",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.55,
+          "end": 6.77,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.77,
+          "end": 6.87,
+          "key": "have",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "trusted",
+          "start": 6.87,
+          "end": 7.21,
+          "key": "trusted",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 7.21,
+          "end": 7.59,
+          "key": "thee",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Camillo,",
+          "start": 7.83,
+          "end": 8.13,
+          "key": "camillo",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 8.27,
+          "end": 8.37,
+          "key": "with",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 8.37,
+          "end": 8.59,
+          "key": "all",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.59,
+          "end": 8.75,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "nearest",
+          "start": 8.75,
+          "end": 8.99,
+          "key": "nearest",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 8.99,
+          "end": 9.33,
+          "key": "things",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.33,
+          "end": 9.55,
+          "key": "to",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 9.55,
+          "end": 9.71,
+          "key": "my",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 9.71,
+          "end": 9.95,
+          "key": "heart",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 9.95,
+          "end": 10.19,
+          "key": "as",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 10.19,
+          "end": 10.39,
+          "key": "well",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 10.39,
+          "end": 10.61,
+          "key": "my",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "chamber counsels,",
+          "start": 10.61,
+          "end": 11.69,
+          "key": "chambercounsels",
+          "pieces": [
+            28,
+            29
+          ]
+        },
+        {
+          "raw": "wherein,",
+          "start": 11.79,
+          "end": 12.05,
+          "key": "wherein",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "priestlike,",
+          "start": 12.33,
+          "end": 12.81,
+          "key": "priestlike",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 13.23,
+          "end": 13.29,
+          "key": "thou",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 13.29,
+          "end": 13.69,
+          "key": "hast",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "cleansed",
+          "start": 13.69,
+          "end": 14.29,
+          "key": "cleansed",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 14.29,
+          "end": 14.43,
+          "key": "my",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "bosom,",
+          "start": 14.43,
+          "end": 14.83,
+          "key": "bosom",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 15.21,
+          "end": 15.31,
+          "key": "i",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 15.31,
+          "end": 15.45,
+          "key": "from",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 15.45,
+          "end": 15.57,
+          "key": "thee",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "departed",
+          "start": 15.57,
+          "end": 15.95,
+          "key": "departed",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 15.95,
+          "end": 16.23,
+          "key": "thy",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "penitent",
+          "start": 16.23,
+          "end": 16.67,
+          "key": "penitent",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "reformed.",
+          "start": 16.67,
+          "end": 17.23,
+          "key": "reformed",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 17.93,
+          "end": 18.13,
+          "key": "but",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 18.13,
+          "end": 18.25,
+          "key": "we",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 18.25,
+          "end": 18.37,
+          "key": "have",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 18.37,
+          "end": 18.51,
+          "key": "been",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "deceived",
+          "start": 18.51,
+          "end": 18.91,
+          "key": "deceived",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 18.91,
+          "end": 19.17,
+          "key": "in",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 19.17,
+          "end": 19.31,
+          "key": "thy",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "integrity,",
+          "start": 19.31,
+          "end": 19.85,
+          "key": "integrity",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "deceived",
+          "start": 20.19,
+          "end": 20.49,
+          "key": "deceived",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 20.49,
+          "end": 20.77,
+          "key": "in",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 20.77,
+          "end": 20.93,
+          "key": "that",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 20.93,
+          "end": 21.09,
+          "key": "which",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "seems",
+          "start": 21.09,
+          "end": 21.39,
+          "key": "seems",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "so.\"",
+          "start": 21.39,
+          "end": 22.35,
+          "key": "so",
+          "pieces": [
+            57
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 27,
+          "text": "chamber-counsels,",
+          "heard": "chamber counsels,",
+          "heard_indexes": [
+            28,
+            29
+          ],
+          "start": 10.61,
+          "end": 11.69
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.0,
+          "end": 0.485
+        },
+        {
+          "text": "Satisfy?",
+          "start": 0.97,
+          "end": 1.51
+        },
+        {
+          "text": "Th'",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "text": "entreaties",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "text": "of",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "text": "your",
+          "start": 3.09,
+          "end": 3.17
+        },
+        {
+          "text": "mistress?",
+          "start": 3.17,
+          "end": 3.51
+        },
+        {
+          "text": "Satisfy?",
+          "start": 4.23,
+          "end": 4.79
+        },
+        {
+          "text": "Let",
+          "start": 5.17,
+          "end": 5.29
+        },
+        {
+          "text": "that",
+          "start": 5.29,
+          "end": 5.53
+        },
+        {
+          "text": "suffice.",
+          "start": 5.53,
+          "end": 5.91
+        },
+        {
+          "text": "I",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "text": "have",
+          "start": 6.77,
+          "end": 6.87
+        },
+        {
+          "text": "trusted",
+          "start": 6.87,
+          "end": 7.21
+        },
+        {
+          "text": "thee,",
+          "start": 7.21,
+          "end": 7.59
+        },
+        {
+          "text": "Camillo,",
+          "start": 7.83,
+          "end": 8.13
+        },
+        {
+          "text": "With",
+          "start": 8.27,
+          "end": 8.37
+        },
+        {
+          "text": "all",
+          "start": 8.37,
+          "end": 8.59
+        },
+        {
+          "text": "the",
+          "start": 8.59,
+          "end": 8.75
+        },
+        {
+          "text": "nearest",
+          "start": 8.75,
+          "end": 8.99
+        },
+        {
+          "text": "things",
+          "start": 8.99,
+          "end": 9.33
+        },
+        {
+          "text": "to",
+          "start": 9.33,
+          "end": 9.55
+        },
+        {
+          "text": "my",
+          "start": 9.55,
+          "end": 9.71
+        },
+        {
+          "text": "heart,",
+          "start": 9.71,
+          "end": 9.95
+        },
+        {
+          "text": "as",
+          "start": 9.95,
+          "end": 10.19
+        },
+        {
+          "text": "well",
+          "start": 10.19,
+          "end": 10.39
+        },
+        {
+          "text": "My",
+          "start": 10.39,
+          "end": 10.61
+        },
+        {
+          "text": "chamber-counsels,",
+          "start": 10.61,
+          "end": 11.69
+        },
+        {
+          "text": "wherein,",
+          "start": 11.79,
+          "end": 12.05
+        },
+        {
+          "text": "priest-like,",
+          "start": 12.33,
+          "end": 12.81
+        },
+        {
+          "text": "thou",
+          "start": 13.23,
+          "end": 13.29
+        },
+        {
+          "text": "Hast",
+          "start": 13.29,
+          "end": 13.69
+        },
+        {
+          "text": "cleans'd",
+          "start": 13.69,
+          "end": 13.99
+        },
+        {
+          "text": "my",
+          "start": 14.29,
+          "end": 14.43
+        },
+        {
+          "text": "bosom;",
+          "start": 14.43,
+          "end": 14.83
+        },
+        {
+          "text": "I",
+          "start": 15.21,
+          "end": 15.31
+        },
+        {
+          "text": "from",
+          "start": 15.31,
+          "end": 15.45
+        },
+        {
+          "text": "thee",
+          "start": 15.45,
+          "end": 15.57
+        },
+        {
+          "text": "departed",
+          "start": 15.57,
+          "end": 15.95
+        },
+        {
+          "text": "Thy",
+          "start": 15.95,
+          "end": 16.23
+        },
+        {
+          "text": "penitent",
+          "start": 16.23,
+          "end": 16.67
+        },
+        {
+          "text": "reform'd.",
+          "start": 16.67,
+          "end": 17.3
+        },
+        {
+          "text": "But",
+          "start": 17.93,
+          "end": 18.13
+        },
+        {
+          "text": "we",
+          "start": 18.13,
+          "end": 18.25
+        },
+        {
+          "text": "have",
+          "start": 18.25,
+          "end": 18.37
+        },
+        {
+          "text": "been",
+          "start": 18.37,
+          "end": 18.51
+        },
+        {
+          "text": "Deceiv'd",
+          "start": 18.51,
+          "end": 18.71
+        },
+        {
+          "text": "in",
+          "start": 18.91,
+          "end": 19.17
+        },
+        {
+          "text": "thy",
+          "start": 19.17,
+          "end": 19.31
+        },
+        {
+          "text": "integrity,",
+          "start": 19.31,
+          "end": 19.85
+        },
+        {
+          "text": "deceiv'd",
+          "start": 19.85,
+          "end": 20.17
+        },
+        {
+          "text": "In",
+          "start": 20.49,
+          "end": 20.77
+        },
+        {
+          "text": "that",
+          "start": 20.77,
+          "end": 20.93
+        },
+        {
+          "text": "which",
+          "start": 20.93,
+          "end": 21.09
+        },
+        {
+          "text": "seems",
+          "start": 21.09,
+          "end": 21.39
+        },
+        {
+          "text": "so.",
+          "start": 21.39,
+          "end": 22.35
+        }
+      ],
+      "stats": {
+        "expected_words": 56,
+        "heard_words": 57,
+        "matched_words": 50
+      },
+      "match_ratio": 0.8928571428571429,
+      "rejection_reasons": [],
+      "seconds": 0.572510976344347
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6e30ddb956a32580fc68534e4487fcbec35a4073f402cfd3eacaf99e9d7bd8cd",
+  "selected_reasons": []
+}

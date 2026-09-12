@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "7660a4ff45faa43f5a66ae0c9cc39995a7e6d8fcbba013c8fc6ecffade4a0008",
+  "attempts": [
+    {
+      "asr_seconds": 0.10927829798310995,
+      "alignment_seconds": 0.00011616991832852364,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Gentleman. I shall.",
+        "hotwords": "Second, Gentleman, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second, Gentleman, I Shall.",
+          "start": 0.08,
+          "end": 1.82,
+          "words": [
+            {
+              "text": " Second,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.7119140625
+            },
+            {
+              "text": " Gentleman,",
+              "start": 0.84,
+              "end": 1.08,
+              "probability": 0.00881195068359375
+            },
+            {
+              "text": " I",
+              "start": 1.52,
+              "end": 1.62,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Shall.",
+              "start": 1.62,
+              "end": 1.82,
+              "probability": 0.3056640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Gentleman,",
+          "start": 0.84,
+          "end": 1.08
+        },
+        {
+          "raw": "I",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "raw": "Shall.",
+          "start": 1.62,
+          "end": 1.82
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Gentleman.",
+        "I",
+        "shall."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gentleman,",
+          "start": 0.84,
+          "end": 1.08,
+          "key": "gentleman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.52,
+          "end": 1.62,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Shall.",
+          "start": 1.62,
+          "end": 1.82,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Gentleman.",
+          "start": 0.84,
+          "end": 1.08
+        },
+        {
+          "text": "I",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "text": "shall.",
+          "start": 1.62,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10943366819992661
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0e8c1a8f658a75a17cdaf5f23f9e67f956386f5d33e879e20d175ed4a53c047b",
+  "selected_reasons": []
+}

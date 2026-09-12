@@ -1,0 +1,773 @@
+{
+  "complete": true,
+  "signature": "ed8a54ef971fb8919bb725e1e06f4d06e895bd64c13db5d6f8c053a74ad32454",
+  "attempts": [
+    {
+      "asr_seconds": 0.3404895421117544,
+      "alignment_seconds": 0.0006913952529430389,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. O wonderful son, that can so stonish a mother! But is there no sequel at the heels of this mother's admiration?",
+        "hotwords": "Hamlet, O, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, O wonderful son, that can so stonish a mother! But is there no sequel at the heels",
+          "start": 0.05,
+          "end": 6.23,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.770751953125
+            },
+            {
+              "text": " O",
+              "start": 1.31,
+              "end": 1.47,
+              "probability": 0.396484375
+            },
+            {
+              "text": " wonderful",
+              "start": 1.47,
+              "end": 1.81,
+              "probability": 0.60546875
+            },
+            {
+              "text": " son,",
+              "start": 1.81,
+              "end": 2.25,
+              "probability": 0.822265625
+            },
+            {
+              "text": " that",
+              "start": 2.69,
+              "end": 2.79,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " can",
+              "start": 2.79,
+              "end": 2.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " so",
+              "start": 2.95,
+              "end": 3.21,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " stonish",
+              "start": 3.21,
+              "end": 3.65,
+              "probability": 0.5244954427083334
+            },
+            {
+              "text": " a",
+              "start": 3.65,
+              "end": 3.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mother!",
+              "start": 3.79,
+              "end": 3.99,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " But",
+              "start": 4.55,
+              "end": 4.71,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " is",
+              "start": 4.71,
+              "end": 4.83,
+              "probability": 0.990234375
+            },
+            {
+              "text": " there",
+              "start": 4.83,
+              "end": 5.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " no",
+              "start": 5.01,
+              "end": 5.23,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sequel",
+              "start": 5.23,
+              "end": 5.63,
+              "probability": 0.97265625
+            },
+            {
+              "text": " at",
+              "start": 5.63,
+              "end": 5.85,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 5.85,
+              "end": 5.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " heels",
+              "start": 5.97,
+              "end": 6.23,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " of this mother's admiration?",
+          "start": 6.23,
+          "end": 7.47,
+          "words": [
+            {
+              "text": " of",
+              "start": 6.23,
+              "end": 6.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 6.45,
+              "end": 6.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " mother's",
+              "start": 6.63,
+              "end": 7.03,
+              "probability": 0.9765625
+            },
+            {
+              "text": " admiration?",
+              "start": 7.03,
+              "end": 7.47,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "O",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "raw": "wonderful",
+          "start": 1.47,
+          "end": 1.81
+        },
+        {
+          "raw": "son,",
+          "start": 1.81,
+          "end": 2.25
+        },
+        {
+          "raw": "that",
+          "start": 2.69,
+          "end": 2.79
+        },
+        {
+          "raw": "can",
+          "start": 2.79,
+          "end": 2.95
+        },
+        {
+          "raw": "so",
+          "start": 2.95,
+          "end": 3.21
+        },
+        {
+          "raw": "stonish",
+          "start": 3.21,
+          "end": 3.65
+        },
+        {
+          "raw": "a",
+          "start": 3.65,
+          "end": 3.79
+        },
+        {
+          "raw": "mother!",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "raw": "But",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "raw": "is",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "raw": "there",
+          "start": 4.83,
+          "end": 5.01
+        },
+        {
+          "raw": "no",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "raw": "sequel",
+          "start": 5.23,
+          "end": 5.63
+        },
+        {
+          "raw": "at",
+          "start": 5.63,
+          "end": 5.85
+        },
+        {
+          "raw": "the",
+          "start": 5.85,
+          "end": 5.97
+        },
+        {
+          "raw": "heels",
+          "start": 5.97,
+          "end": 6.23
+        },
+        {
+          "raw": "of",
+          "start": 6.23,
+          "end": 6.45
+        },
+        {
+          "raw": "this",
+          "start": 6.45,
+          "end": 6.63
+        },
+        {
+          "raw": "mother's",
+          "start": 6.63,
+          "end": 7.03
+        },
+        {
+          "raw": "admiration?",
+          "start": 7.03,
+          "end": 7.47
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "O",
+        "wonderful",
+        "son,",
+        "that",
+        "can",
+        "so",
+        "stonish",
+        "a",
+        "mother!",
+        "But",
+        "is",
+        "there",
+        "no",
+        "sequel",
+        "at",
+        "the",
+        "heels",
+        "of",
+        "this",
+        "mother's",
+        "admiration?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.31,
+          "end": 1.47,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wonderful",
+          "start": 1.47,
+          "end": 1.81,
+          "key": "wonderful",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "son,",
+          "start": 1.81,
+          "end": 2.25,
+          "key": "son",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.69,
+          "end": 2.79,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 2.79,
+          "end": 2.95,
+          "key": "can",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.95,
+          "end": 3.21,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "stonish",
+          "start": 3.21,
+          "end": 3.65,
+          "key": "stonish",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.65,
+          "end": 3.79,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mother!",
+          "start": 3.79,
+          "end": 3.99,
+          "key": "mother",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 4.55,
+          "end": 4.71,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.71,
+          "end": 4.83,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 4.83,
+          "end": 5.01,
+          "key": "there",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 5.01,
+          "end": 5.23,
+          "key": "no",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sequel",
+          "start": 5.23,
+          "end": 5.63,
+          "key": "sequel",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.63,
+          "end": 5.85,
+          "key": "at",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.85,
+          "end": 5.97,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "heels",
+          "start": 5.97,
+          "end": 6.23,
+          "key": "heels",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.23,
+          "end": 6.45,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 6.45,
+          "end": 6.63,
+          "key": "this",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "mother's",
+          "start": 6.63,
+          "end": 7.03,
+          "key": "mothers",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "admiration?",
+          "start": 7.03,
+          "end": 7.47,
+          "key": "admiration",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "O",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "text": "wonderful",
+          "start": 1.47,
+          "end": 1.81
+        },
+        {
+          "text": "son,",
+          "start": 1.81,
+          "end": 2.25
+        },
+        {
+          "text": "that",
+          "start": 2.69,
+          "end": 2.79
+        },
+        {
+          "text": "can",
+          "start": 2.79,
+          "end": 2.95
+        },
+        {
+          "text": "so",
+          "start": 2.95,
+          "end": 3.21
+        },
+        {
+          "text": "stonish",
+          "start": 3.21,
+          "end": 3.65
+        },
+        {
+          "text": "a",
+          "start": 3.65,
+          "end": 3.79
+        },
+        {
+          "text": "mother!",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "text": "But",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "text": "is",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "text": "there",
+          "start": 4.83,
+          "end": 5.01
+        },
+        {
+          "text": "no",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "text": "sequel",
+          "start": 5.23,
+          "end": 5.63
+        },
+        {
+          "text": "at",
+          "start": 5.63,
+          "end": 5.85
+        },
+        {
+          "text": "the",
+          "start": 5.85,
+          "end": 5.97
+        },
+        {
+          "text": "heels",
+          "start": 5.97,
+          "end": 6.23
+        },
+        {
+          "text": "of",
+          "start": 6.23,
+          "end": 6.45
+        },
+        {
+          "text": "this",
+          "start": 6.45,
+          "end": 6.63
+        },
+        {
+          "text": "mother's",
+          "start": 6.63,
+          "end": 7.03
+        },
+        {
+          "text": "admiration?",
+          "start": 7.03,
+          "end": 7.47
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3414820898324251
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1a1c89f85d090c92f693060b2d6b33fb9fcb46f416841fa34aec92d5022c4a71",
+  "selected_reasons": []
+}

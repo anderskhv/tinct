@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "e31805b6210aa42a465e6d2ec1119640903fa837cf94c7dfe922a36888f3476e",
+  "attempts": [
+    {
+      "asr_seconds": 0.11146719288080931,
+      "alignment_seconds": 0.00020604021847248077,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Consumed.",
+          "start": 0.05,
+          "end": 0.95,
+          "words": [
+            {
+              "text": " Consumed.",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.762451171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Consumed.",
+          "start": 0.05,
+          "end": 0.95
+        }
+      ],
+      "expected_tokens": [
+        "Consumed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Consumed.",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "consumed",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Consumed.",
+          "start": 0.05,
+          "end": 0.95
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11173932021483779
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b5729f507222a415f1a9e3b4d05729eda44e3477a6a70d9fd686b4bb361ab581",
+  "selected_reasons": []
+}

@@ -1,0 +1,576 @@
+{
+  "complete": true,
+  "signature": "e88ecf2691451f2b1d1d3c2c683db0b6049a245cfe8762c3615687aa7ab52b17",
+  "attempts": [
+    {
+      "asr_seconds": 0.17345301434397697,
+      "alignment_seconds": 0.0002645924687385559,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gentlemen, they say Edgar, his banish son, is with the Earl of Kent in Germany.",
+          "start": 0.05,
+          "end": 5.03,
+          "words": [
+            {
+              "text": " Gentlemen,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " they",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.978515625
+            },
+            {
+              "text": " say",
+              "start": 1.59,
+              "end": 1.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Edgar,",
+              "start": 1.85,
+              "end": 2.23,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " his",
+              "start": 2.45,
+              "end": 2.51,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " banish",
+              "start": 2.51,
+              "end": 2.91,
+              "probability": 0.6187744140625
+            },
+            {
+              "text": " son,",
+              "start": 2.91,
+              "end": 3.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 3.51,
+              "end": 3.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 3.59,
+              "end": 3.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.71,
+              "end": 3.85,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Earl",
+              "start": 3.85,
+              "end": 4.05,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " of",
+              "start": 4.05,
+              "end": 4.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Kent",
+              "start": 4.27,
+              "end": 4.49,
+              "probability": 0.978515625
+            },
+            {
+              "text": " in",
+              "start": 4.49,
+              "end": 4.77,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Germany.",
+              "start": 4.77,
+              "end": 5.03,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "they",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "say",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "raw": "Edgar,",
+          "start": 1.85,
+          "end": 2.23
+        },
+        {
+          "raw": "his",
+          "start": 2.45,
+          "end": 2.51
+        },
+        {
+          "raw": "banish",
+          "start": 2.51,
+          "end": 2.91
+        },
+        {
+          "raw": "son,",
+          "start": 2.91,
+          "end": 3.17
+        },
+        {
+          "raw": "is",
+          "start": 3.51,
+          "end": 3.59
+        },
+        {
+          "raw": "with",
+          "start": 3.59,
+          "end": 3.71
+        },
+        {
+          "raw": "the",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "raw": "Earl",
+          "start": 3.85,
+          "end": 4.05
+        },
+        {
+          "raw": "of",
+          "start": 4.05,
+          "end": 4.27
+        },
+        {
+          "raw": "Kent",
+          "start": 4.27,
+          "end": 4.49
+        },
+        {
+          "raw": "in",
+          "start": 4.49,
+          "end": 4.77
+        },
+        {
+          "raw": "Germany.",
+          "start": 4.77,
+          "end": 5.03
+        }
+      ],
+      "expected_tokens": [
+        "Gentleman.",
+        "They",
+        "say",
+        "Edgar,",
+        "his",
+        "banished",
+        "son,",
+        "is",
+        "with",
+        "the",
+        "Earl",
+        "of",
+        "Kent",
+        "in",
+        "Germany."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          15,
+          6,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "gentlemen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.59,
+          "end": 1.85,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Edgar,",
+          "start": 1.85,
+          "end": 2.23,
+          "key": "edgar",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.45,
+          "end": 2.51,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "banish",
+          "start": 2.51,
+          "end": 2.91,
+          "key": "banish",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "son,",
+          "start": 2.91,
+          "end": 3.17,
+          "key": "son",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.51,
+          "end": 3.59,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.59,
+          "end": 3.71,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.71,
+          "end": 3.85,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Earl",
+          "start": 3.85,
+          "end": 4.05,
+          "key": "earl",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.05,
+          "end": 4.27,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Kent",
+          "start": 4.27,
+          "end": 4.49,
+          "key": "kent",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.49,
+          "end": 4.77,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Germany.",
+          "start": 4.77,
+          "end": 5.03,
+          "key": "germany",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gentleman.",
+          "start": 0.0,
+          "end": 0.725
+        },
+        {
+          "text": "They",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "say",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "text": "Edgar,",
+          "start": 1.85,
+          "end": 2.23
+        },
+        {
+          "text": "his",
+          "start": 2.45,
+          "end": 2.51
+        },
+        {
+          "text": "banished",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "text": "son,",
+          "start": 2.91,
+          "end": 3.17
+        },
+        {
+          "text": "is",
+          "start": 3.51,
+          "end": 3.59
+        },
+        {
+          "text": "with",
+          "start": 3.59,
+          "end": 3.71
+        },
+        {
+          "text": "the",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "text": "Earl",
+          "start": 3.85,
+          "end": 4.05
+        },
+        {
+          "text": "of",
+          "start": 4.05,
+          "end": 4.27
+        },
+        {
+          "text": "Kent",
+          "start": 4.27,
+          "end": 4.49
+        },
+        {
+          "text": "in",
+          "start": 4.49,
+          "end": 4.77
+        },
+        {
+          "text": "Germany.",
+          "start": 4.77,
+          "end": 5.03
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.17381047829985619
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ab151dbb8290efad35619371b7a9d518b30659b2d469e732b62e08ba964adda0",
+  "selected_reasons": []
+}

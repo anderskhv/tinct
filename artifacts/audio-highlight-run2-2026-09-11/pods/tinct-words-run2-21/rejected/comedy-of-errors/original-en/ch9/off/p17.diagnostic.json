@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "3f5a6c780e1e108379758cc56a6d33b06eebea6dd986936de730b00b29c1067c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1761276968754828,
+      "alignment_seconds": 0.0001131710596382618,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antifolus of Syracuse. It is the devil.",
+          "start": 0.14,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " Antifolus",
+              "start": 0.14,
+              "end": 1.06,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " of",
+              "start": 1.06,
+              "end": 1.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Syracuse.",
+              "start": 1.18,
+              "end": 1.64,
+              "probability": 0.974609375
+            },
+            {
+              "text": " It",
+              "start": 2.18,
+              "end": 2.26,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " is",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 2.38,
+              "end": 2.56,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " devil.",
+              "start": 2.56,
+              "end": 2.8,
+              "probability": 0.76806640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antifolus",
+          "start": 0.14,
+          "end": 1.06
+        },
+        {
+          "raw": "of",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "raw": "Syracuse.",
+          "start": 1.18,
+          "end": 1.64
+        },
+        {
+          "raw": "It",
+          "start": 2.18,
+          "end": 2.26
+        },
+        {
+          "raw": "is",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "the",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "raw": "devil.",
+          "start": 2.56,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "Antipholus",
+        "Of",
+        "Syracuse.",
+        "It",
+        "is",
+        "the",
+        "devil."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antifolus",
+          "start": 0.14,
+          "end": 1.06,
+          "key": "antifolus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.06,
+          "end": 1.18,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Syracuse.",
+          "start": 1.18,
+          "end": 1.64,
+          "key": "syracuse",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 2.18,
+          "end": 2.26,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.38,
+          "end": 2.56,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "devil.",
+          "start": 2.56,
+          "end": 2.8,
+          "key": "devil",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antipholus",
+          "start": 0.0,
+          "end": 0.53
+        },
+        {
+          "text": "Of",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "text": "Syracuse.",
+          "start": 1.18,
+          "end": 1.64
+        },
+        {
+          "text": "It",
+          "start": 2.18,
+          "end": 2.26
+        },
+        {
+          "text": "is",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "the",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "text": "devil.",
+          "start": 2.56,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.17627660278230906
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a2a756a66a58ed60c80b51b23f894b055ead2979dd9872f9644daf9cf20e83a6",
+  "selected_reasons": []
+}

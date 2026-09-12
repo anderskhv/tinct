@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "d8d7dadc60772803e3ca0f1ca21b8553ef64b3b89dd5ccd04f1c352dd1d998b8",
+  "attempts": [
+    {
+      "asr_seconds": 0.11001041531562805,
+      "alignment_seconds": 0.0001674490049481392,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Falls.]",
+        "hotwords": "Falls"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Falls",
+          "start": 0.08,
+          "end": 0.66,
+          "words": [
+            {
+              "text": " Falls",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.60791015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Falls",
+          "start": 0.08,
+          "end": 0.66
+        }
+      ],
+      "expected_tokens": [
+        "[Falls.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Falls",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "falls",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Falls.]",
+          "start": 0.08,
+          "end": 0.66
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11022763326764107
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6c04598fc597554cbf09a16253df40e7f1f1f394cbc5c31914924bf529ceb2e1",
+  "selected_reasons": []
+}

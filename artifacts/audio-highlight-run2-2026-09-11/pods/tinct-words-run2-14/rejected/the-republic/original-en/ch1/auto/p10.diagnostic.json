@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "d7310faf8df0957cc106b774248307dd1a8728450083b70be982d3e33c0f8af6",
+  "attempts": [
+    {
+      "asr_seconds": 0.27911940962076187,
+      "alignment_seconds": 0.0005938895046710968,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But can you persuade us, if we refuse to listen to you? he said.",
+        "hotwords": "But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But can you persuade us, if we refuse to listen to you? he said.",
+          "start": 0.02,
+          "end": 3.76,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.349853515625
+            },
+            {
+              "text": " can",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " you",
+              "start": 0.62,
+              "end": 0.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " persuade",
+              "start": 0.74,
+              "end": 1.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " us,",
+              "start": 1.1,
+              "end": 1.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " if",
+              "start": 1.62,
+              "end": 1.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " we",
+              "start": 1.7,
+              "end": 1.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " refuse",
+              "start": 1.82,
+              "end": 2.1,
+              "probability": 0.98828125
+            },
+            {
+              "text": " to",
+              "start": 2.1,
+              "end": 2.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " listen",
+              "start": 2.36,
+              "end": 2.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.54,
+              "end": 2.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you?",
+              "start": 2.8,
+              "end": 3.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 3.4,
+              "end": 3.5,
+              "probability": 0.3984375
+            },
+            {
+              "text": " said.",
+              "start": 3.5,
+              "end": 3.76,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "can",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "raw": "persuade",
+          "start": 0.74,
+          "end": 1.1
+        },
+        {
+          "raw": "us,",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "raw": "if",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "raw": "we",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "raw": "refuse",
+          "start": 1.82,
+          "end": 2.1
+        },
+        {
+          "raw": "to",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "raw": "listen",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "raw": "to",
+          "start": 2.54,
+          "end": 2.8
+        },
+        {
+          "raw": "you?",
+          "start": 2.8,
+          "end": 3.1
+        },
+        {
+          "raw": "he",
+          "start": 3.4,
+          "end": 3.5
+        },
+        {
+          "raw": "said.",
+          "start": 3.5,
+          "end": 3.76
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "can",
+        "you",
+        "persuade",
+        "us,",
+        "if",
+        "we",
+        "refuse",
+        "to",
+        "listen",
+        "to",
+        "you?",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "can",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.74,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "persuade",
+          "start": 0.74,
+          "end": 1.1,
+          "key": "persuade",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "us,",
+          "start": 1.1,
+          "end": 1.4,
+          "key": "us",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.62,
+          "end": 1.7,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.7,
+          "end": 1.82,
+          "key": "we",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "refuse",
+          "start": 1.82,
+          "end": 2.1,
+          "key": "refuse",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.1,
+          "end": 2.36,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "listen",
+          "start": 2.36,
+          "end": 2.54,
+          "key": "listen",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.54,
+          "end": 2.8,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 2.8,
+          "end": 3.1,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.4,
+          "end": 3.5,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 3.5,
+          "end": 3.76,
+          "key": "said",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "can",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "you",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "text": "persuade",
+          "start": 0.74,
+          "end": 1.1
+        },
+        {
+          "text": "us,",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "text": "if",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "text": "we",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "text": "refuse",
+          "start": 1.82,
+          "end": 2.1
+        },
+        {
+          "text": "to",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "text": "listen",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "text": "to",
+          "start": 2.54,
+          "end": 2.8
+        },
+        {
+          "text": "you?",
+          "start": 2.8,
+          "end": 3.1
+        },
+        {
+          "text": "he",
+          "start": 3.4,
+          "end": 3.5
+        },
+        {
+          "text": "said.",
+          "start": 3.5,
+          "end": 3.76
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2799649015069008
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7b87274b4f41af9397efb60cfbc0e8f695a5eecac63dcb8a19c09c47461b69b0",
+  "selected_reasons": []
+}

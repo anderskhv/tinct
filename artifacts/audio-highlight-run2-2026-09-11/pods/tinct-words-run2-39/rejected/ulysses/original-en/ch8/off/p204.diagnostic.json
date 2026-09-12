@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "2715f143aa8267999a557ea2191f6e21a8d3a05cd7e10159b0d8ce8eb05529cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.23320566210895777,
+      "alignment_seconds": 0.00029971380718052387,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hello, Bloom, Nosy Flynn said from his nook.",
+          "start": 0.05,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Hello,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.14599609375
+            },
+            {
+              "text": " Bloom,",
+              "start": 1.11,
+              "end": 1.27,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " Nosy",
+              "start": 1.73,
+              "end": 2.05,
+              "probability": 0.5771484375
+            },
+            {
+              "text": " Flynn",
+              "start": 2.05,
+              "end": 2.25,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " said",
+              "start": 2.25,
+              "end": 2.49,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " from",
+              "start": 2.49,
+              "end": 2.67,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " his",
+              "start": 2.67,
+              "end": 2.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nook.",
+              "start": 2.79,
+              "end": 3.11,
+              "probability": 0.962646484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hello,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Bloom,",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "raw": "Nosy",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "raw": "Flynn",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "raw": "said",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "raw": "from",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "raw": "his",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "raw": "nook.",
+          "start": 2.79,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "—Hello,",
+        "Bloom,",
+        "Nosey",
+        "Flynn",
+        "said",
+        "from",
+        "his",
+        "nook."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          8,
+          3,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hello,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "hello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bloom,",
+          "start": 1.11,
+          "end": 1.27,
+          "key": "bloom",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Nosy",
+          "start": 1.73,
+          "end": 2.05,
+          "key": "nosy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Flynn",
+          "start": 2.05,
+          "end": 2.25,
+          "key": "flynn",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.25,
+          "end": 2.49,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.49,
+          "end": 2.67,
+          "key": "from",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.67,
+          "end": 2.79,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "nook.",
+          "start": 2.79,
+          "end": 3.11,
+          "key": "nook",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Hello,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Bloom,",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "text": "Nosey",
+          "start": 1.27,
+          "end": 1.66
+        },
+        {
+          "text": "Flynn",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "text": "said",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "text": "from",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "text": "his",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "text": "nook.",
+          "start": 2.79,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.23362100520171225
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2bb9240acfe197fd2e4193338996e72aafce56e8697f3224a88d39016712ecb2",
+  "selected_reasons": []
+}

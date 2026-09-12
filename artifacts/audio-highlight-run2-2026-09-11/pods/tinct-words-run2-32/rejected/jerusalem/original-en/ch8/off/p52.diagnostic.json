@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "caa2802e347f6c7a149739317dc069517568beb29252ba7afb6e87bcd420172b",
+  "attempts": [
+    {
+      "asr_seconds": 0.07315019145607948,
+      "alignment_seconds": 6.344914436340332e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A cry of amazement escaped Ingmar.",
+          "start": 0.02,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " cry",
+              "start": 0.48,
+              "end": 0.7,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 0.7,
+              "end": 0.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " amazement",
+              "start": 0.82,
+              "end": 1.26,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " escaped",
+              "start": 1.26,
+              "end": 1.62,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Ingmar.",
+              "start": 1.62,
+              "end": 2.12,
+              "probability": 0.86474609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "cry",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "raw": "of",
+          "start": 0.7,
+          "end": 0.82
+        },
+        {
+          "raw": "amazement",
+          "start": 0.82,
+          "end": 1.26
+        },
+        {
+          "raw": "escaped",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "raw": "Ingmar.",
+          "start": 1.62,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "cry",
+        "of",
+        "amazement",
+        "escaped",
+        "Ingmar."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 0.48,
+          "end": 0.7,
+          "key": "cry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.7,
+          "end": 0.82,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "amazement",
+          "start": 0.82,
+          "end": 1.26,
+          "key": "amazement",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "escaped",
+          "start": 1.26,
+          "end": 1.62,
+          "key": "escaped",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Ingmar.",
+          "start": 1.62,
+          "end": 2.12,
+          "key": "ingmar",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "cry",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "text": "of",
+          "start": 0.7,
+          "end": 0.82
+        },
+        {
+          "text": "amazement",
+          "start": 0.82,
+          "end": 1.26
+        },
+        {
+          "text": "escaped",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "text": "Ingmar.",
+          "start": 1.62,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07323628105223179
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "636c8f65758e8c13ff8534520274e7afa12adb408c9b04f6598a6b15e201c04c",
+  "selected_reasons": []
+}

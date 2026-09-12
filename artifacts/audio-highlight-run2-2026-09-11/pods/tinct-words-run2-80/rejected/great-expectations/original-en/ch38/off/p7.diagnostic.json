@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "4dd1500ef96b50b4030f87f56a238342c94a41989146c104e4c3d31ad84e468c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11895550787448883,
+      "alignment_seconds": 0.00027822889387607574,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Of what?",
+          "start": 0.08,
+          "end": 0.82,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.55029296875
+            },
+            {
+              "text": " what?",
+              "start": 0.54,
+              "end": 0.82,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "what?",
+          "start": 0.54,
+          "end": 0.82
+        }
+      ],
+      "expected_tokens": [
+        "\"Of",
+        "what?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Of",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "of",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what?",
+          "start": 0.54,
+          "end": 0.82,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Of",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "what?\"",
+          "start": 0.54,
+          "end": 0.82
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11933153495192528
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1d485c95ca365c6b818cb3430f529867c3c4210af6d5ac696397ff237fb27eb0",
+  "selected_reasons": []
+}

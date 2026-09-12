@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "ba990ffe2519fca8382d8b5dde4491a32f623dc2ee504aeaa41357651315497f",
+  "attempts": [
+    {
+      "asr_seconds": 0.23049958050251007,
+      "alignment_seconds": 0.0003659762442111969,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Richard. Saw'st thou the melancholy Lord Northumberland?",
+        "hotwords": "King, Richard, Saw'st, Lord, Northumberland"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Richard. Saw'st thou the melancholy Lord Northumberland?",
+          "start": 0.05,
+          "end": 3.89,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " Richard.",
+              "start": 0.55,
+              "end": 0.97,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Saw'st",
+              "start": 1.55,
+              "end": 1.89,
+              "probability": 0.189697265625
+            },
+            {
+              "text": " thou",
+              "start": 1.89,
+              "end": 2.05,
+              "probability": 0.0224761962890625
+            },
+            {
+              "text": " the",
+              "start": 2.05,
+              "end": 2.29,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " melancholy",
+              "start": 2.29,
+              "end": 2.69,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Lord",
+              "start": 2.69,
+              "end": 3.13,
+              "probability": 0.25830078125
+            },
+            {
+              "text": " Northumberland?",
+              "start": 3.13,
+              "end": 3.89,
+              "probability": 0.9889322916666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Richard.",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "raw": "Saw'st",
+          "start": 1.55,
+          "end": 1.89
+        },
+        {
+          "raw": "thou",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "raw": "melancholy",
+          "start": 2.29,
+          "end": 2.69
+        },
+        {
+          "raw": "Lord",
+          "start": 2.69,
+          "end": 3.13
+        },
+        {
+          "raw": "Northumberland?",
+          "start": 3.13,
+          "end": 3.89
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Saw'st",
+        "thou",
+        "the",
+        "melancholy",
+        "Lord",
+        "Northumberland?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard.",
+          "start": 0.55,
+          "end": 0.97,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Saw'st",
+          "start": 1.55,
+          "end": 1.89,
+          "key": "sawst",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.89,
+          "end": 2.05,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.29,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "melancholy",
+          "start": 2.29,
+          "end": 2.69,
+          "key": "melancholy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 2.69,
+          "end": 3.13,
+          "key": "lord",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Northumberland?",
+          "start": 3.13,
+          "end": 3.89,
+          "key": "northumberland",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Richard.",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "text": "Saw'st",
+          "start": 1.55,
+          "end": 1.89
+        },
+        {
+          "text": "thou",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "text": "the",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "text": "melancholy",
+          "start": 2.29,
+          "end": 2.69
+        },
+        {
+          "text": "Lord",
+          "start": 2.69,
+          "end": 3.13
+        },
+        {
+          "text": "Northumberland?",
+          "start": 3.13,
+          "end": 3.89
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2309981994330883
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f25fcfedf6098db41763043062d08790925f8d7503b5453bfdf923a81d557ed1",
+  "selected_reasons": []
+}

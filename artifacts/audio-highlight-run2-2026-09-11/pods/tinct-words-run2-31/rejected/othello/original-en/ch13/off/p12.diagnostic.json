@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "063537f7c1cf60e2ad7398366b63a12a71246f1840d12998c942a40d75aec53f",
+  "attempts": [
+    {
+      "asr_seconds": 0.12412837380543351,
+      "alignment_seconds": 0.0002198871225118637,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Amelia, dismiss me.",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Amelia,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.6533203125
+            },
+            {
+              "text": " dismiss",
+              "start": 1.21,
+              "end": 1.39,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " me.",
+              "start": 1.39,
+              "end": 1.77,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "dismiss",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "raw": "me.",
+          "start": 1.39,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "Dismiss",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "amelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dismiss",
+          "start": 1.21,
+          "end": 1.39,
+          "key": "dismiss",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 1.39,
+          "end": 1.77,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.0,
+          "end": 0.605
+        },
+        {
+          "text": "Dismiss",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "text": "me?",
+          "start": 1.39,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12441469077020884
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c4e371ead9e1dae8619578138c959d00b1431f2c2f2dd4912ac94c36edf2b1c5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

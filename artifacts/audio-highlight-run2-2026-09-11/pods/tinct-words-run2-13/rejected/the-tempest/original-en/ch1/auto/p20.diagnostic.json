@@ -1,0 +1,534 @@
+{
+  "complete": true,
+  "signature": "952bf1bd4eb0b78c9e62b7460c0f298409f4f3a5c809bb5f0ea80d6f37a3bf30",
+  "attempts": [
+    {
+      "asr_seconds": 0.30894701089709997,
+      "alignment_seconds": 0.0007511749863624573,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Boatswain. Down with the topmast! yare! lower, lower! Bring her to try with main-course.",
+        "hotwords": "Boatswain, Down, Bring"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Boatswain, Down with the topmast! yare! lower, lower! Bring her to try with main-course.",
+          "start": 0.55,
+          "end": 4.93,
+          "words": [
+            {
+              "text": " Boatswain,",
+              "start": 0.55,
+              "end": 0.91,
+              "probability": 0.2546200752258301
+            },
+            {
+              "text": " Down",
+              "start": 0.95,
+              "end": 1.13,
+              "probability": 0.00171661376953125
+            },
+            {
+              "text": " with",
+              "start": 1.13,
+              "end": 1.27,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " the",
+              "start": 1.27,
+              "end": 1.37,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " topmast!",
+              "start": 1.37,
+              "end": 1.87,
+              "probability": 0.3643951416015625
+            },
+            {
+              "text": " yare!",
+              "start": 2.53,
+              "end": 2.67,
+              "probability": 0.01905059814453125
+            },
+            {
+              "text": " lower,",
+              "start": 2.99,
+              "end": 3.11,
+              "probability": 0.59814453125
+            },
+            {
+              "text": " lower!",
+              "start": 3.31,
+              "end": 3.41,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Bring",
+              "start": 3.73,
+              "end": 3.83,
+              "probability": 0.265625
+            },
+            {
+              "text": " her",
+              "start": 3.83,
+              "end": 3.97,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 3.97,
+              "end": 4.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " try",
+              "start": 4.07,
+              "end": 4.25,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " with",
+              "start": 4.25,
+              "end": 4.39,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " main",
+              "start": 4.39,
+              "end": 4.63,
+              "probability": 0.9169921875
+            },
+            {
+              "text": "-course.",
+              "start": 4.63,
+              "end": 4.93,
+              "probability": 0.4110145568847656
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boatswain,",
+          "start": 0.55,
+          "end": 0.91
+        },
+        {
+          "raw": "Down",
+          "start": 0.95,
+          "end": 1.13
+        },
+        {
+          "raw": "with",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "raw": "the",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "raw": "topmast!",
+          "start": 1.37,
+          "end": 1.87
+        },
+        {
+          "raw": "yare!",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "raw": "lower,",
+          "start": 2.99,
+          "end": 3.11
+        },
+        {
+          "raw": "lower!",
+          "start": 3.31,
+          "end": 3.41
+        },
+        {
+          "raw": "Bring",
+          "start": 3.73,
+          "end": 3.83
+        },
+        {
+          "raw": "her",
+          "start": 3.83,
+          "end": 3.97
+        },
+        {
+          "raw": "to",
+          "start": 3.97,
+          "end": 4.07
+        },
+        {
+          "raw": "try",
+          "start": 4.07,
+          "end": 4.25
+        },
+        {
+          "raw": "with",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "raw": "main",
+          "start": 4.39,
+          "end": 4.63
+        },
+        {
+          "raw": "-course.",
+          "start": 4.63,
+          "end": 4.93
+        }
+      ],
+      "expected_tokens": [
+        "Boatswain.",
+        "Down",
+        "with",
+        "the",
+        "topmast!",
+        "yare!",
+        "lower,",
+        "lower!",
+        "Bring",
+        "her",
+        "to",
+        "try",
+        "with",
+        "main-course."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boatswain,",
+          "start": 0.55,
+          "end": 0.91,
+          "key": "boatswain",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Down",
+          "start": 0.95,
+          "end": 1.13,
+          "key": "down",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.13,
+          "end": 1.27,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.27,
+          "end": 1.37,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "topmast!",
+          "start": 1.37,
+          "end": 1.87,
+          "key": "topmast",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "yare!",
+          "start": 2.53,
+          "end": 2.67,
+          "key": "yare",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lower,",
+          "start": 2.99,
+          "end": 3.11,
+          "key": "lower",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lower!",
+          "start": 3.31,
+          "end": 3.41,
+          "key": "lower",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Bring",
+          "start": 3.73,
+          "end": 3.83,
+          "key": "bring",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.83,
+          "end": 3.97,
+          "key": "her",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.97,
+          "end": 4.07,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "try",
+          "start": 4.07,
+          "end": 4.25,
+          "key": "try",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.25,
+          "end": 4.39,
+          "key": "with",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "main -course.",
+          "start": 4.39,
+          "end": 4.93,
+          "key": "maincourse",
+          "pieces": [
+            13,
+            14
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 13,
+          "text": "main-course.",
+          "heard": "main -course.",
+          "heard_indexes": [
+            13,
+            14
+          ],
+          "start": 4.39,
+          "end": 4.93
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Boatswain.",
+          "start": 0.55,
+          "end": 0.91
+        },
+        {
+          "text": "Down",
+          "start": 0.95,
+          "end": 1.13
+        },
+        {
+          "text": "with",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "text": "the",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "text": "topmast!",
+          "start": 1.37,
+          "end": 1.87
+        },
+        {
+          "text": "yare!",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "text": "lower,",
+          "start": 2.99,
+          "end": 3.11
+        },
+        {
+          "text": "lower!",
+          "start": 3.31,
+          "end": 3.41
+        },
+        {
+          "text": "Bring",
+          "start": 3.73,
+          "end": 3.83
+        },
+        {
+          "text": "her",
+          "start": 3.83,
+          "end": 3.97
+        },
+        {
+          "text": "to",
+          "start": 3.97,
+          "end": 4.07
+        },
+        {
+          "text": "try",
+          "start": 4.07,
+          "end": 4.25
+        },
+        {
+          "text": "with",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "text": "main-course.",
+          "start": 4.39,
+          "end": 4.93
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.309957941994071
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "95b0b60412c9aa81dda5461eeb7eb14c36817641235a78c72e1319be5a9c0122",
+  "selected_reasons": []
+}

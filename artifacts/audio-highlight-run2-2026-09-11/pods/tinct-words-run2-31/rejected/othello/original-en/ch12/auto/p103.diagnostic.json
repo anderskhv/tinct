@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "2331a0884b26e3f657af4fe3eec34d283a38ff92de082ab59d566624cd8088d7",
+  "attempts": [
+    {
+      "asr_seconds": 0.12328317295759916,
+      "alignment_seconds": 0.00015725800767540932,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. You have said now.",
+        "hotwords": "Iago, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, You have said now.",
+          "start": 0.05,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.18421173095703125
+            },
+            {
+              "text": " You",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.0107879638671875
+            },
+            {
+              "text": " have",
+              "start": 1.27,
+              "end": 1.37,
+              "probability": 0.92578125
+            },
+            {
+              "text": " said",
+              "start": 1.37,
+              "end": 1.57,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " now.",
+              "start": 1.57,
+              "end": 1.87,
+              "probability": 0.85986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "You",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "have",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "raw": "said",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "raw": "now.",
+          "start": 1.57,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "You",
+        "have",
+        "said",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.09,
+          "end": 1.27,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.27,
+          "end": 1.37,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.37,
+          "end": 1.57,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 1.57,
+          "end": 1.87,
+          "key": "now",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "You",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "text": "have",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "text": "said",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "text": "now.",
+          "start": 1.57,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12349712988361716
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6b0e1c9e73d6dae9b9c2c8749f26061f48e0dbc79d7b21433aca6a835029cd0b",
+  "selected_reasons": []
+}

@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "533e26ac81dd8aea6837409e45ae087932613a705a217ab76afc2b8b24cf65ff",
+  "attempts": [
+    {
+      "asr_seconds": 0.10248992778360844,
+      "alignment_seconds": 0.0001849047839641571,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Miss Havisham.",
+          "start": 0.02,
+          "end": 1.16,
+          "words": [
+            {
+              "text": " Miss",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.734375
+            },
+            {
+              "text": " Havisham.",
+              "start": 0.58,
+              "end": 1.16,
+              "probability": 0.9710286458333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miss",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "Havisham.",
+          "start": 0.58,
+          "end": 1.16
+        }
+      ],
+      "expected_tokens": [
+        "\"Miss",
+        "Havisham?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Miss",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "miss",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Havisham.",
+          "start": 0.58,
+          "end": 1.16,
+          "key": "havisham",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Miss",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "Havisham?\"",
+          "start": 0.58,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10273340903222561
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "01f4f1e152b882c4f56bacb58e4958412773d973d61a82f807ac64dfa3464caf",
+  "selected_reasons": []
+}

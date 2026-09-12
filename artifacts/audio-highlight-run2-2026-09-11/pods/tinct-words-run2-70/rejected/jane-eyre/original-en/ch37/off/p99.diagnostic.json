@@ -1,0 +1,523 @@
+{
+  "complete": true,
+  "signature": "887788e7d2ecb3cb9cc1390064752ea5d3070de778bb5d360f5c22c59f18ab89",
+  "attempts": [
+    {
+      "asr_seconds": 0.281469747191295,
+      "alignment_seconds": 0.0006225979886949062,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Humpf the wickedness has not been taken out of you wherever you have sojourned",
+          "start": 0.08,
+          "end": 4.86,
+          "words": [
+            {
+              "text": " Humpf",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.6572265625
+            },
+            {
+              "text": " the",
+              "start": 0.94,
+              "end": 1.26,
+              "probability": 0.220458984375
+            },
+            {
+              "text": " wickedness",
+              "start": 1.26,
+              "end": 1.72,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " has",
+              "start": 1.72,
+              "end": 1.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 1.82,
+              "end": 2.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " been",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " taken",
+              "start": 2.16,
+              "end": 2.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " out",
+              "start": 2.38,
+              "end": 2.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 2.62,
+              "end": 2.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 2.76,
+              "end": 2.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " wherever",
+              "start": 2.98,
+              "end": 3.4,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " you",
+              "start": 3.4,
+              "end": 3.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " have",
+              "start": 3.68,
+              "end": 3.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sojourned",
+              "start": 3.86,
+              "end": 4.86,
+              "probability": 0.952880859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Humpf",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "the",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "raw": "wickedness",
+          "start": 1.26,
+          "end": 1.72
+        },
+        {
+          "raw": "has",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "raw": "not",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "raw": "been",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "raw": "taken",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "raw": "out",
+          "start": 2.38,
+          "end": 2.62
+        },
+        {
+          "raw": "of",
+          "start": 2.62,
+          "end": 2.76
+        },
+        {
+          "raw": "you",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "raw": "wherever",
+          "start": 2.98,
+          "end": 3.4
+        },
+        {
+          "raw": "you",
+          "start": 3.4,
+          "end": 3.68
+        },
+        {
+          "raw": "have",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "raw": "sojourned",
+          "start": 3.86,
+          "end": 4.86
+        }
+      ],
+      "expected_tokens": [
+        "\"Humph!",
+        "The",
+        "wickedness",
+        "has",
+        "not",
+        "been",
+        "taken",
+        "out",
+        "of",
+        "you,",
+        "wherever",
+        "you",
+        "have",
+        "sojourned.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          14,
+          1,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Humpf",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "humpf",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.94,
+          "end": 1.26,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wickedness",
+          "start": 1.26,
+          "end": 1.72,
+          "key": "wickedness",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.72,
+          "end": 1.82,
+          "key": "has",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.82,
+          "end": 2.0,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.0,
+          "end": 2.16,
+          "key": "been",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "taken",
+          "start": 2.16,
+          "end": 2.38,
+          "key": "taken",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.38,
+          "end": 2.62,
+          "key": "out",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.62,
+          "end": 2.76,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.76,
+          "end": 2.98,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "wherever",
+          "start": 2.98,
+          "end": 3.4,
+          "key": "wherever",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.4,
+          "end": 3.68,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.68,
+          "end": 3.86,
+          "key": "have",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sojourned",
+          "start": 3.86,
+          "end": 4.86,
+          "key": "sojourned",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Humph!",
+          "start": 0.0,
+          "end": 0.47
+        },
+        {
+          "text": "The",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "text": "wickedness",
+          "start": 1.26,
+          "end": 1.72
+        },
+        {
+          "text": "has",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "text": "not",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "text": "been",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "text": "taken",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "text": "out",
+          "start": 2.38,
+          "end": 2.62
+        },
+        {
+          "text": "of",
+          "start": 2.62,
+          "end": 2.76
+        },
+        {
+          "text": "you,",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "text": "wherever",
+          "start": 2.98,
+          "end": 3.4
+        },
+        {
+          "text": "you",
+          "start": 3.4,
+          "end": 3.68
+        },
+        {
+          "text": "have",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "text": "sojourned.\"",
+          "start": 3.86,
+          "end": 4.86
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.2823414441663772
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a15639e9bba0c910884562db6973b4fbd7046f9fe8fbbe173a16c41e178e4cf5",
+  "selected_reasons": []
+}

@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "889020528b3a31a4d695bdcf625b6afb6342bf8068973481483019265a14b6cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.38763107312843204,
+      "alignment_seconds": 0.0006546680815517902,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enobarbus. And the business you have broached here cannot be without you, especially that of Cleopatra's, which wholly depends on your abode.",
+        "hotwords": "Enobarbus, And, Cleopatra's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enobarbus. And the business you have broached here cannot be without you, especially that of Cleopatra's, which wholly depends on your abode.",
+          "start": 0.05,
+          "end": 8.27,
+          "words": [
+            {
+              "text": " Enobarbus.",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 0.3527577718098958
+            },
+            {
+              "text": " And",
+              "start": 1.59,
+              "end": 1.69,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " the",
+              "start": 1.69,
+              "end": 1.81,
+              "probability": 0.990234375
+            },
+            {
+              "text": " business",
+              "start": 1.81,
+              "end": 2.09,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " you",
+              "start": 2.09,
+              "end": 2.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " have",
+              "start": 2.35,
+              "end": 2.47,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " broached",
+              "start": 2.47,
+              "end": 2.79,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " here",
+              "start": 2.79,
+              "end": 3.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " cannot",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " be",
+              "start": 3.25,
+              "end": 3.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " without",
+              "start": 3.59,
+              "end": 3.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you,",
+              "start": 3.87,
+              "end": 4.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " especially",
+              "start": 4.61,
+              "end": 4.95,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " that",
+              "start": 4.95,
+              "end": 5.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 5.37,
+              "end": 5.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Cleopatra's,",
+              "start": 5.49,
+              "end": 6.35,
+              "probability": 0.974365234375
+            },
+            {
+              "text": " which",
+              "start": 6.53,
+              "end": 6.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wholly",
+              "start": 6.75,
+              "end": 7.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " depends",
+              "start": 7.09,
+              "end": 7.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 7.51,
+              "end": 7.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " your",
+              "start": 7.75,
+              "end": 7.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " abode.",
+              "start": 7.87,
+              "end": 8.27,
+              "probability": 0.996826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enobarbus.",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "raw": "And",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "raw": "the",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "raw": "business",
+          "start": 1.81,
+          "end": 2.09
+        },
+        {
+          "raw": "you",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "raw": "have",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "raw": "broached",
+          "start": 2.47,
+          "end": 2.79
+        },
+        {
+          "raw": "here",
+          "start": 2.79,
+          "end": 3.03
+        },
+        {
+          "raw": "cannot",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "raw": "be",
+          "start": 3.25,
+          "end": 3.59
+        },
+        {
+          "raw": "without",
+          "start": 3.59,
+          "end": 3.87
+        },
+        {
+          "raw": "you,",
+          "start": 3.87,
+          "end": 4.27
+        },
+        {
+          "raw": "especially",
+          "start": 4.61,
+          "end": 4.95
+        },
+        {
+          "raw": "that",
+          "start": 4.95,
+          "end": 5.37
+        },
+        {
+          "raw": "of",
+          "start": 5.37,
+          "end": 5.49
+        },
+        {
+          "raw": "Cleopatra's,",
+          "start": 5.49,
+          "end": 6.35
+        },
+        {
+          "raw": "which",
+          "start": 6.53,
+          "end": 6.75
+        },
+        {
+          "raw": "wholly",
+          "start": 6.75,
+          "end": 7.09
+        },
+        {
+          "raw": "depends",
+          "start": 7.09,
+          "end": 7.51
+        },
+        {
+          "raw": "on",
+          "start": 7.51,
+          "end": 7.75
+        },
+        {
+          "raw": "your",
+          "start": 7.75,
+          "end": 7.87
+        },
+        {
+          "raw": "abode.",
+          "start": 7.87,
+          "end": 8.27
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus.",
+        "And",
+        "the",
+        "business",
+        "you",
+        "have",
+        "broached",
+        "here",
+        "cannot",
+        "be",
+        "without",
+        "you,",
+        "especially",
+        "that",
+        "of",
+        "Cleopatra's,",
+        "which",
+        "wholly",
+        "depends",
+        "on",
+        "your",
+        "abode."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enobarbus.",
+          "start": 0.05,
+          "end": 1.07,
+          "key": "enobarbus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.59,
+          "end": 1.69,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.69,
+          "end": 1.81,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "business",
+          "start": 1.81,
+          "end": 2.09,
+          "key": "business",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.09,
+          "end": 2.35,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.35,
+          "end": 2.47,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "broached",
+          "start": 2.47,
+          "end": 2.79,
+          "key": "broached",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.79,
+          "end": 3.03,
+          "key": "here",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 3.03,
+          "end": 3.25,
+          "key": "cannot",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.25,
+          "end": 3.59,
+          "key": "be",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 3.59,
+          "end": 3.87,
+          "key": "without",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 3.87,
+          "end": 4.27,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "especially",
+          "start": 4.61,
+          "end": 4.95,
+          "key": "especially",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.95,
+          "end": 5.37,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.37,
+          "end": 5.49,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Cleopatra's,",
+          "start": 5.49,
+          "end": 6.35,
+          "key": "cleopatras",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 6.53,
+          "end": 6.75,
+          "key": "which",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "wholly",
+          "start": 6.75,
+          "end": 7.09,
+          "key": "wholly",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "depends",
+          "start": 7.09,
+          "end": 7.51,
+          "key": "depends",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 7.51,
+          "end": 7.75,
+          "key": "on",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 7.75,
+          "end": 7.87,
+          "key": "your",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "abode.",
+          "start": 7.87,
+          "end": 8.27,
+          "key": "abode",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "text": "And",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "text": "the",
+          "start": 1.69,
+          "end": 1.81
+        },
+        {
+          "text": "business",
+          "start": 1.81,
+          "end": 2.09
+        },
+        {
+          "text": "you",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "text": "have",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "text": "broached",
+          "start": 2.47,
+          "end": 2.79
+        },
+        {
+          "text": "here",
+          "start": 2.79,
+          "end": 3.03
+        },
+        {
+          "text": "cannot",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "text": "be",
+          "start": 3.25,
+          "end": 3.59
+        },
+        {
+          "text": "without",
+          "start": 3.59,
+          "end": 3.87
+        },
+        {
+          "text": "you,",
+          "start": 3.87,
+          "end": 4.27
+        },
+        {
+          "text": "especially",
+          "start": 4.61,
+          "end": 4.95
+        },
+        {
+          "text": "that",
+          "start": 4.95,
+          "end": 5.37
+        },
+        {
+          "text": "of",
+          "start": 5.37,
+          "end": 5.49
+        },
+        {
+          "text": "Cleopatra's,",
+          "start": 5.49,
+          "end": 6.35
+        },
+        {
+          "text": "which",
+          "start": 6.53,
+          "end": 6.75
+        },
+        {
+          "text": "wholly",
+          "start": 6.75,
+          "end": 7.09
+        },
+        {
+          "text": "depends",
+          "start": 7.09,
+          "end": 7.51
+        },
+        {
+          "text": "on",
+          "start": 7.51,
+          "end": 7.75
+        },
+        {
+          "text": "your",
+          "start": 7.75,
+          "end": 7.87
+        },
+        {
+          "text": "abode.",
+          "start": 7.87,
+          "end": 8.27
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3885709489695728
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1ab595c256eda35c077b0b1e9a54772b4881de2f514981d95701d0f7e7c92488",
+  "selected_reasons": []
+}

@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "b16b596e7e48f8aff8d78989c01efb8ae7b98e169affb059c28181e90340ac73",
+  "attempts": [
+    {
+      "asr_seconds": 0.32145638950169086,
+      "alignment_seconds": 0.0006134845316410065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Don Pedro. Nay, pray thee come; Or if thou wilt hold longer argument, Do it in notes.",
+        "hotwords": "Don, Pedro, Nay, Or, Do"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don, Pedro, Nay, pray thee come, Or if thou wilt hold longer argument, Do it in notes.",
+          "start": 0.05,
+          "end": 5.55,
+          "words": [
+            {
+              "text": " Don,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.515625
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.75,
+              "end": 1.01,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Nay,",
+              "start": 1.65,
+              "end": 1.79,
+              "probability": 0.24267578125
+            },
+            {
+              "text": " pray",
+              "start": 1.99,
+              "end": 2.03,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " thee",
+              "start": 2.03,
+              "end": 2.19,
+              "probability": 0.765625
+            },
+            {
+              "text": " come,",
+              "start": 2.19,
+              "end": 2.47,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " Or",
+              "start": 2.99,
+              "end": 3.03,
+              "probability": 0.4892578125
+            },
+            {
+              "text": " if",
+              "start": 3.03,
+              "end": 3.21,
+              "probability": 0.8359375
+            },
+            {
+              "text": " thou",
+              "start": 3.21,
+              "end": 3.35,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " wilt",
+              "start": 3.35,
+              "end": 3.59,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " hold",
+              "start": 3.59,
+              "end": 3.87,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " longer",
+              "start": 3.87,
+              "end": 4.23,
+              "probability": 0.441162109375
+            },
+            {
+              "text": " argument,",
+              "start": 4.23,
+              "end": 4.71,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " Do",
+              "start": 4.99,
+              "end": 5.03,
+              "probability": 0.332763671875
+            },
+            {
+              "text": " it",
+              "start": 5.03,
+              "end": 5.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 5.15,
+              "end": 5.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " notes.",
+              "start": 5.27,
+              "end": 5.55,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.75,
+          "end": 1.01
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "raw": "pray",
+          "start": 1.99,
+          "end": 2.03
+        },
+        {
+          "raw": "thee",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "raw": "come,",
+          "start": 2.19,
+          "end": 2.47
+        },
+        {
+          "raw": "Or",
+          "start": 2.99,
+          "end": 3.03
+        },
+        {
+          "raw": "if",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "raw": "thou",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "raw": "wilt",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "raw": "hold",
+          "start": 3.59,
+          "end": 3.87
+        },
+        {
+          "raw": "longer",
+          "start": 3.87,
+          "end": 4.23
+        },
+        {
+          "raw": "argument,",
+          "start": 4.23,
+          "end": 4.71
+        },
+        {
+          "raw": "Do",
+          "start": 4.99,
+          "end": 5.03
+        },
+        {
+          "raw": "it",
+          "start": 5.03,
+          "end": 5.15
+        },
+        {
+          "raw": "in",
+          "start": 5.15,
+          "end": 5.27
+        },
+        {
+          "raw": "notes.",
+          "start": 5.27,
+          "end": 5.55
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "Nay,",
+        "pray",
+        "thee",
+        "come;",
+        "Or",
+        "if",
+        "thou",
+        "wilt",
+        "hold",
+        "longer",
+        "argument,",
+        "Do",
+        "it",
+        "in",
+        "notes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.75,
+          "end": 1.01,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.65,
+          "end": 1.79,
+          "key": "nay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.99,
+          "end": 2.03,
+          "key": "pray",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.03,
+          "end": 2.19,
+          "key": "thee",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "come,",
+          "start": 2.19,
+          "end": 2.47,
+          "key": "come",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 2.99,
+          "end": 3.03,
+          "key": "or",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.03,
+          "end": 3.21,
+          "key": "if",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.21,
+          "end": 3.35,
+          "key": "thou",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wilt",
+          "start": 3.35,
+          "end": 3.59,
+          "key": "wilt",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 3.59,
+          "end": 3.87,
+          "key": "hold",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "longer",
+          "start": 3.87,
+          "end": 4.23,
+          "key": "longer",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "argument,",
+          "start": 4.23,
+          "end": 4.71,
+          "key": "argument",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 4.99,
+          "end": 5.03,
+          "key": "do",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.03,
+          "end": 5.15,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.15,
+          "end": 5.27,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "notes.",
+          "start": 5.27,
+          "end": 5.55,
+          "key": "notes",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.75,
+          "end": 1.01
+        },
+        {
+          "text": "Nay,",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "text": "pray",
+          "start": 1.99,
+          "end": 2.03
+        },
+        {
+          "text": "thee",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "text": "come;",
+          "start": 2.19,
+          "end": 2.47
+        },
+        {
+          "text": "Or",
+          "start": 2.99,
+          "end": 3.03
+        },
+        {
+          "text": "if",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "text": "thou",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "text": "wilt",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "text": "hold",
+          "start": 3.59,
+          "end": 3.87
+        },
+        {
+          "text": "longer",
+          "start": 3.87,
+          "end": 4.23
+        },
+        {
+          "text": "argument,",
+          "start": 4.23,
+          "end": 4.71
+        },
+        {
+          "text": "Do",
+          "start": 4.99,
+          "end": 5.03
+        },
+        {
+          "text": "it",
+          "start": 5.03,
+          "end": 5.15
+        },
+        {
+          "text": "in",
+          "start": 5.15,
+          "end": 5.27
+        },
+        {
+          "text": "notes.",
+          "start": 5.27,
+          "end": 5.55
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32232967764139175
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "31af6174773a84c4fface57fede20fd6e2137a360ddabc67aae7a81092b4b773",
+  "selected_reasons": []
+}

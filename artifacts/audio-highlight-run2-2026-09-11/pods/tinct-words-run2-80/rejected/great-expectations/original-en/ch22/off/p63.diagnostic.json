@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "023040ce480352d00211220a963bf16738b7dd710e42cbeb25769d7e357bc28e",
+  "attempts": [
+    {
+      "asr_seconds": 0.14607626758515835,
+      "alignment_seconds": 0.0003171917051076889,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I don't know.",
+          "start": 0.02,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " don't",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " know.",
+              "start": 0.68,
+              "end": 0.92,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "don't",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "know.",
+          "start": 0.68,
+          "end": 0.92
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "don't",
+        "know.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "dont",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know.",
+          "start": 0.68,
+          "end": 0.92,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "don't",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "know.\"",
+          "start": 0.68,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14649798162281513
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e266413231388744eff5187b2b08a777c7aba59ff05a9f3f2eb40273ea81b29d",
+  "selected_reasons": []
+}

@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "d49933f28c9b96e142887d5a86688d1526b49b1e7cd83646679e68c4f4e57de7",
+  "attempts": [
+    {
+      "asr_seconds": 0.13177423970773816,
+      "alignment_seconds": 0.00031596701592206955,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Bronzelydia by Minagold.",
+        "hotwords": "Bronzelydia, Minagold"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bronzelydia by Minagold.",
+          "start": 0.11,
+          "end": 1.53,
+          "words": [
+            {
+              "text": " Bronzelydia",
+              "start": 0.11,
+              "end": 0.93,
+              "probability": 0.5921093225479126
+            },
+            {
+              "text": " by",
+              "start": 0.93,
+              "end": 1.05,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Minagold.",
+              "start": 1.05,
+              "end": 1.53,
+              "probability": 0.621429443359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bronzelydia",
+          "start": 0.11,
+          "end": 0.93
+        },
+        {
+          "raw": "by",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "raw": "Minagold.",
+          "start": 1.05,
+          "end": 1.53
+        }
+      ],
+      "expected_tokens": [
+        "Bronzelydia",
+        "by",
+        "Minagold."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bronzelydia",
+          "start": 0.11,
+          "end": 0.93,
+          "key": "bronzelydia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 0.93,
+          "end": 1.05,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Minagold.",
+          "start": 1.05,
+          "end": 1.53,
+          "key": "minagold",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bronzelydia",
+          "start": 0.11,
+          "end": 0.93
+        },
+        {
+          "text": "by",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "text": "Minagold.",
+          "start": 1.05,
+          "end": 1.53
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13221875997260213
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0abc5609f1a0942c41172cdc8ca6898699e191373b0f2b1094b853b5f2bf4165",
+  "selected_reasons": []
+}

@@ -1,0 +1,965 @@
+{
+  "complete": true,
+  "signature": "c2ca302c6b34740cb8647d5415d2e9ae5ce9cca5b6da5a0ce978fed31c1d3bac",
+  "attempts": [
+    {
+      "asr_seconds": 0.31344851525500417,
+      "alignment_seconds": 0.0003083180636167526,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. I know, Iago, Thy honesty and love doth mince this matter, Making it light to Cassio. Cassio, I love thee, But never more be officer of mine.",
+        "hotwords": "Othello, I, Iago, Thy, Making, Cassio, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, I know, Iago, Thy honesty and love doth mince this matter, Making it light to Cassio.",
+          "start": 0.24,
+          "end": 5.9,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.24,
+              "end": 0.88,
+              "probability": 0.8543294270833334
+            },
+            {
+              "text": " I",
+              "start": 1.24,
+              "end": 1.32,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " know,",
+              "start": 1.32,
+              "end": 1.5,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Iago,",
+              "start": 1.66,
+              "end": 1.98,
+              "probability": 0.2308349609375
+            },
+            {
+              "text": " Thy",
+              "start": 2.22,
+              "end": 2.3,
+              "probability": 0.233154296875
+            },
+            {
+              "text": " honesty",
+              "start": 2.3,
+              "end": 2.66,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " and",
+              "start": 2.66,
+              "end": 2.98,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " love",
+              "start": 2.98,
+              "end": 3.22,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " doth",
+              "start": 3.22,
+              "end": 3.48,
+              "probability": 0.864501953125
+            },
+            {
+              "text": " mince",
+              "start": 3.48,
+              "end": 3.7,
+              "probability": 0.917724609375
+            },
+            {
+              "text": " this",
+              "start": 3.7,
+              "end": 3.94,
+              "probability": 0.98046875
+            },
+            {
+              "text": " matter,",
+              "start": 3.94,
+              "end": 4.28,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " Making",
+              "start": 4.72,
+              "end": 4.82,
+              "probability": 0.83203125
+            },
+            {
+              "text": " it",
+              "start": 4.82,
+              "end": 5.02,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " light",
+              "start": 5.02,
+              "end": 5.2,
+              "probability": 0.966796875
+            },
+            {
+              "text": " to",
+              "start": 5.2,
+              "end": 5.42,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Cassio.",
+              "start": 5.42,
+              "end": 5.9,
+              "probability": 0.8232421875
+            }
+          ]
+        },
+        {
+          "text": " Cassio, I love thee, But never more be officer of mine.",
+          "start": 6.62,
+          "end": 10.0,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 6.62,
+              "end": 7.14,
+              "probability": 0.987548828125
+            },
+            {
+              "text": " I",
+              "start": 7.28,
+              "end": 7.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " love",
+              "start": 7.42,
+              "end": 7.68,
+              "probability": 0.984375
+            },
+            {
+              "text": " thee,",
+              "start": 7.68,
+              "end": 7.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " But",
+              "start": 8.24,
+              "end": 8.36,
+              "probability": 0.63818359375
+            },
+            {
+              "text": " never",
+              "start": 8.36,
+              "end": 8.64,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " more",
+              "start": 8.64,
+              "end": 8.82,
+              "probability": 0.67138671875
+            },
+            {
+              "text": " be",
+              "start": 8.82,
+              "end": 9.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " officer",
+              "start": 9.02,
+              "end": 9.36,
+              "probability": 0.642578125
+            },
+            {
+              "text": " of",
+              "start": 9.36,
+              "end": 9.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " mine.",
+              "start": 9.66,
+              "end": 10.0,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.88
+        },
+        {
+          "raw": "I",
+          "start": 1.24,
+          "end": 1.32
+        },
+        {
+          "raw": "know,",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.66,
+          "end": 1.98
+        },
+        {
+          "raw": "Thy",
+          "start": 2.22,
+          "end": 2.3
+        },
+        {
+          "raw": "honesty",
+          "start": 2.3,
+          "end": 2.66
+        },
+        {
+          "raw": "and",
+          "start": 2.66,
+          "end": 2.98
+        },
+        {
+          "raw": "love",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "raw": "doth",
+          "start": 3.22,
+          "end": 3.48
+        },
+        {
+          "raw": "mince",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "raw": "this",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "raw": "matter,",
+          "start": 3.94,
+          "end": 4.28
+        },
+        {
+          "raw": "Making",
+          "start": 4.72,
+          "end": 4.82
+        },
+        {
+          "raw": "it",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "raw": "light",
+          "start": 5.02,
+          "end": 5.2
+        },
+        {
+          "raw": "to",
+          "start": 5.2,
+          "end": 5.42
+        },
+        {
+          "raw": "Cassio.",
+          "start": 5.42,
+          "end": 5.9
+        },
+        {
+          "raw": "Cassio,",
+          "start": 6.62,
+          "end": 7.14
+        },
+        {
+          "raw": "I",
+          "start": 7.28,
+          "end": 7.42
+        },
+        {
+          "raw": "love",
+          "start": 7.42,
+          "end": 7.68
+        },
+        {
+          "raw": "thee,",
+          "start": 7.68,
+          "end": 7.94
+        },
+        {
+          "raw": "But",
+          "start": 8.24,
+          "end": 8.36
+        },
+        {
+          "raw": "never",
+          "start": 8.36,
+          "end": 8.64
+        },
+        {
+          "raw": "more",
+          "start": 8.64,
+          "end": 8.82
+        },
+        {
+          "raw": "be",
+          "start": 8.82,
+          "end": 9.02
+        },
+        {
+          "raw": "officer",
+          "start": 9.02,
+          "end": 9.36
+        },
+        {
+          "raw": "of",
+          "start": 9.36,
+          "end": 9.66
+        },
+        {
+          "raw": "mine.",
+          "start": 9.66,
+          "end": 10.0
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "I",
+        "know,",
+        "Iago,",
+        "Thy",
+        "honesty",
+        "and",
+        "love",
+        "doth",
+        "mince",
+        "this",
+        "matter,",
+        "Making",
+        "it",
+        "light",
+        "to",
+        "Cassio.",
+        "Cassio,",
+        "I",
+        "love",
+        "thee,",
+        "But",
+        "never",
+        "more",
+        "be",
+        "officer",
+        "of",
+        "mine."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.88,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.24,
+          "end": 1.32,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 1.32,
+          "end": 1.5,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.66,
+          "end": 1.98,
+          "key": "iago",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Thy",
+          "start": 2.22,
+          "end": 2.3,
+          "key": "thy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "honesty",
+          "start": 2.3,
+          "end": 2.66,
+          "key": "honesty",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.66,
+          "end": 2.98,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 2.98,
+          "end": 3.22,
+          "key": "love",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 3.22,
+          "end": 3.48,
+          "key": "doth",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mince",
+          "start": 3.48,
+          "end": 3.7,
+          "key": "mince",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.7,
+          "end": 3.94,
+          "key": "this",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "matter,",
+          "start": 3.94,
+          "end": 4.28,
+          "key": "matter",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Making",
+          "start": 4.72,
+          "end": 4.82,
+          "key": "making",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.82,
+          "end": 5.02,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "light",
+          "start": 5.02,
+          "end": 5.2,
+          "key": "light",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.2,
+          "end": 5.42,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Cassio.",
+          "start": 5.42,
+          "end": 5.9,
+          "key": "cassio",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Cassio,",
+          "start": 6.62,
+          "end": 7.14,
+          "key": "cassio",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.28,
+          "end": 7.42,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 7.42,
+          "end": 7.68,
+          "key": "love",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 7.68,
+          "end": 7.94,
+          "key": "thee",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 8.24,
+          "end": 8.36,
+          "key": "but",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 8.36,
+          "end": 8.64,
+          "key": "never",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 8.64,
+          "end": 8.82,
+          "key": "more",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 8.82,
+          "end": 9.02,
+          "key": "be",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "officer",
+          "start": 9.02,
+          "end": 9.36,
+          "key": "officer",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.36,
+          "end": 9.66,
+          "key": "of",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "mine.",
+          "start": 9.66,
+          "end": 10.0,
+          "key": "mine",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.24,
+          "end": 0.88
+        },
+        {
+          "text": "I",
+          "start": 1.24,
+          "end": 1.32
+        },
+        {
+          "text": "know,",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "text": "Iago,",
+          "start": 1.66,
+          "end": 1.98
+        },
+        {
+          "text": "Thy",
+          "start": 2.22,
+          "end": 2.3
+        },
+        {
+          "text": "honesty",
+          "start": 2.3,
+          "end": 2.66
+        },
+        {
+          "text": "and",
+          "start": 2.66,
+          "end": 2.98
+        },
+        {
+          "text": "love",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "text": "doth",
+          "start": 3.22,
+          "end": 3.48
+        },
+        {
+          "text": "mince",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "text": "this",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "text": "matter,",
+          "start": 3.94,
+          "end": 4.28
+        },
+        {
+          "text": "Making",
+          "start": 4.72,
+          "end": 4.82
+        },
+        {
+          "text": "it",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "text": "light",
+          "start": 5.02,
+          "end": 5.2
+        },
+        {
+          "text": "to",
+          "start": 5.2,
+          "end": 5.42
+        },
+        {
+          "text": "Cassio.",
+          "start": 5.42,
+          "end": 5.9
+        },
+        {
+          "text": "Cassio,",
+          "start": 6.62,
+          "end": 7.14
+        },
+        {
+          "text": "I",
+          "start": 7.28,
+          "end": 7.42
+        },
+        {
+          "text": "love",
+          "start": 7.42,
+          "end": 7.68
+        },
+        {
+          "text": "thee,",
+          "start": 7.68,
+          "end": 7.94
+        },
+        {
+          "text": "But",
+          "start": 8.24,
+          "end": 8.36
+        },
+        {
+          "text": "never",
+          "start": 8.36,
+          "end": 8.64
+        },
+        {
+          "text": "more",
+          "start": 8.64,
+          "end": 8.82
+        },
+        {
+          "text": "be",
+          "start": 8.82,
+          "end": 9.02
+        },
+        {
+          "text": "officer",
+          "start": 9.02,
+          "end": 9.36
+        },
+        {
+          "text": "of",
+          "start": 9.36,
+          "end": 9.66
+        },
+        {
+          "text": "mine.",
+          "start": 9.66,
+          "end": 10.0
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 28
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31388429226353765
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0a3a18fcdb794cef7b512e0874642923577f9e48e98beeddfeb80767da1b808c",
+  "selected_reasons": []
+}

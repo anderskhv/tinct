@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "2d04afd22996ed1f53fd186e3aa591de6e55c975f88660cad5f20d239f84f01a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1469260286539793,
+      "alignment_seconds": 0.00030208565294742584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Officer, sound trumpet.",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Officer,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.919921875
+            },
+            {
+              "text": " sound",
+              "start": 1.35,
+              "end": 1.39,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " trumpet.",
+              "start": 1.39,
+              "end": 1.79,
+              "probability": 0.96875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Officer,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "sound",
+          "start": 1.35,
+          "end": 1.39
+        },
+        {
+          "raw": "trumpet.",
+          "start": 1.39,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Officer.",
+        "Sound,",
+        "trumpet!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Officer,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "officer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sound",
+          "start": 1.35,
+          "end": 1.39,
+          "key": "sound",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "trumpet.",
+          "start": 1.39,
+          "end": 1.79,
+          "key": "trumpet",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Officer.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Sound,",
+          "start": 1.35,
+          "end": 1.39
+        },
+        {
+          "text": "trumpet!",
+          "start": 1.39,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1473247930407524
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4b00bfd187e666979316fd7ade346befc1f8610feda6f121b319946b73d7a6f4",
+  "selected_reasons": []
+}

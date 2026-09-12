@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "57b4fe6cbf588d69e88276df0e1768c3dd9ffc9e8dbb585da3ab44c71f83bcfc",
+  "attempts": [
+    {
+      "asr_seconds": 0.1447714720852673,
+      "alignment_seconds": 0.00024868687614798546,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, know by this heavenly light.",
+          "start": 0.05,
+          "end": 2.65,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 0.659912109375
+            },
+            {
+              "text": " know",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " by",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.9921875
+            },
+            {
+              "text": " this",
+              "start": 1.81,
+              "end": 1.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " heavenly",
+              "start": 1.99,
+              "end": 2.27,
+              "probability": 0.966796875
+            },
+            {
+              "text": " light.",
+              "start": 2.27,
+              "end": 2.65,
+              "probability": 0.96142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "raw": "know",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "by",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "raw": "this",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "raw": "heavenly",
+          "start": 1.99,
+          "end": 2.27
+        },
+        {
+          "raw": "light.",
+          "start": 2.27,
+          "end": 2.65
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "No,",
+        "by",
+        "this",
+        "heavenly",
+        "light!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.05,
+          "end": 1.07,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "know",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "by",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.81,
+          "end": 1.99,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heavenly",
+          "start": 1.99,
+          "end": 2.27,
+          "key": "heavenly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "light.",
+          "start": 2.27,
+          "end": 2.65,
+          "key": "light",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.805
+        },
+        {
+          "text": "No,",
+          "start": 0.805,
+          "end": 1.208
+        },
+        {
+          "text": "by",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "text": "this",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "text": "heavenly",
+          "start": 1.99,
+          "end": 2.27
+        },
+        {
+          "text": "light!",
+          "start": 2.27,
+          "end": 2.65
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14512390829622746
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "187a6957bef8bcd15e2f944c42370d76c297f2518f24af7b617c096f5e73bfa5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

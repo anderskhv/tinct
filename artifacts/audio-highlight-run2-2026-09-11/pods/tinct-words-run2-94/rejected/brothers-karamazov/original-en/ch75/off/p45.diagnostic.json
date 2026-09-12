@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "92323171cd23d71d3256110b659fc85bea02483d9dd1574b7a5b7c2634722edd",
+  "attempts": [
+    {
+      "asr_seconds": 0.19933762401342392,
+      "alignment_seconds": 0.0005264598876237869,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You are cunning with me, damn you,\" he exclaimed, getting angry.",
+          "start": 0.05,
+          "end": 3.65,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.295654296875
+            },
+            {
+              "text": " are",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.55078125
+            },
+            {
+              "text": " cunning",
+              "start": 0.61,
+              "end": 0.83,
+              "probability": 0.974609375
+            },
+            {
+              "text": " with",
+              "start": 0.83,
+              "end": 1.03,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " me,",
+              "start": 1.03,
+              "end": 1.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " damn",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " you,\"",
+              "start": 1.45,
+              "end": 2.07,
+              "probability": 0.7017822265625
+            },
+            {
+              "text": " he",
+              "start": 2.07,
+              "end": 2.27,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " exclaimed,",
+              "start": 2.27,
+              "end": 2.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " getting",
+              "start": 3.07,
+              "end": 3.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " angry.",
+              "start": 3.17,
+              "end": 3.65,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "are",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "cunning",
+          "start": 0.61,
+          "end": 0.83
+        },
+        {
+          "raw": "with",
+          "start": 0.83,
+          "end": 1.03
+        },
+        {
+          "raw": "me,",
+          "start": 1.03,
+          "end": 1.21
+        },
+        {
+          "raw": "damn",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "you,\"",
+          "start": 1.45,
+          "end": 2.07
+        },
+        {
+          "raw": "he",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "raw": "exclaimed,",
+          "start": 2.27,
+          "end": 2.71
+        },
+        {
+          "raw": "getting",
+          "start": 3.07,
+          "end": 3.17
+        },
+        {
+          "raw": "angry.",
+          "start": 3.17,
+          "end": 3.65
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "are",
+        "cunning",
+        "with",
+        "me,",
+        "damn",
+        "you!\"",
+        "he",
+        "exclaimed,",
+        "getting",
+        "angry."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.51,
+          "end": 0.61,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cunning",
+          "start": 0.61,
+          "end": 0.83,
+          "key": "cunning",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.83,
+          "end": 1.03,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.03,
+          "end": 1.21,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "damn",
+          "start": 1.31,
+          "end": 1.45,
+          "key": "damn",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you,\"",
+          "start": 1.45,
+          "end": 2.07,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.07,
+          "end": 2.27,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "exclaimed,",
+          "start": 2.27,
+          "end": 2.71,
+          "key": "exclaimed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "getting",
+          "start": 3.07,
+          "end": 3.17,
+          "key": "getting",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "angry.",
+          "start": 3.17,
+          "end": 3.65,
+          "key": "angry",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "are",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "cunning",
+          "start": 0.61,
+          "end": 0.83
+        },
+        {
+          "text": "with",
+          "start": 0.83,
+          "end": 1.03
+        },
+        {
+          "text": "me,",
+          "start": 1.03,
+          "end": 1.21
+        },
+        {
+          "text": "damn",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "text": "you!\"",
+          "start": 1.45,
+          "end": 2.07
+        },
+        {
+          "text": "he",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "text": "exclaimed,",
+          "start": 2.27,
+          "end": 2.71
+        },
+        {
+          "text": "getting",
+          "start": 3.07,
+          "end": 3.17
+        },
+        {
+          "text": "angry.",
+          "start": 3.17,
+          "end": 3.65
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20006889291107655
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "95d058c4dad9114776ae399a4cbc5e4041fbe4ba1f7a699890eb81d3c1308908",
+  "selected_reasons": []
+}

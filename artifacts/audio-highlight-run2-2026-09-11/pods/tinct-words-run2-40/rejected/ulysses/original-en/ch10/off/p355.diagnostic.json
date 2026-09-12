@@ -1,0 +1,617 @@
+{
+  "complete": true,
+  "signature": "68b83d86116efe1ef7c4436bdf326fb835bf160ea1010511fcb679d3d2d21f00",
+  "attempts": [
+    {
+      "asr_seconds": 0.324688991997391,
+      "alignment_seconds": 0.0002851211465895176,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bad times those were.",
+          "start": 0.14,
+          "end": 1.46,
+          "words": [
+            {
+              "text": " Bad",
+              "start": 0.14,
+              "end": 0.58,
+              "probability": 0.7890625
+            },
+            {
+              "text": " times",
+              "start": 0.58,
+              "end": 0.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " those",
+              "start": 0.9,
+              "end": 1.14,
+              "probability": 0.826171875
+            },
+            {
+              "text": " were.",
+              "start": 1.14,
+              "end": 1.46,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Well well, over and done with.",
+          "start": 2.0,
+          "end": 3.4,
+          "words": [
+            {
+              "text": " Well",
+              "start": 2.0,
+              "end": 2.1,
+              "probability": 0.986328125
+            },
+            {
+              "text": " well,",
+              "start": 2.1,
+              "end": 2.36,
+              "probability": 0.45751953125
+            },
+            {
+              "text": " over",
+              "start": 2.62,
+              "end": 2.78,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " and",
+              "start": 2.78,
+              "end": 2.98,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " done",
+              "start": 2.98,
+              "end": 3.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with.",
+              "start": 3.14,
+              "end": 3.4,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " Great toppers too, four bottle men.",
+          "start": 3.92,
+          "end": 5.68,
+          "words": [
+            {
+              "text": " Great",
+              "start": 3.92,
+              "end": 4.04,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " toppers",
+              "start": 4.04,
+              "end": 4.42,
+              "probability": 0.4747314453125
+            },
+            {
+              "text": " too,",
+              "start": 4.42,
+              "end": 4.74,
+              "probability": 0.814453125
+            },
+            {
+              "text": " four",
+              "start": 5.02,
+              "end": 5.12,
+              "probability": 0.6357421875
+            },
+            {
+              "text": " bottle",
+              "start": 5.12,
+              "end": 5.34,
+              "probability": 0.54150390625
+            },
+            {
+              "text": " men.",
+              "start": 5.34,
+              "end": 5.68,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bad",
+          "start": 0.14,
+          "end": 0.58
+        },
+        {
+          "raw": "times",
+          "start": 0.58,
+          "end": 0.9
+        },
+        {
+          "raw": "those",
+          "start": 0.9,
+          "end": 1.14
+        },
+        {
+          "raw": "were.",
+          "start": 1.14,
+          "end": 1.46
+        },
+        {
+          "raw": "Well",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "raw": "well,",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "raw": "over",
+          "start": 2.62,
+          "end": 2.78
+        },
+        {
+          "raw": "and",
+          "start": 2.78,
+          "end": 2.98
+        },
+        {
+          "raw": "done",
+          "start": 2.98,
+          "end": 3.14
+        },
+        {
+          "raw": "with.",
+          "start": 3.14,
+          "end": 3.4
+        },
+        {
+          "raw": "Great",
+          "start": 3.92,
+          "end": 4.04
+        },
+        {
+          "raw": "toppers",
+          "start": 4.04,
+          "end": 4.42
+        },
+        {
+          "raw": "too,",
+          "start": 4.42,
+          "end": 4.74
+        },
+        {
+          "raw": "four",
+          "start": 5.02,
+          "end": 5.12
+        },
+        {
+          "raw": "bottle",
+          "start": 5.12,
+          "end": 5.34
+        },
+        {
+          "raw": "men.",
+          "start": 5.34,
+          "end": 5.68
+        }
+      ],
+      "expected_tokens": [
+        "Bad",
+        "times",
+        "those",
+        "were.",
+        "Well,",
+        "well.",
+        "Over",
+        "and",
+        "done",
+        "with.",
+        "Great",
+        "topers",
+        "too.",
+        "Fourbottle",
+        "men."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ],
+        [
+          "equal",
+          14,
+          15,
+          15,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bad",
+          "start": 0.14,
+          "end": 0.58,
+          "key": "bad",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "times",
+          "start": 0.58,
+          "end": 0.9,
+          "key": "times",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 0.9,
+          "end": 1.14,
+          "key": "those",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "were.",
+          "start": 1.14,
+          "end": 1.46,
+          "key": "were",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Well",
+          "start": 2.0,
+          "end": 2.1,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 2.1,
+          "end": 2.36,
+          "key": "well",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 2.62,
+          "end": 2.78,
+          "key": "over",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.78,
+          "end": 2.98,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 2.98,
+          "end": 3.14,
+          "key": "done",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with.",
+          "start": 3.14,
+          "end": 3.4,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Great",
+          "start": 3.92,
+          "end": 4.04,
+          "key": "great",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "toppers",
+          "start": 4.04,
+          "end": 4.42,
+          "key": "toppers",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 4.42,
+          "end": 4.74,
+          "key": "too",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "four",
+          "start": 5.02,
+          "end": 5.12,
+          "key": "four",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bottle",
+          "start": 5.12,
+          "end": 5.34,
+          "key": "bottle",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "men.",
+          "start": 5.34,
+          "end": 5.68,
+          "key": "men",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bad",
+          "start": 0.14,
+          "end": 0.58
+        },
+        {
+          "text": "times",
+          "start": 0.58,
+          "end": 0.9
+        },
+        {
+          "text": "those",
+          "start": 0.9,
+          "end": 1.14
+        },
+        {
+          "text": "were.",
+          "start": 1.14,
+          "end": 1.46
+        },
+        {
+          "text": "Well,",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "text": "well.",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "text": "Over",
+          "start": 2.62,
+          "end": 2.78
+        },
+        {
+          "text": "and",
+          "start": 2.78,
+          "end": 2.98
+        },
+        {
+          "text": "done",
+          "start": 2.98,
+          "end": 3.14
+        },
+        {
+          "text": "with.",
+          "start": 3.14,
+          "end": 3.4
+        },
+        {
+          "text": "Great",
+          "start": 3.92,
+          "end": 4.04
+        },
+        {
+          "text": "topers",
+          "start": 4.04,
+          "end": 4.23
+        },
+        {
+          "text": "too.",
+          "start": 4.42,
+          "end": 4.74
+        },
+        {
+          "text": "Fourbottle",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "text": "men.",
+          "start": 5.34,
+          "end": 5.68
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.32508782111108303
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "49f5ce5f9bda14b3375a061956518fda1f8e2063114ff68dcefa16904ad91cdb",
+  "selected_reasons": []
+}

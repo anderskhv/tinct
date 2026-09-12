@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "39ecc185decf139b0afaedc3d8d105a469a627f53808dd26f1a878d1b2222b74",
+  "attempts": [
+    {
+      "asr_seconds": 0.11657805414870381,
+      "alignment_seconds": 0.0003826427273452282,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What do you know about him?",
+          "start": 0.05,
+          "end": 1.31,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " do",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.962890625
+            },
+            {
+              "text": " you",
+              "start": 0.65,
+              "end": 0.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " know",
+              "start": 0.71,
+              "end": 0.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " about",
+              "start": 0.85,
+              "end": 1.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him?",
+              "start": 1.09,
+              "end": 1.31,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "do",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "you",
+          "start": 0.65,
+          "end": 0.71
+        },
+        {
+          "raw": "know",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "raw": "about",
+          "start": 0.85,
+          "end": 1.09
+        },
+        {
+          "raw": "him?",
+          "start": 1.09,
+          "end": 1.31
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "do",
+        "you",
+        "know",
+        "about",
+        "him?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.65,
+          "end": 0.71,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 0.71,
+          "end": 0.85,
+          "key": "know",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 0.85,
+          "end": 1.09,
+          "key": "about",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him?",
+          "start": 1.09,
+          "end": 1.31,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "do",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "you",
+          "start": 0.65,
+          "end": 0.71
+        },
+        {
+          "text": "know",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "text": "about",
+          "start": 0.85,
+          "end": 1.09
+        },
+        {
+          "text": "him?\"",
+          "start": 1.09,
+          "end": 1.31
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11711010616272688
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f99f8125efaecae1e5b5c1d4b74e1c56012bcb66d1038a09d07b9e1c5874e688",
+  "selected_reasons": []
+}

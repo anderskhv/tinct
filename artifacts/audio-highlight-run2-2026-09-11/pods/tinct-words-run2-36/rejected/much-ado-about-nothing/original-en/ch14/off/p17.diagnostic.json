@@ -1,0 +1,754 @@
+{
+  "complete": true,
+  "signature": "6ce70dd574917997a71cd886e899925c7928ab04ea858abf36b0d2ef12677047",
+  "attempts": [
+    {
+      "asr_seconds": 0.32798755541443825,
+      "alignment_seconds": 0.0005061738193035126,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leonardo, Mary, thou dost wrong me, thou dissembler thou.",
+          "start": 0.08,
+          "end": 4.02,
+          "words": [
+            {
+              "text": " Leonardo,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.28515625
+            },
+            {
+              "text": " Mary,",
+              "start": 1.28,
+              "end": 1.54,
+              "probability": 0.69677734375
+            },
+            {
+              "text": " thou",
+              "start": 1.88,
+              "end": 1.92,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " dost",
+              "start": 1.92,
+              "end": 2.2,
+              "probability": 0.918701171875
+            },
+            {
+              "text": " wrong",
+              "start": 2.2,
+              "end": 2.44,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " me,",
+              "start": 2.44,
+              "end": 2.72,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " thou",
+              "start": 3.1,
+              "end": 3.12,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " dissembler",
+              "start": 3.12,
+              "end": 3.68,
+              "probability": 0.9352213541666666
+            },
+            {
+              "text": " thou.",
+              "start": 3.68,
+              "end": 4.02,
+              "probability": 0.9580078125
+            }
+          ]
+        },
+        {
+          "text": " Nay, never lay thy hand upon thy sword, I fear thee not.",
+          "start": 4.74,
+          "end": 7.5,
+          "words": [
+            {
+              "text": " Nay,",
+              "start": 4.74,
+              "end": 4.84,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " never",
+              "start": 4.92,
+              "end": 5.16,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " lay",
+              "start": 5.16,
+              "end": 5.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " thy",
+              "start": 5.36,
+              "end": 5.52,
+              "probability": 0.982421875
+            },
+            {
+              "text": " hand",
+              "start": 5.52,
+              "end": 5.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " upon",
+              "start": 5.76,
+              "end": 6.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thy",
+              "start": 6.0,
+              "end": 6.22,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " sword,",
+              "start": 6.22,
+              "end": 6.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 6.74,
+              "end": 6.82,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " fear",
+              "start": 6.82,
+              "end": 7.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thee",
+              "start": 7.06,
+              "end": 7.18,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " not.",
+              "start": 7.18,
+              "end": 7.5,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "Mary,",
+          "start": 1.28,
+          "end": 1.54
+        },
+        {
+          "raw": "thou",
+          "start": 1.88,
+          "end": 1.92
+        },
+        {
+          "raw": "dost",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "raw": "wrong",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "raw": "me,",
+          "start": 2.44,
+          "end": 2.72
+        },
+        {
+          "raw": "thou",
+          "start": 3.1,
+          "end": 3.12
+        },
+        {
+          "raw": "dissembler",
+          "start": 3.12,
+          "end": 3.68
+        },
+        {
+          "raw": "thou.",
+          "start": 3.68,
+          "end": 4.02
+        },
+        {
+          "raw": "Nay,",
+          "start": 4.74,
+          "end": 4.84
+        },
+        {
+          "raw": "never",
+          "start": 4.92,
+          "end": 5.16
+        },
+        {
+          "raw": "lay",
+          "start": 5.16,
+          "end": 5.36
+        },
+        {
+          "raw": "thy",
+          "start": 5.36,
+          "end": 5.52
+        },
+        {
+          "raw": "hand",
+          "start": 5.52,
+          "end": 5.76
+        },
+        {
+          "raw": "upon",
+          "start": 5.76,
+          "end": 6.0
+        },
+        {
+          "raw": "thy",
+          "start": 6.0,
+          "end": 6.22
+        },
+        {
+          "raw": "sword,",
+          "start": 6.22,
+          "end": 6.52
+        },
+        {
+          "raw": "I",
+          "start": 6.74,
+          "end": 6.82
+        },
+        {
+          "raw": "fear",
+          "start": 6.82,
+          "end": 7.06
+        },
+        {
+          "raw": "thee",
+          "start": 7.06,
+          "end": 7.18
+        },
+        {
+          "raw": "not.",
+          "start": 7.18,
+          "end": 7.5
+        }
+      ],
+      "expected_tokens": [
+        "Leonato.",
+        "Marry,",
+        "thou",
+        "dost",
+        "wrong",
+        "me;",
+        "thou",
+        "dissembler,",
+        "thou.",
+        "Nay,",
+        "never",
+        "lay",
+        "thy",
+        "hand",
+        "upon",
+        "thy",
+        "sword;",
+        "I",
+        "fear",
+        "thee",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          21,
+          2,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "leonardo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mary,",
+          "start": 1.28,
+          "end": 1.54,
+          "key": "mary",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.88,
+          "end": 1.92,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 1.92,
+          "end": 2.2,
+          "key": "dost",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wrong",
+          "start": 2.2,
+          "end": 2.44,
+          "key": "wrong",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.44,
+          "end": 2.72,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.1,
+          "end": 3.12,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dissembler",
+          "start": 3.12,
+          "end": 3.68,
+          "key": "dissembler",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thou.",
+          "start": 3.68,
+          "end": 4.02,
+          "key": "thou",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 4.74,
+          "end": 4.84,
+          "key": "nay",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 4.92,
+          "end": 5.16,
+          "key": "never",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 5.16,
+          "end": 5.36,
+          "key": "lay",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 5.36,
+          "end": 5.52,
+          "key": "thy",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 5.52,
+          "end": 5.76,
+          "key": "hand",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 5.76,
+          "end": 6.0,
+          "key": "upon",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 6.0,
+          "end": 6.22,
+          "key": "thy",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sword,",
+          "start": 6.22,
+          "end": 6.52,
+          "key": "sword",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.74,
+          "end": 6.82,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "fear",
+          "start": 6.82,
+          "end": 7.06,
+          "key": "fear",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 7.06,
+          "end": 7.18,
+          "key": "thee",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 7.18,
+          "end": 7.5,
+          "key": "not",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.94
+        },
+        {
+          "text": "Marry,",
+          "start": 0.94,
+          "end": 1.41
+        },
+        {
+          "text": "thou",
+          "start": 1.88,
+          "end": 1.92
+        },
+        {
+          "text": "dost",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "text": "wrong",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "text": "me;",
+          "start": 2.44,
+          "end": 2.72
+        },
+        {
+          "text": "thou",
+          "start": 3.1,
+          "end": 3.12
+        },
+        {
+          "text": "dissembler,",
+          "start": 3.12,
+          "end": 3.68
+        },
+        {
+          "text": "thou.",
+          "start": 3.68,
+          "end": 4.02
+        },
+        {
+          "text": "Nay,",
+          "start": 4.74,
+          "end": 4.84
+        },
+        {
+          "text": "never",
+          "start": 4.92,
+          "end": 5.16
+        },
+        {
+          "text": "lay",
+          "start": 5.16,
+          "end": 5.36
+        },
+        {
+          "text": "thy",
+          "start": 5.36,
+          "end": 5.52
+        },
+        {
+          "text": "hand",
+          "start": 5.52,
+          "end": 5.76
+        },
+        {
+          "text": "upon",
+          "start": 5.76,
+          "end": 6.0
+        },
+        {
+          "text": "thy",
+          "start": 6.0,
+          "end": 6.22
+        },
+        {
+          "text": "sword;",
+          "start": 6.22,
+          "end": 6.52
+        },
+        {
+          "text": "I",
+          "start": 6.74,
+          "end": 6.82
+        },
+        {
+          "text": "fear",
+          "start": 6.82,
+          "end": 7.06
+        },
+        {
+          "text": "thee",
+          "start": 7.06,
+          "end": 7.18
+        },
+        {
+          "text": "not.",
+          "start": 7.18,
+          "end": 7.5
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.9047619047619048,
+      "rejection_reasons": [],
+      "seconds": 0.3286966383457184
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e637e6adf7382f7837e960bdbc9628ad724ddcee62fa4f322e67dce64895aaea",
+  "selected_reasons": []
+}

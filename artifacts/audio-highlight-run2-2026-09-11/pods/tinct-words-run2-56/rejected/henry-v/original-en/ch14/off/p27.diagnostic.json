@@ -1,0 +1,555 @@
+{
+  "complete": true,
+  "signature": "3e21f838c170a0807a5d34b937675bae552dee760e78e15011e2d597caad9865",
+  "attempts": [
+    {
+      "asr_seconds": 0.2626141831278801,
+      "alignment_seconds": 0.0006735827773809433,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pistol, tell him I'll knock his leak about his pate upon St. Davey's Day.",
+          "start": 0.02,
+          "end": 4.3,
+          "words": [
+            {
+              "text": " Pistol,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.30908203125
+            },
+            {
+              "text": " tell",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " him",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I'll",
+              "start": 1.56,
+              "end": 1.74,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " knock",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " his",
+              "start": 1.9,
+              "end": 2.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " leak",
+              "start": 2.1,
+              "end": 2.26,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " about",
+              "start": 2.26,
+              "end": 2.5,
+              "probability": 0.97265625
+            },
+            {
+              "text": " his",
+              "start": 2.5,
+              "end": 2.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " pate",
+              "start": 2.7,
+              "end": 2.98,
+              "probability": 0.771484375
+            },
+            {
+              "text": " upon",
+              "start": 2.98,
+              "end": 3.3,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " St.",
+              "start": 3.3,
+              "end": 3.56,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " Davey's",
+              "start": 3.84,
+              "end": 4.08,
+              "probability": 0.7483723958333334
+            },
+            {
+              "text": " Day.",
+              "start": 4.08,
+              "end": 4.3,
+              "probability": 0.9013671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pistol,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "tell",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "him",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "I'll",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "raw": "knock",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "his",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "raw": "leak",
+          "start": 2.1,
+          "end": 2.26
+        },
+        {
+          "raw": "about",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "raw": "his",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "raw": "pate",
+          "start": 2.7,
+          "end": 2.98
+        },
+        {
+          "raw": "upon",
+          "start": 2.98,
+          "end": 3.3
+        },
+        {
+          "raw": "St.",
+          "start": 3.3,
+          "end": 3.56
+        },
+        {
+          "raw": "Davey's",
+          "start": 3.84,
+          "end": 4.08
+        },
+        {
+          "raw": "Day.",
+          "start": 4.08,
+          "end": 4.3
+        }
+      ],
+      "expected_tokens": [
+        "Pistol.",
+        "Tell",
+        "him",
+        "I'll",
+        "knock",
+        "his",
+        "leek",
+        "about",
+        "his",
+        "pate",
+        "Upon",
+        "Saint",
+        "Davy's",
+        "day."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          11,
+          7,
+          11
+        ],
+        [
+          "replace",
+          11,
+          13,
+          11,
+          13
+        ],
+        [
+          "equal",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          11,
+          13,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pistol,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "pistol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "tell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.56,
+          "end": 1.74,
+          "key": "ill",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "knock",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "knock",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.9,
+          "end": 2.1,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "leak",
+          "start": 2.1,
+          "end": 2.26,
+          "key": "leak",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 2.26,
+          "end": 2.5,
+          "key": "about",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.5,
+          "end": 2.7,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "pate",
+          "start": 2.7,
+          "end": 2.98,
+          "key": "pate",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.98,
+          "end": 3.3,
+          "key": "upon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "St.",
+          "start": 3.3,
+          "end": 3.56,
+          "key": "st",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Davey's",
+          "start": 3.84,
+          "end": 4.08,
+          "key": "daveys",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Day.",
+          "start": 4.08,
+          "end": 4.3,
+          "key": "day",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pistol.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Tell",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "him",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "I'll",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "text": "knock",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "his",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "text": "leek",
+          "start": 2.1,
+          "end": 2.18
+        },
+        {
+          "text": "about",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "text": "his",
+          "start": 2.5,
+          "end": 2.7
+        },
+        {
+          "text": "pate",
+          "start": 2.7,
+          "end": 2.98
+        },
+        {
+          "text": "Upon",
+          "start": 2.98,
+          "end": 3.3
+        },
+        {
+          "text": "Saint",
+          "start": 3.3,
+          "end": 3.69
+        },
+        {
+          "text": "Davy's",
+          "start": 3.69,
+          "end": 3.885
+        },
+        {
+          "text": "day.",
+          "start": 4.08,
+          "end": 4.3
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 11
+      },
+      "match_ratio": 0.7857142857142857,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2635462488979101
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "14204940ec982bc58232f456abff6c49bbe0947252b13d27b6651b2e00b7fee0",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

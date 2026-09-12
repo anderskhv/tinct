@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "d3739fd3e5f42abd488231658958482ae3eb333defafb3db544c1b873e1125b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.23168331943452358,
+      "alignment_seconds": 0.0005226042121648788,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, he's poor in no one fault but stored with all.",
+          "start": 0.05,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.985107421875
+            },
+            {
+              "text": " he's",
+              "start": 1.23,
+              "end": 1.39,
+              "probability": 0.971435546875
+            },
+            {
+              "text": " poor",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " in",
+              "start": 1.59,
+              "end": 1.71,
+              "probability": 0.912109375
+            },
+            {
+              "text": " no",
+              "start": 1.71,
+              "end": 1.83,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " one",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " fault",
+              "start": 2.03,
+              "end": 2.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " but",
+              "start": 2.33,
+              "end": 2.57,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " stored",
+              "start": 2.57,
+              "end": 2.85,
+              "probability": 0.982421875
+            },
+            {
+              "text": " with",
+              "start": 2.85,
+              "end": 3.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " all.",
+              "start": 3.05,
+              "end": 3.33,
+              "probability": 0.8232421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "he's",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "raw": "poor",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "in",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "raw": "no",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "raw": "one",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "fault",
+          "start": 2.03,
+          "end": 2.33
+        },
+        {
+          "raw": "but",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "raw": "stored",
+          "start": 2.57,
+          "end": 2.85
+        },
+        {
+          "raw": "with",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "raw": "all.",
+          "start": 3.05,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "He's",
+        "poor",
+        "in",
+        "no",
+        "one",
+        "fault,",
+        "but",
+        "stored",
+        "with",
+        "all."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he's",
+          "start": 1.23,
+          "end": 1.39,
+          "key": "hes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "poor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.59,
+          "end": 1.71,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.71,
+          "end": 1.83,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.83,
+          "end": 2.03,
+          "key": "one",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fault",
+          "start": 2.03,
+          "end": 2.33,
+          "key": "fault",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.33,
+          "end": 2.57,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "stored",
+          "start": 2.57,
+          "end": 2.85,
+          "key": "stored",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.85,
+          "end": 3.05,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 3.05,
+          "end": 3.33,
+          "key": "all",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "He's",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "text": "poor",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "text": "in",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "text": "no",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "text": "one",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "fault,",
+          "start": 2.03,
+          "end": 2.33
+        },
+        {
+          "text": "but",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "text": "stored",
+          "start": 2.57,
+          "end": 2.85
+        },
+        {
+          "text": "with",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "text": "all.",
+          "start": 3.05,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23242017906159163
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5920c7c978e0be4f46f34c1b9bd7d11e68887f272814d81ee7a668a9345a8471",
+  "selected_reasons": []
+}

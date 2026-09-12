@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "df7aea23ab12d355f831769c2f6e3dac216eae684df2ed077f4afebb8925a5ff",
+  "attempts": [
+    {
+      "asr_seconds": 0.104409157007467,
+      "alignment_seconds": 0.00013382500037550926,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rise from thy stool.",
+          "start": 0.02,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Rise",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.892578125
+            },
+            {
+              "text": " from",
+              "start": 0.62,
+              "end": 0.84,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " thy",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " stool.",
+              "start": 1.0,
+              "end": 1.28,
+              "probability": 0.939453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rise",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "from",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "raw": "thy",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "stool.",
+          "start": 1.0,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "Rise",
+        "from",
+        "thy",
+        "stool."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rise",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "rise",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 0.62,
+          "end": 0.84,
+          "key": "from",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 0.84,
+          "end": 1.0,
+          "key": "thy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stool.",
+          "start": 1.0,
+          "end": 1.28,
+          "key": "stool",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Rise",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "from",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "text": "thy",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "text": "stool.",
+          "start": 1.0,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10458728298544884
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7cef74ed45c603fe137544df75728dbc2d412a92a1b4619d7d006bc22d813f4d",
+  "selected_reasons": []
+}

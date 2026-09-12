@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "bf0b1ba63e61b1bb39c8adc00c7a3d979cdc1e66ab92d25c7e037d0856b61f61",
+  "attempts": [
+    {
+      "asr_seconds": 0.23570401780307293,
+      "alignment_seconds": 0.0004089903086423874,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I haven't thought about the suit, Lise; but I'll wear whatever you like.\"",
+        "hotwords": "I, Lise, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I haven't thought about the suit, Lise, but I'll wear whatever you like.",
+          "start": 0.11,
+          "end": 3.67,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.11,
+              "end": 0.51,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " haven't",
+              "start": 0.51,
+              "end": 0.85,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " thought",
+              "start": 0.85,
+              "end": 0.97,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " about",
+              "start": 0.97,
+              "end": 1.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.970703125
+            },
+            {
+              "text": " suit,",
+              "start": 1.35,
+              "end": 1.57,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Lise,",
+              "start": 1.81,
+              "end": 2.01,
+              "probability": 0.28277587890625
+            },
+            {
+              "text": " but",
+              "start": 2.27,
+              "end": 2.53,
+              "probability": 0.982421875
+            },
+            {
+              "text": " I'll",
+              "start": 2.53,
+              "end": 2.69,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " wear",
+              "start": 2.69,
+              "end": 2.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " whatever",
+              "start": 2.83,
+              "end": 3.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 3.11,
+              "end": 3.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " like.",
+              "start": 3.37,
+              "end": 3.67,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.51
+        },
+        {
+          "raw": "haven't",
+          "start": 0.51,
+          "end": 0.85
+        },
+        {
+          "raw": "thought",
+          "start": 0.85,
+          "end": 0.97
+        },
+        {
+          "raw": "about",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "raw": "the",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "suit,",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "raw": "Lise,",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "raw": "but",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "raw": "I'll",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "raw": "wear",
+          "start": 2.69,
+          "end": 2.83
+        },
+        {
+          "raw": "whatever",
+          "start": 2.83,
+          "end": 3.11
+        },
+        {
+          "raw": "you",
+          "start": 3.11,
+          "end": 3.37
+        },
+        {
+          "raw": "like.",
+          "start": 3.37,
+          "end": 3.67
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "haven't",
+        "thought",
+        "about",
+        "the",
+        "suit,",
+        "Lise;",
+        "but",
+        "I'll",
+        "wear",
+        "whatever",
+        "you",
+        "like.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.51,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "haven't",
+          "start": 0.51,
+          "end": 0.85,
+          "key": "havent",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 0.85,
+          "end": 0.97,
+          "key": "thought",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 0.97,
+          "end": 1.15,
+          "key": "about",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.15,
+          "end": 1.35,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "suit,",
+          "start": 1.35,
+          "end": 1.57,
+          "key": "suit",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Lise,",
+          "start": 1.81,
+          "end": 2.01,
+          "key": "lise",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.27,
+          "end": 2.53,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.53,
+          "end": 2.69,
+          "key": "ill",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 2.69,
+          "end": 2.83,
+          "key": "wear",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "whatever",
+          "start": 2.83,
+          "end": 3.11,
+          "key": "whatever",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.11,
+          "end": 3.37,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "like.",
+          "start": 3.37,
+          "end": 3.67,
+          "key": "like",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.11,
+          "end": 0.51
+        },
+        {
+          "text": "haven't",
+          "start": 0.51,
+          "end": 0.85
+        },
+        {
+          "text": "thought",
+          "start": 0.85,
+          "end": 0.97
+        },
+        {
+          "text": "about",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "text": "the",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "suit,",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "text": "Lise;",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "text": "but",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "text": "I'll",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "text": "wear",
+          "start": 2.69,
+          "end": 2.83
+        },
+        {
+          "text": "whatever",
+          "start": 2.83,
+          "end": 3.11
+        },
+        {
+          "text": "you",
+          "start": 3.11,
+          "end": 3.37
+        },
+        {
+          "text": "like.\"",
+          "start": 3.37,
+          "end": 3.67
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23627215158194304
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7574efc005014ecf39690040adab32fd7ac5bba2d64561d61beeeab9e994771f",
+  "selected_reasons": []
+}

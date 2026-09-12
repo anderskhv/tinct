@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "9bffcb995827b8968c9a6b07d86eddbdde82edabea5f99b8baea77a71588f638",
+  "attempts": [
+    {
+      "asr_seconds": 0.1308262050151825,
+      "alignment_seconds": 0.0003256499767303467,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What tale?",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What tale?",
+          "start": 0.02,
+          "end": 0.86,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.611328125
+            },
+            {
+              "text": " tale?",
+              "start": 0.6,
+              "end": 0.86,
+              "probability": 0.288330078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "tale?",
+          "start": 0.6,
+          "end": 0.86
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "tale?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tale?",
+          "start": 0.6,
+          "end": 0.86,
+          "key": "tale",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "tale?",
+          "start": 0.6,
+          "end": 0.86
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1312536271288991
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c8e80e5f2a19f0c33aff4010260052ad80bec0f4f02fd4cef7ee2a51a8c74e7d",
+  "selected_reasons": []
+}

@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "34ff95e5b9f32b723da0e879d48fe6ede0f5f36e975bfeb5f5768180df804316",
+  "attempts": [
+    {
+      "asr_seconds": 0.3113697550725192,
+      "alignment_seconds": 0.0005134970415383577,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hastings. Come, come. Have with you. Wot you what, my lord? Today the lords you talked of are beheaded.",
+        "hotwords": "Hastings, Have, Wot, Today"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hastings, Come, come. Have with you. Wot you what, my lord? Today the lords you talked of are beheaded.",
+          "start": 0.05,
+          "end": 6.11,
+          "words": [
+            {
+              "text": " Hastings,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " Come,",
+              "start": 1.27,
+              "end": 1.41,
+              "probability": 0.0665283203125
+            },
+            {
+              "text": " come.",
+              "start": 1.69,
+              "end": 1.75,
+              "probability": 0.29638671875
+            },
+            {
+              "text": " Have",
+              "start": 2.05,
+              "end": 2.13,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " with",
+              "start": 2.13,
+              "end": 2.29,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " you.",
+              "start": 2.29,
+              "end": 2.63,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Wot",
+              "start": 3.11,
+              "end": 3.17,
+              "probability": 0.425933837890625
+            },
+            {
+              "text": " you",
+              "start": 3.17,
+              "end": 3.33,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " what,",
+              "start": 3.33,
+              "end": 3.49,
+              "probability": 0.361572265625
+            },
+            {
+              "text": " my",
+              "start": 3.59,
+              "end": 3.69,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " lord?",
+              "start": 3.69,
+              "end": 3.93,
+              "probability": 0.474853515625
+            },
+            {
+              "text": " Today",
+              "start": 4.45,
+              "end": 4.61,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " the",
+              "start": 4.61,
+              "end": 4.83,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " lords",
+              "start": 4.83,
+              "end": 5.05,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " you",
+              "start": 5.05,
+              "end": 5.29,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " talked",
+              "start": 5.29,
+              "end": 5.51,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " of",
+              "start": 5.51,
+              "end": 5.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " are",
+              "start": 5.67,
+              "end": 5.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " beheaded.",
+              "start": 5.77,
+              "end": 6.11,
+              "probability": 0.996337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hastings,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Come,",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "raw": "come.",
+          "start": 1.69,
+          "end": 1.75
+        },
+        {
+          "raw": "Have",
+          "start": 2.05,
+          "end": 2.13
+        },
+        {
+          "raw": "with",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "raw": "you.",
+          "start": 2.29,
+          "end": 2.63
+        },
+        {
+          "raw": "Wot",
+          "start": 3.11,
+          "end": 3.17
+        },
+        {
+          "raw": "you",
+          "start": 3.17,
+          "end": 3.33
+        },
+        {
+          "raw": "what,",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "raw": "my",
+          "start": 3.59,
+          "end": 3.69
+        },
+        {
+          "raw": "lord?",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "raw": "Today",
+          "start": 4.45,
+          "end": 4.61
+        },
+        {
+          "raw": "the",
+          "start": 4.61,
+          "end": 4.83
+        },
+        {
+          "raw": "lords",
+          "start": 4.83,
+          "end": 5.05
+        },
+        {
+          "raw": "you",
+          "start": 5.05,
+          "end": 5.29
+        },
+        {
+          "raw": "talked",
+          "start": 5.29,
+          "end": 5.51
+        },
+        {
+          "raw": "of",
+          "start": 5.51,
+          "end": 5.67
+        },
+        {
+          "raw": "are",
+          "start": 5.67,
+          "end": 5.77
+        },
+        {
+          "raw": "beheaded.",
+          "start": 5.77,
+          "end": 6.11
+        }
+      ],
+      "expected_tokens": [
+        "Hastings.",
+        "Come,",
+        "come.",
+        "Have",
+        "with",
+        "you.",
+        "Wot",
+        "you",
+        "what,",
+        "my",
+        "lord?",
+        "Today",
+        "the",
+        "lords",
+        "you",
+        "talked",
+        "of",
+        "are",
+        "beheaded."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hastings,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "hastings",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 1.27,
+          "end": 1.41,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 1.69,
+          "end": 1.75,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 2.05,
+          "end": 2.13,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.13,
+          "end": 2.29,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.29,
+          "end": 2.63,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Wot",
+          "start": 3.11,
+          "end": 3.17,
+          "key": "wot",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.17,
+          "end": 3.33,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "what,",
+          "start": 3.33,
+          "end": 3.49,
+          "key": "what",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.59,
+          "end": 3.69,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "lord?",
+          "start": 3.69,
+          "end": 3.93,
+          "key": "lord",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Today",
+          "start": 4.45,
+          "end": 4.61,
+          "key": "today",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.61,
+          "end": 4.83,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "lords",
+          "start": 4.83,
+          "end": 5.05,
+          "key": "lords",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.05,
+          "end": 5.29,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "talked",
+          "start": 5.29,
+          "end": 5.51,
+          "key": "talked",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.51,
+          "end": 5.67,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.67,
+          "end": 5.77,
+          "key": "are",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "beheaded.",
+          "start": 5.77,
+          "end": 6.11,
+          "key": "beheaded",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hastings.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Come,",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "text": "come.",
+          "start": 1.69,
+          "end": 1.75
+        },
+        {
+          "text": "Have",
+          "start": 2.05,
+          "end": 2.13
+        },
+        {
+          "text": "with",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "text": "you.",
+          "start": 2.29,
+          "end": 2.63
+        },
+        {
+          "text": "Wot",
+          "start": 3.11,
+          "end": 3.17
+        },
+        {
+          "text": "you",
+          "start": 3.17,
+          "end": 3.33
+        },
+        {
+          "text": "what,",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "text": "my",
+          "start": 3.59,
+          "end": 3.69
+        },
+        {
+          "text": "lord?",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "text": "Today",
+          "start": 4.45,
+          "end": 4.61
+        },
+        {
+          "text": "the",
+          "start": 4.61,
+          "end": 4.83
+        },
+        {
+          "text": "lords",
+          "start": 4.83,
+          "end": 5.05
+        },
+        {
+          "text": "you",
+          "start": 5.05,
+          "end": 5.29
+        },
+        {
+          "text": "talked",
+          "start": 5.29,
+          "end": 5.51
+        },
+        {
+          "text": "of",
+          "start": 5.51,
+          "end": 5.67
+        },
+        {
+          "text": "are",
+          "start": 5.67,
+          "end": 5.77
+        },
+        {
+          "text": "beheaded.",
+          "start": 5.77,
+          "end": 6.11
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3121266590896994
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "59a9c8681caaa997050fee0c849638e4b8bcb599e260f63d9ad2d8d31b83d3fc",
+  "selected_reasons": []
+}

@@ -1,0 +1,189 @@
+{
+  "complete": true,
+  "signature": "1fefd38cc28a57803149b12b24d318cc960f478a1e8f28007be7fad6e724fdc5",
+  "attempts": [
+    {
+      "asr_seconds": 0.12141575710847974,
+      "alignment_seconds": 0.0002109277993440628,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Acello, O'Yego.",
+          "start": 0.11,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " Acello,",
+              "start": 0.11,
+              "end": 0.91,
+              "probability": 0.44189453125
+            },
+            {
+              "text": " O",
+              "start": 1.09,
+              "end": 1.25,
+              "probability": 0.68505859375
+            },
+            {
+              "text": "'Yego.",
+              "start": 1.25,
+              "end": 1.67,
+              "probability": 0.58624267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Acello,",
+          "start": 0.11,
+          "end": 0.91
+        },
+        {
+          "raw": "O",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "raw": "'Yego.",
+          "start": 1.25,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "O",
+        "Iago!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Acello,",
+          "start": 0.11,
+          "end": 0.91,
+          "key": "acello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.09,
+          "end": 1.25,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'Yego.",
+          "start": 1.25,
+          "end": 1.67,
+          "key": "yego",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.0,
+          "end": 0.545
+        },
+        {
+          "text": "O",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "text": "Iago!",
+          "start": 1.25,
+          "end": 1.46
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12169246422126889
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "484f4ce14ff8983b07b7c4ef4468af932eb7d634e9d95340c63064852979119f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

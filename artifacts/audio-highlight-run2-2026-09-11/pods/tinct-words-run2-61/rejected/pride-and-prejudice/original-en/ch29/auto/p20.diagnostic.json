@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "23f9b3b147c19f5d40c5e0ecbd302a3132b812c0b4fe0602e5ab2bedf139ef2c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11864051036536694,
+      "alignment_seconds": 0.0003216080367565155,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No, not at all.\"",
+        "hotwords": "No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, not at all.",
+          "start": 0.02,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.896484375
+            },
+            {
+              "text": " not",
+              "start": 0.72,
+              "end": 0.82,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " at",
+              "start": 0.82,
+              "end": 0.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " all.",
+              "start": 0.92,
+              "end": 1.18,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "not",
+          "start": 0.72,
+          "end": 0.82
+        },
+        {
+          "raw": "at",
+          "start": 0.82,
+          "end": 0.92
+        },
+        {
+          "raw": "all.",
+          "start": 0.92,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "not",
+        "at",
+        "all.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.72,
+          "end": 0.82,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.82,
+          "end": 0.92,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 0.92,
+          "end": 1.18,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "not",
+          "start": 0.72,
+          "end": 0.82
+        },
+        {
+          "text": "at",
+          "start": 0.82,
+          "end": 0.92
+        },
+        {
+          "text": "all.\"",
+          "start": 0.92,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1190722193568945
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7418ceae9c2427b7ce3cf6bac26df17e4797301627a4604280c6ff1fde46f224",
+  "selected_reasons": []
+}

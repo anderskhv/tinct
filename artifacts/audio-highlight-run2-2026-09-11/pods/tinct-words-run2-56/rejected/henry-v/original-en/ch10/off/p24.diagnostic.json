@@ -1,0 +1,666 @@
+{
+  "complete": true,
+  "signature": "7ba09a0e25cdbc2db36b5e5adfd4a935257bc417a1b7a6754f3992c6f277f8ed",
+  "attempts": [
+    {
+      "asr_seconds": 0.69283327460289,
+      "alignment_seconds": 0.0012802165001630783,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alice, we.",
+          "start": 0.18,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " Alice,",
+              "start": 0.18,
+              "end": 0.78,
+              "probability": 0.60595703125
+            },
+            {
+              "text": " we.",
+              "start": 0.96,
+              "end": 1.2,
+              "probability": 0.7001953125
+            }
+          ]
+        },
+        {
+          "text": " Safvadur, Henor, Enverate.",
+          "start": 1.96,
+          "end": 3.54,
+          "words": [
+            {
+              "text": " Safvadur,",
+              "start": 1.96,
+              "end": 2.4,
+              "probability": 0.292816162109375
+            },
+            {
+              "text": " Henor,",
+              "start": 2.5,
+              "end": 2.78,
+              "probability": 0.4525146484375
+            },
+            {
+              "text": " Enverate.",
+              "start": 3.1,
+              "end": 3.54,
+              "probability": 0.556396484375
+            }
+          ]
+        },
+        {
+          "text": " Vous pranances les moes aussiedroit, queles nadifs dangle terre.",
+          "start": 4.02,
+          "end": 7.6,
+          "words": [
+            {
+              "text": " Vous",
+              "start": 4.02,
+              "end": 4.3,
+              "probability": 0.5732421875
+            },
+            {
+              "text": " pranances",
+              "start": 4.3,
+              "end": 4.84,
+              "probability": 0.6177571614583334
+            },
+            {
+              "text": " les",
+              "start": 4.84,
+              "end": 5.08,
+              "probability": 0.65869140625
+            },
+            {
+              "text": " moes",
+              "start": 5.08,
+              "end": 5.42,
+              "probability": 0.2967529296875
+            },
+            {
+              "text": " aussiedroit,",
+              "start": 5.42,
+              "end": 6.0,
+              "probability": 0.6768798828125
+            },
+            {
+              "text": " queles",
+              "start": 6.32,
+              "end": 6.52,
+              "probability": 0.6123046875
+            },
+            {
+              "text": " nadifs",
+              "start": 6.52,
+              "end": 6.94,
+              "probability": 0.5340576171875
+            },
+            {
+              "text": " dangle",
+              "start": 6.94,
+              "end": 7.26,
+              "probability": 0.696044921875
+            },
+            {
+              "text": " terre.",
+              "start": 7.26,
+              "end": 7.6,
+              "probability": 0.666015625
+            }
+          ]
+        },
+        {
+          "text": " The end.",
+          "start": 8.06,
+          "end": 8.2,
+          "words": [
+            {
+              "text": " The",
+              "start": 8.06,
+              "end": 8.2,
+              "probability": 0.0092620849609375
+            },
+            {
+              "text": " end.",
+              "start": 8.2,
+              "end": 8.2,
+              "probability": 0.04833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alice,",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "raw": "we.",
+          "start": 0.96,
+          "end": 1.2
+        },
+        {
+          "raw": "Safvadur,",
+          "start": 1.96,
+          "end": 2.4
+        },
+        {
+          "raw": "Henor,",
+          "start": 2.5,
+          "end": 2.78
+        },
+        {
+          "raw": "Enverate.",
+          "start": 3.1,
+          "end": 3.54
+        },
+        {
+          "raw": "Vous",
+          "start": 4.02,
+          "end": 4.3
+        },
+        {
+          "raw": "pranances",
+          "start": 4.3,
+          "end": 4.84
+        },
+        {
+          "raw": "les",
+          "start": 4.84,
+          "end": 5.08
+        },
+        {
+          "raw": "moes",
+          "start": 5.08,
+          "end": 5.42
+        },
+        {
+          "raw": "aussiedroit,",
+          "start": 5.42,
+          "end": 6.0
+        },
+        {
+          "raw": "queles",
+          "start": 6.32,
+          "end": 6.52
+        },
+        {
+          "raw": "nadifs",
+          "start": 6.52,
+          "end": 6.94
+        },
+        {
+          "raw": "dangle",
+          "start": 6.94,
+          "end": 7.26
+        },
+        {
+          "raw": "terre.",
+          "start": 7.26,
+          "end": 7.6
+        },
+        {
+          "raw": "The",
+          "start": 8.06,
+          "end": 8.2
+        },
+        {
+          "raw": "end.",
+          "start": 8.2,
+          "end": 8.2
+        }
+      ],
+      "expected_tokens": [
+        "Alice.",
+        "_Oui.",
+        "Sauf",
+        "votre",
+        "honneur,",
+        "en",
+        "vérité,",
+        "vous",
+        "prononcez",
+        "les",
+        "mots",
+        "aussi",
+        "droit",
+        "que",
+        "les",
+        "natifs",
+        "d'Angleterre._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          7,
+          1,
+          5
+        ],
+        [
+          "equal",
+          7,
+          8,
+          5,
+          6
+        ],
+        [
+          "replace",
+          8,
+          9,
+          6,
+          7
+        ],
+        [
+          "equal",
+          9,
+          10,
+          7,
+          8
+        ],
+        [
+          "replace",
+          10,
+          17,
+          8,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          7,
+          1,
+          5
+        ],
+        [
+          "replace",
+          8,
+          9,
+          6,
+          7
+        ],
+        [
+          "replace",
+          10,
+          17,
+          8,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alice,",
+          "start": 0.18,
+          "end": 0.78,
+          "key": "alice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "we.",
+          "start": 0.96,
+          "end": 1.2,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Safvadur,",
+          "start": 1.96,
+          "end": 2.4,
+          "key": "safvadur",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Henor,",
+          "start": 2.5,
+          "end": 2.78,
+          "key": "henor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Enverate.",
+          "start": 3.1,
+          "end": 3.54,
+          "key": "enverate",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Vous",
+          "start": 4.02,
+          "end": 4.3,
+          "key": "vous",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pranances",
+          "start": 4.3,
+          "end": 4.84,
+          "key": "pranances",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "les",
+          "start": 4.84,
+          "end": 5.08,
+          "key": "les",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "moes",
+          "start": 5.08,
+          "end": 5.42,
+          "key": "moes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "aussiedroit,",
+          "start": 5.42,
+          "end": 6.0,
+          "key": "aussiedroit",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "queles",
+          "start": 6.32,
+          "end": 6.52,
+          "key": "queles",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "nadifs",
+          "start": 6.52,
+          "end": 6.94,
+          "key": "nadifs",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dangle",
+          "start": 6.94,
+          "end": 7.26,
+          "key": "dangle",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "terre.",
+          "start": 7.26,
+          "end": 7.6,
+          "key": "terre",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 8.06,
+          "end": 8.2,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "end.",
+          "start": 8.2,
+          "end": 8.2,
+          "key": "end",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alice.",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "text": "_Oui.",
+          "start": 0.78,
+          "end": 2.4
+        },
+        {
+          "text": "Sauf",
+          "start": 2.4,
+          "end": 3.21
+        },
+        {
+          "text": "votre",
+          "start": 3.21,
+          "end": 3.615
+        },
+        {
+          "text": "honneur,",
+          "start": 3.615,
+          "end": 3.817
+        },
+        {
+          "text": "en",
+          "start": 3.817,
+          "end": 3.918
+        },
+        {
+          "text": "vérité,",
+          "start": 3.918,
+          "end": 3.969
+        },
+        {
+          "text": "vous",
+          "start": 4.02,
+          "end": 4.3
+        },
+        {
+          "text": "prononcez",
+          "start": 4.3,
+          "end": 4.57
+        },
+        {
+          "text": "les",
+          "start": 4.84,
+          "end": 5.08
+        },
+        {
+          "text": "mots",
+          "start": 5.08,
+          "end": 6.64
+        },
+        {
+          "text": "aussi",
+          "start": 6.64,
+          "end": 7.42
+        },
+        {
+          "text": "droit",
+          "start": 7.42,
+          "end": 7.81
+        },
+        {
+          "text": "que",
+          "start": 7.81,
+          "end": 8.005
+        },
+        {
+          "text": "les",
+          "start": 8.005,
+          "end": 8.102
+        },
+        {
+          "text": "natifs",
+          "start": 8.102,
+          "end": 8.151
+        },
+        {
+          "text": "d'Angleterre._",
+          "start": 8.151,
+          "end": 8.175
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 16,
+        "matched_words": 3
+      },
+      "match_ratio": 0.17647058823529413,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.6946220360696316
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "90e721d342a4a9903f52010152e00bfdae958e37d9870feb3c7f2dc13ab75318",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

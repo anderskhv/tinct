@@ -1,0 +1,483 @@
+{
+  "complete": true,
+  "signature": "86bb7ce450800e8ee1b6b95465bb3f57693cfea5944f4b926d59bb7f80116b00",
+  "attempts": [
+    {
+      "asr_seconds": 0.34724816400557756,
+      "alignment_seconds": 0.0004967786371707916,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Katharine, non gee-rei-satorai avu's promptment, to hand, to fingers, to males.",
+          "start": 0.05,
+          "end": 5.47,
+          "words": [
+            {
+              "text": " Katharine,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.25213623046875
+            },
+            {
+              "text": " non",
+              "start": 1.73,
+              "end": 1.81,
+              "probability": 0.66064453125
+            },
+            {
+              "text": " gee",
+              "start": 1.81,
+              "end": 2.11,
+              "probability": 0.31005859375
+            },
+            {
+              "text": "-rei",
+              "start": 2.11,
+              "end": 2.35,
+              "probability": 0.3370361328125
+            },
+            {
+              "text": "-satorai",
+              "start": 2.35,
+              "end": 2.71,
+              "probability": 0.51385498046875
+            },
+            {
+              "text": " avu's",
+              "start": 2.71,
+              "end": 3.05,
+              "probability": 0.591796875
+            },
+            {
+              "text": " promptment,",
+              "start": 3.05,
+              "end": 3.65,
+              "probability": 0.708740234375
+            },
+            {
+              "text": " to",
+              "start": 4.05,
+              "end": 4.09,
+              "probability": 0.2666015625
+            },
+            {
+              "text": " hand,",
+              "start": 4.09,
+              "end": 4.43,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " to",
+              "start": 4.53,
+              "end": 4.61,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " fingers,",
+              "start": 4.61,
+              "end": 4.89,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 5.15,
+              "end": 5.17,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " males.",
+              "start": 5.17,
+              "end": 5.47,
+              "probability": 0.75830078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katharine,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "non",
+          "start": 1.73,
+          "end": 1.81
+        },
+        {
+          "raw": "gee",
+          "start": 1.81,
+          "end": 2.11
+        },
+        {
+          "raw": "-rei",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "raw": "-satorai",
+          "start": 2.35,
+          "end": 2.71
+        },
+        {
+          "raw": "avu's",
+          "start": 2.71,
+          "end": 3.05
+        },
+        {
+          "raw": "promptment,",
+          "start": 3.05,
+          "end": 3.65
+        },
+        {
+          "raw": "to",
+          "start": 4.05,
+          "end": 4.09
+        },
+        {
+          "raw": "hand,",
+          "start": 4.09,
+          "end": 4.43
+        },
+        {
+          "raw": "to",
+          "start": 4.53,
+          "end": 4.61
+        },
+        {
+          "raw": "fingers,",
+          "start": 4.61,
+          "end": 4.89
+        },
+        {
+          "raw": "to",
+          "start": 5.15,
+          "end": 5.17
+        },
+        {
+          "raw": "males.",
+          "start": 5.17,
+          "end": 5.47
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "_Non,",
+        "je",
+        "réciterai",
+        "à",
+        "vous",
+        "promptement:_",
+        "d'hand,",
+        "de",
+        "fingres,",
+        "de",
+        "mails,—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          12,
+          2,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          12,
+          2,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katharine,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "katharine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "non",
+          "start": 1.73,
+          "end": 1.81,
+          "key": "non",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gee",
+          "start": 1.81,
+          "end": 2.11,
+          "key": "gee",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-rei",
+          "start": 2.11,
+          "end": 2.35,
+          "key": "rei",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "-satorai",
+          "start": 2.35,
+          "end": 2.71,
+          "key": "satorai",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "avu's",
+          "start": 2.71,
+          "end": 3.05,
+          "key": "avus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "promptment,",
+          "start": 3.05,
+          "end": 3.65,
+          "key": "promptment",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.05,
+          "end": 4.09,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hand,",
+          "start": 4.09,
+          "end": 4.43,
+          "key": "hand",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.53,
+          "end": 4.61,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fingers,",
+          "start": 4.61,
+          "end": 4.89,
+          "key": "fingers",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.15,
+          "end": 5.17,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "males.",
+          "start": 5.17,
+          "end": 5.47,
+          "key": "males",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "_Non,",
+          "start": 1.73,
+          "end": 1.81
+        },
+        {
+          "text": "je",
+          "start": 1.81,
+          "end": 3.64
+        },
+        {
+          "text": "réciterai",
+          "start": 3.64,
+          "end": 4.555
+        },
+        {
+          "text": "à",
+          "start": 4.555,
+          "end": 5.012
+        },
+        {
+          "text": "vous",
+          "start": 5.012,
+          "end": 5.241
+        },
+        {
+          "text": "promptement:_",
+          "start": 5.241,
+          "end": 5.355
+        },
+        {
+          "text": "d'hand,",
+          "start": 5.355,
+          "end": 5.412
+        },
+        {
+          "text": "de",
+          "start": 5.412,
+          "end": 5.441
+        },
+        {
+          "text": "fingres,",
+          "start": 5.441,
+          "end": 5.455
+        },
+        {
+          "text": "de",
+          "start": 5.455,
+          "end": 5.463
+        },
+        {
+          "text": "mails,—",
+          "start": 5.463,
+          "end": 5.466
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 2
+      },
+      "match_ratio": 0.16666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.34793529007583857
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "40d554f2e43647f4cb12df3989157f118bcc1427455c4d687544c37b01d80e56",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "f18a7f6747f4814e6ecadf0c83a8abc51a4a15660c9eaa890116ceb6afaf3bee",
+  "attempts": [
+    {
+      "asr_seconds": 0.3325857985764742,
+      "alignment_seconds": 0.000363226979970932,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The greatest dangers of the American republics proceed from the unlimited power of the majority.",
+          "start": 0.02,
+          "end": 5.76,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.830078125
+            },
+            {
+              "text": " greatest",
+              "start": 0.5,
+              "end": 0.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dangers",
+              "start": 0.88,
+              "end": 1.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 1.36,
+              "end": 1.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.62,
+              "end": 1.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " American",
+              "start": 1.76,
+              "end": 2.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " republics",
+              "start": 2.22,
+              "end": 3.2,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " proceed",
+              "start": 3.2,
+              "end": 3.62,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " from",
+              "start": 3.62,
+              "end": 3.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.98,
+              "end": 4.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " unlimited",
+              "start": 4.1,
+              "end": 4.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " power",
+              "start": 4.6,
+              "end": 5.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 5.08,
+              "end": 5.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 5.34,
+              "end": 5.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " majority.",
+              "start": 5.44,
+              "end": 5.76,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "greatest",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "raw": "dangers",
+          "start": 0.88,
+          "end": 1.36
+        },
+        {
+          "raw": "of",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "raw": "American",
+          "start": 1.76,
+          "end": 2.22
+        },
+        {
+          "raw": "republics",
+          "start": 2.22,
+          "end": 3.2
+        },
+        {
+          "raw": "proceed",
+          "start": 3.2,
+          "end": 3.62
+        },
+        {
+          "raw": "from",
+          "start": 3.62,
+          "end": 3.98
+        },
+        {
+          "raw": "the",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "raw": "unlimited",
+          "start": 4.1,
+          "end": 4.6
+        },
+        {
+          "raw": "power",
+          "start": 4.6,
+          "end": 5.08
+        },
+        {
+          "raw": "of",
+          "start": 5.08,
+          "end": 5.34
+        },
+        {
+          "raw": "the",
+          "start": 5.34,
+          "end": 5.44
+        },
+        {
+          "raw": "majority.",
+          "start": 5.44,
+          "end": 5.76
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Greatest",
+        "Dangers",
+        "Of",
+        "The",
+        "American",
+        "Republics",
+        "Proceed",
+        "From",
+        "The",
+        "Unlimited",
+        "Power",
+        "Of",
+        "The",
+        "Majority"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "greatest",
+          "start": 0.5,
+          "end": 0.88,
+          "key": "greatest",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dangers",
+          "start": 0.88,
+          "end": 1.36,
+          "key": "dangers",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.36,
+          "end": 1.62,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.76,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "American",
+          "start": 1.76,
+          "end": 2.22,
+          "key": "american",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "republics",
+          "start": 2.22,
+          "end": 3.2,
+          "key": "republics",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "proceed",
+          "start": 3.2,
+          "end": 3.62,
+          "key": "proceed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.62,
+          "end": 3.98,
+          "key": "from",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.98,
+          "end": 4.1,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "unlimited",
+          "start": 4.1,
+          "end": 4.6,
+          "key": "unlimited",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "power",
+          "start": 4.6,
+          "end": 5.08,
+          "key": "power",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.08,
+          "end": 5.34,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.34,
+          "end": 5.44,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "majority.",
+          "start": 5.44,
+          "end": 5.76,
+          "key": "majority",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Greatest",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "text": "Dangers",
+          "start": 0.88,
+          "end": 1.36
+        },
+        {
+          "text": "Of",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "text": "The",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "text": "American",
+          "start": 1.76,
+          "end": 2.22
+        },
+        {
+          "text": "Republics",
+          "start": 2.22,
+          "end": 3.2
+        },
+        {
+          "text": "Proceed",
+          "start": 3.2,
+          "end": 3.62
+        },
+        {
+          "text": "From",
+          "start": 3.62,
+          "end": 3.98
+        },
+        {
+          "text": "The",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "text": "Unlimited",
+          "start": 4.1,
+          "end": 4.6
+        },
+        {
+          "text": "Power",
+          "start": 4.6,
+          "end": 5.08
+        },
+        {
+          "text": "Of",
+          "start": 5.08,
+          "end": 5.34
+        },
+        {
+          "text": "The",
+          "start": 5.34,
+          "end": 5.44
+        },
+        {
+          "text": "Majority",
+          "start": 5.44,
+          "end": 5.76
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3330871555954218
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a11179a36075235a3d2c10d5a8b73ed99b5dcf157d15deaa17c3754ec2218b1a",
+  "selected_reasons": []
+}

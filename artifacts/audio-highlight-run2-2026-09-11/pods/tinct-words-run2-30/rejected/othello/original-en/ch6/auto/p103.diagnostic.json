@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "8a949c365f8c54567a87f8803f7d46f5748883acf2ecbcf64ab82a7069f3b969",
+  "attempts": [
+    {
+      "asr_seconds": 0.11041366308927536,
+      "alignment_seconds": 0.00012058904394507408,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. Marry, Heaven forbid!",
+        "hotwords": "Iago, Marry, Heaven"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, Marry, Heaven forbid!",
+          "start": 0.05,
+          "end": 1.99,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.14163780212402344
+            },
+            {
+              "text": " Marry,",
+              "start": 1.25,
+              "end": 1.49,
+              "probability": 0.507598876953125
+            },
+            {
+              "text": " Heaven",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.78076171875
+            },
+            {
+              "text": " forbid!",
+              "start": 1.67,
+              "end": 1.99,
+              "probability": 0.755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Marry,",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "raw": "Heaven",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "forbid!",
+          "start": 1.67,
+          "end": 1.99
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Marry,",
+        "Heaven",
+        "forbid!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Marry,",
+          "start": 1.25,
+          "end": 1.49,
+          "key": "marry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Heaven",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "heaven",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "forbid!",
+          "start": 1.67,
+          "end": 1.99,
+          "key": "forbid",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Marry,",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "text": "Heaven",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "text": "forbid!",
+          "start": 1.67,
+          "end": 1.99
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11057226220145822
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0cddb0641ebe02944d63554c321bdd4e90bb5104d6ddb1306a2f12ed1f957748",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "b584cb950a88808ccbce95ce70b21582ae5ed838619921bf848b0f346ebc8580",
+  "attempts": [
+    {
+      "asr_seconds": 0.14936435874551535,
+      "alignment_seconds": 0.00040662847459316254,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Produce him—or go to hell.\"",
+        "hotwords": "Produce"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Produce him—or go to hell.",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Produce",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.80859375
+            },
+            {
+              "text": " him—or",
+              "start": 0.81,
+              "end": 1.29,
+              "probability": 0.5940103530883789
+            },
+            {
+              "text": " go",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 1.43,
+              "end": 1.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hell.",
+              "start": 1.55,
+              "end": 1.77,
+              "probability": 0.83056640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Produce",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "him—or",
+          "start": 0.81,
+          "end": 1.29
+        },
+        {
+          "raw": "go",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "to",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "raw": "hell.",
+          "start": 1.55,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "\"Produce",
+        "him—or",
+        "go",
+        "to",
+        "hell.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Produce",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "produce",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "him—or",
+          "start": 0.81,
+          "end": 1.29,
+          "key": "himor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.43,
+          "end": 1.55,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hell.",
+          "start": 1.55,
+          "end": 1.77,
+          "key": "hell",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Produce",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "him—or",
+          "start": 0.81,
+          "end": 1.29
+        },
+        {
+          "text": "go",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "to",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "text": "hell.\"",
+          "start": 1.55,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14989936724305153
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "873af39dd833ed5ed8d7100b83722d4150b1deda75a1cd56c6a02f0bcd92b946",
+  "selected_reasons": []
+}

@@ -1,0 +1,290 @@
+{
+  "complete": true,
+  "signature": "e13b0ab11e49f2a3078efae930e5c565f2137e23300efd95533ae061407393e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.19503002241253853,
+      "alignment_seconds": 0.0003722701221704483,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, go to You're Not Cassius.",
+          "start": 0.08,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " go",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " to",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " You're",
+              "start": 1.52,
+              "end": 1.76,
+              "probability": 0.7415771484375
+            },
+            {
+              "text": " Not",
+              "start": 1.76,
+              "end": 1.92,
+              "probability": 0.9375
+            },
+            {
+              "text": " Cassius.",
+              "start": 1.92,
+              "end": 2.42,
+              "probability": 0.945556640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "go",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "to",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "You're",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "raw": "Not",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "raw": "Cassius.",
+          "start": 1.92,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Go",
+        "to;",
+        "you",
+        "are",
+        "not,",
+        "Cassius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ],
+        [
+          "equal",
+          5,
+          7,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.18,
+          "end": 1.34,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.34,
+          "end": 1.52,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "You're",
+          "start": 1.52,
+          "end": 1.76,
+          "key": "youre",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 1.76,
+          "end": 1.92,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Cassius.",
+          "start": 1.92,
+          "end": 2.42,
+          "key": "cassius",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "Go",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "to;",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "text": "you",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "text": "are",
+          "start": 1.64,
+          "end": 1.7
+        },
+        {
+          "text": "not,",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "text": "Cassius.",
+          "start": 1.92,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19552059285342693
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d58a0659c5d4ffcdb6875f8931657edda1f010e6640bb0bba41bebe6057f3f81",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

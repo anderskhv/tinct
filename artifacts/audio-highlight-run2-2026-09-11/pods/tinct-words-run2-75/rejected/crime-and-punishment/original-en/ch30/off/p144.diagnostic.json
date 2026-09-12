@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "608b43d71de081ddaf716147dded6a9ba8da1cd1e5d423fd23287f4b5b694c44",
+  "attempts": [
+    {
+      "asr_seconds": 0.24670572578907013,
+      "alignment_seconds": 0.0005207136273384094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You mean Siberia, Sonya. I must give myself up. He asked gloomily",
+          "start": 0.02,
+          "end": 4.48,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.1488037109375
+            },
+            {
+              "text": " mean",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Siberia,",
+              "start": 0.66,
+              "end": 1.14,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " Sonya.",
+              "start": 1.5,
+              "end": 1.84,
+              "probability": 0.700927734375
+            },
+            {
+              "text": " I",
+              "start": 2.1,
+              "end": 2.2,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " must",
+              "start": 2.2,
+              "end": 2.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " give",
+              "start": 2.32,
+              "end": 2.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " myself",
+              "start": 2.46,
+              "end": 2.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " up.",
+              "start": 2.72,
+              "end": 3.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " He",
+              "start": 3.52,
+              "end": 3.62,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " asked",
+              "start": 3.62,
+              "end": 3.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gloomily",
+              "start": 3.96,
+              "end": 4.48,
+              "probability": 0.982177734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "mean",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "Siberia,",
+          "start": 0.66,
+          "end": 1.14
+        },
+        {
+          "raw": "Sonya.",
+          "start": 1.5,
+          "end": 1.84
+        },
+        {
+          "raw": "I",
+          "start": 2.1,
+          "end": 2.2
+        },
+        {
+          "raw": "must",
+          "start": 2.2,
+          "end": 2.32
+        },
+        {
+          "raw": "give",
+          "start": 2.32,
+          "end": 2.46
+        },
+        {
+          "raw": "myself",
+          "start": 2.46,
+          "end": 2.72
+        },
+        {
+          "raw": "up.",
+          "start": 2.72,
+          "end": 3.16
+        },
+        {
+          "raw": "He",
+          "start": 3.52,
+          "end": 3.62
+        },
+        {
+          "raw": "asked",
+          "start": 3.62,
+          "end": 3.96
+        },
+        {
+          "raw": "gloomily",
+          "start": 3.96,
+          "end": 4.48
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "mean",
+        "Siberia,",
+        "Sonia?",
+        "I",
+        "must",
+        "give",
+        "myself",
+        "up?\"",
+        "he",
+        "asked",
+        "gloomily."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          12,
+          4,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "mean",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Siberia,",
+          "start": 0.66,
+          "end": 1.14,
+          "key": "siberia",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sonya.",
+          "start": 1.5,
+          "end": 1.84,
+          "key": "sonya",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.1,
+          "end": 2.2,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.2,
+          "end": 2.32,
+          "key": "must",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 2.32,
+          "end": 2.46,
+          "key": "give",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 2.46,
+          "end": 2.72,
+          "key": "myself",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 2.72,
+          "end": 3.16,
+          "key": "up",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.52,
+          "end": 3.62,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 3.62,
+          "end": 3.96,
+          "key": "asked",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "gloomily",
+          "start": 3.96,
+          "end": 4.48,
+          "key": "gloomily",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "mean",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "Siberia,",
+          "start": 0.66,
+          "end": 1.14
+        },
+        {
+          "text": "Sonia?",
+          "start": 1.14,
+          "end": 1.62
+        },
+        {
+          "text": "I",
+          "start": 2.1,
+          "end": 2.2
+        },
+        {
+          "text": "must",
+          "start": 2.2,
+          "end": 2.32
+        },
+        {
+          "text": "give",
+          "start": 2.32,
+          "end": 2.46
+        },
+        {
+          "text": "myself",
+          "start": 2.46,
+          "end": 2.72
+        },
+        {
+          "text": "up?\"",
+          "start": 2.72,
+          "end": 3.16
+        },
+        {
+          "text": "he",
+          "start": 3.52,
+          "end": 3.62
+        },
+        {
+          "text": "asked",
+          "start": 3.62,
+          "end": 3.96
+        },
+        {
+          "text": "gloomily.",
+          "start": 3.96,
+          "end": 4.48
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.2474254034459591
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fd8056687569afdcb7162fcd0be7a5ce93ac0b957afe3d96a4ba02fc1faf0282",
+  "selected_reasons": []
+}

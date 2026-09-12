@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "0343611f0ea12f09ac38c770d664a2ec1094f8702d70a2df9066e688051468d6",
+  "attempts": [
+    {
+      "asr_seconds": 0.22169561544433236,
+      "alignment_seconds": 0.00046681519597768784,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I feel thankful that I have been ill, Joe,\" I said.",
+        "hotwords": "I, Joe"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I feel thankful that I have been ill, Joe,\" I said.",
+          "start": 0.08,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.332763671875
+            },
+            {
+              "text": " feel",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " thankful",
+              "start": 0.7,
+              "end": 1.06,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " that",
+              "start": 1.06,
+              "end": 1.26,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " I",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " have",
+              "start": 1.38,
+              "end": 1.5,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " been",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ill,",
+              "start": 1.62,
+              "end": 1.88,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Joe,\"",
+              "start": 2.08,
+              "end": 2.56,
+              "probability": 0.4219970703125
+            },
+            {
+              "text": " I",
+              "start": 2.56,
+              "end": 2.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " said.",
+              "start": 2.66,
+              "end": 2.94,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "feel",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "thankful",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "raw": "that",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "raw": "I",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "have",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "raw": "been",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "ill,",
+          "start": 1.62,
+          "end": 1.88
+        },
+        {
+          "raw": "Joe,\"",
+          "start": 2.08,
+          "end": 2.56
+        },
+        {
+          "raw": "I",
+          "start": 2.56,
+          "end": 2.66
+        },
+        {
+          "raw": "said.",
+          "start": 2.66,
+          "end": 2.94
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "feel",
+        "thankful",
+        "that",
+        "I",
+        "have",
+        "been",
+        "ill,",
+        "Joe,\"",
+        "I",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "feel",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "feel",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thankful",
+          "start": 0.7,
+          "end": 1.06,
+          "key": "thankful",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.06,
+          "end": 1.26,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.38,
+          "end": 1.5,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "been",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ill,",
+          "start": 1.62,
+          "end": 1.88,
+          "key": "ill",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Joe,\"",
+          "start": 2.08,
+          "end": 2.56,
+          "key": "joe",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.56,
+          "end": 2.66,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.66,
+          "end": 2.94,
+          "key": "said",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "feel",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "thankful",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "text": "that",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "text": "I",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "have",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "text": "been",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "ill,",
+          "start": 1.62,
+          "end": 1.88
+        },
+        {
+          "text": "Joe,\"",
+          "start": 2.08,
+          "end": 2.56
+        },
+        {
+          "text": "I",
+          "start": 2.56,
+          "end": 2.66
+        },
+        {
+          "text": "said.",
+          "start": 2.66,
+          "end": 2.94
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22234812006354332
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c8a00e4d65677d4d3ceb7eeff798f87f3bfb311ecec552590db8309ebcb19483",
+  "selected_reasons": []
+}

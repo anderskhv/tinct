@@ -1,0 +1,377 @@
+{
+  "complete": true,
+  "signature": "aff0d0f7ea763032a887720ea338a4564b92d13ec2e517e2859d5430c3e63a6e",
+  "attempts": [
+    {
+      "asr_seconds": 0.229495819658041,
+      "alignment_seconds": 0.0006836038082838058,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Paige, Sir Hugh is there as he.",
+          "start": 0.41,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Paige,",
+              "start": 0.41,
+              "end": 0.73,
+              "probability": 0.66064453125
+            },
+            {
+              "text": " Sir",
+              "start": 1.11,
+              "end": 1.19,
+              "probability": 0.818359375
+            },
+            {
+              "text": " Hugh",
+              "start": 1.19,
+              "end": 1.35,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " is",
+              "start": 1.35,
+              "end": 1.51,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " there",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " as",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.59716796875
+            },
+            {
+              "text": " he.",
+              "start": 1.83,
+              "end": 2.01,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Paige,",
+          "start": 0.41,
+          "end": 0.73
+        },
+        {
+          "raw": "Sir",
+          "start": 1.11,
+          "end": 1.19
+        },
+        {
+          "raw": "Hugh",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "raw": "is",
+          "start": 1.35,
+          "end": 1.51
+        },
+        {
+          "raw": "there",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "as",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "raw": "he.",
+          "start": 1.83,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "_Ford._",
+        "And",
+        "did",
+        "he",
+        "search",
+        "for",
+        "you,",
+        "and",
+        "could",
+        "not",
+        "find",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          6
+        ],
+        [
+          "equal",
+          3,
+          4,
+          6,
+          7
+        ],
+        [
+          "delete",
+          4,
+          12,
+          7,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          6
+        ],
+        [
+          "delete",
+          4,
+          12,
+          7,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Paige,",
+          "start": 0.41,
+          "end": 0.73,
+          "key": "paige",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 1.11,
+          "end": 1.19,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Hugh",
+          "start": 1.19,
+          "end": 1.35,
+          "key": "hugh",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.35,
+          "end": 1.51,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "there",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.67,
+          "end": 1.83,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 1.83,
+          "end": 2.01,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Ford._",
+          "start": 0.0,
+          "end": 0.915
+        },
+        {
+          "text": "And",
+          "start": 0.915,
+          "end": 1.373
+        },
+        {
+          "text": "did",
+          "start": 1.373,
+          "end": 1.602
+        },
+        {
+          "text": "he",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "text": "search",
+          "start": 2.01,
+          "end": 2.01
+        },
+        {
+          "text": "for",
+          "start": 2.01,
+          "end": 2.01
+        },
+        {
+          "text": "you,",
+          "start": 2.01,
+          "end": 2.01
+        },
+        {
+          "text": "and",
+          "start": 2.01,
+          "end": 2.01
+        },
+        {
+          "text": "could",
+          "start": 2.01,
+          "end": 2.01
+        },
+        {
+          "text": "not",
+          "start": 2.01,
+          "end": 2.01
+        },
+        {
+          "text": "find",
+          "start": 2.01,
+          "end": 2.01
+        },
+        {
+          "text": "you?",
+          "start": 2.01,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 7,
+        "matched_words": 1
+      },
+      "match_ratio": 0.08333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23038175981491804
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8bcc47cc08d4fc5fa627abc32d48391510b67dc18814f070cb6e22b1ddfaa21f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

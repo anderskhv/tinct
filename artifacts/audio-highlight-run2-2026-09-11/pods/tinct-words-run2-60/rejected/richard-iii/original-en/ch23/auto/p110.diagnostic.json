@@ -1,0 +1,1373 @@
+{
+  "complete": true,
+  "signature": "e6c78c97a24373cc60473eb4cfdd5bc86d93b96447d4aaf7fdb40274968983e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.38985738903284073,
+      "alignment_seconds": 0.0006130188703536987,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_To Richmond._] I died for hope ere I could lend thee aid,",
+        "hotwords": "Richmond._, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To Richmond._, I died for hope ere I could lend thee aid._",
+          "start": 0.0,
+          "end": 4.0,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.5791015625
+            },
+            {
+              "text": " Richmond._,",
+              "start": 0.5,
+              "end": 1.36,
+              "probability": 0.4931640625
+            },
+            {
+              "text": " I",
+              "start": 1.36,
+              "end": 1.62,
+              "probability": 0.923828125
+            },
+            {
+              "text": " died",
+              "start": 1.62,
+              "end": 1.82,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " for",
+              "start": 1.82,
+              "end": 2.04,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " hope",
+              "start": 2.04,
+              "end": 2.26,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " ere",
+              "start": 2.26,
+              "end": 2.52,
+              "probability": 0.6400146484375
+            },
+            {
+              "text": " I",
+              "start": 2.52,
+              "end": 2.64,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " could",
+              "start": 2.64,
+              "end": 2.74,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " lend",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thee",
+              "start": 2.92,
+              "end": 3.06,
+              "probability": 0.0859375
+            },
+            {
+              "text": " aid._",
+              "start": 3.06,
+              "end": 4.0,
+              "probability": 0.500396728515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "Richmond._,",
+          "start": 0.5,
+          "end": 1.36
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "raw": "died",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "raw": "for",
+          "start": 1.82,
+          "end": 2.04
+        },
+        {
+          "raw": "hope",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "raw": "ere",
+          "start": 2.26,
+          "end": 2.52
+        },
+        {
+          "raw": "I",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "raw": "could",
+          "start": 2.64,
+          "end": 2.74
+        },
+        {
+          "raw": "lend",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "thee",
+          "start": 2.92,
+          "end": 3.06
+        },
+        {
+          "raw": "aid._",
+          "start": 3.06,
+          "end": 4.0
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Richmond._]",
+        "I",
+        "died",
+        "for",
+        "hope",
+        "ere",
+        "I",
+        "could",
+        "lend",
+        "thee",
+        "aid,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          11,
+          2,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richmond._,",
+          "start": 0.5,
+          "end": 1.36,
+          "key": "richmond_",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.62,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "died",
+          "start": 1.62,
+          "end": 1.82,
+          "key": "died",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.82,
+          "end": 2.04,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 2.04,
+          "end": 2.26,
+          "key": "hope",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ere",
+          "start": 2.26,
+          "end": 2.52,
+          "key": "ere",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.52,
+          "end": 2.64,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 2.64,
+          "end": 2.74,
+          "key": "could",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lend",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "lend",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.92,
+          "end": 3.06,
+          "key": "thee",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "aid._",
+          "start": 3.06,
+          "end": 4.0,
+          "key": "aid_",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "Richmond._]",
+          "start": 0.5,
+          "end": 0.93
+        },
+        {
+          "text": "I",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "text": "died",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "text": "for",
+          "start": 1.82,
+          "end": 2.04
+        },
+        {
+          "text": "hope",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "text": "ere",
+          "start": 2.26,
+          "end": 2.52
+        },
+        {
+          "text": "I",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "text": "could",
+          "start": 2.64,
+          "end": 2.74
+        },
+        {
+          "text": "lend",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "thee",
+          "start": 2.92,
+          "end": 3.06
+        },
+        {
+          "text": "aid,",
+          "start": 3.06,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3906939700245857
+    },
+    {
+      "asr_seconds": 0.22045570239424706,
+      "alignment_seconds": 0.0005021467804908752,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Richmond._, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " died for hope ere I could lend the aid._",
+          "start": 1.24,
+          "end": 4.0,
+          "words": [
+            {
+              "text": " died",
+              "start": 1.24,
+              "end": 1.64,
+              "probability": 8.344650268554688e-07
+            },
+            {
+              "text": " for",
+              "start": 1.64,
+              "end": 2.04,
+              "probability": 0.90625
+            },
+            {
+              "text": " hope",
+              "start": 2.04,
+              "end": 2.24,
+              "probability": 0.794921875
+            },
+            {
+              "text": " ere",
+              "start": 2.24,
+              "end": 2.52,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " I",
+              "start": 2.52,
+              "end": 2.64,
+              "probability": 0.487060546875
+            },
+            {
+              "text": " could",
+              "start": 2.64,
+              "end": 2.74,
+              "probability": 0.91015625
+            },
+            {
+              "text": " lend",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " the",
+              "start": 2.92,
+              "end": 3.06,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " aid._",
+              "start": 3.06,
+              "end": 4.0,
+              "probability": 0.4455566704273224
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "died",
+          "start": 1.24,
+          "end": 1.64
+        },
+        {
+          "raw": "for",
+          "start": 1.64,
+          "end": 2.04
+        },
+        {
+          "raw": "hope",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "raw": "ere",
+          "start": 2.24,
+          "end": 2.52
+        },
+        {
+          "raw": "I",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "raw": "could",
+          "start": 2.64,
+          "end": 2.74
+        },
+        {
+          "raw": "lend",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "the",
+          "start": 2.92,
+          "end": 3.06
+        },
+        {
+          "raw": "aid._",
+          "start": 3.06,
+          "end": 4.0
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Richmond._]",
+        "I",
+        "died",
+        "for",
+        "hope",
+        "ere",
+        "I",
+        "could",
+        "lend",
+        "thee",
+        "aid,"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          "equal",
+          3,
+          10,
+          0,
+          7
+        ],
+        [
+          "replace",
+          10,
+          12,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          "replace",
+          10,
+          12,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "died",
+          "start": 1.24,
+          "end": 1.64,
+          "key": "died",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.64,
+          "end": 2.04,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 2.04,
+          "end": 2.24,
+          "key": "hope",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ere",
+          "start": 2.24,
+          "end": 2.52,
+          "key": "ere",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.52,
+          "end": 2.64,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 2.64,
+          "end": 2.74,
+          "key": "could",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lend",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "lend",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.92,
+          "end": 3.06,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "aid._",
+          "start": 3.06,
+          "end": 4.0,
+          "key": "aid_",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "text": "Richmond._]",
+          "start": 0.62,
+          "end": 0.93
+        },
+        {
+          "text": "I",
+          "start": 0.93,
+          "end": 1.085
+        },
+        {
+          "text": "died",
+          "start": 1.24,
+          "end": 1.64
+        },
+        {
+          "text": "for",
+          "start": 1.64,
+          "end": 2.04
+        },
+        {
+          "text": "hope",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "text": "ere",
+          "start": 2.24,
+          "end": 2.52
+        },
+        {
+          "text": "I",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "text": "could",
+          "start": 2.64,
+          "end": 2.74
+        },
+        {
+          "text": "lend",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "thee",
+          "start": 2.92,
+          "end": 3.46
+        },
+        {
+          "text": "aid,",
+          "start": 3.46,
+          "end": 3.73
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.5833333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22112605720758438
+    },
+    {
+      "asr_seconds": 0.2121562957763672,
+      "alignment_seconds": 0.0005336068570613861,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To Richmond, I died for Hope Air I could lend the aid",
+          "start": 0.0,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.58203125
+            },
+            {
+              "text": " Richmond,",
+              "start": 0.5,
+              "end": 0.88,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " I",
+              "start": 1.28,
+              "end": 1.62,
+              "probability": 0.9765625
+            },
+            {
+              "text": " died",
+              "start": 1.62,
+              "end": 1.84,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " for",
+              "start": 1.84,
+              "end": 2.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Hope",
+              "start": 2.04,
+              "end": 2.26,
+              "probability": 0.32421875
+            },
+            {
+              "text": " Air",
+              "start": 2.26,
+              "end": 2.46,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " I",
+              "start": 2.46,
+              "end": 2.64,
+              "probability": 0.71240234375
+            },
+            {
+              "text": " could",
+              "start": 2.64,
+              "end": 2.74,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " lend",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 2.92,
+              "end": 3.06,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " aid",
+              "start": 3.06,
+              "end": 3.32,
+              "probability": 0.9384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "Richmond,",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "raw": "I",
+          "start": 1.28,
+          "end": 1.62
+        },
+        {
+          "raw": "died",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "raw": "for",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "raw": "Hope",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "raw": "Air",
+          "start": 2.26,
+          "end": 2.46
+        },
+        {
+          "raw": "I",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "raw": "could",
+          "start": 2.64,
+          "end": 2.74
+        },
+        {
+          "raw": "lend",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "the",
+          "start": 2.92,
+          "end": 3.06
+        },
+        {
+          "raw": "aid",
+          "start": 3.06,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Richmond._]",
+        "I",
+        "died",
+        "for",
+        "hope",
+        "ere",
+        "I",
+        "could",
+        "lend",
+        "thee",
+        "aid,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          10,
+          7,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richmond,",
+          "start": 0.5,
+          "end": 0.88,
+          "key": "richmond",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.28,
+          "end": 1.62,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "died",
+          "start": 1.62,
+          "end": 1.84,
+          "key": "died",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.84,
+          "end": 2.04,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Hope",
+          "start": 2.04,
+          "end": 2.26,
+          "key": "hope",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Air",
+          "start": 2.26,
+          "end": 2.46,
+          "key": "air",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.46,
+          "end": 2.64,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 2.64,
+          "end": 2.74,
+          "key": "could",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lend",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "lend",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.92,
+          "end": 3.06,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "aid",
+          "start": 3.06,
+          "end": 3.32,
+          "key": "aid",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "Richmond._]",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "text": "I",
+          "start": 1.28,
+          "end": 1.62
+        },
+        {
+          "text": "died",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "text": "for",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "text": "hope",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "text": "ere",
+          "start": 2.26,
+          "end": 2.36
+        },
+        {
+          "text": "I",
+          "start": 2.46,
+          "end": 2.64
+        },
+        {
+          "text": "could",
+          "start": 2.64,
+          "end": 2.74
+        },
+        {
+          "text": "lend",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "thee",
+          "start": 2.92,
+          "end": 2.99
+        },
+        {
+          "text": "aid,",
+          "start": 3.06,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2128813974559307
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ff8deb2205016c146840bc85c55da1ebe157bb180165467ab5a0df460832c1ac",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

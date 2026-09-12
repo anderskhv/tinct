@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "273d325c65e73c400ab9547d6e2bf92112d139033a0983533470b61b208571f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.09460368799045682,
+      "alignment_seconds": 0.0001225392334163189,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Montano is let off.",
+          "start": 0.05,
+          "end": 1.53,
+          "words": [
+            {
+              "text": " Montano",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.68798828125
+            },
+            {
+              "text": " is",
+              "start": 0.93,
+              "end": 1.09,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " let",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " off.",
+              "start": 1.27,
+              "end": 1.53,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Montano",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "is",
+          "start": 0.93,
+          "end": 1.09
+        },
+        {
+          "raw": "let",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "off.",
+          "start": 1.27,
+          "end": 1.53
+        }
+      ],
+      "expected_tokens": [
+        "[Montano",
+        "is",
+        "led",
+        "off.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Montano",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "montano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.93,
+          "end": 1.09,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.09,
+          "end": 1.27,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 1.27,
+          "end": 1.53,
+          "key": "off",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Montano",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "is",
+          "start": 0.93,
+          "end": 1.09
+        },
+        {
+          "text": "led",
+          "start": 1.09,
+          "end": 1.18
+        },
+        {
+          "text": "off.]",
+          "start": 1.27,
+          "end": 1.53
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09476542705669999
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "92d36f31bdfcae10b5c8758caabbbacde3f99ce0cb0d8369f8e5f3b7d711f136",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,562 @@
+{
+  "complete": true,
+  "signature": "8c7c1a20a4fe5404ebbbbaf8ecc83d6429e5af13a9c3009c510c4b0dbfe80977",
+  "attempts": [
+    {
+      "asr_seconds": 0.1480515780276619,
+      "alignment_seconds": 0.00023123103892430663,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But what do you call it? Miles Crawford asked. Where did they get the plums?",
+          "start": 0.02,
+          "end": 4.3,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.61083984375
+            },
+            {
+              "text": " what",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " do",
+              "start": 0.62,
+              "end": 0.72,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 0.72,
+              "end": 0.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " call",
+              "start": 0.82,
+              "end": 1.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it?",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Miles",
+              "start": 1.82,
+              "end": 1.88,
+              "probability": 0.57568359375
+            },
+            {
+              "text": " Crawford",
+              "start": 1.88,
+              "end": 2.28,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " asked.",
+              "start": 2.28,
+              "end": 2.78,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Where",
+              "start": 3.26,
+              "end": 3.32,
+              "probability": 0.9765625
+            },
+            {
+              "text": " did",
+              "start": 3.32,
+              "end": 3.44,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " they",
+              "start": 3.44,
+              "end": 3.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " get",
+              "start": 3.58,
+              "end": 3.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.72,
+              "end": 3.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " plums?",
+              "start": 3.88,
+              "end": 4.3,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "what",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "do",
+          "start": 0.62,
+          "end": 0.72
+        },
+        {
+          "raw": "you",
+          "start": 0.72,
+          "end": 0.82
+        },
+        {
+          "raw": "call",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "raw": "it?",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "raw": "Miles",
+          "start": 1.82,
+          "end": 1.88
+        },
+        {
+          "raw": "Crawford",
+          "start": 1.88,
+          "end": 2.28
+        },
+        {
+          "raw": "asked.",
+          "start": 2.28,
+          "end": 2.78
+        },
+        {
+          "raw": "Where",
+          "start": 3.26,
+          "end": 3.32
+        },
+        {
+          "raw": "did",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "raw": "they",
+          "start": 3.44,
+          "end": 3.58
+        },
+        {
+          "raw": "get",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "raw": "the",
+          "start": 3.72,
+          "end": 3.88
+        },
+        {
+          "raw": "plums?",
+          "start": 3.88,
+          "end": 4.3
+        }
+      ],
+      "expected_tokens": [
+        "—But",
+        "what",
+        "do",
+        "you",
+        "call",
+        "it?",
+        "Myles",
+        "Crawford",
+        "asked.",
+        "Where",
+        "did",
+        "they",
+        "get",
+        "the",
+        "plums?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          15,
+          7,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.62,
+          "end": 0.72,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.72,
+          "end": 0.82,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 0.82,
+          "end": 1.04,
+          "key": "call",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Miles",
+          "start": 1.82,
+          "end": 1.88,
+          "key": "miles",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Crawford",
+          "start": 1.88,
+          "end": 2.28,
+          "key": "crawford",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 2.28,
+          "end": 2.78,
+          "key": "asked",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 3.26,
+          "end": 3.32,
+          "key": "where",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 3.32,
+          "end": 3.44,
+          "key": "did",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.44,
+          "end": 3.58,
+          "key": "they",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 3.58,
+          "end": 3.72,
+          "key": "get",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.72,
+          "end": 3.88,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "plums?",
+          "start": 3.88,
+          "end": 4.3,
+          "key": "plums",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "what",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "do",
+          "start": 0.62,
+          "end": 0.72
+        },
+        {
+          "text": "you",
+          "start": 0.72,
+          "end": 0.82
+        },
+        {
+          "text": "call",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "text": "it?",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "text": "Myles",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "text": "Crawford",
+          "start": 1.88,
+          "end": 2.28
+        },
+        {
+          "text": "asked.",
+          "start": 2.28,
+          "end": 2.78
+        },
+        {
+          "text": "Where",
+          "start": 3.26,
+          "end": 3.32
+        },
+        {
+          "text": "did",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "text": "they",
+          "start": 3.44,
+          "end": 3.58
+        },
+        {
+          "text": "get",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "text": "the",
+          "start": 3.72,
+          "end": 3.88
+        },
+        {
+          "text": "plums?",
+          "start": 3.88,
+          "end": 4.3
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.14837170002283528
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "79cdc37826f78b5aeb6fdae26410fc98aadc9c12cf8c0698f5eb9d06fdb545ab",
+  "selected_reasons": []
+}

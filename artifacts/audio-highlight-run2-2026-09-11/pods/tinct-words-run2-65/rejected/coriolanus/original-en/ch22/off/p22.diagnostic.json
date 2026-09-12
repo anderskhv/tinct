@@ -1,0 +1,855 @@
+{
+  "complete": true,
+  "signature": "8184bf23a43c54b6e34639e5e7404617dd7624a6127b461f7cbb654a50dc1e2a",
+  "attempts": [
+    {
+      "asr_seconds": 0.39500053506344557,
+      "alignment_seconds": 0.0006530191749334335,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, K.S. Martius was a worthy officer I.T.H. war, but insolent, or come with pride,",
+          "start": 0.05,
+          "end": 6.93,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.971435546875
+            },
+            {
+              "text": " K",
+              "start": 1.45,
+              "end": 1.51,
+              "probability": 0.15771484375
+            },
+            {
+              "text": ".S.",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.676025390625
+            },
+            {
+              "text": " Martius",
+              "start": 1.87,
+              "end": 2.11,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " was",
+              "start": 2.11,
+              "end": 2.31,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " a",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " worthy",
+              "start": 2.43,
+              "end": 2.69,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " officer",
+              "start": 2.69,
+              "end": 3.17,
+              "probability": 0.923828125
+            },
+            {
+              "text": " I",
+              "start": 3.17,
+              "end": 3.45,
+              "probability": 0.9169921875
+            },
+            {
+              "text": ".T",
+              "start": 3.45,
+              "end": 3.69,
+              "probability": 0.7032470703125
+            },
+            {
+              "text": ".H.",
+              "start": 3.69,
+              "end": 3.97,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " war,",
+              "start": 3.97,
+              "end": 4.31,
+              "probability": 0.630859375
+            },
+            {
+              "text": " but",
+              "start": 4.79,
+              "end": 4.89,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " insolent,",
+              "start": 4.89,
+              "end": 5.61,
+              "probability": 0.971435546875
+            },
+            {
+              "text": " or",
+              "start": 5.97,
+              "end": 6.07,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " come",
+              "start": 6.07,
+              "end": 6.31,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " with",
+              "start": 6.31,
+              "end": 6.53,
+              "probability": 0.970703125
+            },
+            {
+              "text": " pride,",
+              "start": 6.53,
+              "end": 6.93,
+              "probability": 0.9892578125
+            }
+          ]
+        },
+        {
+          "text": " ambitious, past all thinking self-loving.",
+          "start": 7.19,
+          "end": 9.57,
+          "words": [
+            {
+              "text": " ambitious,",
+              "start": 7.19,
+              "end": 7.57,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " past",
+              "start": 8.15,
+              "end": 8.23,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " all",
+              "start": 8.23,
+              "end": 8.53,
+              "probability": 0.931640625
+            },
+            {
+              "text": " thinking",
+              "start": 8.53,
+              "end": 8.87,
+              "probability": 0.859375
+            },
+            {
+              "text": " self",
+              "start": 8.87,
+              "end": 9.25,
+              "probability": 0.47802734375
+            },
+            {
+              "text": "-loving.",
+              "start": 9.25,
+              "end": 9.57,
+              "probability": 0.895263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "K",
+          "start": 1.45,
+          "end": 1.51
+        },
+        {
+          "raw": ".S.",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "Martius",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "raw": "was",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "raw": "a",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "worthy",
+          "start": 2.43,
+          "end": 2.69
+        },
+        {
+          "raw": "officer",
+          "start": 2.69,
+          "end": 3.17
+        },
+        {
+          "raw": "I",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "raw": ".T",
+          "start": 3.45,
+          "end": 3.69
+        },
+        {
+          "raw": ".H.",
+          "start": 3.69,
+          "end": 3.97
+        },
+        {
+          "raw": "war,",
+          "start": 3.97,
+          "end": 4.31
+        },
+        {
+          "raw": "but",
+          "start": 4.79,
+          "end": 4.89
+        },
+        {
+          "raw": "insolent,",
+          "start": 4.89,
+          "end": 5.61
+        },
+        {
+          "raw": "or",
+          "start": 5.97,
+          "end": 6.07
+        },
+        {
+          "raw": "come",
+          "start": 6.07,
+          "end": 6.31
+        },
+        {
+          "raw": "with",
+          "start": 6.31,
+          "end": 6.53
+        },
+        {
+          "raw": "pride,",
+          "start": 6.53,
+          "end": 6.93
+        },
+        {
+          "raw": "ambitious,",
+          "start": 7.19,
+          "end": 7.57
+        },
+        {
+          "raw": "past",
+          "start": 8.15,
+          "end": 8.23
+        },
+        {
+          "raw": "all",
+          "start": 8.23,
+          "end": 8.53
+        },
+        {
+          "raw": "thinking",
+          "start": 8.53,
+          "end": 8.87
+        },
+        {
+          "raw": "self",
+          "start": 8.87,
+          "end": 9.25
+        },
+        {
+          "raw": "-loving.",
+          "start": 9.25,
+          "end": 9.57
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Caius",
+        "Martius",
+        "was",
+        "A",
+        "worthy",
+        "officer",
+        "i'",
+        "th'",
+        "war,",
+        "but",
+        "insolent,",
+        "O'ercome",
+        "with",
+        "pride,",
+        "ambitious,",
+        "past",
+        "all",
+        "thinking",
+        "Self-loving."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          8,
+          3,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ],
+        [
+          "equal",
+          9,
+          12,
+          11,
+          14
+        ],
+        [
+          "replace",
+          12,
+          13,
+          14,
+          16
+        ],
+        [
+          "equal",
+          13,
+          20,
+          16,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ],
+        [
+          "replace",
+          12,
+          13,
+          14,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "K",
+          "start": 1.45,
+          "end": 1.51,
+          "key": "k",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": ".S.",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "s",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Martius",
+          "start": 1.87,
+          "end": 2.11,
+          "key": "martius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.11,
+          "end": 2.31,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "worthy",
+          "start": 2.43,
+          "end": 2.69,
+          "key": "worthy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "officer",
+          "start": 2.69,
+          "end": 3.17,
+          "key": "officer",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.17,
+          "end": 3.45,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": ".T",
+          "start": 3.45,
+          "end": 3.69,
+          "key": "t",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": ".H.",
+          "start": 3.69,
+          "end": 3.97,
+          "key": "h",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "war,",
+          "start": 3.97,
+          "end": 4.31,
+          "key": "war",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.79,
+          "end": 4.89,
+          "key": "but",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "insolent,",
+          "start": 4.89,
+          "end": 5.61,
+          "key": "insolent",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 5.97,
+          "end": 6.07,
+          "key": "or",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 6.07,
+          "end": 6.31,
+          "key": "come",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.31,
+          "end": 6.53,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pride,",
+          "start": 6.53,
+          "end": 6.93,
+          "key": "pride",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "ambitious,",
+          "start": 7.19,
+          "end": 7.57,
+          "key": "ambitious",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "past",
+          "start": 8.15,
+          "end": 8.23,
+          "key": "past",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 8.23,
+          "end": 8.53,
+          "key": "all",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "thinking",
+          "start": 8.53,
+          "end": 8.87,
+          "key": "thinking",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "self -loving.",
+          "start": 8.87,
+          "end": 9.57,
+          "key": "selfloving",
+          "pieces": [
+            22,
+            23
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 19,
+          "text": "Self-loving.",
+          "heard": "self -loving.",
+          "heard_indexes": [
+            22,
+            23
+          ],
+          "start": 8.87,
+          "end": 9.57
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Caius",
+          "start": 0.91,
+          "end": 1.39
+        },
+        {
+          "text": "Martius",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "text": "was",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "text": "A",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "worthy",
+          "start": 2.43,
+          "end": 2.69
+        },
+        {
+          "text": "officer",
+          "start": 2.69,
+          "end": 3.17
+        },
+        {
+          "text": "i'",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "text": "th'",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "text": "war,",
+          "start": 3.97,
+          "end": 4.31
+        },
+        {
+          "text": "but",
+          "start": 4.79,
+          "end": 4.89
+        },
+        {
+          "text": "insolent,",
+          "start": 4.89,
+          "end": 5.61
+        },
+        {
+          "text": "O'ercome",
+          "start": 5.61,
+          "end": 5.96
+        },
+        {
+          "text": "with",
+          "start": 6.31,
+          "end": 6.53
+        },
+        {
+          "text": "pride,",
+          "start": 6.53,
+          "end": 6.93
+        },
+        {
+          "text": "ambitious,",
+          "start": 7.19,
+          "end": 7.57
+        },
+        {
+          "text": "past",
+          "start": 8.15,
+          "end": 8.23
+        },
+        {
+          "text": "all",
+          "start": 8.23,
+          "end": 8.53
+        },
+        {
+          "text": "thinking",
+          "start": 8.53,
+          "end": 8.87
+        },
+        {
+          "text": "Self-loving.",
+          "start": 8.87,
+          "end": 9.57
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 23,
+        "matched_words": 17
+      },
+      "match_ratio": 0.85,
+      "rejection_reasons": [],
+      "seconds": 0.39587811101228
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "633174ed3024eb05050ebfcdbfd1fb773918cf0ac6e9804fbdeb31eeba07e8c7",
+  "selected_reasons": []
+}

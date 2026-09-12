@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "de8a03a062732162cd2946e93c784774ddf1300bfc17446e283669be53df536a",
+  "attempts": [
+    {
+      "asr_seconds": 0.09216335497330874,
+      "alignment_seconds": 0.00010450102854520082,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What Wetherup Said",
+        "hotwords": "What, Wetherup, Said"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What Wetherup Said",
+          "start": 0.02,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.724609375
+            },
+            {
+              "text": " Wetherup",
+              "start": 0.54,
+              "end": 0.94,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " Said",
+              "start": 0.94,
+              "end": 1.26,
+              "probability": 0.0020694732666015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "Wetherup",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "raw": "Said",
+          "start": 0.94,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "Wetherup",
+        "Said"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Wetherup",
+          "start": 0.54,
+          "end": 0.94,
+          "key": "wetherup",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Said",
+          "start": 0.94,
+          "end": 1.26,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "Wetherup",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "text": "Said",
+          "start": 0.94,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09230759600177407
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2f82adde4489fde95917f15edc1ad6b1b78d412cf290fd9a2ddfa8c0039e2848",
+  "selected_reasons": []
+}

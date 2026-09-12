@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "0bf3c573f184f7c1ec70a522c9deea60ca6ea0b6aa25c6d0f32aa6dc0790f4dc",
+  "attempts": [
+    {
+      "asr_seconds": 0.21332122012972832,
+      "alignment_seconds": 0.00041994801722466946,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tyrrell, prove me my gracious lord.",
+          "start": 0.0,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Tyrrell,",
+              "start": 0.0,
+              "end": 0.8,
+              "probability": 0.3828125
+            },
+            {
+              "text": " prove",
+              "start": 1.1,
+              "end": 1.24,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " me",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.986328125
+            },
+            {
+              "text": " my",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " gracious",
+              "start": 1.6,
+              "end": 1.92,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " lord.",
+              "start": 1.92,
+              "end": 2.24,
+              "probability": 0.74169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tyrrell,",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "raw": "prove",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "raw": "me",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "my",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "gracious",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "raw": "lord.",
+          "start": 1.92,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "Tyrrel.",
+        "Prove",
+        "me,",
+        "my",
+        "gracious",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tyrrell,",
+          "start": 0.0,
+          "end": 0.8,
+          "key": "tyrrell",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "prove",
+          "start": 1.1,
+          "end": 1.24,
+          "key": "prove",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gracious",
+          "start": 1.6,
+          "end": 1.92,
+          "key": "gracious",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.92,
+          "end": 2.24,
+          "key": "lord",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tyrrel.",
+          "start": 0.0,
+          "end": 0.55
+        },
+        {
+          "text": "Prove",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "text": "me,",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "my",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "gracious",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "text": "lord.",
+          "start": 1.92,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21390545507892966
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "92cafe3bdd7dbb5af643bccb0146ca326e5aecd02c291e6748d14e0c442d53db",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

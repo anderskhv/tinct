@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "f8e975de1145d3d75fd45c2b3c425c1047593fcd104510e155d06c72a8b26ca1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1106475479900837,
+      "alignment_seconds": 0.00020831901929341257,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Kleitnestra.",
+          "start": 0.08,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.8828125
+            },
+            {
+              "text": " Kleitnestra.",
+              "start": 0.72,
+              "end": 1.56,
+              "probability": 0.7362548828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Kleitnestra.",
+          "start": 0.72,
+          "end": 1.56
+        }
+      ],
+      "expected_tokens": [
+        "[Exit",
+        "Clytemnestra]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kleitnestra.",
+          "start": 0.72,
+          "end": 1.56,
+          "key": "kleitnestra",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exit",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Clytemnestra]",
+          "start": 0.72,
+          "end": 1.14
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11091815200052224
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5b049f5cfeee63d554b470d0055bf10fbc42d7c4d874994eec08788d0cd2bc8c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

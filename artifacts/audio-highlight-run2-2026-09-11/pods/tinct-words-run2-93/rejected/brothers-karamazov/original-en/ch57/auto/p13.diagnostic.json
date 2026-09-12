@@ -1,0 +1,982 @@
+{
+  "complete": true,
+  "signature": "15d2ea8dd8c81a6f519386a01a9dd4857c9abee47342605d0f08756f336c5d44",
+  "attempts": [
+    {
+      "asr_seconds": 0.35677974484860897,
+      "alignment_seconds": 0.0006380155682563782,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mitya said all this with the good-natured but impatient familiarity of a man who is anxious to tell the whole truth and is full of the best intentions.",
+        "hotwords": "Mitya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mitya said all this with the good-natured but impatient familiarity of a man who is anxious to tell the whole truth and is full of the best intentions.",
+          "start": 0.05,
+          "end": 9.07,
+          "words": [
+            {
+              "text": " Mitya",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.40911865234375
+            },
+            {
+              "text": " said",
+              "start": 0.75,
+              "end": 0.95,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " all",
+              "start": 0.95,
+              "end": 1.15,
+              "probability": 0.9921875
+            },
+            {
+              "text": " this",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " with",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 1.59,
+              "end": 1.71,
+              "probability": 0.990234375
+            },
+            {
+              "text": " good",
+              "start": 1.71,
+              "end": 1.97,
+              "probability": 0.9794921875
+            },
+            {
+              "text": "-natured",
+              "start": 1.97,
+              "end": 2.47,
+              "probability": 0.9202473958333334
+            },
+            {
+              "text": " but",
+              "start": 2.47,
+              "end": 2.73,
+              "probability": 0.65869140625
+            },
+            {
+              "text": " impatient",
+              "start": 2.73,
+              "end": 3.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " familiarity",
+              "start": 3.29,
+              "end": 3.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 3.85,
+              "end": 4.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 4.21,
+              "end": 4.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " man",
+              "start": 4.33,
+              "end": 4.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " who",
+              "start": 4.59,
+              "end": 5.13,
+              "probability": 0.7607421875
+            },
+            {
+              "text": " is",
+              "start": 5.13,
+              "end": 5.29,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " anxious",
+              "start": 5.29,
+              "end": 5.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 5.59,
+              "end": 5.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tell",
+              "start": 5.87,
+              "end": 6.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.07,
+              "end": 6.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " whole",
+              "start": 6.25,
+              "end": 6.51,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " truth",
+              "start": 6.51,
+              "end": 6.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 6.87,
+              "end": 7.53,
+              "probability": 0.802734375
+            },
+            {
+              "text": " is",
+              "start": 7.53,
+              "end": 7.67,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " full",
+              "start": 7.67,
+              "end": 7.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 7.89,
+              "end": 8.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 8.07,
+              "end": 8.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " best",
+              "start": 8.17,
+              "end": 8.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " intentions.",
+              "start": 8.47,
+              "end": 9.07,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mitya",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "said",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "raw": "all",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "raw": "this",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "with",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "the",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "raw": "good",
+          "start": 1.71,
+          "end": 1.97
+        },
+        {
+          "raw": "-natured",
+          "start": 1.97,
+          "end": 2.47
+        },
+        {
+          "raw": "but",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "raw": "impatient",
+          "start": 2.73,
+          "end": 3.29
+        },
+        {
+          "raw": "familiarity",
+          "start": 3.29,
+          "end": 3.85
+        },
+        {
+          "raw": "of",
+          "start": 3.85,
+          "end": 4.21
+        },
+        {
+          "raw": "a",
+          "start": 4.21,
+          "end": 4.33
+        },
+        {
+          "raw": "man",
+          "start": 4.33,
+          "end": 4.59
+        },
+        {
+          "raw": "who",
+          "start": 4.59,
+          "end": 5.13
+        },
+        {
+          "raw": "is",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "raw": "anxious",
+          "start": 5.29,
+          "end": 5.59
+        },
+        {
+          "raw": "to",
+          "start": 5.59,
+          "end": 5.87
+        },
+        {
+          "raw": "tell",
+          "start": 5.87,
+          "end": 6.07
+        },
+        {
+          "raw": "the",
+          "start": 6.07,
+          "end": 6.25
+        },
+        {
+          "raw": "whole",
+          "start": 6.25,
+          "end": 6.51
+        },
+        {
+          "raw": "truth",
+          "start": 6.51,
+          "end": 6.87
+        },
+        {
+          "raw": "and",
+          "start": 6.87,
+          "end": 7.53
+        },
+        {
+          "raw": "is",
+          "start": 7.53,
+          "end": 7.67
+        },
+        {
+          "raw": "full",
+          "start": 7.67,
+          "end": 7.89
+        },
+        {
+          "raw": "of",
+          "start": 7.89,
+          "end": 8.07
+        },
+        {
+          "raw": "the",
+          "start": 8.07,
+          "end": 8.17
+        },
+        {
+          "raw": "best",
+          "start": 8.17,
+          "end": 8.47
+        },
+        {
+          "raw": "intentions.",
+          "start": 8.47,
+          "end": 9.07
+        }
+      ],
+      "expected_tokens": [
+        "Mitya",
+        "said",
+        "all",
+        "this",
+        "with",
+        "the",
+        "good-natured",
+        "but",
+        "impatient",
+        "familiarity",
+        "of",
+        "a",
+        "man",
+        "who",
+        "is",
+        "anxious",
+        "to",
+        "tell",
+        "the",
+        "whole",
+        "truth",
+        "and",
+        "is",
+        "full",
+        "of",
+        "the",
+        "best",
+        "intentions."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mitya",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "mitya",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.75,
+          "end": 0.95,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.95,
+          "end": 1.15,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.15,
+          "end": 1.35,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.59,
+          "end": 1.71,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "good -natured",
+          "start": 1.71,
+          "end": 2.47,
+          "key": "goodnatured",
+          "pieces": [
+            6,
+            7
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.47,
+          "end": 2.73,
+          "key": "but",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "impatient",
+          "start": 2.73,
+          "end": 3.29,
+          "key": "impatient",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "familiarity",
+          "start": 3.29,
+          "end": 3.85,
+          "key": "familiarity",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.85,
+          "end": 4.21,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.21,
+          "end": 4.33,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 4.33,
+          "end": 4.59,
+          "key": "man",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 4.59,
+          "end": 5.13,
+          "key": "who",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.13,
+          "end": 5.29,
+          "key": "is",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "anxious",
+          "start": 5.29,
+          "end": 5.59,
+          "key": "anxious",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.59,
+          "end": 5.87,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 5.87,
+          "end": 6.07,
+          "key": "tell",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.07,
+          "end": 6.25,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 6.25,
+          "end": 6.51,
+          "key": "whole",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "truth",
+          "start": 6.51,
+          "end": 6.87,
+          "key": "truth",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.87,
+          "end": 7.53,
+          "key": "and",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.53,
+          "end": 7.67,
+          "key": "is",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "full",
+          "start": 7.67,
+          "end": 7.89,
+          "key": "full",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.89,
+          "end": 8.07,
+          "key": "of",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.07,
+          "end": 8.17,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 8.17,
+          "end": 8.47,
+          "key": "best",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "intentions.",
+          "start": 8.47,
+          "end": 9.07,
+          "key": "intentions",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 6,
+          "text": "good-natured",
+          "heard": "good -natured",
+          "heard_indexes": [
+            6,
+            7
+          ],
+          "start": 1.71,
+          "end": 2.47
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Mitya",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "said",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "text": "all",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "text": "this",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "with",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "the",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "text": "good-natured",
+          "start": 1.71,
+          "end": 2.47
+        },
+        {
+          "text": "but",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "text": "impatient",
+          "start": 2.73,
+          "end": 3.29
+        },
+        {
+          "text": "familiarity",
+          "start": 3.29,
+          "end": 3.85
+        },
+        {
+          "text": "of",
+          "start": 3.85,
+          "end": 4.21
+        },
+        {
+          "text": "a",
+          "start": 4.21,
+          "end": 4.33
+        },
+        {
+          "text": "man",
+          "start": 4.33,
+          "end": 4.59
+        },
+        {
+          "text": "who",
+          "start": 4.59,
+          "end": 5.13
+        },
+        {
+          "text": "is",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "text": "anxious",
+          "start": 5.29,
+          "end": 5.59
+        },
+        {
+          "text": "to",
+          "start": 5.59,
+          "end": 5.87
+        },
+        {
+          "text": "tell",
+          "start": 5.87,
+          "end": 6.07
+        },
+        {
+          "text": "the",
+          "start": 6.07,
+          "end": 6.25
+        },
+        {
+          "text": "whole",
+          "start": 6.25,
+          "end": 6.51
+        },
+        {
+          "text": "truth",
+          "start": 6.51,
+          "end": 6.87
+        },
+        {
+          "text": "and",
+          "start": 6.87,
+          "end": 7.53
+        },
+        {
+          "text": "is",
+          "start": 7.53,
+          "end": 7.67
+        },
+        {
+          "text": "full",
+          "start": 7.67,
+          "end": 7.89
+        },
+        {
+          "text": "of",
+          "start": 7.89,
+          "end": 8.07
+        },
+        {
+          "text": "the",
+          "start": 8.07,
+          "end": 8.17
+        },
+        {
+          "text": "best",
+          "start": 8.17,
+          "end": 8.47
+        },
+        {
+          "text": "intentions.",
+          "start": 8.47,
+          "end": 9.07
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 28
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.357661047950387
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "81b8986208782eaf75259a4069116b8ad14f9f67b067a65f5e5373895da46f8b",
+  "selected_reasons": []
+}

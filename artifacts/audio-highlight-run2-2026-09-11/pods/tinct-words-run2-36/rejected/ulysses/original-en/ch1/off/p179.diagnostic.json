@@ -1,0 +1,422 @@
+{
+  "complete": true,
+  "signature": "73da975ef9e511b7c38ad91af9c4cc8d045a189871acce99e3a4aacbf5aaad47",
+  "attempts": [
+    {
+      "asr_seconds": 0.20746710896492004,
+      "alignment_seconds": 0.00045587122440338135,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Stephen reached back and took the milk jug from the locker.",
+          "start": 0.08,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " Stephen",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.52587890625
+            },
+            {
+              "text": " reached",
+              "start": 0.66,
+              "end": 0.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " back",
+              "start": 0.94,
+              "end": 1.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 1.32,
+              "end": 1.6,
+              "probability": 0.955078125
+            },
+            {
+              "text": " took",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " milk",
+              "start": 1.9,
+              "end": 2.08,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " jug",
+              "start": 2.08,
+              "end": 2.32,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " from",
+              "start": 2.32,
+              "end": 2.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.54,
+              "end": 2.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " locker.",
+              "start": 2.66,
+              "end": 2.92,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stephen",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "reached",
+          "start": 0.66,
+          "end": 0.94
+        },
+        {
+          "raw": "back",
+          "start": 0.94,
+          "end": 1.32
+        },
+        {
+          "raw": "and",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "raw": "took",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "the",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "milk",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "raw": "jug",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "raw": "from",
+          "start": 2.32,
+          "end": 2.54
+        },
+        {
+          "raw": "the",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "raw": "locker.",
+          "start": 2.66,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "Stephen",
+        "reached",
+        "back",
+        "and",
+        "took",
+        "the",
+        "milkjug",
+        "from",
+        "the",
+        "locker."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          10,
+          8,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Stephen",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "stephen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "reached",
+          "start": 0.66,
+          "end": 0.94,
+          "key": "reached",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 0.94,
+          "end": 1.32,
+          "key": "back",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.32,
+          "end": 1.6,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 1.6,
+          "end": 1.74,
+          "key": "took",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "milk",
+          "start": 1.9,
+          "end": 2.08,
+          "key": "milk",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "jug",
+          "start": 2.08,
+          "end": 2.32,
+          "key": "jug",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.32,
+          "end": 2.54,
+          "key": "from",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.54,
+          "end": 2.66,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "locker.",
+          "start": 2.66,
+          "end": 2.92,
+          "key": "locker",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Stephen",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "reached",
+          "start": 0.66,
+          "end": 0.94
+        },
+        {
+          "text": "back",
+          "start": 0.94,
+          "end": 1.32
+        },
+        {
+          "text": "and",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "text": "took",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "the",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "milkjug",
+          "start": 1.9,
+          "end": 2.11
+        },
+        {
+          "text": "from",
+          "start": 2.32,
+          "end": 2.54
+        },
+        {
+          "text": "the",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "text": "locker.",
+          "start": 2.66,
+          "end": 2.92
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.20812301710247993
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "231fc81374fbcb011baf1b98fb36a5173a1e683788ba1e83f19f6801f4b64b49",
+  "selected_reasons": []
+}

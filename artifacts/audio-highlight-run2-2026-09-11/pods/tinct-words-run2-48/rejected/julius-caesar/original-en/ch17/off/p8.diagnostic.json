@@ -1,0 +1,572 @@
+{
+  "complete": true,
+  "signature": "8cc2018a19c5518f3c8d7e66b510687eefc7de95435f21c07dad1fbf5b737bcd",
+  "attempts": [
+    {
+      "asr_seconds": 0.2636617422103882,
+      "alignment_seconds": 0.0005711270496249199,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lucilius, only I yield to die. There is so much that thou wilt kill me straight.",
+          "start": 0.63,
+          "end": 5.01,
+          "words": [
+            {
+              "text": " Lucilius,",
+              "start": 0.63,
+              "end": 1.07,
+              "probability": 0.9182942708333334
+            },
+            {
+              "text": " only",
+              "start": 1.43,
+              "end": 1.73,
+              "probability": 0.953125
+            },
+            {
+              "text": " I",
+              "start": 1.73,
+              "end": 1.93,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " yield",
+              "start": 1.93,
+              "end": 2.11,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " to",
+              "start": 2.11,
+              "end": 2.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " die.",
+              "start": 2.29,
+              "end": 2.53,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " There",
+              "start": 2.93,
+              "end": 3.01,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " is",
+              "start": 3.01,
+              "end": 3.13,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " so",
+              "start": 3.13,
+              "end": 3.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " much",
+              "start": 3.33,
+              "end": 3.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 3.55,
+              "end": 3.75,
+              "probability": 0.986328125
+            },
+            {
+              "text": " thou",
+              "start": 3.75,
+              "end": 3.93,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " wilt",
+              "start": 3.93,
+              "end": 4.25,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " kill",
+              "start": 4.25,
+              "end": 4.49,
+              "probability": 0.982421875
+            },
+            {
+              "text": " me",
+              "start": 4.49,
+              "end": 4.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " straight.",
+              "start": 4.69,
+              "end": 5.01,
+              "probability": 0.8974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucilius,",
+          "start": 0.63,
+          "end": 1.07
+        },
+        {
+          "raw": "only",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "raw": "I",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "raw": "yield",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "raw": "to",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "raw": "die.",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "raw": "There",
+          "start": 2.93,
+          "end": 3.01
+        },
+        {
+          "raw": "is",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "raw": "so",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "raw": "much",
+          "start": 3.33,
+          "end": 3.55
+        },
+        {
+          "raw": "that",
+          "start": 3.55,
+          "end": 3.75
+        },
+        {
+          "raw": "thou",
+          "start": 3.75,
+          "end": 3.93
+        },
+        {
+          "raw": "wilt",
+          "start": 3.93,
+          "end": 4.25
+        },
+        {
+          "raw": "kill",
+          "start": 4.25,
+          "end": 4.49
+        },
+        {
+          "raw": "me",
+          "start": 4.49,
+          "end": 4.69
+        },
+        {
+          "raw": "straight.",
+          "start": 4.69,
+          "end": 5.01
+        }
+      ],
+      "expected_tokens": [
+        "Lucilius.",
+        "Only",
+        "I",
+        "yield",
+        "to",
+        "die:",
+        "There",
+        "is",
+        "so",
+        "much",
+        "that",
+        "thou",
+        "wilt",
+        "kill",
+        "me",
+        "straight;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucilius,",
+          "start": 0.63,
+          "end": 1.07,
+          "key": "lucilius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 1.43,
+          "end": 1.73,
+          "key": "only",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.73,
+          "end": 1.93,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "yield",
+          "start": 1.93,
+          "end": 2.11,
+          "key": "yield",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.11,
+          "end": 2.29,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "die.",
+          "start": 2.29,
+          "end": 2.53,
+          "key": "die",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 2.93,
+          "end": 3.01,
+          "key": "there",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.01,
+          "end": 3.13,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.13,
+          "end": 3.33,
+          "key": "so",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 3.33,
+          "end": 3.55,
+          "key": "much",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.55,
+          "end": 3.75,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.75,
+          "end": 3.93,
+          "key": "thou",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "wilt",
+          "start": 3.93,
+          "end": 4.25,
+          "key": "wilt",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "kill",
+          "start": 4.25,
+          "end": 4.49,
+          "key": "kill",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.49,
+          "end": 4.69,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "straight.",
+          "start": 4.69,
+          "end": 5.01,
+          "key": "straight",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lucilius.",
+          "start": 0.63,
+          "end": 1.07
+        },
+        {
+          "text": "Only",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "text": "I",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "text": "yield",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "text": "to",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "text": "die:",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "text": "There",
+          "start": 2.93,
+          "end": 3.01
+        },
+        {
+          "text": "is",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "text": "so",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "text": "much",
+          "start": 3.33,
+          "end": 3.55
+        },
+        {
+          "text": "that",
+          "start": 3.55,
+          "end": 3.75
+        },
+        {
+          "text": "thou",
+          "start": 3.75,
+          "end": 3.93
+        },
+        {
+          "text": "wilt",
+          "start": 3.93,
+          "end": 4.25
+        },
+        {
+          "text": "kill",
+          "start": 4.25,
+          "end": 4.49
+        },
+        {
+          "text": "me",
+          "start": 4.49,
+          "end": 4.69
+        },
+        {
+          "text": "straight;",
+          "start": 4.69,
+          "end": 5.01
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2645011283457279
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6b71327f7cea06c93634ddcf7798e8b7f270ec2c8a1bdc12a9c25ee8f2600209",
+  "selected_reasons": []
+}

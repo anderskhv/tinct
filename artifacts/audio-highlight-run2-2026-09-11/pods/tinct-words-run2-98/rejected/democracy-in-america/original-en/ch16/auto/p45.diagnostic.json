@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "5c4a6db858814bddcbb44d4298f93e1e2eff70ff9535c8e76ea5f82b768249da",
+  "attempts": [
+    {
+      "asr_seconds": 0.299678023904562,
+      "alignment_seconds": 0.00047675706446170807,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Liberty left by the American laws to public officers within a certain sphere—Their power.",
+        "hotwords": "Liberty, American"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Liberty left by the American laws to public officers within a certain sphere—Their power.",
+          "start": 0.05,
+          "end": 5.77,
+          "words": [
+            {
+              "text": " Liberty",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.390625
+            },
+            {
+              "text": " left",
+              "start": 0.75,
+              "end": 1.21,
+              "probability": 0.69580078125
+            },
+            {
+              "text": " by",
+              "start": 1.21,
+              "end": 1.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 1.49,
+              "end": 1.63,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " American",
+              "start": 1.63,
+              "end": 2.03,
+              "probability": 0.97265625
+            },
+            {
+              "text": " laws",
+              "start": 2.03,
+              "end": 2.43,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " to",
+              "start": 2.43,
+              "end": 2.71,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " public",
+              "start": 2.71,
+              "end": 3.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " officers",
+              "start": 3.01,
+              "end": 3.53,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " within",
+              "start": 3.53,
+              "end": 3.87,
+              "probability": 0.9921875
+            },
+            {
+              "text": " a",
+              "start": 3.87,
+              "end": 4.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " certain",
+              "start": 4.03,
+              "end": 4.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sphere—Their",
+              "start": 4.29,
+              "end": 5.43,
+              "probability": 0.33567357063293457
+            },
+            {
+              "text": " power.",
+              "start": 5.43,
+              "end": 5.77,
+              "probability": 0.87353515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Liberty",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "left",
+          "start": 0.75,
+          "end": 1.21
+        },
+        {
+          "raw": "by",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "raw": "American",
+          "start": 1.63,
+          "end": 2.03
+        },
+        {
+          "raw": "laws",
+          "start": 2.03,
+          "end": 2.43
+        },
+        {
+          "raw": "to",
+          "start": 2.43,
+          "end": 2.71
+        },
+        {
+          "raw": "public",
+          "start": 2.71,
+          "end": 3.01
+        },
+        {
+          "raw": "officers",
+          "start": 3.01,
+          "end": 3.53
+        },
+        {
+          "raw": "within",
+          "start": 3.53,
+          "end": 3.87
+        },
+        {
+          "raw": "a",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "raw": "certain",
+          "start": 4.03,
+          "end": 4.29
+        },
+        {
+          "raw": "sphere—Their",
+          "start": 4.29,
+          "end": 5.43
+        },
+        {
+          "raw": "power.",
+          "start": 5.43,
+          "end": 5.77
+        }
+      ],
+      "expected_tokens": [
+        "Liberty",
+        "left",
+        "by",
+        "the",
+        "American",
+        "laws",
+        "to",
+        "public",
+        "officers",
+        "within",
+        "a",
+        "certain",
+        "sphere—Their",
+        "power."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Liberty",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "liberty",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "left",
+          "start": 0.75,
+          "end": 1.21,
+          "key": "left",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.21,
+          "end": 1.49,
+          "key": "by",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.63,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "American",
+          "start": 1.63,
+          "end": 2.03,
+          "key": "american",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "laws",
+          "start": 2.03,
+          "end": 2.43,
+          "key": "laws",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.43,
+          "end": 2.71,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "public",
+          "start": 2.71,
+          "end": 3.01,
+          "key": "public",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "officers",
+          "start": 3.01,
+          "end": 3.53,
+          "key": "officers",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 3.53,
+          "end": 3.87,
+          "key": "within",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.87,
+          "end": 4.03,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "certain",
+          "start": 4.03,
+          "end": 4.29,
+          "key": "certain",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sphere—Their",
+          "start": 4.29,
+          "end": 5.43,
+          "key": "spheretheir",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "power.",
+          "start": 5.43,
+          "end": 5.77,
+          "key": "power",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Liberty",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "left",
+          "start": 0.75,
+          "end": 1.21
+        },
+        {
+          "text": "by",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "text": "the",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "text": "American",
+          "start": 1.63,
+          "end": 2.03
+        },
+        {
+          "text": "laws",
+          "start": 2.03,
+          "end": 2.43
+        },
+        {
+          "text": "to",
+          "start": 2.43,
+          "end": 2.71
+        },
+        {
+          "text": "public",
+          "start": 2.71,
+          "end": 3.01
+        },
+        {
+          "text": "officers",
+          "start": 3.01,
+          "end": 3.53
+        },
+        {
+          "text": "within",
+          "start": 3.53,
+          "end": 3.87
+        },
+        {
+          "text": "a",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "text": "certain",
+          "start": 4.03,
+          "end": 4.29
+        },
+        {
+          "text": "sphere—Their",
+          "start": 4.29,
+          "end": 5.43
+        },
+        {
+          "text": "power.",
+          "start": 5.43,
+          "end": 5.77
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30033743754029274
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6b9f661d8fa94ba5ecc42cdc945873af8fe7ce533cca6089594c5dbd88a9c92c",
+  "selected_reasons": []
+}

@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "d7cf444d03653d7a5270b36bb11b549ccb96a80a353b050078aa558c6de79df3",
+  "attempts": [
+    {
+      "asr_seconds": 0.20850389450788498,
+      "alignment_seconds": 0.000499991700053215,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And did he despise me? Did he laugh at me?\"",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And did he despise me? Did he laugh at me?",
+          "start": 0.08,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " did",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " he",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " despise",
+              "start": 0.78,
+              "end": 1.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me?",
+              "start": 1.14,
+              "end": 1.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Did",
+              "start": 1.86,
+              "end": 1.88,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " he",
+              "start": 1.88,
+              "end": 2.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " laugh",
+              "start": 2.02,
+              "end": 2.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " at",
+              "start": 2.24,
+              "end": 2.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me?",
+              "start": 2.42,
+              "end": 2.62,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "did",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "he",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "despise",
+          "start": 0.78,
+          "end": 1.14
+        },
+        {
+          "raw": "me?",
+          "start": 1.14,
+          "end": 1.48
+        },
+        {
+          "raw": "Did",
+          "start": 1.86,
+          "end": 1.88
+        },
+        {
+          "raw": "he",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "raw": "laugh",
+          "start": 2.02,
+          "end": 2.24
+        },
+        {
+          "raw": "at",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "raw": "me?",
+          "start": 2.42,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "did",
+        "he",
+        "despise",
+        "me?",
+        "Did",
+        "he",
+        "laugh",
+        "at",
+        "me?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.66,
+          "end": 0.78,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "despise",
+          "start": 0.78,
+          "end": 1.14,
+          "key": "despise",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 1.14,
+          "end": 1.48,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 1.86,
+          "end": 1.88,
+          "key": "did",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.88,
+          "end": 2.02,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "laugh",
+          "start": 2.02,
+          "end": 2.24,
+          "key": "laugh",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.24,
+          "end": 2.42,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 2.42,
+          "end": 2.62,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "did",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "he",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "despise",
+          "start": 0.78,
+          "end": 1.14
+        },
+        {
+          "text": "me?",
+          "start": 1.14,
+          "end": 1.48
+        },
+        {
+          "text": "Did",
+          "start": 1.86,
+          "end": 1.88
+        },
+        {
+          "text": "he",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "text": "laugh",
+          "start": 2.02,
+          "end": 2.24
+        },
+        {
+          "text": "at",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "text": "me?\"",
+          "start": 2.42,
+          "end": 2.62
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20919745229184628
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "966239084d1a43749154b8b5888547cfd47ca9cd5959a9df09f4db76e75f7a2c",
+  "selected_reasons": []
+}

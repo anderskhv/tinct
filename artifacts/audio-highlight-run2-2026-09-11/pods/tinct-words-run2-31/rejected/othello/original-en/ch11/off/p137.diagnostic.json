@@ -1,0 +1,759 @@
+{
+  "complete": true,
+  "signature": "32833a4d18af1f62b3a5b813de2ab1d8b91c10ced82e51c3a4413c35757015a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.2917964057996869,
+      "alignment_seconds": 0.0002943160943686962,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ladovico, maybe the letter moved him, for, as I think, they do command him home, deputing",
+          "start": 0.05,
+          "end": 6.59,
+          "words": [
+            {
+              "text": " Ladovico,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.5648193359375
+            },
+            {
+              "text": " maybe",
+              "start": 1.51,
+              "end": 1.83,
+              "probability": 0.56982421875
+            },
+            {
+              "text": " the",
+              "start": 1.83,
+              "end": 2.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " letter",
+              "start": 2.11,
+              "end": 2.37,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " moved",
+              "start": 2.37,
+              "end": 2.73,
+              "probability": 0.6630859375
+            },
+            {
+              "text": " him,",
+              "start": 2.73,
+              "end": 3.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for,",
+              "start": 3.33,
+              "end": 3.55,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " as",
+              "start": 3.77,
+              "end": 3.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 3.81,
+              "end": 3.93,
+              "probability": 0.9921875
+            },
+            {
+              "text": " think,",
+              "start": 3.93,
+              "end": 4.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " they",
+              "start": 4.67,
+              "end": 4.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " do",
+              "start": 4.77,
+              "end": 5.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " command",
+              "start": 5.01,
+              "end": 5.41,
+              "probability": 0.994140625
+            },
+            {
+              "text": " him",
+              "start": 5.41,
+              "end": 5.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " home,",
+              "start": 5.63,
+              "end": 6.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " deputing",
+              "start": 6.29,
+              "end": 6.59,
+              "probability": 0.923095703125
+            }
+          ]
+        },
+        {
+          "text": " Cassio in his government.",
+          "start": 6.59,
+          "end": 7.79,
+          "words": [
+            {
+              "text": " Cassio",
+              "start": 6.59,
+              "end": 7.19,
+              "probability": 0.7174072265625
+            },
+            {
+              "text": " in",
+              "start": 7.19,
+              "end": 7.35,
+              "probability": 0.560546875
+            },
+            {
+              "text": " his",
+              "start": 7.35,
+              "end": 7.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " government.",
+              "start": 7.49,
+              "end": 7.79,
+              "probability": 0.9541015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ladovico,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "maybe",
+          "start": 1.51,
+          "end": 1.83
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 2.11
+        },
+        {
+          "raw": "letter",
+          "start": 2.11,
+          "end": 2.37
+        },
+        {
+          "raw": "moved",
+          "start": 2.37,
+          "end": 2.73
+        },
+        {
+          "raw": "him,",
+          "start": 2.73,
+          "end": 3.03
+        },
+        {
+          "raw": "for,",
+          "start": 3.33,
+          "end": 3.55
+        },
+        {
+          "raw": "as",
+          "start": 3.77,
+          "end": 3.81
+        },
+        {
+          "raw": "I",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "raw": "think,",
+          "start": 3.93,
+          "end": 4.23
+        },
+        {
+          "raw": "they",
+          "start": 4.67,
+          "end": 4.77
+        },
+        {
+          "raw": "do",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "raw": "command",
+          "start": 5.01,
+          "end": 5.41
+        },
+        {
+          "raw": "him",
+          "start": 5.41,
+          "end": 5.63
+        },
+        {
+          "raw": "home,",
+          "start": 5.63,
+          "end": 6.01
+        },
+        {
+          "raw": "deputing",
+          "start": 6.29,
+          "end": 6.59
+        },
+        {
+          "raw": "Cassio",
+          "start": 6.59,
+          "end": 7.19
+        },
+        {
+          "raw": "in",
+          "start": 7.19,
+          "end": 7.35
+        },
+        {
+          "raw": "his",
+          "start": 7.35,
+          "end": 7.49
+        },
+        {
+          "raw": "government.",
+          "start": 7.49,
+          "end": 7.79
+        }
+      ],
+      "expected_tokens": [
+        "Lodovico.",
+        "May",
+        "be",
+        "the",
+        "letter",
+        "mov'd",
+        "him;",
+        "For,",
+        "as",
+        "I",
+        "think,",
+        "they",
+        "do",
+        "command",
+        "him",
+        "home,",
+        "Deputing",
+        "Cassio",
+        "in",
+        "his",
+        "government."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          "equal",
+          3,
+          5,
+          2,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          4,
+          5
+        ],
+        [
+          "equal",
+          6,
+          21,
+          5,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ladovico,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "ladovico",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "maybe",
+          "start": 1.51,
+          "end": 1.83,
+          "key": "maybe",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 2.11,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 2.11,
+          "end": 2.37,
+          "key": "letter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "moved",
+          "start": 2.37,
+          "end": 2.73,
+          "key": "moved",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 2.73,
+          "end": 3.03,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for,",
+          "start": 3.33,
+          "end": 3.55,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.77,
+          "end": 3.81,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.81,
+          "end": 3.93,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "think,",
+          "start": 3.93,
+          "end": 4.23,
+          "key": "think",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.67,
+          "end": 4.77,
+          "key": "they",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 4.77,
+          "end": 5.01,
+          "key": "do",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "command",
+          "start": 5.01,
+          "end": 5.41,
+          "key": "command",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.41,
+          "end": 5.63,
+          "key": "him",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "home,",
+          "start": 5.63,
+          "end": 6.01,
+          "key": "home",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "deputing",
+          "start": 6.29,
+          "end": 6.59,
+          "key": "deputing",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Cassio",
+          "start": 6.59,
+          "end": 7.19,
+          "key": "cassio",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.19,
+          "end": 7.35,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 7.35,
+          "end": 7.49,
+          "key": "his",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "government.",
+          "start": 7.49,
+          "end": 7.79,
+          "key": "government",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lodovico.",
+          "start": 0.0,
+          "end": 0.915
+        },
+        {
+          "text": "May",
+          "start": 0.915,
+          "end": 1.373
+        },
+        {
+          "text": "be",
+          "start": 1.373,
+          "end": 1.602
+        },
+        {
+          "text": "the",
+          "start": 1.83,
+          "end": 2.11
+        },
+        {
+          "text": "letter",
+          "start": 2.11,
+          "end": 2.37
+        },
+        {
+          "text": "mov'd",
+          "start": 2.37,
+          "end": 2.55
+        },
+        {
+          "text": "him;",
+          "start": 2.73,
+          "end": 3.03
+        },
+        {
+          "text": "For,",
+          "start": 3.33,
+          "end": 3.55
+        },
+        {
+          "text": "as",
+          "start": 3.77,
+          "end": 3.81
+        },
+        {
+          "text": "I",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "text": "think,",
+          "start": 3.93,
+          "end": 4.23
+        },
+        {
+          "text": "they",
+          "start": 4.67,
+          "end": 4.77
+        },
+        {
+          "text": "do",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "text": "command",
+          "start": 5.01,
+          "end": 5.41
+        },
+        {
+          "text": "him",
+          "start": 5.41,
+          "end": 5.63
+        },
+        {
+          "text": "home,",
+          "start": 5.63,
+          "end": 6.01
+        },
+        {
+          "text": "Deputing",
+          "start": 6.29,
+          "end": 6.59
+        },
+        {
+          "text": "Cassio",
+          "start": 6.59,
+          "end": 7.19
+        },
+        {
+          "text": "in",
+          "start": 7.19,
+          "end": 7.35
+        },
+        {
+          "text": "his",
+          "start": 7.35,
+          "end": 7.49
+        },
+        {
+          "text": "government.",
+          "start": 7.49,
+          "end": 7.79
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 20,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8095238095238095,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.29218991100788116
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6ad2c80e89b8b78be30e811a543625986d32a3b241b63bc8ed0939cc463cb372",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

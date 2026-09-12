@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "82098dee05737b98f514cb0796ac30a1c1c59ec96648ec350308d10d2388bae9",
+  "attempts": [
+    {
+      "asr_seconds": 0.1776404194533825,
+      "alignment_seconds": 0.000340435653924942,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Polonius, honest, my lord.",
+          "start": 0.55,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Polonius,",
+              "start": 0.55,
+              "end": 0.99,
+              "probability": 0.798828125
+            },
+            {
+              "text": " honest,",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.869140625
+            },
+            {
+              "text": " my",
+              "start": 1.71,
+              "end": 1.83,
+              "probability": 0.984375
+            },
+            {
+              "text": " lord.",
+              "start": 1.83,
+              "end": 2.05,
+              "probability": 0.85498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polonius,",
+          "start": 0.55,
+          "end": 0.99
+        },
+        {
+          "raw": "honest,",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "my",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "raw": "lord.",
+          "start": 1.83,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "Honest,",
+        "my",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polonius,",
+          "start": 0.55,
+          "end": 0.99,
+          "key": "polonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "honest,",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "honest",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.71,
+          "end": 1.83,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.83,
+          "end": 2.05,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 0.55,
+          "end": 0.99
+        },
+        {
+          "text": "Honest,",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "my",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "text": "lord?",
+          "start": 1.83,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1781011689454317
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "817866487d3999cedb1db02fb46b8b06baad487651cb565d824904109edf8bcd",
+  "selected_reasons": []
+}

@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "492b1d1a471b1a63c40bf85da4cd5b285b17a06f42cab580cd4d3dcb26860a8b",
+  "attempts": [
+    {
+      "asr_seconds": 0.19410632402286865,
+      "alignment_seconds": 0.00024613901041448116,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aside to Mina's go hang sir hang tell me of that away",
+          "start": 0.14,
+          "end": 3.82,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 0.14,
+              "end": 0.7,
+              "probability": 0.5087890625
+            },
+            {
+              "text": " to",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " Mina's",
+              "start": 0.9,
+              "end": 1.5,
+              "probability": 0.8722330729166666
+            },
+            {
+              "text": " go",
+              "start": 1.5,
+              "end": 1.88,
+              "probability": 0.2462158203125
+            },
+            {
+              "text": " hang",
+              "start": 1.88,
+              "end": 2.12,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " sir",
+              "start": 2.12,
+              "end": 2.34,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " hang",
+              "start": 2.34,
+              "end": 2.62,
+              "probability": 0.5234375
+            },
+            {
+              "text": " tell",
+              "start": 2.62,
+              "end": 2.94,
+              "probability": 0.833984375
+            },
+            {
+              "text": " me",
+              "start": 2.94,
+              "end": 3.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 3.06,
+              "end": 3.16,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " that",
+              "start": 3.16,
+              "end": 3.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " away",
+              "start": 3.4,
+              "end": 3.82,
+              "probability": 0.95361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside",
+          "start": 0.14,
+          "end": 0.7
+        },
+        {
+          "raw": "to",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "Mina's",
+          "start": 0.9,
+          "end": 1.5
+        },
+        {
+          "raw": "go",
+          "start": 1.5,
+          "end": 1.88
+        },
+        {
+          "raw": "hang",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "raw": "sir",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "raw": "hang",
+          "start": 2.34,
+          "end": 2.62
+        },
+        {
+          "raw": "tell",
+          "start": 2.62,
+          "end": 2.94
+        },
+        {
+          "raw": "me",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "raw": "of",
+          "start": 3.06,
+          "end": 3.16
+        },
+        {
+          "raw": "that",
+          "start": 3.16,
+          "end": 3.4
+        },
+        {
+          "raw": "away",
+          "start": 3.4,
+          "end": 3.82
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside",
+        "to",
+        "Menas._]",
+        "Go",
+        "hang,",
+        "sir,",
+        "hang!",
+        "Tell",
+        "me",
+        "of",
+        "that?",
+        "Away!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          12,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside",
+          "start": 0.14,
+          "end": 0.7,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.7,
+          "end": 0.9,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mina's",
+          "start": 0.9,
+          "end": 1.5,
+          "key": "minas",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.5,
+          "end": 1.88,
+          "key": "go",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hang",
+          "start": 1.88,
+          "end": 2.12,
+          "key": "hang",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir",
+          "start": 2.12,
+          "end": 2.34,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hang",
+          "start": 2.34,
+          "end": 2.62,
+          "key": "hang",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.62,
+          "end": 2.94,
+          "key": "tell",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.94,
+          "end": 3.06,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.06,
+          "end": 3.16,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.16,
+          "end": 3.4,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 3.4,
+          "end": 3.82,
+          "key": "away",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside",
+          "start": 0.14,
+          "end": 0.7
+        },
+        {
+          "text": "to",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "Menas._]",
+          "start": 0.9,
+          "end": 1.2
+        },
+        {
+          "text": "Go",
+          "start": 1.5,
+          "end": 1.88
+        },
+        {
+          "text": "hang,",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "text": "sir,",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "text": "hang!",
+          "start": 2.34,
+          "end": 2.62
+        },
+        {
+          "text": "Tell",
+          "start": 2.62,
+          "end": 2.94
+        },
+        {
+          "text": "me",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "text": "of",
+          "start": 3.06,
+          "end": 3.16
+        },
+        {
+          "text": "that?",
+          "start": 3.16,
+          "end": 3.4
+        },
+        {
+          "text": "Away!",
+          "start": 3.4,
+          "end": 3.82
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.19442053500097245
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d45a225af142432647cdfec57964a6e2558c5d8d604c95b99827642773a0d085",
+  "selected_reasons": []
+}

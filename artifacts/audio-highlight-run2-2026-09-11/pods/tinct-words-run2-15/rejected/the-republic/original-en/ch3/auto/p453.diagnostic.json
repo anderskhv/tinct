@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "2a036518d1aa885a1fcafad5376ee3061d4472911339755578aa28115797f6b6",
+  "attempts": [
+    {
+      "asr_seconds": 0.29013438895344734,
+      "alignment_seconds": 0.0003922693431377411,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And is not this involuntary deprivation caused either by theft, or force, or enchantment?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And is not this involuntary deprivation caused either by theft, or force, or enchantment?",
+          "start": 0.05,
+          "end": 5.65,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.317626953125
+            },
+            {
+              "text": " is",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " not",
+              "start": 0.63,
+              "end": 0.85,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " this",
+              "start": 0.85,
+              "end": 1.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " involuntary",
+              "start": 1.07,
+              "end": 1.67,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " deprivation",
+              "start": 1.67,
+              "end": 2.39,
+              "probability": 0.98046875
+            },
+            {
+              "text": " caused",
+              "start": 2.39,
+              "end": 2.83,
+              "probability": 0.962890625
+            },
+            {
+              "text": " either",
+              "start": 2.83,
+              "end": 3.13,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " by",
+              "start": 3.13,
+              "end": 3.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " theft,",
+              "start": 3.35,
+              "end": 3.71,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " or",
+              "start": 4.21,
+              "end": 4.25,
+              "probability": 0.994140625
+            },
+            {
+              "text": " force,",
+              "start": 4.25,
+              "end": 4.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " or",
+              "start": 5.17,
+              "end": 5.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " enchantment?",
+              "start": 5.21,
+              "end": 5.65,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "not",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "raw": "this",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "raw": "involuntary",
+          "start": 1.07,
+          "end": 1.67
+        },
+        {
+          "raw": "deprivation",
+          "start": 1.67,
+          "end": 2.39
+        },
+        {
+          "raw": "caused",
+          "start": 2.39,
+          "end": 2.83
+        },
+        {
+          "raw": "either",
+          "start": 2.83,
+          "end": 3.13
+        },
+        {
+          "raw": "by",
+          "start": 3.13,
+          "end": 3.35
+        },
+        {
+          "raw": "theft,",
+          "start": 3.35,
+          "end": 3.71
+        },
+        {
+          "raw": "or",
+          "start": 4.21,
+          "end": 4.25
+        },
+        {
+          "raw": "force,",
+          "start": 4.25,
+          "end": 4.69
+        },
+        {
+          "raw": "or",
+          "start": 5.17,
+          "end": 5.21
+        },
+        {
+          "raw": "enchantment?",
+          "start": 5.21,
+          "end": 5.65
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "is",
+        "not",
+        "this",
+        "involuntary",
+        "deprivation",
+        "caused",
+        "either",
+        "by",
+        "theft,",
+        "or",
+        "force,",
+        "or",
+        "enchantment?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.63,
+          "end": 0.85,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.85,
+          "end": 1.07,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "involuntary",
+          "start": 1.07,
+          "end": 1.67,
+          "key": "involuntary",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "deprivation",
+          "start": 1.67,
+          "end": 2.39,
+          "key": "deprivation",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "caused",
+          "start": 2.39,
+          "end": 2.83,
+          "key": "caused",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "either",
+          "start": 2.83,
+          "end": 3.13,
+          "key": "either",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.13,
+          "end": 3.35,
+          "key": "by",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "theft,",
+          "start": 3.35,
+          "end": 3.71,
+          "key": "theft",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 4.21,
+          "end": 4.25,
+          "key": "or",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "force,",
+          "start": 4.25,
+          "end": 4.69,
+          "key": "force",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 5.17,
+          "end": 5.21,
+          "key": "or",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "enchantment?",
+          "start": 5.21,
+          "end": 5.65,
+          "key": "enchantment",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "is",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "not",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "text": "this",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "text": "involuntary",
+          "start": 1.07,
+          "end": 1.67
+        },
+        {
+          "text": "deprivation",
+          "start": 1.67,
+          "end": 2.39
+        },
+        {
+          "text": "caused",
+          "start": 2.39,
+          "end": 2.83
+        },
+        {
+          "text": "either",
+          "start": 2.83,
+          "end": 3.13
+        },
+        {
+          "text": "by",
+          "start": 3.13,
+          "end": 3.35
+        },
+        {
+          "text": "theft,",
+          "start": 3.35,
+          "end": 3.71
+        },
+        {
+          "text": "or",
+          "start": 4.21,
+          "end": 4.25
+        },
+        {
+          "text": "force,",
+          "start": 4.25,
+          "end": 4.69
+        },
+        {
+          "text": "or",
+          "start": 5.17,
+          "end": 5.21
+        },
+        {
+          "text": "enchantment?",
+          "start": 5.21,
+          "end": 5.65
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29068373516201973
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "22d2ba5ada3cc139d3c72606a7a287acba8d967c1f9d207b4306b1c32442a0ca",
+  "selected_reasons": []
+}

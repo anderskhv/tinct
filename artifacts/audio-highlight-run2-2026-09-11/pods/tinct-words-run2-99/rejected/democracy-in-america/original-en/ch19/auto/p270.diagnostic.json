@@ -1,0 +1,2194 @@
+{
+  "complete": true,
+  "signature": "fecc40569a6c282a51cc149cd0d90c31617f81730670e9ddebe1ac51dc23832b",
+  "attempts": [
+    {
+      "asr_seconds": 0.28305434435606003,
+      "alignment_seconds": 0.00046992674469947815,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "q [ See the report of its committee to the Convention which proclaimed the nullification of the tariff in South Carolina.]",
+        "hotwords": "See, Convention, South, Carolina"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " q. See the report of its committee to the Convention which proclaimed the nullification of the tariff in South Carolina.]",
+          "start": 0.0,
+          "end": 7.0,
+          "words": [
+            {
+              "text": " q.",
+              "start": 0.0,
+              "end": 0.58,
+              "probability": 0.00323486328125
+            },
+            {
+              "text": " See",
+              "start": 1.1,
+              "end": 1.2,
+              "probability": 0.457275390625
+            },
+            {
+              "text": " the",
+              "start": 1.2,
+              "end": 1.36,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " report",
+              "start": 1.36,
+              "end": 1.68,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " of",
+              "start": 1.68,
+              "end": 1.84,
+              "probability": 0.986328125
+            },
+            {
+              "text": " its",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " committee",
+              "start": 1.98,
+              "end": 2.3,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " to",
+              "start": 2.3,
+              "end": 2.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 2.54,
+              "end": 2.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Convention",
+              "start": 2.66,
+              "end": 3.12,
+              "probability": 0.151123046875
+            },
+            {
+              "text": " which",
+              "start": 3.12,
+              "end": 3.86,
+              "probability": 0.299072265625
+            },
+            {
+              "text": " proclaimed",
+              "start": 3.86,
+              "end": 4.32,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " the",
+              "start": 4.32,
+              "end": 4.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " nullification",
+              "start": 4.58,
+              "end": 5.0,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " of",
+              "start": 5.0,
+              "end": 5.44,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 5.44,
+              "end": 5.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " tariff",
+              "start": 5.56,
+              "end": 5.92,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " in",
+              "start": 5.92,
+              "end": 6.4,
+              "probability": 0.9921875
+            },
+            {
+              "text": " South",
+              "start": 6.4,
+              "end": 6.66,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Carolina.]",
+              "start": 6.66,
+              "end": 7.0,
+              "probability": 0.4995441138744354
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "q.",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "raw": "See",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "raw": "the",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "raw": "report",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "raw": "of",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "raw": "its",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "committee",
+          "start": 1.98,
+          "end": 2.3
+        },
+        {
+          "raw": "to",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "raw": "the",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "raw": "Convention",
+          "start": 2.66,
+          "end": 3.12
+        },
+        {
+          "raw": "which",
+          "start": 3.12,
+          "end": 3.86
+        },
+        {
+          "raw": "proclaimed",
+          "start": 3.86,
+          "end": 4.32
+        },
+        {
+          "raw": "the",
+          "start": 4.32,
+          "end": 4.58
+        },
+        {
+          "raw": "nullification",
+          "start": 4.58,
+          "end": 5.0
+        },
+        {
+          "raw": "of",
+          "start": 5.0,
+          "end": 5.44
+        },
+        {
+          "raw": "the",
+          "start": 5.44,
+          "end": 5.56
+        },
+        {
+          "raw": "tariff",
+          "start": 5.56,
+          "end": 5.92
+        },
+        {
+          "raw": "in",
+          "start": 5.92,
+          "end": 6.4
+        },
+        {
+          "raw": "South",
+          "start": 6.4,
+          "end": 6.66
+        },
+        {
+          "raw": "Carolina.]",
+          "start": 6.66,
+          "end": 7.0
+        }
+      ],
+      "expected_tokens": [
+        "q",
+        "[",
+        "See",
+        "the",
+        "report",
+        "of",
+        "its",
+        "committee",
+        "to",
+        "the",
+        "Convention",
+        "which",
+        "proclaimed",
+        "the",
+        "nullification",
+        "of",
+        "the",
+        "tariff",
+        "in",
+        "South",
+        "Carolina.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          21,
+          1,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "q.",
+          "start": 0.0,
+          "end": 0.58,
+          "key": "q",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 1.1,
+          "end": 1.2,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.2,
+          "end": 1.36,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "report",
+          "start": 1.36,
+          "end": 1.68,
+          "key": "report",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.68,
+          "end": 1.84,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 1.84,
+          "end": 1.98,
+          "key": "its",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "committee",
+          "start": 1.98,
+          "end": 2.3,
+          "key": "committee",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.3,
+          "end": 2.54,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.54,
+          "end": 2.66,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Convention",
+          "start": 2.66,
+          "end": 3.12,
+          "key": "convention",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.12,
+          "end": 3.86,
+          "key": "which",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "proclaimed",
+          "start": 3.86,
+          "end": 4.32,
+          "key": "proclaimed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.32,
+          "end": 4.58,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "nullification",
+          "start": 4.58,
+          "end": 5.0,
+          "key": "nullification",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.0,
+          "end": 5.44,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.44,
+          "end": 5.56,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "tariff",
+          "start": 5.56,
+          "end": 5.92,
+          "key": "tariff",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.92,
+          "end": 6.4,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "South",
+          "start": 6.4,
+          "end": 6.66,
+          "key": "south",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Carolina.]",
+          "start": 6.66,
+          "end": 7.0,
+          "key": "carolina",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "q",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "[",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "text": "See",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "text": "the",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "text": "report",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "text": "of",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "text": "its",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "committee",
+          "start": 1.98,
+          "end": 2.3
+        },
+        {
+          "text": "to",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "text": "the",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "text": "Convention",
+          "start": 2.66,
+          "end": 3.12
+        },
+        {
+          "text": "which",
+          "start": 3.12,
+          "end": 3.86
+        },
+        {
+          "text": "proclaimed",
+          "start": 3.86,
+          "end": 4.32
+        },
+        {
+          "text": "the",
+          "start": 4.32,
+          "end": 4.58
+        },
+        {
+          "text": "nullification",
+          "start": 4.58,
+          "end": 5.0
+        },
+        {
+          "text": "of",
+          "start": 5.0,
+          "end": 5.44
+        },
+        {
+          "text": "the",
+          "start": 5.44,
+          "end": 5.56
+        },
+        {
+          "text": "tariff",
+          "start": 5.56,
+          "end": 5.92
+        },
+        {
+          "text": "in",
+          "start": 5.92,
+          "end": 6.4
+        },
+        {
+          "text": "South",
+          "start": 6.4,
+          "end": 6.66
+        },
+        {
+          "text": "Carolina.]",
+          "start": 6.66,
+          "end": 7.0
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.28369348496198654
+    },
+    {
+      "asr_seconds": 0.27855007350444794,
+      "alignment_seconds": 0.0005097202956676483,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "See, Convention, South, Carolina"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Q. See the report of its committee to the convention which proclaimed the nullification of the tariff in South Carolina",
+          "start": 0.0,
+          "end": 7.16,
+          "words": [
+            {
+              "text": " Q.",
+              "start": 0.0,
+              "end": 0.62,
+              "probability": 0.360107421875
+            },
+            {
+              "text": " See",
+              "start": 1.0,
+              "end": 1.22,
+              "probability": 0.53759765625
+            },
+            {
+              "text": " the",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " report",
+              "start": 1.36,
+              "end": 1.68,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " of",
+              "start": 1.68,
+              "end": 1.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " its",
+              "start": 1.86,
+              "end": 1.98,
+              "probability": 0.990234375
+            },
+            {
+              "text": " committee",
+              "start": 1.98,
+              "end": 2.3,
+              "probability": 0.826171875
+            },
+            {
+              "text": " to",
+              "start": 2.3,
+              "end": 2.54,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 2.54,
+              "end": 2.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " convention",
+              "start": 2.66,
+              "end": 3.12,
+              "probability": 0.7578125
+            },
+            {
+              "text": " which",
+              "start": 3.12,
+              "end": 3.84,
+              "probability": 0.2083740234375
+            },
+            {
+              "text": " proclaimed",
+              "start": 3.84,
+              "end": 4.34,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " the",
+              "start": 4.34,
+              "end": 4.58,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " nullification",
+              "start": 4.58,
+              "end": 5.02,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " of",
+              "start": 5.02,
+              "end": 5.44,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 5.44,
+              "end": 5.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " tariff",
+              "start": 5.56,
+              "end": 5.92,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " in",
+              "start": 5.92,
+              "end": 6.4,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " South",
+              "start": 6.4,
+              "end": 6.64,
+              "probability": 0.984375
+            },
+            {
+              "text": " Carolina",
+              "start": 6.64,
+              "end": 7.16,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Q.",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "raw": "See",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "report",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "raw": "of",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "raw": "its",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "raw": "committee",
+          "start": 1.98,
+          "end": 2.3
+        },
+        {
+          "raw": "to",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "raw": "the",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "raw": "convention",
+          "start": 2.66,
+          "end": 3.12
+        },
+        {
+          "raw": "which",
+          "start": 3.12,
+          "end": 3.84
+        },
+        {
+          "raw": "proclaimed",
+          "start": 3.84,
+          "end": 4.34
+        },
+        {
+          "raw": "the",
+          "start": 4.34,
+          "end": 4.58
+        },
+        {
+          "raw": "nullification",
+          "start": 4.58,
+          "end": 5.02
+        },
+        {
+          "raw": "of",
+          "start": 5.02,
+          "end": 5.44
+        },
+        {
+          "raw": "the",
+          "start": 5.44,
+          "end": 5.56
+        },
+        {
+          "raw": "tariff",
+          "start": 5.56,
+          "end": 5.92
+        },
+        {
+          "raw": "in",
+          "start": 5.92,
+          "end": 6.4
+        },
+        {
+          "raw": "South",
+          "start": 6.4,
+          "end": 6.64
+        },
+        {
+          "raw": "Carolina",
+          "start": 6.64,
+          "end": 7.16
+        }
+      ],
+      "expected_tokens": [
+        "q",
+        "[",
+        "See",
+        "the",
+        "report",
+        "of",
+        "its",
+        "committee",
+        "to",
+        "the",
+        "Convention",
+        "which",
+        "proclaimed",
+        "the",
+        "nullification",
+        "of",
+        "the",
+        "tariff",
+        "in",
+        "South",
+        "Carolina.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          21,
+          1,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Q.",
+          "start": 0.0,
+          "end": 0.62,
+          "key": "q",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 1.0,
+          "end": 1.22,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.36,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "report",
+          "start": 1.36,
+          "end": 1.68,
+          "key": "report",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.68,
+          "end": 1.86,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 1.86,
+          "end": 1.98,
+          "key": "its",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "committee",
+          "start": 1.98,
+          "end": 2.3,
+          "key": "committee",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.3,
+          "end": 2.54,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.54,
+          "end": 2.66,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "convention",
+          "start": 2.66,
+          "end": 3.12,
+          "key": "convention",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.12,
+          "end": 3.84,
+          "key": "which",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "proclaimed",
+          "start": 3.84,
+          "end": 4.34,
+          "key": "proclaimed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.34,
+          "end": 4.58,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "nullification",
+          "start": 4.58,
+          "end": 5.02,
+          "key": "nullification",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.02,
+          "end": 5.44,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.44,
+          "end": 5.56,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "tariff",
+          "start": 5.56,
+          "end": 5.92,
+          "key": "tariff",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.92,
+          "end": 6.4,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "South",
+          "start": 6.4,
+          "end": 6.64,
+          "key": "south",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Carolina",
+          "start": 6.64,
+          "end": 7.16,
+          "key": "carolina",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "q",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "text": "[",
+          "start": 0.62,
+          "end": 0.81
+        },
+        {
+          "text": "See",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "text": "the",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "report",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "text": "of",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "text": "its",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "text": "committee",
+          "start": 1.98,
+          "end": 2.3
+        },
+        {
+          "text": "to",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "text": "the",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "text": "Convention",
+          "start": 2.66,
+          "end": 3.12
+        },
+        {
+          "text": "which",
+          "start": 3.12,
+          "end": 3.84
+        },
+        {
+          "text": "proclaimed",
+          "start": 3.84,
+          "end": 4.34
+        },
+        {
+          "text": "the",
+          "start": 4.34,
+          "end": 4.58
+        },
+        {
+          "text": "nullification",
+          "start": 4.58,
+          "end": 5.02
+        },
+        {
+          "text": "of",
+          "start": 5.02,
+          "end": 5.44
+        },
+        {
+          "text": "the",
+          "start": 5.44,
+          "end": 5.56
+        },
+        {
+          "text": "tariff",
+          "start": 5.56,
+          "end": 5.92
+        },
+        {
+          "text": "in",
+          "start": 5.92,
+          "end": 6.4
+        },
+        {
+          "text": "South",
+          "start": 6.4,
+          "end": 6.64
+        },
+        {
+          "text": "Carolina.]",
+          "start": 6.64,
+          "end": 7.16
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.27925143390893936
+    },
+    {
+      "asr_seconds": 0.33912718668580055,
+      "alignment_seconds": 0.0005550757050514221,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Q, see the report of its committee to the convention, which proclaimed the nullification",
+          "start": 0.0,
+          "end": 5.0,
+          "words": [
+            {
+              "text": " Q,",
+              "start": 0.0,
+              "end": 0.62,
+              "probability": 0.360107421875
+            },
+            {
+              "text": " see",
+              "start": 0.96,
+              "end": 1.22,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " the",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " report",
+              "start": 1.36,
+              "end": 1.68,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 1.68,
+              "end": 1.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " its",
+              "start": 1.86,
+              "end": 1.98,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " committee",
+              "start": 1.98,
+              "end": 2.28,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " to",
+              "start": 2.28,
+              "end": 2.54,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 2.54,
+              "end": 2.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " convention,",
+              "start": 2.66,
+              "end": 3.12,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " which",
+              "start": 3.66,
+              "end": 3.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " proclaimed",
+              "start": 3.88,
+              "end": 4.32,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " the",
+              "start": 4.32,
+              "end": 4.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " nullification",
+              "start": 4.58,
+              "end": 5.0,
+              "probability": 0.9892578125
+            }
+          ]
+        },
+        {
+          "text": " of the tariff in South Carolina.",
+          "start": 5.0,
+          "end": 7.16,
+          "words": [
+            {
+              "text": " of",
+              "start": 5.0,
+              "end": 5.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 5.44,
+              "end": 5.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tariff",
+              "start": 5.56,
+              "end": 5.92,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " in",
+              "start": 5.92,
+              "end": 6.4,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " South",
+              "start": 6.4,
+              "end": 6.64,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Carolina.",
+              "start": 6.64,
+              "end": 7.16,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Q,",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "raw": "see",
+          "start": 0.96,
+          "end": 1.22
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "report",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "raw": "of",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "raw": "its",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "raw": "committee",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "raw": "to",
+          "start": 2.28,
+          "end": 2.54
+        },
+        {
+          "raw": "the",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "raw": "convention,",
+          "start": 2.66,
+          "end": 3.12
+        },
+        {
+          "raw": "which",
+          "start": 3.66,
+          "end": 3.88
+        },
+        {
+          "raw": "proclaimed",
+          "start": 3.88,
+          "end": 4.32
+        },
+        {
+          "raw": "the",
+          "start": 4.32,
+          "end": 4.58
+        },
+        {
+          "raw": "nullification",
+          "start": 4.58,
+          "end": 5.0
+        },
+        {
+          "raw": "of",
+          "start": 5.0,
+          "end": 5.44
+        },
+        {
+          "raw": "the",
+          "start": 5.44,
+          "end": 5.56
+        },
+        {
+          "raw": "tariff",
+          "start": 5.56,
+          "end": 5.92
+        },
+        {
+          "raw": "in",
+          "start": 5.92,
+          "end": 6.4
+        },
+        {
+          "raw": "South",
+          "start": 6.4,
+          "end": 6.64
+        },
+        {
+          "raw": "Carolina.",
+          "start": 6.64,
+          "end": 7.16
+        }
+      ],
+      "expected_tokens": [
+        "q",
+        "[",
+        "See",
+        "the",
+        "report",
+        "of",
+        "its",
+        "committee",
+        "to",
+        "the",
+        "Convention",
+        "which",
+        "proclaimed",
+        "the",
+        "nullification",
+        "of",
+        "the",
+        "tariff",
+        "in",
+        "South",
+        "Carolina.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          21,
+          1,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Q,",
+          "start": 0.0,
+          "end": 0.62,
+          "key": "q",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 0.96,
+          "end": 1.22,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.36,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "report",
+          "start": 1.36,
+          "end": 1.68,
+          "key": "report",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.68,
+          "end": 1.86,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 1.86,
+          "end": 1.98,
+          "key": "its",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "committee",
+          "start": 1.98,
+          "end": 2.28,
+          "key": "committee",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.28,
+          "end": 2.54,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.54,
+          "end": 2.66,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "convention,",
+          "start": 2.66,
+          "end": 3.12,
+          "key": "convention",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.66,
+          "end": 3.88,
+          "key": "which",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "proclaimed",
+          "start": 3.88,
+          "end": 4.32,
+          "key": "proclaimed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.32,
+          "end": 4.58,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "nullification",
+          "start": 4.58,
+          "end": 5.0,
+          "key": "nullification",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.0,
+          "end": 5.44,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.44,
+          "end": 5.56,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "tariff",
+          "start": 5.56,
+          "end": 5.92,
+          "key": "tariff",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.92,
+          "end": 6.4,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "South",
+          "start": 6.4,
+          "end": 6.64,
+          "key": "south",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Carolina.",
+          "start": 6.64,
+          "end": 7.16,
+          "key": "carolina",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "q",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "text": "[",
+          "start": 0.62,
+          "end": 0.79
+        },
+        {
+          "text": "See",
+          "start": 0.96,
+          "end": 1.22
+        },
+        {
+          "text": "the",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "report",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "text": "of",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "text": "its",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "text": "committee",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "text": "to",
+          "start": 2.28,
+          "end": 2.54
+        },
+        {
+          "text": "the",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "text": "Convention",
+          "start": 2.66,
+          "end": 3.12
+        },
+        {
+          "text": "which",
+          "start": 3.66,
+          "end": 3.88
+        },
+        {
+          "text": "proclaimed",
+          "start": 3.88,
+          "end": 4.32
+        },
+        {
+          "text": "the",
+          "start": 4.32,
+          "end": 4.58
+        },
+        {
+          "text": "nullification",
+          "start": 4.58,
+          "end": 5.0
+        },
+        {
+          "text": "of",
+          "start": 5.0,
+          "end": 5.44
+        },
+        {
+          "text": "the",
+          "start": 5.44,
+          "end": 5.56
+        },
+        {
+          "text": "tariff",
+          "start": 5.56,
+          "end": 5.92
+        },
+        {
+          "text": "in",
+          "start": 5.92,
+          "end": 6.4
+        },
+        {
+          "text": "South",
+          "start": 6.4,
+          "end": 6.64
+        },
+        {
+          "text": "Carolina.]",
+          "start": 6.64,
+          "end": 7.16
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.33988992124795914
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4e3c0d4c727149454acbfde1060ca91f30d3c369fab3f387fe65534880f5b8c6",
+  "selected_reasons": []
+}

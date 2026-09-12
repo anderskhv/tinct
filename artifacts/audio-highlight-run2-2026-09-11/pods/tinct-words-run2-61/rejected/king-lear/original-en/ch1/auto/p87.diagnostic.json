@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "ed7344b6d90cf102f158e69b6a9796185e4cac42c4ac354553b32f2302b5729c",
+  "attempts": [
+    {
+      "asr_seconds": 0.19698160886764526,
+      "alignment_seconds": 0.0004082974046468735,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Regan. Prescribe not us our duties.",
+        "hotwords": "Regan, Prescribe"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Regan, Prescribe not us our duties.",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Regan,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.67578125
+            },
+            {
+              "text": " Prescribe",
+              "start": 1.21,
+              "end": 1.71,
+              "probability": 0.6240081787109375
+            },
+            {
+              "text": " not",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.52490234375
+            },
+            {
+              "text": " us",
+              "start": 1.87,
+              "end": 1.99,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " our",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " duties.",
+              "start": 2.15,
+              "end": 2.37,
+              "probability": 0.9736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Prescribe",
+          "start": 1.21,
+          "end": 1.71
+        },
+        {
+          "raw": "not",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "us",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "raw": "our",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "duties.",
+          "start": 2.15,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "Regan.",
+        "Prescribe",
+        "not",
+        "us",
+        "our",
+        "duties."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "regan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Prescribe",
+          "start": 1.21,
+          "end": 1.71,
+          "key": "prescribe",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.87,
+          "end": 1.99,
+          "key": "us",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "our",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "duties.",
+          "start": 2.15,
+          "end": 2.37,
+          "key": "duties",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Regan.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Prescribe",
+          "start": 1.21,
+          "end": 1.71
+        },
+        {
+          "text": "not",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "us",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "text": "our",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "text": "duties.",
+          "start": 2.15,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19753244891762733
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f8cdcf37bfbc2c6f0ce4cbbf338d9883ba09e84dceba385f05ed4a8b72d39793",
+  "selected_reasons": []
+}

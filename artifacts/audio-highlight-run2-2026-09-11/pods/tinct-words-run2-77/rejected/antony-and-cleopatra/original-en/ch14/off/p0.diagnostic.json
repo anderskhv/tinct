@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "f6843f0909519c79067ba9f9580e88d035c117e626ebc11bbb81421c32f83e04",
+  "attempts": [
+    {
+      "asr_seconds": 0.17364238601294346,
+      "alignment_seconds": 0.0002181979943998158,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Agrippa at one door, Inabarbis at another.",
+          "start": 0.05,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " Agrippa",
+              "start": 0.67,
+              "end": 1.15,
+              "probability": 0.6771647135416666
+            },
+            {
+              "text": " at",
+              "start": 1.15,
+              "end": 1.29,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " one",
+              "start": 1.29,
+              "end": 1.49,
+              "probability": 0.986328125
+            },
+            {
+              "text": " door,",
+              "start": 1.49,
+              "end": 1.81,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Inabarbis",
+              "start": 2.25,
+              "end": 2.73,
+              "probability": 0.3502197265625
+            },
+            {
+              "text": " at",
+              "start": 2.73,
+              "end": 2.87,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " another.",
+              "start": 2.87,
+              "end": 3.13,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Agrippa",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "raw": "at",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "raw": "one",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "raw": "door,",
+          "start": 1.49,
+          "end": 1.81
+        },
+        {
+          "raw": "Inabarbis",
+          "start": 2.25,
+          "end": 2.73
+        },
+        {
+          "raw": "at",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "raw": "another.",
+          "start": 2.87,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Agrippa",
+        "at",
+        "one",
+        "door,",
+        "Enobarbus",
+        "at",
+        "another."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          8,
+          6,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Agrippa",
+          "start": 0.67,
+          "end": 1.15,
+          "key": "agrippa",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.15,
+          "end": 1.29,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.29,
+          "end": 1.49,
+          "key": "one",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "door,",
+          "start": 1.49,
+          "end": 1.81,
+          "key": "door",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Inabarbis",
+          "start": 2.25,
+          "end": 2.73,
+          "key": "inabarbis",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.73,
+          "end": 2.87,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "another.",
+          "start": 2.87,
+          "end": 3.13,
+          "key": "another",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Agrippa",
+          "start": 0.67,
+          "end": 1.15
+        },
+        {
+          "text": "at",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "text": "one",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "text": "door,",
+          "start": 1.49,
+          "end": 1.81
+        },
+        {
+          "text": "Enobarbus",
+          "start": 1.81,
+          "end": 2.27
+        },
+        {
+          "text": "at",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "text": "another.",
+          "start": 2.87,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.17393737600650638
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8bb95f9668335de41433cb3eb5c0a558274d9f49ce041ebdd8e928fadd35d7ec",
+  "selected_reasons": []
+}

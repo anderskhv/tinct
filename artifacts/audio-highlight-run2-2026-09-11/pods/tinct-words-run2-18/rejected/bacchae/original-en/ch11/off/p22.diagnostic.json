@@ -1,0 +1,173 @@
+{
+  "complete": true,
+  "signature": "897789cbc6212974518db624c2dc06fac11fe2ff4f0aa25055097346e10ce495",
+  "attempts": [
+    {
+      "asr_seconds": 0.1254437790485099,
+      "alignment_seconds": 0.00025644199922680855,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Agavi, Kitharan.",
+          "start": 0.02,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " Agavi,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.5416259765625
+            },
+            {
+              "text": " Kitharan.",
+              "start": 1.08,
+              "end": 1.52,
+              "probability": 0.5474446614583334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agavi,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "Kitharan.",
+          "start": 1.08,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "Kithaeron.",
+        ".",
+        ".",
+        "."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "unspoken",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [
+        2,
+        3,
+        4
+      ],
+      "compared_heard": [
+        {
+          "raw": "Agavi,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "agavi",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kitharan.",
+          "start": 1.08,
+          "end": 1.52,
+          "key": "kitharan",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.0,
+          "end": 0.76
+        },
+        {
+          "text": "Kithaeron.",
+          "start": 0.76,
+          "end": 1.14
+        },
+        {
+          "text": ".",
+          "start": 1.14,
+          "end": 1.33
+        },
+        {
+          "text": ".",
+          "start": 1.33,
+          "end": 1.425
+        },
+        {
+          "text": ".",
+          "start": 1.425,
+          "end": 1.473
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12577854003757238
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "66677bedbbf33e76420234c4a9464793097a1e06a060fafd911ed69910269c48",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

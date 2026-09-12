@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "8b7866e2c3c50625db3c6b4934dc1a55209818f9ae17fa63f56d65181fd00321",
+  "attempts": [
+    {
+      "asr_seconds": 0.2051249211654067,
+      "alignment_seconds": 0.00020047277212142944,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Duke, antifolus thou camstee from Corinth first.",
+          "start": 0.08,
+          "end": 3.18,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.734375
+            },
+            {
+              "text": " antifolus",
+              "start": 1.04,
+              "end": 1.74,
+              "probability": 0.7081298828125
+            },
+            {
+              "text": " thou",
+              "start": 1.74,
+              "end": 1.92,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " camstee",
+              "start": 1.92,
+              "end": 2.42,
+              "probability": 0.68701171875
+            },
+            {
+              "text": " from",
+              "start": 2.42,
+              "end": 2.58,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Corinth",
+              "start": 2.58,
+              "end": 2.88,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " first.",
+              "start": 2.88,
+              "end": 3.18,
+              "probability": 0.9609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "antifolus",
+          "start": 1.04,
+          "end": 1.74
+        },
+        {
+          "raw": "thou",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "raw": "camstee",
+          "start": 1.92,
+          "end": 2.42
+        },
+        {
+          "raw": "from",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "raw": "Corinth",
+          "start": 2.58,
+          "end": 2.88
+        },
+        {
+          "raw": "first.",
+          "start": 2.88,
+          "end": 3.18
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "Antipholus,",
+        "thou",
+        "cam'st",
+        "from",
+        "Corinth",
+        "first?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "antifolus",
+          "start": 1.04,
+          "end": 1.74,
+          "key": "antifolus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.74,
+          "end": 1.92,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "camstee",
+          "start": 1.92,
+          "end": 2.42,
+          "key": "camstee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.42,
+          "end": 2.58,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Corinth",
+          "start": 2.58,
+          "end": 2.88,
+          "key": "corinth",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "first.",
+          "start": 2.88,
+          "end": 3.18,
+          "key": "first",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Antipholus,",
+          "start": 0.68,
+          "end": 1.21
+        },
+        {
+          "text": "thou",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "text": "cam'st",
+          "start": 1.92,
+          "end": 2.17
+        },
+        {
+          "text": "from",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "text": "Corinth",
+          "start": 2.58,
+          "end": 2.88
+        },
+        {
+          "text": "first?",
+          "start": 2.88,
+          "end": 3.18
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2054233532398939
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3bd0bd6d2fec7c9ef102adc5f42b8fe8c0eaf29fe3b05d25bc3b823217c659ba",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

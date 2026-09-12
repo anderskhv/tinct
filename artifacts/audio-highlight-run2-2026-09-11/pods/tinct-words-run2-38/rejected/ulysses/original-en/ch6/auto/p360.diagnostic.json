@@ -1,0 +1,1476 @@
+{
+  "complete": true,
+  "signature": "2db5ed59cf6e19d20da9c575ea7426139b9e340aaaa57f0a3fd8117cb39538d7",
+  "attempts": [
+    {
+      "asr_seconds": 0.1640120369847864,
+      "alignment_seconds": 0.00018222100334241986,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—M'Intosh, Hynes said scribbling. I don't know who he is. Is that his name?",
+        "hotwords": "M'Intosh, Hynes, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " M'Intosh, Hynes said scribbling. I don't know who he is. Is that his name?",
+          "start": 0.08,
+          "end": 4.54,
+          "words": [
+            {
+              "text": " M",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.01166534423828125
+            },
+            {
+              "text": "'Intosh,",
+              "start": 0.58,
+              "end": 1.08,
+              "probability": 0.50799560546875
+            },
+            {
+              "text": " Hynes",
+              "start": 1.46,
+              "end": 1.56,
+              "probability": 0.11005020141601562
+            },
+            {
+              "text": " said",
+              "start": 1.56,
+              "end": 1.8,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " scribbling.",
+              "start": 1.8,
+              "end": 2.3,
+              "probability": 0.933349609375
+            },
+            {
+              "text": " I",
+              "start": 2.52,
+              "end": 2.52,
+              "probability": 0.79296875
+            },
+            {
+              "text": " don't",
+              "start": 2.52,
+              "end": 2.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " know",
+              "start": 2.68,
+              "end": 2.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " who",
+              "start": 2.82,
+              "end": 2.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " he",
+              "start": 2.94,
+              "end": 3.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " is.",
+              "start": 3.12,
+              "end": 3.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Is",
+              "start": 3.72,
+              "end": 3.94,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " that",
+              "start": 3.94,
+              "end": 4.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 4.12,
+              "end": 4.26,
+              "probability": 0.9921875
+            },
+            {
+              "text": " name?",
+              "start": 4.26,
+              "end": 4.54,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "M",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "'Intosh,",
+          "start": 0.58,
+          "end": 1.08
+        },
+        {
+          "raw": "Hynes",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "raw": "said",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "raw": "scribbling.",
+          "start": 1.8,
+          "end": 2.3
+        },
+        {
+          "raw": "I",
+          "start": 2.52,
+          "end": 2.52
+        },
+        {
+          "raw": "don't",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "raw": "know",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "raw": "who",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "raw": "he",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "raw": "is.",
+          "start": 3.12,
+          "end": 3.52
+        },
+        {
+          "raw": "Is",
+          "start": 3.72,
+          "end": 3.94
+        },
+        {
+          "raw": "that",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "raw": "his",
+          "start": 4.12,
+          "end": 4.26
+        },
+        {
+          "raw": "name?",
+          "start": 4.26,
+          "end": 4.54
+        }
+      ],
+      "expected_tokens": [
+        "—M'Intosh,",
+        "Hynes",
+        "said",
+        "scribbling.",
+        "I",
+        "don't",
+        "know",
+        "who",
+        "he",
+        "is.",
+        "Is",
+        "that",
+        "his",
+        "name?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          14,
+          2,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "M",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "m",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "'Intosh,",
+          "start": 0.58,
+          "end": 1.08,
+          "key": "intosh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Hynes",
+          "start": 1.46,
+          "end": 1.56,
+          "key": "hynes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.56,
+          "end": 1.8,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "scribbling.",
+          "start": 1.8,
+          "end": 2.3,
+          "key": "scribbling",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.52,
+          "end": 2.52,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 2.52,
+          "end": 2.68,
+          "key": "dont",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 2.68,
+          "end": 2.82,
+          "key": "know",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 2.82,
+          "end": 2.94,
+          "key": "who",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.94,
+          "end": 3.12,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is.",
+          "start": 3.12,
+          "end": 3.52,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 3.72,
+          "end": 3.94,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.94,
+          "end": 4.12,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.12,
+          "end": 4.26,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "name?",
+          "start": 4.26,
+          "end": 4.54,
+          "key": "name",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—M'Intosh,",
+          "start": 0.0,
+          "end": 0.73
+        },
+        {
+          "text": "Hynes",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "text": "said",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "text": "scribbling.",
+          "start": 1.8,
+          "end": 2.3
+        },
+        {
+          "text": "I",
+          "start": 2.52,
+          "end": 2.52
+        },
+        {
+          "text": "don't",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "text": "know",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "text": "who",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "text": "he",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "text": "is.",
+          "start": 3.12,
+          "end": 3.52
+        },
+        {
+          "text": "Is",
+          "start": 3.72,
+          "end": 3.94
+        },
+        {
+          "text": "that",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "text": "his",
+          "start": 4.12,
+          "end": 4.26
+        },
+        {
+          "text": "name?",
+          "start": 4.26,
+          "end": 4.54
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.16426675900584087
+    },
+    {
+      "asr_seconds": 0.11437429900979623,
+      "alignment_seconds": 0.00025287200696766376,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "M'Intosh, Hynes, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " don't know who he is. Is that his name?",
+          "start": 2.24,
+          "end": 4.56,
+          "words": [
+            {
+              "text": " don't",
+              "start": 2.24,
+              "end": 2.64,
+              "probability": 0.49365705251693726
+            },
+            {
+              "text": " know",
+              "start": 2.64,
+              "end": 2.82,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " who",
+              "start": 2.82,
+              "end": 2.94,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " he",
+              "start": 2.94,
+              "end": 3.12,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " is.",
+              "start": 3.12,
+              "end": 3.48,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Is",
+              "start": 3.76,
+              "end": 3.96,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " that",
+              "start": 3.96,
+              "end": 4.12,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " his",
+              "start": 4.12,
+              "end": 4.28,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " name?",
+              "start": 4.28,
+              "end": 4.56,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "don't",
+          "start": 2.24,
+          "end": 2.64
+        },
+        {
+          "raw": "know",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "raw": "who",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "raw": "he",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "raw": "is.",
+          "start": 3.12,
+          "end": 3.48
+        },
+        {
+          "raw": "Is",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "raw": "that",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "raw": "his",
+          "start": 4.12,
+          "end": 4.28
+        },
+        {
+          "raw": "name?",
+          "start": 4.28,
+          "end": 4.56
+        }
+      ],
+      "expected_tokens": [
+        "—M'Intosh,",
+        "Hynes",
+        "said",
+        "scribbling.",
+        "I",
+        "don't",
+        "know",
+        "who",
+        "he",
+        "is.",
+        "Is",
+        "that",
+        "his",
+        "name?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          "equal",
+          5,
+          14,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          5,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "don't",
+          "start": 2.24,
+          "end": 2.64,
+          "key": "dont",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 2.64,
+          "end": 2.82,
+          "key": "know",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 2.82,
+          "end": 2.94,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.94,
+          "end": 3.12,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is.",
+          "start": 3.12,
+          "end": 3.48,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 3.76,
+          "end": 3.96,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.96,
+          "end": 4.12,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.12,
+          "end": 4.28,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "name?",
+          "start": 4.28,
+          "end": 4.56,
+          "key": "name",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—M'Intosh,",
+          "start": 0.0,
+          "end": 1.12
+        },
+        {
+          "text": "Hynes",
+          "start": 1.12,
+          "end": 1.68
+        },
+        {
+          "text": "said",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "text": "scribbling.",
+          "start": 1.96,
+          "end": 2.1
+        },
+        {
+          "text": "I",
+          "start": 2.1,
+          "end": 2.17
+        },
+        {
+          "text": "don't",
+          "start": 2.24,
+          "end": 2.64
+        },
+        {
+          "text": "know",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "text": "who",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "text": "he",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "text": "is.",
+          "start": 3.12,
+          "end": 3.48
+        },
+        {
+          "text": "Is",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "text": "that",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "text": "his",
+          "start": 4.12,
+          "end": 4.28
+        },
+        {
+          "text": "name?",
+          "start": 4.28,
+          "end": 4.56
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 0.6428571428571429,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11470231105340645
+    },
+    {
+      "asr_seconds": 0.16631664999295026,
+      "alignment_seconds": 0.00021428096806630492,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Emintosh Heinz said scribbling. I don't know who he is. Is that his name?",
+          "start": 0.88,
+          "end": 4.58,
+          "words": [
+            {
+              "text": " Emintosh",
+              "start": 0.88,
+              "end": 1.28,
+              "probability": 0.4264933268229167
+            },
+            {
+              "text": " Heinz",
+              "start": 1.28,
+              "end": 1.68,
+              "probability": 0.5479736328125
+            },
+            {
+              "text": " said",
+              "start": 1.68,
+              "end": 1.82,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " scribbling.",
+              "start": 1.82,
+              "end": 2.32,
+              "probability": 0.88671875
+            },
+            {
+              "text": " I",
+              "start": 2.52,
+              "end": 2.52,
+              "probability": 0.962890625
+            },
+            {
+              "text": " don't",
+              "start": 2.52,
+              "end": 2.68,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " know",
+              "start": 2.68,
+              "end": 2.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " who",
+              "start": 2.82,
+              "end": 2.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " he",
+              "start": 2.94,
+              "end": 3.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is.",
+              "start": 3.12,
+              "end": 3.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Is",
+              "start": 3.58,
+              "end": 3.94,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " that",
+              "start": 3.94,
+              "end": 4.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 4.12,
+              "end": 4.26,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " name?",
+              "start": 4.26,
+              "end": 4.58,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emintosh",
+          "start": 0.88,
+          "end": 1.28
+        },
+        {
+          "raw": "Heinz",
+          "start": 1.28,
+          "end": 1.68
+        },
+        {
+          "raw": "said",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "raw": "scribbling.",
+          "start": 1.82,
+          "end": 2.32
+        },
+        {
+          "raw": "I",
+          "start": 2.52,
+          "end": 2.52
+        },
+        {
+          "raw": "don't",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "raw": "know",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "raw": "who",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "raw": "he",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "raw": "is.",
+          "start": 3.12,
+          "end": 3.58
+        },
+        {
+          "raw": "Is",
+          "start": 3.58,
+          "end": 3.94
+        },
+        {
+          "raw": "that",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "raw": "his",
+          "start": 4.12,
+          "end": 4.26
+        },
+        {
+          "raw": "name?",
+          "start": 4.26,
+          "end": 4.58
+        }
+      ],
+      "expected_tokens": [
+        "—M'Intosh,",
+        "Hynes",
+        "said",
+        "scribbling.",
+        "I",
+        "don't",
+        "know",
+        "who",
+        "he",
+        "is.",
+        "Is",
+        "that",
+        "his",
+        "name?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          14,
+          2,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emintosh",
+          "start": 0.88,
+          "end": 1.28,
+          "key": "emintosh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Heinz",
+          "start": 1.28,
+          "end": 1.68,
+          "key": "heinz",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.68,
+          "end": 1.82,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "scribbling.",
+          "start": 1.82,
+          "end": 2.32,
+          "key": "scribbling",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.52,
+          "end": 2.52,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 2.52,
+          "end": 2.68,
+          "key": "dont",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 2.68,
+          "end": 2.82,
+          "key": "know",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 2.82,
+          "end": 2.94,
+          "key": "who",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.94,
+          "end": 3.12,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is.",
+          "start": 3.12,
+          "end": 3.58,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 3.58,
+          "end": 3.94,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.94,
+          "end": 4.12,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.12,
+          "end": 4.26,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "name?",
+          "start": 4.26,
+          "end": 4.58,
+          "key": "name",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—M'Intosh,",
+          "start": 0.0,
+          "end": 0.84
+        },
+        {
+          "text": "Hynes",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "text": "said",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "text": "scribbling.",
+          "start": 1.82,
+          "end": 2.32
+        },
+        {
+          "text": "I",
+          "start": 2.52,
+          "end": 2.52
+        },
+        {
+          "text": "don't",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "text": "know",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "text": "who",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "text": "he",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "text": "is.",
+          "start": 3.12,
+          "end": 3.58
+        },
+        {
+          "text": "Is",
+          "start": 3.58,
+          "end": 3.94
+        },
+        {
+          "text": "that",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "text": "his",
+          "start": 4.12,
+          "end": 4.26
+        },
+        {
+          "text": "name?",
+          "start": 4.26,
+          "end": 4.58
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.166610371961724
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3a637f7e0aece23ac2573eeaf9df67fbfefe557b07653f9485aa4f700177423b",
+  "selected_reasons": []
+}

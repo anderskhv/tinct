@@ -1,0 +1,763 @@
+{
+  "complete": true,
+  "signature": "6aebf97c0db4b476cc9cf317ad908c5abe224c1c625ae59455ddce8595a50950",
+  "attempts": [
+    {
+      "asr_seconds": 0.3163870498538017,
+      "alignment_seconds": 0.0004858504980802536,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He was flinging himself on his knees to pray, but broke into laughter not at the idea of",
+          "start": 0.02,
+          "end": 5.14,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " was",
+              "start": 0.48,
+              "end": 0.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " flinging",
+              "start": 0.62,
+              "end": 0.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " himself",
+              "start": 0.9,
+              "end": 1.32,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " on",
+              "start": 1.32,
+              "end": 1.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 1.56,
+              "end": 1.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " knees",
+              "start": 1.7,
+              "end": 1.98,
+              "probability": 1.0
+            },
+            {
+              "text": " to",
+              "start": 1.98,
+              "end": 2.22,
+              "probability": 0.99609375
+            },
+            {
+              "text": " pray,",
+              "start": 2.22,
+              "end": 2.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " but",
+              "start": 2.98,
+              "end": 3.18,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " broke",
+              "start": 3.18,
+              "end": 3.4,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " into",
+              "start": 3.4,
+              "end": 3.68,
+              "probability": 0.96875
+            },
+            {
+              "text": " laughter",
+              "start": 3.68,
+              "end": 3.98,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " not",
+              "start": 3.98,
+              "end": 4.3,
+              "probability": 0.71240234375
+            },
+            {
+              "text": " at",
+              "start": 4.3,
+              "end": 4.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.46,
+              "end": 4.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " idea",
+              "start": 4.54,
+              "end": 4.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 4.92,
+              "end": 5.14,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " prayer, but at himself.",
+          "start": 5.14,
+          "end": 6.74,
+          "words": [
+            {
+              "text": " prayer,",
+              "start": 5.14,
+              "end": 5.46,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " but",
+              "start": 5.9,
+              "end": 6.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 6.14,
+              "end": 6.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " himself.",
+              "start": 6.3,
+              "end": 6.74,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "was",
+          "start": 0.48,
+          "end": 0.62
+        },
+        {
+          "raw": "flinging",
+          "start": 0.62,
+          "end": 0.9
+        },
+        {
+          "raw": "himself",
+          "start": 0.9,
+          "end": 1.32
+        },
+        {
+          "raw": "on",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "raw": "his",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "raw": "knees",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "raw": "to",
+          "start": 1.98,
+          "end": 2.22
+        },
+        {
+          "raw": "pray,",
+          "start": 2.22,
+          "end": 2.54
+        },
+        {
+          "raw": "but",
+          "start": 2.98,
+          "end": 3.18
+        },
+        {
+          "raw": "broke",
+          "start": 3.18,
+          "end": 3.4
+        },
+        {
+          "raw": "into",
+          "start": 3.4,
+          "end": 3.68
+        },
+        {
+          "raw": "laughter",
+          "start": 3.68,
+          "end": 3.98
+        },
+        {
+          "raw": "not",
+          "start": 3.98,
+          "end": 4.3
+        },
+        {
+          "raw": "at",
+          "start": 4.3,
+          "end": 4.46
+        },
+        {
+          "raw": "the",
+          "start": 4.46,
+          "end": 4.54
+        },
+        {
+          "raw": "idea",
+          "start": 4.54,
+          "end": 4.92
+        },
+        {
+          "raw": "of",
+          "start": 4.92,
+          "end": 5.14
+        },
+        {
+          "raw": "prayer,",
+          "start": 5.14,
+          "end": 5.46
+        },
+        {
+          "raw": "but",
+          "start": 5.9,
+          "end": 6.14
+        },
+        {
+          "raw": "at",
+          "start": 6.14,
+          "end": 6.3
+        },
+        {
+          "raw": "himself.",
+          "start": 6.3,
+          "end": 6.74
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "was",
+        "flinging",
+        "himself",
+        "on",
+        "his",
+        "knees",
+        "to",
+        "pray,",
+        "but",
+        "broke",
+        "into",
+        "laughter--not",
+        "at",
+        "the",
+        "idea",
+        "of",
+        "prayer,",
+        "but",
+        "at",
+        "himself."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.48,
+          "end": 0.62,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "flinging",
+          "start": 0.62,
+          "end": 0.9,
+          "key": "flinging",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 0.9,
+          "end": 1.32,
+          "key": "himself",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.32,
+          "end": 1.56,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.56,
+          "end": 1.7,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "knees",
+          "start": 1.7,
+          "end": 1.98,
+          "key": "knees",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.98,
+          "end": 2.22,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pray,",
+          "start": 2.22,
+          "end": 2.54,
+          "key": "pray",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.98,
+          "end": 3.18,
+          "key": "but",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "broke",
+          "start": 3.18,
+          "end": 3.4,
+          "key": "broke",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 3.4,
+          "end": 3.68,
+          "key": "into",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "laughter not",
+          "start": 3.68,
+          "end": 4.3,
+          "key": "laughternot",
+          "pieces": [
+            12,
+            13
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.3,
+          "end": 4.46,
+          "key": "at",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.46,
+          "end": 4.54,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "idea",
+          "start": 4.54,
+          "end": 4.92,
+          "key": "idea",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.92,
+          "end": 5.14,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "prayer,",
+          "start": 5.14,
+          "end": 5.46,
+          "key": "prayer",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.9,
+          "end": 6.14,
+          "key": "but",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 6.14,
+          "end": 6.3,
+          "key": "at",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "himself.",
+          "start": 6.3,
+          "end": 6.74,
+          "key": "himself",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 12,
+          "text": "laughter--not",
+          "heard": "laughter not",
+          "heard_indexes": [
+            12,
+            13
+          ],
+          "start": 3.68,
+          "end": 4.3
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "was",
+          "start": 0.48,
+          "end": 0.62
+        },
+        {
+          "text": "flinging",
+          "start": 0.62,
+          "end": 0.9
+        },
+        {
+          "text": "himself",
+          "start": 0.9,
+          "end": 1.32
+        },
+        {
+          "text": "on",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "text": "his",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "text": "knees",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "text": "to",
+          "start": 1.98,
+          "end": 2.22
+        },
+        {
+          "text": "pray,",
+          "start": 2.22,
+          "end": 2.54
+        },
+        {
+          "text": "but",
+          "start": 2.98,
+          "end": 3.18
+        },
+        {
+          "text": "broke",
+          "start": 3.18,
+          "end": 3.4
+        },
+        {
+          "text": "into",
+          "start": 3.4,
+          "end": 3.68
+        },
+        {
+          "text": "laughter--not",
+          "start": 3.68,
+          "end": 4.3
+        },
+        {
+          "text": "at",
+          "start": 4.3,
+          "end": 4.46
+        },
+        {
+          "text": "the",
+          "start": 4.46,
+          "end": 4.54
+        },
+        {
+          "text": "idea",
+          "start": 4.54,
+          "end": 4.92
+        },
+        {
+          "text": "of",
+          "start": 4.92,
+          "end": 5.14
+        },
+        {
+          "text": "prayer,",
+          "start": 5.14,
+          "end": 5.46
+        },
+        {
+          "text": "but",
+          "start": 5.9,
+          "end": 6.14
+        },
+        {
+          "text": "at",
+          "start": 6.14,
+          "end": 6.3
+        },
+        {
+          "text": "himself.",
+          "start": 6.3,
+          "end": 6.74
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.317035005427897
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4f7689795dbdbbf6761aa4d45d30eb484c6916d491bf854c947da488f3bfad49",
+  "selected_reasons": []
+}

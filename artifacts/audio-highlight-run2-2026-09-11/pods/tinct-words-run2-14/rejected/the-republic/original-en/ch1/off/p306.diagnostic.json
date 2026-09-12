@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "283feb38928fdc0c472c330a9fc458af9a28ddf3380f9c837013e361d5990124",
+  "attempts": [
+    {
+      "asr_seconds": 0.10297295078635216,
+      "alignment_seconds": 0.00024151429533958435,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I suppose not.",
+          "start": 0.05,
+          "end": 1.09,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " suppose",
+              "start": 0.49,
+              "end": 0.77,
+              "probability": 0.9375
+            },
+            {
+              "text": " not.",
+              "start": 0.77,
+              "end": 1.09,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "suppose",
+          "start": 0.49,
+          "end": 0.77
+        },
+        {
+          "raw": "not.",
+          "start": 0.77,
+          "end": 1.09
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "suppose",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "suppose",
+          "start": 0.49,
+          "end": 0.77,
+          "key": "suppose",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 0.77,
+          "end": 1.09,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "suppose",
+          "start": 0.49,
+          "end": 0.77
+        },
+        {
+          "text": "not.",
+          "start": 0.77,
+          "end": 1.09
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10330608487129211
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d239e6468ba6c7ee2cd55265e4e2e9b980debf19843f29e764e4ea54c33fe6e3",
+  "selected_reasons": []
+}

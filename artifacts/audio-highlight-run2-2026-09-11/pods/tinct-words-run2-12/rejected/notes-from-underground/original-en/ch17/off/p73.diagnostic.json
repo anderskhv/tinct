@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "c0bb6ddd6ee301ea285bce53e3f502c20b5c249681cb03562e326a286650eea0",
+  "attempts": [
+    {
+      "asr_seconds": 0.12201328598894179,
+      "alignment_seconds": 0.00029217894189059734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What's that to you?",
+          "start": 0.02,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " What's",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.931884765625
+            },
+            {
+              "text": " that",
+              "start": 0.62,
+              "end": 0.8,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you?",
+              "start": 0.98,
+              "end": 1.2,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What's",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "that",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "raw": "to",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "you?",
+          "start": 0.98,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "\"What's",
+        "that",
+        "to",
+        "you?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What's",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "whats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.62,
+          "end": 0.8,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.8,
+          "end": 0.98,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 0.98,
+          "end": 1.2,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What's",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "that",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "text": "to",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "you?\"",
+          "start": 0.98,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12243744684383273
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "359553a3d43c5dc153645611498ef026f982ecddcf5b1a50ab28236f6bd12148",
+  "selected_reasons": []
+}

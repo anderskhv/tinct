@@ -1,0 +1,614 @@
+{
+  "complete": true,
+  "signature": "5a85a454ac06bda0b628439fa16c6de0f46c8f35c2e84829ff47acd2ebc30b3a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2643759800121188,
+      "alignment_seconds": 0.000687653198838234,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First clown why here in Denmark I have been sexted in here man and boy 30 years",
+          "start": 0.05,
+          "end": 5.49,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " clown",
+              "start": 0.63,
+              "end": 0.93,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " why",
+              "start": 0.93,
+              "end": 1.69,
+              "probability": 0.6142578125
+            },
+            {
+              "text": " here",
+              "start": 1.69,
+              "end": 1.95,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in",
+              "start": 1.95,
+              "end": 2.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Denmark",
+              "start": 2.09,
+              "end": 2.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 2.43,
+              "end": 3.03,
+              "probability": 0.471923828125
+            },
+            {
+              "text": " have",
+              "start": 3.03,
+              "end": 3.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " been",
+              "start": 3.11,
+              "end": 3.27,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sexted",
+              "start": 3.27,
+              "end": 3.71,
+              "probability": 0.6720377604166666
+            },
+            {
+              "text": " in",
+              "start": 3.71,
+              "end": 3.77,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " here",
+              "start": 3.77,
+              "end": 3.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " man",
+              "start": 3.97,
+              "end": 4.27,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " and",
+              "start": 4.27,
+              "end": 4.43,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " boy",
+              "start": 4.43,
+              "end": 4.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " 30",
+              "start": 4.65,
+              "end": 5.01,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " years",
+              "start": 5.01,
+              "end": 5.49,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "clown",
+          "start": 0.63,
+          "end": 0.93
+        },
+        {
+          "raw": "why",
+          "start": 0.93,
+          "end": 1.69
+        },
+        {
+          "raw": "here",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "raw": "in",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "raw": "Denmark",
+          "start": 2.09,
+          "end": 2.43
+        },
+        {
+          "raw": "I",
+          "start": 2.43,
+          "end": 3.03
+        },
+        {
+          "raw": "have",
+          "start": 3.03,
+          "end": 3.11
+        },
+        {
+          "raw": "been",
+          "start": 3.11,
+          "end": 3.27
+        },
+        {
+          "raw": "sexted",
+          "start": 3.27,
+          "end": 3.71
+        },
+        {
+          "raw": "in",
+          "start": 3.71,
+          "end": 3.77
+        },
+        {
+          "raw": "here",
+          "start": 3.77,
+          "end": 3.97
+        },
+        {
+          "raw": "man",
+          "start": 3.97,
+          "end": 4.27
+        },
+        {
+          "raw": "and",
+          "start": 4.27,
+          "end": 4.43
+        },
+        {
+          "raw": "boy",
+          "start": 4.43,
+          "end": 4.65
+        },
+        {
+          "raw": "30",
+          "start": 4.65,
+          "end": 5.01
+        },
+        {
+          "raw": "years",
+          "start": 5.01,
+          "end": 5.49
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Clown.",
+        "Why,",
+        "here",
+        "in",
+        "Denmark.",
+        "I",
+        "have",
+        "been",
+        "sexton",
+        "here,",
+        "man",
+        "and",
+        "boy,",
+        "thirty",
+        "years."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          16,
+          11,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "clown",
+          "start": 0.63,
+          "end": 0.93,
+          "key": "clown",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 0.93,
+          "end": 1.69,
+          "key": "why",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.69,
+          "end": 1.95,
+          "key": "here",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.95,
+          "end": 2.09,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Denmark",
+          "start": 2.09,
+          "end": 2.43,
+          "key": "denmark",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.43,
+          "end": 3.03,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.03,
+          "end": 3.11,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 3.11,
+          "end": 3.27,
+          "key": "been",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sexted",
+          "start": 3.27,
+          "end": 3.71,
+          "key": "sexted",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.71,
+          "end": 3.77,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 3.77,
+          "end": 3.97,
+          "key": "here",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 3.97,
+          "end": 4.27,
+          "key": "man",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.27,
+          "end": 4.43,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 4.43,
+          "end": 4.65,
+          "key": "boy",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 4.65,
+          "end": 5.01,
+          "key": "thirty",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "years",
+          "start": 5.01,
+          "end": 5.49,
+          "key": "years",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Clown.",
+          "start": 0.63,
+          "end": 0.93
+        },
+        {
+          "text": "Why,",
+          "start": 0.93,
+          "end": 1.69
+        },
+        {
+          "text": "here",
+          "start": 1.69,
+          "end": 1.95
+        },
+        {
+          "text": "in",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "text": "Denmark.",
+          "start": 2.09,
+          "end": 2.43
+        },
+        {
+          "text": "I",
+          "start": 2.43,
+          "end": 3.03
+        },
+        {
+          "text": "have",
+          "start": 3.03,
+          "end": 3.11
+        },
+        {
+          "text": "been",
+          "start": 3.11,
+          "end": 3.27
+        },
+        {
+          "text": "sexton",
+          "start": 3.27,
+          "end": 3.52
+        },
+        {
+          "text": "here,",
+          "start": 3.77,
+          "end": 3.97
+        },
+        {
+          "text": "man",
+          "start": 3.97,
+          "end": 4.27
+        },
+        {
+          "text": "and",
+          "start": 4.27,
+          "end": 4.43
+        },
+        {
+          "text": "boy,",
+          "start": 4.43,
+          "end": 4.65
+        },
+        {
+          "text": "thirty",
+          "start": 4.65,
+          "end": 5.01
+        },
+        {
+          "text": "years.",
+          "start": 5.01,
+          "end": 5.49
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.26531877368688583
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7e4ef0b7cb69fc11cdd557ae4a90cf208df7c4223d602a834da6f5978fa59e24",
+  "selected_reasons": []
+}

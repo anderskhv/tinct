@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "3068347d7ad2b30b426e4e712b1bd89866e1a3ffba70c432816ffb8592acedbe",
+  "attempts": [
+    {
+      "asr_seconds": 0.1676706769503653,
+      "alignment_seconds": 0.00024587707594037056,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Menenius with Brutus and Sosineus.",
+          "start": 0.11,
+          "end": 2.81,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " Menenius",
+              "start": 0.65,
+              "end": 1.23,
+              "probability": 0.6576334635416666
+            },
+            {
+              "text": " with",
+              "start": 1.23,
+              "end": 1.61,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " Brutus",
+              "start": 1.61,
+              "end": 2.03,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " and",
+              "start": 2.03,
+              "end": 2.17,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Sosineus.",
+              "start": 2.17,
+              "end": 2.81,
+              "probability": 0.56256103515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Menenius",
+          "start": 0.65,
+          "end": 1.23
+        },
+        {
+          "raw": "with",
+          "start": 1.23,
+          "end": 1.61
+        },
+        {
+          "raw": "Brutus",
+          "start": 1.61,
+          "end": 2.03
+        },
+        {
+          "raw": "and",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "raw": "Sosineus.",
+          "start": 2.17,
+          "end": 2.81
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Menenius",
+        "with",
+        "Brutus",
+        "and",
+        "Sicinius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Menenius",
+          "start": 0.65,
+          "end": 1.23,
+          "key": "menenius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.23,
+          "end": 1.61,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Brutus",
+          "start": 1.61,
+          "end": 2.03,
+          "key": "brutus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.03,
+          "end": 2.17,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Sosineus.",
+          "start": 2.17,
+          "end": 2.81,
+          "key": "sosineus",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Menenius",
+          "start": 0.65,
+          "end": 1.23
+        },
+        {
+          "text": "with",
+          "start": 1.23,
+          "end": 1.61
+        },
+        {
+          "text": "Brutus",
+          "start": 1.61,
+          "end": 2.03
+        },
+        {
+          "text": "and",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "text": "Sicinius.",
+          "start": 2.17,
+          "end": 2.49
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16800597682595253
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cc0c864d523ffe32355eaa88494918bfd2e4cbcca32bed4b3f42a036b9eb3903",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

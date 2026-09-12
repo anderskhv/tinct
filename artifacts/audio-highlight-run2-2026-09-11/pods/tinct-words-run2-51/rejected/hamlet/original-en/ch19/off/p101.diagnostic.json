@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "83800495beceef99998934d5833a6f04184f70d131a7d40fdbcf1ea270753453",
+  "attempts": [
+    {
+      "asr_seconds": 0.19928252045065165,
+      "alignment_seconds": 0.00036932993680238724,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lertz, what's ceremony else?",
+          "start": 0.02,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " Lertz,",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.7169596354166666
+            },
+            {
+              "text": " what's",
+              "start": 1.08,
+              "end": 1.28,
+              "probability": 0.7066650390625
+            },
+            {
+              "text": " ceremony",
+              "start": 1.28,
+              "end": 1.6,
+              "probability": 0.57861328125
+            },
+            {
+              "text": " else?",
+              "start": 1.6,
+              "end": 1.94,
+              "probability": 0.97900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lertz,",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "what's",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "raw": "ceremony",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "raw": "else?",
+          "start": 1.6,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "Laertes.",
+        "What",
+        "ceremony",
+        "else?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lertz,",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "lertz",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 1.08,
+          "end": 1.28,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ceremony",
+          "start": 1.28,
+          "end": 1.6,
+          "key": "ceremony",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "else?",
+          "start": 1.6,
+          "end": 1.94,
+          "key": "else",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Laertes.",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "What",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "text": "ceremony",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "text": "else?",
+          "start": 1.6,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19977137446403503
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "345f6831e2decc22f211b0354efec7ebd012ed637ff51cee1540c4e8e2609e64",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

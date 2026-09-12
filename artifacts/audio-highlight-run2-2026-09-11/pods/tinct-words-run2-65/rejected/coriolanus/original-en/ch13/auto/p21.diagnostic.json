@@ -1,0 +1,391 @@
+{
+  "complete": true,
+  "signature": "5d221681e8e643e1acedfd43d82bb5403bc8b1ada83d2a40752d0468f91519fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.11611791187897325,
+      "alignment_seconds": 0.00017267465591430664,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Menenius._]",
+        "hotwords": "Menenius._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Menenius._",
+          "start": 0.02,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " Menenius._",
+              "start": 0.64,
+              "end": 1.62,
+              "probability": 0.44354248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Menenius._",
+          "start": 0.64,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Menenius._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Menenius._",
+          "start": 0.64,
+          "end": 1.62,
+          "key": "menenius_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Menenius._]",
+          "start": 0.64,
+          "end": 1.13
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11634267773479223
+    },
+    {
+      "asr_seconds": 0.12611038563773036,
+      "alignment_seconds": 0.00017116544768214226,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Menenius._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Menenius._",
+          "start": 0.02,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " Menenius._",
+              "start": 0.64,
+              "end": 1.62,
+              "probability": 0.44354248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Menenius._",
+          "start": 0.64,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Menenius._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Menenius._",
+          "start": 0.64,
+          "end": 1.62,
+          "key": "menenius_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Menenius._]",
+          "start": 0.64,
+          "end": 1.13
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12633243203163147
+    },
+    {
+      "asr_seconds": 0.1389442030340433,
+      "alignment_seconds": 0.00016029365360736847,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Menenius.",
+          "start": 0.02,
+          "end": 1.24,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " Menenius.",
+              "start": 0.64,
+              "end": 1.24,
+              "probability": 0.5913899739583334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Menenius.",
+          "start": 0.64,
+          "end": 1.24
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Menenius._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Menenius.",
+          "start": 0.64,
+          "end": 1.24,
+          "key": "menenius",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Menenius._]",
+          "start": 0.64,
+          "end": 1.24
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1391569091938436
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "92d34b8975ac3473e165c7a49ab022d7b42a2ef6cb5da363bf310c0011015b8f",
+  "selected_reasons": []
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "ee907b93816a4316ec1583b0768a2aee0bfa1112175f1057184b97dae3cfec82",
+  "attempts": [
+    {
+      "asr_seconds": 0.12906351312994957,
+      "alignment_seconds": 0.00019845180213451385,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, that is quite clear.",
+          "start": 0.02,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.916015625
+            },
+            {
+              "text": " that",
+              "start": 0.98,
+              "end": 1.06,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " quite",
+              "start": 1.2,
+              "end": 1.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " clear.",
+              "start": 1.4,
+              "end": 1.72,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "that",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "raw": "is",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "quite",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "raw": "clear.",
+          "start": 1.4,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "that",
+        "is",
+        "quite",
+        "clear."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.98,
+          "end": 1.06,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.06,
+          "end": 1.2,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 1.2,
+          "end": 1.4,
+          "key": "quite",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "clear.",
+          "start": 1.4,
+          "end": 1.72,
+          "key": "clear",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "that",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "text": "is",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "quite",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "text": "clear.",
+          "start": 1.4,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1293314853683114
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bc8c57ba74de3a8a5faddefb848d6b3eed9e91b6fd722eda3b8eeda5bc981833",
+  "selected_reasons": []
+}

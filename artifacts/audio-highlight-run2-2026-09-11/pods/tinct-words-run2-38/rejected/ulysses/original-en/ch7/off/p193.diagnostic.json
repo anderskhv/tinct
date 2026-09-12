@@ -1,0 +1,601 @@
+{
+  "complete": true,
+  "signature": "0639c89907cb013549ac93fb908cdb49ff13f72053ee876441e7f7280e2e3f4a",
+  "attempts": [
+    {
+      "asr_seconds": 0.19989508803701028,
+      "alignment_seconds": 0.00029466202249750495,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Who wants a dead cert for the gold cup? He asked.",
+          "start": 0.05,
+          "end": 2.97,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.229736328125
+            },
+            {
+              "text": " wants",
+              "start": 0.51,
+              "end": 0.71,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " a",
+              "start": 0.71,
+              "end": 0.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dead",
+              "start": 0.85,
+              "end": 1.05,
+              "probability": 0.953125
+            },
+            {
+              "text": " cert",
+              "start": 1.05,
+              "end": 1.31,
+              "probability": 0.607421875
+            },
+            {
+              "text": " for",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " gold",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.64599609375
+            },
+            {
+              "text": " cup?",
+              "start": 1.79,
+              "end": 2.11,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " He",
+              "start": 2.45,
+              "end": 2.51,
+              "probability": 0.3974609375
+            },
+            {
+              "text": " asked.",
+              "start": 2.51,
+              "end": 2.97,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " Scepter with O. Madden up.",
+          "start": 3.47,
+          "end": 4.73,
+          "words": [
+            {
+              "text": " Scepter",
+              "start": 3.47,
+              "end": 3.73,
+              "probability": 0.8162434895833334
+            },
+            {
+              "text": " with",
+              "start": 3.73,
+              "end": 3.93,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " O.",
+              "start": 3.93,
+              "end": 4.15,
+              "probability": 0.485107421875
+            },
+            {
+              "text": " Madden",
+              "start": 4.31,
+              "end": 4.39,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " up.",
+              "start": 4.39,
+              "end": 4.73,
+              "probability": 0.96484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "wants",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "raw": "a",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "raw": "dead",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "raw": "cert",
+          "start": 1.05,
+          "end": 1.31
+        },
+        {
+          "raw": "for",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "gold",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "cup?",
+          "start": 1.79,
+          "end": 2.11
+        },
+        {
+          "raw": "He",
+          "start": 2.45,
+          "end": 2.51
+        },
+        {
+          "raw": "asked.",
+          "start": 2.51,
+          "end": 2.97
+        },
+        {
+          "raw": "Scepter",
+          "start": 3.47,
+          "end": 3.73
+        },
+        {
+          "raw": "with",
+          "start": 3.73,
+          "end": 3.93
+        },
+        {
+          "raw": "O.",
+          "start": 3.93,
+          "end": 4.15
+        },
+        {
+          "raw": "Madden",
+          "start": 4.31,
+          "end": 4.39
+        },
+        {
+          "raw": "up.",
+          "start": 4.39,
+          "end": 4.73
+        }
+      ],
+      "expected_tokens": [
+        "—Who",
+        "wants",
+        "a",
+        "dead",
+        "cert",
+        "for",
+        "the",
+        "Gold",
+        "cup?",
+        "he",
+        "asked.",
+        "Sceptre",
+        "with",
+        "O.",
+        "Madden",
+        "up."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          16,
+          12,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wants",
+          "start": 0.51,
+          "end": 0.71,
+          "key": "wants",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.71,
+          "end": 0.85,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 0.85,
+          "end": 1.05,
+          "key": "dead",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cert",
+          "start": 1.05,
+          "end": 1.31,
+          "key": "cert",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gold",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "gold",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cup?",
+          "start": 1.79,
+          "end": 2.11,
+          "key": "cup",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.45,
+          "end": 2.51,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 2.51,
+          "end": 2.97,
+          "key": "asked",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Scepter",
+          "start": 3.47,
+          "end": 3.73,
+          "key": "scepter",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.73,
+          "end": 3.93,
+          "key": "with",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "O.",
+          "start": 3.93,
+          "end": 4.15,
+          "key": "o",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Madden",
+          "start": 4.31,
+          "end": 4.39,
+          "key": "madden",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 4.39,
+          "end": 4.73,
+          "key": "up",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Who",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "wants",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "text": "a",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "text": "dead",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "text": "cert",
+          "start": 1.05,
+          "end": 1.31
+        },
+        {
+          "text": "for",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "the",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "Gold",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "cup?",
+          "start": 1.79,
+          "end": 2.11
+        },
+        {
+          "text": "he",
+          "start": 2.45,
+          "end": 2.51
+        },
+        {
+          "text": "asked.",
+          "start": 2.51,
+          "end": 2.97
+        },
+        {
+          "text": "Sceptre",
+          "start": 2.97,
+          "end": 3.35
+        },
+        {
+          "text": "with",
+          "start": 3.73,
+          "end": 3.93
+        },
+        {
+          "text": "O.",
+          "start": 3.93,
+          "end": 4.15
+        },
+        {
+          "text": "Madden",
+          "start": 4.31,
+          "end": 4.39
+        },
+        {
+          "text": "up.",
+          "start": 4.39,
+          "end": 4.73
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.2002856710460037
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "208bdb9f3ef4d0a449c2b21d8cfffb175cecbd99d133410724ab490b9f340503",
+  "selected_reasons": []
+}

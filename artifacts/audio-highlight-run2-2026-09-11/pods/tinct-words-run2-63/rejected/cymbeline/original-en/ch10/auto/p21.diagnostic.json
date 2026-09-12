@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "935af1608b2325fab066705dc680180357e99ccddc4b6d765fe6849f0b936410",
+  "attempts": [
+    {
+      "asr_seconds": 0.13460097275674343,
+      "alignment_seconds": 0.0003011450171470642,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cloten. Senseless? Not so.",
+        "hotwords": "Cloten, Senseless, Not"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cloten, Senseless, Not So.",
+          "start": 0.08,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " Cloten,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.4942220052083333
+            },
+            {
+              "text": " Senseless,",
+              "start": 0.96,
+              "end": 1.32,
+              "probability": 0.49144768714904785
+            },
+            {
+              "text": " Not",
+              "start": 1.68,
+              "end": 1.76,
+              "probability": 0.25537109375
+            },
+            {
+              "text": " So.",
+              "start": 1.76,
+              "end": 2.04,
+              "probability": 0.479736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cloten,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "Senseless,",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "raw": "Not",
+          "start": 1.68,
+          "end": 1.76
+        },
+        {
+          "raw": "So.",
+          "start": 1.76,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "Cloten.",
+        "Senseless?",
+        "Not",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cloten,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "cloten",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Senseless,",
+          "start": 0.96,
+          "end": 1.32,
+          "key": "senseless",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 1.68,
+          "end": 1.76,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "So.",
+          "start": 1.76,
+          "end": 2.04,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cloten.",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "Senseless?",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "text": "Not",
+          "start": 1.68,
+          "end": 1.76
+        },
+        {
+          "text": "so.",
+          "start": 1.76,
+          "end": 2.04
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1350023802369833
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1cbcad5d5967acc328b14bd291c2895e3c711a8c3a9a2a47783821afaafa0981",
+  "selected_reasons": []
+}

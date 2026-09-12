@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "244ad7d35214507b3734b9422fc6fb3c37e652b09d9f911355aeaf31dcb059ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.09095855601481162,
+      "alignment_seconds": 9.906300692819059e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter the ohms.",
+          "start": 0.08,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.939453125
+            },
+            {
+              "text": " the",
+              "start": 0.66,
+              "end": 0.88,
+              "probability": 0.11004638671875
+            },
+            {
+              "text": " ohms.",
+              "start": 0.88,
+              "end": 1.26,
+              "probability": 0.627685546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "the",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "raw": "ohms.",
+          "start": 0.88,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Diomedes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.66,
+          "end": 0.88,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ohms.",
+          "start": 0.88,
+          "end": 1.26,
+          "key": "ohms",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Diomedes.",
+          "start": 0.66,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09109079002519138
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d7b25406e4a739e71d9aff21659fc20a876b234fabdbca67a5695583027985bf",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

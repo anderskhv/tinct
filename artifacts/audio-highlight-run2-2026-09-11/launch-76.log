@@ -1,0 +1,69 @@
+[2026-09-12T07:16:09Z] created cntiw2i583e6i2 tinct-words-run2-76 gpu=None $0.49/hr
+[2026-09-12T07:16:09Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-12T07:16:25Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-12T07:16:41Z] phase cohort at 0.5 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T07:16:41Z] 0.5 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T07:17:12Z] 1.0 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T07:17:50Z] 1.6 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T07:18:20Z] phase aligning at 2.2 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T07:18:20Z] 2.2 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 27}
+[2026-09-12T07:18:50Z] 2.7 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 91}
+[2026-09-12T07:19:21Z] 3.2 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 2, "arm_chapters_running": 1, "paragraph_diagnostics": 174}
+[2026-09-12T07:19:51Z] 3.7 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 3, "arm_chapters_running": 1, "paragraph_diagnostics": 252}
+[2026-09-12T07:20:22Z] 4.2 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 4, "arm_chapters_running": 1, "paragraph_diagnostics": 327}
+[2026-09-12T07:20:53Z] snapshot 558217 bytes
+[2026-09-12T07:20:53Z] 4.7 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 4, "arm_chapters_running": 1, "paragraph_diagnostics": 400}
+[2026-09-12T07:21:24Z] 5.2 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 6, "arm_chapters_running": 1, "paragraph_diagnostics": 469}
+[2026-09-12T07:21:54Z] 5.7 min: aligning {"arm_chapters_passed": 2, "arm_chapters_rejected": 6, "arm_chapters_running": 1, "paragraph_diagnostics": 511}
+[2026-09-12T07:22:24Z] 6.3 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 568}
+[2026-09-12T07:22:55Z] 6.8 min: aligning {"arm_chapters_passed": 3, "arm_chapters_rejected": 8, "arm_chapters_running": 1, "paragraph_diagnostics": 608}
+[2026-09-12T07:23:25Z] 7.3 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 10, "arm_chapters_running": 1, "paragraph_diagnostics": 673}
+[2026-09-12T07:23:55Z] 7.8 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 11, "arm_chapters_running": 1, "paragraph_diagnostics": 741}
+[2026-09-12T07:24:26Z] 8.3 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 11, "arm_chapters_running": 1, "paragraph_diagnostics": 788}
+[2026-09-12T07:24:59Z] snapshot 1624719 bytes
+[2026-09-12T07:24:59Z] 8.8 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 11, "arm_chapters_running": 1, "paragraph_diagnostics": 825}
+[2026-09-12T07:25:29Z] 9.3 min: aligning {"arm_chapters_passed": 6, "arm_chapters_rejected": 14, "arm_chapters_running": 1, "paragraph_diagnostics": 900}
+[2026-09-12T07:26:00Z] 9.8 min: aligning {"arm_chapters_passed": 6, "arm_chapters_rejected": 14, "arm_chapters_running": 1, "paragraph_diagnostics": 928}
+[2026-09-12T07:26:30Z] 10.4 min: aligning {"arm_chapters_passed": 6, "arm_chapters_rejected": 15, "arm_chapters_running": 1, "paragraph_diagnostics": 975}
+[2026-09-12T07:27:00Z] 10.9 min: aligning {"arm_chapters_passed": 6, "arm_chapters_rejected": 15, "arm_chapters_running": 1, "paragraph_diagnostics": 981}
+[2026-09-12T07:27:31Z] 11.4 min: aligning {"arm_chapters_passed": 6, "arm_chapters_rejected": 15, "arm_chapters_running": 1, "paragraph_diagnostics": 990}
+[2026-09-12T07:28:01Z] 11.9 min: aligning {"arm_chapters_passed": 6, "arm_chapters_rejected": 15, "arm_chapters_running": 1, "paragraph_diagnostics": 1026}
+[2026-09-12T07:28:32Z] 12.4 min: aligning {"arm_chapters_passed": 6, "arm_chapters_rejected": 16, "arm_chapters_running": 1, "paragraph_diagnostics": 1048}
+[2026-09-12T07:29:07Z] snapshot 3205573 bytes
+[2026-09-12T07:29:07Z] 12.9 min: aligning {"arm_chapters_passed": 6, "arm_chapters_rejected": 16, "arm_chapters_running": 1, "paragraph_diagnostics": 1103}
+[2026-09-12T07:29:37Z] 13.5 min: aligning {"arm_chapters_passed": 6, "arm_chapters_rejected": 17, "arm_chapters_running": 1, "paragraph_diagnostics": 1143}
+[2026-09-12T07:30:08Z] 14.0 min: aligning {"arm_chapters_passed": 6, "arm_chapters_rejected": 17, "arm_chapters_running": 1, "paragraph_diagnostics": 1169}
+[2026-09-12T07:30:39Z] 14.5 min: aligning {"arm_chapters_passed": 7, "arm_chapters_rejected": 17, "arm_chapters_running": 1, "paragraph_diagnostics": 1206}
+[2026-09-12T07:31:09Z] 15.0 min: aligning {"arm_chapters_passed": 7, "arm_chapters_rejected": 17, "arm_chapters_running": 1, "paragraph_diagnostics": 1231}
+[2026-09-12T07:31:40Z] 15.5 min: aligning {"arm_chapters_passed": 7, "arm_chapters_rejected": 18, "arm_chapters_running": 1, "paragraph_diagnostics": 1246}
+[2026-09-12T07:32:10Z] 16.0 min: aligning {"arm_chapters_passed": 7, "arm_chapters_rejected": 18, "arm_chapters_running": 1, "paragraph_diagnostics": 1252}
+[2026-09-12T07:32:40Z] 16.5 min: aligning {"arm_chapters_passed": 7, "arm_chapters_rejected": 18, "arm_chapters_running": 1, "paragraph_diagnostics": 1267}
+[2026-09-12T07:33:19Z] snapshot 4904465 bytes
+[2026-09-12T07:33:19Z] 17.0 min: aligning {"arm_chapters_passed": 8, "arm_chapters_rejected": 18, "arm_chapters_running": 1, "paragraph_diagnostics": 1300}
+[2026-09-12T07:33:49Z] 17.7 min: aligning {"arm_chapters_passed": 8, "arm_chapters_rejected": 18, "arm_chapters_running": 1, "paragraph_diagnostics": 1353}
+[2026-09-12T07:34:19Z] 18.2 min: aligning {"arm_chapters_passed": 8, "arm_chapters_rejected": 19, "arm_chapters_running": 1, "paragraph_diagnostics": 1411}
+[2026-09-12T07:34:49Z] 18.7 min: aligning {"arm_chapters_passed": 8, "arm_chapters_rejected": 19, "arm_chapters_running": 1, "paragraph_diagnostics": 1447}
+[2026-09-12T07:35:20Z] 19.2 min: aligning {"arm_chapters_passed": 8, "arm_chapters_rejected": 19, "arm_chapters_running": 1, "paragraph_diagnostics": 1470}
+[2026-09-12T07:35:50Z] 19.7 min: aligning {"arm_chapters_passed": 8, "arm_chapters_rejected": 19, "arm_chapters_running": 1, "paragraph_diagnostics": 1509}
+[2026-09-12T07:36:21Z] 20.2 min: aligning {"arm_chapters_passed": 9, "arm_chapters_rejected": 19, "arm_chapters_running": 1, "paragraph_diagnostics": 1549}
+[2026-09-12T07:36:51Z] 20.7 min: aligning {"arm_chapters_passed": 9, "arm_chapters_rejected": 19, "arm_chapters_running": 1, "paragraph_diagnostics": 1576}
+[2026-09-12T07:37:30Z] snapshot 6435429 bytes
+[2026-09-12T07:37:30Z] 21.2 min: aligning {"arm_chapters_passed": 9, "arm_chapters_rejected": 20, "arm_chapters_running": 1, "paragraph_diagnostics": 1605}
+[2026-09-12T07:38:00Z] 21.9 min: aligning {"arm_chapters_passed": 9, "arm_chapters_rejected": 20, "arm_chapters_running": 1, "paragraph_diagnostics": 1629}
+[2026-09-12T07:38:30Z] 22.4 min: aligning {"arm_chapters_passed": 9, "arm_chapters_rejected": 20, "arm_chapters_running": 1, "paragraph_diagnostics": 1640}
+[2026-09-12T07:39:01Z] 22.9 min: aligning {"arm_chapters_passed": 9, "arm_chapters_rejected": 20, "arm_chapters_running": 1, "paragraph_diagnostics": 1645}
+[2026-09-12T07:39:31Z] 23.4 min: aligning {"arm_chapters_passed": 9, "arm_chapters_rejected": 21, "arm_chapters_running": 1, "paragraph_diagnostics": 1683}
+[2026-09-12T07:40:01Z] 23.9 min: aligning {"arm_chapters_passed": 9, "arm_chapters_rejected": 21, "arm_chapters_running": 1, "paragraph_diagnostics": 1741}
+[2026-09-12T07:40:32Z] 24.4 min: aligning {"arm_chapters_passed": 9, "arm_chapters_rejected": 22, "arm_chapters_running": 1, "paragraph_diagnostics": 1776}
+[2026-09-12T07:41:02Z] 24.9 min: aligning {"arm_chapters_passed": 9, "arm_chapters_rejected": 22, "arm_chapters_running": 1, "paragraph_diagnostics": 1815}
+[2026-09-12T07:41:43Z] snapshot 7982257 bytes
+[2026-09-12T07:41:43Z] 25.4 min: aligning {"arm_chapters_passed": 10, "arm_chapters_rejected": 22, "arm_chapters_running": 1, "paragraph_diagnostics": 1840}
+[2026-09-12T07:42:13Z] 26.1 min: aligning {"arm_chapters_passed": 10, "arm_chapters_rejected": 23, "arm_chapters_running": 1, "paragraph_diagnostics": 1908}
+[2026-09-12T07:42:44Z] 26.6 min: aligning {"arm_chapters_passed": 10, "arm_chapters_rejected": 23, "arm_chapters_running": 1, "paragraph_diagnostics": 1939}
+[2026-09-12T07:43:14Z] 27.1 min: aligning {"arm_chapters_passed": 10, "arm_chapters_rejected": 23, "arm_chapters_running": 1, "paragraph_diagnostics": 1960}
+[2026-09-12T07:43:45Z] phase done at 27.6 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T07:43:45Z] 27.6 min: done {"arm_chapters_passed": 11, "arm_chapters_rejected": 23, "arm_chapters_running": 0, "paragraph_diagnostics": 1992}
+[2026-09-12T07:43:56Z] fetched out.tar.gz (8641279 bytes)
+[2026-09-12T07:43:58Z] stop cntiw2i583e6i2: HTTP 200
+[2026-09-12T07:43:59Z] terminate cntiw2i583e6i2: HTTP 204
+[2026-09-12T07:43:59Z] pod cntiw2i583e6i2 done: outcome=done uptime=27.8m est $0.23

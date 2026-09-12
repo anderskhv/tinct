@@ -1,0 +1,221 @@
+{
+  "complete": true,
+  "signature": "ab3435114ec7ff72fda8c94d6b672e820f88b37305d1badb6ebbae508201781d",
+  "attempts": [
+    {
+      "asr_seconds": 0.14386607706546783,
+      "alignment_seconds": 0.00036385655403137207,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exhale curio in attendance.",
+          "start": 0.05,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " Exhale",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.5535888671875
+            },
+            {
+              "text": " curio",
+              "start": 0.71,
+              "end": 1.13,
+              "probability": 0.6195068359375
+            },
+            {
+              "text": " in",
+              "start": 1.13,
+              "end": 1.23,
+              "probability": 0.7890625
+            },
+            {
+              "text": " attendance.",
+              "start": 1.23,
+              "end": 1.57,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exhale",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "curio",
+          "start": 0.71,
+          "end": 1.13
+        },
+        {
+          "raw": "in",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "raw": "attendance.",
+          "start": 1.23,
+          "end": 1.57
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Curio",
+        "and",
+        "Attendants._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exhale",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "exhale",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "curio",
+          "start": 0.71,
+          "end": 1.13,
+          "key": "curio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.13,
+          "end": 1.23,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "attendance.",
+          "start": 1.23,
+          "end": 1.57,
+          "key": "attendance",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.355
+        },
+        {
+          "text": "Curio",
+          "start": 0.71,
+          "end": 1.13
+        },
+        {
+          "text": "and",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "text": "Attendants._]",
+          "start": 1.35,
+          "end": 1.46
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 1
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14435042068362236
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f804b171301ba7db3b336f5bcacf9032b23766479e3da18965229a361f2ec61e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

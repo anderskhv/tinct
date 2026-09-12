@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "4a7a2ac34cc1f331963a4b3bbfad2884356d15cccf884ed90d1c31e788e77222",
+  "attempts": [
+    {
+      "asr_seconds": 0.10481621138751507,
+      "alignment_seconds": 0.00015995092689990997,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hash prices of wheat",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " Hash",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.6279296875
+            },
+            {
+              "text": " prices",
+              "start": 0.59,
+              "end": 0.97,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " of",
+              "start": 0.97,
+              "end": 1.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wheat",
+              "start": 1.15,
+              "end": 1.43,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hash",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "prices",
+          "start": 0.59,
+          "end": 0.97
+        },
+        {
+          "raw": "of",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "raw": "wheat",
+          "start": 1.15,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "#",
+        "Prices",
+        "Of",
+        "Wheat"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hash",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "hash",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "prices",
+          "start": 0.59,
+          "end": 0.97,
+          "key": "prices",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.97,
+          "end": 1.15,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wheat",
+          "start": 1.15,
+          "end": 1.43,
+          "key": "wheat",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "#",
+          "start": 0.0,
+          "end": 0.295
+        },
+        {
+          "text": "Prices",
+          "start": 0.59,
+          "end": 0.97
+        },
+        {
+          "text": "Of",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "text": "Wheat",
+          "start": 1.15,
+          "end": 1.43
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10502473637461662
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "44667ec14742d611dce0da70958e58e6220c2502bf5820772246c9ac8dfdd2e8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

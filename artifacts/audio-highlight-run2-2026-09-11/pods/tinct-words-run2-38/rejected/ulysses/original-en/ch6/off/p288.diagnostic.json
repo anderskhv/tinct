@@ -1,0 +1,572 @@
+{
+  "complete": true,
+  "signature": "181c21ed3aaa8fbd85e48f5152ad7dbe39ec4ed4059bb29359c754f6ab84fd26",
+  "attempts": [
+    {
+      "asr_seconds": 0.18421437701908872,
+      "alignment_seconds": 0.00027872202917933464,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The reverend gentleman read the service too quickly. Don't you think Mr. Kernan said with reproof",
+          "start": 0.02,
+          "end": 6.1,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.45703125
+            },
+            {
+              "text": " reverend",
+              "start": 0.52,
+              "end": 0.98,
+              "probability": 0.6326904296875
+            },
+            {
+              "text": " gentleman",
+              "start": 0.98,
+              "end": 1.44,
+              "probability": 0.63232421875
+            },
+            {
+              "text": " read",
+              "start": 1.44,
+              "end": 1.72,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " service",
+              "start": 1.88,
+              "end": 2.22,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " too",
+              "start": 2.22,
+              "end": 2.54,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " quickly.",
+              "start": 2.54,
+              "end": 2.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Don't",
+              "start": 3.32,
+              "end": 3.4,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " you",
+              "start": 3.4,
+              "end": 3.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " think",
+              "start": 3.54,
+              "end": 3.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Mr.",
+              "start": 3.82,
+              "end": 4.58,
+              "probability": 0.161376953125
+            },
+            {
+              "text": " Kernan",
+              "start": 4.82,
+              "end": 5.04,
+              "probability": 0.918212890625
+            },
+            {
+              "text": " said",
+              "start": 5.04,
+              "end": 5.24,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " with",
+              "start": 5.24,
+              "end": 5.44,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " reproof",
+              "start": 5.44,
+              "end": 6.1,
+              "probability": 0.967529296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "reverend",
+          "start": 0.52,
+          "end": 0.98
+        },
+        {
+          "raw": "gentleman",
+          "start": 0.98,
+          "end": 1.44
+        },
+        {
+          "raw": "read",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "service",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "raw": "too",
+          "start": 2.22,
+          "end": 2.54
+        },
+        {
+          "raw": "quickly.",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "raw": "Don't",
+          "start": 3.32,
+          "end": 3.4
+        },
+        {
+          "raw": "you",
+          "start": 3.4,
+          "end": 3.54
+        },
+        {
+          "raw": "think",
+          "start": 3.54,
+          "end": 3.82
+        },
+        {
+          "raw": "Mr.",
+          "start": 3.82,
+          "end": 4.58
+        },
+        {
+          "raw": "Kernan",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "raw": "said",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "raw": "with",
+          "start": 5.24,
+          "end": 5.44
+        },
+        {
+          "raw": "reproof",
+          "start": 5.44,
+          "end": 6.1
+        }
+      ],
+      "expected_tokens": [
+        "—The",
+        "reverend",
+        "gentleman",
+        "read",
+        "the",
+        "service",
+        "too",
+        "quickly,",
+        "don't",
+        "you",
+        "think?",
+        "Mr",
+        "Kernan",
+        "said",
+        "with",
+        "reproof."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "reverend",
+          "start": 0.52,
+          "end": 0.98,
+          "key": "reverend",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gentleman",
+          "start": 0.98,
+          "end": 1.44,
+          "key": "gentleman",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 1.44,
+          "end": 1.72,
+          "key": "read",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "service",
+          "start": 1.88,
+          "end": 2.22,
+          "key": "service",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 2.22,
+          "end": 2.54,
+          "key": "too",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "quickly.",
+          "start": 2.54,
+          "end": 2.9,
+          "key": "quickly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Don't",
+          "start": 3.32,
+          "end": 3.4,
+          "key": "dont",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.4,
+          "end": 3.54,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.54,
+          "end": 3.82,
+          "key": "think",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 3.82,
+          "end": 4.58,
+          "key": "mr",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Kernan",
+          "start": 4.82,
+          "end": 5.04,
+          "key": "kernan",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 5.04,
+          "end": 5.24,
+          "key": "said",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.24,
+          "end": 5.44,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "reproof",
+          "start": 5.44,
+          "end": 6.1,
+          "key": "reproof",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "reverend",
+          "start": 0.52,
+          "end": 0.98
+        },
+        {
+          "text": "gentleman",
+          "start": 0.98,
+          "end": 1.44
+        },
+        {
+          "text": "read",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "text": "the",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "service",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "text": "too",
+          "start": 2.22,
+          "end": 2.54
+        },
+        {
+          "text": "quickly,",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "text": "don't",
+          "start": 3.32,
+          "end": 3.4
+        },
+        {
+          "text": "you",
+          "start": 3.4,
+          "end": 3.54
+        },
+        {
+          "text": "think?",
+          "start": 3.54,
+          "end": 3.82
+        },
+        {
+          "text": "Mr",
+          "start": 3.82,
+          "end": 4.58
+        },
+        {
+          "text": "Kernan",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "text": "said",
+          "start": 5.04,
+          "end": 5.24
+        },
+        {
+          "text": "with",
+          "start": 5.24,
+          "end": 5.44
+        },
+        {
+          "text": "reproof.",
+          "start": 5.44,
+          "end": 6.1
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18460667901672423
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "20b508b058ccf7d294a1c77f6797445cecd880f8b5d92ecf056beff8c5d9aa9d",
+  "selected_reasons": []
+}

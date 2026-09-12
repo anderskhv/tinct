@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "9e8751d90ee7e83005be54878d3c081396212459d43c12006374759825765e6b",
+  "attempts": [
+    {
+      "asr_seconds": 0.4398081749677658,
+      "alignment_seconds": 0.0005810149013996124,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter two gentlemen.",
+          "start": 0.05,
+          "end": 1.29,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.9453125
+            },
+            {
+              "text": " two",
+              "start": 0.65,
+              "end": 0.95,
+              "probability": 0.331298828125
+            },
+            {
+              "text": " gentlemen.",
+              "start": 0.95,
+              "end": 1.29,
+              "probability": 0.86572265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "two",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "raw": "gentlemen.",
+          "start": 0.95,
+          "end": 1.29
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "two",
+        "Gentlemen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 0.65,
+          "end": 0.95,
+          "key": "two",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gentlemen.",
+          "start": 0.95,
+          "end": 1.29,
+          "key": "gentlemen",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "two",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "text": "Gentlemen.",
+          "start": 0.95,
+          "end": 1.29
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4405654054135084
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fda4bb18fe271c111a65e36007d29f0f52facecb5d09e5aef0bcd305370ffa2d",
+  "selected_reasons": []
+}

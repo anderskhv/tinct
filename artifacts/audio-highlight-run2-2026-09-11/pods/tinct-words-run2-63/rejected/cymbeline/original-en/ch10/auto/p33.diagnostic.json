@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "b56059f5bfe6ed7cddc65563837bdba6201d1dc0270c34d875bc4c0847c716df",
+  "attempts": [
+    {
+      "asr_seconds": 0.14965356513857841,
+      "alignment_seconds": 0.00029546767473220825,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lady. No more?",
+        "hotwords": "Lady, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lady, No More.",
+          "start": 0.02,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " Lady,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " No",
+              "start": 0.98,
+              "end": 1.12,
+              "probability": 0.032958984375
+            },
+            {
+              "text": " More.",
+              "start": 1.12,
+              "end": 1.38,
+              "probability": 0.69775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "No",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "raw": "More.",
+          "start": 1.12,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "Lady.",
+        "No",
+        "more?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 0.98,
+          "end": 1.12,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "More.",
+          "start": 1.12,
+          "end": 1.38,
+          "key": "more",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "No",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "text": "more?",
+          "start": 1.12,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15005345828831196
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9e2aacb392e3f7558864f0d5667bca9d0a8f19b3e2dfd01ec77a427c9c0375f7",
+  "selected_reasons": []
+}

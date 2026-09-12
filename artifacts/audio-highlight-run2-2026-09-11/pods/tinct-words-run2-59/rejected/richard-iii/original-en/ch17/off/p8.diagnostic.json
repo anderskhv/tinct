@@ -1,0 +1,258 @@
+{
+  "complete": true,
+  "signature": "0220a590c66ac4c9e064d88d3dd926426501a4c9878e8ed4cdd105801cb84b6c",
+  "attempts": [
+    {
+      "asr_seconds": 0.18982871109619737,
+      "alignment_seconds": 0.00043692695908248425,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Buckingham, sayon, my loving Lord.",
+          "start": 0.05,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " Buckingham,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " sayon,",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.689208984375
+            },
+            {
+              "text": " my",
+              "start": 1.77,
+              "end": 1.77,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " loving",
+              "start": 1.77,
+              "end": 2.05,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " Lord.",
+              "start": 2.05,
+              "end": 2.31,
+              "probability": 0.5771484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "sayon,",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "raw": "my",
+          "start": 1.77,
+          "end": 1.77
+        },
+        {
+          "raw": "loving",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "raw": "Lord.",
+          "start": 2.05,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "Say",
+        "on,",
+        "my",
+        "loving",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          6,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sayon,",
+          "start": 1.41,
+          "end": 1.61,
+          "key": "sayon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.77,
+          "end": 1.77,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "loving",
+          "start": 1.77,
+          "end": 2.05,
+          "key": "loving",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lord.",
+          "start": 2.05,
+          "end": 2.31,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Say",
+          "start": 0.83,
+          "end": 1.3
+        },
+        {
+          "text": "on,",
+          "start": 1.3,
+          "end": 1.535
+        },
+        {
+          "text": "my",
+          "start": 1.77,
+          "end": 1.77
+        },
+        {
+          "text": "loving",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "text": "lord.",
+          "start": 2.05,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19039309513755143
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aa9072ff77594a1a730722e4b19cb3521de068a57f3d260591ba392bcff04474",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

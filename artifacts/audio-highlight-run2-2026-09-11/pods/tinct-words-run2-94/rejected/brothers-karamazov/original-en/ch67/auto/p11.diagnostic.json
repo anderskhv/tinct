@@ -1,0 +1,687 @@
+{
+  "complete": true,
+  "signature": "b81bf85bfae39d7ebfeda6f9bdb45ad41df0b70804340afe945157a6f47e9634",
+  "attempts": [
+    {
+      "asr_seconds": 0.34498159401118755,
+      "alignment_seconds": 0.0006921682506799698,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Please come in ... you are welcome!\" he said hurriedly. \"Ilusha, Mr. Krassotkin has come to see you!\"",
+        "hotwords": "Please, Ilusha, Mr, Krassotkin"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Please come in ... you are welcome!\" he said hurriedly.",
+          "start": 0.05,
+          "end": 3.69,
+          "words": [
+            {
+              "text": " Please",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.0860595703125
+            },
+            {
+              "text": " come",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " in",
+              "start": 0.87,
+              "end": 1.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ...",
+              "start": 1.11,
+              "end": 1.39,
+              "probability": 0.0002522468566894531
+            },
+            {
+              "text": " you",
+              "start": 1.39,
+              "end": 1.63,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " are",
+              "start": 1.63,
+              "end": 1.79,
+              "probability": 0.990234375
+            },
+            {
+              "text": " welcome",
+              "start": 1.79,
+              "end": 2.19,
+              "probability": 0.99169921875
+            },
+            {
+              "text": "!\"",
+              "start": 2.19,
+              "end": 2.65,
+              "probability": 0.0311279296875
+            },
+            {
+              "text": " he",
+              "start": 2.65,
+              "end": 2.79,
+              "probability": 0.8359375
+            },
+            {
+              "text": " said",
+              "start": 2.79,
+              "end": 2.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hurriedly.",
+              "start": 2.99,
+              "end": 3.69,
+              "probability": 0.997314453125
+            }
+          ]
+        },
+        {
+          "text": " Ilusha, Mr. Krassotkin has come to see you!",
+          "start": 4.19,
+          "end": 6.51,
+          "words": [
+            {
+              "text": " Ilusha,",
+              "start": 4.19,
+              "end": 4.53,
+              "probability": 0.3632502555847168
+            },
+            {
+              "text": " Mr.",
+              "start": 4.81,
+              "end": 5.03,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " Krassotkin",
+              "start": 5.21,
+              "end": 5.57,
+              "probability": 0.4393477439880371
+            },
+            {
+              "text": " has",
+              "start": 5.57,
+              "end": 5.75,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " come",
+              "start": 5.75,
+              "end": 5.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 5.91,
+              "end": 6.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " see",
+              "start": 6.05,
+              "end": 6.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you!",
+              "start": 6.23,
+              "end": 6.51,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Please",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "come",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "in",
+          "start": 0.87,
+          "end": 1.11
+        },
+        {
+          "raw": "...",
+          "start": 1.11,
+          "end": 1.39
+        },
+        {
+          "raw": "you",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "raw": "are",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "raw": "welcome",
+          "start": 1.79,
+          "end": 2.19
+        },
+        {
+          "raw": "!\"",
+          "start": 2.19,
+          "end": 2.65
+        },
+        {
+          "raw": "he",
+          "start": 2.65,
+          "end": 2.79
+        },
+        {
+          "raw": "said",
+          "start": 2.79,
+          "end": 2.99
+        },
+        {
+          "raw": "hurriedly.",
+          "start": 2.99,
+          "end": 3.69
+        },
+        {
+          "raw": "Ilusha,",
+          "start": 4.19,
+          "end": 4.53
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.81,
+          "end": 5.03
+        },
+        {
+          "raw": "Krassotkin",
+          "start": 5.21,
+          "end": 5.57
+        },
+        {
+          "raw": "has",
+          "start": 5.57,
+          "end": 5.75
+        },
+        {
+          "raw": "come",
+          "start": 5.75,
+          "end": 5.91
+        },
+        {
+          "raw": "to",
+          "start": 5.91,
+          "end": 6.05
+        },
+        {
+          "raw": "see",
+          "start": 6.05,
+          "end": 6.23
+        },
+        {
+          "raw": "you!",
+          "start": 6.23,
+          "end": 6.51
+        }
+      ],
+      "expected_tokens": [
+        "\"Please",
+        "come",
+        "in",
+        "...",
+        "you",
+        "are",
+        "welcome!\"",
+        "he",
+        "said",
+        "hurriedly.",
+        "\"Ilusha,",
+        "Mr.",
+        "Krassotkin",
+        "has",
+        "come",
+        "to",
+        "see",
+        "you!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "insert",
+          7,
+          7,
+          7,
+          8
+        ],
+        [
+          "equal",
+          7,
+          18,
+          8,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          7,
+          7,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Please",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "please",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 0.65,
+          "end": 0.87,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.87,
+          "end": 1.11,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "...",
+          "start": 1.11,
+          "end": 1.39,
+          "key": "",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.39,
+          "end": 1.63,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.63,
+          "end": 1.79,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "welcome",
+          "start": 1.79,
+          "end": 2.19,
+          "key": "welcome",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 2.19,
+          "end": 2.65,
+          "key": "",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.65,
+          "end": 2.79,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.79,
+          "end": 2.99,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hurriedly.",
+          "start": 2.99,
+          "end": 3.69,
+          "key": "hurriedly",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Ilusha,",
+          "start": 4.19,
+          "end": 4.53,
+          "key": "ilusha",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 4.81,
+          "end": 5.03,
+          "key": "mr",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Krassotkin",
+          "start": 5.21,
+          "end": 5.57,
+          "key": "krassotkin",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 5.57,
+          "end": 5.75,
+          "key": "has",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 5.75,
+          "end": 5.91,
+          "key": "come",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.91,
+          "end": 6.05,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 6.05,
+          "end": 6.23,
+          "key": "see",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you!",
+          "start": 6.23,
+          "end": 6.51,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Please",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "come",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "text": "in",
+          "start": 0.87,
+          "end": 1.11
+        },
+        {
+          "text": "...",
+          "start": 1.11,
+          "end": 1.39
+        },
+        {
+          "text": "you",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "text": "are",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "text": "welcome!\"",
+          "start": 1.79,
+          "end": 2.19
+        },
+        {
+          "text": "he",
+          "start": 2.65,
+          "end": 2.79
+        },
+        {
+          "text": "said",
+          "start": 2.79,
+          "end": 2.99
+        },
+        {
+          "text": "hurriedly.",
+          "start": 2.99,
+          "end": 3.69
+        },
+        {
+          "text": "\"Ilusha,",
+          "start": 4.19,
+          "end": 4.53
+        },
+        {
+          "text": "Mr.",
+          "start": 4.81,
+          "end": 5.03
+        },
+        {
+          "text": "Krassotkin",
+          "start": 5.21,
+          "end": 5.57
+        },
+        {
+          "text": "has",
+          "start": 5.57,
+          "end": 5.75
+        },
+        {
+          "text": "come",
+          "start": 5.75,
+          "end": 5.91
+        },
+        {
+          "text": "to",
+          "start": 5.91,
+          "end": 6.05
+        },
+        {
+          "text": "see",
+          "start": 6.05,
+          "end": 6.23
+        },
+        {
+          "text": "you!\"",
+          "start": 6.23,
+          "end": 6.51
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.34601306915283203
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "89b09d2d16baaa47511ed88fcb64713ba13e9d65bb4d2aa382ff1ef018a7d85e",
+  "selected_reasons": []
+}

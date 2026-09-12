@@ -1,0 +1,253 @@
+{
+  "complete": true,
+  "signature": "3b863868684b7de28e82f7d990fa2f00e61a74ff28bd1d07c463e1ad1bb5dd6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.19730965606868267,
+      "alignment_seconds": 0.00044188019819557667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 2nd Murderer 2-2-2",
+          "start": 0.08,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " 2nd",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.43292236328125
+            },
+            {
+              "text": " Murderer",
+              "start": 0.72,
+              "end": 1.16,
+              "probability": 0.71923828125
+            },
+            {
+              "text": " 2",
+              "start": 1.16,
+              "end": 1.62,
+              "probability": 0.1912841796875
+            },
+            {
+              "text": "-2",
+              "start": 1.62,
+              "end": 1.9,
+              "probability": 0.78955078125
+            },
+            {
+              "text": "-2",
+              "start": 1.9,
+              "end": 2.34,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "2nd",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Murderer",
+          "start": 0.72,
+          "end": 1.16
+        },
+        {
+          "raw": "2",
+          "start": 1.16,
+          "end": 1.62
+        },
+        {
+          "raw": "-2",
+          "start": 1.62,
+          "end": 1.9
+        },
+        {
+          "raw": "-2",
+          "start": 1.9,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Murderer.",
+        "To,",
+        "to,",
+        "to—"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "2nd",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "2nd",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderer",
+          "start": 0.72,
+          "end": 1.16,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "2",
+          "start": 1.16,
+          "end": 1.62,
+          "key": "two",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-2",
+          "start": 1.62,
+          "end": 1.9,
+          "key": "two",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "-2",
+          "start": 1.9,
+          "end": 2.34,
+          "key": "two",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.72,
+          "end": 1.16
+        },
+        {
+          "text": "To,",
+          "start": 1.16,
+          "end": 1.75
+        },
+        {
+          "text": "to,",
+          "start": 1.75,
+          "end": 2.045
+        },
+        {
+          "text": "to—",
+          "start": 2.045,
+          "end": 2.192
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 1
+      },
+      "match_ratio": 0.2,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19788258709013462
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "61034a862ab5daf126cb23af199b8e0ca2afb789d2122cf6918d3ff0ee763f2b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "a6849823ab241544e6479f2cbd6e89465c2d16fe69518f2d693e5f68d7bc540b",
+  "attempts": [
+    {
+      "asr_seconds": 0.18350881803780794,
+      "alignment_seconds": 0.00043870043009519577,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Cymbeline and Imogen advance._]",
+        "hotwords": "Imogen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cymbeline and Imogen advance.",
+          "start": 0.08,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Cymbeline",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.5682601928710938
+            },
+            {
+              "text": " and",
+              "start": 0.84,
+              "end": 1.1,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " Imogen",
+              "start": 1.1,
+              "end": 1.44,
+              "probability": 0.2941551208496094
+            },
+            {
+              "text": " advance.",
+              "start": 1.44,
+              "end": 1.84,
+              "probability": 0.09326171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "and",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "raw": "Imogen",
+          "start": 1.1,
+          "end": 1.44
+        },
+        {
+          "raw": "advance.",
+          "start": 1.44,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "[_Cymbeline",
+        "and",
+        "Imogen",
+        "advance._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.84,
+          "end": 1.1,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Imogen",
+          "start": 1.1,
+          "end": 1.44,
+          "key": "imogen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "advance.",
+          "start": 1.44,
+          "end": 1.84,
+          "key": "advance",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Cymbeline",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "and",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "text": "Imogen",
+          "start": 1.1,
+          "end": 1.44
+        },
+        {
+          "text": "advance._]",
+          "start": 1.44,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1840709988027811
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "74925e0e38bdec0b5e7123a0abaa1afed3297e9aed6241ebbafa38fa3f3af5b9",
+  "selected_reasons": []
+}

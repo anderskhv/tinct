@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "bc70e9f5740dc8e0c3a2c47e03768d8cfb6544181a463ac4843bc904dbb7c87f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1548534780740738,
+      "alignment_seconds": 0.0004334244877099991,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " lying down at Ophelia's feet.",
+          "start": 0.05,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " lying",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.642578125
+            },
+            {
+              "text": " down",
+              "start": 0.69,
+              "end": 0.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 0.97,
+              "end": 1.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Ophelia's",
+              "start": 1.11,
+              "end": 1.65,
+              "probability": 0.9744873046875
+            },
+            {
+              "text": " feet.",
+              "start": 1.65,
+              "end": 1.87,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "lying",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "down",
+          "start": 0.69,
+          "end": 0.97
+        },
+        {
+          "raw": "at",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "raw": "Ophelia's",
+          "start": 1.11,
+          "end": 1.65
+        },
+        {
+          "raw": "feet.",
+          "start": 1.65,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "[Lying",
+        "down",
+        "at",
+        "Ophelia's",
+        "feet.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "lying",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "lying",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 0.69,
+          "end": 0.97,
+          "key": "down",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.97,
+          "end": 1.11,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ophelia's",
+          "start": 1.11,
+          "end": 1.65,
+          "key": "ophelias",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "feet.",
+          "start": 1.65,
+          "end": 1.87,
+          "key": "feet",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Lying",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "down",
+          "start": 0.69,
+          "end": 0.97
+        },
+        {
+          "text": "at",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "text": "Ophelia's",
+          "start": 1.11,
+          "end": 1.65
+        },
+        {
+          "text": "feet.]",
+          "start": 1.65,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15541838854551315
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "199b6cc424b4629dde642002bc5a7d77ad8ed2ea8375217e0b0fc08b95429689",
+  "selected_reasons": []
+}

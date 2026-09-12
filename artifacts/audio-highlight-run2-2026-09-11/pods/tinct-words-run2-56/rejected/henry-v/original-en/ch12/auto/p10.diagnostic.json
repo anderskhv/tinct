@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "53d0f4925acea9e981267997e0265009ce4410b0f54ef10543550a3fdf2fd1b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.3055145116522908,
+      "alignment_seconds": 0.0004951413720846176,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pistol. Captain, I thee beseech to do me favours. The Duke of Exeter doth love thee well.",
+        "hotwords": "Pistol, Captain, I, The, Duke, Exeter"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pistol, Captain, I thee beseech to do me favours. The Duke of Exeter doth love thee well.",
+          "start": 0.02,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " Pistol,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.280029296875
+            },
+            {
+              "text": " Captain,",
+              "start": 1.2,
+              "end": 1.56,
+              "probability": 0.64501953125
+            },
+            {
+              "text": " I",
+              "start": 2.02,
+              "end": 2.02,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " thee",
+              "start": 2.02,
+              "end": 2.14,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " beseech",
+              "start": 2.14,
+              "end": 2.52,
+              "probability": 0.9708658854166666
+            },
+            {
+              "text": " to",
+              "start": 2.52,
+              "end": 2.64,
+              "probability": 0.90625
+            },
+            {
+              "text": " do",
+              "start": 2.64,
+              "end": 2.78,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " me",
+              "start": 2.78,
+              "end": 3.02,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " favours.",
+              "start": 3.02,
+              "end": 3.54,
+              "probability": 0.56658935546875
+            },
+            {
+              "text": " The",
+              "start": 4.06,
+              "end": 4.14,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Duke",
+              "start": 4.14,
+              "end": 4.32,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " of",
+              "start": 4.32,
+              "end": 4.48,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Exeter",
+              "start": 4.48,
+              "end": 4.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " doth",
+              "start": 4.86,
+              "end": 5.16,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " love",
+              "start": 5.16,
+              "end": 5.44,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " thee",
+              "start": 5.44,
+              "end": 5.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " well.",
+              "start": 5.64,
+              "end": 5.92,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pistol,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Captain,",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "raw": "I",
+          "start": 2.02,
+          "end": 2.02
+        },
+        {
+          "raw": "thee",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "raw": "beseech",
+          "start": 2.14,
+          "end": 2.52
+        },
+        {
+          "raw": "to",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "raw": "do",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "raw": "me",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "raw": "favours.",
+          "start": 3.02,
+          "end": 3.54
+        },
+        {
+          "raw": "The",
+          "start": 4.06,
+          "end": 4.14
+        },
+        {
+          "raw": "Duke",
+          "start": 4.14,
+          "end": 4.32
+        },
+        {
+          "raw": "of",
+          "start": 4.32,
+          "end": 4.48
+        },
+        {
+          "raw": "Exeter",
+          "start": 4.48,
+          "end": 4.86
+        },
+        {
+          "raw": "doth",
+          "start": 4.86,
+          "end": 5.16
+        },
+        {
+          "raw": "love",
+          "start": 5.16,
+          "end": 5.44
+        },
+        {
+          "raw": "thee",
+          "start": 5.44,
+          "end": 5.64
+        },
+        {
+          "raw": "well.",
+          "start": 5.64,
+          "end": 5.92
+        }
+      ],
+      "expected_tokens": [
+        "Pistol.",
+        "Captain,",
+        "I",
+        "thee",
+        "beseech",
+        "to",
+        "do",
+        "me",
+        "favours.",
+        "The",
+        "Duke",
+        "of",
+        "Exeter",
+        "doth",
+        "love",
+        "thee",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pistol,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "pistol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Captain,",
+          "start": 1.2,
+          "end": 1.56,
+          "key": "captain",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.02,
+          "end": 2.02,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.02,
+          "end": 2.14,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "beseech",
+          "start": 2.14,
+          "end": 2.52,
+          "key": "beseech",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.52,
+          "end": 2.64,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.64,
+          "end": 2.78,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.78,
+          "end": 3.02,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "favours.",
+          "start": 3.02,
+          "end": 3.54,
+          "key": "favours",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.06,
+          "end": 4.14,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Duke",
+          "start": 4.14,
+          "end": 4.32,
+          "key": "duke",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.32,
+          "end": 4.48,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Exeter",
+          "start": 4.48,
+          "end": 4.86,
+          "key": "exeter",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 4.86,
+          "end": 5.16,
+          "key": "doth",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 5.16,
+          "end": 5.44,
+          "key": "love",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 5.44,
+          "end": 5.64,
+          "key": "thee",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 5.64,
+          "end": 5.92,
+          "key": "well",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pistol.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Captain,",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "text": "I",
+          "start": 2.02,
+          "end": 2.02
+        },
+        {
+          "text": "thee",
+          "start": 2.02,
+          "end": 2.14
+        },
+        {
+          "text": "beseech",
+          "start": 2.14,
+          "end": 2.52
+        },
+        {
+          "text": "to",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "text": "do",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "text": "me",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "text": "favours.",
+          "start": 3.02,
+          "end": 3.54
+        },
+        {
+          "text": "The",
+          "start": 4.06,
+          "end": 4.14
+        },
+        {
+          "text": "Duke",
+          "start": 4.14,
+          "end": 4.32
+        },
+        {
+          "text": "of",
+          "start": 4.32,
+          "end": 4.48
+        },
+        {
+          "text": "Exeter",
+          "start": 4.48,
+          "end": 4.86
+        },
+        {
+          "text": "doth",
+          "start": 4.86,
+          "end": 5.16
+        },
+        {
+          "text": "love",
+          "start": 5.16,
+          "end": 5.44
+        },
+        {
+          "text": "thee",
+          "start": 5.44,
+          "end": 5.64
+        },
+        {
+          "text": "well.",
+          "start": 5.64,
+          "end": 5.92
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3062352780252695
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a0dacedb17589ac785ae98ee1e75be3e98ab531e11157118c0f5e875f61844eb",
+  "selected_reasons": []
+}

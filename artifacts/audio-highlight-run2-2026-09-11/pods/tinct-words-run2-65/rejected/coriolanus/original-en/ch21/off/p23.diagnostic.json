@@ -1,0 +1,266 @@
+{
+  "complete": true,
+  "signature": "2065249e9155635e0f0a0da7b0ad08855917146560805e611849ed9efa24f177",
+  "attempts": [
+    {
+      "asr_seconds": 0.1085964310914278,
+      "alignment_seconds": 0.00023313658311963081,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Third serving man, what are you?",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " serving",
+              "start": 0.61,
+              "end": 0.93,
+              "probability": 0.517578125
+            },
+            {
+              "text": " man,",
+              "start": 0.93,
+              "end": 1.19,
+              "probability": 0.343505859375
+            },
+            {
+              "text": " what",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.97265625
+            },
+            {
+              "text": " are",
+              "start": 1.57,
+              "end": 1.67,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " you?",
+              "start": 1.67,
+              "end": 2.01,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "serving",
+          "start": 0.61,
+          "end": 0.93
+        },
+        {
+          "raw": "man,",
+          "start": 0.93,
+          "end": 1.19
+        },
+        {
+          "raw": "what",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "are",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "raw": "you?",
+          "start": 1.67,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Servingman.",
+        "What",
+        "are",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          5,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "serving",
+          "start": 0.61,
+          "end": 0.93,
+          "key": "serving",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 0.93,
+          "end": 1.19,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.57,
+          "end": 1.67,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 1.67,
+          "end": 2.01,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Servingman.",
+          "start": 0.61,
+          "end": 1.01
+        },
+        {
+          "text": "What",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "are",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "text": "you?",
+          "start": 1.67,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10891168983653188
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b1ac538a2e80203fd7d0a8c801ebb98487faa9ff0ac4feef219323b090fa7e93",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

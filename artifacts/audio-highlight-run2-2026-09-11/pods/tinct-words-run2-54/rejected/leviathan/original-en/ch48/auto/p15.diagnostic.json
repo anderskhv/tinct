@@ -1,0 +1,1890 @@
+{
+  "complete": true,
+  "signature": "2ac23bb7f0158d22602db95ec094ffb535c88270ffe641d2c8740f5ec79316b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.318542318418622,
+      "alignment_seconds": 0.00038392189890146255,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Tenthly, by the Doctrine of Purgatory, of Justification by externall works, and of Indulgences, the Clergy is enriched.",
+        "hotwords": "Tenthly, Doctrine, Purgatory, Justification, Indulgences, Clergy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Tenthly, Doctrine, Purgatory, of Justification by externall works, and of Indulgences, the",
+          "start": 0.05,
+          "end": 7.01,
+          "words": [
+            {
+              "text": " Tenthly,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.47412109375
+            },
+            {
+              "text": " Doctrine,",
+              "start": 1.03,
+              "end": 1.27,
+              "probability": 0.0
+            },
+            {
+              "text": " Purgatory,",
+              "start": 1.91,
+              "end": 2.45,
+              "probability": 0.5003361701965332
+            },
+            {
+              "text": " of",
+              "start": 3.03,
+              "end": 3.03,
+              "probability": 0.035369873046875
+            },
+            {
+              "text": " Justification",
+              "start": 3.03,
+              "end": 3.75,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " by",
+              "start": 3.75,
+              "end": 4.09,
+              "probability": 0.434326171875
+            },
+            {
+              "text": " externall",
+              "start": 4.09,
+              "end": 4.67,
+              "probability": 0.34384727478027344
+            },
+            {
+              "text": " works,",
+              "start": 4.67,
+              "end": 4.95,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " and",
+              "start": 5.59,
+              "end": 5.59,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " of",
+              "start": 5.59,
+              "end": 5.69,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " Indulgences,",
+              "start": 5.69,
+              "end": 6.37,
+              "probability": 0.752105712890625
+            },
+            {
+              "text": " the",
+              "start": 6.95,
+              "end": 7.01,
+              "probability": 0.63623046875
+            }
+          ]
+        },
+        {
+          "text": " Clergy is enriched.",
+          "start": 7.01,
+          "end": 7.95,
+          "words": [
+            {
+              "text": " Clergy",
+              "start": 7.01,
+              "end": 7.39,
+              "probability": 0.6639404296875
+            },
+            {
+              "text": " is",
+              "start": 7.39,
+              "end": 7.63,
+              "probability": 0.978515625
+            },
+            {
+              "text": " enriched.",
+              "start": 7.63,
+              "end": 7.95,
+              "probability": 0.8203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tenthly,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Doctrine,",
+          "start": 1.03,
+          "end": 1.27
+        },
+        {
+          "raw": "Purgatory,",
+          "start": 1.91,
+          "end": 2.45
+        },
+        {
+          "raw": "of",
+          "start": 3.03,
+          "end": 3.03
+        },
+        {
+          "raw": "Justification",
+          "start": 3.03,
+          "end": 3.75
+        },
+        {
+          "raw": "by",
+          "start": 3.75,
+          "end": 4.09
+        },
+        {
+          "raw": "externall",
+          "start": 4.09,
+          "end": 4.67
+        },
+        {
+          "raw": "works,",
+          "start": 4.67,
+          "end": 4.95
+        },
+        {
+          "raw": "and",
+          "start": 5.59,
+          "end": 5.59
+        },
+        {
+          "raw": "of",
+          "start": 5.59,
+          "end": 5.69
+        },
+        {
+          "raw": "Indulgences,",
+          "start": 5.69,
+          "end": 6.37
+        },
+        {
+          "raw": "the",
+          "start": 6.95,
+          "end": 7.01
+        },
+        {
+          "raw": "Clergy",
+          "start": 7.01,
+          "end": 7.39
+        },
+        {
+          "raw": "is",
+          "start": 7.39,
+          "end": 7.63
+        },
+        {
+          "raw": "enriched.",
+          "start": 7.63,
+          "end": 7.95
+        }
+      ],
+      "expected_tokens": [
+        "Tenthly,",
+        "by",
+        "the",
+        "Doctrine",
+        "of",
+        "Purgatory,",
+        "of",
+        "Justification",
+        "by",
+        "externall",
+        "works,",
+        "and",
+        "of",
+        "Indulgences,",
+        "the",
+        "Clergy",
+        "is",
+        "enriched."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          "equal",
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          "delete",
+          4,
+          5,
+          2,
+          2
+        ],
+        [
+          "equal",
+          5,
+          18,
+          2,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          "delete",
+          4,
+          5,
+          2,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tenthly,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "tenthly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Doctrine,",
+          "start": 1.03,
+          "end": 1.27,
+          "key": "doctrine",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Purgatory,",
+          "start": 1.91,
+          "end": 2.45,
+          "key": "purgatory",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.03,
+          "end": 3.03,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Justification",
+          "start": 3.03,
+          "end": 3.75,
+          "key": "justification",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.75,
+          "end": 4.09,
+          "key": "by",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "externall",
+          "start": 4.09,
+          "end": 4.67,
+          "key": "externall",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "works,",
+          "start": 4.67,
+          "end": 4.95,
+          "key": "works",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.59,
+          "end": 5.59,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.59,
+          "end": 5.69,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Indulgences,",
+          "start": 5.69,
+          "end": 6.37,
+          "key": "indulgences",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.95,
+          "end": 7.01,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Clergy",
+          "start": 7.01,
+          "end": 7.39,
+          "key": "clergy",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.39,
+          "end": 7.63,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "enriched.",
+          "start": 7.63,
+          "end": 7.95,
+          "key": "enriched",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tenthly,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "by",
+          "start": 0.87,
+          "end": 0.95
+        },
+        {
+          "text": "the",
+          "start": 0.95,
+          "end": 0.99
+        },
+        {
+          "text": "Doctrine",
+          "start": 1.03,
+          "end": 1.27
+        },
+        {
+          "text": "of",
+          "start": 1.27,
+          "end": 1.59
+        },
+        {
+          "text": "Purgatory,",
+          "start": 1.91,
+          "end": 2.45
+        },
+        {
+          "text": "of",
+          "start": 3.03,
+          "end": 3.03
+        },
+        {
+          "text": "Justification",
+          "start": 3.03,
+          "end": 3.75
+        },
+        {
+          "text": "by",
+          "start": 3.75,
+          "end": 4.09
+        },
+        {
+          "text": "externall",
+          "start": 4.09,
+          "end": 4.67
+        },
+        {
+          "text": "works,",
+          "start": 4.67,
+          "end": 4.95
+        },
+        {
+          "text": "and",
+          "start": 5.59,
+          "end": 5.59
+        },
+        {
+          "text": "of",
+          "start": 5.59,
+          "end": 5.69
+        },
+        {
+          "text": "Indulgences,",
+          "start": 5.69,
+          "end": 6.37
+        },
+        {
+          "text": "the",
+          "start": 6.95,
+          "end": 7.01
+        },
+        {
+          "text": "Clergy",
+          "start": 7.01,
+          "end": 7.39
+        },
+        {
+          "text": "is",
+          "start": 7.39,
+          "end": 7.63
+        },
+        {
+          "text": "enriched.",
+          "start": 7.63,
+          "end": 7.95
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3190415813587606
+    },
+    {
+      "asr_seconds": 0.36671536788344383,
+      "alignment_seconds": 0.0006007538177073002,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Tenthly, Doctrine, Purgatory, Justification, Indulgences, Clergy"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Tenthly, Doctrine, Purgatory, Justification, External Works, Indulgences, Clergy",
+          "start": 0.05,
+          "end": 7.41,
+          "words": [
+            {
+              "text": " Tenthly,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.474365234375
+            },
+            {
+              "text": " Doctrine,",
+              "start": 1.07,
+              "end": 1.27,
+              "probability": 0.0
+            },
+            {
+              "text": " Purgatory,",
+              "start": 1.91,
+              "end": 2.45,
+              "probability": 0.5003280639648438
+            },
+            {
+              "text": " Justification,",
+              "start": 3.01,
+              "end": 3.83,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " External",
+              "start": 4.11,
+              "end": 4.49,
+              "probability": 0.59521484375
+            },
+            {
+              "text": " Works,",
+              "start": 4.49,
+              "end": 5.05,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " Indulgences,",
+              "start": 5.65,
+              "end": 6.43,
+              "probability": 0.9171142578125
+            },
+            {
+              "text": " Clergy",
+              "start": 6.97,
+              "end": 7.41,
+              "probability": 0.943115234375
+            }
+          ]
+        },
+        {
+          "text": " is Enriched.",
+          "start": 7.41,
+          "end": 8.09,
+          "words": [
+            {
+              "text": " is",
+              "start": 7.41,
+              "end": 7.59,
+              "probability": 0.355712890625
+            },
+            {
+              "text": " Enriched.",
+              "start": 7.59,
+              "end": 8.09,
+              "probability": 0.4831275939941406
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tenthly,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Doctrine,",
+          "start": 1.07,
+          "end": 1.27
+        },
+        {
+          "raw": "Purgatory,",
+          "start": 1.91,
+          "end": 2.45
+        },
+        {
+          "raw": "Justification,",
+          "start": 3.01,
+          "end": 3.83
+        },
+        {
+          "raw": "External",
+          "start": 4.11,
+          "end": 4.49
+        },
+        {
+          "raw": "Works,",
+          "start": 4.49,
+          "end": 5.05
+        },
+        {
+          "raw": "Indulgences,",
+          "start": 5.65,
+          "end": 6.43
+        },
+        {
+          "raw": "Clergy",
+          "start": 6.97,
+          "end": 7.41
+        },
+        {
+          "raw": "is",
+          "start": 7.41,
+          "end": 7.59
+        },
+        {
+          "raw": "Enriched.",
+          "start": 7.59,
+          "end": 8.09
+        }
+      ],
+      "expected_tokens": [
+        "Tenthly,",
+        "by",
+        "the",
+        "Doctrine",
+        "of",
+        "Purgatory,",
+        "of",
+        "Justification",
+        "by",
+        "externall",
+        "works,",
+        "and",
+        "of",
+        "Indulgences,",
+        "the",
+        "Clergy",
+        "is",
+        "enriched."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          "equal",
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          "delete",
+          4,
+          5,
+          2,
+          2
+        ],
+        [
+          "equal",
+          5,
+          6,
+          2,
+          3
+        ],
+        [
+          "delete",
+          6,
+          7,
+          3,
+          3
+        ],
+        [
+          "equal",
+          7,
+          8,
+          3,
+          4
+        ],
+        [
+          "replace",
+          8,
+          10,
+          4,
+          5
+        ],
+        [
+          "equal",
+          10,
+          11,
+          5,
+          6
+        ],
+        [
+          "delete",
+          11,
+          13,
+          6,
+          6
+        ],
+        [
+          "equal",
+          13,
+          14,
+          6,
+          7
+        ],
+        [
+          "delete",
+          14,
+          15,
+          7,
+          7
+        ],
+        [
+          "equal",
+          15,
+          18,
+          7,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          "delete",
+          4,
+          5,
+          2,
+          2
+        ],
+        [
+          "delete",
+          6,
+          7,
+          3,
+          3
+        ],
+        [
+          "replace",
+          8,
+          10,
+          4,
+          5
+        ],
+        [
+          "delete",
+          11,
+          13,
+          6,
+          6
+        ],
+        [
+          "delete",
+          14,
+          15,
+          7,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tenthly,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "tenthly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Doctrine,",
+          "start": 1.07,
+          "end": 1.27,
+          "key": "doctrine",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Purgatory,",
+          "start": 1.91,
+          "end": 2.45,
+          "key": "purgatory",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Justification,",
+          "start": 3.01,
+          "end": 3.83,
+          "key": "justification",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "External",
+          "start": 4.11,
+          "end": 4.49,
+          "key": "external",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Works,",
+          "start": 4.49,
+          "end": 5.05,
+          "key": "works",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Indulgences,",
+          "start": 5.65,
+          "end": 6.43,
+          "key": "indulgences",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Clergy",
+          "start": 6.97,
+          "end": 7.41,
+          "key": "clergy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.41,
+          "end": 7.59,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Enriched.",
+          "start": 7.59,
+          "end": 8.09,
+          "key": "enriched",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tenthly,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "by",
+          "start": 0.87,
+          "end": 0.97
+        },
+        {
+          "text": "the",
+          "start": 0.97,
+          "end": 1.02
+        },
+        {
+          "text": "Doctrine",
+          "start": 1.07,
+          "end": 1.27
+        },
+        {
+          "text": "of",
+          "start": 1.27,
+          "end": 1.59
+        },
+        {
+          "text": "Purgatory,",
+          "start": 1.91,
+          "end": 2.45
+        },
+        {
+          "text": "of",
+          "start": 2.45,
+          "end": 2.73
+        },
+        {
+          "text": "Justification",
+          "start": 3.01,
+          "end": 3.83
+        },
+        {
+          "text": "by",
+          "start": 3.83,
+          "end": 4.16
+        },
+        {
+          "text": "externall",
+          "start": 4.16,
+          "end": 4.325
+        },
+        {
+          "text": "works,",
+          "start": 4.49,
+          "end": 5.05
+        },
+        {
+          "text": "and",
+          "start": 5.05,
+          "end": 5.35
+        },
+        {
+          "text": "of",
+          "start": 5.35,
+          "end": 5.5
+        },
+        {
+          "text": "Indulgences,",
+          "start": 5.65,
+          "end": 6.43
+        },
+        {
+          "text": "the",
+          "start": 6.43,
+          "end": 6.7
+        },
+        {
+          "text": "Clergy",
+          "start": 6.97,
+          "end": 7.41
+        },
+        {
+          "text": "is",
+          "start": 7.41,
+          "end": 7.59
+        },
+        {
+          "text": "enriched.",
+          "start": 7.59,
+          "end": 8.09
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.36748522194102407
+    },
+    {
+      "asr_seconds": 0.34353004675358534,
+      "alignment_seconds": 0.0006240550428628922,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tenthly, by the doctrine of purgatory, of justification by external works, and of indulgences,",
+          "start": 0.05,
+          "end": 6.39,
+          "words": [
+            {
+              "text": " Tenthly,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.4742431640625
+            },
+            {
+              "text": " by",
+              "start": 1.03,
+              "end": 1.17,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " the",
+              "start": 1.17,
+              "end": 1.33,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " doctrine",
+              "start": 1.33,
+              "end": 1.61,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " of",
+              "start": 1.61,
+              "end": 1.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " purgatory,",
+              "start": 1.93,
+              "end": 2.37,
+              "probability": 0.9793294270833334
+            },
+            {
+              "text": " of",
+              "start": 2.93,
+              "end": 2.99,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " justification",
+              "start": 2.99,
+              "end": 3.51,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " by",
+              "start": 3.51,
+              "end": 4.07,
+              "probability": 0.990234375
+            },
+            {
+              "text": " external",
+              "start": 4.07,
+              "end": 4.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " works,",
+              "start": 4.51,
+              "end": 4.99,
+              "probability": 0.98828125
+            },
+            {
+              "text": " and",
+              "start": 5.51,
+              "end": 5.59,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 5.59,
+              "end": 5.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " indulgences,",
+              "start": 5.69,
+              "end": 6.39,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " the clergy is enriched.",
+          "start": 6.89,
+          "end": 8.03,
+          "words": [
+            {
+              "text": " the",
+              "start": 6.89,
+              "end": 7.01,
+              "probability": 0.986328125
+            },
+            {
+              "text": " clergy",
+              "start": 7.01,
+              "end": 7.31,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 7.31,
+              "end": 7.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " enriched.",
+              "start": 7.61,
+              "end": 8.03,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tenthly,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "by",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "raw": "the",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "raw": "doctrine",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "raw": "of",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "raw": "purgatory,",
+          "start": 1.93,
+          "end": 2.37
+        },
+        {
+          "raw": "of",
+          "start": 2.93,
+          "end": 2.99
+        },
+        {
+          "raw": "justification",
+          "start": 2.99,
+          "end": 3.51
+        },
+        {
+          "raw": "by",
+          "start": 3.51,
+          "end": 4.07
+        },
+        {
+          "raw": "external",
+          "start": 4.07,
+          "end": 4.51
+        },
+        {
+          "raw": "works,",
+          "start": 4.51,
+          "end": 4.99
+        },
+        {
+          "raw": "and",
+          "start": 5.51,
+          "end": 5.59
+        },
+        {
+          "raw": "of",
+          "start": 5.59,
+          "end": 5.69
+        },
+        {
+          "raw": "indulgences,",
+          "start": 5.69,
+          "end": 6.39
+        },
+        {
+          "raw": "the",
+          "start": 6.89,
+          "end": 7.01
+        },
+        {
+          "raw": "clergy",
+          "start": 7.01,
+          "end": 7.31
+        },
+        {
+          "raw": "is",
+          "start": 7.31,
+          "end": 7.61
+        },
+        {
+          "raw": "enriched.",
+          "start": 7.61,
+          "end": 8.03
+        }
+      ],
+      "expected_tokens": [
+        "Tenthly,",
+        "by",
+        "the",
+        "Doctrine",
+        "of",
+        "Purgatory,",
+        "of",
+        "Justification",
+        "by",
+        "externall",
+        "works,",
+        "and",
+        "of",
+        "Indulgences,",
+        "the",
+        "Clergy",
+        "is",
+        "enriched."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          18,
+          10,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tenthly,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "tenthly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.03,
+          "end": 1.17,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.17,
+          "end": 1.33,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "doctrine",
+          "start": 1.33,
+          "end": 1.61,
+          "key": "doctrine",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.61,
+          "end": 1.93,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "purgatory,",
+          "start": 1.93,
+          "end": 2.37,
+          "key": "purgatory",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.93,
+          "end": 2.99,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "justification",
+          "start": 2.99,
+          "end": 3.51,
+          "key": "justification",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.51,
+          "end": 4.07,
+          "key": "by",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "external",
+          "start": 4.07,
+          "end": 4.51,
+          "key": "external",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "works,",
+          "start": 4.51,
+          "end": 4.99,
+          "key": "works",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.51,
+          "end": 5.59,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.59,
+          "end": 5.69,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "indulgences,",
+          "start": 5.69,
+          "end": 6.39,
+          "key": "indulgences",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.89,
+          "end": 7.01,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "clergy",
+          "start": 7.01,
+          "end": 7.31,
+          "key": "clergy",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.31,
+          "end": 7.61,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "enriched.",
+          "start": 7.61,
+          "end": 8.03,
+          "key": "enriched",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tenthly,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "by",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "text": "the",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "text": "Doctrine",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "text": "of",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "text": "Purgatory,",
+          "start": 1.93,
+          "end": 2.37
+        },
+        {
+          "text": "of",
+          "start": 2.93,
+          "end": 2.99
+        },
+        {
+          "text": "Justification",
+          "start": 2.99,
+          "end": 3.51
+        },
+        {
+          "text": "by",
+          "start": 3.51,
+          "end": 4.07
+        },
+        {
+          "text": "externall",
+          "start": 4.07,
+          "end": 4.29
+        },
+        {
+          "text": "works,",
+          "start": 4.51,
+          "end": 4.99
+        },
+        {
+          "text": "and",
+          "start": 5.51,
+          "end": 5.59
+        },
+        {
+          "text": "of",
+          "start": 5.59,
+          "end": 5.69
+        },
+        {
+          "text": "Indulgences,",
+          "start": 5.69,
+          "end": 6.39
+        },
+        {
+          "text": "the",
+          "start": 6.89,
+          "end": 7.01
+        },
+        {
+          "text": "Clergy",
+          "start": 7.01,
+          "end": 7.31
+        },
+        {
+          "text": "is",
+          "start": 7.31,
+          "end": 7.61
+        },
+        {
+          "text": "enriched.",
+          "start": 7.61,
+          "end": 8.03
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.34437171602621675
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f15009875021ae12fe6146abb893e04e95ff769a8721f1e49e122183d04e5374",
+  "selected_reasons": []
+}

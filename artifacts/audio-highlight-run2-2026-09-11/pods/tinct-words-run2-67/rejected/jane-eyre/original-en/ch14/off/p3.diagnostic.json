@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "e35816da943bca31105bc77701c7593f05471ab20b6551ee82ac96c1f83f28f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.2197779701091349,
+      "alignment_seconds": 0.000525033101439476,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ma boit, ma boit, exclaimed she running towards it.",
+          "start": 0.08,
+          "end": 3.54,
+          "words": [
+            {
+              "text": " Ma",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.27099609375
+            },
+            {
+              "text": " boit,",
+              "start": 0.64,
+              "end": 0.94,
+              "probability": 0.6241455078125
+            },
+            {
+              "text": " ma",
+              "start": 1.12,
+              "end": 1.18,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " boit,",
+              "start": 1.18,
+              "end": 1.88,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " exclaimed",
+              "start": 1.88,
+              "end": 2.28,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " she",
+              "start": 2.28,
+              "end": 2.64,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " running",
+              "start": 2.64,
+              "end": 2.94,
+              "probability": 0.76025390625
+            },
+            {
+              "text": " towards",
+              "start": 2.94,
+              "end": 3.24,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " it.",
+              "start": 3.24,
+              "end": 3.54,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ma",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "boit,",
+          "start": 0.64,
+          "end": 0.94
+        },
+        {
+          "raw": "ma",
+          "start": 1.12,
+          "end": 1.18
+        },
+        {
+          "raw": "boit,",
+          "start": 1.18,
+          "end": 1.88
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.88,
+          "end": 2.28
+        },
+        {
+          "raw": "she",
+          "start": 2.28,
+          "end": 2.64
+        },
+        {
+          "raw": "running",
+          "start": 2.64,
+          "end": 2.94
+        },
+        {
+          "raw": "towards",
+          "start": 2.94,
+          "end": 3.24
+        },
+        {
+          "raw": "it.",
+          "start": 3.24,
+          "end": 3.54
+        }
+      ],
+      "expected_tokens": [
+        "\"Ma",
+        "boite!",
+        "ma",
+        "boite!\"",
+        "exclaimed",
+        "she,",
+        "running",
+        "towards",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ma",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "ma",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "boit,",
+          "start": 0.64,
+          "end": 0.94,
+          "key": "boit",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 1.12,
+          "end": 1.18,
+          "key": "ma",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "boit,",
+          "start": 1.18,
+          "end": 1.88,
+          "key": "boit",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.88,
+          "end": 2.28,
+          "key": "exclaimed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.28,
+          "end": 2.64,
+          "key": "she",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "running",
+          "start": 2.64,
+          "end": 2.94,
+          "key": "running",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 2.94,
+          "end": 3.24,
+          "key": "towards",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 3.24,
+          "end": 3.54,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ma",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "boite!",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "text": "ma",
+          "start": 1.12,
+          "end": 1.18
+        },
+        {
+          "text": "boite!\"",
+          "start": 1.18,
+          "end": 1.53
+        },
+        {
+          "text": "exclaimed",
+          "start": 1.88,
+          "end": 2.28
+        },
+        {
+          "text": "she,",
+          "start": 2.28,
+          "end": 2.64
+        },
+        {
+          "text": "running",
+          "start": 2.64,
+          "end": 2.94
+        },
+        {
+          "text": "towards",
+          "start": 2.94,
+          "end": 3.24
+        },
+        {
+          "text": "it.",
+          "start": 3.24,
+          "end": 3.54
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22048133285716176
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0426c5259bd217643634c6b2728aa0caa6462f1371b8282e54cf7b984020bf05",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

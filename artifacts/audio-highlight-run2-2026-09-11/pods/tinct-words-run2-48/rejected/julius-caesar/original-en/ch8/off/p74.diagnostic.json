@@ -1,0 +1,323 @@
+{
+  "complete": true,
+  "signature": "5dd8531e0325f74666e3906b5769ca18b27ca1ddb06ccb0968da8c9477843708",
+  "attempts": [
+    {
+      "asr_seconds": 0.19847041554749012,
+      "alignment_seconds": 0.000307966023683548,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, but here comes Antony.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " but",
+              "start": 1.09,
+              "end": 1.19,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " here",
+              "start": 1.19,
+              "end": 1.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " comes",
+              "start": 1.39,
+              "end": 1.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Antony.",
+              "start": 1.65,
+              "end": 2.11,
+              "probability": 0.8837890625
+            }
+          ]
+        },
+        {
+          "text": " Welcome Mark Antony.",
+          "start": 2.65,
+          "end": 3.65,
+          "words": [
+            {
+              "text": " Welcome",
+              "start": 2.65,
+              "end": 2.83,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Mark",
+              "start": 2.83,
+              "end": 3.15,
+              "probability": 0.351806640625
+            },
+            {
+              "text": " Antony.",
+              "start": 3.15,
+              "end": 3.65,
+              "probability": 0.992431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "but",
+          "start": 1.09,
+          "end": 1.19
+        },
+        {
+          "raw": "here",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "raw": "comes",
+          "start": 1.39,
+          "end": 1.65
+        },
+        {
+          "raw": "Antony.",
+          "start": 1.65,
+          "end": 2.11
+        },
+        {
+          "raw": "Welcome",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "raw": "Mark",
+          "start": 2.83,
+          "end": 3.15
+        },
+        {
+          "raw": "Antony.",
+          "start": 3.15,
+          "end": 3.65
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "But",
+        "here",
+        "comes",
+        "Antony.",
+        "Welcome,",
+        "Mark",
+        "Antony."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.09,
+          "end": 1.19,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.19,
+          "end": 1.39,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 1.39,
+          "end": 1.65,
+          "key": "comes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Antony.",
+          "start": 1.65,
+          "end": 2.11,
+          "key": "antony",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Welcome",
+          "start": 2.65,
+          "end": 2.83,
+          "key": "welcome",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Mark",
+          "start": 2.83,
+          "end": 3.15,
+          "key": "mark",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Antony.",
+          "start": 3.15,
+          "end": 3.65,
+          "key": "antony",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "But",
+          "start": 1.09,
+          "end": 1.19
+        },
+        {
+          "text": "here",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "text": "comes",
+          "start": 1.39,
+          "end": 1.65
+        },
+        {
+          "text": "Antony.",
+          "start": 1.65,
+          "end": 2.11
+        },
+        {
+          "text": "Welcome,",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "text": "Mark",
+          "start": 2.83,
+          "end": 3.15
+        },
+        {
+          "text": "Antony.",
+          "start": 3.15,
+          "end": 3.65
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19890254363417625
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4df322d0a7fd43fac6cc7ceff63b5b721d4a95f2709a51e872efb5455629ce61",
+  "selected_reasons": []
+}

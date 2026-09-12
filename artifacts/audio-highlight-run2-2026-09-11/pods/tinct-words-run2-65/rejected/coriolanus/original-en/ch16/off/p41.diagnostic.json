@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "075f54b9b914c3b9927a7e6f2ebdb7186f1a052f4ddabcf118e4f7784621e190",
+  "attempts": [
+    {
+      "asr_seconds": 0.1135818068869412,
+      "alignment_seconds": 0.00017131492495536804,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, how, traitor.",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.7555338541666666
+            },
+            {
+              "text": " how,",
+              "start": 1.31,
+              "end": 1.39,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " traitor.",
+              "start": 1.71,
+              "end": 1.83,
+              "probability": 0.58349609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "how,",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "raw": "traitor.",
+          "start": 1.71,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "How?",
+        "Traitor?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how,",
+          "start": 1.31,
+          "end": 1.39,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "traitor.",
+          "start": 1.71,
+          "end": 1.83,
+          "key": "traitor",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "How?",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "text": "Traitor?",
+          "start": 1.71,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11381164379417896
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7b4dff80863cd848bfef1778d46b672a2dfc4015d45b07aa6d9319ede1be4c8c",
+  "selected_reasons": []
+}

@@ -1,0 +1,5617 @@
+{
+  "complete": true,
+  "signature": "bc853a7ff5ee306e8d9f8df06cc45f11e7dffab35470a430c3bf82e2094c6f96",
+  "attempts": [
+    {
+      "asr_seconds": 0.4613052289932966,
+      "alignment_seconds": 0.001811593770980835,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lawyers are attached to public order beyond every other consideration, and the best security of public order is authority. It must not be forgotten that, if they prize the free institutions of their country much, they nevertheless value the legality of those institutions far more: they are less afraid of tyranny than of arbitrary power; and provided that the legislature take upon itself to deprive men of their independence, they are not dissatisfied.",
+        "hotwords": "Lawyers, It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lawyers, It Lawyers are attached to public order beyond",
+          "start": 25.55,
+          "end": 26.95,
+          "words": [
+            {
+              "text": " Lawyers,",
+              "start": 25.55,
+              "end": 26.95,
+              "probability": 0.1722412109375
+            },
+            {
+              "text": " It",
+              "start": 26.95,
+              "end": 26.95,
+              "probability": 5.3763389587402344e-05
+            },
+            {
+              "text": " Lawyers",
+              "start": 26.95,
+              "end": 26.95,
+              "probability": 0.0
+            },
+            {
+              "text": " are",
+              "start": 26.95,
+              "end": 26.95,
+              "probability": 0.62451171875
+            },
+            {
+              "text": " attached",
+              "start": 26.95,
+              "end": 26.95,
+              "probability": 0.951171875
+            },
+            {
+              "text": " to",
+              "start": 26.95,
+              "end": 26.95,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " public",
+              "start": 26.95,
+              "end": 26.95,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " order",
+              "start": 26.95,
+              "end": 26.95,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " beyond",
+              "start": 26.95,
+              "end": 26.95,
+              "probability": 0.95068359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lawyers,",
+          "start": 25.55,
+          "end": 26.95
+        },
+        {
+          "raw": "It",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "raw": "Lawyers",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "raw": "are",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "raw": "attached",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "raw": "to",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "raw": "public",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "raw": "order",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "raw": "beyond",
+          "start": 26.95,
+          "end": 26.95
+        }
+      ],
+      "expected_tokens": [
+        "Lawyers",
+        "are",
+        "attached",
+        "to",
+        "public",
+        "order",
+        "beyond",
+        "every",
+        "other",
+        "consideration,",
+        "and",
+        "the",
+        "best",
+        "security",
+        "of",
+        "public",
+        "order",
+        "is",
+        "authority.",
+        "It",
+        "must",
+        "not",
+        "be",
+        "forgotten",
+        "that,",
+        "if",
+        "they",
+        "prize",
+        "the",
+        "free",
+        "institutions",
+        "of",
+        "their",
+        "country",
+        "much,",
+        "they",
+        "nevertheless",
+        "value",
+        "the",
+        "legality",
+        "of",
+        "those",
+        "institutions",
+        "far",
+        "more:",
+        "they",
+        "are",
+        "less",
+        "afraid",
+        "of",
+        "tyranny",
+        "than",
+        "of",
+        "arbitrary",
+        "power;",
+        "and",
+        "provided",
+        "that",
+        "the",
+        "legislature",
+        "take",
+        "upon",
+        "itself",
+        "to",
+        "deprive",
+        "men",
+        "of",
+        "their",
+        "independence,",
+        "they",
+        "are",
+        "not",
+        "dissatisfied."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          7,
+          2,
+          9
+        ],
+        [
+          "delete",
+          7,
+          73,
+          9,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "delete",
+          7,
+          73,
+          9,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lawyers,",
+          "start": 25.55,
+          "end": 26.95,
+          "key": "lawyers",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 26.95,
+          "end": 26.95,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lawyers",
+          "start": 26.95,
+          "end": 26.95,
+          "key": "lawyers",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 26.95,
+          "end": 26.95,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "attached",
+          "start": 26.95,
+          "end": 26.95,
+          "key": "attached",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 26.95,
+          "end": 26.95,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "public",
+          "start": 26.95,
+          "end": 26.95,
+          "key": "public",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "order",
+          "start": 26.95,
+          "end": 26.95,
+          "key": "order",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "beyond",
+          "start": 26.95,
+          "end": 26.95,
+          "key": "beyond",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lawyers",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "are",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "attached",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "to",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "public",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "order",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "beyond",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "every",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "other",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "consideration,",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "and",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "the",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "best",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "security",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "of",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "public",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "order",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "is",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "authority.",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "It",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "must",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "not",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "be",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "forgotten",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "that,",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "if",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "they",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "prize",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "the",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "free",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "institutions",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "of",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "their",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "country",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "much,",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "they",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "nevertheless",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "value",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "the",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "legality",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "of",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "those",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "institutions",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "far",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "more:",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "they",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "are",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "less",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "afraid",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "of",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "tyranny",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "than",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "of",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "arbitrary",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "power;",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "and",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "provided",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "that",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "the",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "legislature",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "take",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "upon",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "itself",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "to",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "deprive",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "men",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "of",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "their",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "independence,",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "they",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "are",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "not",
+          "start": 26.95,
+          "end": 26.95
+        },
+        {
+          "text": "dissatisfied.",
+          "start": 26.95,
+          "end": 26.95
+        }
+      ],
+      "stats": {
+        "expected_words": 73,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.0958904109589041,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4632918033748865
+    },
+    {
+      "asr_seconds": 0.8191852159798145,
+      "alignment_seconds": 0.002692127600312233,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Lawyers, It"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " It must not be forgotten that, if they prize the free institutions of their country much,",
+          "start": 7.03,
+          "end": 12.25,
+          "words": [
+            {
+              "text": " It",
+              "start": 7.03,
+              "end": 7.63,
+              "probability": 0.010345458984375
+            },
+            {
+              "text": " must",
+              "start": 7.63,
+              "end": 8.23,
+              "probability": 0.896484375
+            },
+            {
+              "text": " not",
+              "start": 8.23,
+              "end": 8.45,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " be",
+              "start": 8.45,
+              "end": 8.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " forgotten",
+              "start": 8.59,
+              "end": 8.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that,",
+              "start": 8.99,
+              "end": 9.31,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " if",
+              "start": 9.71,
+              "end": 9.83,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " they",
+              "start": 9.83,
+              "end": 9.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " prize",
+              "start": 9.95,
+              "end": 10.25,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " the",
+              "start": 10.25,
+              "end": 10.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " free",
+              "start": 10.47,
+              "end": 10.71,
+              "probability": 0.9921875
+            },
+            {
+              "text": " institutions",
+              "start": 10.71,
+              "end": 11.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 11.29,
+              "end": 11.47,
+              "probability": 0.994140625
+            },
+            {
+              "text": " their",
+              "start": 11.47,
+              "end": 11.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " country",
+              "start": 11.61,
+              "end": 11.91,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " much,",
+              "start": 11.91,
+              "end": 12.25,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " they nevertheless value the legality of those institutions far more. They are less afraid",
+          "start": 12.79,
+          "end": 17.63,
+          "words": [
+            {
+              "text": " they",
+              "start": 12.79,
+              "end": 12.89,
+              "probability": 0.98828125
+            },
+            {
+              "text": " nevertheless",
+              "start": 12.89,
+              "end": 13.37,
+              "probability": 0.990234375
+            },
+            {
+              "text": " value",
+              "start": 13.37,
+              "end": 13.87,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 13.87,
+              "end": 14.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " legality",
+              "start": 14.07,
+              "end": 14.41,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 14.41,
+              "end": 14.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " those",
+              "start": 14.71,
+              "end": 14.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " institutions",
+              "start": 14.91,
+              "end": 15.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " far",
+              "start": 15.53,
+              "end": 15.89,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " more.",
+              "start": 15.89,
+              "end": 16.21,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " They",
+              "start": 16.89,
+              "end": 16.97,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " are",
+              "start": 16.97,
+              "end": 17.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " less",
+              "start": 17.11,
+              "end": 17.31,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " afraid",
+              "start": 17.31,
+              "end": 17.63,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " of tyranny than of arbitrary power, and provided that the legislature take upon itself to deprive",
+          "start": 17.63,
+          "end": 23.15,
+          "words": [
+            {
+              "text": " of",
+              "start": 17.63,
+              "end": 17.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " tyranny",
+              "start": 17.85,
+              "end": 18.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 18.15,
+              "end": 18.41,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 18.41,
+              "end": 18.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " arbitrary",
+              "start": 18.57,
+              "end": 19.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " power,",
+              "start": 19.07,
+              "end": 19.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 20.11,
+              "end": 20.29,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " provided",
+              "start": 20.29,
+              "end": 20.63,
+              "probability": 0.8515625
+            },
+            {
+              "text": " that",
+              "start": 20.63,
+              "end": 20.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 20.89,
+              "end": 21.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " legislature",
+              "start": 21.07,
+              "end": 21.51,
+              "probability": 0.875
+            },
+            {
+              "text": " take",
+              "start": 21.51,
+              "end": 21.91,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " upon",
+              "start": 21.91,
+              "end": 22.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " itself",
+              "start": 22.17,
+              "end": 22.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 22.51,
+              "end": 22.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " deprive",
+              "start": 22.73,
+              "end": 23.15,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " men of their independence, they are not dissatisfied.",
+          "start": 23.15,
+          "end": 26.13,
+          "words": [
+            {
+              "text": " men",
+              "start": 23.15,
+              "end": 23.49,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " of",
+              "start": 23.49,
+              "end": 23.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 23.63,
+              "end": 23.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " independence,",
+              "start": 23.79,
+              "end": 24.35,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " they",
+              "start": 24.87,
+              "end": 25.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " are",
+              "start": 25.07,
+              "end": 25.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 25.21,
+              "end": 25.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " dissatisfied.",
+              "start": 25.43,
+              "end": 26.13,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 7.03,
+          "end": 7.63
+        },
+        {
+          "raw": "must",
+          "start": 7.63,
+          "end": 8.23
+        },
+        {
+          "raw": "not",
+          "start": 8.23,
+          "end": 8.45
+        },
+        {
+          "raw": "be",
+          "start": 8.45,
+          "end": 8.59
+        },
+        {
+          "raw": "forgotten",
+          "start": 8.59,
+          "end": 8.99
+        },
+        {
+          "raw": "that,",
+          "start": 8.99,
+          "end": 9.31
+        },
+        {
+          "raw": "if",
+          "start": 9.71,
+          "end": 9.83
+        },
+        {
+          "raw": "they",
+          "start": 9.83,
+          "end": 9.95
+        },
+        {
+          "raw": "prize",
+          "start": 9.95,
+          "end": 10.25
+        },
+        {
+          "raw": "the",
+          "start": 10.25,
+          "end": 10.47
+        },
+        {
+          "raw": "free",
+          "start": 10.47,
+          "end": 10.71
+        },
+        {
+          "raw": "institutions",
+          "start": 10.71,
+          "end": 11.29
+        },
+        {
+          "raw": "of",
+          "start": 11.29,
+          "end": 11.47
+        },
+        {
+          "raw": "their",
+          "start": 11.47,
+          "end": 11.61
+        },
+        {
+          "raw": "country",
+          "start": 11.61,
+          "end": 11.91
+        },
+        {
+          "raw": "much,",
+          "start": 11.91,
+          "end": 12.25
+        },
+        {
+          "raw": "they",
+          "start": 12.79,
+          "end": 12.89
+        },
+        {
+          "raw": "nevertheless",
+          "start": 12.89,
+          "end": 13.37
+        },
+        {
+          "raw": "value",
+          "start": 13.37,
+          "end": 13.87
+        },
+        {
+          "raw": "the",
+          "start": 13.87,
+          "end": 14.07
+        },
+        {
+          "raw": "legality",
+          "start": 14.07,
+          "end": 14.41
+        },
+        {
+          "raw": "of",
+          "start": 14.41,
+          "end": 14.71
+        },
+        {
+          "raw": "those",
+          "start": 14.71,
+          "end": 14.91
+        },
+        {
+          "raw": "institutions",
+          "start": 14.91,
+          "end": 15.53
+        },
+        {
+          "raw": "far",
+          "start": 15.53,
+          "end": 15.89
+        },
+        {
+          "raw": "more.",
+          "start": 15.89,
+          "end": 16.21
+        },
+        {
+          "raw": "They",
+          "start": 16.89,
+          "end": 16.97
+        },
+        {
+          "raw": "are",
+          "start": 16.97,
+          "end": 17.11
+        },
+        {
+          "raw": "less",
+          "start": 17.11,
+          "end": 17.31
+        },
+        {
+          "raw": "afraid",
+          "start": 17.31,
+          "end": 17.63
+        },
+        {
+          "raw": "of",
+          "start": 17.63,
+          "end": 17.85
+        },
+        {
+          "raw": "tyranny",
+          "start": 17.85,
+          "end": 18.15
+        },
+        {
+          "raw": "than",
+          "start": 18.15,
+          "end": 18.41
+        },
+        {
+          "raw": "of",
+          "start": 18.41,
+          "end": 18.57
+        },
+        {
+          "raw": "arbitrary",
+          "start": 18.57,
+          "end": 19.07
+        },
+        {
+          "raw": "power,",
+          "start": 19.07,
+          "end": 19.55
+        },
+        {
+          "raw": "and",
+          "start": 20.11,
+          "end": 20.29
+        },
+        {
+          "raw": "provided",
+          "start": 20.29,
+          "end": 20.63
+        },
+        {
+          "raw": "that",
+          "start": 20.63,
+          "end": 20.89
+        },
+        {
+          "raw": "the",
+          "start": 20.89,
+          "end": 21.07
+        },
+        {
+          "raw": "legislature",
+          "start": 21.07,
+          "end": 21.51
+        },
+        {
+          "raw": "take",
+          "start": 21.51,
+          "end": 21.91
+        },
+        {
+          "raw": "upon",
+          "start": 21.91,
+          "end": 22.17
+        },
+        {
+          "raw": "itself",
+          "start": 22.17,
+          "end": 22.51
+        },
+        {
+          "raw": "to",
+          "start": 22.51,
+          "end": 22.73
+        },
+        {
+          "raw": "deprive",
+          "start": 22.73,
+          "end": 23.15
+        },
+        {
+          "raw": "men",
+          "start": 23.15,
+          "end": 23.49
+        },
+        {
+          "raw": "of",
+          "start": 23.49,
+          "end": 23.63
+        },
+        {
+          "raw": "their",
+          "start": 23.63,
+          "end": 23.79
+        },
+        {
+          "raw": "independence,",
+          "start": 23.79,
+          "end": 24.35
+        },
+        {
+          "raw": "they",
+          "start": 24.87,
+          "end": 25.07
+        },
+        {
+          "raw": "are",
+          "start": 25.07,
+          "end": 25.21
+        },
+        {
+          "raw": "not",
+          "start": 25.21,
+          "end": 25.43
+        },
+        {
+          "raw": "dissatisfied.",
+          "start": 25.43,
+          "end": 26.13
+        }
+      ],
+      "expected_tokens": [
+        "Lawyers",
+        "are",
+        "attached",
+        "to",
+        "public",
+        "order",
+        "beyond",
+        "every",
+        "other",
+        "consideration,",
+        "and",
+        "the",
+        "best",
+        "security",
+        "of",
+        "public",
+        "order",
+        "is",
+        "authority.",
+        "It",
+        "must",
+        "not",
+        "be",
+        "forgotten",
+        "that,",
+        "if",
+        "they",
+        "prize",
+        "the",
+        "free",
+        "institutions",
+        "of",
+        "their",
+        "country",
+        "much,",
+        "they",
+        "nevertheless",
+        "value",
+        "the",
+        "legality",
+        "of",
+        "those",
+        "institutions",
+        "far",
+        "more:",
+        "they",
+        "are",
+        "less",
+        "afraid",
+        "of",
+        "tyranny",
+        "than",
+        "of",
+        "arbitrary",
+        "power;",
+        "and",
+        "provided",
+        "that",
+        "the",
+        "legislature",
+        "take",
+        "upon",
+        "itself",
+        "to",
+        "deprive",
+        "men",
+        "of",
+        "their",
+        "independence,",
+        "they",
+        "are",
+        "not",
+        "dissatisfied."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          19,
+          0,
+          0
+        ],
+        [
+          "equal",
+          19,
+          73,
+          0,
+          54
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 53
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          19,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 7.03,
+          "end": 7.63,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 7.63,
+          "end": 8.23,
+          "key": "must",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 8.23,
+          "end": 8.45,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 8.45,
+          "end": 8.59,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "forgotten",
+          "start": 8.59,
+          "end": 8.99,
+          "key": "forgotten",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 8.99,
+          "end": 9.31,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 9.71,
+          "end": 9.83,
+          "key": "if",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 9.83,
+          "end": 9.95,
+          "key": "they",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "prize",
+          "start": 9.95,
+          "end": 10.25,
+          "key": "prize",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.25,
+          "end": 10.47,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "free",
+          "start": 10.47,
+          "end": 10.71,
+          "key": "free",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "institutions",
+          "start": 10.71,
+          "end": 11.29,
+          "key": "institutions",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.29,
+          "end": 11.47,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 11.47,
+          "end": 11.61,
+          "key": "their",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "country",
+          "start": 11.61,
+          "end": 11.91,
+          "key": "country",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "much,",
+          "start": 11.91,
+          "end": 12.25,
+          "key": "much",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 12.79,
+          "end": 12.89,
+          "key": "they",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "nevertheless",
+          "start": 12.89,
+          "end": 13.37,
+          "key": "nevertheless",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "value",
+          "start": 13.37,
+          "end": 13.87,
+          "key": "value",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.87,
+          "end": 14.07,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "legality",
+          "start": 14.07,
+          "end": 14.41,
+          "key": "legality",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.41,
+          "end": 14.71,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 14.71,
+          "end": 14.91,
+          "key": "those",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "institutions",
+          "start": 14.91,
+          "end": 15.53,
+          "key": "institutions",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 15.53,
+          "end": 15.89,
+          "key": "far",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 15.89,
+          "end": 16.21,
+          "key": "more",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 16.89,
+          "end": 16.97,
+          "key": "they",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 16.97,
+          "end": 17.11,
+          "key": "are",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "less",
+          "start": 17.11,
+          "end": 17.31,
+          "key": "less",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "afraid",
+          "start": 17.31,
+          "end": 17.63,
+          "key": "afraid",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 17.63,
+          "end": 17.85,
+          "key": "of",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "tyranny",
+          "start": 17.85,
+          "end": 18.15,
+          "key": "tyranny",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 18.15,
+          "end": 18.41,
+          "key": "than",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 18.41,
+          "end": 18.57,
+          "key": "of",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "arbitrary",
+          "start": 18.57,
+          "end": 19.07,
+          "key": "arbitrary",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "power,",
+          "start": 19.07,
+          "end": 19.55,
+          "key": "power",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 20.11,
+          "end": 20.29,
+          "key": "and",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "provided",
+          "start": 20.29,
+          "end": 20.63,
+          "key": "provided",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 20.63,
+          "end": 20.89,
+          "key": "that",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.89,
+          "end": 21.07,
+          "key": "the",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "legislature",
+          "start": 21.07,
+          "end": 21.51,
+          "key": "legislature",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 21.51,
+          "end": 21.91,
+          "key": "take",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 21.91,
+          "end": 22.17,
+          "key": "upon",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "itself",
+          "start": 22.17,
+          "end": 22.51,
+          "key": "itself",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 22.51,
+          "end": 22.73,
+          "key": "to",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "deprive",
+          "start": 22.73,
+          "end": 23.15,
+          "key": "deprive",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 23.15,
+          "end": 23.49,
+          "key": "men",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 23.49,
+          "end": 23.63,
+          "key": "of",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 23.63,
+          "end": 23.79,
+          "key": "their",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "independence,",
+          "start": 23.79,
+          "end": 24.35,
+          "key": "independence",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 24.87,
+          "end": 25.07,
+          "key": "they",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 25.07,
+          "end": 25.21,
+          "key": "are",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 25.21,
+          "end": 25.43,
+          "key": "not",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "dissatisfied.",
+          "start": 25.43,
+          "end": 26.13,
+          "key": "dissatisfied",
+          "pieces": [
+            53
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lawyers",
+          "start": 0.0,
+          "end": 3.515
+        },
+        {
+          "text": "are",
+          "start": 3.515,
+          "end": 5.272
+        },
+        {
+          "text": "attached",
+          "start": 5.272,
+          "end": 6.151
+        },
+        {
+          "text": "to",
+          "start": 6.151,
+          "end": 6.591
+        },
+        {
+          "text": "public",
+          "start": 6.591,
+          "end": 6.811
+        },
+        {
+          "text": "order",
+          "start": 6.811,
+          "end": 6.921
+        },
+        {
+          "text": "beyond",
+          "start": 6.921,
+          "end": 6.976
+        },
+        {
+          "text": "every",
+          "start": 6.976,
+          "end": 7.003
+        },
+        {
+          "text": "other",
+          "start": 7.003,
+          "end": 7.017
+        },
+        {
+          "text": "consideration,",
+          "start": 7.017,
+          "end": 7.024
+        },
+        {
+          "text": "and",
+          "start": 7.024,
+          "end": 7.027
+        },
+        {
+          "text": "the",
+          "start": 7.027,
+          "end": 7.029
+        },
+        {
+          "text": "best",
+          "start": 7.029,
+          "end": 7.03
+        },
+        {
+          "text": "security",
+          "start": 7.03,
+          "end": 7.03
+        },
+        {
+          "text": "of",
+          "start": 7.03,
+          "end": 7.03
+        },
+        {
+          "text": "public",
+          "start": 7.03,
+          "end": 7.03
+        },
+        {
+          "text": "order",
+          "start": 7.03,
+          "end": 7.03
+        },
+        {
+          "text": "is",
+          "start": 7.03,
+          "end": 7.03
+        },
+        {
+          "text": "authority.",
+          "start": 7.03,
+          "end": 7.03
+        },
+        {
+          "text": "It",
+          "start": 7.03,
+          "end": 7.63
+        },
+        {
+          "text": "must",
+          "start": 7.63,
+          "end": 8.23
+        },
+        {
+          "text": "not",
+          "start": 8.23,
+          "end": 8.45
+        },
+        {
+          "text": "be",
+          "start": 8.45,
+          "end": 8.59
+        },
+        {
+          "text": "forgotten",
+          "start": 8.59,
+          "end": 8.99
+        },
+        {
+          "text": "that,",
+          "start": 8.99,
+          "end": 9.31
+        },
+        {
+          "text": "if",
+          "start": 9.71,
+          "end": 9.83
+        },
+        {
+          "text": "they",
+          "start": 9.83,
+          "end": 9.95
+        },
+        {
+          "text": "prize",
+          "start": 9.95,
+          "end": 10.25
+        },
+        {
+          "text": "the",
+          "start": 10.25,
+          "end": 10.47
+        },
+        {
+          "text": "free",
+          "start": 10.47,
+          "end": 10.71
+        },
+        {
+          "text": "institutions",
+          "start": 10.71,
+          "end": 11.29
+        },
+        {
+          "text": "of",
+          "start": 11.29,
+          "end": 11.47
+        },
+        {
+          "text": "their",
+          "start": 11.47,
+          "end": 11.61
+        },
+        {
+          "text": "country",
+          "start": 11.61,
+          "end": 11.91
+        },
+        {
+          "text": "much,",
+          "start": 11.91,
+          "end": 12.25
+        },
+        {
+          "text": "they",
+          "start": 12.79,
+          "end": 12.89
+        },
+        {
+          "text": "nevertheless",
+          "start": 12.89,
+          "end": 13.37
+        },
+        {
+          "text": "value",
+          "start": 13.37,
+          "end": 13.87
+        },
+        {
+          "text": "the",
+          "start": 13.87,
+          "end": 14.07
+        },
+        {
+          "text": "legality",
+          "start": 14.07,
+          "end": 14.41
+        },
+        {
+          "text": "of",
+          "start": 14.41,
+          "end": 14.71
+        },
+        {
+          "text": "those",
+          "start": 14.71,
+          "end": 14.91
+        },
+        {
+          "text": "institutions",
+          "start": 14.91,
+          "end": 15.53
+        },
+        {
+          "text": "far",
+          "start": 15.53,
+          "end": 15.89
+        },
+        {
+          "text": "more:",
+          "start": 15.89,
+          "end": 16.21
+        },
+        {
+          "text": "they",
+          "start": 16.89,
+          "end": 16.97
+        },
+        {
+          "text": "are",
+          "start": 16.97,
+          "end": 17.11
+        },
+        {
+          "text": "less",
+          "start": 17.11,
+          "end": 17.31
+        },
+        {
+          "text": "afraid",
+          "start": 17.31,
+          "end": 17.63
+        },
+        {
+          "text": "of",
+          "start": 17.63,
+          "end": 17.85
+        },
+        {
+          "text": "tyranny",
+          "start": 17.85,
+          "end": 18.15
+        },
+        {
+          "text": "than",
+          "start": 18.15,
+          "end": 18.41
+        },
+        {
+          "text": "of",
+          "start": 18.41,
+          "end": 18.57
+        },
+        {
+          "text": "arbitrary",
+          "start": 18.57,
+          "end": 19.07
+        },
+        {
+          "text": "power;",
+          "start": 19.07,
+          "end": 19.55
+        },
+        {
+          "text": "and",
+          "start": 20.11,
+          "end": 20.29
+        },
+        {
+          "text": "provided",
+          "start": 20.29,
+          "end": 20.63
+        },
+        {
+          "text": "that",
+          "start": 20.63,
+          "end": 20.89
+        },
+        {
+          "text": "the",
+          "start": 20.89,
+          "end": 21.07
+        },
+        {
+          "text": "legislature",
+          "start": 21.07,
+          "end": 21.51
+        },
+        {
+          "text": "take",
+          "start": 21.51,
+          "end": 21.91
+        },
+        {
+          "text": "upon",
+          "start": 21.91,
+          "end": 22.17
+        },
+        {
+          "text": "itself",
+          "start": 22.17,
+          "end": 22.51
+        },
+        {
+          "text": "to",
+          "start": 22.51,
+          "end": 22.73
+        },
+        {
+          "text": "deprive",
+          "start": 22.73,
+          "end": 23.15
+        },
+        {
+          "text": "men",
+          "start": 23.15,
+          "end": 23.49
+        },
+        {
+          "text": "of",
+          "start": 23.49,
+          "end": 23.63
+        },
+        {
+          "text": "their",
+          "start": 23.63,
+          "end": 23.79
+        },
+        {
+          "text": "independence,",
+          "start": 23.79,
+          "end": 24.35
+        },
+        {
+          "text": "they",
+          "start": 24.87,
+          "end": 25.07
+        },
+        {
+          "text": "are",
+          "start": 25.07,
+          "end": 25.21
+        },
+        {
+          "text": "not",
+          "start": 25.21,
+          "end": 25.43
+        },
+        {
+          "text": "dissatisfied.",
+          "start": 25.43,
+          "end": 26.13
+        }
+      ],
+      "stats": {
+        "expected_words": 73,
+        "heard_words": 54,
+        "matched_words": 54
+      },
+      "match_ratio": 0.7397260273972602,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.8229247815907001
+    },
+    {
+      "asr_seconds": 1.0403795950114727,
+      "alignment_seconds": 0.001957906410098076,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lawyers are attached to public order beyond every other consideration, and the best security",
+          "start": 0.05,
+          "end": 5.65,
+          "words": [
+            {
+              "text": " Lawyers",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.1717529296875
+            },
+            {
+              "text": " are",
+              "start": 0.63,
+              "end": 0.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " attached",
+              "start": 0.97,
+              "end": 1.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.33,
+              "end": 1.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " public",
+              "start": 1.63,
+              "end": 1.91,
+              "probability": 0.96484375
+            },
+            {
+              "text": " order",
+              "start": 1.91,
+              "end": 2.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " beyond",
+              "start": 2.25,
+              "end": 2.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " every",
+              "start": 2.65,
+              "end": 3.11,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " other",
+              "start": 3.11,
+              "end": 3.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " consideration,",
+              "start": 3.39,
+              "end": 3.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 4.57,
+              "end": 4.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 4.83,
+              "end": 4.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " best",
+              "start": 4.93,
+              "end": 5.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " security",
+              "start": 5.13,
+              "end": 5.65,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " of public order is authority.",
+          "start": 5.65,
+          "end": 7.23,
+          "words": [
+            {
+              "text": " of",
+              "start": 5.65,
+              "end": 5.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " public",
+              "start": 5.89,
+              "end": 6.21,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " order",
+              "start": 6.21,
+              "end": 6.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 6.55,
+              "end": 6.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " authority.",
+              "start": 6.77,
+              "end": 7.23,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " It must not be forgotten that, if they prize the free institutions of their country much,",
+          "start": 7.99,
+          "end": 12.25,
+          "words": [
+            {
+              "text": " It",
+              "start": 7.99,
+              "end": 8.11,
+              "probability": 0.9921875
+            },
+            {
+              "text": " must",
+              "start": 8.11,
+              "end": 8.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " not",
+              "start": 8.23,
+              "end": 8.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 8.47,
+              "end": 8.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " forgotten",
+              "start": 8.59,
+              "end": 8.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that,",
+              "start": 8.97,
+              "end": 9.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " if",
+              "start": 9.63,
+              "end": 9.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " they",
+              "start": 9.83,
+              "end": 9.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " prize",
+              "start": 9.97,
+              "end": 10.23,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " the",
+              "start": 10.23,
+              "end": 10.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " free",
+              "start": 10.47,
+              "end": 10.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " institutions",
+              "start": 10.71,
+              "end": 11.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 11.23,
+              "end": 11.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 11.49,
+              "end": 11.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " country",
+              "start": 11.61,
+              "end": 11.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " much,",
+              "start": 11.91,
+              "end": 12.25,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " they nevertheless value the legality of those institutions far more.",
+          "start": 12.67,
+          "end": 16.19,
+          "words": [
+            {
+              "text": " they",
+              "start": 12.67,
+              "end": 12.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " nevertheless",
+              "start": 12.91,
+              "end": 13.37,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " value",
+              "start": 13.37,
+              "end": 13.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 13.85,
+              "end": 14.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " legality",
+              "start": 14.07,
+              "end": 14.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 14.37,
+              "end": 14.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " those",
+              "start": 14.71,
+              "end": 14.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " institutions",
+              "start": 14.91,
+              "end": 15.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " far",
+              "start": 15.53,
+              "end": 15.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " more.",
+              "start": 15.89,
+              "end": 16.19,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " They are less afraid of tyranny than of arbitrary power, and provided that the legislature take",
+          "start": 16.81,
+          "end": 21.89,
+          "words": [
+            {
+              "text": " They",
+              "start": 16.81,
+              "end": 16.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " are",
+              "start": 16.97,
+              "end": 17.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " less",
+              "start": 17.11,
+              "end": 17.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " afraid",
+              "start": 17.31,
+              "end": 17.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 17.63,
+              "end": 17.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " tyranny",
+              "start": 17.85,
+              "end": 18.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " than",
+              "start": 18.13,
+              "end": 18.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 18.41,
+              "end": 18.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " arbitrary",
+              "start": 18.57,
+              "end": 19.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " power,",
+              "start": 19.07,
+              "end": 19.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 20.01,
+              "end": 20.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " provided",
+              "start": 20.29,
+              "end": 20.63,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " that",
+              "start": 20.63,
+              "end": 20.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 20.89,
+              "end": 21.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " legislature",
+              "start": 21.07,
+              "end": 21.49,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " take",
+              "start": 21.49,
+              "end": 21.89,
+              "probability": 0.9921875
+            }
+          ]
+        },
+        {
+          "text": " upon itself to deprive men of their independence, they are not dissatisfied.",
+          "start": 21.89,
+          "end": 26.09,
+          "words": [
+            {
+              "text": " upon",
+              "start": 21.89,
+              "end": 22.15,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " itself",
+              "start": 22.15,
+              "end": 22.49,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " to",
+              "start": 22.49,
+              "end": 22.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " deprive",
+              "start": 22.73,
+              "end": 23.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " men",
+              "start": 23.15,
+              "end": 23.47,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 23.47,
+              "end": 23.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 23.67,
+              "end": 23.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " independence,",
+              "start": 23.79,
+              "end": 24.35,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " they",
+              "start": 24.95,
+              "end": 25.07,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " are",
+              "start": 25.07,
+              "end": 25.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 25.23,
+              "end": 25.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dissatisfied.",
+              "start": 25.43,
+              "end": 26.09,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lawyers",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "are",
+          "start": 0.63,
+          "end": 0.97
+        },
+        {
+          "raw": "attached",
+          "start": 0.97,
+          "end": 1.33
+        },
+        {
+          "raw": "to",
+          "start": 1.33,
+          "end": 1.63
+        },
+        {
+          "raw": "public",
+          "start": 1.63,
+          "end": 1.91
+        },
+        {
+          "raw": "order",
+          "start": 1.91,
+          "end": 2.25
+        },
+        {
+          "raw": "beyond",
+          "start": 2.25,
+          "end": 2.65
+        },
+        {
+          "raw": "every",
+          "start": 2.65,
+          "end": 3.11
+        },
+        {
+          "raw": "other",
+          "start": 3.11,
+          "end": 3.39
+        },
+        {
+          "raw": "consideration,",
+          "start": 3.39,
+          "end": 3.95
+        },
+        {
+          "raw": "and",
+          "start": 4.57,
+          "end": 4.83
+        },
+        {
+          "raw": "the",
+          "start": 4.83,
+          "end": 4.93
+        },
+        {
+          "raw": "best",
+          "start": 4.93,
+          "end": 5.13
+        },
+        {
+          "raw": "security",
+          "start": 5.13,
+          "end": 5.65
+        },
+        {
+          "raw": "of",
+          "start": 5.65,
+          "end": 5.89
+        },
+        {
+          "raw": "public",
+          "start": 5.89,
+          "end": 6.21
+        },
+        {
+          "raw": "order",
+          "start": 6.21,
+          "end": 6.55
+        },
+        {
+          "raw": "is",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "raw": "authority.",
+          "start": 6.77,
+          "end": 7.23
+        },
+        {
+          "raw": "It",
+          "start": 7.99,
+          "end": 8.11
+        },
+        {
+          "raw": "must",
+          "start": 8.11,
+          "end": 8.23
+        },
+        {
+          "raw": "not",
+          "start": 8.23,
+          "end": 8.47
+        },
+        {
+          "raw": "be",
+          "start": 8.47,
+          "end": 8.59
+        },
+        {
+          "raw": "forgotten",
+          "start": 8.59,
+          "end": 8.97
+        },
+        {
+          "raw": "that,",
+          "start": 8.97,
+          "end": 9.31
+        },
+        {
+          "raw": "if",
+          "start": 9.63,
+          "end": 9.83
+        },
+        {
+          "raw": "they",
+          "start": 9.83,
+          "end": 9.97
+        },
+        {
+          "raw": "prize",
+          "start": 9.97,
+          "end": 10.23
+        },
+        {
+          "raw": "the",
+          "start": 10.23,
+          "end": 10.47
+        },
+        {
+          "raw": "free",
+          "start": 10.47,
+          "end": 10.71
+        },
+        {
+          "raw": "institutions",
+          "start": 10.71,
+          "end": 11.23
+        },
+        {
+          "raw": "of",
+          "start": 11.23,
+          "end": 11.49
+        },
+        {
+          "raw": "their",
+          "start": 11.49,
+          "end": 11.61
+        },
+        {
+          "raw": "country",
+          "start": 11.61,
+          "end": 11.91
+        },
+        {
+          "raw": "much,",
+          "start": 11.91,
+          "end": 12.25
+        },
+        {
+          "raw": "they",
+          "start": 12.67,
+          "end": 12.91
+        },
+        {
+          "raw": "nevertheless",
+          "start": 12.91,
+          "end": 13.37
+        },
+        {
+          "raw": "value",
+          "start": 13.37,
+          "end": 13.85
+        },
+        {
+          "raw": "the",
+          "start": 13.85,
+          "end": 14.07
+        },
+        {
+          "raw": "legality",
+          "start": 14.07,
+          "end": 14.37
+        },
+        {
+          "raw": "of",
+          "start": 14.37,
+          "end": 14.71
+        },
+        {
+          "raw": "those",
+          "start": 14.71,
+          "end": 14.91
+        },
+        {
+          "raw": "institutions",
+          "start": 14.91,
+          "end": 15.53
+        },
+        {
+          "raw": "far",
+          "start": 15.53,
+          "end": 15.89
+        },
+        {
+          "raw": "more.",
+          "start": 15.89,
+          "end": 16.19
+        },
+        {
+          "raw": "They",
+          "start": 16.81,
+          "end": 16.97
+        },
+        {
+          "raw": "are",
+          "start": 16.97,
+          "end": 17.11
+        },
+        {
+          "raw": "less",
+          "start": 17.11,
+          "end": 17.31
+        },
+        {
+          "raw": "afraid",
+          "start": 17.31,
+          "end": 17.63
+        },
+        {
+          "raw": "of",
+          "start": 17.63,
+          "end": 17.85
+        },
+        {
+          "raw": "tyranny",
+          "start": 17.85,
+          "end": 18.13
+        },
+        {
+          "raw": "than",
+          "start": 18.13,
+          "end": 18.41
+        },
+        {
+          "raw": "of",
+          "start": 18.41,
+          "end": 18.57
+        },
+        {
+          "raw": "arbitrary",
+          "start": 18.57,
+          "end": 19.07
+        },
+        {
+          "raw": "power,",
+          "start": 19.07,
+          "end": 19.57
+        },
+        {
+          "raw": "and",
+          "start": 20.01,
+          "end": 20.29
+        },
+        {
+          "raw": "provided",
+          "start": 20.29,
+          "end": 20.63
+        },
+        {
+          "raw": "that",
+          "start": 20.63,
+          "end": 20.89
+        },
+        {
+          "raw": "the",
+          "start": 20.89,
+          "end": 21.07
+        },
+        {
+          "raw": "legislature",
+          "start": 21.07,
+          "end": 21.49
+        },
+        {
+          "raw": "take",
+          "start": 21.49,
+          "end": 21.89
+        },
+        {
+          "raw": "upon",
+          "start": 21.89,
+          "end": 22.15
+        },
+        {
+          "raw": "itself",
+          "start": 22.15,
+          "end": 22.49
+        },
+        {
+          "raw": "to",
+          "start": 22.49,
+          "end": 22.73
+        },
+        {
+          "raw": "deprive",
+          "start": 22.73,
+          "end": 23.15
+        },
+        {
+          "raw": "men",
+          "start": 23.15,
+          "end": 23.47
+        },
+        {
+          "raw": "of",
+          "start": 23.47,
+          "end": 23.67
+        },
+        {
+          "raw": "their",
+          "start": 23.67,
+          "end": 23.79
+        },
+        {
+          "raw": "independence,",
+          "start": 23.79,
+          "end": 24.35
+        },
+        {
+          "raw": "they",
+          "start": 24.95,
+          "end": 25.07
+        },
+        {
+          "raw": "are",
+          "start": 25.07,
+          "end": 25.23
+        },
+        {
+          "raw": "not",
+          "start": 25.23,
+          "end": 25.43
+        },
+        {
+          "raw": "dissatisfied.",
+          "start": 25.43,
+          "end": 26.09
+        }
+      ],
+      "expected_tokens": [
+        "Lawyers",
+        "are",
+        "attached",
+        "to",
+        "public",
+        "order",
+        "beyond",
+        "every",
+        "other",
+        "consideration,",
+        "and",
+        "the",
+        "best",
+        "security",
+        "of",
+        "public",
+        "order",
+        "is",
+        "authority.",
+        "It",
+        "must",
+        "not",
+        "be",
+        "forgotten",
+        "that,",
+        "if",
+        "they",
+        "prize",
+        "the",
+        "free",
+        "institutions",
+        "of",
+        "their",
+        "country",
+        "much,",
+        "they",
+        "nevertheless",
+        "value",
+        "the",
+        "legality",
+        "of",
+        "those",
+        "institutions",
+        "far",
+        "more:",
+        "they",
+        "are",
+        "less",
+        "afraid",
+        "of",
+        "tyranny",
+        "than",
+        "of",
+        "arbitrary",
+        "power;",
+        "and",
+        "provided",
+        "that",
+        "the",
+        "legislature",
+        "take",
+        "upon",
+        "itself",
+        "to",
+        "deprive",
+        "men",
+        "of",
+        "their",
+        "independence,",
+        "they",
+        "are",
+        "not",
+        "dissatisfied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          73,
+          0,
+          73
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lawyers",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "lawyers",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.63,
+          "end": 0.97,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "attached",
+          "start": 0.97,
+          "end": 1.33,
+          "key": "attached",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.33,
+          "end": 1.63,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "public",
+          "start": 1.63,
+          "end": 1.91,
+          "key": "public",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "order",
+          "start": 1.91,
+          "end": 2.25,
+          "key": "order",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "beyond",
+          "start": 2.25,
+          "end": 2.65,
+          "key": "beyond",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 2.65,
+          "end": 3.11,
+          "key": "every",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 3.11,
+          "end": 3.39,
+          "key": "other",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "consideration,",
+          "start": 3.39,
+          "end": 3.95,
+          "key": "consideration",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.57,
+          "end": 4.83,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.83,
+          "end": 4.93,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 4.93,
+          "end": 5.13,
+          "key": "best",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "security",
+          "start": 5.13,
+          "end": 5.65,
+          "key": "security",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.65,
+          "end": 5.89,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "public",
+          "start": 5.89,
+          "end": 6.21,
+          "key": "public",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "order",
+          "start": 6.21,
+          "end": 6.55,
+          "key": "order",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.55,
+          "end": 6.77,
+          "key": "is",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "authority.",
+          "start": 6.77,
+          "end": 7.23,
+          "key": "authority",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 7.99,
+          "end": 8.11,
+          "key": "it",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 8.11,
+          "end": 8.23,
+          "key": "must",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 8.23,
+          "end": 8.47,
+          "key": "not",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 8.47,
+          "end": 8.59,
+          "key": "be",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "forgotten",
+          "start": 8.59,
+          "end": 8.97,
+          "key": "forgotten",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 8.97,
+          "end": 9.31,
+          "key": "that",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 9.63,
+          "end": 9.83,
+          "key": "if",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 9.83,
+          "end": 9.97,
+          "key": "they",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "prize",
+          "start": 9.97,
+          "end": 10.23,
+          "key": "prize",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.23,
+          "end": 10.47,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "free",
+          "start": 10.47,
+          "end": 10.71,
+          "key": "free",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "institutions",
+          "start": 10.71,
+          "end": 11.23,
+          "key": "institutions",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.23,
+          "end": 11.49,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 11.49,
+          "end": 11.61,
+          "key": "their",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "country",
+          "start": 11.61,
+          "end": 11.91,
+          "key": "country",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "much,",
+          "start": 11.91,
+          "end": 12.25,
+          "key": "much",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 12.67,
+          "end": 12.91,
+          "key": "they",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "nevertheless",
+          "start": 12.91,
+          "end": 13.37,
+          "key": "nevertheless",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "value",
+          "start": 13.37,
+          "end": 13.85,
+          "key": "value",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.85,
+          "end": 14.07,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "legality",
+          "start": 14.07,
+          "end": 14.37,
+          "key": "legality",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.37,
+          "end": 14.71,
+          "key": "of",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 14.71,
+          "end": 14.91,
+          "key": "those",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "institutions",
+          "start": 14.91,
+          "end": 15.53,
+          "key": "institutions",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 15.53,
+          "end": 15.89,
+          "key": "far",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 15.89,
+          "end": 16.19,
+          "key": "more",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 16.81,
+          "end": 16.97,
+          "key": "they",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 16.97,
+          "end": 17.11,
+          "key": "are",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "less",
+          "start": 17.11,
+          "end": 17.31,
+          "key": "less",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "afraid",
+          "start": 17.31,
+          "end": 17.63,
+          "key": "afraid",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 17.63,
+          "end": 17.85,
+          "key": "of",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "tyranny",
+          "start": 17.85,
+          "end": 18.13,
+          "key": "tyranny",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 18.13,
+          "end": 18.41,
+          "key": "than",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 18.41,
+          "end": 18.57,
+          "key": "of",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "arbitrary",
+          "start": 18.57,
+          "end": 19.07,
+          "key": "arbitrary",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "power,",
+          "start": 19.07,
+          "end": 19.57,
+          "key": "power",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 20.01,
+          "end": 20.29,
+          "key": "and",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "provided",
+          "start": 20.29,
+          "end": 20.63,
+          "key": "provided",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 20.63,
+          "end": 20.89,
+          "key": "that",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.89,
+          "end": 21.07,
+          "key": "the",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "legislature",
+          "start": 21.07,
+          "end": 21.49,
+          "key": "legislature",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 21.49,
+          "end": 21.89,
+          "key": "take",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 21.89,
+          "end": 22.15,
+          "key": "upon",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "itself",
+          "start": 22.15,
+          "end": 22.49,
+          "key": "itself",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 22.49,
+          "end": 22.73,
+          "key": "to",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "deprive",
+          "start": 22.73,
+          "end": 23.15,
+          "key": "deprive",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 23.15,
+          "end": 23.47,
+          "key": "men",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 23.47,
+          "end": 23.67,
+          "key": "of",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 23.67,
+          "end": 23.79,
+          "key": "their",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "independence,",
+          "start": 23.79,
+          "end": 24.35,
+          "key": "independence",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 24.95,
+          "end": 25.07,
+          "key": "they",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 25.07,
+          "end": 25.23,
+          "key": "are",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 25.23,
+          "end": 25.43,
+          "key": "not",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "dissatisfied.",
+          "start": 25.43,
+          "end": 26.09,
+          "key": "dissatisfied",
+          "pieces": [
+            72
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lawyers",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "are",
+          "start": 0.63,
+          "end": 0.97
+        },
+        {
+          "text": "attached",
+          "start": 0.97,
+          "end": 1.33
+        },
+        {
+          "text": "to",
+          "start": 1.33,
+          "end": 1.63
+        },
+        {
+          "text": "public",
+          "start": 1.63,
+          "end": 1.91
+        },
+        {
+          "text": "order",
+          "start": 1.91,
+          "end": 2.25
+        },
+        {
+          "text": "beyond",
+          "start": 2.25,
+          "end": 2.65
+        },
+        {
+          "text": "every",
+          "start": 2.65,
+          "end": 3.11
+        },
+        {
+          "text": "other",
+          "start": 3.11,
+          "end": 3.39
+        },
+        {
+          "text": "consideration,",
+          "start": 3.39,
+          "end": 3.95
+        },
+        {
+          "text": "and",
+          "start": 4.57,
+          "end": 4.83
+        },
+        {
+          "text": "the",
+          "start": 4.83,
+          "end": 4.93
+        },
+        {
+          "text": "best",
+          "start": 4.93,
+          "end": 5.13
+        },
+        {
+          "text": "security",
+          "start": 5.13,
+          "end": 5.65
+        },
+        {
+          "text": "of",
+          "start": 5.65,
+          "end": 5.89
+        },
+        {
+          "text": "public",
+          "start": 5.89,
+          "end": 6.21
+        },
+        {
+          "text": "order",
+          "start": 6.21,
+          "end": 6.55
+        },
+        {
+          "text": "is",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "text": "authority.",
+          "start": 6.77,
+          "end": 7.23
+        },
+        {
+          "text": "It",
+          "start": 7.99,
+          "end": 8.11
+        },
+        {
+          "text": "must",
+          "start": 8.11,
+          "end": 8.23
+        },
+        {
+          "text": "not",
+          "start": 8.23,
+          "end": 8.47
+        },
+        {
+          "text": "be",
+          "start": 8.47,
+          "end": 8.59
+        },
+        {
+          "text": "forgotten",
+          "start": 8.59,
+          "end": 8.97
+        },
+        {
+          "text": "that,",
+          "start": 8.97,
+          "end": 9.31
+        },
+        {
+          "text": "if",
+          "start": 9.63,
+          "end": 9.83
+        },
+        {
+          "text": "they",
+          "start": 9.83,
+          "end": 9.97
+        },
+        {
+          "text": "prize",
+          "start": 9.97,
+          "end": 10.23
+        },
+        {
+          "text": "the",
+          "start": 10.23,
+          "end": 10.47
+        },
+        {
+          "text": "free",
+          "start": 10.47,
+          "end": 10.71
+        },
+        {
+          "text": "institutions",
+          "start": 10.71,
+          "end": 11.23
+        },
+        {
+          "text": "of",
+          "start": 11.23,
+          "end": 11.49
+        },
+        {
+          "text": "their",
+          "start": 11.49,
+          "end": 11.61
+        },
+        {
+          "text": "country",
+          "start": 11.61,
+          "end": 11.91
+        },
+        {
+          "text": "much,",
+          "start": 11.91,
+          "end": 12.25
+        },
+        {
+          "text": "they",
+          "start": 12.67,
+          "end": 12.91
+        },
+        {
+          "text": "nevertheless",
+          "start": 12.91,
+          "end": 13.37
+        },
+        {
+          "text": "value",
+          "start": 13.37,
+          "end": 13.85
+        },
+        {
+          "text": "the",
+          "start": 13.85,
+          "end": 14.07
+        },
+        {
+          "text": "legality",
+          "start": 14.07,
+          "end": 14.37
+        },
+        {
+          "text": "of",
+          "start": 14.37,
+          "end": 14.71
+        },
+        {
+          "text": "those",
+          "start": 14.71,
+          "end": 14.91
+        },
+        {
+          "text": "institutions",
+          "start": 14.91,
+          "end": 15.53
+        },
+        {
+          "text": "far",
+          "start": 15.53,
+          "end": 15.89
+        },
+        {
+          "text": "more:",
+          "start": 15.89,
+          "end": 16.19
+        },
+        {
+          "text": "they",
+          "start": 16.81,
+          "end": 16.97
+        },
+        {
+          "text": "are",
+          "start": 16.97,
+          "end": 17.11
+        },
+        {
+          "text": "less",
+          "start": 17.11,
+          "end": 17.31
+        },
+        {
+          "text": "afraid",
+          "start": 17.31,
+          "end": 17.63
+        },
+        {
+          "text": "of",
+          "start": 17.63,
+          "end": 17.85
+        },
+        {
+          "text": "tyranny",
+          "start": 17.85,
+          "end": 18.13
+        },
+        {
+          "text": "than",
+          "start": 18.13,
+          "end": 18.41
+        },
+        {
+          "text": "of",
+          "start": 18.41,
+          "end": 18.57
+        },
+        {
+          "text": "arbitrary",
+          "start": 18.57,
+          "end": 19.07
+        },
+        {
+          "text": "power;",
+          "start": 19.07,
+          "end": 19.57
+        },
+        {
+          "text": "and",
+          "start": 20.01,
+          "end": 20.29
+        },
+        {
+          "text": "provided",
+          "start": 20.29,
+          "end": 20.63
+        },
+        {
+          "text": "that",
+          "start": 20.63,
+          "end": 20.89
+        },
+        {
+          "text": "the",
+          "start": 20.89,
+          "end": 21.07
+        },
+        {
+          "text": "legislature",
+          "start": 21.07,
+          "end": 21.49
+        },
+        {
+          "text": "take",
+          "start": 21.49,
+          "end": 21.89
+        },
+        {
+          "text": "upon",
+          "start": 21.89,
+          "end": 22.15
+        },
+        {
+          "text": "itself",
+          "start": 22.15,
+          "end": 22.49
+        },
+        {
+          "text": "to",
+          "start": 22.49,
+          "end": 22.73
+        },
+        {
+          "text": "deprive",
+          "start": 22.73,
+          "end": 23.15
+        },
+        {
+          "text": "men",
+          "start": 23.15,
+          "end": 23.47
+        },
+        {
+          "text": "of",
+          "start": 23.47,
+          "end": 23.67
+        },
+        {
+          "text": "their",
+          "start": 23.67,
+          "end": 23.79
+        },
+        {
+          "text": "independence,",
+          "start": 23.79,
+          "end": 24.35
+        },
+        {
+          "text": "they",
+          "start": 24.95,
+          "end": 25.07
+        },
+        {
+          "text": "are",
+          "start": 25.07,
+          "end": 25.23
+        },
+        {
+          "text": "not",
+          "start": 25.23,
+          "end": 25.43
+        },
+        {
+          "text": "dissatisfied.",
+          "start": 25.43,
+          "end": 26.09
+        }
+      ],
+      "stats": {
+        "expected_words": 73,
+        "heard_words": 73,
+        "matched_words": 73
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.043304793536663
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bf3ec1b21c51ef6d01596df689b2f28ce2dfeefe6e693b8a1ac1a1d23daac31e",
+  "selected_reasons": []
+}

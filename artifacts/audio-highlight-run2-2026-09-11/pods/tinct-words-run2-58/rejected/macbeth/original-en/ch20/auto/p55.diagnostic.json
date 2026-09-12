@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "afb956aa14de964d2e6397dd1ce1697c92ea354da82ecbc1a860d5b23c9111b0",
+  "attempts": [
+    {
+      "asr_seconds": 0.14737268816679716,
+      "alignment_seconds": 0.00034460239112377167,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Macduff. Humh! I guess at it.",
+        "hotwords": "Macduff, Humh, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Macduff, Humh, I guess at it.",
+          "start": 0.52,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " Macduff,",
+              "start": 0.52,
+              "end": 0.98,
+              "probability": 0.6485595703125
+            },
+            {
+              "text": " Humh,",
+              "start": 1.18,
+              "end": 1.5,
+              "probability": 0.03944122791290283
+            },
+            {
+              "text": " I",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " guess",
+              "start": 1.62,
+              "end": 1.8,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " at",
+              "start": 1.8,
+              "end": 1.96,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " it.",
+              "start": 1.96,
+              "end": 2.22,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macduff,",
+          "start": 0.52,
+          "end": 0.98
+        },
+        {
+          "raw": "Humh,",
+          "start": 1.18,
+          "end": 1.5
+        },
+        {
+          "raw": "I",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "guess",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "raw": "at",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "raw": "it.",
+          "start": 1.96,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "Macduff.",
+        "Humh!",
+        "I",
+        "guess",
+        "at",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macduff,",
+          "start": 0.52,
+          "end": 0.98,
+          "key": "macduff",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Humh,",
+          "start": 1.18,
+          "end": 1.5,
+          "key": "humh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "guess",
+          "start": 1.62,
+          "end": 1.8,
+          "key": "guess",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.8,
+          "end": 1.96,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.96,
+          "end": 2.22,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macduff.",
+          "start": 0.52,
+          "end": 0.98
+        },
+        {
+          "text": "Humh!",
+          "start": 1.18,
+          "end": 1.5
+        },
+        {
+          "text": "I",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "guess",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "text": "at",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "text": "it.",
+          "start": 1.96,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14785616286098957
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eaf168e8b3829ab4357ad04b2587b6b7d10e2502d4e859f5b99f623f53fc5fcb",
+  "selected_reasons": []
+}

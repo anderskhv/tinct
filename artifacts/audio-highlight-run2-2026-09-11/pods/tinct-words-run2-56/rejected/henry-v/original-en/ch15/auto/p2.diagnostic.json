@@ -1,0 +1,1059 @@
+{
+  "complete": true,
+  "signature": "af8e00bae779723210cb687301671bf8396c874569c41da5916193e621d05e0f",
+  "attempts": [
+    {
+      "asr_seconds": 2.3236627215519547,
+      "alignment_seconds": 0.0005264244973659515,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dauphin. _Monte à cheval!_ My horse, _varlet! laquais_, ha!",
+        "hotwords": "Dauphin, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dauphin, My Dauphin, My Dauphin.",
+          "start": 0.08,
+          "end": 4.42,
+          "words": [
+            {
+              "text": " Dauphin,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.875244140625
+            },
+            {
+              "text": " My",
+              "start": 1.14,
+              "end": 1.16,
+              "probability": 0.00024390220642089844
+            },
+            {
+              "text": " Dauphin,",
+              "start": 1.16,
+              "end": 1.74,
+              "probability": 0.5502157211303711
+            },
+            {
+              "text": " My",
+              "start": 1.74,
+              "end": 1.88,
+              "probability": 0.09307861328125
+            },
+            {
+              "text": " Dauphin.",
+              "start": 1.88,
+              "end": 4.42,
+              "probability": 0.8421630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dauphin,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "My",
+          "start": 1.14,
+          "end": 1.16
+        },
+        {
+          "raw": "Dauphin,",
+          "start": 1.16,
+          "end": 1.74
+        },
+        {
+          "raw": "My",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "raw": "Dauphin.",
+          "start": 1.88,
+          "end": 4.42
+        }
+      ],
+      "expected_tokens": [
+        "Dauphin.",
+        "_Monte",
+        "à",
+        "cheval!_",
+        "My",
+        "horse,",
+        "_varlet!",
+        "laquais_,",
+        "ha!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          4,
+          1,
+          1
+        ],
+        [
+          "equal",
+          4,
+          5,
+          1,
+          2
+        ],
+        [
+          "replace",
+          5,
+          9,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          4,
+          1,
+          1
+        ],
+        [
+          "replace",
+          5,
+          9,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dauphin,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "dauphin",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.14,
+          "end": 1.16,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dauphin,",
+          "start": 1.16,
+          "end": 1.74,
+          "key": "dauphin",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.74,
+          "end": 1.88,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Dauphin.",
+          "start": 1.88,
+          "end": 4.42,
+          "key": "dauphin",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dauphin.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "_Monte",
+          "start": 0.84,
+          "end": 0.99
+        },
+        {
+          "text": "à",
+          "start": 0.99,
+          "end": 1.065
+        },
+        {
+          "text": "cheval!_",
+          "start": 1.065,
+          "end": 1.103
+        },
+        {
+          "text": "My",
+          "start": 1.14,
+          "end": 1.16
+        },
+        {
+          "text": "horse,",
+          "start": 1.16,
+          "end": 2.79
+        },
+        {
+          "text": "_varlet!",
+          "start": 2.79,
+          "end": 3.605
+        },
+        {
+          "text": "laquais_,",
+          "start": 3.605,
+          "end": 4.013
+        },
+        {
+          "text": "ha!",
+          "start": 4.013,
+          "end": 4.216
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.2222222222222222,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 2.3243153169751167
+    },
+    {
+      "asr_seconds": 0.3976251510903239,
+      "alignment_seconds": 0.0005593495443463326,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Dauphin, My"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Dauphin, Monty a shovel my horse varlet, Lackwise ha.",
+          "start": 0.08,
+          "end": 3.74,
+          "words": [
+            {
+              "text": " Dauphin,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.875244140625
+            },
+            {
+              "text": " Monty",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.495849609375
+            },
+            {
+              "text": " a",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.15185546875
+            },
+            {
+              "text": " shovel",
+              "start": 1.42,
+              "end": 1.64,
+              "probability": 0.658203125
+            },
+            {
+              "text": " my",
+              "start": 1.64,
+              "end": 1.9,
+              "probability": 0.410400390625
+            },
+            {
+              "text": " horse",
+              "start": 1.9,
+              "end": 2.18,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " varlet,",
+              "start": 2.18,
+              "end": 2.7,
+              "probability": 0.559814453125
+            },
+            {
+              "text": " Lackwise",
+              "start": 3.08,
+              "end": 3.44,
+              "probability": 0.486236572265625
+            },
+            {
+              "text": " ha.",
+              "start": 3.44,
+              "end": 3.74,
+              "probability": 0.74853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dauphin,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "Monty",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "raw": "a",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "shovel",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "raw": "my",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "raw": "horse",
+          "start": 1.9,
+          "end": 2.18
+        },
+        {
+          "raw": "varlet,",
+          "start": 2.18,
+          "end": 2.7
+        },
+        {
+          "raw": "Lackwise",
+          "start": 3.08,
+          "end": 3.44
+        },
+        {
+          "raw": "ha.",
+          "start": 3.44,
+          "end": 3.74
+        }
+      ],
+      "expected_tokens": [
+        "Dauphin.",
+        "_Monte",
+        "à",
+        "cheval!_",
+        "My",
+        "horse,",
+        "_varlet!",
+        "laquais_,",
+        "ha!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dauphin,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "dauphin",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Monty",
+          "start": 1.14,
+          "end": 1.32,
+          "key": "monty",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shovel",
+          "start": 1.42,
+          "end": 1.64,
+          "key": "shovel",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.64,
+          "end": 1.9,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "horse",
+          "start": 1.9,
+          "end": 2.18,
+          "key": "horse",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "varlet,",
+          "start": 2.18,
+          "end": 2.7,
+          "key": "varlet",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Lackwise",
+          "start": 3.08,
+          "end": 3.44,
+          "key": "lackwise",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ha.",
+          "start": 3.44,
+          "end": 3.74,
+          "key": "ha",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dauphin.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "_Monte",
+          "start": 0.84,
+          "end": 1.24
+        },
+        {
+          "text": "à",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "cheval!_",
+          "start": 1.44,
+          "end": 1.54
+        },
+        {
+          "text": "My",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "text": "horse,",
+          "start": 1.9,
+          "end": 2.18
+        },
+        {
+          "text": "_varlet!",
+          "start": 2.18,
+          "end": 2.7
+        },
+        {
+          "text": "laquais_,",
+          "start": 2.7,
+          "end": 3.07
+        },
+        {
+          "text": "ha!",
+          "start": 3.44,
+          "end": 3.74
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 5
+      },
+      "match_ratio": 0.5555555555555556,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3983638072386384
+    },
+    {
+      "asr_seconds": 0.27196647785604,
+      "alignment_seconds": 0.0005571041256189346,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dauphin, Montia, Shevel, my horse, Varlet, lackwise, ha.",
+          "start": 0.08,
+          "end": 3.76,
+          "words": [
+            {
+              "text": " Dauphin,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.875244140625
+            },
+            {
+              "text": " Montia,",
+              "start": 1.14,
+              "end": 1.4,
+              "probability": 0.45098876953125
+            },
+            {
+              "text": " Shevel,",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.535400390625
+            },
+            {
+              "text": " my",
+              "start": 1.8,
+              "end": 1.9,
+              "probability": 0.82763671875
+            },
+            {
+              "text": " horse,",
+              "start": 1.9,
+              "end": 2.2,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " Varlet,",
+              "start": 2.32,
+              "end": 2.68,
+              "probability": 0.56494140625
+            },
+            {
+              "text": " lackwise,",
+              "start": 3.12,
+              "end": 3.46,
+              "probability": 0.43194580078125
+            },
+            {
+              "text": " ha.",
+              "start": 3.54,
+              "end": 3.76,
+              "probability": 0.88818359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dauphin,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "Montia,",
+          "start": 1.14,
+          "end": 1.4
+        },
+        {
+          "raw": "Shevel,",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "raw": "my",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "raw": "horse,",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "raw": "Varlet,",
+          "start": 2.32,
+          "end": 2.68
+        },
+        {
+          "raw": "lackwise,",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "raw": "ha.",
+          "start": 3.54,
+          "end": 3.76
+        }
+      ],
+      "expected_tokens": [
+        "Dauphin.",
+        "_Monte",
+        "à",
+        "cheval!_",
+        "My",
+        "horse,",
+        "_varlet!",
+        "laquais_,",
+        "ha!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          4,
+          1,
+          3
+        ],
+        [
+          "equal",
+          4,
+          7,
+          3,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          7
+        ],
+        [
+          "equal",
+          8,
+          9,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          4,
+          1,
+          3
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dauphin,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "dauphin",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Montia,",
+          "start": 1.14,
+          "end": 1.4,
+          "key": "montia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Shevel,",
+          "start": 1.52,
+          "end": 1.68,
+          "key": "shevel",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.8,
+          "end": 1.9,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "horse,",
+          "start": 1.9,
+          "end": 2.2,
+          "key": "horse",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Varlet,",
+          "start": 2.32,
+          "end": 2.68,
+          "key": "varlet",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lackwise,",
+          "start": 3.12,
+          "end": 3.46,
+          "key": "lackwise",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ha.",
+          "start": 3.54,
+          "end": 3.76,
+          "key": "ha",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dauphin.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "_Monte",
+          "start": 0.84,
+          "end": 1.32
+        },
+        {
+          "text": "à",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "text": "cheval!_",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "My",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "text": "horse,",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "text": "_varlet!",
+          "start": 2.32,
+          "end": 2.68
+        },
+        {
+          "text": "laquais_,",
+          "start": 2.68,
+          "end": 3.11
+        },
+        {
+          "text": "ha!",
+          "start": 3.54,
+          "end": 3.76
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.5555555555555556,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2726898239925504
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "38769e3fa224dfa22b30903cf2493f2b6b159fd2eb5bae5b6db4c6db85c797f9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

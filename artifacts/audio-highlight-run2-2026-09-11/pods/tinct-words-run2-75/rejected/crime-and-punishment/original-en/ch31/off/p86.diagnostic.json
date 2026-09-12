@@ -1,0 +1,534 @@
+{
+  "complete": true,
+  "signature": "64e5c65b9b9515ea479ac8dc6ec8150595fe3a3006a4852b1fbc27508044182d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2687186971306801,
+      "alignment_seconds": 0.0006537511944770813,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What an idea was will stew mayor what things the fool invents ah yes",
+          "start": 0.02,
+          "end": 4.68,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " an",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " idea",
+              "start": 0.62,
+              "end": 1.0,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " was",
+              "start": 1.0,
+              "end": 1.34,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " will",
+              "start": 1.34,
+              "end": 1.58,
+              "probability": 0.311279296875
+            },
+            {
+              "text": " stew",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.3837890625
+            },
+            {
+              "text": " mayor",
+              "start": 1.82,
+              "end": 2.2,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " what",
+              "start": 2.2,
+              "end": 2.74,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " things",
+              "start": 2.74,
+              "end": 2.96,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 2.96,
+              "end": 3.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " fool",
+              "start": 3.12,
+              "end": 3.3,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " invents",
+              "start": 3.3,
+              "end": 3.94,
+              "probability": 0.911865234375
+            },
+            {
+              "text": " ah",
+              "start": 3.94,
+              "end": 4.36,
+              "probability": 0.65673828125
+            },
+            {
+              "text": " yes",
+              "start": 4.36,
+              "end": 4.68,
+              "probability": 0.7109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "an",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "idea",
+          "start": 0.62,
+          "end": 1.0
+        },
+        {
+          "raw": "was",
+          "start": 1.0,
+          "end": 1.34
+        },
+        {
+          "raw": "will",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "raw": "stew",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "mayor",
+          "start": 1.82,
+          "end": 2.2
+        },
+        {
+          "raw": "what",
+          "start": 2.2,
+          "end": 2.74
+        },
+        {
+          "raw": "things",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "raw": "fool",
+          "start": 3.12,
+          "end": 3.3
+        },
+        {
+          "raw": "invents",
+          "start": 3.3,
+          "end": 3.94
+        },
+        {
+          "raw": "ah",
+          "start": 3.94,
+          "end": 4.36
+        },
+        {
+          "raw": "yes",
+          "start": 4.36,
+          "end": 4.68
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "an",
+        "idea!",
+        "_Was",
+        "willst",
+        "du",
+        "mehr?_",
+        "What",
+        "things",
+        "the",
+        "fool",
+        "invents!",
+        "Ah,",
+        "yes!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          7,
+          4,
+          7
+        ],
+        [
+          "equal",
+          7,
+          14,
+          7,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "an",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "idea",
+          "start": 0.62,
+          "end": 1.0,
+          "key": "idea",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.0,
+          "end": 1.34,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.34,
+          "end": 1.58,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "stew",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "stew",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mayor",
+          "start": 1.82,
+          "end": 2.2,
+          "key": "mayor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.2,
+          "end": 2.74,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 2.74,
+          "end": 2.96,
+          "key": "things",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.12,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fool",
+          "start": 3.12,
+          "end": 3.3,
+          "key": "fool",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "invents",
+          "start": 3.3,
+          "end": 3.94,
+          "key": "invents",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ah",
+          "start": 3.94,
+          "end": 4.36,
+          "key": "ah",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "yes",
+          "start": 4.36,
+          "end": 4.68,
+          "key": "yes",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "an",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "idea!",
+          "start": 0.62,
+          "end": 1.0
+        },
+        {
+          "text": "_Was",
+          "start": 1.0,
+          "end": 1.34
+        },
+        {
+          "text": "willst",
+          "start": 1.34,
+          "end": 1.77
+        },
+        {
+          "text": "du",
+          "start": 1.77,
+          "end": 1.985
+        },
+        {
+          "text": "mehr?_",
+          "start": 1.985,
+          "end": 2.093
+        },
+        {
+          "text": "What",
+          "start": 2.2,
+          "end": 2.74
+        },
+        {
+          "text": "things",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "text": "the",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "text": "fool",
+          "start": 3.12,
+          "end": 3.3
+        },
+        {
+          "text": "invents!",
+          "start": 3.3,
+          "end": 3.94
+        },
+        {
+          "text": "Ah,",
+          "start": 3.94,
+          "end": 4.36
+        },
+        {
+          "text": "yes!",
+          "start": 4.36,
+          "end": 4.68
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 11
+      },
+      "match_ratio": 0.7857142857142857,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2696208357810974
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9dbeb9739e2348c703f6686073da960d469da70799687c35f81114c7788ac7e8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

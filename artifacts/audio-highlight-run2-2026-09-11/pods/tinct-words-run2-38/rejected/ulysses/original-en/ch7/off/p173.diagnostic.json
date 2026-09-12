@@ -1,0 +1,564 @@
+{
+  "complete": true,
+  "signature": "19901cd7971cfa068599a3296b53b7bcb5ae78df21d5298a195643fc5e9cf001",
+  "attempts": [
+    {
+      "asr_seconds": 0.1272022009943612,
+      "alignment_seconds": 0.0002866719732992351,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Where was that Miles? Ned Lambert asked with a reflective glance at his toe caps",
+          "start": 0.02,
+          "end": 4.94,
+          "words": [
+            {
+              "text": " Where",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.55712890625
+            },
+            {
+              "text": " was",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 0.7,
+              "end": 0.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Miles?",
+              "start": 0.96,
+              "end": 1.48,
+              "probability": 0.278564453125
+            },
+            {
+              "text": " Ned",
+              "start": 2.08,
+              "end": 2.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Lambert",
+              "start": 2.16,
+              "end": 2.54,
+              "probability": 0.974609375
+            },
+            {
+              "text": " asked",
+              "start": 2.54,
+              "end": 2.96,
+              "probability": 0.978515625
+            },
+            {
+              "text": " with",
+              "start": 2.96,
+              "end": 3.2,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " a",
+              "start": 3.2,
+              "end": 3.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " reflective",
+              "start": 3.28,
+              "end": 3.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " glance",
+              "start": 3.68,
+              "end": 4.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " at",
+              "start": 4.12,
+              "end": 4.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 4.3,
+              "end": 4.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " toe",
+              "start": 4.44,
+              "end": 4.64,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " caps",
+              "start": 4.64,
+              "end": 4.94,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "was",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "that",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "raw": "Miles?",
+          "start": 0.96,
+          "end": 1.48
+        },
+        {
+          "raw": "Ned",
+          "start": 2.08,
+          "end": 2.16
+        },
+        {
+          "raw": "Lambert",
+          "start": 2.16,
+          "end": 2.54
+        },
+        {
+          "raw": "asked",
+          "start": 2.54,
+          "end": 2.96
+        },
+        {
+          "raw": "with",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "raw": "a",
+          "start": 3.2,
+          "end": 3.28
+        },
+        {
+          "raw": "reflective",
+          "start": 3.28,
+          "end": 3.68
+        },
+        {
+          "raw": "glance",
+          "start": 3.68,
+          "end": 4.12
+        },
+        {
+          "raw": "at",
+          "start": 4.12,
+          "end": 4.3
+        },
+        {
+          "raw": "his",
+          "start": 4.3,
+          "end": 4.44
+        },
+        {
+          "raw": "toe",
+          "start": 4.44,
+          "end": 4.64
+        },
+        {
+          "raw": "caps",
+          "start": 4.64,
+          "end": 4.94
+        }
+      ],
+      "expected_tokens": [
+        "—Where",
+        "was",
+        "that,",
+        "Myles?",
+        "Ned",
+        "Lambert",
+        "asked",
+        "with",
+        "a",
+        "reflective",
+        "glance",
+        "at",
+        "his",
+        "toecaps."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          13,
+          4,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "where",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.7,
+          "end": 0.96,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Miles?",
+          "start": 0.96,
+          "end": 1.48,
+          "key": "miles",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Ned",
+          "start": 2.08,
+          "end": 2.16,
+          "key": "ned",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Lambert",
+          "start": 2.16,
+          "end": 2.54,
+          "key": "lambert",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.54,
+          "end": 2.96,
+          "key": "asked",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.96,
+          "end": 3.2,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.2,
+          "end": 3.28,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "reflective",
+          "start": 3.28,
+          "end": 3.68,
+          "key": "reflective",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "glance",
+          "start": 3.68,
+          "end": 4.12,
+          "key": "glance",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.12,
+          "end": 4.3,
+          "key": "at",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.3,
+          "end": 4.44,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "toe",
+          "start": 4.44,
+          "end": 4.64,
+          "key": "toe",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "caps",
+          "start": 4.64,
+          "end": 4.94,
+          "key": "caps",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Where",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "was",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "that,",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "text": "Myles?",
+          "start": 0.96,
+          "end": 1.52
+        },
+        {
+          "text": "Ned",
+          "start": 2.08,
+          "end": 2.16
+        },
+        {
+          "text": "Lambert",
+          "start": 2.16,
+          "end": 2.54
+        },
+        {
+          "text": "asked",
+          "start": 2.54,
+          "end": 2.96
+        },
+        {
+          "text": "with",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "text": "a",
+          "start": 3.2,
+          "end": 3.28
+        },
+        {
+          "text": "reflective",
+          "start": 3.28,
+          "end": 3.68
+        },
+        {
+          "text": "glance",
+          "start": 3.68,
+          "end": 4.12
+        },
+        {
+          "text": "at",
+          "start": 4.12,
+          "end": 4.3
+        },
+        {
+          "text": "his",
+          "start": 4.3,
+          "end": 4.44
+        },
+        {
+          "text": "toecaps.",
+          "start": 4.44,
+          "end": 4.69
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.12760020297719166
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3ce3399caf25fe3b966dd393a0fd7f3579f889539cb184315711bbc3434a1c58",
+  "selected_reasons": []
+}

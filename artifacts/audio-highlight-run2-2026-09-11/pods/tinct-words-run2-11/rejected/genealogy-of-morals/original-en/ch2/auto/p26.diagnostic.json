@@ -1,0 +1,189 @@
+{
+  "complete": true,
+  "signature": "5f9ebe7a8100dac65b1d7705839e905b19bff747916157d0e7c6d7c7bc2d283e",
+  "attempts": [
+    {
+      "asr_seconds": 4.122969837859273,
+      "alignment_seconds": 0.00023620668798685074,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Further!",
+        "hotwords": "Further"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Further Further! Further! Further! Further!",
+          "start": 0.08,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " Further",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.703125
+            },
+            {
+              "text": " Further!",
+              "start": 0.68,
+              "end": 0.7,
+              "probability": 7.748603820800781e-07
+            },
+            {
+              "text": " Further!",
+              "start": 0.78,
+              "end": 0.78,
+              "probability": 0.7646484375
+            },
+            {
+              "text": " Further!",
+              "start": 1.38,
+              "end": 1.38,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " Further!",
+              "start": 1.38,
+              "end": 1.38,
+              "probability": 0.8857421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Further",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Further!",
+          "start": 0.68,
+          "end": 0.7
+        },
+        {
+          "raw": "Further!",
+          "start": 0.78,
+          "end": 0.78
+        },
+        {
+          "raw": "Further!",
+          "start": 1.38,
+          "end": 1.38
+        },
+        {
+          "raw": "Further!",
+          "start": 1.38,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "Further!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Further",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "further",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Further!",
+          "start": 0.68,
+          "end": 0.7,
+          "key": "further",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Further!",
+          "start": 0.78,
+          "end": 0.78,
+          "key": "further",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Further!",
+          "start": 1.38,
+          "end": 1.38,
+          "key": "further",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Further!",
+          "start": 1.38,
+          "end": 1.38,
+          "key": "further",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Further!",
+          "start": 0.08,
+          "end": 0.68
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 5,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 4.12329516466707
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a8c9db8ba174f277c066bad71e6948ddb34e0f2072a0dcbb93a09c6089ba65e0",
+  "selected_reasons": []
+}

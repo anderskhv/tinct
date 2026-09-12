@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "34f0b9d79d26ca94376d48aa65ad2a40496b02c18d4c292efa29408ad40dfded",
+  "attempts": [
+    {
+      "asr_seconds": 0.07900563202565536,
+      "alignment_seconds": 0.0001148899900726974,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He turned",
+          "start": 0.02,
+          "end": 0.76,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " turned",
+              "start": 0.52,
+              "end": 0.76,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "turned",
+          "start": 0.52,
+          "end": 0.76
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "turned."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 0.52,
+          "end": 0.76,
+          "key": "turned",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "turned.",
+          "start": 0.52,
+          "end": 0.76
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07915899303043261
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ed72cfa1371800dca10251b8dbc76db42643a9d3633a97ebc9165320251bd906",
+  "selected_reasons": []
+}

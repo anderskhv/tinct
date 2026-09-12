@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "be3516fbf78e11c43af2d7bdd636e3eda0620a0a8e990b344d745868a1c46302",
+  "attempts": [
+    {
+      "asr_seconds": 0.12152627855539322,
+      "alignment_seconds": 0.00025634467601776123,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Viola.",
+        "hotwords": "Enter, Viola"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Viola.",
+          "start": 0.08,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.9375
+            },
+            {
+              "text": " Viola.",
+              "start": 0.7,
+              "end": 1.28,
+              "probability": 0.59527587890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Viola.",
+          "start": 0.7,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Viola."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Viola.",
+          "start": 0.7,
+          "end": 1.28,
+          "key": "viola",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Viola.",
+          "start": 0.7,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12189054116606712
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "059c7ca14ce6146aea0991c564d936386a8b4006bdf563d4f2519f02bbac59c9",
+  "selected_reasons": []
+}

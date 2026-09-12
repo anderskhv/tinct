@@ -1,0 +1,266 @@
+{
+  "complete": true,
+  "signature": "c5e8cb55063c37f7b0ea58ac657f4d67ffb3b61bc5c2698548858d248d04b9f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.16891775280237198,
+      "alignment_seconds": 0.00044216495007276535,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Boy, Suves vous la grande capitaine.",
+          "start": 0.02,
+          "end": 2.54,
+          "words": [
+            {
+              "text": " Boy,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.5546875
+            },
+            {
+              "text": " Suves",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.5771484375
+            },
+            {
+              "text": " vous",
+              "start": 1.32,
+              "end": 1.56,
+              "probability": 0.55291748046875
+            },
+            {
+              "text": " la",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.6611328125
+            },
+            {
+              "text": " grande",
+              "start": 1.68,
+              "end": 2.14,
+              "probability": 0.810546875
+            },
+            {
+              "text": " capitaine.",
+              "start": 2.14,
+              "end": 2.54,
+              "probability": 0.7384440104166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boy,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Suves",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "raw": "vous",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "raw": "la",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "grande",
+          "start": 1.68,
+          "end": 2.14
+        },
+        {
+          "raw": "capitaine.",
+          "start": 2.14,
+          "end": 2.54
+        }
+      ],
+      "expected_tokens": [
+        "Boy.",
+        "_Suivez-vous",
+        "le",
+        "grand",
+        "capitaine._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          4,
+          1,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          4,
+          1,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boy,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "boy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Suves",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "suves",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "vous",
+          "start": 1.32,
+          "end": 1.56,
+          "key": "vous",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 1.56,
+          "end": 1.68,
+          "key": "la",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "grande",
+          "start": 1.68,
+          "end": 2.14,
+          "key": "grande",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "capitaine.",
+          "start": 2.14,
+          "end": 2.54,
+          "key": "capitaine",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Boy.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "_Suivez-vous",
+          "start": 0.68,
+          "end": 1.41
+        },
+        {
+          "text": "le",
+          "start": 1.41,
+          "end": 1.775
+        },
+        {
+          "text": "grand",
+          "start": 1.775,
+          "end": 1.958
+        },
+        {
+          "text": "capitaine._",
+          "start": 2.14,
+          "end": 2.54
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 2
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1694974321871996
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e81fabc138bbbf3b58bb19d0547c4539867c0c66be10c9f30bd8c7f0242e0680",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

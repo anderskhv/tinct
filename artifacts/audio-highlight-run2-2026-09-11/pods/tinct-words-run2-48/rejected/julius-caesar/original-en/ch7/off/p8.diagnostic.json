@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "1ebbb9a63edb063cf4c0a8a1029633a25aa968f82f9e115e81f43b5566f6b2c4",
+  "attempts": [
+    {
+      "asr_seconds": 0.10941221192479134,
+      "alignment_seconds": 0.000370267778635025,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lucius, I hear none madam.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Lucius,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " I",
+              "start": 1.23,
+              "end": 1.31,
+              "probability": 0.978515625
+            },
+            {
+              "text": " hear",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " none",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.9765625
+            },
+            {
+              "text": " madam.",
+              "start": 1.63,
+              "end": 2.11,
+              "probability": 0.748046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucius,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "I",
+          "start": 1.23,
+          "end": 1.31
+        },
+        {
+          "raw": "hear",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "none",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "madam.",
+          "start": 1.63,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "Lucius.",
+        "I",
+        "hear",
+        "none,",
+        "madam."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucius,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "lucius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.23,
+          "end": 1.31,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 1.31,
+          "end": 1.43,
+          "key": "hear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "none",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "madam.",
+          "start": 1.63,
+          "end": 2.11,
+          "key": "madam",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lucius.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "I",
+          "start": 1.23,
+          "end": 1.31
+        },
+        {
+          "text": "hear",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "none,",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "madam.",
+          "start": 1.63,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10991409420967102
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "371964a5a8c6f61a419e0c6d7e08e77e8dc4eecdb1232bf4b0ba026207993543",
+  "selected_reasons": []
+}

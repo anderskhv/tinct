@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "2de863f71224c05b5f9c88355eb2f4d31027837263446c07d107a75f4fe66965",
+  "attempts": [
+    {
+      "asr_seconds": 0.09783899504691362,
+      "alignment_seconds": 0.00020035519264638424,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Things.",
+          "start": 0.08,
+          "end": 0.68,
+          "words": [
+            {
+              "text": " Things.",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.34228515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Things.",
+          "start": 0.08,
+          "end": 0.68
+        }
+      ],
+      "expected_tokens": [
+        "[Sings.]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Things.",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "things",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Sings.]",
+          "start": 0.0,
+          "end": 0.34
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09810035605914891
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2dd5f3973f39521562274b898e10478a1b833fb5b71d9b9b07ddc886d77f1054",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

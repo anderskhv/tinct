@@ -1,0 +1,749 @@
+{
+  "complete": true,
+  "signature": "63e4b21059f024c6c85ba7a00c8e128b873f12071366f61601d5a750969c9996",
+  "attempts": [
+    {
+      "asr_seconds": 0.4508684426546097,
+      "alignment_seconds": 0.000652652233839035,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " E.S.D.C., Quagini-Puys, Paprendur-Yun-Sueldes, C.E.S. Fluors Magnifiques, Madam Wiesel, Suilment",
+          "start": 0.05,
+          "end": 7.37,
+          "words": [
+            {
+              "text": " E",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.053436279296875
+            },
+            {
+              "text": ".S",
+              "start": 0.53,
+              "end": 0.69,
+              "probability": 0.5247802734375
+            },
+            {
+              "text": ".D",
+              "start": 0.69,
+              "end": 0.87,
+              "probability": 0.725341796875
+            },
+            {
+              "text": ".C.,",
+              "start": 0.87,
+              "end": 1.29,
+              "probability": 0.752197265625
+            },
+            {
+              "text": " Quagini",
+              "start": 1.29,
+              "end": 1.59,
+              "probability": 0.669677734375
+            },
+            {
+              "text": "-Puys,",
+              "start": 1.59,
+              "end": 2.07,
+              "probability": 0.503662109375
+            },
+            {
+              "text": " Paprendur",
+              "start": 2.37,
+              "end": 2.87,
+              "probability": 0.4088541666666667
+            },
+            {
+              "text": "-Yun",
+              "start": 2.87,
+              "end": 3.07,
+              "probability": 0.3252360026041667
+            },
+            {
+              "text": "-Sueldes,",
+              "start": 3.07,
+              "end": 3.61,
+              "probability": 0.48037109375
+            },
+            {
+              "text": " C",
+              "start": 3.75,
+              "end": 3.79,
+              "probability": 0.52099609375
+            },
+            {
+              "text": ".E",
+              "start": 3.79,
+              "end": 3.89,
+              "probability": 0.901611328125
+            },
+            {
+              "text": ".S.",
+              "start": 3.89,
+              "end": 4.09,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " Fluors",
+              "start": 4.23,
+              "end": 4.47,
+              "probability": 0.5045166015625
+            },
+            {
+              "text": " Magnifiques,",
+              "start": 4.47,
+              "end": 5.21,
+              "probability": 0.6848958333333334
+            },
+            {
+              "text": " Madam",
+              "start": 5.73,
+              "end": 5.87,
+              "probability": 0.806396484375
+            },
+            {
+              "text": " Wiesel,",
+              "start": 5.87,
+              "end": 6.19,
+              "probability": 0.52593994140625
+            },
+            {
+              "text": " Suilment",
+              "start": 7.09,
+              "end": 7.37,
+              "probability": 0.5576171875
+            }
+          ]
+        },
+        {
+          "text": " Por Completer Matwallet.",
+          "start": 7.37,
+          "end": 8.75,
+          "words": [
+            {
+              "text": " Por",
+              "start": 7.37,
+              "end": 7.59,
+              "probability": 0.2373046875
+            },
+            {
+              "text": " Completer",
+              "start": 7.59,
+              "end": 8.09,
+              "probability": 0.4663289388020833
+            },
+            {
+              "text": " Matwallet.",
+              "start": 8.09,
+              "end": 8.75,
+              "probability": 0.23197428385416666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "E",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": ".S",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "raw": ".D",
+          "start": 0.69,
+          "end": 0.87
+        },
+        {
+          "raw": ".C.,",
+          "start": 0.87,
+          "end": 1.29
+        },
+        {
+          "raw": "Quagini",
+          "start": 1.29,
+          "end": 1.59
+        },
+        {
+          "raw": "-Puys,",
+          "start": 1.59,
+          "end": 2.07
+        },
+        {
+          "raw": "Paprendur",
+          "start": 2.37,
+          "end": 2.87
+        },
+        {
+          "raw": "-Yun",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "raw": "-Sueldes,",
+          "start": 3.07,
+          "end": 3.61
+        },
+        {
+          "raw": "C",
+          "start": 3.75,
+          "end": 3.79
+        },
+        {
+          "raw": ".E",
+          "start": 3.79,
+          "end": 3.89
+        },
+        {
+          "raw": ".S.",
+          "start": 3.89,
+          "end": 4.09
+        },
+        {
+          "raw": "Fluors",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "raw": "Magnifiques,",
+          "start": 4.47,
+          "end": 5.21
+        },
+        {
+          "raw": "Madam",
+          "start": 5.73,
+          "end": 5.87
+        },
+        {
+          "raw": "Wiesel,",
+          "start": 5.87,
+          "end": 6.19
+        },
+        {
+          "raw": "Suilment",
+          "start": 7.09,
+          "end": 7.37
+        },
+        {
+          "raw": "Por",
+          "start": 7.37,
+          "end": 7.59
+        },
+        {
+          "raw": "Completer",
+          "start": 7.59,
+          "end": 8.09
+        },
+        {
+          "raw": "Matwallet.",
+          "start": 8.09,
+          "end": 8.75
+        }
+      ],
+      "expected_tokens": [
+        "\"Est-ce",
+        "que",
+        "je",
+        "ne",
+        "puis",
+        "pas",
+        "prendre",
+        "une",
+        "seule",
+        "de",
+        "ces",
+        "fleurs",
+        "magnifiques,",
+        "mademoiselle?",
+        "Seulement",
+        "pour",
+        "completer",
+        "ma",
+        "toilette.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          12,
+          0,
+          13
+        ],
+        [
+          "equal",
+          12,
+          13,
+          13,
+          14
+        ],
+        [
+          "replace",
+          13,
+          16,
+          14,
+          18
+        ],
+        [
+          "equal",
+          16,
+          17,
+          18,
+          19
+        ],
+        [
+          "replace",
+          17,
+          19,
+          19,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          12,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          16,
+          14,
+          18
+        ],
+        [
+          "replace",
+          17,
+          19,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "E",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "e",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".S",
+          "start": 0.53,
+          "end": 0.69,
+          "key": "s",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": ".D",
+          "start": 0.69,
+          "end": 0.87,
+          "key": "d",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": ".C.,",
+          "start": 0.87,
+          "end": 1.29,
+          "key": "c",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Quagini",
+          "start": 1.29,
+          "end": 1.59,
+          "key": "quagini",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "-Puys,",
+          "start": 1.59,
+          "end": 2.07,
+          "key": "puys",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Paprendur",
+          "start": 2.37,
+          "end": 2.87,
+          "key": "paprendur",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "-Yun",
+          "start": 2.87,
+          "end": 3.07,
+          "key": "yun",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "-Sueldes,",
+          "start": 3.07,
+          "end": 3.61,
+          "key": "sueldes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "C",
+          "start": 3.75,
+          "end": 3.79,
+          "key": "c",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": ".E",
+          "start": 3.79,
+          "end": 3.89,
+          "key": "e",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": ".S.",
+          "start": 3.89,
+          "end": 4.09,
+          "key": "s",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Fluors",
+          "start": 4.23,
+          "end": 4.47,
+          "key": "fluors",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Magnifiques,",
+          "start": 4.47,
+          "end": 5.21,
+          "key": "magnifiques",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Madam",
+          "start": 5.73,
+          "end": 5.87,
+          "key": "madam",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Wiesel,",
+          "start": 5.87,
+          "end": 6.19,
+          "key": "wiesel",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Suilment",
+          "start": 7.09,
+          "end": 7.37,
+          "key": "suilment",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Por",
+          "start": 7.37,
+          "end": 7.59,
+          "key": "por",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Completer",
+          "start": 7.59,
+          "end": 8.09,
+          "key": "completer",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Matwallet.",
+          "start": 8.09,
+          "end": 8.75,
+          "key": "matwallet",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Est-ce",
+          "start": 0.0,
+          "end": 2.235
+        },
+        {
+          "text": "que",
+          "start": 2.235,
+          "end": 3.353
+        },
+        {
+          "text": "je",
+          "start": 3.353,
+          "end": 3.912
+        },
+        {
+          "text": "ne",
+          "start": 3.912,
+          "end": 4.191
+        },
+        {
+          "text": "puis",
+          "start": 4.191,
+          "end": 4.33
+        },
+        {
+          "text": "pas",
+          "start": 4.33,
+          "end": 4.4
+        },
+        {
+          "text": "prendre",
+          "start": 4.4,
+          "end": 4.435
+        },
+        {
+          "text": "une",
+          "start": 4.435,
+          "end": 4.452
+        },
+        {
+          "text": "seule",
+          "start": 4.452,
+          "end": 4.461
+        },
+        {
+          "text": "de",
+          "start": 4.461,
+          "end": 4.466
+        },
+        {
+          "text": "ces",
+          "start": 4.466,
+          "end": 4.468
+        },
+        {
+          "text": "fleurs",
+          "start": 4.468,
+          "end": 4.469
+        },
+        {
+          "text": "magnifiques,",
+          "start": 4.47,
+          "end": 5.21
+        },
+        {
+          "text": "mademoiselle?",
+          "start": 5.21,
+          "end": 6.4
+        },
+        {
+          "text": "Seulement",
+          "start": 6.4,
+          "end": 6.995
+        },
+        {
+          "text": "pour",
+          "start": 6.995,
+          "end": 7.293
+        },
+        {
+          "text": "completer",
+          "start": 7.59,
+          "end": 8.09
+        },
+        {
+          "text": "ma",
+          "start": 8.09,
+          "end": 8.42
+        },
+        {
+          "text": "toilette.\"",
+          "start": 8.42,
+          "end": 8.585
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 2
+      },
+      "match_ratio": 0.10526315789473684,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.45178117975592613
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c2ad25f11ec5c1991aa4c9e848f167586cb7903204a8416fce3707478276f020",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "5ebe1489c98cafa08f852f177645e04ab4744aea9d1d33ac26a05c0f6c735970",
+  "attempts": [
+    {
+      "asr_seconds": 0.09645066363736987,
+      "alignment_seconds": 0.00017368188127875328,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And I from thee.",
+          "start": 0.11,
+          "end": 1.09,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.62890625
+            },
+            {
+              "text": " I",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " from",
+              "start": 0.67,
+              "end": 0.85,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " thee.",
+              "start": 0.85,
+              "end": 1.09,
+              "probability": 0.92626953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "I",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "from",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "raw": "thee.",
+          "start": 0.85,
+          "end": 1.09
+        }
+      ],
+      "expected_tokens": [
+        "—_And",
+        "I",
+        "from",
+        "thee_..."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 0.67,
+          "end": 0.85,
+          "key": "from",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 0.85,
+          "end": 1.09,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_And",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "I",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "from",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "text": "thee_...",
+          "start": 0.85,
+          "end": 1.09
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09668060764670372
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ca1eb5613d52ace9c9886e47603b7b2c3ad944e6b9126de43bf639bb662b598f",
+  "selected_reasons": []
+}

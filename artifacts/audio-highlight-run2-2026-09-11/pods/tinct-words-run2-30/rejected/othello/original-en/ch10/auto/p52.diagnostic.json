@@ -1,0 +1,843 @@
+{
+  "complete": true,
+  "signature": "a17031c7586390f4a298cb380488e63cc5f86b12c8263874ffc28e9403dc1953",
+  "attempts": [
+    {
+      "asr_seconds": 0.1246000281535089,
+      "alignment_seconds": 0.00014734920114278793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Fetch't, let me see 't.",
+        "hotwords": "Othello, Fetch't"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Fetch, let me see t.",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.9635416666666666
+            },
+            {
+              "text": " Fetch,",
+              "start": 1.23,
+              "end": 1.47,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " let",
+              "start": 1.57,
+              "end": 1.63,
+              "probability": 0.56396484375
+            },
+            {
+              "text": " me",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " see",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " t.",
+              "start": 1.95,
+              "end": 2.19,
+              "probability": 0.020263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Fetch,",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "raw": "let",
+          "start": 1.57,
+          "end": 1.63
+        },
+        {
+          "raw": "me",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "see",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "t.",
+          "start": 1.95,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Fetch't,",
+        "let",
+        "me",
+        "see",
+        "'t."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fetch,",
+          "start": 1.23,
+          "end": 1.47,
+          "key": "fetch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.57,
+          "end": 1.63,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "t.",
+          "start": 1.95,
+          "end": 2.19,
+          "key": "t",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Fetch't,",
+          "start": 0.95,
+          "end": 1.26
+        },
+        {
+          "text": "let",
+          "start": 1.57,
+          "end": 1.63
+        },
+        {
+          "text": "me",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "see",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "'t.",
+          "start": 1.95,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12479507690295577
+    },
+    {
+      "asr_seconds": 0.11894490662962198,
+      "alignment_seconds": 0.00014552008360624313,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Othello, Fetch't"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Othello, Fetch let me see tea.",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.9635416666666666
+            },
+            {
+              "text": " Fetch",
+              "start": 1.23,
+              "end": 1.47,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " let",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.299560546875
+            },
+            {
+              "text": " me",
+              "start": 1.63,
+              "end": 1.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " see",
+              "start": 1.77,
+              "end": 1.95,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " tea.",
+              "start": 1.95,
+              "end": 2.23,
+              "probability": 0.66552734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Fetch",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "raw": "let",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "me",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "raw": "see",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "raw": "tea.",
+          "start": 1.95,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Fetch't,",
+        "let",
+        "me",
+        "see",
+        "'t."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fetch",
+          "start": 1.23,
+          "end": 1.47,
+          "key": "fetch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.47,
+          "end": 1.63,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.63,
+          "end": 1.77,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.77,
+          "end": 1.95,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tea.",
+          "start": 1.95,
+          "end": 2.23,
+          "key": "tea",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Fetch't,",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "text": "let",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "me",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "text": "see",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "text": "'t.",
+          "start": 1.95,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11913740588352084
+    },
+    {
+      "asr_seconds": 0.10457853274419904,
+      "alignment_seconds": 0.00015046913176774979,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, Fetch Let Me See Tea.",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.9635416666666666
+            },
+            {
+              "text": " Fetch",
+              "start": 1.23,
+              "end": 1.47,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " Let",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.456787109375
+            },
+            {
+              "text": " Me",
+              "start": 1.63,
+              "end": 1.77,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " See",
+              "start": 1.77,
+              "end": 1.95,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Tea.",
+              "start": 1.95,
+              "end": 2.23,
+              "probability": 0.86181640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Fetch",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "raw": "Let",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "Me",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "raw": "See",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "raw": "Tea.",
+          "start": 1.95,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Fetch't,",
+        "let",
+        "me",
+        "see",
+        "'t."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fetch",
+          "start": 1.23,
+          "end": 1.47,
+          "key": "fetch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 1.47,
+          "end": 1.63,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Me",
+          "start": 1.63,
+          "end": 1.77,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 1.77,
+          "end": 1.95,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Tea.",
+          "start": 1.95,
+          "end": 2.23,
+          "key": "tea",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Fetch't,",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "text": "let",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "me",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "text": "see",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "text": "'t.",
+          "start": 1.95,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10477735195308924
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fea36d1174aedc12d227fff7e394cfb1d52e150bd6ee8793e7abd7dce909bb80",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

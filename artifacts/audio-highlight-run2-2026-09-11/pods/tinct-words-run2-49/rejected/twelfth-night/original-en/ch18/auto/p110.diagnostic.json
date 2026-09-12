@@ -1,0 +1,1200 @@
+{
+  "complete": true,
+  "signature": "4ef27e5e38cb4a96eaf647e1d747f52dbb92602c5cbfb0c6a05e3e7712ad302a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1996878758072853,
+      "alignment_seconds": 0.0005877651274204254,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_To Viola._] Boy, thou hast said to me a thousand times",
+        "hotwords": "Viola._, Boy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To Viola._, Boy, thou hast said to me a thousand times",
+          "start": 0.02,
+          "end": 3.44,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.609375
+            },
+            {
+              "text": " Viola._,",
+              "start": 0.5,
+              "end": 1.62,
+              "probability": 0.5157877802848816
+            },
+            {
+              "text": " Boy,",
+              "start": 1.62,
+              "end": 1.7,
+              "probability": 0.443359375
+            },
+            {
+              "text": " thou",
+              "start": 1.84,
+              "end": 1.92,
+              "probability": 0.654296875
+            },
+            {
+              "text": " hast",
+              "start": 1.92,
+              "end": 2.16,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " said",
+              "start": 2.16,
+              "end": 2.38,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " to",
+              "start": 2.38,
+              "end": 2.46,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " me",
+              "start": 2.46,
+              "end": 2.58,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " a",
+              "start": 2.58,
+              "end": 2.7,
+              "probability": 0.974609375
+            },
+            {
+              "text": " thousand",
+              "start": 2.7,
+              "end": 3.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " times",
+              "start": 3.04,
+              "end": 3.44,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Viola._,",
+          "start": 0.5,
+          "end": 1.62
+        },
+        {
+          "raw": "Boy,",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "raw": "thou",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "raw": "hast",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "raw": "said",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.46
+        },
+        {
+          "raw": "me",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "raw": "a",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "raw": "thousand",
+          "start": 2.7,
+          "end": 3.04
+        },
+        {
+          "raw": "times",
+          "start": 3.04,
+          "end": 3.44
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Viola._]",
+        "Boy,",
+        "thou",
+        "hast",
+        "said",
+        "to",
+        "me",
+        "a",
+        "thousand",
+        "times"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          11,
+          2,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Viola._,",
+          "start": 0.5,
+          "end": 1.62,
+          "key": "viola_",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Boy,",
+          "start": 1.62,
+          "end": 1.7,
+          "key": "boy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.84,
+          "end": 1.92,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 1.92,
+          "end": 2.16,
+          "key": "hast",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.16,
+          "end": 2.38,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.46,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.46,
+          "end": 2.58,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.58,
+          "end": 2.7,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 2.7,
+          "end": 3.04,
+          "key": "thousand",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "times",
+          "start": 3.04,
+          "end": 3.44,
+          "key": "times",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Viola._]",
+          "start": 0.5,
+          "end": 1.06
+        },
+        {
+          "text": "Boy,",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "text": "thou",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "text": "hast",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "text": "said",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "text": "to",
+          "start": 2.38,
+          "end": 2.46
+        },
+        {
+          "text": "me",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "text": "a",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "text": "thousand",
+          "start": 2.7,
+          "end": 3.04
+        },
+        {
+          "text": "times",
+          "start": 3.04,
+          "end": 3.44
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.20048220828175545
+    },
+    {
+      "asr_seconds": 0.16632868349552155,
+      "alignment_seconds": 0.0005421936511993408,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Viola._, Boy"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Thou hast said to me a thousand times.",
+          "start": 0.02,
+          "end": 3.58,
+          "words": [
+            {
+              "text": " Thou",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 8.869171142578125e-05
+            },
+            {
+              "text": " hast",
+              "start": 0.54,
+              "end": 2.12,
+              "probability": 0.67724609375
+            },
+            {
+              "text": " said",
+              "start": 2.12,
+              "end": 2.38,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " to",
+              "start": 2.38,
+              "end": 2.46,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " me",
+              "start": 2.46,
+              "end": 2.56,
+              "probability": 0.986328125
+            },
+            {
+              "text": " a",
+              "start": 2.56,
+              "end": 2.7,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " thousand",
+              "start": 2.7,
+              "end": 3.04,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " times.",
+              "start": 3.04,
+              "end": 3.58,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thou",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "hast",
+          "start": 0.54,
+          "end": 2.12
+        },
+        {
+          "raw": "said",
+          "start": 2.12,
+          "end": 2.38
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.46
+        },
+        {
+          "raw": "me",
+          "start": 2.46,
+          "end": 2.56
+        },
+        {
+          "raw": "a",
+          "start": 2.56,
+          "end": 2.7
+        },
+        {
+          "raw": "thousand",
+          "start": 2.7,
+          "end": 3.04
+        },
+        {
+          "raw": "times.",
+          "start": 3.04,
+          "end": 3.58
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Viola._]",
+        "Boy,",
+        "thou",
+        "hast",
+        "said",
+        "to",
+        "me",
+        "a",
+        "thousand",
+        "times"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          "equal",
+          3,
+          11,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thou",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "thou",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 0.54,
+          "end": 2.12,
+          "key": "hast",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.12,
+          "end": 2.38,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.46,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.46,
+          "end": 2.56,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.56,
+          "end": 2.7,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 2.7,
+          "end": 3.04,
+          "key": "thousand",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "times.",
+          "start": 3.04,
+          "end": 3.58,
+          "key": "times",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "Viola._]",
+          "start": 0.01,
+          "end": 0.015
+        },
+        {
+          "text": "Boy,",
+          "start": 0.015,
+          "end": 0.018
+        },
+        {
+          "text": "thou",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "hast",
+          "start": 0.54,
+          "end": 2.12
+        },
+        {
+          "text": "said",
+          "start": 2.12,
+          "end": 2.38
+        },
+        {
+          "text": "to",
+          "start": 2.38,
+          "end": 2.46
+        },
+        {
+          "text": "me",
+          "start": 2.46,
+          "end": 2.56
+        },
+        {
+          "text": "a",
+          "start": 2.56,
+          "end": 2.7
+        },
+        {
+          "text": "thousand",
+          "start": 2.7,
+          "end": 3.04
+        },
+        {
+          "text": "times",
+          "start": 3.04,
+          "end": 3.58
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 0.7272727272727273,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16703548654913902
+    },
+    {
+      "asr_seconds": 0.21932328119874,
+      "alignment_seconds": 0.0005203485488891602,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To viola boy thou hast said to me a thousand times",
+          "start": 0.02,
+          "end": 3.48,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.611328125
+            },
+            {
+              "text": " viola",
+              "start": 0.5,
+              "end": 1.3,
+              "probability": 0.58441162109375
+            },
+            {
+              "text": " boy",
+              "start": 1.3,
+              "end": 1.68,
+              "probability": 0.51171875
+            },
+            {
+              "text": " thou",
+              "start": 1.68,
+              "end": 1.92,
+              "probability": 0.869140625
+            },
+            {
+              "text": " hast",
+              "start": 1.92,
+              "end": 2.18,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " said",
+              "start": 2.18,
+              "end": 2.38,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " to",
+              "start": 2.38,
+              "end": 2.46,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " me",
+              "start": 2.46,
+              "end": 2.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 2.58,
+              "end": 2.7,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " thousand",
+              "start": 2.7,
+              "end": 3.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " times",
+              "start": 3.04,
+              "end": 3.48,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "viola",
+          "start": 0.5,
+          "end": 1.3
+        },
+        {
+          "raw": "boy",
+          "start": 1.3,
+          "end": 1.68
+        },
+        {
+          "raw": "thou",
+          "start": 1.68,
+          "end": 1.92
+        },
+        {
+          "raw": "hast",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "raw": "said",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.46
+        },
+        {
+          "raw": "me",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "raw": "a",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "raw": "thousand",
+          "start": 2.7,
+          "end": 3.04
+        },
+        {
+          "raw": "times",
+          "start": 3.04,
+          "end": 3.48
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Viola._]",
+        "Boy,",
+        "thou",
+        "hast",
+        "said",
+        "to",
+        "me",
+        "a",
+        "thousand",
+        "times"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "viola",
+          "start": 0.5,
+          "end": 1.3,
+          "key": "viola",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 1.3,
+          "end": 1.68,
+          "key": "boy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.68,
+          "end": 1.92,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 1.92,
+          "end": 2.18,
+          "key": "hast",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.18,
+          "end": 2.38,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.46,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.46,
+          "end": 2.58,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.58,
+          "end": 2.7,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 2.7,
+          "end": 3.04,
+          "key": "thousand",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "times",
+          "start": 3.04,
+          "end": 3.48,
+          "key": "times",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Viola._]",
+          "start": 0.5,
+          "end": 1.3
+        },
+        {
+          "text": "Boy,",
+          "start": 1.3,
+          "end": 1.68
+        },
+        {
+          "text": "thou",
+          "start": 1.68,
+          "end": 1.92
+        },
+        {
+          "text": "hast",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "text": "said",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "text": "to",
+          "start": 2.38,
+          "end": 2.46
+        },
+        {
+          "text": "me",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "text": "a",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "text": "thousand",
+          "start": 2.7,
+          "end": 3.04
+        },
+        {
+          "text": "times",
+          "start": 3.04,
+          "end": 3.48
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22005124017596245
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "162128eb8b95041c1bd628de8dcec719b1bdf0cb4646f3cbf54b7b569766ab6e",
+  "selected_reasons": []
+}

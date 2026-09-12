@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "75e144dcbc0ec9bbaeb0fd4a280b20f5815569aef158d7122fa0a9b8997018a5",
+  "attempts": [
+    {
+      "asr_seconds": 0.08759372681379318,
+      "alignment_seconds": 0.0001436173915863037,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gentlemen, sir, speed you. What's your will?",
+          "start": 0.49,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Gentlemen,",
+              "start": 0.49,
+              "end": 0.91,
+              "probability": 0.870849609375
+            },
+            {
+              "text": " sir,",
+              "start": 1.13,
+              "end": 1.13,
+              "probability": 0.62158203125
+            },
+            {
+              "text": " speed",
+              "start": 1.29,
+              "end": 1.41,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " you.",
+              "start": 1.41,
+              "end": 1.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " What's",
+              "start": 2.01,
+              "end": 2.13,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " your",
+              "start": 2.13,
+              "end": 2.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " will?",
+              "start": 2.23,
+              "end": 2.43,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.49,
+          "end": 0.91
+        },
+        {
+          "raw": "sir,",
+          "start": 1.13,
+          "end": 1.13
+        },
+        {
+          "raw": "speed",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "raw": "you.",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "raw": "What's",
+          "start": 2.01,
+          "end": 2.13
+        },
+        {
+          "raw": "your",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "raw": "will?",
+          "start": 2.23,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "Gentleman.",
+        "Sir,",
+        "speed",
+        "you.",
+        "What's",
+        "your",
+        "will?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.49,
+          "end": 0.91,
+          "key": "gentlemen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.13,
+          "end": 1.13,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "speed",
+          "start": 1.29,
+          "end": 1.41,
+          "key": "speed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.41,
+          "end": 1.65,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 2.01,
+          "end": 2.13,
+          "key": "whats",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.13,
+          "end": 2.23,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "will?",
+          "start": 2.23,
+          "end": 2.43,
+          "key": "will",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gentleman.",
+          "start": 0.0,
+          "end": 0.565
+        },
+        {
+          "text": "Sir,",
+          "start": 1.13,
+          "end": 1.13
+        },
+        {
+          "text": "speed",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "text": "you.",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "text": "What's",
+          "start": 2.01,
+          "end": 2.13
+        },
+        {
+          "text": "your",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "text": "will?",
+          "start": 2.23,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.08777943626046181
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "48e1b792acf8a010ccb4e229e48c1a36e80c0cdb02409e7df693e0d068875827",
+  "selected_reasons": []
+}

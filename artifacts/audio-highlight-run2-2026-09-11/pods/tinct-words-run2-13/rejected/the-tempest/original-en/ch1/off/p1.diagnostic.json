@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "7fd589a4c81d1cc69f1a0ae8baa91dd6e2c44f9defe6c1a1a2f9a962686a4846",
+  "attempts": [
+    {
+      "asr_seconds": 0.10964911617338657,
+      "alignment_seconds": 0.00014052167534828186,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Master Bosun.",
+          "start": 0.02,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " Master",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " Bosun.",
+              "start": 0.82,
+              "end": 1.38,
+              "probability": 0.4344482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Master",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "Bosun.",
+          "start": 0.82,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "Master.",
+        "Boatswain!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Master",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "master",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bosun.",
+          "start": 0.82,
+          "end": 1.38,
+          "key": "bosun",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Master.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "Boatswain!",
+          "start": 0.82,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10983415693044662
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "37637baa61c62bd62608a7770d4dc05fdd5361a60644c3788a9e4dd55232989e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

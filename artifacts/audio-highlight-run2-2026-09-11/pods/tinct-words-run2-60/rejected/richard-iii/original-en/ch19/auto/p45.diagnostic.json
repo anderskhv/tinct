@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "e6a5e2c2cae18ddbdacc4a2be02f30091d966a190d2d4944823ba83d881f6668",
+  "attempts": [
+    {
+      "asr_seconds": 0.1878676861524582,
+      "alignment_seconds": 0.0003861449658870697,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen Elizabeth. Where is the gentle Rivers, Vaughan, Grey?",
+        "hotwords": "Queen, Elizabeth, Where, Rivers, Vaughan, Grey"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen Elizabeth. Where is the gentle Rivers, Vaughan, Grey?",
+          "start": 0.05,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " Elizabeth.",
+              "start": 0.57,
+              "end": 1.05,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Where",
+              "start": 1.63,
+              "end": 1.71,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " is",
+              "start": 1.71,
+              "end": 1.83,
+              "probability": 0.039520263671875
+            },
+            {
+              "text": " the",
+              "start": 1.83,
+              "end": 1.93,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " gentle",
+              "start": 1.93,
+              "end": 2.21,
+              "probability": 0.6611328125
+            },
+            {
+              "text": " Rivers,",
+              "start": 2.21,
+              "end": 2.55,
+              "probability": 0.0207977294921875
+            },
+            {
+              "text": " Vaughan,",
+              "start": 2.89,
+              "end": 3.03,
+              "probability": 0.10040283203125
+            },
+            {
+              "text": " Grey?",
+              "start": 3.15,
+              "end": 3.37,
+              "probability": 0.623046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Elizabeth.",
+          "start": 0.57,
+          "end": 1.05
+        },
+        {
+          "raw": "Where",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "raw": "is",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 1.93
+        },
+        {
+          "raw": "gentle",
+          "start": 1.93,
+          "end": 2.21
+        },
+        {
+          "raw": "Rivers,",
+          "start": 2.21,
+          "end": 2.55
+        },
+        {
+          "raw": "Vaughan,",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "raw": "Grey?",
+          "start": 3.15,
+          "end": 3.37
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "Where",
+        "is",
+        "the",
+        "gentle",
+        "Rivers,",
+        "Vaughan,",
+        "Grey?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Elizabeth.",
+          "start": 0.57,
+          "end": 1.05,
+          "key": "elizabeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 1.63,
+          "end": 1.71,
+          "key": "where",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.71,
+          "end": 1.83,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 1.93,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gentle",
+          "start": 1.93,
+          "end": 2.21,
+          "key": "gentle",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Rivers,",
+          "start": 2.21,
+          "end": 2.55,
+          "key": "rivers",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Vaughan,",
+          "start": 2.89,
+          "end": 3.03,
+          "key": "vaughan",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Grey?",
+          "start": 3.15,
+          "end": 3.37,
+          "key": "grey",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.57,
+          "end": 1.05
+        },
+        {
+          "text": "Where",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "text": "is",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "text": "the",
+          "start": 1.83,
+          "end": 1.93
+        },
+        {
+          "text": "gentle",
+          "start": 1.93,
+          "end": 2.21
+        },
+        {
+          "text": "Rivers,",
+          "start": 2.21,
+          "end": 2.55
+        },
+        {
+          "text": "Vaughan,",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "text": "Grey?",
+          "start": 3.15,
+          "end": 3.37
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18839847669005394
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8b09a60e6db0f99c153a4af0f914f0cd6adb20a49b9e8c3aa5465ea0109edee1",
+  "selected_reasons": []
+}

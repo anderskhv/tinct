@@ -1,0 +1,2410 @@
+{
+  "complete": true,
+  "signature": "766b9757337556f048d1b09f98ff9b9cf2963a16d01ba2170baa92451652865b",
+  "attempts": [
+    {
+      "asr_seconds": 0.32332294597290456,
+      "alignment_seconds": 0.0006429270142689347,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leader. Thebes hath o'er me no sway! None save Him I obey, Dionysus, Child of the Highest, Him I obey and adore!",
+        "hotwords": "Leader, Thebes, None, Him, I, Dionysus, Child, Highest"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leader, Thebes hath o'er me no sway! None save Him I obey, Dionysus, Child of the Highest, Him I obey and adore!",
+          "start": 0.02,
+          "end": 7.56,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.55810546875
+            },
+            {
+              "text": " Thebes",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.955322265625
+            },
+            {
+              "text": " hath",
+              "start": 1.36,
+              "end": 1.52,
+              "probability": 0.970703125
+            },
+            {
+              "text": " o",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.85693359375
+            },
+            {
+              "text": "'er",
+              "start": 1.72,
+              "end": 1.78,
+              "probability": 0.969482421875
+            },
+            {
+              "text": " me",
+              "start": 1.78,
+              "end": 1.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " no",
+              "start": 1.88,
+              "end": 2.06,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " sway!",
+              "start": 2.06,
+              "end": 2.38,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " None",
+              "start": 3.2,
+              "end": 3.24,
+              "probability": 0.6357421875
+            },
+            {
+              "text": " save",
+              "start": 3.24,
+              "end": 3.56,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Him",
+              "start": 3.56,
+              "end": 3.72,
+              "probability": 0.015960693359375
+            },
+            {
+              "text": " I",
+              "start": 3.72,
+              "end": 3.88,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " obey,",
+              "start": 3.88,
+              "end": 4.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Dionysus,",
+              "start": 4.5,
+              "end": 5.0,
+              "probability": 0.9366861979166666
+            },
+            {
+              "text": " Child",
+              "start": 5.36,
+              "end": 5.4,
+              "probability": 0.316162109375
+            },
+            {
+              "text": " of",
+              "start": 5.4,
+              "end": 5.6,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 5.6,
+              "end": 5.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Highest,",
+              "start": 5.7,
+              "end": 6.02,
+              "probability": 0.51220703125
+            },
+            {
+              "text": " Him",
+              "start": 6.48,
+              "end": 6.56,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " I",
+              "start": 6.56,
+              "end": 6.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " obey",
+              "start": 6.76,
+              "end": 7.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 7.0,
+              "end": 7.28,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " adore!",
+              "start": 7.28,
+              "end": 7.56,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Thebes",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "raw": "hath",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "raw": "o",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "'er",
+          "start": 1.72,
+          "end": 1.78
+        },
+        {
+          "raw": "me",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "raw": "no",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "raw": "sway!",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "raw": "None",
+          "start": 3.2,
+          "end": 3.24
+        },
+        {
+          "raw": "save",
+          "start": 3.24,
+          "end": 3.56
+        },
+        {
+          "raw": "Him",
+          "start": 3.56,
+          "end": 3.72
+        },
+        {
+          "raw": "I",
+          "start": 3.72,
+          "end": 3.88
+        },
+        {
+          "raw": "obey,",
+          "start": 3.88,
+          "end": 4.1
+        },
+        {
+          "raw": "Dionysus,",
+          "start": 4.5,
+          "end": 5.0
+        },
+        {
+          "raw": "Child",
+          "start": 5.36,
+          "end": 5.4
+        },
+        {
+          "raw": "of",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "raw": "the",
+          "start": 5.6,
+          "end": 5.7
+        },
+        {
+          "raw": "Highest,",
+          "start": 5.7,
+          "end": 6.02
+        },
+        {
+          "raw": "Him",
+          "start": 6.48,
+          "end": 6.56
+        },
+        {
+          "raw": "I",
+          "start": 6.56,
+          "end": 6.76
+        },
+        {
+          "raw": "obey",
+          "start": 6.76,
+          "end": 7.0
+        },
+        {
+          "raw": "and",
+          "start": 7.0,
+          "end": 7.28
+        },
+        {
+          "raw": "adore!",
+          "start": 7.28,
+          "end": 7.56
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "Thebes",
+        "hath",
+        "o'er",
+        "me",
+        "no",
+        "sway!",
+        "None",
+        "save",
+        "Him",
+        "I",
+        "obey,",
+        "Dionysus,",
+        "Child",
+        "of",
+        "the",
+        "Highest,",
+        "Him",
+        "I",
+        "obey",
+        "and",
+        "adore!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          22,
+          5,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "leader",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thebes",
+          "start": 1.04,
+          "end": 1.36,
+          "key": "thebes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.36,
+          "end": 1.52,
+          "key": "hath",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 1.72,
+          "end": 1.78,
+          "key": "er",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.78,
+          "end": 1.88,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.88,
+          "end": 2.06,
+          "key": "no",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sway!",
+          "start": 2.06,
+          "end": 2.38,
+          "key": "sway",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "None",
+          "start": 3.2,
+          "end": 3.24,
+          "key": "none",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "save",
+          "start": 3.24,
+          "end": 3.56,
+          "key": "save",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Him",
+          "start": 3.56,
+          "end": 3.72,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.72,
+          "end": 3.88,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "obey,",
+          "start": 3.88,
+          "end": 4.1,
+          "key": "obey",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Dionysus,",
+          "start": 4.5,
+          "end": 5.0,
+          "key": "dionysus",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Child",
+          "start": 5.36,
+          "end": 5.4,
+          "key": "child",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.4,
+          "end": 5.6,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.6,
+          "end": 5.7,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Highest,",
+          "start": 5.7,
+          "end": 6.02,
+          "key": "highest",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Him",
+          "start": 6.48,
+          "end": 6.56,
+          "key": "him",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.56,
+          "end": 6.76,
+          "key": "i",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "obey",
+          "start": 6.76,
+          "end": 7.0,
+          "key": "obey",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.0,
+          "end": 7.28,
+          "key": "and",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "adore!",
+          "start": 7.28,
+          "end": 7.56,
+          "key": "adore",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Thebes",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "text": "hath",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "text": "o'er",
+          "start": 1.52,
+          "end": 1.65
+        },
+        {
+          "text": "me",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "text": "no",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "text": "sway!",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "text": "None",
+          "start": 3.2,
+          "end": 3.24
+        },
+        {
+          "text": "save",
+          "start": 3.24,
+          "end": 3.56
+        },
+        {
+          "text": "Him",
+          "start": 3.56,
+          "end": 3.72
+        },
+        {
+          "text": "I",
+          "start": 3.72,
+          "end": 3.88
+        },
+        {
+          "text": "obey,",
+          "start": 3.88,
+          "end": 4.1
+        },
+        {
+          "text": "Dionysus,",
+          "start": 4.5,
+          "end": 5.0
+        },
+        {
+          "text": "Child",
+          "start": 5.36,
+          "end": 5.4
+        },
+        {
+          "text": "of",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "text": "the",
+          "start": 5.6,
+          "end": 5.7
+        },
+        {
+          "text": "Highest,",
+          "start": 5.7,
+          "end": 6.02
+        },
+        {
+          "text": "Him",
+          "start": 6.48,
+          "end": 6.56
+        },
+        {
+          "text": "I",
+          "start": 6.56,
+          "end": 6.76
+        },
+        {
+          "text": "obey",
+          "start": 6.76,
+          "end": 7.0
+        },
+        {
+          "text": "and",
+          "start": 7.0,
+          "end": 7.28
+        },
+        {
+          "text": "adore!",
+          "start": 7.28,
+          "end": 7.56
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 23,
+        "matched_words": 21
+      },
+      "match_ratio": 0.9545454545454546,
+      "rejection_reasons": [],
+      "seconds": 0.3242162619717419
+    },
+    {
+      "asr_seconds": 0.39838553708978,
+      "alignment_seconds": 0.0005436970386654139,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Leader, Thebes, None, Him, I, Dionysus, Child, Highest"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Leader, Thebes hath o'er me no sway, None save him I obey, Dionysus, Child of the Highest, Him I obey and adore.",
+          "start": 0.02,
+          "end": 7.58,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.55810546875
+            },
+            {
+              "text": " Thebes",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.955322265625
+            },
+            {
+              "text": " hath",
+              "start": 1.36,
+              "end": 1.52,
+              "probability": 0.970703125
+            },
+            {
+              "text": " o",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.85693359375
+            },
+            {
+              "text": "'er",
+              "start": 1.72,
+              "end": 1.78,
+              "probability": 0.969482421875
+            },
+            {
+              "text": " me",
+              "start": 1.78,
+              "end": 1.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " no",
+              "start": 1.88,
+              "end": 2.06,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " sway,",
+              "start": 2.06,
+              "end": 2.38,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " None",
+              "start": 3.22,
+              "end": 3.24,
+              "probability": 0.6025390625
+            },
+            {
+              "text": " save",
+              "start": 3.24,
+              "end": 3.56,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " him",
+              "start": 3.56,
+              "end": 3.72,
+              "probability": 0.974609375
+            },
+            {
+              "text": " I",
+              "start": 3.72,
+              "end": 3.88,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " obey,",
+              "start": 3.88,
+              "end": 4.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Dionysus,",
+              "start": 4.48,
+              "end": 5.02,
+              "probability": 0.9339192708333334
+            },
+            {
+              "text": " Child",
+              "start": 5.32,
+              "end": 5.4,
+              "probability": 0.5078125
+            },
+            {
+              "text": " of",
+              "start": 5.4,
+              "end": 5.6,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 5.6,
+              "end": 5.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Highest,",
+              "start": 5.7,
+              "end": 6.02,
+              "probability": 0.259765625
+            },
+            {
+              "text": " Him",
+              "start": 6.48,
+              "end": 6.58,
+              "probability": 0.7177734375
+            },
+            {
+              "text": " I",
+              "start": 6.58,
+              "end": 6.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " obey",
+              "start": 6.76,
+              "end": 7.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 7.0,
+              "end": 7.28,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " adore.",
+              "start": 7.28,
+              "end": 7.58,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Thebes",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "raw": "hath",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "raw": "o",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "'er",
+          "start": 1.72,
+          "end": 1.78
+        },
+        {
+          "raw": "me",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "raw": "no",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "raw": "sway,",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "raw": "None",
+          "start": 3.22,
+          "end": 3.24
+        },
+        {
+          "raw": "save",
+          "start": 3.24,
+          "end": 3.56
+        },
+        {
+          "raw": "him",
+          "start": 3.56,
+          "end": 3.72
+        },
+        {
+          "raw": "I",
+          "start": 3.72,
+          "end": 3.88
+        },
+        {
+          "raw": "obey,",
+          "start": 3.88,
+          "end": 4.12
+        },
+        {
+          "raw": "Dionysus,",
+          "start": 4.48,
+          "end": 5.02
+        },
+        {
+          "raw": "Child",
+          "start": 5.32,
+          "end": 5.4
+        },
+        {
+          "raw": "of",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "raw": "the",
+          "start": 5.6,
+          "end": 5.7
+        },
+        {
+          "raw": "Highest,",
+          "start": 5.7,
+          "end": 6.02
+        },
+        {
+          "raw": "Him",
+          "start": 6.48,
+          "end": 6.58
+        },
+        {
+          "raw": "I",
+          "start": 6.58,
+          "end": 6.76
+        },
+        {
+          "raw": "obey",
+          "start": 6.76,
+          "end": 7.0
+        },
+        {
+          "raw": "and",
+          "start": 7.0,
+          "end": 7.28
+        },
+        {
+          "raw": "adore.",
+          "start": 7.28,
+          "end": 7.58
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "Thebes",
+        "hath",
+        "o'er",
+        "me",
+        "no",
+        "sway!",
+        "None",
+        "save",
+        "Him",
+        "I",
+        "obey,",
+        "Dionysus,",
+        "Child",
+        "of",
+        "the",
+        "Highest,",
+        "Him",
+        "I",
+        "obey",
+        "and",
+        "adore!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          22,
+          5,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "leader",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thebes",
+          "start": 1.04,
+          "end": 1.36,
+          "key": "thebes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.36,
+          "end": 1.52,
+          "key": "hath",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 1.72,
+          "end": 1.78,
+          "key": "er",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.78,
+          "end": 1.88,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.88,
+          "end": 2.06,
+          "key": "no",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sway,",
+          "start": 2.06,
+          "end": 2.38,
+          "key": "sway",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "None",
+          "start": 3.22,
+          "end": 3.24,
+          "key": "none",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "save",
+          "start": 3.24,
+          "end": 3.56,
+          "key": "save",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.56,
+          "end": 3.72,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.72,
+          "end": 3.88,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "obey,",
+          "start": 3.88,
+          "end": 4.12,
+          "key": "obey",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Dionysus,",
+          "start": 4.48,
+          "end": 5.02,
+          "key": "dionysus",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Child",
+          "start": 5.32,
+          "end": 5.4,
+          "key": "child",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.4,
+          "end": 5.6,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.6,
+          "end": 5.7,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Highest,",
+          "start": 5.7,
+          "end": 6.02,
+          "key": "highest",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Him",
+          "start": 6.48,
+          "end": 6.58,
+          "key": "him",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.58,
+          "end": 6.76,
+          "key": "i",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "obey",
+          "start": 6.76,
+          "end": 7.0,
+          "key": "obey",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.0,
+          "end": 7.28,
+          "key": "and",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "adore.",
+          "start": 7.28,
+          "end": 7.58,
+          "key": "adore",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Thebes",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "text": "hath",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "text": "o'er",
+          "start": 1.52,
+          "end": 1.65
+        },
+        {
+          "text": "me",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "text": "no",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "text": "sway!",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "text": "None",
+          "start": 3.22,
+          "end": 3.24
+        },
+        {
+          "text": "save",
+          "start": 3.24,
+          "end": 3.56
+        },
+        {
+          "text": "Him",
+          "start": 3.56,
+          "end": 3.72
+        },
+        {
+          "text": "I",
+          "start": 3.72,
+          "end": 3.88
+        },
+        {
+          "text": "obey,",
+          "start": 3.88,
+          "end": 4.12
+        },
+        {
+          "text": "Dionysus,",
+          "start": 4.48,
+          "end": 5.02
+        },
+        {
+          "text": "Child",
+          "start": 5.32,
+          "end": 5.4
+        },
+        {
+          "text": "of",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "text": "the",
+          "start": 5.6,
+          "end": 5.7
+        },
+        {
+          "text": "Highest,",
+          "start": 5.7,
+          "end": 6.02
+        },
+        {
+          "text": "Him",
+          "start": 6.48,
+          "end": 6.58
+        },
+        {
+          "text": "I",
+          "start": 6.58,
+          "end": 6.76
+        },
+        {
+          "text": "obey",
+          "start": 6.76,
+          "end": 7.0
+        },
+        {
+          "text": "and",
+          "start": 7.0,
+          "end": 7.28
+        },
+        {
+          "text": "adore!",
+          "start": 7.28,
+          "end": 7.58
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 23,
+        "matched_words": 21
+      },
+      "match_ratio": 0.9545454545454546,
+      "rejection_reasons": [],
+      "seconds": 0.3991583320312202
+    },
+    {
+      "asr_seconds": 0.40192558499984443,
+      "alignment_seconds": 0.0005745559465140104,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leader, Thebes hath o'er me no sway.",
+          "start": 0.02,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.55810546875
+            },
+            {
+              "text": " Thebes",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.955322265625
+            },
+            {
+              "text": " hath",
+              "start": 1.36,
+              "end": 1.52,
+              "probability": 0.970703125
+            },
+            {
+              "text": " o",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.85693359375
+            },
+            {
+              "text": "'er",
+              "start": 1.72,
+              "end": 1.78,
+              "probability": 0.969482421875
+            },
+            {
+              "text": " me",
+              "start": 1.78,
+              "end": 1.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " no",
+              "start": 1.88,
+              "end": 2.06,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " sway.",
+              "start": 2.06,
+              "end": 2.38,
+              "probability": 0.98388671875
+            }
+          ]
+        },
+        {
+          "text": " None save him I obey, Dionysus, child of the highest, him I obey and adore.",
+          "start": 3.22,
+          "end": 7.58,
+          "words": [
+            {
+              "text": " None",
+              "start": 3.22,
+              "end": 3.24,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " save",
+              "start": 3.24,
+              "end": 3.56,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " him",
+              "start": 3.56,
+              "end": 3.72,
+              "probability": 0.97265625
+            },
+            {
+              "text": " I",
+              "start": 3.72,
+              "end": 3.88,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " obey,",
+              "start": 3.88,
+              "end": 4.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Dionysus,",
+              "start": 4.5,
+              "end": 5.02,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " child",
+              "start": 5.36,
+              "end": 5.42,
+              "probability": 0.775390625
+            },
+            {
+              "text": " of",
+              "start": 5.42,
+              "end": 5.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.6,
+              "end": 5.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " highest,",
+              "start": 5.7,
+              "end": 6.02,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " him",
+              "start": 6.48,
+              "end": 6.58,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " I",
+              "start": 6.58,
+              "end": 6.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " obey",
+              "start": 6.74,
+              "end": 7.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 7.02,
+              "end": 7.28,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " adore.",
+              "start": 7.28,
+              "end": 7.58,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Thebes",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "raw": "hath",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "raw": "o",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "'er",
+          "start": 1.72,
+          "end": 1.78
+        },
+        {
+          "raw": "me",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "raw": "no",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "raw": "sway.",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "raw": "None",
+          "start": 3.22,
+          "end": 3.24
+        },
+        {
+          "raw": "save",
+          "start": 3.24,
+          "end": 3.56
+        },
+        {
+          "raw": "him",
+          "start": 3.56,
+          "end": 3.72
+        },
+        {
+          "raw": "I",
+          "start": 3.72,
+          "end": 3.88
+        },
+        {
+          "raw": "obey,",
+          "start": 3.88,
+          "end": 4.12
+        },
+        {
+          "raw": "Dionysus,",
+          "start": 4.5,
+          "end": 5.02
+        },
+        {
+          "raw": "child",
+          "start": 5.36,
+          "end": 5.42
+        },
+        {
+          "raw": "of",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "raw": "the",
+          "start": 5.6,
+          "end": 5.7
+        },
+        {
+          "raw": "highest,",
+          "start": 5.7,
+          "end": 6.02
+        },
+        {
+          "raw": "him",
+          "start": 6.48,
+          "end": 6.58
+        },
+        {
+          "raw": "I",
+          "start": 6.58,
+          "end": 6.74
+        },
+        {
+          "raw": "obey",
+          "start": 6.74,
+          "end": 7.02
+        },
+        {
+          "raw": "and",
+          "start": 7.02,
+          "end": 7.28
+        },
+        {
+          "raw": "adore.",
+          "start": 7.28,
+          "end": 7.58
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "Thebes",
+        "hath",
+        "o'er",
+        "me",
+        "no",
+        "sway!",
+        "None",
+        "save",
+        "Him",
+        "I",
+        "obey,",
+        "Dionysus,",
+        "Child",
+        "of",
+        "the",
+        "Highest,",
+        "Him",
+        "I",
+        "obey",
+        "and",
+        "adore!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          22,
+          5,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "leader",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thebes",
+          "start": 1.04,
+          "end": 1.36,
+          "key": "thebes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.36,
+          "end": 1.52,
+          "key": "hath",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 1.72,
+          "end": 1.78,
+          "key": "er",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.78,
+          "end": 1.88,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.88,
+          "end": 2.06,
+          "key": "no",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sway.",
+          "start": 2.06,
+          "end": 2.38,
+          "key": "sway",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "None",
+          "start": 3.22,
+          "end": 3.24,
+          "key": "none",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "save",
+          "start": 3.24,
+          "end": 3.56,
+          "key": "save",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.56,
+          "end": 3.72,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.72,
+          "end": 3.88,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "obey,",
+          "start": 3.88,
+          "end": 4.12,
+          "key": "obey",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Dionysus,",
+          "start": 4.5,
+          "end": 5.02,
+          "key": "dionysus",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "child",
+          "start": 5.36,
+          "end": 5.42,
+          "key": "child",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.42,
+          "end": 5.6,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.6,
+          "end": 5.7,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "highest,",
+          "start": 5.7,
+          "end": 6.02,
+          "key": "highest",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 6.48,
+          "end": 6.58,
+          "key": "him",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.58,
+          "end": 6.74,
+          "key": "i",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "obey",
+          "start": 6.74,
+          "end": 7.02,
+          "key": "obey",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.02,
+          "end": 7.28,
+          "key": "and",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "adore.",
+          "start": 7.28,
+          "end": 7.58,
+          "key": "adore",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Thebes",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "text": "hath",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "text": "o'er",
+          "start": 1.52,
+          "end": 1.65
+        },
+        {
+          "text": "me",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "text": "no",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "text": "sway!",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "text": "None",
+          "start": 3.22,
+          "end": 3.24
+        },
+        {
+          "text": "save",
+          "start": 3.24,
+          "end": 3.56
+        },
+        {
+          "text": "Him",
+          "start": 3.56,
+          "end": 3.72
+        },
+        {
+          "text": "I",
+          "start": 3.72,
+          "end": 3.88
+        },
+        {
+          "text": "obey,",
+          "start": 3.88,
+          "end": 4.12
+        },
+        {
+          "text": "Dionysus,",
+          "start": 4.5,
+          "end": 5.02
+        },
+        {
+          "text": "Child",
+          "start": 5.36,
+          "end": 5.42
+        },
+        {
+          "text": "of",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "text": "the",
+          "start": 5.6,
+          "end": 5.7
+        },
+        {
+          "text": "Highest,",
+          "start": 5.7,
+          "end": 6.02
+        },
+        {
+          "text": "Him",
+          "start": 6.48,
+          "end": 6.58
+        },
+        {
+          "text": "I",
+          "start": 6.58,
+          "end": 6.74
+        },
+        {
+          "text": "obey",
+          "start": 6.74,
+          "end": 7.02
+        },
+        {
+          "text": "and",
+          "start": 7.02,
+          "end": 7.28
+        },
+        {
+          "text": "adore!",
+          "start": 7.28,
+          "end": 7.58
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 23,
+        "matched_words": 21
+      },
+      "match_ratio": 0.9545454545454546,
+      "rejection_reasons": [],
+      "seconds": 0.40274888498242944
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "90dfe67e8a3bde236cd3a5cb7c0c3f70512b4ea1cc0d5192a3f0f4fb40282bca",
+  "selected_reasons": []
+}

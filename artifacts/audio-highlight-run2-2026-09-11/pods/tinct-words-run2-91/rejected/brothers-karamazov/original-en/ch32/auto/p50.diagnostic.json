@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "f194a47046deba66b0d6cd1724da59c242922e881fcc10d6af207ffb59cd9aef",
+  "attempts": [
+    {
+      "asr_seconds": 0.2400738149881363,
+      "alignment_seconds": 0.00024371594190597534,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh, you insupportable person, you are incorrigible.\"",
+        "hotwords": "Oh"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, you insupportable person, you are incorrigible.",
+          "start": 0.18,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.18,
+              "end": 0.68,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " you",
+              "start": 0.92,
+              "end": 1.02,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " insupportable",
+              "start": 1.02,
+              "end": 1.64,
+              "probability": 0.972412109375
+            },
+            {
+              "text": " person,",
+              "start": 1.64,
+              "end": 2.0,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 2.44,
+              "end": 2.52,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " are",
+              "start": 2.52,
+              "end": 2.66,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " incorrigible.",
+              "start": 2.66,
+              "end": 3.32,
+              "probability": 0.9847005208333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.18,
+          "end": 0.68
+        },
+        {
+          "raw": "you",
+          "start": 0.92,
+          "end": 1.02
+        },
+        {
+          "raw": "insupportable",
+          "start": 1.02,
+          "end": 1.64
+        },
+        {
+          "raw": "person,",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "raw": "you",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "raw": "are",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "raw": "incorrigible.",
+          "start": 2.66,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "you",
+        "insupportable",
+        "person,",
+        "you",
+        "are",
+        "incorrigible.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.18,
+          "end": 0.68,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.92,
+          "end": 1.02,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "insupportable",
+          "start": 1.02,
+          "end": 1.64,
+          "key": "insupportable",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "person,",
+          "start": 1.64,
+          "end": 2.0,
+          "key": "person",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.44,
+          "end": 2.52,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.52,
+          "end": 2.66,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "incorrigible.",
+          "start": 2.66,
+          "end": 3.32,
+          "key": "incorrigible",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.18,
+          "end": 0.68
+        },
+        {
+          "text": "you",
+          "start": 0.92,
+          "end": 1.02
+        },
+        {
+          "text": "insupportable",
+          "start": 1.02,
+          "end": 1.64
+        },
+        {
+          "text": "person,",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "text": "you",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "text": "are",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "text": "incorrigible.\"",
+          "start": 2.66,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24040984082967043
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bebf9c29482b7bb018445a2a76e6e63daf47ceca590a2b266f79e08d108088a2",
+  "selected_reasons": []
+}

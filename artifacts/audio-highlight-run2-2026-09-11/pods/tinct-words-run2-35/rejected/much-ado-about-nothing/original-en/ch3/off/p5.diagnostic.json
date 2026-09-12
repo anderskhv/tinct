@@ -1,0 +1,472 @@
+{
+  "complete": true,
+  "signature": "90574aced30e9dde9efa13ff2a5bd266f651d7c4136f47e54e6799ce03f5b40c",
+  "attempts": [
+    {
+      "asr_seconds": 0.22547855228185654,
+      "alignment_seconds": 0.0005762521177530289,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " can raid, if not a present remedy, at least a patient's sufferance.",
+          "start": 0.02,
+          "end": 3.96,
+          "words": [
+            {
+              "text": " can",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.7529296875
+            },
+            {
+              "text": " raid,",
+              "start": 0.52,
+              "end": 0.82,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " if",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 1.0
+            },
+            {
+              "text": " a",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " present",
+              "start": 1.76,
+              "end": 2.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " remedy,",
+              "start": 2.02,
+              "end": 2.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 2.64,
+              "end": 2.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " least",
+              "start": 2.74,
+              "end": 2.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 2.9,
+              "end": 3.06,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " patient's",
+              "start": 3.06,
+              "end": 3.52,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " sufferance.",
+              "start": 3.52,
+              "end": 3.96,
+              "probability": 0.8046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "can",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "raid,",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "raw": "if",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "not",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "raw": "a",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "present",
+          "start": 1.76,
+          "end": 2.02
+        },
+        {
+          "raw": "remedy,",
+          "start": 2.02,
+          "end": 2.42
+        },
+        {
+          "raw": "at",
+          "start": 2.64,
+          "end": 2.74
+        },
+        {
+          "raw": "least",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "raw": "a",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "raw": "patient's",
+          "start": 3.06,
+          "end": 3.52
+        },
+        {
+          "raw": "sufferance.",
+          "start": 3.52,
+          "end": 3.96
+        }
+      ],
+      "expected_tokens": [
+        "Conrade.",
+        "If",
+        "not",
+        "a",
+        "present",
+        "remedy,",
+        "at",
+        "least",
+        "a",
+        "patient",
+        "sufferance."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          9,
+          2,
+          10
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          11
+        ],
+        [
+          "equal",
+          10,
+          11,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "can",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "can",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "raid,",
+          "start": 0.52,
+          "end": 0.82,
+          "key": "raid",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.5,
+          "end": 1.64,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 1.76,
+          "end": 2.02,
+          "key": "present",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "remedy,",
+          "start": 2.02,
+          "end": 2.42,
+          "key": "remedy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.64,
+          "end": 2.74,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "least",
+          "start": 2.74,
+          "end": 2.9,
+          "key": "least",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.9,
+          "end": 3.06,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "patient's",
+          "start": 3.06,
+          "end": 3.52,
+          "key": "patients",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sufferance.",
+          "start": 3.52,
+          "end": 3.96,
+          "key": "sufferance",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Conrade.",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "text": "If",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "not",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "a",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "present",
+          "start": 1.76,
+          "end": 2.02
+        },
+        {
+          "text": "remedy,",
+          "start": 2.02,
+          "end": 2.42
+        },
+        {
+          "text": "at",
+          "start": 2.64,
+          "end": 2.74
+        },
+        {
+          "text": "least",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "text": "a",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "text": "patient",
+          "start": 3.06,
+          "end": 3.29
+        },
+        {
+          "text": "sufferance.",
+          "start": 3.52,
+          "end": 3.96
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22627654485404491
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "768d80024c5a758b3da90303a2da605144ad338d0e6f83c8b4fdac8461d35e3e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "b5c58c893938e75fe5a4ef06eacc926f89d56777ebac32434be89a05c1836c4b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2042565681040287,
+      "alignment_seconds": 0.00041181594133377075,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Didstee thou cross his wake again?",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Didstee",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.7356770833333334
+            },
+            {
+              "text": " thou",
+              "start": 0.85,
+              "end": 1.05,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " cross",
+              "start": 1.05,
+              "end": 1.31,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " his",
+              "start": 1.31,
+              "end": 1.53,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " wake",
+              "start": 1.53,
+              "end": 1.71,
+              "probability": 0.986328125
+            },
+            {
+              "text": " again?",
+              "start": 1.71,
+              "end": 2.01,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Didstee",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "thou",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "raw": "cross",
+          "start": 1.05,
+          "end": 1.31
+        },
+        {
+          "raw": "his",
+          "start": 1.31,
+          "end": 1.53
+        },
+        {
+          "raw": "wake",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "raw": "again?",
+          "start": 1.71,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "\"Did'st",
+        "thou",
+        "cross",
+        "his",
+        "wake",
+        "again?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Didstee",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "didstee",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 0.85,
+          "end": 1.05,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cross",
+          "start": 1.05,
+          "end": 1.31,
+          "key": "cross",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.31,
+          "end": 1.53,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wake",
+          "start": 1.53,
+          "end": 1.71,
+          "key": "wake",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "again?",
+          "start": 1.71,
+          "end": 2.01,
+          "key": "again",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Did'st",
+          "start": 0.0,
+          "end": 0.425
+        },
+        {
+          "text": "thou",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "text": "cross",
+          "start": 1.05,
+          "end": 1.31
+        },
+        {
+          "text": "his",
+          "start": 1.31,
+          "end": 1.53
+        },
+        {
+          "text": "wake",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "text": "again?\"",
+          "start": 1.71,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20481019467115402
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6f145bf09ff4ce235334abdadf6785c4d6456a18f2826755eb133af7574efaec",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

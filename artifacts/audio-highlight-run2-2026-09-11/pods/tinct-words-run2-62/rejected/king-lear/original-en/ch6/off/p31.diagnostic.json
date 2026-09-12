@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "8c82434bda63516292e76e99383c09f1b7ab37f111a4031842cbc575c0a07254",
+  "attempts": [
+    {
+      "asr_seconds": 0.06493472680449486,
+      "alignment_seconds": 0.00010142102837562561,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tuck it within.",
+          "start": 0.0,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " Tuck",
+              "start": 0.0,
+              "end": 0.56,
+              "probability": 0.964599609375
+            },
+            {
+              "text": " it",
+              "start": 0.56,
+              "end": 0.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " within.",
+              "start": 0.7,
+              "end": 0.98,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tuck",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "raw": "it",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "raw": "within.",
+          "start": 0.7,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "[_Tucket",
+        "within._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tuck",
+          "start": 0.0,
+          "end": 0.56,
+          "key": "tuck",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.56,
+          "end": 0.7,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "within.",
+          "start": 0.7,
+          "end": 0.98,
+          "key": "within",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Tucket",
+          "start": 0.0,
+          "end": 0.35
+        },
+        {
+          "text": "within._]",
+          "start": 0.7,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.06506453827023506
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "427812815f8b6899ec12607c7a0241b304e8d622ead061566d4a5ef6dd9ce961",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

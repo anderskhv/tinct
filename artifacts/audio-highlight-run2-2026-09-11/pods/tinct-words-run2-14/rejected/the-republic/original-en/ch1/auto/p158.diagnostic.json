@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "d961eb19453752ea6760af6aae6daa24b35b413cc7eb6c7a5ea7a38b793ccc9e",
+  "attempts": [
+    {
+      "asr_seconds": 0.23509657382965088,
+      "alignment_seconds": 0.00038700178265571594,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Or the horseman by his art make them bad horsemen?",
+        "hotwords": "Or"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Or the horseman by his art make them bad horsemen?",
+          "start": 0.05,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Or",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.53857421875
+            },
+            {
+              "text": " the",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " horseman",
+              "start": 0.65,
+              "end": 1.07,
+              "probability": 0.5318603515625
+            },
+            {
+              "text": " by",
+              "start": 1.07,
+              "end": 1.27,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " his",
+              "start": 1.27,
+              "end": 1.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " art",
+              "start": 1.43,
+              "end": 1.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " make",
+              "start": 1.71,
+              "end": 1.95,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " them",
+              "start": 1.95,
+              "end": 2.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " bad",
+              "start": 2.15,
+              "end": 2.35,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " horsemen?",
+              "start": 2.35,
+              "end": 2.91,
+              "probability": 0.927490234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Or",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "horseman",
+          "start": 0.65,
+          "end": 1.07
+        },
+        {
+          "raw": "by",
+          "start": 1.07,
+          "end": 1.27
+        },
+        {
+          "raw": "his",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "raw": "art",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "raw": "make",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "raw": "them",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "raw": "bad",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "raw": "horsemen?",
+          "start": 2.35,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "Or",
+        "the",
+        "horseman",
+        "by",
+        "his",
+        "art",
+        "make",
+        "them",
+        "bad",
+        "horsemen?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Or",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "or",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "horseman",
+          "start": 0.65,
+          "end": 1.07,
+          "key": "horseman",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.07,
+          "end": 1.27,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.27,
+          "end": 1.43,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 1.43,
+          "end": 1.71,
+          "key": "art",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.71,
+          "end": 1.95,
+          "key": "make",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 1.95,
+          "end": 2.15,
+          "key": "them",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bad",
+          "start": 2.15,
+          "end": 2.35,
+          "key": "bad",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "horsemen?",
+          "start": 2.35,
+          "end": 2.91,
+          "key": "horsemen",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Or",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "horseman",
+          "start": 0.65,
+          "end": 1.07
+        },
+        {
+          "text": "by",
+          "start": 1.07,
+          "end": 1.27
+        },
+        {
+          "text": "his",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "text": "art",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "text": "make",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "text": "them",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "text": "bad",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "text": "horsemen?",
+          "start": 2.35,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23562846332788467
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "146e70a762391aaee9aa39461a147bfce6aa0f81d6781ccfad86ece55c7b408f",
+  "selected_reasons": []
+}

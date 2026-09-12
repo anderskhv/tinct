@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "6db8ad707cc827d60345299b1bdc02c981a54de2f15d5b6f2d5ff6d416ba3414",
+  "attempts": [
+    {
+      "asr_seconds": 0.13765996508300304,
+      "alignment_seconds": 0.0003367941826581955,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, now by Apollo.",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.71826171875
+            },
+            {
+              "text": " now",
+              "start": 1.07,
+              "end": 1.15,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " by",
+              "start": 1.15,
+              "end": 1.33,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Apollo.",
+              "start": 1.33,
+              "end": 1.65,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "now",
+          "start": 1.07,
+          "end": 1.15
+        },
+        {
+          "raw": "by",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "raw": "Apollo.",
+          "start": 1.33,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Now,",
+        "by",
+        "Apollo,—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 1.07,
+          "end": 1.15,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.15,
+          "end": 1.33,
+          "key": "by",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Apollo.",
+          "start": 1.33,
+          "end": 1.65,
+          "key": "apollo",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Now,",
+          "start": 1.07,
+          "end": 1.15
+        },
+        {
+          "text": "by",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "text": "Apollo,—",
+          "start": 1.33,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13811622560024261
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c94139692c08f8fe5d7d534317c6688e722ca58fe638502ef854ac5cf4a93540",
+  "selected_reasons": []
+}

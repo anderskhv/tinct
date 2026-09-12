@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "a4156182d239b0afdbebe0121cb815f38a8a0875e58b9c0bdf1f02eaec43698a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2138035800307989,
+      "alignment_seconds": 0.0003689723089337349,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio. I am th' unhappy subject of these quarrels.",
+        "hotwords": "Antonio, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio, I am th' unhappy subject of these quarrels.",
+          "start": 0.11,
+          "end": 4.55,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.6611328125
+            },
+            {
+              "text": " I",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " am",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " th'",
+              "start": 1.75,
+              "end": 2.11,
+              "probability": 0.1485595703125
+            },
+            {
+              "text": " unhappy",
+              "start": 2.81,
+              "end": 2.81,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " subject",
+              "start": 2.81,
+              "end": 3.37,
+              "probability": 0.96875
+            },
+            {
+              "text": " of",
+              "start": 3.37,
+              "end": 3.59,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " these",
+              "start": 3.59,
+              "end": 3.75,
+              "probability": 0.984375
+            },
+            {
+              "text": " quarrels.",
+              "start": 3.75,
+              "end": 4.55,
+              "probability": 0.973876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "I",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "raw": "am",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "th'",
+          "start": 1.75,
+          "end": 2.11
+        },
+        {
+          "raw": "unhappy",
+          "start": 2.81,
+          "end": 2.81
+        },
+        {
+          "raw": "subject",
+          "start": 2.81,
+          "end": 3.37
+        },
+        {
+          "raw": "of",
+          "start": 3.37,
+          "end": 3.59
+        },
+        {
+          "raw": "these",
+          "start": 3.59,
+          "end": 3.75
+        },
+        {
+          "raw": "quarrels.",
+          "start": 3.75,
+          "end": 4.55
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "I",
+        "am",
+        "th'",
+        "unhappy",
+        "subject",
+        "of",
+        "these",
+        "quarrels."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.41,
+          "end": 1.63,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 1.75,
+          "end": 2.11,
+          "key": "th",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "unhappy",
+          "start": 2.81,
+          "end": 2.81,
+          "key": "unhappy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "subject",
+          "start": 2.81,
+          "end": 3.37,
+          "key": "subject",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.37,
+          "end": 3.59,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.59,
+          "end": 3.75,
+          "key": "these",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "quarrels.",
+          "start": 3.75,
+          "end": 4.55,
+          "key": "quarrels",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "I",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "text": "am",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "th'",
+          "start": 1.75,
+          "end": 2.11
+        },
+        {
+          "text": "unhappy",
+          "start": 2.81,
+          "end": 2.81
+        },
+        {
+          "text": "subject",
+          "start": 2.81,
+          "end": 3.37
+        },
+        {
+          "text": "of",
+          "start": 3.37,
+          "end": 3.59
+        },
+        {
+          "text": "these",
+          "start": 3.59,
+          "end": 3.75
+        },
+        {
+          "text": "quarrels.",
+          "start": 3.75,
+          "end": 4.55
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21431005652993917
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ca52c7d211d24eb6d56378bdd7489d741321e5d36770e75a84575d54a71245c8",
+  "selected_reasons": []
+}

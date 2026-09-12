@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "ec71e4fc3c7e6a7cfff61e9304cd52e8df3c6476d0e7bb1ab8fe7355eab27424",
+  "attempts": [
+    {
+      "asr_seconds": 0.22623202204704285,
+      "alignment_seconds": 0.00042779743671417236,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown. Alas, sir, how fell you besides your five wits.",
+          "start": 0.08,
+          "end": 3.36,
+          "words": [
+            {
+              "text": " Clown.",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.64306640625
+            },
+            {
+              "text": " Alas,",
+              "start": 1.1,
+              "end": 1.46,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " sir,",
+              "start": 1.76,
+              "end": 1.76,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " how",
+              "start": 2.0,
+              "end": 2.02,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " fell",
+              "start": 2.02,
+              "end": 2.18,
+              "probability": 0.339111328125
+            },
+            {
+              "text": " you",
+              "start": 2.18,
+              "end": 2.28,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " besides",
+              "start": 2.28,
+              "end": 2.54,
+              "probability": 0.87109375
+            },
+            {
+              "text": " your",
+              "start": 2.54,
+              "end": 2.78,
+              "probability": 0.98828125
+            },
+            {
+              "text": " five",
+              "start": 2.78,
+              "end": 3.04,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " wits.",
+              "start": 3.04,
+              "end": 3.36,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Alas,",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "raw": "sir,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "raw": "how",
+          "start": 2.0,
+          "end": 2.02
+        },
+        {
+          "raw": "fell",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "raw": "you",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "raw": "besides",
+          "start": 2.28,
+          "end": 2.54
+        },
+        {
+          "raw": "your",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "raw": "five",
+          "start": 2.78,
+          "end": 3.04
+        },
+        {
+          "raw": "wits.",
+          "start": 3.04,
+          "end": 3.36
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Alas,",
+        "sir,",
+        "how",
+        "fell",
+        "you",
+        "besides",
+        "your",
+        "five",
+        "wits?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown.",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alas,",
+          "start": 1.1,
+          "end": 1.46,
+          "key": "alas",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.76,
+          "end": 1.76,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.0,
+          "end": 2.02,
+          "key": "how",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fell",
+          "start": 2.02,
+          "end": 2.18,
+          "key": "fell",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.18,
+          "end": 2.28,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "besides",
+          "start": 2.28,
+          "end": 2.54,
+          "key": "besides",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.54,
+          "end": 2.78,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "five",
+          "start": 2.78,
+          "end": 3.04,
+          "key": "five",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wits.",
+          "start": 3.04,
+          "end": 3.36,
+          "key": "wits",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Alas,",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "text": "sir,",
+          "start": 1.76,
+          "end": 1.76
+        },
+        {
+          "text": "how",
+          "start": 2.0,
+          "end": 2.02
+        },
+        {
+          "text": "fell",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "text": "you",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "text": "besides",
+          "start": 2.28,
+          "end": 2.54
+        },
+        {
+          "text": "your",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "text": "five",
+          "start": 2.78,
+          "end": 3.04
+        },
+        {
+          "text": "wits?",
+          "start": 3.04,
+          "end": 3.36
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22684506326913834
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2ac9c337762bb3e7a07e0cc5d9d98cc28b9063601c44ae178a890f692dbdd65b",
+  "selected_reasons": []
+}

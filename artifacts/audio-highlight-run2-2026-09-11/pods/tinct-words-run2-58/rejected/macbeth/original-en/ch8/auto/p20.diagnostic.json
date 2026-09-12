@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "3676e8124f7a6f2b958dd0255c5aa1114faf4e13f628e2aaec216432f347de39",
+  "attempts": [
+    {
+      "asr_seconds": 0.10305143427103758,
+      "alignment_seconds": 0.0002658721059560776,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[A bell rings.]",
+        "hotwords": "A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A bell rings.",
+          "start": 0.08,
+          "end": 1.12,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " bell",
+              "start": 0.56,
+              "end": 0.78,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " rings.",
+              "start": 0.78,
+              "end": 1.12,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "bell",
+          "start": 0.56,
+          "end": 0.78
+        },
+        {
+          "raw": "rings.",
+          "start": 0.78,
+          "end": 1.12
+        }
+      ],
+      "expected_tokens": [
+        "[A",
+        "bell",
+        "rings.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bell",
+          "start": 0.56,
+          "end": 0.78,
+          "key": "bell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rings.",
+          "start": 0.78,
+          "end": 1.12,
+          "key": "rings",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[A",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "bell",
+          "start": 0.56,
+          "end": 0.78
+        },
+        {
+          "text": "rings.]",
+          "start": 0.78,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10341202281415462
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f204813f1b2128854901ee62cf31c8111004b32529678351eb04dfb1b3ab08e0",
+  "selected_reasons": []
+}

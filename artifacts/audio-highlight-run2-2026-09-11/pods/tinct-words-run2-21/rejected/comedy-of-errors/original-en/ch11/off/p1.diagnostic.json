@@ -1,0 +1,955 @@
+{
+  "complete": true,
+  "signature": "f243b75a7aa9d97bc7e222b388d17dbfcaa87a3d20021ada432d866873246704",
+  "attempts": [
+    {
+      "asr_seconds": 0.3306512809358537,
+      "alignment_seconds": 0.00022876588627696037,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And Jilo, I am sorry, sir, that I have hindered you, but I protest he had the chain of me,",
+          "start": 0.18,
+          "end": 5.76,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.18,
+              "end": 0.58,
+              "probability": 0.156982421875
+            },
+            {
+              "text": " Jilo,",
+              "start": 0.58,
+              "end": 0.92,
+              "probability": 0.447509765625
+            },
+            {
+              "text": " I",
+              "start": 1.32,
+              "end": 1.6,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " am",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " sorry,",
+              "start": 1.76,
+              "end": 2.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sir,",
+              "start": 2.32,
+              "end": 2.4,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " that",
+              "start": 2.5,
+              "end": 2.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 2.62,
+              "end": 2.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " have",
+              "start": 2.78,
+              "end": 2.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hindered",
+              "start": 2.9,
+              "end": 3.16,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you,",
+              "start": 3.16,
+              "end": 3.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 3.86,
+              "end": 4.04,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " I",
+              "start": 4.04,
+              "end": 4.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " protest",
+              "start": 4.2,
+              "end": 4.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 4.64,
+              "end": 4.88,
+              "probability": 0.98046875
+            },
+            {
+              "text": " had",
+              "start": 4.88,
+              "end": 5.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.04,
+              "end": 5.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " chain",
+              "start": 5.18,
+              "end": 5.38,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " of",
+              "start": 5.38,
+              "end": 5.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me,",
+              "start": 5.5,
+              "end": 5.76,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " though most dishonestly he doth deny it.",
+          "start": 6.16,
+          "end": 8.28,
+          "words": [
+            {
+              "text": " though",
+              "start": 6.16,
+              "end": 6.26,
+              "probability": 0.9921875
+            },
+            {
+              "text": " most",
+              "start": 6.26,
+              "end": 6.5,
+              "probability": 0.98828125
+            },
+            {
+              "text": " dishonestly",
+              "start": 6.5,
+              "end": 7.28,
+              "probability": 0.944580078125
+            },
+            {
+              "text": " he",
+              "start": 7.28,
+              "end": 7.44,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " doth",
+              "start": 7.44,
+              "end": 7.62,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " deny",
+              "start": 7.62,
+              "end": 7.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it.",
+              "start": 7.96,
+              "end": 8.28,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.18,
+          "end": 0.58
+        },
+        {
+          "raw": "Jilo,",
+          "start": 0.58,
+          "end": 0.92
+        },
+        {
+          "raw": "I",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "raw": "am",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "sorry,",
+          "start": 1.76,
+          "end": 2.1
+        },
+        {
+          "raw": "sir,",
+          "start": 2.32,
+          "end": 2.4
+        },
+        {
+          "raw": "that",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "raw": "I",
+          "start": 2.62,
+          "end": 2.78
+        },
+        {
+          "raw": "have",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "raw": "hindered",
+          "start": 2.9,
+          "end": 3.16
+        },
+        {
+          "raw": "you,",
+          "start": 3.16,
+          "end": 3.54
+        },
+        {
+          "raw": "but",
+          "start": 3.86,
+          "end": 4.04
+        },
+        {
+          "raw": "I",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "raw": "protest",
+          "start": 4.2,
+          "end": 4.64
+        },
+        {
+          "raw": "he",
+          "start": 4.64,
+          "end": 4.88
+        },
+        {
+          "raw": "had",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "raw": "the",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "raw": "chain",
+          "start": 5.18,
+          "end": 5.38
+        },
+        {
+          "raw": "of",
+          "start": 5.38,
+          "end": 5.5
+        },
+        {
+          "raw": "me,",
+          "start": 5.5,
+          "end": 5.76
+        },
+        {
+          "raw": "though",
+          "start": 6.16,
+          "end": 6.26
+        },
+        {
+          "raw": "most",
+          "start": 6.26,
+          "end": 6.5
+        },
+        {
+          "raw": "dishonestly",
+          "start": 6.5,
+          "end": 7.28
+        },
+        {
+          "raw": "he",
+          "start": 7.28,
+          "end": 7.44
+        },
+        {
+          "raw": "doth",
+          "start": 7.44,
+          "end": 7.62
+        },
+        {
+          "raw": "deny",
+          "start": 7.62,
+          "end": 7.96
+        },
+        {
+          "raw": "it.",
+          "start": 7.96,
+          "end": 8.28
+        }
+      ],
+      "expected_tokens": [
+        "Angelo.",
+        "I",
+        "am",
+        "sorry,",
+        "sir,",
+        "that",
+        "I",
+        "have",
+        "hinder'd",
+        "you,",
+        "But",
+        "I",
+        "protest",
+        "he",
+        "had",
+        "the",
+        "chain",
+        "of",
+        "me,",
+        "Though",
+        "most",
+        "dishonestly",
+        "he",
+        "doth",
+        "deny",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          8,
+          2,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          10
+        ],
+        [
+          "equal",
+          9,
+          26,
+          10,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.18,
+          "end": 0.58,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jilo,",
+          "start": 0.58,
+          "end": 0.92,
+          "key": "jilo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.32,
+          "end": 1.6,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "am",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sorry,",
+          "start": 1.76,
+          "end": 2.1,
+          "key": "sorry",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.32,
+          "end": 2.4,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.5,
+          "end": 2.62,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.62,
+          "end": 2.78,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.78,
+          "end": 2.9,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hindered",
+          "start": 2.9,
+          "end": 3.16,
+          "key": "hindered",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 3.16,
+          "end": 3.54,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.86,
+          "end": 4.04,
+          "key": "but",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.04,
+          "end": 4.2,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "protest",
+          "start": 4.2,
+          "end": 4.64,
+          "key": "protest",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.64,
+          "end": 4.88,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.88,
+          "end": 5.04,
+          "key": "had",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.04,
+          "end": 5.18,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "chain",
+          "start": 5.18,
+          "end": 5.38,
+          "key": "chain",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.38,
+          "end": 5.5,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 5.5,
+          "end": 5.76,
+          "key": "me",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 6.16,
+          "end": 6.26,
+          "key": "though",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 6.26,
+          "end": 6.5,
+          "key": "most",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "dishonestly",
+          "start": 6.5,
+          "end": 7.28,
+          "key": "dishonestly",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.28,
+          "end": 7.44,
+          "key": "he",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 7.44,
+          "end": 7.62,
+          "key": "doth",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "deny",
+          "start": 7.62,
+          "end": 7.96,
+          "key": "deny",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 7.96,
+          "end": 8.28,
+          "key": "it",
+          "pieces": [
+            26
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Angelo.",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "I",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "text": "am",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "sorry,",
+          "start": 1.76,
+          "end": 2.1
+        },
+        {
+          "text": "sir,",
+          "start": 2.32,
+          "end": 2.4
+        },
+        {
+          "text": "that",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "text": "I",
+          "start": 2.62,
+          "end": 2.78
+        },
+        {
+          "text": "have",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "text": "hinder'd",
+          "start": 2.9,
+          "end": 3.03
+        },
+        {
+          "text": "you,",
+          "start": 3.16,
+          "end": 3.54
+        },
+        {
+          "text": "But",
+          "start": 3.86,
+          "end": 4.04
+        },
+        {
+          "text": "I",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "text": "protest",
+          "start": 4.2,
+          "end": 4.64
+        },
+        {
+          "text": "he",
+          "start": 4.64,
+          "end": 4.88
+        },
+        {
+          "text": "had",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "text": "the",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "text": "chain",
+          "start": 5.18,
+          "end": 5.38
+        },
+        {
+          "text": "of",
+          "start": 5.38,
+          "end": 5.5
+        },
+        {
+          "text": "me,",
+          "start": 5.5,
+          "end": 5.76
+        },
+        {
+          "text": "Though",
+          "start": 6.16,
+          "end": 6.26
+        },
+        {
+          "text": "most",
+          "start": 6.26,
+          "end": 6.5
+        },
+        {
+          "text": "dishonestly",
+          "start": 6.5,
+          "end": 7.28
+        },
+        {
+          "text": "he",
+          "start": 7.28,
+          "end": 7.44
+        },
+        {
+          "text": "doth",
+          "start": 7.44,
+          "end": 7.62
+        },
+        {
+          "text": "deny",
+          "start": 7.62,
+          "end": 7.96
+        },
+        {
+          "text": "it.",
+          "start": 7.96,
+          "end": 8.28
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 27,
+        "matched_words": 24
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.33096369402483106
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fb19d60b1c5e4ce1de602dc415e934e11834628487f856d1029d03bf7649d6de",
+  "selected_reasons": []
+}

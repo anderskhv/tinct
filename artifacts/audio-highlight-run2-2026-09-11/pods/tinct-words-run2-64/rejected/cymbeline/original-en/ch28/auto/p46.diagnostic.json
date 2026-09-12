@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "928ffa23bd2db28208d52e5508e4bd067c94a62be0cb516821f59e31e981b888",
+  "attempts": [
+    {
+      "asr_seconds": 0.30725849233567715,
+      "alignment_seconds": 0.00036542583256959915,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Posthumus. Thou bring'st good news: I am call'd to be made free.",
+        "hotwords": "Posthumus, Thou, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Posthumus, Thou bring'st good news. I am call'd to be made free.",
+          "start": 0.61,
+          "end": 4.15,
+          "words": [
+            {
+              "text": " Posthumus,",
+              "start": 0.61,
+              "end": 1.17,
+              "probability": 0.4798990885416667
+            },
+            {
+              "text": " Thou",
+              "start": 1.61,
+              "end": 1.63,
+              "probability": 0.15771484375
+            },
+            {
+              "text": " bring'st",
+              "start": 1.63,
+              "end": 2.07,
+              "probability": 0.5055745442708334
+            },
+            {
+              "text": " good",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.0150604248046875
+            },
+            {
+              "text": " news.",
+              "start": 2.23,
+              "end": 2.59,
+              "probability": 0.98828125
+            },
+            {
+              "text": " I",
+              "start": 3.09,
+              "end": 3.15,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " am",
+              "start": 3.15,
+              "end": 3.25,
+              "probability": 0.6181640625
+            },
+            {
+              "text": " call'd",
+              "start": 3.25,
+              "end": 3.53,
+              "probability": 0.2913818359375
+            },
+            {
+              "text": " to",
+              "start": 3.53,
+              "end": 3.55,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " be",
+              "start": 3.55,
+              "end": 3.67,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " made",
+              "start": 3.67,
+              "end": 3.85,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " free.",
+              "start": 3.85,
+              "end": 4.15,
+              "probability": 0.978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Posthumus,",
+          "start": 0.61,
+          "end": 1.17
+        },
+        {
+          "raw": "Thou",
+          "start": 1.61,
+          "end": 1.63
+        },
+        {
+          "raw": "bring'st",
+          "start": 1.63,
+          "end": 2.07
+        },
+        {
+          "raw": "good",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "news.",
+          "start": 2.23,
+          "end": 2.59
+        },
+        {
+          "raw": "I",
+          "start": 3.09,
+          "end": 3.15
+        },
+        {
+          "raw": "am",
+          "start": 3.15,
+          "end": 3.25
+        },
+        {
+          "raw": "call'd",
+          "start": 3.25,
+          "end": 3.53
+        },
+        {
+          "raw": "to",
+          "start": 3.53,
+          "end": 3.55
+        },
+        {
+          "raw": "be",
+          "start": 3.55,
+          "end": 3.67
+        },
+        {
+          "raw": "made",
+          "start": 3.67,
+          "end": 3.85
+        },
+        {
+          "raw": "free.",
+          "start": 3.85,
+          "end": 4.15
+        }
+      ],
+      "expected_tokens": [
+        "Posthumus.",
+        "Thou",
+        "bring'st",
+        "good",
+        "news:",
+        "I",
+        "am",
+        "call'd",
+        "to",
+        "be",
+        "made",
+        "free."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Posthumus,",
+          "start": 0.61,
+          "end": 1.17,
+          "key": "posthumus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 1.61,
+          "end": 1.63,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bring'st",
+          "start": 1.63,
+          "end": 2.07,
+          "key": "bringst",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "news.",
+          "start": 2.23,
+          "end": 2.59,
+          "key": "news",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.09,
+          "end": 3.15,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 3.15,
+          "end": 3.25,
+          "key": "am",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "call'd",
+          "start": 3.25,
+          "end": 3.53,
+          "key": "calld",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.53,
+          "end": 3.55,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.55,
+          "end": 3.67,
+          "key": "be",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 3.67,
+          "end": 3.85,
+          "key": "made",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "free.",
+          "start": 3.85,
+          "end": 4.15,
+          "key": "free",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Posthumus.",
+          "start": 0.61,
+          "end": 1.17
+        },
+        {
+          "text": "Thou",
+          "start": 1.61,
+          "end": 1.63
+        },
+        {
+          "text": "bring'st",
+          "start": 1.63,
+          "end": 2.07
+        },
+        {
+          "text": "good",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "news:",
+          "start": 2.23,
+          "end": 2.59
+        },
+        {
+          "text": "I",
+          "start": 3.09,
+          "end": 3.15
+        },
+        {
+          "text": "am",
+          "start": 3.15,
+          "end": 3.25
+        },
+        {
+          "text": "call'd",
+          "start": 3.25,
+          "end": 3.53
+        },
+        {
+          "text": "to",
+          "start": 3.53,
+          "end": 3.55
+        },
+        {
+          "text": "be",
+          "start": 3.55,
+          "end": 3.67
+        },
+        {
+          "text": "made",
+          "start": 3.67,
+          "end": 3.85
+        },
+        {
+          "text": "free.",
+          "start": 3.85,
+          "end": 4.15
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3077768385410309
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1ab34ae52681b4c594ca5da307af36afef929f7d231c34ad73976aceec21f2df",
+  "selected_reasons": []
+}

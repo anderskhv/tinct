@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "60fcd365d7692193191ea4dd369eead3a88878b591a83be46b5a032a0797fe65",
+  "attempts": [
+    {
+      "asr_seconds": 0.1558429691940546,
+      "alignment_seconds": 0.0003960668109357357,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alexis, show him your hand.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Alexis,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.7744140625
+            },
+            {
+              "text": " show",
+              "start": 1.31,
+              "end": 1.41,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " him",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " your",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hand.",
+              "start": 1.65,
+              "end": 1.95,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alexis,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "show",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "raw": "him",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "your",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "hand.",
+          "start": 1.65,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "Alexas.",
+        "Show",
+        "him",
+        "your",
+        "hand."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alexis,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "alexis",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 1.31,
+          "end": 1.41,
+          "key": "show",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 1.65,
+          "end": 1.95,
+          "key": "hand",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alexas.",
+          "start": 0.0,
+          "end": 0.655
+        },
+        {
+          "text": "Show",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "text": "him",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "your",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "hand.",
+          "start": 1.65,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15636346209794283
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8fdaad726cff4176502d752ed67ed87f4eabba6b4c94c8ba90a62ec5b01811e2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

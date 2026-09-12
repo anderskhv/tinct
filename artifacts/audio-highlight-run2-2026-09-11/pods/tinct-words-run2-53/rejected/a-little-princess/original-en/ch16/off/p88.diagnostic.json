@@ -1,0 +1,618 @@
+{
+  "complete": true,
+  "signature": "85492163ceb27ad7ea629a4a1a385b001d035325735f8eba5d413b5eea35d120",
+  "attempts": [
+    {
+      "asr_seconds": 0.33922385494224727,
+      "alignment_seconds": 0.0007584549020975828,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Becky stared still respectfully she was filled with something approaching reverence for everything Sarah did and said",
+          "start": 0.05,
+          "end": 6.59,
+          "words": [
+            {
+              "text": " Becky",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " stared",
+              "start": 0.67,
+              "end": 0.99,
+              "probability": 0.974609375
+            },
+            {
+              "text": " still",
+              "start": 0.99,
+              "end": 1.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " respectfully",
+              "start": 1.39,
+              "end": 1.99,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " she",
+              "start": 1.99,
+              "end": 2.83,
+              "probability": 0.113037109375
+            },
+            {
+              "text": " was",
+              "start": 2.83,
+              "end": 2.97,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " filled",
+              "start": 2.97,
+              "end": 3.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 3.21,
+              "end": 3.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " something",
+              "start": 3.41,
+              "end": 3.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " approaching",
+              "start": 3.69,
+              "end": 4.13,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " reverence",
+              "start": 4.13,
+              "end": 4.55,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " for",
+              "start": 4.55,
+              "end": 4.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " everything",
+              "start": 4.83,
+              "end": 5.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Sarah",
+              "start": 5.29,
+              "end": 5.63,
+              "probability": 0.68115234375
+            },
+            {
+              "text": " did",
+              "start": 5.63,
+              "end": 5.97,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " and",
+              "start": 5.97,
+              "end": 6.29,
+              "probability": 0.994140625
+            },
+            {
+              "text": " said",
+              "start": 6.29,
+              "end": 6.59,
+              "probability": 0.97216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Becky",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "stared",
+          "start": 0.67,
+          "end": 0.99
+        },
+        {
+          "raw": "still",
+          "start": 0.99,
+          "end": 1.39
+        },
+        {
+          "raw": "respectfully",
+          "start": 1.39,
+          "end": 1.99
+        },
+        {
+          "raw": "she",
+          "start": 1.99,
+          "end": 2.83
+        },
+        {
+          "raw": "was",
+          "start": 2.83,
+          "end": 2.97
+        },
+        {
+          "raw": "filled",
+          "start": 2.97,
+          "end": 3.21
+        },
+        {
+          "raw": "with",
+          "start": 3.21,
+          "end": 3.41
+        },
+        {
+          "raw": "something",
+          "start": 3.41,
+          "end": 3.69
+        },
+        {
+          "raw": "approaching",
+          "start": 3.69,
+          "end": 4.13
+        },
+        {
+          "raw": "reverence",
+          "start": 4.13,
+          "end": 4.55
+        },
+        {
+          "raw": "for",
+          "start": 4.55,
+          "end": 4.83
+        },
+        {
+          "raw": "everything",
+          "start": 4.83,
+          "end": 5.29
+        },
+        {
+          "raw": "Sarah",
+          "start": 5.29,
+          "end": 5.63
+        },
+        {
+          "raw": "did",
+          "start": 5.63,
+          "end": 5.97
+        },
+        {
+          "raw": "and",
+          "start": 5.97,
+          "end": 6.29
+        },
+        {
+          "raw": "said",
+          "start": 6.29,
+          "end": 6.59
+        }
+      ],
+      "expected_tokens": [
+        "Becky",
+        "stared--still",
+        "respectfully.",
+        "She",
+        "was",
+        "filled",
+        "with",
+        "something",
+        "approaching",
+        "reverence",
+        "for",
+        "everything",
+        "Sara",
+        "did",
+        "and",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          16,
+          13,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Becky",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "becky",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "stared still",
+          "start": 0.67,
+          "end": 1.39,
+          "key": "staredstill",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "respectfully",
+          "start": 1.39,
+          "end": 1.99,
+          "key": "respectfully",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.99,
+          "end": 2.83,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.83,
+          "end": 2.97,
+          "key": "was",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "filled",
+          "start": 2.97,
+          "end": 3.21,
+          "key": "filled",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.21,
+          "end": 3.41,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 3.41,
+          "end": 3.69,
+          "key": "something",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "approaching",
+          "start": 3.69,
+          "end": 4.13,
+          "key": "approaching",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "reverence",
+          "start": 4.13,
+          "end": 4.55,
+          "key": "reverence",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.55,
+          "end": 4.83,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "everything",
+          "start": 4.83,
+          "end": 5.29,
+          "key": "everything",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Sarah",
+          "start": 5.29,
+          "end": 5.63,
+          "key": "sarah",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 5.63,
+          "end": 5.97,
+          "key": "did",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.97,
+          "end": 6.29,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 6.29,
+          "end": 6.59,
+          "key": "said",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "stared--still",
+          "heard": "stared still",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 0.67,
+          "end": 1.39
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Becky",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "stared--still",
+          "start": 0.67,
+          "end": 1.39
+        },
+        {
+          "text": "respectfully.",
+          "start": 1.39,
+          "end": 1.99
+        },
+        {
+          "text": "She",
+          "start": 1.99,
+          "end": 2.83
+        },
+        {
+          "text": "was",
+          "start": 2.83,
+          "end": 2.97
+        },
+        {
+          "text": "filled",
+          "start": 2.97,
+          "end": 3.21
+        },
+        {
+          "text": "with",
+          "start": 3.21,
+          "end": 3.41
+        },
+        {
+          "text": "something",
+          "start": 3.41,
+          "end": 3.69
+        },
+        {
+          "text": "approaching",
+          "start": 3.69,
+          "end": 4.13
+        },
+        {
+          "text": "reverence",
+          "start": 4.13,
+          "end": 4.55
+        },
+        {
+          "text": "for",
+          "start": 4.55,
+          "end": 4.83
+        },
+        {
+          "text": "everything",
+          "start": 4.83,
+          "end": 5.29
+        },
+        {
+          "text": "Sara",
+          "start": 5.29,
+          "end": 5.46
+        },
+        {
+          "text": "did",
+          "start": 5.63,
+          "end": 5.97
+        },
+        {
+          "text": "and",
+          "start": 5.97,
+          "end": 6.29
+        },
+        {
+          "text": "said.",
+          "start": 6.29,
+          "end": 6.59
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.3402345119975507
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0c7b3c4700ce97f13cfdd0970c4559bde2502076bc40ad973fb89595f8d8cb41",
+  "selected_reasons": []
+}

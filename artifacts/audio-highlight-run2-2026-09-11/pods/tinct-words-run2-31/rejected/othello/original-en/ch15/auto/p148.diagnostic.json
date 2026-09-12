@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "4ff0a148b086a84646ce8ec0be5edc65c935727acfe8b168fb256c0e9523d59e",
+  "attempts": [
+    {
+      "asr_seconds": 0.17760322894901037,
+      "alignment_seconds": 0.0003132256679236889,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gratiano. The woman falls. Sure, he hath kill'd his wife.",
+        "hotwords": "Gratiano, The, Sure"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gratiano, The woman falls. Sure, he hath kill'd his wife.",
+          "start": 0.05,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " Gratiano,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.5725911458333334
+            },
+            {
+              "text": " The",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.06353759765625
+            },
+            {
+              "text": " woman",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.658203125
+            },
+            {
+              "text": " falls.",
+              "start": 1.61,
+              "end": 1.99,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Sure,",
+              "start": 2.35,
+              "end": 2.51,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " he",
+              "start": 2.71,
+              "end": 2.73,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " hath",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " kill'd",
+              "start": 2.85,
+              "end": 3.17,
+              "probability": 0.2665243148803711
+            },
+            {
+              "text": " his",
+              "start": 3.17,
+              "end": 3.27,
+              "probability": 0.9921875
+            },
+            {
+              "text": " wife.",
+              "start": 3.27,
+              "end": 3.55,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gratiano,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "The",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "woman",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "falls.",
+          "start": 1.61,
+          "end": 1.99
+        },
+        {
+          "raw": "Sure,",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "raw": "he",
+          "start": 2.71,
+          "end": 2.73
+        },
+        {
+          "raw": "hath",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "kill'd",
+          "start": 2.85,
+          "end": 3.17
+        },
+        {
+          "raw": "his",
+          "start": 3.17,
+          "end": 3.27
+        },
+        {
+          "raw": "wife.",
+          "start": 3.27,
+          "end": 3.55
+        }
+      ],
+      "expected_tokens": [
+        "Gratiano.",
+        "The",
+        "woman",
+        "falls.",
+        "Sure,",
+        "he",
+        "hath",
+        "kill'd",
+        "his",
+        "wife."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gratiano,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "gratiano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "woman",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "woman",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "falls.",
+          "start": 1.61,
+          "end": 1.99,
+          "key": "falls",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Sure,",
+          "start": 2.35,
+          "end": 2.51,
+          "key": "sure",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.71,
+          "end": 2.73,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 2.73,
+          "end": 2.85,
+          "key": "hath",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "kill'd",
+          "start": 2.85,
+          "end": 3.17,
+          "key": "killd",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.17,
+          "end": 3.27,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wife.",
+          "start": 3.27,
+          "end": 3.55,
+          "key": "wife",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gratiano.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "The",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "woman",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "falls.",
+          "start": 1.61,
+          "end": 1.99
+        },
+        {
+          "text": "Sure,",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "text": "he",
+          "start": 2.71,
+          "end": 2.73
+        },
+        {
+          "text": "hath",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "kill'd",
+          "start": 2.85,
+          "end": 3.17
+        },
+        {
+          "text": "his",
+          "start": 3.17,
+          "end": 3.27
+        },
+        {
+          "text": "wife.",
+          "start": 3.27,
+          "end": 3.55
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17803340405225754
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d85eae58e930625965f5d60775b43d738910a32ccedc542067ba97225b8b75b5",
+  "selected_reasons": []
+}

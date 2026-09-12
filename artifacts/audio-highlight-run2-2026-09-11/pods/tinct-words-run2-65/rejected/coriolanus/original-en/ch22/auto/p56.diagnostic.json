@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "159b1b72909310c8fee1e94ab6bb100e7fb134ef1476028b70a0bf3819a272e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.1723489142023027,
+      "alignment_seconds": 0.0002575470134615898,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cominius. He'll shake your Rome about your ears.",
+        "hotwords": "Cominius, He'll, Rome"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cominius, He'll shake your Rome about your ears.",
+          "start": 0.59,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Cominius,",
+              "start": 0.59,
+              "end": 0.95,
+              "probability": 0.5126546223958334
+            },
+            {
+              "text": " He'll",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.493316650390625
+            },
+            {
+              "text": " shake",
+              "start": 1.53,
+              "end": 1.69,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " your",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Rome",
+              "start": 1.87,
+              "end": 2.05,
+              "probability": 0.37109375
+            },
+            {
+              "text": " about",
+              "start": 2.05,
+              "end": 2.23,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " your",
+              "start": 2.23,
+              "end": 2.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ears.",
+              "start": 2.39,
+              "end": 2.63,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cominius,",
+          "start": 0.59,
+          "end": 0.95
+        },
+        {
+          "raw": "He'll",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "shake",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "raw": "your",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "Rome",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "raw": "about",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "raw": "your",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "raw": "ears.",
+          "start": 2.39,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "Cominius.",
+        "He'll",
+        "shake",
+        "your",
+        "Rome",
+        "about",
+        "your",
+        "ears."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cominius,",
+          "start": 0.59,
+          "end": 0.95,
+          "key": "cominius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He'll",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "hell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shake",
+          "start": 1.53,
+          "end": 1.69,
+          "key": "shake",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Rome",
+          "start": 1.87,
+          "end": 2.05,
+          "key": "rome",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 2.05,
+          "end": 2.23,
+          "key": "about",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.23,
+          "end": 2.39,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ears.",
+          "start": 2.39,
+          "end": 2.63,
+          "key": "ears",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cominius.",
+          "start": 0.59,
+          "end": 0.95
+        },
+        {
+          "text": "He'll",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "shake",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "text": "your",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "Rome",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "text": "about",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "text": "your",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "text": "ears.",
+          "start": 2.39,
+          "end": 2.63
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17270422400906682
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "be24da509bb8a0da3338d9d5843b114edd96ef45fbbb21d7679d91511a3b6895",
+  "selected_reasons": []
+}

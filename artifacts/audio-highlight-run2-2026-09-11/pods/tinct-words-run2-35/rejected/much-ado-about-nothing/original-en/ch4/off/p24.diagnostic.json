@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "3edb559b6be457cb7a859798b1251800477f5911a951dabe40a043020d4c3a67",
+  "attempts": [
+    {
+      "asr_seconds": 0.1630931720137596,
+      "alignment_seconds": 0.00040088407695293427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leonardo, cousin you apprehend passing shrewdly.",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " Leonardo,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.454345703125
+            },
+            {
+              "text": " cousin",
+              "start": 1.51,
+              "end": 1.57,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " you",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " apprehend",
+              "start": 1.85,
+              "end": 2.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " passing",
+              "start": 2.13,
+              "end": 2.63,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " shrewdly.",
+              "start": 2.63,
+              "end": 3.21,
+              "probability": 0.9959309895833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "cousin",
+          "start": 1.51,
+          "end": 1.57
+        },
+        {
+          "raw": "you",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "raw": "apprehend",
+          "start": 1.85,
+          "end": 2.13
+        },
+        {
+          "raw": "passing",
+          "start": 2.13,
+          "end": 2.63
+        },
+        {
+          "raw": "shrewdly.",
+          "start": 2.63,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "Leonato.",
+        "Cousin,",
+        "you",
+        "apprehend",
+        "passing",
+        "shrewdly."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "leonardo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cousin",
+          "start": 1.51,
+          "end": 1.57,
+          "key": "cousin",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.57,
+          "end": 1.85,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "apprehend",
+          "start": 1.85,
+          "end": 2.13,
+          "key": "apprehend",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "passing",
+          "start": 2.13,
+          "end": 2.63,
+          "key": "passing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shrewdly.",
+          "start": 2.63,
+          "end": 3.21,
+          "key": "shrewdly",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.755
+        },
+        {
+          "text": "Cousin,",
+          "start": 1.51,
+          "end": 1.57
+        },
+        {
+          "text": "you",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "apprehend",
+          "start": 1.85,
+          "end": 2.13
+        },
+        {
+          "text": "passing",
+          "start": 2.13,
+          "end": 2.63
+        },
+        {
+          "text": "shrewdly.",
+          "start": 2.63,
+          "end": 3.21
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16363047435879707
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "61970c1c11b3529f789375bed42a5e5e7d3be9902a7596449e5387dc0cacee99",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

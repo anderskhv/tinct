@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "1327e0fc5ea344fa310ef87f1fbabb10035713f73c98d584aca000d1018529a6",
+  "attempts": [
+    {
+      "asr_seconds": 0.12428952497430146,
+      "alignment_seconds": 0.00010777002898976207,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Memorable battles recalled.",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Memorable",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.7305908203125
+            },
+            {
+              "text": " battles",
+              "start": 0.89,
+              "end": 1.21,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " recalled.",
+              "start": 1.21,
+              "end": 1.65,
+              "probability": 0.7080078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Memorable",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "battles",
+          "start": 0.89,
+          "end": 1.21
+        },
+        {
+          "raw": "recalled.",
+          "start": 1.21,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "Memorable",
+        "Battles",
+        "Recalled"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Memorable",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "memorable",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "battles",
+          "start": 0.89,
+          "end": 1.21,
+          "key": "battles",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "recalled.",
+          "start": 1.21,
+          "end": 1.65,
+          "key": "recalled",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Memorable",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Battles",
+          "start": 0.89,
+          "end": 1.21
+        },
+        {
+          "text": "Recalled",
+          "start": 1.21,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12443912599701434
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "163734a3c1372124213f06b6b4e01fcdd71d424fedee880ac24b8528e8d50fc3",
+  "selected_reasons": []
+}

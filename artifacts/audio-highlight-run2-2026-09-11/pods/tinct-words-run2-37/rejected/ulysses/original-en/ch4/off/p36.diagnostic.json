@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "a33707000a99f7e8f5d1b7ae52b944eff9c3112d55bd9f82d4554ec9c9ac8c97",
+  "attempts": [
+    {
+      "asr_seconds": 0.14639640698442236,
+      "alignment_seconds": 0.0003360699920449406,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tease all that.",
+          "start": 0.05,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.703369140625
+            },
+            {
+              "text": " all",
+              "start": 0.67,
+              "end": 0.79,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " that.",
+              "start": 0.79,
+              "end": 1.05,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tease",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "all",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "raw": "that.",
+          "start": 0.79,
+          "end": 1.05
+        }
+      ],
+      "expected_tokens": [
+        "—'Tis",
+        "all",
+        "that."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tease",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "tease",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.67,
+          "end": 0.79,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 0.79,
+          "end": 1.05,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—'Tis",
+          "start": 0.0,
+          "end": 0.335
+        },
+        {
+          "text": "all",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "text": "that.",
+          "start": 0.79,
+          "end": 1.05
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1468430359964259
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b5625515a67846af47595be68dd101a8b6ad686c060fad1e4249cf0aa09d01c7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

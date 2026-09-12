@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "fc35822dabb85a6f8d04edb3799402744df11275679e4e16995a1d946209757e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2695482980052475,
+      "alignment_seconds": 0.0003149209951516241,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. Come, let's all take hands Till that the conquering wine hath steeped our sense In soft and delicate Lethe.",
+        "hotwords": "Antony, Come, Till, In, Lethe"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, Come, Let's all take hands Till that the conquering wine hath steeped our sense In soft and delicate Lethe.",
+          "start": 0.05,
+          "end": 7.07,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.861083984375
+            },
+            {
+              "text": " Come,",
+              "start": 1.17,
+              "end": 1.51,
+              "probability": 0.055938720703125
+            },
+            {
+              "text": " Let's",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.5699462890625
+            },
+            {
+              "text": " all",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.958984375
+            },
+            {
+              "text": " take",
+              "start": 2.35,
+              "end": 2.53,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " hands",
+              "start": 2.53,
+              "end": 2.97,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " Till",
+              "start": 2.97,
+              "end": 3.17,
+              "probability": 0.07952880859375
+            },
+            {
+              "text": " that",
+              "start": 3.17,
+              "end": 3.33,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " the",
+              "start": 3.33,
+              "end": 3.49,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " conquering",
+              "start": 3.49,
+              "end": 3.85,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " wine",
+              "start": 3.85,
+              "end": 4.23,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " hath",
+              "start": 4.23,
+              "end": 4.45,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " steeped",
+              "start": 4.45,
+              "end": 4.85,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " our",
+              "start": 4.85,
+              "end": 4.95,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " sense",
+              "start": 4.95,
+              "end": 5.23,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " In",
+              "start": 5.23,
+              "end": 5.45,
+              "probability": 0.591796875
+            },
+            {
+              "text": " soft",
+              "start": 5.45,
+              "end": 5.89,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " and",
+              "start": 5.89,
+              "end": 6.35,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " delicate",
+              "start": 6.35,
+              "end": 6.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Lethe.",
+              "start": 6.65,
+              "end": 7.07,
+              "probability": 0.4556617736816406
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Come,",
+          "start": 1.17,
+          "end": 1.51
+        },
+        {
+          "raw": "Let's",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "all",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "take",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "raw": "hands",
+          "start": 2.53,
+          "end": 2.97
+        },
+        {
+          "raw": "Till",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "raw": "that",
+          "start": 3.17,
+          "end": 3.33
+        },
+        {
+          "raw": "the",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "raw": "conquering",
+          "start": 3.49,
+          "end": 3.85
+        },
+        {
+          "raw": "wine",
+          "start": 3.85,
+          "end": 4.23
+        },
+        {
+          "raw": "hath",
+          "start": 4.23,
+          "end": 4.45
+        },
+        {
+          "raw": "steeped",
+          "start": 4.45,
+          "end": 4.85
+        },
+        {
+          "raw": "our",
+          "start": 4.85,
+          "end": 4.95
+        },
+        {
+          "raw": "sense",
+          "start": 4.95,
+          "end": 5.23
+        },
+        {
+          "raw": "In",
+          "start": 5.23,
+          "end": 5.45
+        },
+        {
+          "raw": "soft",
+          "start": 5.45,
+          "end": 5.89
+        },
+        {
+          "raw": "and",
+          "start": 5.89,
+          "end": 6.35
+        },
+        {
+          "raw": "delicate",
+          "start": 6.35,
+          "end": 6.65
+        },
+        {
+          "raw": "Lethe.",
+          "start": 6.65,
+          "end": 7.07
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Come,",
+        "let's",
+        "all",
+        "take",
+        "hands",
+        "Till",
+        "that",
+        "the",
+        "conquering",
+        "wine",
+        "hath",
+        "steeped",
+        "our",
+        "sense",
+        "In",
+        "soft",
+        "and",
+        "delicate",
+        "Lethe."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 1.17,
+          "end": 1.51,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Let's",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "lets",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 2.35,
+          "end": 2.53,
+          "key": "take",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 2.53,
+          "end": 2.97,
+          "key": "hands",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Till",
+          "start": 2.97,
+          "end": 3.17,
+          "key": "till",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.17,
+          "end": 3.33,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.33,
+          "end": 3.49,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "conquering",
+          "start": 3.49,
+          "end": 3.85,
+          "key": "conquering",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "wine",
+          "start": 3.85,
+          "end": 4.23,
+          "key": "wine",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 4.23,
+          "end": 4.45,
+          "key": "hath",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "steeped",
+          "start": 4.45,
+          "end": 4.85,
+          "key": "steeped",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.85,
+          "end": 4.95,
+          "key": "our",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sense",
+          "start": 4.95,
+          "end": 5.23,
+          "key": "sense",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 5.23,
+          "end": 5.45,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "soft",
+          "start": 5.45,
+          "end": 5.89,
+          "key": "soft",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.89,
+          "end": 6.35,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "delicate",
+          "start": 6.35,
+          "end": 6.65,
+          "key": "delicate",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Lethe.",
+          "start": 6.65,
+          "end": 7.07,
+          "key": "lethe",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Come,",
+          "start": 1.17,
+          "end": 1.51
+        },
+        {
+          "text": "let's",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "all",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "take",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "text": "hands",
+          "start": 2.53,
+          "end": 2.97
+        },
+        {
+          "text": "Till",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "text": "that",
+          "start": 3.17,
+          "end": 3.33
+        },
+        {
+          "text": "the",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "text": "conquering",
+          "start": 3.49,
+          "end": 3.85
+        },
+        {
+          "text": "wine",
+          "start": 3.85,
+          "end": 4.23
+        },
+        {
+          "text": "hath",
+          "start": 4.23,
+          "end": 4.45
+        },
+        {
+          "text": "steeped",
+          "start": 4.45,
+          "end": 4.85
+        },
+        {
+          "text": "our",
+          "start": 4.85,
+          "end": 4.95
+        },
+        {
+          "text": "sense",
+          "start": 4.95,
+          "end": 5.23
+        },
+        {
+          "text": "In",
+          "start": 5.23,
+          "end": 5.45
+        },
+        {
+          "text": "soft",
+          "start": 5.45,
+          "end": 5.89
+        },
+        {
+          "text": "and",
+          "start": 5.89,
+          "end": 6.35
+        },
+        {
+          "text": "delicate",
+          "start": 6.35,
+          "end": 6.65
+        },
+        {
+          "text": "Lethe.",
+          "start": 6.65,
+          "end": 7.07
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26996195199899375
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "702fa4cf86e75698370d6e67d5a188b264f8a0a7a6c0228430043e2b18b6a49b",
+  "selected_reasons": []
+}

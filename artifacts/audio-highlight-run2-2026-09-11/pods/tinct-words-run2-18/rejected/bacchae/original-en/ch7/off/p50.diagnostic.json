@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "dc5abc72f4dcc0dc278e4a306cb380735439958226d88be45a5d71e0ffb9965b",
+  "attempts": [
+    {
+      "asr_seconds": 0.21360558294691145,
+      "alignment_seconds": 0.0005328910192474723,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dionysus, tease Dionys that prompteth me.",
+          "start": 0.05,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " Dionysus,",
+              "start": 0.05,
+              "end": 1.21,
+              "probability": 0.9420572916666666
+            },
+            {
+              "text": " tease",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " Dionys",
+              "start": 1.81,
+              "end": 2.33,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " that",
+              "start": 2.33,
+              "end": 2.55,
+              "probability": 0.65283203125
+            },
+            {
+              "text": " prompteth",
+              "start": 2.55,
+              "end": 3.01,
+              "probability": 0.745849609375
+            },
+            {
+              "text": " me.",
+              "start": 3.01,
+              "end": 3.23,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dionysus,",
+          "start": 0.05,
+          "end": 1.21
+        },
+        {
+          "raw": "tease",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "raw": "Dionys",
+          "start": 1.81,
+          "end": 2.33
+        },
+        {
+          "raw": "that",
+          "start": 2.33,
+          "end": 2.55
+        },
+        {
+          "raw": "prompteth",
+          "start": 2.55,
+          "end": 3.01
+        },
+        {
+          "raw": "me.",
+          "start": 3.01,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "Dionysus.",
+        "'Tis",
+        "Dionyse",
+        "that",
+        "prompteth",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dionysus,",
+          "start": 0.05,
+          "end": 1.21,
+          "key": "dionysus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "tease",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dionys",
+          "start": 1.81,
+          "end": 2.33,
+          "key": "dionys",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.33,
+          "end": 2.55,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "prompteth",
+          "start": 2.55,
+          "end": 3.01,
+          "key": "prompteth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 3.01,
+          "end": 3.23,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dionysus.",
+          "start": 0.05,
+          "end": 1.21
+        },
+        {
+          "text": "'Tis",
+          "start": 1.21,
+          "end": 1.77
+        },
+        {
+          "text": "Dionyse",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "text": "that",
+          "start": 2.33,
+          "end": 2.55
+        },
+        {
+          "text": "prompteth",
+          "start": 2.55,
+          "end": 3.01
+        },
+        {
+          "text": "me.",
+          "start": 3.01,
+          "end": 3.23
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21434445795603096
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0eeb0dfc7a5f58eb471451afd5ecf2c11a0e636686f5dbabeb5f19f62837d877",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

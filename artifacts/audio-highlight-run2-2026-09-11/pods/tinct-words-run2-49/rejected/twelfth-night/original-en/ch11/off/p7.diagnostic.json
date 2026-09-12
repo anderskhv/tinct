@@ -1,0 +1,547 @@
+{
+  "complete": true,
+  "signature": "5e5e712aab0a57fdf39f7515f66627fb9f17493924699bfd960d127f18992450",
+  "attempts": [
+    {
+      "asr_seconds": 0.3068969324231148,
+      "alignment_seconds": 0.0005552954971790314,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Viola, nay, that's certain.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.6778564453125
+            },
+            {
+              "text": " nay,",
+              "start": 1.43,
+              "end": 1.59,
+              "probability": 0.898193359375
+            },
+            {
+              "text": " that's",
+              "start": 1.69,
+              "end": 1.99,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " certain.",
+              "start": 1.99,
+              "end": 2.25,
+              "probability": 0.96044921875
+            }
+          ]
+        },
+        {
+          "text": " They that dally nicely with words may quickly make them wanton.",
+          "start": 2.73,
+          "end": 5.71,
+          "words": [
+            {
+              "text": " They",
+              "start": 2.73,
+              "end": 2.81,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " that",
+              "start": 2.81,
+              "end": 3.01,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " dally",
+              "start": 3.01,
+              "end": 3.29,
+              "probability": 0.940673828125
+            },
+            {
+              "text": " nicely",
+              "start": 3.29,
+              "end": 3.67,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " with",
+              "start": 3.67,
+              "end": 3.89,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " words",
+              "start": 3.89,
+              "end": 4.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " may",
+              "start": 4.21,
+              "end": 4.45,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " quickly",
+              "start": 4.45,
+              "end": 4.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " make",
+              "start": 4.69,
+              "end": 5.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " them",
+              "start": 5.01,
+              "end": 5.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wanton.",
+              "start": 5.23,
+              "end": 5.71,
+              "probability": 0.93994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "nay,",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "raw": "that's",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "raw": "certain.",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "raw": "They",
+          "start": 2.73,
+          "end": 2.81
+        },
+        {
+          "raw": "that",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "raw": "dally",
+          "start": 3.01,
+          "end": 3.29
+        },
+        {
+          "raw": "nicely",
+          "start": 3.29,
+          "end": 3.67
+        },
+        {
+          "raw": "with",
+          "start": 3.67,
+          "end": 3.89
+        },
+        {
+          "raw": "words",
+          "start": 3.89,
+          "end": 4.21
+        },
+        {
+          "raw": "may",
+          "start": 4.21,
+          "end": 4.45
+        },
+        {
+          "raw": "quickly",
+          "start": 4.45,
+          "end": 4.69
+        },
+        {
+          "raw": "make",
+          "start": 4.69,
+          "end": 5.01
+        },
+        {
+          "raw": "them",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "raw": "wanton.",
+          "start": 5.23,
+          "end": 5.71
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "Nay,",
+        "that's",
+        "certain;",
+        "they",
+        "that",
+        "dally",
+        "nicely",
+        "with",
+        "words",
+        "may",
+        "quickly",
+        "make",
+        "them",
+        "wanton."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nay,",
+          "start": 1.43,
+          "end": 1.59,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.69,
+          "end": 1.99,
+          "key": "thats",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "certain.",
+          "start": 1.99,
+          "end": 2.25,
+          "key": "certain",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 2.73,
+          "end": 2.81,
+          "key": "they",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.81,
+          "end": 3.01,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dally",
+          "start": 3.01,
+          "end": 3.29,
+          "key": "dally",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "nicely",
+          "start": 3.29,
+          "end": 3.67,
+          "key": "nicely",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.67,
+          "end": 3.89,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 3.89,
+          "end": 4.21,
+          "key": "words",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 4.21,
+          "end": 4.45,
+          "key": "may",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "quickly",
+          "start": 4.45,
+          "end": 4.69,
+          "key": "quickly",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 4.69,
+          "end": 5.01,
+          "key": "make",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 5.01,
+          "end": 5.23,
+          "key": "them",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "wanton.",
+          "start": 5.23,
+          "end": 5.71,
+          "key": "wanton",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Nay,",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "text": "that's",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "text": "certain;",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "text": "they",
+          "start": 2.73,
+          "end": 2.81
+        },
+        {
+          "text": "that",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "text": "dally",
+          "start": 3.01,
+          "end": 3.29
+        },
+        {
+          "text": "nicely",
+          "start": 3.29,
+          "end": 3.67
+        },
+        {
+          "text": "with",
+          "start": 3.67,
+          "end": 3.89
+        },
+        {
+          "text": "words",
+          "start": 3.89,
+          "end": 4.21
+        },
+        {
+          "text": "may",
+          "start": 4.21,
+          "end": 4.45
+        },
+        {
+          "text": "quickly",
+          "start": 4.45,
+          "end": 4.69
+        },
+        {
+          "text": "make",
+          "start": 4.69,
+          "end": 5.01
+        },
+        {
+          "text": "them",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "text": "wanton.",
+          "start": 5.23,
+          "end": 5.71
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3077007085084915
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "26e02cb9a257e993eabd6052d76bd6da4ecbc1ad64043c62b60ebff85edaf707",
+  "selected_reasons": []
+}

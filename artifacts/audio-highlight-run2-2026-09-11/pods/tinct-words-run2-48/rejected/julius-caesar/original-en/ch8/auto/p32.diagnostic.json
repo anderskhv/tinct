@@ -1,0 +1,420 @@
+{
+  "complete": true,
+  "signature": "d79d72230df46873de8bae620e7faa97c24ae3186aad22df80193579ec714b62",
+  "attempts": [
+    {
+      "asr_seconds": 3.743368497118354,
+      "alignment_seconds": 0.0004344107583165169,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caesar. What, Brutus?",
+        "hotwords": "Caesar, What, Brutus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caesar, What, Brutus",
+          "start": 0.11,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " What,",
+              "start": 1.09,
+              "end": 1.17,
+              "probability": 0.1016845703125
+            },
+            {
+              "text": " Brutus",
+              "start": 1.25,
+              "end": 1.65,
+              "probability": 0.995361328125
+            }
+          ]
+        },
+        {
+          "text": " Caesar. What, Brutus? What, Brutus?ile. What, Brutus? I want you to",
+          "start": 1.65,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Caesar.",
+              "start": 1.65,
+              "end": 1.65,
+              "probability": 1.0728836059570312e-06
+            },
+            {
+              "text": " What,",
+              "start": 1.65,
+              "end": 1.65,
+              "probability": 0.007503509521484375
+            },
+            {
+              "text": " Brutus?",
+              "start": 1.65,
+              "end": 1.65,
+              "probability": 0.29712140560150146
+            },
+            {
+              "text": " What,",
+              "start": 1.85,
+              "end": 2.25,
+              "probability": 0.1783447265625
+            },
+            {
+              "text": " Brutus",
+              "start": 2.25,
+              "end": 2.25,
+              "probability": 0.58544921875
+            },
+            {
+              "text": "?ile.",
+              "start": 2.25,
+              "end": 2.25,
+              "probability": 0.45166340470314026
+            },
+            {
+              "text": " What,",
+              "start": 2.25,
+              "end": 2.25,
+              "probability": 0.2271728515625
+            },
+            {
+              "text": " Brutus?",
+              "start": 2.25,
+              "end": 2.25,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " I",
+              "start": 2.25,
+              "end": 2.25,
+              "probability": 0.046417236328125
+            },
+            {
+              "text": " want",
+              "start": 2.25,
+              "end": 2.25,
+              "probability": 0.022308349609375
+            },
+            {
+              "text": " you",
+              "start": 2.25,
+              "end": 2.25,
+              "probability": 0.1270751953125
+            },
+            {
+              "text": " to",
+              "start": 2.25,
+              "end": 2.25,
+              "probability": 0.72216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "What,",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "raw": "Brutus",
+          "start": 1.25,
+          "end": 1.65
+        },
+        {
+          "raw": "Caesar.",
+          "start": 1.65,
+          "end": 1.65
+        },
+        {
+          "raw": "What,",
+          "start": 1.65,
+          "end": 1.65
+        },
+        {
+          "raw": "Brutus?",
+          "start": 1.65,
+          "end": 1.65
+        },
+        {
+          "raw": "What,",
+          "start": 1.85,
+          "end": 2.25
+        },
+        {
+          "raw": "Brutus",
+          "start": 2.25,
+          "end": 2.25
+        },
+        {
+          "raw": "?ile.",
+          "start": 2.25,
+          "end": 2.25
+        },
+        {
+          "raw": "What,",
+          "start": 2.25,
+          "end": 2.25
+        },
+        {
+          "raw": "Brutus?",
+          "start": 2.25,
+          "end": 2.25
+        },
+        {
+          "raw": "I",
+          "start": 2.25,
+          "end": 2.25
+        },
+        {
+          "raw": "want",
+          "start": 2.25,
+          "end": 2.25
+        },
+        {
+          "raw": "you",
+          "start": 2.25,
+          "end": 2.25
+        },
+        {
+          "raw": "to",
+          "start": 2.25,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "What,",
+        "Brutus?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 1.09,
+          "end": 1.17,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Brutus",
+          "start": 1.25,
+          "end": 1.65,
+          "key": "brutus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Caesar.",
+          "start": 1.65,
+          "end": 1.65,
+          "key": "caesar",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 1.65,
+          "end": 1.65,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Brutus?",
+          "start": 1.65,
+          "end": 1.65,
+          "key": "brutus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 1.85,
+          "end": 2.25,
+          "key": "what",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Brutus",
+          "start": 2.25,
+          "end": 2.25,
+          "key": "brutus",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "?ile.",
+          "start": 2.25,
+          "end": 2.25,
+          "key": "ile",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 2.25,
+          "end": 2.25,
+          "key": "what",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Brutus?",
+          "start": 2.25,
+          "end": 2.25,
+          "key": "brutus",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.25,
+          "end": 2.25,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 2.25,
+          "end": 2.25,
+          "key": "want",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.25,
+          "end": 2.25,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.25,
+          "end": 2.25,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "What,",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "text": "Brutus?",
+          "start": 1.25,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 15,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.744067758321762
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7546fb57bf7fc2870d02639ff921e94e5a04e01a149054db96cf88ef23bba204",
+  "selected_reasons": []
+}

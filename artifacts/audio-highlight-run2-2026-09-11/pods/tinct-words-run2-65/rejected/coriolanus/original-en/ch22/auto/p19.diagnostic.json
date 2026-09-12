@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "31497a7211782be1180f22246b92c152ca23d7c610a9680ea86b3ff249d94375",
+  "attempts": [
+    {
+      "asr_seconds": 0.14562307903543115,
+      "alignment_seconds": 0.0001291828230023384,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Both Tribunes. Farewell, farewell.",
+        "hotwords": "Both, Tribunes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Both Tribunes. Farewell, farewell.",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Both",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " Tribunes.",
+              "start": 0.63,
+              "end": 1.17,
+              "probability": 0.536834716796875
+            },
+            {
+              "text": " Farewell,",
+              "start": 1.71,
+              "end": 2.01,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " farewell.",
+              "start": 2.17,
+              "end": 2.37,
+              "probability": 0.54052734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Both",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Tribunes.",
+          "start": 0.63,
+          "end": 1.17
+        },
+        {
+          "raw": "Farewell,",
+          "start": 1.71,
+          "end": 2.01
+        },
+        {
+          "raw": "farewell.",
+          "start": 2.17,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "Both",
+        "Tribunes.",
+        "Farewell,",
+        "farewell."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Both",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "both",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tribunes.",
+          "start": 0.63,
+          "end": 1.17,
+          "key": "tribunes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Farewell,",
+          "start": 1.71,
+          "end": 2.01,
+          "key": "farewell",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "farewell.",
+          "start": 2.17,
+          "end": 2.37,
+          "key": "farewell",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Both",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Tribunes.",
+          "start": 0.63,
+          "end": 1.17
+        },
+        {
+          "text": "Farewell,",
+          "start": 1.71,
+          "end": 2.01
+        },
+        {
+          "text": "farewell.",
+          "start": 2.17,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14579382399097085
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1ecbf0f1448da3feb1625b706430d55b6fa3c7ee0d5b05c4cd8439b17344faf0",
+  "selected_reasons": []
+}

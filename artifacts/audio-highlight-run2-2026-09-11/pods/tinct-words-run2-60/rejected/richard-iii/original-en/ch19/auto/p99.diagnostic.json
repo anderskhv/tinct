@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "b67ceee1d17b0900aacbb9b3a165b8a37a4511233c74a45a5a8f4e08b628a0e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.21075386554002762,
+      "alignment_seconds": 0.0004111267626285553,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Richard. Even so. How think you of it?",
+        "hotwords": "King, Richard, Even, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Richard, Even so. How think you of it?",
+          "start": 0.05,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " Richard,",
+              "start": 0.53,
+              "end": 0.91,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Even",
+              "start": 1.45,
+              "end": 1.49,
+              "probability": 0.00799560546875
+            },
+            {
+              "text": " so.",
+              "start": 1.49,
+              "end": 1.81,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " How",
+              "start": 2.03,
+              "end": 2.13,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " think",
+              "start": 2.13,
+              "end": 2.29,
+              "probability": 0.3251953125
+            },
+            {
+              "text": " you",
+              "start": 2.29,
+              "end": 2.45,
+              "probability": 0.9765625
+            },
+            {
+              "text": " of",
+              "start": 2.45,
+              "end": 2.57,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " it?",
+              "start": 2.57,
+              "end": 2.75,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.53,
+          "end": 0.91
+        },
+        {
+          "raw": "Even",
+          "start": 1.45,
+          "end": 1.49
+        },
+        {
+          "raw": "so.",
+          "start": 1.49,
+          "end": 1.81
+        },
+        {
+          "raw": "How",
+          "start": 2.03,
+          "end": 2.13
+        },
+        {
+          "raw": "think",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "raw": "you",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "raw": "of",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "raw": "it?",
+          "start": 2.57,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Even",
+        "so.",
+        "How",
+        "think",
+        "you",
+        "of",
+        "it?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.53,
+          "end": 0.91,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Even",
+          "start": 1.45,
+          "end": 1.49,
+          "key": "even",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 1.49,
+          "end": 1.81,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.03,
+          "end": 2.13,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 2.13,
+          "end": 2.29,
+          "key": "think",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.29,
+          "end": 2.45,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.45,
+          "end": 2.57,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 2.57,
+          "end": 2.75,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Richard.",
+          "start": 0.53,
+          "end": 0.91
+        },
+        {
+          "text": "Even",
+          "start": 1.45,
+          "end": 1.49
+        },
+        {
+          "text": "so.",
+          "start": 1.49,
+          "end": 1.81
+        },
+        {
+          "text": "How",
+          "start": 2.03,
+          "end": 2.13
+        },
+        {
+          "text": "think",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "text": "you",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "text": "of",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "text": "it?",
+          "start": 2.57,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21133646368980408
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a4654dba8e49360d4da437e6fc2cf5fd235f610ffbc755ea80fdbf489ced63a5",
+  "selected_reasons": []
+}

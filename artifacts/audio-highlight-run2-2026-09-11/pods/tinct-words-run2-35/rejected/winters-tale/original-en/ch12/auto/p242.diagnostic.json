@@ -1,0 +1,189 @@
+{
+  "complete": true,
+  "signature": "af5b36e2326e03217208b44b77b1c71d7091817c71d833b9100e7612c16ea73c",
+  "attempts": [
+    {
+      "asr_seconds": 0.12296423688530922,
+      "alignment_seconds": 0.0003408864140510559,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "flight of my master."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Flight of my master.",
+          "start": 0.08,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Flight",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " of",
+              "start": 0.62,
+              "end": 0.74,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " my",
+              "start": 0.74,
+              "end": 0.86,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " master.",
+              "start": 0.86,
+              "end": 1.22,
+              "probability": 0.73291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Flight",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "of",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "raw": "my",
+          "start": 0.74,
+          "end": 0.86
+        },
+        {
+          "raw": "master.",
+          "start": 0.86,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "flight",
+        "of",
+        "my",
+        "master."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Flight",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "flight",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.62,
+          "end": 0.74,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.74,
+          "end": 0.86,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "master.",
+          "start": 0.86,
+          "end": 1.22,
+          "key": "master",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "flight",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "of",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "text": "my",
+          "start": 0.74,
+          "end": 0.86
+        },
+        {
+          "text": "master.",
+          "start": 0.86,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12342831306159496
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "40cb9f6f79a707ab586988ad8bc51ef3db073b02d9aa96c2483c9574ebcd7b61",
+  "selected_reasons": []
+}

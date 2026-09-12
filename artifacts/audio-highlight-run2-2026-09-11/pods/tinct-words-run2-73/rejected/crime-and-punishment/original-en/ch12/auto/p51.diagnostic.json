@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "6f8366bb5fa5d814d912569308aecec93b6b635ffd7e137b03292c6301fac465",
+  "attempts": [
+    {
+      "asr_seconds": 0.18806118704378605,
+      "alignment_seconds": 0.0004328601062297821,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"That's all true,\" Zossimov hastened to interpose.",
+        "hotwords": "That's, Zossimov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That's all true, Zossimov hastened to interpose.",
+          "start": 0.05,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " all",
+              "start": 0.71,
+              "end": 0.85,
+              "probability": 0.994140625
+            },
+            {
+              "text": " true,",
+              "start": 0.85,
+              "end": 1.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Zossimov",
+              "start": 1.73,
+              "end": 2.05,
+              "probability": 0.6933186848958334
+            },
+            {
+              "text": " hastened",
+              "start": 2.05,
+              "end": 2.51,
+              "probability": 0.763671875
+            },
+            {
+              "text": " to",
+              "start": 2.51,
+              "end": 2.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " interpose.",
+              "start": 2.65,
+              "end": 3.09,
+              "probability": 0.7330322265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "all",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "raw": "true,",
+          "start": 0.85,
+          "end": 1.19
+        },
+        {
+          "raw": "Zossimov",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "raw": "hastened",
+          "start": 2.05,
+          "end": 2.51
+        },
+        {
+          "raw": "to",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "raw": "interpose.",
+          "start": 2.65,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "\"That's",
+        "all",
+        "true,\"",
+        "Zossimov",
+        "hastened",
+        "to",
+        "interpose."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.71,
+          "end": 0.85,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 0.85,
+          "end": 1.19,
+          "key": "true",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Zossimov",
+          "start": 1.73,
+          "end": 2.05,
+          "key": "zossimov",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hastened",
+          "start": 2.05,
+          "end": 2.51,
+          "key": "hastened",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.51,
+          "end": 2.65,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "interpose.",
+          "start": 2.65,
+          "end": 3.09,
+          "key": "interpose",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That's",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "all",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "text": "true,\"",
+          "start": 0.85,
+          "end": 1.19
+        },
+        {
+          "text": "Zossimov",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "text": "hastened",
+          "start": 2.05,
+          "end": 2.51
+        },
+        {
+          "text": "to",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "text": "interpose.",
+          "start": 2.65,
+          "end": 3.09
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18864867091178894
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dab2455bc715b3a82b28304e20a3cee21f167e2bfa31ae93b4947b788256f336",
+  "selected_reasons": []
+}

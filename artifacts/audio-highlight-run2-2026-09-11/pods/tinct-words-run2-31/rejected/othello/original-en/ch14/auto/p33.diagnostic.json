@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "9dea97ab2d588ddd9f504f42d268e120e796a015aef359144ec17e03eaac0a57",
+  "attempts": [
+    {
+      "asr_seconds": 0.12636596010997891,
+      "alignment_seconds": 0.00015759840607643127,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lodovico. Hark!",
+        "hotwords": "Lodovico, Hark"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lodovico, Hark!",
+          "start": 0.02,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " Lodovico,",
+              "start": 0.02,
+              "end": 1.02,
+              "probability": 0.6179606119791666
+            },
+            {
+              "text": " Hark!",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.776123046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lodovico,",
+          "start": 0.02,
+          "end": 1.02
+        },
+        {
+          "raw": "Hark!",
+          "start": 1.4,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "Lodovico.",
+        "Hark!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lodovico,",
+          "start": 0.02,
+          "end": 1.02,
+          "key": "lodovico",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hark!",
+          "start": 1.4,
+          "end": 1.54,
+          "key": "hark",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lodovico.",
+          "start": 0.02,
+          "end": 1.02
+        },
+        {
+          "text": "Hark!",
+          "start": 1.4,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12657574703916907
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bc9cc6b28d7870d6f7721bd42c796a4bc28189e7f880dc744243c3b9e4d6a6bb",
+  "selected_reasons": []
+}

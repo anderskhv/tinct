@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "5064d1b5c87dd55970fc226c76a1168e752a2347b87d1eaa094ae912bb1108e4",
+  "attempts": [
+    {
+      "asr_seconds": 0.2623809138312936,
+      "alignment_seconds": 0.0003516250289976597,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alexis, here at your service, my lord approaches.",
+          "start": 0.05,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " Alexis,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.51708984375
+            },
+            {
+              "text": " here",
+              "start": 1.13,
+              "end": 1.27,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " at",
+              "start": 1.27,
+              "end": 1.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " service,",
+              "start": 1.51,
+              "end": 1.87,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " my",
+              "start": 2.39,
+              "end": 2.47,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " lord",
+              "start": 2.47,
+              "end": 2.69,
+              "probability": 0.783203125
+            },
+            {
+              "text": " approaches.",
+              "start": 2.69,
+              "end": 3.13,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alexis,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "here",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "raw": "at",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "raw": "your",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "service,",
+          "start": 1.51,
+          "end": 1.87
+        },
+        {
+          "raw": "my",
+          "start": 2.39,
+          "end": 2.47
+        },
+        {
+          "raw": "lord",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "raw": "approaches.",
+          "start": 2.69,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "Alexas.",
+        "Here,",
+        "at",
+        "your",
+        "service.",
+        "My",
+        "lord",
+        "approaches."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alexis,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "alexis",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.13,
+          "end": 1.27,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.27,
+          "end": 1.39,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "service,",
+          "start": 1.51,
+          "end": 1.87,
+          "key": "service",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.39,
+          "end": 2.47,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 2.47,
+          "end": 2.69,
+          "key": "lord",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "approaches.",
+          "start": 2.69,
+          "end": 3.13,
+          "key": "approaches",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alexas.",
+          "start": 0.0,
+          "end": 0.565
+        },
+        {
+          "text": "Here,",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "text": "at",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "text": "your",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "service.",
+          "start": 1.51,
+          "end": 1.87
+        },
+        {
+          "text": "My",
+          "start": 2.39,
+          "end": 2.47
+        },
+        {
+          "text": "lord",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "text": "approaches.",
+          "start": 2.69,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2628478826954961
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1666d1d9ee72c176a3a55d8680a06cac485f7ecbc3e25a9f9d6ce356be5d7faa",
+  "selected_reasons": []
+}

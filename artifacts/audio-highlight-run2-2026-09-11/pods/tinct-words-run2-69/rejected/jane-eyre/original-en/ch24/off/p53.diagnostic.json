@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "6d53a2557c7dffd5a771851a8bf12c1f17dcca27c9ca9a37dbe4424bf09e76e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.21109655033797026,
+      "alignment_seconds": 0.0003917394205927849,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I dare you to any such experiment. Encroach, presume, and the game is up.",
+          "start": 0.08,
+          "end": 4.52,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " dare",
+              "start": 0.52,
+              "end": 0.72,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " you",
+              "start": 0.72,
+              "end": 0.9,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 0.9,
+              "end": 1.0,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " any",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " such",
+              "start": 1.2,
+              "end": 1.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " experiment.",
+              "start": 1.4,
+              "end": 2.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Encroach,",
+              "start": 2.58,
+              "end": 2.96,
+              "probability": 0.972900390625
+            },
+            {
+              "text": " presume,",
+              "start": 3.32,
+              "end": 3.52,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " and",
+              "start": 3.74,
+              "end": 3.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 3.8,
+              "end": 3.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " game",
+              "start": 3.9,
+              "end": 4.1,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " is",
+              "start": 4.1,
+              "end": 4.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " up.",
+              "start": 4.28,
+              "end": 4.52,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "dare",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "raw": "you",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "raw": "to",
+          "start": 0.9,
+          "end": 1.0
+        },
+        {
+          "raw": "any",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "such",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "raw": "experiment.",
+          "start": 1.4,
+          "end": 2.02
+        },
+        {
+          "raw": "Encroach,",
+          "start": 2.58,
+          "end": 2.96
+        },
+        {
+          "raw": "presume,",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "raw": "and",
+          "start": 3.74,
+          "end": 3.8
+        },
+        {
+          "raw": "the",
+          "start": 3.8,
+          "end": 3.9
+        },
+        {
+          "raw": "game",
+          "start": 3.9,
+          "end": 4.1
+        },
+        {
+          "raw": "is",
+          "start": 4.1,
+          "end": 4.28
+        },
+        {
+          "raw": "up.",
+          "start": 4.28,
+          "end": 4.52
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "dare",
+        "you",
+        "to",
+        "any",
+        "such",
+        "experiment.",
+        "Encroach,",
+        "presume,",
+        "and",
+        "the",
+        "game",
+        "is",
+        "up.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dare",
+          "start": 0.52,
+          "end": 0.72,
+          "key": "dare",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.72,
+          "end": 0.9,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.9,
+          "end": 1.0,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "any",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 1.2,
+          "end": 1.4,
+          "key": "such",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "experiment.",
+          "start": 1.4,
+          "end": 2.02,
+          "key": "experiment",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Encroach,",
+          "start": 2.58,
+          "end": 2.96,
+          "key": "encroach",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "presume,",
+          "start": 3.32,
+          "end": 3.52,
+          "key": "presume",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.74,
+          "end": 3.8,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.8,
+          "end": 3.9,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "game",
+          "start": 3.9,
+          "end": 4.1,
+          "key": "game",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.1,
+          "end": 4.28,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 4.28,
+          "end": 4.52,
+          "key": "up",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "dare",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "text": "you",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "text": "to",
+          "start": 0.9,
+          "end": 1.0
+        },
+        {
+          "text": "any",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "such",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "text": "experiment.",
+          "start": 1.4,
+          "end": 2.02
+        },
+        {
+          "text": "Encroach,",
+          "start": 2.58,
+          "end": 2.96
+        },
+        {
+          "text": "presume,",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "text": "and",
+          "start": 3.74,
+          "end": 3.8
+        },
+        {
+          "text": "the",
+          "start": 3.8,
+          "end": 3.9
+        },
+        {
+          "text": "game",
+          "start": 3.9,
+          "end": 4.1
+        },
+        {
+          "text": "is",
+          "start": 4.1,
+          "end": 4.28
+        },
+        {
+          "text": "up.\"",
+          "start": 4.28,
+          "end": 4.52
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2116443943232298
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a5eddd856b472df39439d4a424b5a0e84fa4bfcdcf5fe770a71f71015e69d0aa",
+  "selected_reasons": []
+}

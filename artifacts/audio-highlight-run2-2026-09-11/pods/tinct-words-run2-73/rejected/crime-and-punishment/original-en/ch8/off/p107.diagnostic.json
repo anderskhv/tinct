@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "3d72bec40e11d30184b17c753dba3728a0943e22f6d9bb790f335012a4667127",
+  "attempts": [
+    {
+      "asr_seconds": 0.14109655376523733,
+      "alignment_seconds": 0.00028332509100437164,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But she is my landlady.",
+          "start": 0.02,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.68994140625
+            },
+            {
+              "text": " she",
+              "start": 0.48,
+              "end": 0.68,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " is",
+              "start": 0.68,
+              "end": 0.8,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " my",
+              "start": 0.8,
+              "end": 1.0,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " landlady.",
+              "start": 1.0,
+              "end": 1.52,
+              "probability": 0.9845377604166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "she",
+          "start": 0.48,
+          "end": 0.68
+        },
+        {
+          "raw": "is",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "raw": "my",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "raw": "landlady.",
+          "start": 1.0,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "she",
+        "is",
+        "my",
+        "landlady!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.48,
+          "end": 0.68,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.68,
+          "end": 0.8,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.8,
+          "end": 1.0,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "landlady.",
+          "start": 1.0,
+          "end": 1.52,
+          "key": "landlady",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "she",
+          "start": 0.48,
+          "end": 0.68
+        },
+        {
+          "text": "is",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "text": "my",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "text": "landlady!\"",
+          "start": 1.0,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1414940170943737
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d689b77902c9e3c48728e1821753ccc59a9d78f1ff6a8d6b2f475798cce2f6cd",
+  "selected_reasons": []
+}

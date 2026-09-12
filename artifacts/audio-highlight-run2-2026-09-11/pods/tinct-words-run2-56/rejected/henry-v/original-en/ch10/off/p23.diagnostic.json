@@ -1,0 +1,372 @@
+{
+  "complete": true,
+  "signature": "d0659c7912b0c22e5909477be35271c6eff164ffe85c4bd851aad77c9fc7b1bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.28106266260147095,
+      "alignment_seconds": 0.0004906589165329933,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Katharine Desynn, Lacaulle de Nick, Lamentin Desynn.",
+          "start": 0.05,
+          "end": 4.17,
+          "words": [
+            {
+              "text": " Katharine",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.50518798828125
+            },
+            {
+              "text": " Desynn,",
+              "start": 0.95,
+              "end": 1.99,
+              "probability": 0.520751953125
+            },
+            {
+              "text": " Lacaulle",
+              "start": 2.03,
+              "end": 2.45,
+              "probability": 0.486328125
+            },
+            {
+              "text": " de",
+              "start": 2.45,
+              "end": 2.47,
+              "probability": 0.58447265625
+            },
+            {
+              "text": " Nick,",
+              "start": 2.47,
+              "end": 2.71,
+              "probability": 0.7333984375
+            },
+            {
+              "text": " Lamentin",
+              "start": 3.05,
+              "end": 3.49,
+              "probability": 0.6612955729166666
+            },
+            {
+              "text": " Desynn.",
+              "start": 3.49,
+              "end": 4.17,
+              "probability": 0.9772135416666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katharine",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Desynn,",
+          "start": 0.95,
+          "end": 1.99
+        },
+        {
+          "raw": "Lacaulle",
+          "start": 2.03,
+          "end": 2.45
+        },
+        {
+          "raw": "de",
+          "start": 2.45,
+          "end": 2.47
+        },
+        {
+          "raw": "Nick,",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "raw": "Lamentin",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "raw": "Desynn.",
+          "start": 3.49,
+          "end": 4.17
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "De",
+        "sin.",
+        "_Le",
+        "col_,",
+        "de",
+        "nick;",
+        "_le",
+        "menton_,",
+        "de",
+        "sin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          5,
+          1,
+          3
+        ],
+        [
+          "equal",
+          5,
+          7,
+          3,
+          5
+        ],
+        [
+          "replace",
+          7,
+          11,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          5,
+          1,
+          3
+        ],
+        [
+          "replace",
+          7,
+          11,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katharine",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "katharine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Desynn,",
+          "start": 0.95,
+          "end": 1.99,
+          "key": "desynn",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lacaulle",
+          "start": 2.03,
+          "end": 2.45,
+          "key": "lacaulle",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.45,
+          "end": 2.47,
+          "key": "de",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Nick,",
+          "start": 2.47,
+          "end": 2.71,
+          "key": "nick",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Lamentin",
+          "start": 3.05,
+          "end": 3.49,
+          "key": "lamentin",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Desynn.",
+          "start": 3.49,
+          "end": 4.17,
+          "key": "desynn",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "De",
+          "start": 0.95,
+          "end": 1.7
+        },
+        {
+          "text": "sin.",
+          "start": 1.7,
+          "end": 2.075
+        },
+        {
+          "text": "_Le",
+          "start": 2.075,
+          "end": 2.263
+        },
+        {
+          "text": "col_,",
+          "start": 2.263,
+          "end": 2.357
+        },
+        {
+          "text": "de",
+          "start": 2.45,
+          "end": 2.47
+        },
+        {
+          "text": "nick;",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "text": "_le",
+          "start": 2.71,
+          "end": 3.44
+        },
+        {
+          "text": "menton_,",
+          "start": 3.44,
+          "end": 3.805
+        },
+        {
+          "text": "de",
+          "start": 3.805,
+          "end": 3.987
+        },
+        {
+          "text": "sin.",
+          "start": 3.987,
+          "end": 4.079
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 7,
+        "matched_words": 3
+      },
+      "match_ratio": 0.2727272727272727,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.28169574309140444
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fb53728e274b3e0b7f6539993a45da4cfcf385af721d82bd60728aa7e62ca269",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

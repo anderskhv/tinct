@@ -1,0 +1,647 @@
+{
+  "complete": true,
+  "signature": "ef73f4ad488178a0c1b3941da86b15a3caad0e14970a6c8ad44015076547e394",
+  "attempts": [
+    {
+      "asr_seconds": 0.26449882611632347,
+      "alignment_seconds": 0.0006035696715116501,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You must have been a doty miss deuce made answer and what did the doctor order today?",
+          "start": 0.05,
+          "end": 4.93,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.7353515625
+            },
+            {
+              "text": " must",
+              "start": 0.55,
+              "end": 0.73,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " have",
+              "start": 0.73,
+              "end": 0.91,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " been",
+              "start": 0.91,
+              "end": 1.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 1.05,
+              "end": 1.19,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " doty",
+              "start": 1.19,
+              "end": 1.67,
+              "probability": 0.49017333984375
+            },
+            {
+              "text": " miss",
+              "start": 1.67,
+              "end": 2.01,
+              "probability": 0.327392578125
+            },
+            {
+              "text": " deuce",
+              "start": 2.01,
+              "end": 2.37,
+              "probability": 0.901123046875
+            },
+            {
+              "text": " made",
+              "start": 2.37,
+              "end": 2.53,
+              "probability": 0.5634765625
+            },
+            {
+              "text": " answer",
+              "start": 2.53,
+              "end": 2.95,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 2.95,
+              "end": 3.61,
+              "probability": 0.642578125
+            },
+            {
+              "text": " what",
+              "start": 3.61,
+              "end": 3.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " did",
+              "start": 3.75,
+              "end": 3.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.87,
+              "end": 4.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " doctor",
+              "start": 4.01,
+              "end": 4.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " order",
+              "start": 4.27,
+              "end": 4.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " today?",
+              "start": 4.55,
+              "end": 4.93,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "must",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "raw": "have",
+          "start": 0.73,
+          "end": 0.91
+        },
+        {
+          "raw": "been",
+          "start": 0.91,
+          "end": 1.05
+        },
+        {
+          "raw": "a",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "raw": "doty",
+          "start": 1.19,
+          "end": 1.67
+        },
+        {
+          "raw": "miss",
+          "start": 1.67,
+          "end": 2.01
+        },
+        {
+          "raw": "deuce",
+          "start": 2.01,
+          "end": 2.37
+        },
+        {
+          "raw": "made",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "raw": "answer",
+          "start": 2.53,
+          "end": 2.95
+        },
+        {
+          "raw": "and",
+          "start": 2.95,
+          "end": 3.61
+        },
+        {
+          "raw": "what",
+          "start": 3.61,
+          "end": 3.75
+        },
+        {
+          "raw": "did",
+          "start": 3.75,
+          "end": 3.87
+        },
+        {
+          "raw": "the",
+          "start": 3.87,
+          "end": 4.01
+        },
+        {
+          "raw": "doctor",
+          "start": 4.01,
+          "end": 4.27
+        },
+        {
+          "raw": "order",
+          "start": 4.27,
+          "end": 4.55
+        },
+        {
+          "raw": "today?",
+          "start": 4.55,
+          "end": 4.93
+        }
+      ],
+      "expected_tokens": [
+        "—You",
+        "must",
+        "have",
+        "been",
+        "a",
+        "doaty,",
+        "miss",
+        "Douce",
+        "made",
+        "answer.",
+        "And",
+        "what",
+        "did",
+        "the",
+        "doctor",
+        "order",
+        "today?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          17,
+          8,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 0.55,
+          "end": 0.73,
+          "key": "must",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.73,
+          "end": 0.91,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 0.91,
+          "end": 1.05,
+          "key": "been",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.05,
+          "end": 1.19,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "doty",
+          "start": 1.19,
+          "end": 1.67,
+          "key": "doty",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "miss",
+          "start": 1.67,
+          "end": 2.01,
+          "key": "miss",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "deuce",
+          "start": 2.01,
+          "end": 2.37,
+          "key": "deuce",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 2.37,
+          "end": 2.53,
+          "key": "made",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 2.53,
+          "end": 2.95,
+          "key": "answer",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.95,
+          "end": 3.61,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.61,
+          "end": 3.75,
+          "key": "what",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 3.75,
+          "end": 3.87,
+          "key": "did",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.87,
+          "end": 4.01,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "doctor",
+          "start": 4.01,
+          "end": 4.27,
+          "key": "doctor",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "order",
+          "start": 4.27,
+          "end": 4.55,
+          "key": "order",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "today?",
+          "start": 4.55,
+          "end": 4.93,
+          "key": "today",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "must",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "text": "have",
+          "start": 0.73,
+          "end": 0.91
+        },
+        {
+          "text": "been",
+          "start": 0.91,
+          "end": 1.05
+        },
+        {
+          "text": "a",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "text": "doaty,",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "text": "miss",
+          "start": 1.67,
+          "end": 2.01
+        },
+        {
+          "text": "Douce",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "text": "made",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "text": "answer.",
+          "start": 2.53,
+          "end": 2.95
+        },
+        {
+          "text": "And",
+          "start": 2.95,
+          "end": 3.61
+        },
+        {
+          "text": "what",
+          "start": 3.61,
+          "end": 3.75
+        },
+        {
+          "text": "did",
+          "start": 3.75,
+          "end": 3.87
+        },
+        {
+          "text": "the",
+          "start": 3.87,
+          "end": 4.01
+        },
+        {
+          "text": "doctor",
+          "start": 4.01,
+          "end": 4.27
+        },
+        {
+          "text": "order",
+          "start": 4.27,
+          "end": 4.55
+        },
+        {
+          "text": "today?",
+          "start": 4.55,
+          "end": 4.93
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.2653967747464776
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2449db7fb83b755f021d35fc6828608f377d9073273c3dd304984c792a4bf768",
+  "selected_reasons": []
+}

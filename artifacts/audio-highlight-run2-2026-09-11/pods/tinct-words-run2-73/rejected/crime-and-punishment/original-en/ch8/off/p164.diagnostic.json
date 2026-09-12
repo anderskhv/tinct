@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "f2abbdf9af9f06cb2be35eeb952ffb2ea8e9f773ff41787e27d0f2f9ce237e51",
+  "attempts": [
+    {
+      "asr_seconds": 0.12842067424207926,
+      "alignment_seconds": 0.0003085741773247719,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " along the street.",
+          "start": 0.05,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " along",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.51123046875
+            },
+            {
+              "text": " the",
+              "start": 0.61,
+              "end": 0.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " street.",
+              "start": 0.79,
+              "end": 1.05,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "along",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "raw": "street.",
+          "start": 0.79,
+          "end": 1.05
+        }
+      ],
+      "expected_tokens": [
+        "\"Along",
+        "the",
+        "street.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "along",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "along",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.79,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "street.",
+          "start": 0.79,
+          "end": 1.05,
+          "key": "street",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Along",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "the",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "text": "street.\"",
+          "start": 0.79,
+          "end": 1.05
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12883246503770351
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "82285890319d0dbd9d8c9f377cc28928930da2e5fa91e91ca66093f75f5a4093",
+  "selected_reasons": []
+}

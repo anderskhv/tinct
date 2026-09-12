@@ -1,0 +1,1311 @@
+{
+  "complete": true,
+  "signature": "02014f781335f997c37865dd7cc62ed54eb2df321c0ca71e4d7dec9cd6909896",
+  "attempts": [
+    {
+      "asr_seconds": 0.34368155524134636,
+      "alignment_seconds": 0.00031464919447898865,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "p [ See \"Malte Brun,\" liv. 116, vol. vi. p. 92.]",
+        "hotwords": "See, Malte, Brun"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " p. c, Malte, Brun, liv. 116, vol. roman 6, p. 92.]",
+          "start": 0.05,
+          "end": 6.03,
+          "words": [
+            {
+              "text": " p.",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.0360107421875
+            },
+            {
+              "text": " c,",
+              "start": 0.57,
+              "end": 0.97,
+              "probability": 0.1944580078125
+            },
+            {
+              "text": " Malte,",
+              "start": 1.29,
+              "end": 1.45,
+              "probability": 0.4754180908203125
+            },
+            {
+              "text": " Brun,",
+              "start": 1.51,
+              "end": 1.65,
+              "probability": 0.51220703125
+            },
+            {
+              "text": " liv.",
+              "start": 2.03,
+              "end": 2.03,
+              "probability": 0.0165557861328125
+            },
+            {
+              "text": " 116,",
+              "start": 2.55,
+              "end": 3.05,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " vol.",
+              "start": 3.65,
+              "end": 3.65,
+              "probability": 0.07012939453125
+            },
+            {
+              "text": " roman",
+              "start": 3.83,
+              "end": 3.95,
+              "probability": 0.5169677734375
+            },
+            {
+              "text": " 6,",
+              "start": 3.95,
+              "end": 4.25,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " p.",
+              "start": 4.67,
+              "end": 4.83,
+              "probability": 0.986328125
+            },
+            {
+              "text": " 92.]",
+              "start": 5.33,
+              "end": 6.03,
+              "probability": 0.44803279638290405
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "p.",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "c,",
+          "start": 0.57,
+          "end": 0.97
+        },
+        {
+          "raw": "Malte,",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "raw": "Brun,",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "raw": "liv.",
+          "start": 2.03,
+          "end": 2.03
+        },
+        {
+          "raw": "116,",
+          "start": 2.55,
+          "end": 3.05
+        },
+        {
+          "raw": "vol.",
+          "start": 3.65,
+          "end": 3.65
+        },
+        {
+          "raw": "roman",
+          "start": 3.83,
+          "end": 3.95
+        },
+        {
+          "raw": "6,",
+          "start": 3.95,
+          "end": 4.25
+        },
+        {
+          "raw": "p.",
+          "start": 4.67,
+          "end": 4.83
+        },
+        {
+          "raw": "92.]",
+          "start": 5.33,
+          "end": 6.03
+        }
+      ],
+      "expected_tokens": [
+        "p",
+        "[",
+        "See",
+        "\"Malte",
+        "Brun,\"",
+        "liv.",
+        "116,",
+        "vol.",
+        "vi.",
+        "p.",
+        "92.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          8,
+          2,
+          7
+        ],
+        [
+          "replace",
+          8,
+          9,
+          7,
+          9
+        ],
+        [
+          "equal",
+          9,
+          11,
+          9,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "replace",
+          8,
+          9,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "p.",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "p",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "c,",
+          "start": 0.57,
+          "end": 0.97,
+          "key": "c",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Malte,",
+          "start": 1.29,
+          "end": 1.45,
+          "key": "malte",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Brun,",
+          "start": 1.51,
+          "end": 1.65,
+          "key": "brun",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "liv.",
+          "start": 2.03,
+          "end": 2.03,
+          "key": "liv",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "116,",
+          "start": 2.55,
+          "end": 3.05,
+          "key": "116",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "vol.",
+          "start": 3.65,
+          "end": 3.65,
+          "key": "vol",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "roman",
+          "start": 3.83,
+          "end": 3.95,
+          "key": "roman",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "6,",
+          "start": 3.95,
+          "end": 4.25,
+          "key": "six",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "p.",
+          "start": 4.67,
+          "end": 4.83,
+          "key": "p",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "92.]",
+          "start": 5.33,
+          "end": 6.03,
+          "key": "ninetytwo",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "p",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "[",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "text": "See",
+          "start": 0.93,
+          "end": 1.11
+        },
+        {
+          "text": "\"Malte",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "text": "Brun,\"",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "text": "liv.",
+          "start": 2.03,
+          "end": 2.03
+        },
+        {
+          "text": "116,",
+          "start": 2.55,
+          "end": 3.05
+        },
+        {
+          "text": "vol.",
+          "start": 3.65,
+          "end": 3.65
+        },
+        {
+          "text": "vi.",
+          "start": 3.65,
+          "end": 4.16
+        },
+        {
+          "text": "p.",
+          "start": 4.67,
+          "end": 4.83
+        },
+        {
+          "text": "92.]",
+          "start": 5.33,
+          "end": 6.03
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 8
+      },
+      "match_ratio": 0.7272727272727273,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3441033475100994
+    },
+    {
+      "asr_seconds": 0.28482799604535103,
+      "alignment_seconds": 0.00043670833110809326,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "See, Malte, Brun"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " P.C., Malt, Brun, Liv, 116, Vol, Roman 6, P92",
+          "start": 0.05,
+          "end": 5.21,
+          "words": [
+            {
+              "text": " P",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.2232666015625
+            },
+            {
+              "text": ".C.,",
+              "start": 0.57,
+              "end": 1.37,
+              "probability": 0.38531494140625
+            },
+            {
+              "text": " Malt,",
+              "start": 1.37,
+              "end": 1.37,
+              "probability": 0.76953125
+            },
+            {
+              "text": " Brun,",
+              "start": 1.51,
+              "end": 1.65,
+              "probability": 0.59765625
+            },
+            {
+              "text": " Liv,",
+              "start": 2.07,
+              "end": 2.07,
+              "probability": 0.7080078125
+            },
+            {
+              "text": " 116,",
+              "start": 2.57,
+              "end": 3.07,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Vol,",
+              "start": 3.65,
+              "end": 3.65,
+              "probability": 0.347900390625
+            },
+            {
+              "text": " Roman",
+              "start": 3.77,
+              "end": 3.91,
+              "probability": 0.822265625
+            },
+            {
+              "text": " 6,",
+              "start": 3.91,
+              "end": 4.23,
+              "probability": 0.4638671875
+            },
+            {
+              "text": " P92",
+              "start": 4.67,
+              "end": 5.21,
+              "probability": 0.659423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "P",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": ".C.,",
+          "start": 0.57,
+          "end": 1.37
+        },
+        {
+          "raw": "Malt,",
+          "start": 1.37,
+          "end": 1.37
+        },
+        {
+          "raw": "Brun,",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "raw": "Liv,",
+          "start": 2.07,
+          "end": 2.07
+        },
+        {
+          "raw": "116,",
+          "start": 2.57,
+          "end": 3.07
+        },
+        {
+          "raw": "Vol,",
+          "start": 3.65,
+          "end": 3.65
+        },
+        {
+          "raw": "Roman",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "raw": "6,",
+          "start": 3.91,
+          "end": 4.23
+        },
+        {
+          "raw": "P92",
+          "start": 4.67,
+          "end": 5.21
+        }
+      ],
+      "expected_tokens": [
+        "p",
+        "[",
+        "See",
+        "\"Malte",
+        "Brun,\"",
+        "liv.",
+        "116,",
+        "vol.",
+        "vi.",
+        "p.",
+        "92.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          4,
+          1,
+          3
+        ],
+        [
+          "equal",
+          4,
+          8,
+          3,
+          7
+        ],
+        [
+          "replace",
+          8,
+          11,
+          7,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          4,
+          1,
+          3
+        ],
+        [
+          "replace",
+          8,
+          11,
+          7,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "P",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "p",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".C.,",
+          "start": 0.57,
+          "end": 1.37,
+          "key": "c",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Malt,",
+          "start": 1.37,
+          "end": 1.37,
+          "key": "malt",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Brun,",
+          "start": 1.51,
+          "end": 1.65,
+          "key": "brun",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Liv,",
+          "start": 2.07,
+          "end": 2.07,
+          "key": "liv",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "116,",
+          "start": 2.57,
+          "end": 3.07,
+          "key": "116",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Vol,",
+          "start": 3.65,
+          "end": 3.65,
+          "key": "vol",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Roman",
+          "start": 3.77,
+          "end": 3.91,
+          "key": "roman",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "6,",
+          "start": 3.91,
+          "end": 4.23,
+          "key": "six",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "P92",
+          "start": 4.67,
+          "end": 5.21,
+          "key": "p92",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "p",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "[",
+          "start": 0.57,
+          "end": 1.04
+        },
+        {
+          "text": "See",
+          "start": 1.04,
+          "end": 1.275
+        },
+        {
+          "text": "\"Malte",
+          "start": 1.275,
+          "end": 1.393
+        },
+        {
+          "text": "Brun,\"",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "text": "liv.",
+          "start": 2.07,
+          "end": 2.07
+        },
+        {
+          "text": "116,",
+          "start": 2.57,
+          "end": 3.07
+        },
+        {
+          "text": "vol.",
+          "start": 3.65,
+          "end": 3.65
+        },
+        {
+          "text": "vi.",
+          "start": 3.65,
+          "end": 4.43
+        },
+        {
+          "text": "p.",
+          "start": 4.43,
+          "end": 4.82
+        },
+        {
+          "text": "92.]",
+          "start": 4.82,
+          "end": 5.015
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 10,
+        "matched_words": 5
+      },
+      "match_ratio": 0.45454545454545453,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2853769026696682
+    },
+    {
+      "asr_seconds": 0.2708050087094307,
+      "alignment_seconds": 0.0002300068736076355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " P. C. Maltbrun Live. 116. Vol. Roman 6. P. 92.",
+          "start": 0.05,
+          "end": 5.23,
+          "words": [
+            {
+              "text": " P.",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.2232666015625
+            },
+            {
+              "text": " C.",
+              "start": 0.67,
+              "end": 0.95,
+              "probability": 0.51220703125
+            },
+            {
+              "text": " Maltbrun",
+              "start": 1.35,
+              "end": 1.71,
+              "probability": 0.591064453125
+            },
+            {
+              "text": " Live.",
+              "start": 1.71,
+              "end": 2.09,
+              "probability": 0.1715087890625
+            },
+            {
+              "text": " 116.",
+              "start": 2.57,
+              "end": 3.09,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Vol.",
+              "start": 3.61,
+              "end": 3.65,
+              "probability": 0.427734375
+            },
+            {
+              "text": " Roman",
+              "start": 3.91,
+              "end": 3.91,
+              "probability": 0.71728515625
+            },
+            {
+              "text": " 6.",
+              "start": 3.91,
+              "end": 4.23,
+              "probability": 0.57177734375
+            },
+            {
+              "text": " P.",
+              "start": 4.71,
+              "end": 4.83,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " 92.",
+              "start": 4.89,
+              "end": 5.23,
+              "probability": 0.91650390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "P.",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "C.",
+          "start": 0.67,
+          "end": 0.95
+        },
+        {
+          "raw": "Maltbrun",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "raw": "Live.",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "raw": "116.",
+          "start": 2.57,
+          "end": 3.09
+        },
+        {
+          "raw": "Vol.",
+          "start": 3.61,
+          "end": 3.65
+        },
+        {
+          "raw": "Roman",
+          "start": 3.91,
+          "end": 3.91
+        },
+        {
+          "raw": "6.",
+          "start": 3.91,
+          "end": 4.23
+        },
+        {
+          "raw": "P.",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "raw": "92.",
+          "start": 4.89,
+          "end": 5.23
+        }
+      ],
+      "expected_tokens": [
+        "p",
+        "[",
+        "See",
+        "\"Malte",
+        "Brun,\"",
+        "liv.",
+        "116,",
+        "vol.",
+        "vi.",
+        "p.",
+        "92.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          6,
+          1,
+          4
+        ],
+        [
+          "equal",
+          6,
+          8,
+          4,
+          6
+        ],
+        [
+          "replace",
+          8,
+          9,
+          6,
+          8
+        ],
+        [
+          "equal",
+          9,
+          11,
+          8,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          6,
+          1,
+          4
+        ],
+        [
+          "replace",
+          8,
+          9,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "P.",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "p",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "C.",
+          "start": 0.67,
+          "end": 0.95,
+          "key": "c",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Maltbrun",
+          "start": 1.35,
+          "end": 1.71,
+          "key": "maltbrun",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Live.",
+          "start": 1.71,
+          "end": 2.09,
+          "key": "live",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "116.",
+          "start": 2.57,
+          "end": 3.09,
+          "key": "116",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Vol.",
+          "start": 3.61,
+          "end": 3.65,
+          "key": "vol",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Roman",
+          "start": 3.91,
+          "end": 3.91,
+          "key": "roman",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "6.",
+          "start": 3.91,
+          "end": 4.23,
+          "key": "six",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "P.",
+          "start": 4.71,
+          "end": 4.83,
+          "key": "p",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "92.",
+          "start": 4.89,
+          "end": 5.23,
+          "key": "ninetytwo",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "p",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "[",
+          "start": 0.57,
+          "end": 1.57
+        },
+        {
+          "text": "See",
+          "start": 1.57,
+          "end": 2.07
+        },
+        {
+          "text": "\"Malte",
+          "start": 2.07,
+          "end": 2.32
+        },
+        {
+          "text": "Brun,\"",
+          "start": 2.32,
+          "end": 2.445
+        },
+        {
+          "text": "liv.",
+          "start": 2.445,
+          "end": 2.507
+        },
+        {
+          "text": "116,",
+          "start": 2.57,
+          "end": 3.09
+        },
+        {
+          "text": "vol.",
+          "start": 3.61,
+          "end": 3.65
+        },
+        {
+          "text": "vi.",
+          "start": 3.65,
+          "end": 4.18
+        },
+        {
+          "text": "p.",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "text": "92.]",
+          "start": 4.89,
+          "end": 5.23
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 10,
+        "matched_words": 5
+      },
+      "match_ratio": 0.45454545454545453,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.27109984308481216
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "78ba1a4e96e116415b6ba95b904f9573a5e94e147f74733bdceb65fb6aa19c32",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

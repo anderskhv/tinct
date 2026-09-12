@@ -1,0 +1,292 @@
+{
+  "complete": true,
+  "signature": "7eb0aaf2585ab47b66a7a8550d378c46d8edc8b3f504b2303d106deb0c82d8ba",
+  "attempts": [
+    {
+      "asr_seconds": 0.13707267306745052,
+      "alignment_seconds": 0.00013206899166107178,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona. O, fight upon thee, slanderer.",
+          "start": 0.05,
+          "end": 3.01,
+          "words": [
+            {
+              "text": " Distimona.",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 0.72723388671875
+            },
+            {
+              "text": " O,",
+              "start": 1.57,
+              "end": 1.61,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " fight",
+              "start": 1.81,
+              "end": 1.83,
+              "probability": 0.220458984375
+            },
+            {
+              "text": " upon",
+              "start": 1.83,
+              "end": 2.13,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " thee,",
+              "start": 2.13,
+              "end": 2.41,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " slanderer.",
+              "start": 2.69,
+              "end": 3.01,
+              "probability": 0.9055989583333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona.",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "raw": "O,",
+          "start": 1.57,
+          "end": 1.61
+        },
+        {
+          "raw": "fight",
+          "start": 1.81,
+          "end": 1.83
+        },
+        {
+          "raw": "upon",
+          "start": 1.83,
+          "end": 2.13
+        },
+        {
+          "raw": "thee,",
+          "start": 2.13,
+          "end": 2.41
+        },
+        {
+          "raw": "slanderer.",
+          "start": 2.69,
+          "end": 3.01
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "O,",
+        "fie",
+        "upon",
+        "thee,",
+        "slanderer!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona.",
+          "start": 0.05,
+          "end": 1.07,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.57,
+          "end": 1.61,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fight",
+          "start": 1.81,
+          "end": 1.83,
+          "key": "fight",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.83,
+          "end": 2.13,
+          "key": "upon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 2.13,
+          "end": 2.41,
+          "key": "thee",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "slanderer.",
+          "start": 2.69,
+          "end": 3.01,
+          "key": "slanderer",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.785
+        },
+        {
+          "text": "O,",
+          "start": 1.57,
+          "end": 1.61
+        },
+        {
+          "text": "fie",
+          "start": 1.61,
+          "end": 1.72
+        },
+        {
+          "text": "upon",
+          "start": 1.83,
+          "end": 2.13
+        },
+        {
+          "text": "thee,",
+          "start": 2.13,
+          "end": 2.41
+        },
+        {
+          "text": "slanderer!",
+          "start": 2.69,
+          "end": 3.01
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1372480820864439
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "363fcec45e8247a78ad935c103d41bc022dcbe8787d1c2faac82c7452c369063",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

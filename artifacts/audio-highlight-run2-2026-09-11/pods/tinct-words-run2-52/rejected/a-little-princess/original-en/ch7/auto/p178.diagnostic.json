@@ -1,0 +1,598 @@
+{
+  "complete": true,
+  "signature": "8f779c8fcfb152eccb7f3f3292d148e5b9234cfb9e52b4cdcad93497aadce37a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2826303206384182,
+      "alignment_seconds": 0.0005073137581348419,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "To her surprise, a faint gleam of light came into the child's eyes--a shade of relief.",
+        "hotwords": "To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To her surprise, a faint gleam of light came into the child's eyes a shade of relief.",
+          "start": 0.02,
+          "end": 4.94,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " her",
+              "start": 0.48,
+              "end": 0.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " surprise,",
+              "start": 0.6,
+              "end": 1.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 1.72,
+              "end": 1.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " faint",
+              "start": 1.82,
+              "end": 2.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gleam",
+              "start": 2.08,
+              "end": 2.42,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 2.42,
+              "end": 2.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " light",
+              "start": 2.52,
+              "end": 2.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " came",
+              "start": 2.74,
+              "end": 3.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " into",
+              "start": 3.0,
+              "end": 3.22,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " the",
+              "start": 3.22,
+              "end": 3.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " child's",
+              "start": 3.34,
+              "end": 3.88,
+              "probability": 0.99609375
+            },
+            {
+              "text": " eyes",
+              "start": 3.88,
+              "end": 4.02,
+              "probability": 0.71435546875
+            },
+            {
+              "text": " a",
+              "start": 4.02,
+              "end": 4.22,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " shade",
+              "start": 4.22,
+              "end": 4.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 4.44,
+              "end": 4.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " relief.",
+              "start": 4.64,
+              "end": 4.94,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "her",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "raw": "surprise,",
+          "start": 0.6,
+          "end": 1.14
+        },
+        {
+          "raw": "a",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "raw": "faint",
+          "start": 1.82,
+          "end": 2.08
+        },
+        {
+          "raw": "gleam",
+          "start": 2.08,
+          "end": 2.42
+        },
+        {
+          "raw": "of",
+          "start": 2.42,
+          "end": 2.52
+        },
+        {
+          "raw": "light",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "raw": "came",
+          "start": 2.74,
+          "end": 3.0
+        },
+        {
+          "raw": "into",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "raw": "child's",
+          "start": 3.34,
+          "end": 3.88
+        },
+        {
+          "raw": "eyes",
+          "start": 3.88,
+          "end": 4.02
+        },
+        {
+          "raw": "a",
+          "start": 4.02,
+          "end": 4.22
+        },
+        {
+          "raw": "shade",
+          "start": 4.22,
+          "end": 4.44
+        },
+        {
+          "raw": "of",
+          "start": 4.44,
+          "end": 4.64
+        },
+        {
+          "raw": "relief.",
+          "start": 4.64,
+          "end": 4.94
+        }
+      ],
+      "expected_tokens": [
+        "To",
+        "her",
+        "surprise,",
+        "a",
+        "faint",
+        "gleam",
+        "of",
+        "light",
+        "came",
+        "into",
+        "the",
+        "child's",
+        "eyes--a",
+        "shade",
+        "of",
+        "relief."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.48,
+          "end": 0.6,
+          "key": "her",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "surprise,",
+          "start": 0.6,
+          "end": 1.14,
+          "key": "surprise",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.72,
+          "end": 1.82,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "faint",
+          "start": 1.82,
+          "end": 2.08,
+          "key": "faint",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gleam",
+          "start": 2.08,
+          "end": 2.42,
+          "key": "gleam",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.42,
+          "end": 2.52,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "light",
+          "start": 2.52,
+          "end": 2.74,
+          "key": "light",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 2.74,
+          "end": 3.0,
+          "key": "came",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 3.0,
+          "end": 3.22,
+          "key": "into",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.34,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "child's",
+          "start": 3.34,
+          "end": 3.88,
+          "key": "childs",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "eyes a",
+          "start": 3.88,
+          "end": 4.22,
+          "key": "eyesa",
+          "pieces": [
+            12,
+            13
+          ]
+        },
+        {
+          "raw": "shade",
+          "start": 4.22,
+          "end": 4.44,
+          "key": "shade",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.44,
+          "end": 4.64,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "relief.",
+          "start": 4.64,
+          "end": 4.94,
+          "key": "relief",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 12,
+          "text": "eyes--a",
+          "heard": "eyes a",
+          "heard_indexes": [
+            12,
+            13
+          ],
+          "start": 3.88,
+          "end": 4.22
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "her",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "text": "surprise,",
+          "start": 0.6,
+          "end": 1.14
+        },
+        {
+          "text": "a",
+          "start": 1.72,
+          "end": 1.82
+        },
+        {
+          "text": "faint",
+          "start": 1.82,
+          "end": 2.08
+        },
+        {
+          "text": "gleam",
+          "start": 2.08,
+          "end": 2.42
+        },
+        {
+          "text": "of",
+          "start": 2.42,
+          "end": 2.52
+        },
+        {
+          "text": "light",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "text": "came",
+          "start": 2.74,
+          "end": 3.0
+        },
+        {
+          "text": "into",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "text": "the",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "text": "child's",
+          "start": 3.34,
+          "end": 3.88
+        },
+        {
+          "text": "eyes--a",
+          "start": 3.88,
+          "end": 4.22
+        },
+        {
+          "text": "shade",
+          "start": 4.22,
+          "end": 4.44
+        },
+        {
+          "text": "of",
+          "start": 4.44,
+          "end": 4.64
+        },
+        {
+          "text": "relief.",
+          "start": 4.64,
+          "end": 4.94
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28331516683101654
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "db8f83a3cb69adfb493b1c5335e6194f02abe6351e64511409de321f6cf420b8",
+  "selected_reasons": []
+}

@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "2fef6709eb3eddb9d9b59141131e983fa48d8051cb7866131de621158cc482ed",
+  "attempts": [
+    {
+      "asr_seconds": 0.23956472054123878,
+      "alignment_seconds": 0.0004497841000556946,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Don Pedro. See, see; here comes the man we went to seek.",
+        "hotwords": "Don, Pedro"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don Pedro. See, see. Here comes the man we went to seek.",
+          "start": 0.05,
+          "end": 3.79,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.69873046875
+            },
+            {
+              "text": " Pedro.",
+              "start": 0.65,
+              "end": 1.03,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " See,",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.0635986328125
+            },
+            {
+              "text": " see.",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " Here",
+              "start": 2.47,
+              "end": 2.57,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " comes",
+              "start": 2.57,
+              "end": 2.75,
+              "probability": 0.982421875
+            },
+            {
+              "text": " the",
+              "start": 2.75,
+              "end": 2.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " man",
+              "start": 2.95,
+              "end": 3.15,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " we",
+              "start": 3.15,
+              "end": 3.29,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " went",
+              "start": 3.29,
+              "end": 3.43,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 3.43,
+              "end": 3.55,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " seek.",
+              "start": 3.55,
+              "end": 3.79,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Pedro.",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "raw": "See,",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "raw": "see.",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "Here",
+          "start": 2.47,
+          "end": 2.57
+        },
+        {
+          "raw": "comes",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "raw": "the",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "raw": "man",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "raw": "we",
+          "start": 3.15,
+          "end": 3.29
+        },
+        {
+          "raw": "went",
+          "start": 3.29,
+          "end": 3.43
+        },
+        {
+          "raw": "to",
+          "start": 3.43,
+          "end": 3.55
+        },
+        {
+          "raw": "seek.",
+          "start": 3.55,
+          "end": 3.79
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "See,",
+        "see;",
+        "here",
+        "comes",
+        "the",
+        "man",
+        "we",
+        "went",
+        "to",
+        "seek."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro.",
+          "start": 0.65,
+          "end": 1.03,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "See,",
+          "start": 1.49,
+          "end": 1.67,
+          "key": "see",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "see.",
+          "start": 1.81,
+          "end": 1.95,
+          "key": "see",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 2.47,
+          "end": 2.57,
+          "key": "here",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 2.57,
+          "end": 2.75,
+          "key": "comes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.75,
+          "end": 2.95,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.95,
+          "end": 3.15,
+          "key": "man",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.15,
+          "end": 3.29,
+          "key": "we",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 3.29,
+          "end": 3.43,
+          "key": "went",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.43,
+          "end": 3.55,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "seek.",
+          "start": 3.55,
+          "end": 3.79,
+          "key": "seek",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "text": "See,",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "see;",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "here",
+          "start": 2.47,
+          "end": 2.57
+        },
+        {
+          "text": "comes",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "text": "the",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "text": "man",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "text": "we",
+          "start": 3.15,
+          "end": 3.29
+        },
+        {
+          "text": "went",
+          "start": 3.29,
+          "end": 3.43
+        },
+        {
+          "text": "to",
+          "start": 3.43,
+          "end": 3.55
+        },
+        {
+          "text": "seek.",
+          "start": 3.55,
+          "end": 3.79
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24019413068890572
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eb5994fe4f708aa4bcc2852e003692f520b4d24151f783279bdf45927daac477",
+  "selected_reasons": []
+}

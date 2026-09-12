@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "0cad3071b0a50b798ba41519b50eca00b124756a2c82558e45880a32a5c61258",
+  "attempts": [
+    {
+      "asr_seconds": 0.17946629831567407,
+      "alignment_seconds": 0.00018643774092197418,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. I do not know. I am sure I am none such.",
+        "hotwords": "Desdemona, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, I do not know. I am sure I am none such.",
+          "start": 0.65,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.65,
+              "end": 0.97,
+              "probability": 0.6509590148925781
+            },
+            {
+              "text": " I",
+              "start": 1.27,
+              "end": 1.53,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " do",
+              "start": 1.53,
+              "end": 1.61,
+              "probability": 0.990234375
+            },
+            {
+              "text": " not",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " know.",
+              "start": 1.77,
+              "end": 2.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 2.31,
+              "end": 2.39,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " am",
+              "start": 2.39,
+              "end": 2.45,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " sure",
+              "start": 2.45,
+              "end": 2.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 2.61,
+              "end": 2.73,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " am",
+              "start": 2.73,
+              "end": 2.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " none",
+              "start": 2.81,
+              "end": 2.95,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " such.",
+              "start": 2.95,
+              "end": 3.23,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.65,
+          "end": 0.97
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.53
+        },
+        {
+          "raw": "do",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "raw": "not",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "know.",
+          "start": 1.77,
+          "end": 2.03
+        },
+        {
+          "raw": "I",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "raw": "am",
+          "start": 2.39,
+          "end": 2.45
+        },
+        {
+          "raw": "sure",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "raw": "I",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "raw": "am",
+          "start": 2.73,
+          "end": 2.81
+        },
+        {
+          "raw": "none",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "raw": "such.",
+          "start": 2.95,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "I",
+        "do",
+        "not",
+        "know.",
+        "I",
+        "am",
+        "sure",
+        "I",
+        "am",
+        "none",
+        "such."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.65,
+          "end": 0.97,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.53,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.53,
+          "end": 1.61,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "know.",
+          "start": 1.77,
+          "end": 2.03,
+          "key": "know",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.31,
+          "end": 2.39,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.39,
+          "end": 2.45,
+          "key": "am",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sure",
+          "start": 2.45,
+          "end": 2.61,
+          "key": "sure",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.61,
+          "end": 2.73,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.73,
+          "end": 2.81,
+          "key": "am",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 2.81,
+          "end": 2.95,
+          "key": "none",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "such.",
+          "start": 2.95,
+          "end": 3.23,
+          "key": "such",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.65,
+          "end": 0.97
+        },
+        {
+          "text": "I",
+          "start": 1.27,
+          "end": 1.53
+        },
+        {
+          "text": "do",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "text": "not",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "know.",
+          "start": 1.77,
+          "end": 2.03
+        },
+        {
+          "text": "I",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "text": "am",
+          "start": 2.39,
+          "end": 2.45
+        },
+        {
+          "text": "sure",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "text": "I",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "text": "am",
+          "start": 2.73,
+          "end": 2.81
+        },
+        {
+          "text": "none",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "text": "such.",
+          "start": 2.95,
+          "end": 3.23
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17972147511318326
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "01b703800e0d8e80aa1d5870d3b3e155f3b033ab34f148fd16ec8a0d04122658",
+  "selected_reasons": []
+}

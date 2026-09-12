@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "b9921479bbc014e37c57057873e1c2977c8cd0bfd140562e4d358cf04340e047",
+  "attempts": [
+    {
+      "asr_seconds": 0.13304162677377462,
+      "alignment_seconds": 0.0003977157175540924,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And why then he is alive.",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.513671875
+            },
+            {
+              "text": " why",
+              "start": 0.69,
+              "end": 1.11,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " then",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " he",
+              "start": 1.25,
+              "end": 1.37,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " is",
+              "start": 1.37,
+              "end": 1.49,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " alive.",
+              "start": 1.49,
+              "end": 1.79,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "why",
+          "start": 0.69,
+          "end": 1.11
+        },
+        {
+          "raw": "then",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "he",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "raw": "is",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "raw": "alive.",
+          "start": 1.49,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Anne.",
+        "Why",
+        "then",
+        "he",
+        "is",
+        "alive."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 0.69,
+          "end": 1.11,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.25,
+          "end": 1.37,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.37,
+          "end": 1.49,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "alive.",
+          "start": 1.49,
+          "end": 1.79,
+          "key": "alive",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Anne.",
+          "start": 0.0,
+          "end": 0.345
+        },
+        {
+          "text": "Why",
+          "start": 0.69,
+          "end": 1.11
+        },
+        {
+          "text": "then",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "he",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "text": "is",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "text": "alive.",
+          "start": 1.49,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13359276205301285
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5e738429f412f31bfcb4747dbc8a089f7bdc034b626e7a448289d1c4ce00d5db",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

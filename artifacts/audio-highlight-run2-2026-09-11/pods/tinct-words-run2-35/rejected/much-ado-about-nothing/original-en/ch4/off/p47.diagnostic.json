@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "6330a08b76717c8e8150ba2f9af946af5eee154d754b4ff903fd1a52381ea7fa",
+  "attempts": [
+    {
+      "asr_seconds": 0.2163805030286312,
+      "alignment_seconds": 0.00044824182987213135,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ursula, I know you well enough. You are Signor Antonio.",
+          "start": 0.05,
+          "end": 3.35,
+          "words": [
+            {
+              "text": " Ursula,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " I",
+              "start": 1.11,
+              "end": 1.35,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " know",
+              "start": 1.35,
+              "end": 1.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " well",
+              "start": 1.63,
+              "end": 1.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " enough.",
+              "start": 1.77,
+              "end": 2.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " You",
+              "start": 2.41,
+              "end": 2.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " are",
+              "start": 2.41,
+              "end": 2.53,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Signor",
+              "start": 2.53,
+              "end": 2.95,
+              "probability": 0.45654296875
+            },
+            {
+              "text": " Antonio.",
+              "start": 2.95,
+              "end": 3.35,
+              "probability": 0.89794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ursula,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.35
+        },
+        {
+          "raw": "know",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "raw": "you",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "well",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "raw": "enough.",
+          "start": 1.77,
+          "end": 2.01
+        },
+        {
+          "raw": "You",
+          "start": 2.41,
+          "end": 2.41
+        },
+        {
+          "raw": "are",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "raw": "Signor",
+          "start": 2.53,
+          "end": 2.95
+        },
+        {
+          "raw": "Antonio.",
+          "start": 2.95,
+          "end": 3.35
+        }
+      ],
+      "expected_tokens": [
+        "Ursula.",
+        "I",
+        "know",
+        "you",
+        "well",
+        "enough:",
+        "you",
+        "are",
+        "Signior",
+        "Antonio."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ursula,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "ursula",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.35,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.35,
+          "end": 1.45,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.63,
+          "end": 1.77,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "enough.",
+          "start": 1.77,
+          "end": 2.01,
+          "key": "enough",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.41,
+          "end": 2.41,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.41,
+          "end": 2.53,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Signor",
+          "start": 2.53,
+          "end": 2.95,
+          "key": "signor",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Antonio.",
+          "start": 2.95,
+          "end": 3.35,
+          "key": "antonio",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ursula.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "I",
+          "start": 1.11,
+          "end": 1.35
+        },
+        {
+          "text": "know",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "text": "you",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "text": "well",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "text": "enough:",
+          "start": 1.77,
+          "end": 2.01
+        },
+        {
+          "text": "you",
+          "start": 2.41,
+          "end": 2.41
+        },
+        {
+          "text": "are",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "text": "Signior",
+          "start": 2.53,
+          "end": 2.74
+        },
+        {
+          "text": "Antonio.",
+          "start": 2.95,
+          "end": 3.35
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.21698827296495438
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b5f201669fe31c1e6d5ac3138c7a550d136f8c3841d84dab1d0a807f5e125f3b",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "6aa876e138429325ffeae268f146ccd984c4567d0a6695e14fab6b2b554dc2f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.07695728912949562,
+      "alignment_seconds": 9.587034583091736e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edgar. Gone, sir, farewell.",
+        "hotwords": "Edgar, Gone"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edgar, Gone, sir, farewell.",
+          "start": 0.11,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.11,
+              "end": 0.71,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " Gone,",
+              "start": 1.23,
+              "end": 1.29,
+              "probability": 0.06158447265625
+            },
+            {
+              "text": " sir,",
+              "start": 1.45,
+              "end": 1.53,
+              "probability": 0.0858154296875
+            },
+            {
+              "text": " farewell.",
+              "start": 1.61,
+              "end": 1.89,
+              "probability": 0.8779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.11,
+          "end": 0.71
+        },
+        {
+          "raw": "Gone,",
+          "start": 1.23,
+          "end": 1.29
+        },
+        {
+          "raw": "sir,",
+          "start": 1.45,
+          "end": 1.53
+        },
+        {
+          "raw": "farewell.",
+          "start": 1.61,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "Gone,",
+        "sir,",
+        "farewell."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.11,
+          "end": 0.71,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gone,",
+          "start": 1.23,
+          "end": 1.29,
+          "key": "gone",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.45,
+          "end": 1.53,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "farewell.",
+          "start": 1.61,
+          "end": 1.89,
+          "key": "farewell",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.11,
+          "end": 0.71
+        },
+        {
+          "text": "Gone,",
+          "start": 1.23,
+          "end": 1.29
+        },
+        {
+          "text": "sir,",
+          "start": 1.45,
+          "end": 1.53
+        },
+        {
+          "text": "farewell.",
+          "start": 1.61,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07708636298775673
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b79d2fefd416d636dc0fbe8235fa5b188ea3d3739f4dba14e20c3c0ade178452",
+  "selected_reasons": []
+}

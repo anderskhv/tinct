@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "8bd21d37a194f9dad53283d83baae0843da2d45e8ea8ae779231d089073edefa",
+  "attempts": [
+    {
+      "asr_seconds": 0.10297028301283717,
+      "alignment_seconds": 0.00013041100464761257,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lords. Amen!",
+        "hotwords": "Lords, Amen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lords, Amen!",
+          "start": 0.02,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " Lords,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.414306640625
+            },
+            {
+              "text": " Amen!",
+              "start": 1.14,
+              "end": 1.26,
+              "probability": 0.75390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lords,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Amen!",
+          "start": 1.14,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "Lords.",
+        "Amen!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lords,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "lords",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Amen!",
+          "start": 1.14,
+          "end": 1.26,
+          "key": "amen",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lords.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Amen!",
+          "start": 1.14,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10314712999388576
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ee5340237c019b92cdeeea2adfad841e05af13e8ec40ba83c8c16e1676cb51fe",
+  "selected_reasons": []
+}

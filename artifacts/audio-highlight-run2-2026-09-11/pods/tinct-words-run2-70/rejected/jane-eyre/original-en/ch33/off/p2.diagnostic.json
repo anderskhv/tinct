@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "80b6036c9bad1dc3a0d654e33e86f2a8e649529e295f7137a8a6f1e346d3376a",
+  "attempts": [
+    {
+      "asr_seconds": 0.13155847694724798,
+      "alignment_seconds": 0.0004038950428366661,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I soon forgot storm and music.",
+          "start": 0.08,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " soon",
+              "start": 0.52,
+              "end": 0.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " forgot",
+              "start": 0.72,
+              "end": 1.08,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " storm",
+              "start": 1.08,
+              "end": 1.4,
+              "probability": 0.29443359375
+            },
+            {
+              "text": " and",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.76904296875
+            },
+            {
+              "text": " music.",
+              "start": 1.54,
+              "end": 1.78,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "soon",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "raw": "forgot",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "raw": "storm",
+          "start": 1.08,
+          "end": 1.4
+        },
+        {
+          "raw": "and",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "raw": "music.",
+          "start": 1.54,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "soon",
+        "forgot",
+        "storm",
+        "in",
+        "music."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soon",
+          "start": 0.52,
+          "end": 0.72,
+          "key": "soon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "forgot",
+          "start": 0.72,
+          "end": 1.08,
+          "key": "forgot",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "storm",
+          "start": 1.08,
+          "end": 1.4,
+          "key": "storm",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.4,
+          "end": 1.54,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "music.",
+          "start": 1.54,
+          "end": 1.78,
+          "key": "music",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "soon",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "text": "forgot",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "text": "storm",
+          "start": 1.08,
+          "end": 1.4
+        },
+        {
+          "text": "in",
+          "start": 1.4,
+          "end": 1.47
+        },
+        {
+          "text": "music.",
+          "start": 1.54,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1321009579114616
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bc6be8677c6718954fabd1fd0f2df513786312a7bc84e1296f1ca55fbe369519",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

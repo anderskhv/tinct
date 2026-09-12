@@ -1,0 +1,458 @@
+{
+  "complete": true,
+  "signature": "01c8e65ec094aabb1422c34f331ab3cdfbd4f47397551607984257af7b196ebc",
+  "attempts": [
+    {
+      "asr_seconds": 0.20686920685693622,
+      "alignment_seconds": 0.0005977470427751541,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Go to bed very soon. He mumbled half-turning as he spoke",
+          "start": 0.02,
+          "end": 3.98,
+          "words": [
+            {
+              "text": " Go",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.15234375
+            },
+            {
+              "text": " to",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bed",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " very",
+              "start": 0.82,
+              "end": 1.06,
+              "probability": 0.37353515625
+            },
+            {
+              "text": " soon.",
+              "start": 1.06,
+              "end": 1.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " He",
+              "start": 1.96,
+              "end": 2.04,
+              "probability": 0.990234375
+            },
+            {
+              "text": " mumbled",
+              "start": 2.04,
+              "end": 2.48,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " half",
+              "start": 2.48,
+              "end": 2.92,
+              "probability": 0.9521484375
+            },
+            {
+              "text": "-turning",
+              "start": 2.92,
+              "end": 3.4,
+              "probability": 0.8042805989583334
+            },
+            {
+              "text": " as",
+              "start": 3.4,
+              "end": 3.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 3.52,
+              "end": 3.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " spoke",
+              "start": 3.64,
+              "end": 3.98,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Go",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "to",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "bed",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "very",
+          "start": 0.82,
+          "end": 1.06
+        },
+        {
+          "raw": "soon.",
+          "start": 1.06,
+          "end": 1.58
+        },
+        {
+          "raw": "He",
+          "start": 1.96,
+          "end": 2.04
+        },
+        {
+          "raw": "mumbled",
+          "start": 2.04,
+          "end": 2.48
+        },
+        {
+          "raw": "half",
+          "start": 2.48,
+          "end": 2.92
+        },
+        {
+          "raw": "-turning",
+          "start": 2.92,
+          "end": 3.4
+        },
+        {
+          "raw": "as",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "raw": "he",
+          "start": 3.52,
+          "end": 3.64
+        },
+        {
+          "raw": "spoke",
+          "start": 3.64,
+          "end": 3.98
+        }
+      ],
+      "expected_tokens": [
+        "\"Go",
+        "to",
+        "bed",
+        "berry",
+        "soon,\"",
+        "he",
+        "mumbled,",
+        "half-turning",
+        "as",
+        "he",
+        "spoke."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          11,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Go",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "go",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bed",
+          "start": 0.66,
+          "end": 0.82,
+          "key": "bed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 0.82,
+          "end": 1.06,
+          "key": "very",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "soon.",
+          "start": 1.06,
+          "end": 1.58,
+          "key": "soon",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.96,
+          "end": 2.04,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mumbled",
+          "start": 2.04,
+          "end": 2.48,
+          "key": "mumbled",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "half -turning",
+          "start": 2.48,
+          "end": 3.4,
+          "key": "halfturning",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.4,
+          "end": 3.52,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.52,
+          "end": 3.64,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "spoke",
+          "start": 3.64,
+          "end": 3.98,
+          "key": "spoke",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "half-turning",
+          "heard": "half -turning",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 2.48,
+          "end": 3.4
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Go",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "to",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "bed",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "berry",
+          "start": 0.82,
+          "end": 0.94
+        },
+        {
+          "text": "soon,\"",
+          "start": 1.06,
+          "end": 1.58
+        },
+        {
+          "text": "he",
+          "start": 1.96,
+          "end": 2.04
+        },
+        {
+          "text": "mumbled,",
+          "start": 2.04,
+          "end": 2.48
+        },
+        {
+          "text": "half-turning",
+          "start": 2.48,
+          "end": 3.4
+        },
+        {
+          "text": "as",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "text": "he",
+          "start": 3.52,
+          "end": 3.64
+        },
+        {
+          "text": "spoke.",
+          "start": 3.64,
+          "end": 3.98
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.20764535199850798
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aa44bc4fd8735f49212a5c609470a3b3a52745effccb9041d0dcbcd418c07c02",
+  "selected_reasons": []
+}

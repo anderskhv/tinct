@@ -1,0 +1,759 @@
+{
+  "complete": true,
+  "signature": "f7091e1f3f6aca6d7d5fd5d5647b67416d03a7e643caaea214dfe2abc7ee15da",
+  "attempts": [
+    {
+      "asr_seconds": 0.2587529579177499,
+      "alignment_seconds": 0.00023923185653984547,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Richard. Catesby, o'erlook the walls.",
+        "hotwords": "Richard, Catesby"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Richard, Catesby, o'erlook the walls.",
+          "start": 0.02,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.798828125
+            },
+            {
+              "text": " Catesby,",
+              "start": 1.32,
+              "end": 1.66,
+              "probability": 0.4895782470703125
+            },
+            {
+              "text": " o",
+              "start": 1.86,
+              "end": 1.88,
+              "probability": 0.0004181861877441406
+            },
+            {
+              "text": "'erlook",
+              "start": 1.88,
+              "end": 2.02,
+              "probability": 0.5740966796875
+            },
+            {
+              "text": " the",
+              "start": 2.02,
+              "end": 2.18,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " walls.",
+              "start": 2.18,
+              "end": 2.44,
+              "probability": 0.88818359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Catesby,",
+          "start": 1.32,
+          "end": 1.66
+        },
+        {
+          "raw": "o",
+          "start": 1.86,
+          "end": 1.88
+        },
+        {
+          "raw": "'erlook",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "raw": "the",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "raw": "walls.",
+          "start": 2.18,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Catesby,",
+        "o'erlook",
+        "the",
+        "walls."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          5,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Catesby,",
+          "start": 1.32,
+          "end": 1.66,
+          "key": "catesby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.86,
+          "end": 1.88,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'erlook",
+          "start": 1.88,
+          "end": 2.02,
+          "key": "erlook",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.02,
+          "end": 2.18,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "walls.",
+          "start": 2.18,
+          "end": 2.44,
+          "key": "walls",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Catesby,",
+          "start": 1.32,
+          "end": 1.66
+        },
+        {
+          "text": "o'erlook",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "the",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "text": "walls.",
+          "start": 2.18,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.25908357091248035
+    },
+    {
+      "asr_seconds": 0.23554796702228487,
+      "alignment_seconds": 0.00029134098440408707,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Richard, Catesby"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Richard, Catesby, Orlook the Walls",
+          "start": 0.02,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.798828125
+            },
+            {
+              "text": " Catesby,",
+              "start": 1.32,
+              "end": 1.66,
+              "probability": 0.4895782470703125
+            },
+            {
+              "text": " Orlook",
+              "start": 1.86,
+              "end": 2.02,
+              "probability": 0.649169921875
+            },
+            {
+              "text": " the",
+              "start": 2.02,
+              "end": 2.18,
+              "probability": 0.716796875
+            },
+            {
+              "text": " Walls",
+              "start": 2.18,
+              "end": 2.42,
+              "probability": 0.89501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Catesby,",
+          "start": 1.32,
+          "end": 1.66
+        },
+        {
+          "raw": "Orlook",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "raw": "the",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "raw": "Walls",
+          "start": 2.18,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Catesby,",
+        "o'erlook",
+        "the",
+        "walls."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Catesby,",
+          "start": 1.32,
+          "end": 1.66,
+          "key": "catesby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Orlook",
+          "start": 1.86,
+          "end": 2.02,
+          "key": "orlook",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.02,
+          "end": 2.18,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Walls",
+          "start": 2.18,
+          "end": 2.42,
+          "key": "walls",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Catesby,",
+          "start": 1.32,
+          "end": 1.66
+        },
+        {
+          "text": "o'erlook",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "the",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "text": "walls.",
+          "start": 2.18,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23595153889618814
+    },
+    {
+      "asr_seconds": 0.2149524420965463,
+      "alignment_seconds": 0.00040581892244517803,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richard, Caddisby, or Look the Walls.",
+          "start": 0.02,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.798828125
+            },
+            {
+              "text": " Caddisby,",
+              "start": 1.32,
+              "end": 1.68,
+              "probability": 0.69049072265625
+            },
+            {
+              "text": " or",
+              "start": 1.86,
+              "end": 1.88,
+              "probability": 0.482421875
+            },
+            {
+              "text": " Look",
+              "start": 1.88,
+              "end": 2.02,
+              "probability": 0.71435546875
+            },
+            {
+              "text": " the",
+              "start": 2.02,
+              "end": 2.18,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " Walls.",
+              "start": 2.18,
+              "end": 2.42,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Caddisby,",
+          "start": 1.32,
+          "end": 1.68
+        },
+        {
+          "raw": "or",
+          "start": 1.86,
+          "end": 1.88
+        },
+        {
+          "raw": "Look",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "raw": "the",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "raw": "Walls.",
+          "start": 2.18,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Catesby,",
+        "o'erlook",
+        "the",
+        "walls."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          4
+        ],
+        [
+          "equal",
+          3,
+          5,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Caddisby,",
+          "start": 1.32,
+          "end": 1.68,
+          "key": "caddisby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 1.86,
+          "end": 1.88,
+          "key": "or",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 1.88,
+          "end": 2.02,
+          "key": "look",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.02,
+          "end": 2.18,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Walls.",
+          "start": 2.18,
+          "end": 2.42,
+          "key": "walls",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Catesby,",
+          "start": 0.8,
+          "end": 1.41
+        },
+        {
+          "text": "o'erlook",
+          "start": 1.41,
+          "end": 1.715
+        },
+        {
+          "text": "the",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "text": "walls.",
+          "start": 2.18,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21549282502382994
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a9a3968cf550ee19feef804bb714fc1499e56d6be442e02395c1170aee0c6e77",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

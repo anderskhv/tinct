@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "b167da443912215212d00140d984847f7cf4822a74255ace792a9daf083d3375",
+  "attempts": [
+    {
+      "asr_seconds": 0.17684186808764935,
+      "alignment_seconds": 0.00026370957493782043,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Don Pedro. None, but to desire your good company.",
+        "hotwords": "Don, Pedro, None"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don, Pedro, None, but to desire your good company.",
+          "start": 0.05,
+          "end": 3.45,
+          "words": [
+            {
+              "text": " Don,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.7158203125
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.91,
+              "end": 1.03,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " None,",
+              "start": 1.67,
+              "end": 1.81,
+              "probability": 0.0290985107421875
+            },
+            {
+              "text": " but",
+              "start": 2.13,
+              "end": 2.21,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " to",
+              "start": 2.21,
+              "end": 2.31,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " desire",
+              "start": 2.31,
+              "end": 2.61,
+              "probability": 0.71875
+            },
+            {
+              "text": " your",
+              "start": 2.61,
+              "end": 2.87,
+              "probability": 0.880859375
+            },
+            {
+              "text": " good",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " company.",
+              "start": 3.03,
+              "end": 3.45,
+              "probability": 0.955078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.91,
+          "end": 1.03
+        },
+        {
+          "raw": "None,",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "raw": "but",
+          "start": 2.13,
+          "end": 2.21
+        },
+        {
+          "raw": "to",
+          "start": 2.21,
+          "end": 2.31
+        },
+        {
+          "raw": "desire",
+          "start": 2.31,
+          "end": 2.61
+        },
+        {
+          "raw": "your",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "raw": "good",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "company.",
+          "start": 3.03,
+          "end": 3.45
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "None,",
+        "but",
+        "to",
+        "desire",
+        "your",
+        "good",
+        "company."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.91,
+          "end": 1.03,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "None,",
+          "start": 1.67,
+          "end": 1.81,
+          "key": "none",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.13,
+          "end": 2.21,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.21,
+          "end": 2.31,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "desire",
+          "start": 2.31,
+          "end": 2.61,
+          "key": "desire",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.61,
+          "end": 2.87,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "good",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "company.",
+          "start": 3.03,
+          "end": 3.45,
+          "key": "company",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.91,
+          "end": 1.03
+        },
+        {
+          "text": "None,",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "text": "but",
+          "start": 2.13,
+          "end": 2.21
+        },
+        {
+          "text": "to",
+          "start": 2.21,
+          "end": 2.31
+        },
+        {
+          "text": "desire",
+          "start": 2.31,
+          "end": 2.61
+        },
+        {
+          "text": "your",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "text": "good",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "text": "company.",
+          "start": 3.03,
+          "end": 3.45
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1772126778960228
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f24b1ec78318ad9aa0d2852f71103343554ff983f60cf17ea38b23b11d2da804",
+  "selected_reasons": []
+}

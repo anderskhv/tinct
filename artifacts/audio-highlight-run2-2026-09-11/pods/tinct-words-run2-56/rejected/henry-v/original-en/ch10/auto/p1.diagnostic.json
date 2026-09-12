@@ -1,0 +1,1497 @@
+{
+  "complete": true,
+  "signature": "930793668a9e29641f362b14a06d2e08eb457974d893315b9ea9f28b75131cb9",
+  "attempts": [
+    {
+      "asr_seconds": 0.8301272271201015,
+      "alignment_seconds": 0.0006172629073262215,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Katharine. _Alice, tu as été en Angleterre, et tu parles bien le langage._",
+        "hotwords": "Katharine, Angleterre"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Katharine, Alice, tu as été en Angleterre, et tu parles bien le langage._",
+          "start": 0.05,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " Katharine,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.181884765625
+            },
+            {
+              "text": " Alice,",
+              "start": 1.43,
+              "end": 1.87,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " tu",
+              "start": 2.17,
+              "end": 2.19,
+              "probability": 0.002483367919921875
+            },
+            {
+              "text": " as",
+              "start": 2.19,
+              "end": 2.31,
+              "probability": 0.0701904296875
+            },
+            {
+              "text": " été",
+              "start": 2.31,
+              "end": 2.57,
+              "probability": 0.49958499272664386
+            },
+            {
+              "text": " en",
+              "start": 2.57,
+              "end": 2.71,
+              "probability": 0.54052734375
+            },
+            {
+              "text": " Angleterre,",
+              "start": 2.71,
+              "end": 3.39,
+              "probability": 0.2915385564168294
+            },
+            {
+              "text": " et",
+              "start": 3.65,
+              "end": 3.73,
+              "probability": 0.916015625
+            },
+            {
+              "text": " tu",
+              "start": 3.73,
+              "end": 3.93,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " parles",
+              "start": 3.93,
+              "end": 4.27,
+              "probability": 0.642333984375
+            },
+            {
+              "text": " bien",
+              "start": 4.27,
+              "end": 4.57,
+              "probability": 0.6187744140625
+            },
+            {
+              "text": " le",
+              "start": 4.57,
+              "end": 4.71,
+              "probability": 0.1688232421875
+            },
+            {
+              "text": " langage._",
+              "start": 4.71,
+              "end": 5.73,
+              "probability": 0.3287455439567566
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katharine,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Alice,",
+          "start": 1.43,
+          "end": 1.87
+        },
+        {
+          "raw": "tu",
+          "start": 2.17,
+          "end": 2.19
+        },
+        {
+          "raw": "as",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "raw": "été",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "raw": "en",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "raw": "Angleterre,",
+          "start": 2.71,
+          "end": 3.39
+        },
+        {
+          "raw": "et",
+          "start": 3.65,
+          "end": 3.73
+        },
+        {
+          "raw": "tu",
+          "start": 3.73,
+          "end": 3.93
+        },
+        {
+          "raw": "parles",
+          "start": 3.93,
+          "end": 4.27
+        },
+        {
+          "raw": "bien",
+          "start": 4.27,
+          "end": 4.57
+        },
+        {
+          "raw": "le",
+          "start": 4.57,
+          "end": 4.71
+        },
+        {
+          "raw": "langage._",
+          "start": 4.71,
+          "end": 5.73
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "_Alice,",
+        "tu",
+        "as",
+        "été",
+        "en",
+        "Angleterre,",
+        "et",
+        "tu",
+        "parles",
+        "bien",
+        "le",
+        "langage._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katharine,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "katharine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alice,",
+          "start": 1.43,
+          "end": 1.87,
+          "key": "alice",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tu",
+          "start": 2.17,
+          "end": 2.19,
+          "key": "tu",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.19,
+          "end": 2.31,
+          "key": "as",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "été",
+          "start": 2.31,
+          "end": 2.57,
+          "key": "été",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "en",
+          "start": 2.57,
+          "end": 2.71,
+          "key": "en",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Angleterre,",
+          "start": 2.71,
+          "end": 3.39,
+          "key": "angleterre",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 3.65,
+          "end": 3.73,
+          "key": "et",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tu",
+          "start": 3.73,
+          "end": 3.93,
+          "key": "tu",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "parles",
+          "start": 3.93,
+          "end": 4.27,
+          "key": "parles",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "bien",
+          "start": 4.27,
+          "end": 4.57,
+          "key": "bien",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "le",
+          "start": 4.57,
+          "end": 4.71,
+          "key": "le",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "langage._",
+          "start": 4.71,
+          "end": 5.73,
+          "key": "langage_",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "_Alice,",
+          "start": 1.43,
+          "end": 1.87
+        },
+        {
+          "text": "tu",
+          "start": 2.17,
+          "end": 2.19
+        },
+        {
+          "text": "as",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "text": "été",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "text": "en",
+          "start": 2.57,
+          "end": 2.71
+        },
+        {
+          "text": "Angleterre,",
+          "start": 2.71,
+          "end": 3.39
+        },
+        {
+          "text": "et",
+          "start": 3.65,
+          "end": 3.73
+        },
+        {
+          "text": "tu",
+          "start": 3.73,
+          "end": 3.93
+        },
+        {
+          "text": "parles",
+          "start": 3.93,
+          "end": 4.27
+        },
+        {
+          "text": "bien",
+          "start": 4.27,
+          "end": 4.57
+        },
+        {
+          "text": "le",
+          "start": 4.57,
+          "end": 4.71
+        },
+        {
+          "text": "langage._",
+          "start": 4.71,
+          "end": 5.22
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.8309816941618919
+    },
+    {
+      "asr_seconds": 0.30814769957214594,
+      "alignment_seconds": 0.0005028508603572845,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Katharine, Angleterre"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Katharine, Alice to his até and Angleterre at two parls by Enlilengage",
+          "start": 0.05,
+          "end": 5.13,
+          "words": [
+            {
+              "text": " Katharine,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.181884765625
+            },
+            {
+              "text": " Alice",
+              "start": 1.43,
+              "end": 1.87,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " to",
+              "start": 1.87,
+              "end": 2.17,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " his",
+              "start": 2.17,
+              "end": 2.31,
+              "probability": 0.58251953125
+            },
+            {
+              "text": " até",
+              "start": 2.31,
+              "end": 2.57,
+              "probability": 0.4547119140625
+            },
+            {
+              "text": " and",
+              "start": 2.57,
+              "end": 2.73,
+              "probability": 0.7021484375
+            },
+            {
+              "text": " Angleterre",
+              "start": 2.73,
+              "end": 3.35,
+              "probability": 0.050224622090657554
+            },
+            {
+              "text": " at",
+              "start": 3.35,
+              "end": 3.73,
+              "probability": 0.61279296875
+            },
+            {
+              "text": " two",
+              "start": 3.73,
+              "end": 3.93,
+              "probability": 0.316162109375
+            },
+            {
+              "text": " parls",
+              "start": 3.93,
+              "end": 4.27,
+              "probability": 0.7890625
+            },
+            {
+              "text": " by",
+              "start": 4.27,
+              "end": 4.43,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " Enlilengage",
+              "start": 4.43,
+              "end": 5.13,
+              "probability": 0.780126953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katharine,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Alice",
+          "start": 1.43,
+          "end": 1.87
+        },
+        {
+          "raw": "to",
+          "start": 1.87,
+          "end": 2.17
+        },
+        {
+          "raw": "his",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "raw": "até",
+          "start": 2.31,
+          "end": 2.57
+        },
+        {
+          "raw": "and",
+          "start": 2.57,
+          "end": 2.73
+        },
+        {
+          "raw": "Angleterre",
+          "start": 2.73,
+          "end": 3.35
+        },
+        {
+          "raw": "at",
+          "start": 3.35,
+          "end": 3.73
+        },
+        {
+          "raw": "two",
+          "start": 3.73,
+          "end": 3.93
+        },
+        {
+          "raw": "parls",
+          "start": 3.93,
+          "end": 4.27
+        },
+        {
+          "raw": "by",
+          "start": 4.27,
+          "end": 4.43
+        },
+        {
+          "raw": "Enlilengage",
+          "start": 4.43,
+          "end": 5.13
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "_Alice,",
+        "tu",
+        "as",
+        "été",
+        "en",
+        "Angleterre,",
+        "et",
+        "tu",
+        "parles",
+        "bien",
+        "le",
+        "langage._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          6,
+          2,
+          6
+        ],
+        [
+          "equal",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          7,
+          13,
+          7,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          6,
+          2,
+          6
+        ],
+        [
+          "replace",
+          7,
+          13,
+          7,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katharine,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "katharine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alice",
+          "start": 1.43,
+          "end": 1.87,
+          "key": "alice",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.87,
+          "end": 2.17,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.17,
+          "end": 2.31,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "até",
+          "start": 2.31,
+          "end": 2.57,
+          "key": "até",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.57,
+          "end": 2.73,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Angleterre",
+          "start": 2.73,
+          "end": 3.35,
+          "key": "angleterre",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.35,
+          "end": 3.73,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 3.73,
+          "end": 3.93,
+          "key": "two",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "parls",
+          "start": 3.93,
+          "end": 4.27,
+          "key": "parls",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.27,
+          "end": 4.43,
+          "key": "by",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Enlilengage",
+          "start": 4.43,
+          "end": 5.13,
+          "key": "enlilengage",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "_Alice,",
+          "start": 1.43,
+          "end": 1.87
+        },
+        {
+          "text": "tu",
+          "start": 1.87,
+          "end": 2.3
+        },
+        {
+          "text": "as",
+          "start": 2.3,
+          "end": 2.515
+        },
+        {
+          "text": "été",
+          "start": 2.515,
+          "end": 2.623
+        },
+        {
+          "text": "en",
+          "start": 2.623,
+          "end": 2.676
+        },
+        {
+          "text": "Angleterre,",
+          "start": 2.73,
+          "end": 3.35
+        },
+        {
+          "text": "et",
+          "start": 3.35,
+          "end": 4.24
+        },
+        {
+          "text": "tu",
+          "start": 4.24,
+          "end": 4.685
+        },
+        {
+          "text": "parles",
+          "start": 4.685,
+          "end": 4.907
+        },
+        {
+          "text": "bien",
+          "start": 4.907,
+          "end": 5.018
+        },
+        {
+          "text": "le",
+          "start": 5.018,
+          "end": 5.074
+        },
+        {
+          "text": "langage._",
+          "start": 5.074,
+          "end": 5.102
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 12,
+        "matched_words": 3
+      },
+      "match_ratio": 0.23076923076923078,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3088126555085182
+    },
+    {
+      "asr_seconds": 0.2686741156503558,
+      "alignment_seconds": 0.0005151424556970596,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Catherine Alice to his até and angle terra at two parls by Enlil engage",
+          "start": 0.05,
+          "end": 5.01,
+          "words": [
+            {
+              "text": " Catherine",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.196533203125
+            },
+            {
+              "text": " Alice",
+              "start": 0.81,
+              "end": 1.85,
+              "probability": 0.44091796875
+            },
+            {
+              "text": " to",
+              "start": 1.85,
+              "end": 2.19,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " his",
+              "start": 2.19,
+              "end": 2.31,
+              "probability": 0.7890625
+            },
+            {
+              "text": " até",
+              "start": 2.31,
+              "end": 2.59,
+              "probability": 0.393798828125
+            },
+            {
+              "text": " and",
+              "start": 2.59,
+              "end": 2.73,
+              "probability": 0.6474609375
+            },
+            {
+              "text": " angle",
+              "start": 2.73,
+              "end": 2.97,
+              "probability": 0.65478515625
+            },
+            {
+              "text": " terra",
+              "start": 2.97,
+              "end": 3.43,
+              "probability": 0.5341796875
+            },
+            {
+              "text": " at",
+              "start": 3.43,
+              "end": 3.73,
+              "probability": 0.9375
+            },
+            {
+              "text": " two",
+              "start": 3.73,
+              "end": 3.93,
+              "probability": 0.58984375
+            },
+            {
+              "text": " parls",
+              "start": 3.93,
+              "end": 4.29,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " by",
+              "start": 4.29,
+              "end": 4.43,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " Enlil",
+              "start": 4.43,
+              "end": 4.73,
+              "probability": 0.7184244791666666
+            },
+            {
+              "text": " engage",
+              "start": 4.73,
+              "end": 5.01,
+              "probability": 0.75537109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Catherine",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Alice",
+          "start": 0.81,
+          "end": 1.85
+        },
+        {
+          "raw": "to",
+          "start": 1.85,
+          "end": 2.19
+        },
+        {
+          "raw": "his",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "raw": "até",
+          "start": 2.31,
+          "end": 2.59
+        },
+        {
+          "raw": "and",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "raw": "angle",
+          "start": 2.73,
+          "end": 2.97
+        },
+        {
+          "raw": "terra",
+          "start": 2.97,
+          "end": 3.43
+        },
+        {
+          "raw": "at",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "raw": "two",
+          "start": 3.73,
+          "end": 3.93
+        },
+        {
+          "raw": "parls",
+          "start": 3.93,
+          "end": 4.29
+        },
+        {
+          "raw": "by",
+          "start": 4.29,
+          "end": 4.43
+        },
+        {
+          "raw": "Enlil",
+          "start": 4.43,
+          "end": 4.73
+        },
+        {
+          "raw": "engage",
+          "start": 4.73,
+          "end": 5.01
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "_Alice,",
+        "tu",
+        "as",
+        "été",
+        "en",
+        "Angleterre,",
+        "et",
+        "tu",
+        "parles",
+        "bien",
+        "le",
+        "langage._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          13,
+          2,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          13,
+          2,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Catherine",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "catherine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alice",
+          "start": 0.81,
+          "end": 1.85,
+          "key": "alice",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.85,
+          "end": 2.19,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.19,
+          "end": 2.31,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "até",
+          "start": 2.31,
+          "end": 2.59,
+          "key": "até",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.59,
+          "end": 2.73,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "angle",
+          "start": 2.73,
+          "end": 2.97,
+          "key": "angle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "terra",
+          "start": 2.97,
+          "end": 3.43,
+          "key": "terra",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.43,
+          "end": 3.73,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 3.73,
+          "end": 3.93,
+          "key": "two",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "parls",
+          "start": 3.93,
+          "end": 4.29,
+          "key": "parls",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.29,
+          "end": 4.43,
+          "key": "by",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Enlil",
+          "start": 4.43,
+          "end": 4.73,
+          "key": "enlil",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "engage",
+          "start": 4.73,
+          "end": 5.01,
+          "key": "engage",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.0,
+          "end": 0.405
+        },
+        {
+          "text": "_Alice,",
+          "start": 0.81,
+          "end": 1.85
+        },
+        {
+          "text": "tu",
+          "start": 1.85,
+          "end": 3.43
+        },
+        {
+          "text": "as",
+          "start": 3.43,
+          "end": 4.22
+        },
+        {
+          "text": "été",
+          "start": 4.22,
+          "end": 4.615
+        },
+        {
+          "text": "en",
+          "start": 4.615,
+          "end": 4.812
+        },
+        {
+          "text": "Angleterre,",
+          "start": 4.812,
+          "end": 4.911
+        },
+        {
+          "text": "et",
+          "start": 4.911,
+          "end": 4.96
+        },
+        {
+          "text": "tu",
+          "start": 4.96,
+          "end": 4.985
+        },
+        {
+          "text": "parles",
+          "start": 4.985,
+          "end": 4.998
+        },
+        {
+          "text": "bien",
+          "start": 4.998,
+          "end": 5.004
+        },
+        {
+          "text": "le",
+          "start": 5.004,
+          "end": 5.007
+        },
+        {
+          "text": "langage._",
+          "start": 5.007,
+          "end": 5.008
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 1
+      },
+      "match_ratio": 0.07692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.26937128603458405
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "123fd503fc862ae2ff89173b8a98c07368cee29ae99d47c7435ff130ddf5d66b",
+  "selected_reasons": []
+}

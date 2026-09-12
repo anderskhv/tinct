@@ -1,0 +1,665 @@
+{
+  "complete": true,
+  "signature": "250e1ad9c696daefc5b8e9cf2d3e689f399a63e9e2c237173f3e9af46c6e47c2",
+  "attempts": [
+    {
+      "asr_seconds": 0.3278870917856693,
+      "alignment_seconds": 0.000686895102262497,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " On the steps of the City Hall, Councillor Nanetti, descending, hailed Alderman Cowley",
+          "start": 0.08,
+          "end": 5.38,
+          "words": [
+            {
+              "text": " On",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.35986328125
+            },
+            {
+              "text": " the",
+              "start": 0.54,
+              "end": 0.62,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " steps",
+              "start": 0.62,
+              "end": 0.86,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 0.86,
+              "end": 1.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.06,
+              "end": 1.16,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " City",
+              "start": 1.16,
+              "end": 1.32,
+              "probability": 0.701171875
+            },
+            {
+              "text": " Hall,",
+              "start": 1.32,
+              "end": 1.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Councillor",
+              "start": 1.88,
+              "end": 2.24,
+              "probability": 0.9327799479166666
+            },
+            {
+              "text": " Nanetti,",
+              "start": 2.24,
+              "end": 2.62,
+              "probability": 0.620361328125
+            },
+            {
+              "text": " descending,",
+              "start": 3.2,
+              "end": 3.58,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " hailed",
+              "start": 4.4,
+              "end": 4.4,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " Alderman",
+              "start": 4.4,
+              "end": 4.86,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " Cowley",
+              "start": 4.86,
+              "end": 5.38,
+              "probability": 0.988525390625
+            }
+          ]
+        },
+        {
+          "text": " and Councillor Abraham Lyon ascending.",
+          "start": 5.38,
+          "end": 7.6,
+          "words": [
+            {
+              "text": " and",
+              "start": 5.38,
+              "end": 5.64,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Councillor",
+              "start": 5.64,
+              "end": 6.22,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Abraham",
+              "start": 6.22,
+              "end": 6.74,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Lyon",
+              "start": 6.74,
+              "end": 7.02,
+              "probability": 0.6611328125
+            },
+            {
+              "text": " ascending.",
+              "start": 7.02,
+              "end": 7.6,
+              "probability": 0.57470703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "On",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.62
+        },
+        {
+          "raw": "steps",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "raw": "of",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "raw": "the",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "raw": "City",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "raw": "Hall,",
+          "start": 1.32,
+          "end": 1.62
+        },
+        {
+          "raw": "Councillor",
+          "start": 1.88,
+          "end": 2.24
+        },
+        {
+          "raw": "Nanetti,",
+          "start": 2.24,
+          "end": 2.62
+        },
+        {
+          "raw": "descending,",
+          "start": 3.2,
+          "end": 3.58
+        },
+        {
+          "raw": "hailed",
+          "start": 4.4,
+          "end": 4.4
+        },
+        {
+          "raw": "Alderman",
+          "start": 4.4,
+          "end": 4.86
+        },
+        {
+          "raw": "Cowley",
+          "start": 4.86,
+          "end": 5.38
+        },
+        {
+          "raw": "and",
+          "start": 5.38,
+          "end": 5.64
+        },
+        {
+          "raw": "Councillor",
+          "start": 5.64,
+          "end": 6.22
+        },
+        {
+          "raw": "Abraham",
+          "start": 6.22,
+          "end": 6.74
+        },
+        {
+          "raw": "Lyon",
+          "start": 6.74,
+          "end": 7.02
+        },
+        {
+          "raw": "ascending.",
+          "start": 7.02,
+          "end": 7.6
+        }
+      ],
+      "expected_tokens": [
+        "On",
+        "the",
+        "steps",
+        "of",
+        "the",
+        "City",
+        "hall",
+        "Councillor",
+        "Nannetti,",
+        "descending,",
+        "hailed",
+        "Alderman",
+        "Cowley",
+        "and",
+        "Councillor",
+        "Abraham",
+        "Lyon",
+        "ascending."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          18,
+          9,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "On",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "on",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.62,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "steps",
+          "start": 0.62,
+          "end": 0.86,
+          "key": "steps",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.86,
+          "end": 1.06,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.06,
+          "end": 1.16,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "City",
+          "start": 1.16,
+          "end": 1.32,
+          "key": "city",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Hall,",
+          "start": 1.32,
+          "end": 1.62,
+          "key": "hall",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Councillor",
+          "start": 1.88,
+          "end": 2.24,
+          "key": "councillor",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Nanetti,",
+          "start": 2.24,
+          "end": 2.62,
+          "key": "nanetti",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "descending,",
+          "start": 3.2,
+          "end": 3.58,
+          "key": "descending",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hailed",
+          "start": 4.4,
+          "end": 4.4,
+          "key": "hailed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Alderman",
+          "start": 4.4,
+          "end": 4.86,
+          "key": "alderman",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Cowley",
+          "start": 4.86,
+          "end": 5.38,
+          "key": "cowley",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.38,
+          "end": 5.64,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Councillor",
+          "start": 5.64,
+          "end": 6.22,
+          "key": "councillor",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Abraham",
+          "start": 6.22,
+          "end": 6.74,
+          "key": "abraham",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Lyon",
+          "start": 6.74,
+          "end": 7.02,
+          "key": "lyon",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "ascending.",
+          "start": 7.02,
+          "end": 7.6,
+          "key": "ascending",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "On",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "the",
+          "start": 0.54,
+          "end": 0.62
+        },
+        {
+          "text": "steps",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "text": "of",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "text": "the",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "text": "City",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "text": "hall",
+          "start": 1.32,
+          "end": 1.62
+        },
+        {
+          "text": "Councillor",
+          "start": 1.88,
+          "end": 2.24
+        },
+        {
+          "text": "Nannetti,",
+          "start": 2.24,
+          "end": 2.72
+        },
+        {
+          "text": "descending,",
+          "start": 3.2,
+          "end": 3.58
+        },
+        {
+          "text": "hailed",
+          "start": 4.4,
+          "end": 4.4
+        },
+        {
+          "text": "Alderman",
+          "start": 4.4,
+          "end": 4.86
+        },
+        {
+          "text": "Cowley",
+          "start": 4.86,
+          "end": 5.38
+        },
+        {
+          "text": "and",
+          "start": 5.38,
+          "end": 5.64
+        },
+        {
+          "text": "Councillor",
+          "start": 5.64,
+          "end": 6.22
+        },
+        {
+          "text": "Abraham",
+          "start": 6.22,
+          "end": 6.74
+        },
+        {
+          "text": "Lyon",
+          "start": 6.74,
+          "end": 7.02
+        },
+        {
+          "text": "ascending.",
+          "start": 7.02,
+          "end": 7.6
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.32875689771026373
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b5699df1c178b603a7e46bd3ccecdd269d83c84a0d26ab55127d2d1c4ee4dcd7",
+  "selected_reasons": []
+}

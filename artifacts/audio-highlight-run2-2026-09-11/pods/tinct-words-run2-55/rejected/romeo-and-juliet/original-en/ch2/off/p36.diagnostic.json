@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "1342a952f3182d50a0af3566846fccb3baa8d5b314b18faadd189df793315d33",
+  "attempts": [
+    {
+      "asr_seconds": 0.10803553462028503,
+      "alignment_seconds": 0.0001728404313325882,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Abraham, know better.",
+          "start": 0.05,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Abraham,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " know",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.671875
+            },
+            {
+              "text": " better.",
+              "start": 1.33,
+              "end": 1.63,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Abraham,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "know",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "better.",
+          "start": 1.33,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "Abram.",
+        "No",
+        "better."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Abraham,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "abraham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "know",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "better.",
+          "start": 1.33,
+          "end": 1.63,
+          "key": "better",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Abram.",
+          "start": 0.0,
+          "end": 0.665
+        },
+        {
+          "text": "No",
+          "start": 0.665,
+          "end": 0.998
+        },
+        {
+          "text": "better.",
+          "start": 1.33,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10826090630143881
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "caa35ce0b2c6b4259b63963715d487d23761e21248111a4255f65e792a1d4d02",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

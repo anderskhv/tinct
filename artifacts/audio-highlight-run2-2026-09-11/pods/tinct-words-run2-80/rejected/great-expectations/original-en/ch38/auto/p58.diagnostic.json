@@ -1,0 +1,3820 @@
+{
+  "complete": true,
+  "signature": "5404d0d6b488d98fce00d5c18f89ee1a01d738fe5ffba346bda2a6f3dbee6907",
+  "attempts": [
+    {
+      "asr_seconds": 0.9753547012805939,
+      "alignment_seconds": 0.003158995881676674,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "It was with a depressed heart that I walked in the starlight for an hour and more, about the courtyard, and about the brewery, and about the ruined garden. When I at last took courage to return to the room, I found Estella sitting at Miss Havisham's knee, taking up some stitches in one of those old articles of dress that were dropping to pieces, and of which I have often been reminded since by the faded tatters of old banners that I have seen hanging up in cathedrals. Afterwards, Estella and I played at cards, as of yore,—only we were skilful now, and played French games,—and so the evening wore away, and I went to bed.",
+        "hotwords": "It, I, When, Estella, Miss, Havisham's, Afterwards, French"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It was with a depressed heart that I walked in the starlight for an hour and more, about the courtyard, and about the brewery, and about the ruined garden.",
+          "start": 0.05,
+          "end": 8.17,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.6162109375
+            },
+            {
+              "text": " was",
+              "start": 0.49,
+              "end": 0.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 0.59,
+              "end": 0.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 0.71,
+              "end": 0.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " depressed",
+              "start": 0.81,
+              "end": 1.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " heart",
+              "start": 1.15,
+              "end": 1.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 1.45,
+              "end": 1.65,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 1.65,
+              "end": 1.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " walked",
+              "start": 1.79,
+              "end": 2.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 2.01,
+              "end": 2.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.19,
+              "end": 2.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " starlight",
+              "start": 2.33,
+              "end": 2.67,
+              "probability": 0.979248046875
+            },
+            {
+              "text": " for",
+              "start": 2.67,
+              "end": 2.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " an",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hour",
+              "start": 3.03,
+              "end": 3.23,
+              "probability": 1.0
+            },
+            {
+              "text": " and",
+              "start": 3.23,
+              "end": 3.49,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " more,",
+              "start": 3.49,
+              "end": 3.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " about",
+              "start": 4.37,
+              "end": 4.51,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 4.51,
+              "end": 4.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " courtyard,",
+              "start": 4.65,
+              "end": 5.09,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " and",
+              "start": 5.69,
+              "end": 5.81,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " about",
+              "start": 5.81,
+              "end": 5.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 5.97,
+              "end": 6.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " brewery,",
+              "start": 6.11,
+              "end": 6.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 6.99,
+              "end": 7.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " about",
+              "start": 7.07,
+              "end": 7.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 7.25,
+              "end": 7.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ruined",
+              "start": 7.41,
+              "end": 7.73,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " garden.",
+              "start": 7.73,
+              "end": 8.17,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " When I at last took courage to return to the room, I found Estella sitting at Miss Havisham's knee, taking up some stitches in one of those old articles of dress that were dropping to pieces, and of which I have often been reminded since by the faded tatters of old banners that I have seen hanging up in cathedrals.",
+          "start": 8.95,
+          "end": 25.81,
+          "words": [
+            {
+              "text": " When",
+              "start": 8.95,
+              "end": 9.13,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 9.13,
+              "end": 9.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 9.25,
+              "end": 9.35,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " last",
+              "start": 9.35,
+              "end": 9.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " took",
+              "start": 9.63,
+              "end": 9.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " courage",
+              "start": 9.87,
+              "end": 10.17,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 10.17,
+              "end": 10.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " return",
+              "start": 10.45,
+              "end": 10.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 10.73,
+              "end": 10.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 10.93,
+              "end": 11.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " room,",
+              "start": 11.05,
+              "end": 11.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 11.77,
+              "end": 11.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " found",
+              "start": 11.95,
+              "end": 12.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Estella",
+              "start": 12.23,
+              "end": 12.61,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " sitting",
+              "start": 12.61,
+              "end": 12.95,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " at",
+              "start": 12.95,
+              "end": 13.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Miss",
+              "start": 13.23,
+              "end": 13.39,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " Havisham's",
+              "start": 13.39,
+              "end": 14.05,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " knee,",
+              "start": 14.05,
+              "end": 14.25,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " taking",
+              "start": 14.73,
+              "end": 14.95,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " up",
+              "start": 14.95,
+              "end": 15.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " some",
+              "start": 15.15,
+              "end": 15.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stitches",
+              "start": 15.37,
+              "end": 15.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 15.73,
+              "end": 16.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " one",
+              "start": 16.05,
+              "end": 16.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 16.15,
+              "end": 16.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " those",
+              "start": 16.29,
+              "end": 16.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " old",
+              "start": 16.41,
+              "end": 16.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " articles",
+              "start": 16.69,
+              "end": 17.09,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 17.09,
+              "end": 17.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dress",
+              "start": 17.35,
+              "end": 17.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 17.65,
+              "end": 17.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " were",
+              "start": 17.89,
+              "end": 18.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " dropping",
+              "start": 18.01,
+              "end": 18.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 18.33,
+              "end": 18.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " pieces,",
+              "start": 18.61,
+              "end": 18.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 19.63,
+              "end": 19.85,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 19.85,
+              "end": 19.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " which",
+              "start": 19.93,
+              "end": 20.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 20.07,
+              "end": 20.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " have",
+              "start": 20.21,
+              "end": 20.29,
+              "probability": 0.99609375
+            },
+            {
+              "text": " often",
+              "start": 20.29,
+              "end": 20.63,
+              "probability": 0.994140625
+            },
+            {
+              "text": " been",
+              "start": 20.63,
+              "end": 20.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " reminded",
+              "start": 20.81,
+              "end": 21.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " since",
+              "start": 21.23,
+              "end": 21.59,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " by",
+              "start": 21.59,
+              "end": 21.85,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 21.85,
+              "end": 22.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " faded",
+              "start": 22.01,
+              "end": 22.37,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " tatters",
+              "start": 22.37,
+              "end": 22.79,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 22.79,
+              "end": 23.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " old",
+              "start": 23.01,
+              "end": 23.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " banners",
+              "start": 23.25,
+              "end": 23.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 23.63,
+              "end": 23.97,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " I",
+              "start": 23.97,
+              "end": 24.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 24.09,
+              "end": 24.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " seen",
+              "start": 24.21,
+              "end": 24.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hanging",
+              "start": 24.45,
+              "end": 24.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " up",
+              "start": 24.75,
+              "end": 25.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 25.05,
+              "end": 25.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cathedrals.",
+              "start": 25.27,
+              "end": 25.81,
+              "probability": 0.9949544270833334
+            }
+          ]
+        },
+        {
+          "text": " Afterwards, Estella and I played at cards, as of yore,—only we were skilful now, and played French games,—and so the evening wore away, and I went to bed.",
+          "start": 26.97,
+          "end": 36.09,
+          "words": [
+            {
+              "text": " Afterwards,",
+              "start": 26.97,
+              "end": 27.45,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " Estella",
+              "start": 27.71,
+              "end": 28.07,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " and",
+              "start": 28.07,
+              "end": 28.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 28.27,
+              "end": 28.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " played",
+              "start": 28.41,
+              "end": 28.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " at",
+              "start": 28.65,
+              "end": 28.85,
+              "probability": 0.986328125
+            },
+            {
+              "text": " cards,",
+              "start": 28.85,
+              "end": 29.15,
+              "probability": 0.76953125
+            },
+            {
+              "text": " as",
+              "start": 29.39,
+              "end": 29.45,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 29.45,
+              "end": 29.57,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " yore,—only",
+              "start": 29.57,
+              "end": 30.55,
+              "probability": 0.7110596895217896
+            },
+            {
+              "text": " we",
+              "start": 30.55,
+              "end": 30.75,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " were",
+              "start": 30.75,
+              "end": 30.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " skilful",
+              "start": 30.87,
+              "end": 31.35,
+              "probability": 0.7466634114583334
+            },
+            {
+              "text": " now,",
+              "start": 31.35,
+              "end": 31.61,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " and",
+              "start": 31.85,
+              "end": 31.95,
+              "probability": 0.9921875
+            },
+            {
+              "text": " played",
+              "start": 31.95,
+              "end": 32.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " French",
+              "start": 32.21,
+              "end": 32.55,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " games,—and",
+              "start": 32.55,
+              "end": 33.73,
+              "probability": 0.6784261067708334
+            },
+            {
+              "text": " so",
+              "start": 33.73,
+              "end": 33.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 33.87,
+              "end": 34.01,
+              "probability": 0.9765625
+            },
+            {
+              "text": " evening",
+              "start": 34.01,
+              "end": 34.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " wore",
+              "start": 34.33,
+              "end": 34.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " away,",
+              "start": 34.59,
+              "end": 34.95,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 35.27,
+              "end": 35.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 35.41,
+              "end": 35.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " went",
+              "start": 35.55,
+              "end": 35.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 35.69,
+              "end": 35.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bed.",
+              "start": 35.83,
+              "end": 36.09,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "was",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "raw": "with",
+          "start": 0.59,
+          "end": 0.71
+        },
+        {
+          "raw": "a",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "raw": "depressed",
+          "start": 0.81,
+          "end": 1.15
+        },
+        {
+          "raw": "heart",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "raw": "that",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "raw": "I",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "raw": "walked",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "raw": "in",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "raw": "the",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "raw": "starlight",
+          "start": 2.33,
+          "end": 2.67
+        },
+        {
+          "raw": "for",
+          "start": 2.67,
+          "end": 2.87
+        },
+        {
+          "raw": "an",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "hour",
+          "start": 3.03,
+          "end": 3.23
+        },
+        {
+          "raw": "and",
+          "start": 3.23,
+          "end": 3.49
+        },
+        {
+          "raw": "more,",
+          "start": 3.49,
+          "end": 3.87
+        },
+        {
+          "raw": "about",
+          "start": 4.37,
+          "end": 4.51
+        },
+        {
+          "raw": "the",
+          "start": 4.51,
+          "end": 4.65
+        },
+        {
+          "raw": "courtyard,",
+          "start": 4.65,
+          "end": 5.09
+        },
+        {
+          "raw": "and",
+          "start": 5.69,
+          "end": 5.81
+        },
+        {
+          "raw": "about",
+          "start": 5.81,
+          "end": 5.97
+        },
+        {
+          "raw": "the",
+          "start": 5.97,
+          "end": 6.11
+        },
+        {
+          "raw": "brewery,",
+          "start": 6.11,
+          "end": 6.41
+        },
+        {
+          "raw": "and",
+          "start": 6.99,
+          "end": 7.07
+        },
+        {
+          "raw": "about",
+          "start": 7.07,
+          "end": 7.25
+        },
+        {
+          "raw": "the",
+          "start": 7.25,
+          "end": 7.41
+        },
+        {
+          "raw": "ruined",
+          "start": 7.41,
+          "end": 7.73
+        },
+        {
+          "raw": "garden.",
+          "start": 7.73,
+          "end": 8.17
+        },
+        {
+          "raw": "When",
+          "start": 8.95,
+          "end": 9.13
+        },
+        {
+          "raw": "I",
+          "start": 9.13,
+          "end": 9.25
+        },
+        {
+          "raw": "at",
+          "start": 9.25,
+          "end": 9.35
+        },
+        {
+          "raw": "last",
+          "start": 9.35,
+          "end": 9.63
+        },
+        {
+          "raw": "took",
+          "start": 9.63,
+          "end": 9.87
+        },
+        {
+          "raw": "courage",
+          "start": 9.87,
+          "end": 10.17
+        },
+        {
+          "raw": "to",
+          "start": 10.17,
+          "end": 10.45
+        },
+        {
+          "raw": "return",
+          "start": 10.45,
+          "end": 10.73
+        },
+        {
+          "raw": "to",
+          "start": 10.73,
+          "end": 10.93
+        },
+        {
+          "raw": "the",
+          "start": 10.93,
+          "end": 11.05
+        },
+        {
+          "raw": "room,",
+          "start": 11.05,
+          "end": 11.31
+        },
+        {
+          "raw": "I",
+          "start": 11.77,
+          "end": 11.95
+        },
+        {
+          "raw": "found",
+          "start": 11.95,
+          "end": 12.23
+        },
+        {
+          "raw": "Estella",
+          "start": 12.23,
+          "end": 12.61
+        },
+        {
+          "raw": "sitting",
+          "start": 12.61,
+          "end": 12.95
+        },
+        {
+          "raw": "at",
+          "start": 12.95,
+          "end": 13.23
+        },
+        {
+          "raw": "Miss",
+          "start": 13.23,
+          "end": 13.39
+        },
+        {
+          "raw": "Havisham's",
+          "start": 13.39,
+          "end": 14.05
+        },
+        {
+          "raw": "knee,",
+          "start": 14.05,
+          "end": 14.25
+        },
+        {
+          "raw": "taking",
+          "start": 14.73,
+          "end": 14.95
+        },
+        {
+          "raw": "up",
+          "start": 14.95,
+          "end": 15.15
+        },
+        {
+          "raw": "some",
+          "start": 15.15,
+          "end": 15.37
+        },
+        {
+          "raw": "stitches",
+          "start": 15.37,
+          "end": 15.73
+        },
+        {
+          "raw": "in",
+          "start": 15.73,
+          "end": 16.05
+        },
+        {
+          "raw": "one",
+          "start": 16.05,
+          "end": 16.15
+        },
+        {
+          "raw": "of",
+          "start": 16.15,
+          "end": 16.29
+        },
+        {
+          "raw": "those",
+          "start": 16.29,
+          "end": 16.41
+        },
+        {
+          "raw": "old",
+          "start": 16.41,
+          "end": 16.69
+        },
+        {
+          "raw": "articles",
+          "start": 16.69,
+          "end": 17.09
+        },
+        {
+          "raw": "of",
+          "start": 17.09,
+          "end": 17.35
+        },
+        {
+          "raw": "dress",
+          "start": 17.35,
+          "end": 17.65
+        },
+        {
+          "raw": "that",
+          "start": 17.65,
+          "end": 17.89
+        },
+        {
+          "raw": "were",
+          "start": 17.89,
+          "end": 18.01
+        },
+        {
+          "raw": "dropping",
+          "start": 18.01,
+          "end": 18.33
+        },
+        {
+          "raw": "to",
+          "start": 18.33,
+          "end": 18.61
+        },
+        {
+          "raw": "pieces,",
+          "start": 18.61,
+          "end": 18.95
+        },
+        {
+          "raw": "and",
+          "start": 19.63,
+          "end": 19.85
+        },
+        {
+          "raw": "of",
+          "start": 19.85,
+          "end": 19.93
+        },
+        {
+          "raw": "which",
+          "start": 19.93,
+          "end": 20.07
+        },
+        {
+          "raw": "I",
+          "start": 20.07,
+          "end": 20.21
+        },
+        {
+          "raw": "have",
+          "start": 20.21,
+          "end": 20.29
+        },
+        {
+          "raw": "often",
+          "start": 20.29,
+          "end": 20.63
+        },
+        {
+          "raw": "been",
+          "start": 20.63,
+          "end": 20.81
+        },
+        {
+          "raw": "reminded",
+          "start": 20.81,
+          "end": 21.23
+        },
+        {
+          "raw": "since",
+          "start": 21.23,
+          "end": 21.59
+        },
+        {
+          "raw": "by",
+          "start": 21.59,
+          "end": 21.85
+        },
+        {
+          "raw": "the",
+          "start": 21.85,
+          "end": 22.01
+        },
+        {
+          "raw": "faded",
+          "start": 22.01,
+          "end": 22.37
+        },
+        {
+          "raw": "tatters",
+          "start": 22.37,
+          "end": 22.79
+        },
+        {
+          "raw": "of",
+          "start": 22.79,
+          "end": 23.01
+        },
+        {
+          "raw": "old",
+          "start": 23.01,
+          "end": 23.25
+        },
+        {
+          "raw": "banners",
+          "start": 23.25,
+          "end": 23.63
+        },
+        {
+          "raw": "that",
+          "start": 23.63,
+          "end": 23.97
+        },
+        {
+          "raw": "I",
+          "start": 23.97,
+          "end": 24.09
+        },
+        {
+          "raw": "have",
+          "start": 24.09,
+          "end": 24.21
+        },
+        {
+          "raw": "seen",
+          "start": 24.21,
+          "end": 24.45
+        },
+        {
+          "raw": "hanging",
+          "start": 24.45,
+          "end": 24.75
+        },
+        {
+          "raw": "up",
+          "start": 24.75,
+          "end": 25.05
+        },
+        {
+          "raw": "in",
+          "start": 25.05,
+          "end": 25.27
+        },
+        {
+          "raw": "cathedrals.",
+          "start": 25.27,
+          "end": 25.81
+        },
+        {
+          "raw": "Afterwards,",
+          "start": 26.97,
+          "end": 27.45
+        },
+        {
+          "raw": "Estella",
+          "start": 27.71,
+          "end": 28.07
+        },
+        {
+          "raw": "and",
+          "start": 28.07,
+          "end": 28.27
+        },
+        {
+          "raw": "I",
+          "start": 28.27,
+          "end": 28.41
+        },
+        {
+          "raw": "played",
+          "start": 28.41,
+          "end": 28.65
+        },
+        {
+          "raw": "at",
+          "start": 28.65,
+          "end": 28.85
+        },
+        {
+          "raw": "cards,",
+          "start": 28.85,
+          "end": 29.15
+        },
+        {
+          "raw": "as",
+          "start": 29.39,
+          "end": 29.45
+        },
+        {
+          "raw": "of",
+          "start": 29.45,
+          "end": 29.57
+        },
+        {
+          "raw": "yore,—only",
+          "start": 29.57,
+          "end": 30.55
+        },
+        {
+          "raw": "we",
+          "start": 30.55,
+          "end": 30.75
+        },
+        {
+          "raw": "were",
+          "start": 30.75,
+          "end": 30.87
+        },
+        {
+          "raw": "skilful",
+          "start": 30.87,
+          "end": 31.35
+        },
+        {
+          "raw": "now,",
+          "start": 31.35,
+          "end": 31.61
+        },
+        {
+          "raw": "and",
+          "start": 31.85,
+          "end": 31.95
+        },
+        {
+          "raw": "played",
+          "start": 31.95,
+          "end": 32.21
+        },
+        {
+          "raw": "French",
+          "start": 32.21,
+          "end": 32.55
+        },
+        {
+          "raw": "games,—and",
+          "start": 32.55,
+          "end": 33.73
+        },
+        {
+          "raw": "so",
+          "start": 33.73,
+          "end": 33.87
+        },
+        {
+          "raw": "the",
+          "start": 33.87,
+          "end": 34.01
+        },
+        {
+          "raw": "evening",
+          "start": 34.01,
+          "end": 34.33
+        },
+        {
+          "raw": "wore",
+          "start": 34.33,
+          "end": 34.59
+        },
+        {
+          "raw": "away,",
+          "start": 34.59,
+          "end": 34.95
+        },
+        {
+          "raw": "and",
+          "start": 35.27,
+          "end": 35.41
+        },
+        {
+          "raw": "I",
+          "start": 35.41,
+          "end": 35.55
+        },
+        {
+          "raw": "went",
+          "start": 35.55,
+          "end": 35.69
+        },
+        {
+          "raw": "to",
+          "start": 35.69,
+          "end": 35.83
+        },
+        {
+          "raw": "bed.",
+          "start": 35.83,
+          "end": 36.09
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "was",
+        "with",
+        "a",
+        "depressed",
+        "heart",
+        "that",
+        "I",
+        "walked",
+        "in",
+        "the",
+        "starlight",
+        "for",
+        "an",
+        "hour",
+        "and",
+        "more,",
+        "about",
+        "the",
+        "courtyard,",
+        "and",
+        "about",
+        "the",
+        "brewery,",
+        "and",
+        "about",
+        "the",
+        "ruined",
+        "garden.",
+        "When",
+        "I",
+        "at",
+        "last",
+        "took",
+        "courage",
+        "to",
+        "return",
+        "to",
+        "the",
+        "room,",
+        "I",
+        "found",
+        "Estella",
+        "sitting",
+        "at",
+        "Miss",
+        "Havisham's",
+        "knee,",
+        "taking",
+        "up",
+        "some",
+        "stitches",
+        "in",
+        "one",
+        "of",
+        "those",
+        "old",
+        "articles",
+        "of",
+        "dress",
+        "that",
+        "were",
+        "dropping",
+        "to",
+        "pieces,",
+        "and",
+        "of",
+        "which",
+        "I",
+        "have",
+        "often",
+        "been",
+        "reminded",
+        "since",
+        "by",
+        "the",
+        "faded",
+        "tatters",
+        "of",
+        "old",
+        "banners",
+        "that",
+        "I",
+        "have",
+        "seen",
+        "hanging",
+        "up",
+        "in",
+        "cathedrals.",
+        "Afterwards,",
+        "Estella",
+        "and",
+        "I",
+        "played",
+        "at",
+        "cards,",
+        "as",
+        "of",
+        "yore,—only",
+        "we",
+        "were",
+        "skilful",
+        "now,",
+        "and",
+        "played",
+        "French",
+        "games,—and",
+        "so",
+        "the",
+        "evening",
+        "wore",
+        "away,",
+        "and",
+        "I",
+        "went",
+        "to",
+        "bed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          117,
+          0,
+          117
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 112
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 113
+        },
+        {
+          "index": 114,
+          "source": "observed",
+          "heard_index": 114
+        },
+        {
+          "index": 115,
+          "source": "observed",
+          "heard_index": 115
+        },
+        {
+          "index": 116,
+          "source": "observed",
+          "heard_index": 116
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.49,
+          "end": 0.59,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.59,
+          "end": 0.71,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.71,
+          "end": 0.81,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "depressed",
+          "start": 0.81,
+          "end": 1.15,
+          "key": "depressed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 1.15,
+          "end": 1.45,
+          "key": "heart",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.45,
+          "end": 1.65,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.65,
+          "end": 1.79,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "walked",
+          "start": 1.79,
+          "end": 2.01,
+          "key": "walked",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.01,
+          "end": 2.19,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.19,
+          "end": 2.33,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "starlight",
+          "start": 2.33,
+          "end": 2.67,
+          "key": "starlight",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.67,
+          "end": 2.87,
+          "key": "for",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "an",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "hour",
+          "start": 3.03,
+          "end": 3.23,
+          "key": "hour",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.23,
+          "end": 3.49,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "more,",
+          "start": 3.49,
+          "end": 3.87,
+          "key": "more",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 4.37,
+          "end": 4.51,
+          "key": "about",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.51,
+          "end": 4.65,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "courtyard,",
+          "start": 4.65,
+          "end": 5.09,
+          "key": "courtyard",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.69,
+          "end": 5.81,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 5.81,
+          "end": 5.97,
+          "key": "about",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.97,
+          "end": 6.11,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "brewery,",
+          "start": 6.11,
+          "end": 6.41,
+          "key": "brewery",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.99,
+          "end": 7.07,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 7.07,
+          "end": 7.25,
+          "key": "about",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.25,
+          "end": 7.41,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "ruined",
+          "start": 7.41,
+          "end": 7.73,
+          "key": "ruined",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "garden.",
+          "start": 7.73,
+          "end": 8.17,
+          "key": "garden",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 8.95,
+          "end": 9.13,
+          "key": "when",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.13,
+          "end": 9.25,
+          "key": "i",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 9.25,
+          "end": 9.35,
+          "key": "at",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 9.35,
+          "end": 9.63,
+          "key": "last",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 9.63,
+          "end": 9.87,
+          "key": "took",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "courage",
+          "start": 9.87,
+          "end": 10.17,
+          "key": "courage",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.17,
+          "end": 10.45,
+          "key": "to",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "return",
+          "start": 10.45,
+          "end": 10.73,
+          "key": "return",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.73,
+          "end": 10.93,
+          "key": "to",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.93,
+          "end": 11.05,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "room,",
+          "start": 11.05,
+          "end": 11.31,
+          "key": "room",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 11.77,
+          "end": 11.95,
+          "key": "i",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 11.95,
+          "end": 12.23,
+          "key": "found",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Estella",
+          "start": 12.23,
+          "end": 12.61,
+          "key": "estella",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "sitting",
+          "start": 12.61,
+          "end": 12.95,
+          "key": "sitting",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 12.95,
+          "end": 13.23,
+          "key": "at",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 13.23,
+          "end": 13.39,
+          "key": "miss",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Havisham's",
+          "start": 13.39,
+          "end": 14.05,
+          "key": "havishams",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "knee,",
+          "start": 14.05,
+          "end": 14.25,
+          "key": "knee",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "taking",
+          "start": 14.73,
+          "end": 14.95,
+          "key": "taking",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 14.95,
+          "end": 15.15,
+          "key": "up",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 15.15,
+          "end": 15.37,
+          "key": "some",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "stitches",
+          "start": 15.37,
+          "end": 15.73,
+          "key": "stitches",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.73,
+          "end": 16.05,
+          "key": "in",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 16.05,
+          "end": 16.15,
+          "key": "one",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.15,
+          "end": 16.29,
+          "key": "of",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 16.29,
+          "end": 16.41,
+          "key": "those",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 16.41,
+          "end": 16.69,
+          "key": "old",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "articles",
+          "start": 16.69,
+          "end": 17.09,
+          "key": "articles",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 17.09,
+          "end": 17.35,
+          "key": "of",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "dress",
+          "start": 17.35,
+          "end": 17.65,
+          "key": "dress",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 17.65,
+          "end": 17.89,
+          "key": "that",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 17.89,
+          "end": 18.01,
+          "key": "were",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "dropping",
+          "start": 18.01,
+          "end": 18.33,
+          "key": "dropping",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 18.33,
+          "end": 18.61,
+          "key": "to",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "pieces,",
+          "start": 18.61,
+          "end": 18.95,
+          "key": "pieces",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.63,
+          "end": 19.85,
+          "key": "and",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 19.85,
+          "end": 19.93,
+          "key": "of",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 19.93,
+          "end": 20.07,
+          "key": "which",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 20.07,
+          "end": 20.21,
+          "key": "i",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 20.21,
+          "end": 20.29,
+          "key": "have",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "often",
+          "start": 20.29,
+          "end": 20.63,
+          "key": "often",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 20.63,
+          "end": 20.81,
+          "key": "been",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "reminded",
+          "start": 20.81,
+          "end": 21.23,
+          "key": "reminded",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 21.23,
+          "end": 21.59,
+          "key": "since",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 21.59,
+          "end": 21.85,
+          "key": "by",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.85,
+          "end": 22.01,
+          "key": "the",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "faded",
+          "start": 22.01,
+          "end": 22.37,
+          "key": "faded",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "tatters",
+          "start": 22.37,
+          "end": 22.79,
+          "key": "tatters",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 22.79,
+          "end": 23.01,
+          "key": "of",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 23.01,
+          "end": 23.25,
+          "key": "old",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "banners",
+          "start": 23.25,
+          "end": 23.63,
+          "key": "banners",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 23.63,
+          "end": 23.97,
+          "key": "that",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 23.97,
+          "end": 24.09,
+          "key": "i",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 24.09,
+          "end": 24.21,
+          "key": "have",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 24.21,
+          "end": 24.45,
+          "key": "seen",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "hanging",
+          "start": 24.45,
+          "end": 24.75,
+          "key": "hanging",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 24.75,
+          "end": 25.05,
+          "key": "up",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 25.05,
+          "end": 25.27,
+          "key": "in",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "cathedrals.",
+          "start": 25.27,
+          "end": 25.81,
+          "key": "cathedrals",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "Afterwards,",
+          "start": 26.97,
+          "end": 27.45,
+          "key": "afterwards",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "Estella",
+          "start": 27.71,
+          "end": 28.07,
+          "key": "estella",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 28.07,
+          "end": 28.27,
+          "key": "and",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 28.27,
+          "end": 28.41,
+          "key": "i",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "played",
+          "start": 28.41,
+          "end": 28.65,
+          "key": "played",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 28.65,
+          "end": 28.85,
+          "key": "at",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "cards,",
+          "start": 28.85,
+          "end": 29.15,
+          "key": "cards",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 29.39,
+          "end": 29.45,
+          "key": "as",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 29.45,
+          "end": 29.57,
+          "key": "of",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "yore,—only",
+          "start": 29.57,
+          "end": 30.55,
+          "key": "yoreonly",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 30.55,
+          "end": 30.75,
+          "key": "we",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 30.75,
+          "end": 30.87,
+          "key": "were",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "skilful",
+          "start": 30.87,
+          "end": 31.35,
+          "key": "skilful",
+          "pieces": [
+            101
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 31.35,
+          "end": 31.61,
+          "key": "now",
+          "pieces": [
+            102
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 31.85,
+          "end": 31.95,
+          "key": "and",
+          "pieces": [
+            103
+          ]
+        },
+        {
+          "raw": "played",
+          "start": 31.95,
+          "end": 32.21,
+          "key": "played",
+          "pieces": [
+            104
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 32.21,
+          "end": 32.55,
+          "key": "french",
+          "pieces": [
+            105
+          ]
+        },
+        {
+          "raw": "games,—and",
+          "start": 32.55,
+          "end": 33.73,
+          "key": "gamesand",
+          "pieces": [
+            106
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 33.73,
+          "end": 33.87,
+          "key": "so",
+          "pieces": [
+            107
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 33.87,
+          "end": 34.01,
+          "key": "the",
+          "pieces": [
+            108
+          ]
+        },
+        {
+          "raw": "evening",
+          "start": 34.01,
+          "end": 34.33,
+          "key": "evening",
+          "pieces": [
+            109
+          ]
+        },
+        {
+          "raw": "wore",
+          "start": 34.33,
+          "end": 34.59,
+          "key": "wore",
+          "pieces": [
+            110
+          ]
+        },
+        {
+          "raw": "away,",
+          "start": 34.59,
+          "end": 34.95,
+          "key": "away",
+          "pieces": [
+            111
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 35.27,
+          "end": 35.41,
+          "key": "and",
+          "pieces": [
+            112
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 35.41,
+          "end": 35.55,
+          "key": "i",
+          "pieces": [
+            113
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 35.55,
+          "end": 35.69,
+          "key": "went",
+          "pieces": [
+            114
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 35.69,
+          "end": 35.83,
+          "key": "to",
+          "pieces": [
+            115
+          ]
+        },
+        {
+          "raw": "bed.",
+          "start": 35.83,
+          "end": 36.09,
+          "key": "bed",
+          "pieces": [
+            116
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "was",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "text": "with",
+          "start": 0.59,
+          "end": 0.71
+        },
+        {
+          "text": "a",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "text": "depressed",
+          "start": 0.81,
+          "end": 1.15
+        },
+        {
+          "text": "heart",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "text": "that",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "text": "I",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "text": "walked",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "text": "in",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "text": "the",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "text": "starlight",
+          "start": 2.33,
+          "end": 2.67
+        },
+        {
+          "text": "for",
+          "start": 2.67,
+          "end": 2.87
+        },
+        {
+          "text": "an",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "text": "hour",
+          "start": 3.03,
+          "end": 3.23
+        },
+        {
+          "text": "and",
+          "start": 3.23,
+          "end": 3.49
+        },
+        {
+          "text": "more,",
+          "start": 3.49,
+          "end": 3.87
+        },
+        {
+          "text": "about",
+          "start": 4.37,
+          "end": 4.51
+        },
+        {
+          "text": "the",
+          "start": 4.51,
+          "end": 4.65
+        },
+        {
+          "text": "courtyard,",
+          "start": 4.65,
+          "end": 5.09
+        },
+        {
+          "text": "and",
+          "start": 5.69,
+          "end": 5.81
+        },
+        {
+          "text": "about",
+          "start": 5.81,
+          "end": 5.97
+        },
+        {
+          "text": "the",
+          "start": 5.97,
+          "end": 6.11
+        },
+        {
+          "text": "brewery,",
+          "start": 6.11,
+          "end": 6.41
+        },
+        {
+          "text": "and",
+          "start": 6.99,
+          "end": 7.07
+        },
+        {
+          "text": "about",
+          "start": 7.07,
+          "end": 7.25
+        },
+        {
+          "text": "the",
+          "start": 7.25,
+          "end": 7.41
+        },
+        {
+          "text": "ruined",
+          "start": 7.41,
+          "end": 7.73
+        },
+        {
+          "text": "garden.",
+          "start": 7.73,
+          "end": 8.17
+        },
+        {
+          "text": "When",
+          "start": 8.95,
+          "end": 9.13
+        },
+        {
+          "text": "I",
+          "start": 9.13,
+          "end": 9.25
+        },
+        {
+          "text": "at",
+          "start": 9.25,
+          "end": 9.35
+        },
+        {
+          "text": "last",
+          "start": 9.35,
+          "end": 9.63
+        },
+        {
+          "text": "took",
+          "start": 9.63,
+          "end": 9.87
+        },
+        {
+          "text": "courage",
+          "start": 9.87,
+          "end": 10.17
+        },
+        {
+          "text": "to",
+          "start": 10.17,
+          "end": 10.45
+        },
+        {
+          "text": "return",
+          "start": 10.45,
+          "end": 10.73
+        },
+        {
+          "text": "to",
+          "start": 10.73,
+          "end": 10.93
+        },
+        {
+          "text": "the",
+          "start": 10.93,
+          "end": 11.05
+        },
+        {
+          "text": "room,",
+          "start": 11.05,
+          "end": 11.31
+        },
+        {
+          "text": "I",
+          "start": 11.77,
+          "end": 11.95
+        },
+        {
+          "text": "found",
+          "start": 11.95,
+          "end": 12.23
+        },
+        {
+          "text": "Estella",
+          "start": 12.23,
+          "end": 12.61
+        },
+        {
+          "text": "sitting",
+          "start": 12.61,
+          "end": 12.95
+        },
+        {
+          "text": "at",
+          "start": 12.95,
+          "end": 13.23
+        },
+        {
+          "text": "Miss",
+          "start": 13.23,
+          "end": 13.39
+        },
+        {
+          "text": "Havisham's",
+          "start": 13.39,
+          "end": 14.05
+        },
+        {
+          "text": "knee,",
+          "start": 14.05,
+          "end": 14.25
+        },
+        {
+          "text": "taking",
+          "start": 14.73,
+          "end": 14.95
+        },
+        {
+          "text": "up",
+          "start": 14.95,
+          "end": 15.15
+        },
+        {
+          "text": "some",
+          "start": 15.15,
+          "end": 15.37
+        },
+        {
+          "text": "stitches",
+          "start": 15.37,
+          "end": 15.73
+        },
+        {
+          "text": "in",
+          "start": 15.73,
+          "end": 16.05
+        },
+        {
+          "text": "one",
+          "start": 16.05,
+          "end": 16.15
+        },
+        {
+          "text": "of",
+          "start": 16.15,
+          "end": 16.29
+        },
+        {
+          "text": "those",
+          "start": 16.29,
+          "end": 16.41
+        },
+        {
+          "text": "old",
+          "start": 16.41,
+          "end": 16.69
+        },
+        {
+          "text": "articles",
+          "start": 16.69,
+          "end": 17.09
+        },
+        {
+          "text": "of",
+          "start": 17.09,
+          "end": 17.35
+        },
+        {
+          "text": "dress",
+          "start": 17.35,
+          "end": 17.65
+        },
+        {
+          "text": "that",
+          "start": 17.65,
+          "end": 17.89
+        },
+        {
+          "text": "were",
+          "start": 17.89,
+          "end": 18.01
+        },
+        {
+          "text": "dropping",
+          "start": 18.01,
+          "end": 18.33
+        },
+        {
+          "text": "to",
+          "start": 18.33,
+          "end": 18.61
+        },
+        {
+          "text": "pieces,",
+          "start": 18.61,
+          "end": 18.95
+        },
+        {
+          "text": "and",
+          "start": 19.63,
+          "end": 19.85
+        },
+        {
+          "text": "of",
+          "start": 19.85,
+          "end": 19.93
+        },
+        {
+          "text": "which",
+          "start": 19.93,
+          "end": 20.07
+        },
+        {
+          "text": "I",
+          "start": 20.07,
+          "end": 20.21
+        },
+        {
+          "text": "have",
+          "start": 20.21,
+          "end": 20.29
+        },
+        {
+          "text": "often",
+          "start": 20.29,
+          "end": 20.63
+        },
+        {
+          "text": "been",
+          "start": 20.63,
+          "end": 20.81
+        },
+        {
+          "text": "reminded",
+          "start": 20.81,
+          "end": 21.23
+        },
+        {
+          "text": "since",
+          "start": 21.23,
+          "end": 21.59
+        },
+        {
+          "text": "by",
+          "start": 21.59,
+          "end": 21.85
+        },
+        {
+          "text": "the",
+          "start": 21.85,
+          "end": 22.01
+        },
+        {
+          "text": "faded",
+          "start": 22.01,
+          "end": 22.37
+        },
+        {
+          "text": "tatters",
+          "start": 22.37,
+          "end": 22.79
+        },
+        {
+          "text": "of",
+          "start": 22.79,
+          "end": 23.01
+        },
+        {
+          "text": "old",
+          "start": 23.01,
+          "end": 23.25
+        },
+        {
+          "text": "banners",
+          "start": 23.25,
+          "end": 23.63
+        },
+        {
+          "text": "that",
+          "start": 23.63,
+          "end": 23.97
+        },
+        {
+          "text": "I",
+          "start": 23.97,
+          "end": 24.09
+        },
+        {
+          "text": "have",
+          "start": 24.09,
+          "end": 24.21
+        },
+        {
+          "text": "seen",
+          "start": 24.21,
+          "end": 24.45
+        },
+        {
+          "text": "hanging",
+          "start": 24.45,
+          "end": 24.75
+        },
+        {
+          "text": "up",
+          "start": 24.75,
+          "end": 25.05
+        },
+        {
+          "text": "in",
+          "start": 25.05,
+          "end": 25.27
+        },
+        {
+          "text": "cathedrals.",
+          "start": 25.27,
+          "end": 25.81
+        },
+        {
+          "text": "Afterwards,",
+          "start": 26.97,
+          "end": 27.45
+        },
+        {
+          "text": "Estella",
+          "start": 27.71,
+          "end": 28.07
+        },
+        {
+          "text": "and",
+          "start": 28.07,
+          "end": 28.27
+        },
+        {
+          "text": "I",
+          "start": 28.27,
+          "end": 28.41
+        },
+        {
+          "text": "played",
+          "start": 28.41,
+          "end": 28.65
+        },
+        {
+          "text": "at",
+          "start": 28.65,
+          "end": 28.85
+        },
+        {
+          "text": "cards,",
+          "start": 28.85,
+          "end": 29.15
+        },
+        {
+          "text": "as",
+          "start": 29.39,
+          "end": 29.45
+        },
+        {
+          "text": "of",
+          "start": 29.45,
+          "end": 29.57
+        },
+        {
+          "text": "yore,—only",
+          "start": 29.57,
+          "end": 30.55
+        },
+        {
+          "text": "we",
+          "start": 30.55,
+          "end": 30.75
+        },
+        {
+          "text": "were",
+          "start": 30.75,
+          "end": 30.87
+        },
+        {
+          "text": "skilful",
+          "start": 30.87,
+          "end": 31.35
+        },
+        {
+          "text": "now,",
+          "start": 31.35,
+          "end": 31.61
+        },
+        {
+          "text": "and",
+          "start": 31.85,
+          "end": 31.95
+        },
+        {
+          "text": "played",
+          "start": 31.95,
+          "end": 32.21
+        },
+        {
+          "text": "French",
+          "start": 32.21,
+          "end": 32.55
+        },
+        {
+          "text": "games,—and",
+          "start": 32.55,
+          "end": 33.73
+        },
+        {
+          "text": "so",
+          "start": 33.73,
+          "end": 33.87
+        },
+        {
+          "text": "the",
+          "start": 33.87,
+          "end": 34.01
+        },
+        {
+          "text": "evening",
+          "start": 34.01,
+          "end": 34.33
+        },
+        {
+          "text": "wore",
+          "start": 34.33,
+          "end": 34.59
+        },
+        {
+          "text": "away,",
+          "start": 34.59,
+          "end": 34.95
+        },
+        {
+          "text": "and",
+          "start": 35.27,
+          "end": 35.41
+        },
+        {
+          "text": "I",
+          "start": 35.41,
+          "end": 35.55
+        },
+        {
+          "text": "went",
+          "start": 35.55,
+          "end": 35.69
+        },
+        {
+          "text": "to",
+          "start": 35.69,
+          "end": 35.83
+        },
+        {
+          "text": "bed.",
+          "start": 35.83,
+          "end": 36.09
+        }
+      ],
+      "stats": {
+        "expected_words": 117,
+        "heard_words": 117,
+        "matched_words": 117
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.9801132827997208
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ec311087fc8c890ad56febac0f0ed337958c028203f1da6da14f4dfa7aa2dcb0",
+  "selected_reasons": []
+}

@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "e341397f2e8f03584032be86cbe915d8e153fa4324381c065774c8e0178cf38d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1109662379603833,
+      "alignment_seconds": 0.00025057210586965084,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " day, gentlemen",
+          "start": 0.05,
+          "end": 1.17,
+          "words": [
+            {
+              "text": " day,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.2171630859375
+            },
+            {
+              "text": " gentlemen",
+              "start": 0.91,
+              "end": 1.17,
+              "probability": 0.91552734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "day,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "gentlemen",
+          "start": 0.91,
+          "end": 1.17
+        }
+      ],
+      "expected_tokens": [
+        "—Day,",
+        "gentlemen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "day,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "day",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gentlemen",
+          "start": 0.91,
+          "end": 1.17,
+          "key": "gentlemen",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Day,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "gentlemen.",
+          "start": 0.91,
+          "end": 1.17
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11130246100947261
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ec21d611e93663c6069312742969eb432591c61b9bfd1f572fdd75a44d8d572b",
+  "selected_reasons": []
+}

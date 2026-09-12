@@ -1,0 +1,1594 @@
+{
+  "complete": true,
+  "signature": "62e3f8b0b4a3a1afc9ae1b561de7dff5caca1824debb20b7c11c30a64f2b70f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2674596607685089,
+      "alignment_seconds": 0.00039717601612210274,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. No, his mouth is stopp'd. Honest Iago hath ta'en order for 't.",
+        "hotwords": "Othello, No, Honest, Iago"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, No, his mouth is stopp'd. Honest Iago hath ta'en order for t.",
+          "start": 0.24,
+          "end": 4.76,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.24,
+              "end": 0.9,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " No,",
+              "start": 1.3,
+              "end": 1.5,
+              "probability": 0.0413818359375
+            },
+            {
+              "text": " his",
+              "start": 1.62,
+              "end": 1.7,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " mouth",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " is",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " stopp'd.",
+              "start": 2.06,
+              "end": 2.52,
+              "probability": 0.4082765579223633
+            },
+            {
+              "text": " Honest",
+              "start": 2.94,
+              "end": 3.18,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " Iago",
+              "start": 3.18,
+              "end": 3.54,
+              "probability": 0.394378662109375
+            },
+            {
+              "text": " hath",
+              "start": 3.54,
+              "end": 3.74,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " ta",
+              "start": 3.74,
+              "end": 3.98,
+              "probability": 0.0027561187744140625
+            },
+            {
+              "text": "'en",
+              "start": 3.98,
+              "end": 4.1,
+              "probability": 0.5157470703125
+            },
+            {
+              "text": " order",
+              "start": 4.1,
+              "end": 4.28,
+              "probability": 0.947265625
+            },
+            {
+              "text": " for",
+              "start": 4.28,
+              "end": 4.52,
+              "probability": 0.736328125
+            },
+            {
+              "text": " t.",
+              "start": 4.52,
+              "end": 4.76,
+              "probability": 0.0008225440979003906
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.9
+        },
+        {
+          "raw": "No,",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "raw": "his",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "raw": "mouth",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "is",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "stopp'd.",
+          "start": 2.06,
+          "end": 2.52
+        },
+        {
+          "raw": "Honest",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "raw": "Iago",
+          "start": 3.18,
+          "end": 3.54
+        },
+        {
+          "raw": "hath",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "raw": "ta",
+          "start": 3.74,
+          "end": 3.98
+        },
+        {
+          "raw": "'en",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "raw": "order",
+          "start": 4.1,
+          "end": 4.28
+        },
+        {
+          "raw": "for",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "raw": "t.",
+          "start": 4.52,
+          "end": 4.76
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "No,",
+        "his",
+        "mouth",
+        "is",
+        "stopp'd.",
+        "Honest",
+        "Iago",
+        "hath",
+        "ta'en",
+        "order",
+        "for",
+        "'t."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          13,
+          11,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.3,
+          "end": 1.5,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.62,
+          "end": 1.7,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mouth",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "mouth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.9,
+          "end": 2.06,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "stopp'd.",
+          "start": 2.06,
+          "end": 2.52,
+          "key": "stoppd",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Honest",
+          "start": 2.94,
+          "end": 3.18,
+          "key": "honest",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Iago",
+          "start": 3.18,
+          "end": 3.54,
+          "key": "iago",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 3.54,
+          "end": 3.74,
+          "key": "hath",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ta",
+          "start": 3.74,
+          "end": 3.98,
+          "key": "ta",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "'en",
+          "start": 3.98,
+          "end": 4.1,
+          "key": "en",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "order",
+          "start": 4.1,
+          "end": 4.28,
+          "key": "order",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.28,
+          "end": 4.52,
+          "key": "for",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "t.",
+          "start": 4.52,
+          "end": 4.76,
+          "key": "t",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.24,
+          "end": 0.9
+        },
+        {
+          "text": "No,",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "text": "his",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "text": "mouth",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "is",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "text": "stopp'd.",
+          "start": 2.06,
+          "end": 2.52
+        },
+        {
+          "text": "Honest",
+          "start": 2.94,
+          "end": 3.18
+        },
+        {
+          "text": "Iago",
+          "start": 3.18,
+          "end": 3.54
+        },
+        {
+          "text": "hath",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "text": "ta'en",
+          "start": 3.74,
+          "end": 3.92
+        },
+        {
+          "text": "order",
+          "start": 4.1,
+          "end": 4.28
+        },
+        {
+          "text": "for",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "text": "'t.",
+          "start": 4.52,
+          "end": 4.76
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.2680174349807203
+    },
+    {
+      "asr_seconds": 0.2601998499594629,
+      "alignment_seconds": 0.00023604696616530418,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Othello, No, Honest, Iago"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Othello, No, his mouth is stopped, Honest, Iago hath tan order for tea.",
+          "start": 0.24,
+          "end": 4.8,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.24,
+              "end": 0.9,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " No,",
+              "start": 1.3,
+              "end": 1.5,
+              "probability": 0.0413818359375
+            },
+            {
+              "text": " his",
+              "start": 1.62,
+              "end": 1.7,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " mouth",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " is",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " stopped,",
+              "start": 2.06,
+              "end": 2.38,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " Honest,",
+              "start": 2.98,
+              "end": 3.16,
+              "probability": 0.75439453125
+            },
+            {
+              "text": " Iago",
+              "start": 3.36,
+              "end": 3.54,
+              "probability": 0.333831787109375
+            },
+            {
+              "text": " hath",
+              "start": 3.54,
+              "end": 3.74,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " tan",
+              "start": 3.74,
+              "end": 4.04,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " order",
+              "start": 4.04,
+              "end": 4.28,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " for",
+              "start": 4.28,
+              "end": 4.52,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " tea.",
+              "start": 4.52,
+              "end": 4.8,
+              "probability": 0.96240234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.9
+        },
+        {
+          "raw": "No,",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "raw": "his",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "raw": "mouth",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "is",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "stopped,",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "raw": "Honest,",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "raw": "Iago",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "raw": "hath",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "raw": "tan",
+          "start": 3.74,
+          "end": 4.04
+        },
+        {
+          "raw": "order",
+          "start": 4.04,
+          "end": 4.28
+        },
+        {
+          "raw": "for",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "raw": "tea.",
+          "start": 4.52,
+          "end": 4.8
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "No,",
+        "his",
+        "mouth",
+        "is",
+        "stopp'd.",
+        "Honest",
+        "Iago",
+        "hath",
+        "ta'en",
+        "order",
+        "for",
+        "'t."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          9,
+          6,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          12,
+          10,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.3,
+          "end": 1.5,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.62,
+          "end": 1.7,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mouth",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "mouth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.9,
+          "end": 2.06,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "stopped,",
+          "start": 2.06,
+          "end": 2.38,
+          "key": "stopped",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Honest,",
+          "start": 2.98,
+          "end": 3.16,
+          "key": "honest",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Iago",
+          "start": 3.36,
+          "end": 3.54,
+          "key": "iago",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 3.54,
+          "end": 3.74,
+          "key": "hath",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tan",
+          "start": 3.74,
+          "end": 4.04,
+          "key": "tan",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "order",
+          "start": 4.04,
+          "end": 4.28,
+          "key": "order",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.28,
+          "end": 4.52,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "tea.",
+          "start": 4.52,
+          "end": 4.8,
+          "key": "tea",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.24,
+          "end": 0.9
+        },
+        {
+          "text": "No,",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "text": "his",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "text": "mouth",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "is",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "text": "stopp'd.",
+          "start": 2.06,
+          "end": 2.52
+        },
+        {
+          "text": "Honest",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "text": "Iago",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "text": "hath",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "text": "ta'en",
+          "start": 3.74,
+          "end": 3.89
+        },
+        {
+          "text": "order",
+          "start": 4.04,
+          "end": 4.28
+        },
+        {
+          "text": "for",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "text": "'t.",
+          "start": 4.52,
+          "end": 4.66
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.260511526837945
+    },
+    {
+      "asr_seconds": 0.21152097405865788,
+      "alignment_seconds": 0.0002230568788945675,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello. No, his mouth is stopped. Honest Ego hath tan order for tea.",
+          "start": 0.24,
+          "end": 4.8,
+          "words": [
+            {
+              "text": " Othello.",
+              "start": 0.24,
+              "end": 0.9,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " No,",
+              "start": 1.32,
+              "end": 1.52,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " his",
+              "start": 1.6,
+              "end": 1.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " mouth",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " stopped.",
+              "start": 2.06,
+              "end": 2.38,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Honest",
+              "start": 3.02,
+              "end": 3.18,
+              "probability": 0.94140625
+            },
+            {
+              "text": " Ego",
+              "start": 3.18,
+              "end": 3.54,
+              "probability": 0.552978515625
+            },
+            {
+              "text": " hath",
+              "start": 3.54,
+              "end": 3.72,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " tan",
+              "start": 3.72,
+              "end": 4.04,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " order",
+              "start": 4.04,
+              "end": 4.28,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " for",
+              "start": 4.28,
+              "end": 4.52,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " tea.",
+              "start": 4.52,
+              "end": 4.8,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello.",
+          "start": 0.24,
+          "end": 0.9
+        },
+        {
+          "raw": "No,",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "raw": "his",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "raw": "mouth",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "is",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "stopped.",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "raw": "Honest",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "raw": "Ego",
+          "start": 3.18,
+          "end": 3.54
+        },
+        {
+          "raw": "hath",
+          "start": 3.54,
+          "end": 3.72
+        },
+        {
+          "raw": "tan",
+          "start": 3.72,
+          "end": 4.04
+        },
+        {
+          "raw": "order",
+          "start": 4.04,
+          "end": 4.28
+        },
+        {
+          "raw": "for",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "raw": "tea.",
+          "start": 4.52,
+          "end": 4.8
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "No,",
+        "his",
+        "mouth",
+        "is",
+        "stopp'd.",
+        "Honest",
+        "Iago",
+        "hath",
+        "ta'en",
+        "order",
+        "for",
+        "'t."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          12,
+          10,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello.",
+          "start": 0.24,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.32,
+          "end": 1.52,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.6,
+          "end": 1.7,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mouth",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "mouth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.9,
+          "end": 2.06,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "stopped.",
+          "start": 2.06,
+          "end": 2.38,
+          "key": "stopped",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Honest",
+          "start": 3.02,
+          "end": 3.18,
+          "key": "honest",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ego",
+          "start": 3.18,
+          "end": 3.54,
+          "key": "ego",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 3.54,
+          "end": 3.72,
+          "key": "hath",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tan",
+          "start": 3.72,
+          "end": 4.04,
+          "key": "tan",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "order",
+          "start": 4.04,
+          "end": 4.28,
+          "key": "order",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.28,
+          "end": 4.52,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "tea.",
+          "start": 4.52,
+          "end": 4.8,
+          "key": "tea",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.24,
+          "end": 0.9
+        },
+        {
+          "text": "No,",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "text": "his",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "text": "mouth",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "is",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "text": "stopp'd.",
+          "start": 2.06,
+          "end": 2.54
+        },
+        {
+          "text": "Honest",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "text": "Iago",
+          "start": 3.18,
+          "end": 3.36
+        },
+        {
+          "text": "hath",
+          "start": 3.54,
+          "end": 3.72
+        },
+        {
+          "text": "ta'en",
+          "start": 3.72,
+          "end": 3.88
+        },
+        {
+          "text": "order",
+          "start": 4.04,
+          "end": 4.28
+        },
+        {
+          "text": "for",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "text": "'t.",
+          "start": 4.52,
+          "end": 4.66
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 9
+      },
+      "match_ratio": 0.6923076923076923,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21181780006736517
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8c787e81799e00ff4b31403339e01644f79ad1f18ba6e011b34748121d27eb0c",
+  "selected_reasons": []
+}

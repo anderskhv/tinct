@@ -1,0 +1,673 @@
+{
+  "complete": true,
+  "signature": "9426ad3be2e34e4f91f0d042216dc5e1a1e5ef880a6724de585539579458f1df",
+  "attempts": [
+    {
+      "asr_seconds": 0.23190380074083805,
+      "alignment_seconds": 0.00036396831274032593,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pollock seems this is strange me thinks my favor here begins to warp not speak good day Camillo",
+          "start": 0.05,
+          "end": 6.79,
+          "words": [
+            {
+              "text": " Pollock",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " seems",
+              "start": 0.73,
+              "end": 0.97,
+              "probability": 0.258056640625
+            },
+            {
+              "text": " this",
+              "start": 0.97,
+              "end": 1.29,
+              "probability": 0.6767578125
+            },
+            {
+              "text": " is",
+              "start": 1.29,
+              "end": 1.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " strange",
+              "start": 1.47,
+              "end": 1.91,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " me",
+              "start": 1.91,
+              "end": 2.53,
+              "probability": 0.1251220703125
+            },
+            {
+              "text": " thinks",
+              "start": 2.53,
+              "end": 2.75,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " my",
+              "start": 2.75,
+              "end": 2.99,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " favor",
+              "start": 2.99,
+              "end": 3.29,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " here",
+              "start": 3.29,
+              "end": 3.61,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " begins",
+              "start": 3.61,
+              "end": 3.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 3.89,
+              "end": 4.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " warp",
+              "start": 4.13,
+              "end": 4.41,
+              "probability": 0.9765625
+            },
+            {
+              "text": " not",
+              "start": 4.41,
+              "end": 4.97,
+              "probability": 0.9765625
+            },
+            {
+              "text": " speak",
+              "start": 4.97,
+              "end": 5.37,
+              "probability": 0.9921875
+            },
+            {
+              "text": " good",
+              "start": 5.37,
+              "end": 6.05,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " day",
+              "start": 6.05,
+              "end": 6.35,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " Camillo",
+              "start": 6.35,
+              "end": 6.79,
+              "probability": 0.60205078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pollock",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "seems",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "raw": "this",
+          "start": 0.97,
+          "end": 1.29
+        },
+        {
+          "raw": "is",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "raw": "strange",
+          "start": 1.47,
+          "end": 1.91
+        },
+        {
+          "raw": "me",
+          "start": 1.91,
+          "end": 2.53
+        },
+        {
+          "raw": "thinks",
+          "start": 2.53,
+          "end": 2.75
+        },
+        {
+          "raw": "my",
+          "start": 2.75,
+          "end": 2.99
+        },
+        {
+          "raw": "favor",
+          "start": 2.99,
+          "end": 3.29
+        },
+        {
+          "raw": "here",
+          "start": 3.29,
+          "end": 3.61
+        },
+        {
+          "raw": "begins",
+          "start": 3.61,
+          "end": 3.89
+        },
+        {
+          "raw": "to",
+          "start": 3.89,
+          "end": 4.13
+        },
+        {
+          "raw": "warp",
+          "start": 4.13,
+          "end": 4.41
+        },
+        {
+          "raw": "not",
+          "start": 4.41,
+          "end": 4.97
+        },
+        {
+          "raw": "speak",
+          "start": 4.97,
+          "end": 5.37
+        },
+        {
+          "raw": "good",
+          "start": 5.37,
+          "end": 6.05
+        },
+        {
+          "raw": "day",
+          "start": 6.05,
+          "end": 6.35
+        },
+        {
+          "raw": "Camillo",
+          "start": 6.35,
+          "end": 6.79
+        }
+      ],
+      "expected_tokens": [
+        "Polixenes.",
+        "This",
+        "is",
+        "strange.",
+        "Methinks",
+        "My",
+        "favour",
+        "here",
+        "begins",
+        "to",
+        "warp.",
+        "Not",
+        "speak?",
+        "Good",
+        "day,",
+        "Camillo."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          4,
+          2,
+          5
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          7
+        ],
+        [
+          "equal",
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          "replace",
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          "equal",
+          7,
+          16,
+          9,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          7
+        ],
+        [
+          "replace",
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pollock",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "pollock",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "seems",
+          "start": 0.73,
+          "end": 0.97,
+          "key": "seems",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.97,
+          "end": 1.29,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.29,
+          "end": 1.47,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 1.47,
+          "end": 1.91,
+          "key": "strange",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.91,
+          "end": 2.53,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thinks",
+          "start": 2.53,
+          "end": 2.75,
+          "key": "thinks",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.75,
+          "end": 2.99,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "favor",
+          "start": 2.99,
+          "end": 3.29,
+          "key": "favor",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 3.29,
+          "end": 3.61,
+          "key": "here",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "begins",
+          "start": 3.61,
+          "end": 3.89,
+          "key": "begins",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.89,
+          "end": 4.13,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "warp",
+          "start": 4.13,
+          "end": 4.41,
+          "key": "warp",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.41,
+          "end": 4.97,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 4.97,
+          "end": 5.37,
+          "key": "speak",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 5.37,
+          "end": 6.05,
+          "key": "good",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 6.05,
+          "end": 6.35,
+          "key": "day",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Camillo",
+          "start": 6.35,
+          "end": 6.79,
+          "key": "camillo",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polixenes.",
+          "start": 0.0,
+          "end": 0.485
+        },
+        {
+          "text": "This",
+          "start": 0.97,
+          "end": 1.29
+        },
+        {
+          "text": "is",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "text": "strange.",
+          "start": 1.47,
+          "end": 1.91
+        },
+        {
+          "text": "Methinks",
+          "start": 1.91,
+          "end": 2.33
+        },
+        {
+          "text": "My",
+          "start": 2.75,
+          "end": 2.99
+        },
+        {
+          "text": "favour",
+          "start": 2.99,
+          "end": 3.14
+        },
+        {
+          "text": "here",
+          "start": 3.29,
+          "end": 3.61
+        },
+        {
+          "text": "begins",
+          "start": 3.61,
+          "end": 3.89
+        },
+        {
+          "text": "to",
+          "start": 3.89,
+          "end": 4.13
+        },
+        {
+          "text": "warp.",
+          "start": 4.13,
+          "end": 4.41
+        },
+        {
+          "text": "Not",
+          "start": 4.41,
+          "end": 4.97
+        },
+        {
+          "text": "speak?",
+          "start": 4.97,
+          "end": 5.37
+        },
+        {
+          "text": "Good",
+          "start": 5.37,
+          "end": 6.05
+        },
+        {
+          "text": "day,",
+          "start": 6.05,
+          "end": 6.35
+        },
+        {
+          "text": "Camillo.",
+          "start": 6.35,
+          "end": 6.79
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 18,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8125,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23242418467998505
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a08ee876649b68e6c9f7037ddc423796206690f19ffd740b337e43a7dedad8cd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

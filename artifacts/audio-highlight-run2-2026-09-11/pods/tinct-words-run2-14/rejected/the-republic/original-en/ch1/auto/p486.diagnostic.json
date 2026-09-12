@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "94bc7d24b803e2b7df9e332741a2cd4d0feefb7e085f0936e717c5e6fe837b35",
+  "attempts": [
+    {
+      "asr_seconds": 0.09875699132680893,
+      "alignment_seconds": 0.00027155131101608276,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "So be it.",
+        "hotwords": "So"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " So be it.",
+          "start": 0.08,
+          "end": 1.02,
+          "words": [
+            {
+              "text": " So",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.8056640625
+            },
+            {
+              "text": " be",
+              "start": 0.58,
+              "end": 0.76,
+              "probability": 0.98828125
+            },
+            {
+              "text": " it.",
+              "start": 0.76,
+              "end": 1.02,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "So",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "be",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "raw": "it.",
+          "start": 0.76,
+          "end": 1.02
+        }
+      ],
+      "expected_tokens": [
+        "So",
+        "be",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "So",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "so",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.58,
+          "end": 0.76,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 0.76,
+          "end": 1.02,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "So",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "be",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "text": "it.",
+          "start": 0.76,
+          "end": 1.02
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09913492947816849
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "40bd36775fa5f537127974b05471eb0a26b86f692ba9ed4df4d831a06fada0c4",
+  "selected_reasons": []
+}

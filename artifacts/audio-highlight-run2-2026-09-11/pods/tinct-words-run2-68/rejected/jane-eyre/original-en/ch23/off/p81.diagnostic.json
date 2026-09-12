@@ -1,0 +1,579 @@
+{
+  "complete": true,
+  "signature": "ab3cc89fa6e4a67426d649adcc139f91c83101382823e220bbdc72a51cadd02d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3087424375116825,
+      "alignment_seconds": 0.00046330690383911133,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I will never again come to your side.",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " will",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " never",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " again",
+              "start": 0.87,
+              "end": 1.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " come",
+              "start": 1.17,
+              "end": 1.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 1.37,
+              "end": 1.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " side.",
+              "start": 1.61,
+              "end": 1.93,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " I am torn away now and cannot return.",
+          "start": 2.47,
+          "end": 4.49,
+          "words": [
+            {
+              "text": " I",
+              "start": 2.47,
+              "end": 2.53,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " am",
+              "start": 2.53,
+              "end": 2.63,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " torn",
+              "start": 2.63,
+              "end": 2.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " away",
+              "start": 2.87,
+              "end": 3.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " now",
+              "start": 3.13,
+              "end": 3.43,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 3.43,
+              "end": 3.75,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " cannot",
+              "start": 3.75,
+              "end": 4.01,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " return.",
+              "start": 4.01,
+              "end": 4.49,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "will",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "never",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "again",
+          "start": 0.87,
+          "end": 1.17
+        },
+        {
+          "raw": "come",
+          "start": 1.17,
+          "end": 1.37
+        },
+        {
+          "raw": "to",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "raw": "your",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "side.",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "raw": "I",
+          "start": 2.47,
+          "end": 2.53
+        },
+        {
+          "raw": "am",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "raw": "torn",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "raw": "away",
+          "start": 2.87,
+          "end": 3.13
+        },
+        {
+          "raw": "now",
+          "start": 3.13,
+          "end": 3.43
+        },
+        {
+          "raw": "and",
+          "start": 3.43,
+          "end": 3.75
+        },
+        {
+          "raw": "cannot",
+          "start": 3.75,
+          "end": 4.01
+        },
+        {
+          "raw": "return.",
+          "start": 4.01,
+          "end": 4.49
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "will",
+        "never",
+        "again",
+        "come",
+        "to",
+        "your",
+        "side:",
+        "I",
+        "am",
+        "torn",
+        "away",
+        "now,",
+        "and",
+        "cannot",
+        "return.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 0.65,
+          "end": 0.87,
+          "key": "never",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 0.87,
+          "end": 1.17,
+          "key": "again",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.17,
+          "end": 1.37,
+          "key": "come",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.37,
+          "end": 1.51,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "side.",
+          "start": 1.61,
+          "end": 1.93,
+          "key": "side",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.47,
+          "end": 2.53,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.53,
+          "end": 2.63,
+          "key": "am",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "torn",
+          "start": 2.63,
+          "end": 2.87,
+          "key": "torn",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 2.87,
+          "end": 3.13,
+          "key": "away",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 3.13,
+          "end": 3.43,
+          "key": "now",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.43,
+          "end": 3.75,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 3.75,
+          "end": 4.01,
+          "key": "cannot",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "return.",
+          "start": 4.01,
+          "end": 4.49,
+          "key": "return",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "will",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "never",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "text": "again",
+          "start": 0.87,
+          "end": 1.17
+        },
+        {
+          "text": "come",
+          "start": 1.17,
+          "end": 1.37
+        },
+        {
+          "text": "to",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "text": "your",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "side:",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "text": "I",
+          "start": 2.47,
+          "end": 2.53
+        },
+        {
+          "text": "am",
+          "start": 2.53,
+          "end": 2.63
+        },
+        {
+          "text": "torn",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "text": "away",
+          "start": 2.87,
+          "end": 3.13
+        },
+        {
+          "text": "now,",
+          "start": 3.13,
+          "end": 3.43
+        },
+        {
+          "text": "and",
+          "start": 3.43,
+          "end": 3.75
+        },
+        {
+          "text": "cannot",
+          "start": 3.75,
+          "end": 4.01
+        },
+        {
+          "text": "return.\"",
+          "start": 4.01,
+          "end": 4.49
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3094613216817379
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "22573e6c55e2776c6f9c95f2c1a9322f0d8a41ba3b29853dea88673fb62b69d3",
+  "selected_reasons": []
+}

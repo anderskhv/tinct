@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "c8e5dd7b887027e091f79f5a260917db03883f81edd33324b9d5a59be14e3303",
+  "attempts": [
+    {
+      "asr_seconds": 0.18571230676025152,
+      "alignment_seconds": 0.0002984004095196724,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Valerius, we are all undone.",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Valerius,",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.5931599934895834
+            },
+            {
+              "text": " we",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.978515625
+            },
+            {
+              "text": " are",
+              "start": 1.4,
+              "end": 1.48,
+              "probability": 0.853515625
+            },
+            {
+              "text": " all",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " undone.",
+              "start": 1.62,
+              "end": 2.0,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Valerius,",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "we",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "are",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "raw": "all",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "undone.",
+          "start": 1.62,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "Belarius.",
+        "We",
+        "are",
+        "all",
+        "undone."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Valerius,",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "valerius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.28,
+          "end": 1.4,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.4,
+          "end": 1.48,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.48,
+          "end": 1.62,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "undone.",
+          "start": 1.62,
+          "end": 2.0,
+          "key": "undone",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "We",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "text": "are",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "text": "all",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "undone.",
+          "start": 1.62,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18611203599721193
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d73f935783d9529ee2bf9921b0451c2b4a5644bbb6c3170907feb6ffec113aa1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

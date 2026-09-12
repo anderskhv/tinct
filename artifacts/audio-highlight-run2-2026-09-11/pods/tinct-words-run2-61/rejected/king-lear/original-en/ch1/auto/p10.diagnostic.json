@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "b0f901e908c792071ae9cbd19e36f81840c52657e5a20757e70001b835f5e1f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.26862819120287895,
+      "alignment_seconds": 0.00041612982749938965,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gloucester. My Lord of Kent: remember him hereafter as my honourable friend.",
+        "hotwords": "Gloucester, Lord, Kent"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gloucester, my Lord of Kent, remember him hereafter as my honourable friend.",
+          "start": 0.02,
+          "end": 4.86,
+          "words": [
+            {
+              "text": " Gloucester,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.825439453125
+            },
+            {
+              "text": " my",
+              "start": 1.38,
+              "end": 1.54,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " Lord",
+              "start": 1.54,
+              "end": 1.72,
+              "probability": 0.56396484375
+            },
+            {
+              "text": " of",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Kent,",
+              "start": 1.9,
+              "end": 2.18,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " remember",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.943359375
+            },
+            {
+              "text": " him",
+              "start": 2.94,
+              "end": 3.14,
+              "probability": 0.90625
+            },
+            {
+              "text": " hereafter",
+              "start": 3.14,
+              "end": 3.5,
+              "probability": 0.953125
+            },
+            {
+              "text": " as",
+              "start": 3.5,
+              "end": 3.82,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " my",
+              "start": 3.82,
+              "end": 4.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " honourable",
+              "start": 4.0,
+              "end": 4.6,
+              "probability": 0.61004638671875
+            },
+            {
+              "text": " friend.",
+              "start": 4.6,
+              "end": 4.86,
+              "probability": 0.92236328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "my",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "raw": "Lord",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "raw": "of",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "raw": "Kent,",
+          "start": 1.9,
+          "end": 2.18
+        },
+        {
+          "raw": "remember",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "him",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "raw": "hereafter",
+          "start": 3.14,
+          "end": 3.5
+        },
+        {
+          "raw": "as",
+          "start": 3.5,
+          "end": 3.82
+        },
+        {
+          "raw": "my",
+          "start": 3.82,
+          "end": 4.0
+        },
+        {
+          "raw": "honourable",
+          "start": 4.0,
+          "end": 4.6
+        },
+        {
+          "raw": "friend.",
+          "start": 4.6,
+          "end": 4.86
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "My",
+        "Lord",
+        "of",
+        "Kent:",
+        "remember",
+        "him",
+        "hereafter",
+        "as",
+        "my",
+        "honourable",
+        "friend."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.38,
+          "end": 1.54,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 1.54,
+          "end": 1.72,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.72,
+          "end": 1.9,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Kent,",
+          "start": 1.9,
+          "end": 2.18,
+          "key": "kent",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "remember",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "remember",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.94,
+          "end": 3.14,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hereafter",
+          "start": 3.14,
+          "end": 3.5,
+          "key": "hereafter",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.5,
+          "end": 3.82,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.82,
+          "end": 4.0,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "honourable",
+          "start": 4.0,
+          "end": 4.6,
+          "key": "honourable",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "friend.",
+          "start": 4.6,
+          "end": 4.86,
+          "key": "friend",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "My",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "text": "Lord",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "text": "of",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "Kent:",
+          "start": 1.9,
+          "end": 2.18
+        },
+        {
+          "text": "remember",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "text": "him",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "text": "hereafter",
+          "start": 3.14,
+          "end": 3.5
+        },
+        {
+          "text": "as",
+          "start": 3.5,
+          "end": 3.82
+        },
+        {
+          "text": "my",
+          "start": 3.82,
+          "end": 4.0
+        },
+        {
+          "text": "honourable",
+          "start": 4.0,
+          "end": 4.6
+        },
+        {
+          "text": "friend.",
+          "start": 4.6,
+          "end": 4.86
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26922289095818996
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d16672259ecf050bf74148aace99d2bd13681718eaf4d51bd2e74fc702025cd3",
+  "selected_reasons": []
+}

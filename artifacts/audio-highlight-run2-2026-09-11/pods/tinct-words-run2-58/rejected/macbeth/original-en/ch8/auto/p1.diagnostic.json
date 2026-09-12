@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "be9cb1cfd2e1fcf22ca80ed1c4bbb04e0299d4a8dd1f591d82a28974daac2fcb",
+  "attempts": [
+    {
+      "asr_seconds": 0.17696314863860607,
+      "alignment_seconds": 0.00035169441252946854,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Banquo. How goes the night, boy?",
+        "hotwords": "Banquo, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Banquo, How goes the night, boy?",
+          "start": 0.57,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Banquo,",
+              "start": 0.57,
+              "end": 0.97,
+              "probability": 0.8829752604166666
+            },
+            {
+              "text": " How",
+              "start": 1.19,
+              "end": 1.27,
+              "probability": 0.07391357421875
+            },
+            {
+              "text": " goes",
+              "start": 1.27,
+              "end": 1.41,
+              "probability": 0.4482421875
+            },
+            {
+              "text": " the",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " night,",
+              "start": 1.57,
+              "end": 1.77,
+              "probability": 0.456298828125
+            },
+            {
+              "text": " boy?",
+              "start": 1.99,
+              "end": 2.01,
+              "probability": 0.9140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Banquo,",
+          "start": 0.57,
+          "end": 0.97
+        },
+        {
+          "raw": "How",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "raw": "goes",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "raw": "the",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "night,",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "raw": "boy?",
+          "start": 1.99,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "Banquo.",
+        "How",
+        "goes",
+        "the",
+        "night,",
+        "boy?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Banquo,",
+          "start": 0.57,
+          "end": 0.97,
+          "key": "banquo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.19,
+          "end": 1.27,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "goes",
+          "start": 1.27,
+          "end": 1.41,
+          "key": "goes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "night,",
+          "start": 1.57,
+          "end": 1.77,
+          "key": "night",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "boy?",
+          "start": 1.99,
+          "end": 2.01,
+          "key": "boy",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Banquo.",
+          "start": 0.57,
+          "end": 0.97
+        },
+        {
+          "text": "How",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "text": "goes",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "text": "the",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "night,",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "text": "boy?",
+          "start": 1.99,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17746952176094055
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "57e2066c64bcf415bb79d1714f0739c1c8e1b8dd8a8d816c199afb579c5a87d6",
+  "selected_reasons": []
+}

@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "05f8a91a2499e5306076a291430fa786bc9dc2f95e193b4711f9d41b0ac34e58",
+  "attempts": [
+    {
+      "asr_seconds": 0.22882167622447014,
+      "alignment_seconds": 0.0004026554524898529,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Dmitri Fyodorovitch, dear sir, we see you once more!\"",
+        "hotwords": "Dmitri, Fyodorovitch"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dmitri Fyodorovitch, dear sir, we see you once more!",
+          "start": 0.05,
+          "end": 3.35,
+          "words": [
+            {
+              "text": " Dmitri",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.59967041015625
+            },
+            {
+              "text": " Fyodorovitch,",
+              "start": 0.87,
+              "end": 1.59,
+              "probability": 0.7201904296875
+            },
+            {
+              "text": " dear",
+              "start": 1.69,
+              "end": 1.77,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " sir,",
+              "start": 1.77,
+              "end": 2.05,
+              "probability": 0.8828125
+            },
+            {
+              "text": " we",
+              "start": 2.49,
+              "end": 2.57,
+              "probability": 0.96875
+            },
+            {
+              "text": " see",
+              "start": 2.57,
+              "end": 2.75,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " you",
+              "start": 2.75,
+              "end": 2.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " once",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " more!",
+              "start": 3.03,
+              "end": 3.35,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dmitri",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Fyodorovitch,",
+          "start": 0.87,
+          "end": 1.59
+        },
+        {
+          "raw": "dear",
+          "start": 1.69,
+          "end": 1.77
+        },
+        {
+          "raw": "sir,",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "raw": "we",
+          "start": 2.49,
+          "end": 2.57
+        },
+        {
+          "raw": "see",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "raw": "you",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "raw": "once",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "more!",
+          "start": 3.03,
+          "end": 3.35
+        }
+      ],
+      "expected_tokens": [
+        "\"Dmitri",
+        "Fyodorovitch,",
+        "dear",
+        "sir,",
+        "we",
+        "see",
+        "you",
+        "once",
+        "more!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dmitri",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "dmitri",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fyodorovitch,",
+          "start": 0.87,
+          "end": 1.59,
+          "key": "fyodorovitch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 1.69,
+          "end": 1.77,
+          "key": "dear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.77,
+          "end": 2.05,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.49,
+          "end": 2.57,
+          "key": "we",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.57,
+          "end": 2.75,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.75,
+          "end": 2.87,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "once",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "more!",
+          "start": 3.03,
+          "end": 3.35,
+          "key": "more",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Dmitri",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Fyodorovitch,",
+          "start": 0.87,
+          "end": 1.59
+        },
+        {
+          "text": "dear",
+          "start": 1.69,
+          "end": 1.77
+        },
+        {
+          "text": "sir,",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "text": "we",
+          "start": 2.49,
+          "end": 2.57
+        },
+        {
+          "text": "see",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "text": "you",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "text": "once",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "text": "more!\"",
+          "start": 3.03,
+          "end": 3.35
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22936486173421144
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "308ed9dd554e7ae07b356e4b3c0dbc7b0025eb8ac33455475ef8d69a083de682",
+  "selected_reasons": []
+}

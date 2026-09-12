@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "51ddcd2c46abfc135e8f38266cb7ed00f3642359bbc79522ea2528946d7786a4",
+  "attempts": [
+    {
+      "asr_seconds": 0.12001811992377043,
+      "alignment_seconds": 0.00018202303908765316,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter old Queen Margaret behind.",
+          "start": 0.08,
+          "end": 1.88,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " old",
+              "start": 0.6,
+              "end": 0.84,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " Queen",
+              "start": 0.84,
+              "end": 1.1,
+              "probability": 0.88671875
+            },
+            {
+              "text": " Margaret",
+              "start": 1.1,
+              "end": 1.5,
+              "probability": 0.984375
+            },
+            {
+              "text": " behind.",
+              "start": 1.5,
+              "end": 1.88,
+              "probability": 0.92822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "old",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "raw": "Queen",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "raw": "Margaret",
+          "start": 1.1,
+          "end": 1.5
+        },
+        {
+          "raw": "behind.",
+          "start": 1.5,
+          "end": 1.88
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "old",
+        "Queen",
+        "Margaret",
+        "behind."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 0.6,
+          "end": 0.84,
+          "key": "old",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Queen",
+          "start": 0.84,
+          "end": 1.1,
+          "key": "queen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Margaret",
+          "start": 1.1,
+          "end": 1.5,
+          "key": "margaret",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "behind.",
+          "start": 1.5,
+          "end": 1.88,
+          "key": "behind",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "old",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "text": "Queen",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "text": "Margaret",
+          "start": 1.1,
+          "end": 1.5
+        },
+        {
+          "text": "behind.",
+          "start": 1.5,
+          "end": 1.88
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12026698980480433
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2a2ed207912ae2c5b6bed9f1a8b9a18ec9596a0bb46f09bc35f252499f216a49",
+  "selected_reasons": []
+}

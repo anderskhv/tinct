@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "2799d7cdb9c4ff43c80e7e7669879f5db0c102ed3914c53841b7de810bd11bdb",
+  "attempts": [
+    {
+      "asr_seconds": 0.3431966993957758,
+      "alignment_seconds": 0.0007446380332112312,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Miss Amelia stumbled up from her knees with a heavy sigh and Lottie's fat little legs kicked as hard as ever",
+          "start": 0.05,
+          "end": 6.61,
+          "words": [
+            {
+              "text": " Miss",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " Amelia",
+              "start": 0.57,
+              "end": 1.01,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " stumbled",
+              "start": 1.01,
+              "end": 1.43,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " up",
+              "start": 1.43,
+              "end": 1.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " from",
+              "start": 1.79,
+              "end": 1.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 1.93,
+              "end": 2.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " knees",
+              "start": 2.09,
+              "end": 2.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 2.35,
+              "end": 2.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 2.55,
+              "end": 2.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " heavy",
+              "start": 2.65,
+              "end": 2.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sigh",
+              "start": 2.87,
+              "end": 3.29,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 3.29,
+              "end": 3.95,
+              "probability": 0.406494140625
+            },
+            {
+              "text": " Lottie's",
+              "start": 3.95,
+              "end": 4.41,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " fat",
+              "start": 4.41,
+              "end": 4.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " little",
+              "start": 4.65,
+              "end": 4.89,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " legs",
+              "start": 4.89,
+              "end": 5.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " kicked",
+              "start": 5.25,
+              "end": 5.61,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " as",
+              "start": 5.61,
+              "end": 5.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hard",
+              "start": 5.81,
+              "end": 6.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 6.09,
+              "end": 6.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ever",
+              "start": 6.31,
+              "end": 6.61,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miss",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Amelia",
+          "start": 0.57,
+          "end": 1.01
+        },
+        {
+          "raw": "stumbled",
+          "start": 1.01,
+          "end": 1.43
+        },
+        {
+          "raw": "up",
+          "start": 1.43,
+          "end": 1.79
+        },
+        {
+          "raw": "from",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "raw": "her",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "raw": "knees",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "raw": "with",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "raw": "a",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "raw": "heavy",
+          "start": 2.65,
+          "end": 2.87
+        },
+        {
+          "raw": "sigh",
+          "start": 2.87,
+          "end": 3.29
+        },
+        {
+          "raw": "and",
+          "start": 3.29,
+          "end": 3.95
+        },
+        {
+          "raw": "Lottie's",
+          "start": 3.95,
+          "end": 4.41
+        },
+        {
+          "raw": "fat",
+          "start": 4.41,
+          "end": 4.65
+        },
+        {
+          "raw": "little",
+          "start": 4.65,
+          "end": 4.89
+        },
+        {
+          "raw": "legs",
+          "start": 4.89,
+          "end": 5.25
+        },
+        {
+          "raw": "kicked",
+          "start": 5.25,
+          "end": 5.61
+        },
+        {
+          "raw": "as",
+          "start": 5.61,
+          "end": 5.81
+        },
+        {
+          "raw": "hard",
+          "start": 5.81,
+          "end": 6.09
+        },
+        {
+          "raw": "as",
+          "start": 6.09,
+          "end": 6.31
+        },
+        {
+          "raw": "ever",
+          "start": 6.31,
+          "end": 6.61
+        }
+      ],
+      "expected_tokens": [
+        "Miss",
+        "Amelia",
+        "stumbled",
+        "up",
+        "from",
+        "her",
+        "knees",
+        "with",
+        "a",
+        "heavy",
+        "sigh,",
+        "and",
+        "Lottie's",
+        "fat",
+        "little",
+        "legs",
+        "kicked",
+        "as",
+        "hard",
+        "as",
+        "ever."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Miss",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "miss",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Amelia",
+          "start": 0.57,
+          "end": 1.01,
+          "key": "amelia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stumbled",
+          "start": 1.01,
+          "end": 1.43,
+          "key": "stumbled",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 1.43,
+          "end": 1.79,
+          "key": "up",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.79,
+          "end": 1.93,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.93,
+          "end": 2.09,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "knees",
+          "start": 2.09,
+          "end": 2.35,
+          "key": "knees",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.35,
+          "end": 2.55,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.55,
+          "end": 2.65,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "heavy",
+          "start": 2.65,
+          "end": 2.87,
+          "key": "heavy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sigh",
+          "start": 2.87,
+          "end": 3.29,
+          "key": "sigh",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.29,
+          "end": 3.95,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Lottie's",
+          "start": 3.95,
+          "end": 4.41,
+          "key": "lotties",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fat",
+          "start": 4.41,
+          "end": 4.65,
+          "key": "fat",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 4.65,
+          "end": 4.89,
+          "key": "little",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "legs",
+          "start": 4.89,
+          "end": 5.25,
+          "key": "legs",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "kicked",
+          "start": 5.25,
+          "end": 5.61,
+          "key": "kicked",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.61,
+          "end": 5.81,
+          "key": "as",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "hard",
+          "start": 5.81,
+          "end": 6.09,
+          "key": "hard",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.09,
+          "end": 6.31,
+          "key": "as",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 6.31,
+          "end": 6.61,
+          "key": "ever",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Miss",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Amelia",
+          "start": 0.57,
+          "end": 1.01
+        },
+        {
+          "text": "stumbled",
+          "start": 1.01,
+          "end": 1.43
+        },
+        {
+          "text": "up",
+          "start": 1.43,
+          "end": 1.79
+        },
+        {
+          "text": "from",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "text": "her",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "text": "knees",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "text": "with",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "text": "a",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "text": "heavy",
+          "start": 2.65,
+          "end": 2.87
+        },
+        {
+          "text": "sigh,",
+          "start": 2.87,
+          "end": 3.29
+        },
+        {
+          "text": "and",
+          "start": 3.29,
+          "end": 3.95
+        },
+        {
+          "text": "Lottie's",
+          "start": 3.95,
+          "end": 4.41
+        },
+        {
+          "text": "fat",
+          "start": 4.41,
+          "end": 4.65
+        },
+        {
+          "text": "little",
+          "start": 4.65,
+          "end": 4.89
+        },
+        {
+          "text": "legs",
+          "start": 4.89,
+          "end": 5.25
+        },
+        {
+          "text": "kicked",
+          "start": 5.25,
+          "end": 5.61
+        },
+        {
+          "text": "as",
+          "start": 5.61,
+          "end": 5.81
+        },
+        {
+          "text": "hard",
+          "start": 5.81,
+          "end": 6.09
+        },
+        {
+          "text": "as",
+          "start": 6.09,
+          "end": 6.31
+        },
+        {
+          "text": "ever.",
+          "start": 6.31,
+          "end": 6.61
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.34429408609867096
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f0b2df143ed9fec73359d300e6e93490f02d89f8a787721a840017cf146d58d2",
+  "selected_reasons": []
+}

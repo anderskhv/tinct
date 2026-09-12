@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "1f00ae9f175b6e68f9f40c0ce920f7bdd85a0d6b3e32bad45ff848174e6bb52d",
+  "attempts": [
+    {
+      "asr_seconds": 0.24264512583613396,
+      "alignment_seconds": 0.00043339887633919716,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don't you know he's dead says Joe",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Don't",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.739013671875
+            },
+            {
+              "text": " you",
+              "start": 0.61,
+              "end": 0.69,
+              "probability": 0.986328125
+            },
+            {
+              "text": " know",
+              "start": 0.69,
+              "end": 0.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he's",
+              "start": 0.79,
+              "end": 1.03,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " dead",
+              "start": 1.03,
+              "end": 1.29,
+              "probability": 0.990234375
+            },
+            {
+              "text": " says",
+              "start": 1.29,
+              "end": 1.77,
+              "probability": 0.373291015625
+            },
+            {
+              "text": " Joe",
+              "start": 1.77,
+              "end": 2.09,
+              "probability": 0.7275390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don't",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "you",
+          "start": 0.61,
+          "end": 0.69
+        },
+        {
+          "raw": "know",
+          "start": 0.69,
+          "end": 0.79
+        },
+        {
+          "raw": "he's",
+          "start": 0.79,
+          "end": 1.03
+        },
+        {
+          "raw": "dead",
+          "start": 1.03,
+          "end": 1.29
+        },
+        {
+          "raw": "says",
+          "start": 1.29,
+          "end": 1.77
+        },
+        {
+          "raw": "Joe",
+          "start": 1.77,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "—Don't",
+        "you",
+        "know",
+        "he's",
+        "dead?",
+        "says",
+        "Joe."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don't",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "dont",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.61,
+          "end": 0.69,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 0.69,
+          "end": 0.79,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he's",
+          "start": 0.79,
+          "end": 1.03,
+          "key": "hes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 1.03,
+          "end": 1.29,
+          "key": "dead",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.29,
+          "end": 1.77,
+          "key": "says",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Joe",
+          "start": 1.77,
+          "end": 2.09,
+          "key": "joe",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Don't",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "you",
+          "start": 0.61,
+          "end": 0.69
+        },
+        {
+          "text": "know",
+          "start": 0.69,
+          "end": 0.79
+        },
+        {
+          "text": "he's",
+          "start": 0.79,
+          "end": 1.03
+        },
+        {
+          "text": "dead?",
+          "start": 1.03,
+          "end": 1.29
+        },
+        {
+          "text": "says",
+          "start": 1.29,
+          "end": 1.77
+        },
+        {
+          "text": "Joe.",
+          "start": 1.77,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24323256174102426
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "60132b3dff047f24da1541aaa15cb070d1f1b86515d7dbb974fdc1405408e17c",
+  "selected_reasons": []
+}

@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "b6fbd9678662255b375b80aa06474c90d98c6f6d7319cba6d8a143a5995c5d7c",
+  "attempts": [
+    {
+      "asr_seconds": 0.15704276412725449,
+      "alignment_seconds": 0.00016333162784576416,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Edgar, why then, your other senses grow imperfect by your eyes' anguish?",
+          "start": 0.02,
+          "end": 4.58,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " why",
+              "start": 1.26,
+              "end": 1.46,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " then,",
+              "start": 1.46,
+              "end": 1.72,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " your",
+              "start": 1.9,
+              "end": 1.98,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " other",
+              "start": 1.98,
+              "end": 2.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " senses",
+              "start": 2.14,
+              "end": 2.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " grow",
+              "start": 2.5,
+              "end": 2.86,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " imperfect",
+              "start": 2.86,
+              "end": 3.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " by",
+              "start": 3.36,
+              "end": 3.7,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " your",
+              "start": 3.7,
+              "end": 3.86,
+              "probability": 0.994140625
+            },
+            {
+              "text": " eyes'",
+              "start": 3.86,
+              "end": 4.14,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " anguish?",
+              "start": 4.3,
+              "end": 4.58,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "why",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "raw": "then,",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "raw": "your",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "raw": "other",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "raw": "senses",
+          "start": 2.14,
+          "end": 2.5
+        },
+        {
+          "raw": "grow",
+          "start": 2.5,
+          "end": 2.86
+        },
+        {
+          "raw": "imperfect",
+          "start": 2.86,
+          "end": 3.36
+        },
+        {
+          "raw": "by",
+          "start": 3.36,
+          "end": 3.7
+        },
+        {
+          "raw": "your",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "raw": "eyes'",
+          "start": 3.86,
+          "end": 4.14
+        },
+        {
+          "raw": "anguish?",
+          "start": 4.3,
+          "end": 4.58
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "Why,",
+        "then,",
+        "your",
+        "other",
+        "senses",
+        "grow",
+        "imperfect",
+        "By",
+        "your",
+        "eyes'",
+        "anguish."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.26,
+          "end": 1.46,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 1.46,
+          "end": 1.72,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.9,
+          "end": 1.98,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 1.98,
+          "end": 2.14,
+          "key": "other",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "senses",
+          "start": 2.14,
+          "end": 2.5,
+          "key": "senses",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "grow",
+          "start": 2.5,
+          "end": 2.86,
+          "key": "grow",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "imperfect",
+          "start": 2.86,
+          "end": 3.36,
+          "key": "imperfect",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.36,
+          "end": 3.7,
+          "key": "by",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.7,
+          "end": 3.86,
+          "key": "your",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "eyes'",
+          "start": 3.86,
+          "end": 4.14,
+          "key": "eyes",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "anguish?",
+          "start": 4.3,
+          "end": 4.58,
+          "key": "anguish",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Why,",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "text": "then,",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "text": "your",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "text": "other",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "text": "senses",
+          "start": 2.14,
+          "end": 2.5
+        },
+        {
+          "text": "grow",
+          "start": 2.5,
+          "end": 2.86
+        },
+        {
+          "text": "imperfect",
+          "start": 2.86,
+          "end": 3.36
+        },
+        {
+          "text": "By",
+          "start": 3.36,
+          "end": 3.7
+        },
+        {
+          "text": "your",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "text": "eyes'",
+          "start": 3.86,
+          "end": 4.14
+        },
+        {
+          "text": "anguish.",
+          "start": 4.3,
+          "end": 4.58
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1572686843574047
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b434fd8c37d4c6d13553993b737610ff774d741b25e489774b36708a7d3aa013",
+  "selected_reasons": []
+}

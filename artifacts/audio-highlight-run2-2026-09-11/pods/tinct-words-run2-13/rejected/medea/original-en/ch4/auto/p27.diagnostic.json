@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "aa1e56af6963c845a1c201011eaf5785ff38dc1f7ec1e8f36710b7f0d393054d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2023049257695675,
+      "alignment_seconds": 0.000460566021502018,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Medea. Where Earth's heart speaks in song? What mad'st thou there?",
+        "hotwords": "Medea, Where, Earth's, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Medea, Where Earth's heart speaks in song? What mad'st thou there?",
+          "start": 0.05,
+          "end": 4.19,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.760498046875
+            },
+            {
+              "text": " Where",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.039764404296875
+            },
+            {
+              "text": " Earth's",
+              "start": 1.35,
+              "end": 1.75,
+              "probability": 0.783935546875
+            },
+            {
+              "text": " heart",
+              "start": 1.75,
+              "end": 1.85,
+              "probability": 0.329345703125
+            },
+            {
+              "text": " speaks",
+              "start": 1.85,
+              "end": 2.15,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " in",
+              "start": 2.15,
+              "end": 2.41,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " song?",
+              "start": 2.41,
+              "end": 2.69,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " What",
+              "start": 3.15,
+              "end": 3.27,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " mad'st",
+              "start": 3.27,
+              "end": 3.71,
+              "probability": 0.23343912760416666
+            },
+            {
+              "text": " thou",
+              "start": 3.71,
+              "end": 3.89,
+              "probability": 0.861328125
+            },
+            {
+              "text": " there?",
+              "start": 3.89,
+              "end": 4.19,
+              "probability": 0.91357421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Where",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "Earth's",
+          "start": 1.35,
+          "end": 1.75
+        },
+        {
+          "raw": "heart",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "raw": "speaks",
+          "start": 1.85,
+          "end": 2.15
+        },
+        {
+          "raw": "in",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "raw": "song?",
+          "start": 2.41,
+          "end": 2.69
+        },
+        {
+          "raw": "What",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "raw": "mad'st",
+          "start": 3.27,
+          "end": 3.71
+        },
+        {
+          "raw": "thou",
+          "start": 3.71,
+          "end": 3.89
+        },
+        {
+          "raw": "there?",
+          "start": 3.89,
+          "end": 4.19
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "Where",
+        "Earth's",
+        "heart",
+        "speaks",
+        "in",
+        "song?",
+        "What",
+        "mad'st",
+        "thou",
+        "there?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "medea",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 1.15,
+          "end": 1.35,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Earth's",
+          "start": 1.35,
+          "end": 1.75,
+          "key": "earths",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 1.75,
+          "end": 1.85,
+          "key": "heart",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "speaks",
+          "start": 1.85,
+          "end": 2.15,
+          "key": "speaks",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.15,
+          "end": 2.41,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "song?",
+          "start": 2.41,
+          "end": 2.69,
+          "key": "song",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 3.15,
+          "end": 3.27,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mad'st",
+          "start": 3.27,
+          "end": 3.71,
+          "key": "madst",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.71,
+          "end": 3.89,
+          "key": "thou",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "there?",
+          "start": 3.89,
+          "end": 4.19,
+          "key": "there",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Where",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "Earth's",
+          "start": 1.35,
+          "end": 1.75
+        },
+        {
+          "text": "heart",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "text": "speaks",
+          "start": 1.85,
+          "end": 2.15
+        },
+        {
+          "text": "in",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "text": "song?",
+          "start": 2.41,
+          "end": 2.69
+        },
+        {
+          "text": "What",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "text": "mad'st",
+          "start": 3.27,
+          "end": 3.71
+        },
+        {
+          "text": "thou",
+          "start": 3.71,
+          "end": 3.89
+        },
+        {
+          "text": "there?",
+          "start": 3.89,
+          "end": 4.19
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20298084523528814
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ae4d5906f2d4fb936e51bb82799e9833a52b7dc8358bdcae0491b92b55e311bc",
+  "selected_reasons": []
+}

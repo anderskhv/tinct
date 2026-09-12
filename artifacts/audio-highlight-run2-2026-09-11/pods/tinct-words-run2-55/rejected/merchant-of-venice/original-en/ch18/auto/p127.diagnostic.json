@@ -1,0 +1,425 @@
+{
+  "complete": true,
+  "signature": "6aa65cdad66fe373549792e574b96a5bbfadfaa564b9fd51ad3a7a6dc9bf440d",
+  "attempts": [
+    {
+      "asr_seconds": 0.13738833088427782,
+      "alignment_seconds": 0.00014365650713443756,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Shylock._]",
+        "hotwords": "Shylock._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": "._ Exit Shylock._",
+          "start": 0.08,
+          "end": 1.72,
+          "words": [
+            {
+              "text": "._",
+              "start": 0.08,
+              "end": 0.08,
+              "probability": 0.0
+            },
+            {
+              "text": " Exit",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.061004638671875
+            },
+            {
+              "text": " Shylock._",
+              "start": 0.66,
+              "end": 1.72,
+              "probability": 0.6655354499816895
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "._",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Shylock._",
+          "start": 0.66,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Shylock._]"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          "replace",
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "._",
+          "start": 0.08,
+          "end": 0.08,
+          "key": "_",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Shylock._",
+          "start": 0.66,
+          "end": 1.72,
+          "key": "shylock_",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Shylock._]",
+          "start": 0.66,
+          "end": 1.19
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13757734838873148
+    },
+    {
+      "asr_seconds": 0.11059767659753561,
+      "alignment_seconds": 0.00020248349756002426,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Shylock._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Shylock._",
+          "start": 0.08,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " Shylock._",
+              "start": 0.64,
+              "end": 1.72,
+              "probability": 0.658935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Shylock._",
+          "start": 0.64,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Shylock._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Shylock._",
+          "start": 0.64,
+          "end": 1.72,
+          "key": "shylock_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Shylock._]",
+          "start": 0.64,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11084958538413048
+    },
+    {
+      "asr_seconds": 0.10457333270460367,
+      "alignment_seconds": 0.00021987315267324448,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Shylock.",
+          "start": 0.08,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " Shylock.",
+              "start": 0.64,
+              "end": 1.18,
+              "probability": 0.8785807291666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Shylock.",
+          "start": 0.64,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Shylock._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Shylock.",
+          "start": 0.64,
+          "end": 1.18,
+          "key": "shylock",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Shylock._]",
+          "start": 0.64,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10485753230750561
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5e54e300e8e751e4a6bfd5d4470ffa5375247d30980a863066f2e174c0f15217",
+  "selected_reasons": []
+}

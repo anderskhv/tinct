@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "44cf4014812c01d1c040c2f608abab98ab6dcef511dd07c4c67f7276f9e14bda",
+  "attempts": [
+    {
+      "asr_seconds": 0.22180639579892159,
+      "alignment_seconds": 0.0006867647171020508,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sonya's face grew paler and paler, and she breathed painfully.",
+          "start": 0.08,
+          "end": 3.62,
+          "words": [
+            {
+              "text": " Sonya's",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.8020833333333334
+            },
+            {
+              "text": " face",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " grew",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " paler",
+              "start": 1.32,
+              "end": 1.7,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " and",
+              "start": 1.7,
+              "end": 1.82,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " paler,",
+              "start": 1.82,
+              "end": 2.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 2.52,
+              "end": 2.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " she",
+              "start": 2.72,
+              "end": 2.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " breathed",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " painfully.",
+              "start": 3.08,
+              "end": 3.62,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sonya's",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "face",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "grew",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "raw": "paler",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "raw": "and",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "raw": "paler,",
+          "start": 1.82,
+          "end": 2.38
+        },
+        {
+          "raw": "and",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "raw": "she",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "raw": "breathed",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "painfully.",
+          "start": 3.08,
+          "end": 3.62
+        }
+      ],
+      "expected_tokens": [
+        "Sonia's",
+        "face",
+        "grew",
+        "paler",
+        "and",
+        "paler,",
+        "and",
+        "she",
+        "breathed",
+        "painfully."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          10,
+          1,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sonya's",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "sonyas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "face",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "grew",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "grew",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "paler",
+          "start": 1.32,
+          "end": 1.7,
+          "key": "paler",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.7,
+          "end": 1.82,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "paler,",
+          "start": 1.82,
+          "end": 2.38,
+          "key": "paler",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.52,
+          "end": 2.72,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.72,
+          "end": 2.86,
+          "key": "she",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "breathed",
+          "start": 2.86,
+          "end": 3.08,
+          "key": "breathed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "painfully.",
+          "start": 3.08,
+          "end": 3.62,
+          "key": "painfully",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sonia's",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "face",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "grew",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "text": "paler",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "text": "and",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "text": "paler,",
+          "start": 1.82,
+          "end": 2.38
+        },
+        {
+          "text": "and",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "text": "she",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "text": "breathed",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "text": "painfully.",
+          "start": 3.08,
+          "end": 3.62
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.22267036885023117
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8ec7f09cecee1ce0721a9a54e9d85373ec0a02f4c8c95c56ef706869f145305e",
+  "selected_reasons": []
+}

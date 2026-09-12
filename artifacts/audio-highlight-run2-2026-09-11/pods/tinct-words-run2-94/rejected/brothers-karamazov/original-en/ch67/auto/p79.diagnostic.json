@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "5c4dd22b2c40104960d1f4def7d130d6968ac01592b5ea20ff8acff9295f3871",
+  "attempts": [
+    {
+      "asr_seconds": 0.18582747876644135,
+      "alignment_seconds": 0.0004499591886997223,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The captain was abject in his flattery of Kolya.",
+        "hotwords": "The, Kolya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The captain was abject in his flattery of Kolya.",
+          "start": 0.02,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " captain",
+              "start": 0.48,
+              "end": 0.74,
+              "probability": 0.60986328125
+            },
+            {
+              "text": " was",
+              "start": 0.74,
+              "end": 0.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " abject",
+              "start": 0.96,
+              "end": 1.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 1.4,
+              "end": 1.64,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " his",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " flattery",
+              "start": 1.78,
+              "end": 2.18,
+              "probability": 0.987548828125
+            },
+            {
+              "text": " of",
+              "start": 2.18,
+              "end": 2.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Kolya.",
+              "start": 2.38,
+              "end": 2.86,
+              "probability": 0.4875590006510417
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "captain",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "raw": "was",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "raw": "abject",
+          "start": 0.96,
+          "end": 1.4
+        },
+        {
+          "raw": "in",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "raw": "his",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "flattery",
+          "start": 1.78,
+          "end": 2.18
+        },
+        {
+          "raw": "of",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "raw": "Kolya.",
+          "start": 2.38,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "captain",
+        "was",
+        "abject",
+        "in",
+        "his",
+        "flattery",
+        "of",
+        "Kolya."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "captain",
+          "start": 0.48,
+          "end": 0.74,
+          "key": "captain",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.74,
+          "end": 0.96,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "abject",
+          "start": 0.96,
+          "end": 1.4,
+          "key": "abject",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.4,
+          "end": 1.64,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "flattery",
+          "start": 1.78,
+          "end": 2.18,
+          "key": "flattery",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.18,
+          "end": 2.38,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Kolya.",
+          "start": 2.38,
+          "end": 2.86,
+          "key": "kolya",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "captain",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "text": "was",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "text": "abject",
+          "start": 0.96,
+          "end": 1.4
+        },
+        {
+          "text": "in",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "text": "his",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "flattery",
+          "start": 1.78,
+          "end": 2.18
+        },
+        {
+          "text": "of",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "text": "Kolya.",
+          "start": 2.38,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18645854108035564
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d6e9528edd0070a7ad65022258d27470026fe78cb0f8a520a5b660c1d1f7622f",
+  "selected_reasons": []
+}

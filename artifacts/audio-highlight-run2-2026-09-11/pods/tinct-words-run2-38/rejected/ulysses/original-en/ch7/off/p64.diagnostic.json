@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "168c7e54f6eaf95ef26ce4e63ba3242eebb2ece3524d33ffc21517f97d9d6484",
+  "attempts": [
+    {
+      "asr_seconds": 0.1329689539852552,
+      "alignment_seconds": 0.0002297509927302599,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Like that Mr. Bloom said crossing his forefingers at the top",
+          "start": 0.02,
+          "end": 4.0,
+          "words": [
+            {
+              "text": " Like",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.157958984375
+            },
+            {
+              "text": " that",
+              "start": 0.56,
+              "end": 0.94,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Mr.",
+              "start": 0.94,
+              "end": 1.32,
+              "probability": 0.156494140625
+            },
+            {
+              "text": " Bloom",
+              "start": 1.66,
+              "end": 1.68,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " said",
+              "start": 1.68,
+              "end": 2.06,
+              "probability": 0.9921875
+            },
+            {
+              "text": " crossing",
+              "start": 2.06,
+              "end": 2.7,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " his",
+              "start": 2.7,
+              "end": 2.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " forefingers",
+              "start": 2.92,
+              "end": 3.5,
+              "probability": 0.888671875
+            },
+            {
+              "text": " at",
+              "start": 3.5,
+              "end": 3.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.6,
+              "end": 3.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " top",
+              "start": 3.72,
+              "end": 4.0,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Like",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "that",
+          "start": 0.56,
+          "end": 0.94
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.94,
+          "end": 1.32
+        },
+        {
+          "raw": "Bloom",
+          "start": 1.66,
+          "end": 1.68
+        },
+        {
+          "raw": "said",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "raw": "crossing",
+          "start": 2.06,
+          "end": 2.7
+        },
+        {
+          "raw": "his",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "raw": "forefingers",
+          "start": 2.92,
+          "end": 3.5
+        },
+        {
+          "raw": "at",
+          "start": 3.5,
+          "end": 3.6
+        },
+        {
+          "raw": "the",
+          "start": 3.6,
+          "end": 3.72
+        },
+        {
+          "raw": "top",
+          "start": 3.72,
+          "end": 4.0
+        }
+      ],
+      "expected_tokens": [
+        "—Like",
+        "that,",
+        "Mr",
+        "Bloom",
+        "said,",
+        "crossing",
+        "his",
+        "forefingers",
+        "at",
+        "the",
+        "top."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Like",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "like",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.56,
+          "end": 0.94,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.94,
+          "end": 1.32,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Bloom",
+          "start": 1.66,
+          "end": 1.68,
+          "key": "bloom",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.68,
+          "end": 2.06,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "crossing",
+          "start": 2.06,
+          "end": 2.7,
+          "key": "crossing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.7,
+          "end": 2.92,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "forefingers",
+          "start": 2.92,
+          "end": 3.5,
+          "key": "forefingers",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.5,
+          "end": 3.6,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.6,
+          "end": 3.72,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "top",
+          "start": 3.72,
+          "end": 4.0,
+          "key": "top",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Like",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "that,",
+          "start": 0.56,
+          "end": 0.94
+        },
+        {
+          "text": "Mr",
+          "start": 0.94,
+          "end": 1.32
+        },
+        {
+          "text": "Bloom",
+          "start": 1.66,
+          "end": 1.68
+        },
+        {
+          "text": "said,",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "text": "crossing",
+          "start": 2.06,
+          "end": 2.7
+        },
+        {
+          "text": "his",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "text": "forefingers",
+          "start": 2.92,
+          "end": 3.5
+        },
+        {
+          "text": "at",
+          "start": 3.5,
+          "end": 3.6
+        },
+        {
+          "text": "the",
+          "start": 3.6,
+          "end": 3.72
+        },
+        {
+          "text": "top.",
+          "start": 3.72,
+          "end": 4.0
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13327974500134587
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "102898e14e84eccfd3a3f4f4877b995df230d6444cacc07a16a00c47dd9ac7aa",
+  "selected_reasons": []
+}

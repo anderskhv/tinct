@@ -1,0 +1,779 @@
+{
+  "complete": true,
+  "signature": "1689d920474368acd9766136e0b041b38859b56637ac2e14821feebad102338d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2308858318720013,
+      "alignment_seconds": 0.00044066901318728924,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Richard. Ay, what's o'clock?",
+        "hotwords": "King, Richard, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Richard, Ay, what's o'clock?",
+          "start": 0.02,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " Richard,",
+              "start": 0.54,
+              "end": 0.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Ay,",
+              "start": 1.46,
+              "end": 1.48,
+              "probability": 0.00528717041015625
+            },
+            {
+              "text": " what's",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.817626953125
+            },
+            {
+              "text": " o",
+              "start": 1.7,
+              "end": 1.8,
+              "probability": 0.450927734375
+            },
+            {
+              "text": "'clock?",
+              "start": 1.8,
+              "end": 1.98,
+              "probability": 0.970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.46,
+          "end": 1.48
+        },
+        {
+          "raw": "what's",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "o",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "raw": "'clock?",
+          "start": 1.8,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Ay,",
+        "what's",
+        "o'clock?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.54,
+          "end": 0.92,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.46,
+          "end": 1.48,
+          "key": "ay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "whats",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.7,
+          "end": 1.8,
+          "key": "o",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "'clock?",
+          "start": 1.8,
+          "end": 1.98,
+          "key": "clock",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "Richard.",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "text": "Ay,",
+          "start": 1.46,
+          "end": 1.48
+        },
+        {
+          "text": "what's",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "o'clock?",
+          "start": 1.7,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23146884399466217
+    },
+    {
+      "asr_seconds": 0.1958624660037458,
+      "alignment_seconds": 0.0004940368235111237,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "King, Richard, Ay"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " King, Richard, Ay, what's o'clock?",
+          "start": 0.28,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " King,",
+              "start": 0.28,
+              "end": 0.54,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " Richard,",
+              "start": 0.8,
+              "end": 0.92,
+              "probability": 0.943359375
+            },
+            {
+              "text": " Ay,",
+              "start": 1.46,
+              "end": 1.48,
+              "probability": 0.004421234130859375
+            },
+            {
+              "text": " what's",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.847412109375
+            },
+            {
+              "text": " o",
+              "start": 1.7,
+              "end": 1.8,
+              "probability": 0.406494140625
+            },
+            {
+              "text": "'clock?",
+              "start": 1.8,
+              "end": 1.94,
+              "probability": 0.970947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King,",
+          "start": 0.28,
+          "end": 0.54
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.46,
+          "end": 1.48
+        },
+        {
+          "raw": "what's",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "o",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "raw": "'clock?",
+          "start": 1.8,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Ay,",
+        "what's",
+        "o'clock?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King,",
+          "start": 0.28,
+          "end": 0.54,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.8,
+          "end": 0.92,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.46,
+          "end": 1.48,
+          "key": "ay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "whats",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.7,
+          "end": 1.8,
+          "key": "o",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "'clock?",
+          "start": 1.8,
+          "end": 1.94,
+          "key": "clock",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.28,
+          "end": 0.54
+        },
+        {
+          "text": "Richard.",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "text": "Ay,",
+          "start": 1.46,
+          "end": 1.48
+        },
+        {
+          "text": "what's",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "o'clock?",
+          "start": 1.7,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19651639298535883
+    },
+    {
+      "asr_seconds": 0.20266846590675414,
+      "alignment_seconds": 0.00039676297456026077,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Richard, eye what's o'clock?",
+          "start": 0.02,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " Richard,",
+              "start": 0.54,
+              "end": 0.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " eye",
+              "start": 1.46,
+              "end": 1.48,
+              "probability": 0.23681640625
+            },
+            {
+              "text": " what's",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.886962890625
+            },
+            {
+              "text": " o",
+              "start": 1.7,
+              "end": 1.8,
+              "probability": 0.55859375
+            },
+            {
+              "text": "'clock?",
+              "start": 1.8,
+              "end": 2.0,
+              "probability": 0.975830078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "raw": "eye",
+          "start": 1.46,
+          "end": 1.48
+        },
+        {
+          "raw": "what's",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "raw": "o",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "raw": "'clock?",
+          "start": 1.8,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Ay,",
+        "what's",
+        "o'clock?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.54,
+          "end": 0.92,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "eye",
+          "start": 1.46,
+          "end": 1.48,
+          "key": "eye",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 1.48,
+          "end": 1.7,
+          "key": "whats",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.7,
+          "end": 1.8,
+          "key": "o",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "'clock?",
+          "start": 1.8,
+          "end": 2.0,
+          "key": "clock",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "Richard.",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "text": "Ay,",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "text": "what's",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "text": "o'clock?",
+          "start": 1.7,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2031936899293214
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f495b7eb40e64a702f500a369fa3362586d6d44f5486bbf087556ac97f56e389",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

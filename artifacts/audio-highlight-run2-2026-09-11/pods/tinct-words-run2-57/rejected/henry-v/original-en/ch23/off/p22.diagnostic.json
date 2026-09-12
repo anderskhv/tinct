@@ -1,0 +1,355 @@
+{
+  "complete": true,
+  "signature": "794a5e0909f0dd08f309d4b558da33906dda03a3126e8e44eea8065c423767f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.21880292193964124,
+      "alignment_seconds": 0.0004464678931981325,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alice, weave rymant, soft fodder grace, aint see detail.",
+          "start": 0.18,
+          "end": 3.62,
+          "words": [
+            {
+              "text": " Alice,",
+              "start": 0.18,
+              "end": 0.78,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " weave",
+              "start": 1.32,
+              "end": 1.36,
+              "probability": 0.607421875
+            },
+            {
+              "text": " rymant,",
+              "start": 1.36,
+              "end": 1.86,
+              "probability": 0.5067138671875
+            },
+            {
+              "text": " soft",
+              "start": 2.18,
+              "end": 2.26,
+              "probability": 0.9765625
+            },
+            {
+              "text": " fodder",
+              "start": 2.26,
+              "end": 2.5,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " grace,",
+              "start": 2.5,
+              "end": 2.86,
+              "probability": 0.68798828125
+            },
+            {
+              "text": " aint",
+              "start": 3.12,
+              "end": 3.2,
+              "probability": 0.41748046875
+            },
+            {
+              "text": " see",
+              "start": 3.2,
+              "end": 3.36,
+              "probability": 0.521484375
+            },
+            {
+              "text": " detail.",
+              "start": 3.36,
+              "end": 3.62,
+              "probability": 0.6943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alice,",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "raw": "weave",
+          "start": 1.32,
+          "end": 1.36
+        },
+        {
+          "raw": "rymant,",
+          "start": 1.36,
+          "end": 1.86
+        },
+        {
+          "raw": "soft",
+          "start": 2.18,
+          "end": 2.26
+        },
+        {
+          "raw": "fodder",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "raw": "grace,",
+          "start": 2.5,
+          "end": 2.86
+        },
+        {
+          "raw": "aint",
+          "start": 3.12,
+          "end": 3.2
+        },
+        {
+          "raw": "see",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "raw": "detail.",
+          "start": 3.36,
+          "end": 3.62
+        }
+      ],
+      "expected_tokens": [
+        "Alice.",
+        "_Oui,",
+        "vraiment,",
+        "sauf",
+        "votre",
+        "Grâce,",
+        "ainsi",
+        "dit-il._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          8,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          8,
+          1,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alice,",
+          "start": 0.18,
+          "end": 0.78,
+          "key": "alice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "weave",
+          "start": 1.32,
+          "end": 1.36,
+          "key": "weave",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rymant,",
+          "start": 1.36,
+          "end": 1.86,
+          "key": "rymant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "soft",
+          "start": 2.18,
+          "end": 2.26,
+          "key": "soft",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fodder",
+          "start": 2.26,
+          "end": 2.5,
+          "key": "fodder",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "grace,",
+          "start": 2.5,
+          "end": 2.86,
+          "key": "grace",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "aint",
+          "start": 3.12,
+          "end": 3.2,
+          "key": "aint",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.2,
+          "end": 3.36,
+          "key": "see",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "detail.",
+          "start": 3.36,
+          "end": 3.62,
+          "key": "detail",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alice.",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "text": "_Oui,",
+          "start": 0.78,
+          "end": 2.2
+        },
+        {
+          "text": "vraiment,",
+          "start": 2.2,
+          "end": 2.91
+        },
+        {
+          "text": "sauf",
+          "start": 2.91,
+          "end": 3.265
+        },
+        {
+          "text": "votre",
+          "start": 3.265,
+          "end": 3.442
+        },
+        {
+          "text": "Grâce,",
+          "start": 3.442,
+          "end": 3.531
+        },
+        {
+          "text": "ainsi",
+          "start": 3.531,
+          "end": 3.575
+        },
+        {
+          "text": "dit-il._",
+          "start": 3.575,
+          "end": 3.598
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 1
+      },
+      "match_ratio": 0.125,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21940676006488502
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b306623480255bf245014ad1e4ea7c058677824506e412757ff540fd43ebeef6",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

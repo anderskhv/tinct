@@ -1,0 +1,2385 @@
+{
+  "complete": true,
+  "signature": "9ec10b15366af53178826d0a8d13d2168c51862ac3a19642d2bc3eac398cda16",
+  "attempts": [
+    {
+      "asr_seconds": 0.2691673133522272,
+      "alignment_seconds": 0.00029733870178461075,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lennox. Or so much as it needs To dew the sovereign flower, and drown the weeds. Make we our march towards Birnam.",
+        "hotwords": "Lennox, Or, To, Make, Birnam"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lennox. Or so much as it needs To do the sovereign flower, and drown the weeds. Make we our march towards Birnam.",
+          "start": 0.05,
+          "end": 7.05,
+          "words": [
+            {
+              "text": " Lennox.",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.524169921875
+            },
+            {
+              "text": " Or",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.68994140625
+            },
+            {
+              "text": " so",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " much",
+              "start": 1.83,
+              "end": 2.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " as",
+              "start": 2.01,
+              "end": 2.17,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " it",
+              "start": 2.17,
+              "end": 2.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " needs",
+              "start": 2.25,
+              "end": 2.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " To",
+              "start": 2.43,
+              "end": 2.65,
+              "probability": 0.000244140625
+            },
+            {
+              "text": " do",
+              "start": 2.65,
+              "end": 2.77,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 2.77,
+              "end": 2.95,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " sovereign",
+              "start": 2.95,
+              "end": 3.33,
+              "probability": 0.916015625
+            },
+            {
+              "text": " flower,",
+              "start": 3.33,
+              "end": 3.73,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " and",
+              "start": 4.03,
+              "end": 4.15,
+              "probability": 0.311279296875
+            },
+            {
+              "text": " drown",
+              "start": 4.15,
+              "end": 4.39,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " the",
+              "start": 4.39,
+              "end": 4.59,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " weeds.",
+              "start": 4.59,
+              "end": 4.97,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Make",
+              "start": 5.59,
+              "end": 5.69,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " we",
+              "start": 5.69,
+              "end": 5.87,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " our",
+              "start": 5.87,
+              "end": 6.03,
+              "probability": 0.955078125
+            },
+            {
+              "text": " march",
+              "start": 6.03,
+              "end": 6.29,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " towards",
+              "start": 6.29,
+              "end": 6.59,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " Birnam.",
+              "start": 6.59,
+              "end": 7.05,
+              "probability": 0.362030029296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lennox.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "Or",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "so",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "raw": "much",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "raw": "as",
+          "start": 2.01,
+          "end": 2.17
+        },
+        {
+          "raw": "it",
+          "start": 2.17,
+          "end": 2.25
+        },
+        {
+          "raw": "needs",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "raw": "To",
+          "start": 2.43,
+          "end": 2.65
+        },
+        {
+          "raw": "do",
+          "start": 2.65,
+          "end": 2.77
+        },
+        {
+          "raw": "the",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "raw": "sovereign",
+          "start": 2.95,
+          "end": 3.33
+        },
+        {
+          "raw": "flower,",
+          "start": 3.33,
+          "end": 3.73
+        },
+        {
+          "raw": "and",
+          "start": 4.03,
+          "end": 4.15
+        },
+        {
+          "raw": "drown",
+          "start": 4.15,
+          "end": 4.39
+        },
+        {
+          "raw": "the",
+          "start": 4.39,
+          "end": 4.59
+        },
+        {
+          "raw": "weeds.",
+          "start": 4.59,
+          "end": 4.97
+        },
+        {
+          "raw": "Make",
+          "start": 5.59,
+          "end": 5.69
+        },
+        {
+          "raw": "we",
+          "start": 5.69,
+          "end": 5.87
+        },
+        {
+          "raw": "our",
+          "start": 5.87,
+          "end": 6.03
+        },
+        {
+          "raw": "march",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "raw": "towards",
+          "start": 6.29,
+          "end": 6.59
+        },
+        {
+          "raw": "Birnam.",
+          "start": 6.59,
+          "end": 7.05
+        }
+      ],
+      "expected_tokens": [
+        "Lennox.",
+        "Or",
+        "so",
+        "much",
+        "as",
+        "it",
+        "needs",
+        "To",
+        "dew",
+        "the",
+        "sovereign",
+        "flower,",
+        "and",
+        "drown",
+        "the",
+        "weeds.",
+        "Make",
+        "we",
+        "our",
+        "march",
+        "towards",
+        "Birnam."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          22,
+          9,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lennox.",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "lennox",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "or",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.55,
+          "end": 1.83,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 1.83,
+          "end": 2.01,
+          "key": "much",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.01,
+          "end": 2.17,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.17,
+          "end": 2.25,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "needs",
+          "start": 2.25,
+          "end": 2.43,
+          "key": "needs",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 2.43,
+          "end": 2.65,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.65,
+          "end": 2.77,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.77,
+          "end": 2.95,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sovereign",
+          "start": 2.95,
+          "end": 3.33,
+          "key": "sovereign",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "flower,",
+          "start": 3.33,
+          "end": 3.73,
+          "key": "flower",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.03,
+          "end": 4.15,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "drown",
+          "start": 4.15,
+          "end": 4.39,
+          "key": "drown",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.39,
+          "end": 4.59,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "weeds.",
+          "start": 4.59,
+          "end": 4.97,
+          "key": "weeds",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Make",
+          "start": 5.59,
+          "end": 5.69,
+          "key": "make",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 5.69,
+          "end": 5.87,
+          "key": "we",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 5.87,
+          "end": 6.03,
+          "key": "our",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "march",
+          "start": 6.03,
+          "end": 6.29,
+          "key": "march",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 6.29,
+          "end": 6.59,
+          "key": "towards",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Birnam.",
+          "start": 6.59,
+          "end": 7.05,
+          "key": "birnam",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lennox.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Or",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "so",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "text": "much",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "text": "as",
+          "start": 2.01,
+          "end": 2.17
+        },
+        {
+          "text": "it",
+          "start": 2.17,
+          "end": 2.25
+        },
+        {
+          "text": "needs",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "text": "To",
+          "start": 2.43,
+          "end": 2.65
+        },
+        {
+          "text": "dew",
+          "start": 2.65,
+          "end": 2.71
+        },
+        {
+          "text": "the",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "text": "sovereign",
+          "start": 2.95,
+          "end": 3.33
+        },
+        {
+          "text": "flower,",
+          "start": 3.33,
+          "end": 3.73
+        },
+        {
+          "text": "and",
+          "start": 4.03,
+          "end": 4.15
+        },
+        {
+          "text": "drown",
+          "start": 4.15,
+          "end": 4.39
+        },
+        {
+          "text": "the",
+          "start": 4.39,
+          "end": 4.59
+        },
+        {
+          "text": "weeds.",
+          "start": 4.59,
+          "end": 4.97
+        },
+        {
+          "text": "Make",
+          "start": 5.59,
+          "end": 5.69
+        },
+        {
+          "text": "we",
+          "start": 5.69,
+          "end": 5.87
+        },
+        {
+          "text": "our",
+          "start": 5.87,
+          "end": 6.03
+        },
+        {
+          "text": "march",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "text": "towards",
+          "start": 6.29,
+          "end": 6.59
+        },
+        {
+          "text": "Birnam.",
+          "start": 6.59,
+          "end": 7.05
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 21
+      },
+      "match_ratio": 0.9545454545454546,
+      "rejection_reasons": [],
+      "seconds": 0.26958727464079857
+    },
+    {
+      "asr_seconds": 0.3716014623641968,
+      "alignment_seconds": 0.0007238173857331276,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Lennox, Or, To, Make, Birnam"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Lennox, Or, So Much As It Needs To Do The Sovereign Flower And Drown The Weeds, Make",
+          "start": 0.49,
+          "end": 5.69,
+          "words": [
+            {
+              "text": " Lennox,",
+              "start": 0.49,
+              "end": 0.93,
+              "probability": 0.524322509765625
+            },
+            {
+              "text": " Or,",
+              "start": 1.35,
+              "end": 1.55,
+              "probability": 0.002529144287109375
+            },
+            {
+              "text": " So",
+              "start": 1.73,
+              "end": 1.83,
+              "probability": 0.0276336669921875
+            },
+            {
+              "text": " Much",
+              "start": 1.83,
+              "end": 2.01,
+              "probability": 0.666015625
+            },
+            {
+              "text": " As",
+              "start": 2.01,
+              "end": 2.15,
+              "probability": 0.465576171875
+            },
+            {
+              "text": " It",
+              "start": 2.15,
+              "end": 2.27,
+              "probability": 0.90234375
+            },
+            {
+              "text": " Needs",
+              "start": 2.27,
+              "end": 2.41,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " To",
+              "start": 2.41,
+              "end": 2.63,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " Do",
+              "start": 2.63,
+              "end": 2.77,
+              "probability": 0.986328125
+            },
+            {
+              "text": " The",
+              "start": 2.77,
+              "end": 2.95,
+              "probability": 0.833984375
+            },
+            {
+              "text": " Sovereign",
+              "start": 2.95,
+              "end": 3.33,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " Flower",
+              "start": 3.33,
+              "end": 3.73,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " And",
+              "start": 3.73,
+              "end": 4.15,
+              "probability": 0.751953125
+            },
+            {
+              "text": " Drown",
+              "start": 4.15,
+              "end": 4.39,
+              "probability": 0.984619140625
+            },
+            {
+              "text": " The",
+              "start": 4.39,
+              "end": 4.61,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Weeds,",
+              "start": 4.61,
+              "end": 5.09,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " Make",
+              "start": 5.59,
+              "end": 5.69,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " We Our March Towards Birnam",
+          "start": 5.69,
+          "end": 7.05,
+          "words": [
+            {
+              "text": " We",
+              "start": 5.69,
+              "end": 5.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Our",
+              "start": 5.89,
+              "end": 6.03,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " March",
+              "start": 6.03,
+              "end": 6.29,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " Towards",
+              "start": 6.29,
+              "end": 6.57,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " Birnam",
+              "start": 6.57,
+              "end": 7.05,
+              "probability": 0.3195037841796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lennox,",
+          "start": 0.49,
+          "end": 0.93
+        },
+        {
+          "raw": "Or,",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "raw": "So",
+          "start": 1.73,
+          "end": 1.83
+        },
+        {
+          "raw": "Much",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "raw": "As",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "raw": "It",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "raw": "Needs",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "raw": "To",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "raw": "Do",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "raw": "The",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "raw": "Sovereign",
+          "start": 2.95,
+          "end": 3.33
+        },
+        {
+          "raw": "Flower",
+          "start": 3.33,
+          "end": 3.73
+        },
+        {
+          "raw": "And",
+          "start": 3.73,
+          "end": 4.15
+        },
+        {
+          "raw": "Drown",
+          "start": 4.15,
+          "end": 4.39
+        },
+        {
+          "raw": "The",
+          "start": 4.39,
+          "end": 4.61
+        },
+        {
+          "raw": "Weeds,",
+          "start": 4.61,
+          "end": 5.09
+        },
+        {
+          "raw": "Make",
+          "start": 5.59,
+          "end": 5.69
+        },
+        {
+          "raw": "We",
+          "start": 5.69,
+          "end": 5.89
+        },
+        {
+          "raw": "Our",
+          "start": 5.89,
+          "end": 6.03
+        },
+        {
+          "raw": "March",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "raw": "Towards",
+          "start": 6.29,
+          "end": 6.57
+        },
+        {
+          "raw": "Birnam",
+          "start": 6.57,
+          "end": 7.05
+        }
+      ],
+      "expected_tokens": [
+        "Lennox.",
+        "Or",
+        "so",
+        "much",
+        "as",
+        "it",
+        "needs",
+        "To",
+        "dew",
+        "the",
+        "sovereign",
+        "flower,",
+        "and",
+        "drown",
+        "the",
+        "weeds.",
+        "Make",
+        "we",
+        "our",
+        "march",
+        "towards",
+        "Birnam."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          22,
+          9,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lennox,",
+          "start": 0.49,
+          "end": 0.93,
+          "key": "lennox",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Or,",
+          "start": 1.35,
+          "end": 1.55,
+          "key": "or",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 1.73,
+          "end": 1.83,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Much",
+          "start": 1.83,
+          "end": 2.01,
+          "key": "much",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 2.01,
+          "end": 2.15,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 2.15,
+          "end": 2.27,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Needs",
+          "start": 2.27,
+          "end": 2.41,
+          "key": "needs",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 2.41,
+          "end": 2.63,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.63,
+          "end": 2.77,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.77,
+          "end": 2.95,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Sovereign",
+          "start": 2.95,
+          "end": 3.33,
+          "key": "sovereign",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Flower",
+          "start": 3.33,
+          "end": 3.73,
+          "key": "flower",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.73,
+          "end": 4.15,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Drown",
+          "start": 4.15,
+          "end": 4.39,
+          "key": "drown",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.39,
+          "end": 4.61,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Weeds,",
+          "start": 4.61,
+          "end": 5.09,
+          "key": "weeds",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Make",
+          "start": 5.59,
+          "end": 5.69,
+          "key": "make",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 5.69,
+          "end": 5.89,
+          "key": "we",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 5.89,
+          "end": 6.03,
+          "key": "our",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "March",
+          "start": 6.03,
+          "end": 6.29,
+          "key": "march",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Towards",
+          "start": 6.29,
+          "end": 6.57,
+          "key": "towards",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Birnam",
+          "start": 6.57,
+          "end": 7.05,
+          "key": "birnam",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lennox.",
+          "start": 0.49,
+          "end": 0.93
+        },
+        {
+          "text": "Or",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "text": "so",
+          "start": 1.73,
+          "end": 1.83
+        },
+        {
+          "text": "much",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "text": "as",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "text": "it",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "text": "needs",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "text": "To",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "text": "dew",
+          "start": 2.63,
+          "end": 2.7
+        },
+        {
+          "text": "the",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "text": "sovereign",
+          "start": 2.95,
+          "end": 3.33
+        },
+        {
+          "text": "flower,",
+          "start": 3.33,
+          "end": 3.73
+        },
+        {
+          "text": "and",
+          "start": 3.73,
+          "end": 4.15
+        },
+        {
+          "text": "drown",
+          "start": 4.15,
+          "end": 4.39
+        },
+        {
+          "text": "the",
+          "start": 4.39,
+          "end": 4.61
+        },
+        {
+          "text": "weeds.",
+          "start": 4.61,
+          "end": 5.09
+        },
+        {
+          "text": "Make",
+          "start": 5.59,
+          "end": 5.69
+        },
+        {
+          "text": "we",
+          "start": 5.69,
+          "end": 5.89
+        },
+        {
+          "text": "our",
+          "start": 5.89,
+          "end": 6.03
+        },
+        {
+          "text": "march",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "text": "towards",
+          "start": 6.29,
+          "end": 6.57
+        },
+        {
+          "text": "Birnam.",
+          "start": 6.57,
+          "end": 7.05
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 21
+      },
+      "match_ratio": 0.9545454545454546,
+      "rejection_reasons": [],
+      "seconds": 0.3726137839257717
+    },
+    {
+      "asr_seconds": 0.30056548677384853,
+      "alignment_seconds": 0.0005696285516023636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lenox, or so much as it needs to do the sovereign flower and drown the weeds, make we our march",
+          "start": 0.05,
+          "end": 6.29,
+          "words": [
+            {
+              "text": " Lenox,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " or",
+              "start": 1.35,
+              "end": 1.55,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " so",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " much",
+              "start": 1.83,
+              "end": 2.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " as",
+              "start": 2.01,
+              "end": 2.17,
+              "probability": 0.9921875
+            },
+            {
+              "text": " it",
+              "start": 2.17,
+              "end": 2.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " needs",
+              "start": 2.25,
+              "end": 2.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 2.43,
+              "end": 2.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " do",
+              "start": 2.65,
+              "end": 2.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.77,
+              "end": 2.95,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " sovereign",
+              "start": 2.95,
+              "end": 3.33,
+              "probability": 0.9453125
+            },
+            {
+              "text": " flower",
+              "start": 3.33,
+              "end": 3.73,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " and",
+              "start": 3.73,
+              "end": 4.13,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " drown",
+              "start": 4.13,
+              "end": 4.41,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 4.41,
+              "end": 4.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " weeds,",
+              "start": 4.59,
+              "end": 5.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " make",
+              "start": 5.55,
+              "end": 5.71,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " we",
+              "start": 5.71,
+              "end": 5.87,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " our",
+              "start": 5.87,
+              "end": 6.03,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " march",
+              "start": 6.03,
+              "end": 6.29,
+              "probability": 0.9814453125
+            }
+          ]
+        },
+        {
+          "text": " towards Burnham.",
+          "start": 6.29,
+          "end": 7.09,
+          "words": [
+            {
+              "text": " towards",
+              "start": 6.29,
+              "end": 6.61,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " Burnham.",
+              "start": 6.61,
+              "end": 7.09,
+              "probability": 0.73388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lenox,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "or",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "raw": "so",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "raw": "much",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "raw": "as",
+          "start": 2.01,
+          "end": 2.17
+        },
+        {
+          "raw": "it",
+          "start": 2.17,
+          "end": 2.25
+        },
+        {
+          "raw": "needs",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "raw": "to",
+          "start": 2.43,
+          "end": 2.65
+        },
+        {
+          "raw": "do",
+          "start": 2.65,
+          "end": 2.77
+        },
+        {
+          "raw": "the",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "raw": "sovereign",
+          "start": 2.95,
+          "end": 3.33
+        },
+        {
+          "raw": "flower",
+          "start": 3.33,
+          "end": 3.73
+        },
+        {
+          "raw": "and",
+          "start": 3.73,
+          "end": 4.13
+        },
+        {
+          "raw": "drown",
+          "start": 4.13,
+          "end": 4.41
+        },
+        {
+          "raw": "the",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "raw": "weeds,",
+          "start": 4.59,
+          "end": 5.01
+        },
+        {
+          "raw": "make",
+          "start": 5.55,
+          "end": 5.71
+        },
+        {
+          "raw": "we",
+          "start": 5.71,
+          "end": 5.87
+        },
+        {
+          "raw": "our",
+          "start": 5.87,
+          "end": 6.03
+        },
+        {
+          "raw": "march",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "raw": "towards",
+          "start": 6.29,
+          "end": 6.61
+        },
+        {
+          "raw": "Burnham.",
+          "start": 6.61,
+          "end": 7.09
+        }
+      ],
+      "expected_tokens": [
+        "Lennox.",
+        "Or",
+        "so",
+        "much",
+        "as",
+        "it",
+        "needs",
+        "To",
+        "dew",
+        "the",
+        "sovereign",
+        "flower,",
+        "and",
+        "drown",
+        "the",
+        "weeds.",
+        "Make",
+        "we",
+        "our",
+        "march",
+        "towards",
+        "Birnam."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          21,
+          9,
+          21
+        ],
+        [
+          "replace",
+          21,
+          22,
+          21,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          21,
+          22,
+          21,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lenox,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "lenox",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 1.35,
+          "end": 1.55,
+          "key": "or",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.55,
+          "end": 1.83,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 1.83,
+          "end": 2.01,
+          "key": "much",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.01,
+          "end": 2.17,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.17,
+          "end": 2.25,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "needs",
+          "start": 2.25,
+          "end": 2.43,
+          "key": "needs",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.43,
+          "end": 2.65,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.65,
+          "end": 2.77,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.77,
+          "end": 2.95,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sovereign",
+          "start": 2.95,
+          "end": 3.33,
+          "key": "sovereign",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "flower",
+          "start": 3.33,
+          "end": 3.73,
+          "key": "flower",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.73,
+          "end": 4.13,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "drown",
+          "start": 4.13,
+          "end": 4.41,
+          "key": "drown",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.41,
+          "end": 4.59,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "weeds,",
+          "start": 4.59,
+          "end": 5.01,
+          "key": "weeds",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 5.55,
+          "end": 5.71,
+          "key": "make",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 5.71,
+          "end": 5.87,
+          "key": "we",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 5.87,
+          "end": 6.03,
+          "key": "our",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "march",
+          "start": 6.03,
+          "end": 6.29,
+          "key": "march",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 6.29,
+          "end": 6.61,
+          "key": "towards",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Burnham.",
+          "start": 6.61,
+          "end": 7.09,
+          "key": "burnham",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lennox.",
+          "start": 0.0,
+          "end": 0.675
+        },
+        {
+          "text": "Or",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "text": "so",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "text": "much",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "text": "as",
+          "start": 2.01,
+          "end": 2.17
+        },
+        {
+          "text": "it",
+          "start": 2.17,
+          "end": 2.25
+        },
+        {
+          "text": "needs",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "text": "To",
+          "start": 2.43,
+          "end": 2.65
+        },
+        {
+          "text": "dew",
+          "start": 2.65,
+          "end": 2.71
+        },
+        {
+          "text": "the",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "text": "sovereign",
+          "start": 2.95,
+          "end": 3.33
+        },
+        {
+          "text": "flower,",
+          "start": 3.33,
+          "end": 3.73
+        },
+        {
+          "text": "and",
+          "start": 3.73,
+          "end": 4.13
+        },
+        {
+          "text": "drown",
+          "start": 4.13,
+          "end": 4.41
+        },
+        {
+          "text": "the",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "text": "weeds.",
+          "start": 4.59,
+          "end": 5.01
+        },
+        {
+          "text": "Make",
+          "start": 5.55,
+          "end": 5.71
+        },
+        {
+          "text": "we",
+          "start": 5.71,
+          "end": 5.87
+        },
+        {
+          "text": "our",
+          "start": 5.87,
+          "end": 6.03
+        },
+        {
+          "text": "march",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "text": "towards",
+          "start": 6.29,
+          "end": 6.61
+        },
+        {
+          "text": "Birnam.",
+          "start": 6.61,
+          "end": 6.85
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 19
+      },
+      "match_ratio": 0.8636363636363636,
+      "rejection_reasons": [],
+      "seconds": 0.30136364977806807
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b88f8121e8912cd68f5ace23946e4cbc3b93bfa5089b5a165b4078e9152ab10b",
+  "selected_reasons": []
+}

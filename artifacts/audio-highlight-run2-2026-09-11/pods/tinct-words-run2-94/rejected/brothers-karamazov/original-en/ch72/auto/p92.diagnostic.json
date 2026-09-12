@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "d801b0fb5fe51ec50e5bb0edb185a3f0aaf9dae530a6d006eed1a0899993d80e",
+  "attempts": [
+    {
+      "asr_seconds": 0.3664408754557371,
+      "alignment_seconds": 0.0006942320615053177,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Go to your brother, the prison will be shut; go, here's your hat. Give my love to Mitya, go, go!\"",
+        "hotwords": "Give, Mitya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Go to your brother, the prison will be shut. Go, here's your hat. Give my love to Mitya, go, go!",
+          "start": 0.02,
+          "end": 5.44,
+          "words": [
+            {
+              "text": " Go",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.9296875
+            },
+            {
+              "text": " to",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " your",
+              "start": 0.66,
+              "end": 0.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " brother,",
+              "start": 0.76,
+              "end": 1.02,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " prison",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " will",
+              "start": 1.48,
+              "end": 1.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 1.68,
+              "end": 1.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shut.",
+              "start": 1.82,
+              "end": 2.12,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Go,",
+              "start": 2.62,
+              "end": 2.7,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " here's",
+              "start": 2.8,
+              "end": 3.06,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " your",
+              "start": 3.06,
+              "end": 3.16,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hat.",
+              "start": 3.16,
+              "end": 3.44,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Give",
+              "start": 4.04,
+              "end": 4.12,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " my",
+              "start": 4.12,
+              "end": 4.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " love",
+              "start": 4.28,
+              "end": 4.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 4.46,
+              "end": 4.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Mitya,",
+              "start": 4.64,
+              "end": 4.96,
+              "probability": 0.3940531412760417
+            },
+            {
+              "text": " go,",
+              "start": 5.06,
+              "end": 5.14,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " go!",
+              "start": 5.44,
+              "end": 5.44,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Go",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "to",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "your",
+          "start": 0.66,
+          "end": 0.76
+        },
+        {
+          "raw": "brother,",
+          "start": 0.76,
+          "end": 1.02
+        },
+        {
+          "raw": "the",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "prison",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "raw": "will",
+          "start": 1.48,
+          "end": 1.68
+        },
+        {
+          "raw": "be",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "raw": "shut.",
+          "start": 1.82,
+          "end": 2.12
+        },
+        {
+          "raw": "Go,",
+          "start": 2.62,
+          "end": 2.7
+        },
+        {
+          "raw": "here's",
+          "start": 2.8,
+          "end": 3.06
+        },
+        {
+          "raw": "your",
+          "start": 3.06,
+          "end": 3.16
+        },
+        {
+          "raw": "hat.",
+          "start": 3.16,
+          "end": 3.44
+        },
+        {
+          "raw": "Give",
+          "start": 4.04,
+          "end": 4.12
+        },
+        {
+          "raw": "my",
+          "start": 4.12,
+          "end": 4.28
+        },
+        {
+          "raw": "love",
+          "start": 4.28,
+          "end": 4.46
+        },
+        {
+          "raw": "to",
+          "start": 4.46,
+          "end": 4.64
+        },
+        {
+          "raw": "Mitya,",
+          "start": 4.64,
+          "end": 4.96
+        },
+        {
+          "raw": "go,",
+          "start": 5.06,
+          "end": 5.14
+        },
+        {
+          "raw": "go!",
+          "start": 5.44,
+          "end": 5.44
+        }
+      ],
+      "expected_tokens": [
+        "\"Go",
+        "to",
+        "your",
+        "brother,",
+        "the",
+        "prison",
+        "will",
+        "be",
+        "shut;",
+        "go,",
+        "here's",
+        "your",
+        "hat.",
+        "Give",
+        "my",
+        "love",
+        "to",
+        "Mitya,",
+        "go,",
+        "go!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Go",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "go",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.66,
+          "end": 0.76,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "brother,",
+          "start": 0.76,
+          "end": 1.02,
+          "key": "brother",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "prison",
+          "start": 1.26,
+          "end": 1.48,
+          "key": "prison",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.48,
+          "end": 1.68,
+          "key": "will",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.68,
+          "end": 1.82,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shut.",
+          "start": 1.82,
+          "end": 2.12,
+          "key": "shut",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Go,",
+          "start": 2.62,
+          "end": 2.7,
+          "key": "go",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "here's",
+          "start": 2.8,
+          "end": 3.06,
+          "key": "heres",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.06,
+          "end": 3.16,
+          "key": "your",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hat.",
+          "start": 3.16,
+          "end": 3.44,
+          "key": "hat",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Give",
+          "start": 4.04,
+          "end": 4.12,
+          "key": "give",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.12,
+          "end": 4.28,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 4.28,
+          "end": 4.46,
+          "key": "love",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.46,
+          "end": 4.64,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Mitya,",
+          "start": 4.64,
+          "end": 4.96,
+          "key": "mitya",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "go,",
+          "start": 5.06,
+          "end": 5.14,
+          "key": "go",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "go!",
+          "start": 5.44,
+          "end": 5.44,
+          "key": "go",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Go",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "to",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "your",
+          "start": 0.66,
+          "end": 0.76
+        },
+        {
+          "text": "brother,",
+          "start": 0.76,
+          "end": 1.02
+        },
+        {
+          "text": "the",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "prison",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "text": "will",
+          "start": 1.48,
+          "end": 1.68
+        },
+        {
+          "text": "be",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "text": "shut;",
+          "start": 1.82,
+          "end": 2.12
+        },
+        {
+          "text": "go,",
+          "start": 2.62,
+          "end": 2.7
+        },
+        {
+          "text": "here's",
+          "start": 2.8,
+          "end": 3.06
+        },
+        {
+          "text": "your",
+          "start": 3.06,
+          "end": 3.16
+        },
+        {
+          "text": "hat.",
+          "start": 3.16,
+          "end": 3.44
+        },
+        {
+          "text": "Give",
+          "start": 4.04,
+          "end": 4.12
+        },
+        {
+          "text": "my",
+          "start": 4.12,
+          "end": 4.28
+        },
+        {
+          "text": "love",
+          "start": 4.28,
+          "end": 4.46
+        },
+        {
+          "text": "to",
+          "start": 4.46,
+          "end": 4.64
+        },
+        {
+          "text": "Mitya,",
+          "start": 4.64,
+          "end": 4.96
+        },
+        {
+          "text": "go,",
+          "start": 5.06,
+          "end": 5.14
+        },
+        {
+          "text": "go!\"",
+          "start": 5.44,
+          "end": 5.44
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36742839217185974
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4d0cd1fee7188cb7e6cef8e4957837cc8b5a74f95fd192adc6084c1a49ee5c70",
+  "selected_reasons": []
+}

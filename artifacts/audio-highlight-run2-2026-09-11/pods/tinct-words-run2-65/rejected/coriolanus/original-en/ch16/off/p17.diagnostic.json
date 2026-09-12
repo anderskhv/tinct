@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "867fe97cc826ba40d0a64343c24d487b6118c372b7a4a6b443c4fa8aa70c6dee",
+  "attempts": [
+    {
+      "asr_seconds": 0.097232636064291,
+      "alignment_seconds": 0.00020267628133296967,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit e-dial.",
+          "start": 0.05,
+          "end": 1.07,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " e",
+              "start": 0.65,
+              "end": 0.85,
+              "probability": 0.25927734375
+            },
+            {
+              "text": "-dial.",
+              "start": 0.85,
+              "end": 1.07,
+              "probability": 0.677490234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "e",
+          "start": 0.65,
+          "end": 0.85
+        },
+        {
+          "raw": "-dial.",
+          "start": 0.85,
+          "end": 1.07
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Aedile._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 0.65,
+          "end": 0.85,
+          "key": "e",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "-dial.",
+          "start": 0.85,
+          "end": 1.07,
+          "key": "dial",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Aedile._]",
+          "start": 0.65,
+          "end": 0.86
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09750119410455227
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ce86418575ab2c46a3fd53add9dcebe059920d13f23d46290badab46acb75e3a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

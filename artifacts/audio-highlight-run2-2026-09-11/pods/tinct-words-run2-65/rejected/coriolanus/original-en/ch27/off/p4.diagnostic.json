@@ -1,0 +1,555 @@
+{
+  "complete": true,
+  "signature": "38c9c0d90c932c88ef110709c2b8c18e9a849fce6744c31cee5cb13241d93637",
+  "attempts": [
+    {
+      "asr_seconds": 0.2979578338563442,
+      "alignment_seconds": 0.0003902115859091282,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sesinius, it's possible that so short a time can alter the condition of a man.",
+          "start": 0.08,
+          "end": 5.02,
+          "words": [
+            {
+              "text": " Sesinius,",
+              "start": 0.08,
+              "end": 1.04,
+              "probability": 0.580413818359375
+            },
+            {
+              "text": " it's",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.5347900390625
+            },
+            {
+              "text": " possible",
+              "start": 1.84,
+              "end": 2.24,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " that",
+              "start": 2.24,
+              "end": 2.5,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " so",
+              "start": 2.5,
+              "end": 2.76,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " short",
+              "start": 2.76,
+              "end": 3.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 3.06,
+              "end": 3.18,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " time",
+              "start": 3.18,
+              "end": 3.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " can",
+              "start": 3.4,
+              "end": 3.62,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " alter",
+              "start": 3.62,
+              "end": 3.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 3.96,
+              "end": 4.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " condition",
+              "start": 4.16,
+              "end": 4.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 4.46,
+              "end": 4.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 4.66,
+              "end": 4.76,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " man.",
+              "start": 4.76,
+              "end": 5.02,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 1.04
+        },
+        {
+          "raw": "it's",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "possible",
+          "start": 1.84,
+          "end": 2.24
+        },
+        {
+          "raw": "that",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "raw": "so",
+          "start": 2.5,
+          "end": 2.76
+        },
+        {
+          "raw": "short",
+          "start": 2.76,
+          "end": 3.06
+        },
+        {
+          "raw": "a",
+          "start": 3.06,
+          "end": 3.18
+        },
+        {
+          "raw": "time",
+          "start": 3.18,
+          "end": 3.4
+        },
+        {
+          "raw": "can",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "raw": "alter",
+          "start": 3.62,
+          "end": 3.96
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.16
+        },
+        {
+          "raw": "condition",
+          "start": 4.16,
+          "end": 4.46
+        },
+        {
+          "raw": "of",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "raw": "a",
+          "start": 4.66,
+          "end": 4.76
+        },
+        {
+          "raw": "man.",
+          "start": 4.76,
+          "end": 5.02
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "Is't",
+        "possible",
+        "that",
+        "so",
+        "short",
+        "a",
+        "time",
+        "can",
+        "alter",
+        "the",
+        "condition",
+        "of",
+        "a",
+        "man?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          15,
+          2,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 1.04,
+          "key": "sesinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "its",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "possible",
+          "start": 1.84,
+          "end": 2.24,
+          "key": "possible",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.24,
+          "end": 2.5,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.5,
+          "end": 2.76,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "short",
+          "start": 2.76,
+          "end": 3.06,
+          "key": "short",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.06,
+          "end": 3.18,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 3.18,
+          "end": 3.4,
+          "key": "time",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 3.4,
+          "end": 3.62,
+          "key": "can",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "alter",
+          "start": 3.62,
+          "end": 3.96,
+          "key": "alter",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.96,
+          "end": 4.16,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "condition",
+          "start": 4.16,
+          "end": 4.46,
+          "key": "condition",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.46,
+          "end": 4.66,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.66,
+          "end": 4.76,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 4.76,
+          "end": 5.02,
+          "key": "man",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.0,
+          "end": 0.92
+        },
+        {
+          "text": "Is't",
+          "start": 0.92,
+          "end": 1.38
+        },
+        {
+          "text": "possible",
+          "start": 1.84,
+          "end": 2.24
+        },
+        {
+          "text": "that",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "text": "so",
+          "start": 2.5,
+          "end": 2.76
+        },
+        {
+          "text": "short",
+          "start": 2.76,
+          "end": 3.06
+        },
+        {
+          "text": "a",
+          "start": 3.06,
+          "end": 3.18
+        },
+        {
+          "text": "time",
+          "start": 3.18,
+          "end": 3.4
+        },
+        {
+          "text": "can",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "text": "alter",
+          "start": 3.62,
+          "end": 3.96
+        },
+        {
+          "text": "the",
+          "start": 3.96,
+          "end": 4.16
+        },
+        {
+          "text": "condition",
+          "start": 4.16,
+          "end": 4.46
+        },
+        {
+          "text": "of",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "text": "a",
+          "start": 4.66,
+          "end": 4.76
+        },
+        {
+          "text": "man?",
+          "start": 4.76,
+          "end": 5.02
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.29850116977468133
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "79c9087efe4503d7664d49e9b59e7567d62b6b03abb8e7dcb64fb8ddf85d92cd",
+  "selected_reasons": []
+}

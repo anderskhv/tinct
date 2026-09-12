@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "c33e6a11307c887f833ce2ed148dfb3ed173260ba79ee3924d6cf4550103dcec",
+  "attempts": [
+    {
+      "asr_seconds": 0.23168199812062085,
+      "alignment_seconds": 0.0005136809777468443,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He must have been a bad man, observed Mr. Rivers.",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.376220703125
+            },
+            {
+              "text": " must",
+              "start": 0.51,
+              "end": 0.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " have",
+              "start": 0.69,
+              "end": 0.89,
+              "probability": 0.908203125
+            },
+            {
+              "text": " been",
+              "start": 0.89,
+              "end": 1.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 1.03,
+              "end": 1.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bad",
+              "start": 1.13,
+              "end": 1.35,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " man,",
+              "start": 1.35,
+              "end": 1.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " observed",
+              "start": 2.47,
+              "end": 2.59,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Mr.",
+              "start": 2.59,
+              "end": 2.95,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " Rivers.",
+              "start": 3.21,
+              "end": 3.21,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "must",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "raw": "have",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "raw": "been",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "raw": "a",
+          "start": 1.03,
+          "end": 1.13
+        },
+        {
+          "raw": "bad",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "raw": "man,",
+          "start": 1.35,
+          "end": 1.81
+        },
+        {
+          "raw": "observed",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.59,
+          "end": 2.95
+        },
+        {
+          "raw": "Rivers.",
+          "start": 3.21,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "\"He",
+        "must",
+        "have",
+        "been",
+        "a",
+        "bad",
+        "man,\"",
+        "observed",
+        "Mr.",
+        "Rivers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 0.51,
+          "end": 0.69,
+          "key": "must",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.69,
+          "end": 0.89,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 0.89,
+          "end": 1.03,
+          "key": "been",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.03,
+          "end": 1.13,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bad",
+          "start": 1.13,
+          "end": 1.35,
+          "key": "bad",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 1.35,
+          "end": 1.81,
+          "key": "man",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "observed",
+          "start": 2.47,
+          "end": 2.59,
+          "key": "observed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.59,
+          "end": 2.95,
+          "key": "mr",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Rivers.",
+          "start": 3.21,
+          "end": 3.21,
+          "key": "rivers",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "must",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "text": "have",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "text": "been",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "text": "a",
+          "start": 1.03,
+          "end": 1.13
+        },
+        {
+          "text": "bad",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "text": "man,\"",
+          "start": 1.35,
+          "end": 1.81
+        },
+        {
+          "text": "observed",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "text": "Mr.",
+          "start": 2.59,
+          "end": 2.95
+        },
+        {
+          "text": "Rivers.",
+          "start": 3.21,
+          "end": 3.21
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23239165707491338
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "968952d5ffdb4f06412855d1b4ad09fb5b1f322e08071e5a3983879d25dd78e8",
+  "selected_reasons": []
+}

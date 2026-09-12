@@ -1,0 +1,573 @@
+{
+  "complete": true,
+  "signature": "8503ca613a546f4729d31cd73b0b00e766a095c7d707e9499a1ed67b4282b9c8",
+  "attempts": [
+    {
+      "asr_seconds": 0.3062213882803917,
+      "alignment_seconds": 0.0005409009754657745,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The young lady thus claimed as the dowager's special property, reiterated her question with an explanation."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The young lady thus claimed as the dowager's special property, reiterated her question with an explanation.",
+          "start": 0.02,
+          "end": 6.08,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.892578125
+            },
+            {
+              "text": " young",
+              "start": 0.48,
+              "end": 0.68,
+              "probability": 0.984375
+            },
+            {
+              "text": " lady",
+              "start": 0.68,
+              "end": 1.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thus",
+              "start": 1.0,
+              "end": 1.28,
+              "probability": 0.330322265625
+            },
+            {
+              "text": " claimed",
+              "start": 1.28,
+              "end": 1.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " as",
+              "start": 1.66,
+              "end": 1.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.96,
+              "end": 2.12,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " dowager's",
+              "start": 2.12,
+              "end": 2.64,
+              "probability": 0.7107747395833334
+            },
+            {
+              "text": " special",
+              "start": 2.64,
+              "end": 2.9,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " property,",
+              "start": 2.9,
+              "end": 3.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " reiterated",
+              "start": 4.1,
+              "end": 4.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 4.34,
+              "end": 4.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " question",
+              "start": 4.68,
+              "end": 5.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 5.04,
+              "end": 5.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " an",
+              "start": 5.38,
+              "end": 5.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " explanation.",
+              "start": 5.48,
+              "end": 6.08,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "young",
+          "start": 0.48,
+          "end": 0.68
+        },
+        {
+          "raw": "lady",
+          "start": 0.68,
+          "end": 1.0
+        },
+        {
+          "raw": "thus",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "raw": "claimed",
+          "start": 1.28,
+          "end": 1.66
+        },
+        {
+          "raw": "as",
+          "start": 1.66,
+          "end": 1.96
+        },
+        {
+          "raw": "the",
+          "start": 1.96,
+          "end": 2.12
+        },
+        {
+          "raw": "dowager's",
+          "start": 2.12,
+          "end": 2.64
+        },
+        {
+          "raw": "special",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "raw": "property,",
+          "start": 2.9,
+          "end": 3.56
+        },
+        {
+          "raw": "reiterated",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "raw": "her",
+          "start": 4.34,
+          "end": 4.68
+        },
+        {
+          "raw": "question",
+          "start": 4.68,
+          "end": 5.04
+        },
+        {
+          "raw": "with",
+          "start": 5.04,
+          "end": 5.38
+        },
+        {
+          "raw": "an",
+          "start": 5.38,
+          "end": 5.48
+        },
+        {
+          "raw": "explanation.",
+          "start": 5.48,
+          "end": 6.08
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "young",
+        "lady",
+        "thus",
+        "claimed",
+        "as",
+        "the",
+        "dowager's",
+        "special",
+        "property,",
+        "reiterated",
+        "her",
+        "question",
+        "with",
+        "an",
+        "explanation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 0.48,
+          "end": 0.68,
+          "key": "young",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 0.68,
+          "end": 1.0,
+          "key": "lady",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 1.0,
+          "end": 1.28,
+          "key": "thus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "claimed",
+          "start": 1.28,
+          "end": 1.66,
+          "key": "claimed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.66,
+          "end": 1.96,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.96,
+          "end": 2.12,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dowager's",
+          "start": 2.12,
+          "end": 2.64,
+          "key": "dowagers",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "special",
+          "start": 2.64,
+          "end": 2.9,
+          "key": "special",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "property,",
+          "start": 2.9,
+          "end": 3.56,
+          "key": "property",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "reiterated",
+          "start": 4.1,
+          "end": 4.34,
+          "key": "reiterated",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.34,
+          "end": 4.68,
+          "key": "her",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "question",
+          "start": 4.68,
+          "end": 5.04,
+          "key": "question",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.04,
+          "end": 5.38,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 5.38,
+          "end": 5.48,
+          "key": "an",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "explanation.",
+          "start": 5.48,
+          "end": 6.08,
+          "key": "explanation",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "young",
+          "start": 0.48,
+          "end": 0.68
+        },
+        {
+          "text": "lady",
+          "start": 0.68,
+          "end": 1.0
+        },
+        {
+          "text": "thus",
+          "start": 1.0,
+          "end": 1.28
+        },
+        {
+          "text": "claimed",
+          "start": 1.28,
+          "end": 1.66
+        },
+        {
+          "text": "as",
+          "start": 1.66,
+          "end": 1.96
+        },
+        {
+          "text": "the",
+          "start": 1.96,
+          "end": 2.12
+        },
+        {
+          "text": "dowager's",
+          "start": 2.12,
+          "end": 2.64
+        },
+        {
+          "text": "special",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "text": "property,",
+          "start": 2.9,
+          "end": 3.56
+        },
+        {
+          "text": "reiterated",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "text": "her",
+          "start": 4.34,
+          "end": 4.68
+        },
+        {
+          "text": "question",
+          "start": 4.68,
+          "end": 5.04
+        },
+        {
+          "text": "with",
+          "start": 5.04,
+          "end": 5.38
+        },
+        {
+          "text": "an",
+          "start": 5.38,
+          "end": 5.48
+        },
+        {
+          "text": "explanation.",
+          "start": 5.48,
+          "end": 6.08
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30701329559087753
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5bfd0a687711fa1e957b51adf1341f809e82c882b8001f39830017314289f184",
+  "selected_reasons": []
+}

@@ -1,0 +1,390 @@
+{
+  "complete": true,
+  "signature": "0a1993d1e0964582ecf8efeacd836dca2f4301ad0f5127597a9fb3f790ac966e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2111558923497796,
+      "alignment_seconds": 0.0005028322339057922,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richard, the self-same name but one of better nature.",
+          "start": 0.05,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " the",
+              "start": 1.29,
+              "end": 1.41,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " self",
+              "start": 1.41,
+              "end": 1.65,
+              "probability": 0.955078125
+            },
+            {
+              "text": "-same",
+              "start": 1.65,
+              "end": 1.91,
+              "probability": 0.724365234375
+            },
+            {
+              "text": " name",
+              "start": 1.91,
+              "end": 2.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " but",
+              "start": 2.23,
+              "end": 2.49,
+              "probability": 0.56640625
+            },
+            {
+              "text": " one",
+              "start": 2.49,
+              "end": 2.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 2.63,
+              "end": 2.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " better",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " nature.",
+              "start": 2.93,
+              "end": 3.33,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "the",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "raw": "self",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "raw": "-same",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "raw": "name",
+          "start": 1.91,
+          "end": 2.23
+        },
+        {
+          "raw": "but",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "raw": "one",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "raw": "of",
+          "start": 2.63,
+          "end": 2.75
+        },
+        {
+          "raw": "better",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "nature.",
+          "start": 2.93,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "The",
+        "selfsame",
+        "name,",
+        "but",
+        "one",
+        "of",
+        "better",
+        "nature."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          9,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.29,
+          "end": 1.41,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "self",
+          "start": 1.41,
+          "end": 1.65,
+          "key": "self",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-same",
+          "start": 1.65,
+          "end": 1.91,
+          "key": "same",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "name",
+          "start": 1.91,
+          "end": 2.23,
+          "key": "name",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.23,
+          "end": 2.49,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.49,
+          "end": 2.63,
+          "key": "one",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.63,
+          "end": 2.75,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 2.75,
+          "end": 2.93,
+          "key": "better",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "nature.",
+          "start": 2.93,
+          "end": 3.33,
+          "key": "nature",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "The",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "text": "selfsame",
+          "start": 1.41,
+          "end": 1.66
+        },
+        {
+          "text": "name,",
+          "start": 1.91,
+          "end": 2.23
+        },
+        {
+          "text": "but",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "text": "one",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "text": "of",
+          "start": 2.63,
+          "end": 2.75
+        },
+        {
+          "text": "better",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "nature.",
+          "start": 2.93,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.21185175701975822
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1dfa8c15680637878d11abcd8ccb78bcb60551bb2aa2afd6e0d93009394a67f3",
+  "selected_reasons": []
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "0e76cf1c7b4855ed598fea4070fb0e5b83a79ff3cfbb48e307953ba6d5c22a17",
+  "attempts": [
+    {
+      "asr_seconds": 0.197699923068285,
+      "alignment_seconds": 0.00037321820855140686,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Olivia. How now, art thou mad?",
+        "hotwords": "Olivia, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Olivia, How now, art thou mad?",
+          "start": 0.43,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.43,
+              "end": 0.75,
+              "probability": 0.904296875
+            },
+            {
+              "text": " How",
+              "start": 1.17,
+              "end": 1.31,
+              "probability": 0.052642822265625
+            },
+            {
+              "text": " now,",
+              "start": 1.31,
+              "end": 1.47,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " art",
+              "start": 1.63,
+              "end": 1.69,
+              "probability": 0.8828125
+            },
+            {
+              "text": " thou",
+              "start": 1.69,
+              "end": 1.85,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " mad?",
+              "start": 1.85,
+              "end": 2.13,
+              "probability": 0.978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.43,
+          "end": 0.75
+        },
+        {
+          "raw": "How",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "raw": "now,",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "raw": "art",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "raw": "thou",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "raw": "mad?",
+          "start": 1.85,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "How",
+        "now,",
+        "art",
+        "thou",
+        "mad?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.43,
+          "end": 0.75,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.17,
+          "end": 1.31,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.31,
+          "end": 1.47,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 1.63,
+          "end": 1.69,
+          "key": "art",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.69,
+          "end": 1.85,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mad?",
+          "start": 1.85,
+          "end": 2.13,
+          "key": "mad",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.43,
+          "end": 0.75
+        },
+        {
+          "text": "How",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "text": "now,",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "text": "art",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "text": "thou",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "text": "mad?",
+          "start": 1.85,
+          "end": 2.13
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19821501523256302
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1a067d1b3c63e2e23b08aca634daac601161bddd339a7674d3710663e20cd9b0",
+  "selected_reasons": []
+}

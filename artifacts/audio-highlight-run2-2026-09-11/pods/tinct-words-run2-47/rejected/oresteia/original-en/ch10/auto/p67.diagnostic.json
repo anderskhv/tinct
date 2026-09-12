@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "2d344b20bfdc7006efbb8ce797fa03e427eb7c4cd592f20acfbf7cf58e6f5179",
+  "attempts": [
+    {
+      "asr_seconds": 0.3047573459916748,
+      "alignment_seconds": 0.0004322749737184495,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Aegisthus. Thou shalt pay, be well assurèd, heavy quittance for thy pride",
+        "hotwords": "Aegisthus, Thou"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aegisthus, Thou shalt pay, be well assurèd, heavy quittance for thy pride",
+          "start": 0.69,
+          "end": 4.33,
+          "words": [
+            {
+              "text": " Aegisthus,",
+              "start": 0.69,
+              "end": 1.09,
+              "probability": 0.5047556559244791
+            },
+            {
+              "text": " Thou",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.1292724609375
+            },
+            {
+              "text": " shalt",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " pay,",
+              "start": 1.81,
+              "end": 2.13,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " be",
+              "start": 2.31,
+              "end": 2.39,
+              "probability": 0.755859375
+            },
+            {
+              "text": " well",
+              "start": 2.39,
+              "end": 2.57,
+              "probability": 0.994140625
+            },
+            {
+              "text": " assurèd,",
+              "start": 2.57,
+              "end": 3.03,
+              "probability": 0.039629772305488586
+            },
+            {
+              "text": " heavy",
+              "start": 3.15,
+              "end": 3.25,
+              "probability": 0.81201171875
+            },
+            {
+              "text": " quittance",
+              "start": 3.25,
+              "end": 3.63,
+              "probability": 0.23699951171875
+            },
+            {
+              "text": " for",
+              "start": 3.63,
+              "end": 3.85,
+              "probability": 0.9140625
+            },
+            {
+              "text": " thy",
+              "start": 3.85,
+              "end": 3.99,
+              "probability": 0.291015625
+            },
+            {
+              "text": " pride",
+              "start": 3.99,
+              "end": 4.33,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aegisthus,",
+          "start": 0.69,
+          "end": 1.09
+        },
+        {
+          "raw": "Thou",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "raw": "shalt",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "raw": "pay,",
+          "start": 1.81,
+          "end": 2.13
+        },
+        {
+          "raw": "be",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "raw": "well",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "raw": "assurèd,",
+          "start": 2.57,
+          "end": 3.03
+        },
+        {
+          "raw": "heavy",
+          "start": 3.15,
+          "end": 3.25
+        },
+        {
+          "raw": "quittance",
+          "start": 3.25,
+          "end": 3.63
+        },
+        {
+          "raw": "for",
+          "start": 3.63,
+          "end": 3.85
+        },
+        {
+          "raw": "thy",
+          "start": 3.85,
+          "end": 3.99
+        },
+        {
+          "raw": "pride",
+          "start": 3.99,
+          "end": 4.33
+        }
+      ],
+      "expected_tokens": [
+        "Aegisthus.",
+        "Thou",
+        "shalt",
+        "pay,",
+        "be",
+        "well",
+        "assurèd,",
+        "heavy",
+        "quittance",
+        "for",
+        "thy",
+        "pride"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aegisthus,",
+          "start": 0.69,
+          "end": 1.09,
+          "key": "aegisthus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 1.41,
+          "end": 1.61,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shalt",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "shalt",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pay,",
+          "start": 1.81,
+          "end": 2.13,
+          "key": "pay",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.31,
+          "end": 2.39,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 2.39,
+          "end": 2.57,
+          "key": "well",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "assurèd,",
+          "start": 2.57,
+          "end": 3.03,
+          "key": "assurèd",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "heavy",
+          "start": 3.15,
+          "end": 3.25,
+          "key": "heavy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "quittance",
+          "start": 3.25,
+          "end": 3.63,
+          "key": "quittance",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.63,
+          "end": 3.85,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 3.85,
+          "end": 3.99,
+          "key": "thy",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "pride",
+          "start": 3.99,
+          "end": 4.33,
+          "key": "pride",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aegisthus.",
+          "start": 0.69,
+          "end": 1.09
+        },
+        {
+          "text": "Thou",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "text": "shalt",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "text": "pay,",
+          "start": 1.81,
+          "end": 2.13
+        },
+        {
+          "text": "be",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "text": "well",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "text": "assurèd,",
+          "start": 2.57,
+          "end": 3.03
+        },
+        {
+          "text": "heavy",
+          "start": 3.15,
+          "end": 3.25
+        },
+        {
+          "text": "quittance",
+          "start": 3.25,
+          "end": 3.63
+        },
+        {
+          "text": "for",
+          "start": 3.63,
+          "end": 3.85
+        },
+        {
+          "text": "thy",
+          "start": 3.85,
+          "end": 3.99
+        },
+        {
+          "text": "pride",
+          "start": 3.99,
+          "end": 4.33
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3053600359999109
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "11b0c878c09b39d910163a8239f817b64aa480547bf1c4493643535939bd6641",
+  "selected_reasons": []
+}

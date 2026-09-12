@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "1c01303ec20d5a6c06c07c770874d900a89da21ef18c73bc3c2cc733cb430207",
+  "attempts": [
+    {
+      "asr_seconds": 0.13671962404623628,
+      "alignment_seconds": 0.00018091918900609016,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Montano, sounds I bleed still, I am hurt to the death.",
+          "start": 0.57,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " Montano,",
+              "start": 0.57,
+              "end": 1.03,
+              "probability": 0.761962890625
+            },
+            {
+              "text": " sounds",
+              "start": 1.43,
+              "end": 1.81,
+              "probability": 0.447021484375
+            },
+            {
+              "text": " I",
+              "start": 1.81,
+              "end": 2.05,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " bleed",
+              "start": 2.05,
+              "end": 2.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " still,",
+              "start": 2.23,
+              "end": 2.59,
+              "probability": 0.97265625
+            },
+            {
+              "text": " I",
+              "start": 2.81,
+              "end": 2.83,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " am",
+              "start": 2.83,
+              "end": 2.91,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " hurt",
+              "start": 2.91,
+              "end": 3.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 3.09,
+              "end": 3.23,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.23,
+              "end": 3.33,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " death.",
+              "start": 3.33,
+              "end": 3.59,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Montano,",
+          "start": 0.57,
+          "end": 1.03
+        },
+        {
+          "raw": "sounds",
+          "start": 1.43,
+          "end": 1.81
+        },
+        {
+          "raw": "I",
+          "start": 1.81,
+          "end": 2.05
+        },
+        {
+          "raw": "bleed",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "raw": "still,",
+          "start": 2.23,
+          "end": 2.59
+        },
+        {
+          "raw": "I",
+          "start": 2.81,
+          "end": 2.83
+        },
+        {
+          "raw": "am",
+          "start": 2.83,
+          "end": 2.91
+        },
+        {
+          "raw": "hurt",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "raw": "to",
+          "start": 3.09,
+          "end": 3.23
+        },
+        {
+          "raw": "the",
+          "start": 3.23,
+          "end": 3.33
+        },
+        {
+          "raw": "death.",
+          "start": 3.33,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "Montano.",
+        "Zounds,",
+        "I",
+        "bleed",
+        "still,",
+        "I",
+        "am",
+        "hurt",
+        "to",
+        "the",
+        "death."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          11,
+          2,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Montano,",
+          "start": 0.57,
+          "end": 1.03,
+          "key": "montano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sounds",
+          "start": 1.43,
+          "end": 1.81,
+          "key": "sounds",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.81,
+          "end": 2.05,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bleed",
+          "start": 2.05,
+          "end": 2.23,
+          "key": "bleed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "still,",
+          "start": 2.23,
+          "end": 2.59,
+          "key": "still",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.81,
+          "end": 2.83,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.83,
+          "end": 2.91,
+          "key": "am",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hurt",
+          "start": 2.91,
+          "end": 3.09,
+          "key": "hurt",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.09,
+          "end": 3.23,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.23,
+          "end": 3.33,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "death.",
+          "start": 3.33,
+          "end": 3.59,
+          "key": "death",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Montano.",
+          "start": 0.57,
+          "end": 1.03
+        },
+        {
+          "text": "Zounds,",
+          "start": 1.03,
+          "end": 1.42
+        },
+        {
+          "text": "I",
+          "start": 1.81,
+          "end": 2.05
+        },
+        {
+          "text": "bleed",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "text": "still,",
+          "start": 2.23,
+          "end": 2.59
+        },
+        {
+          "text": "I",
+          "start": 2.81,
+          "end": 2.83
+        },
+        {
+          "text": "am",
+          "start": 2.83,
+          "end": 2.91
+        },
+        {
+          "text": "hurt",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "text": "to",
+          "start": 3.09,
+          "end": 3.23
+        },
+        {
+          "text": "the",
+          "start": 3.23,
+          "end": 3.33
+        },
+        {
+          "text": "death.",
+          "start": 3.33,
+          "end": 3.59
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.13696853164583445
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f32f7bc060452c671cf9f463f47bb58c51ad4bcec0ea44165d31502085c12e45",
+  "selected_reasons": []
+}

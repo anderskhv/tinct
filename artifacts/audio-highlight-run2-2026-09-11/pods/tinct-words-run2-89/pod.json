@@ -1,0 +1,51 @@
+{
+ "name": "tinct-words-run2-89",
+ "commit": "f53d744782e3c369fffd2980a013a7f199c0476e",
+ "batch": 20,
+ "createdAt": "2026-09-12T07:59:26Z",
+ "maxSeconds": 2100,
+ "arms": "off auto",
+ "computeType": "float16",
+ "podId": "yathv4wp2snid9",
+ "gpu": null,
+ "costPerHr": 0.74,
+ "image": null,
+ "cloud": "SECURE",
+ "agentUpAt": "2026-09-12T08:00:02Z",
+ "jobOutcome": "failed",
+ "finalStatus": {
+  "phase": "failed",
+  "uptime_seconds": 30.9,
+  "setup": {
+   "versions": {
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "av": "18.1.0"
+   },
+   "commit": "f53d744782e3c369fffd2980a013a7f199c0476e"
+  },
+  "job": {
+   "error": "HfHubHTTPError: (Amz CF ID: fr9bVlYOOq0BPBlujb_y_kc8zixdI2jM6umJcVeZ4Kn5tfHTfKj-7g==)\n\n429 Too Many Requests for url: https://huggingface.co/api/models/Systran/faster-whisper-small.en/tree/d1d751a5f8271d482d14ca55d9e2deeebbae577f?recursive=true&expand=false.",
+   "traceback": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/dist-packages/huggingface_hub/utils/_http.py\", line 808, in hf_raise_for_status\n    response.raise_for_status()\n  File \"/usr/local/lib/python3.11/dist-packages/httpx/_models.py\", line 763, in raise_for_status\n    raise HTTPStatusError(message, request=request, response=self)\nhttpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://huggingface.co/api/models/Systran/faster-whisper-small.en/tree/d1d751a5f8271d482d14ca55d9e2deeebbae577f?recursive=true&expand=false'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/workspace/run/pod_job.py\", line 160, in job\n    tools = setup()\n            ^^^^^^^\n  File \"/workspace/run/pod_job.py\", line 117, in setup\n    snapshot_download(\"Systran/faster-whisper-small.en\", revision=MODEL_REV, local_dir=str(model_dir))\n  File \"/usr/local/lib/python3.11/dist-packages/huggingface_hub/utils/_validators.py\", line 88, in _inner_fn\n    return fn(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/dist-packages/huggingface_hub/_snapshot_download.py\", line 392, in snapshot_download\n    tree_entries = {\n                   ^\n  File \"/usr/local/lib/python3.11/dist-packages/huggingface_hub/_snapshot_download.py\", line 392, in <dictcomp>\n    tree_entries = {\n                   ^\n  File \"/usr/local/lib/python3.11/dist-packages/huggingface_hub/hf_api.py\", line 4117, in list_repo_tree\n    for path_info in paginate(path=tree_url, headers=headers, params={\"recursive\": recursive, \"expand\": expand}):\n  File \"/usr/local/lib/python3.11/dist-packages/huggingface_hub/utils/_pagination.py\", line 37, in paginate\n    hf_raise_for_status(r)\n  File \"/usr/local/lib/python3.11/dist-packages/huggingface_hub/utils/_http.py\", line 929, in hf_raise_for_status\n    raise _format(HfHubHTTPError, message, response) from e\nhuggingface_hub.errors.HfHubHTTPError: (Amz CF ID: fr9bVlYOOq0BPBlujb_y_kc8zixdI2jM6umJcVeZ4Kn5tfHTfKj-7g==)\n\n429 Too Many Requests for url: https://huggingface.co/api/models/Systran/faster-whisper-small.en/tree/d1d751a5f8271d482d14ca55d9e2deeebbae577f?recursive=true&expand=false.\n",
+   "finished": 1789199982.521586
+  },
+  "log": [
+   "[07:59:31] read-only status server on 8000; run root /workspace/run; commit f53d744782e3c369fffd2980a013a7f199c0476e",
+   "[07:59:42] job failed: HfHubHTTPError: (Amz CF ID: fr9bVlYOOq0BPBlujb_y_kc8zixdI2jM6umJcVeZ4Kn5tfHTfKj-7g==)\n\n429 Too Many Requests for url: https://huggingface.co/api/models/Systran/faster-whisper-small.en/tree/d1d751a5f8271d482d14ca55d9e2deeebbae577f?recursive=true&expand=false.",
+   "[07:59:42] job finished with phase failed"
+  ],
+  "progress": {
+   "arm_chapters_passed": 0,
+   "arm_chapters_rejected": 0,
+   "arm_chapters_running": 0
+  }
+ },
+ "resultsFetched": false,
+ "uptimeMinutes": 0.7,
+ "estimatedCost": 0.0086,
+ "stopRequestedAt": "2026-09-12T08:00:08Z",
+ "statusAfterStop": "EXITED",
+ "stoppedAt": "2026-09-12T08:00:09Z",
+ "terminatedAt": "2026-09-12T08:00:10Z",
+ "terminateHttp": 204
+}

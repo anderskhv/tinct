@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "7e857fd553263c951977126fc4b364aabf619da883362e14cf52625fac299228",
+  "attempts": [
+    {
+      "asr_seconds": 0.2106917453929782,
+      "alignment_seconds": 0.0002945559099316597,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassius, ha ha, how vilely doth this cynic rhyme.",
+          "start": 0.05,
+          "end": 3.69,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.941650390625
+            },
+            {
+              "text": " ha",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.450439453125
+            },
+            {
+              "text": " ha,",
+              "start": 1.51,
+              "end": 1.79,
+              "probability": 0.71044921875
+            },
+            {
+              "text": " how",
+              "start": 2.05,
+              "end": 2.23,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " vilely",
+              "start": 2.23,
+              "end": 2.67,
+              "probability": 0.885986328125
+            },
+            {
+              "text": " doth",
+              "start": 2.67,
+              "end": 2.83,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " this",
+              "start": 2.83,
+              "end": 3.01,
+              "probability": 0.748046875
+            },
+            {
+              "text": " cynic",
+              "start": 3.01,
+              "end": 3.29,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " rhyme.",
+              "start": 3.29,
+              "end": 3.69,
+              "probability": 0.992919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "ha",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "ha,",
+          "start": 1.51,
+          "end": 1.79
+        },
+        {
+          "raw": "how",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "raw": "vilely",
+          "start": 2.23,
+          "end": 2.67
+        },
+        {
+          "raw": "doth",
+          "start": 2.67,
+          "end": 2.83
+        },
+        {
+          "raw": "this",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "raw": "cynic",
+          "start": 3.01,
+          "end": 3.29
+        },
+        {
+          "raw": "rhyme.",
+          "start": 3.29,
+          "end": 3.69
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Ha,",
+        "ha!",
+        "How",
+        "vilely",
+        "doth",
+        "this",
+        "cynic",
+        "rhyme!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ha",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "ha",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ha,",
+          "start": 1.51,
+          "end": 1.79,
+          "key": "ha",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.05,
+          "end": 2.23,
+          "key": "how",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "vilely",
+          "start": 2.23,
+          "end": 2.67,
+          "key": "vilely",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 2.67,
+          "end": 2.83,
+          "key": "doth",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.83,
+          "end": 3.01,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cynic",
+          "start": 3.01,
+          "end": 3.29,
+          "key": "cynic",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "rhyme.",
+          "start": 3.29,
+          "end": 3.69,
+          "key": "rhyme",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Ha,",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "ha!",
+          "start": 1.51,
+          "end": 1.79
+        },
+        {
+          "text": "How",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "text": "vilely",
+          "start": 2.23,
+          "end": 2.67
+        },
+        {
+          "text": "doth",
+          "start": 2.67,
+          "end": 2.83
+        },
+        {
+          "text": "this",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "text": "cynic",
+          "start": 3.01,
+          "end": 3.29
+        },
+        {
+          "text": "rhyme!",
+          "start": 3.29,
+          "end": 3.69
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21110333036631346
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d5a54477963d36c33d75c96225d43a55e4424c759307fb0a14e968ffabfdfccb",
+  "selected_reasons": []
+}

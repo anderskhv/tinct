@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "46eb2f20d5d9d741a008377a99057422716721a21c3bb37a04e4e21ee5ce19bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.18145964480936527,
+      "alignment_seconds": 0.00019752606749534607,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Friar Lawrence in Paris.",
+          "start": 0.08,
+          "end": 1.88,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Friar",
+              "start": 0.64,
+              "end": 1.08,
+              "probability": 0.795654296875
+            },
+            {
+              "text": " Lawrence",
+              "start": 1.08,
+              "end": 1.42,
+              "probability": 0.693359375
+            },
+            {
+              "text": " in",
+              "start": 1.42,
+              "end": 1.64,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Paris.",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Friar",
+          "start": 0.64,
+          "end": 1.08
+        },
+        {
+          "raw": "Lawrence",
+          "start": 1.08,
+          "end": 1.42
+        },
+        {
+          "raw": "in",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "raw": "Paris.",
+          "start": 1.64,
+          "end": 1.88
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Friar",
+        "Lawrence",
+        "and",
+        "Paris.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Friar",
+          "start": 0.64,
+          "end": 1.08,
+          "key": "friar",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lawrence",
+          "start": 1.08,
+          "end": 1.42,
+          "key": "lawrence",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.42,
+          "end": 1.64,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Paris.",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "paris",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Friar",
+          "start": 0.64,
+          "end": 1.08
+        },
+        {
+          "text": "Lawrence",
+          "start": 1.08,
+          "end": 1.42
+        },
+        {
+          "text": "and",
+          "start": 1.42,
+          "end": 1.53
+        },
+        {
+          "text": "Paris.]",
+          "start": 1.64,
+          "end": 1.88
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1817179648205638
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "61e40ed6914f42a3fb3b68a275db79c147af327e325997a743dd72a40b321e34",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

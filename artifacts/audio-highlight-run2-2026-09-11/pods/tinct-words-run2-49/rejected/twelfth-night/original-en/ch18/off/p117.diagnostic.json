@@ -1,0 +1,647 @@
+{
+  "complete": true,
+  "signature": "a234188853795bbefd71cb9915c88aa6f7c32814a08d05b43bf7da19497d4020",
+  "attempts": [
+    {
+      "asr_seconds": 0.3661247007548809,
+      "alignment_seconds": 0.0006445348262786865,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A most extracting frenzy of mine, owned from my remembrance, clearly banished his.",
+          "start": 0.05,
+          "end": 4.67,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.7578125
+            },
+            {
+              "text": " most",
+              "start": 0.49,
+              "end": 0.69,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " extracting",
+              "start": 0.69,
+              "end": 1.29,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " frenzy",
+              "start": 1.29,
+              "end": 1.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 1.65,
+              "end": 1.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " mine,",
+              "start": 1.91,
+              "end": 2.21,
+              "probability": 0.986328125
+            },
+            {
+              "text": " owned",
+              "start": 2.49,
+              "end": 2.61,
+              "probability": 0.69189453125
+            },
+            {
+              "text": " from",
+              "start": 2.61,
+              "end": 2.83,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " my",
+              "start": 2.83,
+              "end": 2.97,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " remembrance,",
+              "start": 2.97,
+              "end": 3.35,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " clearly",
+              "start": 3.69,
+              "end": 3.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " banished",
+              "start": 3.85,
+              "end": 4.39,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " his.",
+              "start": 4.39,
+              "end": 4.67,
+              "probability": 0.9892578125
+            }
+          ]
+        },
+        {
+          "text": " How does he, Sira?",
+          "start": 5.33,
+          "end": 6.23,
+          "words": [
+            {
+              "text": " How",
+              "start": 5.33,
+              "end": 5.43,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " does",
+              "start": 5.43,
+              "end": 5.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " he,",
+              "start": 5.55,
+              "end": 5.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Sira?",
+              "start": 5.89,
+              "end": 6.23,
+              "probability": 0.4085693359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "most",
+          "start": 0.49,
+          "end": 0.69
+        },
+        {
+          "raw": "extracting",
+          "start": 0.69,
+          "end": 1.29
+        },
+        {
+          "raw": "frenzy",
+          "start": 1.29,
+          "end": 1.65
+        },
+        {
+          "raw": "of",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "raw": "mine,",
+          "start": 1.91,
+          "end": 2.21
+        },
+        {
+          "raw": "owned",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "raw": "from",
+          "start": 2.61,
+          "end": 2.83
+        },
+        {
+          "raw": "my",
+          "start": 2.83,
+          "end": 2.97
+        },
+        {
+          "raw": "remembrance,",
+          "start": 2.97,
+          "end": 3.35
+        },
+        {
+          "raw": "clearly",
+          "start": 3.69,
+          "end": 3.85
+        },
+        {
+          "raw": "banished",
+          "start": 3.85,
+          "end": 4.39
+        },
+        {
+          "raw": "his.",
+          "start": 4.39,
+          "end": 4.67
+        },
+        {
+          "raw": "How",
+          "start": 5.33,
+          "end": 5.43
+        },
+        {
+          "raw": "does",
+          "start": 5.43,
+          "end": 5.55
+        },
+        {
+          "raw": "he,",
+          "start": 5.55,
+          "end": 5.75
+        },
+        {
+          "raw": "Sira?",
+          "start": 5.89,
+          "end": 6.23
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "most",
+        "extracting",
+        "frenzy",
+        "of",
+        "mine",
+        "own",
+        "From",
+        "my",
+        "remembrance",
+        "clearly",
+        "banished",
+        "his.",
+        "How",
+        "does",
+        "he,",
+        "sirrah?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          16,
+          7,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 0.49,
+          "end": 0.69,
+          "key": "most",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "extracting",
+          "start": 0.69,
+          "end": 1.29,
+          "key": "extracting",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "frenzy",
+          "start": 1.29,
+          "end": 1.65,
+          "key": "frenzy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.65,
+          "end": 1.91,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mine,",
+          "start": 1.91,
+          "end": 2.21,
+          "key": "mine",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "owned",
+          "start": 2.49,
+          "end": 2.61,
+          "key": "owned",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.61,
+          "end": 2.83,
+          "key": "from",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.83,
+          "end": 2.97,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "remembrance,",
+          "start": 2.97,
+          "end": 3.35,
+          "key": "remembrance",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "clearly",
+          "start": 3.69,
+          "end": 3.85,
+          "key": "clearly",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "banished",
+          "start": 3.85,
+          "end": 4.39,
+          "key": "banished",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his.",
+          "start": 4.39,
+          "end": 4.67,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 5.33,
+          "end": 5.43,
+          "key": "how",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 5.43,
+          "end": 5.55,
+          "key": "does",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 5.55,
+          "end": 5.75,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Sira?",
+          "start": 5.89,
+          "end": 6.23,
+          "key": "sira",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "most",
+          "start": 0.49,
+          "end": 0.69
+        },
+        {
+          "text": "extracting",
+          "start": 0.69,
+          "end": 1.29
+        },
+        {
+          "text": "frenzy",
+          "start": 1.29,
+          "end": 1.65
+        },
+        {
+          "text": "of",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "text": "mine",
+          "start": 1.91,
+          "end": 2.21
+        },
+        {
+          "text": "own",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "text": "From",
+          "start": 2.61,
+          "end": 2.83
+        },
+        {
+          "text": "my",
+          "start": 2.83,
+          "end": 2.97
+        },
+        {
+          "text": "remembrance",
+          "start": 2.97,
+          "end": 3.35
+        },
+        {
+          "text": "clearly",
+          "start": 3.69,
+          "end": 3.85
+        },
+        {
+          "text": "banished",
+          "start": 3.85,
+          "end": 4.39
+        },
+        {
+          "text": "his.",
+          "start": 4.39,
+          "end": 4.67
+        },
+        {
+          "text": "How",
+          "start": 5.33,
+          "end": 5.43
+        },
+        {
+          "text": "does",
+          "start": 5.43,
+          "end": 5.55
+        },
+        {
+          "text": "he,",
+          "start": 5.55,
+          "end": 5.75
+        },
+        {
+          "text": "sirrah?",
+          "start": 5.75,
+          "end": 5.99
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.36703670397400856
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e2eb4ef3390b60cb8e462b82c3541afcddeeb34e9a8bca96ce96cbccba510551",
+  "selected_reasons": []
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "b0cb727479a221ae041335167439c0b7283621fc8258e37e348acab6b72c0e19",
+  "attempts": [
+    {
+      "asr_seconds": 0.12585441954433918,
+      "alignment_seconds": 0.0003688447177410126,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " without scissors in the street.",
+          "start": 0.02,
+          "end": 1.64,
+          "words": [
+            {
+              "text": " without",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.6015625
+            },
+            {
+              "text": " scissors",
+              "start": 0.64,
+              "end": 1.02,
+              "probability": 0.98828125
+            },
+            {
+              "text": " in",
+              "start": 1.02,
+              "end": 1.28,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " the",
+              "start": 1.28,
+              "end": 1.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " street.",
+              "start": 1.38,
+              "end": 1.64,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "without",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "scissors",
+          "start": 0.64,
+          "end": 1.02
+        },
+        {
+          "raw": "in",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "raw": "the",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "raw": "street.",
+          "start": 1.38,
+          "end": 1.64
+        }
+      ],
+      "expected_tokens": [
+        "\"Without",
+        "scissors,",
+        "in",
+        "the",
+        "street?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "without",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "without",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "scissors",
+          "start": 0.64,
+          "end": 1.02,
+          "key": "scissors",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.02,
+          "end": 1.28,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.28,
+          "end": 1.38,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "street.",
+          "start": 1.38,
+          "end": 1.64,
+          "key": "street",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Without",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "scissors,",
+          "start": 0.64,
+          "end": 1.02
+        },
+        {
+          "text": "in",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "text": "the",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "text": "street?\"",
+          "start": 1.38,
+          "end": 1.64
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1263470146805048
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "26190b07825534b3b13117f989cc1c916a26e98d31e9118b0c77b2a07185ee94",
+  "selected_reasons": []
+}

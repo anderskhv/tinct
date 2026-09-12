@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "9c16d1436bcd33f2f94b415d3bf11bddc1920fae9b9724a52f1cb548f9555469",
+  "attempts": [
+    {
+      "asr_seconds": 0.3116568736732006,
+      "alignment_seconds": 0.0007079653441905975,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Olivia. For him, I think not on him: for his thoughts, Would they were blanks rather than fill'd with me!",
+        "hotwords": "Olivia, I, Would"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Olivia, For him, I think not on him. For his thoughts, Would they were blanks rather than fill'd with me!",
+          "start": 0.05,
+          "end": 6.07,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.634765625
+            },
+            {
+              "text": " For",
+              "start": 1.29,
+              "end": 1.49,
+              "probability": 0.038787841796875
+            },
+            {
+              "text": " him,",
+              "start": 1.49,
+              "end": 1.73,
+              "probability": 0.955078125
+            },
+            {
+              "text": " I",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " think",
+              "start": 2.05,
+              "end": 2.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 2.19,
+              "end": 2.37,
+              "probability": 0.978515625
+            },
+            {
+              "text": " on",
+              "start": 2.37,
+              "end": 2.53,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " him.",
+              "start": 2.53,
+              "end": 2.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " For",
+              "start": 3.23,
+              "end": 3.33,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " his",
+              "start": 3.33,
+              "end": 3.49,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " thoughts,",
+              "start": 3.49,
+              "end": 3.87,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Would",
+              "start": 4.09,
+              "end": 4.15,
+              "probability": 0.1651611328125
+            },
+            {
+              "text": " they",
+              "start": 4.15,
+              "end": 4.29,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " were",
+              "start": 4.29,
+              "end": 4.45,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " blanks",
+              "start": 4.45,
+              "end": 4.89,
+              "probability": 0.990234375
+            },
+            {
+              "text": " rather",
+              "start": 4.89,
+              "end": 5.11,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " than",
+              "start": 5.11,
+              "end": 5.43,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " fill'd",
+              "start": 5.43,
+              "end": 5.73,
+              "probability": 0.4120309352874756
+            },
+            {
+              "text": " with",
+              "start": 5.73,
+              "end": 5.81,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " me!",
+              "start": 5.81,
+              "end": 6.07,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "For",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "raw": "him,",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "raw": "I",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "think",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "raw": "not",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "raw": "on",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "raw": "him.",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "raw": "For",
+          "start": 3.23,
+          "end": 3.33
+        },
+        {
+          "raw": "his",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "raw": "thoughts,",
+          "start": 3.49,
+          "end": 3.87
+        },
+        {
+          "raw": "Would",
+          "start": 4.09,
+          "end": 4.15
+        },
+        {
+          "raw": "they",
+          "start": 4.15,
+          "end": 4.29
+        },
+        {
+          "raw": "were",
+          "start": 4.29,
+          "end": 4.45
+        },
+        {
+          "raw": "blanks",
+          "start": 4.45,
+          "end": 4.89
+        },
+        {
+          "raw": "rather",
+          "start": 4.89,
+          "end": 5.11
+        },
+        {
+          "raw": "than",
+          "start": 5.11,
+          "end": 5.43
+        },
+        {
+          "raw": "fill'd",
+          "start": 5.43,
+          "end": 5.73
+        },
+        {
+          "raw": "with",
+          "start": 5.73,
+          "end": 5.81
+        },
+        {
+          "raw": "me!",
+          "start": 5.81,
+          "end": 6.07
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "For",
+        "him,",
+        "I",
+        "think",
+        "not",
+        "on",
+        "him:",
+        "for",
+        "his",
+        "thoughts,",
+        "Would",
+        "they",
+        "were",
+        "blanks",
+        "rather",
+        "than",
+        "fill'd",
+        "with",
+        "me!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 1.29,
+          "end": 1.49,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 1.49,
+          "end": 1.73,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 2.05,
+          "end": 2.19,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.19,
+          "end": 2.37,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.37,
+          "end": 2.53,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 2.53,
+          "end": 2.77,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 3.23,
+          "end": 3.33,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.33,
+          "end": 3.49,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thoughts,",
+          "start": 3.49,
+          "end": 3.87,
+          "key": "thoughts",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Would",
+          "start": 4.09,
+          "end": 4.15,
+          "key": "would",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.15,
+          "end": 4.29,
+          "key": "they",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 4.29,
+          "end": 4.45,
+          "key": "were",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "blanks",
+          "start": 4.45,
+          "end": 4.89,
+          "key": "blanks",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 4.89,
+          "end": 5.11,
+          "key": "rather",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 5.11,
+          "end": 5.43,
+          "key": "than",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "fill'd",
+          "start": 5.43,
+          "end": 5.73,
+          "key": "filld",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.73,
+          "end": 5.81,
+          "key": "with",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "me!",
+          "start": 5.81,
+          "end": 6.07,
+          "key": "me",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "For",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "text": "him,",
+          "start": 1.49,
+          "end": 1.73
+        },
+        {
+          "text": "I",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "text": "think",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "text": "not",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "text": "on",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "text": "him:",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "text": "for",
+          "start": 3.23,
+          "end": 3.33
+        },
+        {
+          "text": "his",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "text": "thoughts,",
+          "start": 3.49,
+          "end": 3.87
+        },
+        {
+          "text": "Would",
+          "start": 4.09,
+          "end": 4.15
+        },
+        {
+          "text": "they",
+          "start": 4.15,
+          "end": 4.29
+        },
+        {
+          "text": "were",
+          "start": 4.29,
+          "end": 4.45
+        },
+        {
+          "text": "blanks",
+          "start": 4.45,
+          "end": 4.89
+        },
+        {
+          "text": "rather",
+          "start": 4.89,
+          "end": 5.11
+        },
+        {
+          "text": "than",
+          "start": 5.11,
+          "end": 5.43
+        },
+        {
+          "text": "fill'd",
+          "start": 5.43,
+          "end": 5.73
+        },
+        {
+          "text": "with",
+          "start": 5.73,
+          "end": 5.81
+        },
+        {
+          "text": "me!",
+          "start": 5.81,
+          "end": 6.07
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31271788105368614
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "34dcd94d0b89b10892ec349f85a3a757b29a270e813364fed0c28ad401f8bddd",
+  "selected_reasons": []
+}

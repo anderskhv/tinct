@@ -1,0 +1,596 @@
+{
+  "complete": true,
+  "signature": "5445e35d65e6b8c9c2b1e9aa702390fa9102c58e5f5070dddf29360337472d09",
+  "attempts": [
+    {
+      "asr_seconds": 0.27266656421124935,
+      "alignment_seconds": 0.0004193764179944992,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Polyxenes, shepherdess, a fair one are you, well you fit our ages with flowers of winter.",
+          "start": 0.05,
+          "end": 5.79,
+          "words": [
+            {
+              "text": " Polyxenes,",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.5889485677083334
+            },
+            {
+              "text": " shepherdess,",
+              "start": 1.49,
+              "end": 2.13,
+              "probability": 0.6005859375
+            },
+            {
+              "text": " a",
+              "start": 2.55,
+              "end": 2.61,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " fair",
+              "start": 2.61,
+              "end": 2.83,
+              "probability": 0.986328125
+            },
+            {
+              "text": " one",
+              "start": 2.83,
+              "end": 3.03,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " are",
+              "start": 3.03,
+              "end": 3.19,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " you,",
+              "start": 3.19,
+              "end": 3.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " well",
+              "start": 3.71,
+              "end": 3.83,
+              "probability": 0.406005859375
+            },
+            {
+              "text": " you",
+              "start": 3.83,
+              "end": 3.99,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " fit",
+              "start": 3.99,
+              "end": 4.17,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " our",
+              "start": 4.17,
+              "end": 4.29,
+              "probability": 0.98828125
+            },
+            {
+              "text": " ages",
+              "start": 4.29,
+              "end": 4.53,
+              "probability": 0.9765625
+            },
+            {
+              "text": " with",
+              "start": 4.53,
+              "end": 4.83,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " flowers",
+              "start": 4.83,
+              "end": 5.19,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " of",
+              "start": 5.19,
+              "end": 5.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " winter.",
+              "start": 5.49,
+              "end": 5.79,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polyxenes,",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "raw": "shepherdess,",
+          "start": 1.49,
+          "end": 2.13
+        },
+        {
+          "raw": "a",
+          "start": 2.55,
+          "end": 2.61
+        },
+        {
+          "raw": "fair",
+          "start": 2.61,
+          "end": 2.83
+        },
+        {
+          "raw": "one",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "raw": "are",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "raw": "you,",
+          "start": 3.19,
+          "end": 3.45
+        },
+        {
+          "raw": "well",
+          "start": 3.71,
+          "end": 3.83
+        },
+        {
+          "raw": "you",
+          "start": 3.83,
+          "end": 3.99
+        },
+        {
+          "raw": "fit",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "raw": "our",
+          "start": 4.17,
+          "end": 4.29
+        },
+        {
+          "raw": "ages",
+          "start": 4.29,
+          "end": 4.53
+        },
+        {
+          "raw": "with",
+          "start": 4.53,
+          "end": 4.83
+        },
+        {
+          "raw": "flowers",
+          "start": 4.83,
+          "end": 5.19
+        },
+        {
+          "raw": "of",
+          "start": 5.19,
+          "end": 5.49
+        },
+        {
+          "raw": "winter.",
+          "start": 5.49,
+          "end": 5.79
+        }
+      ],
+      "expected_tokens": [
+        "Polixenes.",
+        "Shepherdess—",
+        "A",
+        "fair",
+        "one",
+        "are",
+        "you—well",
+        "you",
+        "fit",
+        "our",
+        "ages",
+        "With",
+        "flowers",
+        "of",
+        "winter."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          15,
+          8,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polyxenes,",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "polyxenes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shepherdess,",
+          "start": 1.49,
+          "end": 2.13,
+          "key": "shepherdess",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.55,
+          "end": 2.61,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 2.61,
+          "end": 2.83,
+          "key": "fair",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.83,
+          "end": 3.03,
+          "key": "one",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.03,
+          "end": 3.19,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 3.19,
+          "end": 3.45,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 3.71,
+          "end": 3.83,
+          "key": "well",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.83,
+          "end": 3.99,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fit",
+          "start": 3.99,
+          "end": 4.17,
+          "key": "fit",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.17,
+          "end": 4.29,
+          "key": "our",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ages",
+          "start": 4.29,
+          "end": 4.53,
+          "key": "ages",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.53,
+          "end": 4.83,
+          "key": "with",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "flowers",
+          "start": 4.83,
+          "end": 5.19,
+          "key": "flowers",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.19,
+          "end": 5.49,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "winter.",
+          "start": 5.49,
+          "end": 5.79,
+          "key": "winter",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polixenes.",
+          "start": 0.0,
+          "end": 0.745
+        },
+        {
+          "text": "Shepherdess—",
+          "start": 1.49,
+          "end": 2.13
+        },
+        {
+          "text": "A",
+          "start": 2.55,
+          "end": 2.61
+        },
+        {
+          "text": "fair",
+          "start": 2.61,
+          "end": 2.83
+        },
+        {
+          "text": "one",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "text": "are",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "text": "you—well",
+          "start": 3.19,
+          "end": 3.51
+        },
+        {
+          "text": "you",
+          "start": 3.83,
+          "end": 3.99
+        },
+        {
+          "text": "fit",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "text": "our",
+          "start": 4.17,
+          "end": 4.29
+        },
+        {
+          "text": "ages",
+          "start": 4.29,
+          "end": 4.53
+        },
+        {
+          "text": "With",
+          "start": 4.53,
+          "end": 4.83
+        },
+        {
+          "text": "flowers",
+          "start": 4.83,
+          "end": 5.19
+        },
+        {
+          "text": "of",
+          "start": 5.19,
+          "end": 5.49
+        },
+        {
+          "text": "winter.",
+          "start": 5.49,
+          "end": 5.79
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.27325672283768654
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "393ca53fce56b3d7b8f48d6ab9334b92daad535061da9cf8eb02103a83ea5ed8",
+  "selected_reasons": []
+}

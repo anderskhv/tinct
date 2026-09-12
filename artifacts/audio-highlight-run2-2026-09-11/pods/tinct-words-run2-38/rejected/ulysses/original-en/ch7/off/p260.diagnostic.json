@@ -1,0 +1,635 @@
+{
+  "complete": true,
+  "signature": "5f1f8ce7b363e0109de531e8bf17933d197d1ca4b5c220119746ffe2c0a20263",
+  "attempts": [
+    {
+      "asr_seconds": 0.19975797698134556,
+      "alignment_seconds": 0.0002770409919321537,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I escorted a suppliant, Mr. O'Madden Burke said melodiously, youth led by experienced",
+          "start": 0.08,
+          "end": 5.98,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.6357421875
+            },
+            {
+              "text": " escorted",
+              "start": 0.54,
+              "end": 0.94,
+              "probability": 0.62841796875
+            },
+            {
+              "text": " a",
+              "start": 0.94,
+              "end": 1.12,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " suppliant,",
+              "start": 1.12,
+              "end": 1.66,
+              "probability": 0.939453125
+            },
+            {
+              "text": " Mr.",
+              "start": 2.08,
+              "end": 2.22,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " O",
+              "start": 2.36,
+              "end": 2.38,
+              "probability": 0.916015625
+            },
+            {
+              "text": "'Madden",
+              "start": 2.38,
+              "end": 2.6,
+              "probability": 0.8790690104166666
+            },
+            {
+              "text": " Burke",
+              "start": 2.6,
+              "end": 2.9,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " said",
+              "start": 2.9,
+              "end": 3.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " melodiously,",
+              "start": 3.18,
+              "end": 3.94,
+              "probability": 0.982421875
+            },
+            {
+              "text": " youth",
+              "start": 4.62,
+              "end": 4.9,
+              "probability": 0.2047119140625
+            },
+            {
+              "text": " led",
+              "start": 4.9,
+              "end": 5.16,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " by",
+              "start": 5.16,
+              "end": 5.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " experienced",
+              "start": 5.4,
+              "end": 5.98,
+              "probability": 0.37451171875
+            }
+          ]
+        },
+        {
+          "text": " visits notoriety.",
+          "start": 5.98,
+          "end": 6.9,
+          "words": [
+            {
+              "text": " visits",
+              "start": 5.98,
+              "end": 6.36,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " notoriety.",
+              "start": 6.36,
+              "end": 6.9,
+              "probability": 0.9736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "escorted",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "raw": "a",
+          "start": 0.94,
+          "end": 1.12
+        },
+        {
+          "raw": "suppliant,",
+          "start": 1.12,
+          "end": 1.66
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "raw": "O",
+          "start": 2.36,
+          "end": 2.38
+        },
+        {
+          "raw": "'Madden",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "raw": "Burke",
+          "start": 2.6,
+          "end": 2.9
+        },
+        {
+          "raw": "said",
+          "start": 2.9,
+          "end": 3.18
+        },
+        {
+          "raw": "melodiously,",
+          "start": 3.18,
+          "end": 3.94
+        },
+        {
+          "raw": "youth",
+          "start": 4.62,
+          "end": 4.9
+        },
+        {
+          "raw": "led",
+          "start": 4.9,
+          "end": 5.16
+        },
+        {
+          "raw": "by",
+          "start": 5.16,
+          "end": 5.4
+        },
+        {
+          "raw": "experienced",
+          "start": 5.4,
+          "end": 5.98
+        },
+        {
+          "raw": "visits",
+          "start": 5.98,
+          "end": 6.36
+        },
+        {
+          "raw": "notoriety.",
+          "start": 6.36,
+          "end": 6.9
+        }
+      ],
+      "expected_tokens": [
+        "—I",
+        "escort",
+        "a",
+        "suppliant,",
+        "Mr",
+        "O'Madden",
+        "Burke",
+        "said",
+        "melodiously.",
+        "Youth",
+        "led",
+        "by",
+        "Experience",
+        "visits",
+        "Notoriety."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          12,
+          7,
+          13
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          14
+        ],
+        [
+          "equal",
+          13,
+          15,
+          14,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "escorted",
+          "start": 0.54,
+          "end": 0.94,
+          "key": "escorted",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.94,
+          "end": 1.12,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "suppliant,",
+          "start": 1.12,
+          "end": 1.66,
+          "key": "suppliant",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.08,
+          "end": 2.22,
+          "key": "mr",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 2.36,
+          "end": 2.38,
+          "key": "o",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "'Madden",
+          "start": 2.38,
+          "end": 2.6,
+          "key": "madden",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Burke",
+          "start": 2.6,
+          "end": 2.9,
+          "key": "burke",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.9,
+          "end": 3.18,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "melodiously,",
+          "start": 3.18,
+          "end": 3.94,
+          "key": "melodiously",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "youth",
+          "start": 4.62,
+          "end": 4.9,
+          "key": "youth",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "led",
+          "start": 4.9,
+          "end": 5.16,
+          "key": "led",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 5.16,
+          "end": 5.4,
+          "key": "by",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "experienced",
+          "start": 5.4,
+          "end": 5.98,
+          "key": "experienced",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "visits",
+          "start": 5.98,
+          "end": 6.36,
+          "key": "visits",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "notoriety.",
+          "start": 6.36,
+          "end": 6.9,
+          "key": "notoriety",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "escort",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "text": "a",
+          "start": 0.94,
+          "end": 1.12
+        },
+        {
+          "text": "suppliant,",
+          "start": 1.12,
+          "end": 1.66
+        },
+        {
+          "text": "Mr",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "text": "O'Madden",
+          "start": 2.22,
+          "end": 2.41
+        },
+        {
+          "text": "Burke",
+          "start": 2.6,
+          "end": 2.9
+        },
+        {
+          "text": "said",
+          "start": 2.9,
+          "end": 3.18
+        },
+        {
+          "text": "melodiously.",
+          "start": 3.18,
+          "end": 3.94
+        },
+        {
+          "text": "Youth",
+          "start": 4.62,
+          "end": 4.9
+        },
+        {
+          "text": "led",
+          "start": 4.9,
+          "end": 5.16
+        },
+        {
+          "text": "by",
+          "start": 5.16,
+          "end": 5.4
+        },
+        {
+          "text": "Experience",
+          "start": 5.4,
+          "end": 5.69
+        },
+        {
+          "text": "visits",
+          "start": 5.98,
+          "end": 6.36
+        },
+        {
+          "text": "Notoriety.",
+          "start": 6.36,
+          "end": 6.9
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20014166901819408
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4ed9cb1c0643932a1fb470dc176f178d11c80daa4187c7496a1df24a78d790bc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

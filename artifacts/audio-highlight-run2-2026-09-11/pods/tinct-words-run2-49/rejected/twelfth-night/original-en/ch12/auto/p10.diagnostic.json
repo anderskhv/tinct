@@ -1,0 +1,502 @@
+{
+  "complete": true,
+  "signature": "70652ee3de0a63cb0c43b426e2be67f84323cb3c4542e2ece6bb40a1943f409d",
+  "attempts": [
+    {
+      "asr_seconds": 0.24671116471290588,
+      "alignment_seconds": 0.0007248483598232269,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Toby. And they have been grand-jurymen since before Noah was a sailor.",
+        "hotwords": "Sir, Toby, And, Noah"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Toby. And they have been grand-jurymen since before Noah was a sailor.",
+          "start": 0.02,
+          "end": 4.3,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.78857421875
+            },
+            {
+              "text": " Toby.",
+              "start": 0.54,
+              "end": 0.86,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " And",
+              "start": 1.46,
+              "end": 1.56,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " they",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " have",
+              "start": 1.68,
+              "end": 1.78,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " been",
+              "start": 1.78,
+              "end": 1.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " grand",
+              "start": 1.94,
+              "end": 2.26,
+              "probability": 0.428955078125
+            },
+            {
+              "text": "-jurymen",
+              "start": 2.26,
+              "end": 2.8,
+              "probability": 0.2961101531982422
+            },
+            {
+              "text": " since",
+              "start": 2.8,
+              "end": 3.04,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " before",
+              "start": 3.04,
+              "end": 3.44,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Noah",
+              "start": 3.44,
+              "end": 3.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " was",
+              "start": 3.68,
+              "end": 3.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 3.94,
+              "end": 4.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sailor.",
+              "start": 4.08,
+              "end": 4.3,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "Toby.",
+          "start": 0.54,
+          "end": 0.86
+        },
+        {
+          "raw": "And",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "raw": "they",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "have",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "raw": "been",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "raw": "grand",
+          "start": 1.94,
+          "end": 2.26
+        },
+        {
+          "raw": "-jurymen",
+          "start": 2.26,
+          "end": 2.8
+        },
+        {
+          "raw": "since",
+          "start": 2.8,
+          "end": 3.04
+        },
+        {
+          "raw": "before",
+          "start": 3.04,
+          "end": 3.44
+        },
+        {
+          "raw": "Noah",
+          "start": 3.44,
+          "end": 3.68
+        },
+        {
+          "raw": "was",
+          "start": 3.68,
+          "end": 3.94
+        },
+        {
+          "raw": "a",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "raw": "sailor.",
+          "start": 4.08,
+          "end": 4.3
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "And",
+        "they",
+        "have",
+        "been",
+        "grand-jurymen",
+        "since",
+        "before",
+        "Noah",
+        "was",
+        "a",
+        "sailor."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby.",
+          "start": 0.54,
+          "end": 0.86,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.46,
+          "end": 1.56,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.56,
+          "end": 1.68,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.68,
+          "end": 1.78,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.78,
+          "end": 1.94,
+          "key": "been",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "grand -jurymen",
+          "start": 1.94,
+          "end": 2.8,
+          "key": "grandjurymen",
+          "pieces": [
+            6,
+            7
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 2.8,
+          "end": 3.04,
+          "key": "since",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 3.04,
+          "end": 3.44,
+          "key": "before",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Noah",
+          "start": 3.44,
+          "end": 3.68,
+          "key": "noah",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.68,
+          "end": 3.94,
+          "key": "was",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.94,
+          "end": 4.08,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sailor.",
+          "start": 4.08,
+          "end": 4.3,
+          "key": "sailor",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 6,
+          "text": "grand-jurymen",
+          "heard": "grand -jurymen",
+          "heard_indexes": [
+            6,
+            7
+          ],
+          "start": 1.94,
+          "end": 2.8
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "Toby.",
+          "start": 0.54,
+          "end": 0.86
+        },
+        {
+          "text": "And",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "text": "they",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "have",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "text": "been",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "text": "grand-jurymen",
+          "start": 1.94,
+          "end": 2.8
+        },
+        {
+          "text": "since",
+          "start": 2.8,
+          "end": 3.04
+        },
+        {
+          "text": "before",
+          "start": 3.04,
+          "end": 3.44
+        },
+        {
+          "text": "Noah",
+          "start": 3.44,
+          "end": 3.68
+        },
+        {
+          "text": "was",
+          "start": 3.68,
+          "end": 3.94
+        },
+        {
+          "text": "a",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "text": "sailor.",
+          "start": 4.08,
+          "end": 4.3
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24768559262156487
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6a66f42f54c7dab0dddf2ee778ec827f89550e7badec6fbd1d9fdf8d17acab18",
+  "selected_reasons": []
+}

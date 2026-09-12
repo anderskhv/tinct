@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "dd57f2ad5c6186800afec37b697e6bd6c32d16c37b6d996c73e6ef13d4469cb9",
+  "attempts": [
+    {
+      "asr_seconds": 0.10541048098821193,
+      "alignment_seconds": 0.00019010697724297643,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pompey, come.",
+          "start": 0.05,
+          "end": 1.19,
+          "words": [
+            {
+              "text": " Pompey,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " come.",
+              "start": 0.91,
+              "end": 1.19,
+              "probability": 0.87939453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pompey,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "come.",
+          "start": 0.91,
+          "end": 1.19
+        }
+      ],
+      "expected_tokens": [
+        "Pompey.",
+        "Come."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pompey,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "pompey",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 0.91,
+          "end": 1.19,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pompey.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Come.",
+          "start": 0.91,
+          "end": 1.19
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10565887999837287
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7b7be7544dd15ad9f73806cef2582f179839c2575724fcd1411a2ba38dcf4cd1",
+  "selected_reasons": []
+}

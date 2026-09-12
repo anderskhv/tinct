@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "454f4d8ba64aeffa267034898bb1ef4f739c8a4f7b9e690c62df86f0b315f968",
+  "attempts": [
+    {
+      "asr_seconds": 0.21297688409686089,
+      "alignment_seconds": 0.0004824697971343994,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fabian. This is a dear manikin to you, Sir Toby.",
+        "hotwords": "Fabian, This, Sir, Toby"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fabian, This is a dear manikin to you, Sir Toby.",
+          "start": 0.52,
+          "end": 3.24,
+          "words": [
+            {
+              "text": " Fabian,",
+              "start": 0.52,
+              "end": 0.88,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " This",
+              "start": 1.26,
+              "end": 1.52,
+              "probability": 0.0221710205078125
+            },
+            {
+              "text": " is",
+              "start": 1.52,
+              "end": 1.66,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " a",
+              "start": 1.66,
+              "end": 1.76,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " dear",
+              "start": 1.76,
+              "end": 1.9,
+              "probability": 0.73486328125
+            },
+            {
+              "text": " manikin",
+              "start": 1.9,
+              "end": 2.4,
+              "probability": 0.6319046020507812
+            },
+            {
+              "text": " to",
+              "start": 2.4,
+              "end": 2.58,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " you,",
+              "start": 2.58,
+              "end": 2.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Sir",
+              "start": 2.86,
+              "end": 2.96,
+              "probability": 0.81640625
+            },
+            {
+              "text": " Toby.",
+              "start": 2.96,
+              "end": 3.24,
+              "probability": 0.80810546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fabian,",
+          "start": 0.52,
+          "end": 0.88
+        },
+        {
+          "raw": "This",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "raw": "is",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "raw": "a",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "raw": "dear",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "raw": "manikin",
+          "start": 1.9,
+          "end": 2.4
+        },
+        {
+          "raw": "to",
+          "start": 2.4,
+          "end": 2.58
+        },
+        {
+          "raw": "you,",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "raw": "Sir",
+          "start": 2.86,
+          "end": 2.96
+        },
+        {
+          "raw": "Toby.",
+          "start": 2.96,
+          "end": 3.24
+        }
+      ],
+      "expected_tokens": [
+        "Fabian.",
+        "This",
+        "is",
+        "a",
+        "dear",
+        "manikin",
+        "to",
+        "you,",
+        "Sir",
+        "Toby."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fabian,",
+          "start": 0.52,
+          "end": 0.88,
+          "key": "fabian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 1.26,
+          "end": 1.52,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.52,
+          "end": 1.66,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.66,
+          "end": 1.76,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 1.76,
+          "end": 1.9,
+          "key": "dear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "manikin",
+          "start": 1.9,
+          "end": 2.4,
+          "key": "manikin",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.4,
+          "end": 2.58,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 2.58,
+          "end": 2.76,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 2.86,
+          "end": 2.96,
+          "key": "sir",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Toby.",
+          "start": 2.96,
+          "end": 3.24,
+          "key": "toby",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fabian.",
+          "start": 0.52,
+          "end": 0.88
+        },
+        {
+          "text": "This",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "text": "is",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "text": "a",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "text": "dear",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "text": "manikin",
+          "start": 1.9,
+          "end": 2.4
+        },
+        {
+          "text": "to",
+          "start": 2.4,
+          "end": 2.58
+        },
+        {
+          "text": "you,",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "text": "Sir",
+          "start": 2.86,
+          "end": 2.96
+        },
+        {
+          "text": "Toby.",
+          "start": 2.96,
+          "end": 3.24
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.213656447827816
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0d91b3f6aa5820d5d27e83d9cf19871eeed1f2779cda86e251e47b226cc4ad4c",
+  "selected_reasons": []
+}

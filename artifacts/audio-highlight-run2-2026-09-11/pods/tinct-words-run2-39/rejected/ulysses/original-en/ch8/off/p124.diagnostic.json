@@ -1,0 +1,219 @@
+{
+  "complete": true,
+  "signature": "60af9b5bd17a1e95ef4425734f149770f89517a8114bc8eb457b508b46fa6172",
+  "attempts": [
+    {
+      "asr_seconds": 0.10890209581702948,
+      "alignment_seconds": 0.0003454359248280525,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Three cheers for DeWet.",
+          "start": 0.08,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " Three",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " cheers",
+              "start": 0.6,
+              "end": 0.84,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " for",
+              "start": 0.84,
+              "end": 1.06,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " DeWet.",
+              "start": 1.06,
+              "end": 1.42,
+              "probability": 0.5716959635416666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Three",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "cheers",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "raw": "for",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "raw": "DeWet.",
+          "start": 1.06,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "—Three",
+        "cheers",
+        "for",
+        "De",
+        "Wet!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Three",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "three",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cheers",
+          "start": 0.6,
+          "end": 0.84,
+          "key": "cheers",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.84,
+          "end": 1.06,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "DeWet.",
+          "start": 1.06,
+          "end": 1.42,
+          "key": "dewet",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Three",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "cheers",
+          "start": 0.6,
+          "end": 0.84
+        },
+        {
+          "text": "for",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "text": "De",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "text": "Wet!",
+          "start": 1.24,
+          "end": 1.33
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10935714980587363
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "98c4d8a4f6658a54c5bff82fc35a8bcabf9a1453b900d01097dada45168146eb",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

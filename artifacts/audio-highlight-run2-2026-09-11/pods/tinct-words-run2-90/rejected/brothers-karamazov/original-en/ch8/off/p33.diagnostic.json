@@ -1,0 +1,739 @@
+{
+  "complete": true,
+  "signature": "5bd0daada7fe96134d27674cecff0807e9e8986fc9074c175fc3c623cce00f7b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2814527088776231,
+      "alignment_seconds": 0.00023872777819633484,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The woman went on in a low whisper so that it was almost impossible to catch anything.",
+          "start": 0.02,
+          "end": 5.1,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " woman",
+              "start": 0.48,
+              "end": 0.7,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " went",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 0.94,
+              "end": 1.18,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " a",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.9921875
+            },
+            {
+              "text": " low",
+              "start": 1.5,
+              "end": 1.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " whisper",
+              "start": 1.72,
+              "end": 2.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " so",
+              "start": 2.16,
+              "end": 2.72,
+              "probability": 0.65234375
+            },
+            {
+              "text": " that",
+              "start": 2.72,
+              "end": 2.84,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " it",
+              "start": 2.84,
+              "end": 2.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " was",
+              "start": 2.92,
+              "end": 3.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " almost",
+              "start": 3.02,
+              "end": 3.4,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " impossible",
+              "start": 3.4,
+              "end": 4.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 4.0,
+              "end": 4.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " catch",
+              "start": 4.38,
+              "end": 4.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " anything.",
+              "start": 4.6,
+              "end": 5.1,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " She had soon done.",
+          "start": 5.74,
+          "end": 6.58,
+          "words": [
+            {
+              "text": " She",
+              "start": 5.74,
+              "end": 5.94,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " had",
+              "start": 5.94,
+              "end": 6.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " soon",
+              "start": 6.04,
+              "end": 6.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " done.",
+              "start": 6.26,
+              "end": 6.58,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "woman",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "raw": "went",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "on",
+          "start": 0.94,
+          "end": 1.18
+        },
+        {
+          "raw": "in",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "a",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "low",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "raw": "whisper",
+          "start": 1.72,
+          "end": 2.16
+        },
+        {
+          "raw": "so",
+          "start": 2.16,
+          "end": 2.72
+        },
+        {
+          "raw": "that",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "raw": "it",
+          "start": 2.84,
+          "end": 2.92
+        },
+        {
+          "raw": "was",
+          "start": 2.92,
+          "end": 3.02
+        },
+        {
+          "raw": "almost",
+          "start": 3.02,
+          "end": 3.4
+        },
+        {
+          "raw": "impossible",
+          "start": 3.4,
+          "end": 4.0
+        },
+        {
+          "raw": "to",
+          "start": 4.0,
+          "end": 4.38
+        },
+        {
+          "raw": "catch",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "raw": "anything.",
+          "start": 4.6,
+          "end": 5.1
+        },
+        {
+          "raw": "She",
+          "start": 5.74,
+          "end": 5.94
+        },
+        {
+          "raw": "had",
+          "start": 5.94,
+          "end": 6.04
+        },
+        {
+          "raw": "soon",
+          "start": 6.04,
+          "end": 6.26
+        },
+        {
+          "raw": "done.",
+          "start": 6.26,
+          "end": 6.58
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "woman",
+        "went",
+        "on",
+        "in",
+        "a",
+        "low",
+        "whisper,",
+        "so",
+        "that",
+        "it",
+        "was",
+        "almost",
+        "impossible",
+        "to",
+        "catch",
+        "anything.",
+        "She",
+        "had",
+        "soon",
+        "done."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "woman",
+          "start": 0.48,
+          "end": 0.7,
+          "key": "woman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 0.7,
+          "end": 0.94,
+          "key": "went",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 0.94,
+          "end": 1.18,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "low",
+          "start": 1.5,
+          "end": 1.72,
+          "key": "low",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "whisper",
+          "start": 1.72,
+          "end": 2.16,
+          "key": "whisper",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.16,
+          "end": 2.72,
+          "key": "so",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.72,
+          "end": 2.84,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.84,
+          "end": 2.92,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.92,
+          "end": 3.02,
+          "key": "was",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 3.02,
+          "end": 3.4,
+          "key": "almost",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "impossible",
+          "start": 3.4,
+          "end": 4.0,
+          "key": "impossible",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.0,
+          "end": 4.38,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "catch",
+          "start": 4.38,
+          "end": 4.6,
+          "key": "catch",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "anything.",
+          "start": 4.6,
+          "end": 5.1,
+          "key": "anything",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 5.74,
+          "end": 5.94,
+          "key": "she",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 5.94,
+          "end": 6.04,
+          "key": "had",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "soon",
+          "start": 6.04,
+          "end": 6.26,
+          "key": "soon",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "done.",
+          "start": 6.26,
+          "end": 6.58,
+          "key": "done",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "woman",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "text": "went",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "text": "on",
+          "start": 0.94,
+          "end": 1.18
+        },
+        {
+          "text": "in",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "a",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "low",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "text": "whisper,",
+          "start": 1.72,
+          "end": 2.16
+        },
+        {
+          "text": "so",
+          "start": 2.16,
+          "end": 2.72
+        },
+        {
+          "text": "that",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "text": "it",
+          "start": 2.84,
+          "end": 2.92
+        },
+        {
+          "text": "was",
+          "start": 2.92,
+          "end": 3.02
+        },
+        {
+          "text": "almost",
+          "start": 3.02,
+          "end": 3.4
+        },
+        {
+          "text": "impossible",
+          "start": 3.4,
+          "end": 4.0
+        },
+        {
+          "text": "to",
+          "start": 4.0,
+          "end": 4.38
+        },
+        {
+          "text": "catch",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "text": "anything.",
+          "start": 4.6,
+          "end": 5.1
+        },
+        {
+          "text": "She",
+          "start": 5.74,
+          "end": 5.94
+        },
+        {
+          "text": "had",
+          "start": 5.94,
+          "end": 6.04
+        },
+        {
+          "text": "soon",
+          "start": 6.04,
+          "end": 6.26
+        },
+        {
+          "text": "done.",
+          "start": 6.26,
+          "end": 6.58
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28190868347883224
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8886b025a4907d5620ede7351eb961573724281f7359142cbfd3340a13466ab5",
+  "selected_reasons": []
+}

@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "ca0298e3d9ae508b54caf743e0b13de8e9f28c506ef550ffbf7388489e1cb14d",
+  "attempts": [
+    {
+      "asr_seconds": 0.287479764316231,
+      "alignment_seconds": 0.00045674340799450874,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Justly thought; rightly said, Miss Eyre; and, at this moment, I am paving hell with energy.\"",
+        "hotwords": "Justly, Miss, Eyre, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Justly thought, rightly said, Miss Eyre, and, at this moment, I am paving hell with energy.",
+          "start": 0.08,
+          "end": 5.32,
+          "words": [
+            {
+              "text": " Justly",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.527313232421875
+            },
+            {
+              "text": " thought,",
+              "start": 0.86,
+              "end": 1.18,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " rightly",
+              "start": 1.66,
+              "end": 1.8,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " said,",
+              "start": 1.8,
+              "end": 2.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Miss",
+              "start": 2.3,
+              "end": 2.4,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " Eyre,",
+              "start": 2.4,
+              "end": 2.82,
+              "probability": 0.801513671875
+            },
+            {
+              "text": " and,",
+              "start": 3.24,
+              "end": 3.36,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " at",
+              "start": 3.4,
+              "end": 3.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 3.48,
+              "end": 3.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " moment,",
+              "start": 3.64,
+              "end": 3.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 4.1,
+              "end": 4.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " am",
+              "start": 4.18,
+              "end": 4.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " paving",
+              "start": 4.28,
+              "end": 4.52,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " hell",
+              "start": 4.52,
+              "end": 4.84,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " with",
+              "start": 4.84,
+              "end": 5.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " energy.",
+              "start": 5.0,
+              "end": 5.32,
+              "probability": 0.96533203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Justly",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "thought,",
+          "start": 0.86,
+          "end": 1.18
+        },
+        {
+          "raw": "rightly",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "raw": "said,",
+          "start": 1.8,
+          "end": 2.18
+        },
+        {
+          "raw": "Miss",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "raw": "Eyre,",
+          "start": 2.4,
+          "end": 2.82
+        },
+        {
+          "raw": "and,",
+          "start": 3.24,
+          "end": 3.36
+        },
+        {
+          "raw": "at",
+          "start": 3.4,
+          "end": 3.48
+        },
+        {
+          "raw": "this",
+          "start": 3.48,
+          "end": 3.64
+        },
+        {
+          "raw": "moment,",
+          "start": 3.64,
+          "end": 3.92
+        },
+        {
+          "raw": "I",
+          "start": 4.1,
+          "end": 4.18
+        },
+        {
+          "raw": "am",
+          "start": 4.18,
+          "end": 4.28
+        },
+        {
+          "raw": "paving",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "raw": "hell",
+          "start": 4.52,
+          "end": 4.84
+        },
+        {
+          "raw": "with",
+          "start": 4.84,
+          "end": 5.0
+        },
+        {
+          "raw": "energy.",
+          "start": 5.0,
+          "end": 5.32
+        }
+      ],
+      "expected_tokens": [
+        "\"Justly",
+        "thought;",
+        "rightly",
+        "said,",
+        "Miss",
+        "Eyre;",
+        "and,",
+        "at",
+        "this",
+        "moment,",
+        "I",
+        "am",
+        "paving",
+        "hell",
+        "with",
+        "energy.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Justly",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "justly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thought,",
+          "start": 0.86,
+          "end": 1.18,
+          "key": "thought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rightly",
+          "start": 1.66,
+          "end": 1.8,
+          "key": "rightly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.8,
+          "end": 2.18,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 2.3,
+          "end": 2.4,
+          "key": "miss",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Eyre,",
+          "start": 2.4,
+          "end": 2.82,
+          "key": "eyre",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and,",
+          "start": 3.24,
+          "end": 3.36,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.4,
+          "end": 3.48,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.48,
+          "end": 3.64,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "moment,",
+          "start": 3.64,
+          "end": 3.92,
+          "key": "moment",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.1,
+          "end": 4.18,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 4.18,
+          "end": 4.28,
+          "key": "am",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "paving",
+          "start": 4.28,
+          "end": 4.52,
+          "key": "paving",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hell",
+          "start": 4.52,
+          "end": 4.84,
+          "key": "hell",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.84,
+          "end": 5.0,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "energy.",
+          "start": 5.0,
+          "end": 5.32,
+          "key": "energy",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Justly",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "thought;",
+          "start": 0.86,
+          "end": 1.18
+        },
+        {
+          "text": "rightly",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "text": "said,",
+          "start": 1.8,
+          "end": 2.18
+        },
+        {
+          "text": "Miss",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "text": "Eyre;",
+          "start": 2.4,
+          "end": 2.82
+        },
+        {
+          "text": "and,",
+          "start": 3.24,
+          "end": 3.36
+        },
+        {
+          "text": "at",
+          "start": 3.4,
+          "end": 3.48
+        },
+        {
+          "text": "this",
+          "start": 3.48,
+          "end": 3.64
+        },
+        {
+          "text": "moment,",
+          "start": 3.64,
+          "end": 3.92
+        },
+        {
+          "text": "I",
+          "start": 4.1,
+          "end": 4.18
+        },
+        {
+          "text": "am",
+          "start": 4.18,
+          "end": 4.28
+        },
+        {
+          "text": "paving",
+          "start": 4.28,
+          "end": 4.52
+        },
+        {
+          "text": "hell",
+          "start": 4.52,
+          "end": 4.84
+        },
+        {
+          "text": "with",
+          "start": 4.84,
+          "end": 5.0
+        },
+        {
+          "text": "energy.\"",
+          "start": 5.0,
+          "end": 5.32
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2881217133253813
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "49794cabccfe144852baf7d349230fe01378472eccb2c417adc3fb6ee199125f",
+  "selected_reasons": []
+}

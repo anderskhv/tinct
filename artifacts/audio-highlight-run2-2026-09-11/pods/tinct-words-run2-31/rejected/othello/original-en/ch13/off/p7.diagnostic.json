@@ -1,0 +1,834 @@
+{
+  "complete": true,
+  "signature": "db40c8ac73de6748a4abcef9bc8d1a3f09fd412142d255cad4001aecef3bedf1",
+  "attempts": [
+    {
+      "asr_seconds": 0.3000128800049424,
+      "alignment_seconds": 0.0003082668408751488,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ocelo, get you to bed on T.H. instant. I will be returned forthwith. Dismiss your attendant there. Look to be done.",
+          "start": 0.53,
+          "end": 7.71,
+          "words": [
+            {
+              "text": " Ocelo,",
+              "start": 0.53,
+              "end": 1.01,
+              "probability": 0.5248616536458334
+            },
+            {
+              "text": " get",
+              "start": 1.31,
+              "end": 1.51,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " you",
+              "start": 1.51,
+              "end": 1.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 1.63,
+              "end": 1.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " bed",
+              "start": 1.73,
+              "end": 1.87,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " on",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " T",
+              "start": 2.09,
+              "end": 2.31,
+              "probability": 0.5341796875
+            },
+            {
+              "text": ".H.",
+              "start": 2.31,
+              "end": 2.67,
+              "probability": 0.863525390625
+            },
+            {
+              "text": " instant.",
+              "start": 2.81,
+              "end": 3.09,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " I",
+              "start": 3.55,
+              "end": 3.57,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " will",
+              "start": 3.57,
+              "end": 3.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " be",
+              "start": 3.67,
+              "end": 3.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " returned",
+              "start": 3.79,
+              "end": 4.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " forthwith.",
+              "start": 4.19,
+              "end": 4.83,
+              "probability": 0.851318359375
+            },
+            {
+              "text": " Dismiss",
+              "start": 5.39,
+              "end": 5.69,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " your",
+              "start": 5.69,
+              "end": 5.85,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " attendant",
+              "start": 5.85,
+              "end": 6.17,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " there.",
+              "start": 6.17,
+              "end": 6.59,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " Look",
+              "start": 7.05,
+              "end": 7.15,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " to",
+              "start": 7.15,
+              "end": 7.31,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " be",
+              "start": 7.31,
+              "end": 7.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " done.",
+              "start": 7.45,
+              "end": 7.71,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ocelo,",
+          "start": 0.53,
+          "end": 1.01
+        },
+        {
+          "raw": "get",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "raw": "you",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "raw": "to",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "raw": "bed",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "raw": "on",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "raw": "T",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "raw": ".H.",
+          "start": 2.31,
+          "end": 2.67
+        },
+        {
+          "raw": "instant.",
+          "start": 2.81,
+          "end": 3.09
+        },
+        {
+          "raw": "I",
+          "start": 3.55,
+          "end": 3.57
+        },
+        {
+          "raw": "will",
+          "start": 3.57,
+          "end": 3.67
+        },
+        {
+          "raw": "be",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "raw": "returned",
+          "start": 3.79,
+          "end": 4.19
+        },
+        {
+          "raw": "forthwith.",
+          "start": 4.19,
+          "end": 4.83
+        },
+        {
+          "raw": "Dismiss",
+          "start": 5.39,
+          "end": 5.69
+        },
+        {
+          "raw": "your",
+          "start": 5.69,
+          "end": 5.85
+        },
+        {
+          "raw": "attendant",
+          "start": 5.85,
+          "end": 6.17
+        },
+        {
+          "raw": "there.",
+          "start": 6.17,
+          "end": 6.59
+        },
+        {
+          "raw": "Look",
+          "start": 7.05,
+          "end": 7.15
+        },
+        {
+          "raw": "to",
+          "start": 7.15,
+          "end": 7.31
+        },
+        {
+          "raw": "be",
+          "start": 7.31,
+          "end": 7.45
+        },
+        {
+          "raw": "done.",
+          "start": 7.45,
+          "end": 7.71
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Get",
+        "you",
+        "to",
+        "bed",
+        "on",
+        "th'",
+        "instant,",
+        "I",
+        "will",
+        "be",
+        "return'd",
+        "forthwith.",
+        "Dismiss",
+        "your",
+        "attendant",
+        "there.",
+        "Look",
+        "'t",
+        "be",
+        "done."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          11,
+          8,
+          12
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ],
+        [
+          "equal",
+          12,
+          18,
+          13,
+          19
+        ],
+        [
+          "replace",
+          18,
+          19,
+          19,
+          20
+        ],
+        [
+          "equal",
+          19,
+          21,
+          20,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ],
+        [
+          "replace",
+          18,
+          19,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ocelo,",
+          "start": 0.53,
+          "end": 1.01,
+          "key": "ocelo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 1.31,
+          "end": 1.51,
+          "key": "get",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.51,
+          "end": 1.63,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.63,
+          "end": 1.73,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bed",
+          "start": 1.73,
+          "end": 1.87,
+          "key": "bed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.87,
+          "end": 2.09,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 2.09,
+          "end": 2.31,
+          "key": "t",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": ".H.",
+          "start": 2.31,
+          "end": 2.67,
+          "key": "h",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "instant.",
+          "start": 2.81,
+          "end": 3.09,
+          "key": "instant",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.55,
+          "end": 3.57,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.57,
+          "end": 3.67,
+          "key": "will",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.67,
+          "end": 3.79,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "returned",
+          "start": 3.79,
+          "end": 4.19,
+          "key": "returned",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "forthwith.",
+          "start": 4.19,
+          "end": 4.83,
+          "key": "forthwith",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Dismiss",
+          "start": 5.39,
+          "end": 5.69,
+          "key": "dismiss",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.69,
+          "end": 5.85,
+          "key": "your",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "attendant",
+          "start": 5.85,
+          "end": 6.17,
+          "key": "attendant",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 6.17,
+          "end": 6.59,
+          "key": "there",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 7.05,
+          "end": 7.15,
+          "key": "look",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.15,
+          "end": 7.31,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 7.31,
+          "end": 7.45,
+          "key": "be",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "done.",
+          "start": 7.45,
+          "end": 7.71,
+          "key": "done",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.0,
+          "end": 0.655
+        },
+        {
+          "text": "Get",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "text": "you",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "to",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "text": "bed",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "text": "on",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "text": "th'",
+          "start": 2.09,
+          "end": 2.45
+        },
+        {
+          "text": "instant,",
+          "start": 2.81,
+          "end": 3.09
+        },
+        {
+          "text": "I",
+          "start": 3.55,
+          "end": 3.57
+        },
+        {
+          "text": "will",
+          "start": 3.57,
+          "end": 3.67
+        },
+        {
+          "text": "be",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "text": "return'd",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "text": "forthwith.",
+          "start": 4.19,
+          "end": 4.83
+        },
+        {
+          "text": "Dismiss",
+          "start": 5.39,
+          "end": 5.69
+        },
+        {
+          "text": "your",
+          "start": 5.69,
+          "end": 5.85
+        },
+        {
+          "text": "attendant",
+          "start": 5.85,
+          "end": 6.17
+        },
+        {
+          "text": "there.",
+          "start": 6.17,
+          "end": 6.59
+        },
+        {
+          "text": "Look",
+          "start": 7.05,
+          "end": 7.15
+        },
+        {
+          "text": "'t",
+          "start": 7.15,
+          "end": 7.23
+        },
+        {
+          "text": "be",
+          "start": 7.31,
+          "end": 7.45
+        },
+        {
+          "text": "done.",
+          "start": 7.45,
+          "end": 7.71
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8095238095238095,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.30042573576793075
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ca10539ddf42c916e2668945ca145ba6a873c62a98f7d324da6d58cff23a7a21",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

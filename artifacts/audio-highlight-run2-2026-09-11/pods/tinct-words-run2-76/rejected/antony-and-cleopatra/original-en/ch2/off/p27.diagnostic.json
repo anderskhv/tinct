@@ -1,0 +1,459 @@
+{
+  "complete": true,
+  "signature": "bb1601eb2c6e8d0a6696524dc3c7a8d43ff7f62e4f3ee1613a053bd41a222951",
+  "attempts": [
+    {
+      "asr_seconds": 0.24382656160742044,
+      "alignment_seconds": 0.0005649118684232235,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alexis, you think none but your sheets are privy to your wishes.",
+          "start": 0.05,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " Alexis,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.74609375
+            },
+            {
+              "text": " you",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " think",
+              "start": 1.53,
+              "end": 1.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " none",
+              "start": 1.69,
+              "end": 1.93,
+              "probability": 0.98828125
+            },
+            {
+              "text": " but",
+              "start": 1.93,
+              "end": 2.17,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " your",
+              "start": 2.17,
+              "end": 2.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sheets",
+              "start": 2.33,
+              "end": 2.59,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " are",
+              "start": 2.59,
+              "end": 2.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " privy",
+              "start": 2.83,
+              "end": 3.15,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 3.15,
+              "end": 3.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " your",
+              "start": 3.25,
+              "end": 3.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wishes.",
+              "start": 3.37,
+              "end": 3.61,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alexis,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "you",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "think",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "raw": "none",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "raw": "but",
+          "start": 1.93,
+          "end": 2.17
+        },
+        {
+          "raw": "your",
+          "start": 2.17,
+          "end": 2.33
+        },
+        {
+          "raw": "sheets",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "raw": "are",
+          "start": 2.59,
+          "end": 2.83
+        },
+        {
+          "raw": "privy",
+          "start": 2.83,
+          "end": 3.15
+        },
+        {
+          "raw": "to",
+          "start": 3.15,
+          "end": 3.25
+        },
+        {
+          "raw": "your",
+          "start": 3.25,
+          "end": 3.37
+        },
+        {
+          "raw": "wishes.",
+          "start": 3.37,
+          "end": 3.61
+        }
+      ],
+      "expected_tokens": [
+        "Alexas.",
+        "You",
+        "think",
+        "none",
+        "but",
+        "your",
+        "sheets",
+        "are",
+        "privy",
+        "to",
+        "your",
+        "wishes."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          12,
+          1,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alexis,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "alexis",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.39,
+          "end": 1.53,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.53,
+          "end": 1.69,
+          "key": "think",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 1.69,
+          "end": 1.93,
+          "key": "none",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.93,
+          "end": 2.17,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.17,
+          "end": 2.33,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sheets",
+          "start": 2.33,
+          "end": 2.59,
+          "key": "sheets",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.59,
+          "end": 2.83,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "privy",
+          "start": 2.83,
+          "end": 3.15,
+          "key": "privy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.15,
+          "end": 3.25,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.25,
+          "end": 3.37,
+          "key": "your",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "wishes.",
+          "start": 3.37,
+          "end": 3.61,
+          "key": "wishes",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alexas.",
+          "start": 0.0,
+          "end": 0.695
+        },
+        {
+          "text": "You",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "think",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "text": "none",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "text": "but",
+          "start": 1.93,
+          "end": 2.17
+        },
+        {
+          "text": "your",
+          "start": 2.17,
+          "end": 2.33
+        },
+        {
+          "text": "sheets",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "text": "are",
+          "start": 2.59,
+          "end": 2.83
+        },
+        {
+          "text": "privy",
+          "start": 2.83,
+          "end": 3.15
+        },
+        {
+          "text": "to",
+          "start": 3.15,
+          "end": 3.25
+        },
+        {
+          "text": "your",
+          "start": 3.25,
+          "end": 3.37
+        },
+        {
+          "text": "wishes.",
+          "start": 3.37,
+          "end": 3.61
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.24461453082039952
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fd4e9549047c249ae66e02b009977c4aee006885c5f6bc7e2b99a1e78fc0361a",
+  "selected_reasons": []
+}

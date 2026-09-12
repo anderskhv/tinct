@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "3b1fdd348b586aeb184434c7be8467645ad46a573e40d253c53e4d2a648cb1ca",
+  "attempts": [
+    {
+      "asr_seconds": 0.18738982593640685,
+      "alignment_seconds": 0.0003675571642816067,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Soothsayer. Your fortunes are alike.",
+        "hotwords": "Soothsayer, Your"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Soothsayer, Your Fortunes are alike.",
+          "start": 0.08,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Soothsayer,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " Your",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.052825927734375
+            },
+            {
+              "text": " Fortunes",
+              "start": 1.36,
+              "end": 1.8,
+              "probability": 0.7987467447916666
+            },
+            {
+              "text": " are",
+              "start": 1.8,
+              "end": 1.88,
+              "probability": 0.59033203125
+            },
+            {
+              "text": " alike.",
+              "start": 1.88,
+              "end": 2.1,
+              "probability": 0.62841796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soothsayer,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "Your",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "Fortunes",
+          "start": 1.36,
+          "end": 1.8
+        },
+        {
+          "raw": "are",
+          "start": 1.8,
+          "end": 1.88
+        },
+        {
+          "raw": "alike.",
+          "start": 1.88,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "Soothsayer.",
+        "Your",
+        "fortunes",
+        "are",
+        "alike."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soothsayer,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "soothsayer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Fortunes",
+          "start": 1.36,
+          "end": 1.8,
+          "key": "fortunes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.8,
+          "end": 1.88,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "alike.",
+          "start": 1.88,
+          "end": 2.1,
+          "key": "alike",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Soothsayer.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "Your",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "fortunes",
+          "start": 1.36,
+          "end": 1.8
+        },
+        {
+          "text": "are",
+          "start": 1.8,
+          "end": 1.88
+        },
+        {
+          "text": "alike.",
+          "start": 1.88,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1879480229690671
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7a25e0309e2ad85abb629f42a87fc3f3caea38301c1b1e8a00294b5534c69f4c",
+  "selected_reasons": []
+}

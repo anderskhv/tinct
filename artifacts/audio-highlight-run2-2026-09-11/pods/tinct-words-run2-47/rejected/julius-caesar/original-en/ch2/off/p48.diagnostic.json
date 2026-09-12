@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "fa3ebe83eda99c8d66d071dc4a333f3e0de9c4fa54fcc200c9535a0fe26c4b5e",
+  "attempts": [
+    {
+      "asr_seconds": 0.233232336002402,
+      "alignment_seconds": 0.0004579569795168936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, the games are done and Caesar is returning.",
+          "start": 0.08,
+          "end": 3.22,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " the",
+              "start": 1.2,
+              "end": 1.38,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " games",
+              "start": 1.38,
+              "end": 1.58,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " are",
+              "start": 1.58,
+              "end": 1.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " done",
+              "start": 1.76,
+              "end": 1.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 1.98,
+              "end": 2.26,
+              "probability": 0.81640625
+            },
+            {
+              "text": " Caesar",
+              "start": 2.26,
+              "end": 2.54,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " is",
+              "start": 2.54,
+              "end": 2.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " returning.",
+              "start": 2.78,
+              "end": 3.22,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "the",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "raw": "games",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "raw": "are",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "raw": "done",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "raw": "and",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "raw": "Caesar",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "raw": "is",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "raw": "returning.",
+          "start": 2.78,
+          "end": 3.22
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "The",
+        "games",
+        "are",
+        "done,",
+        "and",
+        "Caesar",
+        "is",
+        "returning."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.2,
+          "end": 1.38,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "games",
+          "start": 1.38,
+          "end": 1.58,
+          "key": "games",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.58,
+          "end": 1.76,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 1.76,
+          "end": 1.98,
+          "key": "done",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.98,
+          "end": 2.26,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 2.26,
+          "end": 2.54,
+          "key": "caesar",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.54,
+          "end": 2.78,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "returning.",
+          "start": 2.78,
+          "end": 3.22,
+          "key": "returning",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "The",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "text": "games",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "text": "are",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "text": "done,",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "text": "and",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "text": "Caesar",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "text": "is",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "text": "returning.",
+          "start": 2.78,
+          "end": 3.22
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23387280601309612
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bb29bdfce1b850b743000a36c48b27a301450e6a5345fe4463f8c406263f63b6",
+  "selected_reasons": []
+}

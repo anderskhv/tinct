@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "ac1b6acc212d3dfbf3ed7a4332e59ca02f65e326094e6383fd651960e3291d6c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1464450410567224,
+      "alignment_seconds": 0.00032896921038627625,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Family troubles, for one thing.\"",
+        "hotwords": "Family"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Family troubles, for one thing.",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " Family",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.876953125
+            },
+            {
+              "text": " troubles,",
+              "start": 0.69,
+              "end": 1.05,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " for",
+              "start": 1.37,
+              "end": 1.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " one",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thing.",
+              "start": 1.63,
+              "end": 1.91,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Family",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "troubles,",
+          "start": 0.69,
+          "end": 1.05
+        },
+        {
+          "raw": "for",
+          "start": 1.37,
+          "end": 1.41
+        },
+        {
+          "raw": "one",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "raw": "thing.",
+          "start": 1.63,
+          "end": 1.91
+        }
+      ],
+      "expected_tokens": [
+        "\"Family",
+        "troubles,",
+        "for",
+        "one",
+        "thing.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Family",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "family",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "troubles,",
+          "start": 0.69,
+          "end": 1.05,
+          "key": "troubles",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.37,
+          "end": 1.41,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.41,
+          "end": 1.63,
+          "key": "one",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thing.",
+          "start": 1.63,
+          "end": 1.91,
+          "key": "thing",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Family",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "troubles,",
+          "start": 0.69,
+          "end": 1.05
+        },
+        {
+          "text": "for",
+          "start": 1.37,
+          "end": 1.41
+        },
+        {
+          "text": "one",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "text": "thing.\"",
+          "start": 1.63,
+          "end": 1.91
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14691302459686995
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0b2642144675a44b8a9749428ff954566b2929301e87be0feed18b4d28e90ad3",
+  "selected_reasons": []
+}

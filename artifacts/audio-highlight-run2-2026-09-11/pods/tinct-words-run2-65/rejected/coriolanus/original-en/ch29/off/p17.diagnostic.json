@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "249d51b8a2b93d1bfb92fc4323346256dfbc1de1559702404982d172ff5aef4b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1806573672220111,
+      "alignment_seconds": 0.0002877381630241871,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Drums and trumpets sound, with great shouts of the people.",
+          "start": 0.05,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Drums",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.678466796875
+            },
+            {
+              "text": " and",
+              "start": 0.77,
+              "end": 0.93,
+              "probability": 0.97265625
+            },
+            {
+              "text": " trumpets",
+              "start": 0.93,
+              "end": 1.29,
+              "probability": 0.849365234375
+            },
+            {
+              "text": " sound,",
+              "start": 1.29,
+              "end": 1.67,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " with",
+              "start": 2.13,
+              "end": 2.25,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " great",
+              "start": 2.25,
+              "end": 2.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shouts",
+              "start": 2.51,
+              "end": 2.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 2.79,
+              "end": 2.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.99,
+              "end": 3.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " people.",
+              "start": 3.09,
+              "end": 3.37,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Drums",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "and",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "raw": "trumpets",
+          "start": 0.93,
+          "end": 1.29
+        },
+        {
+          "raw": "sound,",
+          "start": 1.29,
+          "end": 1.67
+        },
+        {
+          "raw": "with",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "raw": "great",
+          "start": 2.25,
+          "end": 2.51
+        },
+        {
+          "raw": "shouts",
+          "start": 2.51,
+          "end": 2.79
+        },
+        {
+          "raw": "of",
+          "start": 2.79,
+          "end": 2.99
+        },
+        {
+          "raw": "the",
+          "start": 2.99,
+          "end": 3.09
+        },
+        {
+          "raw": "people.",
+          "start": 3.09,
+          "end": 3.37
+        }
+      ],
+      "expected_tokens": [
+        "[_Drums",
+        "and",
+        "trumpets",
+        "sound,",
+        "with",
+        "great",
+        "shouts",
+        "of",
+        "the",
+        "people._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Drums",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "drums",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.77,
+          "end": 0.93,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "trumpets",
+          "start": 0.93,
+          "end": 1.29,
+          "key": "trumpets",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sound,",
+          "start": 1.29,
+          "end": 1.67,
+          "key": "sound",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.13,
+          "end": 2.25,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 2.25,
+          "end": 2.51,
+          "key": "great",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "shouts",
+          "start": 2.51,
+          "end": 2.79,
+          "key": "shouts",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.79,
+          "end": 2.99,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.99,
+          "end": 3.09,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "people.",
+          "start": 3.09,
+          "end": 3.37,
+          "key": "people",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Drums",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "and",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "text": "trumpets",
+          "start": 0.93,
+          "end": 1.29
+        },
+        {
+          "text": "sound,",
+          "start": 1.29,
+          "end": 1.67
+        },
+        {
+          "text": "with",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "text": "great",
+          "start": 2.25,
+          "end": 2.51
+        },
+        {
+          "text": "shouts",
+          "start": 2.51,
+          "end": 2.79
+        },
+        {
+          "text": "of",
+          "start": 2.79,
+          "end": 2.99
+        },
+        {
+          "text": "the",
+          "start": 2.99,
+          "end": 3.09
+        },
+        {
+          "text": "people._]",
+          "start": 3.09,
+          "end": 3.37
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18108225893229246
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a91592bf88dc85ab223d896f86f6e19631a771d4cfe30f4eac35befa48f9fc0b",
+  "selected_reasons": []
+}

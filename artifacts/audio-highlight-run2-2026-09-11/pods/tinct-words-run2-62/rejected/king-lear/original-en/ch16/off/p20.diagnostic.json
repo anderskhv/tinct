@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "f038e794c7b198a85ac35c3161acb78d96751fb6478a4e697aca0909f8811909",
+  "attempts": [
+    {
+      "asr_seconds": 0.08089014515280724,
+      "alignment_seconds": 9.499490261077881e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cornwall, bind him, I say.",
+          "start": 0.05,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Cornwall,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " bind",
+              "start": 1.31,
+              "end": 1.41,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " him,",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " I",
+              "start": 1.75,
+              "end": 1.75,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " say.",
+              "start": 1.75,
+              "end": 2.03,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "bind",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "raw": "him,",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "raw": "I",
+          "start": 1.75,
+          "end": 1.75
+        },
+        {
+          "raw": "say.",
+          "start": 1.75,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "Cornwall.",
+        "Bind",
+        "him,",
+        "I",
+        "say."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "cornwall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bind",
+          "start": 1.31,
+          "end": 1.41,
+          "key": "bind",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 1.41,
+          "end": 1.61,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.75,
+          "end": 1.75,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say.",
+          "start": 1.75,
+          "end": 2.03,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cornwall.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Bind",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "text": "him,",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "text": "I",
+          "start": 1.75,
+          "end": 1.75
+        },
+        {
+          "text": "say.",
+          "start": 1.75,
+          "end": 2.03
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0810207910835743
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4094ace7554ab17f8542faded8d821f251871634560e4c5caaf7056c3dc2e4f8",
+  "selected_reasons": []
+}

@@ -1,0 +1,1237 @@
+{
+  "complete": true,
+  "signature": "5dca128cb3d40b081ab88313d97bb600ce227265fe46d699752562802667d406",
+  "attempts": [
+    {
+      "asr_seconds": 0.24466745974496007,
+      "alignment_seconds": 0.0003633936867117882,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Alexas. Ay, madam, twenty several messengers. Why do you send so thick?",
+        "hotwords": "Alexas, Ay, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alexas, I'm Adam, twenty several messengers. Why do you send so thick?",
+          "start": 0.05,
+          "end": 4.67,
+          "words": [
+            {
+              "text": " Alexas,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.2470703125
+            },
+            {
+              "text": " I'm",
+              "start": 1.35,
+              "end": 1.69,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " Adam,",
+              "start": 1.69,
+              "end": 1.89,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " twenty",
+              "start": 2.03,
+              "end": 2.17,
+              "probability": 0.50537109375
+            },
+            {
+              "text": " several",
+              "start": 2.17,
+              "end": 2.61,
+              "probability": 0.340087890625
+            },
+            {
+              "text": " messengers.",
+              "start": 2.61,
+              "end": 3.13,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " Why",
+              "start": 3.69,
+              "end": 3.77,
+              "probability": 0.990234375
+            },
+            {
+              "text": " do",
+              "start": 3.77,
+              "end": 3.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 3.87,
+              "end": 3.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " send",
+              "start": 3.97,
+              "end": 4.17,
+              "probability": 0.89453125
+            },
+            {
+              "text": " so",
+              "start": 4.17,
+              "end": 4.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thick?",
+              "start": 4.37,
+              "end": 4.67,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alexas,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "I'm",
+          "start": 1.35,
+          "end": 1.69
+        },
+        {
+          "raw": "Adam,",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "raw": "twenty",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "raw": "several",
+          "start": 2.17,
+          "end": 2.61
+        },
+        {
+          "raw": "messengers.",
+          "start": 2.61,
+          "end": 3.13
+        },
+        {
+          "raw": "Why",
+          "start": 3.69,
+          "end": 3.77
+        },
+        {
+          "raw": "do",
+          "start": 3.77,
+          "end": 3.87
+        },
+        {
+          "raw": "you",
+          "start": 3.87,
+          "end": 3.97
+        },
+        {
+          "raw": "send",
+          "start": 3.97,
+          "end": 4.17
+        },
+        {
+          "raw": "so",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "raw": "thick?",
+          "start": 4.37,
+          "end": 4.67
+        }
+      ],
+      "expected_tokens": [
+        "Alexas.",
+        "Ay,",
+        "madam,",
+        "twenty",
+        "several",
+        "messengers.",
+        "Why",
+        "do",
+        "you",
+        "send",
+        "so",
+        "thick?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "equal",
+          3,
+          12,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alexas,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "alexas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.35,
+          "end": 1.69,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Adam,",
+          "start": 1.69,
+          "end": 1.89,
+          "key": "adam",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "twenty",
+          "start": 2.03,
+          "end": 2.17,
+          "key": "twenty",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "several",
+          "start": 2.17,
+          "end": 2.61,
+          "key": "several",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "messengers.",
+          "start": 2.61,
+          "end": 3.13,
+          "key": "messengers",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 3.69,
+          "end": 3.77,
+          "key": "why",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.77,
+          "end": 3.87,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.87,
+          "end": 3.97,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 3.97,
+          "end": 4.17,
+          "key": "send",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.17,
+          "end": 4.37,
+          "key": "so",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thick?",
+          "start": 4.37,
+          "end": 4.67,
+          "key": "thick",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alexas.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Ay,",
+          "start": 1.01,
+          "end": 1.52
+        },
+        {
+          "text": "madam,",
+          "start": 1.52,
+          "end": 1.775
+        },
+        {
+          "text": "twenty",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "text": "several",
+          "start": 2.17,
+          "end": 2.61
+        },
+        {
+          "text": "messengers.",
+          "start": 2.61,
+          "end": 3.13
+        },
+        {
+          "text": "Why",
+          "start": 3.69,
+          "end": 3.77
+        },
+        {
+          "text": "do",
+          "start": 3.77,
+          "end": 3.87
+        },
+        {
+          "text": "you",
+          "start": 3.87,
+          "end": 3.97
+        },
+        {
+          "text": "send",
+          "start": 3.97,
+          "end": 4.17
+        },
+        {
+          "text": "so",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "text": "thick?",
+          "start": 4.37,
+          "end": 4.67
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24515724694356322
+    },
+    {
+      "asr_seconds": 0.21287655411288142,
+      "alignment_seconds": 0.00047030579298734665,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Alexas, Ay, Why"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Do You Send So Thick?",
+          "start": 0.05,
+          "end": 4.69,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 7.212162017822266e-06
+            },
+            {
+              "text": " You",
+              "start": 0.63,
+              "end": 3.93,
+              "probability": 0.00411224365234375
+            },
+            {
+              "text": " Send",
+              "start": 3.93,
+              "end": 4.15,
+              "probability": 0.20849609375
+            },
+            {
+              "text": " So",
+              "start": 4.15,
+              "end": 4.37,
+              "probability": 0.6640625
+            },
+            {
+              "text": " Thick?",
+              "start": 4.37,
+              "end": 4.69,
+              "probability": 0.84228515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "You",
+          "start": 0.63,
+          "end": 3.93
+        },
+        {
+          "raw": "Send",
+          "start": 3.93,
+          "end": 4.15
+        },
+        {
+          "raw": "So",
+          "start": 4.15,
+          "end": 4.37
+        },
+        {
+          "raw": "Thick?",
+          "start": 4.37,
+          "end": 4.69
+        }
+      ],
+      "expected_tokens": [
+        "Alexas.",
+        "Ay,",
+        "madam,",
+        "twenty",
+        "several",
+        "messengers.",
+        "Why",
+        "do",
+        "you",
+        "send",
+        "so",
+        "thick?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          7,
+          0,
+          0
+        ],
+        [
+          "equal",
+          7,
+          12,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          7,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 0.63,
+          "end": 3.93,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Send",
+          "start": 3.93,
+          "end": 4.15,
+          "key": "send",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 4.15,
+          "end": 4.37,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Thick?",
+          "start": 4.37,
+          "end": 4.69,
+          "key": "thick",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alexas.",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "Ay,",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "madam,",
+          "start": 0.038,
+          "end": 0.044
+        },
+        {
+          "text": "twenty",
+          "start": 0.044,
+          "end": 0.047
+        },
+        {
+          "text": "several",
+          "start": 0.047,
+          "end": 0.049
+        },
+        {
+          "text": "messengers.",
+          "start": 0.049,
+          "end": 0.05
+        },
+        {
+          "text": "Why",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "do",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "you",
+          "start": 0.63,
+          "end": 3.93
+        },
+        {
+          "text": "send",
+          "start": 3.93,
+          "end": 4.15
+        },
+        {
+          "text": "so",
+          "start": 4.15,
+          "end": 4.37
+        },
+        {
+          "text": "thick?",
+          "start": 4.37,
+          "end": 4.69
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 0.4166666666666667,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21345610218122602
+    },
+    {
+      "asr_seconds": 0.2605995307676494,
+      "alignment_seconds": 0.00045592011883854866,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alexis, I'm Adam 20 several messengers. Why do you send so thick?",
+          "start": 0.05,
+          "end": 4.67,
+          "words": [
+            {
+              "text": " Alexis,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.68212890625
+            },
+            {
+              "text": " I'm",
+              "start": 1.39,
+              "end": 1.69,
+              "probability": 0.965576171875
+            },
+            {
+              "text": " Adam",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.84375
+            },
+            {
+              "text": " 20",
+              "start": 1.87,
+              "end": 2.17,
+              "probability": 0.315185546875
+            },
+            {
+              "text": " several",
+              "start": 2.17,
+              "end": 2.59,
+              "probability": 0.415771484375
+            },
+            {
+              "text": " messengers.",
+              "start": 2.59,
+              "end": 3.13,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " Why",
+              "start": 3.69,
+              "end": 3.77,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " do",
+              "start": 3.77,
+              "end": 3.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 3.87,
+              "end": 3.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " send",
+              "start": 3.99,
+              "end": 4.17,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " so",
+              "start": 4.17,
+              "end": 4.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thick?",
+              "start": 4.37,
+              "end": 4.67,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alexis,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "I'm",
+          "start": 1.39,
+          "end": 1.69
+        },
+        {
+          "raw": "Adam",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "20",
+          "start": 1.87,
+          "end": 2.17
+        },
+        {
+          "raw": "several",
+          "start": 2.17,
+          "end": 2.59
+        },
+        {
+          "raw": "messengers.",
+          "start": 2.59,
+          "end": 3.13
+        },
+        {
+          "raw": "Why",
+          "start": 3.69,
+          "end": 3.77
+        },
+        {
+          "raw": "do",
+          "start": 3.77,
+          "end": 3.87
+        },
+        {
+          "raw": "you",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "raw": "send",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "raw": "so",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "raw": "thick?",
+          "start": 4.37,
+          "end": 4.67
+        }
+      ],
+      "expected_tokens": [
+        "Alexas.",
+        "Ay,",
+        "madam,",
+        "twenty",
+        "several",
+        "messengers.",
+        "Why",
+        "do",
+        "you",
+        "send",
+        "so",
+        "thick?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "equal",
+          3,
+          12,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alexis,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "alexis",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.39,
+          "end": 1.69,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Adam",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "adam",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "20",
+          "start": 1.87,
+          "end": 2.17,
+          "key": "twenty",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "several",
+          "start": 2.17,
+          "end": 2.59,
+          "key": "several",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "messengers.",
+          "start": 2.59,
+          "end": 3.13,
+          "key": "messengers",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 3.69,
+          "end": 3.77,
+          "key": "why",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.77,
+          "end": 3.87,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.87,
+          "end": 3.99,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 3.99,
+          "end": 4.17,
+          "key": "send",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.17,
+          "end": 4.37,
+          "key": "so",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thick?",
+          "start": 4.37,
+          "end": 4.67,
+          "key": "thick",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alexas.",
+          "start": 0.0,
+          "end": 0.935
+        },
+        {
+          "text": "Ay,",
+          "start": 0.935,
+          "end": 1.403
+        },
+        {
+          "text": "madam,",
+          "start": 1.403,
+          "end": 1.637
+        },
+        {
+          "text": "twenty",
+          "start": 1.87,
+          "end": 2.17
+        },
+        {
+          "text": "several",
+          "start": 2.17,
+          "end": 2.59
+        },
+        {
+          "text": "messengers.",
+          "start": 2.59,
+          "end": 3.13
+        },
+        {
+          "text": "Why",
+          "start": 3.69,
+          "end": 3.77
+        },
+        {
+          "text": "do",
+          "start": 3.77,
+          "end": 3.87
+        },
+        {
+          "text": "you",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "text": "send",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "text": "so",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "text": "thick?",
+          "start": 4.37,
+          "end": 4.67
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.26124128978699446
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cef808bbd7410732d7672551538df270a1d8948a32b5d3dad1b4be62b428380d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

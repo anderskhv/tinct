@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "897b9bc8d4a06786288d3dc7c16e85cc6f3ae59cca830312dca55fa4162cf776",
+  "attempts": [
+    {
+      "asr_seconds": 0.2829402517527342,
+      "alignment_seconds": 0.00048279017210006714,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Flourish. Enter Albany, gonorrel, regan, officers and attendants.",
+          "start": 0.08,
+          "end": 4.6,
+          "words": [
+            {
+              "text": " Flourish.",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.9449869791666666
+            },
+            {
+              "text": " Enter",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Albany,",
+              "start": 1.7,
+              "end": 2.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gonorrel,",
+              "start": 2.46,
+              "end": 2.8,
+              "probability": 0.3815714518229167
+            },
+            {
+              "text": " regan,",
+              "start": 2.98,
+              "end": 3.34,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " officers",
+              "start": 3.68,
+              "end": 3.86,
+              "probability": 0.98828125
+            },
+            {
+              "text": " and",
+              "start": 3.86,
+              "end": 4.22,
+              "probability": 0.51025390625
+            },
+            {
+              "text": " attendants.",
+              "start": 4.22,
+              "end": 4.6,
+              "probability": 0.9619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Flourish.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "Enter",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "Albany,",
+          "start": 1.7,
+          "end": 2.04
+        },
+        {
+          "raw": "gonorrel,",
+          "start": 2.46,
+          "end": 2.8
+        },
+        {
+          "raw": "regan,",
+          "start": 2.98,
+          "end": 3.34
+        },
+        {
+          "raw": "officers",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "raw": "and",
+          "start": 3.86,
+          "end": 4.22
+        },
+        {
+          "raw": "attendants.",
+          "start": 4.22,
+          "end": 4.6
+        }
+      ],
+      "expected_tokens": [
+        "Flourish.",
+        "Enter",
+        "Albany,",
+        "Goneril,",
+        "Regan,",
+        "Officers",
+        "and",
+        "Attendants."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Flourish.",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "flourish",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 1.5,
+          "end": 1.7,
+          "key": "enter",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Albany,",
+          "start": 1.7,
+          "end": 2.04,
+          "key": "albany",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gonorrel,",
+          "start": 2.46,
+          "end": 2.8,
+          "key": "gonorrel",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "regan,",
+          "start": 2.98,
+          "end": 3.34,
+          "key": "regan",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "officers",
+          "start": 3.68,
+          "end": 3.86,
+          "key": "officers",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.86,
+          "end": 4.22,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "attendants.",
+          "start": 4.22,
+          "end": 4.6,
+          "key": "attendants",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Flourish.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Enter",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "text": "Albany,",
+          "start": 1.7,
+          "end": 2.04
+        },
+        {
+          "text": "Goneril,",
+          "start": 2.04,
+          "end": 2.51
+        },
+        {
+          "text": "Regan,",
+          "start": 2.98,
+          "end": 3.34
+        },
+        {
+          "text": "Officers",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "text": "and",
+          "start": 3.86,
+          "end": 4.22
+        },
+        {
+          "text": "Attendants.",
+          "start": 4.22,
+          "end": 4.6
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2835897672921419
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0af31ee65db8843ff2a1d0fb3e4d90bbb48fc967cbba66af05999a38b84b136b",
+  "selected_reasons": []
+}

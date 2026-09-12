@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "d3376ecad778a15374d1f6ab02ea5c406ae6702a60a54d657426f2625d38be43",
+  "attempts": [
+    {
+      "asr_seconds": 0.2626168660353869,
+      "alignment_seconds": 0.0006385960150510073,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Well, I think it's horrid, she said. They've no right to starve her to death.",
+          "start": 0.02,
+          "end": 4.32,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.1248779296875
+            },
+            {
+              "text": " I",
+              "start": 0.72,
+              "end": 0.86,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " think",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it's",
+              "start": 1.0,
+              "end": 1.22,
+              "probability": 0.984375
+            },
+            {
+              "text": " horrid,",
+              "start": 1.22,
+              "end": 1.7,
+              "probability": 0.986572265625
+            },
+            {
+              "text": " she",
+              "start": 1.86,
+              "end": 2.06,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " said.",
+              "start": 2.06,
+              "end": 2.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " They've",
+              "start": 2.88,
+              "end": 3.04,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " no",
+              "start": 3.04,
+              "end": 3.18,
+              "probability": 0.994140625
+            },
+            {
+              "text": " right",
+              "start": 3.18,
+              "end": 3.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 3.36,
+              "end": 3.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " starve",
+              "start": 3.52,
+              "end": 3.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 3.78,
+              "end": 3.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 3.96,
+              "end": 4.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " death.",
+              "start": 4.08,
+              "end": 4.32,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "I",
+          "start": 0.72,
+          "end": 0.86
+        },
+        {
+          "raw": "think",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "it's",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "raw": "horrid,",
+          "start": 1.22,
+          "end": 1.7
+        },
+        {
+          "raw": "she",
+          "start": 1.86,
+          "end": 2.06
+        },
+        {
+          "raw": "said.",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "raw": "They've",
+          "start": 2.88,
+          "end": 3.04
+        },
+        {
+          "raw": "no",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "raw": "right",
+          "start": 3.18,
+          "end": 3.36
+        },
+        {
+          "raw": "to",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "raw": "starve",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "raw": "her",
+          "start": 3.78,
+          "end": 3.96
+        },
+        {
+          "raw": "to",
+          "start": 3.96,
+          "end": 4.08
+        },
+        {
+          "raw": "death.",
+          "start": 4.08,
+          "end": 4.32
+        }
+      ],
+      "expected_tokens": [
+        "\"Well,",
+        "I",
+        "think",
+        "it's",
+        "horrid,\"",
+        "she",
+        "said.",
+        "\"They've",
+        "no",
+        "right",
+        "to",
+        "starve",
+        "her",
+        "to",
+        "death.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.72,
+          "end": 0.86,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 0.86,
+          "end": 1.0,
+          "key": "think",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 1.0,
+          "end": 1.22,
+          "key": "its",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "horrid,",
+          "start": 1.22,
+          "end": 1.7,
+          "key": "horrid",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.86,
+          "end": 2.06,
+          "key": "she",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.06,
+          "end": 2.36,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "They've",
+          "start": 2.88,
+          "end": 3.04,
+          "key": "theyve",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.04,
+          "end": 3.18,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "right",
+          "start": 3.18,
+          "end": 3.36,
+          "key": "right",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.36,
+          "end": 3.52,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "starve",
+          "start": 3.52,
+          "end": 3.78,
+          "key": "starve",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.78,
+          "end": 3.96,
+          "key": "her",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.96,
+          "end": 4.08,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "death.",
+          "start": 4.08,
+          "end": 4.32,
+          "key": "death",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Well,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "I",
+          "start": 0.72,
+          "end": 0.86
+        },
+        {
+          "text": "think",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "it's",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "text": "horrid,\"",
+          "start": 1.22,
+          "end": 1.7
+        },
+        {
+          "text": "she",
+          "start": 1.86,
+          "end": 2.06
+        },
+        {
+          "text": "said.",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "text": "\"They've",
+          "start": 2.88,
+          "end": 3.04
+        },
+        {
+          "text": "no",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "text": "right",
+          "start": 3.18,
+          "end": 3.36
+        },
+        {
+          "text": "to",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "text": "starve",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "text": "her",
+          "start": 3.78,
+          "end": 3.96
+        },
+        {
+          "text": "to",
+          "start": 3.96,
+          "end": 4.08
+        },
+        {
+          "text": "death.\"",
+          "start": 4.08,
+          "end": 4.32
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26351197715848684
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d1744f7f17fd2c29b4af767920890a3b135e49ec8fe34d912a3df4376649a271",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "b6a02e7486702b8eb6164c0cb8df12b44c5c74d9b679c445c92f7bb7ab01d49c",
+  "attempts": [
+    {
+      "asr_seconds": 0.12372071901336312,
+      "alignment_seconds": 0.0001623809803277254,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Yes. Isn't it awfully good?",
+        "hotwords": "Yes, Isn't"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, Isn't it awfully good?",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " Isn't",
+              "start": 1.09,
+              "end": 1.33,
+              "probability": 0.5074539184570312
+            },
+            {
+              "text": " it",
+              "start": 1.33,
+              "end": 1.39,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " awfully",
+              "start": 1.39,
+              "end": 1.61,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " good?",
+              "start": 1.61,
+              "end": 1.91,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Isn't",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "raw": "it",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "raw": "awfully",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "raw": "good?",
+          "start": 1.61,
+          "end": 1.91
+        }
+      ],
+      "expected_tokens": [
+        "—Yes.",
+        "Isn't",
+        "it",
+        "awfully",
+        "good?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Isn't",
+          "start": 1.09,
+          "end": 1.33,
+          "key": "isnt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.33,
+          "end": 1.39,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "awfully",
+          "start": 1.39,
+          "end": 1.61,
+          "key": "awfully",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "good?",
+          "start": 1.61,
+          "end": 1.91,
+          "key": "good",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Yes.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Isn't",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "text": "it",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "text": "awfully",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "text": "good?",
+          "start": 1.61,
+          "end": 1.91
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.123938079981599
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "729d7d58669b315e14fc1b5bb327a8cf172bac12c20090a60c87348fd9d555af",
+  "selected_reasons": []
+}

@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "97beb1a6f78adc459261e54aac313dbd7a84573a7e1979c74bfed109a35ebaac",
+  "attempts": [
+    {
+      "asr_seconds": 0.12448994815349579,
+      "alignment_seconds": 0.00024863891303539276,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Fool.",
+        "hotwords": "Enter, Fool"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Fool.",
+          "start": 0.02,
+          "end": 0.94,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " Fool.",
+              "start": 0.92,
+              "end": 0.94,
+              "probability": 0.374267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Fool.",
+          "start": 0.92,
+          "end": 0.94
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Fool."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fool.",
+          "start": 0.92,
+          "end": 0.94,
+          "key": "fool",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Fool.",
+          "start": 0.92,
+          "end": 0.94
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1248264480382204
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1935254ba5d6d05a0b2feb2288b5b179769bb08aec1a0bef616ef5dc80d66cde",
+  "selected_reasons": []
+}

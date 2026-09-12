@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "046554c853e81dfddd2ecf188815888df3cc50333ab248a6b87cb8d05d50c002",
+  "attempts": [
+    {
+      "asr_seconds": 0.10745882987976074,
+      "alignment_seconds": 0.0001499950885772705,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edgar. You do climb up it now. Look how we labour.",
+        "hotwords": "Edgar, You, Look"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edgar, You do climb up it now. Look how we labour.",
+          "start": 0.11,
+          "end": 3.01,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.11,
+              "end": 0.69,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " You",
+              "start": 1.01,
+              "end": 1.07,
+              "probability": 0.004673004150390625
+            },
+            {
+              "text": " do",
+              "start": 1.07,
+              "end": 1.19,
+              "probability": 0.966796875
+            },
+            {
+              "text": " climb",
+              "start": 1.19,
+              "end": 1.43,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " up",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.994140625
+            },
+            {
+              "text": " it",
+              "start": 1.57,
+              "end": 1.67,
+              "probability": 0.98046875
+            },
+            {
+              "text": " now.",
+              "start": 1.67,
+              "end": 1.89,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Look",
+              "start": 2.33,
+              "end": 2.41,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " how",
+              "start": 2.41,
+              "end": 2.57,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " we",
+              "start": 2.57,
+              "end": 2.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " labour.",
+              "start": 2.75,
+              "end": 3.01,
+              "probability": 0.10369873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "raw": "You",
+          "start": 1.01,
+          "end": 1.07
+        },
+        {
+          "raw": "do",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "raw": "climb",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "raw": "up",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "it",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "raw": "now.",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "raw": "Look",
+          "start": 2.33,
+          "end": 2.41
+        },
+        {
+          "raw": "how",
+          "start": 2.41,
+          "end": 2.57
+        },
+        {
+          "raw": "we",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "raw": "labour.",
+          "start": 2.75,
+          "end": 3.01
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "You",
+        "do",
+        "climb",
+        "up",
+        "it",
+        "now.",
+        "Look",
+        "how",
+        "we",
+        "labour."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.11,
+          "end": 0.69,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.01,
+          "end": 1.07,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.07,
+          "end": 1.19,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "climb",
+          "start": 1.19,
+          "end": 1.43,
+          "key": "climb",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "up",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.57,
+          "end": 1.67,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 1.67,
+          "end": 1.89,
+          "key": "now",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 2.33,
+          "end": 2.41,
+          "key": "look",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.41,
+          "end": 2.57,
+          "key": "how",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.57,
+          "end": 2.75,
+          "key": "we",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "labour.",
+          "start": 2.75,
+          "end": 3.01,
+          "key": "labour",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "text": "You",
+          "start": 1.01,
+          "end": 1.07
+        },
+        {
+          "text": "do",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "text": "climb",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "text": "up",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "it",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "text": "now.",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "text": "Look",
+          "start": 2.33,
+          "end": 2.41
+        },
+        {
+          "text": "how",
+          "start": 2.41,
+          "end": 2.57
+        },
+        {
+          "text": "we",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "text": "labour.",
+          "start": 2.75,
+          "end": 3.01
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10766777023673058
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5aeaad5dbafe789d203879157d7c8d73fa12e68d516d5c03dcac5e6d1733d09e",
+  "selected_reasons": []
+}

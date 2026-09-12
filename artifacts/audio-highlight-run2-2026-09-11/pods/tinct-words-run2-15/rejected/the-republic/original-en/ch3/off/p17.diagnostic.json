@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "b972a3908e9051c40baecfc1083d3501166cc5094179f492c2d3802ac5fa7b80",
+  "attempts": [
+    {
+      "asr_seconds": 0.3293752819299698,
+      "alignment_seconds": 0.0003724507987499237,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The soul flying from the limbs had gone to Hades lamenting her fate leaving manhood and youth",
+          "start": 0.02,
+          "end": 5.7,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " soul",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " flying",
+              "start": 0.8,
+              "end": 1.2,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " from",
+              "start": 1.2,
+              "end": 1.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " limbs",
+              "start": 1.56,
+              "end": 1.78,
+              "probability": 0.990234375
+            },
+            {
+              "text": " had",
+              "start": 1.78,
+              "end": 1.96,
+              "probability": 0.994140625
+            },
+            {
+              "text": " gone",
+              "start": 1.96,
+              "end": 2.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 2.18,
+              "end": 2.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Hades",
+              "start": 2.34,
+              "end": 2.64,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " lamenting",
+              "start": 2.64,
+              "end": 3.56,
+              "probability": 0.58453369140625
+            },
+            {
+              "text": " her",
+              "start": 3.56,
+              "end": 3.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fate",
+              "start": 3.68,
+              "end": 4.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " leaving",
+              "start": 4.08,
+              "end": 4.62,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " manhood",
+              "start": 4.62,
+              "end": 5.18,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " and",
+              "start": 5.18,
+              "end": 5.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " youth",
+              "start": 5.42,
+              "end": 5.7,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "soul",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "flying",
+          "start": 0.8,
+          "end": 1.2
+        },
+        {
+          "raw": "from",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "raw": "the",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "limbs",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "raw": "had",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "raw": "gone",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "raw": "to",
+          "start": 2.18,
+          "end": 2.34
+        },
+        {
+          "raw": "Hades",
+          "start": 2.34,
+          "end": 2.64
+        },
+        {
+          "raw": "lamenting",
+          "start": 2.64,
+          "end": 3.56
+        },
+        {
+          "raw": "her",
+          "start": 3.56,
+          "end": 3.68
+        },
+        {
+          "raw": "fate",
+          "start": 3.68,
+          "end": 4.08
+        },
+        {
+          "raw": "leaving",
+          "start": 4.08,
+          "end": 4.62
+        },
+        {
+          "raw": "manhood",
+          "start": 4.62,
+          "end": 5.18
+        },
+        {
+          "raw": "and",
+          "start": 5.18,
+          "end": 5.42
+        },
+        {
+          "raw": "youth",
+          "start": 5.42,
+          "end": 5.7
+        }
+      ],
+      "expected_tokens": [
+        "'The",
+        "soul",
+        "flying",
+        "from",
+        "the",
+        "limbs",
+        "had",
+        "gone",
+        "to",
+        "Hades,",
+        "lamenting",
+        "her",
+        "fate,",
+        "leaving",
+        "manhood",
+        "and",
+        "youth.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soul",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "soul",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "flying",
+          "start": 0.8,
+          "end": 1.2,
+          "key": "flying",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.2,
+          "end": 1.42,
+          "key": "from",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "limbs",
+          "start": 1.56,
+          "end": 1.78,
+          "key": "limbs",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.78,
+          "end": 1.96,
+          "key": "had",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gone",
+          "start": 1.96,
+          "end": 2.18,
+          "key": "gone",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.18,
+          "end": 2.34,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Hades",
+          "start": 2.34,
+          "end": 2.64,
+          "key": "hades",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "lamenting",
+          "start": 2.64,
+          "end": 3.56,
+          "key": "lamenting",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.56,
+          "end": 3.68,
+          "key": "her",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "fate",
+          "start": 3.68,
+          "end": 4.08,
+          "key": "fate",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "leaving",
+          "start": 4.08,
+          "end": 4.62,
+          "key": "leaving",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "manhood",
+          "start": 4.62,
+          "end": 5.18,
+          "key": "manhood",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.18,
+          "end": 5.42,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "youth",
+          "start": 5.42,
+          "end": 5.7,
+          "key": "youth",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "'The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "soul",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "flying",
+          "start": 0.8,
+          "end": 1.2
+        },
+        {
+          "text": "from",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "text": "the",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "limbs",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "text": "had",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "text": "gone",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "text": "to",
+          "start": 2.18,
+          "end": 2.34
+        },
+        {
+          "text": "Hades,",
+          "start": 2.34,
+          "end": 2.64
+        },
+        {
+          "text": "lamenting",
+          "start": 2.64,
+          "end": 3.56
+        },
+        {
+          "text": "her",
+          "start": 3.56,
+          "end": 3.68
+        },
+        {
+          "text": "fate,",
+          "start": 3.68,
+          "end": 4.08
+        },
+        {
+          "text": "leaving",
+          "start": 4.08,
+          "end": 4.62
+        },
+        {
+          "text": "manhood",
+          "start": 4.62,
+          "end": 5.18
+        },
+        {
+          "text": "and",
+          "start": 5.18,
+          "end": 5.42
+        },
+        {
+          "text": "youth.'",
+          "start": 5.42,
+          "end": 5.7
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3299035243690014
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "514eabdc089efb182e1dc3725024c94628a1dbd7e6b77e320e2fb43c66cfad41",
+  "selected_reasons": []
+}

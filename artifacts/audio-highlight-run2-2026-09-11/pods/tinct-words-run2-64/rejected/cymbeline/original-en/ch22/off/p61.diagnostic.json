@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "7b950a446097294140ae8786fa9076caedba99580990cdf06d6ea5899a94d98a",
+  "attempts": [
+    {
+      "asr_seconds": 0.20048984419554472,
+      "alignment_seconds": 0.0003912225365638733,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Belarius and Arvaragus.",
+          "start": 0.11,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " Belarius",
+              "start": 0.65,
+              "end": 1.15,
+              "probability": 0.4395751953125
+            },
+            {
+              "text": " and",
+              "start": 1.15,
+              "end": 1.45,
+              "probability": 0.515625
+            },
+            {
+              "text": " Arvaragus.",
+              "start": 1.45,
+              "end": 2.03,
+              "probability": 0.733154296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Belarius",
+          "start": 0.65,
+          "end": 1.15
+        },
+        {
+          "raw": "and",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "raw": "Arvaragus.",
+          "start": 1.45,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Belarius",
+        "and",
+        "Arviragus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Belarius",
+          "start": 0.65,
+          "end": 1.15,
+          "key": "belarius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.15,
+          "end": 1.45,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Arvaragus.",
+          "start": 1.45,
+          "end": 2.03,
+          "key": "arvaragus",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Belarius",
+          "start": 0.65,
+          "end": 1.15
+        },
+        {
+          "text": "and",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "text": "Arviragus.",
+          "start": 1.45,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2009985027834773
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e42e4c45b28f1860b91d3eba10f217aeced6d1d7ae47d86e62443bcbb7fb1dd8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

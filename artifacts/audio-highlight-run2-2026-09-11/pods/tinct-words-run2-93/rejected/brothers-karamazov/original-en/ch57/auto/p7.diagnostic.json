@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "122d2b0857496d16bcb5971db2378b6806cd06278bbfe8a0a94030b46eeb47a5",
+  "attempts": [
+    {
+      "asr_seconds": 0.20807207934558392,
+      "alignment_seconds": 0.00047216564416885376,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, I went a journey of forty versts into the country. Didn't you know?\"",
+        "hotwords": "Yes, I, Didn't"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, I went a journey of forty versts into the country. Didn't you know?",
+          "start": 0.08,
+          "end": 4.28,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.8828125
+            },
+            {
+              "text": " I",
+              "start": 0.96,
+              "end": 1.1,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " went",
+              "start": 1.1,
+              "end": 1.24,
+              "probability": 0.9921875
+            },
+            {
+              "text": " a",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.9921875
+            },
+            {
+              "text": " journey",
+              "start": 1.36,
+              "end": 1.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " forty",
+              "start": 1.82,
+              "end": 2.1,
+              "probability": 0.396728515625
+            },
+            {
+              "text": " versts",
+              "start": 2.1,
+              "end": 2.5,
+              "probability": 0.41455078125
+            },
+            {
+              "text": " into",
+              "start": 2.5,
+              "end": 2.64,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 2.64,
+              "end": 2.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " country.",
+              "start": 2.82,
+              "end": 3.2,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Didn't",
+              "start": 3.74,
+              "end": 3.9,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you",
+              "start": 3.9,
+              "end": 4.04,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " know?",
+              "start": 4.04,
+              "end": 4.28,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "I",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "raw": "went",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "raw": "a",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "journey",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "raw": "of",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "forty",
+          "start": 1.82,
+          "end": 2.1
+        },
+        {
+          "raw": "versts",
+          "start": 2.1,
+          "end": 2.5
+        },
+        {
+          "raw": "into",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "raw": "the",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "raw": "country.",
+          "start": 2.82,
+          "end": 3.2
+        },
+        {
+          "raw": "Didn't",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "raw": "you",
+          "start": 3.9,
+          "end": 4.04
+        },
+        {
+          "raw": "know?",
+          "start": 4.04,
+          "end": 4.28
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "I",
+        "went",
+        "a",
+        "journey",
+        "of",
+        "forty",
+        "versts",
+        "into",
+        "the",
+        "country.",
+        "Didn't",
+        "you",
+        "know?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.96,
+          "end": 1.1,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 1.1,
+          "end": 1.24,
+          "key": "went",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "journey",
+          "start": 1.36,
+          "end": 1.58,
+          "key": "journey",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "forty",
+          "start": 1.82,
+          "end": 2.1,
+          "key": "forty",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "versts",
+          "start": 2.1,
+          "end": 2.5,
+          "key": "versts",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 2.5,
+          "end": 2.64,
+          "key": "into",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.64,
+          "end": 2.82,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "country.",
+          "start": 2.82,
+          "end": 3.2,
+          "key": "country",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Didn't",
+          "start": 3.74,
+          "end": 3.9,
+          "key": "didnt",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.9,
+          "end": 4.04,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "know?",
+          "start": 4.04,
+          "end": 4.28,
+          "key": "know",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "I",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "text": "went",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "text": "a",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "journey",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "text": "of",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "forty",
+          "start": 1.82,
+          "end": 2.1
+        },
+        {
+          "text": "versts",
+          "start": 2.1,
+          "end": 2.5
+        },
+        {
+          "text": "into",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "text": "the",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "text": "country.",
+          "start": 2.82,
+          "end": 3.2
+        },
+        {
+          "text": "Didn't",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "text": "you",
+          "start": 3.9,
+          "end": 4.04
+        },
+        {
+          "text": "know?\"",
+          "start": 4.04,
+          "end": 4.28
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20872982777655125
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "849313a1f6684468b110a5e52ecc9ae56550028bc4ce4494d7b84af519b3ce5b",
+  "selected_reasons": []
+}

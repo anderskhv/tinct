@@ -1,0 +1,291 @@
+{
+  "complete": true,
+  "signature": "1cb12f2c28397eb1d6aaa270ae1a1c83d9bc999e5f51c5caa020f88da9b9c5e6",
+  "attempts": [
+    {
+      "asr_seconds": 0.17282557487487793,
+      "alignment_seconds": 0.00035406649112701416,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The tent is now ready. Exe-yant!",
+          "start": 0.02,
+          "end": 2.32,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " tent",
+              "start": 0.5,
+              "end": 0.76,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " is",
+              "start": 0.76,
+              "end": 0.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " now",
+              "start": 0.94,
+              "end": 1.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ready.",
+              "start": 1.14,
+              "end": 1.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Exe",
+              "start": 1.9,
+              "end": 2.14,
+              "probability": 0.74658203125
+            },
+            {
+              "text": "-yant!",
+              "start": 2.14,
+              "end": 2.32,
+              "probability": 0.3101603190104167
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "tent",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "raw": "is",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "raw": "now",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "raw": "ready.",
+          "start": 1.14,
+          "end": 1.48
+        },
+        {
+          "raw": "Exe",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "raw": "-yant!",
+          "start": 2.14,
+          "end": 2.32
+        }
+      ],
+      "expected_tokens": [
+        "[_The",
+        "tent",
+        "is",
+        "now",
+        "ready.",
+        "Exeunt._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tent",
+          "start": 0.5,
+          "end": 0.76,
+          "key": "tent",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.76,
+          "end": 0.94,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.94,
+          "end": 1.14,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ready.",
+          "start": 1.14,
+          "end": 1.48,
+          "key": "ready",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Exe",
+          "start": 1.9,
+          "end": 2.14,
+          "key": "exe",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "-yant!",
+          "start": 2.14,
+          "end": 2.32,
+          "key": "yant",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "tent",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "text": "is",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "text": "now",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "text": "ready.",
+          "start": 1.14,
+          "end": 1.48
+        },
+        {
+          "text": "Exeunt._]",
+          "start": 1.48,
+          "end": 1.9
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1733027882874012
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "be9a89cb9b66d7237dac7735eb11dfc433ae16fdf87301df8ccf1e0d1d4c4377",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

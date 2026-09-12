@@ -1,0 +1,611 @@
+{
+  "complete": true,
+  "signature": "49b9a3eaf8c3e1bb7b5d26d92236e86fffe69668767235a6aa24e1f32c242f26",
+  "attempts": [
+    {
+      "asr_seconds": 0.4104045294225216,
+      "alignment_seconds": 0.0005631912499666214,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Shepherd, leave your prating, since these good men are pleased let them come in, but",
+          "start": 0.02,
+          "end": 4.96,
+          "words": [
+            {
+              "text": " Shepherd,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.5048828125
+            },
+            {
+              "text": " leave",
+              "start": 1.06,
+              "end": 1.18,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " your",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " prating,",
+              "start": 1.36,
+              "end": 1.7,
+              "probability": 0.707275390625
+            },
+            {
+              "text": " since",
+              "start": 2.16,
+              "end": 2.4,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " these",
+              "start": 2.4,
+              "end": 2.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " good",
+              "start": 2.62,
+              "end": 2.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " men",
+              "start": 2.86,
+              "end": 3.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " are",
+              "start": 3.06,
+              "end": 3.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " pleased",
+              "start": 3.2,
+              "end": 3.58,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " let",
+              "start": 3.58,
+              "end": 3.86,
+              "probability": 0.43505859375
+            },
+            {
+              "text": " them",
+              "start": 3.86,
+              "end": 4.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " come",
+              "start": 4.02,
+              "end": 4.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in,",
+              "start": 4.2,
+              "end": 4.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " but",
+              "start": 4.78,
+              "end": 4.96,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " quickly now.",
+          "start": 4.96,
+          "end": 5.64,
+          "words": [
+            {
+              "text": " quickly",
+              "start": 4.96,
+              "end": 5.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " now.",
+              "start": 5.18,
+              "end": 5.64,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shepherd,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "leave",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "raw": "your",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "prating,",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "raw": "since",
+          "start": 2.16,
+          "end": 2.4
+        },
+        {
+          "raw": "these",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "raw": "good",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "raw": "men",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "raw": "are",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "raw": "pleased",
+          "start": 3.2,
+          "end": 3.58
+        },
+        {
+          "raw": "let",
+          "start": 3.58,
+          "end": 3.86
+        },
+        {
+          "raw": "them",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "raw": "come",
+          "start": 4.02,
+          "end": 4.2
+        },
+        {
+          "raw": "in,",
+          "start": 4.2,
+          "end": 4.54
+        },
+        {
+          "raw": "but",
+          "start": 4.78,
+          "end": 4.96
+        },
+        {
+          "raw": "quickly",
+          "start": 4.96,
+          "end": 5.18
+        },
+        {
+          "raw": "now.",
+          "start": 5.18,
+          "end": 5.64
+        }
+      ],
+      "expected_tokens": [
+        "Shepherd.",
+        "Leave",
+        "your",
+        "prating:",
+        "since",
+        "these",
+        "good",
+        "men",
+        "are",
+        "pleased,",
+        "let",
+        "them",
+        "come",
+        "in;",
+        "but",
+        "quickly",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shepherd,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "shepherd",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 1.06,
+          "end": 1.18,
+          "key": "leave",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "prating,",
+          "start": 1.36,
+          "end": 1.7,
+          "key": "prating",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 2.16,
+          "end": 2.4,
+          "key": "since",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 2.4,
+          "end": 2.62,
+          "key": "these",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.62,
+          "end": 2.86,
+          "key": "good",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 2.86,
+          "end": 3.06,
+          "key": "men",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.06,
+          "end": 3.2,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "pleased",
+          "start": 3.2,
+          "end": 3.58,
+          "key": "pleased",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 3.58,
+          "end": 3.86,
+          "key": "let",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.86,
+          "end": 4.02,
+          "key": "them",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 4.02,
+          "end": 4.2,
+          "key": "come",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in,",
+          "start": 4.2,
+          "end": 4.54,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.78,
+          "end": 4.96,
+          "key": "but",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "quickly",
+          "start": 4.96,
+          "end": 5.18,
+          "key": "quickly",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 5.18,
+          "end": 5.64,
+          "key": "now",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Shepherd.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "Leave",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "text": "your",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "prating:",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "text": "since",
+          "start": 2.16,
+          "end": 2.4
+        },
+        {
+          "text": "these",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "text": "good",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "text": "men",
+          "start": 2.86,
+          "end": 3.06
+        },
+        {
+          "text": "are",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "text": "pleased,",
+          "start": 3.2,
+          "end": 3.58
+        },
+        {
+          "text": "let",
+          "start": 3.58,
+          "end": 3.86
+        },
+        {
+          "text": "them",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "text": "come",
+          "start": 4.02,
+          "end": 4.2
+        },
+        {
+          "text": "in;",
+          "start": 4.2,
+          "end": 4.54
+        },
+        {
+          "text": "but",
+          "start": 4.78,
+          "end": 4.96
+        },
+        {
+          "text": "quickly",
+          "start": 4.96,
+          "end": 5.18
+        },
+        {
+          "text": "now.",
+          "start": 5.18,
+          "end": 5.64
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4112003277987242
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "33321e67f89d5bb82c7828b9596954278c12f8003994ea077b71c78657a63319",
+  "selected_reasons": []
+}

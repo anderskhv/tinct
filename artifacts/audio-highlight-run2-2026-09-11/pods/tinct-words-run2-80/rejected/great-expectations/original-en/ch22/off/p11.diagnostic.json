@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "147358744d2f4e452a607dce86cc9270ec34fff7f9427cef4d2e7763e8da2fe0",
+  "attempts": [
+    {
+      "asr_seconds": 0.19031620398163795,
+      "alignment_seconds": 0.00021503493189811707,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " How did you bear your disappointment? I asked.",
+          "start": 0.05,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.268310546875
+            },
+            {
+              "text": " did",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you",
+              "start": 0.63,
+              "end": 0.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bear",
+              "start": 0.75,
+              "end": 0.89,
+              "probability": 0.947265625
+            },
+            {
+              "text": " your",
+              "start": 0.89,
+              "end": 1.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " disappointment?",
+              "start": 1.03,
+              "end": 1.49,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 2.13,
+              "end": 2.19,
+              "probability": 0.966796875
+            },
+            {
+              "text": " asked.",
+              "start": 2.19,
+              "end": 2.57,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "did",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "you",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "raw": "bear",
+          "start": 0.75,
+          "end": 0.89
+        },
+        {
+          "raw": "your",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "raw": "disappointment?",
+          "start": 1.03,
+          "end": 1.49
+        },
+        {
+          "raw": "I",
+          "start": 2.13,
+          "end": 2.19
+        },
+        {
+          "raw": "asked.",
+          "start": 2.19,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "\"How",
+        "did",
+        "you",
+        "bear",
+        "your",
+        "disappointment?\"",
+        "I",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.53,
+          "end": 0.63,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.63,
+          "end": 0.75,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 0.75,
+          "end": 0.89,
+          "key": "bear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.89,
+          "end": 1.03,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "disappointment?",
+          "start": 1.03,
+          "end": 1.49,
+          "key": "disappointment",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.13,
+          "end": 2.19,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 2.19,
+          "end": 2.57,
+          "key": "asked",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"How",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "did",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "you",
+          "start": 0.63,
+          "end": 0.75
+        },
+        {
+          "text": "bear",
+          "start": 0.75,
+          "end": 0.89
+        },
+        {
+          "text": "your",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "text": "disappointment?\"",
+          "start": 1.03,
+          "end": 1.49
+        },
+        {
+          "text": "I",
+          "start": 2.13,
+          "end": 2.19
+        },
+        {
+          "text": "asked.",
+          "start": 2.19,
+          "end": 2.57
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1906936913728714
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a7d45c721451990784e84c6db9b097cdda067b1bec4c5336bf7774e134ff6a8a",
+  "selected_reasons": []
+}

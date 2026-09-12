@@ -1,0 +1,577 @@
+{
+  "complete": true,
+  "signature": "e9ac99c87166d8a2209c6c99cd1440735982b18310a09b54cd575015c00bc6bc",
+  "attempts": [
+    {
+      "asr_seconds": 0.17396139167249203,
+      "alignment_seconds": 0.00046214833855628967,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dorcas. _If to either, thou dost ill._",
+        "hotwords": "Dorcas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dorcas. If to either, thou dost ill._",
+          "start": 0.08,
+          "end": 3.04,
+          "words": [
+            {
+              "text": " Dorcas.",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.5582275390625
+            },
+            {
+              "text": " If",
+              "start": 1.28,
+              "end": 1.34,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " to",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " either,",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " thou",
+              "start": 1.84,
+              "end": 1.86,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " dost",
+              "start": 1.86,
+              "end": 2.12,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " ill._",
+              "start": 2.12,
+              "end": 3.04,
+              "probability": 0.4980469048023224
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dorcas.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "If",
+          "start": 1.28,
+          "end": 1.34
+        },
+        {
+          "raw": "to",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "either,",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "thou",
+          "start": 1.84,
+          "end": 1.86
+        },
+        {
+          "raw": "dost",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "raw": "ill._",
+          "start": 2.12,
+          "end": 3.04
+        }
+      ],
+      "expected_tokens": [
+        "Dorcas.",
+        "_If",
+        "to",
+        "either,",
+        "thou",
+        "dost",
+        "ill._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dorcas.",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "dorcas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.28,
+          "end": 1.34,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "either,",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "either",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.84,
+          "end": 1.86,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 1.86,
+          "end": 2.12,
+          "key": "dost",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ill._",
+          "start": 2.12,
+          "end": 3.04,
+          "key": "ill_",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dorcas.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "_If",
+          "start": 1.28,
+          "end": 1.34
+        },
+        {
+          "text": "to",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "either,",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": "thou",
+          "start": 1.84,
+          "end": 1.86
+        },
+        {
+          "text": "dost",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "text": "ill._",
+          "start": 2.12,
+          "end": 2.58
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.17457817681133747
+    },
+    {
+      "asr_seconds": 0.21117581613361835,
+      "alignment_seconds": 0.0004253443330526352,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Dorcas"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Dorcas, if to either thou dost ill",
+          "start": 0.08,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Dorcas,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.5582275390625
+            },
+            {
+              "text": " if",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " to",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " either",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " thou",
+              "start": 1.68,
+              "end": 1.86,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " dost",
+              "start": 1.86,
+              "end": 2.12,
+              "probability": 0.975341796875
+            },
+            {
+              "text": " ill",
+              "start": 2.12,
+              "end": 2.36,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dorcas,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "if",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "to",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "either",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "thou",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "raw": "dost",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "raw": "ill",
+          "start": 2.12,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "Dorcas.",
+        "_If",
+        "to",
+        "either,",
+        "thou",
+        "dost",
+        "ill._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dorcas,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "dorcas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.24,
+          "end": 1.34,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "either",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "either",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.68,
+          "end": 1.86,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 1.86,
+          "end": 2.12,
+          "key": "dost",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ill",
+          "start": 2.12,
+          "end": 2.36,
+          "key": "ill",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dorcas.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "_If",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "text": "to",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "either,",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": "thou",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "text": "dost",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "text": "ill._",
+          "start": 2.12,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2117522470653057
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "7f1a6c2b387e9322d20f9b58fd2892175ccc80118850400fe4437d2195924837",
+  "selected_reasons": []
+}

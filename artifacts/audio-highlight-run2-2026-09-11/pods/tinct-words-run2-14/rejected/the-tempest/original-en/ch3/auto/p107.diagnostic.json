@@ -1,0 +1,374 @@
+{
+  "complete": true,
+  "signature": "b46e8adda583ce5ce7311e2b10be837e1a12cf9f7ac9e9ac3a70e8376776c0f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.20584896951913834,
+      "alignment_seconds": 0.00035624951124191284,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sebastian. We would so, and then go a bat-fowling.",
+        "hotwords": "Sebastian, We"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sebastian, We would so, and then go a bat-fowling.",
+          "start": 0.08,
+          "end": 3.26,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.615234375
+            },
+            {
+              "text": " We",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.0155792236328125
+            },
+            {
+              "text": " would",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " so,",
+              "start": 1.64,
+              "end": 1.92,
+              "probability": 0.0121307373046875
+            },
+            {
+              "text": " and",
+              "start": 2.16,
+              "end": 2.22,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " then",
+              "start": 2.22,
+              "end": 2.34,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " go",
+              "start": 2.34,
+              "end": 2.5,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " a",
+              "start": 2.5,
+              "end": 2.64,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " bat",
+              "start": 2.64,
+              "end": 2.8,
+              "probability": 0.92431640625
+            },
+            {
+              "text": "-fowling.",
+              "start": 2.8,
+              "end": 3.26,
+              "probability": 0.643280029296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "We",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "would",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "so,",
+          "start": 1.64,
+          "end": 1.92
+        },
+        {
+          "raw": "and",
+          "start": 2.16,
+          "end": 2.22
+        },
+        {
+          "raw": "then",
+          "start": 2.22,
+          "end": 2.34
+        },
+        {
+          "raw": "go",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "raw": "a",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "raw": "bat",
+          "start": 2.64,
+          "end": 2.8
+        },
+        {
+          "raw": "-fowling.",
+          "start": 2.8,
+          "end": 3.26
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "We",
+        "would",
+        "so,",
+        "and",
+        "then",
+        "go",
+        "a",
+        "bat-fowling."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "sebastian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.34,
+          "end": 1.54,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.54,
+          "end": 1.64,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 1.64,
+          "end": 1.92,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.16,
+          "end": 2.22,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 2.22,
+          "end": 2.34,
+          "key": "then",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 2.34,
+          "end": 2.5,
+          "key": "go",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.5,
+          "end": 2.64,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bat -fowling.",
+          "start": 2.64,
+          "end": 3.26,
+          "key": "batfowling",
+          "pieces": [
+            8,
+            9
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 8,
+          "text": "bat-fowling.",
+          "heard": "bat -fowling.",
+          "heard_indexes": [
+            8,
+            9
+          ],
+          "start": 2.64,
+          "end": 3.26
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "We",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "would",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "so,",
+          "start": 1.64,
+          "end": 1.92
+        },
+        {
+          "text": "and",
+          "start": 2.16,
+          "end": 2.22
+        },
+        {
+          "text": "then",
+          "start": 2.22,
+          "end": 2.34
+        },
+        {
+          "text": "go",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "text": "a",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "text": "bat-fowling.",
+          "start": 2.64,
+          "end": 3.26
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20632416382431984
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4e7df0e0a478059f79bb41675034cd54bd6a651bfd80a10f5aaab7010f7eccc1",
+  "selected_reasons": []
+}

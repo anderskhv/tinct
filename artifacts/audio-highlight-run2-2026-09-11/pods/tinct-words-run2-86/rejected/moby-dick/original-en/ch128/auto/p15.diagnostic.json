@@ -1,0 +1,2404 @@
+{
+  "complete": true,
+  "signature": "bbd163fd6f465a86f819010828f8113b1ad61497512cfbec1b14acc9e202d002",
+  "attempts": [
+    {
+      "asr_seconds": 0.6046964637935162,
+      "alignment_seconds": 0.0012964271008968353,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Avast,\" cried Ahab—\"touch not a rope-yarn\"; then in a voice that prolongingly moulded every word—\"Captain Gardiner, I will not do it. Even now I lose time. Good-bye, good-bye. God bless ye, man, and may I forgive myself, but I must go. Mr. Starbuck, look at the binnacle watch, and in three minutes from this present instant warn off all strangers: then brace forward again, and let the ship sail as before.\"",
+        "hotwords": "Avast, Ahab—\"touch, Gardiner, I, Even, God, Mr, Starbuck"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Avast, cried Ahab—\"touch not a rope-yarn\"; then in a voice that prolongingly moulded every word—\"Captain Gardiner, I will not do it. Even now I lose time. Good-bye, good-bye. God bless ye, man, and may I forgive myself, but I must go. Mr. Starbuck, look at the binnacle watch, and in three minutes from this present instant warn off all strangers. Then brace forward again, and let the ship sail as before.\"",
+          "start": 0.6,
+          "end": 24.52,
+          "words": [
+            {
+              "text": " Avast,",
+              "start": 0.6,
+              "end": 1.04,
+              "probability": 0.4978370666503906
+            },
+            {
+              "text": " cried",
+              "start": 1.44,
+              "end": 1.48,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Ahab—\"touch",
+              "start": 1.48,
+              "end": 2.38,
+              "probability": 0.6022423505783081
+            },
+            {
+              "text": " not",
+              "start": 2.38,
+              "end": 2.58,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 2.58,
+              "end": 2.7,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " rope",
+              "start": 2.7,
+              "end": 2.86,
+              "probability": 0.9873046875
+            },
+            {
+              "text": "-yarn\";",
+              "start": 2.86,
+              "end": 3.62,
+              "probability": 0.5284233093261719
+            },
+            {
+              "text": " then",
+              "start": 3.62,
+              "end": 3.84,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " in",
+              "start": 3.84,
+              "end": 3.92,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " a",
+              "start": 3.92,
+              "end": 4.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " voice",
+              "start": 4.02,
+              "end": 4.2,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " that",
+              "start": 4.2,
+              "end": 4.44,
+              "probability": 0.990234375
+            },
+            {
+              "text": " prolongingly",
+              "start": 4.44,
+              "end": 5.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " moulded",
+              "start": 5.02,
+              "end": 5.42,
+              "probability": 0.712158203125
+            },
+            {
+              "text": " every",
+              "start": 5.42,
+              "end": 5.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " word—\"Captain",
+              "start": 5.68,
+              "end": 6.9,
+              "probability": 0.77783203125
+            },
+            {
+              "text": " Gardiner,",
+              "start": 6.9,
+              "end": 7.36,
+              "probability": 0.798095703125
+            },
+            {
+              "text": " I",
+              "start": 7.42,
+              "end": 7.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will",
+              "start": 7.56,
+              "end": 7.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 7.66,
+              "end": 7.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " do",
+              "start": 7.86,
+              "end": 8.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it.",
+              "start": 8.04,
+              "end": 8.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Even",
+              "start": 8.66,
+              "end": 8.86,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " now",
+              "start": 8.86,
+              "end": 9.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 9.08,
+              "end": 9.28,
+              "probability": 0.96875
+            },
+            {
+              "text": " lose",
+              "start": 9.28,
+              "end": 9.44,
+              "probability": 0.982421875
+            },
+            {
+              "text": " time.",
+              "start": 9.44,
+              "end": 9.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Good",
+              "start": 10.38,
+              "end": 10.54,
+              "probability": 0.7099609375
+            },
+            {
+              "text": "-bye,",
+              "start": 10.54,
+              "end": 10.78,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " good",
+              "start": 10.9,
+              "end": 11.02,
+              "probability": 0.98583984375
+            },
+            {
+              "text": "-bye.",
+              "start": 11.02,
+              "end": 11.3,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " God",
+              "start": 11.74,
+              "end": 11.92,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " bless",
+              "start": 11.92,
+              "end": 12.16,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " ye,",
+              "start": 12.16,
+              "end": 12.4,
+              "probability": 0.962890625
+            },
+            {
+              "text": " man,",
+              "start": 12.66,
+              "end": 12.72,
+              "probability": 0.9453125
+            },
+            {
+              "text": " and",
+              "start": 12.84,
+              "end": 12.96,
+              "probability": 0.984375
+            },
+            {
+              "text": " may",
+              "start": 12.96,
+              "end": 13.14,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " I",
+              "start": 13.14,
+              "end": 13.34,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " forgive",
+              "start": 13.34,
+              "end": 13.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " myself,",
+              "start": 13.62,
+              "end": 14.08,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " but",
+              "start": 14.26,
+              "end": 14.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 14.36,
+              "end": 14.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " must",
+              "start": 14.48,
+              "end": 14.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " go.",
+              "start": 14.62,
+              "end": 14.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Mr.",
+              "start": 15.46,
+              "end": 15.76,
+              "probability": 0.912109375
+            },
+            {
+              "text": " Starbuck,",
+              "start": 16.02,
+              "end": 16.2,
+              "probability": 0.886962890625
+            },
+            {
+              "text": " look",
+              "start": 16.3,
+              "end": 16.44,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " at",
+              "start": 16.44,
+              "end": 16.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 16.56,
+              "end": 16.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " binnacle",
+              "start": 16.68,
+              "end": 16.86,
+              "probability": 0.54547119140625
+            },
+            {
+              "text": " watch,",
+              "start": 16.86,
+              "end": 17.26,
+              "probability": 0.9765625
+            },
+            {
+              "text": " and",
+              "start": 17.42,
+              "end": 17.54,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 17.54,
+              "end": 17.7,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " three",
+              "start": 17.7,
+              "end": 17.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " minutes",
+              "start": 17.96,
+              "end": 18.18,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " from",
+              "start": 18.18,
+              "end": 18.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " this",
+              "start": 18.42,
+              "end": 18.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " present",
+              "start": 18.62,
+              "end": 18.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " instant",
+              "start": 18.98,
+              "end": 19.42,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " warn",
+              "start": 19.42,
+              "end": 19.82,
+              "probability": 0.892578125
+            },
+            {
+              "text": " off",
+              "start": 19.82,
+              "end": 20.06,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " all",
+              "start": 20.06,
+              "end": 20.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " strangers.",
+              "start": 20.32,
+              "end": 20.8,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Then",
+              "start": 21.4,
+              "end": 21.6,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " brace",
+              "start": 21.6,
+              "end": 21.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " forward",
+              "start": 21.88,
+              "end": 22.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " again,",
+              "start": 22.24,
+              "end": 22.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 22.7,
+              "end": 22.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " let",
+              "start": 22.84,
+              "end": 22.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 22.96,
+              "end": 23.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ship",
+              "start": 23.1,
+              "end": 23.26,
+              "probability": 0.98828125
+            },
+            {
+              "text": " sail",
+              "start": 23.26,
+              "end": 23.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 23.54,
+              "end": 23.78,
+              "probability": 0.994140625
+            },
+            {
+              "text": " before.\"",
+              "start": 23.78,
+              "end": 24.52,
+              "probability": 0.869873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Avast,",
+          "start": 0.6,
+          "end": 1.04
+        },
+        {
+          "raw": "cried",
+          "start": 1.44,
+          "end": 1.48
+        },
+        {
+          "raw": "Ahab—\"touch",
+          "start": 1.48,
+          "end": 2.38
+        },
+        {
+          "raw": "not",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "raw": "a",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "raw": "rope",
+          "start": 2.7,
+          "end": 2.86
+        },
+        {
+          "raw": "-yarn\";",
+          "start": 2.86,
+          "end": 3.62
+        },
+        {
+          "raw": "then",
+          "start": 3.62,
+          "end": 3.84
+        },
+        {
+          "raw": "in",
+          "start": 3.84,
+          "end": 3.92
+        },
+        {
+          "raw": "a",
+          "start": 3.92,
+          "end": 4.02
+        },
+        {
+          "raw": "voice",
+          "start": 4.02,
+          "end": 4.2
+        },
+        {
+          "raw": "that",
+          "start": 4.2,
+          "end": 4.44
+        },
+        {
+          "raw": "prolongingly",
+          "start": 4.44,
+          "end": 5.02
+        },
+        {
+          "raw": "moulded",
+          "start": 5.02,
+          "end": 5.42
+        },
+        {
+          "raw": "every",
+          "start": 5.42,
+          "end": 5.68
+        },
+        {
+          "raw": "word—\"Captain",
+          "start": 5.68,
+          "end": 6.9
+        },
+        {
+          "raw": "Gardiner,",
+          "start": 6.9,
+          "end": 7.36
+        },
+        {
+          "raw": "I",
+          "start": 7.42,
+          "end": 7.56
+        },
+        {
+          "raw": "will",
+          "start": 7.56,
+          "end": 7.66
+        },
+        {
+          "raw": "not",
+          "start": 7.66,
+          "end": 7.86
+        },
+        {
+          "raw": "do",
+          "start": 7.86,
+          "end": 8.04
+        },
+        {
+          "raw": "it.",
+          "start": 8.04,
+          "end": 8.3
+        },
+        {
+          "raw": "Even",
+          "start": 8.66,
+          "end": 8.86
+        },
+        {
+          "raw": "now",
+          "start": 8.86,
+          "end": 9.08
+        },
+        {
+          "raw": "I",
+          "start": 9.08,
+          "end": 9.28
+        },
+        {
+          "raw": "lose",
+          "start": 9.28,
+          "end": 9.44
+        },
+        {
+          "raw": "time.",
+          "start": 9.44,
+          "end": 9.82
+        },
+        {
+          "raw": "Good",
+          "start": 10.38,
+          "end": 10.54
+        },
+        {
+          "raw": "-bye,",
+          "start": 10.54,
+          "end": 10.78
+        },
+        {
+          "raw": "good",
+          "start": 10.9,
+          "end": 11.02
+        },
+        {
+          "raw": "-bye.",
+          "start": 11.02,
+          "end": 11.3
+        },
+        {
+          "raw": "God",
+          "start": 11.74,
+          "end": 11.92
+        },
+        {
+          "raw": "bless",
+          "start": 11.92,
+          "end": 12.16
+        },
+        {
+          "raw": "ye,",
+          "start": 12.16,
+          "end": 12.4
+        },
+        {
+          "raw": "man,",
+          "start": 12.66,
+          "end": 12.72
+        },
+        {
+          "raw": "and",
+          "start": 12.84,
+          "end": 12.96
+        },
+        {
+          "raw": "may",
+          "start": 12.96,
+          "end": 13.14
+        },
+        {
+          "raw": "I",
+          "start": 13.14,
+          "end": 13.34
+        },
+        {
+          "raw": "forgive",
+          "start": 13.34,
+          "end": 13.62
+        },
+        {
+          "raw": "myself,",
+          "start": 13.62,
+          "end": 14.08
+        },
+        {
+          "raw": "but",
+          "start": 14.26,
+          "end": 14.36
+        },
+        {
+          "raw": "I",
+          "start": 14.36,
+          "end": 14.48
+        },
+        {
+          "raw": "must",
+          "start": 14.48,
+          "end": 14.62
+        },
+        {
+          "raw": "go.",
+          "start": 14.62,
+          "end": 14.98
+        },
+        {
+          "raw": "Mr.",
+          "start": 15.46,
+          "end": 15.76
+        },
+        {
+          "raw": "Starbuck,",
+          "start": 16.02,
+          "end": 16.2
+        },
+        {
+          "raw": "look",
+          "start": 16.3,
+          "end": 16.44
+        },
+        {
+          "raw": "at",
+          "start": 16.44,
+          "end": 16.56
+        },
+        {
+          "raw": "the",
+          "start": 16.56,
+          "end": 16.68
+        },
+        {
+          "raw": "binnacle",
+          "start": 16.68,
+          "end": 16.86
+        },
+        {
+          "raw": "watch,",
+          "start": 16.86,
+          "end": 17.26
+        },
+        {
+          "raw": "and",
+          "start": 17.42,
+          "end": 17.54
+        },
+        {
+          "raw": "in",
+          "start": 17.54,
+          "end": 17.7
+        },
+        {
+          "raw": "three",
+          "start": 17.7,
+          "end": 17.96
+        },
+        {
+          "raw": "minutes",
+          "start": 17.96,
+          "end": 18.18
+        },
+        {
+          "raw": "from",
+          "start": 18.18,
+          "end": 18.42
+        },
+        {
+          "raw": "this",
+          "start": 18.42,
+          "end": 18.62
+        },
+        {
+          "raw": "present",
+          "start": 18.62,
+          "end": 18.98
+        },
+        {
+          "raw": "instant",
+          "start": 18.98,
+          "end": 19.42
+        },
+        {
+          "raw": "warn",
+          "start": 19.42,
+          "end": 19.82
+        },
+        {
+          "raw": "off",
+          "start": 19.82,
+          "end": 20.06
+        },
+        {
+          "raw": "all",
+          "start": 20.06,
+          "end": 20.32
+        },
+        {
+          "raw": "strangers.",
+          "start": 20.32,
+          "end": 20.8
+        },
+        {
+          "raw": "Then",
+          "start": 21.4,
+          "end": 21.6
+        },
+        {
+          "raw": "brace",
+          "start": 21.6,
+          "end": 21.88
+        },
+        {
+          "raw": "forward",
+          "start": 21.88,
+          "end": 22.24
+        },
+        {
+          "raw": "again,",
+          "start": 22.24,
+          "end": 22.6
+        },
+        {
+          "raw": "and",
+          "start": 22.7,
+          "end": 22.84
+        },
+        {
+          "raw": "let",
+          "start": 22.84,
+          "end": 22.96
+        },
+        {
+          "raw": "the",
+          "start": 22.96,
+          "end": 23.1
+        },
+        {
+          "raw": "ship",
+          "start": 23.1,
+          "end": 23.26
+        },
+        {
+          "raw": "sail",
+          "start": 23.26,
+          "end": 23.54
+        },
+        {
+          "raw": "as",
+          "start": 23.54,
+          "end": 23.78
+        },
+        {
+          "raw": "before.\"",
+          "start": 23.78,
+          "end": 24.52
+        }
+      ],
+      "expected_tokens": [
+        "\"Avast,\"",
+        "cried",
+        "Ahab—\"touch",
+        "not",
+        "a",
+        "rope-yarn\";",
+        "then",
+        "in",
+        "a",
+        "voice",
+        "that",
+        "prolongingly",
+        "moulded",
+        "every",
+        "word—\"Captain",
+        "Gardiner,",
+        "I",
+        "will",
+        "not",
+        "do",
+        "it.",
+        "Even",
+        "now",
+        "I",
+        "lose",
+        "time.",
+        "Good-bye,",
+        "good-bye.",
+        "God",
+        "bless",
+        "ye,",
+        "man,",
+        "and",
+        "may",
+        "I",
+        "forgive",
+        "myself,",
+        "but",
+        "I",
+        "must",
+        "go.",
+        "Mr.",
+        "Starbuck,",
+        "look",
+        "at",
+        "the",
+        "binnacle",
+        "watch,",
+        "and",
+        "in",
+        "three",
+        "minutes",
+        "from",
+        "this",
+        "present",
+        "instant",
+        "warn",
+        "off",
+        "all",
+        "strangers:",
+        "then",
+        "brace",
+        "forward",
+        "again,",
+        "and",
+        "let",
+        "the",
+        "ship",
+        "sail",
+        "as",
+        "before.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          71,
+          0,
+          71
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Avast,",
+          "start": 0.6,
+          "end": 1.04,
+          "key": "avast",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.44,
+          "end": 1.48,
+          "key": "cried",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ahab—\"touch",
+          "start": 1.48,
+          "end": 2.38,
+          "key": "ahabtouch",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.38,
+          "end": 2.58,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.58,
+          "end": 2.7,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "rope -yarn\";",
+          "start": 2.7,
+          "end": 3.62,
+          "key": "ropeyarn",
+          "pieces": [
+            5,
+            6
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 3.62,
+          "end": 3.84,
+          "key": "then",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.84,
+          "end": 3.92,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.92,
+          "end": 4.02,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 4.02,
+          "end": 4.2,
+          "key": "voice",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.2,
+          "end": 4.44,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "prolongingly",
+          "start": 4.44,
+          "end": 5.02,
+          "key": "prolongingly",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "moulded",
+          "start": 5.02,
+          "end": 5.42,
+          "key": "moulded",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 5.42,
+          "end": 5.68,
+          "key": "every",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "word—\"Captain",
+          "start": 5.68,
+          "end": 6.9,
+          "key": "wordcaptain",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Gardiner,",
+          "start": 6.9,
+          "end": 7.36,
+          "key": "gardiner",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.42,
+          "end": 7.56,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 7.56,
+          "end": 7.66,
+          "key": "will",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.66,
+          "end": 7.86,
+          "key": "not",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 7.86,
+          "end": 8.04,
+          "key": "do",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 8.04,
+          "end": 8.3,
+          "key": "it",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Even",
+          "start": 8.66,
+          "end": 8.86,
+          "key": "even",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 8.86,
+          "end": 9.08,
+          "key": "now",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.08,
+          "end": 9.28,
+          "key": "i",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "lose",
+          "start": 9.28,
+          "end": 9.44,
+          "key": "lose",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 9.44,
+          "end": 9.82,
+          "key": "time",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Good -bye,",
+          "start": 10.38,
+          "end": 10.78,
+          "key": "goodbye",
+          "pieces": [
+            27,
+            28
+          ]
+        },
+        {
+          "raw": "good -bye.",
+          "start": 10.9,
+          "end": 11.3,
+          "key": "goodbye",
+          "pieces": [
+            29,
+            30
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 11.74,
+          "end": 11.92,
+          "key": "god",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "bless",
+          "start": 11.92,
+          "end": 12.16,
+          "key": "bless",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "ye,",
+          "start": 12.16,
+          "end": 12.4,
+          "key": "ye",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 12.66,
+          "end": 12.72,
+          "key": "man",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.84,
+          "end": 12.96,
+          "key": "and",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 12.96,
+          "end": 13.14,
+          "key": "may",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 13.14,
+          "end": 13.34,
+          "key": "i",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "forgive",
+          "start": 13.34,
+          "end": 13.62,
+          "key": "forgive",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "myself,",
+          "start": 13.62,
+          "end": 14.08,
+          "key": "myself",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 14.26,
+          "end": 14.36,
+          "key": "but",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 14.36,
+          "end": 14.48,
+          "key": "i",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 14.48,
+          "end": 14.62,
+          "key": "must",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "go.",
+          "start": 14.62,
+          "end": 14.98,
+          "key": "go",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 15.46,
+          "end": 15.76,
+          "key": "mr",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Starbuck,",
+          "start": 16.02,
+          "end": 16.2,
+          "key": "starbuck",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 16.3,
+          "end": 16.44,
+          "key": "look",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 16.44,
+          "end": 16.56,
+          "key": "at",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.56,
+          "end": 16.68,
+          "key": "the",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "binnacle",
+          "start": 16.68,
+          "end": 16.86,
+          "key": "binnacle",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "watch,",
+          "start": 16.86,
+          "end": 17.26,
+          "key": "watch",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.42,
+          "end": 17.54,
+          "key": "and",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 17.54,
+          "end": 17.7,
+          "key": "in",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 17.7,
+          "end": 17.96,
+          "key": "three",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "minutes",
+          "start": 17.96,
+          "end": 18.18,
+          "key": "minutes",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 18.18,
+          "end": 18.42,
+          "key": "from",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 18.42,
+          "end": 18.62,
+          "key": "this",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 18.62,
+          "end": 18.98,
+          "key": "present",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "instant",
+          "start": 18.98,
+          "end": 19.42,
+          "key": "instant",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "warn",
+          "start": 19.42,
+          "end": 19.82,
+          "key": "warn",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 19.82,
+          "end": 20.06,
+          "key": "off",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 20.06,
+          "end": 20.32,
+          "key": "all",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "strangers.",
+          "start": 20.32,
+          "end": 20.8,
+          "key": "strangers",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 21.4,
+          "end": 21.6,
+          "key": "then",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "brace",
+          "start": 21.6,
+          "end": 21.88,
+          "key": "brace",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "forward",
+          "start": 21.88,
+          "end": 22.24,
+          "key": "forward",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 22.24,
+          "end": 22.6,
+          "key": "again",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.7,
+          "end": 22.84,
+          "key": "and",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 22.84,
+          "end": 22.96,
+          "key": "let",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.96,
+          "end": 23.1,
+          "key": "the",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "ship",
+          "start": 23.1,
+          "end": 23.26,
+          "key": "ship",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "sail",
+          "start": 23.26,
+          "end": 23.54,
+          "key": "sail",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 23.54,
+          "end": 23.78,
+          "key": "as",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "before.\"",
+          "start": 23.78,
+          "end": 24.52,
+          "key": "before",
+          "pieces": [
+            73
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 5,
+          "text": "rope-yarn\";",
+          "heard": "rope -yarn\";",
+          "heard_indexes": [
+            5,
+            6
+          ],
+          "start": 2.7,
+          "end": 3.62
+        },
+        {
+          "expected_index": 26,
+          "text": "Good-bye,",
+          "heard": "Good -bye,",
+          "heard_indexes": [
+            27,
+            28
+          ],
+          "start": 10.38,
+          "end": 10.78
+        },
+        {
+          "expected_index": 26,
+          "text": "Good-bye,",
+          "heard": "good -bye.",
+          "heard_indexes": [
+            29,
+            30
+          ],
+          "start": 10.9,
+          "end": 11.3
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Avast,\"",
+          "start": 0.6,
+          "end": 1.04
+        },
+        {
+          "text": "cried",
+          "start": 1.44,
+          "end": 1.48
+        },
+        {
+          "text": "Ahab—\"touch",
+          "start": 1.48,
+          "end": 2.38
+        },
+        {
+          "text": "not",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "text": "a",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "text": "rope-yarn\";",
+          "start": 2.7,
+          "end": 3.62
+        },
+        {
+          "text": "then",
+          "start": 3.62,
+          "end": 3.84
+        },
+        {
+          "text": "in",
+          "start": 3.84,
+          "end": 3.92
+        },
+        {
+          "text": "a",
+          "start": 3.92,
+          "end": 4.02
+        },
+        {
+          "text": "voice",
+          "start": 4.02,
+          "end": 4.2
+        },
+        {
+          "text": "that",
+          "start": 4.2,
+          "end": 4.44
+        },
+        {
+          "text": "prolongingly",
+          "start": 4.44,
+          "end": 5.02
+        },
+        {
+          "text": "moulded",
+          "start": 5.02,
+          "end": 5.42
+        },
+        {
+          "text": "every",
+          "start": 5.42,
+          "end": 5.68
+        },
+        {
+          "text": "word—\"Captain",
+          "start": 5.68,
+          "end": 6.9
+        },
+        {
+          "text": "Gardiner,",
+          "start": 6.9,
+          "end": 7.36
+        },
+        {
+          "text": "I",
+          "start": 7.42,
+          "end": 7.56
+        },
+        {
+          "text": "will",
+          "start": 7.56,
+          "end": 7.66
+        },
+        {
+          "text": "not",
+          "start": 7.66,
+          "end": 7.86
+        },
+        {
+          "text": "do",
+          "start": 7.86,
+          "end": 8.04
+        },
+        {
+          "text": "it.",
+          "start": 8.04,
+          "end": 8.3
+        },
+        {
+          "text": "Even",
+          "start": 8.66,
+          "end": 8.86
+        },
+        {
+          "text": "now",
+          "start": 8.86,
+          "end": 9.08
+        },
+        {
+          "text": "I",
+          "start": 9.08,
+          "end": 9.28
+        },
+        {
+          "text": "lose",
+          "start": 9.28,
+          "end": 9.44
+        },
+        {
+          "text": "time.",
+          "start": 9.44,
+          "end": 9.82
+        },
+        {
+          "text": "Good-bye,",
+          "start": 10.38,
+          "end": 10.78
+        },
+        {
+          "text": "good-bye.",
+          "start": 10.9,
+          "end": 11.3
+        },
+        {
+          "text": "God",
+          "start": 11.74,
+          "end": 11.92
+        },
+        {
+          "text": "bless",
+          "start": 11.92,
+          "end": 12.16
+        },
+        {
+          "text": "ye,",
+          "start": 12.16,
+          "end": 12.4
+        },
+        {
+          "text": "man,",
+          "start": 12.66,
+          "end": 12.72
+        },
+        {
+          "text": "and",
+          "start": 12.84,
+          "end": 12.96
+        },
+        {
+          "text": "may",
+          "start": 12.96,
+          "end": 13.14
+        },
+        {
+          "text": "I",
+          "start": 13.14,
+          "end": 13.34
+        },
+        {
+          "text": "forgive",
+          "start": 13.34,
+          "end": 13.62
+        },
+        {
+          "text": "myself,",
+          "start": 13.62,
+          "end": 14.08
+        },
+        {
+          "text": "but",
+          "start": 14.26,
+          "end": 14.36
+        },
+        {
+          "text": "I",
+          "start": 14.36,
+          "end": 14.48
+        },
+        {
+          "text": "must",
+          "start": 14.48,
+          "end": 14.62
+        },
+        {
+          "text": "go.",
+          "start": 14.62,
+          "end": 14.98
+        },
+        {
+          "text": "Mr.",
+          "start": 15.46,
+          "end": 15.76
+        },
+        {
+          "text": "Starbuck,",
+          "start": 16.02,
+          "end": 16.2
+        },
+        {
+          "text": "look",
+          "start": 16.3,
+          "end": 16.44
+        },
+        {
+          "text": "at",
+          "start": 16.44,
+          "end": 16.56
+        },
+        {
+          "text": "the",
+          "start": 16.56,
+          "end": 16.68
+        },
+        {
+          "text": "binnacle",
+          "start": 16.68,
+          "end": 16.86
+        },
+        {
+          "text": "watch,",
+          "start": 16.86,
+          "end": 17.26
+        },
+        {
+          "text": "and",
+          "start": 17.42,
+          "end": 17.54
+        },
+        {
+          "text": "in",
+          "start": 17.54,
+          "end": 17.7
+        },
+        {
+          "text": "three",
+          "start": 17.7,
+          "end": 17.96
+        },
+        {
+          "text": "minutes",
+          "start": 17.96,
+          "end": 18.18
+        },
+        {
+          "text": "from",
+          "start": 18.18,
+          "end": 18.42
+        },
+        {
+          "text": "this",
+          "start": 18.42,
+          "end": 18.62
+        },
+        {
+          "text": "present",
+          "start": 18.62,
+          "end": 18.98
+        },
+        {
+          "text": "instant",
+          "start": 18.98,
+          "end": 19.42
+        },
+        {
+          "text": "warn",
+          "start": 19.42,
+          "end": 19.82
+        },
+        {
+          "text": "off",
+          "start": 19.82,
+          "end": 20.06
+        },
+        {
+          "text": "all",
+          "start": 20.06,
+          "end": 20.32
+        },
+        {
+          "text": "strangers:",
+          "start": 20.32,
+          "end": 20.8
+        },
+        {
+          "text": "then",
+          "start": 21.4,
+          "end": 21.6
+        },
+        {
+          "text": "brace",
+          "start": 21.6,
+          "end": 21.88
+        },
+        {
+          "text": "forward",
+          "start": 21.88,
+          "end": 22.24
+        },
+        {
+          "text": "again,",
+          "start": 22.24,
+          "end": 22.6
+        },
+        {
+          "text": "and",
+          "start": 22.7,
+          "end": 22.84
+        },
+        {
+          "text": "let",
+          "start": 22.84,
+          "end": 22.96
+        },
+        {
+          "text": "the",
+          "start": 22.96,
+          "end": 23.1
+        },
+        {
+          "text": "ship",
+          "start": 23.1,
+          "end": 23.26
+        },
+        {
+          "text": "sail",
+          "start": 23.26,
+          "end": 23.54
+        },
+        {
+          "text": "as",
+          "start": 23.54,
+          "end": 23.78
+        },
+        {
+          "text": "before.\"",
+          "start": 23.78,
+          "end": 24.52
+        }
+      ],
+      "stats": {
+        "expected_words": 71,
+        "heard_words": 71,
+        "matched_words": 71
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6064950451254845
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2e7dc8ffa3ada52d5fbb665ec57ab892521f949d2f53d1a31292cdc493e9e909",
+  "selected_reasons": []
+}

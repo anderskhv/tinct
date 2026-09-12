@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "8c4ebb57cd09f6adbf1d815fde9f16db84f881ce3c9485c6d44141558afd9e1a",
+  "attempts": [
+    {
+      "asr_seconds": 0.09956271620467305,
+      "alignment_seconds": 0.00017062481492757797,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Music plays. Enter a Servingman.",
+        "hotwords": "Music, Enter, Servingman"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Music plays. Enter a Servingman.",
+          "start": 0.05,
+          "end": 2.41,
+          "words": [
+            {
+              "text": " Music",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " plays.",
+              "start": 0.69,
+              "end": 1.09,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " Enter",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " a",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Servingman.",
+              "start": 1.89,
+              "end": 2.41,
+              "probability": 0.3430633544921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Music",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "plays.",
+          "start": 0.69,
+          "end": 1.09
+        },
+        {
+          "raw": "Enter",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "a",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "Servingman.",
+          "start": 1.89,
+          "end": 2.41
+        }
+      ],
+      "expected_tokens": [
+        "Music",
+        "plays.",
+        "Enter",
+        "a",
+        "Servingman."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Music",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "music",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "plays.",
+          "start": 0.69,
+          "end": 1.09,
+          "key": "plays",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "enter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.71,
+          "end": 1.89,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Servingman.",
+          "start": 1.89,
+          "end": 2.41,
+          "key": "servingman",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Music",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "plays.",
+          "start": 0.69,
+          "end": 1.09
+        },
+        {
+          "text": "Enter",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "text": "a",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "text": "Servingman.",
+          "start": 1.89,
+          "end": 2.41
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0997941717505455
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0a9310bad4af96ca1ab2fcc75913855ca86d30c6af3962b5f92425acc9ef8bfd",
+  "selected_reasons": []
+}

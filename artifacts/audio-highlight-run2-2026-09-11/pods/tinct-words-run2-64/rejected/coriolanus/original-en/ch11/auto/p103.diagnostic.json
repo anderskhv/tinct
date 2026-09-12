@@ -1,0 +1,1747 @@
+{
+  "complete": true,
+  "signature": "9dbd7706e0b3b626607c82f737ed26c6d6f6ddb43be28e7ed565218a27ae5d51",
+  "attempts": [
+    {
+      "asr_seconds": 0.5892998371273279,
+      "alignment_seconds": 0.0008354261517524719,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sicinius. This, as you say, suggested At some time when his soaring insolence Shall touch the people—which time shall not want If it be put upon't, and that's as easy As to set dogs on sheep—will be his fire To kindle their dry stubble, and their blaze Shall darken him for ever.",
+        "hotwords": "Sicinius, This, At, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sicinius, This, As you say, suggested At some time when his soaring insolence Shall touch",
+          "start": 0.05,
+          "end": 5.97,
+          "words": [
+            {
+              "text": " Sicinius,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.5399373372395834
+            },
+            {
+              "text": " This,",
+              "start": 1.57,
+              "end": 1.87,
+              "probability": 0.1014404296875
+            },
+            {
+              "text": " As",
+              "start": 2.13,
+              "end": 2.23,
+              "probability": 0.0110931396484375
+            },
+            {
+              "text": " you",
+              "start": 2.23,
+              "end": 2.39,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " say,",
+              "start": 2.39,
+              "end": 2.73,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " suggested",
+              "start": 3.39,
+              "end": 3.39,
+              "probability": 0.318115234375
+            },
+            {
+              "text": " At",
+              "start": 3.39,
+              "end": 3.73,
+              "probability": 0.01398468017578125
+            },
+            {
+              "text": " some",
+              "start": 3.73,
+              "end": 3.97,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " time",
+              "start": 3.97,
+              "end": 4.27,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " when",
+              "start": 4.27,
+              "end": 4.49,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " his",
+              "start": 4.49,
+              "end": 4.61,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " soaring",
+              "start": 4.61,
+              "end": 5.01,
+              "probability": 0.943359375
+            },
+            {
+              "text": " insolence",
+              "start": 5.01,
+              "end": 5.55,
+              "probability": 0.875732421875
+            },
+            {
+              "text": " Shall",
+              "start": 5.55,
+              "end": 5.71,
+              "probability": 0.7578125
+            },
+            {
+              "text": " touch",
+              "start": 5.71,
+              "end": 5.97,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " the people—which time Shall not want If it be put upon't, and that's as easy",
+          "start": 5.97,
+          "end": 10.35,
+          "words": [
+            {
+              "text": " the",
+              "start": 5.97,
+              "end": 6.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " people—which",
+              "start": 6.19,
+              "end": 7.21,
+              "probability": 0.5228118896484375
+            },
+            {
+              "text": " time",
+              "start": 7.21,
+              "end": 7.55,
+              "probability": 0.76708984375
+            },
+            {
+              "text": " Shall",
+              "start": 7.55,
+              "end": 7.73,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " not",
+              "start": 7.73,
+              "end": 7.99,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " want",
+              "start": 7.99,
+              "end": 8.21,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " If",
+              "start": 8.21,
+              "end": 8.39,
+              "probability": 0.0265655517578125
+            },
+            {
+              "text": " it",
+              "start": 8.39,
+              "end": 8.49,
+              "probability": 0.994140625
+            },
+            {
+              "text": " be",
+              "start": 8.49,
+              "end": 8.59,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " put",
+              "start": 8.59,
+              "end": 8.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " upon't,",
+              "start": 8.73,
+              "end": 9.27,
+              "probability": 0.28515625
+            },
+            {
+              "text": " and",
+              "start": 9.49,
+              "end": 9.73,
+              "probability": 0.52880859375
+            },
+            {
+              "text": " that's",
+              "start": 9.73,
+              "end": 9.99,
+              "probability": 0.807861328125
+            },
+            {
+              "text": " as",
+              "start": 9.99,
+              "end": 10.09,
+              "probability": 0.54931640625
+            },
+            {
+              "text": " easy",
+              "start": 10.09,
+              "end": 10.35,
+              "probability": 0.87451171875
+            }
+          ]
+        },
+        {
+          "text": " As to set dogs on sheep—will be his fire To kindle their dry stubble, and their blaze",
+          "start": 10.35,
+          "end": 15.95,
+          "words": [
+            {
+              "text": " As",
+              "start": 10.35,
+              "end": 10.65,
+              "probability": 0.6083984375
+            },
+            {
+              "text": " to",
+              "start": 10.65,
+              "end": 10.87,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " set",
+              "start": 10.87,
+              "end": 11.07,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " dogs",
+              "start": 11.07,
+              "end": 11.43,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " on",
+              "start": 11.43,
+              "end": 11.77,
+              "probability": 0.986328125
+            },
+            {
+              "text": " sheep—will",
+              "start": 11.77,
+              "end": 12.77,
+              "probability": 0.6577351888020834
+            },
+            {
+              "text": " be",
+              "start": 12.77,
+              "end": 12.91,
+              "probability": 0.79638671875
+            },
+            {
+              "text": " his",
+              "start": 12.91,
+              "end": 13.07,
+              "probability": 0.439453125
+            },
+            {
+              "text": " fire",
+              "start": 13.07,
+              "end": 13.39,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " To",
+              "start": 13.39,
+              "end": 13.63,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " kindle",
+              "start": 13.63,
+              "end": 13.97,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " their",
+              "start": 13.97,
+              "end": 14.15,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " dry",
+              "start": 14.15,
+              "end": 14.49,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " stubble,",
+              "start": 14.49,
+              "end": 14.99,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " and",
+              "start": 15.23,
+              "end": 15.43,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " their",
+              "start": 15.43,
+              "end": 15.57,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " blaze",
+              "start": 15.57,
+              "end": 15.95,
+              "probability": 0.9306640625
+            }
+          ]
+        },
+        {
+          "text": " Shall darken him for ever.",
+          "start": 15.95,
+          "end": 17.23,
+          "words": [
+            {
+              "text": " Shall",
+              "start": 15.95,
+              "end": 16.25,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " darken",
+              "start": 16.25,
+              "end": 16.63,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " him",
+              "start": 16.63,
+              "end": 16.77,
+              "probability": 0.994140625
+            },
+            {
+              "text": " for",
+              "start": 16.77,
+              "end": 16.93,
+              "probability": 0.4287109375
+            },
+            {
+              "text": " ever.",
+              "start": 16.93,
+              "end": 17.23,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "This,",
+          "start": 1.57,
+          "end": 1.87
+        },
+        {
+          "raw": "As",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "raw": "you",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "raw": "say,",
+          "start": 2.39,
+          "end": 2.73
+        },
+        {
+          "raw": "suggested",
+          "start": 3.39,
+          "end": 3.39
+        },
+        {
+          "raw": "At",
+          "start": 3.39,
+          "end": 3.73
+        },
+        {
+          "raw": "some",
+          "start": 3.73,
+          "end": 3.97
+        },
+        {
+          "raw": "time",
+          "start": 3.97,
+          "end": 4.27
+        },
+        {
+          "raw": "when",
+          "start": 4.27,
+          "end": 4.49
+        },
+        {
+          "raw": "his",
+          "start": 4.49,
+          "end": 4.61
+        },
+        {
+          "raw": "soaring",
+          "start": 4.61,
+          "end": 5.01
+        },
+        {
+          "raw": "insolence",
+          "start": 5.01,
+          "end": 5.55
+        },
+        {
+          "raw": "Shall",
+          "start": 5.55,
+          "end": 5.71
+        },
+        {
+          "raw": "touch",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "raw": "the",
+          "start": 5.97,
+          "end": 6.19
+        },
+        {
+          "raw": "people—which",
+          "start": 6.19,
+          "end": 7.21
+        },
+        {
+          "raw": "time",
+          "start": 7.21,
+          "end": 7.55
+        },
+        {
+          "raw": "Shall",
+          "start": 7.55,
+          "end": 7.73
+        },
+        {
+          "raw": "not",
+          "start": 7.73,
+          "end": 7.99
+        },
+        {
+          "raw": "want",
+          "start": 7.99,
+          "end": 8.21
+        },
+        {
+          "raw": "If",
+          "start": 8.21,
+          "end": 8.39
+        },
+        {
+          "raw": "it",
+          "start": 8.39,
+          "end": 8.49
+        },
+        {
+          "raw": "be",
+          "start": 8.49,
+          "end": 8.59
+        },
+        {
+          "raw": "put",
+          "start": 8.59,
+          "end": 8.73
+        },
+        {
+          "raw": "upon't,",
+          "start": 8.73,
+          "end": 9.27
+        },
+        {
+          "raw": "and",
+          "start": 9.49,
+          "end": 9.73
+        },
+        {
+          "raw": "that's",
+          "start": 9.73,
+          "end": 9.99
+        },
+        {
+          "raw": "as",
+          "start": 9.99,
+          "end": 10.09
+        },
+        {
+          "raw": "easy",
+          "start": 10.09,
+          "end": 10.35
+        },
+        {
+          "raw": "As",
+          "start": 10.35,
+          "end": 10.65
+        },
+        {
+          "raw": "to",
+          "start": 10.65,
+          "end": 10.87
+        },
+        {
+          "raw": "set",
+          "start": 10.87,
+          "end": 11.07
+        },
+        {
+          "raw": "dogs",
+          "start": 11.07,
+          "end": 11.43
+        },
+        {
+          "raw": "on",
+          "start": 11.43,
+          "end": 11.77
+        },
+        {
+          "raw": "sheep—will",
+          "start": 11.77,
+          "end": 12.77
+        },
+        {
+          "raw": "be",
+          "start": 12.77,
+          "end": 12.91
+        },
+        {
+          "raw": "his",
+          "start": 12.91,
+          "end": 13.07
+        },
+        {
+          "raw": "fire",
+          "start": 13.07,
+          "end": 13.39
+        },
+        {
+          "raw": "To",
+          "start": 13.39,
+          "end": 13.63
+        },
+        {
+          "raw": "kindle",
+          "start": 13.63,
+          "end": 13.97
+        },
+        {
+          "raw": "their",
+          "start": 13.97,
+          "end": 14.15
+        },
+        {
+          "raw": "dry",
+          "start": 14.15,
+          "end": 14.49
+        },
+        {
+          "raw": "stubble,",
+          "start": 14.49,
+          "end": 14.99
+        },
+        {
+          "raw": "and",
+          "start": 15.23,
+          "end": 15.43
+        },
+        {
+          "raw": "their",
+          "start": 15.43,
+          "end": 15.57
+        },
+        {
+          "raw": "blaze",
+          "start": 15.57,
+          "end": 15.95
+        },
+        {
+          "raw": "Shall",
+          "start": 15.95,
+          "end": 16.25
+        },
+        {
+          "raw": "darken",
+          "start": 16.25,
+          "end": 16.63
+        },
+        {
+          "raw": "him",
+          "start": 16.63,
+          "end": 16.77
+        },
+        {
+          "raw": "for",
+          "start": 16.77,
+          "end": 16.93
+        },
+        {
+          "raw": "ever.",
+          "start": 16.93,
+          "end": 17.23
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "This,",
+        "as",
+        "you",
+        "say,",
+        "suggested",
+        "At",
+        "some",
+        "time",
+        "when",
+        "his",
+        "soaring",
+        "insolence",
+        "Shall",
+        "touch",
+        "the",
+        "people—which",
+        "time",
+        "shall",
+        "not",
+        "want",
+        "If",
+        "it",
+        "be",
+        "put",
+        "upon't,",
+        "and",
+        "that's",
+        "as",
+        "easy",
+        "As",
+        "to",
+        "set",
+        "dogs",
+        "on",
+        "sheep—will",
+        "be",
+        "his",
+        "fire",
+        "To",
+        "kindle",
+        "their",
+        "dry",
+        "stubble,",
+        "and",
+        "their",
+        "blaze",
+        "Shall",
+        "darken",
+        "him",
+        "for",
+        "ever."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          52,
+          0,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "sicinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "This,",
+          "start": 1.57,
+          "end": 1.87,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 2.13,
+          "end": 2.23,
+          "key": "as",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.23,
+          "end": 2.39,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 2.39,
+          "end": 2.73,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "suggested",
+          "start": 3.39,
+          "end": 3.39,
+          "key": "suggested",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 3.39,
+          "end": 3.73,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 3.73,
+          "end": 3.97,
+          "key": "some",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 3.97,
+          "end": 4.27,
+          "key": "time",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.27,
+          "end": 4.49,
+          "key": "when",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.49,
+          "end": 4.61,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "soaring",
+          "start": 4.61,
+          "end": 5.01,
+          "key": "soaring",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "insolence",
+          "start": 5.01,
+          "end": 5.55,
+          "key": "insolence",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 5.55,
+          "end": 5.71,
+          "key": "shall",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "touch",
+          "start": 5.71,
+          "end": 5.97,
+          "key": "touch",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.97,
+          "end": 6.19,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "people—which",
+          "start": 6.19,
+          "end": 7.21,
+          "key": "peoplewhich",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 7.21,
+          "end": 7.55,
+          "key": "time",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 7.55,
+          "end": 7.73,
+          "key": "shall",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.73,
+          "end": 7.99,
+          "key": "not",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 7.99,
+          "end": 8.21,
+          "key": "want",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 8.21,
+          "end": 8.39,
+          "key": "if",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 8.39,
+          "end": 8.49,
+          "key": "it",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 8.49,
+          "end": 8.59,
+          "key": "be",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 8.59,
+          "end": 8.73,
+          "key": "put",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "upon't,",
+          "start": 8.73,
+          "end": 9.27,
+          "key": "upont",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.49,
+          "end": 9.73,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 9.73,
+          "end": 9.99,
+          "key": "thats",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 9.99,
+          "end": 10.09,
+          "key": "as",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "easy",
+          "start": 10.09,
+          "end": 10.35,
+          "key": "easy",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 10.35,
+          "end": 10.65,
+          "key": "as",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.65,
+          "end": 10.87,
+          "key": "to",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 10.87,
+          "end": 11.07,
+          "key": "set",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "dogs",
+          "start": 11.07,
+          "end": 11.43,
+          "key": "dogs",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 11.43,
+          "end": 11.77,
+          "key": "on",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "sheep—will",
+          "start": 11.77,
+          "end": 12.77,
+          "key": "sheepwill",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 12.77,
+          "end": 12.91,
+          "key": "be",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 12.91,
+          "end": 13.07,
+          "key": "his",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "fire",
+          "start": 13.07,
+          "end": 13.39,
+          "key": "fire",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 13.39,
+          "end": 13.63,
+          "key": "to",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "kindle",
+          "start": 13.63,
+          "end": 13.97,
+          "key": "kindle",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 13.97,
+          "end": 14.15,
+          "key": "their",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "dry",
+          "start": 14.15,
+          "end": 14.49,
+          "key": "dry",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "stubble,",
+          "start": 14.49,
+          "end": 14.99,
+          "key": "stubble",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 15.23,
+          "end": 15.43,
+          "key": "and",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 15.43,
+          "end": 15.57,
+          "key": "their",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "blaze",
+          "start": 15.57,
+          "end": 15.95,
+          "key": "blaze",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 15.95,
+          "end": 16.25,
+          "key": "shall",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "darken",
+          "start": 16.25,
+          "end": 16.63,
+          "key": "darken",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 16.63,
+          "end": 16.77,
+          "key": "him",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 16.77,
+          "end": 16.93,
+          "key": "for",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "ever.",
+          "start": 16.93,
+          "end": 17.23,
+          "key": "ever",
+          "pieces": [
+            51
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "This,",
+          "start": 1.57,
+          "end": 1.87
+        },
+        {
+          "text": "as",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "text": "you",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "text": "say,",
+          "start": 2.39,
+          "end": 2.73
+        },
+        {
+          "text": "suggested",
+          "start": 3.39,
+          "end": 3.39
+        },
+        {
+          "text": "At",
+          "start": 3.39,
+          "end": 3.73
+        },
+        {
+          "text": "some",
+          "start": 3.73,
+          "end": 3.97
+        },
+        {
+          "text": "time",
+          "start": 3.97,
+          "end": 4.27
+        },
+        {
+          "text": "when",
+          "start": 4.27,
+          "end": 4.49
+        },
+        {
+          "text": "his",
+          "start": 4.49,
+          "end": 4.61
+        },
+        {
+          "text": "soaring",
+          "start": 4.61,
+          "end": 5.01
+        },
+        {
+          "text": "insolence",
+          "start": 5.01,
+          "end": 5.55
+        },
+        {
+          "text": "Shall",
+          "start": 5.55,
+          "end": 5.71
+        },
+        {
+          "text": "touch",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "text": "the",
+          "start": 5.97,
+          "end": 6.19
+        },
+        {
+          "text": "people—which",
+          "start": 6.19,
+          "end": 7.21
+        },
+        {
+          "text": "time",
+          "start": 7.21,
+          "end": 7.55
+        },
+        {
+          "text": "shall",
+          "start": 7.55,
+          "end": 7.73
+        },
+        {
+          "text": "not",
+          "start": 7.73,
+          "end": 7.99
+        },
+        {
+          "text": "want",
+          "start": 7.99,
+          "end": 8.21
+        },
+        {
+          "text": "If",
+          "start": 8.21,
+          "end": 8.39
+        },
+        {
+          "text": "it",
+          "start": 8.39,
+          "end": 8.49
+        },
+        {
+          "text": "be",
+          "start": 8.49,
+          "end": 8.59
+        },
+        {
+          "text": "put",
+          "start": 8.59,
+          "end": 8.73
+        },
+        {
+          "text": "upon't,",
+          "start": 8.73,
+          "end": 9.27
+        },
+        {
+          "text": "and",
+          "start": 9.49,
+          "end": 9.73
+        },
+        {
+          "text": "that's",
+          "start": 9.73,
+          "end": 9.99
+        },
+        {
+          "text": "as",
+          "start": 9.99,
+          "end": 10.09
+        },
+        {
+          "text": "easy",
+          "start": 10.09,
+          "end": 10.35
+        },
+        {
+          "text": "As",
+          "start": 10.35,
+          "end": 10.65
+        },
+        {
+          "text": "to",
+          "start": 10.65,
+          "end": 10.87
+        },
+        {
+          "text": "set",
+          "start": 10.87,
+          "end": 11.07
+        },
+        {
+          "text": "dogs",
+          "start": 11.07,
+          "end": 11.43
+        },
+        {
+          "text": "on",
+          "start": 11.43,
+          "end": 11.77
+        },
+        {
+          "text": "sheep—will",
+          "start": 11.77,
+          "end": 12.77
+        },
+        {
+          "text": "be",
+          "start": 12.77,
+          "end": 12.91
+        },
+        {
+          "text": "his",
+          "start": 12.91,
+          "end": 13.07
+        },
+        {
+          "text": "fire",
+          "start": 13.07,
+          "end": 13.39
+        },
+        {
+          "text": "To",
+          "start": 13.39,
+          "end": 13.63
+        },
+        {
+          "text": "kindle",
+          "start": 13.63,
+          "end": 13.97
+        },
+        {
+          "text": "their",
+          "start": 13.97,
+          "end": 14.15
+        },
+        {
+          "text": "dry",
+          "start": 14.15,
+          "end": 14.49
+        },
+        {
+          "text": "stubble,",
+          "start": 14.49,
+          "end": 14.99
+        },
+        {
+          "text": "and",
+          "start": 15.23,
+          "end": 15.43
+        },
+        {
+          "text": "their",
+          "start": 15.43,
+          "end": 15.57
+        },
+        {
+          "text": "blaze",
+          "start": 15.57,
+          "end": 15.95
+        },
+        {
+          "text": "Shall",
+          "start": 15.95,
+          "end": 16.25
+        },
+        {
+          "text": "darken",
+          "start": 16.25,
+          "end": 16.63
+        },
+        {
+          "text": "him",
+          "start": 16.63,
+          "end": 16.77
+        },
+        {
+          "text": "for",
+          "start": 16.77,
+          "end": 16.93
+        },
+        {
+          "text": "ever.",
+          "start": 16.93,
+          "end": 17.23
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 52,
+        "matched_words": 52
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5904944650828838
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "45c7e2de5e8aae58fe2f285bf0fc2972d13c2621548f567166ed57dd2e1743b6",
+  "selected_reasons": []
+}

@@ -1,0 +1,180 @@
+{
+  "complete": true,
+  "signature": "61acb5de5b580f686c5e07d6ceb52395af6d4b3ced2b38ff5514f3a755d2b92b",
+  "attempts": [
+    {
+      "asr_seconds": 0.09819273836910725,
+      "alignment_seconds": 0.00021814554929733276,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Chaos, Jack Rugby.",
+          "start": 0.08,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " Chaos,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.2210693359375
+            },
+            {
+              "text": " Jack",
+              "start": 1.2,
+              "end": 1.3,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " Rugby.",
+              "start": 1.3,
+              "end": 1.56,
+              "probability": 0.7841796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chaos,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "Jack",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "raw": "Rugby.",
+          "start": 1.3,
+          "end": 1.56
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Bardolph,",
+        "I",
+        "say,--"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chaos,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "chaos",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jack",
+          "start": 1.2,
+          "end": 1.3,
+          "key": "jack",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Rugby.",
+          "start": 1.3,
+          "end": 1.56,
+          "key": "rugby",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "text": "Bardolph,",
+          "start": 0.78,
+          "end": 1.17
+        },
+        {
+          "text": "I",
+          "start": 1.17,
+          "end": 1.365
+        },
+        {
+          "text": "say,--",
+          "start": 1.365,
+          "end": 1.462
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0984761631116271
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b345b515c4300940f6d87768763393e6cf03ee033db80d35964de5afd55da0b1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

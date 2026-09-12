@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "fa4b3c4f370e9bd249e8bda11b6658d7ba44334d71ace0f291144c971bcc30cf",
+  "attempts": [
+    {
+      "asr_seconds": 0.10169463098281994,
+      "alignment_seconds": 0.0001317799906246364,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mr Dedalus sighed resignedly.",
+        "hotwords": "Mr, Dedalus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mr. Dedalus sighed resignedly.",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.935546875
+            },
+            {
+              "text": " Dedalus",
+              "start": 0.83,
+              "end": 1.11,
+              "probability": 0.495849609375
+            },
+            {
+              "text": " sighed",
+              "start": 1.11,
+              "end": 1.49,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " resignedly.",
+              "start": 1.49,
+              "end": 2.15,
+              "probability": 0.72119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Dedalus",
+          "start": 0.83,
+          "end": 1.11
+        },
+        {
+          "raw": "sighed",
+          "start": 1.11,
+          "end": 1.49
+        },
+        {
+          "raw": "resignedly.",
+          "start": 1.49,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "Dedalus",
+        "sighed",
+        "resignedly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dedalus",
+          "start": 0.83,
+          "end": 1.11,
+          "key": "dedalus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sighed",
+          "start": 1.11,
+          "end": 1.49,
+          "key": "sighed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "resignedly.",
+          "start": 1.49,
+          "end": 2.15,
+          "key": "resignedly",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Dedalus",
+          "start": 0.83,
+          "end": 1.11
+        },
+        {
+          "text": "sighed",
+          "start": 1.11,
+          "end": 1.49
+        },
+        {
+          "text": "resignedly.",
+          "start": 1.49,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1018755019758828
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5cc48ad31010dd7687d52cbfbb4e156be06f283b1ec1e1f4045c009f20902ba7",
+  "selected_reasons": []
+}

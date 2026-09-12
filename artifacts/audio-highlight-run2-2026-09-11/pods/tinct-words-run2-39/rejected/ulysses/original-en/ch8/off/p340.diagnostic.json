@@ -1,0 +1,739 @@
+{
+  "complete": true,
+  "signature": "4fb627a3fcbec765c15ff8434b683ea0980fc4cbc76fd8059da83c09486ad5a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.3667376860976219,
+      "alignment_seconds": 0.0005263721104711294,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You're in Dawson Street, Mr. Bloom said. Molesworth Street is opposite.",
+          "start": 0.02,
+          "end": 4.32,
+          "words": [
+            {
+              "text": " You're",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.724365234375
+            },
+            {
+              "text": " in",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Dawson",
+              "start": 0.8,
+              "end": 1.08,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Street,",
+              "start": 1.08,
+              "end": 1.56,
+              "probability": 0.845703125
+            },
+            {
+              "text": " Mr.",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Bloom",
+              "start": 2.14,
+              "end": 2.14,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " said.",
+              "start": 2.14,
+              "end": 2.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Molesworth",
+              "start": 3.16,
+              "end": 3.46,
+              "probability": 0.958984375
+            },
+            {
+              "text": " Street",
+              "start": 3.46,
+              "end": 3.78,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " is",
+              "start": 3.78,
+              "end": 3.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " opposite.",
+              "start": 3.98,
+              "end": 4.32,
+              "probability": 0.984375
+            }
+          ]
+        },
+        {
+          "text": " Do you want to cross? There's nothing in the way.",
+          "start": 4.94,
+          "end": 7.12,
+          "words": [
+            {
+              "text": " Do",
+              "start": 4.94,
+              "end": 5.02,
+              "probability": 0.984375
+            },
+            {
+              "text": " you",
+              "start": 5.02,
+              "end": 5.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " want",
+              "start": 5.1,
+              "end": 5.22,
+              "probability": 0.6845703125
+            },
+            {
+              "text": " to",
+              "start": 5.22,
+              "end": 5.32,
+              "probability": 0.5283203125
+            },
+            {
+              "text": " cross?",
+              "start": 5.32,
+              "end": 5.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " There's",
+              "start": 6.18,
+              "end": 6.38,
+              "probability": 0.986328125
+            },
+            {
+              "text": " nothing",
+              "start": 6.38,
+              "end": 6.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 6.58,
+              "end": 6.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.8,
+              "end": 6.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " way.",
+              "start": 6.9,
+              "end": 7.12,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You're",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "in",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "Dawson",
+          "start": 0.8,
+          "end": 1.08
+        },
+        {
+          "raw": "Street,",
+          "start": 1.08,
+          "end": 1.56
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "Bloom",
+          "start": 2.14,
+          "end": 2.14
+        },
+        {
+          "raw": "said.",
+          "start": 2.14,
+          "end": 2.52
+        },
+        {
+          "raw": "Molesworth",
+          "start": 3.16,
+          "end": 3.46
+        },
+        {
+          "raw": "Street",
+          "start": 3.46,
+          "end": 3.78
+        },
+        {
+          "raw": "is",
+          "start": 3.78,
+          "end": 3.98
+        },
+        {
+          "raw": "opposite.",
+          "start": 3.98,
+          "end": 4.32
+        },
+        {
+          "raw": "Do",
+          "start": 4.94,
+          "end": 5.02
+        },
+        {
+          "raw": "you",
+          "start": 5.02,
+          "end": 5.1
+        },
+        {
+          "raw": "want",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "raw": "to",
+          "start": 5.22,
+          "end": 5.32
+        },
+        {
+          "raw": "cross?",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "raw": "There's",
+          "start": 6.18,
+          "end": 6.38
+        },
+        {
+          "raw": "nothing",
+          "start": 6.38,
+          "end": 6.58
+        },
+        {
+          "raw": "in",
+          "start": 6.58,
+          "end": 6.8
+        },
+        {
+          "raw": "the",
+          "start": 6.8,
+          "end": 6.9
+        },
+        {
+          "raw": "way.",
+          "start": 6.9,
+          "end": 7.12
+        }
+      ],
+      "expected_tokens": [
+        "—You're",
+        "in",
+        "Dawson",
+        "street,",
+        "Mr",
+        "Bloom",
+        "said.",
+        "Molesworth",
+        "street",
+        "is",
+        "opposite.",
+        "Do",
+        "you",
+        "want",
+        "to",
+        "cross?",
+        "There's",
+        "nothing",
+        "in",
+        "the",
+        "way."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You're",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "youre",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.66,
+          "end": 0.8,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dawson",
+          "start": 0.8,
+          "end": 1.08,
+          "key": "dawson",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Street,",
+          "start": 1.08,
+          "end": 1.56,
+          "key": "street",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "mr",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Bloom",
+          "start": 2.14,
+          "end": 2.14,
+          "key": "bloom",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.14,
+          "end": 2.52,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Molesworth",
+          "start": 3.16,
+          "end": 3.46,
+          "key": "molesworth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Street",
+          "start": 3.46,
+          "end": 3.78,
+          "key": "street",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.78,
+          "end": 3.98,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "opposite.",
+          "start": 3.98,
+          "end": 4.32,
+          "key": "opposite",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 4.94,
+          "end": 5.02,
+          "key": "do",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.02,
+          "end": 5.1,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 5.1,
+          "end": 5.22,
+          "key": "want",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.22,
+          "end": 5.32,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "cross?",
+          "start": 5.32,
+          "end": 5.58,
+          "key": "cross",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "There's",
+          "start": 6.18,
+          "end": 6.38,
+          "key": "theres",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 6.38,
+          "end": 6.58,
+          "key": "nothing",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.58,
+          "end": 6.8,
+          "key": "in",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.8,
+          "end": 6.9,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "way.",
+          "start": 6.9,
+          "end": 7.12,
+          "key": "way",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—You're",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "in",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "text": "Dawson",
+          "start": 0.8,
+          "end": 1.08
+        },
+        {
+          "text": "street,",
+          "start": 1.08,
+          "end": 1.56
+        },
+        {
+          "text": "Mr",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "Bloom",
+          "start": 2.14,
+          "end": 2.14
+        },
+        {
+          "text": "said.",
+          "start": 2.14,
+          "end": 2.52
+        },
+        {
+          "text": "Molesworth",
+          "start": 3.16,
+          "end": 3.46
+        },
+        {
+          "text": "street",
+          "start": 3.46,
+          "end": 3.78
+        },
+        {
+          "text": "is",
+          "start": 3.78,
+          "end": 3.98
+        },
+        {
+          "text": "opposite.",
+          "start": 3.98,
+          "end": 4.32
+        },
+        {
+          "text": "Do",
+          "start": 4.94,
+          "end": 5.02
+        },
+        {
+          "text": "you",
+          "start": 5.02,
+          "end": 5.1
+        },
+        {
+          "text": "want",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "text": "to",
+          "start": 5.22,
+          "end": 5.32
+        },
+        {
+          "text": "cross?",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "text": "There's",
+          "start": 6.18,
+          "end": 6.38
+        },
+        {
+          "text": "nothing",
+          "start": 6.38,
+          "end": 6.58
+        },
+        {
+          "text": "in",
+          "start": 6.58,
+          "end": 6.8
+        },
+        {
+          "text": "the",
+          "start": 6.8,
+          "end": 6.9
+        },
+        {
+          "text": "way.",
+          "start": 6.9,
+          "end": 7.12
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36747491196729243
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dacebafaf930cbf7a996afd2942db32480b84a9d6eacaaa781f049a932a14652",
+  "selected_reasons": []
+}

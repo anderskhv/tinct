@@ -1,0 +1,420 @@
+{
+  "complete": true,
+  "signature": "8e5710324cd23910be928ce60046a0fe7a8a426830f9965ef931b7213d5ab34d",
+  "attempts": [
+    {
+      "asr_seconds": 0.24656256195157766,
+      "alignment_seconds": 0.0004928219132125378,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gray, to whom in all this presence speaks your grace.",
+          "start": 0.08,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " Gray,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " to",
+              "start": 1.12,
+              "end": 1.18,
+              "probability": 0.966796875
+            },
+            {
+              "text": " whom",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.53759765625
+            },
+            {
+              "text": " in",
+              "start": 1.34,
+              "end": 1.42,
+              "probability": 0.84765625
+            },
+            {
+              "text": " all",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this",
+              "start": 1.56,
+              "end": 1.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " presence",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.68115234375
+            },
+            {
+              "text": " speaks",
+              "start": 2.0,
+              "end": 2.32,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " your",
+              "start": 2.32,
+              "end": 2.54,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " grace.",
+              "start": 2.54,
+              "end": 2.78,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gray,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "to",
+          "start": 1.12,
+          "end": 1.18
+        },
+        {
+          "raw": "whom",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "in",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "raw": "all",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "this",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "raw": "presence",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "raw": "speaks",
+          "start": 2.0,
+          "end": 2.32
+        },
+        {
+          "raw": "your",
+          "start": 2.32,
+          "end": 2.54
+        },
+        {
+          "raw": "grace.",
+          "start": 2.54,
+          "end": 2.78
+        }
+      ],
+      "expected_tokens": [
+        "Grey.",
+        "To",
+        "who",
+        "in",
+        "all",
+        "this",
+        "presence",
+        "speaks",
+        "your",
+        "Grace?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          10,
+          3,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gray,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "gray",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.12,
+          "end": 1.18,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 1.18,
+          "end": 1.34,
+          "key": "whom",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.34,
+          "end": 1.42,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.56,
+          "end": 1.72,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "presence",
+          "start": 1.72,
+          "end": 2.0,
+          "key": "presence",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "speaks",
+          "start": 2.0,
+          "end": 2.32,
+          "key": "speaks",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.32,
+          "end": 2.54,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "grace.",
+          "start": 2.54,
+          "end": 2.78,
+          "key": "grace",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Grey.",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "To",
+          "start": 1.12,
+          "end": 1.18
+        },
+        {
+          "text": "who",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "text": "in",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "text": "all",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "this",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "text": "presence",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "text": "speaks",
+          "start": 2.0,
+          "end": 2.32
+        },
+        {
+          "text": "your",
+          "start": 2.32,
+          "end": 2.54
+        },
+        {
+          "text": "Grace?",
+          "start": 2.54,
+          "end": 2.78
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24722970579750836
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4ad728da17f52725283f356e79b6836d74623daa62263346532193fca65aa18a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

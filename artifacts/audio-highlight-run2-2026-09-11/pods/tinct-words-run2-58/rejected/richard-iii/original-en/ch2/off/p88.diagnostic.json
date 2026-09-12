@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "45aa015461771c5f1939acdbd44738ede97e57d740cbf69ac0338116279a33f6",
+  "attempts": [
+    {
+      "asr_seconds": 0.1921823201701045,
+      "alignment_seconds": 0.00042811688035726547,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And, all men I hope live so.",
+          "start": 0.02,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " And,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.3291015625
+            },
+            {
+              "text": " all",
+              "start": 1.02,
+              "end": 1.16,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " men",
+              "start": 1.16,
+              "end": 1.34,
+              "probability": 0.982421875
+            },
+            {
+              "text": " I",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.8173828125
+            },
+            {
+              "text": " hope",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " live",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " so.",
+              "start": 1.86,
+              "end": 2.18,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "all",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "raw": "men",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "raw": "I",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "hope",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "live",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "raw": "so.",
+          "start": 1.86,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "Anne.",
+        "All",
+        "men,",
+        "I",
+        "hope,",
+        "live",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.02,
+          "end": 1.16,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 1.16,
+          "end": 1.34,
+          "key": "men",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "hope",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 1.66,
+          "end": 1.86,
+          "key": "live",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 1.86,
+          "end": 2.18,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Anne.",
+          "start": 0.0,
+          "end": 0.51
+        },
+        {
+          "text": "All",
+          "start": 1.02,
+          "end": 1.16
+        },
+        {
+          "text": "men,",
+          "start": 1.16,
+          "end": 1.34
+        },
+        {
+          "text": "I",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "hope,",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "live",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "text": "so.",
+          "start": 1.86,
+          "end": 2.18
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.19275996927171946
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7eb284eb3e7f90a30e381c9d085829c8b4fca13806fc63b771ad12466b1d5823",
+  "selected_reasons": []
+}

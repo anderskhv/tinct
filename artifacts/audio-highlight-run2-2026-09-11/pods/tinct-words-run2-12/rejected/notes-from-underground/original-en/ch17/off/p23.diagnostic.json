@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "dbd51ca99c31f91aec42343fff8a2a02b07b183ea7a75ca8a32f045f9b182d4b",
+  "attempts": [
+    {
+      "asr_seconds": 0.10956271504983306,
+      "alignment_seconds": 0.00028828205540776253,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Where are they?",
+          "start": 0.02,
+          "end": 0.94,
+          "words": [
+            {
+              "text": " Where",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " are",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " they?",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "are",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "they?",
+          "start": 0.7,
+          "end": 0.94
+        }
+      ],
+      "expected_tokens": [
+        "\"Where",
+        "are",
+        "they?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "where",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "they?",
+          "start": 0.7,
+          "end": 0.94,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Where",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "are",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "they?\"",
+          "start": 0.7,
+          "end": 0.94
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10995850409381092
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c25e15200c9ad2ae021634b4042e3149499148ca91969747ac007da247298894",
+  "selected_reasons": []
+}

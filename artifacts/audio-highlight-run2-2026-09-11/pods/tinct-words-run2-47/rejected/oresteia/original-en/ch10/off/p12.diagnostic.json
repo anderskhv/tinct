@@ -1,0 +1,658 @@
+{
+  "complete": true,
+  "signature": "fafbf078b2cc8b14758664f8acb1205c6126e03072bdf32a8c576c926607b256",
+  "attempts": [
+    {
+      "asr_seconds": 0.3129549059958663,
+      "alignment_seconds": 0.0005011720058973879,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Another.",
+          "start": 0.08,
+          "end": 0.7,
+          "words": [
+            {
+              "text": " Another.",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.71484375
+            }
+          ]
+        },
+        {
+          "text": " I, for T's plane, this prelude of their song foretells its close in tyranny and wrong.",
+          "start": 1.5,
+          "end": 5.96,
+          "words": [
+            {
+              "text": " I,",
+              "start": 1.5,
+              "end": 1.5,
+              "probability": 0.52197265625
+            },
+            {
+              "text": " for",
+              "start": 1.74,
+              "end": 1.78,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " T's",
+              "start": 1.78,
+              "end": 2.14,
+              "probability": 0.655517578125
+            },
+            {
+              "text": " plane,",
+              "start": 2.14,
+              "end": 2.42,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " this",
+              "start": 2.74,
+              "end": 2.9,
+              "probability": 0.80078125
+            },
+            {
+              "text": " prelude",
+              "start": 2.9,
+              "end": 3.32,
+              "probability": 0.952392578125
+            },
+            {
+              "text": " of",
+              "start": 3.32,
+              "end": 3.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " their",
+              "start": 3.46,
+              "end": 3.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " song",
+              "start": 3.58,
+              "end": 3.9,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " foretells",
+              "start": 3.9,
+              "end": 4.42,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " its",
+              "start": 4.42,
+              "end": 4.5,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " close",
+              "start": 4.5,
+              "end": 4.8,
+              "probability": 0.720703125
+            },
+            {
+              "text": " in",
+              "start": 4.8,
+              "end": 5.1,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " tyranny",
+              "start": 5.1,
+              "end": 5.42,
+              "probability": 0.818359375
+            },
+            {
+              "text": " and",
+              "start": 5.42,
+              "end": 5.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " wrong.",
+              "start": 5.7,
+              "end": 5.96,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Another.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "I,",
+          "start": 1.5,
+          "end": 1.5
+        },
+        {
+          "raw": "for",
+          "start": 1.74,
+          "end": 1.78
+        },
+        {
+          "raw": "T's",
+          "start": 1.78,
+          "end": 2.14
+        },
+        {
+          "raw": "plane,",
+          "start": 2.14,
+          "end": 2.42
+        },
+        {
+          "raw": "this",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "raw": "prelude",
+          "start": 2.9,
+          "end": 3.32
+        },
+        {
+          "raw": "of",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "raw": "their",
+          "start": 3.46,
+          "end": 3.58
+        },
+        {
+          "raw": "song",
+          "start": 3.58,
+          "end": 3.9
+        },
+        {
+          "raw": "foretells",
+          "start": 3.9,
+          "end": 4.42
+        },
+        {
+          "raw": "its",
+          "start": 4.42,
+          "end": 4.5
+        },
+        {
+          "raw": "close",
+          "start": 4.5,
+          "end": 4.8
+        },
+        {
+          "raw": "in",
+          "start": 4.8,
+          "end": 5.1
+        },
+        {
+          "raw": "tyranny",
+          "start": 5.1,
+          "end": 5.42
+        },
+        {
+          "raw": "and",
+          "start": 5.42,
+          "end": 5.7
+        },
+        {
+          "raw": "wrong.",
+          "start": 5.7,
+          "end": 5.96
+        }
+      ],
+      "expected_tokens": [
+        "Another.",
+        "Ay,",
+        "for",
+        "'tis",
+        "plain,",
+        "this",
+        "prelude",
+        "of",
+        "their",
+        "song",
+        "Foretells",
+        "its",
+        "close",
+        "in",
+        "tyranny",
+        "and",
+        "wrong."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          17,
+          5,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Another.",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "another",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 1.5,
+          "end": 1.5,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.74,
+          "end": 1.78,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "T's",
+          "start": 1.78,
+          "end": 2.14,
+          "key": "ts",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "plane,",
+          "start": 2.14,
+          "end": 2.42,
+          "key": "plane",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.74,
+          "end": 2.9,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "prelude",
+          "start": 2.9,
+          "end": 3.32,
+          "key": "prelude",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.32,
+          "end": 3.46,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 3.46,
+          "end": 3.58,
+          "key": "their",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "song",
+          "start": 3.58,
+          "end": 3.9,
+          "key": "song",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "foretells",
+          "start": 3.9,
+          "end": 4.42,
+          "key": "foretells",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 4.42,
+          "end": 4.5,
+          "key": "its",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "close",
+          "start": 4.5,
+          "end": 4.8,
+          "key": "close",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.8,
+          "end": 5.1,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "tyranny",
+          "start": 5.1,
+          "end": 5.42,
+          "key": "tyranny",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.42,
+          "end": 5.7,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "wrong.",
+          "start": 5.7,
+          "end": 5.96,
+          "key": "wrong",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Another.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Ay,",
+          "start": 0.7,
+          "end": 1.22
+        },
+        {
+          "text": "for",
+          "start": 1.74,
+          "end": 1.78
+        },
+        {
+          "text": "'tis",
+          "start": 1.78,
+          "end": 2.26
+        },
+        {
+          "text": "plain,",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "text": "this",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "text": "prelude",
+          "start": 2.9,
+          "end": 3.32
+        },
+        {
+          "text": "of",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "text": "their",
+          "start": 3.46,
+          "end": 3.58
+        },
+        {
+          "text": "song",
+          "start": 3.58,
+          "end": 3.9
+        },
+        {
+          "text": "Foretells",
+          "start": 3.9,
+          "end": 4.42
+        },
+        {
+          "text": "its",
+          "start": 4.42,
+          "end": 4.5
+        },
+        {
+          "text": "close",
+          "start": 4.5,
+          "end": 4.8
+        },
+        {
+          "text": "in",
+          "start": 4.8,
+          "end": 5.1
+        },
+        {
+          "text": "tyranny",
+          "start": 5.1,
+          "end": 5.42
+        },
+        {
+          "text": "and",
+          "start": 5.42,
+          "end": 5.7
+        },
+        {
+          "text": "wrong.",
+          "start": 5.7,
+          "end": 5.96
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 14
+      },
+      "match_ratio": 0.8235294117647058,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3136510439799167
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b873fcdf1302042c96f8f12169ccd22e82dbc0d22842cb1a9a5f2ab53b6d63ba",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

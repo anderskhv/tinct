@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "cf261725a7a4ba255a79dce999f3f221aa7f1e18b272bcb8c9dc63440287753e",
+  "attempts": [
+    {
+      "asr_seconds": 0.19096548110246658,
+      "alignment_seconds": 0.00010823458433151245,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Toby. Is't possible?",
+        "hotwords": "Sir, Toby, Is't"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Toby, Is't Possible.",
+          "start": 0.05,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " Toby,",
+              "start": 0.55,
+              "end": 0.89,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " Is't",
+              "start": 1.29,
+              "end": 1.53,
+              "probability": 0.06261444091796875
+            },
+            {
+              "text": " Possible.",
+              "start": 1.53,
+              "end": 1.87,
+              "probability": 0.78271484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "raw": "Is't",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "raw": "Possible.",
+          "start": 1.53,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "Is't",
+        "possible?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.55,
+          "end": 0.89,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Is't",
+          "start": 1.29,
+          "end": 1.53,
+          "key": "ist",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Possible.",
+          "start": 1.53,
+          "end": 1.87,
+          "key": "possible",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Toby.",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "text": "Is't",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "text": "possible?",
+          "start": 1.53,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19111071527004242
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "584adae914ee2f9a99e8ec4757d3f64bce9f360aff40dafd4c47e0b417fcd761",
+  "selected_reasons": []
+}

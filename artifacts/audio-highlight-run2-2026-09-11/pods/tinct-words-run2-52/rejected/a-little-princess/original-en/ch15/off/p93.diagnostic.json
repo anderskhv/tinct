@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "6b41abf77f824f5682946a315bde608e86affc2f1c077e660dd6d942142f66f4",
+  "attempts": [
+    {
+      "asr_seconds": 0.2334572859108448,
+      "alignment_seconds": 0.0006360672414302826,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don't tell falsehoods. She said go to your room this instant",
+          "start": 0.05,
+          "end": 3.91,
+          "words": [
+            {
+              "text": " Don't",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.58013916015625
+            },
+            {
+              "text": " tell",
+              "start": 0.67,
+              "end": 0.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " falsehoods.",
+              "start": 0.83,
+              "end": 1.85,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " She",
+              "start": 1.87,
+              "end": 1.95,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " said",
+              "start": 1.95,
+              "end": 2.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " go",
+              "start": 2.27,
+              "end": 2.87,
+              "probability": 0.787109375
+            },
+            {
+              "text": " to",
+              "start": 2.87,
+              "end": 2.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 2.99,
+              "end": 3.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " room",
+              "start": 3.11,
+              "end": 3.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " this",
+              "start": 3.29,
+              "end": 3.49,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " instant",
+              "start": 3.49,
+              "end": 3.91,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don't",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "tell",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "raw": "falsehoods.",
+          "start": 0.83,
+          "end": 1.85
+        },
+        {
+          "raw": "She",
+          "start": 1.87,
+          "end": 1.95
+        },
+        {
+          "raw": "said",
+          "start": 1.95,
+          "end": 2.27
+        },
+        {
+          "raw": "go",
+          "start": 2.27,
+          "end": 2.87
+        },
+        {
+          "raw": "to",
+          "start": 2.87,
+          "end": 2.99
+        },
+        {
+          "raw": "your",
+          "start": 2.99,
+          "end": 3.11
+        },
+        {
+          "raw": "room",
+          "start": 3.11,
+          "end": 3.29
+        },
+        {
+          "raw": "this",
+          "start": 3.29,
+          "end": 3.49
+        },
+        {
+          "raw": "instant",
+          "start": 3.49,
+          "end": 3.91
+        }
+      ],
+      "expected_tokens": [
+        "\"Don't",
+        "tell",
+        "falsehoods,\"",
+        "she",
+        "said.",
+        "\"Go",
+        "to",
+        "your",
+        "room",
+        "this",
+        "instant.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don't",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "dont",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 0.67,
+          "end": 0.83,
+          "key": "tell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "falsehoods.",
+          "start": 0.83,
+          "end": 1.85,
+          "key": "falsehoods",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 1.87,
+          "end": 1.95,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.95,
+          "end": 2.27,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 2.27,
+          "end": 2.87,
+          "key": "go",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.87,
+          "end": 2.99,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.99,
+          "end": 3.11,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 3.11,
+          "end": 3.29,
+          "key": "room",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.29,
+          "end": 3.49,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "instant",
+          "start": 3.49,
+          "end": 3.91,
+          "key": "instant",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Don't",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "tell",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "text": "falsehoods,\"",
+          "start": 0.83,
+          "end": 1.85
+        },
+        {
+          "text": "she",
+          "start": 1.87,
+          "end": 1.95
+        },
+        {
+          "text": "said.",
+          "start": 1.95,
+          "end": 2.27
+        },
+        {
+          "text": "\"Go",
+          "start": 2.27,
+          "end": 2.87
+        },
+        {
+          "text": "to",
+          "start": 2.87,
+          "end": 2.99
+        },
+        {
+          "text": "your",
+          "start": 2.99,
+          "end": 3.11
+        },
+        {
+          "text": "room",
+          "start": 3.11,
+          "end": 3.29
+        },
+        {
+          "text": "this",
+          "start": 3.29,
+          "end": 3.49
+        },
+        {
+          "text": "instant.\"",
+          "start": 3.49,
+          "end": 3.91
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23430285602808
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c228a7d89f3770df931a152bd7c95c31e68f47e5a6596c8698a85d78b078771f",
+  "selected_reasons": []
+}

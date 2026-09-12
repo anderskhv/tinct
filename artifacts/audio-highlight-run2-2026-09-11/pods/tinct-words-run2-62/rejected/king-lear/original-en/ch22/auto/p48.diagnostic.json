@@ -1,0 +1,658 @@
+{
+  "complete": true,
+  "signature": "b7861f191f902a4206aea49814b1b10d8c7295ec9757c30b5d97ac556522eacf",
+  "attempts": [
+    {
+      "asr_seconds": 2.5422760136425495,
+      "alignment_seconds": 0.00016571953892707825,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Let me wipe it first; it smells of mortality.",
+        "hotwords": "Lear, Let"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, Let Lear. Let Lear. Let Lear. Let Lear. Let me wipe it first. It smells of mortality.",
+          "start": 0.05,
+          "end": 3.31,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.6396484375
+            },
+            {
+              "text": " Let",
+              "start": 1.05,
+              "end": 1.17,
+              "probability": 0.01242828369140625
+            },
+            {
+              "text": " Lear.",
+              "start": 1.17,
+              "end": 1.25,
+              "probability": 0.0
+            },
+            {
+              "text": " Let",
+              "start": 1.25,
+              "end": 1.25,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " Lear.",
+              "start": 1.25,
+              "end": 1.25,
+              "probability": 0.0016717910766601562
+            },
+            {
+              "text": " Let",
+              "start": 1.25,
+              "end": 1.25,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Lear.",
+              "start": 1.25,
+              "end": 1.25,
+              "probability": 0.015960693359375
+            },
+            {
+              "text": " Let",
+              "start": 1.25,
+              "end": 1.25,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Lear.",
+              "start": 1.25,
+              "end": 1.25,
+              "probability": 0.0384521484375
+            },
+            {
+              "text": " Let",
+              "start": 1.25,
+              "end": 1.25,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " me",
+              "start": 1.25,
+              "end": 1.27,
+              "probability": 0.7783203125
+            },
+            {
+              "text": " wipe",
+              "start": 1.27,
+              "end": 1.43,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " it",
+              "start": 1.43,
+              "end": 1.55,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " first.",
+              "start": 1.55,
+              "end": 1.79,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " It",
+              "start": 2.19,
+              "end": 2.25,
+              "probability": 0.80078125
+            },
+            {
+              "text": " smells",
+              "start": 2.25,
+              "end": 2.53,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " of",
+              "start": 2.53,
+              "end": 2.81,
+              "probability": 0.779296875
+            },
+            {
+              "text": " mortality.",
+              "start": 2.81,
+              "end": 3.31,
+              "probability": 0.096435546875
+            }
+          ]
+        },
+        {
+          "text": " It smells of mortality.",
+          "start": 3.31,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " It",
+              "start": 3.31,
+              "end": 3.31,
+              "probability": 0.002529144287109375
+            },
+            {
+              "text": " smells",
+              "start": 3.31,
+              "end": 3.31,
+              "probability": 2.9742717742919922e-05
+            },
+            {
+              "text": " of",
+              "start": 3.31,
+              "end": 3.35,
+              "probability": 0.032257080078125
+            },
+            {
+              "text": " mortality.",
+              "start": 3.35,
+              "end": 3.47,
+              "probability": 7.367134094238281e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Let",
+          "start": 1.05,
+          "end": 1.17
+        },
+        {
+          "raw": "Lear.",
+          "start": 1.17,
+          "end": 1.25
+        },
+        {
+          "raw": "Let",
+          "start": 1.25,
+          "end": 1.25
+        },
+        {
+          "raw": "Lear.",
+          "start": 1.25,
+          "end": 1.25
+        },
+        {
+          "raw": "Let",
+          "start": 1.25,
+          "end": 1.25
+        },
+        {
+          "raw": "Lear.",
+          "start": 1.25,
+          "end": 1.25
+        },
+        {
+          "raw": "Let",
+          "start": 1.25,
+          "end": 1.25
+        },
+        {
+          "raw": "Lear.",
+          "start": 1.25,
+          "end": 1.25
+        },
+        {
+          "raw": "Let",
+          "start": 1.25,
+          "end": 1.25
+        },
+        {
+          "raw": "me",
+          "start": 1.25,
+          "end": 1.27
+        },
+        {
+          "raw": "wipe",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "raw": "it",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "raw": "first.",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "raw": "It",
+          "start": 2.19,
+          "end": 2.25
+        },
+        {
+          "raw": "smells",
+          "start": 2.25,
+          "end": 2.53
+        },
+        {
+          "raw": "of",
+          "start": 2.53,
+          "end": 2.81
+        },
+        {
+          "raw": "mortality.",
+          "start": 2.81,
+          "end": 3.31
+        },
+        {
+          "raw": "It",
+          "start": 3.31,
+          "end": 3.31
+        },
+        {
+          "raw": "smells",
+          "start": 3.31,
+          "end": 3.31
+        },
+        {
+          "raw": "of",
+          "start": 3.31,
+          "end": 3.35
+        },
+        {
+          "raw": "mortality.",
+          "start": 3.35,
+          "end": 3.47
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Let",
+        "me",
+        "wipe",
+        "it",
+        "first;",
+        "it",
+        "smells",
+        "of",
+        "mortality."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          8
+        ],
+        [
+          "equal",
+          0,
+          10,
+          8,
+          18
+        ],
+        [
+          "insert",
+          10,
+          10,
+          18,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          8
+        ],
+        [
+          "insert",
+          10,
+          10,
+          18,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 1.05,
+          "end": 1.17,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lear.",
+          "start": 1.17,
+          "end": 1.25,
+          "key": "lear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 1.25,
+          "end": 1.25,
+          "key": "let",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lear.",
+          "start": 1.25,
+          "end": 1.25,
+          "key": "lear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 1.25,
+          "end": 1.25,
+          "key": "let",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Lear.",
+          "start": 1.25,
+          "end": 1.25,
+          "key": "lear",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 1.25,
+          "end": 1.25,
+          "key": "let",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Lear.",
+          "start": 1.25,
+          "end": 1.25,
+          "key": "lear",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 1.25,
+          "end": 1.25,
+          "key": "let",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.25,
+          "end": 1.27,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "wipe",
+          "start": 1.27,
+          "end": 1.43,
+          "key": "wipe",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.43,
+          "end": 1.55,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "first.",
+          "start": 1.55,
+          "end": 1.79,
+          "key": "first",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 2.19,
+          "end": 2.25,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "smells",
+          "start": 2.25,
+          "end": 2.53,
+          "key": "smells",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.53,
+          "end": 2.81,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "mortality.",
+          "start": 2.81,
+          "end": 3.31,
+          "key": "mortality",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 3.31,
+          "end": 3.31,
+          "key": "it",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "smells",
+          "start": 3.31,
+          "end": 3.31,
+          "key": "smells",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.31,
+          "end": 3.35,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "mortality.",
+          "start": 3.35,
+          "end": 3.47,
+          "key": "mortality",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 1.25,
+          "end": 1.25
+        },
+        {
+          "text": "Let",
+          "start": 1.25,
+          "end": 1.25
+        },
+        {
+          "text": "me",
+          "start": 1.25,
+          "end": 1.27
+        },
+        {
+          "text": "wipe",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "text": "it",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "text": "first;",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "text": "it",
+          "start": 2.19,
+          "end": 2.25
+        },
+        {
+          "text": "smells",
+          "start": 2.25,
+          "end": 2.53
+        },
+        {
+          "text": "of",
+          "start": 2.53,
+          "end": 2.81
+        },
+        {
+          "text": "mortality.",
+          "start": 2.81,
+          "end": 3.31
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 22,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.5425331965088844
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ea6c0250aed9bac834f7a7e997486d41316d4961e65042bcb0eab414f3e55ec3",
+  "selected_reasons": []
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "6b00b9544c40b7943858a69fdc87016bf740d1b4fdef42c2a2a76407760344e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.08025053516030312,
+      "alignment_seconds": 0.00010816752910614014,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gloucester. Where is the villain, Edmund?",
+        "hotwords": "Gloucester, Where, Edmund"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gloucester, Where is the villain, Edmund?",
+          "start": 0.02,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " Gloucester,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.935302734375
+            },
+            {
+              "text": " Where",
+              "start": 1.3,
+              "end": 1.38,
+              "probability": 0.01947021484375
+            },
+            {
+              "text": " is",
+              "start": 1.38,
+              "end": 1.5,
+              "probability": 0.09002685546875
+            },
+            {
+              "text": " the",
+              "start": 1.5,
+              "end": 1.6,
+              "probability": 0.947265625
+            },
+            {
+              "text": " villain,",
+              "start": 1.6,
+              "end": 1.82,
+              "probability": 0.6953125
+            },
+            {
+              "text": " Edmund?",
+              "start": 2.04,
+              "end": 2.14,
+              "probability": 0.83154296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Where",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "raw": "is",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "raw": "villain,",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "raw": "Edmund?",
+          "start": 2.04,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "Where",
+        "is",
+        "the",
+        "villain,",
+        "Edmund?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 1.3,
+          "end": 1.38,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.38,
+          "end": 1.5,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.6,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "villain,",
+          "start": 1.6,
+          "end": 1.82,
+          "key": "villain",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Edmund?",
+          "start": 2.04,
+          "end": 2.14,
+          "key": "edmund",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Where",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "text": "is",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "text": "the",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "text": "villain,",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "text": "Edmund?",
+          "start": 2.04,
+          "end": 2.14
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08039960637688637
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a22d11f8dfc8d0ee68b53fb4c2bb27f1f51c953782432cc3b07dd95c8240a88b",
+  "selected_reasons": []
+}

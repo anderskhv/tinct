@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "488776a6ed5694190e770521296e20d5e4ad54e498f2675e4e7fa576e8d6b42a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2795376491267234,
+      "alignment_seconds": 0.00045211100950837135,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Queen Elizabeth, the Marquess of Dorset, Lord Rivers and Lord Grey.",
+        "hotwords": "Enter, Queen, Elizabeth, Marquess, Dorset, Lord, Rivers, Grey"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Queen Elizabeth, the Marquess of Dorset, Lord Rivers and Lord Grey.",
+          "start": 0.08,
+          "end": 4.58,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " Queen",
+              "start": 0.66,
+              "end": 0.94,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Elizabeth,",
+              "start": 0.94,
+              "end": 1.42,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " the",
+              "start": 1.9,
+              "end": 1.98,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " Marquess",
+              "start": 1.98,
+              "end": 2.36,
+              "probability": 0.786865234375
+            },
+            {
+              "text": " of",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Dorset,",
+              "start": 2.52,
+              "end": 2.84,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Lord",
+              "start": 3.34,
+              "end": 3.44,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Rivers",
+              "start": 3.44,
+              "end": 3.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 3.76,
+              "end": 4.06,
+              "probability": 0.7421875
+            },
+            {
+              "text": " Lord",
+              "start": 4.06,
+              "end": 4.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Grey.",
+              "start": 4.32,
+              "end": 4.58,
+              "probability": 0.68212890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Queen",
+          "start": 0.66,
+          "end": 0.94
+        },
+        {
+          "raw": "Elizabeth,",
+          "start": 0.94,
+          "end": 1.42
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "raw": "Marquess",
+          "start": 1.98,
+          "end": 2.36
+        },
+        {
+          "raw": "of",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "Dorset,",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "raw": "Lord",
+          "start": 3.34,
+          "end": 3.44
+        },
+        {
+          "raw": "Rivers",
+          "start": 3.44,
+          "end": 3.76
+        },
+        {
+          "raw": "and",
+          "start": 3.76,
+          "end": 4.06
+        },
+        {
+          "raw": "Lord",
+          "start": 4.06,
+          "end": 4.32
+        },
+        {
+          "raw": "Grey.",
+          "start": 4.32,
+          "end": 4.58
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Queen",
+        "Elizabeth,",
+        "the",
+        "Marquess",
+        "of",
+        "Dorset,",
+        "Lord",
+        "Rivers",
+        "and",
+        "Lord",
+        "Grey."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Queen",
+          "start": 0.66,
+          "end": 0.94,
+          "key": "queen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Elizabeth,",
+          "start": 0.94,
+          "end": 1.42,
+          "key": "elizabeth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 1.98,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Marquess",
+          "start": 1.98,
+          "end": 2.36,
+          "key": "marquess",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.36,
+          "end": 2.52,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Dorset,",
+          "start": 2.52,
+          "end": 2.84,
+          "key": "dorset",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 3.34,
+          "end": 3.44,
+          "key": "lord",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Rivers",
+          "start": 3.44,
+          "end": 3.76,
+          "key": "rivers",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.76,
+          "end": 4.06,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 4.06,
+          "end": 4.32,
+          "key": "lord",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Grey.",
+          "start": 4.32,
+          "end": 4.58,
+          "key": "grey",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Queen",
+          "start": 0.66,
+          "end": 0.94
+        },
+        {
+          "text": "Elizabeth,",
+          "start": 0.94,
+          "end": 1.42
+        },
+        {
+          "text": "the",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "text": "Marquess",
+          "start": 1.98,
+          "end": 2.36
+        },
+        {
+          "text": "of",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "text": "Dorset,",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "text": "Lord",
+          "start": 3.34,
+          "end": 3.44
+        },
+        {
+          "text": "Rivers",
+          "start": 3.44,
+          "end": 3.76
+        },
+        {
+          "text": "and",
+          "start": 3.76,
+          "end": 4.06
+        },
+        {
+          "text": "Lord",
+          "start": 4.06,
+          "end": 4.32
+        },
+        {
+          "text": "Grey.",
+          "start": 4.32,
+          "end": 4.58
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2801685540471226
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "af7abeef2ac23ad877a9a143f536cf82234aa2c336136a9c0399d902ac52cf27",
+  "selected_reasons": []
+}

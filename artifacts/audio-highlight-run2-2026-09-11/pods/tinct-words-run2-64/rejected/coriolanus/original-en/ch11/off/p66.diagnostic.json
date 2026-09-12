@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "edaa98e3abe3fde10d2fc4c195cf42c1fe4cf92fd5d08ce5e3398be4fa1e9610",
+  "attempts": [
+    {
+      "asr_seconds": 0.19550712313503027,
+      "alignment_seconds": 0.0001743026077747345,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All, welcome to Rome, renowned Coriolanus.",
+          "start": 0.11,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.73583984375
+            },
+            {
+              "text": " welcome",
+              "start": 1.27,
+              "end": 1.27,
+              "probability": 0.93359375
+            },
+            {
+              "text": " to",
+              "start": 1.27,
+              "end": 1.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Rome,",
+              "start": 1.51,
+              "end": 1.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " renowned",
+              "start": 2.23,
+              "end": 2.23,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " Coriolanus.",
+              "start": 2.23,
+              "end": 2.93,
+              "probability": 0.8701171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "welcome",
+          "start": 1.27,
+          "end": 1.27
+        },
+        {
+          "raw": "to",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "raw": "Rome,",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "raw": "renowned",
+          "start": 2.23,
+          "end": 2.23
+        },
+        {
+          "raw": "Coriolanus.",
+          "start": 2.23,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "Welcome",
+        "to",
+        "Rome,",
+        "renowned",
+        "Coriolanus!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "welcome",
+          "start": 1.27,
+          "end": 1.27,
+          "key": "welcome",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.27,
+          "end": 1.51,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Rome,",
+          "start": 1.51,
+          "end": 1.75,
+          "key": "rome",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "renowned",
+          "start": 2.23,
+          "end": 2.23,
+          "key": "renowned",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Coriolanus.",
+          "start": 2.23,
+          "end": 2.93,
+          "key": "coriolanus",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Welcome",
+          "start": 1.27,
+          "end": 1.27
+        },
+        {
+          "text": "to",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "text": "Rome,",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "text": "renowned",
+          "start": 2.23,
+          "end": 2.23
+        },
+        {
+          "text": "Coriolanus!",
+          "start": 2.23,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19574383459985256
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0eff6ca9ca52a0fab3db553bd94cd33851355d8567b5fa3de305024e01f0c19d",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "a21cb409a1cacaf204f1eec8fc61e9dc9b9c0ba48ecd2aee76fae7d456274cf3",
+  "attempts": [
+    {
+      "asr_seconds": 0.10977403447031975,
+      "alignment_seconds": 8.856505155563354e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kent. Yes, they have.",
+        "hotwords": "Kent, Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kent, Yes, they have.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " Yes,",
+              "start": 0.97,
+              "end": 1.21,
+              "probability": 0.02874755859375
+            },
+            {
+              "text": " they",
+              "start": 1.37,
+              "end": 1.41,
+              "probability": 0.74560546875
+            },
+            {
+              "text": " have.",
+              "start": 1.41,
+              "end": 1.75,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Yes,",
+          "start": 0.97,
+          "end": 1.21
+        },
+        {
+          "raw": "they",
+          "start": 1.37,
+          "end": 1.41
+        },
+        {
+          "raw": "have.",
+          "start": 1.41,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "Yes,",
+        "they",
+        "have."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 0.97,
+          "end": 1.21,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.37,
+          "end": 1.41,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have.",
+          "start": 1.41,
+          "end": 1.75,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Yes,",
+          "start": 0.97,
+          "end": 1.21
+        },
+        {
+          "text": "they",
+          "start": 1.37,
+          "end": 1.41
+        },
+        {
+          "text": "have.",
+          "start": 1.41,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10989462584257126
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "01948a56c8932b7595148fe096d78d53439a744513cf39ab0e2065d9c14138a9",
+  "selected_reasons": []
+}

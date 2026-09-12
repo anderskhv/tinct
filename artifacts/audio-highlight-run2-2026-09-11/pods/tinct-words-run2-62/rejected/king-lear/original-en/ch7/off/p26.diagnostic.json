@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "f58f61e957cf3b2249de14180d89694525f3119892d413a83b9faee915fd8201",
+  "attempts": [
+    {
+      "asr_seconds": 0.17322758585214615,
+      "alignment_seconds": 0.000154152512550354,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cornwall keep peace upon your lives. He dies that strikes again. What is the matter?",
+          "start": 0.05,
+          "end": 5.07,
+          "words": [
+            {
+              "text": " Cornwall",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " keep",
+              "start": 0.73,
+              "end": 1.47,
+              "probability": 0.18017578125
+            },
+            {
+              "text": " peace",
+              "start": 1.47,
+              "end": 1.81,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " upon",
+              "start": 1.81,
+              "end": 2.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 2.13,
+              "end": 2.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lives.",
+              "start": 2.31,
+              "end": 2.63,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " He",
+              "start": 2.63,
+              "end": 2.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dies",
+              "start": 2.87,
+              "end": 3.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 3.11,
+              "end": 3.33,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " strikes",
+              "start": 3.33,
+              "end": 3.61,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " again.",
+              "start": 3.61,
+              "end": 4.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " What",
+              "start": 4.01,
+              "end": 4.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 4.55,
+              "end": 4.67,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 4.67,
+              "end": 4.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " matter?",
+              "start": 4.79,
+              "end": 5.07,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cornwall",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "keep",
+          "start": 0.73,
+          "end": 1.47
+        },
+        {
+          "raw": "peace",
+          "start": 1.47,
+          "end": 1.81
+        },
+        {
+          "raw": "upon",
+          "start": 1.81,
+          "end": 2.13
+        },
+        {
+          "raw": "your",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "raw": "lives.",
+          "start": 2.31,
+          "end": 2.63
+        },
+        {
+          "raw": "He",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "raw": "dies",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "raw": "that",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "raw": "strikes",
+          "start": 3.33,
+          "end": 3.61
+        },
+        {
+          "raw": "again.",
+          "start": 3.61,
+          "end": 4.01
+        },
+        {
+          "raw": "What",
+          "start": 4.01,
+          "end": 4.55
+        },
+        {
+          "raw": "is",
+          "start": 4.55,
+          "end": 4.67
+        },
+        {
+          "raw": "the",
+          "start": 4.67,
+          "end": 4.79
+        },
+        {
+          "raw": "matter?",
+          "start": 4.79,
+          "end": 5.07
+        }
+      ],
+      "expected_tokens": [
+        "Cornwall.",
+        "Keep",
+        "peace,",
+        "upon",
+        "your",
+        "lives,",
+        "he",
+        "dies",
+        "that",
+        "strikes",
+        "again.",
+        "What",
+        "is",
+        "the",
+        "matter?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cornwall",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "cornwall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 0.73,
+          "end": 1.47,
+          "key": "keep",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "peace",
+          "start": 1.47,
+          "end": 1.81,
+          "key": "peace",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.81,
+          "end": 2.13,
+          "key": "upon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.13,
+          "end": 2.31,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lives.",
+          "start": 2.31,
+          "end": 2.63,
+          "key": "lives",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.63,
+          "end": 2.87,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dies",
+          "start": 2.87,
+          "end": 3.11,
+          "key": "dies",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.11,
+          "end": 3.33,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "strikes",
+          "start": 3.33,
+          "end": 3.61,
+          "key": "strikes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 3.61,
+          "end": 4.01,
+          "key": "again",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 4.01,
+          "end": 4.55,
+          "key": "what",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.55,
+          "end": 4.67,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.67,
+          "end": 4.79,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "matter?",
+          "start": 4.79,
+          "end": 5.07,
+          "key": "matter",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cornwall.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Keep",
+          "start": 0.73,
+          "end": 1.47
+        },
+        {
+          "text": "peace,",
+          "start": 1.47,
+          "end": 1.81
+        },
+        {
+          "text": "upon",
+          "start": 1.81,
+          "end": 2.13
+        },
+        {
+          "text": "your",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "text": "lives,",
+          "start": 2.31,
+          "end": 2.63
+        },
+        {
+          "text": "he",
+          "start": 2.63,
+          "end": 2.87
+        },
+        {
+          "text": "dies",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "text": "that",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "text": "strikes",
+          "start": 3.33,
+          "end": 3.61
+        },
+        {
+          "text": "again.",
+          "start": 3.61,
+          "end": 4.01
+        },
+        {
+          "text": "What",
+          "start": 4.01,
+          "end": 4.55
+        },
+        {
+          "text": "is",
+          "start": 4.55,
+          "end": 4.67
+        },
+        {
+          "text": "the",
+          "start": 4.67,
+          "end": 4.79
+        },
+        {
+          "text": "matter?",
+          "start": 4.79,
+          "end": 5.07
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17344176396727562
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a0ab008cd0a3b7020bf4d728e6dc2c86c5ef2322285d940966e41b6e10ba1b55",
+  "selected_reasons": []
+}

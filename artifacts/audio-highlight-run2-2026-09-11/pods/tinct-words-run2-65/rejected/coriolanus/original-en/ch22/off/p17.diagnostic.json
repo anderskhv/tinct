@@ -1,0 +1,498 @@
+{
+  "complete": true,
+  "signature": "c4a7d58376342aee8382b962faa3d80ea4172655a476a29565292407a109267b",
+  "attempts": [
+    {
+      "asr_seconds": 0.25606639264151454,
+      "alignment_seconds": 0.00037741102278232574,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, farewell, kind neighbors. We wished Coriolanus had loved you as we did.",
+          "start": 0.05,
+          "end": 5.45,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.965576171875
+            },
+            {
+              "text": " farewell,",
+              "start": 1.31,
+              "end": 1.55,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " kind",
+              "start": 1.99,
+              "end": 2.21,
+              "probability": 0.974609375
+            },
+            {
+              "text": " neighbors.",
+              "start": 2.21,
+              "end": 2.61,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " We",
+              "start": 3.25,
+              "end": 3.29,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " wished",
+              "start": 3.29,
+              "end": 3.53,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Coriolanus",
+              "start": 3.53,
+              "end": 4.21,
+              "probability": 0.712646484375
+            },
+            {
+              "text": " had",
+              "start": 4.21,
+              "end": 4.39,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " loved",
+              "start": 4.39,
+              "end": 4.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 4.65,
+              "end": 4.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 4.85,
+              "end": 4.99,
+              "probability": 0.966796875
+            },
+            {
+              "text": " we",
+              "start": 4.99,
+              "end": 5.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " did.",
+              "start": 5.17,
+              "end": 5.45,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "farewell,",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "raw": "kind",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "raw": "neighbors.",
+          "start": 2.21,
+          "end": 2.61
+        },
+        {
+          "raw": "We",
+          "start": 3.25,
+          "end": 3.29
+        },
+        {
+          "raw": "wished",
+          "start": 3.29,
+          "end": 3.53
+        },
+        {
+          "raw": "Coriolanus",
+          "start": 3.53,
+          "end": 4.21
+        },
+        {
+          "raw": "had",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "raw": "loved",
+          "start": 4.39,
+          "end": 4.65
+        },
+        {
+          "raw": "you",
+          "start": 4.65,
+          "end": 4.85
+        },
+        {
+          "raw": "as",
+          "start": 4.85,
+          "end": 4.99
+        },
+        {
+          "raw": "we",
+          "start": 4.99,
+          "end": 5.17
+        },
+        {
+          "raw": "did.",
+          "start": 5.17,
+          "end": 5.45
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Farewell,",
+        "kind",
+        "neighbours.",
+        "We",
+        "wished",
+        "Coriolanus",
+        "Had",
+        "loved",
+        "you",
+        "as",
+        "we",
+        "did."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          13,
+          4,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "farewell,",
+          "start": 1.31,
+          "end": 1.55,
+          "key": "farewell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 1.99,
+          "end": 2.21,
+          "key": "kind",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "neighbors.",
+          "start": 2.21,
+          "end": 2.61,
+          "key": "neighbors",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 3.25,
+          "end": 3.29,
+          "key": "we",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wished",
+          "start": 3.29,
+          "end": 3.53,
+          "key": "wished",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Coriolanus",
+          "start": 3.53,
+          "end": 4.21,
+          "key": "coriolanus",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.21,
+          "end": 4.39,
+          "key": "had",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "loved",
+          "start": 4.39,
+          "end": 4.65,
+          "key": "loved",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.65,
+          "end": 4.85,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.85,
+          "end": 4.99,
+          "key": "as",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 4.99,
+          "end": 5.17,
+          "key": "we",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "did.",
+          "start": 5.17,
+          "end": 5.45,
+          "key": "did",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Farewell,",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "text": "kind",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "text": "neighbours.",
+          "start": 2.21,
+          "end": 2.73
+        },
+        {
+          "text": "We",
+          "start": 3.25,
+          "end": 3.29
+        },
+        {
+          "text": "wished",
+          "start": 3.29,
+          "end": 3.53
+        },
+        {
+          "text": "Coriolanus",
+          "start": 3.53,
+          "end": 4.21
+        },
+        {
+          "text": "Had",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "text": "loved",
+          "start": 4.39,
+          "end": 4.65
+        },
+        {
+          "text": "you",
+          "start": 4.65,
+          "end": 4.85
+        },
+        {
+          "text": "as",
+          "start": 4.85,
+          "end": 4.99
+        },
+        {
+          "text": "we",
+          "start": 4.99,
+          "end": 5.17
+        },
+        {
+          "text": "did.",
+          "start": 5.17,
+          "end": 5.45
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.2565855076536536
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "433d00909ef8ce40d2c582d7eeec5798f76bf34f370d22400002e71abf52a25e",
+  "selected_reasons": []
+}

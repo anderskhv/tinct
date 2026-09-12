@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "2a91188827f53598d234d9d15cbf6b80b606107b66e67e894bb5140e486cbe25",
+  "attempts": [
+    {
+      "asr_seconds": 0.23777359165251255,
+      "alignment_seconds": 0.00017850473523139954,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio. Here, Lord Bassanio, swear to keep this ring.",
+        "hotwords": "Antonio, Here, Lord, Bassanio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio, Here, Lord, Bassanio, swear to keep this ring.",
+          "start": 0.08,
+          "end": 3.76,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.77197265625
+            },
+            {
+              "text": " Here,",
+              "start": 1.4,
+              "end": 1.66,
+              "probability": 0.0125732421875
+            },
+            {
+              "text": " Lord,",
+              "start": 1.86,
+              "end": 1.94,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " Bassanio,",
+              "start": 2.2,
+              "end": 2.62,
+              "probability": 0.7684733072916666
+            },
+            {
+              "text": " swear",
+              "start": 2.82,
+              "end": 2.94,
+              "probability": 0.60986328125
+            },
+            {
+              "text": " to",
+              "start": 2.94,
+              "end": 3.12,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " keep",
+              "start": 3.12,
+              "end": 3.28,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " this",
+              "start": 3.28,
+              "end": 3.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " ring.",
+              "start": 3.52,
+              "end": 3.76,
+              "probability": 0.9365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "Here,",
+          "start": 1.4,
+          "end": 1.66
+        },
+        {
+          "raw": "Lord,",
+          "start": 1.86,
+          "end": 1.94
+        },
+        {
+          "raw": "Bassanio,",
+          "start": 2.2,
+          "end": 2.62
+        },
+        {
+          "raw": "swear",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "raw": "to",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "raw": "keep",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "raw": "this",
+          "start": 3.28,
+          "end": 3.52
+        },
+        {
+          "raw": "ring.",
+          "start": 3.52,
+          "end": 3.76
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "Here,",
+        "Lord",
+        "Bassanio,",
+        "swear",
+        "to",
+        "keep",
+        "this",
+        "ring."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Here,",
+          "start": 1.4,
+          "end": 1.66,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lord,",
+          "start": 1.86,
+          "end": 1.94,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Bassanio,",
+          "start": 2.2,
+          "end": 2.62,
+          "key": "bassanio",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "swear",
+          "start": 2.82,
+          "end": 2.94,
+          "key": "swear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.94,
+          "end": 3.12,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 3.12,
+          "end": 3.28,
+          "key": "keep",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.28,
+          "end": 3.52,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ring.",
+          "start": 3.52,
+          "end": 3.76,
+          "key": "ring",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "Here,",
+          "start": 1.4,
+          "end": 1.66
+        },
+        {
+          "text": "Lord",
+          "start": 1.86,
+          "end": 1.94
+        },
+        {
+          "text": "Bassanio,",
+          "start": 2.2,
+          "end": 2.62
+        },
+        {
+          "text": "swear",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "text": "to",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "text": "keep",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "text": "this",
+          "start": 3.28,
+          "end": 3.52
+        },
+        {
+          "text": "ring.",
+          "start": 3.52,
+          "end": 3.76
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23801583889871836
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8f65f35502f53797bb4493b4b50ef56be29b0d51b875ec8ceb0fbe358ffc613d",
+  "selected_reasons": []
+}

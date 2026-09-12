@@ -1,0 +1,469 @@
+{
+  "complete": true,
+  "signature": "9cb12c808427610ae305140cc9c4804145d196722f2a4d0daaa94b7f55f0420c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2603301187045872,
+      "alignment_seconds": 0.0007374947890639305,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And the dear old home voice answered,",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.6865234375
+            },
+            {
+              "text": " the",
+              "start": 0.51,
+              "end": 0.59,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " dear",
+              "start": 0.59,
+              "end": 0.73,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " old",
+              "start": 0.73,
+              "end": 0.99,
+              "probability": 0.98046875
+            },
+            {
+              "text": " home",
+              "start": 0.99,
+              "end": 1.21,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " voice",
+              "start": 1.21,
+              "end": 1.49,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " answered,",
+              "start": 1.49,
+              "end": 1.93,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " Which at ere old chap?",
+          "start": 2.49,
+          "end": 3.57,
+          "words": [
+            {
+              "text": " Which",
+              "start": 2.49,
+              "end": 2.57,
+              "probability": 0.035064697265625
+            },
+            {
+              "text": " at",
+              "start": 2.57,
+              "end": 2.73,
+              "probability": 0.595703125
+            },
+            {
+              "text": " ere",
+              "start": 2.73,
+              "end": 3.03,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " old",
+              "start": 3.03,
+              "end": 3.27,
+              "probability": 0.56982421875
+            },
+            {
+              "text": " chap?",
+              "start": 3.27,
+              "end": 3.57,
+              "probability": 0.97509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.59
+        },
+        {
+          "raw": "dear",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "raw": "old",
+          "start": 0.73,
+          "end": 0.99
+        },
+        {
+          "raw": "home",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "raw": "voice",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "raw": "answered,",
+          "start": 1.49,
+          "end": 1.93
+        },
+        {
+          "raw": "Which",
+          "start": 2.49,
+          "end": 2.57
+        },
+        {
+          "raw": "at",
+          "start": 2.57,
+          "end": 2.73
+        },
+        {
+          "raw": "ere",
+          "start": 2.73,
+          "end": 3.03
+        },
+        {
+          "raw": "old",
+          "start": 3.03,
+          "end": 3.27
+        },
+        {
+          "raw": "chap?",
+          "start": 3.27,
+          "end": 3.57
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "the",
+        "dear",
+        "old",
+        "home-voice",
+        "answered,",
+        "\"Which",
+        "it",
+        "air,",
+        "old",
+        "chap.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          9
+        ],
+        [
+          "equal",
+          9,
+          11,
+          9,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          9,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.59,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 0.59,
+          "end": 0.73,
+          "key": "dear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 0.73,
+          "end": 0.99,
+          "key": "old",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "home voice",
+          "start": 0.99,
+          "end": 1.49,
+          "key": "homevoice",
+          "pieces": [
+            4,
+            5
+          ]
+        },
+        {
+          "raw": "answered,",
+          "start": 1.49,
+          "end": 1.93,
+          "key": "answered",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 2.49,
+          "end": 2.57,
+          "key": "which",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.57,
+          "end": 2.73,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ere",
+          "start": 2.73,
+          "end": 3.03,
+          "key": "ere",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 3.03,
+          "end": 3.27,
+          "key": "old",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "chap?",
+          "start": 3.27,
+          "end": 3.57,
+          "key": "chap",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "home-voice",
+          "heard": "home voice",
+          "heard_indexes": [
+            4,
+            5
+          ],
+          "start": 0.99,
+          "end": 1.49
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "the",
+          "start": 0.51,
+          "end": 0.59
+        },
+        {
+          "text": "dear",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "text": "old",
+          "start": 0.73,
+          "end": 0.99
+        },
+        {
+          "text": "home-voice",
+          "start": 0.99,
+          "end": 1.49
+        },
+        {
+          "text": "answered,",
+          "start": 1.49,
+          "end": 1.93
+        },
+        {
+          "text": "\"Which",
+          "start": 2.49,
+          "end": 2.57
+        },
+        {
+          "text": "it",
+          "start": 2.57,
+          "end": 2.8
+        },
+        {
+          "text": "air,",
+          "start": 2.8,
+          "end": 2.915
+        },
+        {
+          "text": "old",
+          "start": 3.03,
+          "end": 3.27
+        },
+        {
+          "text": "chap.\"",
+          "start": 3.27,
+          "end": 3.57
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2612870489247143
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dc2e93fd04db24f47fb869950659456af4150e0cd06d5cf277a6e199cd2a9940",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

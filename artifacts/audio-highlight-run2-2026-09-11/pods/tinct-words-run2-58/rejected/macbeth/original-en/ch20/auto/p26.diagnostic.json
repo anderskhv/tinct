@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "abd0f08cb9164b142ad26a3e639203bb336394ddfa8e869a9e1a17f30f59eae2",
+  "attempts": [
+    {
+      "asr_seconds": 0.19746312126517296,
+      "alignment_seconds": 0.0003693578764796257,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Malcolm. I thank you, doctor.",
+        "hotwords": "Malcolm, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Malcolm, I thank you, doctor.",
+          "start": 0.46,
+          "end": 1.9,
+          "words": [
+            {
+              "text": " Malcolm,",
+              "start": 0.46,
+              "end": 0.8,
+              "probability": 0.53759765625
+            },
+            {
+              "text": " I",
+              "start": 1.14,
+              "end": 1.3,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " thank",
+              "start": 1.3,
+              "end": 1.46,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " you,",
+              "start": 1.46,
+              "end": 1.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " doctor.",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.416015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malcolm,",
+          "start": 0.46,
+          "end": 0.8
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "raw": "thank",
+          "start": 1.3,
+          "end": 1.46
+        },
+        {
+          "raw": "you,",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "raw": "doctor.",
+          "start": 1.72,
+          "end": 1.9
+        }
+      ],
+      "expected_tokens": [
+        "Malcolm.",
+        "I",
+        "thank",
+        "you,",
+        "doctor."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malcolm,",
+          "start": 0.46,
+          "end": 0.8,
+          "key": "malcolm",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.3,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 1.3,
+          "end": 1.46,
+          "key": "thank",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.46,
+          "end": 1.62,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "doctor.",
+          "start": 1.72,
+          "end": 1.9,
+          "key": "doctor",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malcolm.",
+          "start": 0.46,
+          "end": 0.8
+        },
+        {
+          "text": "I",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "text": "thank",
+          "start": 1.3,
+          "end": 1.46
+        },
+        {
+          "text": "you,",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "text": "doctor.",
+          "start": 1.72,
+          "end": 1.9
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19795727264136076
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fa89c3c8f03fe156c4710ac215684f38b1c18db979e77b70a5f1eec2167a2291",
+  "selected_reasons": []
+}

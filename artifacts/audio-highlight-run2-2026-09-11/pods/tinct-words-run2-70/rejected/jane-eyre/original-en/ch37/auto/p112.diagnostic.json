@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "fa1cdf5c0e1587c86b47568740ab2ec1e9428ab5077294ac721444c991642c20",
+  "attempts": [
+    {
+      "asr_seconds": 0.23285778588615358,
+      "alignment_seconds": 0.00042421603575348854,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I had wakened the glow: his features beamed.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I had wakened the glow. His features beamed.",
+          "start": 0.08,
+          "end": 2.74,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " had",
+              "start": 0.54,
+              "end": 0.62,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " wakened",
+              "start": 0.62,
+              "end": 1.0,
+              "probability": 0.927734375
+            },
+            {
+              "text": " the",
+              "start": 1.0,
+              "end": 1.02,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " glow.",
+              "start": 1.02,
+              "end": 1.28,
+              "probability": 0.982421875
+            },
+            {
+              "text": " His",
+              "start": 1.74,
+              "end": 1.86,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " features",
+              "start": 1.86,
+              "end": 2.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " beamed.",
+              "start": 2.16,
+              "end": 2.74,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "had",
+          "start": 0.54,
+          "end": 0.62
+        },
+        {
+          "raw": "wakened",
+          "start": 0.62,
+          "end": 1.0
+        },
+        {
+          "raw": "the",
+          "start": 1.0,
+          "end": 1.02
+        },
+        {
+          "raw": "glow.",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "raw": "His",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "raw": "features",
+          "start": 1.86,
+          "end": 2.16
+        },
+        {
+          "raw": "beamed.",
+          "start": 2.16,
+          "end": 2.74
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "had",
+        "wakened",
+        "the",
+        "glow:",
+        "his",
+        "features",
+        "beamed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.54,
+          "end": 0.62,
+          "key": "had",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wakened",
+          "start": 0.62,
+          "end": 1.0,
+          "key": "wakened",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.0,
+          "end": 1.02,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "glow.",
+          "start": 1.02,
+          "end": 1.28,
+          "key": "glow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 1.74,
+          "end": 1.86,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "features",
+          "start": 1.86,
+          "end": 2.16,
+          "key": "features",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "beamed.",
+          "start": 2.16,
+          "end": 2.74,
+          "key": "beamed",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "had",
+          "start": 0.54,
+          "end": 0.62
+        },
+        {
+          "text": "wakened",
+          "start": 0.62,
+          "end": 1.0
+        },
+        {
+          "text": "the",
+          "start": 1.0,
+          "end": 1.02
+        },
+        {
+          "text": "glow:",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "text": "his",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "text": "features",
+          "start": 1.86,
+          "end": 2.16
+        },
+        {
+          "text": "beamed.",
+          "start": 2.16,
+          "end": 2.74
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23344861390069127
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b1583dad8d87ee2d507b12f944acf77cdfe7e8fa50bfab17b4736307f0b091eb",
+  "selected_reasons": []
+}

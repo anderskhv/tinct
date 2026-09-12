@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "9a576a2466ad2074de0b73417bfec8b8c751889fda7d72841376ca8165bcd10d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2492685599718243,
+      "alignment_seconds": 0.00047816685400903225,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mrs Breen turned up her two large eyes. Hasn't lost them anyhow.",
+        "hotwords": "Mrs, Breen, Hasn't"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mrs. Breen turned up her two large eyes. Hasn't lost them anyhow.",
+          "start": 0.02,
+          "end": 4.18,
+          "words": [
+            {
+              "text": " Mrs.",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " Breen",
+              "start": 0.88,
+              "end": 0.96,
+              "probability": 0.970947265625
+            },
+            {
+              "text": " turned",
+              "start": 0.96,
+              "end": 1.26,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " up",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " her",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " two",
+              "start": 1.54,
+              "end": 1.76,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " large",
+              "start": 1.76,
+              "end": 2.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " eyes.",
+              "start": 2.04,
+              "end": 2.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Hasn't",
+              "start": 3.1,
+              "end": 3.28,
+              "probability": 0.9109700520833334
+            },
+            {
+              "text": " lost",
+              "start": 3.28,
+              "end": 3.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " them",
+              "start": 3.52,
+              "end": 3.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " anyhow.",
+              "start": 3.76,
+              "end": 4.18,
+              "probability": 0.881591796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mrs.",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "Breen",
+          "start": 0.88,
+          "end": 0.96
+        },
+        {
+          "raw": "turned",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "raw": "up",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "her",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "two",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "raw": "large",
+          "start": 1.76,
+          "end": 2.04
+        },
+        {
+          "raw": "eyes.",
+          "start": 2.04,
+          "end": 2.42
+        },
+        {
+          "raw": "Hasn't",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "raw": "lost",
+          "start": 3.28,
+          "end": 3.52
+        },
+        {
+          "raw": "them",
+          "start": 3.52,
+          "end": 3.76
+        },
+        {
+          "raw": "anyhow.",
+          "start": 3.76,
+          "end": 4.18
+        }
+      ],
+      "expected_tokens": [
+        "Mrs",
+        "Breen",
+        "turned",
+        "up",
+        "her",
+        "two",
+        "large",
+        "eyes.",
+        "Hasn't",
+        "lost",
+        "them",
+        "anyhow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mrs.",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "mrs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Breen",
+          "start": 0.88,
+          "end": 0.96,
+          "key": "breen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 0.96,
+          "end": 1.26,
+          "key": "turned",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "up",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 1.54,
+          "end": 1.76,
+          "key": "two",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "large",
+          "start": 1.76,
+          "end": 2.04,
+          "key": "large",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "eyes.",
+          "start": 2.04,
+          "end": 2.42,
+          "key": "eyes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Hasn't",
+          "start": 3.1,
+          "end": 3.28,
+          "key": "hasnt",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lost",
+          "start": 3.28,
+          "end": 3.52,
+          "key": "lost",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.52,
+          "end": 3.76,
+          "key": "them",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "anyhow.",
+          "start": 3.76,
+          "end": 4.18,
+          "key": "anyhow",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mrs",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "Breen",
+          "start": 0.88,
+          "end": 0.96
+        },
+        {
+          "text": "turned",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "text": "up",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "her",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "two",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "text": "large",
+          "start": 1.76,
+          "end": 2.04
+        },
+        {
+          "text": "eyes.",
+          "start": 2.04,
+          "end": 2.42
+        },
+        {
+          "text": "Hasn't",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "text": "lost",
+          "start": 3.28,
+          "end": 3.52
+        },
+        {
+          "text": "them",
+          "start": 3.52,
+          "end": 3.76
+        },
+        {
+          "text": "anyhow.",
+          "start": 3.76,
+          "end": 4.18
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2499209709931165
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ca9bb6bcf431f38c729d2b01c33f98f3758c471f26067872201b10faa9910fdf",
+  "selected_reasons": []
+}

@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "ad81117d1d91c4c8dd3f765c23dd796fdfcf5f3a40057111d55b6ec2b5c8d0e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.2602211618795991,
+      "alignment_seconds": 0.00036764703691005707,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "This was coming to the point, and I thought it a sensible way of expressing himself.",
+        "hotwords": "This, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " This was coming to the point, and I thought it a sensible way of expressing himself.",
+          "start": 0.02,
+          "end": 4.66,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " was",
+              "start": 0.56,
+              "end": 0.74,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " coming",
+              "start": 0.74,
+              "end": 1.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " point,",
+              "start": 1.38,
+              "end": 1.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.02,
+              "end": 2.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 2.22,
+              "end": 2.36,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thought",
+              "start": 2.36,
+              "end": 2.56,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " it",
+              "start": 2.56,
+              "end": 2.68,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " a",
+              "start": 2.68,
+              "end": 2.78,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sensible",
+              "start": 2.78,
+              "end": 3.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " way",
+              "start": 3.16,
+              "end": 3.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 3.6,
+              "end": 3.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " expressing",
+              "start": 3.78,
+              "end": 4.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " himself.",
+              "start": 4.22,
+              "end": 4.66,
+              "probability": 0.916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "was",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "raw": "coming",
+          "start": 0.74,
+          "end": 1.04
+        },
+        {
+          "raw": "to",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "the",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "point,",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "raw": "and",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "raw": "I",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "raw": "thought",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "raw": "it",
+          "start": 2.56,
+          "end": 2.68
+        },
+        {
+          "raw": "a",
+          "start": 2.68,
+          "end": 2.78
+        },
+        {
+          "raw": "sensible",
+          "start": 2.78,
+          "end": 3.16
+        },
+        {
+          "raw": "way",
+          "start": 3.16,
+          "end": 3.6
+        },
+        {
+          "raw": "of",
+          "start": 3.6,
+          "end": 3.78
+        },
+        {
+          "raw": "expressing",
+          "start": 3.78,
+          "end": 4.22
+        },
+        {
+          "raw": "himself.",
+          "start": 4.22,
+          "end": 4.66
+        }
+      ],
+      "expected_tokens": [
+        "This",
+        "was",
+        "coming",
+        "to",
+        "the",
+        "point,",
+        "and",
+        "I",
+        "thought",
+        "it",
+        "a",
+        "sensible",
+        "way",
+        "of",
+        "expressing",
+        "himself."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.56,
+          "end": 0.74,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "coming",
+          "start": 0.74,
+          "end": 1.04,
+          "key": "coming",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "point,",
+          "start": 1.38,
+          "end": 1.66,
+          "key": "point",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.02,
+          "end": 2.22,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.22,
+          "end": 2.36,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 2.36,
+          "end": 2.56,
+          "key": "thought",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.56,
+          "end": 2.68,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.68,
+          "end": 2.78,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sensible",
+          "start": 2.78,
+          "end": 3.16,
+          "key": "sensible",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 3.16,
+          "end": 3.6,
+          "key": "way",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.6,
+          "end": 3.78,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "expressing",
+          "start": 3.78,
+          "end": 4.22,
+          "key": "expressing",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "himself.",
+          "start": 4.22,
+          "end": 4.66,
+          "key": "himself",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "This",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "was",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "text": "coming",
+          "start": 0.74,
+          "end": 1.04
+        },
+        {
+          "text": "to",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "the",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "point,",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "text": "and",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "text": "I",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "text": "thought",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "text": "it",
+          "start": 2.56,
+          "end": 2.68
+        },
+        {
+          "text": "a",
+          "start": 2.68,
+          "end": 2.78
+        },
+        {
+          "text": "sensible",
+          "start": 2.78,
+          "end": 3.16
+        },
+        {
+          "text": "way",
+          "start": 3.16,
+          "end": 3.6
+        },
+        {
+          "text": "of",
+          "start": 3.6,
+          "end": 3.78
+        },
+        {
+          "text": "expressing",
+          "start": 3.78,
+          "end": 4.22
+        },
+        {
+          "text": "himself.",
+          "start": 4.22,
+          "end": 4.66
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26075475895777345
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4bfe886ba307a0cd438c09fa703515895a2a222b8afc12f310fef2619e745fcc",
+  "selected_reasons": []
+}

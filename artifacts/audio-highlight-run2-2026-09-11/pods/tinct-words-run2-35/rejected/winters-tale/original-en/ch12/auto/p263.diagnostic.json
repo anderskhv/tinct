@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "4e9771dd7c7c639165a9ae275e26c485489c1614f565859cbee01846d4305fff",
+  "attempts": [
+    {
+      "asr_seconds": 0.34845404513180256,
+      "alignment_seconds": 0.0004818681627511978,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Autolycus. The fardel there? What's i' th' fardel? Wherefore that box?",
+        "hotwords": "Autolycus, The, What's, Wherefore"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Autolycus, The fardel there? What's i' th' fardel? Wherefore that box?",
+          "start": 0.05,
+          "end": 4.61,
+          "words": [
+            {
+              "text": " Autolycus,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " The",
+              "start": 1.21,
+              "end": 1.31,
+              "probability": 0.0232696533203125
+            },
+            {
+              "text": " fardel",
+              "start": 1.31,
+              "end": 1.61,
+              "probability": 0.17326863606770834
+            },
+            {
+              "text": " there?",
+              "start": 1.61,
+              "end": 1.89,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " What's",
+              "start": 2.39,
+              "end": 2.59,
+              "probability": 0.956298828125
+            },
+            {
+              "text": " i'",
+              "start": 2.59,
+              "end": 2.67,
+              "probability": 0.04498291015625
+            },
+            {
+              "text": " th'",
+              "start": 2.67,
+              "end": 3.01,
+              "probability": 0.6044921875
+            },
+            {
+              "text": " fardel?",
+              "start": 3.05,
+              "end": 3.57,
+              "probability": 0.9191080729166666
+            },
+            {
+              "text": " Wherefore",
+              "start": 3.75,
+              "end": 4.05,
+              "probability": 0.15117645263671875
+            },
+            {
+              "text": " that",
+              "start": 4.05,
+              "end": 4.29,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " box?",
+              "start": 4.29,
+              "end": 4.61,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Autolycus,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "The",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "raw": "fardel",
+          "start": 1.31,
+          "end": 1.61
+        },
+        {
+          "raw": "there?",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "raw": "What's",
+          "start": 2.39,
+          "end": 2.59
+        },
+        {
+          "raw": "i'",
+          "start": 2.59,
+          "end": 2.67
+        },
+        {
+          "raw": "th'",
+          "start": 2.67,
+          "end": 3.01
+        },
+        {
+          "raw": "fardel?",
+          "start": 3.05,
+          "end": 3.57
+        },
+        {
+          "raw": "Wherefore",
+          "start": 3.75,
+          "end": 4.05
+        },
+        {
+          "raw": "that",
+          "start": 4.05,
+          "end": 4.29
+        },
+        {
+          "raw": "box?",
+          "start": 4.29,
+          "end": 4.61
+        }
+      ],
+      "expected_tokens": [
+        "Autolycus.",
+        "The",
+        "fardel",
+        "there?",
+        "What's",
+        "i'",
+        "th'",
+        "fardel?",
+        "Wherefore",
+        "that",
+        "box?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Autolycus,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "autolycus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.21,
+          "end": 1.31,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fardel",
+          "start": 1.31,
+          "end": 1.61,
+          "key": "fardel",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "there?",
+          "start": 1.61,
+          "end": 1.89,
+          "key": "there",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 2.39,
+          "end": 2.59,
+          "key": "whats",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "i'",
+          "start": 2.59,
+          "end": 2.67,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 2.67,
+          "end": 3.01,
+          "key": "th",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fardel?",
+          "start": 3.05,
+          "end": 3.57,
+          "key": "fardel",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Wherefore",
+          "start": 3.75,
+          "end": 4.05,
+          "key": "wherefore",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.05,
+          "end": 4.29,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "box?",
+          "start": 4.29,
+          "end": 4.61,
+          "key": "box",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Autolycus.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "The",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "text": "fardel",
+          "start": 1.31,
+          "end": 1.61
+        },
+        {
+          "text": "there?",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "text": "What's",
+          "start": 2.39,
+          "end": 2.59
+        },
+        {
+          "text": "i'",
+          "start": 2.59,
+          "end": 2.67
+        },
+        {
+          "text": "th'",
+          "start": 2.67,
+          "end": 3.01
+        },
+        {
+          "text": "fardel?",
+          "start": 3.05,
+          "end": 3.57
+        },
+        {
+          "text": "Wherefore",
+          "start": 3.75,
+          "end": 4.05
+        },
+        {
+          "text": "that",
+          "start": 4.05,
+          "end": 4.29
+        },
+        {
+          "text": "box?",
+          "start": 4.29,
+          "end": 4.61
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3491216413676739
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8f42029e00e4e8e407557cd20b1791f5fde7888199f337f0f892d244b3a69af1",
+  "selected_reasons": []
+}

@@ -1,0 +1,572 @@
+{
+  "complete": true,
+  "signature": "39a1137b1940c5a7320b087e8c4d4053d1f7b461d5940222fb9761a0c64e3c50",
+  "attempts": [
+    {
+      "asr_seconds": 0.3242174759507179,
+      "alignment_seconds": 0.00042096618562936783,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 108. There is no such thing as moral phenomena, but only a moral interpretation of phenomena.",
+          "start": 0.02,
+          "end": 6.54,
+          "words": [
+            {
+              "text": " 108.",
+              "start": 0.02,
+              "end": 1.14,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " There",
+              "start": 1.88,
+              "end": 1.94,
+              "probability": 0.90625
+            },
+            {
+              "text": " is",
+              "start": 1.94,
+              "end": 2.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " no",
+              "start": 2.06,
+              "end": 2.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " such",
+              "start": 2.24,
+              "end": 2.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thing",
+              "start": 2.5,
+              "end": 2.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " as",
+              "start": 2.74,
+              "end": 2.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " moral",
+              "start": 2.94,
+              "end": 3.26,
+              "probability": 0.900390625
+            },
+            {
+              "text": " phenomena,",
+              "start": 3.26,
+              "end": 3.7,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " but",
+              "start": 4.24,
+              "end": 4.34,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " only",
+              "start": 4.34,
+              "end": 4.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 4.6,
+              "end": 4.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " moral",
+              "start": 4.78,
+              "end": 5.08,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " interpretation",
+              "start": 5.08,
+              "end": 5.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 5.82,
+              "end": 6.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " phenomena.",
+              "start": 6.2,
+              "end": 6.54,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "108.",
+          "start": 0.02,
+          "end": 1.14
+        },
+        {
+          "raw": "There",
+          "start": 1.88,
+          "end": 1.94
+        },
+        {
+          "raw": "is",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "raw": "no",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "raw": "such",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "raw": "thing",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "raw": "as",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "raw": "moral",
+          "start": 2.94,
+          "end": 3.26
+        },
+        {
+          "raw": "phenomena,",
+          "start": 3.26,
+          "end": 3.7
+        },
+        {
+          "raw": "but",
+          "start": 4.24,
+          "end": 4.34
+        },
+        {
+          "raw": "only",
+          "start": 4.34,
+          "end": 4.6
+        },
+        {
+          "raw": "a",
+          "start": 4.6,
+          "end": 4.78
+        },
+        {
+          "raw": "moral",
+          "start": 4.78,
+          "end": 5.08
+        },
+        {
+          "raw": "interpretation",
+          "start": 5.08,
+          "end": 5.82
+        },
+        {
+          "raw": "of",
+          "start": 5.82,
+          "end": 6.2
+        },
+        {
+          "raw": "phenomena.",
+          "start": 6.2,
+          "end": 6.54
+        }
+      ],
+      "expected_tokens": [
+        "108.",
+        "There",
+        "is",
+        "no",
+        "such",
+        "thing",
+        "as",
+        "moral",
+        "phenomena,",
+        "but",
+        "only",
+        "a",
+        "moral",
+        "interpretation",
+        "of",
+        "phenomena."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "108.",
+          "start": 0.02,
+          "end": 1.14,
+          "key": "108",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.88,
+          "end": 1.94,
+          "key": "there",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.94,
+          "end": 2.06,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.06,
+          "end": 2.24,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 2.24,
+          "end": 2.5,
+          "key": "such",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 2.5,
+          "end": 2.74,
+          "key": "thing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.74,
+          "end": 2.94,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "moral",
+          "start": 2.94,
+          "end": 3.26,
+          "key": "moral",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "phenomena,",
+          "start": 3.26,
+          "end": 3.7,
+          "key": "phenomena",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.24,
+          "end": 4.34,
+          "key": "but",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 4.34,
+          "end": 4.6,
+          "key": "only",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.6,
+          "end": 4.78,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "moral",
+          "start": 4.78,
+          "end": 5.08,
+          "key": "moral",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "interpretation",
+          "start": 5.08,
+          "end": 5.82,
+          "key": "interpretation",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.82,
+          "end": 6.2,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "phenomena.",
+          "start": 6.2,
+          "end": 6.54,
+          "key": "phenomena",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "108.",
+          "start": 0.02,
+          "end": 1.14
+        },
+        {
+          "text": "There",
+          "start": 1.88,
+          "end": 1.94
+        },
+        {
+          "text": "is",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "text": "no",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "text": "such",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "text": "thing",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "text": "as",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "text": "moral",
+          "start": 2.94,
+          "end": 3.26
+        },
+        {
+          "text": "phenomena,",
+          "start": 3.26,
+          "end": 3.7
+        },
+        {
+          "text": "but",
+          "start": 4.24,
+          "end": 4.34
+        },
+        {
+          "text": "only",
+          "start": 4.34,
+          "end": 4.6
+        },
+        {
+          "text": "a",
+          "start": 4.6,
+          "end": 4.78
+        },
+        {
+          "text": "moral",
+          "start": 4.78,
+          "end": 5.08
+        },
+        {
+          "text": "interpretation",
+          "start": 5.08,
+          "end": 5.82
+        },
+        {
+          "text": "of",
+          "start": 5.82,
+          "end": 6.2
+        },
+        {
+          "text": "phenomena.",
+          "start": 6.2,
+          "end": 6.54
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32481131609529257
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "23ce81fe4f9909d65a1a2d07d12d3ae3b37921acbcfa2d642144915ebbc7bd40",
+  "selected_reasons": []
+}

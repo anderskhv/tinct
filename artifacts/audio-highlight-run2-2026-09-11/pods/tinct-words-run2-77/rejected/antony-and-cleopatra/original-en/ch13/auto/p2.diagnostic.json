@@ -1,0 +1,1484 @@
+{
+  "complete": true,
+  "signature": "c0967c97e7701e1ccb8d3e1c278552c40da518254f202ea20f1f4b5a26fc289d",
+  "attempts": [
+    {
+      "asr_seconds": 0.5442062639922369,
+      "alignment_seconds": 0.00044265500036999583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Silius. Noble Ventidius, Whilst yet with Parthian blood thy sword is warm, The fugitive Parthians follow. Spur through Media, Mesopotamia, and the shelters whither The routed fly. So thy grand captain Antony Shall set thee on triumphant chariots, and Put garlands on thy head.",
+        "hotwords": "Silius, Noble, Ventidius, Whilst, Parthian, Parthians, Spur, Media, Mesopotamia, So, Antony, Shall, Put"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Silius, Noble, Ventidius, Whilst yet with Parthian blood thy sword is warm, The fugitive Parthians follow.",
+          "start": 0.08,
+          "end": 7.08,
+          "words": [
+            {
+              "text": " Silius,",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.6318359375
+            },
+            {
+              "text": " Noble,",
+              "start": 1.52,
+              "end": 1.52,
+              "probability": 0.08428955078125
+            },
+            {
+              "text": " Ventidius,",
+              "start": 1.74,
+              "end": 2.24,
+              "probability": 0.7234700520833334
+            },
+            {
+              "text": " Whilst",
+              "start": 2.72,
+              "end": 2.78,
+              "probability": 0.205078125
+            },
+            {
+              "text": " yet",
+              "start": 2.78,
+              "end": 3.04,
+              "probability": 0.98046875
+            },
+            {
+              "text": " with",
+              "start": 3.04,
+              "end": 3.22,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Parthian",
+              "start": 3.22,
+              "end": 3.72,
+              "probability": 0.9607747395833334
+            },
+            {
+              "text": " blood",
+              "start": 3.72,
+              "end": 4.02,
+              "probability": 0.990234375
+            },
+            {
+              "text": " thy",
+              "start": 4.02,
+              "end": 4.24,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " sword",
+              "start": 4.24,
+              "end": 4.58,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " is",
+              "start": 4.58,
+              "end": 4.76,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " warm,",
+              "start": 4.76,
+              "end": 5.16,
+              "probability": 0.994140625
+            },
+            {
+              "text": " The",
+              "start": 5.56,
+              "end": 5.72,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " fugitive",
+              "start": 5.72,
+              "end": 6.02,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " Parthians",
+              "start": 6.02,
+              "end": 6.64,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " follow.",
+              "start": 6.64,
+              "end": 7.08,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " Spur through Media, Mesopotamia, and the shelters whither The routed fly.",
+          "start": 8.06,
+          "end": 12.0,
+          "words": [
+            {
+              "text": " Spur",
+              "start": 8.06,
+              "end": 8.08,
+              "probability": 0.410888671875
+            },
+            {
+              "text": " through",
+              "start": 8.08,
+              "end": 8.38,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Media,",
+              "start": 8.38,
+              "end": 8.8,
+              "probability": 0.63623046875
+            },
+            {
+              "text": " Mesopotamia,",
+              "start": 9.12,
+              "end": 9.8,
+              "probability": 0.9876302083333334
+            },
+            {
+              "text": " and",
+              "start": 10.1,
+              "end": 10.22,
+              "probability": 0.12353515625
+            },
+            {
+              "text": " the",
+              "start": 10.22,
+              "end": 10.36,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " shelters",
+              "start": 10.36,
+              "end": 10.72,
+              "probability": 0.4931640625
+            },
+            {
+              "text": " whither",
+              "start": 10.72,
+              "end": 11.1,
+              "probability": 0.684326171875
+            },
+            {
+              "text": " The",
+              "start": 11.1,
+              "end": 11.34,
+              "probability": 0.2369384765625
+            },
+            {
+              "text": " routed",
+              "start": 11.34,
+              "end": 11.6,
+              "probability": 0.004871368408203125
+            },
+            {
+              "text": " fly.",
+              "start": 11.6,
+              "end": 12.0,
+              "probability": 0.77783203125
+            }
+          ]
+        },
+        {
+          "text": " So thy grand captain Antony Shall set thee on triumphant chariots, and Put garlands on thy head.",
+          "start": 12.74,
+          "end": 18.02,
+          "words": [
+            {
+              "text": " So",
+              "start": 12.74,
+              "end": 12.92,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " thy",
+              "start": 12.92,
+              "end": 13.06,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " grand",
+              "start": 13.06,
+              "end": 13.4,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " captain",
+              "start": 13.4,
+              "end": 13.86,
+              "probability": 0.291748046875
+            },
+            {
+              "text": " Antony",
+              "start": 13.86,
+              "end": 14.36,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " Shall",
+              "start": 14.36,
+              "end": 14.52,
+              "probability": 0.352783203125
+            },
+            {
+              "text": " set",
+              "start": 14.52,
+              "end": 14.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thee",
+              "start": 14.78,
+              "end": 14.96,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " on",
+              "start": 14.96,
+              "end": 15.16,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " triumphant",
+              "start": 15.16,
+              "end": 15.62,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " chariots,",
+              "start": 15.62,
+              "end": 16.22,
+              "probability": 0.970458984375
+            },
+            {
+              "text": " and",
+              "start": 16.6,
+              "end": 16.76,
+              "probability": 0.186279296875
+            },
+            {
+              "text": " Put",
+              "start": 16.76,
+              "end": 16.92,
+              "probability": 0.08380126953125
+            },
+            {
+              "text": " garlands",
+              "start": 16.92,
+              "end": 17.38,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " on",
+              "start": 17.38,
+              "end": 17.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thy",
+              "start": 17.6,
+              "end": 17.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " head.",
+              "start": 17.72,
+              "end": 18.02,
+              "probability": 0.96533203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Silius,",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "Noble,",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "raw": "Ventidius,",
+          "start": 1.74,
+          "end": 2.24
+        },
+        {
+          "raw": "Whilst",
+          "start": 2.72,
+          "end": 2.78
+        },
+        {
+          "raw": "yet",
+          "start": 2.78,
+          "end": 3.04
+        },
+        {
+          "raw": "with",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "raw": "Parthian",
+          "start": 3.22,
+          "end": 3.72
+        },
+        {
+          "raw": "blood",
+          "start": 3.72,
+          "end": 4.02
+        },
+        {
+          "raw": "thy",
+          "start": 4.02,
+          "end": 4.24
+        },
+        {
+          "raw": "sword",
+          "start": 4.24,
+          "end": 4.58
+        },
+        {
+          "raw": "is",
+          "start": 4.58,
+          "end": 4.76
+        },
+        {
+          "raw": "warm,",
+          "start": 4.76,
+          "end": 5.16
+        },
+        {
+          "raw": "The",
+          "start": 5.56,
+          "end": 5.72
+        },
+        {
+          "raw": "fugitive",
+          "start": 5.72,
+          "end": 6.02
+        },
+        {
+          "raw": "Parthians",
+          "start": 6.02,
+          "end": 6.64
+        },
+        {
+          "raw": "follow.",
+          "start": 6.64,
+          "end": 7.08
+        },
+        {
+          "raw": "Spur",
+          "start": 8.06,
+          "end": 8.08
+        },
+        {
+          "raw": "through",
+          "start": 8.08,
+          "end": 8.38
+        },
+        {
+          "raw": "Media,",
+          "start": 8.38,
+          "end": 8.8
+        },
+        {
+          "raw": "Mesopotamia,",
+          "start": 9.12,
+          "end": 9.8
+        },
+        {
+          "raw": "and",
+          "start": 10.1,
+          "end": 10.22
+        },
+        {
+          "raw": "the",
+          "start": 10.22,
+          "end": 10.36
+        },
+        {
+          "raw": "shelters",
+          "start": 10.36,
+          "end": 10.72
+        },
+        {
+          "raw": "whither",
+          "start": 10.72,
+          "end": 11.1
+        },
+        {
+          "raw": "The",
+          "start": 11.1,
+          "end": 11.34
+        },
+        {
+          "raw": "routed",
+          "start": 11.34,
+          "end": 11.6
+        },
+        {
+          "raw": "fly.",
+          "start": 11.6,
+          "end": 12.0
+        },
+        {
+          "raw": "So",
+          "start": 12.74,
+          "end": 12.92
+        },
+        {
+          "raw": "thy",
+          "start": 12.92,
+          "end": 13.06
+        },
+        {
+          "raw": "grand",
+          "start": 13.06,
+          "end": 13.4
+        },
+        {
+          "raw": "captain",
+          "start": 13.4,
+          "end": 13.86
+        },
+        {
+          "raw": "Antony",
+          "start": 13.86,
+          "end": 14.36
+        },
+        {
+          "raw": "Shall",
+          "start": 14.36,
+          "end": 14.52
+        },
+        {
+          "raw": "set",
+          "start": 14.52,
+          "end": 14.78
+        },
+        {
+          "raw": "thee",
+          "start": 14.78,
+          "end": 14.96
+        },
+        {
+          "raw": "on",
+          "start": 14.96,
+          "end": 15.16
+        },
+        {
+          "raw": "triumphant",
+          "start": 15.16,
+          "end": 15.62
+        },
+        {
+          "raw": "chariots,",
+          "start": 15.62,
+          "end": 16.22
+        },
+        {
+          "raw": "and",
+          "start": 16.6,
+          "end": 16.76
+        },
+        {
+          "raw": "Put",
+          "start": 16.76,
+          "end": 16.92
+        },
+        {
+          "raw": "garlands",
+          "start": 16.92,
+          "end": 17.38
+        },
+        {
+          "raw": "on",
+          "start": 17.38,
+          "end": 17.6
+        },
+        {
+          "raw": "thy",
+          "start": 17.6,
+          "end": 17.72
+        },
+        {
+          "raw": "head.",
+          "start": 17.72,
+          "end": 18.02
+        }
+      ],
+      "expected_tokens": [
+        "Silius.",
+        "Noble",
+        "Ventidius,",
+        "Whilst",
+        "yet",
+        "with",
+        "Parthian",
+        "blood",
+        "thy",
+        "sword",
+        "is",
+        "warm,",
+        "The",
+        "fugitive",
+        "Parthians",
+        "follow.",
+        "Spur",
+        "through",
+        "Media,",
+        "Mesopotamia,",
+        "and",
+        "the",
+        "shelters",
+        "whither",
+        "The",
+        "routed",
+        "fly.",
+        "So",
+        "thy",
+        "grand",
+        "captain",
+        "Antony",
+        "Shall",
+        "set",
+        "thee",
+        "on",
+        "triumphant",
+        "chariots,",
+        "and",
+        "Put",
+        "garlands",
+        "on",
+        "thy",
+        "head."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          44,
+          0,
+          44
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Silius,",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "silius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Noble,",
+          "start": 1.52,
+          "end": 1.52,
+          "key": "noble",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ventidius,",
+          "start": 1.74,
+          "end": 2.24,
+          "key": "ventidius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Whilst",
+          "start": 2.72,
+          "end": 2.78,
+          "key": "whilst",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 2.78,
+          "end": 3.04,
+          "key": "yet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.04,
+          "end": 3.22,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Parthian",
+          "start": 3.22,
+          "end": 3.72,
+          "key": "parthian",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "blood",
+          "start": 3.72,
+          "end": 4.02,
+          "key": "blood",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 4.02,
+          "end": 4.24,
+          "key": "thy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sword",
+          "start": 4.24,
+          "end": 4.58,
+          "key": "sword",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.58,
+          "end": 4.76,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "warm,",
+          "start": 4.76,
+          "end": 5.16,
+          "key": "warm",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 5.56,
+          "end": 5.72,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fugitive",
+          "start": 5.72,
+          "end": 6.02,
+          "key": "fugitive",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Parthians",
+          "start": 6.02,
+          "end": 6.64,
+          "key": "parthians",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "follow.",
+          "start": 6.64,
+          "end": 7.08,
+          "key": "follow",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Spur",
+          "start": 8.06,
+          "end": 8.08,
+          "key": "spur",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 8.08,
+          "end": 8.38,
+          "key": "through",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Media,",
+          "start": 8.38,
+          "end": 8.8,
+          "key": "media",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Mesopotamia,",
+          "start": 9.12,
+          "end": 9.8,
+          "key": "mesopotamia",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.1,
+          "end": 10.22,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.22,
+          "end": 10.36,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "shelters",
+          "start": 10.36,
+          "end": 10.72,
+          "key": "shelters",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "whither",
+          "start": 10.72,
+          "end": 11.1,
+          "key": "whither",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 11.1,
+          "end": 11.34,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "routed",
+          "start": 11.34,
+          "end": 11.6,
+          "key": "routed",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "fly.",
+          "start": 11.6,
+          "end": 12.0,
+          "key": "fly",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 12.74,
+          "end": 12.92,
+          "key": "so",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 12.92,
+          "end": 13.06,
+          "key": "thy",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "grand",
+          "start": 13.06,
+          "end": 13.4,
+          "key": "grand",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "captain",
+          "start": 13.4,
+          "end": 13.86,
+          "key": "captain",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Antony",
+          "start": 13.86,
+          "end": 14.36,
+          "key": "antony",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 14.36,
+          "end": 14.52,
+          "key": "shall",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 14.52,
+          "end": 14.78,
+          "key": "set",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 14.78,
+          "end": 14.96,
+          "key": "thee",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 14.96,
+          "end": 15.16,
+          "key": "on",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "triumphant",
+          "start": 15.16,
+          "end": 15.62,
+          "key": "triumphant",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "chariots,",
+          "start": 15.62,
+          "end": 16.22,
+          "key": "chariots",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.6,
+          "end": 16.76,
+          "key": "and",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Put",
+          "start": 16.76,
+          "end": 16.92,
+          "key": "put",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "garlands",
+          "start": 16.92,
+          "end": 17.38,
+          "key": "garlands",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 17.38,
+          "end": 17.6,
+          "key": "on",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 17.6,
+          "end": 17.72,
+          "key": "thy",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "head.",
+          "start": 17.72,
+          "end": 18.02,
+          "key": "head",
+          "pieces": [
+            43
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Silius.",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "text": "Noble",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "text": "Ventidius,",
+          "start": 1.74,
+          "end": 2.24
+        },
+        {
+          "text": "Whilst",
+          "start": 2.72,
+          "end": 2.78
+        },
+        {
+          "text": "yet",
+          "start": 2.78,
+          "end": 3.04
+        },
+        {
+          "text": "with",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "text": "Parthian",
+          "start": 3.22,
+          "end": 3.72
+        },
+        {
+          "text": "blood",
+          "start": 3.72,
+          "end": 4.02
+        },
+        {
+          "text": "thy",
+          "start": 4.02,
+          "end": 4.24
+        },
+        {
+          "text": "sword",
+          "start": 4.24,
+          "end": 4.58
+        },
+        {
+          "text": "is",
+          "start": 4.58,
+          "end": 4.76
+        },
+        {
+          "text": "warm,",
+          "start": 4.76,
+          "end": 5.16
+        },
+        {
+          "text": "The",
+          "start": 5.56,
+          "end": 5.72
+        },
+        {
+          "text": "fugitive",
+          "start": 5.72,
+          "end": 6.02
+        },
+        {
+          "text": "Parthians",
+          "start": 6.02,
+          "end": 6.64
+        },
+        {
+          "text": "follow.",
+          "start": 6.64,
+          "end": 7.08
+        },
+        {
+          "text": "Spur",
+          "start": 8.06,
+          "end": 8.08
+        },
+        {
+          "text": "through",
+          "start": 8.08,
+          "end": 8.38
+        },
+        {
+          "text": "Media,",
+          "start": 8.38,
+          "end": 8.8
+        },
+        {
+          "text": "Mesopotamia,",
+          "start": 9.12,
+          "end": 9.8
+        },
+        {
+          "text": "and",
+          "start": 10.1,
+          "end": 10.22
+        },
+        {
+          "text": "the",
+          "start": 10.22,
+          "end": 10.36
+        },
+        {
+          "text": "shelters",
+          "start": 10.36,
+          "end": 10.72
+        },
+        {
+          "text": "whither",
+          "start": 10.72,
+          "end": 11.1
+        },
+        {
+          "text": "The",
+          "start": 11.1,
+          "end": 11.34
+        },
+        {
+          "text": "routed",
+          "start": 11.34,
+          "end": 11.6
+        },
+        {
+          "text": "fly.",
+          "start": 11.6,
+          "end": 12.0
+        },
+        {
+          "text": "So",
+          "start": 12.74,
+          "end": 12.92
+        },
+        {
+          "text": "thy",
+          "start": 12.92,
+          "end": 13.06
+        },
+        {
+          "text": "grand",
+          "start": 13.06,
+          "end": 13.4
+        },
+        {
+          "text": "captain",
+          "start": 13.4,
+          "end": 13.86
+        },
+        {
+          "text": "Antony",
+          "start": 13.86,
+          "end": 14.36
+        },
+        {
+          "text": "Shall",
+          "start": 14.36,
+          "end": 14.52
+        },
+        {
+          "text": "set",
+          "start": 14.52,
+          "end": 14.78
+        },
+        {
+          "text": "thee",
+          "start": 14.78,
+          "end": 14.96
+        },
+        {
+          "text": "on",
+          "start": 14.96,
+          "end": 15.16
+        },
+        {
+          "text": "triumphant",
+          "start": 15.16,
+          "end": 15.62
+        },
+        {
+          "text": "chariots,",
+          "start": 15.62,
+          "end": 16.22
+        },
+        {
+          "text": "and",
+          "start": 16.6,
+          "end": 16.76
+        },
+        {
+          "text": "Put",
+          "start": 16.76,
+          "end": 16.92
+        },
+        {
+          "text": "garlands",
+          "start": 16.92,
+          "end": 17.38
+        },
+        {
+          "text": "on",
+          "start": 17.38,
+          "end": 17.6
+        },
+        {
+          "text": "thy",
+          "start": 17.6,
+          "end": 17.72
+        },
+        {
+          "text": "head.",
+          "start": 17.72,
+          "end": 18.02
+        }
+      ],
+      "stats": {
+        "expected_words": 44,
+        "heard_words": 44,
+        "matched_words": 44
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5448325760080479
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b50a7bf4a941f34e0b65ddaa0fd51656ebb0fa2101236fa82fb6c6a12d09cd15",
+  "selected_reasons": []
+}

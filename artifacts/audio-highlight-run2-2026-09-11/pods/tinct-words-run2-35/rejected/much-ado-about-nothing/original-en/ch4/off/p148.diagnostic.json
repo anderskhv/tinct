@@ -1,0 +1,523 @@
+{
+  "complete": true,
+  "signature": "89f09c3b47aa9f5ccf0654c70e1033974abde97403fee1400c0b2e7c01ca3f33",
+  "attempts": [
+    {
+      "asr_seconds": 0.22566073201596737,
+      "alignment_seconds": 0.0004166457802057266,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leonardo, my lord, I am for you, though it cost me ten nights' watchings.",
+          "start": 0.08,
+          "end": 4.56,
+          "words": [
+            {
+              "text": " Leonardo,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.379638671875
+            },
+            {
+              "text": " my",
+              "start": 1.36,
+              "end": 1.52,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " lord,",
+              "start": 1.52,
+              "end": 1.76,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " I",
+              "start": 1.96,
+              "end": 2.0,
+              "probability": 0.982421875
+            },
+            {
+              "text": " am",
+              "start": 2.0,
+              "end": 2.14,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " for",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you,",
+              "start": 2.3,
+              "end": 2.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " though",
+              "start": 2.8,
+              "end": 2.9,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " it",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " cost",
+              "start": 3.04,
+              "end": 3.24,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " me",
+              "start": 3.24,
+              "end": 3.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ten",
+              "start": 3.48,
+              "end": 3.7,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " nights'",
+              "start": 3.7,
+              "end": 4.0,
+              "probability": 0.9765625
+            },
+            {
+              "text": " watchings.",
+              "start": 4.08,
+              "end": 4.56,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "my",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "raw": "lord,",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "raw": "I",
+          "start": 1.96,
+          "end": 2.0
+        },
+        {
+          "raw": "am",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "raw": "for",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "you,",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "raw": "though",
+          "start": 2.8,
+          "end": 2.9
+        },
+        {
+          "raw": "it",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "cost",
+          "start": 3.04,
+          "end": 3.24
+        },
+        {
+          "raw": "me",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "raw": "ten",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "raw": "nights'",
+          "start": 3.7,
+          "end": 4.0
+        },
+        {
+          "raw": "watchings.",
+          "start": 4.08,
+          "end": 4.56
+        }
+      ],
+      "expected_tokens": [
+        "Leonato.",
+        "My",
+        "lord,",
+        "I",
+        "am",
+        "for",
+        "you,",
+        "though",
+        "it",
+        "cost",
+        "me",
+        "ten",
+        "nights'",
+        "watchings."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          14,
+          1,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "leonardo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.36,
+          "end": 1.52,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.52,
+          "end": 1.76,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.96,
+          "end": 2.0,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.0,
+          "end": 2.14,
+          "key": "am",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.14,
+          "end": 2.3,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 2.3,
+          "end": 2.5,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 2.8,
+          "end": 2.9,
+          "key": "though",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.9,
+          "end": 3.04,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "cost",
+          "start": 3.04,
+          "end": 3.24,
+          "key": "cost",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.24,
+          "end": 3.48,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ten",
+          "start": 3.48,
+          "end": 3.7,
+          "key": "ten",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "nights'",
+          "start": 3.7,
+          "end": 4.0,
+          "key": "nights",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "watchings.",
+          "start": 4.08,
+          "end": 4.56,
+          "key": "watchings",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "text": "My",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "text": "lord,",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "text": "I",
+          "start": 1.96,
+          "end": 2.0
+        },
+        {
+          "text": "am",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "text": "for",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "you,",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "text": "though",
+          "start": 2.8,
+          "end": 2.9
+        },
+        {
+          "text": "it",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "cost",
+          "start": 3.04,
+          "end": 3.24
+        },
+        {
+          "text": "me",
+          "start": 3.24,
+          "end": 3.48
+        },
+        {
+          "text": "ten",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "text": "nights'",
+          "start": 3.7,
+          "end": 4.0
+        },
+        {
+          "text": "watchings.",
+          "start": 4.08,
+          "end": 4.56
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.2262353077530861
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "772ea78f26fed0734bdd80b004eb1a74c398ab921b77f561ee7ea350da200510",
+  "selected_reasons": []
+}

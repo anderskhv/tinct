@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "1999f1a1c7b549acaa4d3091992bd86858b879a035a267e27587077439359cf0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2755146040581167,
+      "alignment_seconds": 0.00022127665579319,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Emilia. Alas, what does this gentleman conceive? How do you, madam? How do you, my good lady?",
+        "hotwords": "Emilia, Alas, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia, Alas, what does this gentleman conceive? How do you, madam? How do you, my good lady?",
+          "start": 0.49,
+          "end": 5.75,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.49,
+              "end": 0.81,
+              "probability": 0.534332275390625
+            },
+            {
+              "text": " Alas,",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.10028076171875
+            },
+            {
+              "text": " what",
+              "start": 1.77,
+              "end": 1.83,
+              "probability": 0.69189453125
+            },
+            {
+              "text": " does",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " this",
+              "start": 1.95,
+              "end": 2.15,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " gentleman",
+              "start": 2.15,
+              "end": 2.49,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " conceive?",
+              "start": 2.49,
+              "end": 3.01,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " How",
+              "start": 3.65,
+              "end": 3.75,
+              "probability": 0.955078125
+            },
+            {
+              "text": " do",
+              "start": 3.75,
+              "end": 3.85,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " you,",
+              "start": 3.85,
+              "end": 3.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " madam?",
+              "start": 4.03,
+              "end": 4.37,
+              "probability": 0.76025390625
+            },
+            {
+              "text": " How",
+              "start": 4.83,
+              "end": 4.87,
+              "probability": 0.966796875
+            },
+            {
+              "text": " do",
+              "start": 4.87,
+              "end": 5.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you,",
+              "start": 5.03,
+              "end": 5.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " my",
+              "start": 5.23,
+              "end": 5.31,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " good",
+              "start": 5.31,
+              "end": 5.47,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " lady?",
+              "start": 5.47,
+              "end": 5.75,
+              "probability": 0.951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.49,
+          "end": 0.81
+        },
+        {
+          "raw": "Alas,",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "what",
+          "start": 1.77,
+          "end": 1.83
+        },
+        {
+          "raw": "does",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "this",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "raw": "gentleman",
+          "start": 2.15,
+          "end": 2.49
+        },
+        {
+          "raw": "conceive?",
+          "start": 2.49,
+          "end": 3.01
+        },
+        {
+          "raw": "How",
+          "start": 3.65,
+          "end": 3.75
+        },
+        {
+          "raw": "do",
+          "start": 3.75,
+          "end": 3.85
+        },
+        {
+          "raw": "you,",
+          "start": 3.85,
+          "end": 3.95
+        },
+        {
+          "raw": "madam?",
+          "start": 4.03,
+          "end": 4.37
+        },
+        {
+          "raw": "How",
+          "start": 4.83,
+          "end": 4.87
+        },
+        {
+          "raw": "do",
+          "start": 4.87,
+          "end": 5.03
+        },
+        {
+          "raw": "you,",
+          "start": 5.03,
+          "end": 5.15
+        },
+        {
+          "raw": "my",
+          "start": 5.23,
+          "end": 5.31
+        },
+        {
+          "raw": "good",
+          "start": 5.31,
+          "end": 5.47
+        },
+        {
+          "raw": "lady?",
+          "start": 5.47,
+          "end": 5.75
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "Alas,",
+        "what",
+        "does",
+        "this",
+        "gentleman",
+        "conceive?",
+        "How",
+        "do",
+        "you,",
+        "madam?",
+        "How",
+        "do",
+        "you,",
+        "my",
+        "good",
+        "lady?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.49,
+          "end": 0.81,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alas,",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "alas",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.77,
+          "end": 1.83,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "does",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.95,
+          "end": 2.15,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gentleman",
+          "start": 2.15,
+          "end": 2.49,
+          "key": "gentleman",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "conceive?",
+          "start": 2.49,
+          "end": 3.01,
+          "key": "conceive",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 3.65,
+          "end": 3.75,
+          "key": "how",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.75,
+          "end": 3.85,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 3.85,
+          "end": 3.95,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "madam?",
+          "start": 4.03,
+          "end": 4.37,
+          "key": "madam",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 4.83,
+          "end": 4.87,
+          "key": "how",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 4.87,
+          "end": 5.03,
+          "key": "do",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 5.03,
+          "end": 5.15,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.23,
+          "end": 5.31,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 5.31,
+          "end": 5.47,
+          "key": "good",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "lady?",
+          "start": 5.47,
+          "end": 5.75,
+          "key": "lady",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.49,
+          "end": 0.81
+        },
+        {
+          "text": "Alas,",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "text": "what",
+          "start": 1.77,
+          "end": 1.83
+        },
+        {
+          "text": "does",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "this",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "text": "gentleman",
+          "start": 2.15,
+          "end": 2.49
+        },
+        {
+          "text": "conceive?",
+          "start": 2.49,
+          "end": 3.01
+        },
+        {
+          "text": "How",
+          "start": 3.65,
+          "end": 3.75
+        },
+        {
+          "text": "do",
+          "start": 3.75,
+          "end": 3.85
+        },
+        {
+          "text": "you,",
+          "start": 3.85,
+          "end": 3.95
+        },
+        {
+          "text": "madam?",
+          "start": 4.03,
+          "end": 4.37
+        },
+        {
+          "text": "How",
+          "start": 4.83,
+          "end": 4.87
+        },
+        {
+          "text": "do",
+          "start": 4.87,
+          "end": 5.03
+        },
+        {
+          "text": "you,",
+          "start": 5.03,
+          "end": 5.15
+        },
+        {
+          "text": "my",
+          "start": 5.23,
+          "end": 5.31
+        },
+        {
+          "text": "good",
+          "start": 5.31,
+          "end": 5.47
+        },
+        {
+          "text": "lady?",
+          "start": 5.47,
+          "end": 5.75
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27582253981381655
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "165b7f4684a4b6118f6be3618d57104e1c22745e579b2dac6be82ea1934160a7",
+  "selected_reasons": []
+}

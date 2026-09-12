@@ -1,0 +1,515 @@
+{
+  "complete": true,
+  "signature": "97f538bf8c31167210c2dfcf7c96089260b13346c35d4736970bc691c03be7c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.2517196759581566,
+      "alignment_seconds": 0.0003635650500655174,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ah, well, says Alf, trying to pass it off.",
+          "start": 0.08,
+          "end": 2.56,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.2384033203125
+            },
+            {
+              "text": " well,",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " says",
+              "start": 1.12,
+              "end": 1.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Alf,",
+              "start": 1.22,
+              "end": 1.52,
+              "probability": 0.69140625
+            },
+            {
+              "text": " trying",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " pass",
+              "start": 1.98,
+              "end": 2.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 2.18,
+              "end": 2.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " off.",
+              "start": 2.32,
+              "end": 2.56,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " He's over all his troubles.",
+          "start": 3.06,
+          "end": 4.1,
+          "words": [
+            {
+              "text": " He's",
+              "start": 3.06,
+              "end": 3.2,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " over",
+              "start": 3.2,
+              "end": 3.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " all",
+              "start": 3.42,
+              "end": 3.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 3.62,
+              "end": 3.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " troubles.",
+              "start": 3.78,
+              "end": 4.1,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "well,",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "says",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "raw": "Alf,",
+          "start": 1.22,
+          "end": 1.52
+        },
+        {
+          "raw": "trying",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "to",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "pass",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "raw": "it",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "raw": "off.",
+          "start": 2.32,
+          "end": 2.56
+        },
+        {
+          "raw": "He's",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "raw": "over",
+          "start": 3.2,
+          "end": 3.42
+        },
+        {
+          "raw": "all",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "raw": "his",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "raw": "troubles.",
+          "start": 3.78,
+          "end": 4.1
+        }
+      ],
+      "expected_tokens": [
+        "—Ah,",
+        "well,",
+        "says",
+        "Alf,",
+        "trying",
+        "to",
+        "pass",
+        "it",
+        "off.",
+        "He's",
+        "over",
+        "all",
+        "his",
+        "troubles."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 0.7,
+          "end": 0.9,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.12,
+          "end": 1.22,
+          "key": "says",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Alf,",
+          "start": 1.22,
+          "end": 1.52,
+          "key": "alf",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "trying",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "trying",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.84,
+          "end": 1.98,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pass",
+          "start": 1.98,
+          "end": 2.18,
+          "key": "pass",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.18,
+          "end": 2.32,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 2.32,
+          "end": 2.56,
+          "key": "off",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 3.06,
+          "end": 3.2,
+          "key": "hes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 3.2,
+          "end": 3.42,
+          "key": "over",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.42,
+          "end": 3.62,
+          "key": "all",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.62,
+          "end": 3.78,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "troubles.",
+          "start": 3.78,
+          "end": 4.1,
+          "key": "troubles",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Ah,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "well,",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "says",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "text": "Alf,",
+          "start": 1.22,
+          "end": 1.52
+        },
+        {
+          "text": "trying",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "to",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "pass",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "text": "it",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "text": "off.",
+          "start": 2.32,
+          "end": 2.56
+        },
+        {
+          "text": "He's",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "text": "over",
+          "start": 3.2,
+          "end": 3.42
+        },
+        {
+          "text": "all",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "text": "his",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "text": "troubles.",
+          "start": 3.78,
+          "end": 4.1
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2522258320823312
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5f157539341bdaf58c4a63be7b4cb1c8e99fa3bf0b4f35a6c54afd3c9f62d9e8",
+  "selected_reasons": []
+}

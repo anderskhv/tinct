@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "fa8623c121ffab0c1162c149a24b5277b72ab116664e7101f803ec333f1fd067",
+  "attempts": [
+    {
+      "asr_seconds": 0.08532119914889336,
+      "alignment_seconds": 8.417665958404541e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Oswald. Out, dunghill!",
+        "hotwords": "Oswald, Out"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oswald, Out, dunghill!",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Oswald,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.3955078125
+            },
+            {
+              "text": " Out,",
+              "start": 1.25,
+              "end": 1.33,
+              "probability": 0.0521240234375
+            },
+            {
+              "text": " dunghill!",
+              "start": 1.51,
+              "end": 1.85,
+              "probability": 0.60833740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Out,",
+          "start": 1.25,
+          "end": 1.33
+        },
+        {
+          "raw": "dunghill!",
+          "start": 1.51,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "Oswald.",
+        "Out,",
+        "dunghill!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "oswald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Out,",
+          "start": 1.25,
+          "end": 1.33,
+          "key": "out",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dunghill!",
+          "start": 1.51,
+          "end": 1.85,
+          "key": "dunghill",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oswald.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Out,",
+          "start": 1.25,
+          "end": 1.33
+        },
+        {
+          "text": "dunghill!",
+          "start": 1.51,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08543286100029945
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b6235fc2f3c6e578408d257ba3f3e6286c402b36c6730450a96b0d21533e99ab",
+  "selected_reasons": []
+}

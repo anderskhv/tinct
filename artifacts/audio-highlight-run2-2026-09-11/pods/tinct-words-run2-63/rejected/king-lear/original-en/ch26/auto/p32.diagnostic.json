@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "8162b7874a317aa8d648aae6d76f1fa5b89e736b950923e9c1c107478a7cb748",
+  "attempts": [
+    {
+      "asr_seconds": 0.12890036962926388,
+      "alignment_seconds": 0.0001205839216709137,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Regan. Sick, O, sick!",
+        "hotwords": "Regan, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Regan, Sick, O, sick!",
+          "start": 0.52,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " Regan,",
+              "start": 0.52,
+              "end": 0.8,
+              "probability": 0.6744384765625
+            },
+            {
+              "text": " Sick,",
+              "start": 1.16,
+              "end": 1.28,
+              "probability": 0.15869140625
+            },
+            {
+              "text": " O,",
+              "start": 1.4,
+              "end": 1.46,
+              "probability": 0.14892578125
+            },
+            {
+              "text": " sick!",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.052703857421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Regan,",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "raw": "Sick,",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "raw": "O,",
+          "start": 1.4,
+          "end": 1.46
+        },
+        {
+          "raw": "sick!",
+          "start": 1.62,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "Regan.",
+        "Sick,",
+        "O,",
+        "sick!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Regan,",
+          "start": 0.52,
+          "end": 0.8,
+          "key": "regan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sick,",
+          "start": 1.16,
+          "end": 1.28,
+          "key": "sick",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.4,
+          "end": 1.46,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sick!",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "sick",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Regan.",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "text": "Sick,",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "text": "O,",
+          "start": 1.4,
+          "end": 1.46
+        },
+        {
+          "text": "sick!",
+          "start": 1.62,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1290601510554552
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d1544786dfe02854674fdd1e21c862e0d7c2ea9528b7b68392a298fb852e7755",
+  "selected_reasons": []
+}

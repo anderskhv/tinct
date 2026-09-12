@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "5e5b06fa8e49e501341d6ec9dcee3306b65073b3db1fb0977f50770387536dca",
+  "attempts": [
+    {
+      "asr_seconds": 0.07212679274380207,
+      "alignment_seconds": 9.310618042945862e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Have you the consent of your father and mother?\" asked Ingmar.",
+        "hotwords": "Have, Ingmar"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Have you the consent of your father and mother?\" asked Ingmar.",
+          "start": 0.05,
+          "end": 3.31,
+          "words": [
+            {
+              "text": " Have",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.65380859375
+            },
+            {
+              "text": " you",
+              "start": 0.55,
+              "end": 0.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 0.65,
+              "end": 0.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " consent",
+              "start": 0.77,
+              "end": 1.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 1.05,
+              "end": 1.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 1.23,
+              "end": 1.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " father",
+              "start": 1.33,
+              "end": 1.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " mother?\"",
+              "start": 1.79,
+              "end": 2.77,
+              "probability": 0.5728759765625
+            },
+            {
+              "text": " asked",
+              "start": 2.77,
+              "end": 2.83,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " Ingmar.",
+              "start": 2.83,
+              "end": 3.31,
+              "probability": 0.930419921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Have",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "you",
+          "start": 0.55,
+          "end": 0.65
+        },
+        {
+          "raw": "the",
+          "start": 0.65,
+          "end": 0.77
+        },
+        {
+          "raw": "consent",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "raw": "of",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "raw": "your",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "raw": "father",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "raw": "and",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "mother?\"",
+          "start": 1.79,
+          "end": 2.77
+        },
+        {
+          "raw": "asked",
+          "start": 2.77,
+          "end": 2.83
+        },
+        {
+          "raw": "Ingmar.",
+          "start": 2.83,
+          "end": 3.31
+        }
+      ],
+      "expected_tokens": [
+        "\"Have",
+        "you",
+        "the",
+        "consent",
+        "of",
+        "your",
+        "father",
+        "and",
+        "mother?\"",
+        "asked",
+        "Ingmar."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Have",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "have",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.55,
+          "end": 0.65,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.65,
+          "end": 0.77,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "consent",
+          "start": 0.77,
+          "end": 1.05,
+          "key": "consent",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.05,
+          "end": 1.23,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.23,
+          "end": 1.33,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 1.33,
+          "end": 1.61,
+          "key": "father",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mother?\"",
+          "start": 1.79,
+          "end": 2.77,
+          "key": "mother",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.77,
+          "end": 2.83,
+          "key": "asked",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Ingmar.",
+          "start": 2.83,
+          "end": 3.31,
+          "key": "ingmar",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Have",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "you",
+          "start": 0.55,
+          "end": 0.65
+        },
+        {
+          "text": "the",
+          "start": 0.65,
+          "end": 0.77
+        },
+        {
+          "text": "consent",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "text": "of",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "text": "your",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "text": "father",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "text": "and",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "mother?\"",
+          "start": 1.79,
+          "end": 2.77
+        },
+        {
+          "text": "asked",
+          "start": 2.77,
+          "end": 2.83
+        },
+        {
+          "text": "Ingmar.",
+          "start": 2.83,
+          "end": 3.31
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07225547172129154
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2b056cd69422c7266632e8526c5d3813dec298bfc98006400f194c5779db012d",
+  "selected_reasons": []
+}

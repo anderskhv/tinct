@@ -1,0 +1,757 @@
+{
+  "complete": true,
+  "signature": "1b42e26f321f24ce3d8f16fa6b42b6803f955b8d3445f82a766956054301b8ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.28953884803922847,
+      "alignment_seconds": 0.00031083100475370884,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, Mr. Daedalus cried, giving vent to a hopeless groan.",
+          "start": 0.08,
+          "end": 3.46,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.457763671875
+            },
+            {
+              "text": " Mr.",
+              "start": 0.76,
+              "end": 0.94,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " Daedalus",
+              "start": 1.12,
+              "end": 1.34,
+              "probability": 0.8142903645833334
+            },
+            {
+              "text": " cried,",
+              "start": 1.34,
+              "end": 1.7,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " giving",
+              "start": 1.9,
+              "end": 2.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " vent",
+              "start": 2.1,
+              "end": 2.36,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " to",
+              "start": 2.36,
+              "end": 2.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 2.5,
+              "end": 2.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hopeless",
+              "start": 2.58,
+              "end": 2.9,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " groan.",
+              "start": 2.9,
+              "end": 3.46,
+              "probability": 0.979736328125
+            }
+          ]
+        },
+        {
+          "text": " Shite and onions.",
+          "start": 4.04,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " Shite",
+              "start": 4.04,
+              "end": 4.16,
+              "probability": 0.701171875
+            },
+            {
+              "text": " and",
+              "start": 4.16,
+              "end": 4.32,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " onions.",
+              "start": 4.32,
+              "end": 4.64,
+              "probability": 0.9775390625
+            }
+          ]
+        },
+        {
+          "text": " That'll do, Ned.",
+          "start": 5.3,
+          "end": 6.04,
+          "words": [
+            {
+              "text": " That'll",
+              "start": 5.3,
+              "end": 5.62,
+              "probability": 0.987548828125
+            },
+            {
+              "text": " do,",
+              "start": 5.62,
+              "end": 5.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Ned.",
+              "start": 6.0,
+              "end": 6.04,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " Life is too short.",
+          "start": 6.42,
+          "end": 7.32,
+          "words": [
+            {
+              "text": " Life",
+              "start": 6.42,
+              "end": 6.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 6.56,
+              "end": 6.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " too",
+              "start": 6.8,
+              "end": 7.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " short.",
+              "start": 7.0,
+              "end": 7.32,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "raw": "Daedalus",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "raw": "cried,",
+          "start": 1.34,
+          "end": 1.7
+        },
+        {
+          "raw": "giving",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "raw": "vent",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "raw": "to",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "raw": "a",
+          "start": 2.5,
+          "end": 2.58
+        },
+        {
+          "raw": "hopeless",
+          "start": 2.58,
+          "end": 2.9
+        },
+        {
+          "raw": "groan.",
+          "start": 2.9,
+          "end": 3.46
+        },
+        {
+          "raw": "Shite",
+          "start": 4.04,
+          "end": 4.16
+        },
+        {
+          "raw": "and",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "raw": "onions.",
+          "start": 4.32,
+          "end": 4.64
+        },
+        {
+          "raw": "That'll",
+          "start": 5.3,
+          "end": 5.62
+        },
+        {
+          "raw": "do,",
+          "start": 5.62,
+          "end": 5.84
+        },
+        {
+          "raw": "Ned.",
+          "start": 6.0,
+          "end": 6.04
+        },
+        {
+          "raw": "Life",
+          "start": 6.42,
+          "end": 6.56
+        },
+        {
+          "raw": "is",
+          "start": 6.56,
+          "end": 6.8
+        },
+        {
+          "raw": "too",
+          "start": 6.8,
+          "end": 7.0
+        },
+        {
+          "raw": "short.",
+          "start": 7.0,
+          "end": 7.32
+        }
+      ],
+      "expected_tokens": [
+        "—O!",
+        "Mr",
+        "Dedalus",
+        "cried,",
+        "giving",
+        "vent",
+        "to",
+        "a",
+        "hopeless",
+        "groan.",
+        "Shite",
+        "and",
+        "onions!",
+        "That'll",
+        "do,",
+        "Ned.",
+        "Life",
+        "is",
+        "too",
+        "short."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          20,
+          3,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.76,
+          "end": 0.94,
+          "key": "mr",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Daedalus",
+          "start": 1.12,
+          "end": 1.34,
+          "key": "daedalus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cried,",
+          "start": 1.34,
+          "end": 1.7,
+          "key": "cried",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "giving",
+          "start": 1.9,
+          "end": 2.1,
+          "key": "giving",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "vent",
+          "start": 2.1,
+          "end": 2.36,
+          "key": "vent",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.36,
+          "end": 2.5,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.5,
+          "end": 2.58,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hopeless",
+          "start": 2.58,
+          "end": 2.9,
+          "key": "hopeless",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "groan.",
+          "start": 2.9,
+          "end": 3.46,
+          "key": "groan",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Shite",
+          "start": 4.04,
+          "end": 4.16,
+          "key": "shite",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.16,
+          "end": 4.32,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "onions.",
+          "start": 4.32,
+          "end": 4.64,
+          "key": "onions",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "That'll",
+          "start": 5.3,
+          "end": 5.62,
+          "key": "thatll",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "do,",
+          "start": 5.62,
+          "end": 5.84,
+          "key": "do",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Ned.",
+          "start": 6.0,
+          "end": 6.04,
+          "key": "ned",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Life",
+          "start": 6.42,
+          "end": 6.56,
+          "key": "life",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.56,
+          "end": 6.8,
+          "key": "is",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 6.8,
+          "end": 7.0,
+          "key": "too",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "short.",
+          "start": 7.0,
+          "end": 7.32,
+          "key": "short",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—O!",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "Mr",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "text": "Dedalus",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "text": "cried,",
+          "start": 1.34,
+          "end": 1.7
+        },
+        {
+          "text": "giving",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "text": "vent",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "text": "to",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "text": "a",
+          "start": 2.5,
+          "end": 2.58
+        },
+        {
+          "text": "hopeless",
+          "start": 2.58,
+          "end": 2.9
+        },
+        {
+          "text": "groan.",
+          "start": 2.9,
+          "end": 3.46
+        },
+        {
+          "text": "Shite",
+          "start": 4.04,
+          "end": 4.16
+        },
+        {
+          "text": "and",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "text": "onions!",
+          "start": 4.32,
+          "end": 4.64
+        },
+        {
+          "text": "That'll",
+          "start": 5.3,
+          "end": 5.62
+        },
+        {
+          "text": "do,",
+          "start": 5.62,
+          "end": 5.84
+        },
+        {
+          "text": "Ned.",
+          "start": 6.0,
+          "end": 6.04
+        },
+        {
+          "text": "Life",
+          "start": 6.42,
+          "end": 6.56
+        },
+        {
+          "text": "is",
+          "start": 6.56,
+          "end": 6.8
+        },
+        {
+          "text": "too",
+          "start": 6.8,
+          "end": 7.0
+        },
+        {
+          "text": "short.",
+          "start": 7.0,
+          "end": 7.32
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.28996556100901216
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7e697b70a42c2eb343ab8723864ce28dd07de9e78d5d904f2aae05d327a99d4c",
+  "selected_reasons": []
+}

@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "13b6cf02124d489011b8df566e2b581a00eeff027314785483dac7d3174bbaa1",
+  "attempts": [
+    {
+      "asr_seconds": 0.2536270935088396,
+      "alignment_seconds": 0.00045882631093263626,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Paris. Happily met, my lady and my wife!",
+        "hotwords": "Paris, Happily"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Paris, Happily met, my lady and my wife!",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " Paris,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.82421875
+            },
+            {
+              "text": " Happily",
+              "start": 1.19,
+              "end": 1.55,
+              "probability": 0.5039329528808594
+            },
+            {
+              "text": " met,",
+              "start": 1.55,
+              "end": 1.77,
+              "probability": 0.323486328125
+            },
+            {
+              "text": " my",
+              "start": 1.87,
+              "end": 1.97,
+              "probability": 0.60791015625
+            },
+            {
+              "text": " lady",
+              "start": 1.97,
+              "end": 2.17,
+              "probability": 0.6396484375
+            },
+            {
+              "text": " and",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " my",
+              "start": 2.35,
+              "end": 2.49,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " wife!",
+              "start": 2.49,
+              "end": 2.73,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Paris,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Happily",
+          "start": 1.19,
+          "end": 1.55
+        },
+        {
+          "raw": "met,",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "raw": "my",
+          "start": 1.87,
+          "end": 1.97
+        },
+        {
+          "raw": "lady",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "raw": "and",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "my",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "raw": "wife!",
+          "start": 2.49,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "Paris.",
+        "Happily",
+        "met,",
+        "my",
+        "lady",
+        "and",
+        "my",
+        "wife!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Paris,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "paris",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Happily",
+          "start": 1.19,
+          "end": 1.55,
+          "key": "happily",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "met,",
+          "start": 1.55,
+          "end": 1.77,
+          "key": "met",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.87,
+          "end": 1.97,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 1.97,
+          "end": 2.17,
+          "key": "lady",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.35,
+          "end": 2.49,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wife!",
+          "start": 2.49,
+          "end": 2.73,
+          "key": "wife",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Paris.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Happily",
+          "start": 1.19,
+          "end": 1.55
+        },
+        {
+          "text": "met,",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "text": "my",
+          "start": 1.87,
+          "end": 1.97
+        },
+        {
+          "text": "lady",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "text": "and",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "text": "my",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "text": "wife!",
+          "start": 2.49,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25425694324076176
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "df1327bbaac8a6e825c175b4f2b8ccf60e0ad81685048db60896b137df1884de",
+  "selected_reasons": []
+}

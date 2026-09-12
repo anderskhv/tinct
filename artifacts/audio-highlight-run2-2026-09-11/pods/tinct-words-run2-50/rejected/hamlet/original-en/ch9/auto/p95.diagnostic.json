@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "ccb91f5c4c0f571ec5753d10dff7e5b7a10844328f443c4ec3147669c6307a8d",
+  "attempts": [
+    {
+      "asr_seconds": 0.333616079762578,
+      "alignment_seconds": 0.0003870222717523575,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. So you mistake your husbands.—Begin, murderer. Pox, leave thy damnable faces, and begin. Come, the croaking raven doth bellow for revenge.",
+        "hotwords": "Hamlet, So, Pox, Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, So you mistake your husbands.—Begin, murderer. Pox, leave thy damnable faces, and begin. Come, the croaking raven doth bellow for revenge.",
+          "start": 0.05,
+          "end": 9.91,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " So",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.003528594970703125
+            },
+            {
+              "text": " you",
+              "start": 1.03,
+              "end": 1.13,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " mistake",
+              "start": 1.13,
+              "end": 1.33,
+              "probability": 0.80078125
+            },
+            {
+              "text": " your",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " husbands.—Begin,",
+              "start": 1.55,
+              "end": 2.95,
+              "probability": 0.3531092604001363
+            },
+            {
+              "text": " murderer.",
+              "start": 3.17,
+              "end": 3.41,
+              "probability": 0.490966796875
+            },
+            {
+              "text": " Pox,",
+              "start": 4.15,
+              "end": 4.31,
+              "probability": 0.837890625
+            },
+            {
+              "text": " leave",
+              "start": 4.59,
+              "end": 4.75,
+              "probability": 0.58447265625
+            },
+            {
+              "text": " thy",
+              "start": 4.75,
+              "end": 4.97,
+              "probability": 0.966796875
+            },
+            {
+              "text": " damnable",
+              "start": 4.97,
+              "end": 5.49,
+              "probability": 0.816162109375
+            },
+            {
+              "text": " faces,",
+              "start": 5.49,
+              "end": 5.81,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " and",
+              "start": 5.99,
+              "end": 6.23,
+              "probability": 0.55517578125
+            },
+            {
+              "text": " begin.",
+              "start": 6.23,
+              "end": 6.53,
+              "probability": 0.962890625
+            },
+            {
+              "text": " Come,",
+              "start": 7.31,
+              "end": 7.57,
+              "probability": 0.94140625
+            },
+            {
+              "text": " the",
+              "start": 7.79,
+              "end": 7.91,
+              "probability": 0.75390625
+            },
+            {
+              "text": " croaking",
+              "start": 7.91,
+              "end": 8.27,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " raven",
+              "start": 8.27,
+              "end": 8.63,
+              "probability": 0.822265625
+            },
+            {
+              "text": " doth",
+              "start": 8.63,
+              "end": 8.97,
+              "probability": 0.6522216796875
+            },
+            {
+              "text": " bellow",
+              "start": 8.97,
+              "end": 9.39,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " for",
+              "start": 9.39,
+              "end": 9.55,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " revenge.",
+              "start": 9.55,
+              "end": 9.91,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "So",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "raw": "you",
+          "start": 1.03,
+          "end": 1.13
+        },
+        {
+          "raw": "mistake",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "raw": "your",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "husbands.—Begin,",
+          "start": 1.55,
+          "end": 2.95
+        },
+        {
+          "raw": "murderer.",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "raw": "Pox,",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "raw": "leave",
+          "start": 4.59,
+          "end": 4.75
+        },
+        {
+          "raw": "thy",
+          "start": 4.75,
+          "end": 4.97
+        },
+        {
+          "raw": "damnable",
+          "start": 4.97,
+          "end": 5.49
+        },
+        {
+          "raw": "faces,",
+          "start": 5.49,
+          "end": 5.81
+        },
+        {
+          "raw": "and",
+          "start": 5.99,
+          "end": 6.23
+        },
+        {
+          "raw": "begin.",
+          "start": 6.23,
+          "end": 6.53
+        },
+        {
+          "raw": "Come,",
+          "start": 7.31,
+          "end": 7.57
+        },
+        {
+          "raw": "the",
+          "start": 7.79,
+          "end": 7.91
+        },
+        {
+          "raw": "croaking",
+          "start": 7.91,
+          "end": 8.27
+        },
+        {
+          "raw": "raven",
+          "start": 8.27,
+          "end": 8.63
+        },
+        {
+          "raw": "doth",
+          "start": 8.63,
+          "end": 8.97
+        },
+        {
+          "raw": "bellow",
+          "start": 8.97,
+          "end": 9.39
+        },
+        {
+          "raw": "for",
+          "start": 9.39,
+          "end": 9.55
+        },
+        {
+          "raw": "revenge.",
+          "start": 9.55,
+          "end": 9.91
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "So",
+        "you",
+        "mistake",
+        "your",
+        "husbands.—Begin,",
+        "murderer.",
+        "Pox,",
+        "leave",
+        "thy",
+        "damnable",
+        "faces,",
+        "and",
+        "begin.",
+        "Come,",
+        "the",
+        "croaking",
+        "raven",
+        "doth",
+        "bellow",
+        "for",
+        "revenge."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 0.85,
+          "end": 1.03,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.03,
+          "end": 1.13,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mistake",
+          "start": 1.13,
+          "end": 1.33,
+          "key": "mistake",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.33,
+          "end": 1.55,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "husbands.—Begin,",
+          "start": 1.55,
+          "end": 2.95,
+          "key": "husbandsbegin",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "murderer.",
+          "start": 3.17,
+          "end": 3.41,
+          "key": "murderer",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Pox,",
+          "start": 4.15,
+          "end": 4.31,
+          "key": "pox",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 4.59,
+          "end": 4.75,
+          "key": "leave",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 4.75,
+          "end": 4.97,
+          "key": "thy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "damnable",
+          "start": 4.97,
+          "end": 5.49,
+          "key": "damnable",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "faces,",
+          "start": 5.49,
+          "end": 5.81,
+          "key": "faces",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.99,
+          "end": 6.23,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "begin.",
+          "start": 6.23,
+          "end": 6.53,
+          "key": "begin",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 7.31,
+          "end": 7.57,
+          "key": "come",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.79,
+          "end": 7.91,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "croaking",
+          "start": 7.91,
+          "end": 8.27,
+          "key": "croaking",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "raven",
+          "start": 8.27,
+          "end": 8.63,
+          "key": "raven",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 8.63,
+          "end": 8.97,
+          "key": "doth",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "bellow",
+          "start": 8.97,
+          "end": 9.39,
+          "key": "bellow",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 9.39,
+          "end": 9.55,
+          "key": "for",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "revenge.",
+          "start": 9.55,
+          "end": 9.91,
+          "key": "revenge",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "So",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "text": "you",
+          "start": 1.03,
+          "end": 1.13
+        },
+        {
+          "text": "mistake",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "text": "your",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "husbands.—Begin,",
+          "start": 1.55,
+          "end": 2.95
+        },
+        {
+          "text": "murderer.",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "text": "Pox,",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "text": "leave",
+          "start": 4.59,
+          "end": 4.75
+        },
+        {
+          "text": "thy",
+          "start": 4.75,
+          "end": 4.97
+        },
+        {
+          "text": "damnable",
+          "start": 4.97,
+          "end": 5.49
+        },
+        {
+          "text": "faces,",
+          "start": 5.49,
+          "end": 5.81
+        },
+        {
+          "text": "and",
+          "start": 5.99,
+          "end": 6.23
+        },
+        {
+          "text": "begin.",
+          "start": 6.23,
+          "end": 6.53
+        },
+        {
+          "text": "Come,",
+          "start": 7.31,
+          "end": 7.57
+        },
+        {
+          "text": "the",
+          "start": 7.79,
+          "end": 7.91
+        },
+        {
+          "text": "croaking",
+          "start": 7.91,
+          "end": 8.27
+        },
+        {
+          "text": "raven",
+          "start": 8.27,
+          "end": 8.63
+        },
+        {
+          "text": "doth",
+          "start": 8.63,
+          "end": 8.97
+        },
+        {
+          "text": "bellow",
+          "start": 8.97,
+          "end": 9.39
+        },
+        {
+          "text": "for",
+          "start": 9.39,
+          "end": 9.55
+        },
+        {
+          "text": "revenge.",
+          "start": 9.55,
+          "end": 9.91
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33413978293538094
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "362da010777cb511834e4f2257380c19c10705b12e8693cefe3f36109a49677e",
+  "selected_reasons": []
+}
